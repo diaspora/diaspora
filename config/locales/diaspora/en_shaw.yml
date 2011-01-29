@@ -6,12 +6,12 @@
 en_shaw: 
   _aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
   _aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-  _comment: "Comment"
+  _comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   _contact: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
   _contacts: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   _home: "Home"
-  _more: "More"
+  _more: "𐑥𐑹"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
   account: "𐑩𐑒𐑬𐑯𐑑"
@@ -53,6 +53,8 @@ en_shaw:
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑨𐑛𐑩𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
     aspect_contacts: 
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑒𐑮𐑦𐑱𐑖𐑩𐑯 𐑓𐑱𐑤𐑛."
       success: "𐑿𐑼 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑 %{name} 𐑢𐑪𐑟 𐑒𐑮𐑦𐑱𐑑𐑩𐑛"
@@ -61,9 +63,10 @@ en_shaw:
     edit: 
       add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
       rename: "𐑮𐑦𐑯𐑱𐑥"
-      rename_aspect: "𐑮𐑦𐑯𐑱𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
+      save: "Save"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
@@ -163,8 +166,10 @@ en_shaw:
   layouts: 
     application: 
       have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥, 𐑓𐑲𐑯𐑛 𐑩𐑯 𐑨𐑯𐑕𐑼 𐑣𐑽"
+      logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
+      your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
     header: 
       account_settings: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑧𐑑𐑦𐑙𐑟"
       blog: "𐑚𐑤𐑪𐑜"
@@ -173,7 +178,7 @@ en_shaw:
       login: "𐑤𐑪𐑜𐑦𐑯"
       logout: "𐑤𐑪𐑜𐑬𐑑"
       view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
-  more: "More"
+  more: "𐑥𐑹"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
@@ -187,6 +192,7 @@ en_shaw:
     comment_on_post: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼"
     deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
     index: 
+      mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
@@ -355,9 +361,13 @@ en_shaw:
     failure: 
       error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
     finder: 
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
-      resend: "resend"
+      friends: 
+        few: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
+        one: "1 𐑓𐑮𐑧𐑯𐑛"
+        other: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
+        zero: "𐑯𐑴 𐑓𐑮𐑧𐑯𐑛𐑟"
+      invite_your_friends_from: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟 𐑓𐑮𐑪𐑥 %{service}"
+      not_connected: "𐑯𐑪𐑑 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
     index: 
       connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑓𐑱𐑕𐑚𐑫𐑒"
       connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑑𐑢𐑦𐑑𐑼"
@@ -366,8 +376,11 @@ en_shaw:
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
       really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "𐑒𐑤𐑦𐑒 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒 𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑿𐑼 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
+      join_me_on_diaspora: "𐑡𐑶𐑯 𐑥𐑰 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 
     add_contact: 
@@ -380,12 +393,12 @@ en_shaw:
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     invitations: 
-      by_email: "by Email"
+      by_email: "𐑚𐑲 𐑦-𐑥𐑱𐑤"
       dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
-      from_facebook: "From Facebook"
+      from_facebook: "𐑓𐑮𐑪𐑥 ·𐑓𐑱𐑕𐑚𐑫𐑒"
       invitations_left: "(%{count} 𐑤𐑧𐑓𐑑)"
       invite_someone: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯"
-      invite_your_friends: "Invite your friends"
+      invite_your_friends: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
       invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
       invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
     notification: 
@@ -404,7 +417,7 @@ en_shaw:
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "𐑢𐑪𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
@@ -428,7 +441,7 @@ en_shaw:
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
       close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
-      current_password: "Current password"
+      current_password: "𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛"
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"

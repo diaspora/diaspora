@@ -53,6 +53,8 @@ ga:
       success: "D'eirigh le teagmháil a chuir le gné."
     aspect_contacts: 
       done_editing: "críochnaithe ag aithriú"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Níor d'eirigh leis an gné nua a cruthú"
       success: "Bhí do gné nua, {%name}, cruthaithe"
@@ -61,9 +63,10 @@ ga:
     edit: 
       add_existing: "Add an existing contact"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Delete this aspect"
       rename: "rename"
-      rename_aspect: "Rename aspect"
+      save: "Save"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Níl an gné folamh"
@@ -163,8 +166,10 @@ ga:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
+      logged_in_as: "logged in as %{name}"
       powered_by: "AG ÚSÁID DIASPORA*"
       whats_new: "cad atá nua?"
+      your_aspects: "your aspects"
     header: 
       account_settings: "socraithe cúntas"
       blog: "blag"
@@ -187,6 +192,7 @@ ga:
     comment_on_post: "commented on your"
     deleted: "scriosadh"
     index: 
+      mark_all_as_read: "Mark All as Read"
       notifications: "Fograí"
     new_request: "ofráiladh chun roint leant"
     post: "póst"
@@ -355,9 +361,13 @@ ga:
     failure: 
       error: "bhí earráid ag nasc leis an seirbhís sin"
     finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "not connected"
-      resend: "resend"
     index: 
       connect_to_facebook: "Nasc le facebook"
       connect_to_twitter: "Nasc let twitter"
@@ -368,6 +378,9 @@ ga:
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Socraithe"
   shared: 
     add_contact: 

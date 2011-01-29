@@ -25,7 +25,7 @@ gl-ES:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "xa está sendo usada"
+              taken: "xa está collido"
         request: 
           attributes: 
             from_id: 
@@ -53,17 +53,20 @@ gl-ES:
       success: "Engadiuse correctamente o contacto ao aspecto."
     aspect_contacts: 
       done_editing: "edición rematada"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Fallou a creación do aspecto."
-      success: "O seu novo aspecto %{name} foi creado"
+      success: "O aspecto %{name} foi creado"
     destroy: 
       success: "%{name} foi eliminado correctamente."
     edit: 
       add_existing: "Engadir un contacto existente"
       confirm_remove_aspect: "Estás seguro de querer eliminar este aspecto?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
-      rename_aspect: "Renomear aspecto"
+      save: "Save"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "O aspecto non esta baleiro"
@@ -81,20 +84,20 @@ gl-ES:
     move_contact: 
       error: "Erro movendo ao contacto: %{inspect}"
       failure: "non funcionou %{inspect}"
-      success: "A persoa mudou a un novo aspecto"
+      success: "Persoa movida a un novo aspecto"
     new_aspect: 
       create: "Crear"
       name: "Nome"
     no_contacts_message: 
       add_contact: "Engadir un contacto"
-      add_contact_to: "Engadir a alguén a %{aspect_name}"
-      invite: "Convida a alguén a participar en Diaspora!"
-      nobody: "Traia ás persoas que lle importan a Diaspora!"
+      add_contact_to: "Engadir alguén a %{aspect_name}"
+      invite: "Convida a alguén a unirse a Diaspora!"
+      nobody: "Trae ás persoas que che importan a Diaspora!"
       nobody_in_aspect: "O seu aspecto '%{aspect_name}' está baleiro."
     no_posts_message: 
       start_talking: "Ninguén dixo nada. Comeza unha conversa!"
     remove_from_aspect: 
-      failure: "Sen éxito ao borrar persoa do aspecto"
+      failure: "Fallo ao borrar persoa do aspecto"
       success: "Persoa eliminada correctamente do aspecto"
     seed: 
       family: "Familia"
@@ -129,11 +132,11 @@ gl-ES:
     show: 
       already_account: "xa tes unha conta?"
       choice: "Escolla"
-      choice_explanation: "Diaspora permítelle clasificar as súas conexións en grupos chamados aspectos. Exclusivo de Diaspora, os aspectos garanten que as súas fotos, historias e chistes son compartidos só coas persoas que quere."
-      learn_about_host: "Aprenda como aloxar o seu propio servidor de Diaspora."
-      login_here: "inicie sesión aquí"
+      choice_explanation: "Diaspora permíteche clasificar os teus contactos en grupos chamados aspectos. Exclusivo de Diaspora, os aspectos garanten que as túas fotos, historias e chistes sexan compartidos só coas persoas que queres."
+      learn_about_host: "Aprende como aloxar o teu propio servidor de Diaspora."
+      login_here: "inicia sesión aquí"
       ownership: "Propiedade"
-      ownership_explanation: "Posúes as túas imaxes, e non deixarás de facelo ao compartilas. Manterás a propiedade de todo canto compartas en Diaspora, tendo pleno control de como é distribuído."
+      ownership_explanation: "Ti es quen posúes as túas imaxes, e non deixarás de facelo ao compartilas. Manterás a propiedade de todo canto compartas en Diaspora, tendo pleno control de como é distribuído."
       share_what_you_want: "Comparte o que desexes, con quen desexes."
       simplicity: "Simplicidade"
       simplicity_explanation: "Diaspora fai de compartir algo claro e sinxelo - e isto vale tamén coa privacidade. Coa mesma, Diaspora non lle fará percorrer páxinas de axustes e opcións para manter o seu perfil seguro."
@@ -158,13 +161,15 @@ gl-ES:
       invite_someone_to_join: "Convida a alguén a participar en Diaspora!"
       personal_message: "Mensaxe persoal"
       send_an_invitation: "Mensaxe persoal"
-      send_invitation: "Enviar un convite"
-      to: "Mensaxe persoal"
+      send_invitation: "Enviar unha invitación"
+      to: "a"
   layouts: 
     application: 
       have_a_problem: "Tes problemas? Atopa aquí a resposta"
+      logged_in_as: "conectado como %{name}"
       powered_by: "FORNECIDO POR DIASPORA*"
       whats_new: "que hai de novo?"
+      your_aspects: "os teus aspectos"
     header: 
       account_settings: "Configuración da conta"
       blog: "Bitácora"
@@ -187,6 +192,7 @@ gl-ES:
     comment_on_post: "comentado no teu"
     deleted: "borrado"
     index: 
+      mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
     new_request: "ofrecido para compartir contigo."
     post: "publicar"
@@ -200,17 +206,17 @@ gl-ES:
       commented: "comentou na túa publicación!"
       sign_in: "Entrar para velo."
       subject: "%{name} comentou na túa publicación."
-    diaspora: "o robot do correo electrónico de Diaspora"
+    diaspora: "robot do correo electrónico de Diaspora"
     hello: "Ola %{name}!"
-    love: "amor,"
+    love: "bicos,"
     new_request: 
       just_sent_you: "acaba de mandarche unha petición de contacto en Diaspora*."
       sign_in: "entra aquí"
       subject: "Ten unha nova petición de contacto en Diaspora* de %{from}."
-      try_it_out: "Debería pensar seriamente en botarlle unha ollada."
+      try_it_out: "Deberías pensar seriamente en botarlle unha ollada."
     request_accepted: 
       accepted: "aceptou a túa petición de contacto."
-      subject: "%{name} aceptouno como contacto en Diaspora*."
+      subject: "%{name} aceptoute como contacto en Diaspora*."
     single_admin: 
       admin: "O teu administrador Diaspora"
       subject: "Un mensaxe da túa conta Diaspora:"
@@ -224,7 +230,7 @@ gl-ES:
   password_confirmation: "Confirmación do contrasinal"
   people: 
     aspect_list: 
-      edit_membership: "editar membresía de aparencia"
+      edit_membership: "editar membresía de aspecto"
     edit: 
       allow_search: "Permitir á xente buscarte dentro de Diaspora"
       edit_profile: "Editar perfil"
@@ -239,7 +245,7 @@ gl-ES:
       your_photo: "A túa foto"
       your_profile: "O teu perfil"
     helper: 
-      people_on_pod_are_aware_of: "xente na vaíña están ao tanto de"
+      people_on_pod_are_aware_of: "xente nesta vaíña están ao tanto de"
       results_for: "resultados para %{params}"
     index: 
       couldnt_find_them_send_invite: "Non os atopas? Envíalles unha invitación"
@@ -264,7 +270,7 @@ gl-ES:
       accepts: "Cando %{name} acepte, comezaredes a ver as publicacións do outro en Diaspora"
       share_with: "Comeza a compartir con %{name}"
     show: 
-      does_not_exist: "A persoa non existe!"
+      does_not_exist: "Esa persoa non existe!"
       incoming_request: "Tes invitacións pendentes desta persoa."
       no_posts: "non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
@@ -290,11 +296,11 @@ gl-ES:
       editing: "Editando"
     new: 
       back_to_list: "Volta á lista"
-      new_photo: "Foto nova"
+      new_photo: "Nova foto"
       post_it: "publícao!"
     new_photo: 
       empty: "{file} está baleiro, elixa de novo os arquivos."
-      invalid_ext: "{file} ten unha extensión incorrecta. Só se permiten estas {extensions}."
+      invalid_ext: "{file} ten unha extensión incorrecta. Só se permiten estas: {extensions}."
       size_error: "{file} é moi grande, o peso máximo de arquivo é {sizeLimit}."
     new_profile_photo: 
       or_select_one: "ou escolle un xa existente"
@@ -355,9 +361,13 @@ gl-ES:
     failure: 
       error: "houbo un erro conectando co servizo"
     finder: 
+      friends: 
+        few: "%{count} amigos"
+        one: "1 amigo"
+        other: "%{count} amigos"
+        zero: "non hai amigos"
       invite_your_friends_from: "Invita aos teus amigos de %{service}"
       not_connected: "sen conexión"
-      resend: "reenviar"
     index: 
       connect_to_facebook: "Conectar ao Facebook"
       connect_to_twitter: "Conectar ao Twitter"
@@ -368,6 +378,9 @@ gl-ES:
     inviter: 
       click_link_to_accept_invitation: "Preme este enlace para aceptar a invitación"
       join_me_on_diaspora: "Unirse a DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Axustes"
   shared: 
     add_contact: 

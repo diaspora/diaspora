@@ -53,6 +53,8 @@ sl:
       success: "Dodajanje stika v skupino je uspelo."
     aspect_contacts: 
       done_editing: "zaključi urejanje"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Ustvarjanje skupine ni uspelo."
       success: "Skupina %{name} je ustvarjena"
@@ -61,9 +63,10 @@ sl:
     edit: 
       add_existing: "Dodaj obstoječ kontakt"
       confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Izbriši ta vidik"
       rename: "preimenuj"
-      rename_aspect: "Preimenuj vidik"
+      save: "Save"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
       aspect_not_empty: "Skupina vsebuje stike"
@@ -163,8 +166,10 @@ sl:
   layouts: 
     application: 
       have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
+      logged_in_as: "logged in as %{name}"
       powered_by: "STRAN POGANJA DIASPORA*"
       whats_new: "kaj je novega?"
+      your_aspects: "your aspects"
     header: 
       account_settings: "nastavitve računa"
       blog: "blog"
@@ -187,6 +192,7 @@ sl:
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 
+      mark_all_as_read: "Mark All as Read"
       notifications: "Sporočila"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
@@ -355,9 +361,13 @@ sl:
     failure: 
       error: "pri povezovanju s servisom je prišlo do napake"
     finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "not connected"
-      resend: "resend"
     index: 
       connect_to_facebook: "Poveži se s facebook"
       connect_to_twitter: "Poveži se s twitter"
@@ -368,6 +378,9 @@ sl:
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Nastavitve"
   shared: 
     add_contact: 

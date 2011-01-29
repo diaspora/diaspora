@@ -53,6 +53,8 @@ ru:
       success: "Друг добавлен в аспект."
     aspect_contacts: 
       done_editing: "редактирование завершено"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
@@ -61,9 +63,10 @@ ru:
     edit: 
       add_existing: "Добавить существующий контакт"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Удалить этот аспект"
       rename: "rename"
-      rename_aspect: "Переименовать аспект"
+      save: "Save"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
@@ -163,8 +166,10 @@ ru:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
+      logged_in_as: "logged in as %{name}"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       whats_new: "Что нового?"
+      your_aspects: "your aspects"
     header: 
       account_settings: "настройки аккаунта"
       blog: "блог"
@@ -187,6 +192,7 @@ ru:
     comment_on_post: "комментариев на "
     deleted: "удален"
     index: 
+      mark_all_as_read: "Mark All as Read"
       notifications: "Уведомления"
     new_request: "предлагает поделиться с вами."
     post: "сообщение"
@@ -355,9 +361,13 @@ ru:
     failure: 
       error: "Произошла ошибка при подключении этого сервиса"
     finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "not connected"
-      resend: "resend"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
@@ -368,6 +378,9 @@ ru:
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Настройки"
   shared: 
     add_contact: 

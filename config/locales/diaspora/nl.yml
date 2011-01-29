@@ -53,6 +53,8 @@ nl:
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_contacts: 
       done_editing: "klaar met bewerken"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Aanmaken van aspect is mislukt."
       success: "Je nieuwe aspect %{name} is aangemaakt"
@@ -61,9 +63,10 @@ nl:
     edit: 
       add_existing: "Voeg een bestaand contact toe"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
-      rename_aspect: "Hernoem aspect"
+      save: "Save"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -163,8 +166,10 @@ nl:
   layouts: 
     application: 
       have_a_problem: "Probleem? Vind hier een antwoord"
+      logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "wat is nieuw op Diaspora?"
+      your_aspects: "jou aspecten"
     header: 
       account_settings: "account instellingen"
       blog: "blog"
@@ -187,6 +192,7 @@ nl:
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderd"
     index: 
+      mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
     new_request: "bood aan om met jou te delen."
     post: "post"
@@ -355,9 +361,13 @@ nl:
     failure: 
       error: "er ging iets mis bij het verbinden met die service"
     finder: 
+      friends: 
+        few: "%{count} contacten"
+        one: "1 contact"
+        other: "%{count} contacten"
+        zero: "geen contacten"
       invite_your_friends_from: "Nodig je %{service} contacten uit"
       not_connected: "niet verbonden"
-      resend: "herstuur"
     index: 
       connect_to_facebook: "Verbind met Facebook"
       connect_to_twitter: "Verbind met Twitter"
@@ -368,6 +378,9 @@ nl:
     inviter: 
       click_link_to_accept_invitation: "Klik op deze link om de uitnodiging te accepteren"
       join_me_on_diaspora: "Volg me op DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Instellingen"
   shared: 
     add_contact: 

@@ -53,6 +53,8 @@ it:
       success: "Contatto aggiunto all'aspetto con successo."
     aspect_contacts: 
       done_editing: "modifica eseguita"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
@@ -61,9 +63,10 @@ it:
     edit: 
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Elimina questo aspetto"
       rename: "rinomina"
-      rename_aspect: "Rinomina aspetto"
+      save: "Save"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
@@ -163,8 +166,10 @@ it:
   layouts: 
     application: 
       have_a_problem: "Hai un problema? Trova qui la soluzione"
+      logged_in_as: "autenticato come %{name}"
       powered_by: "CREATO CON DIASPORA*"
       whats_new: "novità"
+      your_aspects: "I tuoi aspetti"
     header: 
       account_settings: "impostazioni account"
       blog: "blog"
@@ -187,6 +192,7 @@ it:
     comment_on_post: "ha commentato sul tuo"
     deleted: "eliminato"
     index: 
+      mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
     new_request: "vuole condividere con te."
     post: "post"
@@ -355,9 +361,13 @@ it:
     failure: 
       error: "si è verificato un errore durante la connessione a quel servizio"
     finder: 
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
-      resend: "resend"
+      friends: 
+        few: "%{count} amici"
+        one: "1 amico"
+        other: "%{count} amici"
+        zero: "nessun amico"
+      invite_your_friends_from: "Invita i tuoi amici da %{service}"
+      not_connected: "non connesso"
     index: 
       connect_to_facebook: "Connettiti a facebook"
       connect_to_twitter: "Connettiti a twitter"
@@ -366,8 +376,11 @@ it:
       logged_in_as: "connesso come"
       really_disconnect: "disconnettere %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "Fai click su questo link per accettare l'invito"
+      join_me_on_diaspora: "Vieni anche tu su DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Impostazioni"
   shared: 
     add_contact: 
@@ -380,12 +393,12 @@ it:
       all_contacts: "Tutti i contatti"
       cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
     invitations: 
-      by_email: "by Email"
+      by_email: "via Email"
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
-      from_facebook: "From Facebook"
+      from_facebook: "Da Facebook"
       invitations_left: "(%{count} rimanenti)"
       invite_someone: "Invita qualcuno"
-      invite_your_friends: "Invite your friends"
+      invite_your_friends: "Invita i tuoi amici"
       invites: "Inviti"
       invites_closed: "Al momento gli inviti sono chiusi su questo pod Diaspora."
     notification: 

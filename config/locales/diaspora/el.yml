@@ -53,6 +53,8 @@ el:
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
     aspect_contacts: 
       done_editing: "ολοκλήρωση επεξεργασίας"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
@@ -61,9 +63,10 @@ el:
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
-      rename_aspect: "Μετονομασία πτυχής"
+      save: "Save"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -163,8 +166,10 @@ el:
   layouts: 
     application: 
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
+      logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "Τι νέα?"
+      your_aspects: "your aspects"
     header: 
       account_settings: "ρυθμίσεις λογαριασμού"
       blog: "blog"
@@ -187,6 +192,7 @@ el:
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
+      mark_all_as_read: "Mark All as Read"
       notifications: "Ειδοποιήσεις"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση"
@@ -355,9 +361,13 @@ el:
     failure: 
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
     finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
       invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
       not_connected: "not connected"
-      resend: "ξαναστείλτε"
     index: 
       connect_to_facebook: "Σύνδεση με το facebook"
       connect_to_twitter: "Σύνδεση με το twitter"
@@ -368,6 +378,9 @@ el:
     inviter: 
       click_link_to_accept_invitation: "Κάντε κλικ αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Ρυθμίσεις"
   shared: 
     add_contact: 

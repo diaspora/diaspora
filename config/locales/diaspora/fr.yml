@@ -53,6 +53,8 @@ fr:
       success: "Vous avez ajouté le contact à l’aspect avec succès."
     aspect_contacts: 
       done_editing: "fin de la modification"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "La création de l’aspect a échoué."
       success: "Votre nouvel aspect %{name} a été créé."
@@ -61,9 +63,10 @@ fr:
     edit: 
       add_existing: "Ajouter un contact existant"
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
-      rename_aspect: "Renommer l'aspect"
+      save: "Save"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -163,8 +166,10 @@ fr:
   layouts: 
     application: 
       have_a_problem: "Un problème ? Trouvez une réponse ici"
+      logged_in_as: "connecté comme %{name}"
       powered_by: "PROPULSÉ PAR DIASPORA*"
       whats_new: "Quoi de neuf ?"
+      your_aspects: "vos aspects"
     header: 
       account_settings: "options du compte"
       blog: "blog"
@@ -187,6 +192,7 @@ fr:
     comment_on_post: "a commenté votre"
     deleted: "supprimé"
     index: 
+      mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
     new_request: "a proposé de partager avec vous."
     post: "message"
@@ -200,7 +206,7 @@ fr:
       commented: "a commenté votre message !"
       sign_in: "Connectez-vous pour le voir."
       subject: "%{name} a commenté votre message."
-    diaspora: "le robot de messagerie électronique de diaspora"
+    diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
     new_request: 
@@ -355,9 +361,13 @@ fr:
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
     finder: 
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
-      resend: "resend"
+      friends: 
+        few: "%{count} amis"
+        one: "1 ami"
+        other: "%{count} amis"
+        zero: "aucun ami"
+      invite_your_friends_from: "Inviter vos amis depuis %{service}"
+      not_connected: "non connecté"
     index: 
       connect_to_facebook: "Connecter à facebook"
       connect_to_twitter: "Connecter à twitter"
@@ -366,8 +376,11 @@ fr:
       logged_in_as: "connecté(e) en tant que"
       really_disconnect: "déconnecter %{service} ?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "Cliquer sur ce lien pour accepter l'invitation"
+      join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Options"
   shared: 
     add_contact: 
@@ -375,17 +388,17 @@ fr:
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
-      your_diaspora_username_is: "Votre nom d'utilisateur diaspora est : %{diaspora_handle}"
+      your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
     contact_list: 
       all_contacts: "Tous les contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
     invitations: 
-      by_email: "by Email"
+      by_email: "par mail"
       dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
-      from_facebook: "From Facebook"
+      from_facebook: "depuis Facebook"
       invitations_left: "(il vous en reste %{count})"
       invite_someone: "Inviter quelqu'un"
-      invite_your_friends: "Invite your friends"
+      invite_your_friends: "Inviter vos amis"
       invites: "Invitations"
       invites_closed: "Les invitations sont actuellement fermées sur ce pod Diaspora"
     notification: 
@@ -450,7 +463,7 @@ fr:
         add: "Ajouter"
         aspect_name: "Nom de l'aspect"
         description: "Signalez à Diaspora quels différents aspects sont vus par différents contacts. Vous pourrez plus tard gérer ceux-ci en allant sur votre menu de compte en haut à droite. Vos aspects vous sont spécifiques et ne sont pas visibles pour les autres."
-        drag_to_add: "Déplacez les dans l'aspect de votre vie qui leur correspond"
+        drag_to_add: "Déplacez-les dans l'aspect de votre vie qui leur correspond"
         no_requests: "Vous n'avez pas de requêtes"
         your_aspects: "Vos aspects"
         your_inviter: "Personnes en attente d'une réponse de votre part :"

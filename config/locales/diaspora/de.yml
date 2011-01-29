@@ -53,6 +53,8 @@ de:
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
     aspect_contacts: 
       done_editing: "Änderungen abgeschlossen"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Erstellen des Aspekts fehlgeschlagen."
       success: "Dein neuer Aspekt %{name} wurde erstellt."
@@ -61,9 +63,10 @@ de:
     edit: 
       add_existing: "Ein bereits bestehendes Konto hinzufügen"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
-      rename_aspect: "Aspekt umbenennen"
+      save: "Save"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
@@ -163,8 +166,10 @@ de:
   layouts: 
     application: 
       have_a_problem: "Du hast ein Problem? Finde hier eine Antwort (Englisch)"
+      logged_in_as: "Angemeldet als %{name}"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       whats_new: "Was gibt’s Neues?"
+      your_aspects: "Deine Aspekte"
     header: 
       account_settings: "Kontoeinstellungen"
       blog: "Blog"
@@ -187,6 +192,7 @@ de:
     comment_on_post: "kommentierte deinen"
     deleted: "gelöschten"
     index: 
+      mark_all_as_read: "Markiere alle als gelesen"
       notifications: "Benachrichtigungen"
     new_request: "hat angeboten, mit dir zu teilen."
     post: "Beitrag"
@@ -355,9 +361,13 @@ de:
     failure: 
       error: "es gab einen Fehler beim Verbinden mit diesem Dienst"
     finder: 
+      friends: 
+        few: "%{count} Freunde"
+        one: "Ein Freund"
+        other: "%{count} Freunde"
+        zero: "keine Freunde"
       invite_your_friends_from: "Lade deine Freunde von %{service} ein"
       not_connected: "nicht verbunden"
-      resend: "Erneut senden"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
       connect_to_twitter: "Mit Twitter verbinden"
@@ -368,6 +378,9 @@ de:
     inviter: 
       click_link_to_accept_invitation: "Öffne diesen Link um die Einladung zu akzeptieren"
       join_me_on_diaspora: "Folge mir auf DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
   settings: "Einstellungen"
   shared: 
     add_contact: 
