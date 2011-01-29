@@ -445,9 +445,9 @@ en:
             few:    "%{count} friends"
             other:  "%{count} friends"
           not_connected: "not connected"
-          remote_friend:
-            resend: "resend"
-            invite: "invite"
+      remote_friend:
+          resend: "resend"
+          invite: "invite"
   notifier:
       hello: "Hello %{name}!"
       love: "love,"

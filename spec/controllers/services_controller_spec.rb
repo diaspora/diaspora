@@ -86,12 +86,19 @@ describe ServicesController do
       @service1 = Services::Facebook.new
       @user.services << @service1
       @person = Factory(:person)
+      @user.services.stub!(:where).and_return([@service1])
+      @hash = {"facebook_id" => {:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :person => bob.person},
+              "facebook_id2" => {:name    => "Robert Bobson2"}}
+      @service1.should_receive(:finder).and_return(@hash)
     end
 
     it 'calls the finder method for the service for that user' do
-      @user.services.stub!(:where).and_return([@service1])
-      @service1.should_receive(:finder).and_return("facebook_id" =>  {:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :person => bob.person})
       get :finder, :provider => @service1.provider
+      response.should be_success
+    end
+    it 'has no translations missing' do
+      get :finder, :provider => @service1.provider
+      response.body.match(/translation/).should be_nil
     end
   end
 
