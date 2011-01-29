@@ -70,6 +70,9 @@ JSON
       it 'contains a diaspora person object' do
         @service.finder.values.first[:person].should == @user2.person
       end
+      it 'caches the profile' do
+        @service.finder.values.first[:person].profile.loaded?.should be_true
+      end
       it 'does not include the person if the search is disabled' do
         p = @user2.person.profile
         p.searchable = false
