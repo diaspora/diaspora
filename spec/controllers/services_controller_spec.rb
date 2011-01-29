@@ -85,17 +85,18 @@ describe ServicesController do
     before do
       @service1 = Services::Facebook.new
       @user.services << @service1
+      @person = Factory(:person)
     end
 
     it 'calls the finder method for the service for that user' do
       @user.services.stub!(:where).and_return([@service1])
-      @service1.should_receive(:finder).and_return({})
+      @service1.should_receive(:finder).and_return("facebook_id" =>  {:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :person => bob.person})
       get :finder, :provider => @service1.provider
     end
   end
 
   describe '#invite' do
-    
+
     before do
       @uid = "abc"
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
@@ -111,7 +112,7 @@ describe ServicesController do
       assigns[:message].should include(User.last.invitation_token)
     end
 
-    it 'redirects to a prefilled facebook message url' do 
+    it 'redirects to a prefilled facebook message url' do
       put :inviter, @invite_params
       response.location.should match(/https:\/\/www\.facebook\.com\/\?compose=1&id=.*&subject=.*&message=.*&sk=messages/)
     end
