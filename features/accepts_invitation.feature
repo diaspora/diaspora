@@ -4,6 +4,7 @@ Feature: invitation acceptance
       Given I have been invited by an admin
       And I am on my acceptance form page
       And I fill in "Username" with "ohai"
+      And I fill in "Email" with "woot@sweet.com"
       And I fill in "user_password" with "secret"
       And I fill in "Password confirmation" with "secret"
       And I press "Sign up"
@@ -22,6 +23,7 @@ Feature: invitation acceptance
       Given I have been invited by a user
       And I am on my acceptance form page
       And I fill in "Username" with "ohai"
+      And I fill in "Email" with "sweet@woot.com"
       And I fill in "user_password" with "secret"
       And I fill in "Password confirmation" with "secret"
       And I press "Sign up"
