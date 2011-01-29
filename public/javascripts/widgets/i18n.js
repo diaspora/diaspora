@@ -22,6 +22,9 @@ Diaspora.widgets.add("i18n", function() {
     
     while(part = _item.shift()) {
       ret = (ret) ? ret[part] : this.locale[part];
+      if(typeof ret === "undefined") {
+        return "";
+      }
     }
 
     return $.mustache(ret, views || {});
