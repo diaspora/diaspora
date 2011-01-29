@@ -10,21 +10,20 @@ class NotificationMultiplePeople < ActiveRecord::Migration
     add_index :notification_actors, [:notification_id, :person_id] , :unique => true
     add_index :notification_actors, :person_id  ## if i am not mistaken we don't need this one because we won't query person.notifications
 
+
+    #create table notification_actors (id MEDIUMINT NOT NULL AUTO_INCREMENT, notification_id integer, person_id integer, created_at datetime, updated_at datetime);
+
+
     #execute "INSERT INTO notification_actors (notification_id, person_id) " +
       #" SELECT id , actor_id " +
       #" FROM notifications"
     
+    #UPDATE notifications, comments SET notifications.target_id = comments.post_id, target_type = 'post' WHERE notifications.target_id = comments.id AND (notifications.type = 'comment_on_post' OR notifications.type = 'also_commented_on_post');
+ 
     
-    ##TODO in sql
-    ## 1) set target type
-    ## 2) update the target_id from the comment to comment.post_id
-    #execute "UPDATE notifications "+
-           #" SET target_id = comment.post_id, target_type = 'post' " +
-           #" FROM notifications " +
-           #" INNER JOIN comments " +
-           #" WHERE notifications.target_id = comments.id AND notifications.action = 'comment_on_post' "
 
-    
+
+    ##TODO in sql
 
 
     ##bump up target to status message id if comment_on_post, also_commented
