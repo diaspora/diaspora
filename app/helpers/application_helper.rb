@@ -276,4 +276,9 @@ module ApplicationHelper
   def info_text(text)
     image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
+
+  
+  def get_javascript_strings_for(language)
+    I18n.t('javascripts')
+  end
 end
