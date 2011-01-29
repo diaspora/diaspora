@@ -1,0 +1,35 @@
+%li
+  .right
+    -if friend[:contact] && !friend[:contact].pending
+      = t('people.person.already_connected')
+    - elsif (friend[:contact] && friend[:contact].pending)
+      = t('people.person.pending_request')
+    - elsif friend[:invitation_id]
+      = t('invitations.new.already_invited')
+      %br
+      = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
+    - elsif friend[:person]
+      = link_to t('people.show.start_sharing'),
+        {:controller => "people",
+        :action => "show",
+        :id => friend[:person].id,
+        :share_with => true},
+        :class => 'button'
+
+    - elsif current_user.invites > 0
+      = form_tag service_inviter_path do
+        = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+        = hidden_field_tag :uid, uid
+        = hidden_field_tag :provider, 'facebook'
+        = submit_tag t('.invite')
+
+  - if friend[:person]
+    = person_image_link(friend[:person])
+  - else
+    = image_tag('/images/user/default.png', :class => 'avatar')
+
+  %h4.name
+    - if friend[:person]
+      = link_to friend[:name], person_path(friend[:person])
+    - else
+      = friend[:name]
