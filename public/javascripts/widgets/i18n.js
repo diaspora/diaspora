@@ -8,8 +8,8 @@
 Diaspora.widgets.add("i18n", function() {
   this.start = $.noop;
 
-  this.language = undefined;
-  this.locale = undefined;
+  this.language = "en";
+  this.locale = {};
 
   this.loadLocale = function(locale, language) {
     this.language = language;

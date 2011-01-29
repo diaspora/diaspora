@@ -6,9 +6,6 @@
  * To change this template use File | Settings | File Templates.
  */
 describe("Diaspora", function() {
-  beforeEach(function() {
-    Diaspora.widgets.i18n.loadLocale(null/* TODO: spec.retrieveFixture("locale")*/, "en");
-  });
   describe("widgets", function() {
     describe("i18n", function() {
       describe("loadLocale", function() {
