@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
+  before_filter :which_action_and_user
 
   def set_contacts_notifications_and_status
     if user_signed_in?
@@ -28,6 +29,16 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @invites = current_user.invites
     end
+  end
+
+  def which_action_and_user
+    str = "controller=#{self.class} action=#{self.action_name} "
+    if current_user
+      str << "uid=#{current_user.id}"
+    else
+      str << 'uid=nil'
+    end
+    Rails.logger.info str
   end
 
   def set_locale

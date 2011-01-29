@@ -7,6 +7,7 @@ class PostsController < ApplicationController
   skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :set_locale
+  skip_before_filter :which_action_and_user
 
   def show
     @post = Post.where(:id => params[:id], :public => true).includes(:person, :comments => :person).first
