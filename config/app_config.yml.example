@@ -37,10 +37,6 @@ default:
   # Diaspora is only tested against this default pubsub server.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
 
-  # Host/port for running mongodb server. See also mongodb.conf
-  mongo_host: 'localhost'
-  mongo_port: 27017
-
   # Setting this to true enables diaspora's "send email" functionality
   # requiring meaningful smtp_* settings. These are options for RoR's
   # ActionMailer class.
