@@ -15,7 +15,6 @@ javascripts:
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/vendor/Mustache.js
-
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/embedder.js
@@ -30,7 +29,7 @@ javascripts:
     - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery_mobile_a2.min.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
-- public/javascripts/vendor/timeago.js
+    - public/javascripts/vendor/timeago.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/i18n.js
@@ -61,3 +60,4 @@ stylesheets:
     - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css
+ 
