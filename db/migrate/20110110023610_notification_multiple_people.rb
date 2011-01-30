@@ -16,7 +16,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
       " FROM notifications"
     
     #update the notifications to reference the post
-    execute "UPDATE notifications, comments" +
+    execute "UPDATE notifications, comments " +
               "SET notifications.target_id = comments.post_id, " +
                 "target_type = 'Post' " + 
               "WHERE (notifications.target_id = comments.id " +
@@ -24,20 +24,20 @@ class NotificationMultiplePeople < ActiveRecord::Migration
                 "OR notifications.action = 'also_commented'))"
     
     #select all the notifications to keep
-    execute "CREATE TEMPORARY TABLE keep_table" +
+    execute "CREATE TEMPORARY TABLE keep_table " +
                "(SELECT id as keep_id, target_type , target_id , recipient_id , action as keep_id " +
-               "FROM notifications WHERE action = 'comment_on_post' OR action = 'also_commented'" +
-               "GROUP BY target_type , target_id , recipient_id , action);"
+               "FROM notifications WHERE action = 'comment_on_post' OR action = 'also_commented' " +
+               "GROUP BY target_type , target_id , recipient_id , action) "
 
     #get a table of with ids of the notifications that need to be deleted and with the ones that need
     #to replace them
     execute "CREATE TEMPORARY TABLE keep_delete " +
       "( SELECT n1.keep_id, n2.id as delete_id, " +
-        "n1.target_type, n1.target_id, n1.recipient_id, n1.action" +
-      "FROM keep_table n1, notifications n2" +
+        "n1.target_type, n1.target_id, n1.recipient_id, n1.action " +
+      "FROM keep_table n1, notifications n2 " +
       "WHERE n1.keep_id != n2.id " +
         "AND n1.target_type = n2.target_type AND n1.target_id = n2.target_id" +
-        "AND n1.recipient_id = n2.recipient_id AND n1.action = n2.action"
+        "AND n1.recipient_id = n2.recipient_id AND n1.action = n2.action "
         "AND (n1.action = 'comment_on_post' OR n1.action = 'also_commented'))"
 
     #have the notifications actors reference the notifications that need to be kept
@@ -46,9 +46,9 @@ class NotificationMultiplePeople < ActiveRecord::Migration
               "WHERE notification_actors.notification_id = keep_delete.delete_id"
 
     #delete all the notifications that need to be deleted
-    execute "DELETE notifications.*" +
-              "FROM notifications, keep_delete" +
-              "WHERE notifications.id = keep_delete.delete_id"
+    execute "DELETE notifications.* " +
+              "FROM notifications, keep_delete " + 
+              "WHERE notifications.id = keep_delete.delete_id "
 
 
     remove_column :notification, :actor_id
