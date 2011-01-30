@@ -1,0 +1,6 @@
+en:
+  javascripts:
+      confirm_dialog: "Are you sure?"
+      videos:
+          watch: "Watch this video on {{provider}}"
+          unknown: "Unknown video type"
