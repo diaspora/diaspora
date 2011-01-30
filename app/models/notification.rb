@@ -23,8 +23,8 @@ class Notification < ActiveRecord::Base
         else
           n = make_notification(recipient, target, actor, action)
         end
-        n.email_the_user(actor) if n
-        n.socket_to_uid(user, :actor => person) if n
+        n.email_the_user(target, actor) if n
+        n.socket_to_user(recipient, :actor => actor) if n
         n
        end
     end
@@ -48,7 +48,7 @@ private
     if n = Notification.where(:target_id => target.id,
                                :action => action,
                                :recipient_id => recipient.id).first
-      n.actors << NotificationActor.new(:actor => actor)
+      n.actors << actor
       n.save!
       n
     else
@@ -60,7 +60,7 @@ private
     n = Notification.new(:target_id => target.id,
                                :action => action,
                                :recipient_id => recipient.id)
-    n.actors << NotificationActor.new(:actor => actor)
+    n.actors << actor
     n.save!
     n
   end
