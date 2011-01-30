@@ -20,9 +20,10 @@ $(document).ready(function() {
   });
 
   $(window).unbind('.infscr');
-  $('#main_stream + .pagination').hide();
   
   $("a.paginate").live("click", function() {
+    $(this).css("display", "none");
+    
     $(document).trigger("retrieve.infscr");
   });
 });
