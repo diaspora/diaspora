@@ -1,18 +1,27 @@
-hu:
-  javascripts:
-    timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "kevesebb mint egy perce"
-      minute: "körülbelül egy perce"
-      minutes: "%d perce"
-      hour: "körülbelül egy órája"
-      hours: "körülbelül %d órája"
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+hu: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
       day: "körülbelül egy napja"
       days: "%d napja"
+      hour: "körülbelül egy órája"
+      hours: "körülbelül %d órája"
+      minute: "körülbelül egy perce"
+      minutes: "%d perce"
       month: "körülbelül egy hónapja"
       months: "%d hónapja"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "kevesebb mint egy perce"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "körülbelül egy éve"
       years: "%d éve"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

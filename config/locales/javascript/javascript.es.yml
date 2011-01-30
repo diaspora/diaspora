@@ -1,18 +1,27 @@
-es:
-  javascripts:
-    timeago:
-      prefixAgo: "hace"
-      prefixFromNow: "dentro de"
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "menos de un minuto"
-      minute: "un minuto"
-      minutes: "unos %d minutos"
-      hour: "una hora"
-      hours: "%d horas"
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+es: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
       day: "un día"
       days: "%d días"
+      hour: "una hora"
+      hours: "%d horas"
+      minute: "un minuto"
+      minutes: "unos %d minutos"
       month: "un mes"
       months: "%d meses"
+      prefixAgo: "hace"
+      prefixFromNow: "dentro de"
+      seconds: "menos de un minuto"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "un año"
       years: "%d años"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

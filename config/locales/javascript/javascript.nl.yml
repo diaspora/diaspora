@@ -1,18 +1,27 @@
-nl:
-  javascripts:
-    timeago:
-      prefixAgo: ""
-      prefixFromNow: ""
-      suffixAgo: "geleden"
-      suffixFromNow: "vanaf nu"
-      seconds: "iets minder dan een minute"
-      minute: "ongeveer een minuut"
-      minutes: "%d minuten"
-      hour: "ongeveer een uur"
-      hours: "ongeveer %d uren"
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+nl: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
       day: "een dag"
       days: "%d dagen"
+      hour: "ongeveer een uur"
+      hours: "ongeveer %d uren"
+      minute: "ongeveer een minuut"
+      minutes: "%d minuten"
       month: "ongeveer een maand"
       months: "%d maanden"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "iets minder dan een minute"
+      suffixAgo: "geleden"
+      suffixFromNow: "vanaf nu"
       year: "ongeveer een jaar"
       years: "%d jaar"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

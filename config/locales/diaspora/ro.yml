@@ -57,7 +57,7 @@ ro:
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Crearea aspectului a eşuat."
-      success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
+      success: "S-a creat noul aspect %{name}"
     destroy: 
       success: "%{name} a fost eliminat cu succes."
     edit: 
@@ -76,7 +76,7 @@ ro:
       no_contacts: "No contacts"
     manage: 
       add_a_new_aspect: "Adaugă un nou aspect"
-      add_a_new_contact: "Add a new contact"
+      add_a_new_contact: "Adaugă un contact nou"
       drag_to_add: "Glisaţi pentru a adăuga persoane"
       manage_aspects: "Gestionează aspectele"
       no_requests: "Nici o cerere nouă"
@@ -84,14 +84,14 @@ ro:
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      success: "S-a mutat persoana la noul aspectul"
     new_aspect: 
       create: "Crează"
       name: "Nume"
     no_contacts_message: 
-      add_contact: "Add a contact"
+      add_contact: "Adaugă un contact"
       add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
+      invite: "Invită pe cineva pe Diaspora!"
       nobody: "We know you know people — bring them to Diaspora!"
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
@@ -166,7 +166,7 @@ ro:
   layouts: 
     application: 
       have_a_problem: "Ai o problemă? Găseşte un răspuns aici"
-      logged_in_as: "logged in as %{name}"
+      logged_in_as: "logat ca %{name}"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
       your_aspects: "aspectele tale"
@@ -328,9 +328,9 @@ ro:
     edit: 
       cancel_my_account: "Cancel my account"
       edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
+      leave_blank: "(lăsaţi necompletat dacă nu doriţi să o schimbaţi)"
+      password_to_confirm: "(avem nevoie de parola curentă pentru a confirma modificările)"
+      unhappy: "Nefericit?"
       update: "Update"
     new: 
       enter_email: "Enter an e-mail"
@@ -348,7 +348,7 @@ ro:
       ignore: "Ignorează cererea de contact."
       success: "Sunteţi acum prieteni."
     manage_aspect_contacts: 
-      existing: "Existing contacts"
+      existing: "Contactele existente"
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "sent!"
@@ -409,7 +409,7 @@ ro:
       outside: "Mesajele publice vor fi disponibile pentru cei ce nu fac parte din Diaspora."
       title: "Sunteţi pe cale de a publica un mesaj public!"
     publisher: 
-      add_photos: "add photos"
+      add_photos: "adaugă fotografii"
       all: "toate"
       all_contacts: "toate contactele"
       make_public: "make public"
@@ -461,15 +461,15 @@ ro:
       skip: "skip getting started"
       step_2: 
         add: "Add"
-        aspect_name: "Aspect name"
+        aspect_name: "Numele aspectului"
         description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
         drag_to_add: "Drag them to the aspect of yourself they know"
         no_requests: "Nu ai nici o cerere"
-        your_aspects: "Your aspects"
+        your_aspects: "Aspectele dvs."
         your_inviter: "Here are the people who are waiting for you:"
       step_3: 
         description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select \"public.\""
-        your_services: "Your services"
+        your_services: "Serviciile dvs."
       step_4: 
         change_profile: "You can change your profile any time by clicking"
         continue: "Continue on to your everyone page, an overview of all of your aspects."
@@ -478,7 +478,7 @@ ro:
         ready_to_share: "You're now ready to start sharing with "
         set_up: "You're all set up, %{name}!"
         user_menu: "in your user menu (top right)."
-      welcome: "Welcome to Diaspora!"
+      welcome: "Bine ai venit pe Diaspora!"
     public: 
       does_not_exist: "Utilizatorul %{username} nu există!"
     update: 

@@ -53,23 +53,23 @@ fi:
       success: "Ystävän lisäys näkymään onnistui."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
+    contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
-      failure: "Verkostonäkymän luonti epäonnistui."
+      failure: "Näkymän luonti epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy: 
       success: "%{name} poistettiin onnistuneesti."
     edit: 
       add_existing: "Lisää olemassa oleva kontakti"
       confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "tee näkymälistasta näkyvä sen jäsenille"
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
-      save: "Save"
+      save: "Tallenna"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
-      aspect_not_empty: "Verkostonäkymä ei ole tyhjä"
+      aspect_not_empty: "Näkymä ei ole tyhjä"
       remove: "poista"
     index: 
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
@@ -84,7 +84,7 @@ fi:
     move_contact: 
       error: "Virhe siirrettäessä kontaktia: %{inspect}"
       failure: "ei toiminut %{inspect}"
-      success: "Henkilö siirretty toiseen näkymään"
+      success: "Henkilö siirretty uuteen näkymään"
     new_aspect: 
       create: "Luo"
       name: "Nimi"
@@ -93,7 +93,7 @@ fi:
       add_contact_to: "Lisää henkilö näkymään %{aspect_name}"
       invite: "Kutsu ystäväsi Diasporan käyttäjäksi!"
       nobody: "Tuo elämäsi tärkeät ihmiset Diasporaan!"
-      nobody_in_aspect: "Verkostonäkymäsi '%{aspect_name}' on tyhjä."
+      nobody_in_aspect: "Näkymäsi, '%{aspect_name}', on tyhjä."
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
     remove_from_aspect: 
@@ -106,7 +106,7 @@ fi:
       edit_aspect: "muokkaa näkymää"
     update: 
       failure: "Antamasi näkymän nimi, %{name}, on liian pitkä."
-      success: "Verkostonäkymäsi, %{name}, muokkaus onnistui."
+      success: "Näkymäsi, %{name}, muokkaus onnistui."
   back: "Takaisin"
   cancel: "Peruuta"
   comments: 
@@ -155,7 +155,7 @@ fi:
       sign_up: "rekisteröidy"
     new: 
       already_invited: "On jo kutsuttu"
-      aspect: "Verkostonäkymä"
+      aspect: "Näkymä"
       comma_seperated_plz: "Voit syöttää useita sähköpostiosoitteita pilkuilla erotettuna."
       if_they_accept_info: "jos he hyväksyvät, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
@@ -166,10 +166,10 @@ fi:
   layouts: 
     application: 
       have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
-      logged_in_as: "logged in as %{name}"
+      logged_in_as: "kirjautuneena nimellä %{name}"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
       whats_new: "Uutta"
-      your_aspects: "your aspects"
+      your_aspects: "näkymäsi"
     header: 
       account_settings: "käyttäjätilin asetukset"
       blog: "blogi"
@@ -230,7 +230,7 @@ fi:
   password_confirmation: "Salasanan varmistus"
   people: 
     aspect_list: 
-      edit_membership: "muokkaa jäsenen näkymää."
+      edit_membership: "muokkaa näkymän jäsenyyttä."
     edit: 
       allow_search: "Salli ihmisten etsiä sinua Diasporassa"
       edit_profile: "Muokkaa profiilia"
@@ -249,7 +249,7 @@ fi:
       results_for: " tulokset kyselylle %{params}"
     index: 
       couldnt_find_them_send_invite: "Etkö löytänyt heitä? Lähetä kutsu!"
-      no_one_found: "...eikä ketään löytynyt."
+      no_one_found: "...ketään ei löytynyt."
       no_results: "Hei! Sinun tulisi etsiä jotakin."
       results_for: "hakutulokset kohteelle"
     person: 
@@ -362,12 +362,12 @@ fi:
       error: "palvelun yhdistämisessä tapahtui virhe"
     finder: 
       friends: 
-        few: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
+        few: "%{count} ystävää"
+        one: "1 ystävä"
+        other: "%{count} ystävää"
+        zero: "ei ystäviä"
+      invite_your_friends_from: "Kutsu ystäväsi palvelusta %{service}"
+      not_connected: "ei yhdistetty"
     index: 
       connect_to_facebook: "Yhdistä palveluun facebook"
       connect_to_twitter: "Yhdistä palveluun twitter"
@@ -376,18 +376,18 @@ fi:
       logged_in_as: "kirjautunut käyttäjänä"
       really_disconnect: "katkaise %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "Paina tätä linkkiä hyväksyäksesi kutsun"
+      join_me_on_diaspora: "DIASPORA* kutsuu!"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "kutsu"
+      resend: "lähetä uudelleen"
   settings: "Asetukset"
   shared: 
     add_contact: 
       create_request: "Etsi Diaspora-tunnuksella"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
-      know_email: "Tiedätkö heidän sähköpostiosoitteita? Mikset kutsuisi heitä Diasporaan?"
+      know_email: "Tiedätkö heidän sähköpostiosoitteitansa? Kutsu heidät!"
       your_diaspora_username_is: "Diaspora käyttäjätunnuksesi on: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Kaikki kontaktit"
@@ -461,18 +461,18 @@ fi:
       skip: "ohita aloitusohjeet"
       step_2: 
         add: "Lisää"
-        aspect_name: "Verkostonäkymän nimi"
+        aspect_name: "Näkymän nimi"
         description: "Kerro Diasporalle mitä näkymiä näytetään kontakteillesi. Voit muokata näitä asetuksia myöhemmin yläoikealta löytyvän valikon kautta. Näkymäsi ovat yksilöllisiä sinulle, eikä niitä näytetä muille. "
         drag_to_add: "Raahaa heidät näkymään itsestäsi, jonka he tietävät"
         no_requests: "Ei pyyntöjä"
-        your_aspects: "Verkostonäkymäsi"
+        your_aspects: "Näkymäsi"
         your_inviter: "Tässä ovat sinua odottavat henkilöt:"
       step_3: 
         description: "Voit yhdistää käyttämäsi yhteisöpalvelut Diaspora-käyttäjätiliisi. Sinun on mahdollista lähettää ulospäin julkisia viestejä etusivulta valitsemalla \"tee julkiseksi.\""
         your_services: "Palvelusi"
       step_4: 
         change_profile: "Voit muokata profiiliasi ja hallita yhdistettyjä palveluitasi koska tahansa valitsemalla "
-        continue: "Jatka etusivulle, joka tarjoaa yleisnäkymän kaikkiin näkymiisi."
+        continue: "Jatka etusivulle, joka tarjoaa katsauksen kaikkiin näkymiisi."
         finish: "Valmis"
         manage_aspects: "Voit myös lisätä kontakteja ollessasi missä hyvänsä näkymässä."
         ready_to_share: "Olet nyt valmis aloittamaan jakamisen henkilöille"

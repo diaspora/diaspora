@@ -1,18 +1,27 @@
-fr:
-  javascripts:
-    timeago:
-      prefixAgo: "il y a"
-      prefixFromNow: "d'ici"
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "moins d'une minute"
-      minute: "environ une minute"
-      minutes: "environ %d minutes"
-      hour: "environ une heure"
-      hours: "environ %d heures"
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+fr: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
       day: "environ un jour"
       days: "environ %d jours"
+      hour: "environ une heure"
+      hours: "environ %d heures"
+      minute: "environ une minute"
+      minutes: "environ %d minutes"
       month: "environ un mois"
       months: "environ %d mois"
+      prefixAgo: "il y a"
+      prefixFromNow: "d'ici"
+      seconds: "moins d'une minute"
+      suffixAgo: ""
+      suffixFromNow: ""
       year: "un an"
       years: "%d ans"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"
