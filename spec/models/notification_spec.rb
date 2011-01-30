@@ -33,6 +33,11 @@ describe Notification do
     @note.associations[:people].type.should == :many
   end
 
+  it 'destoys the associated notification_actor' do
+    @note.save
+    lambda{@note.destroy}.should change(NotificationActors, :count).by(-1)  
+  end
+
   describe '.for' do
     it 'returns all of a users notifications' do
       user2 = Factory.create(:user)

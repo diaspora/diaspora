@@ -186,6 +186,6 @@ class Person < ActiveRecord::Base
     Post.where(:person_id => id).delete_all
     Comment.where(:person_id => id).delete_all
     Contact.where(:person_id => id).delete_all
-    Notification.where(:actors => self).delete_all
+    Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
   end
 end
