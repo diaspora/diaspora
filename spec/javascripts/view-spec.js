@@ -53,6 +53,16 @@ describe("View", function() {
         expect(View.flashes.animate).toHaveBeenCalled();
       });
     });
+    describe("render", function() {
+      it("creates a new div and calls flashes.animate", function() {
+        spyOn(View.flashes, "animate");
+        View.flashes.render({
+          success: true,
+          message: "success!"
+        });
+        expect(View.flashes.animate).toHaveBeenCalled();
+      });
+    });
   });
 
   describe("newRequest", function() {
