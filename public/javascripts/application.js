@@ -25,5 +25,9 @@ $(document).ready(function() {
   $("a.paginate").live("click", function() {
     $(document).trigger("retrieve.infscr");
   });
+
+  $('a').live('tap',function(){
+    $(this).addClass('tapped');
+  })
 });
 
