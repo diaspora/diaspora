@@ -10,42 +10,45 @@ class NotificationMultiplePeople < ActiveRecord::Migration
     add_index :notification_actors, [:notification_id, :person_id] , :unique => true
     add_index :notification_actors, :person_id  ## if i am not mistaken we don't need this one because we won't query person.notifications
 
-
-    #create table notification_actors (id MEDIUMINT NOT NULL AUTO_INCREMENT, notification_id integer, person_id integer, created_at datetime, updated_at datetime);
-
-
-    #execute "INSERT INTO notification_actors (notification_id, person_id) " +
-      #" SELECT id , actor_id " +
-      #" FROM notifications"
+    #make the notification actors table
+    execute "INSERT INTO notification_actors (notification_id, person_id) " +
+      " SELECT id , actor_id " +
+      " FROM notifications"
     
-    #UPDATE notifications, comments SET notifications.target_id = comments.post_id, target_type = 'post' WHERE notifications.target_id = comments.id AND (notifications.type = 'comment_on_post' OR notifications.type = 'also_commented_on_post');
- 
+    #update the notifications to reference the post
+    execute "UPDATE notifications, comments" +
+              "SET notifications.target_id = comments.post_id, " +
+                "target_type = 'Post' " + 
+              "WHERE (notifications.target_id = comments.id " +
+                "AND (notifications.action = 'comment_on_post' " +
+                "OR notifications.action = 'also_commented'))"
     
+    #select all the notifications to keep
+    execute "CREATE TEMPORARY TABLE keep_table" +
+               "(SELECT id as keep_id, target_type , target_id , recipient_id , action as keep_id " +
+               "FROM notifications WHERE action = 'comment_on_post' OR action = 'also_commented'" +
+               "GROUP BY target_type , target_id , recipient_id , action);"
 
+    #get a table of with ids of the notifications that need to be deleted and with the ones that need
+    #to replace them
+    execute "CREATE TEMPORARY TABLE keep_delete " +
+      "( SELECT n1.keep_id, n2.id as delete_id, " +
+        "n1.target_type, n1.target_id, n1.recipient_id, n1.action" +
+      "FROM keep_table n1, notifications n2" +
+      "WHERE n1.keep_id != n2.id " +
+        "AND n1.target_type = n2.target_type AND n1.target_id = n2.target_id" +
+        "AND n1.recipient_id = n2.recipient_id AND n1.action = n2.action"
+        "AND (n1.action = 'comment_on_post' OR n1.action = 'also_commented'))"
 
-    ##TODO in sql
+    #have the notifications actors reference the notifications that need to be kept
+    execute "UPDATE notification_actors, keep_delete "+
+              "SET notification_actors.notification_id = keep_delete.keep_id "+
+              "WHERE notification_actors.notification_id = keep_delete.delete_id"
 
-
-    ##bump up target to status message id if comment_on_post, also_commented
-    #['comment_on_post', 'also_commented'].each do |type|
-
-    #Notification.joins(:target).where(:action => "comment_on_post").update_all(:target => target)
-          
-
-    #Notification.where(:action => 'comment_on_post').all.each{|n|
-      #n.target_id => Comment.find(n.target_id).post}
-
-    ##for each user
-    #all = Notification.where(:type => 'comment_on_post', :user => user).all
-    #first = all.first
-    #all[1..all.length-1].each{ |a|
-      #first << a.notification_actors
-      #a.delete
-    #}
-
-    end
-    
-    # all notification of same type with the same 
+    #delete all the notifications that need to be deleted
+    execute "DELETE notifications.*" +
+              "FROM notifications, keep_delete" +
+              "WHERE notifications.id = keep_delete.delete_id"
 
 
     remove_column :notification, :actor_id
