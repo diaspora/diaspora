@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+cs: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
+      day: "1 dnem"
+      days: "%d dny"
+      hour: "hodinou"
+      hours: "%d hodinami"
+      minute: "minutou"
+      minutes: "%d minutami"
+      month: "1 měsícem"
+      months: "%d měsíci"
+      prefixAgo: "před"
+      prefixFromNow: ""
+      seconds: "méně než minutou"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "1 rokem"
+      years: "%d roky"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

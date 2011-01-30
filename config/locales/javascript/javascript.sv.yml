@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+sv: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
+      day: "en dag"
+      days: "%d dagar"
+      hour: "ungefär en timme"
+      hours: "ungefär %d timmar"
+      minute: "ungefär en minut"
+      minutes: "%d minuter"
+      month: "ungefär en månad"
+      months: "%d månader"
+      prefixAgo: "för"
+      prefixFromNow: "om"
+      seconds: "mindre än en minut"
+      suffixAgo: "sedan"
+      suffixFromNow: ""
+      year: "ungefär ett år"
+      years: "%d år"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

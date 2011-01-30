@@ -26,5 +26,9 @@ $(document).ready(function() {
     
     $(document).trigger("retrieve.infscr");
   });
+
+  $('a').live('tap',function(){
+    $(this).addClass('tapped');
+  })
 });
 

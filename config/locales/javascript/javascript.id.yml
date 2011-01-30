@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+id: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
+      day: "sehari"
+      days: "%d hari"
+      hour: "sekitar sejam"
+      hours: "sekitar %d jam"
+      minute: "sekitar satu menit"
+      minutes: "%d menit"
+      month: "sekitar sebulan"
+      months: "%d tahun"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "kurang dari semenit"
+      suffixAgo: "yang lalu"
+      suffixFromNow: "dari sekarang"
+      year: "sekitar setahun"
+      years: "%d tahun"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ro: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
+      day: "o zi"
+      days: "%d zile"
+      hour: "o ora"
+      hours: "%d ore"
+      minute: "un minut"
+      minutes: "%d minute"
+      month: "o luna"
+      months: "%d luni"
+      prefixAgo: "acum"
+      prefixFromNow: "in timp de"
+      seconds: "mai putin de un minut"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "un an"
+      years: "%d ani"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

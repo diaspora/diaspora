@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+pt-PT: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    timeago: 
+      day: "um dia"
+      days: "%d dias"
+      hour: "cerca de uma hora"
+      hours: "cerca de %d horas"
+      minute: "cerca de um minuto"
+      minutes: "%d minutos"
+      month: "cerca de um mês"
+      months: "%d meses"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "menos de um minuto"
+      suffixAgo: "atrás"
+      suffixFromNow: "a partir de agora"
+      year: "cerca de um ano"
+      years: "%d anos"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

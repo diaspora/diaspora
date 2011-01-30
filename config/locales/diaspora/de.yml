@@ -53,8 +53,8 @@ de:
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
     aspect_contacts: 
       done_editing: "Änderungen abgeschlossen"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Kontakte in diesem Aspekt können nicht sich sehen."
+    contacts_visible: "Kontakte in diesem Aspekt können sich sehen."
     create: 
       failure: "Erstellen des Aspekts fehlgeschlagen."
       success: "Dein neuer Aspekt %{name} wurde erstellt."
@@ -63,10 +63,10 @@ de:
     edit: 
       add_existing: "Ein bereits bestehendes Konto hinzufügen"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "Zeige deine Aspekte anderen in diesem Aspekt"
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
-      save: "Save"
+      save: "Speichern"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
@@ -379,8 +379,8 @@ de:
       click_link_to_accept_invitation: "Öffne diesen Link um die Einladung zu akzeptieren"
       join_me_on_diaspora: "Folge mir auf DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "Einladen"
+      resend: "Erneut senden"
   settings: "Einstellungen"
   shared: 
     add_contact: 
@@ -493,20 +493,3 @@ de:
     no_person_constructed: "Konnte keine Person aus dieser hcard erstellen."
     not_enabled: "Webfinger scheint nicht für den Server von %{account} verfügbar zu sein."
     xrd_fetch_failed: "Die XRD-Datei von %{account} konnte nicht heruntergeladen werden"
-  javascripts:
-    timeago:
-      prefixAgo: "vor"
-      prefixFromNow: "in"
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "wenigen Sekunden"
-      minute: "etwa einer Minute"
-      minutes: "%d Minuten"
-      hour: "etwa einer Stunde"
-      hours: "%d Stunden"
-      day: "etwa einem Tag"
-      days: "%d Tagen"
-      month: "etwa einem Monat"
-      months: "%d Monaten"
-      year: "etwa einem Jahr"
-      years: "%d Jahren"

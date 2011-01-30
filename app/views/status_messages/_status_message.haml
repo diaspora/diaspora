@@ -2,7 +2,8 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= markdownify(post.message, :youtube_maps => post[:youtube_titles])
+.message
+  = markdownify(post.message, :youtube_maps => post[:youtube_titles])
 
 - if photos.count > 0
   .photo_attachments

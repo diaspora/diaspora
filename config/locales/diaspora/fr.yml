@@ -53,8 +53,8 @@ fr:
       success: "Vous avez ajouté le contact à l’aspect avec succès."
     aspect_contacts: 
       done_editing: "fin de la modification"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
+    contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
       failure: "La création de l’aspect a échoué."
       success: "Votre nouvel aspect %{name} a été créé."
@@ -63,10 +63,10 @@ fr:
     edit: 
       add_existing: "Ajouter un contact existant"
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "rendre la liste de l'aspect visible aux autres membres de l'aspect"
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
-      save: "Save"
+      save: "Enregistrer"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -230,7 +230,7 @@ fr:
   password_confirmation: "Confirmation du mot de passe"
   people: 
     aspect_list: 
-      edit_membership: "modifier les membres de l'aspect"
+      edit_membership: "modifier l'appartenance à vos aspects"
     edit: 
       allow_search: "Autoriser des personnes à vous rechercher au sein de Diaspora"
       edit_profile: "Modifier le profil"
@@ -379,8 +379,8 @@ fr:
       click_link_to_accept_invitation: "Cliquer sur ce lien pour accepter l'invitation"
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "inviter"
+      resend: "envoyer à nouveau"
   settings: "Options"
   shared: 
     add_contact: 
@@ -493,20 +493,3 @@ fr:
     no_person_constructed: "Cette hcard semble être invalide."
     not_enabled: "webfinger ne semble pas être activé sur l'hôte de %{account}'s"
     xrd_fetch_failed: "une erreur est survenue lors de la récupération du xrd du compte %{account}"
-  javascripts:
-    timeago:
-      prefixAgo: "il y a"
-      prefixFromNow: "d'ici"
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "moins d'une minute"
-      minute: "environ une minute"
-      minutes: "environ %d minutes"
-      hour: "environ une heure"
-      hours: "environ %d heures"
-      day: "environ un jour"
-      days: "environ %d jours"
-      month: "environ un mois"
-      months: "environ %d mois"
-      year: "un an"
-      years: "%d ans"
