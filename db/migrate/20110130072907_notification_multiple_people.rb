@@ -36,8 +36,8 @@ class NotificationMultiplePeople < ActiveRecord::Migration
         "n1.target_type, n1.target_id, n1.recipient_id, n1.action " +
       "FROM keep_table n1, notifications n2 " +
       "WHERE n1.keep_id != n2.id " +
-        "AND n1.target_type = n2.target_type AND n1.target_id = n2.target_id" +
-        "AND n1.recipient_id = n2.recipient_id AND n1.action = n2.action "
+        "AND n1.target_type = n2.target_type AND n1.target_id = n2.target_id " +
+        "AND n1.recipient_id = n2.recipient_id AND n1.action = n2.action " +
         "AND (n1.action = 'comment_on_post' OR n1.action = 'also_commented'))"
 
     #have the notifications actors reference the notifications that need to be kept
@@ -51,7 +51,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
               "WHERE notifications.id = keep_delete.delete_id "
 
 
-    remove_column :notification, :actor_id
+    remove_column :notifications, :actor_id
   end
 
   def self.down

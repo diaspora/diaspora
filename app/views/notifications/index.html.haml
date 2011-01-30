@@ -49,7 +49,7 @@
           - notes.each do |note|
             .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
               %span.from
-                = link_to "#{note.actor.name.titleize}", person_path(note.actor)
+                = notification_people_link(note)
                 = object_link(note)
 
               %span.time= timeago(note.created_at)

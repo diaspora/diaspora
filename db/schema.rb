@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110127000953) do
+ActiveRecord::Schema.define(:version => 20110130072907) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
@@ -60,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.boolean  "pending",    :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
@@ -84,6 +86,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"
@@ -305,11 +308,11 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.string   "target_type"
     t.integer  "target_id"
     t.integer  "recipient_id",                   :null => false
-    t.integer  "actor_id",                       :null => false
     t.string   "action",                         :null => false
     t.boolean  "unread",       :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "notifications", ["mongo_id"], :name => "index_notifications_on_mongo_id"
@@ -325,6 +328,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
@@ -360,6 +364,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
@@ -384,6 +389,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "person_id",                          :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "profiles", ["first_name", "last_name", "searchable"], :name => "index_profiles_on_first_name_and_last_name_and_searchable"
@@ -398,6 +404,7 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
   end
 
   add_index "requests", ["mongo_id"], :name => "index_requests_on_mongo_id"
@@ -414,6 +421,8 @@ ActiveRecord::Schema.define(:version => 20110127000953) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "mongo_id"
+    t.string   "user_mongo_id"
   end
 
   add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"

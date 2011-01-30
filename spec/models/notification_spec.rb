@@ -14,9 +14,10 @@ describe Notification do
     @opts = {:target_id => @sm.id,
       :target_type => @sm.class.name,
       :action => "comment_on_post",
-      :actor_id => @person.id,
+      :actors => [@person],
       :recipient_id => @user.id}
     @note = Notification.new(@opts)
+    @note.actors =[ @person]
   end
 
   it 'contains a type' do
@@ -27,8 +28,9 @@ describe Notification do
     @note.target_id.should == @sm.id
   end
 
-  it 'contains a person_id' do
-    @note.actor_id == @person.id
+
+  it 'has many people' do
+    @note.associations[:people].type.should == :many
   end
 
   describe '.for' do
@@ -47,7 +49,7 @@ describe Notification do
 
   describe '.notify' do
     it 'does not call Notification.create if the object does not have a notification_type' do
-      Notification.should_not_receive(:create)
+      Notification.should_not_receive(:make_notificatin)
       Notification.notify(@user, @sm, @person)
     end
     context 'with a request' do
@@ -55,7 +57,7 @@ describe Notification do
         @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       end
       it 'calls Notification.create if the object has a notification_type' do
-        Notification.should_receive(:create).once
+        Notification.should_receive(:make_notification).once
         Notification.notify(@user, @request, @person)
       end
 
@@ -84,8 +86,16 @@ describe Notification do
             n.stub!(:recipient).and_return @user
 
             @user.should_receive(:mail)
-            n.email_the_user
+            n.email_the_user("mock", @person)
         end
+      end
+
+      it "updates the notification with a more people if one already exists" do
+        @user3 = bob
+        sm = @user3.post(:status_message, :message => "comment!", :to => :all)
+        @user3.receive_object(@user2.reload.comment("hey", :on => sm), @user2.person)
+        @user3.receive_object(@user.reload.comment("way", :on => sm), @user.person)
+        Notification.where(:user_id => @user.id,:target_id => sm.id).first.people.count.should == 2
       end
     end
   end
