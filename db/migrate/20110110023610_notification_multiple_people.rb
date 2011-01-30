@@ -25,7 +25,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
     
     #select all the notifications to keep
     execute "CREATE TEMPORARY TABLE keep_table " +
-               "(SELECT id as keep_id, target_type , target_id , recipient_id , action as keep_id " +
+               "(SELECT id as keep_id, target_type , target_id , recipient_id , action" +
                "FROM notifications WHERE action = 'comment_on_post' OR action = 'also_commented' " +
                "GROUP BY target_type , target_id , recipient_id , action) "
 
