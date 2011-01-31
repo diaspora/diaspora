@@ -99,6 +99,16 @@ describe Notification do
           Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
           Notification.where(:recipient_id => @user3.id,:target_id => @sm.id).first.actors.count.should == 2
         end
+
+        it 'marks the notification as unread' do
+          note = Notification.where(:recipient_id => @user3.id,:target_id => @sm.id).first
+          note.unread = false
+          note.save
+          lambda {
+            Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
+            note.reload
+          }.should change(note, :unread).from(false).to(true)
+        end
       end
     end
   end

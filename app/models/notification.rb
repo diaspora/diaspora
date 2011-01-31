@@ -12,7 +12,7 @@ class Notification < ActiveRecord::Base
   belongs_to :target, :polymorphic => true
 
   def self.for(recipient, opts={})
-    self.where(opts.merge!(:recipient_id => recipient.id)).order('created_at desc')
+    self.where(opts.merge!(:recipient_id => recipient.id)).order('updated_at desc')
   end
 
   def self.notify(recipient, target, actor)
@@ -50,8 +50,9 @@ private
                                :recipient_id => recipient.id).first
       unless n.actors.include?(actor)
         n.actors << actor
-        n.save!
       end
+      n.unread = true
+      n.save!
       n
     else
       make_notification(recipient, target, actor, action)
