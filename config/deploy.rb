@@ -35,8 +35,8 @@ namespace :deploy do
   end
 
   task :restart do
-    thins = run "svstat /service/thin*"
-    matches = thins.match(/(thin_\d+)/).to_a
+    thins = capture "svstat /service/thin*"
+    matches = thins.match(/(thin_\d+):/).captures
 
     matches.each_with_index do |thin, index|
       unless index == 0
