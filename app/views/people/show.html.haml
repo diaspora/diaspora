@@ -22,12 +22,20 @@
   #author_info
     - unless @contact || current_user.person == @person
       .right
-        = link_to t('.start_sharing'),
-          {:controller => "people",
-          :action => "share_with",
-          :id => @person.id},
-          :class => 'share_with button',
-          :rel => 'facebox'
+        - if @incoming_request
+          = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
+            {:controller => "people",
+            :action => "share_with",
+            :id => @person.id},
+            :class => 'share_with button',
+            :rel => 'facebox'
+        -else
+          = link_to t('.start_sharing'),
+            {:controller => "people",
+            :action => "share_with",
+            :id => @person.id},
+            :class => 'share_with button',
+            :rel => 'facebox'
         - if @share_with
           = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{share_with_path(:id => @person.id)}' });});"
 
@@ -44,17 +52,6 @@
       .description
         = @person.diaspora_handle
   %hr
-
-  - unless @contact || current_user.person == @person
-    - if @incoming_request
-      .floating
-        %h3
-        = link_to t('.incoming_request'),
-          {:controller => "people",
-          :action => "share_with",
-          :id => @person.id},
-          :class => 'share_with button',
-          :rel => 'facebox'
 
   - if @posts.count > 0
     -if @post_type == :photos

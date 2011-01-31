@@ -365,7 +365,7 @@ en:
           fail: "Sorry, we couldn't find %{handle}."
       show:
           no_posts: "no posts to display!"
-          incoming_request: "You have an incoming request from this person."
+          incoming_request: "%{name} wants to share with you"
           return_to_aspects: "Return to your aspects page"
           to_accept_or_ignore: "to accept or ignore it."
           does_not_exist: "Person does not exist!"

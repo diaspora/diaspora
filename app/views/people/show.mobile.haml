@@ -28,7 +28,7 @@
   - if @incoming_request
     .floating
       %h3
-        = t('.incoming_request')
+        = t('.incoming_request', :name => @person.name)
       %h4
         = link_to t('.return_to_aspects'), aspects_manage_path
         = t('.to_accept_or_ignore')
