@@ -1,7 +1,7 @@
 #
 # Included by script/server
 #
-THIN_PORT=3000
+THIN_PORT=80
 SOCKET_PORT=8080
 
 # Choose one mode by uncommenting
