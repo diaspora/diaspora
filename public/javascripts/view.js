@@ -43,7 +43,7 @@ var View = {
     $('textarea')
       .autoResize({
         'animate': false,
-        'extraSpace': 0
+        'extraSpace': 20
       });
 
     /* Webfinger form ajaxy loading */

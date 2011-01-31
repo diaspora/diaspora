@@ -24,7 +24,7 @@
     var service = $this.data("host"),
       container = document.createElement("div"),
       $container = $(container).attr("class", "video-container"),
-      $videoContainer = $this.siblings(".video-container");
+      $videoContainer = $this.parent().siblings(".video-container");
 
     if($videoContainer.length) {
       $videoContainer.slideUp("fast", function() { $(this).detach(); });
@@ -40,7 +40,7 @@
     );
 
     $container.hide()
-      .insertBefore($this.siblings(".info"))
+      .insertBefore($this.parent().siblings(".info"))
       .slideDown('fast');
 
     $this.click(function() {
