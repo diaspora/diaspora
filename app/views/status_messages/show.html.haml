@@ -16,14 +16,16 @@
 
   %hr
 
+.span-8.last
+  #original_post_info
+    = render 'shared/author_info', :person => @status_message.person, :post => @status_message
+
   = link_to t('.permalink'), post_path(@status_message) if @status_message.public
   %br
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
-.span-8.last
-  #original_post_info
-    = render 'shared/author_info', :person => @status_message.person, :post => @status_message
+.span-15.append-1.last
 
   %h4= t('_comments')
 
