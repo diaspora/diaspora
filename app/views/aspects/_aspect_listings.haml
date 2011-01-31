@@ -5,7 +5,7 @@
 
 %h4
   .right
-    = link_to t('contacts', :count => contacts.count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
+    = link_to t('aspects.manage.manage_aspects'), aspects_manage_path, :title => t('contacts', :count => contacts.count)
 
   = aspects.count
   - if aspects.count == 1
