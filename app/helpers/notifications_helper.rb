@@ -8,16 +8,16 @@ module NotificationsHelper
     when 'new_request'
       translation
     when 'comment_on_post'
-      comment = Comment.where(:id => note.target_id).first
-      if comment
-       "#{translation} #{link_to t('notifications.post'), object_path(comment.post)}".html_safe
+      post = Post.where(:id => note.target_id).first
+      if post
+        "#{translation} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
     when 'also_commented'
-      comment = Comment.where(:id => note.target_id).first
-      if comment
-       "#{translation} #{link_to t('notifications.post'), object_path(comment.post)}".html_safe
+      post = Post.where(:id => note.target_id).first
+      if post
+        "#{translation} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
@@ -37,5 +37,13 @@ module NotificationsHelper
     if count > 0
         link_to new_notification_text(count), notifications_path
     end
+  end
+
+  def notification_people_link(note)
+    note.actors.collect{ |person| link_to("#{person.name.titlecase}", person_path(person))}.join(" , ").html_safe
+  end
+
+  def peoples_names(note)
+    note.actors.map{|p| p.name}.join(",")
   end
 end
