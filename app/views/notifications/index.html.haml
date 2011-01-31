@@ -37,8 +37,7 @@
   %h2
     = t('.notifications')
 .span-13.last.left
-  .button.mark_all_read
-    = link_to t('.mark_all_as_read'), "#"
+  = link_to t('.mark_all_as_read'), "#", :class => "button mark_all_read"
 
 .span-24.last
   %ul.stream.notifications

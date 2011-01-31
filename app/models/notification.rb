@@ -7,7 +7,7 @@ class Notification < ActiveRecord::Base
   include Diaspora::Socketable
 
   belongs_to :recipient, :class_name => 'User'
-  has_many :notification_actors
+  has_many :notification_actors, :dependent => :destroy
   has_many :actors, :class_name => 'Person', :through => :notification_actors, :source => :person
   belongs_to :target, :polymorphic => true
 
@@ -48,7 +48,7 @@ private
     if n = Notification.where(:target_id => target.id,
                                :action => action,
                                :recipient_id => recipient.id).first
-      n.actors << actor
+      n.actors << actor unless n.actors.include?(actor)
       n.save!
       n
     else

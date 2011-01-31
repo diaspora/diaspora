@@ -20,22 +20,9 @@ describe Notification do
     @note.actors =[ @person]
   end
 
-  it 'contains a type' do
-    @note.target_type.should == StatusMessage.name
-  end
-
-  it 'contains a target_id' do
-    @note.target_id.should == @sm.id
-  end
-
-
-  it 'has many people' do
-    @note.associations[:people].type.should == :many
-  end
-
   it 'destoys the associated notification_actor' do
     @note.save
-    lambda{@note.destroy}.should change(NotificationActors, :count).by(-1)  
+    lambda{@note.destroy}.should change(NotificationActor, :count).by(-1)  
   end
 
   describe '.for' do
@@ -70,11 +57,11 @@ describe Notification do
         opts = {:target_id => @request.id,
           :target_type => "Request",
           :action => @request.notification_type(@user, @person),
-          :actor_id => @person.id,
+          :actors => [@person],
           :recipient_id => @user.id}
 
         n = Notification.create(opts)
-        Notification.stub!(:create).and_return n
+        Notification.stub!(:make_notification).and_return n
 
         n.should_receive(:socket_to_user).once
         Notification.notify(@user, @request, @person)
@@ -84,7 +71,7 @@ describe Notification do
         it 'calls mail' do
           opts = {
             :action => "new_request",
-            :actor_id => @person.id,
+            :actors => [@person],
             :recipient_id => @user.id}
 
             n = Notification.new(opts)
@@ -98,9 +85,9 @@ describe Notification do
       it "updates the notification with a more people if one already exists" do
         @user3 = bob
         sm = @user3.post(:status_message, :message => "comment!", :to => :all)
-        @user3.receive_object(@user2.reload.comment("hey", :on => sm), @user2.person)
-        @user3.receive_object(@user.reload.comment("way", :on => sm), @user.person)
-        Notification.where(:user_id => @user.id,:target_id => sm.id).first.people.count.should == 2
+        Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => sm)).receive_object
+        Postzord::Receiver.new(@user3, :person => @user.person, :object => @user.comment("hey", :on => sm)).receive_object
+        Notification.where(:recipient_id => @user3.id,:target_id => sm.id).first.actors.count.should == 2
       end
     end
   end
