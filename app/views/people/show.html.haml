@@ -49,10 +49,12 @@
     - if @incoming_request
       .floating
         %h3
-          = t('.incoming_request')
-        %h4
-          = link_to t('.return_to_aspects'), aspects_manage_path
-          = t('.to_accept_or_ignore')
+        = link_to t('.incoming_request'),
+          {:controller => "people",
+          :action => "share_with",
+          :id => @person.id},
+          :class => 'share_with button',
+          :rel => 'facebox'
 
   - if @posts.count > 0
     -if @post_type == :photos
