@@ -53,8 +53,8 @@ nl:
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_contacts: 
       done_editing: "klaar met bewerken"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
+    contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
       failure: "Aanmaken van aspect is mislukt."
       success: "Je nieuwe aspect %{name} is aangemaakt"
@@ -63,10 +63,10 @@ nl:
     edit: 
       add_existing: "Voeg een bestaand contact toe"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "maak aspect lijst zichtbaar voor anderen in aspect"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
-      save: "Save"
+      save: "Opslaan"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -379,8 +379,8 @@ nl:
       click_link_to_accept_invitation: "Klik op deze link om de uitnodiging te accepteren"
       join_me_on_diaspora: "Volg me op DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "uitnodigen"
+      resend: "herstuur"
   settings: "Instellingen"
   shared: 
     add_contact: 

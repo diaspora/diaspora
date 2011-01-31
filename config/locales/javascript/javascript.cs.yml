@@ -5,7 +5,7 @@
 
 cs: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "Jste si jisti?"
     timeago: 
       day: "1 dnem"
       days: "%d dny"
@@ -23,5 +23,5 @@ cs:
       year: "1 rokem"
       years: "%d roky"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Neznámý typ videa"
+      watch: "Podívejte se na tohle video na {{provider}}"

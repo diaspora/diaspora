@@ -54,7 +54,7 @@ sk:
         change_password: "Zmeniť heslo"
       new: 
         forgot_password: "Zabudli ste heslo?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "K tomuto e-mailu nie je priradený žiadny účet. Ak čakáte na pozvánku, mala by Vám prísť každú chvíľu."
         send_password_instructions: "Zaslať inštrukcie k zaslaniu nového hesla."
       send_instructions: "Behom niekoľkých minút obdržíte e-mail s inštrukciami o zresetovaní hesla."
       updated: "Vaše heslo bolo úspešne zmenené. Teraz ste prihlásený."
@@ -66,7 +66,7 @@ sk:
       new: 
         alpha_software: "Používate testovaciu verziu."
         bugs_and_feedback: "Tlačidlom Feedback na pravej strane prehliadača upozornite prosím na chyby, ktoré pri používaní objavíte. Budeme sa ich snažiť odstrániť tak skoro, ako to len pôjde."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback_mobile: "Je možné, že občas narazíte na chyby. Ak nám ich nahlásite, budeme sa ich snažiť čo najrýchlejšie opraviť."
         login: "Prihlasovacie meno"
         modern_browsers: "podporuje moderné prehliadače."
         password: "Heslo"

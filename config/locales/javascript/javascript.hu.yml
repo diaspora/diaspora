@@ -5,9 +5,9 @@
 
 hu: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "Biztos vagy benne?"
     timeago: 
-      day: "körülbelül egy napja"
+      day: "egy napja"
       days: "%d napja"
       hour: "körülbelül egy órája"
       hours: "körülbelül %d órája"
@@ -18,10 +18,10 @@ hu:
       prefixAgo: ""
       prefixFromNow: ""
       seconds: "kevesebb mint egy perce"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "ezelőtt"
+      suffixFromNow: "mostantól"
       year: "körülbelül egy éve"
       years: "%d éve"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Ismeretlen videó tipus"
+      watch: "Videó megtekintése itt: {{provider}}"
