@@ -35,7 +35,6 @@ describe StatisticsController do
     end
   end
 
-
   describe '#redirect_unauthorized' do
     it 'redirects for non admins' do
       AppConfig[:admins] = ['bob']

@@ -21,14 +21,27 @@ describe StatusMessagesController do
   end
 
   describe '#show' do
-    it 'succeeds' do
-      message = @user1.build_post :status_message, :message => "ohai", :to => @aspect1.id
-      message.save!
-      @user1.add_to_streams(message, [@aspect1])
-      @user1.dispatch_post message, :to => @aspect1.id
+    before do
+      @message = @user1.build_post :status_message, :message => "ohai", :to => @aspect1.id
+      @message.save!
 
+      @user1.add_to_streams(@message, [@aspect1])
+      @user1.dispatch_post @message, :to => @aspect1.id
+    end
+
+    it 'succeeds' do
       get :show, "id" => message.id.to_s
       response.should be_success
+    end
+
+    it 'marks a corresponding notification as read' do
+      alice.comment("comment after me", :on => @message)
+      bob.comment("here you go", :on => @message)
+      note = Notification.where(:recipient_id => alice.id, :target_id => @message.id).first
+      lambda{
+        get :show, :id => @message.id
+        note.reload
+      }.should change(note, :unread).from(true).to(false)
     end
   end
 

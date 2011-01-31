@@ -73,8 +73,13 @@ class StatusMessagesController < ApplicationController
 
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
-
     @object_aspect_ids = @status_message.aspects.map{|a| a.id}
+
+    # mark corresponding notification as read
+    if notification = Notification.where(:recipient_id => current_user.id, :target_id => @status_message.id).first
+      notification.unread = false
+      notification.save
+    end
 
     respond_with @status_message
   end
