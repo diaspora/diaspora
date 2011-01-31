@@ -2,25 +2,21 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-config = YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
-config = config['production']
+set :config_yaml, YAML.load_file(File.dirname(__FILE__) + '/deploy_config.yml')
 
-set :rails_env, 'production'
+require 'bundler/capistrano'
+set :bundle_dir, ''
+
+set :stages, ['production', 'staging']
+set :default_stage, 'staging'
+require 'capistrano/ext/multistage'
 
 set :application, 'diaspora'
-set :deploy_to, config['deploy_to']
-set :current_dir, config['current_dir']
-
 set :scm, :git
-set :user, config['user']
-set :password, config['password']
 set :use_sudo, false
 set :scm_verbose, true
-set :repository, config['repo']
 set :repository_cache, "remote_cache"
 set :deploy_via, :checkout
-
-server config['server'], :app, :web, :db, :primary => true
 
 namespace :deploy do
   task :symlink_config_files do
@@ -39,15 +35,33 @@ namespace :deploy do
   end
 
   task :restart do
-    run "killall ruby"
+    thins = run "svstat /service/thin*"
+    matches = thins.match(/(thin_\d+)/).to_a
+
+    matches.each_with_index do |thin, index|
+      unless index == 0
+        puts "sleeping for 10 seconds"
+        sleep(10)
+      end
+      run "svc -t /service/#{thin}"
+    end
+
+    run "svc -t /service/resque_worker*"
+  end
+
+  task :kill do
+    run "svc -k /service/thin*"
+    run "svc -k /service/resque_worker*"
   end
 
   task :start do
-    # daemontools FTW
+    run "svc -u /service/thin*"
+    run "svc -u /service/resque_worker*"
   end
 
   task :stop do
-    run "killall ruby"
+    run "svc -d /service/thin*"
+    run "svc -d /service/resque_worker*"
   end
 end
 

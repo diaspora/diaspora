@@ -30,7 +30,8 @@ gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338
 gem 'addressable', '2.2.2', :require => 'addressable/uri'
 gem 'json', '1.4.6'
 gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
-gem 'capistrano', '2.5.19'
+gem 'capistrano', '2.5.19', :require => false
+gem 'capistrano-ext', '1.2.1', :require => false
 
 gem 'thin', '1.2.7', :require => false
 

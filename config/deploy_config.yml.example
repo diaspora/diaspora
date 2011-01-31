@@ -8,4 +8,13 @@ production:
   current_dir: 'diaspora'
   user: 'diaspora'
   password: 'password'
+  rails_env: 'production'
+  repo: 'git://github.com/diaspora/diaspora.git'
+staging:
+  server: 'staging.example.com'
+  deploy_to: '/var/www/diaspora'
+  current_dir: 'diaspora'
+  user: 'diaspora'
+  password: 'password'
+  rails_env: 'staging'
   repo: 'git://github.com/diaspora/diaspora.git'
