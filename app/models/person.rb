@@ -29,6 +29,9 @@ class Person < ActiveRecord::Base
 
   belongs_to :owner, :class_name => 'User'
 
+  has_many :notification_actors
+  has_many :notifications, :through => :notification_actors
+
   before_destroy :remove_all_traces
   before_validation :clean_url
 
@@ -183,6 +186,6 @@ class Person < ActiveRecord::Base
     Post.where(:person_id => id).delete_all
     Comment.where(:person_id => id).delete_all
     Contact.where(:person_id => id).delete_all
-    Notification.where(:actor_id => id).delete_all
+    Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
   end
 end

@@ -106,7 +106,7 @@ describe Person do
     end
 
     it "deletes all notifications from a person's actions" do
-      note = Factory(:notification, :actor => @deleter, :recipient => @user)
+      note = Factory(:notification, :actors => [@deleter], :recipient => @user)
       @deleter.destroy
       Notification.where(:id => note.id).first.should be_nil
     end
