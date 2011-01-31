@@ -33,7 +33,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
     #to replace them
     execute "CREATE TEMPORARY TABLE keep_delete " +
       "( SELECT n1.keep_id, n2.id as delete_id, " +
-        "n1.target_type, n1.target_id, n1.recipient_id, n1.action " +
+        "n2.actor_id, n1.target_type, n1.target_id, n1.recipient_id, n1.action " +
       "FROM keep_table n1, notifications n2 " +
       "WHERE n1.keep_id != n2.id " +
         "AND n1.target_type = n2.target_type AND n1.target_id = n2.target_id " +
