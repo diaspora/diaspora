@@ -26,7 +26,7 @@ Feature: posting
         And I preemptively confirm the alert
         And I press the first ".delete" within ".stream_element"
         And I am on the home page
-        Then I should not see "I am eating a yoghurt"
+        Then I should not see "I am eating a yogurt"
 
       
     Scenario Outline: post to one aspect
