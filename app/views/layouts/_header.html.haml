@@ -46,7 +46,7 @@
 
         - for aspect in @all_aspects
           %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
-            = link_for_aspect(aspect, :class => 'aspect_selector', :title => "#{aspect.aspect_memberships.length} contacts")
+            = link_for_aspect(aspect, :class => 'aspect_selector', :title => t('contacts', :count => aspect.aspect_memberships.length))
 
         %li
           = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect'), :rel => 'facebox'
