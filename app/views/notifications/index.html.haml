@@ -1,14 +1,4 @@
 :javascript
-  $('.mark_all_read').live('click', function(){
-    $.ajax({
-      url: 'notifications/read_all',
-      success: function(data, status, xhr) {
-        $('.stream_element').removeClass('unread');
-        $("#notification_badge_number").addClass("hidden");
-      }
-    });
-  });
-
   $('.stream_element').live('mousedown', function(evt){
     var note = $(this).closest('.stream_element'),
         note_id = note.attr('data-guid'),
@@ -37,7 +27,7 @@
   %h2
     = t('.notifications')
 .span-13.last.left
-  = link_to t('.mark_all_as_read'), "#", :class => "button mark_all_read"
+  = link_to t('.mark_all_as_read'), notifications_read_all_path, :class => 'button'
 
 .span-24.last
   %ul.stream.notifications

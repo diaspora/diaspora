@@ -26,6 +26,6 @@ class NotificationsController < ApplicationController
 
   def read_all
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
-    redirect_to :back
+    redirect_to aspects_path
   end
 end
