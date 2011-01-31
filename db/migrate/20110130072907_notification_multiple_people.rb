@@ -57,6 +57,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
 
 
     remove_column :notifications, :actor_id
+    remove_column :notifications, :mongo_id
   end
 
   def self.down
