@@ -48,11 +48,13 @@ private
     if n = Notification.where(:target_id => target.id,
                                :action => action,
                                :recipient_id => recipient.id).first
-      n.actors << actor unless n.actors.include?(actor)
-      n.save!
+      unless n.actors.include?(actor)
+        n.actors << actor
+        n.save!
+      end
       n
     else
-      n  = make_notification(recipient, target, actor, action)
+      make_notification(recipient, target, actor, action)
     end
   end
 

@@ -82,12 +82,23 @@ describe Notification do
         end
       end
 
-      it "updates the notification with a more people if one already exists" do
-        @user3 = bob
-        sm = @user3.post(:status_message, :message => "comment!", :to => :all)
-        Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => sm)).receive_object
-        Postzord::Receiver.new(@user3, :person => @user.person, :object => @user.comment("hey", :on => sm)).receive_object
-        Notification.where(:recipient_id => @user3.id,:target_id => sm.id).first.actors.count.should == 2
+      context 'multiple people' do
+
+        before do
+          @user3 = bob
+          @sm = @user3.post(:status_message, :message => "comment!", :to => :all)
+          Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
+          Postzord::Receiver.new(@user3, :person => @user.person, :object => @user.comment("hey", :on => @sm)).receive_object
+        end
+
+        it "updates the notification with a more people if one already exists" do
+          Notification.where(:recipient_id => @user3.id,:target_id => @sm.id).first.actors.count.should == 2
+        end
+        
+        it 'handles double comments from the same person without raising' do
+          Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
+          Notification.where(:recipient_id => @user3.id,:target_id => @sm.id).first.actors.count.should == 2
+        end
       end
     end
   end
