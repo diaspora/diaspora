@@ -3,48 +3,53 @@
  *   the COPYRIGHT file.
  */
 
+//TODO: make this a widget
+var Publisher = {
+  initialize: function() {
+    var $publisher = $("#publisher");
+    $("div.public_toggle input").live("click", function(evt) {
+      $("#publisher_service_icons").toggleClass("dim");
+      if ($(this).attr('checked') == true) {
+        $(".question_mark").click();
+      }
+    });
 
-$(document).ready(function(){
-  var $publisher = $("#publisher");
+    if ($("#status_message_message").val() != "") {
+      $publisher
+          .removeClass("closed")
+          .find("textarea")
+          .focus();
 
-  $("div.public_toggle input").live("click", function(evt){
-    $("#publisher_service_icons").toggleClass("dim");
-    if($(this).attr('checked') == true){
-      $(".question_mark").click();
-    };
-  });
+      $publisher
+          .find(".options_and_submit")
+          .show();
+    }
 
-  if($("#status_message_message").val() != ""){
-    $publisher
-      .removeClass("closed")
-      .find("textarea")
-      .focus();
+    $publisher.find("textarea").live("focus", function(evt) {
+      $publisher.find(".options_and_submit").show();
+    });
 
-    $publisher
-      .find(".options_and_submit")
-      .show();
+    $publisher.find("textarea").live("click", function(evt) {
+      $publisher
+          .removeClass("closed")
+          .find("textarea")
+          .focus();
+    });
+
+
+    $publisher.find("textarea").bind("focus", function() {
+      $(this)
+          .css('min-height', '42px');
+    });
+
+    $publisher.find("form").bind("blur", function() {
+      $publisher
+          .find("textarea")
+          .css('min-height', '2px');
+    });
   }
+};
 
-  $publisher.find("textarea").live("focus", function(evt){
-    $publisher.find(".options_and_submit").show();
-  });
-
-  $publisher.find("textarea").live("click", function(evt){
-    $publisher
-      .removeClass("closed")
-      .find("textarea")
-      .focus();
-  });
-
-
-  $publisher.find("textarea").bind("focus", function() {
-    $(this)
-      .css('min-height','42px');
-  });
-
-  $publisher.find("form").bind("blur", function() {
-    $publisher
-      .find("textarea")
-      .css('min-height','2px');
-  });
+$(document).ready(function() {
+  Publisher.initialize();
 });
