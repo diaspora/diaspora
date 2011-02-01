@@ -30,5 +30,8 @@ $(document).ready(function() {
   $('a').live('tap',function(){
     $(this).addClass('tapped');
   })
+
+  // autocomplete search box
+  Search.initialize();
 });
 

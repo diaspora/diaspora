@@ -314,7 +314,7 @@ describe DataConversion::ImportToMysql do
         profile = Profile.where(:mongo_id => "4d2b6eb6cc8cb43cc2000001").first
         profile.image_url_medium.should be_nil
         profile.searchable.should == true
-        profile.image_url.should be_nil
+        profile[:image_url].should be_nil
         profile.gender.should be_nil
         profile.diaspora_handle.should == profile.person.diaspora_handle
         profile.last_name.should == 'weinstien'

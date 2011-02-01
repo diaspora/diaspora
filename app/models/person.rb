@@ -160,7 +160,7 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-   {:id => self.guid, :label => 'giraffes', :name => self.name, :avatar => self.profile.image_url(:thumb_small)}
+   {:id => self.guid, :name => self.name, :avatar => self.profile.image_url(:thumb_small), :url => "/people/#{self.id}"}
   end
 
   protected

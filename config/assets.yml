@@ -11,11 +11,11 @@ javascripts:
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
-    - public/javascripts/vendor/jquery.autocomplete.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/vendor/Mustache.js
+    - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/alert.js
