@@ -25,7 +25,9 @@ var Search = {
   },
   options : function(){return {
       minChars : 3,
-      max : 4,
+      max : 5,
+      scroll : false,
+      extraParams : {limit : 4},
       formatItem : Search.formatItem,
       formatResult : Search.formatResult,
       parse : Search.parse,

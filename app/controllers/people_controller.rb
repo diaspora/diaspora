@@ -11,8 +11,9 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
     params[:q] ||= params[:term]
+    limit = params[:limit] || 15
 
-    @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => 15
+    @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
     @hashes = hashes_for_people(@people, @aspects)
     #only do it if it is an email address
     if params[:q].try(:match, Devise.email_regexp)
