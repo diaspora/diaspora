@@ -460,13 +460,14 @@ en:
           subject: "new Diaspora* contact request from %{from}"
           just_sent_you: "just sent you a contact request on Diaspora*"
           try_it_out: "You should really think about checking it out."
-          sign_in: "sign in here"
+          sign_in: "Sign in here"
       request_accepted:
           subject: "%{name} has accepted your contact request on Diaspora*"
           accepted: "has accepted your contact request!"
+          sign_in: "Sign in here"
       comment_on_post:
           subject: "%{name} has commented on your post."
-          commented: "has commented on your post!"
+          commented: "has commented on your post:"
           sign_in: "Sign in to view it."
       also_commented:
           subject: "%{name} has also commented."
