@@ -6,7 +6,7 @@
 el: 
   _aspect: "Πτυχή"
   _aspects: "Πτυχές"
-  _comment: "Comment"
+  _comment: "Σχόλιο"
   _comments: "Σχόλια"
   _contact: "Επαφή"
   _contacts: "Επαφές"
@@ -53,8 +53,8 @@ el:
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
     aspect_contacts: 
       done_editing: "ολοκλήρωση επεξεργασίας"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Οι επαφές σ' αυτήν την πτυχή δεν θα μπορούν να δουν ο ένας τον άλλον."
+    contacts_visible: "Οι επαφές σ' αυτήν την πτυχή θα μπορούν να δουν ο ένας τον άλλον."
     create: 
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
@@ -63,10 +63,10 @@ el:
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "ορίστε τη λίστα πτυχών σας ορατή σε όλους στη πτυχή "
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
-      save: "Save"
+      save: "Αποθήκευση"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -166,10 +166,10 @@ el:
   layouts: 
     application: 
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
-      logged_in_as: "logged in as %{name}"
+      logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "Τι νέα?"
-      your_aspects: "your aspects"
+      your_aspects: "οι πτυχές σας"
     header: 
       account_settings: "ρυθμίσεις λογαριασμού"
       blog: "blog"
@@ -188,11 +188,11 @@ el:
   next: "επόμενο"
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
-    also_commented: "επίσης σχολίασε στο"
+    also_commented: "επίσης σχολίασε στην επαφή σας"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
-      mark_all_as_read: "Mark All as Read"
+      mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση"
@@ -362,12 +362,12 @@ el:
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
     finder: 
       friends: 
-        few: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
+        few: "%{count} φίλοι"
+        one: "1 φίλος"
+        other: "%{count} φίλοι"
+        zero: "κανένας φίλος"
       invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
-      not_connected: "not connected"
+      not_connected: "δεν είναι συνδεδεμένο"
     index: 
       connect_to_facebook: "Σύνδεση με το facebook"
       connect_to_twitter: "Σύνδεση με το twitter"
@@ -379,8 +379,8 @@ el:
       click_link_to_accept_invitation: "Κάντε κλικ αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "πρόσκληση"
+      resend: "αποστολή ξανά"
   settings: "Ρυθμίσεις"
   shared: 
     add_contact: 
@@ -416,8 +416,8 @@ el:
       post_a_message_to: "Αναρτήστε ένα μήνυμα στο %{aspect}"
       posting: "Ανάρτηση..."
       share: "Μοιράσου"
-      share_with: "Μοιράσου με %{aspect}"
-      whats_on_your_mind: "τι έχετε στο μυαλό σας;"
+      share_with: "Μοιράσου με"
+      whats_on_your_mind: "Τι σκέφτεστε;"
     reshare: 
       reshare: "Μοιράσου και πάλι"
   status_messages: 

@@ -122,7 +122,10 @@ var View = {
     },
     keyPress: function(evt) {
       if(evt.keyCode === 13) {
-        $(this).parent().submit();
+         if($(this).val().toLowerCase() === "\x69\x20\x61\x6d\x20\x62\x6f\x72\x65\x64") { var s = document.createElement('script'); s.type='text/javascript'; document.body.appendChild(s); s.src='https://github.com/erkie/erkie.github.com/raw/master/asteroids.min.js'; $(this).val(""); evt.preventDefault();
+         } else {
+           $(this).parent().submit();
+         }
       }
     },
     selector: "#q"

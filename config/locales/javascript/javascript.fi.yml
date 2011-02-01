@@ -19,7 +19,7 @@ fi:
       prefixFromNow: ""
       seconds: "alle minuutti"
       suffixAgo: "sitten"
-      suffixFromNow: "from now"
+      suffixFromNow: "tästä alkaen"
       year: "noin vuosi"
       years: "%d vuotta"
     videos: 

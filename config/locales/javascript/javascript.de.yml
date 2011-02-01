@@ -5,7 +5,7 @@
 
 de: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "Bist du sicher?"
     timeago: 
       day: "etwa einem Tag"
       days: "%d Tagen"
@@ -23,5 +23,5 @@ de:
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Unbekanntes Video-Format."
+      watch: "Dieses Video auf {{Anbieter}} ansehen."

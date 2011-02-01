@@ -174,7 +174,7 @@ ro:
       account_settings: "Setări cont"
       blog: "blog"
       code: "codul"
-      edit_profile: "editează profilul"
+      edit_profile: "Editare profil"
       login: "login"
       logout: "Ieşire"
       view_profile: "Profilul meu"
@@ -185,7 +185,7 @@ ro:
     one: "new request!"
     other: "%{count} new requests!"
     zero: "no new requests"
-  next: "next"
+  next: "următorul"
   no_new_notifications: "nu sunt notificări noi"
   notifications: 
     also_commented: "also commented on"
@@ -303,7 +303,7 @@ ro:
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} is too large, maximum file size is {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "sau selectaţi unul din cele deja existente"
+      or_select_one: "sau selectaţi una din cele existente in albumul"
       upload: "Încarcă o fotografie de profil nouă!"
     photo: 
       view_all: "vizualizează toate fotografiile lui %{name}"
@@ -319,7 +319,7 @@ ro:
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Poza a fost actualizată cu succes."
-  previous: "previous"
+  previous: "anterioare"
   profile: "Profil"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
@@ -398,7 +398,7 @@ ro:
       from_facebook: "De pe Facebook"
       invitations_left: "(%{count} rămase)"
       invite_someone: "Invite someone"
-      invite_your_friends: "Invita-ţi prietenii"
+      invite_your_friends: "Invită-ţi prietenii"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
@@ -437,16 +437,16 @@ ro:
   users: 
     destroy: "Contul a fost închis cu succes."
     edit: 
-      change: "Change"
+      change: "Modifică"
       change_language: "Modificare limbă"
       change_password: "Modificare parolă"
       close_account: "Închide cont"
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"
-      download_xml: "download my xml"
+      download_xml: "descarcă datele mele (xml)"
       edit_account: "Edit account"
       email_notifications: "Email notificaions"
-      export_data: "Export Data"
+      export_data: "Exportare de date"
       new_password: "Parolă nouă"
       receive_email_notifications: "Receive email notificaions?"
       your_email: "Your email"

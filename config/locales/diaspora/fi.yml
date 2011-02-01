@@ -157,7 +157,7 @@ fi:
       already_invited: "On jo kutsuttu"
       aspect: "Näkymä"
       comma_seperated_plz: "Voit syöttää useita sähköpostiosoitteita pilkuilla erotettuna."
-      if_they_accept_info: "jos he hyväksyvät, heidät lisätään siihen näkymään, johon heidät kutsuit."
+      if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
       personal_message: "Henkilökohtainen viesti"
       send_an_invitation: "Lähetä kutsu"

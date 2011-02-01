@@ -5,7 +5,7 @@
 
 el: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "Είστε σίγουρος/η;"
     timeago: 
       day: "μία μέρα"
       days: "%d μέρες"
@@ -18,10 +18,10 @@ el:
       prefixAgo: "πριν"
       prefixFromNow: "σε"
       seconds: "λιγότερο από ένα λεπτό"
-      suffixAgo: ""
-      suffixFromNow: ""
+      suffixAgo: "πριν"
+      suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
       years: "%d χρόνια"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Άγνωστος τύπος βίντεο"
+      watch: "Δείτε το βίντεο στο {{provider}}"

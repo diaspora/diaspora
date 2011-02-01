@@ -188,7 +188,7 @@ fr:
   next: "suivant"
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
-    also_commented: "a également commenté sur"
+    also_commented: "a/ont également commenté ce"
     comment_on_post: "a commenté votre"
     deleted: "supprimé"
     index: 
@@ -271,7 +271,7 @@ fr:
       share_with: "Commencer à partager avec %{name}"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
-      incoming_request: "Vous avez une requête venant de cette personne."
+      incoming_request: "%{name} désire partager avec vous"
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté(e) avec %{name}"
       recent_posts: "Messages récents"

@@ -271,7 +271,7 @@ cs:
       share_with: "Začněte sdílet s %{name}"
     show: 
       does_not_exist: "Osoba neexistuje!"
-      incoming_request: "Máte příchozí žádost od tohoto kontaktu."
+      incoming_request: "%{name} s vámi chce sdílet"
       no_posts: "žádné zprávy k zobrazení!"
       not_connected: "Nesdílíte s %{name}"
       recent_posts: "Poslední příspěvky"

@@ -53,8 +53,8 @@ gl-ES:
       success: "Engadiuse correctamente o contacto ao aspecto."
     aspect_contacts: 
       done_editing: "edición rematada"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Os contactos deste aspecto non se poderán ver os uns aos outros."
+    contacts_visible: "Os contactos neste aspecto poderanse ver os uns aos outros."
     create: 
       failure: "Fallou a creación do aspecto."
       success: "O aspecto %{name} foi creado"
@@ -63,10 +63,10 @@ gl-ES:
     edit: 
       add_existing: "Engadir un contacto existente"
       confirm_remove_aspect: "Estás seguro de querer eliminar este aspecto?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "facer lista de aspectos visible para a xente do aspecto"
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
-      save: "Save"
+      save: "Gardar"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "O aspecto non esta baleiro"
@@ -271,7 +271,7 @@ gl-ES:
       share_with: "Comeza a compartir con %{name}"
     show: 
       does_not_exist: "Esa persoa non existe!"
-      incoming_request: "Tes invitacións pendentes desta persoa."
+      incoming_request: "%{name} quere compartir contigo"
       no_posts: "non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
       recent_posts: "Publicacións recentes"
@@ -379,8 +379,8 @@ gl-ES:
       click_link_to_accept_invitation: "Preme este enlace para aceptar a invitación"
       join_me_on_diaspora: "Unirse a DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "convidar"
+      resend: "reenviar"
   settings: "Axustes"
   shared: 
     add_contact: 
