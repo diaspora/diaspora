@@ -15,8 +15,6 @@ class AspectsController < ApplicationController
     else
       @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
     end
-    current_user.open_aspects = params[:a_ids]
-    current_user.save
 
     # redirect to signup
     if current_user.getting_started == true || @aspects.blank?

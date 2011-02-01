@@ -38,9 +38,6 @@ class User < ActiveRecord::Base
   has_many :contact_people, :through => :contacts
   has_many :services
 
-  serialize :open_aspects, Array
-
-
   before_destroy :disconnect_everyone, :remove_person
   before_save do
     person.save if person
