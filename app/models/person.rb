@@ -160,15 +160,7 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    {
-      :person => {
-        :id           => self.guid,
-        :name         => self.name,
-        :url          => self.url,
-        :exported_key => exported_key,
-        :diaspora_handle => self.diaspora_handle
-      }
-    }
+   {:id => self.guid, :name => self.name, :avatar => self.profile.image_url(:thumb_small), :url => "/people/#{self.id}"}
   end
 
   protected

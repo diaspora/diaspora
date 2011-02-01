@@ -35,7 +35,7 @@ describe ApplicationHelper do
       person_image_link(nil).should == ""
     end
     it "returns a link containing the person's photo" do
-      person_image_link(@person).should include(image_or_default(@person))
+      person_image_link(@person).should include(@person.profile.image_url)
     end
     it "returns a link to the person's profile" do
       person_image_link(@person).should include(person_path(@person))

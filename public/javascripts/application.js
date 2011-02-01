@@ -20,15 +20,18 @@ $(document).ready(function() {
   });
 
   $(window).unbind('.infscr');
-  
+
   $("a.paginate").live("click", function() {
     $(this).css("display", "none");
-    
+
     $(document).trigger("retrieve.infscr");
   });
 
   $('a').live('tap',function(){
     $(this).addClass('tapped');
   })
+
+  // autocomplete search box
+  Search.initialize();
 });
 

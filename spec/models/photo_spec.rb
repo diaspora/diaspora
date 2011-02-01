@@ -91,7 +91,7 @@ describe Photo do
       @user.profile.image_url = @photo.url(:thumb_large)
       @user.person.save
       @photo.destroy
-      Person.find(@user.person.id).profile.image_url.should be_nil
+      Person.find(@user.person.id).profile[:image_url].should be_nil
     end
 
     it 'should not use the imported filename as the url' do
