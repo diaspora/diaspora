@@ -59,8 +59,19 @@ module DataConversion
     def process_raw_users
       log "Importing users to main table..."
       User.connection.execute <<-SQL
-        INSERT INTO users
-        SELECT mongo_users.*, 'email', mongo_users.email from mongo_users
+        INSERT INTO users (username, serialized_private_key, invites, getting_started, disable_mail,
+                           language, email, encrypted_password, password_salt, invitation_token,
+                           invitation_sent_at, reset_password_token, remember_token, remember_created_at,
+                           sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip,
+                           last_sign_in_ip, created_at, updated_at, mongo_id, invitation_service,
+                           invitation_identifier)
+        SELECT username, serialized_private_key, invites, getting_started, disable_mail,
+               language, email, encrypted_password, password_salt, invitation_token,
+               invitation_sent_at, reset_password_token, remember_token, remember_created_at,
+               sign_in_count, current_sign_in_at, last_sign_in_at, current_sign_in_ip,
+               last_sign_in_ip, created_at, updated_at, mongo_id, 'email',
+               email
+        FROM mongo_users
       SQL
       User.connection.execute <<-SQL
         UPDATE users
@@ -285,34 +296,9 @@ module DataConversion
       SQL
       log "Imported #{PostVisibility.count} post_visibilities."
     end
+
     def process_raw_notifications
-      log "Importing notifications to main table..."
-      Notification.connection.execute <<-SQL
-        INSERT INTO notifications
-        SELECT m_n.id,
-               m_n.target_type,
-               NULL,
-               users.id,
-               people.id,
-               m_n.action,
-               m_n.unread,
-               m_n.created_at,
-               m_n.updated_at,
-               m_n.mongo_id
-          FROM mongo_notifications AS m_n
-            INNER JOIN (users, people)
-              ON (m_n.recipient_mongo_id = users.mongo_id AND m_n.actor_mongo_id = people.mongo_id)
-      SQL
-      log "Imported #{Notification.count} notifications."
-      {"Request" => "requests", "Comment" => "comments"}.each_pair do |target_type, table_name|
-        log "Setting target_id on notifications on #{target_type}"
-        Notification.connection.execute <<-UPDATESQL
-        UPDATE notifications, #{table_name}, mongo_notifications
-        SET notifications.target_id = #{table_name}.id
-        WHERE notifications.mongo_id = mongo_notifications.mongo_id AND #{table_name}.mongo_id = mongo_notifications.target_mongo_id
-        UPDATESQL
-      end
-      log "Done setting target_id"
+      log "Not importing notifications."
     end
 
     def import_raw_users
