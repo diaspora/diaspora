@@ -272,6 +272,8 @@ module ApplicationHelper
 
 
   def get_javascript_strings_for(language)
-    I18n.t('javascripts')
+    translations = I18n.t('javascripts', :locale => language)
+    defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
+    defaults.update(translations)
   end
 end

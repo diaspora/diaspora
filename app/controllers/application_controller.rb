@@ -48,8 +48,4 @@ class ApplicationController < ActionController::Base
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
   end
-
-  def get_javascript_strings_for(language)
-    Il8n.t('javascripts').to_json
-  end
 end
