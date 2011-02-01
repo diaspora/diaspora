@@ -4,7 +4,7 @@ var Search = {
   selector : '#global_search input#q',
   formatItem: function(row){
     if(row['search']) {
-      return 'Search for ' + row['name'];
+      return $.mustache(Diaspora.widgets.i18n.t('search_for'), { name: row['name'] });
     } else {
       return "<img src='"+ row['avatar'] +"' class='avatar'/>" + row['name'];
     }

@@ -20,3 +20,4 @@ en:
       videos:
           watch: "Watch this video on {{provider}}"
           unknown: "Unknown video type"
+      search_for: "Search for {{name}}"
