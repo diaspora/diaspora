@@ -13,13 +13,13 @@ Feature: managing contact requests
     Then I should see "new request!"
     
   @javascript
-  Scenario: viewing a request's profile
+  Scenario: viewing a requests profile
     When I am on the aspects manage page
     Then I should see "1" within "#notification_badge"
     When I click on the contact request
-    And I wait for the request's profile page to load
-    Then I should be on the requestor's profile page
-    And I should see "You have an incoming request from this person"
+    And I wait for the requestors profile page to load
+    Then I should be on the requestors profile
+    And I should see "wants to share with you"
 
   @javascript
   Scenario: accepting a contact request
