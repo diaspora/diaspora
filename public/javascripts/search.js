@@ -27,6 +27,8 @@ var Search = {
       minChars : 3,
       max : 5,
       scroll : false,
+      delay : 200,
+      cacheLength : 15,
       extraParams : {limit : 4},
       formatItem : Search.formatItem,
       formatResult : Search.formatResult,
