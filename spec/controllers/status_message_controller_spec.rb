@@ -30,7 +30,7 @@ describe StatusMessagesController do
     end
 
     it 'succeeds' do
-      get :show, "id" => message.id.to_s
+      get :show, "id" => @message.id.to_s
       response.should be_success
     end
 
