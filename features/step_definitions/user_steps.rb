@@ -73,9 +73,7 @@ When /^I click on the contact request$/ do
 end
 
 Then /^I should have aspect "([^"]*)" "([^"]*)"$/ do |arg1, arg2|
-  @aspect = Aspect.where(:name => arg1).first
-
-  val = evaluate_script("$('#aspect_nav').children('li[data-guid=#{@aspect.id}]').hasClass('selected');") # 
+  val = evaluate_script("$('a:contains(\"#{arg1}\")').parent('li').hasClass('selected');") # 
   if arg2 == "selected"
     val.should == true
   elsif arg2 == "not selected"
