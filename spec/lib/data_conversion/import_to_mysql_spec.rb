@@ -426,22 +426,11 @@ describe DataConversion::ImportToMysql do
         @migrator.import_raw_notifications
       end
 
-      it "imports data into the notifications table" do
+      it "does not import notifications" do
         Mongo::Notification.count.should == 2
         Notification.count.should == 0
         @migrator.process_raw_notifications
-        Notification.count.should == 2
-      end
-
-      it "processes all the columns" do
-        @migrator.process_raw_notifications
-        notification = Notification.first
-        mongo_notification = Mongo::Notification.first
-        notification.mongo_id.should == "4d2b6eb8cc8cb43cc200001f"
-        notification.target_type.should == "Request"
-        notification.action.should == "new_request"
-        notification.unread.should be_true
-        notification.target.mongo_id.should == mongo_notification.target_mongo_id
+        Notification.count.should == 0
       end
     end
     describe "post_visibilities" do
