@@ -42,7 +42,7 @@
     -unless @landing_page
       %ul#aspect_nav
         %li{:class => ('selected' if @aspect == :all)}
-          = link_to t('_home'), root_path(:home => true), :class => 'home_selector'
+          = link_to t('_home'), root_path, :class => 'home_selector'
 
         - for aspect in @all_aspects
           %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
