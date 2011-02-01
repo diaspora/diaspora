@@ -135,20 +135,13 @@ module ApplicationHelper
   end
 
   def person_image_tag(person, size=:thumb_small)
-    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{image_or_default(person, size)}\" title=\"#{h(person.name)}\">".html_safe
+    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)}\">".html_safe
   end
 
   def person_link(person)
     "<a href='/people/#{person.id}'>
   #{h(person.name)}
 </a>".html_safe
-  end
-
-  def image_or_default(person, size=:thumb_large)
-    image_location = person.profile.image_url(size) if person.profile
-    image_location ||= person.profile.image_url(:thumb_large) if person.profile #backwards compatability for old profile pictures
-    image_location ||= "/images/user/default.png"
-    image_location
   end
 
   def hard_link(string, path)
@@ -277,7 +270,7 @@ module ApplicationHelper
     image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
 
-  
+
   def get_javascript_strings_for(language)
     I18n.t('javascripts')
   end

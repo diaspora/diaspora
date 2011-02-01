@@ -69,6 +69,24 @@ describe Profile do
     end
   end
 
+  describe '#image_url' do
+    before do
+      @profile = Factory.build(:profile)
+    end
+    it 'returns a default rather than nil' do
+      @profile.image_url = nil
+      @profile.image_url.should_not be_nil
+    end
+    it 'falls back to the large thumbnail if the small thumbnail is nil' do
+      #Backwards compatibility
+      @profile[:image_url] = 'large'
+      @profile[:image_url_small] = nil
+      @profile[:image_url_medium] = nil
+      @profile.image_url(:thumb_small).should == 'large'
+      @profile.image_url(:thumb_medium).should == 'large'
+    end
+  end
+
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
       user = Factory(:user)
