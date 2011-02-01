@@ -1,13 +1,4 @@
 $(document).ready(function() {
-  $('#global_search input').autocomplete({
-    source : '/people',
-    appendTo : ''
-    });
-
-  $('#global_search input').blur(function(evt){
-      $(this).close
-    });
-
   $('#main_stream').infinitescroll({
     navSelector  : ".pagination",
                    // selector for the paged navigation (it will be hidden)
@@ -29,10 +20,10 @@ $(document).ready(function() {
   });
 
   $(window).unbind('.infscr');
-  
+
   $("a.paginate").live("click", function() {
     $(this).css("display", "none");
-    
+
     $(document).trigger("retrieve.infscr");
   });
 
