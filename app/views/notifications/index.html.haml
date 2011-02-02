@@ -41,5 +41,5 @@
                 = notification_people_link(note)
                 = object_link(note)
 
-              %span.time= timeago(note.created_at)
+              %span.time= timeago(note.updated_at)
     = will_paginate @notifications

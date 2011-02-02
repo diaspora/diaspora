@@ -19,8 +19,8 @@ class NotificationsController < ApplicationController
 
   def index
     @notifications = Notification.find(:all, :conditions => {:recipient_id => current_user.id},
-                                       :order => 'created_at desc', :include => [:target, {:actors => :profile}]).paginate :page => params[:page], :per_page => 25
-    @group_days = @notifications.group_by{|note| note.created_at.strftime("%B %d") }
+                                       :order => 'updated_at desc', :include => [:target, {:actors => :profile}]).paginate :page => params[:page], :per_page => 25
+    @group_days = @notifications.group_by{|note| note.updated_at.strftime("%B %d") }
     respond_with @notifications
   end
 

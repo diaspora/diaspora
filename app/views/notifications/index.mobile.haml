@@ -15,8 +15,7 @@
             .content
               %span.from
                 %b= note.actor.name
-                
               = object_link(note)
-              .time= timeago(note.created_at)
+              .time= timeago(note.updated_at)
 
   = will_paginate @notifications
