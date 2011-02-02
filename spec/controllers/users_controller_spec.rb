@@ -10,6 +10,7 @@ describe UsersController do
   before do
     @user = alice
     @aspect = @user.aspects.first
+    @aspect1 = @user.aspects.create(:name => "super!!")
     sign_in :user, @user
   end
 
@@ -27,6 +28,24 @@ describe UsersController do
       lambda {
         put :update, params
       }.should_not change(@user, :diaspora_handle)
+    end
+
+    context "open aspects" do
+      before do
+        @index_params = {:id => @user.id, :user => {:a_ids => [@aspect.id.to_s, @aspect1.id.to_s]} }
+      end
+
+      it "stores the aspect params in the user" do
+        put :update,  @index_params
+        @user.reload.aspects.where(:open => true).all.to_set.should == [@aspect, @aspect1].to_set
+      end
+
+      it "correctly resets the home state" do
+        @index_params[:user][:a_ids] = ["home"]
+
+        put :update, @index_params
+        @user.aspects.where(:open => true).should == []
+      end
     end
 
     context 'password updates' do

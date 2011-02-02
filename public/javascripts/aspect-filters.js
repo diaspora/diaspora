@@ -17,6 +17,7 @@ $(document).ready(function(){
     }
   });
 
+
   $("a.hard_aspect_link").live("click", function(e){
     e.preventDefault();
     requests++;
@@ -101,6 +102,31 @@ $(document).ready(function(){
     return baseURL;
   }
 
+  $("a.home_selector").live("click", function(e){
+    performAspectUpdate("home");
+  });
+
+  function performAspectUpdate(home){
+      // update the open aspects in the user
+      updateURL = "/users/" + $('div.avatar').children('img').attr("data-owner_id");
+      updateURL += '?';
+      if(home == 'home'){
+        updateURL += 'user[a_ids][]=home';
+      } else {
+        for(i=0; i < selectedGUIDS.length; i++){
+          updateURL += 'user[a_ids][]='+ selectedGUIDS[i] +'&';
+        }
+      }
+
+//alert(updateURL);
+      $.ajax({
+        url : updateURL,
+        type: "PUT",
+        });
+
+  }
+
+
   function performAjax(newURL) {
     var post = $("#publisher textarea").val(),
         photos = {};
@@ -150,14 +176,16 @@ $(document).ready(function(){
         // reinit listeners on stream
         photozone.html(photos_html);
         Stream.initialize();
-
+        
         // fade contents back in
         if(requests == 0){
           $("#aspect_stream_container").fadeTo(100, 1);
           $("#aspect_contact_pictures").fadeTo(100, 1);
+          performAspectUpdate();
         }
       }
     });
+
   }
 
 });
