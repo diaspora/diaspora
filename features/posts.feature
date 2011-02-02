@@ -8,6 +8,7 @@ Feature: posting
       Given I am signed in
         And I have an aspect called "Family"
         And I am on the home page
+        And I expand the publisher
       When I fill in "status_message_message" with "I am eating a yogurt"
         And I press "Share"
         
