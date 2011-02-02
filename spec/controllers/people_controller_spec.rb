@@ -83,7 +83,7 @@ describe PeopleController do
       it 'takes time' do
         Benchmark.realtime{
           get :show, :id => @user.person.id
-        }.should < 0.2
+        }.should < 0.5
       end
     end
     it 'renders with a post' do
