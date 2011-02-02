@@ -7,7 +7,8 @@
   .content
     .from
       = person_link(comment.person)
-    = markdownify(comment.text, :youtube_maps => comment.youtube_titles)
+    .message
+      = markdownify(comment.text, :youtube_maps => comment.youtube_titles)
 
     .info
       %span.time
