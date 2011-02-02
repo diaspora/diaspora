@@ -9,8 +9,8 @@ var Mobile = {
     $('#main_stream + .pagination').hide();
     $('#aspect_picker').change(Mobile.changeAspect);
     $('a').live('tap',function(){
-    $(this).addClass('tapped');
-  })
+      $(this).addClass('tapped');
+    })
   },
   
   changeAspect: function() {
