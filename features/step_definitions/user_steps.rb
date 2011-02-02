@@ -71,3 +71,15 @@ end
 When /^I click on the contact request$/ do
   find(".person.request.ui-draggable a").click
 end
+
+Then /^I should have aspect "([^"]*)" "([^"]*)"$/ do |arg1, arg2|
+  val = evaluate_script("$('a:contains(\"#{arg1}\")').parent('li').hasClass('selected');") # 
+  if arg2 == "selected"
+    val.should == true
+  elsif arg2 == "not selected"
+    val.should == false
+  else
+    raise "Aspect state should either be 'selected' or 'not selected'"
+  end
+end
+
