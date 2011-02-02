@@ -9,6 +9,9 @@ Given /^I (?:am signed|sign) in as an? (\w+)$/ do |role|
   Given 'I am signed in'
 end
 
+Given "I try to sign in" do
+  Given "I am signed in"
+end
 
 Given 'I am signed in' do
   @me ||= Factory(:user_with_aspect, :getting_started => false)
