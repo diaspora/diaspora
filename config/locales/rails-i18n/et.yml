@@ -50,7 +50,7 @@ et:
     currency:
       format:
         format: "%n %u"
-        unit: "kr"
+        unit: "€"
         separator: ","
         delimiter: " "
         precision: 2

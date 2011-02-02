@@ -1,0 +1,27 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+en_shaw: 
+  javascripts: 
+    confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
+    timeago: 
+      day: "𐑩 𐑛𐑱"
+      days: "%d 𐑛𐑱𐑟"
+      hour: "𐑩𐑚𐑬𐑑 𐑩𐑯 𐑬𐑮"
+      hours: "𐑩𐑚𐑬𐑑 %d 𐑬𐑮𐑟"
+      minute: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑦𐑯𐑩𐑑"
+      minutes: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
+      month: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑳𐑯𐑔"
+      months: "%d 𐑥𐑳𐑯𐑔𐑕"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "𐑤𐑧𐑕 𐑞𐑨𐑯 𐑩 𐑥𐑦𐑯𐑩𐑑"
+      suffixAgo: "𐑩𐑜𐑴"
+      suffixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
+      year: "𐑩𐑚𐑬𐑑 𐑩 𐑘𐑽"
+      years: "%d 𐑘𐑽𐑟"
+    videos: 
+      unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
+      watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 {{provider}}"

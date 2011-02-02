@@ -137,11 +137,11 @@ nl:
       login_here: "log hier in"
       ownership: "Eigendom"
       ownership_explanation: "Je bent zelf de eigenaar van je eigen foto's. Dus waarom zou je dat opgeven om ze met iemand te delen? Op Diaspora behoud je het eigendom over alles wat jij met anderen deelt, waardoor je volledige controle hebt over de distributie ervan."
-      share_what_you_want: "Deel wat je wilt delen, met degenen waarmee je het wilt delen."
+      share_what_you_want: "Deel wat je wil delen, met degenen met wie je het wil delen."
       simplicity: "Eenvoud"
       simplicity_explanation: "Diaspora maakt delen helder en simpel – vooral als het om privacy gaat. Je hoeft namelijk niet eindeloos door pagina's met instellingen en opties te klikken om je profiel veilig en afgeschermd te houden."
-      tagline_first_half: "Deel wat je wilt delen,"
-      tagline_second_half: "met degenen waarmee je het wilt delen."
+      tagline_first_half: "Deel wat je wil delen,"
+      tagline_second_half: "met degenen met wie je het wil delen."
   invitations: 
     check_token: 
       not_found: "Uitnodigingstoken niet gevonden"
@@ -271,7 +271,7 @@ nl:
       share_with: "Start delen met %{name}"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
-      incoming_request: "Je hebt een binnenkomend verzoek van deze persoon."
+      incoming_request: "% {Naam} wil met je delen"
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"

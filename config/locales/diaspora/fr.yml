@@ -189,7 +189,7 @@ fr:
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
     also_commented: "a/ont également commenté ce"
-    comment_on_post: "a commenté votre"
+    comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"
     index: 
       mark_all_as_read: "Tout marquer comme lu"

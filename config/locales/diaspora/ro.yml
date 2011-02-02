@@ -4,8 +4,8 @@
 
 
 ro: 
-  _aspect: "Grup"
-  _aspects: "Grupuri"
+  _aspect: "Aspect"
+  _aspects: "Aspecte"
   _comment: "Comentariu"
   _comments: "Comentarii"
   _contact: "Contact"
@@ -103,7 +103,7 @@ ro:
       family: "Familie"
       work: "Lucru"
     show: 
-      edit_aspect: "Editează grup"
+      edit_aspect: "Editează aspect"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspectul, %{name}, a fost editat cu succes."
@@ -112,7 +112,7 @@ ro:
   comments: 
     new_comment: 
       comment: "Comentariu"
-      commenting: "Commenting..."
+      commenting: "Comentând..."
       enter: "enter"
       press: "press"
       to_comment: "to comment"
@@ -131,14 +131,14 @@ ro:
   home: 
     show: 
       already_account: "already have an account?"
-      choice: "Choice"
+      choice: "Alegere"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "log in here"
-      ownership: "Ownership"
+      ownership: "Proprietate"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Share what you want, with whom you want."
-      simplicity: "Simplicity"
+      simplicity: "Simplitate"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
@@ -181,10 +181,10 @@ ro:
   more: "Mai mult"
   new_notifications: "%{count} notificări noi"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} noi cereri!"
+    one: "nouă cerere!"
+    other: "%{count} noi cereri!"
+    zero: "nici o cerere nouă"
   next: "următorul"
   no_new_notifications: "nu sunt notificări noi"
   notifications: 
@@ -220,7 +220,7 @@ ro:
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
-    thanks: "Mulţumesc,"
+    thanks: "Mulţumim,"
   ok: "OK"
   or: "sau"
   pagination: 
@@ -253,7 +253,7 @@ ro:
       no_results: "Hey! You need to search for something."
       results_for: "caută rezultate pentru"
     person: 
-      add_contact: "add contact"
+      add_contact: "adaugă contact"
       already_connected: "Already connected"
       pending_request: "cerere în aşteptare"
       thats_you: "eşti tu!"
@@ -291,12 +291,12 @@ ro:
       runtime_error: "Încărcarea fotografiei a eşuat. Eşti sigur că ai centura de siguranţă pusă?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
-      notice: "Poză eliminată."
+      notice: "Fotografie eliminată."
     edit: 
       editing: "Modificare"
     new: 
       back_to_list: "Înapoi la Listă"
-      new_photo: "Poză nouă"
+      new_photo: "Nouă Fotografie"
       post_it: "postează!"
     new_photo: 
       empty: "{file} is empty, please select files again without it."
@@ -308,17 +308,17 @@ ro:
     photo: 
       view_all: "vizualizează toate fotografiile lui %{name}"
     show: 
-      delete_photo: "Șterge Poză"
+      delete_photo: "Șterge Fotografie"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "Setează ca fotografie de profil"
       permalink: "permalink"
       update_photo: "Actualizează fotografia"
-      view: "view"
+      view: "vizualizează"
       view_original_post: "view original post"
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
-      notice: "Poza a fost actualizată cu succes."
+      notice: "Fotografia a fost actualizată cu succes."
   previous: "anterioare"
   profile: "Profil"
   registrations: 
@@ -326,12 +326,12 @@ ro:
     create: 
       success: "Bun venit pe Diaspora!"
     edit: 
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
+      cancel_my_account: "Anulează contul meu"
+      edit: "Editează %{name}"
       leave_blank: "(lăsaţi necompletat dacă nu doriţi să o schimbaţi)"
       password_to_confirm: "(avem nevoie de parola curentă pentru a confirma modificările)"
       unhappy: "Nefericit?"
-      update: "Update"
+      update: "Actualizează"
     new: 
       enter_email: "Enter an e-mail"
       enter_password: "Introdu o parolă"
@@ -344,14 +344,14 @@ ro:
       sending: "Sending..."
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
-      error: "Vă rugăm să selectaţi un grup!"
+      error: "Vă rugăm să selectaţi un aspect!"
       ignore: "Ignorează cererea de contact."
       success: "Sunteţi acum prieteni."
     manage_aspect_contacts: 
       existing: "Contactele existente"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "sent!"
+      sent: "trimis!"
   search: "Caută"
   services: 
     create: 
@@ -369,9 +369,9 @@ ro:
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "nu este conectat"
     index: 
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
-      disconnect: "disconnect"
+      connect_to_facebook: "Conectează cu Facebook"
+      connect_to_twitter: "Conectează cu Twitter"
+      disconnect: "desconectează"
       edit_services: "Edit services"
       logged_in_as: "logged in as"
       really_disconnect: "disconnect %{service}?"
@@ -397,7 +397,7 @@ ro:
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       from_facebook: "De pe Facebook"
       invitations_left: "(%{count} rămase)"
-      invite_someone: "Invite someone"
+      invite_someone: "Invită pe cineva"
       invite_your_friends: "Invită-ţi prietenii"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
@@ -430,7 +430,7 @@ ro:
       destroy: "Şterge"
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "ascunde comentariile"
     show_comments: "show comments"
   the_world: "toată lumea"
   username: "Nume de utilizator"
@@ -449,18 +449,18 @@ ro:
       export_data: "Exportare de date"
       new_password: "Parolă nouă"
       receive_email_notifications: "Receive email notificaions?"
-      your_email: "Your email"
-      your_handle: "Your diaspora handle"
+      your_email: "E-mailul tău"
+      your_handle: "Identificatorul tau pe Diaspora"
     getting_started: 
       connect_services: "Connect your services"
       define_aspects: "Define your aspects"
       edit_profile: "Editează-ţi profilul"
       finished: "Finished!"
-      save_and_continue: "Save and continue"
+      save_and_continue: "Salvează si continuă"
       signup_steps: "Complete your sign-up by doing these things:"
-      skip: "skip getting started"
+      skip: "sări peste tutorial"
       step_2: 
-        add: "Add"
+        add: "Adaugă"
         aspect_name: "Numele aspectului"
         description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
         drag_to_add: "Drag them to the aspect of yourself they know"
@@ -473,7 +473,7 @@ ro:
       step_4: 
         change_profile: "You can change your profile any time by clicking"
         continue: "Continue on to your everyone page, an overview of all of your aspects."
-        finish: "Finish"
+        finish: "Termină"
         manage_aspects: "You can manage your aspects any time by clicking the"
         ready_to_share: "You're now ready to start sharing with "
         set_up: "You're all set up, %{name}!"
