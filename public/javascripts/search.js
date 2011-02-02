@@ -53,3 +53,6 @@ var Search = {
   }
 }
 
+$(document).ready(function(){
+  Search.initialize();
+});

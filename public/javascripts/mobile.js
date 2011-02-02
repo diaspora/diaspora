@@ -8,6 +8,9 @@ var Mobile = {
     $("abbr.timeago").timeago();
     $('#main_stream + .pagination').hide();
     $('#aspect_picker').change(Mobile.changeAspect);
+    $('a').live('tap',function(){
+    $(this).addClass('tapped');
+  })
   },
   
   changeAspect: function() {
@@ -18,4 +21,8 @@ var Mobile = {
     window.location = url;
   }
 };
+
+$(document).ready(function() {
+  Mobile.initialize();
+ });
 
