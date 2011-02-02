@@ -5,8 +5,10 @@ namespace :backup do
 
   task :mysql do
     puts("event=backup status=start type=mysql")
-
-    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
+    db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
+    user = db['production']['user']
+    password = db['production']['password']
+    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
       puts "Logging into Cloud Files"
 
       cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
@@ -14,7 +16,7 @@ namespace :backup do
 
       puts "Dumping Mysql"
       `mkdir -p /tmp/backup/mysql`
-      `mysqldump diaspora_production >> /tmp/backup/mysql/backup.txt `
+      `mysqldump -u #{user} -p #{password} diaspora_production >> /tmp/backup/mysql/backup.txt `
 
       tar_name = "mysql_#{Time.now.to_i}.tar"
       `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mysql`
