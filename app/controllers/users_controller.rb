@@ -21,8 +21,10 @@ class UsersController < ApplicationController
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
     params[:user].delete(:language) if params[:user][:language].blank?
+    
 
-    # change email notifications
+      
+      # change email notifications
     if params[:user][:disable_mail]
       @user.update_attributes(:disable_mail => params[:user][:disable_mail])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
@@ -39,6 +41,13 @@ class UsersController < ApplicationController
       else
         flash[:error] = I18n.t 'users.update.language_not_changed'
       end
+    elsif params[:user][:a_ids]
+      if params[:user][:a_ids] == ["home"]
+        @user.open_aspects = nil
+      else
+        @user.open_aspects = params[:user][:a_ids]
+      end
+      @user.save!
     end
 
     redirect_to edit_user_path(@user)

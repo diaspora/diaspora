@@ -88,22 +88,7 @@ describe AspectsController do
         assigns(:posts).length.should == 8
       end
 
-      context "storing state" do
-        before do
-          @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]} 
-        end
-        it "stores the aspect params in the user" do
-          get :index,   @index_params
-          @user.reload.open_aspects.should == @index_params[:a_ids]
-        end
 
-        it "correctly stores the aspect params" do
-          @user.open_aspects = @index_params[:a_ids]
-          @user.save
-          get :index
-          @user.reload.open_aspects.should == nil
-        end
-      end
     end
 
     context 'performance' do

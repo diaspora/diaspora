@@ -18,6 +18,7 @@ class ApplicationController < ActionController::Base
       @object_aspect_ids = []
       @all_aspects = current_user.aspects.includes(:aspect_memberships)
       @notification_count = Notification.for(current_user, :unread =>true).count
+      @user_id = current_user.id
     end
   end
 
