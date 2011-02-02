@@ -8,7 +8,7 @@ namespace :backup do
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
     user = db['production']['user']
     password = db['production']['password']
-    password = db['production']['database']
+    database = db['production']['database']
     if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
       puts "Logging into Cloud Files"
 
@@ -17,7 +17,7 @@ namespace :backup do
 
       puts "Dumping Mysql"
       `mkdir -p /tmp/backup/mysql`
-      `mysqldump --user=#{user} --password=#{password} diaspora_production >> /tmp/backup/mysql/backup.txt `
+      `mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
       tar_name = "mysql_#{Time.now.to_i}.tar"
       `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mysql`
