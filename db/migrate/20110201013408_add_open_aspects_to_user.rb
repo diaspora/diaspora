@@ -1,9 +1,9 @@
 class AddOpenAspectsToUser < ActiveRecord::Migration
   def self.up
-    add_column(:users, :open_aspects, :text)
+    add_column(:aspects, :open, :boolean, :default => false)
   end
 
   def self.down
-    remove_column(:users, :open_aspects)
+    remove_column(:aspects, :open)
   end
 end

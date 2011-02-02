@@ -22,7 +22,7 @@ describe HomeController do
 
     it 'redirects to aspects index if user is logged in' do
       sign_in @user
-      get :show
+      get :show, :home => true
       response.should redirect_to( :controller => 'aspects', :action => 'index')
     end
 
@@ -31,7 +31,7 @@ describe HomeController do
       @aspect0 = @user.aspects.all[0]
       @aspect1 = @user.aspects.create(:name => "Yeaaaah!")
       @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]} 
-      @user.open_aspects = @index_params[:a_ids]
+      @user.aspects.where(:id => @index_params[:a_ids]).update_all(:open => true)
       @user.save
       get :show
       response.should redirect_to( :controller => 'aspects', :action => 'index', :a_ids => @index_params[:a_ids] )

@@ -42,12 +42,10 @@ class UsersController < ApplicationController
         flash[:error] = I18n.t 'users.update.language_not_changed'
       end
     elsif params[:user][:a_ids]
-      if params[:user][:a_ids] == ["home"]
-        @user.open_aspects = nil
-      else
-        @user.open_aspects = params[:user][:a_ids]
+      @user.aspects.update_all(:open => false)
+      unless params[:user][:a_ids] == ["home"]
+        @user.aspects.where(:id => params[:user][:a_ids]).update_all(:open => true)
       end
-      @user.save!
     end
 
     redirect_to edit_user_path(@user)

@@ -37,14 +37,14 @@ describe UsersController do
 
       it "stores the aspect params in the user" do
         put :update,  @index_params
-        @user.reload.open_aspects.should == @index_params[:user][:a_ids]
+        @user.reload.aspects.where(:open => true).all.to_set.should == [@aspect, @aspect1].to_set
       end
 
       it "correctly resets the home state" do
         @index_params[:user][:a_ids] = ["home"]
 
         put :update, @index_params
-        @user.reload.open_aspects.should == nil
+        @user.aspects.where(:open => true).should == []
       end
     end
 
