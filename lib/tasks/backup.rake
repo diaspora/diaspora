@@ -8,6 +8,7 @@ namespace :backup do
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
     user = db['production']['user']
     password = db['production']['password']
+    password = db['production']['database']
     if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
       puts "Logging into Cloud Files"
 
