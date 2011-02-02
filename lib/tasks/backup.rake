@@ -16,7 +16,7 @@ namespace :backup do
 
       puts "Dumping Mysql"
       `mkdir -p /tmp/backup/mysql`
-      `mysqldump -u #{user} -p #{password} diaspora_production >> /tmp/backup/mysql/backup.txt `
+      `mysqldump --user=#{user} --password=#{password} diaspora_production >> /tmp/backup/mysql/backup.txt `
 
       tar_name = "mysql_#{Time.now.to_i}.tar"
       `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mysql`
