@@ -102,10 +102,6 @@ $(document).ready(function(){
     return baseURL;
   }
 
-  $("a.home_selector").live("click", function(e){
-    performAspectUpdate("home");
-  });
-
   function performAspectUpdate(home){
       // update the open aspects in the user
       updateURL = "/users/" + $('div.avatar').children('img').attr("data-owner_id");
@@ -118,7 +114,6 @@ $(document).ready(function(){
         }
       }
 
-//alert(updateURL);
       $.ajax({
         url : updateURL,
         type: "PUT",
@@ -126,6 +121,9 @@ $(document).ready(function(){
 
   }
 
+  if($("a.home_selector").parent().hasClass("selected")){
+    performAspectUpdate("home");
+  }
 
   function performAjax(newURL) {
     var post = $("#publisher textarea").val(),
@@ -176,7 +174,7 @@ $(document).ready(function(){
         // reinit listeners on stream
         photozone.html(photos_html);
         Stream.initialize();
-        
+
         // fade contents back in
         if(requests == 0){
           $("#aspect_stream_container").fadeTo(100, 1);
