@@ -29,6 +29,7 @@ src_files:
   - public/javascripts/aspect-contacts.js
   - public/javascripts/web-socket-receiver.js
   - public/javascripts/view.js
+  - public/javascripts/publisher.js
   - public/javascripts/stream.js
   - public/javascripts/validation.js
   - public/javascripts/rails.js

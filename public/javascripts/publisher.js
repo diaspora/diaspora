@@ -5,8 +5,21 @@
 
 //TODO: make this a widget
 var Publisher = {
+  close: function(){
+    Publisher.form().addClass('closed');
+    Publisher.form().find(".options_and_submit").hide();
+         },
+  open: function(){
+    Publisher.form().removeClass('closed');
+    Publisher.form().find(".options_and_submit").show();
+  },
+  form: function(){return $('#publisher');},
+  updateHiddenField: function(evt){
+    Publisher.form().find('#status_message_message').val(
+        Publisher.form().find('#status_message_fake_message').val());
+  },
   initialize: function() {
-    var $publisher = $("#publisher");
+    var $publisher = Publisher.form();
     $("div.public_toggle input").live("click", function(evt) {
       $("#publisher_service_icons").toggleClass("dim");
       if ($(this).attr('checked') == true) {
@@ -14,38 +27,16 @@ var Publisher = {
       }
     });
 
-    if ($("#status_message_message").val() != "") {
-      $publisher
-          .removeClass("closed")
-          .find("textarea")
-          .focus();
+    if ($("#status_message_fake_message").val() == "") {
+      Publisher.close();
+    };
 
-      $publisher
-          .find(".options_and_submit")
-          .show();
-    }
-
-    $publisher.find("textarea").live("focus", function(evt) {
-      $publisher.find(".options_and_submit").show();
-    });
-
-    $publisher.find("textarea").live("click", function(evt) {
-      $publisher
-          .removeClass("closed")
-          .find("textarea")
-          .focus();
-    });
-
-
-    $publisher.find("textarea").bind("focus", function() {
-      $(this)
-          .css('min-height', '42px');
-    });
-
-    $publisher.find("form").bind("blur", function() {
-      $publisher
-          .find("textarea")
-          .css('min-height', '2px');
+    Publisher.updateHiddenField();
+    $publisher.find('#status_message_fake_message').change(
+        Publisher.updateHiddenField);
+    $publisher.find("textarea").bind("focus", function(evt) {
+      Publisher.open();
+      $(this).css('min-height', '42px');
     });
   }
 };

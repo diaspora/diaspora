@@ -57,7 +57,14 @@ describe AspectsController do
       get :index
       assigns[:contacts].map{|c| c.id}.should == @user.contacts.map{|c| c.id}
     end
-
+    it "generates a jasmine fixture" do
+      get :index
+      save_fixture(html_for("body"), "aspects_index")
+    end
+    it "generates a jasmine fixture with a prefill" do
+      get :index, :prefill => "reshare things"
+      save_fixture(html_for("body"), "aspects_index_prefill")
+    end
     context 'filtering' do
       before do
         @posts = []
