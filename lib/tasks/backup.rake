@@ -1,31 +1,32 @@
 namespace :backup do
-  desc "Backup Mongo"
+  desc "Backup Mysql"
   require File.join(Rails.root, 'config', 'initializers', '_load_app_config.rb')
   require 'cloudfiles'
 
-  task :mongo do
-    puts("event=backup status=start type=mongo")
+  task :mysql do
+    puts("event=backup status=start type=mysql")
 
     if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key]
       puts "Logging into Cloud Files"
 
       cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
-      mongo_container = cf.container("Mongo Backup")
+      mysql_container = cf.container("MySQL Backup")
 
-      puts "Dumping Mongo"
-      `mongodump -o /tmp/backup/mongo`
+      puts "Dumping Mysql"
+      `mkdir -p /tmp/backup/mysql`
+      `mysqldump diaspora_production >> /tmp/backup/mysql/backup.txt `
 
-      tar_name = "mongo_#{Time.now.to_i}.tar"
-      `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mongo`
+      tar_name = "mysql_#{Time.now.to_i}.tar"
+      `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mysql`
 
-      file = mongo_container.create_object(tar_name)
+      file = mysql_container.create_object(tar_name)
 
       if file.write File.open("/tmp/backup/" + tar_name)
-        puts("event=backup status=success type=mongo")
+        puts("event=backup status=success type=mysql")
         `rm /tmp/backup/#{tar_name}`
-        `rm -rf /tmp/backup/mongo/`
+        `rm -rf /tmp/backup/mysql/`
       else
-        puts("event=backup status=failure type=mongo")
+        puts("event=backup status=failure type=mysql")
       end
     else
       puts "Cloudfiles username and api key needed"
