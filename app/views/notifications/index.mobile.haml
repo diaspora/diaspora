@@ -10,11 +10,11 @@
         - notes.each do |note|
           .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
 
-            = person_image_link(note.actor)
+            = person_image_link(note.actors.last)
 
             .content
               %span.from
-                %b= note.actor.name
+                %b= notification_people_link(note)
               = object_link(note)
               .time= timeago(note.updated_at)
 
