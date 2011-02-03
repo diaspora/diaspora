@@ -55,12 +55,15 @@ $(document).ready(function() {
   $(document).keyup(function(e){
     //left
     if(e.keyCode == 37) {
-      document.location = $("#photo_show_left").attr('href');
+      if( $("#photo_show_left").length > 0 ){
+        document.location = $("#photo_show_left").attr('href');
+      }
 
     //right
     } else if(e.keyCode == 39) {
-      document.location = $("#photo_show_right").attr('href');
-
+      if( $("#photo_show_right").length > 0 ){
+        document.location = $("#photo_show_right").attr('href');
+      }
     }
   });
 

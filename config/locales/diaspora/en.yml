@@ -277,7 +277,7 @@ en:
           edit: "edit"
           edit_delete_photo: "Edit photo description / delete photo"
           permalink: "permalink"
-          view_original_post: "view original post"
+          collection_permalink: "collection permalink"
       edit:
           editing: "Editing"
       photo:

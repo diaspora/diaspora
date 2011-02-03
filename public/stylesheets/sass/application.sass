@@ -273,6 +273,19 @@ header
   :font
     :weight lighter
 
+.show_photo_attachments
+  :border
+    :bottom 1px solid #eee
+  :padding
+    :top 6px
+    :bottom 16px
+  :margin
+    :bottom 2em
+  img
+    :margin
+      :right 1px
+      :bottom -1px
+
 #author_info
   :position relative
 
@@ -283,28 +296,26 @@ header
     :height 30px
     :width 30px
 
-  .avatar
-    :-webkit-box-shadow none
-    :box-shadow none
-
   .from
     :display inline-block
-    :padding 10px
-      :top 0
 
   &.profile
     .from
       :padding 0
 
   h3,
-  h4
+  h4,
+  h5
     :display inline-block
 
   &.show
     a
       :margin
         :right 1em
-    h4
+      :font
+        :weight normal
+    h4,
+    h5
       :margin 0
       :padding 0
 
@@ -517,6 +528,7 @@ header
   > li
     :border none
     :padding 0
+    :word-wrap break-word
   &:hover
     > li
       :background none
@@ -524,7 +536,8 @@ header
 
   ul.comments
     textarea
-      :width 275px
+      :width 425px
+      :max-width 97%
 
 .stream ul.comments
   .avatar
@@ -687,7 +700,6 @@ a.paginate, #infscr-loading
 
   img
     :max-width 100%
-    :-webkit-box-shadow 0 2px 5px #666
 
   #photo_spinner
     :z-index 1
@@ -1423,15 +1435,6 @@ input[type="search"]
       :size 18px
       :weight bold
 
-  img
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
-    :box-shadow 0 1px 2px #666
-
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-
 .photo_options
   :color #ddd
   :text
@@ -2043,6 +2046,8 @@ h3,h4
 #original_post_info
   p
     :color #999
+  :margin
+    :bottom 2em
 
 .what_is_this
   :position relative
@@ -2206,8 +2211,7 @@ h3,h4
 #photo_controls
   :color #ddd
   :position relative
-  :margin
-    :bottom 1em
+  :z-index 10
 
 ul.show_comments
   :margin
