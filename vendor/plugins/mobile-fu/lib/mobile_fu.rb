@@ -6,7 +6,7 @@ module ActionController
                           'audiovox|motorola|samsung|telit|upg1|windows ce|ucweb|astel|plucker|' +
                           'x320|x240|j2me|sgh|portable|sprint|docomo|kddi|softbank|android|mmp|' +
                           'pdxgw|netfront|xiino|vodafone|portalmmm|sagem|mot-|sie-|ipod|up\\.b|' +
-                          'webos|amoi|novarra|cdm|alcatel|pocket|ipad|iphone|mobileexplorer|' +
+                          'webos|amoi|novarra|cdm|alcatel|pocket|iphone|mobileexplorer|' +
                           'mobile'
 
     def self.included(base)
@@ -84,7 +84,9 @@ module ActionController
       # the device making the request is matched to a device in our regex.
 
       def is_mobile_device?
-        request.user_agent.to_s.downcase =~ Regexp.new(ActionController::MobileFu::MOBILE_USER_AGENTS)
+        # hack for ipad
+        req = request.user_agent.to_s.downcase
+        req =~ Regexp.new(ActionController::MobileFu::MOBILE_USER_AGENTS) && !req.match('ipad')
       end
 
       # Can check for a specific user agent
