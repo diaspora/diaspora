@@ -51,9 +51,30 @@ describe StatusMessage do
     status = Factory.build(:status_message, :message => message)
 
     status.should_not be_valid
-
   end
 
+  describe 'mentions' do
+    before do
+      @people = [alice, bob, eve].map{|u| u.person}
+      @test_string = <<-STR
+@{Raphael; #{@people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{@people[1].diaspora_handle}}
+can mention people like Raphaellike Raphael @{Daniel; #{@people[2].diaspora_handle}} can mention people like Raph
+STR
+      @sm = Factory.create(:status_message, :message => @test_string )
+    end
+
+    it 'adds the links in the formated message text' do
+      @sm.formatted_message.should == <<-STR
+#{@people[0].name} can mention people like Raphael #{@people[1].name}
+can mention people like Raphaellike Raphael #{@people[2].name} can mention people like Raph
+STR
+
+    end
+
+    it 'extracts the mentioned people from the message' do
+      @sm.mentioned_people.to_set.should == @people.to_set
+    end
+  end
   describe "XML" do
     before do
       @message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)

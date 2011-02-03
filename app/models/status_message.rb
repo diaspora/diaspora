@@ -22,6 +22,24 @@ class StatusMessage < Post
     get_youtube_title message
   end
 
+  def formatted_message
+    people = self.mentioned_people
+    regex = /@\{([^;]+); ([^\}]+)\}/
+    message.gsub(regex) do |matched_string|
+      people.detect{ |p|
+        p.diaspora_handle == matched_string.match(regex).captures.last
+      }.name
+    end
+  end
+
+  def mentioned_people
+    regex = /@\{([^;]+); ([^\}]+)\}/
+    identifiers = self.message.scan(regex).map do |match|
+      match.last
+    end
+    Person.where(:diaspora_handle => identifiers)
+  end
+
   def to_activity
     <<-XML
   <entry>
