@@ -4,6 +4,10 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
   @me.aspects.create(:name => "Besties")
 end
 
+Given /^that I am a rock star$/ do
+  Given('a user with username "awesome" and password "totallyawesome"')
+end
+
 Given /^a user with email "([^\"]*)"$/ do |email|
   user = Factory(:user, :email => email, :password => 'password',
           :password_confirmation => 'password', :getting_started => false)
