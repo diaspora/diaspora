@@ -20,11 +20,13 @@ class MakeFieldsNotNull < ActiveRecord::Migration
   end
 
   def self.up
+    remove_index(:profiles, :person_id)
     non_nullable_fields.each_pair do |table, columns|
       columns.each do |column|
         change_column_null(table, column, false)
       end
     end
+    add_index :profiles, :person_id
   end
 
   def self.down
