@@ -4,6 +4,8 @@
   = "#{@sender.name} (#{@sender.diaspora_handle})"
   = t('.commented')
 
+  = @comment.text
+
   %br
   = link_to t('.sign_in'), status_message_url(@comment.post)
 
