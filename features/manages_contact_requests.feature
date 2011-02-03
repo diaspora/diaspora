@@ -17,7 +17,7 @@ Feature: managing contact requests
     When I am on the aspects manage page
     Then I should see "1" within "#notification_badge"
     When I click on the contact request
-    And I wait for the requestors profile page to load
+    And I wait for "the requestors profile" to load
     Then I should be on the requestors profile
     And I should see "wants to share with you"
 
