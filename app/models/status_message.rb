@@ -10,7 +10,7 @@ class StatusMessage < Post
 
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
-  xml_attr :message
+  xml_attr :raw_message
 
   has_many :photos, :dependent => :destroy
   validate :message_or_photos_present?
@@ -22,19 +22,34 @@ class StatusMessage < Post
     get_youtube_title message
   end
 
+  def message
+    self.formatted_message
+  end
+
+  def raw_message
+    read_attribute(:message)
+  end
+  def raw_message=(text)
+    write_attribute(:message, text)
+  end
+
   def formatted_message
+    return self.raw_message unless self.raw_message
     people = self.mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
-    message.gsub(regex) do |matched_string|
-      people.detect{ |p|
+    escaped_message = ERB::Util.h(raw_message)
+    form_message = escaped_message.gsub(regex) do |matched_string|
+      person = people.detect{ |p|
         p.diaspora_handle == matched_string.match(regex).captures.last
-      }.name
+      }
+      "<a href=\"/people/#{person.id}\">#{ERB::Util.h(person.name)}</a>"
     end
+    form_message
   end
 
   def mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
-    identifiers = self.message.scan(regex).map do |match|
+    identifiers = self.raw_message.scan(regex).map do |match|
       match.last
     end
     self.person.owner.contact_people.where(:diaspora_handle => identifiers)
