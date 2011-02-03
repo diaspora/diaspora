@@ -23,8 +23,8 @@ class Profile < ActiveRecord::Base
 
   validates_length_of :first_name, :maximum => 32
   validates_length_of :last_name,  :maximum => 32
-  validates_format_of :first_name, :with => /\A[^;]+\z/, :allow_nil => true
-  validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_nil => true
+  validates_format_of :first_name, :with => /\A[^;]+\z/, :allow_blank => true
+  validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_blank => true
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
     :image_url_small, :birthday, :gender, :bio, :searchable, :date
