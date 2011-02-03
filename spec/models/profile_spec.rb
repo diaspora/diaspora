@@ -22,6 +22,10 @@ describe Profile do
         profile = Factory.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
         profile.should_not be_valid
       end
+      it 'cannot have ;' do
+        profile = Factory.build(:profile, :first_name => "Hex;agon")
+        profile.should_not be_valid
+      end
     end
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
@@ -37,6 +41,15 @@ describe Profile do
 
       it "cannot be 33 characters" do
         profile = Factory.build(:profile, :last_name => "Hexagooooooooooooooooooooooooooon")
+        profile.should_not be_valid
+      end
+
+      it 'cannot have ;' do
+        profile = Factory.build(:profile, :last_name => "Hex;agon")
+        profile.should_not be_valid
+      end
+      it 'disallows ; with a newline in the string' do
+        profile = Factory.build(:profile, :last_name => "H\nex;agon")
         profile.should_not be_valid
       end
     end
