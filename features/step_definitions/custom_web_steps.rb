@@ -47,14 +47,6 @@ Then /^I should see "([^\"]*)" in the main content area$/ do |stuff|
   end
 end
 
-When /^I wait for the aspects page to load$/ do
-  wait_until { current_path == aspects_path }
-end
-
-When /^I wait for the requestors profile page to load$/ do
-  wait_until { current_path == person_path(Request.where(:recipient_id => @me.person.id).first.sender) }
-end
-
 When /^I wait for the ajax to finish$/ do
   wait_until(10) { evaluate_script("$.active") == 0 }
 end
@@ -67,4 +59,13 @@ When /^I click ok in the confirm dialog to appear next$/ do
   evaluate_script <<-JS
     window.confirm = function() { return true; };    
   JS
+end
+
+When /^I wait for "([^\"]*)" to load$/ do |page_name|
+  wait_until(10) do
+    uri = URI.parse(current_url)
+    current_location = uri.path
+    current_location << "?#{uri.query}" unless uri.query.blank?
+    current_location == path_to(page_name)
+  end
 end
