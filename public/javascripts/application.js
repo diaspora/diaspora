@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  var scrolled = 0;
+
   $('#main_stream').infinitescroll({
     navSelector  : ".pagination",
                    // selector for the paged navigation (it will be hidden)
@@ -12,19 +14,27 @@ $(document).ready(function() {
     loadingText: "",
     loadingImg: '/images/ajax-loader.gif'
   }, function() {
-    $("a.paginate")
-      .detach()
-      .appendTo("#main_stream")
-      .css("display", "block");
-    Diaspora.widgets.timeago.updateTimeAgo();
+    scrolled++;
+
+    if(scrolled > 2) {
+       (scrolled === 3) && $(window).unbind('.infscr');
+
+       $("a.paginate")
+        .detach()
+        .appendTo("#main_stream")
+        .css("display", "block");
+
+      Diaspora.widgets.timeago.updateTimeAgo();
+    }
   });
 
-  $(window).unbind('.infscr');
+
 
   $("a.paginate").live("click", function() {
     $(this).css("display", "none");
 
     $(document).trigger("retrieve.infscr");
-  });
+  })
+  .css("display", "none");
 });
 
