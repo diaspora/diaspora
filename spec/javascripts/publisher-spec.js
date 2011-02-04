@@ -13,12 +13,12 @@ describe("Publisher", function() {
         expect(Publisher.updateHiddenField).toHaveBeenCalled();
       });
 
-      it("attaches updateHiddenField to the change handler on fake_message", function(){
+      it("attaches updateHiddenField to the keydown handler on fake_message", function(){
         spec.loadFixture('aspects_index_prefill');
         spyOn(Publisher, 'updateHiddenField');
         Publisher.initialize();
-        Publisher.form().find('#status_message_fake_message').change();
-        expect(Publisher.updateHiddenField.mostRecentCall.args[0].type).toBe('change');
+        Publisher.form().find('#status_message_fake_message').keydown();
+        expect(Publisher.updateHiddenField.mostRecentCall.args[0].type).toBe('keydown');
       });
 
       it("calls close when it does not have text", function(){
@@ -118,6 +118,63 @@ describe("Publisher", function() {
         });
         it("returns everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
           expect(func('@asod asdo @asd asok', 15)).toBe('asd asok');
+        });
+      });
+
+      describe("onSelect", function(){
+
+      });
+      describe("addMentionToHiddenInput", function(){
+        var func;
+        var input;
+
+        beforeEach(function(){
+          spec.loadFixture('aspects_index');
+          func = Publisher.autocompletion.addMentionToHiddenInput;
+          input = Publisher.input();
+        });
+
+      });
+
+      describe("addMentionToVisibleInput", function(){
+        var func;
+        var input;
+        var replaceWith;
+        beforeEach(function(){
+          spec.loadFixture('aspects_index');
+          func = Publisher.autocompletion.addMentionToVisibleInput;
+          input = Publisher.input();
+          replaceWith = "Replace with this.";
+        });
+        it("replaces everything after an @ if the cursor is a word after that @", function(){
+          input.val('not @dan grip');
+          func(input,  replaceWith);
+          input[0].selectionStart = 13;
+          expect(input.val()).toBe('not ' + replaceWith);
+        });
+        it("replaces everything after an @ if the cursor is after that @", function(){
+          input.val('not @dan grip');
+          input[0].selectionStart = 7;
+          func(input,  replaceWith);
+          expect(input.val()).toBe('not ' + replaceWith);
+        });
+        it("replaces everything after an @ at the start of the line", function(){
+          input.val('@dan grip');
+          input[0].selectionStart = 9;
+          func(input,  replaceWith);
+          expect(input.val()).toBe(replaceWith);
+        });
+        it("replaces everything between @s if there are 2 @s and the cursor is between them", function(){
+          input.val('@asdpo  aoisdj @asodk');
+          input[0].selectionStart = 8;
+          func(input,  replaceWith);
+          expect(input.val()).toBe(replaceWith + ' @asodk');
+        });
+        it("replaces everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
+          input.val('@asod asdo @asd asok');
+          input[0].selectionStart = 15;
+          func(input,  replaceWith);
+          expect(input.val()).toBe('@asod asdo ' + replaceWith);
         });
       });
     });

@@ -13,7 +13,6 @@
 
 ;(function($) {
 
-  function lastWord(s){return s;} //Fuck you
 $.fn.extend({
 	autocomplete: function(urlOrData, options) {
 		var isUrl = typeof urlOrData == "string";
@@ -148,6 +147,7 @@ $.Autocompleter = function(input, options) {
 				break;
 
 			default:
+        options.onLetterTyped(event, $input);
 				clearTimeout(timeout);
 				timeout = setTimeout(onChange, options.delay);
 				break;
@@ -215,9 +215,8 @@ $.Autocompleter = function(input, options) {
 			v += options.multipleSeparator;
 		}
 
-		$input.val(v);
 		hideResultsNow();
-		$input.trigger("result", [selected.data, selected.value]);
+    options.onSelect($input, selected.data, selected.value);
 		return true;
 	}
 
@@ -265,9 +264,9 @@ $.Autocompleter = function(input, options) {
 	function autoFill(q, sValue){
 		// autofill in the complete box w/the first match as long as the user hasn't entered in more data
 		// if the last user key pressed was backspace, don't autofill
-		if( options.autoFill && (lastWord($input.val()).toLowerCase() == q.toLowerCase()) && lastKeyPressCode != KEY.BACKSPACE ) {
+		if( options.autoFill && (options.lastWord($input.val(), null, options.multiple).toLowerCase() == q.toLowerCase()) && lastKeyPressCode != KEY.BACKSPACE ) {
 			// fill in the value (keep the case the user has typed)
-			$input.val($input.val() + sValue.substring(lastWord(previousValue).length));
+			$input.val($input.val() + sValue.substring(options.lastWord(previousValue, null, options.multiple).length));
 			// select the portion of the value not typed by the user (so the next character will erase)
 			$.Autocompleter.Selection(input, previousValue.length, previousValue.length + sValue.length);
 		}
@@ -340,7 +339,7 @@ $.Autocompleter = function(input, options) {
 				dataType: options.dataType,
 				url: options.url,
 				data: $.extend({
-					q: lastWord(term),
+					q: options.lastWord(term, null, options.multiple),
 					limit: options.max
 				}, extraParams),
 				success: function(data) {
@@ -380,10 +379,19 @@ $.Autocompleter = function(input, options) {
 };
 
 $.Autocompleter.defaults = {
-  searchTermFromValue: lastWord,
+  onLetterTyped : function(event){},
+  lastWord : function(value, crap, multiple) {
+		if ( !multiple )
+			return value;
+		var words = trimWords(value);
+		return words[words.length - 1];
+	},
 	inputClass: "ac_input",
 	resultsClass: "ac_results",
 	loadingClass: "ac_loading",
+  onSelect: function(input, data, formatted){
+    input.val(formatted);
+  },
 	minChars: 1,
 	delay: 400,
 	matchCase: false,
@@ -407,6 +415,7 @@ $.Autocompleter.defaults = {
     scroll: true,
     scrollHeight: 180
 };
+$.Autocompleter.defaults.searchTermFromValue = $.Autocompleter.defaults.lastWord;
 
 $.Autocompleter.Cache = function(options) {
 

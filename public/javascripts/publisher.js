@@ -28,18 +28,28 @@ var Publisher = {
     return Publisher.cachedInput;
   },
 
-  updateHiddenField: function(evt){
-   Publisher.form().find('#status_message_message').val(
+  cachedHiddenInput : false,
+  hiddenInput: function(){
+    if(!Publisher.cachedHiddenInput){
+      Publisher.cachedHiddenInput = Publisher.form().find('#status_message_message');
+    }
+    return Publisher.cachedHiddenInput;
+  },
+
+  appendToHiddenField: function(evt){
+   Publisher.hiddenInput().val(
     Publisher.input().val());
   },
+
   autocompletion: {
     options : function(){return {
       minChars : 1,
       max : 5,
+      onSelect : Publisher.autocompletion.onSelect,
       searchTermFromValue: Publisher.autocompletion.searchTermFromValue,
       scroll : false,
       formatItem: function(row, i, max) {
-          return row.name;
+          return "<img src='"+ row.avatar +"' class='avatar'/>" + row.name;
       },
       formatMatch: function(row, i, max) {
           return row.name;
@@ -49,24 +59,44 @@ var Publisher = {
       }
     };},
 
-    selectItemCallback :  function(event, data, formatted) {
-      var textarea = Publisher.input();
-      textarea.val(formatted);
+    onSelect :  function(input, data, formatted) {
+      addMentionToVisibleInput(input, formatted);
+    },
+
+    addMentionToVisibleInput: function(input, formatted){
+      var cursorIndex = input[0].selectionStart;
+      var inputContent = input.val();
+
+      var stringLoc = Publisher.autocompletion.findStringToReplace(input.val(), cursorIndex);
+
+      var stringStart = inputContent.slice(0, stringLoc[0]);
+      var stringEnd = inputContent.slice(stringLoc[1]);
+
+      input.val(stringStart + formatted + stringEnd);
+    },
+
+    findStringToReplace: function(value, cursorIndex){
+      var atLocation = value.lastIndexOf('@', cursorIndex);
+      if(atLocation == -1){return [0,0];}
+      var nextAt = value.indexOf('@', cursorIndex+1);
+
+      if(nextAt == -1){nextAt = value.length;}
+      return [atLocation, nextAt];
+
     },
 
     searchTermFromValue: function(value, cursorIndex)
     {
-      var atLocation = value.lastIndexOf('@', cursorIndex);
-      if(atLocation == -1){return '';}
-      var nextAt = value.indexOf('@', cursorIndex+1);
+      var stringLoc = Publisher.autocompletion.findStringToReplace(value, cursorIndex);
+      if(stringLoc[0] <= 2){
+        stringLoc[0] = 0;
+      }else{
+        stringLoc[0] -= 2
+      }
 
-      if(nextAt == -1){nextAt = value.length;}
-      if(atLocation < 2){
-        atLocation = 0;
-      }else{ atLocation = atLocation -2 }
+      var relevantString = value.slice(stringLoc[0], stringLoc[1]).replace(/\s+$/,"");
 
-      relevantString = value.slice(atLocation, nextAt).replace(/\s+$/,"");
-      matches = relevantString.match(/(^|\s)@(.+)/);
+      var matches = relevantString.match(/(^|\s)@(.+)/);
       if(matches){
         return matches[2];
       }else{
@@ -98,7 +128,7 @@ var Publisher = {
 
     Publisher.autocompletion.initialize();
     Publisher.updateHiddenField();
-    Publisher.form().find('#status_message_fake_message').change(
+    Publisher.form().find('#status_message_fake_message').bind('keydown',
         Publisher.updateHiddenField);
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();

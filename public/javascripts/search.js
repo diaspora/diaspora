@@ -25,6 +25,7 @@ var Search = {
   },
   options : function(){return {
       minChars : 3,
+      onSelect: Search.selectItemCallback,
       max : 5,
       scroll : false,
       delay : 200,
@@ -49,7 +50,6 @@ var Search = {
 
   initialize : function() {
     $(Search.selector).autocomplete(Search.source, Search.options());
-    $(Search.selector).result(Search.selectItemCallback);
   }
 }
 
