@@ -95,12 +95,10 @@ class AspectsController < ApplicationController
   end
 
   def manage
-    Rails.logger.info("Controller time")
     @aspect = :manage
     @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
     @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender => :profile)
     @aspects = @all_aspects.includes(:contacts => {:person => :profile})
-    Rails.logger.info("VIEW TIME!!!!!!")
   end
 
   def update

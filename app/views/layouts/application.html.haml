@@ -99,6 +99,7 @@
           %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
           %li= link_to t('layouts.header.code'), "#{root_url.chomp('/')}/source.tar.gz" unless request.url.match(/joindiaspora.com/)
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
+          %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)  if is_mobile_device?
         = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
         %br
         = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'

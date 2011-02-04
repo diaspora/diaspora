@@ -60,6 +60,9 @@
           %br
           = link_to t('layouts.header.logout'), destroy_user_session_path
 
+          %br
+          %br
+          = link_to t('layouts.application.toggle'), toggle_mobile_path
 
     -if current_user
       #menu{:data => {:role => 'page'}}
@@ -102,6 +105,8 @@
             = link_to aspect, aspects_path('a_ids[]' => aspect.id)
             |
           %br
-
           %br
           = link_to t('layouts.header.logout'), destroy_user_session_path
+          %br
+          %br
+          = link_to t('layouts.application.toggle'), toggle_mobile_path

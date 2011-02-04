@@ -18,4 +18,13 @@ class HomeController < ApplicationController
       render :show
     end
   end
+
+  def toggle_mobile
+   if session[:mobile_view]
+     session[:mobile_view] = false
+   else
+     session[:mobile_view] = true
+   end
+    redirect_to :back
+  end
 end

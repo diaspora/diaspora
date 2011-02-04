@@ -99,6 +99,7 @@ en:
         have_a_problem: "Have a problem? Find an answer here"
         your_aspects: "your aspects"
         logged_in_as: "logged in as %{name}"
+        toggle: 'toggle mobile site'
   shared:
       publisher:
           posting: "Posting..."
