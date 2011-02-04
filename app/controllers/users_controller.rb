@@ -83,7 +83,10 @@ class UsersController < ApplicationController
     @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
     @step ||= 1
 
-    if @step == 4
+    if @step == 3
+      service = current_user.services.where(:type => "Services::Facebook").first
+      @friends = service ? service.finder : {}
+    elsif @step == 4
       @user.getting_started = false
       @user.save
     end

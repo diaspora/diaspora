@@ -5,16 +5,27 @@
 .aspect_list#aspects_list
   %ul
     - for aspect in aspects_with_person
-      %li{:data=>{:guid=>aspect.id}}
-        %span.name
-          = link_to aspect.name, aspect
-        .right
-          = aspect_membership_button(aspect, contact, person)
+      = render :partial => 'aspects/aspect_list_item', 
+               :locals => {:aspect => aspect, :person => person,
+                           :contact => contact}
 
     - for aspect in aspects_without_person
-      %li{:data=>{:guid=>aspect.id}}
-        %span.name
-          = link_to aspect.name, aspect
-        .right
-          = aspect_membership_button(aspect, contact, person)
+      = render :partial => 'aspects/aspect_list_item', 
+               :locals => {:aspect => aspect, :person => person,
+                           :contact => contact}
+
+.add_aspect
+  = t('users.getting_started.step_3.aspect_name')
+  = form_for(Aspect.new, :remote => true) do |aspect|
+    = aspect.error_messages
+    = aspect.hidden_field :person_id, :value => person.id if person
+    = aspect.hidden_field :contact_id, :value => contact.id if contact
+    = aspect.hidden_field :share_with, :value => true
+    = aspect.text_field :name, :id => "step-3-aspect-name", :style => "display:inline;"
+    %p.checkbox_select
+      = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
+      = aspect.check_box :contacts_visible, :default => true
+    .right
+      = aspect.submit :src => '/images/icons/monotone_add_plus.png', :type => "image", :value => "", :class => 'button'
+
 

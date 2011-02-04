@@ -74,5 +74,10 @@ $(document).ready(function() {
     $(this).children("img").attr("src","/images/icons/monotone_check_yes.png");
   });
 
+  $('.new_aspect').live('ajax:success', function(data, json, xhr){
+      var json = JSON.parse(json);
+      $('#aspects_list ul').append(json.html);
+      });
+
   List.initialize();
 });

@@ -6,7 +6,7 @@ class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
-  respond_to :json, :only => :show
+  respond_to :json, :only => [:show, :create]
   respond_to :js
 
   def index
@@ -47,6 +47,17 @@ class AspectsController < ApplicationController
         redirect_to :back
       elsif request.env['HTTP_REFERER'].include?("aspects/manage")
         redirect_to :back
+      elsif params[:aspect][:share_with]
+        @contact = Contact.where(:id => params[:aspect][:contact_id]).first
+        @person = Person.where(:id => params[:aspect][:person_id]).first
+        respond_to do |format|
+          format.js { render :json => {:html => render_to_string(
+              :partial => 'aspects/aspect_list_item',
+              :locals => {:aspect => @aspect,
+                            :person => @person,
+                            :contact => @contact}
+                                      )},:status => 201 }
+              end
       else
         respond_with @aspect
       end
