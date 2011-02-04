@@ -26,7 +26,9 @@ end
 
 When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   with_scope(selector) do
-    silence_warnings { click_button(button) } # ruby 1.9 produces a warning about UTF8 from rack-util
+    silence_warnings { 
+      sleep 1 if button == "Share"
+      click_button(button) } # ruby 1.9 produces a warning about UTF8 from rack-util
   end
 end
 
