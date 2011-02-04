@@ -6,6 +6,7 @@
 fr: 
   javascripts: 
     confirm_dialog: "Êtes-vous sûr ?"
+    search_for: "Chercher {{name}}"
     timeago: 
       day: "environ un jour"
       days: "environ %d jours"

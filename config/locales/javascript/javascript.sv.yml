@@ -6,6 +6,7 @@
 sv: 
   javascripts: 
     confirm_dialog: "Are you sure?"
+    search_for: "Search for {{name}}"
     timeago: 
       day: "en dag"
       days: "%d dagar"

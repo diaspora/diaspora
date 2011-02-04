@@ -216,6 +216,7 @@ gl-ES:
       try_it_out: "Deberías pensar seriamente en botarlle unha ollada."
     request_accepted: 
       accepted: "aceptou a túa petición de contacto."
+      sign_in: "Sign in here"
       subject: "%{name} aceptoute como contacto en Diaspora*."
     single_admin: 
       admin: "O teu administrador Diaspora"
@@ -308,6 +309,7 @@ gl-ES:
     photo: 
       view_all: "ver todas as fotos de %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Eliminar foto"
       edit: "editar"
       edit_delete_photo: "Editar descrición da foto / eliminar foto"
@@ -315,7 +317,6 @@ gl-ES:
       permalink: "permalink"
       update_photo: "Actualizar foto"
       view: "ver"
-      view_original_post: "ver publicación orixinal"
     update: 
       error: "Erro ao editar a foto."
       notice: "Foto actualizada correctamente."

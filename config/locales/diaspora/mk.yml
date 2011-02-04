@@ -216,6 +216,7 @@ mk:
       try_it_out: "Навистина треба да го проверите."
     request_accepted: 
       accepted: "го прифати вашето контакт барање. Сега се во вашиот"
+      sign_in: "Sign in here"
       subject: "%{name} го прифати вашето контакт барање на Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ mk:
     photo: 
       view_all: "погледни ги сите слики на %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Избриши слика"
       edit: "уреди"
       edit_delete_photo: "Уреди опис на слика/избриши слика"
@@ -315,7 +317,6 @@ mk:
       permalink: "permalink"
       update_photo: "Ажурирај слика"
       view: "поглед"
-      view_original_post: "view original post"
     update: 
       error: "Неуспешно уредување на слика."
       notice: "Ажурирањето на сликата е успешно."

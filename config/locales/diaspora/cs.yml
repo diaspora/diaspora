@@ -203,7 +203,7 @@ cs:
       sign_in: "Přihlašte se pro zobrazení."
       subject: "%{name} také komentoval."
     comment_on_post: 
-      commented: "komentoval váš příspěvek!"
+      commented: "komentoval váš příspěvek:"
       sign_in: "Přihlašte se pro zobrazení."
       subject: "%{name} komentoval váš příspěvek."
     diaspora: "diaspora email robot"
@@ -211,11 +211,12 @@ cs:
     love: "s láskou,"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
-      sign_in: "zapsat se zde"
+      sign_in: "Přihlaste se zde"
       subject: "nová žádost na Diasporu* od %{from}"
       try_it_out: "Měli byste o tom opravdu přemýšlet."
     request_accepted: 
       accepted: "přijal vaši žádost!"
+      sign_in: "Přihlaste se zde"
       subject: "%{name} přijal vaši žádost na Diasporu*"
     single_admin: 
       admin: "Váš Diaspora administrátor"
@@ -308,6 +309,7 @@ cs:
     photo: 
       view_all: "zobrazit všechny fotky uživatele %{name}"
     show: 
+      collection_permalink: "trvalý odkaz kolekce"
       delete_photo: "Smazat fotku"
       edit: "upravit"
       edit_delete_photo: "Upravit popis fotky / smazat fotku"
@@ -315,7 +317,6 @@ cs:
       permalink: "trvalý odkaz"
       update_photo: "Aktualizovat fotku"
       view: "zobrazit"
-      view_original_post: "zobrazit původní zprávu"
     update: 
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
@@ -492,4 +493,4 @@ cs:
     hcard_fetch_failed: "Nepodařilo se získat hcard pro %{@account}"
     no_person_constructed: "Z této hcard nemůže být vytvořena žádná osoba."
     not_enabled: "Vypadá to, že webfinger nemůže být povolen pro hosta účtu %{account}"
-    xrd_fetch_failed: "vyskytl se problém při získání xrd účtu %{account}"
+    xrd_fetch_failed: "vyskytl se problém při získání xrd z účtu %{account}"

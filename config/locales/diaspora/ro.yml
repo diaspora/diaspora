@@ -216,6 +216,7 @@ ro:
       try_it_out: "You should really think about checking it out."
     request_accepted: 
       accepted: "a acceptat cererea dumneavoastră de contact!"
+      sign_in: "Sign in here"
       subject: "%{name} a acceptat cererea de contact pe Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ ro:
     photo: 
       view_all: "vizualizează toate fotografiile lui %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Șterge Fotografie"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
@@ -315,7 +317,6 @@ ro:
       permalink: "permalink"
       update_photo: "Actualizează fotografia"
       view: "vizualizează"
-      view_original_post: "view original post"
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Fotografia a fost actualizată cu succes."

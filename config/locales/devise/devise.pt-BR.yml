@@ -51,7 +51,7 @@ pt-BR:
       welcome: "Bem-vindo(a) %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Mudar minha senha"
       new: 
         forgot_password: "Esqueceu sua senha?"
         no_account: "Nenhuma conta com este email existe. Se você está esperando por um convite, estamos enviando-o o quanto antes."

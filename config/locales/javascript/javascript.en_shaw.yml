@@ -6,6 +6,7 @@
 en_shaw: 
   javascripts: 
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
+    search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
     timeago: 
       day: "𐑩 𐑛𐑱"
       days: "%d 𐑛𐑱𐑟"
@@ -15,8 +16,8 @@ en_shaw:
       minutes: "%d 𐑥𐑦𐑯𐑩𐑑𐑕"
       month: "𐑩𐑚𐑬𐑑 𐑩 𐑥𐑳𐑯𐑔"
       months: "%d 𐑥𐑳𐑯𐑔𐑕"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "𐑩𐑜𐑴"
+      prefixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"
       seconds: "𐑤𐑧𐑕 𐑞𐑨𐑯 𐑩 𐑥𐑦𐑯𐑩𐑑"
       suffixAgo: "𐑩𐑜𐑴"
       suffixFromNow: "𐑓𐑮𐑪𐑥 𐑯𐑬"

@@ -216,6 +216,7 @@ sl:
       try_it_out: "Preverite in se prepričajte."
     request_accepted: 
       accepted: "vaše povabilo je bilo sprejeto!"
+      sign_in: "Sign in here"
       subject: "Oseba %{name} je sprejela vaše povabilo za stik v Diaspori*"
     single_admin: 
       admin: "Vaš administrator Diaspore"
@@ -308,6 +309,7 @@ sl:
     photo: 
       view_all: "ogled vseh slik osebe %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Izbriši sliko"
       edit: "uredi"
       edit_delete_photo: "Dodaj opis slike ali izbriši sliko"
@@ -315,7 +317,6 @@ sl:
       permalink: "trajna povezava"
       update_photo: "Posodobi sliko"
       view: "poglej"
-      view_original_post: "poglej izvorni prispevek"
     update: 
       error: "Urejanje slike ni uspelo."
       notice: "Slika uspešno posodobljena."

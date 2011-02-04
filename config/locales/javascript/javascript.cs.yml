@@ -6,6 +6,7 @@
 cs: 
   javascripts: 
     confirm_dialog: "Jste si jisti?"
+    search_for: "Hledat {{name}}"
     timeago: 
       day: "1 dnem"
       days: "%d dny"

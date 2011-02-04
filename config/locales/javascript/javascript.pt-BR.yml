@@ -6,6 +6,7 @@
 pt-BR: 
   javascripts: 
     confirm_dialog: "Tem certeza?"
+    search_for: "Search for {{name}}"
     timeago: 
       day: "um dia"
       days: "%d dias"

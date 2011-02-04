@@ -216,6 +216,7 @@ sk:
       try_it_out: "Mali by ste to skontrolovať."
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
+      sign_in: "Sign in here"
       subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspore*"
     single_admin: 
       admin: "Váš administrátor"
@@ -308,6 +309,7 @@ sk:
     photo: 
       view_all: "pozrieť všetky fotky užívateľa %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Zmazať fotku"
       edit: "upraviť"
       edit_delete_photo: "Upraviť popis fotky / zmazať fotku"
@@ -315,7 +317,6 @@ sk:
       permalink: "permalink"
       update_photo: "Aktualizovať fotku"
       view: "Pozrieť"
-      view_original_post: "view original post"
     update: 
       error: "Úprava fotky zlyhala."
       notice: "Fotka bola úspešne aktualizovaná."

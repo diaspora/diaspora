@@ -7,14 +7,14 @@ eo:
   _aspect: "Aspect"
   _aspects: "Aspects"
   _comment: "Comment"
-  _comments: "Comments"
+  _comments: "Komentoj"
   _contact: "Contact"
   _contacts: "Contacts"
   _home: "Hejmo"
   _more: "More"
   _photos: "bildoj"
-  _services: "Services"
-  account: "Account"
+  _services: "Servoj"
+  account: "Konto"
   activemodel: 
     errors: 
       models: 
@@ -43,7 +43,7 @@ eo:
     helper: 
       aspect_badge: 
         all_aspects: "All aspects"
-      unknown_person: "unknown person"
+      unknown_person: "nekonata persono"
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
@@ -57,7 +57,7 @@ eo:
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Aspect creation failed."
-      success: "Your new aspect %{name} was created"
+      success: "Via nova aspekto, %{name} kreiĝis"
     destroy: 
       success: "%{name} was successfully removed."
     edit: 
@@ -69,24 +69,24 @@ eo:
       save: "Save"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
-      aspect_not_empty: "Aspect not empty"
-      remove: "remove"
+      aspect_not_empty: "Aspekto ne malplenas"
+      remove: "forigi"
     index: 
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
     manage: 
-      add_a_new_aspect: "Add a new aspect"
+      add_a_new_aspect: "Aldoni novan aspekton"
       add_a_new_contact: "Aldoni novan kontakton"
       drag_to_add: "Drag to add people"
       manage_aspects: "Manage aspects"
       no_requests: "Neniujn novajn petojn "
-      requests: "Requests"
+      requests: "Petoj"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
-      create: "Create"
+      create: "Krei"
       name: "Nomo"
     no_contacts_message: 
       add_contact: "Aldoni kontakton"
@@ -130,11 +130,11 @@ eo:
   fill_me_out: "Fill me out"
   home: 
     show: 
-      already_account: "already have an account?"
+      already_account: "ĉu vi jam havas konton?"
       choice: "Choice"
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
       learn_about_host: "Learn about how to host your own Diaspora server."
-      login_here: "log in here"
+      login_here: "ensaluti tie ĉi"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
       share_what_you_want: "Share what you want, with whom you want."
@@ -216,6 +216,7 @@ eo:
       try_it_out: "You should really think about checking it out."
     request_accepted: 
       accepted: "has accepted your contact request. They are now in your"
+      sign_in: "Sign in here"
       subject: "%{name} has accepted your contact request on Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ eo:
     photo: 
       view_all: "view all of %{name}'s photos"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Delete Photo"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
@@ -315,7 +317,6 @@ eo:
       permalink: "permalink"
       update_photo: "Update Photo"
       view: "view"
-      view_original_post: "view original post"
     update: 
       error: "Failed to edit photo."
       notice: "Photo successfully updated."

@@ -216,6 +216,7 @@ sv:
       try_it_out: "Du borde verkligen överväga att kolla upp detta."
     request_accepted: 
       accepted: "har accepterat din kontaktförfrågan!"
+      sign_in: "Sign in here"
       subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
     single_admin: 
       admin: "Din Diaspora administratör"
@@ -308,6 +309,7 @@ sv:
     photo: 
       view_all: "visa alla foton som %{name} laddat upp"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Ta bort foto"
       edit: "ändra"
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
@@ -315,7 +317,6 @@ sv:
       permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"
-      view_original_post: "visa ursprungligt meddelande"
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."

@@ -6,6 +6,7 @@
 hu: 
   javascripts: 
     confirm_dialog: "Biztos vagy benne?"
+    search_for: "{{name}} keresése."
     timeago: 
       day: "egy napja"
       days: "%d napja"

@@ -203,7 +203,7 @@ fi:
       sign_in: "Kirjaudu sisään nähdäksesi."
       subject: "%{name} on myös kommentoinut."
     comment_on_post: 
-      commented: "on kommentoinut viestiisi!"
+      commented: "on kommentoinut viestiisi:"
       sign_in: "Kirjaudu sisään nähdäksesi."
       subject: "%{name} on kommentoinut viestiisi."
     diaspora: "diasporan sähköpostirobotti"
@@ -211,11 +211,12 @@ fi:
     love: "terveisin,"
     new_request: 
       just_sent_you: "lähetti juuri äsken sinulle kontaktipyynnön Diaspora*ssa"
-      sign_in: "kirjaudu sisään täältä"
+      sign_in: "Kirjaudu sisään täältä"
       subject: "uusi Diaspora* kontaktipyyntö henkilöltä %{from}"
       try_it_out: "Sinun todella kannattaisi tutustua siihen."
     request_accepted: 
       accepted: "on hyväksynyt kontaktipyyntösi!"
+      sign_in: "Enregistrez-vous ici"
       subject: "%{name} on hyväksynyt kontaktipyyntösi Diaspora*ssa"
     single_admin: 
       admin: "Diasporasi ylläpitäjä"
@@ -308,6 +309,7 @@ fi:
     photo: 
       view_all: "näytä kaikki käyttäjän %{name} kuvat"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Poista kuva"
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
@@ -315,7 +317,6 @@ fi:
       permalink: "pysyvä linkki"
       update_photo: "Päivitä kuva"
       view: "näytä"
-      view_original_post: "alkuperäinen viesti"
     update: 
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."

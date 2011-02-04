@@ -6,6 +6,7 @@
 nl: 
   javascripts: 
     confirm_dialog: "Weet je het zeker?"
+    search_for: "Zoek naar {{name}}"
     timeago: 
       day: "een dag"
       days: "%d dagen"

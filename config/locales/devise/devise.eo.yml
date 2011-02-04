@@ -29,16 +29,16 @@ eo:
         you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
       hello: "Saluton, %{email}!"
       invitation: 
-        accept: "Accept invitation"
+        accept: "Akcepti inviton"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        subject: "Iu invitis vin aligi al Diaspora!"
       inviters: 
         accept_at: ", ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name} invitis vin aliĝi al Diaspora"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
+        change: "Ŝanĝi mian pasvorton"
         ignore: "If you didn't request this, please ignore this email."
         someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
         subject: "Reset password instructions"
@@ -48,10 +48,10 @@ eo:
         click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
         subject: "Instrukcioj por malŝlosi"
         unlock: "Malŝlosi mian konton."
-      welcome: "Welcome %{email}!"
+      welcome: "Bonvenon %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "Ŝanĝi mian pasvorton"
       new: 
         forgot_password: "Forgesis vian pasvorton?"
         no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"

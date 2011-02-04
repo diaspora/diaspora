@@ -168,7 +168,7 @@ es:
       have_a_problem: "¿Algún problema? Encuentra una solución aquí"
       logged_in_as: "Registrado como %{name}"
       powered_by: "IMPULSADO POR DIASPORA*"
-      whats_new: "¿Qué pasa por tu mente?"
+      whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus aspectos"
     header: 
       account_settings: "Configurar cuenta"
@@ -216,6 +216,7 @@ es:
       try_it_out: "Deberías pensar en corregirlo."
     request_accepted: 
       accepted: "ha aceptado tu solicitud de contacto. Ahora se encuentran en tu"
+      sign_in: "Conectar aquí"
       subject: "%{name} ha aceptado tu solicitud de contacto en Diaspora*"
     single_admin: 
       admin: "Tu administrador de Diaspora*"
@@ -308,6 +309,7 @@ es:
     photo: 
       view_all: "Ver todas las fotos de %{name}"
     show: 
+      collection_permalink: "Enlace permanente a la colección"
       delete_photo: "Eliminar Foto"
       edit: "Editar"
       edit_delete_photo: "Editar pie de fotografía / eliminar fotografía"
@@ -315,7 +317,6 @@ es:
       permalink: "Enlace permanente"
       update_photo: "Actualizar foto"
       view: "ver"
-      view_original_post: "Ver el comentario original"
     update: 
       error: "Falló la edición de la foto."
       notice: "Foto actualizada correctamente."
@@ -417,7 +418,7 @@ es:
       posting: "Posteando..."
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
-      whats_on_your_mind: "¿Qué tal?"
+      whats_on_your_mind: "¿Qué tal? ¡Qué pasa!"
     reshare: 
       reshare: "Compartir de nuevo"
   status_messages: 

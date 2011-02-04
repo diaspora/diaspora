@@ -6,6 +6,7 @@
 ro: 
   javascripts: 
     confirm_dialog: "Eşti sigur?"
+    search_for: "Search for {{name}}"
     timeago: 
       day: "o zi"
       days: "%d zile"

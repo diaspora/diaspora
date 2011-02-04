@@ -216,6 +216,7 @@ pl:
       try_it_out: "Przemyśl to, naprawdę warto spróbować."
     request_accepted: 
       accepted: "zaakceptował(-a) Twoje zaproszenie. Jest w aspekcie"
+      sign_in: "Sign in here"
       subject: "%{name} zaakceptował(-a) twoje zaproszenie do znajomych w Diasporze*"
     single_admin: 
       admin: "Twój panel zarządzania Diaspora"
@@ -308,6 +309,7 @@ pl:
     photo: 
       view_all: "pokaż wszystkie zdjęcia należące do: %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Usuń zdjęcie"
       edit: "edytuj"
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
@@ -315,7 +317,6 @@ pl:
       permalink: "permalink"
       update_photo: "Aktualizuj zdjęcie"
       view: "podgląd"
-      view_original_post: "view original post"
     update: 
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."

@@ -6,6 +6,7 @@
 fi: 
   javascripts: 
     confirm_dialog: "Oletko varma?"
+    search_for: "Search for {{name}}"
     timeago: 
       day: "päivä"
       days: "%d päivää"

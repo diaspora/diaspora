@@ -203,7 +203,7 @@ nl:
       sign_in: "Log in om het te zien."
       subject: "%{name} heeft ook gereageerd."
     comment_on_post: 
-      commented: "heeft op jou post gereageerd!"
+      commented: "heeft gereageerd op jou post:"
       sign_in: "Log in om het te zien."
       subject: "%{name} heeft op jou post gereageerd."
     diaspora: "de diaspora email robot"
@@ -211,11 +211,12 @@ nl:
     love: "liefs,"
     new_request: 
       just_sent_you: "heeft je zojuist een contactverzoek verzonden op Diaspora*"
-      sign_in: "log hier in"
+      sign_in: "Log hier in"
       subject: "nieuw Diaspora* contactverzoek van %{from}"
       try_it_out: "Overweeg eens een kijkje te nemen."
     request_accepted: 
       accepted: "heeft je contactverzoek geaccepteerd!"
+      sign_in: "Log hier in"
       subject: "%{name} heeft je contactverzoek geaccepteerd op Diaspora*"
     single_admin: 
       admin: "Je Diaspora administrator"
@@ -271,7 +272,7 @@ nl:
       share_with: "Start delen met %{name}"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
-      incoming_request: "% {Naam} wil met je delen"
+      incoming_request: "% {name} wil met je delen"
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"
@@ -308,6 +309,7 @@ nl:
     photo: 
       view_all: "bekijk al %{name}'s foto's"
     show: 
+      collection_permalink: "collectie permalink"
       delete_photo: "Verwijder Foto"
       edit: "bewerk"
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
@@ -315,7 +317,6 @@ nl:
       permalink: "permalink"
       update_photo: "Update foto"
       view: "bekijk"
-      view_original_post: "bekijk oorspronkelijke post"
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."

@@ -216,6 +216,7 @@ lt:
       try_it_out: "Pabandyk!"
     request_accepted: 
       accepted: "priėmė tavo prašymą draugauti. Jie dabar yra tavo"
+      sign_in: "Sign in here"
       subject: "%{name} priėmė tavo pasiūlymą draugauti Diasporoje*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ lt:
     photo: 
       view_all: "rodyti visas nuotraukas, kurias įkėlė %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Pašalinti nuotrauką"
       edit: "redaguoti"
       edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
@@ -315,7 +317,6 @@ lt:
       permalink: "permalink"
       update_photo: "Atnaujinti nuotrauką"
       view: "rodyti"
-      view_original_post: "view original post"
     update: 
       error: "Nuotraukos atnaujinti nepavyko."
       notice: "Nuotrauka atnaujinta sėkmingai."

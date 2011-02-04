@@ -25,19 +25,19 @@ pt-BR:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "já está sendo usado"
+              taken: "já está sendo usado."
         request: 
           attributes: 
             from_id: 
-              taken: "é uma duplicata de uma solicitação já existente."
+              taken: "é uma duplicata de um pedido já existente."
         user: 
           attributes: 
             email: 
-              taken: "já está sendo usado(a)"
+              taken: "já está sendo usado."
             person: 
-              invalid: "é inválido"
+              invalid: "é inválido."
             username: 
-              taken: "já está sendo usado(a)"
+              taken: "já está sendo usado."
   ago: "%{time} atrás"
   application: 
     helper: 
@@ -45,7 +45,7 @@ pt-BR:
         all_aspects: "Todos os aspectos"
       unknown_person: "pessoa desconhecida"
       video_title: 
-        unknown: "Vídeo sem título"
+        unknown: "Título de Vídeo Desconhecido"
   are_you_sure: "Tem certeza?"
   aspects: 
     add_to_aspect: 
@@ -63,7 +63,7 @@ pt-BR:
     edit: 
       add_existing: "Incluir um contato existente"
       confirm_remove_aspect: "Tem certeza que quer excluir este aspecto?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "tornar a lista do aspecto visível para outros no aspecto"
       remove_aspect: "Excluir este aspecto"
       rename: "renomear"
       save: "Salvar"
@@ -115,7 +115,7 @@ pt-BR:
       commenting: "Comentando..."
       enter: "entrar"
       press: "press"
-      to_comment: "to comment"
+      to_comment: "comentar"
   contacts: 
     few: "%{count} contatos"
     one: "1 contato"
@@ -127,7 +127,7 @@ pt-BR:
     helper: 
       correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
       invalid_fields: "Campos inválidos"
-  fill_me_out: "Preencher"
+  fill_me_out: "Preencha-me"
   home: 
     show: 
       already_account: "já possui uma conta?"
@@ -155,7 +155,7 @@ pt-BR:
       sign_up: "cadastre-se"
     new: 
       already_invited: "Já convidado"
-      aspect: "Aspect"
+      aspect: "Aspecto"
       comma_seperated_plz: "Você pode adicionar múltiplos endereços de email, separados por vírgulas."
       if_they_accept_info: "se eles aceitarem, serão adicionados ao aspecto para o qual você os convidou."
       invite_someone_to_join: "Convide seus amigos para o Diaspora!"
@@ -166,12 +166,12 @@ pt-BR:
   layouts: 
     application: 
       have_a_problem: "Algum problema? Encontre sua resposta aqui"
-      logged_in_as: "entrou como %{name}"
+      logged_in_as: "logado como %{name}"
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "o que há de novo?"
       your_aspects: "seus aspectos"
     header: 
-      account_settings: "editar conta"
+      account_settings: "configurações da conta"
       blog: "blog"
       code: "código"
       edit_profile: "editar perfil"
@@ -195,7 +195,7 @@ pt-BR:
       mark_all_as_read: "Marcar todos como lido"
       notifications: "Notificações"
     new_request: "ofereceram para compartilhar com você."
-    post: "post"
+    post: "postagem"
     request_accepted: "aceitaram sua solicitação de compartilhamento."
   notifier: 
     also_commented: 
@@ -203,7 +203,7 @@ pt-BR:
       sign_in: "Entre para vê-lo."
       subject: "%{name} também comentou."
     comment_on_post: 
-      commented: "comentou sua postagem!"
+      commented: "comentou na sua postagem!"
       sign_in: "Entre para vê-lo."
       subject: "%{name} comentou sua postagem."
     diaspora: "o robô de email da Diaspora"
@@ -211,11 +211,12 @@ pt-BR:
     love: "gosta,"
     new_request: 
       just_sent_you: "acabou de lhe enviar um pedido de contato na Diaspora*"
-      sign_in: "cadastre-se aqui"
+      sign_in: "Faça login aqui"
       subject: "novo pedido de contato na Diaspora de %{from}"
       try_it_out: "Você realmente deveria dar uma olhada."
     request_accepted: 
-      accepted: "aceitou seu pedido de contato. Eles estão agora no seu"
+      accepted: "aceitou seu pedido de contato!"
+      sign_in: "Faça login aqui"
       subject: "%{name} aceitou seu pedido de contato na Diaspora"
     single_admin: 
       admin: "O administrador de sua Diaspora"
@@ -246,7 +247,7 @@ pt-BR:
       your_profile: "Seu perfil"
     helper: 
       people_on_pod_are_aware_of: " as pessoas desta semente sabem que"
-      results_for: " results for %{params}"
+      results_for: " resultados para %{params}"
     index: 
       couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Convide-os!"
       no_one_found: "...e ninguém foi encontrado."
@@ -259,7 +260,7 @@ pt-BR:
       thats_you: "você!"
     profile_sidebar: 
       bio: "biografia"
-      born: "nascido"
+      born: "aniversário"
       cannot_remove: "Não foi possível remover %{name} do último aspecto. (Se você quer desconectar esta pessoa você deve remover o contato)."
       edit_my_profile: "Editar meu perfil"
       gender: "sexo"
@@ -271,7 +272,7 @@ pt-BR:
       share_with: "Comece a compartilhar com %{name}"
     show: 
       does_not_exist: "Pessoa não existe!"
-      incoming_request: "Você possui uma solicitação dessa pessoa."
+      incoming_request: "%{name} quer compartilhar com você"
       no_posts: "Nada para mostrar por aqui."
       not_connected: "Você não está conectado com %{name}."
       recent_posts: "Postagens recentes"
@@ -287,9 +288,9 @@ pt-BR:
       fail: "Desculpe, não conseguimos encontrar %{handle}."
   photos: 
     create: 
-      integrity_error: "O envio da foto falhou. Tem certeza que era uma imagem?"
+      integrity_error: "O envio da foto falhou. Tem certeza de que era uma imagem?"
       runtime_error: "O envio da foto falhou. Você colocou seu cinto de segurança?"
-      type_error: "O envio da foto falhou. Tem certeza que uma imagem foi adicionada?"
+      type_error: "O envio da foto falhou. Tem certeza de que uma imagem foi adicionada?"
     destroy: 
       notice: "Foto removida."
     edit: 
@@ -297,28 +298,28 @@ pt-BR:
     new: 
       back_to_list: "Voltar para a Lista"
       new_photo: "Nova Foto"
-      post_it: "enviar!"
+      post_it: "postar!"
     new_photo: 
       empty: "{file} está vazio, por favor, selecione arquivos novamente."
       invalid_ext: "{file} possui extensão inválida. Somente {extensions} são permitidos."
       size_error: "{file} é muito grande, o tamanho máximo para arquivos é {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ou escolha uma das que você já possui"
-      upload: "Envie uma foto nova do seu perfil!"
+      or_select_one: "ou escolha uma das suas existentes"
+      upload: "Envie uma foto nova para seu perfil!"
     photo: 
-      view_all: "Ver todas as fotos do(a) %{name}"
+      view_all: "Ver todas as fotos de %{name}"
     show: 
+      collection_permalink: "permalink da coleção"
       delete_photo: "Excluir Foto"
       edit: "editar"
-      edit_delete_photo: "Editar descrição / deletar foto"
-      make_profile_photo: "selecionar esta foto para seu perfil"
+      edit_delete_photo: "Editar descrição da foto / deletar foto"
+      make_profile_photo: "selecionar como foto do perfil"
       permalink: "permalink"
-      update_photo: "Atualizar foto"
+      update_photo: "Atualizar Foto"
       view: "visualizar"
-      view_original_post: "ver postagem original"
     update: 
       error: "Falha ao editar foto."
-      notice: "Foto enviada com sucesso."
+      notice: "Foto atualizada com sucesso."
   previous: "anterior"
   profile: "Perfil"
   registrations: 
@@ -416,8 +417,8 @@ pt-BR:
       post_a_message_to: "Enviar uma mensagem para %{aspect}"
       posting: "Postando..."
       share: "Compartilhar"
-      share_with: "Compartilhar com %{aspect}"
-      whats_on_your_mind: "o quê você está pensando?"
+      share_with: "Compartilhar com"
+      whats_on_your_mind: "em quê você está pensando?"
     reshare: 
       reshare: "Compartilhar novamente"
   status_messages: 
@@ -431,7 +432,7 @@ pt-BR:
       permalink: "permalink"
   stream_helper: 
     hide_comments: "esconder comentários"
-    show_comments: "ver comentários"
+    show_comments: "ver todos os comentários"
   the_world: "o mundo"
   username: "Usuário"
   users: 
@@ -444,7 +445,7 @@ pt-BR:
       current_password: "Senha atual"
       download_photos: "baixar minhas fotos"
       download_xml: "baixar meu xml"
-      edit_account: "Edit account"
+      edit_account: "Editar conta"
       email_notifications: "Notificações por email"
       export_data: "Exportar dados"
       new_password: "Nova Senha"

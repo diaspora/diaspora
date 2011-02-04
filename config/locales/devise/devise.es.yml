@@ -54,7 +54,7 @@ es:
         change_password: "Cambiar mi contraseña"
       new: 
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No existe una cuenta con ese email. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible"
+        no_account: "No existe una cuenta con ese email. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
@@ -87,7 +87,7 @@ es:
         sign_up_for_an_invite: "¡Regístrate para ser invitado!"
     unlocks: 
       new: 
-        resend_unlock: "Volver a enviar las instrucciones de desbloqueo"
+        resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
       send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
   errors: 

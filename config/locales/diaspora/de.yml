@@ -216,6 +216,7 @@ de:
       try_it_out: "Probier’s aus!"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert!"
+      sign_in: "Sign in here"
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
@@ -308,6 +309,7 @@ de:
     photo: 
       view_all: "zeige alle Fotos von %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Foto löschen"
       edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
@@ -315,7 +317,6 @@ de:
       permalink: "Permalink"
       update_photo: "Foto aktualisieren"
       view: "Anzeigen"
-      view_original_post: "Zeige original Beitrag"
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."

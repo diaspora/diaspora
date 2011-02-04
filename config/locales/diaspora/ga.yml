@@ -216,6 +216,7 @@ ga:
       try_it_out: "Ba cheart duit smaoineamh faoi é a thriala."
     request_accepted: 
       accepted: "tar éis do iarratas teagmháil a glacadh!"
+      sign_in: "Sign in here"
       subject: "Glacadh %{name} le do iarratas teagmháil ar Diaspora*"
     single_admin: 
       admin: "Do riarthóir Diaspora"
@@ -308,6 +309,7 @@ ga:
     photo: 
       view_all: "feach ar gach pictiúr %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Scrios Pictiúr"
       edit: "athraigh"
       edit_delete_photo: "Athraigh tuarisc an pictiúr / scrios pictiúr"
@@ -315,7 +317,6 @@ ga:
       permalink: "nasc-buan"
       update_photo: "Nuashonraigh Pictiúr"
       view: "féach ar"
-      view_original_post: "féach ar an póst bunúil"
     update: 
       error: "Níor d'éirigh le aithrú an pictiúr."
       notice: "Pictiure Uaslódaithe."

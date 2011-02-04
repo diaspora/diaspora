@@ -216,6 +216,7 @@ da:
       try_it_out: "Du bør virkelig overveje at tjekke den ud."
     request_accepted: 
       accepted: "har accepteret din kontaktanmodning."
+      sign_in: "Sign in here"
       subject: "% {name} har accepteret din kontaktanmodning på Diaspora*"
     single_admin: 
       admin: "Din Diaspora administrator"
@@ -308,6 +309,7 @@ da:
     photo: 
       view_all: "se alle %{name}s billeder"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Slet billede"
       edit: "Redigér"
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
@@ -315,7 +317,6 @@ da:
       permalink: "permanentlink"
       update_photo: "Opdatér billede"
       view: "se"
-      view_original_post: "Vis originalindlæg"
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."

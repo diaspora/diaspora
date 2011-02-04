@@ -216,6 +216,7 @@ es-CL:
       try_it_out: "Deberías pensar en echarle un vistazo."
     request_accepted: 
       accepted: "ha aceptado tu solicitud de contacto. Ahora están en tu"
+      sign_in: "Sign in here"
       subject: "%{name} ha aceptado tu solicitud de contacto en Diaspora*"
     single_admin: 
       admin: "Tu administrador de Diaspora"
@@ -308,6 +309,7 @@ es-CL:
     photo: 
       view_all: "ver todas las fotos de %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Borrar Foto"
       edit: "editar"
       edit_delete_photo: "Editar descripción de foto / borrar foto"
@@ -315,7 +317,6 @@ es-CL:
       permalink: "permalink"
       update_photo: "Actualizar Foto"
       view: "ver"
-      view_original_post: "view original post"
     update: 
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."

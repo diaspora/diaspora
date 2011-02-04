@@ -216,6 +216,7 @@ id:
       try_it_out: "You should really think about checking it out."
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
+      sign_in: "Sign in here"
       subject: "%{name} has accepted your friend request on Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ id:
     photo: 
       view_all: "view all of %{name}'s photos"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Hapus Foto"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
@@ -315,7 +317,6 @@ id:
       permalink: "permalink"
       update_photo: "Update Photo"
       view: "view"
-      view_original_post: "view original post"
     update: 
       error: "Gagal mengubah foto."
       notice: "Foto berhasil diperbarui."

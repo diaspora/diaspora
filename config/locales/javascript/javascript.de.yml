@@ -6,6 +6,7 @@
 de: 
   javascripts: 
     confirm_dialog: "Bist du sicher?"
+    search_for: "Suche nach {{name}}"
     timeago: 
       day: "etwa einem Tag"
       days: "%d Tagen"
@@ -24,4 +25,4 @@ de:
       years: "%d Jahren"
     videos: 
       unknown: "Unbekanntes Video-Format."
-      watch: "Dieses Video auf {{Anbieter}} ansehen."
+      watch: "Dieses Video auf {{provider}} ansehen."

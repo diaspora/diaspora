@@ -6,6 +6,7 @@
 es: 
   javascripts: 
     confirm_dialog: "¿Estás seguro?"
+    search_for: "Search for {{name}}"
     timeago: 
       day: "un día"
       days: "%d días"

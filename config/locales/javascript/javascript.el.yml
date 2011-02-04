@@ -6,6 +6,7 @@
 el: 
   javascripts: 
     confirm_dialog: "Είστε σίγουρος/η;"
+    search_for: "Αναζήτηση για {{name}}"
     timeago: 
       day: "μία μέρα"
       days: "%d μέρες"
@@ -15,7 +16,7 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
-      prefixAgo: "πριν"
+      prefixAgo: "javascripts:timeago:prefixAgo"
       prefixFromNow: "σε"
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"

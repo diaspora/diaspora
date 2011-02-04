@@ -216,6 +216,7 @@ he:
       try_it_out: "מאוד כדאי לבדוק זאת."
     request_accepted: 
       accepted: "קיבל/ה את בקשת ההתקשרות שלך!"
+      sign_in: "Sign in here"
       subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
     single_admin: 
       admin: "מנהל הדיאספורה שלך"
@@ -308,6 +309,7 @@ he:
     photo: 
       view_all: "צפייה בכל התמונות של %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "מחיקת תמונה"
       edit: "עריכה"
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
@@ -315,7 +317,6 @@ he:
       permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"
-      view_original_post: "צפייה ברשומה המקורית"
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."

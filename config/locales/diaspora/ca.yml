@@ -216,6 +216,7 @@ ca:
       try_it_out: "Hauries de pensar en corregir-ho."
     request_accepted: 
       accepted: "ha acceptat la teva petició de contacte. Ara es troben en el teu"
+      sign_in: "Sign in here"
       subject: "%{name} ha acceptat la teva petició de contacte a Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
@@ -308,6 +309,7 @@ ca:
     photo: 
       view_all: "veure totes les fotografies de %{name}"
     show: 
+      collection_permalink: "collection permalink"
       delete_photo: "Eliminar fotografia"
       edit: "editar"
       edit_delete_photo: "Editar peu de fotografia / eliminar fotografia"
@@ -315,7 +317,6 @@ ca:
       permalink: "permalink"
       update_photo: "Actualitzar fotografia"
       view: "veure"
-      view_original_post: "view original post"
     update: 
       error: "Ha fallat l'edició de la fotografia."
       notice: "Fotografia actualitzada correctament."
