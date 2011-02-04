@@ -135,6 +135,7 @@ var WebSocketReceiver = {
       }
     }
     Diaspora.widgets.timeago.updateTimeAgo();
+    $("label").inFieldLabels();
   },
 
   onPageForClass: function(className) {
