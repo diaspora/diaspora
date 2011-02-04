@@ -13,6 +13,7 @@
 
 ;(function($) {
 
+  function lastWord(s){return s;} //Fuck you
 $.fn.extend({
 	autocomplete: function(urlOrData, options) {
 		var isUrl = typeof urlOrData == "string";
@@ -233,7 +234,7 @@ $.Autocompleter = function(input, options) {
 
 		previousValue = currentValue;
 
-		currentValue = lastWord(currentValue);
+		currentValue = options.searchTermFromValue(currentValue);
 		if ( currentValue.length >= options.minChars) {
 			$input.addClass(options.loadingClass);
 			if (!options.matchCase)
@@ -256,13 +257,6 @@ $.Autocompleter = function(input, options) {
 				result[i] = $.trim(value);
 		});
 		return result;
-	}
-
-	function lastWord(value) {
-		if ( !options.multiple )
-			return value;
-		var words = trimWords(value);
-		return words[words.length - 1];
 	}
 
 	// fills in the input box w/the first match (assumed to be the best match)
@@ -386,6 +380,7 @@ $.Autocompleter = function(input, options) {
 };
 
 $.Autocompleter.defaults = {
+  searchTermFromValue: lastWord,
 	inputClass: "ac_input",
 	resultsClass: "ac_results",
 	loadingClass: "ac_loading",

@@ -78,4 +78,25 @@ describe("Publisher", function() {
           Publisher.form().find('#status_message_fake_message').val());
       });
     });
+    describe("autocompletion", function(){
+      describe("searchTermFromValue", function(){
+        var func;
+        beforeEach(function(){func = Publisher.autocompletion.searchTermFromValue;});
+        it("returns everything after an @", function(){
+          expect(func('not @dan grip')).toBe('dan grip');
+        });
+        it("returns nothing if there is no @", function(){
+          expect(func('dan')).toBe('');
+        });
+        it("returns nothing for just an @", function(){
+          expect(func('@')).toBe('');
+        });
+        it("returns everything after the last @", function(){
+          expect(func('@siojfoi @dan"')).toBe('dan"');
+        });
+        it("returns nothing if there are letters preceding the @", function(){
+          expect(func('ioj@asdo')).toBe('');
+        });
+      });
+    });
 });
