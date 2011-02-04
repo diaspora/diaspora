@@ -23,9 +23,8 @@ $(document).ready(function() {
         .detach()
         .appendTo("#main_stream")
         .css("display", "block");
-
-      Diaspora.widgets.timeago.updateTimeAgo();
     }
+    Diaspora.widgets.timeago.updateTimeAgo();
   });
 
 
