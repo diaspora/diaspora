@@ -12,21 +12,21 @@ Feature: new user registration
     And I should see "Welcome to Diaspora!"
 
   Scenario: new user goes through the setup wizard
+    Then I should see "Your services"
+    When I follow "Save and continue"
+    And I wait for "step 2" to load
+
     When I fill in "profile_first_name" with "O"
     And I fill in "profile_last_name" with "Hai"
     And I fill in "profile_gender" with "guess!"
     And I press "Save and continue"
-    And I wait for "step 2" to load
+    And I wait for "step 3" to load
     Then I should see "Profile updated"
     And I should see "Your aspects"
     
-    When I fill in "step-2-aspect-name" with "cheez friends"
+    When I fill in "step-3-aspect-name" with "cheez friends"
     And I press "Add"
     Then I should see "cheez friends"
-
-    When I follow "Save and continue"
-    And I wait for "step 3" to load
-    Then I should see "Your services"
 
     When I follow "Save and continue"
     And I wait for "step 4" to load

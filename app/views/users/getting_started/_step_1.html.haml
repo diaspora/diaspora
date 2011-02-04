@@ -2,7 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :submit_block do
-  = submit_tag "#{t('users.getting_started.save_and_continue')} →"
-= render :partial => 'people/edit'
+
+%h3
+  = t('.your_services')
+  .description
+    = t('.description')
+
+= render 'shared/add_remove_services'
+
+.submit_block
+  = link_to "#{t('users.getting_started.save_and_continue')} →", getting_started_path(:step => 2), :class => "button"
 
