@@ -19,6 +19,7 @@ src_files:
   - public/javascripts/vendor/Mustache.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
+  - public/javascripts/jquery.autocomplete-custom.js
   - public/javascripts/diaspora.js
   - public/javascripts/widgets/alert.js
   - public/javascripts/widgets/embedder.js

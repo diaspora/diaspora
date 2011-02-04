@@ -234,7 +234,7 @@ $.Autocompleter = function(input, options) {
 
 		previousValue = currentValue;
 
-		currentValue = options.searchTermFromValue(currentValue);
+		currentValue = options.searchTermFromValue(currentValue, $input[0].selectionStart);
 		if ( currentValue.length >= options.minChars) {
 			$input.addClass(options.loadingClass);
 			if (!options.matchCase)

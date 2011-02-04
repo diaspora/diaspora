@@ -78,24 +78,46 @@ describe("Publisher", function() {
           Publisher.form().find('#status_message_fake_message').val());
       });
     });
+    describe("input", function(){
+      beforeEach(function(){
+        spec.loadFixture('aspects_index_prefill');
+      });
+      it("returns the status_message_fake_message textarea", function(){
+        expect(Publisher.input()[0].id).toBe('status_message_fake_message');
+        expect(Publisher.input().length).toBe(1);
+      });
+    });
     describe("autocompletion", function(){
       describe("searchTermFromValue", function(){
         var func;
         beforeEach(function(){func = Publisher.autocompletion.searchTermFromValue;});
-        it("returns everything after an @", function(){
-          expect(func('not @dan grip')).toBe('dan grip');
+        it("returns nothing if the cursor is before the @", function(){
+          expect(func('not @dan grip', 2)).toBe('');
+        });
+        it("returns everything after an @ if the cursor is a word after that @", function(){
+          expect(func('not @dan grip', 13)).toBe('dan grip');
+        });
+        it("returns everything after an @ if the cursor is after that @", function(){
+          expect(func('not @dan grip', 7)).toBe('dan grip');
+        });
+
+        it("returns everything after an @ at the start of the line", function(){
+          expect(func('@dan grip', 9)).toBe('dan grip');
         });
         it("returns nothing if there is no @", function(){
-          expect(func('dan')).toBe('');
+          expect(func('dan', 3)).toBe('');
         });
         it("returns nothing for just an @", function(){
-          expect(func('@')).toBe('');
-        });
-        it("returns everything after the last @", function(){
-          expect(func('@siojfoi @dan"')).toBe('dan"');
+          expect(func('@', 1)).toBe('');
         });
         it("returns nothing if there are letters preceding the @", function(){
-          expect(func('ioj@asdo')).toBe('');
+          expect(func('ioj@asdo', 8)).toBe('');
+        });
+        it("returns everything between @s if there are 2 @s and the cursor is between them", function(){
+          expect(func('@asdpo  aoisdj @asodk', 8)).toBe('asdpo  aoisdj');
+        });
+        it("returns everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
+          expect(func('@asod asdo @asd asok', 15)).toBe('asd asok');
         });
       });
     });

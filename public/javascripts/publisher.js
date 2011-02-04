@@ -54,11 +54,21 @@ var Publisher = {
       textarea.val(formatted);
     },
 
-    searchTermFromValue: function(value)
+    searchTermFromValue: function(value, cursorIndex)
     {
-      matches = value.match(/@(.+)/);
+      var atLocation = value.lastIndexOf('@', cursorIndex);
+      if(atLocation == -1){return '';}
+      var nextAt = value.indexOf('@', cursorIndex+1);
+
+      if(nextAt == -1){nextAt = value.length;}
+      if(atLocation < 2){
+        atLocation = 0;
+      }else{ atLocation = atLocation -2 }
+
+      relevantString = value.slice(atLocation, nextAt).replace(/\s+$/,"");
+      matches = relevantString.match(/(^|\s)@(.+)/);
       if(matches){
-        return matches[1];
+        return matches[2];
       }else{
         return '';
       }
