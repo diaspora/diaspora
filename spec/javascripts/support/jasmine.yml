@@ -24,12 +24,12 @@ src_files:
   - public/javascripts/widgets/embedder.js
   - public/javascripts/widgets/i18n.js
   - public/javascripts/widgets/timeago.js
+  - public/javascripts/widgets/publisher.js
   - public/javascripts/mobile.js
   - public/javascripts/aspect-edit.js
   - public/javascripts/aspect-contacts.js
   - public/javascripts/web-socket-receiver.js
   - public/javascripts/view.js
-  - public/javascripts/publisher.js
   - public/javascripts/stream.js
   - public/javascripts/validation.js
   - public/javascripts/rails.js
