@@ -36,11 +36,6 @@ var Publisher = {
     return Publisher.cachedHiddenInput;
   },
 
-  appendToHiddenField: function(evt){
-   Publisher.hiddenInput().val(
-    Publisher.input().val());
-  },
-
   autocompletion: {
     options : function(){return {
       minChars : 1,
@@ -58,13 +53,71 @@ var Publisher = {
           return row.name;
       }
     };},
-
-    onSelect :  function(input, data, formatted) {
-      addMentionToVisibleInput(input, formatted);
+    hiddenMentionFromPerson : function(personData){
+      return "@{" + personData.name + "; " + personData.handle + "}";
     },
 
-    addMentionToVisibleInput: function(input, formatted){
-      var cursorIndex = input[0].selectionStart;
+    onSelect :  function(visibleInput, data, formatted) {
+      var visibleCursorIndex = visibleInput[0].selectionStart;
+      var visibleLoc = Publisher.autocompletion.addMentionToInput(visibleInput, visibleCursorIndex, formatted);
+
+
+      var hiddenCursorIndex = visibleCursorIndex + Publisher.autocompletion.mentionList.offsetFrom(visibleCursorIndex);
+      var hiddenLoc = Publisher.autocompletion.addMentionToInput(Publisher.hiddenInput(), hiddenCursorIndex, Publisher.autocompletion.hiddenMentionFromPerson(data));
+      var mention = { visibleStart: visibleLoc[0],
+                      visibleEnd  : visibleLoc[1],
+                      hiddenStart : hiddenLoc[0],
+                      hiddenEnd   : hiddenLoc[1]
+                    };
+    },
+
+    mentionList : {
+      mentions : [],
+      push : function(mention){
+        mention.offset = mention.hiddenEnd - mention.visibleEnd;
+        this.mentions.push(mention);
+      },
+      keypressAt : function(visibleCursorIndex){
+        var mentionIndex = this.mentionAt(visibleCursorIndex);
+        var mention = this.mentions[mentionIndex];
+        if(!mention){return;}
+        var visibleMentionString = Publisher.input().val().slice(mention.visibleStart, mention.visibleEnd);
+        var hiddenContent = Publisher.hiddenInput().val();
+        hiddenContent = hiddenContent.slice(0,mention.hiddenStart) +
+                        visibleMentionString +
+                        hiddenContent.slice(mention.hiddenEnd);
+        Publisher.hiddenInput().val(hiddenContent);
+
+        this.mentions.splice(mentionIndex, 1);
+      },
+      mentionAt : function(visibleCursorIndex){
+        for(i in this.mentions){
+          var mention = this.mentions[i];
+          if(visibleCursorIndex >= mention.visibleStart && visibleCursorIndex < mention.visibleEnd){
+            return i;
+          }
+          return false;
+        }
+      },
+      offsetFrom: function(visibleCursorIndex){
+        var mention = {visibleStart : -1, fake: true};
+        var currentMention;
+        for(i in this.mentions){
+          currentMention = this.mentions[i];
+          if(visibleCursorIndex >= currentMention.visibleStart &&
+             currentMention.visibleStart > mention.visibleStart){
+             mention = currentMention;
+          }
+        }
+        if(mention && !mention.fake){
+          return mention.offset;
+        }else{
+          return 0;
+        }
+      }
+    },
+
+    addMentionToInput: function(input, cursorIndex, formatted){
       var inputContent = input.val();
 
       var stringLoc = Publisher.autocompletion.findStringToReplace(input.val(), cursorIndex);
@@ -73,12 +126,13 @@ var Publisher = {
       var stringEnd = inputContent.slice(stringLoc[1]);
 
       input.val(stringStart + formatted + stringEnd);
+      return [stringStart.length, stringStart.length + stringLoc[1]]
     },
 
     findStringToReplace: function(value, cursorIndex){
       var atLocation = value.lastIndexOf('@', cursorIndex);
       if(atLocation == -1){return [0,0];}
-      var nextAt = value.indexOf('@', cursorIndex+1);
+      var nextAt = value.indexOf(' @', cursorIndex+1);
 
       if(nextAt == -1){nextAt = value.length;}
       return [atLocation, nextAt];
@@ -115,6 +169,7 @@ var Publisher = {
   initialize: function() {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
+    Publisher.cachedHiddenInput = false;
     $("div.public_toggle input").live("click", function(evt) {
       $("#publisher_service_icons").toggleClass("dim");
       if ($(this).attr('checked') == true) {
@@ -127,9 +182,7 @@ var Publisher = {
     };
 
     Publisher.autocompletion.initialize();
-    Publisher.updateHiddenField();
-    Publisher.form().find('#status_message_fake_message').bind('keydown',
-        Publisher.updateHiddenField);
+    Publisher.hiddenInput().val(Publisher.input().val());
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
       $(this).css('min-height', '42px');

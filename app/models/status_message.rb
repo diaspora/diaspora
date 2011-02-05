@@ -37,7 +37,7 @@ class StatusMessage < Post
     identifiers = self.message.scan(regex).map do |match|
       match.last
     end
-    Person.where(:diaspora_handle => identifiers)
+    self.person.owner.contact_people.where(:diaspora_handle => identifiers)
   end
 
   def to_activity

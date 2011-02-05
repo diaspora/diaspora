@@ -6,21 +6,6 @@
 describe("Publisher", function() {
 
     describe("initialize", function(){
-      it("calls updateHiddenField", function(){
-        spec.loadFixture('aspects_index_prefill');
-        spyOn(Publisher, 'updateHiddenField');
-        Publisher.initialize();
-        expect(Publisher.updateHiddenField).toHaveBeenCalled();
-      });
-
-      it("attaches updateHiddenField to the keydown handler on fake_message", function(){
-        spec.loadFixture('aspects_index_prefill');
-        spyOn(Publisher, 'updateHiddenField');
-        Publisher.initialize();
-        Publisher.form().find('#status_message_fake_message').keydown();
-        expect(Publisher.updateHiddenField.mostRecentCall.args[0].type).toBe('keydown');
-      });
-
       it("calls close when it does not have text", function(){
         spec.loadFixture('aspects_index');
         spyOn(Publisher, 'close');
@@ -67,17 +52,6 @@ describe("Publisher", function() {
         expect(Publisher.form().find(".options_and_submit:visible").length).toBe(0);
         });
     });
-    describe("updateHiddenField", function(){
-      beforeEach(function(){
-        spec.loadFixture('aspects_index_prefill');
-      });
-
-      it("copies the value of fake_message to message",function(){
-        Publisher.updateHiddenField();
-        expect(Publisher.form().find('#status_message_message').val()).toBe(
-          Publisher.form().find('#status_message_fake_message').val());
-      });
-    });
     describe("input", function(){
       beforeEach(function(){
         spec.loadFixture('aspects_index_prefill');
@@ -88,6 +62,8 @@ describe("Publisher", function() {
       });
     });
     describe("autocompletion", function(){
+      describe("onKeypress", function(){
+      });,
       describe("searchTermFromValue", function(){
         var func;
         beforeEach(function(){func = Publisher.autocompletion.searchTermFromValue;});
@@ -124,56 +100,120 @@ describe("Publisher", function() {
       describe("onSelect", function(){
 
       });
-      describe("addMentionToHiddenInput", function(){
-        var func;
-        var input;
 
+      describe("mentionList", function(){
+        var visibleInput, visibleVal,
+            hiddenInput, hiddenVal,
+            list,
+            func,
+            mention;
         beforeEach(function(){
           spec.loadFixture('aspects_index');
-          func = Publisher.autocompletion.addMentionToHiddenInput;
-          input = Publisher.input();
+          list = Publisher.autocompletion.mentionList;
+          func = list.keypressAt;
+          visibleInput = Publisher.input();
+          hiddenInput = Publisher.hiddenInput();
+          mention = { visibleStart : 0,
+                      visibleEnd   : 5,
+                      hiddenStart  : 0,
+                      hiddenEnd    : 21
+                    };
+          list.mentions = [];
+          list.push(mention);
+          visibleVal = "Danny loves testing javascript";
+          visibleInput.val(visibleVal);
+          hiddenVal = "@{Danny; dan@pod.org} loves testing javascript";
+          hiddenInput.val(hiddenVal);
         });
-
+        describe("push", function(){
+          it("adds mention to mentions array", function(){
+            expect(list.mentions.length).toBe(1);
+            expect(list.mentions[0]).toBe(mention)
+          });
+        });
+        describe("mentionAt", function(){
+          it("returns the location of the mention at that location in the mentions array", function(){
+            expect(list.mentions[list.mentionAt(3)]).toBe(mention);
+          });
+          it("returns null if there is no mention", function(){
+            expect(list.mentionAt(8)).toBeFalsy();
+          });
+        });
+        describe("keypressAt", function(){
+          it("does nothing if there is no visible mention at that index", function(){
+            list.keypressAt(8);
+            expect(visibleInput.val()).toBe(visibleVal)
+            expect(hiddenInput.val()).toBe(hiddenVal)
+          });
+          it("deletes the mention from the hidden field if there is a mention", function(){
+            list.keypressAt(3);
+            expect(visibleInput.val()).toBe(visibleVal)
+            expect(hiddenInput.val()).toBe(visibleVal)
+          });
+          it("deletes the mention from the list", function(){
+            list.keypressAt(3);
+            expect(list.mentionAt(3)).toBeFalsy();
+          });
+          it("updates the offsets of the remaining mentions in the list");
+        });
+        describe("offsetFrom", function(){
+          var func;
+          beforeEach(function(){
+            func = list.offsetFrom;
+          });
+          it("returns the offset of the mention at that location", function(){
+            expect(list.offsetFrom(3)).toBe(mention.offset);
+          });
+          it("returns the offset of the previous mention if there is no mention there", function(){
+            expect(list.offsetFrom(10)).toBe(mention.offset);
+          });
+          it("returns 0 if there are no mentions", function(){
+            list.mentions = [];
+            expect(list.offsetFrom(8)).toBe(0);
+          });
+        });
       });
 
-      describe("addMentionToVisibleInput", function(){
+
+
+      describe("addMentionToInput", function(){
         var func;
         var input;
         var replaceWith;
         beforeEach(function(){
           spec.loadFixture('aspects_index');
-          func = Publisher.autocompletion.addMentionToVisibleInput;
+          func = Publisher.autocompletion.addMentionToInput;
           input = Publisher.input();
           replaceWith = "Replace with this.";
         });
         it("replaces everything after an @ if the cursor is a word after that @", function(){
           input.val('not @dan grip');
-          func(input,  replaceWith);
-          input[0].selectionStart = 13;
+          var cursorIndex = 13;
+          func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe('not ' + replaceWith);
         });
         it("replaces everything after an @ if the cursor is after that @", function(){
           input.val('not @dan grip');
-          input[0].selectionStart = 7;
-          func(input,  replaceWith);
+          var cursorIndex = 7;
+          func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe('not ' + replaceWith);
         });
         it("replaces everything after an @ at the start of the line", function(){
           input.val('@dan grip');
-          input[0].selectionStart = 9;
-          func(input,  replaceWith);
+          var cursorIndex = 9;
+          func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe(replaceWith);
         });
         it("replaces everything between @s if there are 2 @s and the cursor is between them", function(){
           input.val('@asdpo  aoisdj @asodk');
-          input[0].selectionStart = 8;
-          func(input,  replaceWith);
+          var cursorIndex = 8;
+          func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe(replaceWith + ' @asodk');
         });
         it("replaces everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
           input.val('@asod asdo @asd asok');
-          input[0].selectionStart = 15;
-          func(input,  replaceWith);
+          var cursorIndex = 15;
+          func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe('@asod asdo ' + replaceWith);
         });
       });
