@@ -38,10 +38,10 @@
         = t('.edit_profile')
     %br
     - if @step != 3
-      = link_to t('.define_aspects'), getting_started_path(:step => 3)
+      = link_to t('.connect_on_diaspora'), getting_started_path(:step => 3)
     - else
       %span.current_gs_step
-        = t('.define_aspects')
+        = t('.connect_on_diaspora')
     %br
     - if @step != 4
       = link_to t('.finished'), getting_started_path(:step => 4)

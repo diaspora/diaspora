@@ -40,6 +40,10 @@ describe Services::Facebook do
           {
             "name": "#{@user2_fb_name}",
             "id": "#{@user2_fb_id}"
+          },
+          {
+            "name": "Person to Invite",
+            "id": "abc123"
           }
         ]
       }
@@ -54,12 +58,14 @@ JSON
       @service.finder
     end
 
+
+
     context 'returns a hash' do
       it 'returns a hash' do
         @service.finder.class.should == Hash
       end
       it 'contains a name' do
-        @service.finder.values.first[:name].should == @user2_fb_name
+        @service.finder["#{@user2_fb_id}"][:name].should == @user2_fb_name
       end
       it 'contains a photo url' do
         pending
@@ -68,21 +74,44 @@ JSON
         @service.finder.include?(@user2_fb_id).should be_true
       end
       it 'contains a diaspora person object' do
-        @service.finder.values.first[:person].should == @user2.person
+        @service.finder["#{@user2_fb_id}"][:person].should == @user2.person
       end
       it 'caches the profile' do
-        @service.finder.values.first[:person].profile.loaded?.should be_true
+        @service.finder["#{@user2_fb_id}"][:person].profile.loaded?.should be_true
       end
       it 'does not include the person if the search is disabled' do
         p = @user2.person.profile
         p.searchable = false
         p.save
-        @service.finder.values.first[:person].should be_nil
+        @service.finder["#{@user2_fb_id}"][:person].should be_nil
       end
+
+      it 'contains a request object if one has been sent' do
+        request = Request.diaspora_initialize(:from => @user2.person, :to => @user.person, :into => @user2.aspects.first)
+        Postzord::Receiver.new(@user, :object => request, :person => @user2.person).receive_object
+        Request.count.should == 1
+        @service.finder["#{@user2_fb_id}"][:request].should == request
+      end
+      
       it 'contains a contact object if connected' do
         connect_users(@user, @user.aspects.first, @user2, @user2.aspects.first)
-        @service.finder.values.first[:contact].should == @user.reload.contact_for(@user2.person)
+        @service.finder["#{@user2_fb_id}"][:contact].should == @user.reload.contact_for(@user2.person)
       end
+
+      context 'only local' do
+        it 'does not return people who are remote' do
+          @service.finder(:local => true)['abc123'].should be nil
+          @service.finder(:local => true)["#{@user2_fb_id}"].should_not be_nil
+        end
+      end
+
+      context 'only remote' do
+        it 'does not return people who are remote' do
+          @service.finder(:remote => true)['abc123'].should_not be nil
+          @service.finder(:remote => true)["#{@user2_fb_id}"].should be_nil
+        end
+      end
+      
       context 'already invited' do
         before do
           @user2.invitation_service = 'facebook'
@@ -91,14 +120,14 @@ JSON
         end
         it 'contains an invitation if invited' do
           @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
-          @service.finder.values.first[:invitation_id].should == @inv.id
+          @service.finder["#{@user2_fb_id}"][:invitation_id].should == @inv.id
         end
         it 'does not find the user with a wrong identifier' do
           @user2.invitation_identifier = 'dsaofhnadsoifnsdanf'
           @user2.save
 
           @inv = Invitation.create(:sender => @user, :recipient => @user2, :aspect => @user.aspects.first)
-          @service.finder.values.first[:invitation_id].should be_nil
+          @service.finder["#{@user2_fb_id}"][:invitation_id].should be_nil
         end
       end
     end

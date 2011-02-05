@@ -2,7 +2,7 @@
   -if friend[:person]
     = render :partial => 'people/person', :locals => {:person => friend[:person], :contact => friend[:contact], :request => friend[:request]}
   -else
-    .stream_element
+    .steam_element
       .right
         -if friend[:invitation_id]
           = t('invitations.new.already_invited')

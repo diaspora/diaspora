@@ -25,7 +25,7 @@ class ServicesController < ApplicationController
 
     flash[:notice] = I18n.t 'services.create.success'
     if current_user.getting_started
-      redirect_to  getting_started_path(:step => 3)
+      redirect_to  getting_started_path(:step => 1)
     else
       redirect_to services_url
     end

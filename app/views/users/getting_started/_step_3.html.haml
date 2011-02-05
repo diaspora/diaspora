@@ -8,20 +8,19 @@
   = t('.your_aspects')
   .description
     = t('.description')
-    -if @requests.length > 0
-      %br 
-      = t('.your_inviter')
-      %br
+    %br 
+    = t('.your_inviter')
+    %br
 
-      #people_stream.stream
-        - for pending_req in @requests
-          - person = pending_req.sender
-          
-          = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
-    -unless @friends.blank?
-      %br
-      .contact_list
-        = render :partial => 'services/finder', :locals => {:friends => @friends, :getting_started => true}
+    #people_stream.stream
+      - for pending_req in @requests
+        - person = pending_req.sender
+        
+        = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
+      - for fb_id in @friends.keys
+        - friend = @friends[fb_id]
+        = render :partial => 'people/person', :locals => {:request => friend[:request], :person => friend[:person], :contact => friend[:contact]}
+
 
 
 .submit_block

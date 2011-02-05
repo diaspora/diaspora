@@ -230,7 +230,7 @@ en:
           welcome: "Welcome to Diaspora!"
           signup_steps: "Finish your sign up by completing these three steps:"
           edit_profile: "Edit your profile"
-          define_aspects: "Define your aspects"
+          connect_on_diaspora: "Connect on Diaspora"
           connect_services: "Connect your other services"
           finished: "Finished!"
           skip: "skip getting started"
