@@ -17,7 +17,7 @@ class AspectsController < ApplicationController
     end
 
     # redirect to signup
-    if current_user.getting_started == true || @aspects.blank?
+    if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile?
       redirect_to getting_started_path
     else
 

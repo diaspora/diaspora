@@ -1,0 +1,18 @@
+= form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
+  %p
+    = f.label :username , t('username')
+    = f.text_field :username, :title => t('registrations.new.enter_username')
+  %p  
+    = f.label :email , t('email')
+    = f.text_field :email, :title => t('registrations.new.enter_email')
+  %p
+    = f.label :password , t('password')
+    = f.password_field :password, :title => t('registrations.new.enter_password') 
+  %p
+    = f.label :password_confirmation , t('password_confirmation')
+    = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
+    = f.hidden_field :invitation_token
+
+  = f.submit t('registrations.new.sign_up')
+  %br
+  = render :partial => "devise/shared/links"
