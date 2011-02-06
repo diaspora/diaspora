@@ -21,7 +21,7 @@ fr:
         contact: 
           attributes: 
             person_id: 
-              taken: "doit être unique parmi les contacts ce cet utilisateur."
+              taken: "doit être unique parmi les contacts de cet utilisateur."
         person: 
           attributes: 
             diaspora_handle: 
@@ -46,7 +46,7 @@ fr:
       unknown_person: "personne inconnue"
       video_title: 
         unknown: "Titre de vidéo inconnu"
-  are_you_sure: "Vous confirmez ?"
+  are_you_sure: "Êtes-vous certains?"
   aspects: 
     add_to_aspect: 
       failure: "L’ajout du contact à l’aspect a échoué."
@@ -203,7 +203,7 @@ fr:
       sign_in: "Connectez-vous pour le voir."
       subject: "%{name} a également commenté."
     comment_on_post: 
-      commented: "a commenté votre message !"
+      commented: "a commenté votre message:"
       sign_in: "Connectez-vous pour le voir."
       subject: "%{name} a commenté votre message."
     diaspora: "le robot de messagerie électronique de Diaspora"
@@ -216,7 +216,7 @@ fr:
       try_it_out: "Vous devriez vraiment envisager de l'essayer."
     request_accepted: 
       accepted: "a accepté votre requête de contact !"
-      sign_in: "Sign in here"
+      sign_in: "Enregistrez ici"
       subject: "%{name} a accepté votre requête de contact sur Diaspora*"
     single_admin: 
       admin: "Votre administrateur Diaspora"
@@ -309,7 +309,7 @@ fr:
     photo: 
       view_all: "voir toute les photos de %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "Lien permanent à la collection"
       delete_photo: "Supprimer la photo"
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"

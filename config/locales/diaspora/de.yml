@@ -203,7 +203,7 @@ de:
       sign_in: "Melde dich an, um ihn anzuzeigen."
       subject: "%{name} hat einen Kommentar hinterlassen."
     comment_on_post: 
-      commented: "hat deinen Eintrag kommentiert!"
+      commented: "hat deinen Eintrag kommentiert:"
       sign_in: "Melde dich an um dies zu sehen."
       subject: "%{name} hat deinen Eintrag kommentiert."
     diaspora: "der Diaspora E-Mail-Roboter"
@@ -211,12 +211,12 @@ de:
     love: "Gruß,"
     new_request: 
       just_sent_you: "hat dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
-      sign_in: "melde dich hier an"
+      sign_in: "Melde dich hier an"
       subject: "Neue Diaspora*-Kontakt-Anfrage von %{from}"
       try_it_out: "Probier’s aus!"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert!"
-      sign_in: "Sign in here"
+      sign_in: "Registriere dich hier"
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
