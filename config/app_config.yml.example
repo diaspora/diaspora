@@ -87,6 +87,9 @@ default:
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
+  #IRC Suffix 5 char max
+  ircSuff: 'diasp'
+
 development:
 
 test:

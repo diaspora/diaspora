@@ -3,6 +3,20 @@
 -#   the COPYRIGHT file.
 
 
+:javascript
+  var name = '#{current_user.username}';
+  var suff = '#{AppConfig[:ircSuff]}';
+  var fullname = '#{current_user.name}';
+  var language = '#{current_user.language}';
+  function chat()
+  {
+  mywindow = window.open("http://webchat.freenode.net?nick="+name+"_"+suff+"&channels=Diaspora_"+language+"&uio=d4", "chat", "toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,scrollbars=1, width=700, height=600");
+  mywindow.moveTo(0, 0);
+  }
+  
+.right{:style=>"float:right;display:inline;position:absolute;top:59px;right:15px;opacity:0.8;"}
+  <a style="color: red; font-weight: bold;" onclick="chat();">Chat</a>
+
 - content_for :head do
   = include_javascripts :home
   
