@@ -57,7 +57,7 @@ class Invitation < ActiveRecord::Base
     invitee.invites = opts[:invites] || 5
     if invitee.new_record?
       invitee.errors.clear
-      invitee.serialized_private_key ||= User.generate_key
+      invitee.serialized_private_key = User.generate_key if invitee.serialized_private_key.blank?
       invitee.send(:generate_invitation_token)
     elsif invitee.invitation_token.nil?
       return invitee
