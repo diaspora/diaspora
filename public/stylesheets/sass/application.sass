@@ -521,31 +521,20 @@ header
         :right 1em
 
 .stream.show
-  ul.comments
-    :display block
-    :margin
-      :top 0
-  > li
-    :border none
-    :padding 0
-    :word-wrap break-word
   &:hover
     > li
       :background none
       :border none
 
-  ul.comments
-    textarea
-      :width 425px
-      :max-width 97%
 
 .stream ul.comments
   .avatar
     :width 30px
     :height 30px
 
-input.comment_submit
-  :display none
+.submit_button
+  :text
+    :align right
 
 ul.comments,
 ul.show_comments
@@ -559,13 +548,10 @@ ul.show_comments
     :width 100%
     :height 1.4em
 
-  .force_open
-    :min-height 2.4em
-
   li
     :list
       :style none
-    :padding 0.5em
+    :padding 0.4em
     :border
       :bottom 1px solid #ddd
       :top 1px solid #fff
@@ -587,7 +573,7 @@ ul.show_comments
         :top 0px
         :bottom -2px
       :padding
-        :left 38px
+        :left 37px
         :right 20px
       .from
         a
@@ -599,23 +585,54 @@ ul.show_comments
     form
       :margin
         :top -5px
-        :bottom 0.2em
+        :bottom -4px
       :font
         :size 1em
+
+      .submit_button
+        :display none
+        input
+          :margin
+            :right 0
+
       textarea
         :font
           :size 1em
-        :width 478px
+        :margin
+          :bottom -3px
+        :width 482px
 
-    .submit_instructions
-      :text-align center
-      :font
-        :size smaller
-      :color #999
-      :margin
-        :bottom -0.8em
-        :top -0.7em
-      :padding 0
+      .avatar
+        :display none
+
+    form.open
+      .submit_button
+        :display block
+        :margin
+          :bottom 2px
+          :right 2px
+
+      textarea
+        :min-height 2.4em
+        :width 445px
+
+      p
+        :position relative
+        :left 36px
+
+      .avatar
+        :position absolute
+        :display inline
+
+.stream.show
+  ul.comments
+    li
+      :padding
+        :right 135px
+
+      textarea
+        :margin
+          :bottom 2px
 
 .profile_photo
   img
@@ -625,6 +642,7 @@ ul.show_comments
     :-webkit-box-shadow 0 2px 2px #333
     :-moz-box-shadow 0 2px 2px #333
     :box-shadow 0 2px 2px #333
+
 #profile
   h3
     :margin

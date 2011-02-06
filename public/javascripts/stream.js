@@ -16,22 +16,12 @@ var Stream = {
       Stream.focusNewComment($(this), e);
     });
 
-    // comment submit action
-    $stream.delegate("textarea.comment_box", "keydown", function(e){
-      if (e.keyCode === 13) {
-        if(!e.shiftKey) {
-          $(this).blur();
-          $(this).closest("form").submit();
-        }
-      }
-    });
-
     $stream.delegate("textarea.comment_box", "focus", function(evt) {
       var commentBox = $(this);
       commentBox
         .attr('rows',2)
-        .addClass('force_open')
-        .closest("li").find(".submit_instructions").removeClass('hidden');
+        .parent().parent()
+          .addClass('open');
     });
 
     $stream.delegate("textarea.comment_box", "blur", function(evt) {
@@ -39,9 +29,9 @@ var Stream = {
       if (!commentBox.val()) {
         commentBox
           .attr('rows',1)
-          .removeClass('force_open')
           .css('height','1.4em')
-          .closest("li").find(".submit_instructions").addClass('hidden');
+          .parent().parent()
+            .removeClass('open');
       }
     });
 

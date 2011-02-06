@@ -266,9 +266,6 @@ en:
       new_comment:
           comment: "Comment"
           commenting: "Commenting..."
-          press: "press"
-          enter: "enter"
-          to_comment: "to comment"
   photos:
       show:
           delete_photo: "Delete Photo"

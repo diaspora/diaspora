@@ -3,14 +3,11 @@
 -#   the COPYRIGHT file.
 
 = form_tag( comments_path, :id => "new_comment_on_#{post_id}", :class => 'new_comment', :remote => true) do
+  = owner_image_tag
   %p
     = label_tag "comment_text_on_#{post_id}", t('.comment')
     = text_area_tag :text, nil, :rows => 2, :class => "comment_box",:id => "comment_text_on_#{post_id}"
   = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
-  = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :class => "comment_submit button", :disable_with => t('.commenting')
-
-.submit_instructions.hidden
-  = t('.press')
-  %b= t('.enter')
-  = t('.to_comment')
+  .submit_button
+    = submit_tag t('.comment'), :id => "comment_submit_#{post_id}", :class => "comment_submit button", :disable_with => t('.commenting')
 
