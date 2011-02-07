@@ -107,11 +107,7 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    if is_mobile_device?
-      time_ago_in_words(obj.created_at)
-    else
-      timeago(obj.created_at)
-    end
+    timeago(obj.created_at)
   end
 
   def person_url(person)

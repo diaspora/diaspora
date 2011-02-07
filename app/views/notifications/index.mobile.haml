@@ -16,6 +16,7 @@
               %span.from
                 %b= notification_people_link(note)
               = object_link(note)
-              .time= timeago(note.updated_at)
+              .time
+                = time_ago_in_words(obj.created_at)
 
   = will_paginate @notifications

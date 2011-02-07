@@ -4,7 +4,8 @@
 
 .stream_element{:data=>{:guid=>post.id}}
   .right
-    %span.time= how_long_ago(post)
+    %span.time
+      = time_ago_in_words(obj.created_at)
 
   = person_image_link(post.person, :size => :thumb_small)
 
