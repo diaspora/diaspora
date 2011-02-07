@@ -5,7 +5,7 @@
 %li.comment{:data=>{:guid=>comment.id}, :class => ("hidden" if(defined? hidden))}
   .right
     %span.time
-      = comment.created_at ? t('ago', :time => time_ago_in_words(comment.created_at)) : time_ago_in_words(Time.now)
+      = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
 
   = person_image_link(comment.person)
   .content
