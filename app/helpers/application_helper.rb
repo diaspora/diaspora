@@ -107,8 +107,11 @@ module ApplicationHelper
   end
 
   def how_long_ago(obj)
-    timeago(obj.created_at)
-    #I18n.t('ago', :time => time_ago_in_words(obj.created_at, true))
+    if is_mobile_device?
+      time_ago_in_words(obj.created_at)
+    else
+      timeago(obj.created_at)
+    end
   end
 
   def person_url(person)

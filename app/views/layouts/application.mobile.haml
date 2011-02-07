@@ -14,7 +14,7 @@
     -if current_user
       :javascript
         Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-        
+
     = stylesheet_link_tag 'vendor/jquery.mobile-1.0a3.min', 'mobile'
     = csrf_meta_tag
 
@@ -80,7 +80,7 @@
               = link_to t('people.edit.your_profile'), person_path(current_user.person)
             %li
               = link_to t('notifications.index.notifications'), notifications_path
-              .ui-li-count 
+              .ui-li-count
                 = @notification_count
 
           %h4
