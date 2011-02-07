@@ -60,7 +60,7 @@ var Publisher = {
     onSelect :  function(visibleInput, data, formatted) {
       var visibleCursorIndex = visibleInput[0].selectionStart;
       var visibleLoc = Publisher.autocompletion.addMentionToInput(visibleInput, visibleCursorIndex, formatted);
-
+      $.Autocompleter.Selection(visibleInput[0], visibleLoc[1], visibleLoc[1]);
 
       var hiddenCursorIndex = visibleCursorIndex + Publisher.autocompletion.mentionList.offsetFrom(visibleCursorIndex);
       var hiddenLoc = Publisher.autocompletion.addMentionToInput(Publisher.hiddenInput(), hiddenCursorIndex, Publisher.autocompletion.hiddenMentionFromPerson(data));
@@ -126,13 +126,13 @@ var Publisher = {
       var stringEnd = inputContent.slice(stringLoc[1]);
 
       input.val(stringStart + formatted + stringEnd);
-      return [stringStart.length, stringStart.length + stringLoc[1]]
+      return [stringStart.length, stringStart.length + formatted.length]
     },
 
     findStringToReplace: function(value, cursorIndex){
       var atLocation = value.lastIndexOf('@', cursorIndex);
       if(atLocation == -1){return [0,0];}
-      var nextAt = value.indexOf(' @', cursorIndex+1);
+      var nextAt = cursorIndex//value.indexOf(' @', cursorIndex+1);
 
       if(nextAt == -1){nextAt = value.length;}
       return [atLocation, nextAt];

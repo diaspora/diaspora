@@ -278,7 +278,6 @@ $.Autocompleter = function(input, options) {
 	};
 
 	function hideResultsNow() {
-		var wasVisible = select.visible();
 		select.hide();
 		clearTimeout(timeout);
 		stopLoading();
@@ -298,9 +297,6 @@ $.Autocompleter = function(input, options) {
 				}
 			);
 		}
-		if (wasVisible)
-			// position cursor at end of input field
-			$.Autocompleter.Selection(input, input.value.length, input.value.length);
 	};
 
 	function receiveData(q, data) {
@@ -390,6 +386,9 @@ $.Autocompleter.defaults = {
 	resultsClass: "ac_results",
 	loadingClass: "ac_loading",
   onSelect: function(input, data, formatted){
+		if (select.visible())
+			// position cursor at end of input field
+			$.Autocompleter.Selection(input, input.value.length, input.value.length);
     input.val(formatted);
   },
 	minChars: 1,
