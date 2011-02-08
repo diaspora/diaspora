@@ -139,19 +139,19 @@ describe("Publisher", function() {
             expect(list.mentionAt(8)).toBeFalsy();
           });
         });
-        describe("keypressAt", function(){
+        describe("insertionAt", function(){
           it("does nothing if there is no visible mention at that index", function(){
-            list.keypressAt(8);
+            list.insertionAt(8);
             expect(visibleInput.val()).toBe(visibleVal);
             expect(hiddenInput.val()).toBe(hiddenVal);
           });
           it("deletes the mention from the hidden field if there is a mention", function(){
-            list.keypressAt(3);
+            list.insertionAt(3);
             expect(visibleInput.val()).toBe(visibleVal);
             expect(list.generateHiddenInput(visibleInput.val())).toBe(visibleVal);
           });
           it("deletes the mention from the list", function(){
-            list.keypressAt(3);
+            list.insertionAt(3);
             expect(list.mentionAt(3)).toBeFalsy();
           });
           it("calls updateMentionLocations", function(){
@@ -160,19 +160,19 @@ describe("Publisher", function() {
                           mentionString : "@{SomeoneElse; other@pod.org}"
                         };
             list.push(mentionTwo);
-            spyOn(list, 'updateMentionLocations');
-            list.keypressAt(3, 60);
-            expect(list.updateMentionLocations).toHaveBeenCalled();
+            spyOn(list, 'incrementMentionLocations');
+            list.insertionAt(3,4, 60);
+            expect(list.incrementMentionLocations).toHaveBeenCalled();
           });
         });
-        describe("updateMentionLocations", function(){
-          it("updates the offsets of the remaining mentions in the list", function(){
+        describe("incrementMentionLocations", function(){
+          it("increments the offsets of the remaining mentions in the list", function(){
             mentionTwo = { visibleStart : 8,
                           visibleEnd   : 15,
                           mentionString : "@{SomeoneElse; other@pod.org}"
                         };
             list.push(mentionTwo);
-            list.updateMentionLocations(7, 60);
+            list.incrementMentionLocations(7, 1);
             expect(mentionTwo.visibleStart).toBe(9);
             expect(mentionTwo.visibleEnd).toBe(16);
           });
@@ -189,7 +189,7 @@ describe("Publisher", function() {
           spec.loadFixture('aspects_index');
           func = Publisher.autocompletion.addMentionToInput;
           input = Publisher.input();
-          Publisher.autocompletion.mentionList = [];
+          Publisher.autocompletion.mentionList.mentions = [];
           replaceWith = "Replace with this.";
         });
         it("replaces everything up to the cursor if the cursor is a word after that @", function(){

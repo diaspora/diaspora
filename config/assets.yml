@@ -17,6 +17,7 @@ javascripts:
     - public/javascripts/vendor/fileuploader.js
     - public/javascripts/vendor/Mustache.js
     - public/javascripts/jquery.autocomplete-custom.js
+    - public/javascripts/keycodes.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/alert.js

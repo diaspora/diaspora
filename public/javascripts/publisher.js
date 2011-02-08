@@ -2,18 +2,7 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-	var KEY = {
-		UP: 38,
-		DOWN: 40,
-		DEL: 46,
-		TAB: 9,
-		RETURN: 13,
-		ESC: 27,
-		COMMA: 188,
-		PAGEUP: 33,
-		PAGEDOWN: 34,
-		BACKSPACE: 8
-	};
+
 //TODO: make this a widget
 var Publisher = {
   close: function(){
@@ -112,9 +101,9 @@ var Publisher = {
         return resultString;
       },
 
-      insertionAt : function(insertionEndIndex, insertionStartIndex, keyCode){
-        this.incrementMentionLocations(insertionStartIndex, insertionEndIndex - insertionStartIndex);
-        var mentionIndex = this.mentionAt(insertionEndIndex);
+      insertionAt : function(insertionStartIndex, keyCode){
+        this.incrementMentionLocations(insertionStartIndex, 1);
+        var mentionIndex = this.mentionAt(insertionStartIndex + 1);
 
         var mention = this.mentions[mentionIndex];
         if(mention){
@@ -125,7 +114,7 @@ var Publisher = {
       deletionAt : function(visibleCursorIndex, keyCode){
 
         var effectiveCursorIndex;
-        if(keyCode == KEY.DEL){
+        if(keyCode == KEYCODES.DEL){
           effectiveCursorIndex = visibleCursorIndex;
         }else{
           effectiveCursorIndex = visibleCursorIndex - 1;
@@ -185,31 +174,21 @@ var Publisher = {
     },
 
     keyUpHandler : function(event){
-      var input = Publisher.input();
-      var cursorIndexAtKeydown = Publisher.cursorIndexAtKeydown;
-      Publisher.cursorIndexAtKeydown = -1;
-      if(input.val() == Publisher.oldInputContent || event.keyCode == KEY.RETURN || event.keyCode == KEY.DEL || event.keyCode == KEY.BACKSPACE){
-        Publisher.autocompletion.repopulateHiddenInput();
-        return;
-      }else {
-        Publisher.oldInputContent = input.val();
-        var visibleCursorIndex = input[0].selectionStart;
-        Publisher.autocompletion.mentionList.insertionAt(visibleCursorIndex, cursorIndexAtKeydown, event.keyCode);
-        Publisher.autocompletion.repopulateHiddenInput();
-      }
+      Publisher.autocompletion.repopulateHiddenInput();
     },
 
     keyDownHandler : function(event){
       var input = Publisher.input();
       var visibleCursorIndex = input[0].selectionStart;
-      if(Publisher.cursorIndexAtKeydown == -1){
-        Publisher.cursorIndexAtKeydown = visibleCursorIndex;
-      }
+      //if(Publisher.cursorIndexAtKeydown == -1){
+      //  Publisher.cursorIndexAtKeydown = visibleCursorIndex;
+      //}
 
-      if((event.keyCode == KEY.DEL && visibleCursorIndex < input.val().length) || (event.keyCode == KEY.BACKSPACE && visibleCursorIndex > 0)){
+      if((event.keyCode == KEYCODES.DEL && visibleCursorIndex < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && visibleCursorIndex > 0)){
         Publisher.autocompletion.mentionList.deletionAt(visibleCursorIndex, event.keyCode);
+      }else if(KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN ){
+        Publisher.autocompletion.mentionList.insertionAt(visibleCursorIndex, event.keyCode);
       }
-      Publisher.autocompletion.repopulateHiddenInput();
     },
 
     addMentionToInput: function(input, cursorIndex, formatted){
