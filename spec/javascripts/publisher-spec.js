@@ -62,19 +62,17 @@ describe("Publisher", function() {
       });
     });
     describe("autocompletion", function(){
-      describe("onKeypress", function(){
-      });,
       describe("searchTermFromValue", function(){
         var func;
         beforeEach(function(){func = Publisher.autocompletion.searchTermFromValue;});
         it("returns nothing if the cursor is before the @", function(){
           expect(func('not @dan grip', 2)).toBe('');
         });
-        it("returns everything after an @ if the cursor is a word after that @", function(){
+        it("returns everything up to the cursor if the cursor is a word after that @", function(){
           expect(func('not @dan grip', 13)).toBe('dan grip');
         });
-        it("returns everything after an @ if the cursor is after that @", function(){
-          expect(func('not @dan grip', 7)).toBe('dan grip');
+        it("returns up to the cursor if the cursor is after that @", function(){
+          expect(func('not @dan grip', 7)).toBe('da');
         });
 
         it("returns everything after an @ at the start of the line", function(){
@@ -89,11 +87,11 @@ describe("Publisher", function() {
         it("returns nothing if there are letters preceding the @", function(){
           expect(func('ioj@asdo', 8)).toBe('');
         });
-        it("returns everything between @s if there are 2 @s and the cursor is between them", function(){
-          expect(func('@asdpo  aoisdj @asodk', 8)).toBe('asdpo  aoisdj');
+        it("returns everything up to the cursor if there are 2 @s and the cursor is between them", function(){
+          expect(func('@asdpo  aoisdj @asodk', 8)).toBe('asdpo');
         });
-        it("returns everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
-          expect(func('@asod asdo @asd asok', 15)).toBe('asd asok');
+        it("returns everything from the 2nd @ up to the cursor if there are 2 @s and the cursor after them", function(){
+          expect(func('@asod asdo @asd asok', 15)).toBe('asd');
         });
       });
 
@@ -105,18 +103,15 @@ describe("Publisher", function() {
         var visibleInput, visibleVal,
             hiddenInput, hiddenVal,
             list,
-            func,
             mention;
         beforeEach(function(){
           spec.loadFixture('aspects_index');
           list = Publisher.autocompletion.mentionList;
-          func = list.keypressAt;
           visibleInput = Publisher.input();
           hiddenInput = Publisher.hiddenInput();
           mention = { visibleStart : 0,
                       visibleEnd   : 5,
-                      hiddenStart  : 0,
-                      hiddenEnd    : 21
+                      mentionString : "@{Danny; dan@pod.org}"
                     };
           list.mentions = [];
           list.push(mention);
@@ -124,6 +119,11 @@ describe("Publisher", function() {
           visibleInput.val(visibleVal);
           hiddenVal = "@{Danny; dan@pod.org} loves testing javascript";
           hiddenInput.val(hiddenVal);
+        });
+        describe("generateHiddenInput", function(){
+          it("replaces mentions in a string", function(){
+            expect(list.generateHiddenInput(visibleVal)).toBe(hiddenVal);
+          });
         });
         describe("push", function(){
           it("adds mention to mentions array", function(){
@@ -142,34 +142,39 @@ describe("Publisher", function() {
         describe("keypressAt", function(){
           it("does nothing if there is no visible mention at that index", function(){
             list.keypressAt(8);
-            expect(visibleInput.val()).toBe(visibleVal)
-            expect(hiddenInput.val()).toBe(hiddenVal)
+            expect(visibleInput.val()).toBe(visibleVal);
+            expect(hiddenInput.val()).toBe(hiddenVal);
           });
           it("deletes the mention from the hidden field if there is a mention", function(){
             list.keypressAt(3);
-            expect(visibleInput.val()).toBe(visibleVal)
-            expect(hiddenInput.val()).toBe(visibleVal)
+            expect(visibleInput.val()).toBe(visibleVal);
+            expect(list.generateHiddenInput(visibleInput.val())).toBe(visibleVal);
           });
           it("deletes the mention from the list", function(){
             list.keypressAt(3);
             expect(list.mentionAt(3)).toBeFalsy();
           });
-          it("updates the offsets of the remaining mentions in the list");
+          it("calls updateMentionLocations", function(){
+            mentionTwo = { visibleStart : 8,
+                          visibleEnd   : 15,
+                          mentionString : "@{SomeoneElse; other@pod.org}"
+                        };
+            list.push(mentionTwo);
+            spyOn(list, 'updateMentionLocations');
+            list.keypressAt(3, 60);
+            expect(list.updateMentionLocations).toHaveBeenCalled();
+          });
         });
-        describe("offsetFrom", function(){
-          var func;
-          beforeEach(function(){
-            func = list.offsetFrom;
-          });
-          it("returns the offset of the mention at that location", function(){
-            expect(list.offsetFrom(3)).toBe(mention.offset);
-          });
-          it("returns the offset of the previous mention if there is no mention there", function(){
-            expect(list.offsetFrom(10)).toBe(mention.offset);
-          });
-          it("returns 0 if there are no mentions", function(){
-            list.mentions = [];
-            expect(list.offsetFrom(8)).toBe(0);
+        describe("updateMentionLocations", function(){
+          it("updates the offsets of the remaining mentions in the list", function(){
+            mentionTwo = { visibleStart : 8,
+                          visibleEnd   : 15,
+                          mentionString : "@{SomeoneElse; other@pod.org}"
+                        };
+            list.push(mentionTwo);
+            list.updateMentionLocations(7, 60);
+            expect(mentionTwo.visibleStart).toBe(9);
+            expect(mentionTwo.visibleEnd).toBe(16);
           });
         });
       });
@@ -184,37 +189,38 @@ describe("Publisher", function() {
           spec.loadFixture('aspects_index');
           func = Publisher.autocompletion.addMentionToInput;
           input = Publisher.input();
+          Publisher.autocompletion.mentionList = [];
           replaceWith = "Replace with this.";
         });
-        it("replaces everything after an @ if the cursor is a word after that @", function(){
+        it("replaces everything up to the cursor if the cursor is a word after that @", function(){
           input.val('not @dan grip');
           var cursorIndex = 13;
           func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe('not ' + replaceWith);
         });
-        it("replaces everything after an @ if the cursor is after that @", function(){
+        it("replaces everything between @ and the cursor if the cursor is after that @", function(){
           input.val('not @dan grip');
           var cursorIndex = 7;
           func(input, cursorIndex, replaceWith);
-          expect(input.val()).toBe('not ' + replaceWith);
+          expect(input.val()).toBe('not ' + replaceWith + 'n grip');
         });
-        it("replaces everything after an @ at the start of the line", function(){
+        it("replaces everything up to the cursor from @ at the start of the line", function(){
           input.val('@dan grip');
           var cursorIndex = 9;
           func(input, cursorIndex, replaceWith);
           expect(input.val()).toBe(replaceWith);
         });
-        it("replaces everything between @s if there are 2 @s and the cursor is between them", function(){
+        it("replaces everything between the first @ and the cursor if there are 2 @s and the cursor is between them", function(){
           input.val('@asdpo  aoisdj @asodk');
           var cursorIndex = 8;
           func(input, cursorIndex, replaceWith);
-          expect(input.val()).toBe(replaceWith + ' @asodk');
+          expect(input.val()).toBe(replaceWith + 'aoisdj @asodk');
         });
         it("replaces everything after the 2nd @ if there are 2 @s and the cursor after them", function(){
           input.val('@asod asdo @asd asok');
           var cursorIndex = 15;
           func(input, cursorIndex, replaceWith);
-          expect(input.val()).toBe('@asod asdo ' + replaceWith);
+          expect(input.val()).toBe('@asod asdo ' + replaceWith + ' asok');
         });
       });
     });

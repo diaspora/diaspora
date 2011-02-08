@@ -2,7 +2,18 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-
+	var KEY = {
+		UP: 38,
+		DOWN: 40,
+		DEL: 46,
+		TAB: 9,
+		RETURN: 13,
+		ESC: 27,
+		COMMA: 188,
+		PAGEUP: 33,
+		PAGEDOWN: 34,
+		BACKSPACE: 8
+	};
 //TODO: make this a widget
 var Publisher = {
   close: function(){
@@ -62,59 +73,143 @@ var Publisher = {
       var visibleLoc = Publisher.autocompletion.addMentionToInput(visibleInput, visibleCursorIndex, formatted);
       $.Autocompleter.Selection(visibleInput[0], visibleLoc[1], visibleLoc[1]);
 
-      var hiddenCursorIndex = visibleCursorIndex + Publisher.autocompletion.mentionList.offsetFrom(visibleCursorIndex);
-      var hiddenLoc = Publisher.autocompletion.addMentionToInput(Publisher.hiddenInput(), hiddenCursorIndex, Publisher.autocompletion.hiddenMentionFromPerson(data));
+      var mentionString = Publisher.autocompletion.hiddenMentionFromPerson(data);
       var mention = { visibleStart: visibleLoc[0],
                       visibleEnd  : visibleLoc[1],
-                      hiddenStart : hiddenLoc[0],
-                      hiddenEnd   : hiddenLoc[1]
+                      mentionString : mentionString
                     };
+      Publisher.autocompletion.mentionList.push(mention);
+      Publisher.oldInputContent = visibleInput.val();
+      Publisher.hiddenInput().val(Publisher.autocompletion.mentionList.generateHiddenInput(visibleInput.val()));
     },
 
     mentionList : {
       mentions : [],
+      sortedMentions : function(){
+        return this.mentions.sort(function(m1, m2){
+          if(m1.visibleStart > m2.visibleStart){
+            return -1;
+          } else if(m1.visibleStart < m2.visibleStart){
+            return 1;
+          } else {
+            return 0;
+          }
+        });
+      },
       push : function(mention){
-        mention.offset = mention.hiddenEnd - mention.visibleEnd;
         this.mentions.push(mention);
       },
-      keypressAt : function(visibleCursorIndex){
-        var mentionIndex = this.mentionAt(visibleCursorIndex);
-        var mention = this.mentions[mentionIndex];
-        if(!mention){return;}
-        var visibleMentionString = Publisher.input().val().slice(mention.visibleStart, mention.visibleEnd);
-        var hiddenContent = Publisher.hiddenInput().val();
-        hiddenContent = hiddenContent.slice(0,mention.hiddenStart) +
-                        visibleMentionString +
-                        hiddenContent.slice(mention.hiddenEnd);
-        Publisher.hiddenInput().val(hiddenContent);
+      generateHiddenInput : function(visibleString){
+        var resultString = visibleString;
+        for(i in this.sortedMentions()){
+          var mention = this.mentions[i];
+          var start = resultString.slice(0, mention.visibleStart);
+          var insertion = mention.mentionString;
+          var end = resultString.slice(mention.visibleEnd);
 
-        this.mentions.splice(mentionIndex, 1);
+          resultString = start + insertion + end;
+        }
+        return resultString;
+      },
+
+      insertionAt : function(insertionEndIndex, insertionStartIndex, keyCode){
+        this.incrementMentionLocations(insertionStartIndex, insertionEndIndex - insertionStartIndex);
+        var mentionIndex = this.mentionAt(insertionEndIndex);
+
+        var mention = this.mentions[mentionIndex];
+        if(mention){
+          this.mentions.splice(mentionIndex, 1);
+        }
+
+      },
+      deletionAt : function(visibleCursorIndex, keyCode){
+
+        var effectiveCursorIndex;
+        if(keyCode == KEY.DEL){
+          effectiveCursorIndex = visibleCursorIndex;
+        }else{
+          effectiveCursorIndex = visibleCursorIndex - 1;
+        }
+        this.decrementMentionLocations(effectiveCursorIndex, keyCode);
+
+        var mentionIndex = this.mentionAt(effectiveCursorIndex);
+
+        var mention = this.mentions[mentionIndex];
+        if(mention){
+          this.mentions.splice(mentionIndex, 1);
+        }
+
+      },
+      incrementMentionLocations : function(effectiveCursorIndex, offset){
+        var changedMentions = this.mentionsAfter(effectiveCursorIndex);
+        for(i in changedMentions){
+          var mention = changedMentions[i];
+          mention.visibleStart += offset;
+          mention.visibleEnd += offset;
+        }
+      },
+      decrementMentionLocations : function(effectiveCursorIndex){
+        var visibleOffset = -1;
+        var changedMentions = this.mentionsAfter(effectiveCursorIndex);
+        for(i in changedMentions){
+          var mention = changedMentions[i];
+          mention.visibleStart += visibleOffset;
+          mention.visibleEnd += visibleOffset;
+        }
       },
       mentionAt : function(visibleCursorIndex){
         for(i in this.mentions){
           var mention = this.mentions[i];
-          if(visibleCursorIndex >= mention.visibleStart && visibleCursorIndex < mention.visibleEnd){
+          if(visibleCursorIndex > mention.visibleStart && visibleCursorIndex < mention.visibleEnd){
             return i;
           }
-          return false;
         }
+        return false;
       },
-      offsetFrom: function(visibleCursorIndex){
-        var mention = {visibleStart : -1, fake: true};
-        var currentMention;
+      mentionsAfter : function(visibleCursorIndex){
+        var resultMentions = [];
         for(i in this.mentions){
-          currentMention = this.mentions[i];
-          if(visibleCursorIndex >= currentMention.visibleStart &&
-             currentMention.visibleStart > mention.visibleStart){
-             mention = currentMention;
+          var mention = this.mentions[i];
+          if(visibleCursorIndex <= mention.visibleStart){
+            resultMentions.push(mention);
           }
         }
-        if(mention && !mention.fake){
-          return mention.offset;
-        }else{
-          return 0;
-        }
+        return resultMentions;
+      },
+    },
+    repopulateHiddenInput: function(){
+      var newHiddenVal = Publisher.autocompletion.mentionList.generateHiddenInput(Publisher.input().val());
+      if(newHiddenVal != Publisher.hiddenInput().val()){
+        Publisher.hiddenInput().val(newHiddenVal);
       }
+    },
+
+    keyUpHandler : function(event){
+      var input = Publisher.input();
+      var cursorIndexAtKeydown = Publisher.cursorIndexAtKeydown;
+      Publisher.cursorIndexAtKeydown = -1;
+      if(input.val() == Publisher.oldInputContent || event.keyCode == KEY.RETURN || event.keyCode == KEY.DEL || event.keyCode == KEY.BACKSPACE){
+        Publisher.autocompletion.repopulateHiddenInput();
+        return;
+      }else {
+        Publisher.oldInputContent = input.val();
+        var visibleCursorIndex = input[0].selectionStart;
+        Publisher.autocompletion.mentionList.insertionAt(visibleCursorIndex, cursorIndexAtKeydown, event.keyCode);
+        Publisher.autocompletion.repopulateHiddenInput();
+      }
+    },
+
+    keyDownHandler : function(event){
+      var input = Publisher.input();
+      var visibleCursorIndex = input[0].selectionStart;
+      if(Publisher.cursorIndexAtKeydown == -1){
+        Publisher.cursorIndexAtKeydown = visibleCursorIndex;
+      }
+
+      if((event.keyCode == KEY.DEL && visibleCursorIndex < input.val().length) || (event.keyCode == KEY.BACKSPACE && visibleCursorIndex > 0)){
+        Publisher.autocompletion.mentionList.deletionAt(visibleCursorIndex, event.keyCode);
+      }
+      Publisher.autocompletion.repopulateHiddenInput();
     },
 
     addMentionToInput: function(input, cursorIndex, formatted){
@@ -126,13 +221,15 @@ var Publisher = {
       var stringEnd = inputContent.slice(stringLoc[1]);
 
       input.val(stringStart + formatted + stringEnd);
+      var offset = formatted.length - stringLoc[1] - stringLoc[0]
+      Publisher.autocompletion.mentionList.incrementMentionLocations(stringStart.length, offset);
       return [stringStart.length, stringStart.length + formatted.length]
     },
 
     findStringToReplace: function(value, cursorIndex){
       var atLocation = value.lastIndexOf('@', cursorIndex);
       if(atLocation == -1){return [0,0];}
-      var nextAt = cursorIndex//value.indexOf(' @', cursorIndex+1);
+      var nextAt = cursorIndex
 
       if(nextAt == -1){nextAt = value.length;}
       return [atLocation, nextAt];
@@ -164,6 +261,7 @@ var Publisher = {
       Publisher.input().autocomplete(Publisher.autocompletion.contactsJSON(),
         Publisher.autocompletion.options());
       Publisher.input().result(Publisher.autocompletion.selectItemCallback);
+      Publisher.oldInputContent = Publisher.input().val();
     }
   },
   initialize: function() {
@@ -183,6 +281,8 @@ var Publisher = {
 
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
+    Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
+    Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
       $(this).css('min-height', '42px');
