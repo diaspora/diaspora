@@ -120,6 +120,49 @@ describe("Publisher", function() {
           hiddenVal = "@{Danny; dan@pod.org} loves testing javascript";
           hiddenInput.val(hiddenVal);
         });
+        describe("selectionDeleted", function(){
+        var func, danny, daniel, david, darren;
+          beforeEach(function(){
+            func = list.selectionDeleted;
+            visibleVal = "Danny Daniel David Darren";
+            visibleInput.val(visibleVal);
+            list.mentions = [];
+            danny = {
+              visibleStart : 0,
+              visibleEnd : 5,
+              mentionString : "@{Danny; danny@pod.org}"
+            };
+            daniel = {
+              visibleStart : 6,
+              visibleEnd : 12,
+              mentionString : "@{Daniel; daniel@pod.org}"
+            };
+            david = {
+              visibleStart : 13,
+              visibleEnd : 18,
+              mentionString : "@{David; david@pod.org}"
+            };
+            darren = {
+              visibleStart : 19,
+              visibleEnd : 25,
+              mentionString : "@{Darren; darren@pod.org}"
+            };
+            list.push(danny)
+            list.push(daniel)
+            list.push(david)
+            list.push(darren)
+          });
+          it("destroys mentions within the selection", function(){
+            func(4,11);
+            expect(list.sortedMentions()).toEqual([darren, david])
+          });
+          it("moves remaining mentions back", function(){
+            func(7,14);
+            var length = 11 - 4
+            expect(danny.visibleStart).toBe(0);
+            expect(darren.visibleStart).toBe(19-length);
+          });
+        });
         describe("generateHiddenInput", function(){
           it("replaces mentions in a string", function(){
             expect(list.generateHiddenInput(visibleVal)).toBe(hiddenVal);
@@ -160,19 +203,19 @@ describe("Publisher", function() {
                           mentionString : "@{SomeoneElse; other@pod.org}"
                         };
             list.push(mentionTwo);
-            spyOn(list, 'incrementMentionLocations');
+            spyOn(list, 'updateMentionLocations');
             list.insertionAt(3,4, 60);
-            expect(list.incrementMentionLocations).toHaveBeenCalled();
+            expect(list.updateMentionLocations).toHaveBeenCalled();
           });
         });
-        describe("incrementMentionLocations", function(){
-          it("increments the offsets of the remaining mentions in the list", function(){
+        describe("updateMentionLocations", function(){
+          it("updates the offsets of the remaining mentions in the list", function(){
             mentionTwo = { visibleStart : 8,
                           visibleEnd   : 15,
                           mentionString : "@{SomeoneElse; other@pod.org}"
                         };
             list.push(mentionTwo);
-            list.incrementMentionLocations(7, 1);
+            list.updateMentionLocations(7, 1);
             expect(mentionTwo.visibleStart).toBe(9);
             expect(mentionTwo.visibleEnd).toBe(16);
           });

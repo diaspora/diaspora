@@ -101,49 +101,52 @@ var Publisher = {
         return resultString;
       },
 
-      insertionAt : function(insertionStartIndex, keyCode){
-        this.incrementMentionLocations(insertionStartIndex, 1);
-        var mentionIndex = this.mentionAt(insertionStartIndex + 1);
-
-        var mention = this.mentions[mentionIndex];
-        if(mention){
-          this.mentions.splice(mentionIndex, 1);
-        }
-
+      insertionAt : function(insertionStartIndex, selectionEnd, keyCode){
+        this.selectionDeleted(insertionStartIndex, selectionEnd);
+        this.updateMentionLocations(insertionStartIndex, 1);
+        this.destroyMentionAt(insertionStartIndex);
       },
-      deletionAt : function(visibleCursorIndex, keyCode){
+      deletionAt : function(selectionStart, selectionEnd, keyCode){
+        if(selectionStart != selectionEnd){
+          this.selectionDeleted(selectionStart, selectionEnd);
+          return;
+        }
 
         var effectiveCursorIndex;
         if(keyCode == KEYCODES.DEL){
-          effectiveCursorIndex = visibleCursorIndex;
+          effectiveCursorIndex = selectionStart;
         }else{
-          effectiveCursorIndex = visibleCursorIndex - 1;
+          effectiveCursorIndex = selectionStart - 1;
         }
-        this.decrementMentionLocations(effectiveCursorIndex, keyCode);
+        this.updateMentionLocations(effectiveCursorIndex, -1);
+        this.destroyMentionAt(effectiveCursorIndex);
+      },
+      selectionDeleted : function(selectionStart, selectionEnd){
+        Publisher.autocompletion.mentionList.destroyMentionsWithin(selectionStart, selectionEnd);
+        Publisher.autocompletion.mentionList.updateMentionLocations(selectionStart, selectionStart - selectionEnd);
+      },
+      destroyMentionsWithin : function(start, end){
+        for (var i = this.mentions.length - 1; i >= 0; i--){
+          var mention = this.mentions[i];
+          if(start < mention.visibleEnd && end >= mention.visibleStart){
+            this.mentions.splice(i, 1);
+          }
+        }
+      },
+      destroyMentionAt : function(effectiveCursorIndex){
 
         var mentionIndex = this.mentionAt(effectiveCursorIndex);
-
         var mention = this.mentions[mentionIndex];
         if(mention){
           this.mentions.splice(mentionIndex, 1);
         }
-
       },
-      incrementMentionLocations : function(effectiveCursorIndex, offset){
+      updateMentionLocations : function(effectiveCursorIndex, offset){
         var changedMentions = this.mentionsAfter(effectiveCursorIndex);
         for(i in changedMentions){
           var mention = changedMentions[i];
           mention.visibleStart += offset;
           mention.visibleEnd += offset;
-        }
-      },
-      decrementMentionLocations : function(effectiveCursorIndex){
-        var visibleOffset = -1;
-        var changedMentions = this.mentionsAfter(effectiveCursorIndex);
-        for(i in changedMentions){
-          var mention = changedMentions[i];
-          mention.visibleStart += visibleOffset;
-          mention.visibleEnd += visibleOffset;
         }
       },
       mentionAt : function(visibleCursorIndex){
@@ -179,15 +182,14 @@ var Publisher = {
 
     keyDownHandler : function(event){
       var input = Publisher.input();
-      var visibleCursorIndex = input[0].selectionStart;
-      //if(Publisher.cursorIndexAtKeydown == -1){
-      //  Publisher.cursorIndexAtKeydown = visibleCursorIndex;
-      //}
+      var selectionStart = input[0].selectionStart;
+      var isDeletion = (event.keyCode == KEYCODES.DEL && selectionStart < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && selectionStart > 0)
+      var isInsertion = (KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN )
 
-      if((event.keyCode == KEYCODES.DEL && visibleCursorIndex < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && visibleCursorIndex > 0)){
-        Publisher.autocompletion.mentionList.deletionAt(visibleCursorIndex, event.keyCode);
-      }else if(KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN ){
-        Publisher.autocompletion.mentionList.insertionAt(visibleCursorIndex, event.keyCode);
+      if(isDeletion){
+        Publisher.autocompletion.mentionList.deletionAt(selectionStart, input[0].selectionEnd, event.keyCode);
+      }else if(isInsertion){
+        Publisher.autocompletion.mentionList.insertionAt(selectionStart, input[0].selectionEnd, event.keyCode);
       }
     },
 
@@ -201,7 +203,7 @@ var Publisher = {
 
       input.val(stringStart + formatted + stringEnd);
       var offset = formatted.length - stringLoc[1] - stringLoc[0]
-      Publisher.autocompletion.mentionList.incrementMentionLocations(stringStart.length, offset);
+      Publisher.autocompletion.mentionList.updateMentionLocations(stringStart.length, offset);
       return [stringStart.length, stringStart.length + formatted.length]
     },
 
