@@ -95,8 +95,8 @@ $.Autocompleter = function(input, options) {
 		switch(event.keyCode) {
 
 			case KEY.UP:
-				event.preventDefault();
 				if ( select.visible() ) {
+          event.preventDefault();
 					select.prev();
 				} else {
 					onChange(0, true);
@@ -104,8 +104,8 @@ $.Autocompleter = function(input, options) {
 				break;
 
 			case KEY.DOWN:
-				event.preventDefault();
 				if ( select.visible() ) {
+          event.preventDefault();
 					select.next();
 				} else {
 					onChange(0, true);
@@ -113,8 +113,8 @@ $.Autocompleter = function(input, options) {
 				break;
 
 			case KEY.PAGEUP:
-				event.preventDefault();
 				if ( select.visible() ) {
+          event.preventDefault();
 					select.pageUp();
 				} else {
 					onChange(0, true);
@@ -122,8 +122,8 @@ $.Autocompleter = function(input, options) {
 				break;
 
 			case KEY.PAGEDOWN:
-				event.preventDefault();
 				if ( select.visible() ) {
+          event.preventDefault();
 					select.pageDown();
 				} else {
 					onChange(0, true);
