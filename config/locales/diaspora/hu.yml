@@ -113,9 +113,6 @@ hu:
     new_comment: 
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
-      enter: "entert"
-      press: "nyomj"
-      to_comment: "a hozzászóláshoz"
   contacts: 
     few: "%{count} ismerős"
     one: "1 ismerős"
@@ -168,6 +165,7 @@ hu:
       have_a_problem: "Problémád van?"
       logged_in_as: "bejelentkezve, mint %{name}"
       powered_by: "DIASPORA* fordította ADAMEX"
+      toggle: "mobil változat"
       whats_new: "Újdonságok"
       your_aspects: "csoportjaid"
     header: 

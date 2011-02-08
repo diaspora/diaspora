@@ -113,9 +113,6 @@ sl:
     new_comment: 
       comment: "komentar"
       commenting: "komentiraj..."
-      enter: "tipko enter"
-      press: "uporabi"
-      to_comment: "za potrditev komentarja"
   contacts: 
     few: "število stikov %{count}"
     one: "1 stik"
@@ -168,6 +165,7 @@ sl:
       have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
       logged_in_as: "logged in as %{name}"
       powered_by: "STRAN POGANJA DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "kaj je novega?"
       your_aspects: "your aspects"
     header: 

@@ -113,9 +113,6 @@ ru:
     new_comment: 
       comment: "Комментарий"
       commenting: "Комментирование ..."
-      enter: "вход"
-      press: "пресса"
-      to_comment: "комментировать"
   contacts: 
     few: "%{count} контактов"
     one: "1 контакт"
@@ -168,6 +165,7 @@ ru:
       have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
       logged_in_as: "Вошли как %{name}"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
+      toggle: "toggle mobile site"
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
     header: 

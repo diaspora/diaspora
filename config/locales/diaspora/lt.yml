@@ -113,9 +113,6 @@ lt:
     new_comment: 
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -168,6 +165,7 @@ lt:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 

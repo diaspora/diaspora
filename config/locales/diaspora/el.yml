@@ -113,9 +113,6 @@ el:
     new_comment: 
       comment: "Σχολιάστε"
       commenting: "Σχολιάζει..."
-      enter: "enter"
-      press: "πατήστε"
-      to_comment: "για εισαγωγή σχολίου"
   contacts: 
     few: "%{count} επαφές"
     one: "1 επαφή"
@@ -168,6 +165,7 @@ el:
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header: 
@@ -374,7 +372,7 @@ el:
       connect_to_twitter: "Σύνδεση με το twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
-      logged_in_as: "συνδεδεμένος ως"
+      logged_in_as: "συνδεδεμένο ως"
       really_disconnect: "αποσύνδεση %{service};"
     inviter: 
       click_link_to_accept_invitation: "Κάντε κλικ αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"

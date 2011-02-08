@@ -113,9 +113,6 @@ fi:
     new_comment: 
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
-      enter: "lisää"
-      press: "paina"
-      to_comment: "kommentoidaksesi"
   contacts: 
     few: "%{count} kontaktia"
     one: "1 kontakti"
@@ -168,6 +165,7 @@ fi:
       have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
       logged_in_as: "kirjautuneena nimellä %{name}"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
     header: 

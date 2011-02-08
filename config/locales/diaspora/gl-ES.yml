@@ -113,9 +113,6 @@ gl-ES:
     new_comment: 
       comment: "Comentario"
       commenting: "Comentando..."
-      enter: "entrar"
-      press: "premer"
-      to_comment: "para comentar"
   contacts: 
     few: "%{count} contactos"
     one: "1 contacto"
@@ -168,6 +165,7 @@ gl-ES:
       have_a_problem: "Tes problemas? Atopa aquí a resposta"
       logged_in_as: "conectado como %{name}"
       powered_by: "FORNECIDO POR DIASPORA*"
+      toggle: "cambiar a web móbil"
       whats_new: "que hai de novo?"
       your_aspects: "os teus aspectos"
     header: 

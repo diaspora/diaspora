@@ -113,9 +113,6 @@ de:
     new_comment: 
       comment: "Kommentieren"
       commenting: "Kommentieren …"
-      enter: "Eingabe"
-      press: "drücke"
-      to_comment: "zum Kommentieren"
   contacts: 
     few: "%{count} Kontakte"
     one: "1 Kontakt"
@@ -168,6 +165,7 @@ de:
       have_a_problem: "Du hast ein Problem? Finde hier eine Antwort (Englisch)"
       logged_in_as: "Angemeldet als %{name}"
       powered_by: "BETRIEBEN MIT DIASPORA*"
+      toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt’s Neues?"
       your_aspects: "Deine Aspekte"
     header: 

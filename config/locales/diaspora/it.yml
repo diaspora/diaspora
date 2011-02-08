@@ -113,9 +113,6 @@ it:
     new_comment: 
       comment: "Commento"
       commenting: "Invio commento in corso..."
-      enter: "entra"
-      press: "premi"
-      to_comment: "per commentare"
   contacts: 
     few: "%{count} contatti"
     one: "1 contatto"
@@ -168,6 +165,7 @@ it:
       have_a_problem: "Hai un problema? Trova qui la soluzione"
       logged_in_as: "autenticato come %{name}"
       powered_by: "CREATO CON DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "novità"
       your_aspects: "I tuoi aspetti"
     header: 
@@ -203,7 +201,7 @@ it:
       sign_in: "Autenticati per vederlo."
       subject: "%{name} ha anche commentato."
     comment_on_post: 
-      commented: "ha commentato il tuo post!"
+      commented: "ha commentato il tuo post:"
       sign_in: "Autenticati per vederlo."
       subject: "%{name} ha commentato il tuo post."
     diaspora: "l'email robot di diaspora"
@@ -216,7 +214,7 @@ it:
       try_it_out: "Dovresti veramente provarlo."
     request_accepted: 
       accepted: "ha accettato la tua richiesta di contatto!"
-      sign_in: "Sign in here"
+      sign_in: "Registrati qui"
       subject: "%{name} ha accettato la tua richiesta di contatto su Diaspora*"
     single_admin: 
       admin: "Il tuo amministratore Diaspora"
@@ -272,7 +270,7 @@ it:
       share_with: "Inizia a condividere con %{name}"
     show: 
       does_not_exist: "La persona non esiste!"
-      incoming_request: "Hai ricevuto una richiesta da questa persona."
+      incoming_request: "%{name} vuole condividere con te"
       no_posts: "nessun post da mostrare!"
       not_connected: "Non sei in contatto con %{name}"
       recent_posts: "Post Recenti"
@@ -309,7 +307,7 @@ it:
     photo: 
       view_all: "guarda tutte le foto di %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "permalink della collezione"
       delete_photo: "Elimina foto"
       edit: "modifica"
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"

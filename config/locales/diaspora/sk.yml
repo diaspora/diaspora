@@ -4,12 +4,12 @@
 
 
 sk: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
+  _aspect: "Aspekt"
+  _aspects: "Aspekty"
   _comment: "Komentár"
   _comments: "Komentáre"
-  _contact: "Contact"
-  _contacts: "Contacts"
+  _contact: "Kontakt"
+  _contacts: "Kontakty"
   _home: "Domov"
   _more: "Viac"
   _photos: "Fotky"
@@ -52,28 +52,28 @@ sk:
       failure: "Pridanie kontaktu do aspektu zlyhalo."
       success: "Kontakt bol úspešne pridaný."
     aspect_contacts: 
-      done_editing: "done editing"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+      done_editing: "úprava dokončená"
+    contacts_not_visible: "Kontakty v tomto aspekte sa nebudú môcť navzájom vidieť."
+    contacts_visible: "Kontakty v tomto aspekte sa budú môcť navzájom vidieť."
     create: 
       failure: "Vytvorenie aspektu zlyhalo."
       success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
       success: "Užívateľ %{name} bol úspešne odstránený."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
-      remove_aspect: "Delete this aspect"
+      add_existing: "Pridať existujúci kontakt"
+      confirm_remove_aspect: "Ste si istý, že chcete zmazať tento aspekt?"
+      make_aspect_list_visible: "Zviditeľniť zoznam aspektov ostatným"
+      remove_aspect: "Zmazať tento aspekt"
       rename: "premenovať"
-      save: "Save"
+      save: "Uložiť"
     helper: 
       are_you_sure: "Ste si istý, že chcete zmazať tento aspekt?"
       aspect_not_empty: "Aspekt nie je prázdny"
       remove: "odstrániť"
     index: 
       handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
-      no_contacts: "No contacts"
+      no_contacts: "Žiadne kontakty"
     manage: 
       add_a_new_aspect: "Pridať nový aspekt"
       add_a_new_contact: "Pridať nový kontakt"
@@ -105,7 +105,7 @@ sk:
     show: 
       edit_aspect: "upraviť aspekt"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Váš aspekt, %{name}, má príliš dlhý názov."
       success: "Váš aspekt, %{name}, bol úspešne upravený."
   back: "Späť"
   cancel: "Zrušiť"
@@ -113,9 +113,6 @@ sk:
     new_comment: 
       comment: "Komentár"
       commenting: "Komentuje..."
-      enter: "Vstúpiť"
-      press: "stlačiť"
-      to_comment: "to comment"
   contacts: 
     few: "kontakty (%{count})"
     one: "1 kontakt"
@@ -125,9 +122,9 @@ sk:
   email: "e-mail"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Upravte nasledujúce chyby a skúste znova."
+      correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste znova."
       invalid_fields: "Chybné polia"
-  fill_me_out: "Vyplň ma"
+  fill_me_out: "Vyplňte prosím formulár."
   home: 
     show: 
       already_account: "Máte už vytvorený účet?"
@@ -140,8 +137,8 @@ sk:
       share_what_you_want: "Zdieľajte čo chcete a s kým chcete."
       simplicity: "Jednoduchosť"
       simplicity_explanation: "Zdieľanie v Diaspore je veľmi ľahké a transparentné – je to dvojitá záruka ochrany súkromia. Ohľadom súkromia, Diaspora neobsahuje žiadne zložité stránky s nastavením, ktorými by ste sa museli prelúskať, aby ste uchovali bezpečnosť Vášho profilu podľa svojich predstáv."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Zdieľajte čo chcete,"
+      tagline_second_half: "s ktorým chcete byť."
   invitations: 
     check_token: 
       not_found: "Pozývací token nenájdený"
@@ -168,6 +165,7 @@ sk:
       have_a_problem: "Máte problém? Nájdite odpoveď tu"
       logged_in_as: "Prihlásený ako %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "Zapnúť mobilné zobrazenie"
       whats_new: "Čo je nové?"
       your_aspects: "Vaše aspekty"
     header: 
@@ -181,16 +179,16 @@ sk:
   more: "Viac"
   new_notifications: "Počet nových notifikácií %{count} "
   new_requests: 
-    few: "nové žiadosti (%{count})"
-    one: "jedna nová žiadosť"
-    other: "nové žiadosti (%{count})"
+    few: "Počet nových žiadostí : (%{count})"
+    one: "nová žiadosť!"
+    other: "Počet nových žiadostí : (%{count})!"
     zero: "žiadne nové žiadosti"
-  next: "next"
+  next: "ďalej"
   no_new_notifications: "žiadne nové notifikácie"
   notifications: 
     also_commented: "also commented on"
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    comment_on_post: "komentoval Váš"
+    deleted: "zmazané"
     index: 
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
@@ -199,13 +197,13 @@ sk:
     request_accepted: "Vaša požiadavka bola akceptovaná."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+      commented: "tiež komentoval príspevok užívateľa %{post_author} :"
+      sign_in: "Pre zobrazenie musíte byť prihlásený."
+      subject: "%{name} tiež komentoval."
     comment_on_post: 
       commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      sign_in: "Pre zobrazenie musíte byť prihlásený."
+      subject: "Užívateľ %{name} komentoval Váš príspevok."
     diaspora: "e-mail robot Diaspory"
     hello: "Ahoj %{name}!"
     love: "miluje,"
@@ -216,7 +214,7 @@ sk:
       try_it_out: "Mali by ste to skontrolovať."
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
-      sign_in: "Sign in here"
+      sign_in: "Prihláste sa"
       subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspore*"
     single_admin: 
       admin: "Váš administrátor"
@@ -225,7 +223,7 @@ sk:
   ok: "OK"
   or: "alebo"
   pagination: 
-    next: "Ďalšie"
+    next: "Ďalej"
     previous: "Predchádzajúce"
   password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
@@ -234,7 +232,7 @@ sk:
       edit_membership: "upraviť členstvo v Aspekte."
     edit: 
       allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspore"
-      edit_profile: "Edit profile"
+      edit_profile: "Upraviť profil"
       first_name: "Meno"
       info_available_to: "Tieto informácie budú dostupné komukoľvek, s kým sa spojíte na Diaspore."
       last_name: "Priezvisko"
@@ -250,7 +248,7 @@ sk:
       results_for: "Výsledky hľadania %{params}"
     index: 
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      no_one_found: "...a nenašlo sa."
       no_results: "Hey! You need to search for something."
       results_for: "Výsledky vyhľadávania pre"
     person: 
@@ -276,7 +274,7 @@ sk:
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
       recent_posts: "Posledné príspevky"
-      recent_public_posts: "Recent Public Posts"
+      recent_public_posts: "Nedávne verejné príspevky"
       return_to_aspects: "Vrátiť sa na stránku aspektov"
       similar_contacts: "podobné kontakty"
       start_sharing: "začať zdieľať"
@@ -304,12 +302,12 @@ sk:
       invalid_ext: "{file} má neplatnú príponu. Povolené sú len prípony {extensions}."
       size_error: "{file} je príliš veľký, maximálna veľkosť súboru je {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "alebo vyberte jeden z už existujúcich"
+      upload: "Nahrať novú profilovú fotografiu!"
     photo: 
       view_all: "pozrieť všetky fotky užívateľa %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "Permalink kolekcie"
       delete_photo: "Zmazať fotku"
       edit: "upraviť"
       edit_delete_photo: "Upraviť popis fotky / zmazať fotku"
@@ -320,7 +318,7 @@ sk:
     update: 
       error: "Úprava fotky zlyhala."
       notice: "Fotka bola úspešne aktualizovaná."
-  previous: "previous"
+  previous: "Predchádzajúce"
   profile: "Profil"
   registrations: 
     closed: "Registrácie sú zatvorené"
@@ -334,10 +332,10 @@ sk:
       unhappy: "Nešťastný?"
       update: "Aktualizovať"
     new: 
-      enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_email: "Zadajte e-mail"
+      enter_password: "Zadajte heslo"
+      enter_password_again: "Zadajte rovnaké heslo ako predtým"
+      enter_username: "Zadajte užívateľské meno (môže sa skladať len z písmen, číslic a podtržníka)"
       sign_up: "Zaregistruj sa"
       sign_up_for_diaspora: "Pridaj sa k Diaspore"
   requests: 
@@ -345,8 +343,8 @@ sk:
       sending: "Posielam..."
       sent: "Boli ste požiadaný o zdieľanie s %{name}.  Malo by sa to zobraziť pri nasledujúcom zobrazení."
     destroy: 
-      error: "Vyberte aspekt prosím!"
-      ignore: "Ignorovať žiadosť."
+      error: "Vyberte prosím aspekt!"
+      ignore: "Ignorované žiadosti."
       success: "Teraz ste priatelia."
     manage_aspect_contacts: 
       existing: "Existujúce kontakty"
@@ -365,23 +363,23 @@ sk:
       friends: 
         few: "Počet priateľov %{count}"
         one: "1 priateľ"
-        other: "%{count} friends"
-        zero: "no friends"
+        other: "Počet priateľov : %{count} "
+        zero: "žiadni priatelia"
       invite_your_friends_from: "Pozvite svojich priateľov z %{service}"
       not_connected: "nepripojený"
     index: 
       connect_to_facebook: "Pripojiť k Facebooku"
       connect_to_twitter: "Pripojiť k Twitteru"
       disconnect: "odpojiť"
-      edit_services: "Edit services"
+      edit_services: "Upraviť služby"
       logged_in_as: "prihlásený ako"
       really_disconnect: "odpojiť %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Pre aktiváciu pozvania kliknite na tento link "
       join_me_on_diaspora: "Pridať sa k službe DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "pozvať"
+      resend: "preposlať"
   settings: "Nastavenia"
   shared: 
     add_contact: 
@@ -400,7 +398,7 @@ sk:
       invitations_left: "(%{count} ostáva)"
       invite_someone: "Pozvať niekoho"
       invite_your_friends: "Pozvite svojich priateľov"
-      invites: "Invites"
+      invites: "Pozvánky"
       invites_closed: "Pozvánky sú na tomto seede momentálne uzavreté"
     notification: 
       new: "Nový %{type} od %{from}"
@@ -423,12 +421,12 @@ sk:
       reshare: "Znovu zdieľať"
   status_messages: 
     helper: 
-      no_message_to_display: "Žiadne správy na zobrazenie."
+      no_message_to_display: "Žiadne správy k zobrazeniu."
     new_status_message: 
       oh_yeah: "Skvelé!"
-      tell_me_something_good: "Povedz niečo dobré"
+      tell_me_something_good: "Dajte o niečom vedieť"
     show: 
-      destroy: "Zničiť"
+      destroy: "Zmazať"
       permalink: "permalink"
   stream_helper: 
     hide_comments: "skyť komentáre"
@@ -438,18 +436,18 @@ sk:
   users: 
     destroy: "Účet bol úspešne zrušený."
     edit: 
-      change: "Change"
+      change: "Zmeniť"
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
       close_account: "Zrušiť účet"
       current_password: "Súčasné heslo"
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
-      edit_account: "Edit account"
+      edit_account: "Upraviť účet"
       email_notifications: "Email notificaions"
       export_data: "Exportovať dáta"
       new_password: "Nové heslo"
-      receive_email_notifications: "Receive email notificaions?"
+      receive_email_notifications: "Zasielať e-mailové notifikácie?"
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 

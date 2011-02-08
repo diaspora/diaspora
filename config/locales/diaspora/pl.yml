@@ -113,9 +113,6 @@ pl:
     new_comment: 
       comment: "Skomentuj…"
       commenting: "Komentowanie…"
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
   contacts: 
     few: "%{count} kontakty"
     one: "1 kontakt"
@@ -168,6 +165,7 @@ pl:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 

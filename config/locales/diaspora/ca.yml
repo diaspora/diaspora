@@ -113,9 +113,6 @@ ca:
     new_comment: 
       comment: "Comentar"
       commenting: "Comentant..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
   contacts: 
     few: "%{count} contactes"
     one: "1 contacte"
@@ -168,6 +165,7 @@ ca:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "IMPULSAT PER DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 

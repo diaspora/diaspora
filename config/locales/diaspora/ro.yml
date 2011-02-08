@@ -113,9 +113,6 @@ ro:
     new_comment: 
       comment: "Comentariu"
       commenting: "Comentând..."
-      enter: "enter"
-      press: "press"
-      to_comment: "to comment"
   contacts: 
     few: "%{count} contacts"
     one: "1 contact"
@@ -168,6 +165,7 @@ ro:
       have_a_problem: "Ai o problemă? Găseşte un răspuns aici"
       logged_in_as: "logat ca %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "aspectele tale"
     header: 

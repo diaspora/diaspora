@@ -113,9 +113,6 @@ he:
     new_comment: 
       comment: "הערה"
       commenting: "נוספת הערה..."
-      enter: "הוספה"
-      press: "יש ללחוץ"
-      to_comment: "כדי להגיב"
   contacts: 
     few: "%{count} אנשי קשר"
     one: "איש קשר אחד"
@@ -168,6 +165,7 @@ he:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "מופעל על גבי דיאספורה*"
+      toggle: "toggle mobile site"
       whats_new: "מה חדש?"
       your_aspects: "your aspects"
     header: 

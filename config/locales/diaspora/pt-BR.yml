@@ -113,9 +113,6 @@ pt-BR:
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
-      enter: "entrar"
-      press: "press"
-      to_comment: "comentar"
   contacts: 
     few: "%{count} contatos"
     one: "1 contato"
@@ -168,6 +165,7 @@ pt-BR:
       have_a_problem: "Algum problema? Encontre sua resposta aqui"
       logged_in_as: "logado como %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "o que há de novo?"
       your_aspects: "seus aspectos"
     header: 

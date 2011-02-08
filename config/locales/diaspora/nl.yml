@@ -113,9 +113,6 @@ nl:
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
-      enter: "enter"
-      press: "druk op"
-      to_comment: "om te reageren"
   contacts: 
     few: "%{count} contacten"
     one: "1 contact"
@@ -168,6 +165,7 @@ nl:
       have_a_problem: "Probleem? Vind hier een antwoord"
       logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jou aspecten"
     header: 

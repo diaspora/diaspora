@@ -113,9 +113,6 @@ sv:
     new_comment: 
       comment: "Kommentar"
       commenting: "Kommenterar..."
-      enter: "skicka"
-      press: "tryck"
-      to_comment: "för att kommentera"
   contacts: 
     few: "%{count} kontakter"
     one: "1 kontakt"
@@ -168,6 +165,7 @@ sv:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "toggle mobile site"
       whats_new: "några nyheter?"
       your_aspects: "your aspects"
     header: 

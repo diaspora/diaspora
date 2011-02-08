@@ -113,9 +113,6 @@ cs:
     new_comment: 
       comment: "Komentář"
       commenting: "Komentování..."
-      enter: "enter"
-      press: "stiskněte"
-      to_comment: "pro uložení komentáře"
   contacts: 
     few: "%{count} kontaktů"
     one: "1 kontakt"
@@ -168,6 +165,7 @@ cs:
       have_a_problem: "Máte problém? Zde najdete odpověď"
       logged_in_as: "přihlášen jako %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      toggle: "přepnout mobilní stránku"
       whats_new: "co je nového?"
       your_aspects: "vaše aspekty"
     header: 
