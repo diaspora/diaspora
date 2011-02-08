@@ -156,6 +156,14 @@ describe AspectsController do
         response.should redirect_to(:back)
       end
     end
+    it "adds to aspect if the person_id is present" do
+      @aspect = @user.aspects.create(:name => "new aspect")
+      @user.aspects.stub!(:create).and_return(@aspect)
+      @controller.should_receive(:invite_or_add_contact_to_aspect).with(
+                            anything(), @user2.person, @user.contact_for(@user2.person))
+
+      post :create, "aspect" => {"name" => "new aspect", :person_id => @user2.person.id, :share_with => true}
+    end
   end
 
   describe "#manage" do

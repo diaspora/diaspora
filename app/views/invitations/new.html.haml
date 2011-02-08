@@ -4,37 +4,37 @@
     $("#user_email").focus();
   });
 
-.span-3.append-1
-  = image_tag 'icons/monotone_email_letter_round.png', :height => "128px", :width => "128px"
+.span-15.last
+  .span-3
+    = image_tag 'icons/monotone_email_letter_round.png', :height => "128px", :width => "128px"
 
-.span-20.last
-  .span-20.last
+  .span-12.last
     %h2
       = t('.invite_someone_to_join')
       .description
         = t('.if_they_accept_info')
         %br
+  .span-7.append-1
+    #email_invitation
+      = form_for User.new, :url => invitation_path(User) do |invite|
+        %h4
+          = t('email')
+        = invite.text_field :email, :title => t('.comma_seperated_plz')
+        %br
 
-  .span-13.append-1
-    = form_for User.new, :url => invitation_path(User) do |invite|
-      %h4
-        = t('email')
-      = invite.text_field :email, :title => t('.comma_seperated_plz')
-      %br
+        %h4
+          = t('.aspect')
+        = invite.select(:aspects, options_from_collection_for_select(@all_aspects, 'id', 'name'))
 
-      %h4
-        = t('.aspect')
-      = invite.select(:aspects, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+        %br
+        %br
 
-      %br
-      %br
+        %h4
+          = t('.personal_message')
+        = invite.text_area :invite_messages, :rows => 3, :value => ""
 
-      %h4
-        = t('.personal_message')
-      = invite.text_area :invite_messages, :rows => 3, :value => ""
-
-      %p
-        = invite.submit t('.send_an_invitation')
+        %p
+          = invite.submit t('.send_an_invitation')
 
   - if !@sent_invitations.empty?
     .span-6.last

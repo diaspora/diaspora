@@ -1341,6 +1341,7 @@ ul#settings_nav
   :margin 0
   :padding 0
 
+
 .dull
   :color #aaa
   :font
@@ -1506,10 +1507,6 @@ ul.aspects
   :-moz-box-shadow 0 1px 3px #333
   :box-shadow 0 1px 3px #333
 
-  :-webkit-border-radius 2px
-  :-moz-border-radius 2px
-  :border-radius 2px
-
   :border
     :bottom 1px solid #ccc
     :top 1px solid #fff
@@ -1615,7 +1612,7 @@ h3 span.current_gs_step
   :left 0
   :width 100%
   :background
-    :color rgba(16,127,201,0.8)
+    :color rgba(63,143,186,0.8)
 
   :text
     :align center
@@ -1629,7 +1626,7 @@ h3 span.current_gs_step
   a
     :color #fafafa
     :background
-      :color rgb(16,127,201)
+      :color $blue
     :padding 8px
 
     :-webkit-border-radius 10px
@@ -2393,3 +2390,40 @@ ul.show_comments
 
 #logo
   :position relative
+
+#email_invitation
+  input
+    :width 100%
+  textarea
+    :width 100%
+
+#share_with
+  .add_aspect
+    :-webkit-border-radius 5px
+    :-moz-border-radius 5px
+    :border-radius 5px
+
+    :margin
+      :top 0.5em
+    :background
+      :color #ddd
+    p
+      :padding
+        :left 1em
+
+      &.checkbox_select
+        label
+          :padding
+            :left 15px
+          :top 0
+        :height 2em
+
+    .right
+      :z-index 5
+      :top 5px
+      :right 1em
+  .done
+    :padding 1em
+    .right
+      :right 1em
+

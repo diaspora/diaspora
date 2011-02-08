@@ -8,7 +8,7 @@ class InvitationsController < Devise::InvitationsController
 
   def new
     @sent_invitations = current_user.invitations_from_me.includes(:recipient)
-    #emails_delivered = sent_invitations.map!{ |i| i.recipient.email }
+    render :layout => false
   end
 
   def create

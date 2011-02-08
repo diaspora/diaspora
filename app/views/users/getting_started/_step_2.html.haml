@@ -2,7 +2,18 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :submit_block do
-  = submit_tag "#{t('users.getting_started.save_and_continue')} →"
-= render :partial => 'people/edit'
 
+%br
+%br
+%br
+%br
+%br
+%h3{:style => 'text-align: center;'}
+  = t('.find_your_friends_on_facebook')
+  %br
+  %br
+  %br
+  = link_to image_tag('services/facebook_sign_in.png', :id => 'getting_started_logo', :width => 154, :height => 22), '/auth/facebook'
+
+.submit_block
+  = link_to "#{t('.skip')} →", getting_started_path(:step => @step+1), :class => 'button'

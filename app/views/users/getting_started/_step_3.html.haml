@@ -5,24 +5,22 @@
   = include_javascripts :aspects
 
 %h3
-  = t('.your_aspects')
-  .description
-    = t('.description')
-    %br 
-    = t('.your_inviter')
-    %br
+  = t('.people_already_on_diaspora')
 
-    #people_stream.stream
-      - for pending_req in @requests
-        - person = pending_req.sender
-        
-        = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
-      - for fb_id in @friends.keys
-        - friend = @friends[fb_id]
-        = render :partial => 'people/person', :locals => {:request => friend[:request], :person => friend[:person], :contact => friend[:contact]}
+  %br
+  %br
 
+#people_stream.stream
+  - for pending_req in @requests
+    - person = pending_req.sender
 
+    = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
+  - for fb_id in @friends.keys
+    - friend = @friends[fb_id]
+    = render :partial => 'people/person', :locals => {:request => friend[:request], :person => friend[:person], :contact => friend[:contact]}
+
+%br
+%br
 
 .submit_block
-  = link_to "#{t('users.getting_started.save_and_continue')} →", getting_started_path(:step => 4), :class => "button"
-
+  = link_to "#{t('.finish')} →", getting_started_completed_path, :class => 'button'

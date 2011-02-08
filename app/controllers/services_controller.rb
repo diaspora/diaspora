@@ -1,5 +1,5 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
-#   licensed under the Affero General Public License version 3 or later.  See #   the COPYRIGHT file.  
+#   licensed under the Affero General Public License version 3 or later.  See #   the COPYRIGHT file.
 
 class ServicesController < ApplicationController
   before_filter :authenticate_user!
@@ -25,7 +25,7 @@ class ServicesController < ApplicationController
 
     flash[:notice] = I18n.t 'services.create.success'
     if current_user.getting_started
-      redirect_to  getting_started_path(:step => 1)
+      redirect_to  getting_started_path(:step => 3)
     else
       redirect_to services_url
     end
@@ -46,7 +46,7 @@ class ServicesController < ApplicationController
 
   def finder
     service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
-    @friends = service ? service.finder : {}
+    @friends = service ? service.finder(:remote => params[:remote]) : {}
     render :layout => false
   end
 
@@ -67,7 +67,7 @@ class ServicesController < ApplicationController
 
     @subject = t('services.inviter.join_me_on_diaspora')
     @message = <<MSG
-#{t('services.inviter.click_link_to_accept_invitation')}: 
+#{t('services.inviter.click_link_to_accept_invitation')}:
 \n
 \n
 #{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
