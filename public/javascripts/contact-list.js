@@ -46,9 +46,10 @@ $(document).ready(function() {
   });
 
   $('.added').live('ajax:failure', function(data, html, xhr) {
-    Diaspora.widgets.alert.alert("#{t('.cannot_remove')}");
+    alert(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'));
     $(this).fadeTo(200,1);
   });
+
 
   $('.add').live('ajax:loading', function() {
     $(this).fadeTo(200,0.4);

@@ -348,6 +348,8 @@ en:
           permalink: "permalink"
       helper:
           no_message_to_display: "No message to display."
+      destroy:
+          failure: "Failed to delete post"
   people:
       person:
           pending_request: "pending request"
