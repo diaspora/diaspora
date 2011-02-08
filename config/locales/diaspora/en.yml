@@ -497,4 +497,8 @@ en:
   pagination:
       next: "Next"
       previous: "Previous"
-
+  date:
+      formats:
+          fullmonth_day: "%B %d"
+          birthday: "%B %d"
+          birthday_with_year: "%B %d %Y"

@@ -22,9 +22,9 @@ module PeopleHelper
 
   def birthday_format(bday)
     if bday.year == 1000
-      bday.strftime("%B %d")
+      I18n.l bday, :format => I18n.t('date.formats.birthday')
     else
-      bday.strftime("%B %d %Y")
+      I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
     end
   end
 end
