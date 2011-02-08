@@ -77,6 +77,13 @@ STR
 can mention people like Raphaellike Raphael #{link_to(@people[2].name, person_path(@people[2]))} can mention people like Raph
 STR
       end
+      it 'leaves the name of people that cannot be found' do
+        @sm.stub(:mentioned_people).and_return([])
+        @sm.formatted_message.should == <<-STR
+Raphael can mention people like Raphael Ilya
+can mention people like Raphaellike Raphael Daniel can mention people like Raph
+STR
+      end
       it 'escapes the link title' do
         p = @people[0].profile
         p.first_name="</a><script>alert('h')</script>"

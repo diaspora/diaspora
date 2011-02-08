@@ -35,7 +35,7 @@ class User < ActiveRecord::Base
   has_many :aspects, :dependent => :destroy
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
-  has_many :contact_people, :through => :contacts
+  has_many :contact_people, :through => :contacts, :source => :person
   has_many :services
 
   before_destroy :disconnect_everyone, :remove_person

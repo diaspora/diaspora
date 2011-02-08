@@ -39,10 +39,11 @@ class StatusMessage < Post
     regex = /@\{([^;]+); ([^\}]+)\}/
     escaped_message = ERB::Util.h(raw_message)
     form_message = escaped_message.gsub(regex) do |matched_string|
+      inner_captures = matched_string.match(regex).captures
       person = people.detect{ |p|
-        p.diaspora_handle == matched_string.match(regex).captures.last
+        p.diaspora_handle == inner_captures.last
       }
-      "<a href=\"/people/#{person.id}\">#{ERB::Util.h(person.name)}</a>"
+      person ? "<a href=\"/people/#{person.id}\">#{ERB::Util.h(person.name)}</a>" : inner_captures.first
     end
     form_message
   end
@@ -52,7 +53,7 @@ class StatusMessage < Post
     identifiers = self.raw_message.scan(regex).map do |match|
       match.last
     end
-    self.person.owner.contact_people.where(:diaspora_handle => identifiers)
+    Person.where(:diaspora_handle => identifiers)
   end
 
   def to_activity
