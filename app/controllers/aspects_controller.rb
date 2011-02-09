@@ -12,8 +12,11 @@ class AspectsController < ApplicationController
   def index
     if params[:a_ids]
       @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts => {:person => :profile})
+      @selected_contacts = @aspects.inject([]){|arr, aspect| arr.concat(aspect.contacts)}
+      @selected_contacts.uniq!
     else
       @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
+      @selected_contacts = current_user.contacts
     end
 
     # redirect to signup
@@ -119,7 +122,7 @@ class AspectsController < ApplicationController
 
   def update
     @aspect = current_user.aspects.where(:id => params[:id]).first
-    
+
     if @aspect.update_attributes!( params[:aspect] )
       #hack, we don't know why mass assignment is not working
       @aspect.contacts_visible = params[:aspect][:contacts_visible]
