@@ -4,7 +4,7 @@ $.fn.clearForm = function() {
     if ($(this).is('form')) {
       return $(':input', this).clearForm();
     }
-    if ($(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
+    if ($(this).hasClass('clear_on_submit') || $(this).is(':text') || $(this).is(':password') || $(this).is('textarea')) {
       $(this).val('');
     } else if ($(this).is(':checkbox') || $(this).is(':radio')) {
       $(this).attr('checked', false);

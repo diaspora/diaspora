@@ -8,10 +8,12 @@ var Publisher = {
   close: function(){
     Publisher.form().addClass('closed');
     Publisher.form().find(".options_and_submit").hide();
-         },
+    Publisher.form().find("textarea").css('min-height', '');
+  },
   open: function(){
     Publisher.form().removeClass('closed');
     Publisher.form().find(".options_and_submit").show();
+    Publisher.form().find("textarea").css('min-height', '42px');
   },
   cachedForm : false,
   form: function(){
@@ -133,6 +135,9 @@ var Publisher = {
           }
         }
       },
+      clear: function(){
+        this.mentions = [];
+      },
       destroyMentionAt : function(effectiveCursorIndex){
 
         var mentionIndex = this.mentionAt(effectiveCursorIndex);
@@ -245,6 +250,11 @@ var Publisher = {
       Publisher.oldInputContent = Publisher.input().val();
     }
   },
+  clear: function(){
+    this.autocompletion.mentionList.clear();
+    $("#photodropzone").find('li').remove();
+    $("#publisher textarea").removeClass("with_attachments");
+  },
   initialize: function() {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
@@ -266,7 +276,6 @@ var Publisher = {
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
-      $(this).css('min-height', '42px');
     });
   }
 };

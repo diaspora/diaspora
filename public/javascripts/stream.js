@@ -73,9 +73,8 @@ var Stream = {
       json = $.parseJSON(json);
       WebSocketReceiver.addPostToStream(json.post_id, json.html);
       //collapse publisher
-      $("#publisher").addClass("closed");
-      $("#photodropzone").find('li').remove();
-      $("#publisher textarea").removeClass("with_attachments");
+      Publisher.close();
+      Publisher.clear();
     });
 
     $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {

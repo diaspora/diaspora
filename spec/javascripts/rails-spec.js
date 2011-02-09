@@ -5,6 +5,8 @@ describe("rails", function() {
           '<form accept-charset="UTF-8" id="form" action="/status_messages" data-remote="true"  method="post">' +
             '<textarea id="status_message_message" name="status_message[message]">Some status message</textarea>' +
             '<input type="submit">' +
+            '<input id="standard_hidden" type="hidden" value="keep this value">' +
+            '<input id="clearable_hidden" type="hidden" class="clear_on_submit" value="clear this value">' +
           '</form>'
       );
     });
@@ -14,9 +16,17 @@ describe("rails", function() {
     });
     it("should clear form on ajax:success", function() {
       $('#form').trigger('ajax:success');
-      
+
       expect($('#status_message_message').val()).toEqual("");
-    
+
     });
+    it('should not clear normal hidden fields', function(){
+      $('#form').trigger('ajax:success');
+      expect($('#standard_hidden').val()).toEqual("keep this value");
+    })
+    it('should clear hidden fields marked clear_on_submit', function(){
+      $('#form').trigger('ajax:success');
+      expect($('#clearable_hidden').val()).toEqual("");
+    })
   });
 });
