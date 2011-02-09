@@ -86,13 +86,26 @@ JSON
         @service.finder["#{@user2_fb_id}"][:person].should be_nil
       end
 
-      it 'contains a request object if one has been sent' do
-        request = Request.diaspora_initialize(:from => @user2.person, :to => @user.person, :into => @user2.aspects.first)
-        Postzord::Receiver.new(@user, :object => request, :person => @user2.person).receive_object
-        Request.count.should == 1
-        @service.finder["#{@user2_fb_id}"][:request].should == request
+      context "request" do
+        before do
+          @request = Request.diaspora_initialize(:from => @user2.person, :to => @user.person, :into => @user2.aspects.first)
+          Postzord::Receiver.new(@user, :object => @request, :person => @user2.person).receive_object
+          Request.count.should == 1
+        end
+        it 'contains a request object if one has been sent' do
+          @service.finder["#{@user2_fb_id}"][:request].should == @request
+        end
+
+        it 'caches the profile' do
+          @service.finder["#{@user2_fb_id}"][:request].sender.profile.loaded?.should be_true
+        end
+
+        it 'caches the sender' do
+          @service.finder["#{@user2_fb_id}"][:request].sender.loaded?.should be_true
+        end
+        
       end
-      
+
       it 'contains a contact object if connected' do
         connect_users(@user, @user.aspects.first, @user2, @user2.aspects.first)
         @service.finder["#{@user2_fb_id}"][:contact].should == @user.reload.contact_for(@user2.person)
