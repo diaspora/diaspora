@@ -53,7 +53,8 @@ var Publisher = {
       },
       formatResult: function(row) {
           return row.name;
-      }
+      },
+      disableRightAndLeft : true
     };},
     hiddenMentionFromPerson : function(personData){
       return "@{" + personData.name + "; " + personData.handle + "}";
@@ -104,7 +105,9 @@ var Publisher = {
       },
 
       insertionAt : function(insertionStartIndex, selectionEnd, keyCode){
-        this.selectionDeleted(insertionStartIndex, selectionEnd);
+        if(insertionStartIndex != selectionEnd){
+          this.selectionDeleted(insertionStartIndex, selectionEnd);
+        }
         this.updateMentionLocations(insertionStartIndex, 1);
         this.destroyMentionAt(insertionStartIndex);
       },
@@ -188,26 +191,27 @@ var Publisher = {
     keyDownHandler : function(event){
       var input = Publisher.input();
       var selectionStart = input[0].selectionStart;
-      var isDeletion = (event.keyCode == KEYCODES.DEL && selectionStart < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && selectionStart > 0)
+      var selectionEnd = input[0].selectionEnd;
+      var isDeletion = (event.keyCode == KEYCODES.DEL && selectionStart < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && (selectionStart > 0 || selectionStart != selectionEnd))
       var isInsertion = (KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN )
 
       if(isDeletion){
-        Publisher.autocompletion.mentionList.deletionAt(selectionStart, input[0].selectionEnd, event.keyCode);
+        Publisher.autocompletion.mentionList.deletionAt(selectionStart, selectionEnd, event.keyCode);
       }else if(isInsertion){
-        Publisher.autocompletion.mentionList.insertionAt(selectionStart, input[0].selectionEnd, event.keyCode);
+        Publisher.autocompletion.mentionList.insertionAt(selectionStart, selectionEnd, event.keyCode);
       }
     },
 
     addMentionToInput: function(input, cursorIndex, formatted){
       var inputContent = input.val();
 
-      var stringLoc = Publisher.autocompletion.findStringToReplace(input.val(), cursorIndex);
+      var stringLoc = Publisher.autocompletion.findStringToReplace(inputContent, cursorIndex);
 
       var stringStart = inputContent.slice(0, stringLoc[0]);
       var stringEnd = inputContent.slice(stringLoc[1]);
 
       input.val(stringStart + formatted + stringEnd);
-      var offset = formatted.length - stringLoc[1] - stringLoc[0]
+      var offset = formatted.length - (stringLoc[1] - stringLoc[0])
       Publisher.autocompletion.mentionList.updateMentionLocations(stringStart.length, offset);
       return [stringStart.length, stringStart.length + formatted.length]
     },

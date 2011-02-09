@@ -52,18 +52,7 @@ $.fn.extend({
 
 $.Autocompleter = function(input, options) {
 
-	var KEY = {
-		UP: 38,
-		DOWN: 40,
-		DEL: 46,
-		TAB: 9,
-		RETURN: 13,
-		ESC: 27,
-		COMMA: 188,
-		PAGEUP: 33,
-		PAGEDOWN: 34,
-		BACKSPACE: 8
-	};
+	var KEY = KEYCODES;
 
 	// Create $ object for input element
 	var $input = $(input).attr("autocomplete", "off").addClass(options.inputClass);
@@ -94,6 +83,12 @@ $.Autocompleter = function(input, options) {
 		lastKeyPressCode = event.keyCode;
 		switch(event.keyCode) {
 
+			case KEY.LEFT:
+      case KEY.RIGHT:
+        if( options.disableRightAndLeft && select.visible()){
+          event.preventDefault();
+        }
+        break;
 			case KEY.UP:
 				if ( select.visible() ) {
           event.preventDefault();
@@ -408,6 +403,7 @@ $.Autocompleter.defaults = {
 	width: 0,
 	multiple: false,
 	multipleSeparator: ", ",
+  disableRightAndLeft: false,
 	highlight: function(value, term) {
 		return value.replace(new RegExp("(?![^&;]+;)(?!<[^<>]*)(" + term.replace(/([\^\$\(\)\[\]\{\}\*\.\+\?\|\\])/gi, "\\$1") + ")(?![^<>]*>)(?![^&;]+;)", "gi"), "<strong>$1</strong>");
 	},
