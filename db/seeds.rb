@@ -11,4 +11,17 @@
 #   Mayor.create(:name => 'Daley', :city => citie
 
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
+require 'factory_girl_rails'
+require 'spec/helper_methods'
+include HelperMethods
 
+alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth')
+bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth')
+eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth')
+
+alice.person.profile.update_attributes(:first_name => "Alice", :last_name => "Smith")
+bob.person.profile.update_attributes(:first_name => "Bob", :last_name => "Grimm")
+eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe")
+
+connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
+connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
