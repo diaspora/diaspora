@@ -7,5 +7,8 @@ set :user, config['user']
 if config['password']
   set :password, config['password']
 end
+if config['branch']
+  set :branch, config['branch']
+end
 set :repository, config['repo']
 server config['server'], :app, :web, :db, :primary => true
