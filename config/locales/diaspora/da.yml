@@ -118,6 +118,11 @@ da:
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
     zero: "Ingen kontaktpersoner"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Slet"
   email: "E-mail"
   error_messages: 
@@ -420,6 +425,8 @@ da:
     reshare: 
       reshare: "Del igen"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Ingen beskeder at vise."
     new_status_message: 
@@ -451,32 +458,19 @@ da:
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Tilslut dine eksisterende tjenester"
-      define_aspects: "Definér dine aspekter"
       edit_profile: "Redigér din profil"
       finished: "Færdig!"
       save_and_continue: "Gem og fortsæt"
       signup_steps: "Fuldfør din tilmelding ved at gøre følgende:"
       skip: "spring kom godt i gang over"
       step_2: 
-        add: "Tilføj"
-        aspect_name: "Aspektsnavn"
-        description: "Fortæl Diaspora hvilke forskellige aspekter dine kontakter kan opdeles i. Du kan administrere disse senere ved at klikke på administrér fanen øverst til højre. Dine aspekter er unikke og er ikke synlige for andre."
-        drag_to_add: "Træk dem til det aspekt af dig de kender"
-        no_requests: "Du har ingen anmodninger"
-        your_aspects: "Dine aspekter"
-        your_inviter: "Her er personerne der venter på dig:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Tilslut dine eksisterende sociale netværk til din Diaspora konto. Du vil være i stand til at sende offentligt gennem din Hjemme fane, når du vælger \"offentliggør\"."
-        your_services: "Dine tjenester"
-      step_4: 
-        change_profile: "Du kan altid ændre din profil og dine tjenester ved at klikke på"
-        continue: "Forsæt til din start side. En oversigt over alle dine aspekter."
-        finish: "Slut"
-        manage_aspects: "Du kan altid administrere dine aspekter ved at klikke på"
-        ready_to_share: "Du er nu klar til at dele med"
-        set_up: "Du er nu helt klar, %{name}!"
-        user_menu: "i din brugermenu (øverst til højre)."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Velkommen til Diaspora!"
     public: 
       does_not_exist: "Brugeren %{username} findes ikke!"

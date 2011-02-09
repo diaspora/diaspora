@@ -118,6 +118,11 @@ ru:
     one: "1 контакт"
     other: "%{count} контактов"
     zero: "ни одного контакта"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Удаление"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ ru:
     reshare: 
       reshare: "Поделиться повторно"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Новых сообщений нет."
     new_status_message: 
@@ -451,32 +458,19 @@ ru:
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Соедениться с сервисами"
-      define_aspects: "Определиться с аспектами"
       edit_profile: "Отредактировать профиль"
       finished: "Готово!"
       save_and_continue: "Сохранить и продолжить"
       signup_steps: "Для заверщения вашей регистрации, выполните:"
       skip: "пропускать при старте"
       step_2: 
-        add: "Добавить"
-        aspect_name: "Имя аспекта"
-        description: "Укажите какие аспекты будут доступны для просмотра вашим контактам. Вы сможете изменять их в будущем, нажав на вкладку Управление в правом верхнем углу. Ваши аспекты уникальны и не видны другим."
-        drag_to_add: "Перетащите их в ваш аспект"
-        no_requests: "У вас нет запросов"
-        your_aspects: "Ваши аспекты"
-        your_inviter: "Здесь люди ожидающие вас:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Подключите аккаунты с других социальных сетей к вашей Диаспоре. Вы сможете общедоступно размещать через вкладку \"Домашний\""
-        your_services: "Ваши сервисы"
-      step_4: 
-        change_profile: "Вы можете редактировать свой профиль и управлять подключенными услугами в любое время"
-        continue: "Продолжить на вашей странице, обзор всех ваших аспектов."
-        finish: "Завершить"
-        manage_aspects: "Так же вы можете добавлять контакты на любой странице аспектов."
-        ready_to_share: "Теперь вы готовы начать обмен с"
-        set_up: "Вы все готовы, %{name}!"
-        user_menu: "пользовательское меню, расположено в правом верхнем углу."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Добро пожаловать в Диаспору!"
     public: 
       does_not_exist: "Пользователя %{username} не существует!"

@@ -6,7 +6,10 @@
 fi: 
   javascripts: 
     confirm_dialog: "Oletko varma?"
-    search_for: "Search for {{name}}"
+    search_for: "Etsi nimellä {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Et voi poistaa henkilöä viimeisestä näkymästä. (Jos halauat katkaista yhteytesi tähän henkilöön, sinun täytyy poistaa kontakti.)"
     timeago: 
       day: "päivä"
       days: "%d päivää"

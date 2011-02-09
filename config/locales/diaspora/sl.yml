@@ -118,6 +118,11 @@ sl:
     one: "1 stik"
     other: "število stikov %{count}"
     zero: "brez stikov"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Izbriši"
   email: "E-pošta"
   error_messages: 
@@ -420,6 +425,8 @@ sl:
     reshare: 
       reshare: "Deli znova"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Ni sporočil."
     new_status_message: 
@@ -451,32 +458,19 @@ sl:
       your_email: "Vaš e-naslov"
       your_handle: "Vaš diaspora naslov"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Povežite se s servisi"
-      define_aspects: "Določite vaše skupine"
       edit_profile: "Uredite vaš profil"
       finished: "Končano!"
       save_and_continue: "Shrani in nadaljuj"
       signup_steps: "Zaključite vašo registracijo s pomočjo naslednjih treh korakov:"
       skip: "preskoči čarovnika"
       step_2: 
-        add: "Dodaj"
-        aspect_name: "Naziv skupine"
-        description: "Navedite Diaspori katere skupine želite uporabljati za posamezne stike. Skupine lahko kasneje uredite preko menija desno zgoraj. Vaše skupine so unikatne in niso vidne ostalim osebam."
-        drag_to_add: "Povlecite jih v eno od vaših skupin"
-        no_requests: "Nimate novih prošenj"
-        your_aspects: "Vaše skupine"
-        your_inviter: "Naslednje osebe vas čakajo:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Vaš Diaspora uporabniški račun lahko povežete z že obstoječimi socialnimi omrežji. Prav tako lahko vaše objave prispevkov skozi domačo stran objavite javno, če izberete možnost \"objavi kot javno\""
-        your_services: "Vaši servisi"
-      step_4: 
-        change_profile: "Vaš profil in povezave na servise lahko uredite kadarkoli skozi "
-        continue: "Nadaljujte na domačo stran, kjer je pregled vseh vaših skupin."
-        finish: "Zaključi"
-        manage_aspects: "Stike lahko dodajate tudi na katerekoli strani od vaših skupin."
-        ready_to_share: "Lahko pričnete deliti s skupino "
-        set_up: "Odlično, zdaj ste pripravljeni %{name}!"
-        user_menu: "uporabniškega menija na desni zgornji strani."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Dobrodošli v Diasporo!"
     public: 
       does_not_exist: "Uporabnik %{username} ne obstaja!"

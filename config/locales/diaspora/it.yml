@@ -118,6 +118,11 @@ it:
     one: "1 contatto"
     other: "%{count} contatti"
     zero: "nessun contatto"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Cancella"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ it:
     reshare: 
       reshare: "Ricondividi"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Nessun messaggio da visualizzare."
     new_status_message: 
@@ -451,32 +458,19 @@ it:
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Collega i tuoi servizi"
-      define_aspects: "Definisci i tuoi aspetti"
       edit_profile: "Modifica il tuo profilo"
       finished: "Finito!"
       save_and_continue: "Salva e continua"
       signup_steps: "Completa la tua iscrizione facendo quanto segue:"
       skip: "salta l'introduzione"
       step_2: 
-        add: "Aggiungi"
-        aspect_name: "Nome aspetto"
-        description: "Specifica a Diaspora quali dei tuoi diversi aspetti sono visti da persone diverse. Potrai gestirli in un secondo momento attraverso il menu account in alto a destra. I tuoi aspetti sono visibili solo da te e non dagli altri."
-        drag_to_add: "Trascinale sull'aspetto di te che conoscono"
-        no_requests: "Non hai richieste"
-        your_aspects: "I tuoi aspetti"
-        your_inviter: "Queste sono le persone che ti stanno aspettando:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Puoi collegare altri social network a cui sei iscritto al tuo account Diaspora. Potrai postarci pubblicamente della tua Home page quando selezioni \"rendilo pubblico\""
-        your_services: "I tuoi servizi"
-      step_4: 
-        change_profile: "Puoi cambiare il tuo profilo in qualunque momento cliccando"
-        continue: "Vai alla tua Home page, una panoramica di tutti i tuoi aspetti."
-        finish: "Fine"
-        manage_aspects: "Puoi gestire i tuoi contatti in qualunque momento cliccando"
-        ready_to_share: "Adesso sei pronto per condividere con "
-        set_up: "Adesso hai tutto a posto, %{name}!"
-        user_menu: "nel tuo menu utente (in alto a destra)."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Benvenuto su Diaspora!"
     public: 
       does_not_exist: "L'utente %{username} non esiste!"

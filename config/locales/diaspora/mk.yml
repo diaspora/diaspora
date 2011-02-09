@@ -118,6 +118,11 @@ mk:
     one: "1 contact"
     other: "%{count} contacts"
     zero: "no contacts"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Избриши"
   email: "Е-маил"
   error_messages: 
@@ -420,6 +425,8 @@ mk:
     reshare: 
       reshare: "Сподели повторно"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Нема пораки за прикажување."
     new_status_message: 
@@ -451,32 +458,19 @@ mk:
       your_email: "Вашиот е-маил"
       your_handle: "Вашето diaspora корисничко име"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Поврзи се со другите ваши сервиси"
-      define_aspects: "Дефинирајте ги вашите аспекти"
       edit_profile: "Уреди го вашиот профил"
       finished: "Заврши!"
       save_and_continue: "Зачувај и продолжи"
       signup_steps: "Завршете ја вашата регистрација со комплетирање на следниве три чекори:"
       skip: "прескокни ги почетните инструкции"
       step_2: 
-        add: "Додај"
-        aspect_name: "Име на аспект"
-        description: "Кажи и на Diaspora кои различни аспекти можат да бидат видени од различни контакти. Овие можат да бидат менаџирани преку подесувањата за корисничката сметка во горниот десен агол. Вашите аспекти се единствени и не можат да бидат видени од некој друг."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
-        your_aspects: "Ваши аспекти"
-        your_inviter: "Here are the people who are waiting for you:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Можете да ги поврзете вашите постоечки социјални мрежи со вашата Diaspora корисничка сметка. Ќе можете да објавувате јавно преку вашата Домашна страница ако изберете \"направи јавен\""
-        your_services: "Вашите сервиси"
-      step_4: 
-        change_profile: "Можете да го уредите вашиот профил и да ги менаџирате поврзаните сервиси во секое време преку"
-        continue: "Продолжете кон вашата Домашна страница, преглед на сите ваши аспекти."
-        finish: "Заврши"
-        manage_aspects: "Можете да додадете контакти на било која страница на аспект."
-        ready_to_share: "Сега може да почнете со споделување со"
-        set_up: "Се е подесено, %{name}!"
-        user_menu: "корисничкото мени лоцирано во горниот десен агол."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Добредојдe на Diaspora!"
     public: 
       does_not_exist: "Корисникот %{username} не постои!"

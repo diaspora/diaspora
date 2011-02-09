@@ -118,6 +118,11 @@ fi:
     one: "1 kontakti"
     other: "%{count} kontaktia"
     zero: "ei kontakteja"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Poista"
   email: "Sähköposti"
   error_messages: 
@@ -165,7 +170,7 @@ fi:
       have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
       logged_in_as: "kirjautuneena nimellä %{name}"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
-      toggle: "toggle mobile site"
+      toggle: "vaihda mobiili sivustoon"
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
     header: 
@@ -307,7 +312,7 @@ fi:
     photo: 
       view_all: "näytä kaikki käyttäjän %{name} kuvat"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "tallenna pysyvä linkki"
       delete_photo: "Poista kuva"
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
@@ -420,6 +425,8 @@ fi:
     reshare: 
       reshare: "Jaa uudelleen"
   status_messages: 
+    destroy: 
+      failure: "Viestin poisto epäonnistui"
     helper: 
       no_message_to_display: "Ei näytettäviä viestejä."
     new_status_message: 
@@ -451,32 +458,19 @@ fi:
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 
+      connect_on_diaspora: "Yhdistä Diasporaan"
       connect_services: "Yhdistä muut palvelusi"
-      define_aspects: "Määritä näkymäsi"
       edit_profile: "Muokkaa profiiliasi"
       finished: "Valmis!"
       save_and_continue: "Tallenna ja jatka"
       signup_steps: "Viimeistele rekisteröitymisesi näiden kolmen vaiheen kautta:"
       skip: "ohita aloitusohjeet"
       step_2: 
-        add: "Lisää"
-        aspect_name: "Näkymän nimi"
-        description: "Kerro Diasporalle mitä näkymiä näytetään kontakteillesi. Voit muokata näitä asetuksia myöhemmin yläoikealta löytyvän valikon kautta. Näkymäsi ovat yksilöllisiä sinulle, eikä niitä näytetä muille. "
-        drag_to_add: "Raahaa heidät näkymään itsestäsi, jonka he tietävät"
-        no_requests: "Ei pyyntöjä"
-        your_aspects: "Näkymäsi"
-        your_inviter: "Tässä ovat sinua odottavat henkilöt:"
+        find_your_friends_on_diaspora: "Haluatko löytää Facebook kaverisi Diasporassa?"
+        skip: "Ohita"
       step_3: 
-        description: "Voit yhdistää käyttämäsi yhteisöpalvelut Diaspora-käyttäjätiliisi. Sinun on mahdollista lähettää ulospäin julkisia viestejä etusivulta valitsemalla \"tee julkiseksi.\""
-        your_services: "Palvelusi"
-      step_4: 
-        change_profile: "Voit muokata profiiliasi ja hallita yhdistettyjä palveluitasi koska tahansa valitsemalla "
-        continue: "Jatka etusivulle, joka tarjoaa katsauksen kaikkiin näkymiisi."
-        finish: "Valmis"
-        manage_aspects: "Voit myös lisätä kontakteja ollessasi missä hyvänsä näkymässä."
-        ready_to_share: "Olet nyt valmis aloittamaan jakamisen henkilöille"
-        set_up: "Olet nyt asettanut kaiken, %{name}!"
-        user_menu: "käyttäjävalikko yläoikealla."
+        finish: "Viimeistely"
+        people_already_on_diaspora: "Diasporassa jo olevat henkilöt"
       welcome: "Tervetuloa Diasporaan!"
     public: 
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"

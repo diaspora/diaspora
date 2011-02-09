@@ -118,6 +118,11 @@ sv:
     one: "1 kontakt"
     other: "%{count} kontakter"
     zero: "inga kontakter"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Ta bort"
   email: "E-post"
   error_messages: 
@@ -186,7 +191,7 @@ sv:
   next: "nästa"
   no_new_notifications: "inga nya notifieringar"
   notifications: 
-    also_commented: "also commented on"
+    also_commented: "kommenterade även din kontakts"
     comment_on_post: "kommenterade din"
     deleted: "borttaget"
     index: 
@@ -201,7 +206,7 @@ sv:
       sign_in: "Sign in to view it."
       subject: "%{name} has also commented."
     comment_on_post: 
-      commented: "has commented on your post!"
+      commented: "Har kommenterat ditt inlägg"
       sign_in: "Sign in to view it."
       subject: "%{name} has commented on your post."
     diaspora: "Diasporas mailrobot"
@@ -209,7 +214,7 @@ sv:
     love: "hälsningar,"
     new_request: 
       just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
-      sign_in: "logga in här"
+      sign_in: "Logga in här"
       subject: "ny kontaktförfrågan från %{from}"
       try_it_out: "Du borde verkligen överväga att kolla upp detta."
     request_accepted: 
@@ -270,7 +275,7 @@ sv:
       share_with: "Börja dela med %{name}"
     show: 
       does_not_exist: "Den här personen finns inte!"
-      incoming_request: "Du har en inkommande förfrågan från den här personen."
+      incoming_request: "%{name} vill dela med dig"
       no_posts: "inga meddelanden att visa!"
       not_connected: "Du är inte ansluten till %{name}"
       recent_posts: "Postat nyligen"
@@ -415,11 +420,13 @@ sv:
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
       share: "Dela"
-      share_with: "Dela med %{aspect}"
+      share_with: "dela med"
       whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Återdela"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Inget meddelande att visa."
     new_status_message: 
@@ -451,32 +458,19 @@ sv:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Anslut till andra tjänster"
-      define_aspects: "Välj dina sidor"
       edit_profile: "Ändra din profil"
       finished: "Slutfört!"
       save_and_continue: "Spara och fortsätt"
       signup_steps: "Slutför registreringen genom att följa den här guiden:"
       skip: "hoppa över guiden"
       step_2: 
-        add: "Lägg till"
-        aspect_name: "Namn på sida"
-        description: "Här anger du vilka sidor av dig själv du vill visa på Diaspora. Lägger du till en person på en viss sida kan denne bara se information som du publicerar på just den sidan. Vill du ändra dessa senare så kan du göra det under fliken \"Hantera\"."
-        drag_to_add: "Drag och släpp, för att visa dem rätt sida av dig själv"
-        no_requests: "Du har inga förfrågningar"
-        your_aspects: "Dina sidor"
-        your_inviter: "Här är de personer som väntar på dig:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Anslut dina befintliga tjänster till ditt Diaspora-konto.  Du kommer att kunna skicka meddelanden genom dessa om du väljer \"gör publik.\" på sidan för alla kontakter."
-        your_services: "Dina tjänster"
-      step_4: 
-        change_profile: "Du kan ändra din profil och dina anslutna tjänster närsomhelst genom att klicka på"
-        continue: "Fortsätt till Hem, en överblick av alla dina sidor."
-        finish: "Slutför"
-        manage_aspects: "Du kan lägga till kontakter direkt från valfri sida."
-        ready_to_share: "Du är nu redo att börja dela med "
-        set_up: "Nu är guiden klar, %{name}!"
-        user_menu: "i användarmenyn som finns uppe till vänster."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Välkommen till diaspora!"
     public: 
       does_not_exist: "Användaren %{username} finns inte!"

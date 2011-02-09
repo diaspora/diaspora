@@ -7,6 +7,9 @@ en_shaw:
   javascripts: 
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
     search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
       day: "𐑩 𐑛𐑱"
       days: "%d 𐑛𐑱𐑟"

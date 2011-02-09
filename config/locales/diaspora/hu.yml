@@ -118,6 +118,11 @@ hu:
     one: "1 ismerős"
     other: "%{count} ismerős"
     zero: "nincs ismerős"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%Y %B %d"
+      fullmonth_day: "%B %d"
   delete: "Törlés"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ hu:
     reshare: 
       reshare: "Újraosztás"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Nincs üzenet."
     new_status_message: 
@@ -451,32 +458,19 @@ hu:
       your_email: "E-mail címed"
       your_handle: "Diaspora felhasználóneved"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Csatold a többi szolgáltatásod is ide"
-      define_aspects: "Csoport leírása"
       edit_profile: "Profil szerkesztése"
       finished: "Kész!"
       save_and_continue: "Mentés és folytatás"
       signup_steps: "Utolsó 3 lépés:"
       skip: "ugrás a kezdetekhez"
       step_2: 
-        add: "Hozzáadás"
-        aspect_name: "Csoport neve"
-        description: "Milyen csoportokba rendezed az ismerőseid? Később is megadhatod a jobb felső sarokban lévő Fiók menüben. A csoportjaid csak Te láthatod, mások nem."
-        drag_to_add: "Tedd bele őket a megfelelő csoportba"
-        no_requests: "Nincs felkérésed"
-        your_aspects: "Csoportjaid"
-        your_inviter: "Ezek az emberek várnak rád:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Csatlakoztathatod más közösségi hálózatodat is a Diaspora fiókodhoz. Lehetőséged van nyilvános üzenet írására is. Ehhez a Kezdőoldalon ki kell választanod a \"nyílvánossá tesz\" opciót."
-        your_services: "Szolgáltatásaid"
-      step_4: 
-        change_profile: "Bármikor módosíthatod a profilod, és kezelheted a kapcsolódó szolgáltatásokat."
-        continue: "A kezdőlapon láthatod a csoportjaid."
-        finish: "Befejezés"
-        manage_aspects: "Bármelyik csoportnál felvehetsz új ismerősöket."
-        ready_to_share: "Ezeket a csoportokat hoztad létre:"
-        set_up: "Készen is vagyunk, %{name}!"
-        user_menu: "a menü a bal felső sarokban van"
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Üdv a Diaspora*-n!"
     public: 
       does_not_exist: "%{username} nem létezik!"

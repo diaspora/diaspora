@@ -118,6 +118,11 @@ el:
     one: "1 επαφή"
     other: "%{count} επαφές"
     zero: "καμία επαφή"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Διαγραφή"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ el:
     reshare: 
       reshare: "Μοιράσου και πάλι"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Κανένα μήνυμα"
     new_status_message: 
@@ -451,32 +458,19 @@ el:
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Συνδεθείτε με άλλες υπηρεσίες"
-      define_aspects: "Ορίστε τις πτυχές σας"
       edit_profile: "Επεξεργασία του προφίλ σας"
       finished: "Τέλος!"
       save_and_continue: "Αποθήκευση και συνέχεια"
       signup_steps: "Ολοκληρώστε την εγγραφή σας συμπληρώνοντας τα παρακάτω τρία βήματα:"
       skip: "παράλειψη της εισαγωγής"
       step_2: 
-        add: "Προσθήκη"
-        aspect_name: "Όνομα πτυχής"
-        description: "Ενημερώστε το Diaspora σχετικά με το ποιες πτυχές του προφίλ σας θα βλέπουν οι φίλοι σας. Μπορείτε να τις επεξεργαστείτε αργότερα μέσω των ρυθμίσεων του λογαριασμού στο πάνω δεξί άκρο του παραθύρου αυτού. Οι πτυχές σας είναι μοναδικές σε εσάς και δεν είναι ορατές σε άλλους. "
-        drag_to_add: "Σύρετε τα άτομα στις πτυχές που ταιριάζουν"
-        no_requests: "Δεν έχετε αιτήματα"
-        your_aspects: "Οι πτυχές σας"
-        your_inviter: "Εδώ είναι τα άτομα που σας περιμένουν:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Μπορείτε να συνδέσετε τους λογαριασμούς σας σε άλλα κοινωνικά δίκτυα με το λογαριασμό σας στο Diaspora. Θα μπορείτε να δημοσιεύσετε μέσω της Αρχικής σελίδας σας όταν επιλέγετε \"δημοσιοποίησε\""
-        your_services: "Οι υπηρεσίες σας"
-      step_4: 
-        change_profile: "Μπορείτε να επεξεργαστείτε το προφίλ σας και να διαχειριστείτε τις σχετικές υπηρεσίες ανά πάσα στιγμή μέσω"
-        continue: "Συνεχίστε στην Αρχική σελίδα, μια επισκόπηση όλων των πτυχών σας."
-        finish: "Τέλος"
-        manage_aspects: "Μπορείτε επίσης να προσθέσετε επαφές, ενώ βρίσκεστε σε οποιαδήποτε σελίδα πτυχής."
-        ready_to_share: "Είστε έτοιμοι να ξεκινήσετε τον διαμοιρασμό με τον χρήστη"
-        set_up: "Είστε έτοιμος/η, %{name}!"
-        user_menu: "το μενού χρήστη που βρίσκεται επάνω δεξιά."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Καλώς ήλθατε στο Diaspora!"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"

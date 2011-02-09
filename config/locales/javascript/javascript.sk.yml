@@ -3,29 +3,29 @@
 #   the COPYRIGHT file.
 
 
-cs: 
+sk: 
   javascripts: 
-    confirm_dialog: "Jste si jisti?"
-    search_for: "Hledat {{name}}"
+    confirm_dialog: "Ste si istý?"
+    search_for: "Hľadať {{name}}"
     shared: 
       contact_list: 
         cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
-      day: "1 dnem"
-      days: "%d dny"
+      day: "včera"
+      days: "%d dni"
       hour: "hodinou"
       hours: "%d hodinami"
-      minute: "minutou"
-      minutes: "%d minutami"
-      month: "1 měsícem"
-      months: "%d měsíci"
-      prefixAgo: "před"
+      minute: "minútou"
+      minutes: "%d minútami"
+      month: "mesiacom"
+      months: "%d mesiacmi"
+      prefixAgo: "pred"
       prefixFromNow: ""
-      seconds: "méně než minutou"
+      seconds: "menej než minúta"
       suffixAgo: ""
       suffixFromNow: ""
-      year: "1 rokem"
+      year: "rokom"
       years: "%d roky"
     videos: 
-      unknown: "Neznámý typ videa"
-      watch: "Podívejte se na tohle video na {{provider}}"
+      unknown: "Neznámy typ videa"
+      watch: "Pozrite sa na toto video na {{provider}}"

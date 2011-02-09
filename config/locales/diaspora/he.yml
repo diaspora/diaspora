@@ -118,6 +118,11 @@ he:
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
     zero: "אין אנשי קשר"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "מחיקה"
   email: "דוא״ל"
   error_messages: 
@@ -420,6 +425,8 @@ he:
     reshare: 
       reshare: "שיתוף מחדש"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "אין הודעה להצגה."
     new_status_message: 
@@ -451,32 +458,19 @@ he:
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "התחברות לשירותים הנוספים שלך"
-      define_aspects: "הגדרת ההיבטים שלך"
       edit_profile: "עריכת הפרופיל שלך"
       finished: "סיימת!"
       save_and_continue: "שמירה והמשך"
       signup_steps: "עליך להשלים את הליך ההרשמה על ידי ביצוע שלוש הפעולות הבאות:"
       skip: "דילוג על הסברי הפתיחה"
       step_2: 
-        add: "הוספה"
-        aspect_name: "שם ההיבט"
-        description: "כאן ניתן לספר לדיאספורה מהם ההיבטים השונים בהם אנשי הקשר שלך מסווגים. ניתן לנהל את אלו בשלב מאוחר יותר דרך תפריט החשבון בפינה השמאלית העליונה. ההיבטים שלך ייחודיים לך ואינם גלויים בפני אחרים."
-        drag_to_add: "יש לגרור אותם להיבט לו הם משויכים בעיניך"
-        no_requests: "אין לך בקשות"
-        your_aspects: "ההיבטים שלך"
-        your_inviter: "להלן רשימת האנשים הממתינים לך:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "באפשרותך להתחבר לרשתות החברתיות הקיימות שלך באמצעות חשבונך בדיאספורה. תהיה באפשרותך לפרסם באופן ציבורי דרך לשונית הבית שלך בעת בחירה ב\"הפיכה לציבורי\"."
-        your_services: "השירותים שלך"
-      step_4: 
-        change_profile: "באפשרותך לערוך את הפרופיל שלך ולנהל את השירותים המקושרים בכל זמן נתון"
-        continue: "המשך לעמוד הבית שלך לסקירה של כל ההיבטים שלך."
-        finish: "סיום"
-        manage_aspects: "ניתן להוסיף משתמשים גם כאשר נמצאים בכל אחד מעמודי ההיבטים."
-        ready_to_share: "כעת הסתיימו ההכנות לקראת השיתוף עם "
-        set_up: "הכול ערוך ומוכן, %{name}!"
-        user_menu: "בתפריט המשתמש שלך בפינה השמאלית העליונה."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "ברוך בואך לדיאספורה!"
     public: 
       does_not_exist: "המשתמש %{username} אינו קיים!"

@@ -118,6 +118,11 @@ nl:
     one: "1 contact"
     other: "%{count} contacten"
     zero: "geen contacten"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %J"
+      fullmonth_day: "%B %d"
   delete: "Verwijderen"
   email: "E-mail"
   error_messages: 
@@ -165,7 +170,7 @@ nl:
       have_a_problem: "Probleem? Vind hier een antwoord"
       logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      toggle: "toggle mobile site"
+      toggle: "switch mobiele versie"
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jou aspecten"
     header: 
@@ -420,6 +425,8 @@ nl:
     reshare: 
       reshare: "Herdeel"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Geen bericht om te weergeven."
     new_status_message: 
@@ -451,32 +458,19 @@ nl:
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora handle"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Verbind met je andere services"
-      define_aspects: "Definieer je aspecten"
       edit_profile: "Bewerk je profiel"
       finished: "Klaar!"
       save_and_continue: "Sla op en ga verder"
       signup_steps: "Voltooi je aanmelding door middel van de volgende drie stappen:"
       skip: "sla 'getting started' over"
       step_2: 
-        add: "Voeg toe"
-        aspect_name: "Aspect naam"
-        description: "Laat Diaspora weten welke verschillende aspecten verschillende mensen van jou zien. Je kunt deze later veranderen door middel van je accountmenu rechtsboven. Aspecten zijn uniek voor jou en niet zichtbaar voor anderen."
-        drag_to_add: "Sleep ze naar het aspect dat zij van jou kennen"
-        no_requests: "Je hebt geen verzoeken"
-        your_aspects: "Jouw aspecten"
-        your_inviter: "Dit zijn de mensen die op jou wachten:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Je kunt je bestaande sociale netwerken verbinden met je Diaspora account. Je kan via je Home pagina openbare berichten plaatsen door 'maak openbaar' aan te vinken."
-        your_services: "Jouw services"
-      step_4: 
-        change_profile: "Je kunt ieder moment je profiel bewerken en je verbonden services beheren door te klikken op"
-        continue: "Ga door naar je Home pagina, een overzicht van al je aspecten."
-        finish: "Voltooi"
-        manage_aspects: "Je kunt ook contacten toevoegen vanaf iedere willekeurige aspect pagina."
-        ready_to_share: "Je bent nu klaar om te beginnen met delen met "
-        set_up: "Je bent er helemaal klaar voor, %{name}!"
-        user_menu: "het gebruikersmenu rechtsboven."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Welkom op Diaspora!"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"

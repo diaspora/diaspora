@@ -7,6 +7,9 @@ ru:
   javascripts: 
     confirm_dialog: "Вы уверенны? "
     search_for: "Искать для {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
       day: "день"
       days: "%d дней"

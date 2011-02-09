@@ -7,6 +7,9 @@ es:
   javascripts: 
     confirm_dialog: "¿Estás seguro?"
     search_for: "Buscar a {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
       day: "un día"
       days: "%d días"

@@ -118,6 +118,11 @@ en_shaw:
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "𐑛𐑦𐑤𐑰𐑑"
   email: "𐑦-𐑥𐑱𐑤"
   error_messages: 
@@ -420,6 +425,8 @@ en_shaw:
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
     new_status_message: 
@@ -451,32 +458,19 @@ en_shaw:
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
-      define_aspects: "𐑛𐑦𐑓𐑲𐑯 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
       edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
       save_and_continue: "𐑕𐑱𐑝 𐑯 𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
       signup_steps: "𐑓𐑦𐑯𐑦𐑖 𐑿𐑼 𐑕𐑲𐑯 𐑳𐑐 𐑚𐑲 𐑒𐑩𐑥𐑐𐑤𐑰𐑑𐑦𐑙 𐑞𐑰𐑟 𐑔𐑮𐑰 𐑕𐑑𐑧𐑐𐑕:"
       skip: "𐑕𐑒𐑦𐑐 𐑜𐑧𐑑𐑦𐑙 𐑕𐑑𐑸𐑑𐑩𐑛"
       step_2: 
-        add: "𐑨𐑛"
-        aspect_name: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑱𐑥"
-        description: "𐑑𐑧𐑤 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑢𐑪𐑑 𐑛𐑦𐑓𐑮𐑩𐑯𐑑 𐑨𐑕𐑐𐑧𐑒𐑑𐑕 𐑝 𐑿 𐑸 𐑕𐑰𐑯 𐑚𐑲 𐑛𐑦𐑓𐑮𐑩𐑯𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕. 𐑿 𐑒𐑨𐑯 𐑥𐑨𐑯𐑩𐑡 𐑞𐑰𐑟 𐑤𐑱𐑑𐑼 𐑔𐑮𐑵 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑥𐑧𐑯𐑿 𐑨𐑑 𐑞 𐑑𐑪𐑐 𐑮𐑲𐑑. 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕 𐑸 𐑿𐑯𐑰𐑒 𐑑 𐑿 𐑯 𐑯𐑪𐑑 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟."
-        drag_to_add: "𐑛𐑮𐑨𐑜 𐑞𐑧𐑥 𐑑 𐑞 𐑨𐑕𐑐𐑧𐑒𐑑 𐑝 𐑿𐑼𐑕𐑧𐑤𐑓 𐑞𐑱 𐑯𐑴"
-        no_requests: "𐑿 𐑣𐑨𐑝 𐑯𐑴 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
-        your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        your_inviter: "𐑣𐑽 𐑸 𐑞 𐑐𐑰𐑐𐑩𐑤 𐑣𐑵 𐑸 𐑢𐑱𐑑𐑦𐑙 𐑓𐑹 𐑿:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "𐑿 𐑸 𐑱𐑚𐑩𐑤 𐑑 𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑕𐑴𐑖𐑩𐑤 𐑯𐑧𐑑𐑢𐑼𐑒𐑕 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑. 𐑿 𐑢𐑦𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑐𐑴𐑕𐑑 𐑐𐑳𐑚𐑤𐑦𐑒𐑤𐑦 𐑔𐑮𐑵 𐑿𐑼 𐑞𐑴𐑥 𐑐𐑱𐑡 𐑢𐑧𐑯 𐑿 𐑕𐑩𐑤𐑧𐑒𐑑 \"𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒\""
-        your_services: "𐑿𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
-      step_4: 
-        change_profile: "𐑿 𐑒𐑨𐑯 𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤 𐑯 𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟 𐑨𐑑 𐑨𐑯𐑦 𐑑𐑲𐑥 𐑔𐑮𐑵"
-        continue: "𐑒𐑩𐑯𐑑𐑦𐑯𐑿 𐑪𐑯 𐑑 𐑿𐑼 𐑣𐑴𐑥 𐑐𐑱𐑡, 𐑩𐑯 𐑴𐑝𐑼𐑝𐑿 𐑝 𐑷𐑤 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
-        finish: "𐑓𐑦𐑯𐑦𐑖"
-        manage_aspects: "𐑿 𐑒𐑨𐑯 𐑷𐑤𐑕𐑴 𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑲𐑤 𐑪𐑯 𐑨𐑯𐑦 𐑨𐑕𐑐𐑧𐑒𐑑 𐑐𐑱𐑡."
-        ready_to_share: "𐑿𐑮 𐑯𐑬 𐑮𐑧𐑛𐑦 𐑑 𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞"
-        set_up: "𐑿𐑮 𐑷𐑤 𐑕𐑧𐑑 𐑳𐑐, %{name}!"
-        user_menu: "𐑞 𐑿𐑟𐑼 𐑥𐑧𐑯𐑿 𐑤𐑴𐑒𐑱𐑑𐑩𐑛 𐑨𐑑 𐑞 𐑑𐑪𐑐 𐑮𐑲𐑑."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "𐑢𐑧𐑤𐑒𐑩𐑥 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"

@@ -118,6 +118,11 @@ sk:
     one: "1 kontakt"
     other: "kontakty (%{count})"
     zero: "žiadne kontakty"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Zmazať"
   email: "e-mail"
   error_messages: 
@@ -247,9 +252,9 @@ sk:
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "Výsledky hľadania %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      couldnt_find_them_send_invite: "Nepodarilo sa nájsť? Pošlite pozvánku!"
       no_one_found: "...a nenašlo sa."
-      no_results: "Hey! You need to search for something."
+      no_results: "Hej! Môžete sa po tom poobzerať."
       results_for: "Výsledky vyhľadávania pre"
     person: 
       add_contact: "Pridať kontakt"
@@ -420,6 +425,8 @@ sk:
     reshare: 
       reshare: "Znovu zdieľať"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Žiadne správy k zobrazeniu."
     new_status_message: 
@@ -451,32 +458,19 @@ sk:
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Pripojiť Vaše služby"
-      define_aspects: "Definujte Váš aspekt"
       edit_profile: "Upraviť Váš profil"
       finished: "Dokončené!"
       save_and_continue: "Uložiť a pokračovať"
       signup_steps: "Dokončite svoju registráciu týmito troma krokmi:"
       skip: "Preskočiť"
       step_2: 
-        add: "Pridať"
-        aspect_name: "Názov aspektu"
-        description: "Prezraďte Diaspore, kto môže vidieť Vaše aspekty. Neskôr ich môžete spravovať kliknutím na tlačidlo - nastavenia účtu, vpravo hore."
-        drag_to_add: "Potiahniťe ich do aspektov, ktoré poznajú"
-        no_requests: "Nemáte žiadne žiadosti."
-        your_aspects: "Váš aspekt"
-        your_inviter: "Toto sú ľudia, ktorí na Vás čakajú:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Diasporu môžete prepojiť s Vašimi sociálnymi sieťami v nastaveniach. Vaše statusy uverejníte mimo Diaspory vybratím možnosti \"zverejniť\"."
-        your_services: "Vaše služby"
-      step_4: 
-        change_profile: "Váš profil, ako aj iné nastavenia môžete kedykoľvek upraviť."
-        continue: "Pokračujte na domácu stránku, ktorá poskytuje prehľad zo všetkých Vašich aspektov."
-        finish: "Dokončiť"
-        manage_aspects: "Spravovať aspekty môžete kedykoľvek kliknutím na ne."
-        ready_to_share: "Teraz už môžte zdieľať s"
-        set_up: "Gratulujeme %{name}, všetko ste úspešne nastavili!"
-        user_menu: "užívateľské menu je situované vpravo hore."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Vitajte v Diaspore!"
     public: 
       does_not_exist: "Užívateľ %{username} neexistuje!"

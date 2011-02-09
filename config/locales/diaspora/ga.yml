@@ -118,6 +118,11 @@ ga:
     one: "teagmháil amháin"
     other: "%{count} teagmháil"
     zero: "níl aon teagmháila"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Scrios"
   email: "Sheoladh ríomhphost"
   error_messages: 
@@ -420,6 +425,8 @@ ga:
     reshare: 
       reshare: "Roinn arís"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Níl aon teachtaireacht chun taispeáint."
     new_status_message: 
@@ -451,32 +458,19 @@ ga:
       your_email: "Do seola ríomhphost"
       your_handle: "Do hanla diaspora"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Ceangailt do seirbhísí eile"
-      define_aspects: "Sainmhínigh do gné"
       edit_profile: "Athraigh do próifíl"
       finished: "Críochnaithe!"
       save_and_continue: "Sáibháil agus leanúint ar aghaidh"
       signup_steps: "Críochnaigh do síniú isteach ó ag leanúint na treotracha seo"
       skip: "scipeáil na céad treoracha"
       step_2: 
-        add: "Cuir leis"
-        aspect_name: "Ainm an gné"
-        description: "Abair le Diaspora cén gnéanna duit féin a bhfuil le bhfeiceáil ag teagmháilí éagsúla. Is féidir iad seo a athrú níos déanaí tríd do roghclár cúntas ag an barr ar clé. Tá do gnéanna uathúil duitse agus ní féidir le daoine eile iad a fheiceáil."
-        drag_to_add: "Tarraing iad chuig na gnéanna duit féin a bhfuil fhios acu"
-        no_requests: "Níl aon iarratais agat"
-        your_aspects: "Do gné"
-        your_inviter: "Seo iad na daoine atá ag fanacht ort:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Is féidir leat ceangailt do líonraí sosialta eile chuig do cúntas Diaspora. Beidh tú ábalta postanna phoiblí a dhéanamh tríd do leathanach Baile nuair a roghnaíonn tú “déan phoiblí”"
-        your_services: "Do seirbhísí"
-      step_4: 
-        change_profile: "Is féidir leat do próifíl a athrú agus bhainistú do seirbhísí ceangailte ag aon am tríd "
-        continue: "Lean chuig do leathanach Baile, forbhreatnú do do gnéana go léir"
-        finish: "Críochnaigh"
-        manage_aspects: "Is féidir leat teagmháilaí a cuiir leis ar aon leathanach."
-        ready_to_share: "Tá tú ré chun tosnú ag roint le "
-        set_up: "Tá tú díreach críochnaithe, %{name}!"
-        user_menu: "an roghclár úsáidoíra ag an barr ar clé."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Welcome to Diaspora!"
     public: 
       does_not_exist: "Níl aon úsáidóira, %{username}!"

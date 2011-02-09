@@ -7,6 +7,9 @@ el:
   javascripts: 
     confirm_dialog: "Είστε σίγουρος/η;"
     search_for: "Αναζήτηση για {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
       day: "μία μέρα"
       days: "%d μέρες"

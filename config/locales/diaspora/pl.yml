@@ -118,6 +118,11 @@ pl:
     one: "1 kontakt"
     other: "%{count} kontaktów"
     zero: "brak kontaktów"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Skasuj"
   email: "E-mail"
   error_messages: 
@@ -420,6 +425,8 @@ pl:
     reshare: 
       reshare: "Podziel się ponownie"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Brak wiadomości."
     new_status_message: 
@@ -451,32 +458,19 @@ pl:
       your_email: "Twój e-mail"
       your_handle: "Twój identyfikator w Diasporze"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Połącz się ze swoimi usługami"
-      define_aspects: "Zdefiniuj swoje aspekty"
       edit_profile: "Edytuj swój profil"
       finished: "Gotowe!"
       save_and_continue: "Zapisz i kontynuuj"
       signup_steps: "Dokończ rejestrację w trzech krokach:"
       skip: "pomiń wprowadzenie"
       step_2: 
-        add: "Dodaj"
-        aspect_name: "Nazwa aspektu"
-        description: "Powiedz Diasporze, które aspekty Twojego życia mają być widoczne dla wybranych znajomych. Możesz później zarządzać tym ustawieniem klikając zakładkę zarządzania umieszczoną w prawym górnym rogu. Twoje aspekty są widoczne wyłącznie dla Ciebie."
-        drag_to_add: "Przeciągnij ich do właściwych aspektów Twojego życia"
-        no_requests: "Nie masz żadnych zaproszeń"
-        your_aspects: "Twoje aspekty"
-        your_inviter: "Oto lista osób, które na Ciebie czekają:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Połącz używane sieci społecznościowe z Diasporą.  Będziesz w stanie publikować wpisy w zakładce Wszyscy, gdy wybierzesz \"upublicznij\"."
-        your_services: "Twoje usługi"
-      step_4: 
-        change_profile: "W każdej chwili możesz zmienić informacje profilowe i zarządzać powiązanymi usługami korzystając"
-        continue: "Kontunuuj na stronie Wszyscy, która zawiera przegląd aspektów."
-        finish: "Zakończ"
-        manage_aspects: "Możesz również dodawać kontakty będąc na stronie dowolnego aspektu."
-        ready_to_share: "Możesz teraz zacząć dzielić się z"
-        set_up: "Wszystko gotowe, %{name}!"
-        user_menu: "z Twojego menu użytkownika (prawy górny róg)."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Witaj w Diasporze!"
     public: 
       does_not_exist: "Użytkownik %{username} nie istnieje!"

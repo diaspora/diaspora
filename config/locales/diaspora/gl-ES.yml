@@ -118,6 +118,11 @@ gl-ES:
     one: "1 contacto"
     other: "%{count} contactos"
     zero: "non hai contactos"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Borrar"
   email: "Correo-e"
   error_messages: 
@@ -420,6 +425,8 @@ gl-ES:
     reshare: 
       reshare: "Recompartir "
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
     new_status_message: 
@@ -451,32 +458,19 @@ gl-ES:
       your_email: "O teu correo"
       your_handle: "Your diaspora handle"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Conectar a outros servizos"
-      define_aspects: "Define os teus aspectos"
       edit_profile: "Edita o teu perfil"
       finished: "Xa está!"
       save_and_continue: "Gardar e continuar"
       signup_steps: "Remata de rexistrarte completando estes tres pasos"
       skip: "saltar guía de comezo"
       step_2: 
-        add: "Engadir"
-        aspect_name: "Nome do aspecto"
-        description: "Dille a Diaspora que diferentes aspectos teus son vistos por diferentes contactos. Podes administralos máis tarde no teu menú de conta arriba á dereita. Os teu aspectos son únicos e so visibles por ti."
-        drag_to_add: "Arrástraos ao aspecto teu que coñecen"
-        no_requests: "Non tes peticións"
-        your_aspects: "Os teus aspectos"
-        your_inviter: "Aquí tes á xente que espera por ti:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Podes conectar ás túas redes sociais á túa conta en Diaspora. Poderás publicar a través da túa páxina de inicio cando selecciones facer público."
-        your_services: "Os teus servizos"
-      step_4: 
-        change_profile: "Podes editar o teu perfil e administrar os teus servizos conectados en calquera momento."
-        continue: "Continuar á páxina de inicio para ver todos os teus aspectos"
-        finish: "Finalizado"
-        manage_aspects: "Tamén podes engadir contactos mentres estás nunha páxina de aspecto."
-        ready_to_share: "Xa estás listo para comezar a compartir con"
-        set_up: "Todo listo, %{name}!"
-        user_menu: "o menú de usuario localizado arriba á dereita."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Benvido a Diaspora!"
     public: 
       does_not_exist: "O usuario %{username} non existe!"

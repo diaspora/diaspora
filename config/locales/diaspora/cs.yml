@@ -118,6 +118,11 @@ cs:
     one: "1 kontakt"
     other: "%{count} kontaktů"
     zero: "žádné kontakty"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Smazat"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ cs:
     reshare: 
       reshare: "Přesdílet"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Není k zobrazení žádná zpráva."
     new_status_message: 
@@ -451,32 +458,19 @@ cs:
       your_email: "Váš email"
       your_handle: "Váše identifikace na Diaspoře"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Připojit vaše další služby"
-      define_aspects: "Definujte vaše aspekty"
       edit_profile: "Upravit váš profil"
       finished: "Dokončeno!"
       save_and_continue: "Uložit a pokračovat"
       signup_steps: "Dokončete registraci vyplněním těchto tří kroků:"
       skip: "přeskočit průvodce"
       step_2: 
-        add: "Přidat"
-        aspect_name: "Název aspektu"
-        description: "Řekněte Diaspoře, které kontakty chcete vidět v různých aspektech. Aspekty můžete později upravit pomocí menu vpravo nahoře. Vaše aspekty jsou jedinečné a nejsou viditelné ostatními."
-        drag_to_add: "Přetáhněte je do patřičného aspektu"
-        no_requests: "Nemáte žádné žádosti"
-        your_aspects: "Vaše aspekty"
-        your_inviter: "Zde jsou lidé, kteří na vás čekají:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Můžete připojit existující sociální sítě ke svému účtu na Diaspoře. Budete mít možnost posílat příspěvky veřejně prostřednictvím domovské stránky, když vyberete \"zveřejnit\""
-        your_services: "Vaše služby"
-      step_4: 
-        change_profile: "Můžete kdykoliv upravovat svůj profil a spravovat související služby"
-        continue: "Pokračujte na domovské stránce na přehledu o všech svých aspektech."
-        finish: "Dokončit"
-        manage_aspects: "Můžete také přidat kontakty na jakékoliv stránce aspektu."
-        ready_to_share: "Nyní jste připraveni začít sdílet s"
-        set_up: "Vše je nastaveno, %{name}!"
-        user_menu: "uživatelské menu je umístěno vpravo nahoře."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Vítejte na Diaspoře!"
     public: 
       does_not_exist: "Uživatel %{username} neexistuje!"

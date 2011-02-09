@@ -7,6 +7,9 @@ he:
   javascripts: 
     confirm_dialog: "Are you sure?"
     search_for: "Search for {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     timeago: 
       day: "יום"
       days: "%d ימים"

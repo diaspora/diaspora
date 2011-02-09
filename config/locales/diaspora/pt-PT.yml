@@ -118,6 +118,11 @@ pt-PT:
     one: "1 contact"
     other: "%{count} contacts"
     zero: "no contacts"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Apagar"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ pt-PT:
     reshare: 
       reshare: "Partilhar Novamente"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Nenhuma mensagem para mostrar."
     new_status_message: 
@@ -451,32 +458,19 @@ pt-PT:
       your_email: "O teu email"
       your_handle: "O teu nome de utilizador no Diaspora"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Liga os teus outros serviços"
-      define_aspects: "Define os teus grupos"
       edit_profile: "Edita o teu perfil"
       finished: "Terminado!"
       save_and_continue: "Guardar e continuar"
       signup_steps: "Termina o teu registo completando estes três passos:"
       skip: "saltar a introdução"
       step_2: 
-        add: "Adicionar"
-        aspect_name: "Nome do grupo"
-        description: "Indica ao Diaspora que diferentes grupos teus são vistos por diferentes contactos. Podes geri-los mais tarde clicando no separador de gestão no canto superior direito. Os teus grupos são únicos, e não são visíveis por outros."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
-        your_aspects: "Os teus grupos"
-        your_inviter: "Here are the people who are waiting for you:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "É possível ligares as tuas outras redes sociais à tua conta no Diaspora*. Poderás tornas as tuas mensagens públicas a partir da tua página principal quando escolheres \"tornar público\""
-        your_services: "Os teus serviços"
-      step_4: 
-        change_profile: "Podes editar o teu perfil e gerir os teus serviços conectados em qualquer altura através de"
-        continue: "Continuar para a tua página Inicial, uma vista global de todos os teus grupos."
-        finish: "Terminar"
-        manage_aspects: "Também podes adicionar contactos quando estiveres na página de um grupo"
-        ready_to_share: "Estás agora pronto para começar a partilhar com"
-        set_up: "Estás pronto, %{name}!"
-        user_menu: "no teu menu de utilizador (canto superior direito)."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Bem-vindo(a) ao Diaspora!"
     public: 
       does_not_exist: "O utilizador %{username} não existe!"

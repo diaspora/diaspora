@@ -118,6 +118,11 @@ es:
     one: "1 contacto"
     other: "%{count} contactos"
     zero: "no hay contactos"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Eliminar"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ es:
     reshare: 
       reshare: "Compartir también en..."
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "No hay mensajes que mostrar."
     new_status_message: 
@@ -451,32 +458,19 @@ es:
       your_email: "Tu dirección de email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Conectar con otros Servicios"
-      define_aspects: "Define tus Aspectos"
       edit_profile: "Editar tu Perfil"
       finished: "¡Finalizado!"
       save_and_continue: "Guardar y continuar"
       signup_steps: "Termina tu registro en tres pasos:"
       skip: "Saltarse la configuración inicial"
       step_2: 
-        add: "Añadir"
-        aspect_name: "Nombre del Aspecto"
-        description: "Dile a Diaspora* en qué Aspectos se dividen tus diferentes contactos. Podras añadir y editarlos más tarde, haciendo click en la parte superior derecha. Tus Aspectos solo son vistos por ti."
-        drag_to_add: "Muévelos al Aspecto que encajen mejor o crea uno nuevo."
-        no_requests: "No tienes nuevas solicitudes"
-        your_aspects: "Tus Aspectos"
-        your_inviter: "Esta gente está esperándote:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Puedes conectar tus redes sociales existentes con tu cuenta Diaspora*. Publicando desde Inicio y activando la casilla \"Publicar\""
-        your_services: "Tus Servicios"
-      step_4: 
-        change_profile: "Puedes editar tu Perfil y configurar tus Servicios conectados en cualquier momento."
-        continue: "Junto a Inicio, hay una lista de todos tus Aspectos."
-        finish: "Finalizar"
-        manage_aspects: "También puedes agregar varios contactos al mismo tiempo en una página de Aspecto."
-        ready_to_share: "Ya puedes comenzar a compartir con"
-        set_up: "Ya está listo, %{name}!"
-        user_menu: "El menú de usuario está localizado arriba a la derecha."
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "¡Bienvenido a Diaspora*!"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"

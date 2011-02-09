@@ -118,6 +118,11 @@ nb:
     one: "1 contact"
     other: "%{count} contacts"
     zero: "no contacts"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
   delete: "Delete"
   email: "Email"
   error_messages: 
@@ -420,6 +425,8 @@ nb:
     reshare: 
       reshare: "Reshare"
   status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Ingen melding å vise."
     new_status_message: 
@@ -451,32 +458,19 @@ nb:
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Connect your services"
-      define_aspects: "Define your aspects"
       edit_profile: "Edit your profile"
       finished: "Finished!"
       save_and_continue: "Save and continue"
       signup_steps: "Complete your sign-up by doing these things:"
       skip: "skip getting started"
       step_2: 
-        add: "Add"
-        aspect_name: "Aspect name"
-        description: "Tell Diaspora what different aspects of you are seen by different friends.  You can manage these later by clicking the manage tab on the top right.  Your aspects are unique to you, and not visible by others."
-        drag_to_add: "Drag them to the aspect of yourself they know"
-        no_requests: "You have no requests"
-        your_aspects: "Your aspects"
-        your_inviter: "Here are the people who are waiting for you:"
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
       step_3: 
-        description: "Connect your existing social networks to your Diaspora account.  You will be able to post publically through your Everyone tab when you select \"public.\""
-        your_services: "Your services"
-      step_4: 
-        change_profile: "You can change your profile any time by clicking"
-        continue: "Continue on to your everyone page, an overview of all of your aspects."
         finish: "Finish"
-        manage_aspects: "You can manage your aspects any time by clicking the"
-        ready_to_share: "You're now ready to start sharing with "
-        set_up: "You're all set up, %{name}!"
-        user_menu: "in your user menu (top right)."
+        people_already_on_diaspora: "People already on Diaspora"
       welcome: "Welcome to Diaspora!"
     public: 
       does_not_exist: "User %{username} does not exist!"
