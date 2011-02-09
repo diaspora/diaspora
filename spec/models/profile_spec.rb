@@ -146,4 +146,16 @@ describe Profile do
     end
   end
 
+  describe '#receive' do
+    
+    it 'updates the profile in place' do
+      local_luke, local_leia, remote_raphael = set_up_friends
+      new_profile = Factory.build :profile
+      lambda{
+        new_profile.receive(local_leia, remote_raphael)
+      }.should_not change(Profile, :count)
+      remote_raphael.last_name.should == new_profile.last_name
+    end
+
+  end
 end

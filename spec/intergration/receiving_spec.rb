@@ -272,4 +272,80 @@ describe 'a user receives a post' do
       @user2.raw_visible_posts.include?(post).should be_true
     end
   end
+
+
+  context 'retractions' do
+    it 'should accept retractions' do
+      message = @user2.post(:status_message, :message => "cats", :to => @aspect2.id)
+      retraction = Retraction.for(message)
+      xml = retraction.to_diaspora_xml
+
+      lambda {
+        zord = Postzord::Receiver.new(@user1, :person => @user2.person)
+        zord.parse_and_receive(xml)
+      }.should change(StatusMessage, :count).by(-1)
+    end
+
+    it "should activate the Person if I initiated a request to that url" do
+      begin
+        @user1.send_contact_request_to(@user3.person, @aspect)
+      rescue Exception => e
+        raise e.original_exception
+      end
+      request = @user3.request_from(@user1.person)
+      fantasy_resque do
+        @user3.accept_and_respond(request.id, @aspect3.id)
+      end
+      @user1.reload
+      @aspect.reload
+      new_contact = @user1.contact_for(@user3.person)
+      @aspect.contacts.include?(new_contact).should be true
+      @user1.contacts.include?(new_contact).should be true
+    end
+
+    it 'should process retraction for a person' do
+      retraction = Retraction.for(@user2)
+      retraction_xml = retraction.to_diaspora_xml
+
+      lambda {
+        zord = Postzord::Receiver.new(@user1, :person => @user2.person)
+        zord.parse_and_receive(retraction_xml)
+      }.should change {
+        @aspect.contacts(true).size }.by(-1)
+    end
+
+  end
+
+  it 'should marshal a profile for a person' do
+    #Create person
+    person = @user2.person
+    id = person.id
+    person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com")
+    person.save
+
+    #Cache profile for checking against marshaled profile
+    old_profile = person.profile.dup
+    old_profile.first_name.should == 'bob'
+
+    #Build xml for profile, clear profile
+    xml = person.profile.to_diaspora_xml
+    reloaded_person = Person.find(id)
+    reloaded_person.profile.delete
+    reloaded_person.save(:validate => false)
+
+    #Make sure profile is cleared
+    Person.find(id).profile.should be nil
+    old_profile.first_name.should == 'bob'
+
+    #Marshal profile
+    zord = Postzord::Receiver.new(@user1, :person => person)
+    zord.parse_and_receive(xml)
+
+    #Check that marshaled profile is the same as old profile
+    person = Person.find(person.id)
+    person.profile.should_not be nil
+    person.profile.first_name.should == old_profile.first_name
+    person.profile.last_name.should == old_profile.last_name
+    person.profile.image_url.should == old_profile.image_url
+  end
 end

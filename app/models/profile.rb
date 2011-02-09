@@ -36,9 +36,10 @@ class Profile < ActiveRecord::Base
   end
 
   def receive(user, person)
-    person.profile = self
-    person.save
-    self
+    Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
+    person.profile.update_attributes self.attributes
+
+    person.profile
   end
 
   def diaspora_handle
