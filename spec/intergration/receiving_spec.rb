@@ -324,18 +324,11 @@ describe 'a user receives a post' do
     person.save
 
     #Cache profile for checking against marshaled profile
-    old_profile = person.profile.dup
-    old_profile.first_name.should == 'bob'
+    new_profile = person.profile.dup
+    new_profile.first_name = 'boo!!!'
 
-    #Build xml for profile, clear profile
-    xml = person.profile.to_diaspora_xml
-    reloaded_person = Person.find(id)
-    reloaded_person.profile.delete
-    reloaded_person.save(:validate => false)
-
-    #Make sure profile is cleared
-    Person.find(id).profile.should be nil
-    old_profile.first_name.should == 'bob'
+    #Build xml for profile
+    xml = new_profile.to_diaspora_xml
 
     #Marshal profile
     zord = Postzord::Receiver.new(@user1, :person => person)
@@ -343,9 +336,8 @@ describe 'a user receives a post' do
 
     #Check that marshaled profile is the same as old profile
     person = Person.find(person.id)
-    person.profile.should_not be nil
-    person.profile.first_name.should == old_profile.first_name
-    person.profile.last_name.should == old_profile.last_name
-    person.profile.image_url.should == old_profile.image_url
+    person.profile.first_name.should == new_profile.first_name
+    person.profile.last_name.should == new_profile.last_name
+    person.profile.image_url.should == new_profile.image_url
   end
 end
