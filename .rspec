@@ -1,3 +1,2 @@
+--format Fuubar
 --color
---require rspec/instafail
---format RSpec::Instafail

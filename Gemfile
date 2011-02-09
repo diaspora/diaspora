@@ -74,4 +74,5 @@ group :test do
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
   gem 'rspec-instafail', :require => false
+  gem 'fuubar'
 end
