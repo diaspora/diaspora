@@ -4,12 +4,17 @@
   -if invites > 0
     - if SERVICES['facebook']['app_id'] !=""
       %h4{:style => 'text-align:center;'}
-        = link_to t('.from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
+        - if defined? remote
+          = link_to t('.from_facebook'), friend_finder_path('facebook', :remote => remote), :rel => 'facebox'
+        -else
+          = link_to t('.from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
+
         = t('or')
-        = link_to t('.by_email'), new_user_invitation_path, :title => t('.invite_someone')
+        = link_to t('.by_email'), new_user_invitation_path, :title => t('.invite_someone'), :rel => 'facebox'
     - else
       %h4
         = link_to t('.by_email'), new_user_invitation_path, :title => t('.invite_someone')
-    = t('.invitations_left', :count => invites) 
+    %h5{:style => 'text-align:center;'}
+      = t('.invitations_left', :count => invites) 
   - else
     = t('.dont_have_now')

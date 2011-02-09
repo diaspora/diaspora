@@ -21,10 +21,8 @@ class UsersController < ApplicationController
     params[:user].delete(:password) if params[:user][:password].blank?
     params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
     params[:user].delete(:language) if params[:user][:language].blank?
-    
 
-      
-      # change email notifications
+    # change email notifications
     if params[:user][:disable_mail]
       @user.update_attributes(:disable_mail => params[:user][:disable_mail])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
@@ -78,21 +76,33 @@ class UsersController < ApplicationController
     @person   = @user.person
     @profile  = @user.profile
     @services = @user.services
-    @requests = Request.where(:recipient_id => @person.id).all
+    service = current_user.services.where(:type => "Services::Facebook").first
 
-    @step = ((params[:step].to_i>0)&&(params[:step].to_i<5)) ? params[:step].to_i : 1
+    @step = ((params[:step].to_i>0)&&(params[:step].to_i<4)) ? params[:step].to_i : 1
     @step ||= 1
 
-    if @step == 4
-      @user.getting_started = false
-      @user.save
+    if @step == 2 && SERVICES['facebook']['app_id'] == ""
+      @step = 3
     end
-    render "users/getting_started"
+
+    if @step == 3
+      @requests = Request.where(:recipient_id => @person.id).includes(:sender => :profile).all
+      @friends = service ? service.finder(:local => true) : {}
+      @friends.delete_if{|key, value| @requests.any?{ |r| r.sender_id == value[:person].id} }
+    end
+
+
+    if @step == 3 && @requests.length == 0 && @friends.length == 0
+      @user.update_attributes(:getting_started => false)
+      redirect_to root_path
+    else
+      render "users/getting_started"
+    end
   end
 
   def getting_started_completed
     user = current_user
-    user.update_attributes( :getting_started => false )
+    user.update_attributes(:getting_started => false)
     redirect_to root_path
   end
 

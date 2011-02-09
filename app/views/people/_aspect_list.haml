@@ -5,23 +5,6 @@
 - content_for :head do
   =javascript_include_tag 'contact-list'
 
-  :javascript
-    $(document).ready(function() {
-      $("#edit_contact_aspects").click(function(evt){
-        evt.preventDefault();
-        $(".badges").fadeOut(200, function(){
-          $(".edit").fadeIn(200);
-        });
-      });
-
-      $("#done_contact_aspects").click(function(evt){
-        evt.preventDefault();
-        $(".edit").fadeOut(200, function(){
-          $(".badges").fadeIn(200);
-        });
-      });
-    });
-
 .aspects
   - if !contact
     %h4
@@ -37,18 +20,10 @@
 
   .badges{:class => ("hidden" if !contact)}
     = aspect_badges(aspects_with_person)
-    .right
-      = link_to t('.edit_membership'), "#", :id=> "edit_contact_aspects"
-
-  .edit.hidden
-    = render :partial => 'people/share_with_pane',
-        :locals => {:person => person,
-          :contact => contact,
-          :aspects_with_person => aspects_with_person,
-          :aspects_without_person => aspects_without_person}
-    %br
-
-    - if contact
-      .right
-        = link_to t('aspects.aspect_contacts.done_editing'), "#", :id => "done_contact_aspects"
-      = link_to t('people.profile_sidebar.remove_contact'), person, :confirm => t('are_you_sure'), :method => :delete
+    %p
+    = link_to t('.edit_membership'),
+            {:controller => "people",
+            :action => "share_with",
+            :id => @person.id},
+            :class => 'button',
+            :rel => 'facebox'

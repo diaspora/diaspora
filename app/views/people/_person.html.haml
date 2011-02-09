@@ -9,8 +9,15 @@
       = t('.thats_you')
     - elsif contact && !contact.pending
       = t('.already_connected')
-    - elsif (contact && contact.pending) || request
+    - elsif (contact && contact.pending) || (request && request.recipient == person)
       = t('.pending_request')
+    - elsif request && request.sender == person
+      = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => '')),
+        {:controller => "people",
+        :action => "share_with",
+        :id => person.id},
+        :class => 'share_with button',
+        :rel => 'facebox'
     - else
       = link_to t('people.show.start_sharing'),
         {:controller => "people",

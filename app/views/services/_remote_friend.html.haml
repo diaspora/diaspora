@@ -2,8 +2,15 @@
   .right
     -if friend[:contact] && !friend[:contact].pending
       = t('people.person.already_connected')
-    - elsif (friend[:contact] && friend[:contact].pending)
+    - elsif (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender != friend[:person])
       = t('people.person.pending_request')
+    - elsif (friend[:request] && friend[:request].sender == friend[:person])
+      = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => '')),
+        {:controller => "people",
+        :action => "show",
+        :id => friend[:person].id,
+        :share_with => true},
+        :class => 'button'
     - elsif friend[:invitation_id]
       = t('invitations.new.already_invited')
       %br
@@ -17,10 +24,9 @@
         :class => 'button'
 
     - elsif current_user.invites > 0
-      = form_tag service_inviter_path do
+      = form_tag service_inviter_path(:provider => 'facebook') do
         = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
         = hidden_field_tag :uid, uid
-        = hidden_field_tag :provider, 'facebook'
         = submit_tag t('.invite')
 
   - if friend[:person]

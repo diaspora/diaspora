@@ -6,7 +6,7 @@ class AspectsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html
-  respond_to :json, :only => :show
+  respond_to :json, :only => [:show, :create]
   respond_to :js
 
   def index
@@ -47,6 +47,22 @@ class AspectsController < ApplicationController
         redirect_to :back
       elsif request.env['HTTP_REFERER'].include?("aspects/manage")
         redirect_to :back
+      elsif params[:aspect][:share_with]
+        @contact = Contact.where(:id => params[:aspect][:contact_id]).first
+        @person = Person.where(:id => params[:aspect][:person_id]).first
+        @contact = current_user.contact_for(@person)
+
+        invite_or_add_contact_to_aspect(@aspect, @person, @contact)
+
+        @contact = current_user.contact_for(@person)
+        respond_to do |format|
+          format.js { render :json => {:html => render_to_string(
+              :partial => 'aspects/aspect_list_item',
+              :locals => {:aspect => @aspect,
+                            :person => @person,
+                            :contact => @contact}
+                                      )},:status => 201 }
+              end
       else
         respond_with @aspect
       end
@@ -142,17 +158,8 @@ class AspectsController < ApplicationController
     @aspect = current_user.aspects.find(params[:aspect_id])
     @contact = current_user.contact_for(@person)
 
-    if @contact
-      current_user.add_contact_to_aspect(@contact, @aspect)
-    else
-      current_user.send_contact_request_to(@person, @aspect)
-      contact = current_user.contact_for(@person)
+    invite_or_add_contact_to_aspect(@aspect, @person, @contact)
 
-      if request = Request.where(:sender_id => @person.id, :recipient_id => current_user.person.id).first
-        request.destroy
-        contact.update_attributes(:pending => false)
-      end
-    end
     flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
     respond_to do |format|
@@ -194,5 +201,21 @@ class AspectsController < ApplicationController
         }
       end
     end
+  end
+
+  private
+  def invite_or_add_contact_to_aspect( aspect, person, contact)
+    if contact
+      current_user.add_contact_to_aspect(contact, aspect)
+    else
+      current_user.send_contact_request_to(person, aspect)
+      contact = current_user.contact_for(person)
+
+      if request = Request.where(:sender_id => person.id, :recipient_id => current_user.person.id).first
+        request.destroy
+        contact.update_attributes(:pending => false)
+      end
+    end
+
   end
 end

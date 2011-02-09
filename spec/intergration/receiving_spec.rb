@@ -20,7 +20,6 @@ describe 'a user receives a post' do
 
     @user3   = eve
     @aspect3 = @user3.aspects.first
-
   end
 
   it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
@@ -229,6 +228,36 @@ describe 'a user receives a post' do
       end
     end
   end
+
+
+  describe 'receiving mulitple versions of the same post from a remote pod' do
+    before do 
+      @local_luke, @local_leia, @remote_raphael = set_up_friends
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+    end
+
+    it 'does not update created_at or updated_at when two people save the same post' do
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      xml = @post.to_diaspora_xml
+      receive_with_zord(@local_luke, @remote_raphael, xml)
+      sleep(2)
+      old_time = Time.now
+      receive_with_zord(@local_leia, @remote_raphael, xml)
+      (Post.find_by_guid @post.guid).updated_at.should be < old_time 
+      (Post.find_by_guid @post.guid).created_at.should be < old_time 
+    end
+
+    it 'does not update the post if a new one is sent with a new created_at' do
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago)
+      old_time = @post.created_at
+      xml = @post.to_diaspora_xml
+      receive_with_zord(@local_luke, @remote_raphael, xml)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 2.days.ago)
+      receive_with_zord(@local_luke, @remote_raphael, xml)
+      (Post.find_by_guid @post.guid).created_at.day.should == old_time.day
+    end
+  end
+
 
   describe 'salmon' do
     let(:post){@user1.post :status_message, :message => "hello", :to => @aspect.id}

@@ -65,7 +65,6 @@ class Post < ActiveRecord::Base
   def receive(user, person)
     #exists locally, but you dont know about it
     #does not exsist locally, and you dont know about it
-
     #exists_locally?
     #you know about it, and it is mutable
     #you know about it, and it is not mutable
@@ -82,13 +81,13 @@ class Post < ActiveRecord::Base
       else
         user.add_post_to_aspects(local_post)
         Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
-        local_post 
+        return local_post 
       end
     elsif !local_post
       self.save
       user.add_post_to_aspects(self)
       Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
-      self
+      return self
     else
       Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
     end

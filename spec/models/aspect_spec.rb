@@ -28,6 +28,12 @@ describe Aspect do
       }.should_not change(Aspect, :count)
     end
 
+    it 'validates case insensitiveness on names' do
+      lambda {
+        invalid_aspect = user.aspects.create(:name => "Losers ")
+      }.should_not change(Aspect, :count)
+    end
+
     it 'has a 20 character limit on names' do
       aspect = Aspect.new(:name => "this name is really too too too too too long")
       aspect.valid?.should == false

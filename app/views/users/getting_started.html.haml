@@ -3,54 +3,30 @@
 -#   the COPYRIGHT file.
 
 
-- content_for :head do
-  :javascript
-    $(document).ready(function(){
-      $("#new_aspect").live("ajax:success", function(data,stat,xhr){
-        window.location.reload();
-      });
+= content_for :head do
+  :css
+    header{ display:none; }
 
-      $(".aspects li").find(".delete").live("click", function(){
-        var aspectElement = $(this).parent("li");
-        if (confirm("#{t('are_you_sure')}")){
-          aspectElement.fadeOut(300, function(){aspectElement.remove();});
-        }
-      });
-    });
-    
-.span-8.append-1.last
-  %h1{:style => "text-align:right;"}
-    = t('.welcome')
-    .description
-      =t('.signup_steps')
+    #getting_started_logo.start{
+      -webkit-animation-name: fadeUp;
+      -webkit-animation-delay: 0s;
+      -webkit-animation-duration: 0.35s;
+    }
 
-  %h3{:style => "text-align:right;"}
-    - if @step != 1
-      = link_to t('.edit_profile'), getting_started_path(:step => 1)
-    - else
-      %span.current_gs_step
-        = t('.edit_profile')
-    %br
-    - if @step != 2
-      = link_to t('.define_aspects'), getting_started_path(:step => 2)
-    - else
-      %span.current_gs_step
-        = t('.define_aspects')
-    %br
-    - if @step != 3
-      = link_to t('.connect_services'), getting_started_path(:step => 3)
-    - else
-      %span.current_gs_step
-        = t('.connect_services')
-    %br
-    - if @step != 4
-      = link_to t('.finished'), getting_started_path(:step => 4)
-    - else
-      %span.current_gs_step
-        = t('.finished')
-    %br
-.span-15.last
-  .floating{:style=>"min-height:500px;"}
+    @media only screen {
+        #getting_started_logo { -webkit-transform: translateZ(0); }
+    }
+    @-webkit-keyframes fadeUp {
+        0% { opacity: 0; -webkit-transform: translate3d(0, 40px, 0); -webkit-animation-timing-function: ease-out; }
+        70% { opacity: 0; -webkit-transform: translate3d(0, 35px, 0); }
+        100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); -webkit-animation-timing-function: ease-out; }
+    }
+
+.span-15.prepend-4.last{:style => 'position:relative;'}
+  = image_tag 'logo_caps.png', :id => 'getting_started_logo', :width => 143, :height => 21, :class => ('start' if @step == 1)
+  %br
+  %br
+  .floating{:style=>"min-height:300px;"}
     = render "users/getting_started/step_#{@step}", :current_user => current_user
 
     - if @step > 1

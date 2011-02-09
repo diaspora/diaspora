@@ -9,14 +9,13 @@ Feature: invitation acceptance
       And I fill in "Password confirmation" with "secret"
       And I press "Sign up"
       Then I should be on the getting started page
-      And I should see "Welcome to Diaspora!"      
-      And I should see "ohai"
-      And I fill in "profile_first_name" with "O"
+      And I should see "getting_started_logo"
+     When I fill in "profile_first_name" with "O"
       And I fill in "profile_last_name" with "Hai"
       And I fill in "profile_gender" with "guess!"
       And I press "Save and continue"
       Then I should see "Profile updated"
-      And I should see "Your aspects"
+			And I should see "Would you like to find your Facebook friends on Diaspora?"
       And I should not see "Here are the people who are waiting for you:"
 
     Scenario: accept invitation from user
@@ -28,17 +27,24 @@ Feature: invitation acceptance
       And I fill in "Password confirmation" with "secret"
       And I press "Sign up"
       Then I should be on the getting started page
-      And I should see "Welcome to Diaspora!"      
-      And I should see "ohai"
-      And I fill in "profile_first_name" with "O"
+      And I should see "getting_started_logo"
+     When I fill in "profile_first_name" with "O"
       And I fill in "profile_last_name" with "Hai"
       And I fill in "profile_gender" with "guess!"
       And I press "Save and continue"
       Then I should see "Profile updated"
-      And I should see "Your aspects"
-      And I should see "Here are the people who are waiting for you:"
-      And I should see 1 contact request
-      When I drag the contact request to the "Family" aspect
+      
+			And I should see "Would you like to find your Facebook friends on Diaspora?"
+
+		When I follow "Skip"
+		  Then I should see "People already on Diaspora"
+
+      And I press the first ".share_with.button"
+      And I press the first ".add.button" within "#facebox #aspects_list ul > li:first-child"
       And I wait for the ajax to finish
-      Then I should see 1 contact in "Family"
+      
+     When I go to the home page
+     Then I go to the aspects manage page
+     Then I should see 1 contact in "Family"
+
 

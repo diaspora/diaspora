@@ -230,30 +230,17 @@ en:
           welcome: "Welcome to Diaspora!"
           signup_steps: "Finish your sign up by completing these three steps:"
           edit_profile: "Edit your profile"
-          define_aspects: "Define your aspects"
+          connect_on_diaspora: "Connect on Diaspora"
           connect_services: "Connect your other services"
           finished: "Finished!"
           skip: "skip getting started"
           save_and_continue: "Save and continue"
-          step_2:
-              your_aspects: "Your aspects"
-              description: "Tell Diaspora what different aspects of you are seen by different contacts. You can manage these later through your account menu at the top right. Your aspects are unique to you and not visible by others."
-              aspect_name: "Aspect name"
-              add: "Add"
-              your_inviter: "Here are the people who are waiting for you:"
-              drag_to_add:  "Drag them to the aspect of yourself they know"
-              no_requests: "You have no requests"
           step_3:
-              your_services: "Your services"
-              description: 'You are able to connect your existing social networks to your Diaspora account. You will be able to post publically through your Home page when you select “make public"'
-          step_4:
-              set_up: "You're all set up, %{name}!"
-              ready_to_share: "You're now ready to start sharing with "
-              continue: "Continue on to your Home page, an overview of all of your aspects."
-              change_profile: "You can edit your profile and manage your connected services at any time through "
-              user_menu: "the user menu located at the top right."
-              manage_aspects: "You can also add contacts while on any aspect page."
               finish: "Finish"
+              people_already_on_diaspora: "People already on Diaspora"
+          step_2:
+              find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+              skip: "Skip"
       update:
           password_changed: "Password Changed"
           password_not_changed: "Password Change Failed"
@@ -348,6 +335,8 @@ en:
           permalink: "permalink"
       helper:
           no_message_to_display: "No message to display."
+      destroy:
+          failure: "Failed to delete post"
   people:
       person:
           pending_request: "pending request"
