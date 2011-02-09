@@ -239,7 +239,7 @@ en:
               finish: "Finish"
               people_already_on_diaspora: "People already on Diaspora"
           step_2:
-              find_your_friends_on_facebook: "would you like to find your friends on facebook?"
+              find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
               skip: "Skip"
       update:
           password_changed: "Password Changed"

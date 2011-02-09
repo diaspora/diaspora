@@ -15,7 +15,7 @@ Feature: invitation acceptance
       And I fill in "profile_gender" with "guess!"
       And I press "Save and continue"
       Then I should see "Profile updated"
-			And I should see "would you like to find your friends on facebook?"
+			And I should see "Would you like to find your Facebook friends on Diaspora?"
       And I should not see "Here are the people who are waiting for you:"
 
     Scenario: accept invitation from user
@@ -34,7 +34,7 @@ Feature: invitation acceptance
       And I press "Save and continue"
       Then I should see "Profile updated"
       
-			And I should see "would you like to find your friends on facebook?"
+			And I should see "Would you like to find your Facebook friends on Diaspora?"
 
 		When I follow "Skip"
 		  Then I should see "People already on Diaspora"

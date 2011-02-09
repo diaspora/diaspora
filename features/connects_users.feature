@@ -37,7 +37,6 @@ Feature: sending and receiving requests
     And I fill in "Name" with "Super People" in the modal window
     And I press "aspect_submit" in the modal window
     And I wait for the ajax to finish
-    And I press the first ".add.button" within "#facebox #aspects_list ul > li:last-child"
 
    When I go to the home page
    Then I go to the aspects manage page
