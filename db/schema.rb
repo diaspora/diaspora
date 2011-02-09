@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110202015222) do
+ActiveRecord::Schema.define(:version => 20110209204702) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -94,6 +94,15 @@ ActiveRecord::Schema.define(:version => 20110202015222) do
   add_index "invitations", ["mongo_id"], :name => "index_invitations_on_mongo_id"
   add_index "invitations", ["recipient_id"], :name => "index_invitations_on_recipient_id"
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
+
+  create_table "mentions", :force => true do |t|
+    t.integer "post_id",   :null => false
+    t.integer "person_id", :null => false
+  end
+
+  add_index "mentions", ["person_id", "post_id"], :name => "index_mentions_on_person_id_and_post_id", :unique => true
+  add_index "mentions", ["person_id"], :name => "index_mentions_on_person_id"
+  add_index "mentions", ["post_id"], :name => "index_mentions_on_post_id"
 
   create_table "mongo_aspect_memberships", :force => true do |t|
     t.string   "aspect_mongo_id"

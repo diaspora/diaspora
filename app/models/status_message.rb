@@ -43,17 +43,32 @@ class StatusMessage < Post
       person = people.detect{ |p|
         p.diaspora_handle == inner_captures.last
       }
-      person ? "<a href=\"/people/#{person.id}\">#{ERB::Util.h(person.name)}</a>" : inner_captures.first
+      person ? "<a href=\"/people/#{person.id}\" class=\"mention\">#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
     end
     form_message
   end
 
   def mentioned_people
+    if self.persisted?
+      create_mentions if self.mentions.empty?
+      self.mentions.includes(:person => :profile).map{ |mention| mention.person }
+    else
+      mentioned_people_from_string
+    end
+  end
+
+  def create_mentions
+    mentioned_people_from_string.each do |person|
+      self.mentions.create(:person => person)
+    end
+  end
+
+  def mentioned_people_from_string
     regex = /@\{([^;]+); ([^\}]+)\}/
     identifiers = self.raw_message.scan(regex).map do |match|
       match.last
     end
-    Person.where(:diaspora_handle => identifiers)
+    identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
   end
 
   def to_activity

@@ -17,6 +17,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :order => 'created_at ASC', :dependent => :destroy
   has_many :post_visibilities
   has_many :aspects, :through => :post_visibilities
+  has_many :mentions, :dependent => :delete_all
   belongs_to :person
 
   cattr_reader :per_page
@@ -81,7 +82,7 @@ class Post < ActiveRecord::Base
       else
         user.add_post_to_aspects(local_post)
         Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
-        return local_post 
+        return local_post
       end
     elsif !local_post
       self.save

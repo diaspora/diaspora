@@ -73,8 +73,8 @@ STR
     describe '#formatted_message' do
       it 'adds the links in the formated message text' do
         @sm.formatted_message.should == <<-STR
-#{link_to(@people[0].name, person_path(@people[0]))} can mention people like Raphael #{link_to(@people[1].name, person_path(@people[1]))}
-can mention people like Raphaellike Raphael #{link_to(@people[2].name, person_path(@people[2]))} can mention people like Raph
+#{link_to(@people[0].name, person_path(@people[0]), :class => 'mention')} can mention people like Raphael #{link_to(@people[1].name, person_path(@people[1]), :class => 'mention')}
+can mention people like Raphaellike Raphael #{link_to(@people[2].name, person_path(@people[2]), :class => 'mention')} can mention people like Raph
 STR
       end
       it 'leaves the name of people that cannot be found' do
@@ -102,8 +102,33 @@ STR
       end
     end
 
-    it 'extracts the mentioned people from the message' do
-      @sm.mentioned_people.to_set.should == @people.to_set
+    describe '#mentioned_people_from_string' do
+      it 'extracts the mentioned people from the message' do
+        @sm.mentioned_people_from_string.to_set.should == @people.to_set
+      end
+    end
+    describe '#create_mentions' do
+      it 'creates a mention for everyone mentioned in the message' do
+        @sm.should_receive(:mentioned_people_from_string).and_return(@people)
+        @sm.mentions.delete_all
+        @sm.create_mentions
+        @sm.mentions(true).map{|m| m.person}.to_set.should == @people.to_set
+      end
+    end
+    describe '#mentioned_people' do
+      it 'calls create_mentions if there are no mentions in the db' do
+        @sm.mentions.delete_all
+        @sm.should_receive(:create_mentions)
+        @sm.mentioned_people
+      end
+      it 'returns the mentioned people' do
+        @sm.mentions.delete_all
+        @sm.mentioned_people.to_set.should == @people.to_set
+      end
+      it 'does not call create_mentions if there are mentions in the db' do
+        @sm.should_not_receive(:create_mentions)
+        @sm.mentioned_people
+      end
     end
   end
   describe "XML" do
