@@ -38,9 +38,9 @@ describe UsersController do
       response.should redirect_to edit_user_path(@user)
     end
 
-    it 'responds with a 201 on a js request' do
+    it 'responds with a 204 on a js request' do
       put :update, @params.merge(:format => :js)
-      response.status.should == 201
+      response.status.should == 204
     end
 
     context "open aspects" do

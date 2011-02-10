@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       format.js{
-        render :nothing => true, :status => 201
+        render :nothing => true, :status => 204
       }
       format.all{
         redirect_to edit_user_path(@user)
