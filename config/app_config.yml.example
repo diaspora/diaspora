@@ -87,6 +87,12 @@ default:
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
+  #s3 config, if set, carrierwave will store your photos on s3
+  #s3_key: 'key'
+  #s3_secret: 'secret'
+  #s3_bucket: 'my_photos'
+
+  
 development:
 
 test:
