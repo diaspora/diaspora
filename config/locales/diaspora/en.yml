@@ -464,6 +464,7 @@ en:
       mentioned:
           subject: "%{name} has mentioned you on Diaspora*"
           mentioned: "mentioned you in a post:"
+          sign_in: "Sign in to view it."
   home:
       show:
           share_what_you_want: "Share what you want, with whom you want."
