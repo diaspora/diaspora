@@ -22,12 +22,25 @@ describe UsersController do
   end
 
   describe '#update' do
-    it "doesn't overwrite random attributes" do
-      params  = { :id => @user.id,
+    before do
+      @params  = { :id => @user.id,
                   :user => { :diaspora_handle => "notreal@stuff.com" } }
+
+    end
+    it "doesn't overwrite random attributes" do
       lambda {
-        put :update, params
+        put :update, @params
       }.should_not change(@user, :diaspora_handle)
+    end
+
+    it 'redirects to the user edit page' do
+      put :update, @params
+      response.should redirect_to edit_user_path(@user)
+    end
+
+    it 'responds with a 201 on a js request' do
+      put :update, @params.merge(:format => :js)
+      response.status.should == 201
     end
 
     context "open aspects" do
