@@ -22,7 +22,7 @@ class Comment < ActiveRecord::Base
   belongs_to :person
 
   validates_presence_of :text, :post
-  validates_length_of :text, :maximum => 1000
+  validates_length_of :text, :maximum => 2500
 
   serialize :youtube_titles, Hash
   before_save do
