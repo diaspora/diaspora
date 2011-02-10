@@ -19,6 +19,7 @@ module ActionDispatch
 
         ActiveSupport::Deprecation.silence do
           message = "event=error error_class=#{exception.class} error_message='#{exception.message}' "
+          message << "gc_ms=#{GC.time} gc_collections=#{GC.collections} gc_bytes=#{GC.growth} " if GC.respond_to?(:enable_stats)
           message << "orig_error_message='#{exception.original_exception.message}'" if exception.respond_to?(:original_exception)
           message << "annotated_source='#{exception.annoted_source_code.to_s}' " if exception.respond_to?(:annoted_source_code)
           message << "app_backtrace='#{application_trace(exception).join(";")}'"
@@ -41,6 +42,7 @@ class ActionController::LogSubscriber
     log_string = "event=request_completed status=#{payload[:status]} "
     log_string << "controller=#{payload[:controller]} action=#{payload[:action]} format=#{payload[:formats].first.to_s.upcase} "
     log_string << "ms=#{"%.0f" % event.duration} "
+    log_string << "gc_ms=#{GC.time} gc_collections=#{GC.collections} gc_bytes=#{GC.growth} " if GC.respond_to?(:enable_stats)
     log_string << "params='#{params.inspect}' " unless params.empty?
     #log_string << "additions='#{additions.join(" | ")}' " unless additions.blank?
 
