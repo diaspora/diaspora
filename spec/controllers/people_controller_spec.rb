@@ -36,6 +36,14 @@ describe PeopleController do
       get :index, :q => "Korth", :format => 'json'
       response.body.should == [@korth].to_json
     end
+    it 'does not set @hashes in a json request' do
+      get :index, :q => "Korth", :format => 'json'
+      assigns[:hashes].should be_nil
+    end
+    it 'sets @hashes in an html request' do
+      get :index, :q => "Korth"
+      assigns[:hashes].should_not be_nil
+    end
     it "assigns people" do
       eugene2 = Factory.create(:person,
         :profile => Factory.build(:profile, :first_name => "Eugene",

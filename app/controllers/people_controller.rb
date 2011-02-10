@@ -14,7 +14,8 @@ class PeopleController < ApplicationController
     limit = params[:limit] || 15
 
     @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
-    @hashes = hashes_for_people(@people, @aspects)
+    @hashes = hashes_for_people(@people, @aspects) unless request.format == :json
+
     #only do it if it is an email address
     if params[:q].try(:match, Devise.email_regexp)
       webfinger(params[:q])
