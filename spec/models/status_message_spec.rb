@@ -12,6 +12,14 @@ describe StatusMessage do
     @aspect = @user.aspects.first
   end
 
+  describe '.before_create' do
+    it 'calls create_mentions' do
+      status = Factory.build(:status_message)
+      status.should_receive(:create_mentions)
+      status.save
+    end
+  end
+  
   describe '#diaspora_handle=' do
     it 'sets #person' do
       person = Factory.create(:person)
@@ -108,6 +116,7 @@ STR
       end
     end
     describe '#create_mentions' do
+
       it 'creates a mention for everyone mentioned in the message' do
         @sm.should_receive(:mentioned_people_from_string).and_return(@people)
         @sm.mentions.delete_all

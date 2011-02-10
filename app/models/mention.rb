@@ -7,4 +7,15 @@ class Mention < ActiveRecord::Base
   belongs_to :person
   validates_presence_of :post
   validates_presence_of :person
+
+  after_create :notify_recipient
+
+  def notify_recipient
+    Notification.notify(person.owner, self, post.person) unless person.remote?
+  end
+
+
+  def notification_type
+    'mentioned'
+  end
 end

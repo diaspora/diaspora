@@ -404,7 +404,7 @@ ActiveRecord::Schema.define(:version => 20110209204702) do
   add_index "profiles", ["first_name", "searchable"], :name => "index_profiles_on_first_name_and_searchable"
   add_index "profiles", ["last_name", "searchable"], :name => "index_profiles_on_last_name_and_searchable"
   add_index "profiles", ["mongo_id"], :name => "index_profiles_on_mongo_id"
-  add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id", :unique => true
+  add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
 
   create_table "requests", :force => true do |t|
     t.integer  "sender_id",    :null => false
@@ -466,8 +466,8 @@ ActiveRecord::Schema.define(:version => 20110209204702) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
-    t.string   "invitation_service"
-    t.string   "invitation_identifier"
+    t.string   "invitation_service",     :limit => 127
+    t.string   "invitation_identifier",  :limit => 127
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
