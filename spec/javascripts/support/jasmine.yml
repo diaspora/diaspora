@@ -21,6 +21,7 @@ src_files:
   - public/javascripts/vendor/facebox.js
   - public/javascripts/jquery.autocomplete-custom.js
   - public/javascripts/diaspora.js
+  - public/javascripts/keycodes.js
   - public/javascripts/widgets/alert.js
   - public/javascripts/widgets/embedder.js
   - public/javascripts/widgets/i18n.js
