@@ -6,13 +6,6 @@
 describe("Publisher", function() {
 
     describe("initialize", function(){
-      it("calls close when it does not have text", function(){
-        spec.loadFixture('aspects_index');
-        spyOn(Publisher, 'close');
-        Publisher.initialize();
-        expect(Publisher.close).toHaveBeenCalled();
-      });
-
       it("does not call close when there is prefilled text", function(){
         spec.loadFixture('aspects_index_prefill');
         spyOn(Publisher, 'close');
@@ -30,11 +23,6 @@ describe("Publisher", function() {
         Publisher.open();
         expect(Publisher.form().hasClass('closed')).toBeFalsy();
         });
-      it("shows the options_and_submit div", function() {
-        expect(Publisher.form().find(".options_and_submit:visible").length).toBe(0);
-        Publisher.open();
-        expect(Publisher.form().find(".options_and_submit:visible").length).toBe(1);
-        });
     });
     describe("close", function() {
       beforeEach(function() {
@@ -45,11 +33,6 @@ describe("Publisher", function() {
         expect(Publisher.form().hasClass('closed')).toBeFalsy();
         Publisher.close();
         expect(Publisher.form().hasClass('closed')).toBeTruthy();
-        });
-      it("hides the options_and_submit div", function() {
-        expect(Publisher.form().find(".options_and_submit:visible").length).toBe(1);
-        Publisher.close();
-        expect(Publisher.form().find(".options_and_submit:visible").length).toBe(0);
         });
     });
     describe("input", function(){
