@@ -2,9 +2,9 @@
   .right
     -if friend[:contact] && !friend[:contact].pending
       = t('people.person.already_connected')
-    - elsif (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender != friend[:person])
+    - elsif (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
       = t('people.person.pending_request')
-    - elsif (friend[:request] && friend[:request].sender == friend[:person])
+    - elsif (friend[:request] && friend[:request].sender_id == friend[:person].id)
       = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => '')),
         {:controller => "people",
         :action => "show",
