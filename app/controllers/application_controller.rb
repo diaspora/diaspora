@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     str = "event=request_with_user controller=#{self.class} action=#{self.action_name} "
     if current_user
       str << "uid=#{current_user.id} "
-      str << "user_created_at=#{current_user.created_at.to_date.to_s} " if current_user.created_at
+      str << "user_created_at='#{current_user.created_at.to_date.to_s}' user_created_at_unix=#{current_user.created_at.to_i} " if current_user.created_at
     else
       str << 'uid=nil'
     end
