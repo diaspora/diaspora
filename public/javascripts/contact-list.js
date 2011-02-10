@@ -3,28 +3,37 @@
 *   the COPYRIGHT file.
 */
 
+var List = {
+  initialize: function() {
+    $(".contact_list_search").live("keyup", function(e) {
+      var search = $(this);
+      var list   = $(this).siblings("ul").first();
+      var query  = new RegExp(search.val(),'i');
+
+      $("li", list).each( function() {
+        var element = $(this);
+        if( !element.text().match(query) ) {
+          if( !element.hasClass('hidden') ) {
+            element.addClass('hidden');
+          }
+        } else {
+          element.removeClass('hidden');
+        }
+      });
+    });
+  },
+  disconnectUser: function(person_id){
+        $.ajax({
+            url: "/people/" + person_id,
+            type: "DELETE",
+            success: function(){
+                $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+              }
+            });
+  }
+};
 
 $(document).ready(function() {
-  var List = {
-    initialize: function() {
-      $(".contact_list_search").live("keyup", function(e) {
-        var search = $(this);
-        var list   = $(this).siblings("ul").first();
-        var query  = new RegExp(search.val(),'i');
-
-        $("li", list).each( function() {
-          var element = $(this);
-          if( !element.text().match(query) ) {
-            if( !element.hasClass('hidden') ) {
-              element.addClass('hidden');
-            }
-          } else {
-            element.removeClass('hidden');
-          }
-        });
-      });
-    }
-  };
 
   $('.added').live('ajax:loading', function() {
     $(this).fadeTo(200,0.4);
@@ -46,7 +55,9 @@ $(document).ready(function() {
   });
 
   $('.added').live('ajax:failure', function(data, html, xhr) {
-    alert(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'));
+    if(confirm(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'))){
+      List.disconnectUser($(this).parents('li').attr("data-guid"));
+    };
     $(this).fadeTo(200,1);
   });
 

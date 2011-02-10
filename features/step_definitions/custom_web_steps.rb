@@ -19,6 +19,10 @@ And /^I preemptively confirm the alert$/ do
   a = page.evaluate_script("window.confirm = function() { return true; }")
 end
 
+And /^I preemptively reject the alert$/ do
+  a = page.evaluate_script("window.confirm = function() { return false; }")
+end
+
 When /^(.*) in the modal window$/ do |action|
   within('#facebox') do
     When action

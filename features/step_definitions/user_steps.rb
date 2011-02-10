@@ -57,6 +57,13 @@ Then /^I should see (\d+) contact(?:s)? in "([^"]*)"$/ do |contact_count, aspect
   number_of_contacts.should == contact_count.to_i
 end
 
+Then /^I should see no contact(?:s)? in "([^"]*)"$/ do |aspect_name|
+  aspect = @me.reload.aspects.find_by_name(aspect_name)
+  number_of_contacts = evaluate_script(
+    "$('ul.dropzone.ui-droppable[data-aspect_id=\"#{aspect.id}\"]').children('li.person').length")
+  number_of_contacts.should == 0
+end
+
 When /^I drag the contact request to the "([^"]*)" aspect$/ do |aspect_name|
   Given "I have turned off jQuery effects"
   aspect = @me.reload.aspects.find_by_name(aspect_name)
@@ -89,4 +96,11 @@ Then /^I should have aspect "([^"]*)" "([^"]*)"$/ do |arg1, arg2|
     raise "Aspect state should either be 'selected' or 'not selected'"
   end
 end
+
+Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
+  user1 = User.where(:email => arg1).first
+  user2 = User.where(:email => arg2).first
+  connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
+end
+
 
