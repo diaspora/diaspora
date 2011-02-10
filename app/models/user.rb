@@ -218,19 +218,26 @@ class User < ActiveRecord::Base
   end
 
   def accept_invitation!(opts = {})
-    if self.invited?
-      log_string = "event=invitation_accepted username=#{opts[:username]} "
-      log_string << "inviter=#{invitations_to_me.first.sender.diaspora_handle}" if invitations_to_me.first
-      Rails.logger.info log_string
-      self.setup(opts)
-      self.invitation_token = nil
-      self.password              = opts[:password]
-      self.password_confirmation = opts[:password_confirmation]
-      self.save!
-      invitations_to_me.each{|invitation| invitation.to_request!}
+    log_string = "event=invitation_accepted username=#{opts[:username]} uid=#{self.id} "
+    log_string << "inviter=#{invitations_to_me.first.sender.diaspora_handle} " if invitations_to_me.first
+    begin
+      if self.invited?
+        self.setup(opts)
+        self.invitation_token = nil
+        self.password              = opts[:password]
+        self.password_confirmation = opts[:password_confirmation]
+        self.save!
+        invitations_to_me.each{|invitation| invitation.to_request!}
+        log_string << "success"
+        Rails.logger.info log_string
 
-      self.reload # Because to_request adds a request and saves elsewhere
-      self
+        self.reload # Because to_request adds a request and saves elsewhere
+        self
+      end
+    rescue Exception => e
+      log_string << "failure"
+      Rails.logger.info log_string
+      raise e
     end
   end
 
