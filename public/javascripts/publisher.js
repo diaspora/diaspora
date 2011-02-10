@@ -7,10 +7,12 @@
 var Publisher = {
   close: function(){
     Publisher.form().addClass('closed');
+    Publisher.form().find(".options_and_submit").hide();
     Publisher.form().find("textarea").css('min-height', '');
   },
   open: function(){
     Publisher.form().removeClass('closed');
+    Publisher.form().find(".options_and_submit").show();
     Publisher.form().find("textarea").css('min-height', '42px');
   },
   cachedForm : false,

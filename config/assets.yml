@@ -10,7 +10,7 @@ javascripts:
     - public/javascripts/vendor/jquery.tipsy.js
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
-    - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery-ui-1.8.6.custom.min.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/timeago.js

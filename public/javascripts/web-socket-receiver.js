@@ -121,10 +121,11 @@ var WebSocketReceiver = {
   addPostToStream: function(postId, html) {
     if( $(".stream_element[data-guid='" + postId + "']").length == 0 ) {
       var showMessage = function() {
-        var streamElement = $(html);
-        streamElement.addClass('hidden');
-        $("#main_stream:not('.show')").prepend(streamElement);
-        streamElement.show('blind', { direction: 'vertical' }, 200);
+        $("#main_stream:not('.show')").prepend(
+          $(html).fadeIn("fast", function() {
+            $("#main_stream").find("label").first().inFieldLabels();
+          })
+        );
       };
 
       if( $("#no_posts").is(":visible") ) {
@@ -132,9 +133,9 @@ var WebSocketReceiver = {
       } else {
         showMessage();
       }
-      Diaspora.widgets.timeago.updateTimeAgo();
-      $("#main_stream .stream_element:first-child label").inFieldLabels();
     }
+    Diaspora.widgets.timeago.updateTimeAgo();
+    $("label").inFieldLabels();
   },
 
   onPageForClass: function(className) {

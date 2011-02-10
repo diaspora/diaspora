@@ -73,6 +73,7 @@ var Stream = {
       json = $.parseJSON(json);
       WebSocketReceiver.addPostToStream(json.post_id, json.html);
       //collapse publisher
+      Publisher.close();
       Publisher.clear();
     });
 
@@ -89,7 +90,7 @@ var Stream = {
     });
 
     $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
-      $(this).parents(".stream_element").hide('blind', { direction: 'vertical' }, 300);
+      $(this).parents(".status_message").fadeOut(150);
     });
   },
 
