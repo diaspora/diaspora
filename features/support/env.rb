@@ -48,6 +48,9 @@ Before do
   DatabaseCleaner.clean
 end
 
+silence_warnings do
+  SERVICES['facebook'] = {'app_id' => :fake}
+end
 module Resque
   def enqueue(klass, *args)
     klass.send(:perform, *args)
