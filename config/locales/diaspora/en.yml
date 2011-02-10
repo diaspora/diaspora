@@ -204,7 +204,7 @@ en:
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
       also_commented: "also commented on your contact's"
-      mentioned: "has mentioned you their"
+      mentioned: "has mentioned you in their"
       post: 'post'
       deleted: 'deleted'
       index:
