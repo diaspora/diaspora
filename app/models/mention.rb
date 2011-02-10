@@ -15,7 +15,7 @@ class Mention < ActiveRecord::Base
   end
 
 
-  def notification_type
+  def notification_type(recipient,actor)
     'mentioned'
   end
 end

@@ -46,6 +46,19 @@ class Notifier < ActionMailer::Base
           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
   end
 
+  def mentioned(recipient_id, sender_id, target_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender   = Person.find_by_id(sender_id)
+    @post  = Mention.find_by_id(target_id).post
+
+    log_mail(recipient_id, sender_id, 'mentioned')
+
+    attachments.inline['logo_caps.png'] = ATTACHMENT
+
+    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+          :subject => I18n.t('notifier.mentioned.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+  end
+
   def comment_on_post(recipient_id, sender_id, comment_id)
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)

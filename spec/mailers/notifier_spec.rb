@@ -36,7 +36,7 @@ describe Notifier do
     end
   end
 
-  describe '#single_admin' do
+  describe '.single_admin' do
     it 'mails a user' do
       mail = Notifier.single_admin("Welcome to bureaucracy!", user)
       mail.to.should == [user.email]
@@ -45,7 +45,7 @@ describe Notifier do
     end
   end
 
-  describe "#new_request" do
+  describe ".new_request" do
     let!(:request_mail) {Notifier.new_request(user.id, person.id)}
     it 'goes to the right person' do
       request_mail.to.should == [user.email]
@@ -65,7 +65,7 @@ describe Notifier do
     end
   end
 
-  describe "#request_accepted" do
+  describe ".request_accepted" do
     let!(:request_accepted_mail) {Notifier.request_accepted(user.id, person.id)}
     it 'goes to the right person' do
       request_accepted_mail.to.should == [user.email]
@@ -80,11 +80,42 @@ describe Notifier do
     end
   end
 
+
+  describe ".mentioned" do
+    before do
+      @user = alice
+      @sm =  Factory(:status_message)
+      @m  = Mention.create(:person => @user.person, :post=> @sm)
+
+      @mail = Notifier.mentioned(@user.id, @sm.person.id, @m.id)
+    end
+    it 'goes to the right person' do
+      @mail.to.should == [@user.email]
+    end
+
+    it 'has the receivers name in the body' do
+      @mail.body.encoded.include?(@user.person.profile.first_name).should be true
+    end
+
+    it 'has the name of person mentioning in the body' do
+      @mail.body.encoded.include?(@sm.person.name).should be true
+    end
+
+    it 'has the post text in the body' do
+      @mail.body.encoded.should include(@sm.message)
+    end
+
+    it 'should not include translation missing' do
+      @mail.body.encoded.should_not include("missing")
+    end
+  end
+
+
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}
     let!(:comment) { user2.comment("Totally is", :on => sm )}
-    describe "#comment_on_post" do
+    describe ".comment_on_post" do
 
       let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
 
@@ -105,7 +136,7 @@ describe Notifier do
       end
 
     end
-    describe "#also commented" do
+    describe ".also commented" do
 
       let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
 

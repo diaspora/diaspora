@@ -1,0 +1,8 @@
+= t('notifier.hello', :name => @receiver.profile.first_name)
+= "#{@sender.name} (#{@sender.diaspora_handle})"
+= t('notifier.mentioned.mentioned')
+
+= @post.formatted_message(:plain_text => true)
+
+= "#{t('notifier.love')} \n"
+= t('notifier.diaspora')

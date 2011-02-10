@@ -33,7 +33,7 @@ class StatusMessage < Post
     write_attribute(:message, text)
   end
 
-  def formatted_message
+  def formatted_message(opts = {})
     return self.raw_message unless self.raw_message
     people = self.mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
@@ -43,7 +43,12 @@ class StatusMessage < Post
       person = people.detect{ |p|
         p.diaspora_handle == inner_captures.last
       }
-      person ? "<a href=\"/people/#{person.id}\" class=\"mention\">#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
+
+      if opts[:plain_text]
+        person ? ERB::Util.h(person.name) : ERB::Util.h(inner_captures.first)
+      else
+        person ? "<a href=\"/people/#{person.id}\" class=\"mention\">#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
+      end
     end
     form_message
   end
