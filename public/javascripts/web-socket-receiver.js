@@ -120,10 +120,12 @@ var WebSocketReceiver = {
 
   addPostToStream: function(postId, html) {
     if( $(".stream_element[data-guid='" + postId + "']").length == 0 ) {
+      var streamElement = $(html);
+
       var showMessage = function() {
         $("#main_stream:not('.show')").prepend(
-          $(html).fadeIn("fast", function() {
-            $("#main_stream").find("label").first().inFieldLabels();
+          streamElement.fadeIn("fast", function() {
+            streamElement.find("label").inFieldLabels();
           })
         );
       };
@@ -133,9 +135,8 @@ var WebSocketReceiver = {
       } else {
         showMessage();
       }
+      Diaspora.widgets.timeago.updateTimeAgo();
     }
-    Diaspora.widgets.timeago.updateTimeAgo();
-    $("label").inFieldLabels();
   },
 
   onPageForClass: function(className) {

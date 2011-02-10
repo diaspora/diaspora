@@ -12,9 +12,9 @@ module StreamHelper
     end
   end
 
-  def new_comment_form(post_id)
+  def new_comment_form(post_id, current_user)
     @form ||= controller.render_to_string(
-      :partial => 'comments/new_comment', :locals => {:post_id => GSUB_THIS})
+      :partial => 'comments/new_comment', :locals => {:post_id => GSUB_THIS, :current_user => current_user})
     @form.gsub(GSUB_THIS, post_id.to_s)
   end
 end

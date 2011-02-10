@@ -600,10 +600,16 @@ ul.show_comments
           :size 1em
         :margin
           :bottom -3px
-        :width 482px
+        :width 445px
+        :min-height 23px
 
-      .avatar
-        :display none
+      p
+        :position relative
+        :left 36px
+
+    .avatar
+      :position absolute
+      :display inline
 
     form.open
       .submit_button
@@ -611,18 +617,9 @@ ul.show_comments
         :margin
           :bottom 2px
           :right 2px
-
       textarea
         :min-height 2.4em
-        :width 445px
 
-      p
-        :position relative
-        :left 36px
-
-      .avatar
-        :position absolute
-        :display inline
 
 .stream.show
   ul.comments

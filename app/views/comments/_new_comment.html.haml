@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 = form_tag( comments_path, :id => "new_comment_on_#{post_id}", :class => 'new_comment', :remote => true) do
-  = owner_image_tag
+  = person_image_tag(current_user, nil)
   %p
     = label_tag "comment_text_on_#{post_id}", t('.comment')
     = text_area_tag :text, nil, :rows => 2, :class => "comment_box",:id => "comment_text_on_#{post_id}"
