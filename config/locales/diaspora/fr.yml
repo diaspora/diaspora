@@ -120,9 +120,9 @@ fr:
     zero: "aucun contact"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Supprimer"
   email: "E-mail"
   error_messages: 
@@ -426,7 +426,7 @@ fr:
       reshare: "Repartager"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Impossible de supprimer le message"
     helper: 
       no_message_to_display: "Aucun message à afficher."
     new_status_message: 
@@ -458,7 +458,7 @@ fr:
       your_email: "Votre adresse électronique"
       your_handle: "Votre handle diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Se connecter sur Diaspora"
       connect_services: "Connectez vos autres services"
       edit_profile: "Modifiez votre profil"
       finished: "Terminé !"
@@ -466,11 +466,11 @@ fr:
       signup_steps: "Terminez votre inscription en suivant ces trois étapes :"
       skip: "passer la présentation"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Désirez-vous rechercher vos amis Facebook sur Diaspora ?"
+        skip: "Passer cette étape"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Terminer"
+        people_already_on_diaspora: "Personnes déjà sur Diaspora"
       welcome: "Bienvenue sur Diaspora !"
     public: 
       does_not_exist: "L'utilisateur %{username} n'existe pas !"

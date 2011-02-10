@@ -426,7 +426,7 @@ de:
       reshare: "Erneut senden an"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Post löschen fehlgeschlagen"
     helper: 
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new_status_message: 
@@ -458,7 +458,7 @@ de:
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora-Adresse"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Mit Diaspora Verbinden"
       connect_services: "Mit deinen anderen Diensten verbinden"
       edit_profile: "Bearbeite dein Profil"
       finished: "Fertig!"
@@ -467,9 +467,9 @@ de:
       skip: "Erste Schritte überspringen"
       step_2: 
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        skip: "Überspringen"
       step_3: 
-        finish: "Finish"
+        finish: "Beenden"
         people_already_on_diaspora: "People already on Diaspora"
       welcome: "Willkommen bei Diaspora!"
     public: 

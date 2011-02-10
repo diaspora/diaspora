@@ -426,7 +426,7 @@ cs:
       reshare: "Přesdílet"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Nepodařilo se smazat příspěvek"
     helper: 
       no_message_to_display: "Není k zobrazení žádná zpráva."
     new_status_message: 
@@ -458,7 +458,7 @@ cs:
       your_email: "Váš email"
       your_handle: "Váše identifikace na Diaspoře"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Připojit na Diaspoře"
       connect_services: "Připojit vaše další služby"
       edit_profile: "Upravit váš profil"
       finished: "Dokončeno!"
@@ -466,11 +466,11 @@ cs:
       signup_steps: "Dokončete registraci vyplněním těchto tří kroků:"
       skip: "přeskočit průvodce"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Chtěli byste najít své přátele z Facebooku na Diaspoře?"
+        skip: "Přeskočit"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Dokončit"
+        people_already_on_diaspora: "Lidé, kteří jsou už na Diaspoře"
       welcome: "Vítejte na Diaspoře!"
     public: 
       does_not_exist: "Uživatel %{username} neexistuje!"

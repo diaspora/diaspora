@@ -9,7 +9,7 @@ cs:
     search_for: "Hledat {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby je třeba odebrat kontakt.)"
     timeago: 
       day: "1 dnem"
       days: "%d dny"
