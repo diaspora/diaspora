@@ -20,7 +20,7 @@ class UniqueIndexPostVisibilities < ActiveRecord::Migration
       pv_ids.pop
       undesired_ids.concat(pv_ids)
     end
-    execute("DELETE FROM `post_visibilities` WHERE `post_visibiilties`.id IN (#{undesired_ids.join(",")});") unless undesired_ids.empty?
+    execute("DELETE FROM `post_visibilities` WHERE `post_visibilities`.id IN (#{undesired_ids.join(",")});") unless undesired_ids.empty?
 
 
     remove_index :post_visibilities, [:aspect_id, :post_id]
