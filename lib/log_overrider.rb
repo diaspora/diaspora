@@ -62,3 +62,25 @@ module Rails
     end
   end
 end
+
+module ActiveRecord
+  class LogSubscriber
+    def sql(event)
+      self.class.runtime += event.duration
+      return unless logger.info?
+
+      payload = event.payload
+      sql     = payload[:sql].squeeze(' ')
+      binds   = nil
+
+      unless (payload[:binds] || []).empty?
+        binds = "  " + payload[:binds].map { |col,v|
+          [col.name, v]
+        }.inspect
+      end
+
+      info "event=sql name='#{payload[:name]}' ms=#{event.duration} query='#{sql}' binds='#{binds}'"
+
+    end
+  end
+end
