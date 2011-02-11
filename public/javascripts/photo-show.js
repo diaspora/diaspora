@@ -9,7 +9,7 @@ $(document).ready(function() {
   $("#edit_photo_toggle").bind('click', function(evt) {
     evt.preventDefault();
     $("#photo_edit_options").toggle();
-    $(".edit_photo input[type='text']").first().focus();
+    $(".edit_photo input:text").first().focus();
   });
 
   $('.edit_photo').bind('ajax:loading', function(data, json, xhr) {
@@ -26,7 +26,7 @@ $(document).ready(function() {
 
   $('.edit_photo').bind('ajax:success', function(data, json, xhr) {
     json = $.parseJSON(json);
-    $(".edit_photo input[type='text']").val(json.photo.caption);
+    $(".edit_photo input:text").val(json.photo.caption);
     $("#caption").html(json.photo.caption);
     $("#show_photo").find("img").fadeTo(200,1);
     $("#photo_spinner").hide();
