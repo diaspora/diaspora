@@ -16,7 +16,7 @@ class UniqueIndexPostVisibilities < ActiveRecord::Migration
         SELECT `post_visibilities`.id FROM `post_visibilities`
         WHERE `post_visibilities`.post_id = #{post_id}
           AND `post_visibilities`.aspect_id = #{aspect_id};"
-      )
+      ).to_a.flatten!
       pv_ids.pop
       undesired_ids.concat(pv_ids)
     end
