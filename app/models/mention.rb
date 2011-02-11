@@ -10,6 +10,8 @@ class Mention < ActiveRecord::Base
 
   after_create :notify_recipient
 
+  after_destroy :delete_notification
+
   def notify_recipient
     Notification.notify(person.owner, self, post.person) unless person.remote?
   end
@@ -17,5 +19,9 @@ class Mention < ActiveRecord::Base
 
   def notification_type(*args)
     'mentioned'
+  end
+
+  def delete_notification
+    Notification.where(:target_type => self.class, :target_id => self.id).delete_all
   end
 end

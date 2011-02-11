@@ -29,5 +29,20 @@ describe Mention do
      Mention.new.notification_type.should == 'mentioned' 
     end
   end
+  
+  describe 'after destroy' do
+    it 'destroys a notification' do
+      @user = alice
+      @sm =  Factory(:status_message)
+      @m  = Mention.create(:person => @user.person, :post=> @sm)
+
+
+      pp Notification.first
+
+      lambda{
+        @m.destroy
+      }.should change(Notification, :count).by(-1)
+    end
+  end
 end
 
