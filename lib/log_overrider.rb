@@ -79,7 +79,7 @@ module ActiveRecord
         }.inspect
       end
 
-      info "event=sql name='#{payload[:name]}' ms=#{event.duration} query='#{sql}' binds='#{binds}'"
+      info "event=sql name='#{payload[:name]}' ms=#{event.duration} query='#{sql}' binds='#{binds}' caller_with_diaspora='#{caller.grep(/diaspora/).join(';')}' caller_hash='#{caller.hash}'"
 
     end
   end
