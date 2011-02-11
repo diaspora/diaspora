@@ -197,6 +197,7 @@ ru:
     index: 
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
+    mentioned: "has mentioned you in their"
     new_request: "предлагает поделиться с вами."
     post: "сообщение"
     request_accepted: "ваш запрос на участие принят."
@@ -212,6 +213,10 @@ ru:
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
     love: "С любовью,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "отправил вам запрос для Диаспоры*"
       sign_in: "Войдите в систему здесь"

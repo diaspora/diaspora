@@ -197,6 +197,7 @@ el:
     index: 
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
+    mentioned: "has mentioned you in their"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
@@ -212,6 +213,10 @@ el:
     diaspora: "ρομπότ για τα email του δικτύου Diaspora"
     hello: "Γειά σου %{name}!"
     love: "αγάπη,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "έχετε ένα νέο αίτημα φίλου στο Diaspora*"
       sign_in: "Είσοδος"

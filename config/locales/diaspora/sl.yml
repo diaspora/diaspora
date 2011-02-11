@@ -197,6 +197,7 @@ sl:
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Sporočila"
+    mentioned: "has mentioned you in their"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
     request_accepted: "vaše prošnja je sprejeta."
@@ -212,6 +213,10 @@ sl:
     diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
     love: "vas pozdravlja,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "poslana vam je bila prošnja za stik v Diaspori*"
       sign_in: "prijavite se tukaj"

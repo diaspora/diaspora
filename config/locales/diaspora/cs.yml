@@ -197,6 +197,7 @@ cs:
     index: 
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
+    mentioned: "has mentioned you in their"
     new_request: "nabídnul vám sdílení."
     post: "zpráva"
     request_accepted: "akceptoval vaši žádost o sdílení."
@@ -212,6 +213,10 @@ cs:
     diaspora: "diaspora email robot"
     hello: "Vítej %{name}!"
     love: "s láskou,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
       sign_in: "Přihlaste se zde"

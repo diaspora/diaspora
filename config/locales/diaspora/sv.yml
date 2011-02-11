@@ -197,6 +197,7 @@ sv:
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifieringar"
+    mentioned: "has mentioned you in their"
     new_request: "erbjöd sig att dela med dig."
     post: "meddelande"
     request_accepted: "accepterade din förfrågan om att dela."
@@ -212,6 +213,10 @@ sv:
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
     love: "hälsningar,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
       sign_in: "Logga in här"

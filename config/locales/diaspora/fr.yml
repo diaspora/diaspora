@@ -197,6 +197,7 @@ fr:
     index: 
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
+    mentioned: "vous a mentionné(e) dans son"
     new_request: "a proposé de partager avec vous."
     post: "message"
     request_accepted: "a accepté votre demande de partage."
@@ -204,7 +205,7 @@ fr:
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
       sign_in: "Connectez-vous pour le voir."
-      subject: "%{name} a également commenté."
+      subject: "%{name} a également commenté sur le message de votre contact."
     comment_on_post: 
       commented: "a commenté votre message:"
       sign_in: "Connectez-vous pour le voir."
@@ -212,6 +213,10 @@ fr:
     diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
+    mentioned: 
+      mentioned: "vous a mentionné(e) dans un message :"
+      sign_in: "Connectez-vous pour le/la voir."
+      subject: "%{name} vous a mentionné(e) sur Diaspora*"
     new_request: 
       just_sent_you: "vient juste de vous envoyer une requête de contact sur Diaspora*"
       sign_in: "Connectez-vous ici"

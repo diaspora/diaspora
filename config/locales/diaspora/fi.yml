@@ -197,6 +197,7 @@ fi:
     index: 
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
+    mentioned: "has mentioned you in their"
     new_request: "haluaa jakaa kanssasi."
     post: "viesti"
     request_accepted: "hyväksyi jakopyyntösi."
@@ -212,6 +213,10 @@ fi:
     diaspora: "diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
     love: "terveisin,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "lähetti juuri äsken sinulle kontaktipyynnön Diaspora*ssa"
       sign_in: "Kirjaudu sisään täältä"

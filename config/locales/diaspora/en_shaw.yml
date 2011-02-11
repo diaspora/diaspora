@@ -197,6 +197,7 @@ en_shaw:
     index: 
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+    mentioned: "has mentioned you in their"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
     request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
@@ -212,6 +213,10 @@ en_shaw:
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     love: "𐑤𐑳𐑝,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "𐑡𐑳𐑕𐑑 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"

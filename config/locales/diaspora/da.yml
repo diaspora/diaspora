@@ -197,6 +197,7 @@ da:
     index: 
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
+    mentioned: "has mentioned you in their"
     new_request: "tilbød at dele med dig."
     post: "indlæg"
     request_accepted: "accepterede din anmodning."
@@ -212,6 +213,10 @@ da:
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     love: "Hilsen,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "har lige sendt dig en kontaktanmodning på Diaspora*"
       sign_in: "Log ind her"

@@ -197,6 +197,7 @@ ga:
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Fograí"
+    mentioned: "has mentioned you in their"
     new_request: "ofráiladh chun roint leant"
     post: "póst"
     request_accepted: "glacadh le do iarratas roinnt"
@@ -212,6 +213,10 @@ ga:
     diaspora: "an róbat ríomhpost diaspora"
     hello: "Haileo %{name}!"
     love: "le meas,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "díreach ag seoala iarratas teagmháil chugat ar Diaspora*"
       sign_in: "síniú isteach anseo"

@@ -197,6 +197,7 @@ id:
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
+    mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -212,6 +213,10 @@ id:
     diaspora: "the diaspora email robot"
     hello: "Hello %{name}!"
     love: "love,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "just sent you a friend request on Diaspora*"
       sign_in: "sign in here"

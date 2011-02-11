@@ -197,6 +197,7 @@ hu:
     index: 
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
+    mentioned: "has mentioned you in their"
     new_request: "megosztást ajánlott neked."
     post: "bejegyzés"
     request_accepted: "elfogadta a megosztási kérésed."
@@ -212,6 +213,10 @@ hu:
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
     love: "Szeretettel,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "ismerősnek jelölt a Diaspora* közösségi oldalon."
       sign_in: "Jelentkezz be"

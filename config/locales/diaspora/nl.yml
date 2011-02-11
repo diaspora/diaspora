@@ -197,6 +197,7 @@ nl:
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
+    mentioned: "has mentioned you in their"
     new_request: "bood aan om met jou te delen."
     post: "post"
     request_accepted: "heeft je verzoek geaccepteerd."
@@ -212,6 +213,10 @@ nl:
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
     love: "liefs,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "heeft je zojuist een contactverzoek verzonden op Diaspora*"
       sign_in: "Log hier in"

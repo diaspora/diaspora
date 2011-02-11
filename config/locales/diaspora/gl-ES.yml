@@ -197,6 +197,7 @@ gl-ES:
     index: 
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
+    mentioned: "has mentioned you in their"
     new_request: "ofrecido para compartir contigo."
     post: "publicar"
     request_accepted: "aceptada a túa petición para compartir."
@@ -212,6 +213,10 @@ gl-ES:
     diaspora: "robot do correo electrónico de Diaspora"
     hello: "Ola %{name}!"
     love: "bicos,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "acaba de mandarche unha petición de contacto en Diaspora*."
       sign_in: "entra aquí"

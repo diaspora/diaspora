@@ -197,6 +197,7 @@ sk:
     index: 
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
+    mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "príspevok"
     request_accepted: "Vaša požiadavka bola akceptovaná."
@@ -212,6 +213,10 @@ sk:
     diaspora: "e-mail robot Diaspory"
     hello: "Ahoj %{name}!"
     love: "miluje,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "Vám zaslal žiadosť v Diaspore*"
       sign_in: "Prihláste sa"

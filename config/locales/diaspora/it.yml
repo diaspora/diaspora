@@ -197,6 +197,7 @@ it:
     index: 
       mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
+    mentioned: "has mentioned you in their"
     new_request: "vuole condividere con te."
     post: "post"
     request_accepted: "ha accettato la tua richiesta di condivisione."
@@ -212,6 +213,10 @@ it:
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
     love: "amore,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "ti ha appena inviato una richiesta di contatto su Diaspora*"
       sign_in: "accedi qui"

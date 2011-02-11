@@ -197,6 +197,7 @@ mk:
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
+    mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"
     request_accepted: "accepted your share request."
@@ -212,6 +213,10 @@ mk:
     diaspora: "diaspora е-маил робот"
     hello: "Здраво %{name}!"
     love: "со љубов,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "самошто ви испратив барање за контакт на Diaspora*"
       sign_in: "најави се овде"
