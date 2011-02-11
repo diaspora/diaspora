@@ -49,7 +49,7 @@ gem 'cloudfiles', '1.4.10', :require => false
 
 #Queue
 gem 'resque', '1.10.0'
-gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9'
+gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9' || RUBY_PLATFORM =~ 'win32'
 
 group :development do
   gem 'capistrano', '2.5.19', :require => false
