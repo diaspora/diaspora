@@ -23,7 +23,7 @@ class UniqueIndexPostVisibilities < ActiveRecord::Migration
     execute("DELETE FROM `post_visibilities` WHERE `post_visibilities`.id IN (#{undesired_ids.join(",")});") unless undesired_ids.empty?
 
     new_result = execute(sql)
-    raise "Not all violating visibilities deleted" unless new_result.to_a.empty?
+    raise "Not all violating visibilities deleted, try migrating again if this is the first occurence" unless new_result.to_a.empty?
 
     remove_index :post_visibilities, [:aspect_id, :post_id]
     add_index :post_visibilities, [:aspect_id, :post_id], :unique => true
