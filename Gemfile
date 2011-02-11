@@ -9,6 +9,7 @@ gem 'chef', '0.9.12', :require => false
 gem 'nokogiri', '1.4.3.1'
 
 gem "fog", '0.3.25'
+gem "excon", "0.2.4"
 
 #Security
 gem 'devise', '1.1.3'
