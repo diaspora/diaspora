@@ -17,7 +17,7 @@ class Post < ActiveRecord::Base
   has_many :comments, :order => 'created_at ASC', :dependent => :destroy
   has_many :post_visibilities
   has_many :aspects, :through => :post_visibilities
-  has_many :mentions, :dependent => :delete_all
+  has_many :mentions, :dependent => :destroy_all
   belongs_to :person
 
   cattr_reader :per_page
