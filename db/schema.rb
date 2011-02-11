@@ -351,7 +351,7 @@ ActiveRecord::Schema.define(:version => 20110211021926) do
     t.datetime "updated_at"
   end
 
-  add_index "post_visibilities", ["aspect_id", "post_id"], :name => "index_post_visibilities_on_aspect_id_and_post_id"
+  add_index "post_visibilities", ["aspect_id", "post_id"], :name => "index_post_visibilities_on_aspect_id_and_post_id", :unique => true
   add_index "post_visibilities", ["aspect_id"], :name => "index_post_visibilities_on_aspect_id"
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 

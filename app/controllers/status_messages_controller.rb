@@ -22,8 +22,8 @@ class StatusMessagesController < ApplicationController
     aspects = current_user.aspects_from_ids(params[:aspect_ids])
 
     if @status_message.save
-      current_user.add_to_streams(@status_message, aspects)
       current_user.dispatch_post(@status_message, :url => post_url(@status_message))
+      current_user.add_to_streams(@status_message, aspects)
       if !photos.empty?
         @status_message.photos += photos
         for photo in photos

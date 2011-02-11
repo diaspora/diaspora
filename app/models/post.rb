@@ -37,9 +37,6 @@ class Post < ActiveRecord::Base
   def self.diaspora_initialize params
     new_post = self.new params.to_hash
     new_post.person = params[:person]
-    params[:aspect_ids].each do |aspect_id|
-      new_post.aspects << Aspect.find_by_id(aspect_id)
-    end if params[:aspect_ids]
     new_post.public = params[:public] if params[:public]
     new_post.pending = params[:pending] if params[:pending]
     new_post.diaspora_handle = new_post.person.diaspora_handle

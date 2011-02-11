@@ -134,14 +134,14 @@ describe 'a user receives a post' do
     end
 
     it 'should not override userrefs on receive by another person' do
-      new_user = Factory(:user)
+      new_user = Factory(:user_with_aspect)
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 3
 
-      new_user.activate_contact(@user2.person, @aspect3)
+      new_user.activate_contact(@user2.person, new_user.aspects.first)
       xml = @status_message.to_diaspora_xml
 
-     receive_with_zord(new_user, @user2.person, xml)
+      receive_with_zord(new_user, @user2.person, xml)
 
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 4
@@ -231,7 +231,7 @@ describe 'a user receives a post' do
 
 
   describe 'receiving mulitple versions of the same post from a remote pod' do
-    before do 
+    before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
       @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
     end
@@ -243,8 +243,8 @@ describe 'a user receives a post' do
       sleep(2)
       old_time = Time.now
       receive_with_zord(@local_leia, @remote_raphael, xml)
-      (Post.find_by_guid @post.guid).updated_at.should be < old_time 
-      (Post.find_by_guid @post.guid).created_at.should be < old_time 
+      (Post.find_by_guid @post.guid).updated_at.should be < old_time
+      (Post.find_by_guid @post.guid).created_at.should be < old_time
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
