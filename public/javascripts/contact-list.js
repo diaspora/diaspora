@@ -27,7 +27,11 @@ var List = {
             url: "/people/" + person_id,
             type: "DELETE",
             success: function(){
-                $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+                if( $('.contact_list').length == 1){
+                  $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+                } else if($('#aspects_list').length == 1) {
+                  $.facebox.close();
+                };
               }
             });
   }
@@ -56,7 +60,16 @@ $(document).ready(function() {
 
   $('.added').live('ajax:failure', function(data, html, xhr) {
     if(confirm(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'))){
-      List.disconnectUser($(this).parents('li').attr("data-guid"));
+      var person_id;
+
+      if( $('.contact_list').length == 1){
+        person_id = $(this).parents('li').attr("data-guid");
+        $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+      } else if($('#aspects_list').length == 1) {
+        person_id = $(this).parents('#aspects_list').attr("data-person_id");
+      };
+
+      List.disconnectUser(person_id);
     };
     $(this).fadeTo(200,1);
   });

@@ -13,26 +13,35 @@ Feature: disconnecting users
    Then I should see 1 contact in "Besties"
     
     
-  Scenario: remove contact from the contact show page
+  Scenario Outline: remove contact from the contact show page
    When I am on "alice@alice.alice"'s page
     And I follow "edit aspect membership"
-    And I preemptively confirm the alert
+    And I preemptively <accept> the alert
     And I follow "remove contact" in the modal window
 
     And I wait for the ajax to finish
     And I am on the aspects manage page
-   Then I should see no contacts in "Besties"
+   Then I should see <contacts> in "Besties"
 
- 
-  Scenario: cancel removing contact from the contact show page
+    Examples:
+      | accept  | contacts    |
+      | confirm | no contacts |
+      | reject  | 1 contact   |
+
+   Scenario Outline: remove last contact from the contact show page
     When I am on "alice@alice.alice"'s page
     And I follow "edit aspect membership"
-    And I preemptively reject the alert
-    And I follow "remove contact" in the modal window
+    And I preemptively <accept> the alert
+    And I press the first ".added" within "#facebox #aspects_list ul > li:first-child"
 
     And I wait for the ajax to finish
     And I am on the aspects manage page
-   Then I should see 1 contact in "Besties"
+   Then I should see <contacts> in "Besties"
+
+    Examples:
+      | accept  | contacts    |
+      | confirm | no contacts |
+      | reject  | 1 contact   |
 
   Scenario: remove contact from the aspect edit page
    When I go to the home page
