@@ -48,7 +48,7 @@ class Notification < ActiveRecord::Base
 private
   def self.concatenate_or_create(recipient, target, actor, action)
     if n = Notification.where(:target_id => target.id,
-                              :target_type => target.type,
+                              :target_type => target.class.base_class,
                                :action => action,
                                :recipient_id => recipient.id).first
       unless n.actors.include?(actor)

@@ -36,9 +36,6 @@ describe Mention do
       @sm =  Factory(:status_message)
       @m  = Mention.create(:person => @user.person, :post=> @sm)
 
-
-      pp Notification.first
-
       lambda{
         @m.destroy
       }.should change(Notification, :count).by(-1)
