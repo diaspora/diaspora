@@ -10,7 +10,7 @@ class Photo < Post
   xml_attr :remote_photo_name
 
   xml_attr :caption
-  xml_attr :status_message_id
+  xml_attr :status_message_guid
 
   belongs_to :status_message
 
@@ -48,6 +48,14 @@ class Photo < Post
     photo.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
 
     photo
+  end
+
+  def status_message_guid
+    self.status_message.guid
+  end
+
+  def status_message_guid= new_sm_guid
+    self.status_message= StatusMessage.where(:guid => new_sm_guid).first
   end
 
   def url(name = nil)
