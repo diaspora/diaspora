@@ -16,7 +16,7 @@
 .add_aspect
   = form_for(Aspect.new, :remote => true) do |aspect|
     .right
-      = aspect.submit "add new aspect", :class => 'button'
+      = aspect.submit t('.add_new_aspect'), :class => 'button'
     = aspect.error_messages
     = aspect.hidden_field :person_id, :value => person.id if person
     = aspect.hidden_field :contact_id, :value => contact.id if contact
