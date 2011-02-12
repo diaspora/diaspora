@@ -422,6 +422,7 @@ ru:
       all: "все"
       all_contacts: "все контакты"
       make_public: "сделать публичным"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка ..."
       share: "Поделиться"

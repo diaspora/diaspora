@@ -197,7 +197,7 @@ cs:
     index: 
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
-    mentioned: "has mentioned you in their"
+    mentioned: "vás zmínil v jejich"
     new_request: "nabídnul vám sdílení."
     post: "zpráva"
     request_accepted: "akceptoval vaši žádost o sdílení."
@@ -205,7 +205,7 @@ cs:
     also_commented: 
       commented: "také komentoval příspěvek od %{post_author}:"
       sign_in: "Přihlašte se pro zobrazení."
-      subject: "%{name} také komentoval."
+      subject: "%{name} se také vyjádřil k vašemu příspěvku."
     comment_on_post: 
       commented: "komentoval váš příspěvek:"
       sign_in: "Přihlašte se pro zobrazení."
@@ -214,9 +214,9 @@ cs:
     hello: "Vítej %{name}!"
     love: "s láskou,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "zmínil jste v příspěvku:"
+      sign_in: "Přihlaste se pro zobrazení."
+      subject: "%{name} vás zmínil na Diaspoře*"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
       sign_in: "Přihlaste se zde"
@@ -422,6 +422,7 @@ cs:
       all: "všechny"
       all_contacts: "všechny kontakty"
       make_public: "vytvořit veřejnou"
+      mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Posílání..."
       share: "Sdělit"

@@ -422,6 +422,7 @@ pt-PT:
       all: "tudo"
       all_contacts: "todos os contactos"
       make_public: "tornar público"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
       share: "Partilhar"

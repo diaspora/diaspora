@@ -54,7 +54,7 @@ he:
         change_password: "החלפת הססמה שלי"
       new: 
         forgot_password: "שכחת את ססמתך?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "לא נמצא חשבון עם כתובת דוא״ל זו.  אם הזמנתך נמצאת בהליכי אישור, אנו נשתדל להפיץ את ההזמנות במהירות האפשרית"
         send_password_instructions: "שליחת הנחיות איפוס הססמה אלי"
       send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לאפס את ססמתך."
       updated: "ססמתך הוחלפה בהצלחה. נכנסת כעת."
@@ -88,7 +88,7 @@ he:
     unlocks: 
       new: 
         resend_unlock: "שליחת הוראות שחרור מחדש"
-      send_instructions: "בעוד מספר דקות תתקבל לתיבת הודא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
+      send_instructions: "בעוד מספר דקות תתקבל לתיבת הדוא״ל שלך הודעה עם הנחיות כיצד לשחרר את חשבונך."
       unlocked: "חשבונך שוחרר בהצלחה. נכנסת כעת."
   errors: 
     messages: 

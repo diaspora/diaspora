@@ -422,6 +422,7 @@ it:
       all: "tutti"
       all_contacts: "tutti i contatti"
       make_public: "pubblica"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       share: "Condividi"

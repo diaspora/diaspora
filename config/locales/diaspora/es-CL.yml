@@ -422,6 +422,7 @@ es-CL:
       all: "todo"
       all_contacts: "todos los contactos"
       make_public: "hacer público"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: "Posteando..."
       share: "Compartir"

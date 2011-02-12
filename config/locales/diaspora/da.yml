@@ -422,6 +422,7 @@ da:
       all: "alle"
       all_contacts: "alle kontaktpersoner"
       make_public: "offentliggør"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
       share: "Del"

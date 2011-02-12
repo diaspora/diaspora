@@ -422,6 +422,7 @@ en_shaw:
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"

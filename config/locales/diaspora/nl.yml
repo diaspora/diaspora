@@ -422,6 +422,7 @@ nl:
       all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
       share: "Delen"

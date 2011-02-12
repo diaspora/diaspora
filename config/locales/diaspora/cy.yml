@@ -422,6 +422,7 @@ cy:
       all: "all"
       all_contacts: "all contacts"
       make_public: "make public"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
       share: "Share"

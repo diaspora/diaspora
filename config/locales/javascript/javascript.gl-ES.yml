@@ -1,0 +1,31 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+gl-ES: 
+  javascripts: 
+    confirm_dialog: "Seguro?"
+    search_for: "Procurar a {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    timeago: 
+      day: "un día"
+      days: "%d días"
+      hour: "sobre unha hora"
+      hours: "sobre %d horas"
+      minute: "sobre un minuto"
+      minutes: "%d minutos"
+      month: "sobre un mes"
+      months: "%d meses"
+      prefixAgo: "hai"
+      prefixFromNow: ""
+      seconds: "menos dun minuto"
+      suffixAgo: "atrás"
+      suffixFromNow: "dende agora"
+      year: "sobre un ano"
+      years: "%d anos"
+    videos: 
+      unknown: "Tipo de video descoñecido"
+      watch: "Ver video en {{provider}}"

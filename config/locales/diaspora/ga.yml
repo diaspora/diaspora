@@ -422,6 +422,7 @@ ga:
       all: "gach rud"
       all_contacts: "gach teagmháil"
       make_public: "dean phoiblí"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
       posting: "Póstáil..."
       share: "Roinn"

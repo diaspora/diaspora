@@ -422,6 +422,7 @@ sl:
       all: "vsi"
       all_contacts: "vsi stiki"
       make_public: "objavi kot javno"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
       share: "Deli"

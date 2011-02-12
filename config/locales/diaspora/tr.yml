@@ -422,6 +422,7 @@ tr:
       all: "hepsi"
       all_contacts: "all contacts"
       make_public: "herkese görünür yap"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "mesaj gönder %{aspect}"
       posting: "Posting..."
       share: "Paylaş"

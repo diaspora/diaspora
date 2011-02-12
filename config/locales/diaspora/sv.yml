@@ -422,6 +422,7 @@ sv:
       all: "alla"
       all_contacts: "alla kontakter"
       make_public: "gör publik"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
       share: "Dela"

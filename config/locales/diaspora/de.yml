@@ -10,7 +10,7 @@ de:
   _comments: "Kommentare"
   _contact: "Kontakt"
   _contacts: "Kontakte"
-  _home: "Start"
+  _home: "Startseite"
   _more: "Mehr"
   _photos: "Fotos"
   _services: "Dienste"
@@ -72,7 +72,7 @@ de:
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: "entfernen"
     index: 
-      handle_explanation: "Das ist deine Diaspora-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
+      handle_explanation: "Das ist deine Diaspora*-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       no_contacts: "Keine Kontakte"
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
@@ -91,7 +91,7 @@ de:
     no_contacts_message: 
       add_contact: "Kontakt hinzufügen"
       add_contact_to: "Jemanden zum Aspekt %{aspect_name} hinzufügen"
-      invite: "Lade jemanden zu Diaspora ein!"
+      invite: "Lade jemanden zu Diaspora* ein!"
       nobody: "Bring die dir wichtigen Leute zu Diaspora!"
       nobody_in_aspect: "‚%{aspect_name}‘ ist leer."
     no_posts_message: 
@@ -117,7 +117,7 @@ de:
     few: "%{count} Kontakte"
     one: "1 Kontakt"
     other: "%{count} Kontakte"
-    zero: "keine Kontakte"
+    zero: "Keine Kontakte"
   date: 
     formats: 
       birthday: "%d. %B"
@@ -135,13 +135,13 @@ de:
       already_account: "bereits registriert?"
       choice: "Deine Entscheidung"
       choice_explanation: "Diaspora lässt dich deine Kontakte in Gruppen einordnen. Deine Fotos, Geschichten und Witze werden durch diese Aspekte nur mit den Menschen geteilt, für die sie gedacht sind – einzigartig bei Diaspora."
-      learn_about_host: "Du willst deinen eigenen Diaspora-Server betreiben?"
+      learn_about_host: "Du willst deinen eigenen Diaspora*-Server betreiben?"
       login_here: "hier anmelden"
       ownership: "Dein Eigentum"
       ownership_explanation: "Deine Bilder gehören dir. Um sie zu teilen, musst du darauf nicht verzichten: Alles, was du auf Diaspora teilst, bleibt dein Eigentum – mit voller Kontrolle über die Verbreitung."
       share_what_you_want: "Teile was du willst, mit wem du willst."
-      simplicity: "ganz einfach"
-      simplicity_explanation: "Diaspora macht Teilen klar und einfach – dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
+      simplicity: "Ganz einfach"
+      simplicity_explanation: "Diaspora* macht das Teilen von Inhalten klar und einfach – dasselbe gilt für den Schutz deiner Privatsphäre. Diaspora* ist von sich aus privat, seitenweise Einstellungen für die Profilsicherheit sind nicht nötig."
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 
@@ -160,7 +160,7 @@ de:
       aspect: "Aspekt"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen eintragen. Trenne sie mit Kommata."
       if_they_accept_info: "wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den Du sie eingeladen hast."
-      invite_someone_to_join: "Lade jemanden zu Diaspora ein!"
+      invite_someone_to_join: "Lade jemanden zu Diaspora* ein!"
       personal_message: "Persönliche Nachricht"
       send_an_invitation: "Eine Einladung senden"
       send_invitation: "Einladung senden"
@@ -197,38 +197,38 @@ de:
     index: 
       mark_all_as_read: "Markiere alle als gelesen"
       notifications: "Benachrichtigungen"
-    mentioned: "has mentioned you in their"
-    new_request: "hat angeboten, mit Dir zu teilen."
+    mentioned: "hat dich erwähnt in "
+    new_request: "hat angeboten, mit dir zu teilen."
     post: "Beitrag"
     request_accepted: "hat deine Teilen-Anfrage angenommen."
   notifier: 
     also_commented: 
       commented: "hat den Beitrag von %{post_author} ebenfalls kommentiert:"
-      sign_in: "Melde Dich an, um ihn anzuzeigen."
-      subject: "%{name} hat einen Kommentar hinterlassen."
+      sign_in: "Melde dich an, um ihn anzuzeigen."
+      subject: "%{name} hat auch einen Kommentar hinterlassen."
     comment_on_post: 
-      commented: "hat Deinen Eintrag kommentiert:"
-      sign_in: "Melde Dich an, um ihn anzuzeigen."
-      subject: "%{name} hat Deinen Eintrag kommentiert."
+      commented: "hat deinen Beitrag kommentiert:"
+      sign_in: "Melde dich an, um ihn anzuzeigen."
+      subject: "%{name} hat deinen Beitrag kommentiert."
     diaspora: "der Diaspora E-Mail-Roboter"
     hello: "Hallo %{name}!"
     love: "Gruß,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "hat dich in einem Beitrag erwähnt:"
+      sign_in: "Melde dich an um sie zu sehen."
+      subject: "%{name} hat dich auf Diaspora* erwähnt"
     new_request: 
-      just_sent_you: "hat Dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
+      just_sent_you: "hat dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
       sign_in: "Melde dich hier an"
       subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
       try_it_out: "Probier’s aus!"
     request_accepted: 
-      accepted: "hat Deine Kontakt-Anfrage akzeptiert!"
+      accepted: "hat deine Kontakt-Anfrage akzeptiert!"
       sign_in: "Hier anmelden"
       subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
-      subject: "Eine Nachricht Dein Diaspora-Konto betreffend:"
+      subject: "Eine Nachricht dein Diaspora*-Konto betreffend:"
     thanks: "Danke,"
   ok: "OK"
   or: "oder"
@@ -241,10 +241,10 @@ de:
     aspect_list: 
       edit_membership: "bearbeite die Aspekt-Zugehörigkeit"
     edit: 
-      allow_search: "Erlaube anderen Diaspora-Nutzern, nach Dir zu suchen"
+      allow_search: "Erlaube anderen Diaspora-Nutzern, nach dir zu suchen"
       edit_profile: "Profil bearbeiten"
       first_name: "Vorname"
-      info_available_to: "Diese Infos werden für alle verfügbar sein, mit denen du bei Diaspora verbunden bist."
+      info_available_to: "Diese Infos werden für alle verfügbar sein, mit denen du bei Diaspora* verbunden bist."
       last_name: "Nachname"
       update_profile: "Profil aktualisieren"
       your_bio: "Deine Beschreibung"
@@ -257,7 +257,7 @@ de:
       people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
     index: 
-      couldnt_find_them_send_invite: "Konntest Du die gesuchte Person nicht finden? Schicke eine Einladung!"
+      couldnt_find_them_send_invite: "Konntest du die gesuchte Person nicht finden? Schicke eine Einladung!"
       no_one_found: "… und niemand wurde gefunden."
       no_results: "Hey! Du musst nach etwas suchen."
       results_for: "Suchergebnisse für"
@@ -306,7 +306,7 @@ de:
     new: 
       back_to_list: "Zurück zur Liste"
       new_photo: "Neues Foto"
-      post_it: "Teile es!"
+      post_it: "Teilen!"
     new_photo: 
       empty: "{file} ist leer, bitte wähle erneut Dateien aus."
       invalid_ext: "{file} hat keine gültige Erweiterung. Nur {extensions} sind erlaubt."
@@ -346,8 +346,8 @@ de:
       enter_password: "Gib ein Passwort ein"
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
       enter_username: "Wähle einen Benutzernamen (nur Buchstaben, Nummern und Unterstriche)"
-      sign_up: "Registrieren"
-      sign_up_for_diaspora: "Ein Diaspora-Konto anlegen"
+      sign_up: "Anmelden"
+      sign_up_for_diaspora: "Bei Diaspora* anmelden"
   requests: 
     create: 
       sending: "Senden …"
@@ -374,8 +374,8 @@ de:
         few: "%{count} Freunde"
         one: "Ein Freund"
         other: "%{count} Freunde"
-        zero: "keine Freunde"
-      invite_your_friends_from: "Lade Deine Freunde von %{service} ein"
+        zero: "Keine Freunde"
+      invite_your_friends_from: "Lade deine Freunde von %{service} ein"
       not_connected: "nicht verbunden"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
@@ -397,7 +397,7 @@ de:
       diaspora_handle: "diaspora@beispiel.org"
       enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
-      your_diaspora_username_is: "Deine Diaspora-Adresse ist: %{diaspora_handle}"
+      your_diaspora_username_is: "Dein Diaspora* Nutzername ist: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle Kontakte"
       cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden. Wenn du nicht länger verbunden sein willst, lösche den Kontakt."
@@ -407,9 +407,9 @@ de:
       from_facebook: "von Facebook"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
-      invite_your_friends: "Lade Deine Freunde ein"
+      invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"
-      invites_closed: "Einladungen sind auf diesem Diaspora-Pod derzeit nicht verfügbar."
+      invites_closed: "Einladungen sind auf diesem Diaspora* Pod derzeit nicht verfügbar."
     notification: 
       new: "Neue %{type} von %{from}"
     public_explain: 
@@ -422,11 +422,12 @@ de:
       all: "alle"
       all_contacts: "Alle Kontakte"
       make_public: "öffentlich machen"
+      mention_helper_text: "um jemanden zu erwähnen, drücke '@' und beginne den Namen zu schreiben"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
       share: "Teilen"
       share_with: "Teile mit"
-      whats_on_your_mind: "Woran denkst Du gerade?"
+      whats_on_your_mind: "Woran denkst du gerade?"
     reshare: 
       reshare: "Erneut senden an"
   status_messages: 
@@ -454,28 +455,28 @@ de:
       close_account: "Konto schließen"
       current_password: "Derzeitiges Passwort"
       download_photos: "Meine Fotos herunterladen"
-      download_xml: "Mein XML herunterladen"
+      download_xml: "Meine Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
       email_notifications: "E-Mail-Benachrichtigungen"
       export_data: "Daten exportieren"
       new_password: "Neues Passwort"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen?"
       your_email: "Deine E-Mail-Adresse"
-      your_handle: "Deine Diaspora-Adresse"
+      your_handle: "Deine Diaspora* Adresse"
     getting_started: 
-      connect_on_diaspora: "Mit Diaspora verbinden"
-      connect_services: "Mit Deinen anderen Diensten verbinden"
+      connect_on_diaspora: "Mit Diaspora* verbinden"
+      connect_services: "Mit deinen anderen Diensten verbinden"
       edit_profile: "Bearbeite dein Profil"
       finished: "Fertig!"
       save_and_continue: "Speichern und weiter"
       signup_steps: "Erledige folgende drei Schritte, um deine Registrierung zu vervollständigen:"
       skip: "Erste Schritte überspringen"
       step_2: 
-        find_your_friends_on_diaspora: "Möchtest Du Deine Facebook-Freunde in Diaspora finden?"
+        find_your_friends_on_diaspora: "Möchtest du deine Facebook-Freunde in Diaspora* finden?"
         skip: "Überspringen"
       step_3: 
         finish: "Beenden"
-        people_already_on_diaspora: "Leute, die schon bei Diaspora sind"
+        people_already_on_diaspora: "Leute, die schon bei Diaspora* sind"
       welcome: "Willkommen bei Diaspora!"
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"

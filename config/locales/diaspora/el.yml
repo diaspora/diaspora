@@ -422,6 +422,7 @@ el:
       all: "όλα"
       all_contacts: "όλες οι επαφές"
       make_public: "Δημοσιοποίησε το"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στο %{aspect}"
       posting: "Ανάρτηση..."
       share: "Μοιράσου"

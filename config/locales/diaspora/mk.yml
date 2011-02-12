@@ -422,6 +422,7 @@ mk:
       all: "сите"
       all_contacts: "сите контакти"
       make_public: "направи јавен"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Додај порака во %{aspect}"
       posting: "Објавување..."
       share: "Сподели"

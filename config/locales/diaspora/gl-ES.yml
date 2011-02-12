@@ -422,6 +422,7 @@ gl-ES:
       all: "todos"
       all_contacts: "todos os contactos"
       make_public: "facer público"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
       share: "Compartir"
