@@ -22,8 +22,8 @@ class StatusMessage < Post
     get_youtube_title message
   end
 
-  def message
-    self.formatted_message
+  def message(opts = {})
+    self.formatted_message(opts)
   end
 
   def raw_message
