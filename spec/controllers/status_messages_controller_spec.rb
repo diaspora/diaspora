@@ -78,6 +78,13 @@ describe StatusMessagesController do
       old_status_message.reload.message.should == 'hello'
     end
 
+    it 'calls dispatch post once subscribers is set' do
+      @user1.should_receive(:dispatch_post){|post, opts|
+        post.subscribers(@user1).should == [@user2.person]
+      }
+      post :create, status_message_hash
+    end
+
     context 'with photos' do
       before do
         fixture_filename  = 'button.png'
