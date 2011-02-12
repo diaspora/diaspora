@@ -13,7 +13,9 @@ class RegistrationsController < Devise::RegistrationsController
       sign_in_and_redirect(:user, @user)
       Rails.logger.info("event=registration status=successful user=#{@user.diaspora_handle}")
     else
-      flash[:error] = @user.errors.full_messages.join(', ')
+      @user.errors.delete(:person)
+
+      flash[:error] = @user.errors.full_messages.join(";")
       Rails.logger.info("event=registration status=failure errors='#{@user.errors.full_messages.join(', ')}'")
       render :new
     end

@@ -45,7 +45,10 @@ class InvitationsController < Devise::InvitationsController
       user.seed_aspects
     rescue Exception => e
       user = nil
-      flash[:error] = e.message
+      record = e.record
+      record.errors.delete(:person)
+
+      flash[:error] = record.errors.full_messages.join(", ")
     end
 
     if user
