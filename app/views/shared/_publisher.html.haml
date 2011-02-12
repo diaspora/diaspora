@@ -7,7 +7,6 @@
 
   #click_to_share
     = image_tag 'icons/doc_edit.png'
-    /= publisher_description(@aspect_ids.count)
     %span= t('.whats_on_your_mind')
 
     - if @aspect_ids.length == 1
@@ -34,6 +33,9 @@
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
+        %div
+          %i= t('.mention_helper_text')
+
         .right
           #fileInfo
           = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
