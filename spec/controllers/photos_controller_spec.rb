@@ -15,10 +15,11 @@ describe PhotosController do
     @aspect2 = @user2.aspects.first
 
     @photo1 = @user1.post(:photo, :user_file => uploaded_photo, :to => @aspect1.id)
-    @photo2 = @user2.post(:photo, :user_file => uploaded_photo, :to => @aspect2.id)
+    @photo2 = @user2.post(:photo, :user_file => uploaded_photo, :to => @aspect2.id, :public => true)
 
     @controller.stub!(:current_user).and_return(@user1)
-    sign_in :user, @user1
+    sign_in :user, @user1 
+    request.env["HTTP_REFERER"] = ''
   end
 
   it 'has working context' do
@@ -77,6 +78,20 @@ describe PhotosController do
 
       assigns[:photo].should == @photo2
       assigns[:ownership].should be_false
+    end
+
+    it 'shows a public photo of someone who is not friends' do
+      sign_out @user1
+      user3 = Factory(:user)
+      sign_in :user, user3
+      get :show, :id => @photo2.id
+      response.status.should == 200
+      assigns[:photo].should == @photo2
+    end
+
+    it 'redirects to the root url if the photo if you can not see it' do
+      get :show, :id => 23424
+      response.status.should == 302
     end
   end
 

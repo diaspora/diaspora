@@ -136,6 +136,7 @@ class PhotosController < ApplicationController
 
   def show
     @photo = current_user.visible_photos.where(:id => params[:id]).includes(:person, :status_message => :photos).first
+    @photo ||= Photo.where(:public => true, :id => params[:id]).includes(:person, :status_message => :photos).first
     if @photo
       @parent = @photo.status_message
 
@@ -158,9 +159,11 @@ class PhotosController < ApplicationController
 
       @ownership = current_user.owns? @photo
 
+      respond_with @photo
+    else
+      redirect_to :back
     end
 
-    respond_with @photo
   end
 
   def edit
