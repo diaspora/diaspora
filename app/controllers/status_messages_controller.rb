@@ -50,7 +50,7 @@ class StatusMessagesController < ApplicationController
                                      )
         },
                            :status => 201 }
-        format.html { respond_with @status_message }
+        format.html { redirect_to :back}
         format.mobile{ redirect_to :back}
       end
     else
