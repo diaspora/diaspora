@@ -38,7 +38,7 @@ class ApplicationController < ActionController::Base
     if current_user
       str << "uid=#{current_user.id} "
       str << "user_created_at='#{current_user.created_at.to_date.to_s}' user_created_at_unix=#{current_user.created_at.to_i} " if current_user.created_at
-      str << "user_created_at=#{current_user.contacts.size} "
+      str << "user_contact_count=#{current_user.contacts.size} "
     else
       str << 'uid=nil'
     end
