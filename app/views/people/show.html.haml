@@ -58,7 +58,7 @@
       = render 'photos/index', :photos => @posts
     - else
       #main_stream.stream
-        = render 'shared/stream', :posts => @fakes
+        = render 'shared/stream', :posts => @fakes, :commenting_disabled => @commenting_disabled
         %a.paginate
           = t("more")
     = will_paginate @posts
