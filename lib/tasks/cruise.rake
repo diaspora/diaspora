@@ -8,7 +8,11 @@ namespace :cruise do
     exit_status = $?.exitstatus
     puts "Stopping virtual display..."
     `sh -e /etc/init.d/xvfb stop`
+    puts "Cleaning up..."
+    FileUtils.rm_rf("#{Rails.root}/public/uploads/images")
+    FileUtils.rm_rf("#{Rails.root}/public/uploads/tmp")
     raise "tests failed!" unless exit_status == 0
+    puts "All tests passed!"
   end
 
   task :migrate do
