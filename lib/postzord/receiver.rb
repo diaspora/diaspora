@@ -38,7 +38,7 @@ module Postzord
     def receive_object
       obj = @object.receive(@user, @author)
       Notification.notify(@user, obj, @author) if obj.respond_to?(:notification_type)
-      Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type#{obj.class}")
+      Rails.logger.info("event=receive status=complete recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{obj.class}")
       obj
     end
 
