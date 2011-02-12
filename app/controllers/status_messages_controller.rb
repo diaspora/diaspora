@@ -27,11 +27,14 @@ class StatusMessagesController < ApplicationController
       if !photos.empty?
         @status_message.photos += photos
         for photo in photos
+          was_pending = photo.pending
           photo.public = public_flag
           photo.pending = false
           photo.save
-          current_user.add_to_streams(photo, aspects)
-          current_user.dispatch_post(photo)
+          if was_pending
+            current_user.add_to_streams(photo, aspects)
+            current_user.dispatch_post(photo)
+          end
         end
       end
 

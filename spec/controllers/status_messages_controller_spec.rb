@@ -83,8 +83,8 @@ describe StatusMessagesController do
         fixture_filename  = 'button.png'
         fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
 
-        @photo1 = @user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => @aspect1.id)
-        @photo2 = @user1.build_post(:photo, :user_file=> File.open(fixture_name), :to => @aspect1.id)
+        @photo1 = @user1.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
+        @photo2 = @user1.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
 
         @photo1.save!
         @photo2.save!

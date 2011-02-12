@@ -57,8 +57,11 @@ class PhotosController < ApplicationController
 
 
         aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
-        current_user.add_to_streams(@photo, aspects)
-        current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids]) unless @photo.pending
+
+        unless @photo.pending
+          current_user.add_to_streams(@photo, aspects)
+          current_user.dispatch_post(@photo, :to => params[:photo][:aspect_ids])
+        end
 
         if params[:photo][:set_profile_photo]
           profile_params = {:image_url => @photo.url(:thumb_large),

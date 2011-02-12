@@ -51,7 +51,11 @@ class Photo < Post
   end
 
   def status_message_guid
-    self.status_message.guid
+    if self.status_message
+      self.status_message.guid
+    else
+      nil
+    end
   end
 
   def status_message_guid= new_sm_guid
