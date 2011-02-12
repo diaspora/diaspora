@@ -30,8 +30,10 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
-    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-         :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => AppConfig[:pod_uri].host)
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
   end
 
   def request_accepted(recipient_id, sender_id)
@@ -42,8 +44,10 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
-    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-          :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
   end
 
   def mentioned(recipient_id, sender_id, target_id)
@@ -55,8 +59,10 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
-    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-          :subject => I18n.t('notifier.mentioned.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.mentioned.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
   end
 
   def comment_on_post(recipient_id, sender_id, comment_id)
@@ -68,8 +74,10 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
-    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-          :subject => I18n.t('notifier.comment_on_post.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.comment_on_post.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
   end
 
   def also_commented(recipient_id, sender_id, comment_id)
@@ -83,8 +91,10 @@ class Notifier < ActionMailer::Base
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
-    mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-          :subject => I18n.t('notifier.also_commented.subject', :name => @sender.name, :post_author => @post_author_name ), :host => AppConfig[:pod_uri].host)
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.also_commented.subject', :name => @sender.name, :post_author => @post_author_name ), :host => AppConfig[:pod_uri].host)
+    end
   end
 
   private
