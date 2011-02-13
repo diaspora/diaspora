@@ -1,0 +1,28 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+"en-US":
+  activerecord:
+      errors:
+          models:
+              user:
+                  attributes:
+                      person:
+                          invalid: "is invalid."
+                      username:
+                          taken: "is already taken."
+                      email:
+                          taken: "is already taken."
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "is already taken."
+              contact:
+                  attributes:
+                      person_id:
+                          taken: "must be unique among this user's contacts."
+              request:
+                  attributes:
+                      from_id:
+                          taken: "is a duplicate of a pre-existing request."
