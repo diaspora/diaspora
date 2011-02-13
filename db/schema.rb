@@ -473,7 +473,7 @@ ActiveRecord::Schema.define(:version => 20110213052742) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["id", "email"], :name => "index_users_on_id_and_email", :unique => true
+  add_index "users", ["id", "email"], :name => "index_users_on_id_and_email"
   add_index "users", ["id", "username"], :name => "index_users_on_id_and_username", :unique => true
   add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
