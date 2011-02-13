@@ -197,7 +197,7 @@ da:
     index: 
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
-    mentioned: "has mentioned you in their"
+    mentioned: "har omtalt dig i deres"
     new_request: "tilbød at dele med dig."
     post: "indlæg"
     request_accepted: "accepterede din anmodning."
@@ -205,18 +205,18 @@ da:
     also_commented: 
       commented: "har også kommenteret på %{post_author}'s post:"
       sign_in: "Log in for at se det."
-      subject: "%{name} har også kommenteret."
+      subject: "%{name} har også kommenteret på din kontakts post."
     comment_on_post: 
-      commented: "har kommenteret på din post!"
+      commented: "har kommenteret på din post:"
       sign_in: "Log in for at se det."
       subject: "%{name} har kommenteret på din post!"
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     love: "Hilsen,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "omtalte dig i en post:"
+      sign_in: "Log in for at se det."
+      subject: "%{name} har omtalt dig på Diaspora*"
     new_request: 
       just_sent_you: "har lige sendt dig en kontaktanmodning på Diaspora*"
       sign_in: "Log ind her"
@@ -279,10 +279,10 @@ da:
       accepts: "Så snart %{name} accepterer, vil i begynde at se hinandens indlæg på Diaspora"
       share_with: "Begynd at dele med %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "Tilføj nyt aspekt"
     show: 
       does_not_exist: "Personen findes ikke!"
-      incoming_request: "Du har en anmodning fra denne person."
+      incoming_request: "%{name} vil gerne dele med dig."
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
       recent_posts: "Nylige indlæg"
@@ -425,7 +425,7 @@ da:
       all: "alle"
       all_contacts: "alle kontaktpersoner"
       make_public: "offentliggør"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "for at nævne nogen i en post, tryk '@' og begynd at skrive deres navn"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
       share: "Del"
@@ -435,7 +435,7 @@ da:
       reshare: "Del igen"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Kunne ikke slette post."
     helper: 
       no_message_to_display: "Ingen beskeder at vise."
     new_status_message: 
@@ -475,11 +475,11 @@ da:
       signup_steps: "Fuldfør din tilmelding ved at gøre følgende:"
       skip: "spring kom godt i gang over"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Vil du gerne finde dine Facebook venner på Diaspora?"
+        skip: "Spring over"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Færdig"
+        people_already_on_diaspora: "Personer bruger allerede Diaspora"
       welcome: "Velkommen til Diaspora!"
     public: 
       does_not_exist: "Brugeren %{username} findes ikke!"

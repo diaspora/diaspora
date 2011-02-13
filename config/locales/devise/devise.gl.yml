@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-gl-ES: 
+gl: 
   devise: 
     confirmations: 
       confirmed: "A túa conta foi confirmada. Xa estás en Diaspora"

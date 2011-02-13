@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-gl-ES: 
+gl: 
   javascripts: 
     confirm_dialog: "Seguro?"
     search_for: "Procurar a {{name}}"

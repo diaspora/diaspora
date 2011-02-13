@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-gl-ES: 
+gl: 
   _aspect: "Aspecto"
   _aspects: "Aspectos"
   _comment: "Comentar"
