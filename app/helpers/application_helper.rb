@@ -148,7 +148,7 @@ module ApplicationHelper
   end
 
   def person_image_link(person, opts = {})
-    return "" if person.nil?
+    return "" if person.nil? || person.profile.nil?
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else

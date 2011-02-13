@@ -75,7 +75,7 @@ class Person < ActiveRecord::Base
   end
 
   def name(opts = {})
-    @name ||= if profile.first_name.nil? || profile.first_name.blank?
+    @name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle
               else
                 "#{profile.first_name.to_s} #{profile.last_name.to_s}"
@@ -83,7 +83,7 @@ class Person < ActiveRecord::Base
   end
 
   def first_name
-    @first_name ||= if profile.first_name.nil? || profile.first_name.blank?
+    @first_name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
                 self.diaspora_handle.split('@').first
               else
                 profile.first_name.to_s
