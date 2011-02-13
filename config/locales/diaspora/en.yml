@@ -50,6 +50,32 @@ en:
   _contact: "Contact"
   _contacts: "Contacts"
 
+  #for reference translation, the real activerecord english transations are actually
+  #in en-US, en-GB, and en-AU yml files
+  activerecord:
+      errors:
+          models:
+              user:
+                  attributes:
+                      person:
+                          invalid: "is invalid."
+                      username:
+                          taken: "is already taken."
+                      email:
+                          taken: "is already taken."
+              person:
+                  attributes:
+                      diaspora_handle:
+                          taken: "is already taken."
+              contact:
+                  attributes:
+                      person_id:
+                          taken: "must be unique among this user's contacts."
+              request:
+                  attributes:
+                      from_id:
+                          taken: "is a duplicate of a pre-existing request."
+
   application:
       helper:
           unknown_person: "unknown person"
