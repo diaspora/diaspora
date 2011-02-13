@@ -129,7 +129,10 @@ class PeopleController < ApplicationController
       @aspects_with_person.include?(aspect)
     end
 
+    if !session[:mobile_view]
     render :layout => nil
+    end
+
   end
 
   private

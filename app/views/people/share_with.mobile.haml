@@ -1,0 +1,22 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  %h1
+    DIASPORA*
+
+#share_with
+  #facebox_header
+    %p
+      = t('.share_with', :name => @person.name)
+
+      .description
+        = t('.accepts', :name => @person.first_name)
+  %br
+  = render :partial => 'share_with_pane',
+    :locals => {:person => @person,
+                :contact => @contact,
+                :aspects_with_person => @aspects_with_person,
+                :aspects_without_person => @aspects_without_person}
+
