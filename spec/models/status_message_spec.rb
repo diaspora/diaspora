@@ -19,7 +19,7 @@ describe StatusMessage do
       status.save
     end
   end
-  
+
   describe '#diaspora_handle=' do
     it 'sets #person' do
       person = Factory.create(:person)
@@ -81,13 +81,13 @@ STR
     describe '#formatted_message' do
       it 'adds the links in the formated message text' do
         @sm.formatted_message.should == <<-STR
-#{link_to(@people[0].name, person_path(@people[0]), :class => 'mention')} can mention people like Raphael #{link_to(@people[1].name, person_path(@people[1]), :class => 'mention')}
-can mention people like Raphaellike Raphael #{link_to(@people[2].name, person_path(@people[2]), :class => 'mention')} can mention people like Raph
+@#{link_to(@people[0].name, person_path(@people[0]), :class => 'mention')} can mention people like Raphael @#{link_to(@people[1].name, person_path(@people[1]), :class => 'mention')}
+can mention people like Raphaellike Raphael @#{link_to(@people[2].name, person_path(@people[2]), :class => 'mention')} can mention people like Raph
 STR
       end
 
       context 'with :plain_text option' do
-        it 'removes the mention syntax and displays the unformatted name' do 
+        it 'removes the mention syntax and displays the unformatted name' do
           status  = Factory(:status_message, :message => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
           status.formatted_message(:plain_text => true).should == 'Barack Obama is so cool Barack Obama '
         end

@@ -4,12 +4,13 @@
 
 
 $blue: #3F8FBA
+$background: rgb(252,252,252)
 
 body
   :padding 2em
   :margin 0
     :top 60px
-  :background-color rgb(252,252,252)
+  :background-color $background
 a
   :color #107FC9
   :color $blue
@@ -122,15 +123,13 @@ header
     :color #111
     :color rgba(15,15,15,0.90)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(35,35,35,0.85)), to(rgba(20,20,20,1)))
-  :background -moz-linear-gradient(top, rgba(35,35,35,0.85), rgba(20,20,20,0.98))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.85)), to(rgba(20,20,20,1)))
+  :background -moz-linear-gradient(top, rgba(30,30,30,0.85), rgba(20,20,20,0.98))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
   :box-shadow 0 1px 3px #222
 
-  :border
-    :bottom 1px solid #777
 
   :padding 0
     :top 2px
@@ -244,11 +243,20 @@ header
 
 .stream
   .stream_element
-    :padding 0.7em 1.2em
+    :font
+      :family 'arial', 'helvetica', sans-serif
+    :padding 10px 14px
+      :right 75px
     :min-height 50px
     :border
-      :bottom 1px solid #eee
+      :bottom 1px solid #ddd
       :top 1px solid #fff
+
+    :font
+      :size 13px
+    :line
+      :height 19px
+
 
     &:hover
       :border
@@ -327,14 +335,12 @@ header
   .from
     h5
       :display inline
-      a
-        :color #444
 
   .content
     :margin
       :top 0
     :padding
-      :left 63px
+      :left 60px
 
     :color #444
     :font
@@ -375,12 +381,16 @@ header
       :font
         :size smaller
 
-    div.info
+    .info
+      :margin
+        :top 2px
       :color #999
       :font-size smaller
-      a
-        :color #ccc
 
+    .comments
+      .info
+        :margin
+          :top -1px
 
 
   .delete
@@ -390,21 +400,12 @@ header
     &:hover
       :opacity 1
 
-  &:hover
-    div.info, .time, .from h5
-      a
-        :color $blue
-
 .time,
 .timeago
   a
     :color #bbb
-  :font
-    :weight bold
   :margin
-    :right 5px
-  :font
-    :size smaller
+    :right 1px
   :text
     :decoration none
   :border none
@@ -544,6 +545,11 @@ ul.show_comments
   :background
     :color #F0F4F5
 
+  :font
+    :size 12px
+  :line
+    :height 18px
+
   textarea
     :width 100%
     :height 1.4em
@@ -553,8 +559,7 @@ ul.show_comments
       :style none
     :padding 0.4em
     :border
-      :bottom 1px solid #ddd
-      :top 1px solid #fff
+      :bottom 2px solid $background
 
     .from
       :font
@@ -573,8 +578,8 @@ ul.show_comments
         :top 0px
         :bottom -2px
       :padding
-        :left 37px
-        :right 20px
+        :left 36px
+        :right 10px
       .from
         a
           :color #444
@@ -600,12 +605,12 @@ ul.show_comments
           :size 1em
         :margin
           :bottom -3px
-        :width 445px
+        :width 388px
         :min-height 23px
 
       p
         :position relative
-        :left 36px
+        :left 35px
 
     .avatar
       :position absolute
@@ -679,6 +684,8 @@ a.paginate, #infscr-loading
     :right 12px
 
     &.controls
+      :background
+        :color $background
       :font
         :size 12px
       :color #999
@@ -686,6 +693,9 @@ a.paginate, #infscr-loading
         :color #999
         :font
           :weight normal
+  &:hover
+    .controls
+      :display inline
 
 .stream_element:hover
   .right
@@ -2090,6 +2100,11 @@ h3,h4
   :margin
     :right 4px
     :bottom 4px
+  :line
+    :height 14px
+
+  a
+    :color #fff
 
   :-webkit-border-radius 3px
   :-moz-border-radius 3px
@@ -2423,6 +2438,3 @@ ul.show_comments
     .right
       :right 1em
 
-.mention
-  :font
-    :weight bold

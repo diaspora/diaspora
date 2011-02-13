@@ -13,24 +13,20 @@
   = person_image_link(post.person, :size => :thumb_small)
 
   .content
-    .from
-      %h5
-        =person_link(post.person)
-
-      - if post.public?
-        %span.arrow ➔
-        %span.aspect_badges
-          %span.aspect_badge.public
-            = t('the_world')
-
-      - elsif post.person.owner_id == current_user.id
-        %span.arrow ➔
-        %span.aspect_badges
-          = aspect_badges(aspects_with_post(all_aspects, post))
+    %strong
+      = person_link(post.person)
 
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
+      - if post.public?
+        %span.aspect_badges
+          %span.aspect_badge.public
+            = t('the_world')
+      - elsif post.person.owner_id == current_user.id
+        %span.aspect_badges
+          = aspect_badges(aspects_with_post(all_aspects, post))
+
       %span.timeago= link_to(how_long_ago(post), status_message_path(post))
       = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
 

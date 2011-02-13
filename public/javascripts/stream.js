@@ -35,24 +35,6 @@ var Stream = {
       }
     });
 
-    // fade in controls
-    $stream.delegate(".stream_element", "mouseenter", function(evt) {
-      var controls = $(this).find('.controls'),
-          badges = $(this).find('.aspect_badges');
-
-      controls.fadeIn(100);
-      controls.fadeIn(100);
-      badges.fadeTo(100,1);
-    });
-    $stream.delegate(".stream_element", "mouseleave", function(evt) {
-      var controls = $(this).find('.controls'),
-          badges = $(this).find('.aspect_badges');
-
-      controls.show()
-              .fadeOut(50);
-      badges.fadeTo(50,0.5);
-    });
-
     // reshare button action
     $stream.delegate(".reshare_button", "click", function(evt) {
       evt.preventDefault();
@@ -90,7 +72,7 @@ var Stream = {
     });
 
     $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
-      $(this).parents(".status_message").fadeOut(150);
+      $(this).parents(".stream_element").hide('blind', { direction: 'vertical' }, 300);
     });
   },
 
