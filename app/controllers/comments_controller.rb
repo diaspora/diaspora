@@ -17,7 +17,8 @@ class CommentsController < ApplicationController
       @comment = current_user.build_comment(text, :on => target)
 
       if @comment.save
-        Rails.logger.info("event=comment_create user=#{current_user.diaspora_handle} status=success comment=#{@comment.id}")
+        Rails.logger.info("event=create type=comment user=#{current_user.diaspora_handle} status=success comment=#{@comment.id} chars=#{params[:text].length}")
+
         current_user.dispatch_comment(@comment)
 
         respond_to do |format|

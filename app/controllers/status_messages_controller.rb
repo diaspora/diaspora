@@ -22,6 +22,8 @@ class StatusMessagesController < ApplicationController
     aspects = current_user.aspects_from_ids(params[:aspect_ids])
 
     if @status_message.save
+      Rails.logger.info("event=create type=status_message chars=#{params[:status_message][:message].length}")
+
       current_user.add_to_streams(@status_message, aspects)
       current_user.dispatch_post(@status_message, :url => post_url(@status_message))
       if !photos.empty?

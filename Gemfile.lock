@@ -66,7 +66,6 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
-    SystemTimer (1.2.1)
     abstract (1.0.0)
     actionmailer (3.0.3)
       actionpack (= 3.0.3)
@@ -95,6 +94,7 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     addressable (2.2.2)
+    archive-tar-minitar (0.5.2)
     arel (2.0.8)
     aws (2.3.32)
       activesupport
@@ -119,7 +119,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
-    cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
       bunny (>= 0.6.0)
       erubis
@@ -173,7 +172,6 @@ GEM
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
     fastercsv (1.5.4)
-    fastthread (1.0.7)
     ffi (0.6.3)
       rake (>= 0.8.7)
     fixture_builder (0.2.0)
@@ -191,7 +189,6 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.1.4)
       ruby-progressbar (~> 0.0.9)
-    gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
     googlecharts (1.6.1)
@@ -208,7 +205,8 @@ GEM
     launchy (0.3.7)
       configuration (>= 0.0.5)
       rake (>= 0.8.1)
-    linecache (0.43)
+    linecache19 (0.5.11)
+      ruby_core_source (>= 0.1.4)
     mail (2.2.15)
       activesupport (>= 2.3.6)
       i18n (>= 0.4.0)
@@ -223,11 +221,6 @@ GEM
     mixlib-config (1.1.2)
     mixlib-log (1.2.0)
     moneta (0.6.0)
-    mongrel (1.1.5)
-      cgi_multipart_eof_fix (>= 2.4)
-      daemons (>= 1.0.3)
-      fastthread (>= 1.0.1)
-      gem_plugin (>= 0.2.3)
     multi_json (0.0.5)
     multi_xml (0.2.1)
     multipart-post (1.1.0)
@@ -329,16 +322,21 @@ GEM
       activesupport (~> 3.0)
       railties (~> 3.0)
       rspec (~> 2.5.0)
-    ruby-debug (0.10.4)
-      columnize (>= 0.1)
-      ruby-debug-base (~> 0.10.4.0)
-    ruby-debug-base (0.10.4)
-      linecache (>= 0.3)
+    ruby-debug-base19 (0.11.24)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby_core_source (>= 0.1.4)
+    ruby-debug19 (0.11.6)
+      columnize (>= 0.3.1)
+      linecache19 (>= 0.5.11)
+      ruby-debug-base19 (>= 0.11.19)
     ruby-hmac (0.4.0)
     ruby-openid (2.1.8)
     ruby-openid-apps-discovery (1.2.0)
       ruby-openid (>= 2.1.7)
     ruby-progressbar (0.0.9)
+    ruby_core_source (0.1.4)
+      archive-tar-minitar (>= 0.5.2)
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     selenium-client (1.2.18)
@@ -381,7 +379,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  SystemTimer (= 1.2.1)
   addressable (= 2.2.2)
   aws (= 2.3.32)
   bundler (>= 1.0.0)
@@ -410,7 +407,6 @@ DEPENDENCIES
   json (= 1.4.6)
   launchy
   mini_magick (= 3.2)
-  mongrel
   mysql2 (= 0.2.6)
   nokogiri (= 1.4.3.1)
   omniauth (= 0.1.6)
@@ -421,7 +417,7 @@ DEPENDENCIES
   rspec (>= 2.0.0)
   rspec-instafail
   rspec-rails (>= 2.0.0)
-  ruby-debug
+  ruby-debug19
   thin (= 1.2.7)
   twitter!
   webmock
