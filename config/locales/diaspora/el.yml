@@ -278,6 +278,8 @@ el:
     share_with: 
       accepts: "Μόλις ο χρήστης %{name} δεχθεί, θα αρχίσει ο καθένας να βλέπει τις δημοσιεύσεις του άλλου στο Diaspora"
       share_with: "Αρχή διαμοιρασμού με τον χρήστη %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       incoming_request: "Έχετε ένα εισερχόμενο αίτημα από αυτό το πρόσωπο."
@@ -322,6 +324,7 @@ el:
       edit: "Επεξεργασία"
       edit_delete_photo: "Επεξεργασία περιγραφής φωτογραφίας / διαγραφή φωτογραφίας"
       make_profile_photo: "ορισμός ως φωτογραφίας προφίλ"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Ενημέρωση Φωτογραφίας"
       view: "προβολή"

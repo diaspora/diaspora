@@ -278,6 +278,8 @@ ga:
     share_with: 
       accepts: "Nuair a glacann %{name} leat, tosóidh tú ag feiceáil póstanna a chéile ar Diaspora"
       share_with: "Tosnú ag roint le %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Person does not exist!"
       incoming_request: "Tá iarratas nua agat ón duine seo."
@@ -322,6 +324,7 @@ ga:
       edit: "athraigh"
       edit_delete_photo: "Athraigh tuarisc an pictiúr / scrios pictiúr"
       make_profile_photo: "Déan mar mo pictiúr prófíl"
+      original_post: "Original Post"
       permalink: "nasc-buan"
       update_photo: "Nuashonraigh Pictiúr"
       view: "féach ar"

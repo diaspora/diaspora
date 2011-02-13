@@ -19,7 +19,7 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
-      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixAgo: ""
       prefixFromNow: "σε"
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"

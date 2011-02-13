@@ -278,6 +278,8 @@ fr:
     share_with: 
       accepts: "Dès que %{name} acceptera, vous commencerez à voir ses messages sur Diaspora et réciproquement"
       share_with: "Commencer à partager avec %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
       incoming_request: "%{name} désire partager avec vous"
@@ -322,6 +324,7 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
+      original_post: "Original Post"
       permalink: "permalien"
       update_photo: "Mettre à jour la photo"
       view: "voir"

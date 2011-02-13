@@ -278,6 +278,8 @@ hu:
     share_with: 
       accepts: "Ha %{name} elfogadja a felkérést, akkor látjátok majd egymás bejegyzéseit."
       share_with: "Megosztás vele: %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Személy nem létezik!"
       incoming_request: "%{name} megosztást kezdeményezett veled."
@@ -322,6 +324,7 @@ hu:
       edit: "szerkesztés"
       edit_delete_photo: "Kép leírás szerkesztése / kép törlése"
       make_profile_photo: "beállítás profilképnek"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Kép frissítése"
       view: "nézet"

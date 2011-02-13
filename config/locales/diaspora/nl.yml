@@ -278,6 +278,8 @@ nl:
     share_with: 
       accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
       share_with: "Start delen met %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
@@ -322,6 +324,7 @@ nl:
       edit: "bewerk"
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Update foto"
       view: "bekijk"

@@ -278,6 +278,8 @@ de:
     share_with: 
       accepts: "Sobald %{name} akzeptiert, werdet ihr gegenseitig eure Beiträge auf Diaspora sehen können."
       share_with: "Beginne, mit %{name} zu teilen."
+    share_with_pane: 
+      add_new_aspect: "Neuen Aspekt hinzufügen"
     show: 
       does_not_exist: "Person existiert nicht!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
@@ -322,6 +324,7 @@ de:
       edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
+      original_post: "Original Post"
       permalink: "Permalink"
       update_photo: "Foto aktualisieren"
       view: "Anzeigen"
@@ -404,7 +407,7 @@ de:
     invitations: 
       by_email: "per E-Mail"
       dont_have_now: "Du hast im Moment keine, aber es wird bald wieder neue Einladungen geben!"
-      from_facebook: "von Facebook"
+      from_facebook: "Von Facebook"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
       invite_your_friends: "Lade deine Freunde ein"

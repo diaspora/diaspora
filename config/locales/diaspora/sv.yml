@@ -278,6 +278,8 @@ sv:
     share_with: 
       accepts: "Så snart %{name} accepterar kommer ni kunna se varandras meddelanden och bilder"
       share_with: "Börja dela med %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Den här personen finns inte!"
       incoming_request: "%{name} vill dela med dig"
@@ -322,6 +324,7 @@ sv:
       edit: "ändra"
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"

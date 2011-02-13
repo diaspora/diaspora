@@ -278,6 +278,8 @@ ca:
     share_with: 
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       share_with: "Start sharing with %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "L'usuari no existeix!"
       incoming_request: "Tens una petició d'aquesta persona."
@@ -322,6 +324,7 @@ ca:
       edit: "editar"
       edit_delete_photo: "Editar peu de fotografia / eliminar fotografia"
       make_profile_photo: "convertir en fotografia de perfil"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Actualitzar fotografia"
       view: "veure"

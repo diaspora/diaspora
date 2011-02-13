@@ -278,6 +278,8 @@ sl:
     share_with: 
       accepts: "Ko vas bo oseba %{name} sprejela, boste lahko začeli drug drugem spremljati prispevke znotraj Diaspore."
       share_with: "Začnite deliti z osebo %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Oseba ne obstaja!"
       incoming_request: "Od te osebe ste prejeli novo prošnjo."
@@ -322,6 +324,7 @@ sl:
       edit: "uredi"
       edit_delete_photo: "Dodaj opis slike ali izbriši sliko"
       make_profile_photo: "uporabi sliko za moj profil"
+      original_post: "Original Post"
       permalink: "trajna povezava"
       update_photo: "Posodobi sliko"
       view: "poglej"

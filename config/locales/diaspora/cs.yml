@@ -278,6 +278,8 @@ cs:
     share_with: 
       accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
       share_with: "Začněte sdílet s %{name}"
+    share_with_pane: 
+      add_new_aspect: "přidat nový aspekt"
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "%{name} s vámi chce sdílet"
@@ -322,6 +324,7 @@ cs:
       edit: "upravit"
       edit_delete_photo: "Upravit popis fotky / smazat fotku"
       make_profile_photo: "vytvořit profilovou fotku"
+      original_post: "Original Post"
       permalink: "trvalý odkaz"
       update_photo: "Aktualizovat fotku"
       view: "zobrazit"

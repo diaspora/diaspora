@@ -278,6 +278,8 @@ ru:
     share_with: 
       accepts: "После согласия %{name}, вы сможете видеть сообщения друг друга в Диаспоре"
       share_with: "Начать обмен с %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Персоны не существует !"
       incoming_request: "%{name} хочет поделиться с вами"
@@ -322,6 +324,7 @@ ru:
       edit: "редактировать"
       edit_delete_photo: "Изменить описание фото / удалить фото"
       make_profile_photo: "сделать фотографией профиля"
+      original_post: "Original Post"
       permalink: "постоянная ссылка"
       update_photo: "Обновить фотографию"
       view: "смотреть"

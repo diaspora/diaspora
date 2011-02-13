@@ -278,6 +278,8 @@ sk:
     share_with: 
       accepts: "Akonáhle dá %{name} súhlas, budete môcť vidieť aj ostatné príspevky"
       share_with: "Začať zdieľať s %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
@@ -322,6 +324,7 @@ sk:
       edit: "upraviť"
       edit_delete_photo: "Upraviť popis fotky / zmazať fotku"
       make_profile_photo: "Zhotoviť profilovú fotku"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Aktualizovať fotku"
       view: "Pozrieť"

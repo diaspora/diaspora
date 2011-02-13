@@ -278,6 +278,8 @@ he:
     share_with: 
       accepts: "לאחר שבקשתך תתקבל על ידי %{name}, תהיה באפשרותכם לצפות זה ברשומותיו של זה בדיאספורה"
       share_with: "התחלת השיתוף עם %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
@@ -322,6 +324,7 @@ he:
       edit: "עריכה"
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
+      original_post: "Original Post"
       permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"

@@ -278,6 +278,8 @@ es:
     share_with: 
       accepts: "Una vez %{name} acepte, comenzarás a ver sus publicaciones en Diaspora*."
       share_with: "Empezar a compartir con %{name}."
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "¡El usuario no existe!"
       incoming_request: "%{name} quisiera compartir contigo"
@@ -322,6 +324,7 @@ es:
       edit: "Editar"
       edit_delete_photo: "Editar pie de fotografía / eliminar fotografía"
       make_profile_photo: "Convertir en foto de Perfil"
+      original_post: "Original Post"
       permalink: "Enlace permanente"
       update_photo: "Actualizar foto"
       view: "Ver"

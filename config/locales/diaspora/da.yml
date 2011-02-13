@@ -278,6 +278,8 @@ da:
     share_with: 
       accepts: "Så snart %{name} accepterer, vil i begynde at se hinandens indlæg på Diaspora"
       share_with: "Begynd at dele med %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Personen findes ikke!"
       incoming_request: "Du har en anmodning fra denne person."
@@ -322,6 +324,7 @@ da:
       edit: "Redigér"
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
       make_profile_photo: "Gør til profilbillede"
+      original_post: "Original Post"
       permalink: "permanentlink"
       update_photo: "Opdatér billede"
       view: "se"

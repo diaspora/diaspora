@@ -278,6 +278,8 @@ gl-ES:
     share_with: 
       accepts: "Cando %{name} acepte, comezaredes a ver as publicacións do outro en Diaspora"
       share_with: "Comeza a compartir con %{name}"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
@@ -322,6 +324,7 @@ gl-ES:
       edit: "editar"
       edit_delete_photo: "Editar descrición da foto / eliminar foto"
       make_profile_photo: "facela foto do perfil"
+      original_post: "Original Post"
       permalink: "permalink"
       update_photo: "Actualizar foto"
       view: "ver"
