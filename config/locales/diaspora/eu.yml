@@ -1,0 +1,497 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+eu: 
+  _aspect: "Alderdia"
+  _aspects: "Alderdiak"
+  _comment: "Comment"
+  _comments: "Iruzkinak"
+  _contact: "Adiskidea"
+  _contacts: "Adiskideak"
+  _home: "Hasiera"
+  _more: "More"
+  _photos: "argazkiak"
+  _services: "Zerbitzuak"
+  account: "Kontua"
+  activemodel: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "bakarra izan behar du erabiltzaile honen adiskideen artean."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "erabilpenenan dago jada"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "lehenagotik bazegoen jakinarazpen baten bikoizketa da."
+        user: 
+          attributes: 
+            email: 
+              taken: "erabilpenean dago jada"
+            person: 
+              invalid: "ez da zuzena"
+            username: 
+              taken: "erabilpenean dago jada"
+  ago: "%{time} d(ir)ela"
+  application: 
+    helper: 
+      aspect_badge: 
+        all_aspects: "Alderdi guztiak"
+      unknown_person: "pertsona ezezaguna"
+      video_title: 
+        unknown: "Bideo izen ezezaguna"
+  are_you_sure: "Ziur al zaude?"
+  aspects: 
+    add_to_aspect: 
+      failure: "Akatsa adiskidea alderdira gehitzean."
+      success: "Adiskidea arrakastaz gehitu da alderdira."
+    aspect_contacts: 
+      done_editing: "aldaketa arrakastatsua"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
+    create: 
+      failure: "Akatsa alderdiaren sormenean."
+      success: "Zure alderdia, %{name}, sortua izan da."
+    destroy: 
+      success: "%{name} arrakastaz ezabatu da."
+    edit: 
+      add_existing: "Jada adiskide den norbait gehitu"
+      confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      remove_aspect: "Alderdi hau ezabatu"
+      rename: "berrizendatu"
+      save: "Save"
+    helper: 
+      are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
+      aspect_not_empty: "Alderdi ez hutsa"
+      remove: "ezabatu"
+    index: 
+      handle_explanation: "Hau da zure Diaspora erabiltzailea. Zure adiskideei emaiezu zu aurkitzearren."
+      no_contacts: "Adiskiderik ez"
+    manage: 
+      add_a_new_aspect: "Alderdi berri sortu"
+      add_a_new_contact: "Adiskide berria gehitu"
+      drag_to_add: "Herresta egin ezazu jendea gehitzearren"
+      manage_aspects: "Alderdiak kudeatu"
+      no_requests: "Ez duzu eskaera berririk"
+      requests: "Eskaerak"
+    move_contact: 
+      error: "Akatsa adiskidea mugitzean: %{inspect}"
+      failure: "akatsa izan da %{inspect}"
+      success: "Pertsona alderdi berrira gehitua"
+    new_aspect: 
+      create: "Sortu"
+      name: "Izena"
+    no_contacts_message: 
+      add_contact: "Adiskidea gehitu"
+      add_contact_to: "Norbait gehitu %{aspect_name}(r)a"
+      invite: "Gonbidatu norbait Diasporara!"
+      nobody: "Ekar ezazu zure bizitzako jende garrantzitsua Diasporara!"
+      nobody_in_aspect: "Zure alderdi '%{aspect_name}' hutsik dago."
+    no_posts_message: 
+      start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
+    remove_from_aspect: 
+      failure: "Akatsa pertsona alderditik ezabatzean"
+      success: "Pertsona arrakastaz alderditik ezabatua"
+    seed: 
+      family: "Familia"
+      work: "Lantokia"
+    show: 
+      edit_aspect: "alderdia aldatu"
+    update: 
+      failure: "Zure alderdiak, %{name}, izen luzeegia du."
+      success: "Zure alderdia, %{name}, eraldatua izan da."
+  back: "Atzera"
+  cancel: "Ezeztatu"
+  comments: 
+    new_comment: 
+      comment: "Iruzkina"
+      commenting: "Iruzkintzen..."
+  contacts: 
+    few: "%{count} adiskide"
+    one: "adiskide 1"
+    other: "%{count} adiskide"
+    zero: "adiskiderik ez"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "Ezabatu"
+  email: "E-posta"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Zuzendu honako akatsak eta saiatu berriro."
+      invalid_fields: "Eremu akasdunak"
+  fill_me_out: "Bete nazazu"
+  home: 
+    show: 
+      already_account: "kontua duzu jada?"
+      choice: "Hautaketa"
+      choice_explanation: "Diasporan zure adiskideak kudeatu ditzakezu alderdi izeneko taldeetan. Zure argitalpen guztiak; bai argazkiak, egoera aldaketak, eta abar nahi duzun jendearekin soilik partekatzeko; honek egiten du Diaspora bereizgarri."
+      learn_about_host: "Ikasi nola eskaini Diaspora zure zerbitzarian."
+      login_here: "hemen sartu"
+      ownership: "jabego"
+      ownership_explanation: "Zure argazkiak zureak dira, eta ez duzu hori ahaztu behar partekatzeagatik soilik. Diasporan partekatzen duzun guztiaren jabe zara, zuri eskainiz zer modutan banatzeko askatasuna."
+      share_what_you_want: "Partekatu nahi duzuna, nahi duzun pertsonarekin."
+      simplicity: "Sinplizitatea"
+      simplicity_explanation: "Diasporak partekatzea erraza egiten du - pribatutasuna kontuan hartuz. Izatez pribatutasunera zuzenduta, Diasporak egitura sinplea du zure profila babesturik mantentzearren."
+      tagline_first_half: "Partekatu nahi duzuna,"
+      tagline_second_half: "nahi duzunarekin."
+  invitations: 
+    check_token: 
+      not_found: "Gonbidapena ez da aurkitu"
+    create: 
+      already_contacts: "Pertsona honekin harremanetan zaude jadanik"
+      already_sent: "Pertsona hau gonbidatu duzu jada."
+      no_more: "Ez daukazu gonbidapen gehiago."
+      rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
+      sent: "Gonbidapenen jasotzaileak hauek izan dira:"
+    edit: 
+      sign_up: "izena_eman"
+    new: 
+      already_invited: "Gonbidatuta jadanik"
+      aspect: "Alderdia"
+      comma_seperated_plz: "Nahi dituzun e-posta guztiak idatzi ditzakezu, koma batez bananduta."
+      if_they_accept_info: "eskaera onartzen badute, gonbidatutako alderdira batuko dira"
+      invite_someone_to_join: "Gonbida ezazu norbait Diasporan izen ematera!"
+      personal_message: "Mezu pertsonala"
+      send_an_invitation: "Gonbidapen bat bidali"
+      send_invitation: "Gonbidapena bidali"
+      to: "Jasotzailea:"
+  layouts: 
+    application: 
+      have_a_problem: "Have a problem? Find an answer here"
+      logged_in_as: "logged in as %{name}"
+      powered_by: "DIASPORA*K ESKAINIA"
+      toggle: "toggle mobile site"
+      whats_new: "ezer berririk?"
+      your_aspects: "your aspects"
+    header: 
+      account_settings: "kontuaren lehentasunak"
+      blog: "bloga"
+      code: "kodea"
+      edit_profile: "profila aldatu"
+      login: "sartu"
+      logout: "irten"
+      view_profile: "profila ikusi"
+  more: "More"
+  new_notifications: "%{count} new notifications"
+  new_requests: 
+    few: "%{count} eskaera berri!"
+    one: "eskaera berria!"
+    other: "%{count} esakaera berri!"
+    zero: "eskaera berririk ez"
+  next: "next"
+  no_new_notifications: "jakinarazpen berririk ez"
+  notifications: 
+    also_commented: "iruzkindua baita zure kontaktuaren"
+    comment_on_post: "iruzkindua zure"
+    deleted: "deleted"
+    index: 
+      mark_all_as_read: "Mark All as Read"
+      notifications: "Jakinarazpenak"
+    mentioned: "has mentioned you in their"
+    new_request: "zurekin partekatzea eskatu dizu."
+    post: "berria"
+    request_accepted: "zure partekatze eskaera onartu du."
+  notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name}(e)k ere iruzkindu du."
+    comment_on_post: 
+      commented: "has commented on your post!"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
+    diaspora: "diasporaren e-posta robota"
+    hello: "Kaixo, %{name}!"
+    love: "ikusi arte,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
+    new_request: 
+      just_sent_you: "oraintxe Diaspora* adiskide eskaera bidali zaizu"
+      sign_in: "sartu hemen"
+      subject: "Diaspora* adiskide eskaera berria %{from}(e)k bidalia"
+      try_it_out: "Hobe zenuke begiztatzea."
+    request_accepted: 
+      accepted: "(e)k zure adiskide eskaera onartu du. Orain hemen dago:"
+      sign_in: "Sign in here"
+      subject: "%{name}(e)k zure adiskide eskaera onartu du Diasporan"
+    single_admin: 
+      admin: "Zure Diaspora administratzailea"
+      subject: "Mezu bat zure Diaspora kontuari buruz:"
+    thanks: "Milesker,"
+  ok: "Onartu"
+  or: "edo"
+  pagination: 
+    next: "Hurrengoa"
+    previous: "Aurrekoa"
+  password: "Pasahitza"
+  password_confirmation: "Pasahitz baieztapena"
+  people: 
+    aspect_list: 
+      edit_membership: "aldatu alderdiaren bazkidetza"
+    edit: 
+      allow_search: "Utzi ezazu jendeak zu bilatzea Diasporan"
+      edit_profile: "Profila aldatu"
+      first_name: "Izena"
+      info_available_to: "Zurekin harremanetan dagoen edozeinek izango du informazio hau irakurtzeko ahalmena."
+      last_name: "Abizena"
+      update_profile: "Profila Eguneratu"
+      your_bio: "Zuri buruz"
+      your_birthday: "Zure jaioteguna"
+      your_gender: "Zure sexua"
+      your_name: "Zure izena"
+      your_photo: "Zure argazkia"
+      your_profile: "Zure profila"
+    helper: 
+      people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
+      results_for: " %{params}(r)entzat emaitzak"
+    index: 
+      couldnt_find_them_send_invite: "Aurkitu ezini,? Bidali gonbidapen bat!"
+      no_one_found: "... ez da inor aurkitu."
+      no_results: "Aizu! Zerbait bilatu behar duzu."
+      results_for: "bilaketa emaitzak hontarako:"
+    person: 
+      add_contact: "adiskidea gehitu"
+      already_connected: "Dagoeneko harremanetan"
+      pending_request: "eskaeraren zain"
+      thats_you: "zu zeu zara!"
+    profile_sidebar: 
+      bio: "niri buruz"
+      born: "jaioteguna"
+      cannot_remove: "Ezin izan da %{name} ezabatu azken alderditik. (Pertsona honekin harremanak bukatu nahi badituzu, adiskidea ezabatu egin beharko duzu.)"
+      edit_my_profile: "Nire profila aldatu"
+      gender: "sexua"
+      in_aspects: "alderdietan"
+      remove_contact: "adiskidea ezabatu"
+      remove_from: "%{name} ezabatu %{aspect} alderditik?"
+    share_with: 
+      accepts: "Behin %{name}(e)k onartzen zaituela, bakoitzak bestearen berriak Diasporan ikusi ahalko dituzue"
+      share_with: "%{name}(r)ekin hasi partekatzen"
+    share_with_pane: 
+      add_new_aspect: "add new aspect"
+    show: 
+      does_not_exist: "Pertsona hau ez dago!"
+      incoming_request: "Adiskide eskaera bat bidali dizu pertsona honek."
+      no_posts: "erakusteko sarrerarik ez dago!"
+      not_connected: "Ez zaude partekatzen %{name}(r)ekin"
+      recent_posts: "Post berrienak"
+      recent_public_posts: "Azken berri publikoak"
+      return_to_aspects: "Zure alderdi orrialdera itzuli"
+      similar_contacts: "antzeko adiskideak"
+      start_sharing: "start sharing"
+      to_accept_or_ignore: "onartu edo utzi"
+    update: 
+      failed: "Akatsa profila eguneratzean"
+      updated: "Profila eguneratuta"
+    webfinger: 
+      fail: "%{handle} ezin izan dugu aurkitu."
+  photos: 
+    create: 
+      integrity_error: "Argazki igoera akasduna. Ziur al zaude irudi bat zela?"
+      runtime_error: "Argazki igoera akasduna. Ziur zure uhala azkarra dela?"
+      type_error: "Argazki igoera akasduna- Ziur al zaude irudia gehitu duzunaz?"
+    destroy: 
+      notice: "Argazkia ezabatu duzu."
+    edit: 
+      editing: "Aldatzen"
+    new: 
+      back_to_list: "Zerrendara itzuli"
+      new_photo: "Argazki Berria"
+      post_it: "partekatu ezazu!"
+    new_photo: 
+      empty: "{file} hutsik dago, mesedez aukera itzazu fitxategiak hura gabe."
+      invalid_ext: "{file}(r)en luzapena ez da onartu. {extensions} dira onartuak soilik."
+      size_error: "{file} pisutsuegia da, fitxategi baten gehiengo pisua {sizeLimit} da."
+    new_profile_photo: 
+      or_select_one: "edo aukeratu dagoeneko eginda dagoen bat"
+      upload: "Igo ezazu profil argazki berri bat!"
+    photo: 
+      view_all: "%{aspect}(r)en argazki guztiak ikusi"
+    show: 
+      collection_permalink: "collection permalink"
+      delete_photo: "Argazkia Ezabatu"
+      edit: "aldatu"
+      edit_delete_photo: "Argazkiaren deskribapena aldatu / argazkia ezabatu"
+      make_profile_photo: "profileko argazki bihurtu"
+      original_post: "Original Post"
+      permalink: "permalink"
+      update_photo: "Argazkia Igo"
+      view: "ikusi"
+    update: 
+      error: "Akatsa argazkia aldatzean."
+      notice: "Argazkia arrakastaz eguneratua."
+  previous: "previous"
+  profile: "Profila"
+  registrations: 
+    closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
+    create: 
+      success: "Diasporarekin bat egin duzu!"
+    edit: 
+      cancel_my_account: "Nire kontua ezabatu"
+      edit: "%{name} aldatu"
+      leave_blank: "(hutsik utzi aldatu nahi ez baduzu)"
+      password_to_confirm: "(zure pasahitza behar dugu zure aldaketak gauzatzeko)"
+      unhappy: "Goibel?"
+      update: "Eguneratu"
+    new: 
+      enter_email: "Idatzi zure e-posta"
+      enter_password: "Pasahitz bat aukeratu"
+      enter_password_again: "Lehengo pasahitz berdina idatzi"
+      enter_username: "Aukeratu erabiltzaile izen bat (hizkiak, zenbakiak eta gidoibaxuak soilik)"
+      sign_up: "Izena eman"
+      sign_up_for_diaspora: "Izena eman Diasporan"
+  requests: 
+    create: 
+      sending: "Bidaltzen"
+      sent: "%{name}(r)ekin partekatzea eskatu duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute."
+    destroy: 
+      error: "Alderdi bat aukeratu, mesedez!"
+      ignore: "Adiskide eskaera baztertua."
+      success: "Orain adiskideak zarete."
+    manage_aspect_contacts: 
+      existing: "Adiskideak"
+      manage_within: "Adiskideak kudeatu hemen:"
+    new_request_to_person: 
+      sent: "bidalia!"
+  search: "Bilatu"
+  services: 
+    create: 
+      success: "Egiaztapena arrakastaz egina."
+    destroy: 
+      success: "Egiaztapena arrakastaz ezabatua."
+    failure: 
+      error: "akatsa zerbitzu hori konektatzean"
+    finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+    index: 
+      connect_to_facebook: "Facebookekin lotu"
+      connect_to_twitter: "Twitterekin lotu"
+      disconnect: "irten"
+      edit_services: "Aldatu zerbitzuak"
+      logged_in_as: "logged in as"
+      really_disconnect: "irten %{service}(e)tik?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
+  settings: "Lehentasunak"
+  shared: 
+    add_contact: 
+      create_request: "Diaspora helbide arabera bilatu"
+      diaspora_handle: "diaspora@helbidea.org"
+      enter_a_diaspora_username: "Diaspora erabiltzaile izena sartu:"
+      know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
+      your_diaspora_username_is: "Zure Diaspora erabiltzailea honakoa da: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "Adiskide Guztiak"
+      cannot_remove: "Ezin izan da pertsona azken alderditik ezabatu. (Pertsona honekin harremanak nahi ez badituzu, adiskidea ezabatu behar duzu.)"
+    invitations: 
+      by_email: "by Email"
+      dont_have_now: "Bat ere ez duzu, baina gonbidapen gehiago iritsiko dira laister!"
+      from_facebook: "From Facebook"
+      invitations_left: "(%{count} geratzen zai(zki)zu)"
+      invite_someone: "Norbait gonbidatu"
+      invite_your_friends: "Invite your friends"
+      invites: "Gonbidapenak"
+      invites_closed: "Gonbidapenak itxita daude orain Diaspora zerbitzari hontan"
+    notification: 
+      new: "%{type} berria %{from}(r)en eskutik"
+    public_explain: 
+      logged_in: "%{service}(e)n sartuta"
+      manage: "kudeatu lotutako zerbitzuak"
+      outside: "Mezu publikoak edozeinek irakurtzeko ahalmena izango du, Diaspora kontua ez badu ere."
+      title: "Mezu publiko bat partekatzear zaude!"
+    publisher: 
+      add_photos: "argazkiak gehitu"
+      all: "guztiak"
+      all_contacts: "adiskide guztiak"
+      make_public: "publikoa egin"
+      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
+      posting: "Partekatzen..."
+      share: "Partekatu"
+      share_with: "%{aspect}(r)ekin partekatu"
+      whats_on_your_mind: "what's on your mind?"
+    reshare: 
+      reshare: "Berriz partekatu"
+  status_messages: 
+    destroy: 
+      failure: "Failed to delete post"
+    helper: 
+      no_message_to_display: "Erakusteko mezurik ez."
+    new_status_message: 
+      oh_yeah: "hori da eta!"
+      tell_me_something_good: "zerbait polita esaidazu"
+    show: 
+      destroy: "Suntsitu"
+      permalink: "permalink"
+  stream_helper: 
+    hide_comments: "iruzkinak ezkutatu"
+    show_comments: "iruzkin guztiak erakutsi"
+  the_world: "mundua"
+  username: "Erabiltzailea"
+  users: 
+    destroy: "Kontua arrakastaz ezabatua."
+    edit: 
+      change: "Aldatu"
+      change_language: "Hizkuntza aldatu"
+      change_password: "Pasahitza aldatu"
+      close_account: "Kontua ezabatu"
+      current_password: "Current password"
+      download_photos: "nire argazkiak jaitsi"
+      download_xml: "nire xml jaitsi"
+      edit_account: "Kontua aldatu"
+      email_notifications: "E-posta bidezko jakinarazpenak"
+      export_data: "Datuak esportatu"
+      new_password: "Pasaitza Berria"
+      receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu?"
+      your_email: "Zure e-posta"
+      your_handle: "Zure Diaspora erabiltzailea"
+    getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
+      connect_services: "Beste zerbitzu batzuekin lotu"
+      edit_profile: "Zure profila aldatu"
+      finished: "Bukatuta!"
+      save_and_continue: "Gorde eta jarraitu"
+      signup_steps: "Zure izen ematea bukatu ezazu hiru pauso hauek emanez:"
+      skip: "jauzi hastapenak"
+      step_2: 
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
+      step_3: 
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
+      welcome: "Ongi Etorri Diasporara!"
+    public: 
+      does_not_exist: "%{username}(r)ik ez dago!"
+    update: 
+      email_notifications_changed: "Hizkuntza aldaketa akasduna"
+      language_changed: "Hizkuntza aldatua"
+      language_not_changed: "Hizkuntza aldaketa akatsduna"
+      password_changed: "Pasahitza aldatu duzu"
+      password_not_changed: "Pasahitz Aldaketa Akatsduna"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "%{account} kontutik ezin izan da hcard sortu"
+    no_person_constructed: "Ezin izan da pertsona sortu hcard erabiliz."
+    not_enabled: "webfinger ez dago aktibatuta %{account} zerbitzariarengatik"
+    xrd_fetch_failed: "akatsa sortu da %{account}(e)tik xrd lortzean"
