@@ -265,6 +265,7 @@ en:
           edit_delete_photo: "Edit photo description / delete photo"
           permalink: "permalink"
           collection_permalink: "collection permalink"
+          original_post: "Original Post"
       edit:
           editing: "Editing"
       photo:
