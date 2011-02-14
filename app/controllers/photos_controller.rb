@@ -164,7 +164,11 @@ class PhotosController < ApplicationController
 
       respond_with @photo
     else
-      redirect_to :back
+      begin
+        redirect_to :back
+      rescue
+        redirect_to aspects_path
+      end
     end
 
   end
