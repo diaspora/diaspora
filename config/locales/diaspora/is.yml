@@ -15,7 +15,7 @@ is:
   _photos: "Myndir"
   _services: "Þjónusta"
   account: "Notandastillingar"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,19 +25,19 @@ is:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "er þegar í notkun."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "er afrit af fyrirliggjandi beiðni."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "er þegar í notkun."
+              taken: "is already taken."
             person: 
-              invalid: "er ógilt."
+              invalid: "is invalid."
             username: 
-              taken: "er þegar í notkun."
+              taken: "is already taken."
   ago: "%{time} síðan"
   application: 
     helper: 

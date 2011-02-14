@@ -15,29 +15,29 @@ da:
   _photos: "Billeder"
   _services: "Tjenester"
   account: "Konto"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "Skal være unik blandt denne brugers kontakter"
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "er allerede taget"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "Dette er en kopi af en allerede eksisterende forespørgsel."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "er allerede taget"
+              taken: "is already taken."
             person: 
-              invalid: "er ugyldig"
+              invalid: "is invalid."
             username: 
-              taken: "er allerede taget"
+              taken: "is already taken."
   ago: "%{time} siden"
   application: 
     helper: 

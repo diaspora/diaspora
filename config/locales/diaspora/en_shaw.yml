@@ -15,29 +15,29 @@ en_shaw:
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
   account: "𐑩𐑒𐑬𐑯𐑑"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "𐑥𐑳𐑕𐑑 𐑚𐑰 𐑿𐑯𐑰𐑒 𐑩𐑥𐑳𐑙 𐑞𐑦𐑕 𐑿𐑟𐑼𐑟 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "𐑦𐑟 𐑩 𐑛𐑵𐑐𐑤𐑦𐑒𐑩𐑑 𐑝 𐑩 𐑐𐑮𐑦𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+              taken: "is already taken."
             person: 
-              invalid: "𐑦𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛."
+              invalid: "is invalid."
             username: 
-              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
+              taken: "is already taken."
   ago: "%{time} ago"
   application: 
     helper: 
@@ -170,7 +170,7 @@ en_shaw:
       have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥, 𐑓𐑲𐑯𐑛 𐑩𐑯 𐑨𐑯𐑕𐑼 𐑣𐑽"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-      toggle: "toggle mobile site"
+      toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
     header: 
@@ -197,7 +197,7 @@ en_shaw:
     index: 
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
-    mentioned: "has mentioned you in their"
+    mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑞𐑺"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
     request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
@@ -214,9 +214,9 @@ en_shaw:
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     love: "𐑤𐑳𐑝,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
+      subject: "%{name} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     new_request: 
       just_sent_you: "𐑡𐑳𐑕𐑑 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
@@ -279,7 +279,7 @@ en_shaw:
       accepts: "𐑢𐑳𐑯𐑕 %{name} 𐑩𐑒𐑕𐑧𐑐𐑑𐑕, 𐑿𐑤 𐑕𐑑𐑸𐑑 𐑕𐑰𐑦𐑙 𐑰𐑗 𐑳𐑞𐑼𐑟 𐑐𐑴𐑕𐑑𐑕 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
     show: 
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
@@ -324,7 +324,7 @@ en_shaw:
       edit: "𐑧𐑛𐑦𐑑"
       edit_delete_photo: "𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴 𐑛𐑦𐑕𐑒𐑮𐑦𐑐𐑖𐑩𐑯 / 𐑛𐑦𐑤𐑰𐑑 𐑓𐑴𐑑𐑴"
       make_profile_photo: "𐑥𐑱𐑒 𐑐𐑮𐑴𐑓𐑲𐑤 𐑓𐑴𐑑𐑴"
-      original_post: "Original Post"
+      original_post: "𐑩𐑮𐑦𐑡𐑦𐑯𐑩𐑤 𐑐𐑴𐑕𐑑"
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
       update_photo: "𐑩𐑐𐑛𐑱𐑑 𐑓𐑴𐑑𐑴"
       view: "𐑝𐑿"
@@ -425,7 +425,7 @@ en_shaw:
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "𐑑 𐑥𐑧𐑯𐑖𐑩𐑯 𐑕𐑳𐑥𐑢𐑩𐑯, 𐑐𐑮𐑧𐑕 '@' 𐑯 𐑕𐑑𐑸𐑑 𐑑𐑲𐑐𐑦𐑙 𐑞𐑺 𐑯𐑱𐑥"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       share: "𐑖𐑺"
@@ -435,7 +435,7 @@ en_shaw:
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑐𐑴𐑕𐑑"
     helper: 
       no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
     new_status_message: 
@@ -467,7 +467,7 @@ en_shaw:
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
@@ -475,11 +475,11 @@ en_shaw:
       signup_steps: "𐑓𐑦𐑯𐑦𐑖 𐑿𐑼 𐑕𐑲𐑯 𐑳𐑐 𐑚𐑲 𐑒𐑩𐑥𐑐𐑤𐑰𐑑𐑦𐑙 𐑞𐑰𐑟 𐑔𐑮𐑰 𐑕𐑑𐑧𐑐𐑕:"
       skip: "𐑕𐑒𐑦𐑐 𐑜𐑧𐑑𐑦𐑙 𐑕𐑑𐑸𐑑𐑩𐑛"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "𐑢𐑫𐑛 𐑿 𐑤𐑲𐑒 𐑑 𐑓𐑲𐑯𐑛 𐑿𐑼 ·𐑓𐑱𐑕𐑚𐑫𐑒 𐑓𐑮𐑧𐑯𐑛𐑟 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩?"
+        skip: "𐑕𐑒𐑦𐑐"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "𐑓𐑦𐑯𐑦𐑖"
+        people_already_on_diaspora: "𐑐𐑰𐑐𐑤 𐑷𐑤𐑮𐑧𐑛𐑦 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       welcome: "𐑢𐑧𐑤𐑒𐑩𐑥 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"

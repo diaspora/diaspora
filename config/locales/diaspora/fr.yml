@@ -15,29 +15,29 @@ fr:
   _photos: "photos"
   _services: "Services"
   account: "Compte"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "doit être unique parmi les contacts de cet utilisateur."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "est déjà pris."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "est un doublon d'une requête déjà existante."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "est déjà pris."
+              taken: "is already taken."
             person: 
-              invalid: "est invalide."
+              invalid: "is invalid."
             username: 
-              taken: "est déjà pris."
+              taken: "is already taken."
   ago: "Il y a %{time}"
   application: 
     helper: 
@@ -279,7 +279,7 @@ fr:
       accepts: "Dès que %{name} acceptera, vous commencerez à voir ses messages sur Diaspora et réciproquement"
       share_with: "Commencer à partager avec %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "ajouter un nouvel aspect"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
       incoming_request: "%{name} désire partager avec vous"
@@ -324,7 +324,7 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
-      original_post: "Original Post"
+      original_post: "Message original"
       permalink: "permalien"
       update_photo: "Mettre à jour la photo"
       view: "voir"
@@ -425,7 +425,7 @@ fr:
       all: "tous"
       all_contacts: "tous les contacts"
       make_public: "rendre public"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "pour mentionner quelqu'un, insérez un « @ » et commencez à écrire son nom"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
       share: "Partager"

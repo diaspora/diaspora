@@ -15,7 +15,7 @@ pt-PT:
   _photos: "Fotografias"
   _services: "Serviços"
   account: "Conta"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ pt-PT:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "já existe"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ pt-PT:
         user: 
           attributes: 
             email: 
-              taken: "já existe"
+              taken: "is already taken."
             person: 
-              invalid: "é inválida"
+              invalid: "is invalid."
             username: 
-              taken: "já existe"
+              taken: "is already taken."
   ago: "%{time} atrás"
   application: 
     helper: 

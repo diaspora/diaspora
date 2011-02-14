@@ -15,29 +15,29 @@ he:
   _photos: "תמונות"
   _services: "שירותים"
   account: "חשבון"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "על שם זה להיות ייחודי בקרב שמות אנשי הקשר."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "כבר תפוס."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "הנה עותק של בקשה שכבר בוצעה."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "כבר תפוסה."
+              taken: "is already taken."
             person: 
-              invalid: "אינה תקנית."
+              invalid: "is invalid."
             username: 
-              taken: "כבר תפוס."
+              taken: "is already taken."
   ago: "%{time} עברו"
   application: 
     helper: 

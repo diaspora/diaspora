@@ -15,29 +15,29 @@ zh:
   _photos: "照片"
   _services: "服务"
   account: "帐户"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "请和这个用户的所有联系人区分开。"
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "已被占用。"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "是一个重复性请求。"
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "已被占用。"
+              taken: "is already taken."
             person: 
-              invalid: "是不合法的。"
+              invalid: "is invalid."
             username: 
-              taken: "已被占用。"
+              taken: "is already taken."
   ago: "%{time}以前"
   application: 
     helper: 

@@ -15,29 +15,29 @@ ru:
   _photos: "Фотографии"
   _services: "Сервисы"
   account: "Учётная запись"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "должно быть уникальным среди контактов пользователя."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "уже занято."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "является дубликатом ранее существовавшего запроса."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "уже занято."
+              taken: "is already taken."
             person: 
-              invalid: "неправильный."
+              invalid: "is invalid."
             username: 
-              taken: "уже занято."
+              taken: "is already taken."
   ago: "%{time} назад"
   application: 
     helper: 

@@ -15,29 +15,29 @@ eu:
   _photos: "argazkiak"
   _services: "Zerbitzuak"
   account: "Kontua"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "bakarra izan behar du erabiltzaile honen adiskideen artean."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "erabilpenenan dago jada"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "lehenagotik bazegoen jakinarazpen baten bikoizketa da."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "erabilpenean dago jada"
+              taken: "is already taken."
             person: 
-              invalid: "ez da zuzena"
+              invalid: "is invalid."
             username: 
-              taken: "erabilpenean dago jada"
+              taken: "is already taken."
   ago: "%{time} d(ir)ela"
   application: 
     helper: 

@@ -9,7 +9,7 @@ hu:
     search_for: "{{name}} keresése."
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Nem tudod eltávolítani a személyt az utolsó csoportból. (előbb törölnöd kell a kapcsolatot)."
     timeago: 
       day: "egy napja"
       days: "%d napja"

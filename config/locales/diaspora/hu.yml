@@ -15,29 +15,29 @@ hu:
   _photos: "Képek"
   _services: "Szolgáltatások"
   account: "Felhasználói fiók"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "egyedinek kell lennie"
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "már foglalt."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "egy példányban a már meglévő kérés."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "már foglalt."
+              taken: "is already taken."
             person: 
-              invalid: "érvénytelen."
+              invalid: "is invalid."
             username: 
-              taken: "már foglalt."
+              taken: "is already taken."
   ago: "ezelőtt"
   application: 
     helper: 
@@ -197,7 +197,7 @@ hu:
     index: 
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
-    mentioned: "has mentioned you in their"
+    mentioned: "megemlítettek téged a"
     new_request: "megosztást ajánlott neked."
     post: "bejegyzés"
     request_accepted: "elfogadta a megosztási kérésed."
@@ -205,7 +205,7 @@ hu:
     also_commented: 
       commented: "hozzászólt még %{post_author} bejegyzéséhez is:"
       sign_in: "Jelentkezz be, hogy megnézhesd."
-      subject: "%{name} is hozzászólt."
+      subject: "%{name} is hozzászólt az ismerősöd bejegyzéséhez."
     comment_on_post: 
       commented: "hozzászólt a bejegyzésedhez:"
       sign_in: "Jelentkezz be, hogy megnézd."
@@ -214,9 +214,9 @@ hu:
     hello: "Szia %{name}!"
     love: "Szeretettel,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "megemlített téged egy bejegyzésében:"
+      sign_in: "Jelentkezz be, hogy megnézhesd."
+      subject: "%{name} megemlített téged a Diaspora* közösségi oldalon."
     new_request: 
       just_sent_you: "ismerősnek jelölt a Diaspora* közösségi oldalon."
       sign_in: "Jelentkezz be"
@@ -279,7 +279,7 @@ hu:
       accepts: "Ha %{name} elfogadja a felkérést, akkor látjátok majd egymás bejegyzéseit."
       share_with: "Megosztás vele: %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "új csoport hozzáadása"
     show: 
       does_not_exist: "Személy nem létezik!"
       incoming_request: "%{name} megosztást kezdeményezett veled."
@@ -324,7 +324,7 @@ hu:
       edit: "szerkesztés"
       edit_delete_photo: "Kép leírás szerkesztése / kép törlése"
       make_profile_photo: "beállítás profilképnek"
-      original_post: "Original Post"
+      original_post: "Eredeti bejegyzés"
       permalink: "permalink"
       update_photo: "Kép frissítése"
       view: "nézet"
@@ -369,7 +369,7 @@ hu:
     create: 
       success: "A hitelesítés sikeres."
     destroy: 
-      success: "Sikeresen megsemmisítetted hitelesítést."
+      success: "Sikeresen megsemmisítetted a kapcsolódást."
     failure: 
       error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
     finder: 
@@ -383,10 +383,10 @@ hu:
     index: 
       connect_to_facebook: "Csatlakozás Facebook-hoz"
       connect_to_twitter: "Csatlakozás Twitter-hez"
-      disconnect: "eltüntet"
+      disconnect: "Megszakít"
       edit_services: "Szolgáltatások szerkesztése"
-      logged_in_as: "bejelentkezve, mint"
-      really_disconnect: "Eltünteted: %{service}?"
+      logged_in_as: "Bejelentkezve, mint"
+      really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Kattints a linkre, hogy elfogadd a meghívást."
       join_me_on_diaspora: "Találkozzunk a DIASPORA*-n"
@@ -425,7 +425,7 @@ hu:
       all: "összes"
       all_contacts: "összes kapcsolat"
       make_public: "nyilvánossá tesz"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "valaki megemlítéséhez írj '@' jelet, és kezd el írni a nevet"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
       share: "Megosztás"
@@ -435,7 +435,7 @@ hu:
       reshare: "Újraosztás"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Bejegyzés törlése sikertelen"
     helper: 
       no_message_to_display: "Nincs üzenet."
     new_status_message: 
@@ -467,7 +467,7 @@ hu:
       your_email: "E-mail címed"
       your_handle: "Diaspora felhasználóneved"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Kapcsolat a Diaspora-n"
       connect_services: "Csatold a többi szolgáltatásod is ide"
       edit_profile: "Profil szerkesztése"
       finished: "Kész!"
@@ -475,11 +475,11 @@ hu:
       signup_steps: "Utolsó 3 lépés:"
       skip: "ugrás a kezdetekhez"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Meg szeretnéd találni a Facebook ismerőseidet a Diaspora-n?"
+        skip: "Átugrom"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Befejezés"
+        people_already_on_diaspora: "Már Diaspora tagok"
       welcome: "Üdv a Diaspora*-n!"
     public: 
       does_not_exist: "%{username} nem létezik!"

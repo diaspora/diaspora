@@ -7,15 +7,15 @@ tr:
   _aspect: "Aspect"
   _aspects: "Aspects"
   _comment: "Comment"
-  _comments: "Comments"
+  _comments: "Yorumlar"
   _contact: "Contact"
   _contacts: "Contacts"
-  _home: "Home"
+  _home: "Ev"
   _more: "More"
   _photos: "fotoğraflar"
   _services: "Servisler"
   account: "Hesap"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ tr:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "zaten alınmış"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ tr:
         user: 
           attributes: 
             email: 
-              taken: "zaten alınmış"
+              taken: "is already taken."
             person: 
-              invalid: "geçersiz"
+              invalid: "is invalid."
             username: 
-              taken: "zaten alınmış"
+              taken: "is already taken."
   ago: "%{time} önce"
   application: 
     helper: 
@@ -100,8 +100,8 @@ tr:
       failure: "Failed to remove person from aspect"
       success: "Successfully removed person from aspect"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "Aile"
+      work: "İş"
     show: 
       edit_aspect: "edit aspect"
     update: 
@@ -112,12 +112,12 @@ tr:
   comments: 
     new_comment: 
       comment: "Yorum"
-      commenting: "Commenting..."
+      commenting: "Yorumlama..."
   contacts: 
-    few: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
-    zero: "no contacts"
+    few: "%{count} kişi"
+    one: "1 kişi"
+    other: "%{count} kişi"
+    zero: "kişi yok"
   date: 
     formats: 
       birthday: "%B %d"
@@ -133,14 +133,14 @@ tr:
   home: 
     show: 
       already_account: "already have an account?"
-      choice: "Choice"
+      choice: "Seçim"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
       login_here: "log in here"
-      ownership: "Ownership"
+      ownership: "Sahiplik"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Share what you want, with whom you want."
-      simplicity: "Simplicity"
+      simplicity: "Sadelik"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
@@ -150,20 +150,20 @@ tr:
     create: 
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
+      no_more: "Başka davetiyeniz bulunmamaktadır."
       rejected: "The following email addresses had problems: "
       sent: "Your invitation has been sent."
     edit: 
-      sign_up: "sign_up"
+      sign_up: "kayıt_ol"
     new: 
       already_invited: "Already invited"
       aspect: "Aspect"
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      comma_seperated_plz: "Virgülle ayırarak birden fazla e-posta adresi girebilirsin."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      invite_someone_to_join: "Invite someone to join Diaspora!"
+      invite_someone_to_join: "Diaspora'ya birilerini davet et!"
       personal_message: "Personal message"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
+      send_an_invitation: "Bir davet yolla"
+      send_invitation: "Davetiye yolla"
       to: "To"
   layouts: 
     application: 
@@ -174,20 +174,20 @@ tr:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "account settings"
+      account_settings: "hesap seçenekleri"
       blog: "blog"
       code: "code"
-      edit_profile: "edit profile"
+      edit_profile: "Profili düzenle"
       login: "login"
-      logout: "logout"
-      view_profile: "view profile"
+      logout: "Çıkış"
+      view_profile: "Profili görüntüle"
   more: "More"
   new_notifications: "%{count} new notifications"
   new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
+    few: "%{count} yeni istek!"
+    one: "yeni istek!"
+    other: "%{count} yeni istek!"
+    zero: "yeni istek yok"
   next: "next"
   no_new_notifications: "no new notifications"
   notifications: 
@@ -210,8 +210,8 @@ tr:
       commented: "has commented on your post!"
       sign_in: "Sign in to view it."
       subject: "%{name} has commented on your post."
-    diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
+    diaspora: "Diaspora e-posta robotu"
+    hello: "Merhaba %{name}!"
     love: "love,"
     mentioned: 
       mentioned: "mentioned you in a post:"
@@ -221,7 +221,7 @@ tr:
       just_sent_you: "just sent you a friend request on Diaspora*"
       sign_in: "sign in here"
       subject: "new Diaspora* friend request from %{from}"
-      try_it_out: "You should really think about checking it out."
+      try_it_out: "Bunu gerçekten kontrol etmeyi düşünmelisiniz."
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
       sign_in: "Sign in here"
@@ -235,7 +235,7 @@ tr:
   pagination: 
     next: "Next"
     previous: "Previous"
-  password: "Password"
+  password: "Parola"
   password_confirmation: "Şifre doğrulama"
   people: 
     aspect_list: 
@@ -244,15 +244,15 @@ tr:
       allow_search: "Allow for people to search for you"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
+      info_available_to: "Bu bilgi Diaspora'da bağlantı kurduğunuz herkes için görünür olacak."
+      last_name: "Soyad"
       update_profile: "Update Profile"
       your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_birthday: "Senin doğumgünün"
+      your_gender: "Cinsiyetin"
+      your_name: "Senin ismin"
+      your_photo: "Resmin"
+      your_profile: "Profilin"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -262,12 +262,12 @@ tr:
       no_results: "Hey! You need to search for something."
       results_for: "search results for"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
+      add_contact: "kişi ekle"
+      already_connected: "Zaten bağlı"
       pending_request: "bekletilen rica"
-      thats_you: "thats you!"
+      thats_you: "bu sensin!"
     profile_sidebar: 
-      bio: "bio"
+      bio: "hakkında"
       born: "born"
       cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Edit my profile"
@@ -290,17 +290,17 @@ tr:
       return_to_aspects: "Return to your aspects page"
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
-      to_accept_or_ignore: "to accept or ignore it."
+      to_accept_or_ignore: "kabul et veya yoksay."
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Profili güncelleme başarısız oldu"
+      updated: "Profil güncellendi"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      type_error: "Fotoğraf yüklemesi başarısız oldu.  Bir görüntünün eklendiğinden eminmisiniz?"
     destroy: 
       notice: "Foto silindi."
     edit: 
@@ -322,7 +322,7 @@ tr:
       collection_permalink: "collection permalink"
       delete_photo: "Sil Fotoyu"
       edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
+      edit_delete_photo: "Fotoğrafın tanımını düzenle/ fotoğrafı sil"
       make_profile_photo: "profil fotoğrafı yap"
       original_post: "Original Post"
       permalink: "permalink"
@@ -350,7 +350,7 @@ tr:
       enter_password_again: "Enter the same password as before"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "Katıl"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up_for_diaspora: "Diaspora'ya kayıt ol"
   requests: 
     create: 
       sending: "Sending..."
@@ -363,8 +363,8 @@ tr:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "sent!"
-  search: "Search"
+      sent: "yollandı!"
+  search: "Ara"
   services: 
     create: 
       success: "Doğrulama başarılı."
@@ -402,7 +402,7 @@ tr:
       know_email: "Know their email address? You should invite them"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Bütün kişiler"
       cannot_remove: "Cannot remove person from last aspect."
     invitations: 
       by_email: "by Email"
@@ -421,9 +421,9 @@ tr:
       outside: "Umumi mesajlar Diaspora'nın dışından olanlar için görünür olucak."
       title: "Herkese görünür bir mesaj göndermek üzeresiniz!"
     publisher: 
-      add_photos: "add photos"
+      add_photos: "fotoğraf ekle"
       all: "hepsi"
-      all_contacts: "all contacts"
+      all_contacts: "bütün kişiler"
       make_public: "herkese görünür yap"
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "mesaj gönder %{aspect}"
@@ -445,7 +445,7 @@ tr:
       destroy: "Yok et"
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "yorumları gizle"
     show_comments: "show comments"
   the_world: "dünya"
   username: "Kullanıcı Adı"
@@ -464,7 +464,7 @@ tr:
       export_data: "Bilgilerimi Dışarı taşı"
       new_password: "Yeni Şifre"
       receive_email_notifications: "Receive email notificaions?"
-      your_email: "Your email"
+      your_email: "E-postan"
       your_handle: "Your diaspora handle"
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"

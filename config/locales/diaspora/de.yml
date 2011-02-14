@@ -15,29 +15,29 @@ de:
   _photos: "Fotos"
   _services: "Dienste"
   account: "Konto"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "muss unter den Kontakten dieses Benutzers einzigartig sein."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "ist bereits vergeben."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "ist ein Duplikat einer existierenden Anfrage."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "wird bereits benutzt."
+              taken: "is already taken."
             person: 
-              invalid: "ist ungültig."
+              invalid: "is invalid."
             username: 
-              taken: "ist bereits vergeben."
+              taken: "is already taken."
   ago: "Vor %{time}"
   application: 
     helper: 
@@ -324,7 +324,7 @@ de:
       edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
-      original_post: "Original Post"
+      original_post: "Ursprünglicher Beitrag"
       permalink: "Permalink"
       update_photo: "Foto aktualisieren"
       view: "Anzeigen"

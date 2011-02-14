@@ -15,7 +15,7 @@ id:
   _photos: "photos"
   _services: "Services"
   account: "Account"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ id:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ id:
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "is already taken."
             person: 
-              invalid: "is invalid"
+              invalid: "is invalid."
             username: 
-              taken: "is already taken"
+              taken: "is already taken."
   ago: "%{time} ago"
   application: 
     helper: 

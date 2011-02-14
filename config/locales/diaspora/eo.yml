@@ -15,7 +15,7 @@ eo:
   _photos: "bildoj"
   _services: "Servoj"
   account: "Konto"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ eo:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ eo:
         user: 
           attributes: 
             email: 
-              taken: "is already taken"
+              taken: "is already taken."
             person: 
-              invalid: "is invalid"
+              invalid: "is invalid."
             username: 
-              taken: "is already taken"
+              taken: "is already taken."
   ago: "%{time} ago"
   application: 
     helper: 

@@ -15,29 +15,29 @@ nl:
   _photos: "foto's"
   _services: "Services"
   account: "Account"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "moet uniek zijn binnen de contacten van deze gebruiker."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is al in gebruik."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "is een duplicaat van een reeds bestaand verzoek."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "is al in gebruik."
+              taken: "is already taken."
             person: 
-              invalid: "is ongeldig."
+              invalid: "is invalid."
             username: 
-              taken: "is al in gebruik."
+              taken: "is already taken."
   ago: "%{time} geleden"
   application: 
     helper: 

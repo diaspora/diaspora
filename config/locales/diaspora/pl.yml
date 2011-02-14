@@ -15,7 +15,7 @@ pl:
   _photos: "zdjęcia"
   _services: "Usługi"
   account: "Konto"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ pl:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "jest już zajęty"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ pl:
         user: 
           attributes: 
             email: 
-              taken: "jest już zajęty"
+              taken: "is already taken."
             person: 
-              invalid: "jest niewłaściwa"
+              invalid: "is invalid."
             username: 
-              taken: "jest już zajęta"
+              taken: "is already taken."
   ago: "%{time} temu"
   application: 
     helper: 

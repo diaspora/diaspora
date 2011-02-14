@@ -15,29 +15,29 @@ it:
   _photos: "foto"
   _services: "Servizi"
   account: "Account"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "deve essere univoco tra i contatti di questo utente."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "non è disponibile."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "è un duplicato di una richiesta preesistente."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "non è disponibile."
+              taken: "is already taken."
             person: 
-              invalid: "non è valido."
+              invalid: "is invalid."
             username: 
-              taken: "non è disponibile."
+              taken: "is already taken."
   ago: "%{time} fa"
   application: 
     helper: 

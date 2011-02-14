@@ -15,29 +15,29 @@ sl:
   _photos: "slike"
   _services: "Servisi"
   account: "Uporabniški račun"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "stiki uporabnikov morajo biti različni."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "je že zasedeno."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "gre za dvojnik obstoječega povabila."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "je že zasedeno."
+              taken: "is already taken."
             person: 
-              invalid: "je neveljavno."
+              invalid: "is invalid."
             username: 
-              taken: "je že zasedeno."
+              taken: "is already taken."
   ago: "%{time} nazaj"
   application: 
     helper: 

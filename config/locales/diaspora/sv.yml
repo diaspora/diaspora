@@ -15,29 +15,29 @@ sv:
   _photos: "foton"
   _services: "Tjänster"
   account: "Konto"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "måste vara unik bland denna användares kontakter."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "är redan taget"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "är en dublett av en existerande förfrågan."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "är redan taget."
+              taken: "is already taken."
             person: 
-              invalid: "är ogiltigt."
+              invalid: "is invalid."
             username: 
-              taken: "är redan taget."
+              taken: "is already taken."
   ago: "%{time} sedan"
   application: 
     helper: 

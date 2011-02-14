@@ -15,29 +15,29 @@ el:
   _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"
   account: "Λογαριασμός"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "πρέπει να είναι μοναδικό ανάμεσα στις επαφές του χρήστη."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "χρησιμοποιείται ήδη."
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "είναι αντίγραφο προϋπάρχοντος αιτήματος."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "χρησιμοποιείται ήδη."
+              taken: "is already taken."
             person: 
-              invalid: "δεν είναι έγκυρο."
+              invalid: "is invalid."
             username: 
-              taken: "χρησιμοποιείται ήδη."
+              taken: "is already taken."
   ago: "%{time} πριν"
   application: 
     helper: 

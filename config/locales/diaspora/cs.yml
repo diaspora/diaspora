@@ -15,29 +15,29 @@ cs:
   _photos: "fotky"
   _services: "Služby"
   account: "Účet"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "musí být unikátní v rámci kontaktů tohoto uživatele."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "je již obsazeno"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "je duplicitní k již existující žádosti."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "je již obsazeno"
+              taken: "is already taken."
             person: 
-              invalid: "je neplatné."
+              invalid: "is invalid."
             username: 
-              taken: "je již obsazeno."
+              taken: "is already taken."
   ago: "před %{time}"
   application: 
     helper: 

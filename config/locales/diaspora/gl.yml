@@ -15,29 +15,29 @@ gl:
   _photos: "fotos"
   _services: "Servizos"
   account: "Conta"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "debe ser único entre os contactos deste usuario."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "xa está collido"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "duplicado dunha petición xa existente."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "xa está sendo usado"
+              taken: "is already taken."
             person: 
-              invalid: "é incorrecto"
+              invalid: "is invalid."
             username: 
-              taken: "xa está sendo usado"
+              taken: "is already taken."
   ago: "hai %{time}"
   application: 
     helper: 
@@ -111,7 +111,7 @@ gl:
   cancel: "Cancelar"
   comments: 
     new_comment: 
-      comment: "Comentario"
+      comment: "Comentar"
       commenting: "Comentando..."
   contacts: 
     few: "%{count} contactos"
@@ -197,7 +197,7 @@ gl:
     index: 
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
-    mentioned: "has mentioned you in their"
+    mentioned: "citoute nos seus"
     new_request: "ofrecido para compartir contigo."
     post: "publicar"
     request_accepted: "aceptada a túa petición para compartir."
@@ -214,9 +214,9 @@ gl:
     hello: "Ola %{name}!"
     love: "bicos,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "citoute nunha publicación:"
+      sign_in: "Entra para velo."
+      subject: "%{name} citoute en Diaspora*"
     new_request: 
       just_sent_you: "acaba de mandarche unha petición de contacto en Diaspora*."
       sign_in: "entra aquí"
@@ -267,7 +267,7 @@ gl:
       pending_request: "solicitude pendente"
       thats_you: "es ti!"
     profile_sidebar: 
-      bio: "bio"
+      bio: "biografia"
       born: "aniversario"
       cannot_remove: "Non se pode eliminar %{name} do último aspecto. (Se te queres desvincular desta persoa tes que eliminar o contacto.)"
       edit_my_profile: "Editar o meu perfil"
@@ -279,7 +279,7 @@ gl:
       accepts: "Cando %{name} acepte, comezaredes a ver as publicacións do outro en Diaspora"
       share_with: "Comeza a compartir con %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "engadir aspecto"
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
@@ -324,7 +324,7 @@ gl:
       edit: "editar"
       edit_delete_photo: "Editar descrición da foto / eliminar foto"
       make_profile_photo: "facela foto do perfil"
-      original_post: "Original Post"
+      original_post: "Publicación Orixinal"
       permalink: "permalink"
       update_photo: "Actualizar foto"
       view: "ver"
@@ -425,7 +425,7 @@ gl:
       all: "todos"
       all_contacts: "todos os contactos"
       make_public: "facer público"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
       share: "Compartir"
@@ -435,7 +435,7 @@ gl:
       reshare: "Recompartir "
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Fallo ao borrar publicación"
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
     new_status_message: 
@@ -465,9 +465,9 @@ gl:
       new_password: "Novo contrasinal"
       receive_email_notifications: "Receibir notificacións por correo?"
       your_email: "O teu correo"
-      your_handle: "Your diaspora handle"
+      your_handle: "A túa tarxeta diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Conectar a Diaspora"
       connect_services: "Conectar a outros servizos"
       edit_profile: "Edita o teu perfil"
       finished: "Xa está!"
@@ -475,11 +475,11 @@ gl:
       signup_steps: "Remata de rexistrarte completando estes tres pasos"
       skip: "saltar guía de comezo"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Gustaríache buscar os teus contactos de Facebook en Diaspora?"
+        skip: "Saltar"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Rematar"
+        people_already_on_diaspora: "Xente que xa está en Diaspora"
       welcome: "Benvido a Diaspora!"
     public: 
       does_not_exist: "O usuario %{username} non existe!"

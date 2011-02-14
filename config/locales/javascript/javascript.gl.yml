@@ -9,7 +9,7 @@ gl:
     search_for: "Procurar a {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Non podes quitar esta persoa do aspecto. Se te queres desconectar dela tes que borrar o contacto."
     timeago: 
       day: "un día"
       days: "%d días"
@@ -20,7 +20,7 @@ gl:
       month: "sobre un mes"
       months: "%d meses"
       prefixAgo: "hai"
-      prefixFromNow: ""
+      prefixFromNow: "javascripts:timeago:prefixDendeAgora"
       seconds: "menos dun minuto"
       suffixAgo: "atrás"
       suffixFromNow: "dende agora"

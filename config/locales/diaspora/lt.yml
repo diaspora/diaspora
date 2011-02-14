@@ -15,7 +15,7 @@ lt:
   _photos: "Nuotraukos"
   _services: "Paslaugos"
   account: "Paskyra"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ lt:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "jau užimtas"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ lt:
         user: 
           attributes: 
             email: 
-              taken: "jau užimtas"
+              taken: "is already taken."
             person: 
-              invalid: "negalioja"
+              invalid: "is invalid."
             username: 
-              taken: "užimtas"
+              taken: "is already taken."
   ago: "%{time} prieš"
   application: 
     helper: 

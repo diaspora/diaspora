@@ -15,7 +15,7 @@ ga:
   _photos: "pictíurí"
   _services: "Seirbhísí"
   account: "Cúntas"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,19 +25,19 @@ ga:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "tógtha cheanna féin"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "is dúblach é de iarratas a bhí an cheanna féin"
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "tóghta cheanna féin"
+              taken: "is already taken."
             person: 
-              invalid: "neamhbhailí."
+              invalid: "is invalid."
             username: 
-              taken: "tógtha cheanna féin"
+              taken: "is already taken."
   ago: "%{time} ó shin"
   application: 
     helper: 

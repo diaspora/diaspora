@@ -15,29 +15,29 @@ pt-BR:
   _photos: "Fotos"
   _services: "Serviços"
   account: "Conta"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "deve ser único entre os contatos deste usuário."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "já está em uso"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "é uma duplicata de uma solicitação já existente."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "já está em uso"
+              taken: "is already taken."
             person: 
-              invalid: "é inválido"
+              invalid: "is invalid."
             username: 
-              taken: "já está em uso"
+              taken: "is already taken."
   ago: "%{time} atrás"
   application: 
     helper: 

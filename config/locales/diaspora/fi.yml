@@ -15,29 +15,29 @@ fi:
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
   account: "Käyttäjätili"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
           attributes: 
             person_id: 
-              taken: "täytyy olla yksilöllinen tämän käyttäjän kontakteissa."
+              taken: "must be unique among this user's contacts."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "on jo käytössä"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
-              taken: "on samanlainen aiemman pyynnön kanssa."
+              taken: "is a duplicate of a pre-existing request."
         user: 
           attributes: 
             email: 
-              taken: "on jo käytössä"
+              taken: "is already taken."
             person: 
-              invalid: "ei kelpaa."
+              invalid: "is invalid."
             username: 
-              taken: "on jo käytössä."
+              taken: "is already taken."
   ago: "%{time} sitten"
   application: 
     helper: 

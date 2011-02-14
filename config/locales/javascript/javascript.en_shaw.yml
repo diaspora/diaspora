@@ -9,7 +9,7 @@ en_shaw:
     search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑤𐑨𐑕𐑑 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     timeago: 
       day: "𐑩 𐑛𐑱"
       days: "%d 𐑛𐑱𐑟"

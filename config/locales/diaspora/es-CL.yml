@@ -15,7 +15,7 @@ es-CL:
   _photos: "fotos"
   _services: "Servicios"
   account: "Cuenta"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ es-CL:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "ya ha sido elegido"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ es-CL:
         user: 
           attributes: 
             email: 
-              taken: "ya ha sido elegido"
+              taken: "is already taken."
             person: 
-              invalid: "no es válido"
+              invalid: "is invalid."
             username: 
-              taken: "ya ha sido elegido"
+              taken: "is already taken."
   ago: "hace"
   application: 
     helper: 

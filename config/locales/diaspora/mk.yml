@@ -15,7 +15,7 @@ mk:
   _photos: "фотографии"
   _services: "Сервиси"
   account: "Корисничка сметка"
-  activemodel: 
+  activerecord: 
     errors: 
       models: 
         contact: 
@@ -25,7 +25,7 @@ mk:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "веќе е заземено"
+              taken: "is already taken."
         request: 
           attributes: 
             from_id: 
@@ -33,11 +33,11 @@ mk:
         user: 
           attributes: 
             email: 
-              taken: "веќе е заземено"
+              taken: "is already taken."
             person: 
-              invalid: "не е валидно"
+              invalid: "is invalid."
             username: 
-              taken: "веќе е заземено"
+              taken: "is already taken."
   ago: "%{time} пред"
   application: 
     helper: 
