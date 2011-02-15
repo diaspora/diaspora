@@ -12,6 +12,7 @@ var Publisher = {
   open: function(){
     Publisher.form().removeClass('closed');
     Publisher.form().find("textarea").css('min-height', '42px');
+    Publisher.determineSubmitAvailability();
   },
   cachedForm : false,
   form: function(){
@@ -27,6 +28,13 @@ var Publisher = {
     }
     return Publisher.cachedInput;
   },
+  cachedSubmit : false,
+  submit: function(){
+    if(!Publisher.cachedSubmit){
+      Publisher.cachedSubmit = Publisher.form().find('#status_message_submit');
+    }
+    return Publisher.cachedSubmit;
+  },
 
   cachedHiddenInput : false,
   hiddenInput: function(){
@@ -34,6 +42,14 @@ var Publisher = {
       Publisher.cachedHiddenInput = Publisher.form().find('#status_message_message');
     }
     return Publisher.cachedHiddenInput;
+  },
+
+  cachedSubmit : false,
+  submit: function(){
+    if(!Publisher.cachedSubmit){
+      Publisher.cachedSubmit = Publisher.form().find('#status_message_submit');
+    }
+    return Publisher.cachedSubmit;
   },
 
   autocompletion: {
@@ -184,6 +200,7 @@ var Publisher = {
 
     keyUpHandler : function(event){
       Publisher.autocompletion.repopulateHiddenInput();
+      Publisher.determineSubmitAvailability();
     },
 
     keyDownHandler : function(event){
@@ -252,6 +269,15 @@ var Publisher = {
       Publisher.oldInputContent = Publisher.input().val();
     }
   },
+  determineSubmitAvailability: function(){
+    var onlyWhitespaces = (Publisher.input().val().trim() == '');
+    var isSubmitDisabled = Publisher.submit().attr('disabled');
+    if (onlyWhitespaces && !isSubmitDisabled) {
+      Publisher.submit().attr('disabled', true);
+    } else if (!onlyWhitespaces && isSubmitDisabled) {
+      Publisher.submit().removeAttr('disabled');
+    }
+  },
   clear: function(){
     this.autocompletion.mentionList.clear();
     $("#photodropzone").find('li').remove();
@@ -261,6 +287,7 @@ var Publisher = {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
     Publisher.cachedHiddenInput = false;
+    Publisher.cachedSubmit = false;
     $("div.public_toggle input").live("click", function(evt) {
       $("#publisher_service_icons").toggleClass("dim");
       if ($(this).attr('checked') == true) {
