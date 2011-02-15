@@ -2,7 +2,6 @@
 #modified by David Morley
 require 'time'
 
-module ModifiedHelper
   def last_modified
     git_last='git log -1 --pretty=format:"%cd"'
     filepath = Rails.root.join('tmp', '.last_pull')
@@ -29,5 +28,4 @@ module ModifiedHelper
     last
       headers[@header_name] = "#{last}"
     end
-end
 
