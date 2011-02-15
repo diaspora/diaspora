@@ -21,23 +21,23 @@ hu:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "egyedinek kell lennie."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "már foglalt."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "már létező kérés."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "már foglalt."
             person: 
-              invalid: "is invalid."
+              invalid: "érvénytelen."
             username: 
-              taken: "is already taken."
+              taken: "már foglalt."
   ago: "ezelőtt"
   application: 
     helper: 

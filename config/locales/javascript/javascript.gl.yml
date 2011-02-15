@@ -22,7 +22,7 @@ gl:
       prefixAgo: "hai"
       prefixFromNow: "javascripts:timeago:prefixDendeAgora"
       seconds: "menos dun minuto"
-      suffixAgo: "atrás"
+      suffixAgo: ""
       suffixFromNow: "dende agora"
       year: "sobre un ano"
       years: "%d anos"

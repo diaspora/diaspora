@@ -21,23 +21,23 @@ nl:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "moet uniek zijn onder de contacten van deze gebruiker."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "is al bezet."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "is een duplicaat van een reeds bestaande aanvraag."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "is al bezet."
             person: 
-              invalid: "is invalid."
+              invalid: "is ongeldig."
             username: 
-              taken: "is already taken."
+              taken: "is al bezet."
   ago: "%{time} geleden"
   application: 
     helper: 
@@ -197,7 +197,7 @@ nl:
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
-    mentioned: "has mentioned you in their"
+    mentioned: "heeft je genoemd in zijn/haar"
     new_request: "bood aan om met jou te delen."
     post: "post"
     request_accepted: "heeft je verzoek geaccepteerd."
@@ -205,7 +205,7 @@ nl:
     also_commented: 
       commented: "heeft ook op %{post_author}'s post gereageerd:"
       sign_in: "Log in om het te zien."
-      subject: "%{name} heeft ook gereageerd."
+      subject: "%{name} heeft ook gereageerd op de post van jou contact."
     comment_on_post: 
       commented: "heeft gereageerd op jou post:"
       sign_in: "Log in om het te zien."
@@ -214,9 +214,9 @@ nl:
     hello: "Hoi %{name}!"
     love: "liefs,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "heeft jou genoemd in een post:"
+      sign_in: "Log in om het te bekijken."
+      subject: "%{name} heeft jou genoemd op Diaspora*"
     new_request: 
       just_sent_you: "heeft je zojuist een contactverzoek verzonden op Diaspora*"
       sign_in: "Log hier in"
@@ -279,7 +279,7 @@ nl:
       accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
       share_with: "Start delen met %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "voeg nieuw aspect toe"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
@@ -324,7 +324,7 @@ nl:
       edit: "bewerk"
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
-      original_post: "Original Post"
+      original_post: "Originele post"
       permalink: "permalink"
       update_photo: "Update foto"
       view: "bekijk"
@@ -425,7 +425,7 @@ nl:
       all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "om iemand te noemen, druk op '@' en typ zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
       share: "Delen"
@@ -435,7 +435,7 @@ nl:
       reshare: "Herdeel"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Verwijderen van post mislukt"
     helper: 
       no_message_to_display: "Geen bericht om te weergeven."
     new_status_message: 
@@ -467,7 +467,7 @@ nl:
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora handle"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Verbind op Diaspora"
       connect_services: "Verbind met je andere services"
       edit_profile: "Bewerk je profiel"
       finished: "Klaar!"
@@ -475,11 +475,11 @@ nl:
       signup_steps: "Voltooi je aanmelding door middel van de volgende drie stappen:"
       skip: "sla 'getting started' over"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Wil je jou Facebook-vrienden vinden op Diaspora?"
+        skip: "Overslaan"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Voltooien"
+        people_already_on_diaspora: "Mensen reeds op Diaspora"
       welcome: "Welkom op Diaspora!"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"

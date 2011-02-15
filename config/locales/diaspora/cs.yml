@@ -21,23 +21,23 @@ cs:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "musí být unikátní v rámci kontaktů tohoto uživatele."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "je již obsazen."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "je duplicitní k dříve existující žádosti."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "je již obsazen."
             person: 
-              invalid: "is invalid."
+              invalid: "je neplatný."
             username: 
-              taken: "is already taken."
+              taken: "je již obsazeno."
   ago: "před %{time}"
   application: 
     helper: 
@@ -324,7 +324,7 @@ cs:
       edit: "upravit"
       edit_delete_photo: "Upravit popis fotky / smazat fotku"
       make_profile_photo: "vytvořit profilovou fotku"
-      original_post: "Original Post"
+      original_post: "Původní příspěvek"
       permalink: "trvalý odkaz"
       update_photo: "Aktualizovat fotku"
       view: "zobrazit"

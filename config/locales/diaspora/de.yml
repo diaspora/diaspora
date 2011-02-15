@@ -21,23 +21,23 @@ de:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "muss einzigartig sein innerhalb den Kontakten dieses Benutzers."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "wird schon benutzt."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "wurde schon einmal angefordert."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "wird schon benutzt."
             person: 
-              invalid: "is invalid."
+              invalid: "ist nicht gültig."
             username: 
-              taken: "is already taken."
+              taken: "wird schon benutzt."
   ago: "Vor %{time}"
   application: 
     helper: 

@@ -21,23 +21,23 @@ gl:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "ha ser único entre os contactos deste usuario."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "xa está collido."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "é un duplicado dunha petición xa existente."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "xa está collido."
             person: 
-              invalid: "is invalid."
+              invalid: "non é válido."
             username: 
-              taken: "is already taken."
+              taken: "xa está collido."
   ago: "hai %{time}"
   application: 
     helper: 
@@ -191,15 +191,15 @@ gl:
   next: "seguinte"
   no_new_notifications: "non hai novas peticións"
   notifications: 
-    also_commented: "tamén comentado nos do teu contacto"
-    comment_on_post: "comentado no teu"
+    also_commented: "tamén comentou nos do teu contacto"
+    comment_on_post: "comentou no teu"
     deleted: "borrado"
     index: 
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
     mentioned: "citoute nos seus"
     new_request: "ofrecido para compartir contigo."
-    post: "publicar"
+    post: "publicación"
     request_accepted: "aceptada a túa petición para compartir."
   notifier: 
     also_commented: 

@@ -9,7 +9,7 @@ nl:
     search_for: "Zoek naar {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Kan persoon niet uit laatste aspect verwijderen. (Als je de verbinding met deze persoon wilt verbreken moet je het contact verwijderen.)"
     timeago: 
       day: "een dag"
       days: "%d dagen"
