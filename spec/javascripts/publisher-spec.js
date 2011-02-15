@@ -30,6 +30,11 @@ describe("Publisher", function() {
         Publisher.open();
         expect(Publisher.form().hasClass('closed')).toBeFalsy();
         });
+      it("disables the share button", function() {
+        expect(Publisher.submit().attr('disabled')).toBeFalsy();
+        Publisher.open();
+        expect(Publisher.submit().attr('disabled')).toBeTruthy();
+        });
     });
     describe("close", function() {
       beforeEach(function() {
@@ -212,7 +217,41 @@ describe("Publisher", function() {
         });
       });
 
-
+      describe("keyUpHandler", function(){
+        var input;
+        var submit;
+        beforeEach(function(){
+          spec.loadFixture('aspects_index');
+          Publisher.initialize();
+          input = Publisher.input();
+          submit = Publisher.submit();
+          Publisher.open();
+        });
+        it("keep the share button disabled when adding only whitespaces", function(){
+          expect(submit.attr('disabled')).toBeTruthy();
+          input.val(' ');
+          input.keyup();
+          expect(submit.attr('disabled')).toBeTruthy();
+        });
+        it("enable the share button when adding non-whitespace characters", function(){
+          expect(submit.attr('disabled')).toBeTruthy();
+          input.val('some text');
+          input.keyup();
+          expect(submit.attr('disabled')).toBeFalsy();
+        });
+        it("should toggle share button disable/enable when playing with input", function(){
+          expect(submit.attr('disabled')).toBeTruthy();
+          input.val('         ');
+          input.keyup();
+          expect(submit.attr('disabled')).toBeTruthy();
+          input.val('text');
+          input.keyup();
+          expect(submit.attr('disabled')).toBeFalsy();
+          input.val('');
+          input.keyup();
+          expect(submit.attr('disabled')).toBeTruthy();
+        });
+      });
 
       describe("addMentionToInput", function(){
         var func;
