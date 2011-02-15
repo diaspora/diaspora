@@ -7,6 +7,7 @@ Diaspora::Application.routes.draw do
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
 
+  resource :profile
   match 'services/inviter/:provider' => 'services#inviter', :as => 'service_inviter'
   match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
@@ -19,7 +20,7 @@ Diaspora::Application.routes.draw do
   resources :posts,           :only => [:show], :path => '/p/'
 
   match '/people/share_with' => 'people#share_with', :as => 'share_with'
-  resources :people do
+  resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
   end

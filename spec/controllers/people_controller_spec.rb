@@ -155,49 +155,4 @@ describe PeopleController do
       get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
     end
   end
-
-  describe '#update' do
-    it "sets the flash" do
-      put :update, :id => @user.person.id,
-        :profile => {
-          :image_url  => "",
-          :first_name => "Will",
-          :last_name  => "Smith"
-        }
-      flash[:notice].should_not be_empty
-    end
-
-    context 'with a profile photo set' do
-      before do
-        @params = { :id => @user.person.id,
-                    :profile =>
-                     {:image_url => "",
-                      :last_name  => @user.person.profile.last_name,
-                      :first_name => @user.person.profile.first_name }}
-
-        @user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
-        @user.person.profile.save
-      end
-      it "doesn't overwrite the profile photo when an empty string is passed in" do
-        image_url = @user.person.profile.image_url
-        put :update, @params
-
-        Person.find(@user.person.id).profile.image_url.should == image_url
-      end
-    end
-    it 'does not allow mass assignment' do
-      person = @user.person
-      new_user = Factory.create(:user)
-      person.owner_id.should == @user.id
-      put :update, :id => @user.person.id, :owner_id => new_user.id
-      Person.find(person.id).owner_id.should == @user.id
-    end
-
-    it 'does not overwrite the profile diaspora handle' do
-      handle_params = {:id => @user.person.id,
-                       :profile => {:diaspora_handle => 'abc@a.com'} }
-      put :update, handle_params
-      Person.find(@user.person.id).profile[:diaspora_handle].should_not == 'abc@a.com'
-    end
-  end
 end

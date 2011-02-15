@@ -101,7 +101,7 @@
 
           %ul{:data => {:role => 'listview', :inset => 'true'}}
             %li
-              = link_to t('people.edit.your_profile'), person_path(current_user.person)
+              = link_to t('profiles.edit.your_profile'), edit_profile_path
             %li
               = link_to t('notifications.index.notifications'), notifications_path
               .ui-li-count

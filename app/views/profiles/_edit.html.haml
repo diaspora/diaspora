@@ -1,0 +1,52 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.edit_profile')
+
+= form_tag profile_path(profile), :method => :put, :multipart => true, :id => 'update_profile_form' do
+  %h3
+    = t('profiles.edit.your_profile')
+    .description
+      = t('profiles.edit.info_available_to')
+
+  = error_messages_for profile
+
+  %h4
+    = t('profiles.edit.your_name')
+    = text_field_tag 'profile[first_name]', profile.first_name, :placeholder => t('profiles.edit.first_name')
+    = text_field_tag 'profile[last_name]', profile.last_name, :placeholder => t('profiles.edit.last_name')
+
+  %h4
+    = t('profiles.edit.your_gender')
+    %br
+    = text_field_tag 'profile[gender]', profile.gender, :placeholder => t("fill_me_out")
+
+  %h4
+    = t('profiles.edit.your_birthday')
+    %br
+    = select_date profile.birthday, :prompt => true,
+      :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
+
+  %h4
+    = t('profiles.edit.your_bio')
+    = text_area_tag 'profile[bio]', profile.bio, :rows => 5, :placeholder => t('fill_me_out')
+
+  %h4
+    = t('profiles.edit.your_photo')
+    = render 'photos/new_profile_photo', :aspect => aspect, :person => person
+    %b
+
+  %h4
+    = t('search')
+    %p{:class=>"checkbox_select"}
+      = label_tag 'profile[searchable]', t('profiles.edit.allow_search')
+      = check_box_tag 'profile[searchable]', true, profile.searchable
+
+  = hidden_field_tag :getting_started, step if step
+
+  .submit_block
+    =yield(:submit_block)
+
+

@@ -4,5 +4,6 @@
 
 - content_for :submit_block do
   = submit_tag "#{t('users.getting_started.save_and_continue')} →"
-= render :partial => 'people/edit'
+= render :partial => 'profiles/edit', :locals => {:person => @person, 
+    :profile => @profile, :aspect => @aspect, :step => @step}
 
