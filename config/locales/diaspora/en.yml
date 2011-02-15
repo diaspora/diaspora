@@ -328,6 +328,7 @@ en:
           send_invitation: "Send invitation"
           aspect: "Aspect"
           already_invited: "Already invited"
+          resend: "Resend"
       check_token:
           not_found: "Invitation token not found"
       edit:

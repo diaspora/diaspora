@@ -43,4 +43,4 @@
           = t('.already_invited')
         - for invitation in @sent_invitations
           = invitation.recipient.email
-          = link_to "Resend", invitation_resend_path(invitation), :confirm => t('are_you_sure')
+          = link_to t('.resend'), invitation_resend_path(invitation), :confirm => t('are_you_sure')
