@@ -55,7 +55,7 @@ class AspectMembershipsController < ApplicationController
 
   def create
     @person = Person.find(params[:person_id])
-    @aspect = current_user.aspects.where(params[:aspect_id]).first
+    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
     @contact = current_user.contact_for(@person)
 
 

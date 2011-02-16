@@ -6,12 +6,13 @@ class ContactsController < ApplicationController
   before_filter :authenticate_user!
   
   def new
+    #should be share_with?
     render :nothing => true
   end
 
   def create
     @person = Person.find(params[:person_id])
-    @aspect = current_user.aspects.find(params[:aspect_id])
+    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
     request_to_aspect(@aspect, @person)
 

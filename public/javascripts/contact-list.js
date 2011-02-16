@@ -87,6 +87,9 @@ $(document).ready(function() {
 
     $(".badges").prepend(json.badge_html);
     $(this).parent().html(json.button_html);
+
+    $('.aspect_list ul').find('.add').each(function(a,b){$(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));})
+
     $(this).fadeTo(200,1);
   });
 
