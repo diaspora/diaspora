@@ -271,6 +271,9 @@ module ApplicationHelper
 
 
   def get_javascript_strings_for(language)
+    # Workaround for a weired caching issue when multiple users are logged in
+    I18n.backend.reload!
+    
     defaults = I18n.t('javascripts', :locale => DEFAULT_LANGUAGE)
 
     if language != DEFAULT_LANGUAGE
