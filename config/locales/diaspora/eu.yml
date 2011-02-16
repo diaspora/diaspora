@@ -6,7 +6,7 @@
 eu: 
   _aspect: "Alderdia"
   _aspects: "Alderdiak"
-  _comment: "Comment"
+  _comment: "Iruzkindu"
   _comments: "Iruzkinak"
   _contact: "Adiskidea"
   _contacts: "Adiskideak"
@@ -53,8 +53,8 @@ eu:
       success: "Adiskidea arrakastaz gehitu da alderdira."
     aspect_contacts: 
       done_editing: "aldaketa arrakastatsua"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Alderdi honetako adiskideak nor dagoen bere alderdian ezingo dute ikusi."
+    contacts_visible: "Alderdi honetako adiskideak jokingo dute nor dagoen alderdian."
     create: 
       failure: "Akatsa alderdiaren sormenean."
       success: "Zure alderdia, %{name}, sortua izan da."
@@ -63,10 +63,10 @@ eu:
     edit: 
       add_existing: "Jada adiskide den norbait gehitu"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "alderdi zerrenda publikoa egin"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
-      save: "Save"
+      save: "Gorde"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Alderdi ez hutsa"
@@ -121,7 +121,7 @@ eu:
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
+      birthday_with_year: "%Y &B %d"
       fullmonth_day: "%B %d"
   delete: "Ezabatu"
   email: "E-posta"
@@ -162,17 +162,18 @@ eu:
       if_they_accept_info: "eskaera onartzen badute, gonbidatutako alderdira batuko dira"
       invite_someone_to_join: "Gonbida ezazu norbait Diasporan izen ematera!"
       personal_message: "Mezu pertsonala"
+      resend: "Resend"
       send_an_invitation: "Gonbidapen bat bidali"
       send_invitation: "Gonbidapena bidali"
       to: "Jasotzailea:"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
+      have_a_problem: "Arazoren bat? Aurkitu erantzuna hemen"
+      logged_in_as: "%{name} zara."
       powered_by: "DIASPORA*K ESKAINIA"
       toggle: "toggle mobile site"
       whats_new: "ezer berririk?"
-      your_aspects: "your aspects"
+      your_aspects: "zure alderdiak"
     header: 
       account_settings: "kontuaren lehentasunak"
       blog: "bloga"
@@ -319,19 +320,19 @@ eu:
     photo: 
       view_all: "%{aspect}(r)en argazki guztiak ikusi"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "bildumako permalink"
       delete_photo: "Argazkia Ezabatu"
       edit: "aldatu"
       edit_delete_photo: "Argazkiaren deskribapena aldatu / argazkia ezabatu"
       make_profile_photo: "profileko argazki bihurtu"
-      original_post: "Original Post"
+      original_post: "Jatorrizko mezua"
       permalink: "permalink"
       update_photo: "Argazkia Igo"
       view: "ikusi"
     update: 
       error: "Akatsa argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
-  previous: "previous"
+  previous: "aurrekoa"
   profile: "Profila"
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
@@ -425,17 +426,17 @@ eu:
       all: "guztiak"
       all_contacts: "adiskide guztiak"
       make_public: "publikoa egin"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "norbait aipatzeko, idatzi '@' eta hasi adiskidearen izena idazten"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
       share: "Partekatu"
       share_with: "%{aspect}(r)ekin partekatu"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "zer berri?"
     reshare: 
       reshare: "Berriz partekatu"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Akatsa mezua ezabatzean"
     helper: 
       no_message_to_display: "Erakusteko mezurik ez."
     new_status_message: 

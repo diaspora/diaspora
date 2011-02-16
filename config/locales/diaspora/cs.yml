@@ -162,6 +162,7 @@ cs:
       if_they_accept_info: "pokud přijmou, budou přidáni do aspektu, do kterého byly pozváni."
       invite_someone_to_join: "Pozvěte někoho na Diasporu!"
       personal_message: "Osobní zpráva"
+      resend: "Znovu odeslat"
       send_an_invitation: "Odeslat pozvánku"
       send_invitation: "Odeslat pozvánku"
       to: "Pro"

@@ -162,6 +162,7 @@ ro:
       if_they_accept_info: "în cazul în care acceptă, acestea vor fi adăugate la aspectul la care ai le-ai invitat."
       invite_someone_to_join: "Invită pe cineva pe Diaspora!"
       personal_message: "Mesaj personal"
+      resend: "Resend"
       send_an_invitation: "Trimite o invitaţie"
       send_invitation: "Trimite invitaţie"
       to: "Pentru"

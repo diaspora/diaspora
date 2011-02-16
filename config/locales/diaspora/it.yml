@@ -162,6 +162,7 @@ it:
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad unirsi a Diaspora!"
       personal_message: "Messaggio privato"
+      resend: "Resend"
       send_an_invitation: "Invia un invito"
       send_invitation: "Invito inviato"
       to: "A"

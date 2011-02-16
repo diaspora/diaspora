@@ -162,6 +162,7 @@ sl:
       if_they_accept_info: "v kolikor sprejmejo vaše povabilo, bodo samodejno dodani skupinam v katere ste jih povabili."
       invite_someone_to_join: "Povabi druge, da se pridružijo v Diasporo!"
       personal_message: "Osebno sporočilo"
+      resend: "Resend"
       send_an_invitation: "Pošlji povabilo"
       send_invitation: "Pošlji povabilo"
       to: "Za"

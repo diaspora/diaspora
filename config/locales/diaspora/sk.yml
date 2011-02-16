@@ -162,6 +162,7 @@ sk:
       if_they_accept_info: "Po odsúhlasení budú pozvaní užívatelia pridaný do aspektu."
       invite_someone_to_join: "Pozvite niekoho do Diaspory*!"
       personal_message: "Súkromná správa"
+      resend: "Resend"
       send_an_invitation: "Send an invitation"
       send_invitation: "Poslať pozvánku"
       to: "Komu"

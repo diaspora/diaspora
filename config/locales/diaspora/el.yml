@@ -21,23 +21,23 @@ el:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "πρέπει να είναι μοναδικό μεταξύ των επαφών του χρήστη."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "είναι ήδη σε χρήση"
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "είναι αντίγραφο ενός προϋπάρχοντος αιτήματος."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "είναι ήδη σε χρήση."
             person: 
-              invalid: "is invalid."
+              invalid: "είναι άκυρη."
             username: 
-              taken: "is already taken."
+              taken: "είναι ήδη σε χρήση."
   ago: "%{time} πριν"
   application: 
     helper: 
@@ -162,6 +162,7 @@ el:
       if_they_accept_info: "αν δεχτούν, θα προστεθούν στην πτυχή που τους πρασκαλέσατε. "
       invite_someone_to_join: "Προσκαλέστε κάποιον στο Diaspora!"
       personal_message: "Προσωπικό μήνυμα"
+      resend: "Resend"
       send_an_invitation: "Στείλτε μια πρόσκληση"
       send_invitation: "Στείλτε πρόσκληση"
       to: "Στον"
@@ -170,7 +171,7 @@ el:
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      toggle: "toggle mobile site"
+      toggle: "εναλλαγή ιστοσελίδας κινητού"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header: 
@@ -197,7 +198,7 @@ el:
     index: 
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
-    mentioned: "has mentioned you in their"
+    mentioned: "σας ανέφερε στο"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
@@ -205,21 +206,21 @@ el:
     also_commented: 
       commented: "σχολίασε επίσης τη δημοσίευση του χρήστη %{post_author} :"
       sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο χρήστης %{name} επίσης σχολίασε."
+      subject: "Ο/Η %{name} επίσης σχολίασε στη δημοσίευση της επαφής σας."
     comment_on_post: 
-      commented: "σχολίασε τη δημισίευση σας!"
+      commented: "έχει σχολιάσει σε δημοσίευση σας:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
     diaspora: "ρομπότ για τα email του δικτύου Diaspora"
     hello: "Γειά σου %{name}!"
     love: "αγάπη,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
+      sign_in: "Συνδεθείτε για να το δείτε."
+      subject: "Ο/Η %{name} σας αναφέρει στο Diaspora*"
     new_request: 
       just_sent_you: "έχετε ένα νέο αίτημα φίλου στο Diaspora*"
-      sign_in: "Είσοδος"
+      sign_in: "Είσοδος εδώ"
       subject: "έχετε νέο αίτημα επαφής Diaspora από τον χρήστη %{from}"
       try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
     request_accepted: 
@@ -279,10 +280,10 @@ el:
       accepts: "Μόλις ο χρήστης %{name} δεχθεί, θα αρχίσει ο καθένας να βλέπει τις δημοσιεύσεις του άλλου στο Diaspora"
       share_with: "Αρχή διαμοιρασμού με τον χρήστη %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "προσθήκη νέας πτυχής"
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
-      incoming_request: "Έχετε ένα εισερχόμενο αίτημα από αυτό το πρόσωπο."
+      incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν είστε συνδεδεμένος με τον χρήστη %{name}"
       recent_posts: "Πρόσφατες δημοσιεύσεις"
@@ -319,12 +320,12 @@ el:
     photo: 
       view_all: "δες όλες τις φωτογραφίες του χρήστη %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "permalink συλλογής"
       delete_photo: "Διαγραφή Φωτογραφίας"
       edit: "Επεξεργασία"
       edit_delete_photo: "Επεξεργασία περιγραφής φωτογραφίας / διαγραφή φωτογραφίας"
       make_profile_photo: "ορισμός ως φωτογραφίας προφίλ"
-      original_post: "Original Post"
+      original_post: "Αυθεντική Δημοσίευση"
       permalink: "permalink"
       update_photo: "Ενημέρωση Φωτογραφίας"
       view: "προβολή"
@@ -425,7 +426,7 @@ el:
       all: "όλα"
       all_contacts: "όλες οι επαφές"
       make_public: "Δημοσιοποίησε το"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "για να αναφέρεις κάποιον, πάτα το '@' και αρχίσε να πληκτρολογείς το όνομά του"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στο %{aspect}"
       posting: "Ανάρτηση..."
       share: "Μοιράσου"
@@ -435,7 +436,7 @@ el:
       reshare: "Μοιράσου και πάλι"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Αποτυχία διαγραφής δημοσίευσης"
     helper: 
       no_message_to_display: "Κανένα μήνυμα"
     new_status_message: 
@@ -467,7 +468,7 @@ el:
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Σύνδεση στο Diaspora"
       connect_services: "Συνδεθείτε με άλλες υπηρεσίες"
       edit_profile: "Επεξεργασία του προφίλ σας"
       finished: "Τέλος!"
@@ -475,11 +476,11 @@ el:
       signup_steps: "Ολοκληρώστε την εγγραφή σας συμπληρώνοντας τα παρακάτω τρία βήματα:"
       skip: "παράλειψη της εισαγωγής"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Θα θέλατε να βρείτε τους φίλους σας από το Facebook στο Diaspora;"
+        skip: "Παράλειψη"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Τέλος"
+        people_already_on_diaspora: "Άνθρωποι ήδη στο Diaspora"
       welcome: "Καλώς ήλθατε στο Diaspora!"
     public: 
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"

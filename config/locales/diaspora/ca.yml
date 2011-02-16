@@ -162,6 +162,7 @@ ca:
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Convida algú a unir-se a Diaspora!"
       personal_message: "Personal message"
+      resend: "Resend"
       send_an_invitation: "Enviar una invitació"
       send_invitation: "Enviar invitació"
       to: "Per"

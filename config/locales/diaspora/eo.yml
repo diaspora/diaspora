@@ -162,6 +162,7 @@ eo:
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Invite someone to join Diaspora!"
       personal_message: "Personal message"
+      resend: "Resend"
       send_an_invitation: "Send an invitation"
       send_invitation: "Send invitation"
       to: "Al"

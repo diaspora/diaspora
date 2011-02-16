@@ -35,8 +35,8 @@ is:
         subject: "Þér hefur verið boðið að taka þátt í Diaspora!"
       inviters: 
         accept_at: ", Á% {url}, getur þú samþykkt það í gegnum hlekkinn hér fyrir neðan."
-        has_invited_you: "%{name} hefur boðið þér að taka þátt í Diaspora"
-        have_invited_you: "%{names} hafa boðið þér að taka þátt í Diaspora"
+        has_invited_you: "%{name} hefur boðið þér að taka þátt í Díaspora"
+        have_invited_you: "%{names} hafa boðið þér að taka þátt í Díaspora"
       reset_password_instructions: 
         change: "Breyta lykilorðinu mínu"
         ignore: "Ef þú baðst ekki um þetta, vinsamlegast gefðu þessum tölvupósti þá engan gaum."

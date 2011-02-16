@@ -162,6 +162,7 @@ mk:
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Поканете некој да се придружи на Diaspora!"
       personal_message: "Personal message"
+      resend: "Resend"
       send_an_invitation: "Испрати покана"
       send_invitation: "Испрати покана"
       to: "До"

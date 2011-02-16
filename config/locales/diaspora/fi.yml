@@ -162,6 +162,7 @@ fi:
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
       personal_message: "Henkilökohtainen viesti"
+      resend: "Resend"
       send_an_invitation: "Lähetä kutsu"
       send_invitation: "Lähetä kutsu"
       to: "Vastaanottaja"

@@ -162,6 +162,7 @@ sv:
       if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
       invite_someone_to_join: "Bjud in en vän till Diaspora!"
       personal_message: "Personligt meddelande"
+      resend: "Resend"
       send_an_invitation: "Skicka en inbjudan"
       send_invitation: "Skicka inbjudan"
       to: "Till"

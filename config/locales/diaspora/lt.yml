@@ -162,6 +162,7 @@ lt:
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Pakviesk ką nors prisijungti prie Diasporos!"
       personal_message: "Personal message"
+      resend: "Resend"
       send_an_invitation: "Nusiųsk kvietimą"
       send_invitation: "Siųsti kvietimą"
       to: "Kam"

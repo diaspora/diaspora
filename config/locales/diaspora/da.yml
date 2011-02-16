@@ -162,6 +162,7 @@ da:
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitér en person til Diaspora!"
       personal_message: "Personlig besked"
+      resend: "Resend"
       send_an_invitation: "Send en invitation"
       send_invitation: "Send invitation"
       to: "Til"

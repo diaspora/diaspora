@@ -162,6 +162,7 @@ ga:
       if_they_accept_info: "má gleachann siad, beidh siad cuirthe leis an gné a sheol tú cuireadh ó."
       invite_someone_to_join: "Seol cuireadh go Diaspora chuig duine!"
       personal_message: "Personal message"
+      resend: "Resend"
       send_an_invitation: "Seol cuireadh"
       send_invitation: "Seol an cuireadh"
       to: "Go dtí"

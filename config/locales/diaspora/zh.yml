@@ -162,6 +162,7 @@ zh:
       if_they_accept_info: "一旦邀请被接受，他们就会被加入这个分组。"
       invite_someone_to_join: "邀请些人加入Diaspora！"
       personal_message: "个人消息"
+      resend: "Resend"
       send_an_invitation: "发送一份邀请"
       send_invitation: "发送邀请"
       to: "给"

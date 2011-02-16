@@ -162,6 +162,7 @@ gl:
       if_they_accept_info: "se aceptan, serán engadidos ao aspecto ao que os convidaches."
       invite_someone_to_join: "Convida a alguén a participar en Diaspora!"
       personal_message: "Mensaxe persoal"
+      resend: "Resend"
       send_an_invitation: "Mensaxe persoal"
       send_invitation: "Enviar unha invitación"
       to: "a"
