@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   xml_attr :creator_signature
   xml_attr :post_creator_signature
 
-  belongs_to :post
+  belongs_to :post, :touch => true
   belongs_to :person
 
   validates_presence_of :text, :post

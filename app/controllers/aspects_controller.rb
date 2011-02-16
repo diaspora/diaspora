@@ -28,7 +28,7 @@ class AspectsController < ApplicationController
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
                :aspects => {:id => @aspect_ids}).includes(:comments, :photos).select('DISTINCT `posts`.*').paginate(
-               :page => params[:page], :per_page => 15, :order => 'created_at DESC')
+               :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
       @fakes = PostsFake.new(@posts)
 
       @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
