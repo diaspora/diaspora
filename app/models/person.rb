@@ -55,7 +55,7 @@ class Person < ActiveRecord::Base
 
     query_tokens = query.to_s.strip.split(" ")
     query_tokens.each_with_index do |raw_token, i|
-      token = "%#{raw_token}%"
+      token = "#{raw_token}%"
       up_token = "#{raw_token.titleize}%"
       sql << " OR " unless i == 0
       sql << where_clause

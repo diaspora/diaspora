@@ -163,28 +163,40 @@ describe Person do
       @yevgeniy_dodis = Factory.create(:searchable_person)
       @casey_grippi = Factory.create(:searchable_person)
 
-      @robert_grimm.profile.first_name = "Roberting"
+      @robert_grimm.profile.first_name = "Robert"
       @robert_grimm.profile.last_name  = "Grimm"
       @robert_grimm.profile.save
       @robert_grimm.reload
 
-      @eugene_weinstein.profile.first_name = "Eugeneing"
+      @eugene_weinstein.profile.first_name = "Eugene"
       @eugene_weinstein.profile.last_name  = "Weinstein"
       @eugene_weinstein.profile.save
       @eugene_weinstein.reload
 
-      @yevgeniy_dodis.profile.first_name = "Yevgeniying"
+      @yevgeniy_dodis.profile.first_name = "Yevgeniy"
       @yevgeniy_dodis.profile.last_name  = "Dodis"
       @yevgeniy_dodis.profile.save
       @yevgeniy_dodis.reload
 
-      @casey_grippi.profile.first_name = "Caseying"
+      @casey_grippi.profile.first_name = "Casey"
       @casey_grippi.profile.last_name  = "Grippi"
       @casey_grippi.profile.save
       @casey_grippi.reload
     end
     it 'is ordered by last name' do
-      people = Person.search("ing", @user)
+      @robert_grimm.profile.first_name = "AAA"
+      @robert_grimm.profile.save
+
+      @eugene_weinstein.profile.first_name = "AAA"
+      @eugene_weinstein.profile.save
+
+      @yevgeniy_dodis.profile.first_name = "AAA"
+      @yevgeniy_dodis.profile.save
+
+      @casey_grippi.profile.first_name = "AAA"
+      @casey_grippi.profile.save
+
+      people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [@yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end
 
@@ -231,19 +243,44 @@ describe Person do
     end
 
     it "puts the searching user's contacts first" do
+      @robert_grimm.profile.first_name = "AAA"
+      @robert_grimm.profile.save
+
+      @eugene_weinstein.profile.first_name = "AAA"
+      @eugene_weinstein.profile.save
+
+      @yevgeniy_dodis.profile.first_name = "AAA"
+      @yevgeniy_dodis.profile.save
+
+      @casey_grippi.profile.first_name = "AAA"
+      @casey_grippi.profile.save
+
       @user.activate_contact(@casey_grippi, @user.aspects.first)
-      people = Person.search("ing", @user)
+
+      people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
     end
     it "puts the searching user's incoming requests first" do
       requestor = Factory(:user_with_aspect)
       profile = requestor.person.profile
-      profile.first_name = "Requesting"
+      profile.first_name = "AAA"
       profile.last_name = "Something"
       profile.save
 
+      @robert_grimm.profile.first_name = "AAA"
+      @robert_grimm.profile.save
+
+      @eugene_weinstein.profile.first_name = "AAA"
+      @eugene_weinstein.profile.save
+
+      @yevgeniy_dodis.profile.first_name = "AAA"
+      @yevgeniy_dodis.profile.save
+
+      @casey_grippi.profile.first_name = "AAA"
+      @casey_grippi.profile.save
+
       requestor.send_contact_request_to(@user.person, requestor.aspects.first)
-      people = Person.search("ing", @user)
+      people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [requestor.person, @yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end
   end
