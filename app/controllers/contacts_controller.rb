@@ -19,7 +19,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       format.js { render :json => {
-        :button_html => render_to_string(:partial => 'aspects/add_to_aspect',
+        :button_html => render_to_string(:partial => 'aspect_memberships/add_to_aspect',
                          :locals => {:aspect_id => @aspect.id,
                                      :person_id => @person.id}),
         :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
@@ -30,15 +30,13 @@ class ContactsController < ApplicationController
   end
 
   private
-  def request_to_aspect( aspect, person)
+
+  def request_to_aspect(aspect, person)
     current_user.send_contact_request_to(person, aspect)
     contact = current_user.contact_for(person)
-
     if request = Request.where(:sender_id => person.id, :recipient_id => current_user.person.id).first
       request.destroy
       contact.update_attributes(:pending => false)
     end
-
   end
-
 end

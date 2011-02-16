@@ -40,6 +40,7 @@ Feature: sending and receiving requests
 
    When I go to the home page
    Then I go to the aspects manage page
+
    Then I should see 1 contact in "Super People"
    Then I go to the destroy user session page
 

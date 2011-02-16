@@ -101,6 +101,7 @@ $(document).ready(function() {
   $('.new_aspect').live('ajax:success', function(data, json, xhr){
       var json = JSON.parse(json);
       $('#aspects_list ul').append(json.html);
+      $("#aspects_list ul li[data-guid='" + json.aspect_id + "'] .add.button").click();
       });
 
   List.initialize();

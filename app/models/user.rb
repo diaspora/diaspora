@@ -92,6 +92,20 @@ class User < ActiveRecord::Base
     contact.aspect_memberships.create!(:aspect => aspect)
   end
 
+
+  def delete_person_from_aspect(person_id, aspect_id, opts = {})
+    aspect = Aspect.find(aspect_id)
+    raise "Can not delete a person from an aspect you do not own" unless aspect.user == self
+    contact = contact_for Person.find(person_id)
+
+    if opts[:force] || contact.aspect_ids.count > 1
+      contact.aspects.delete(aspect)
+    else
+      raise "Can not delete a person from last aspect"
+    end
+  end
+  
+
   ######## Posting ########
   def build_post(class_name, opts = {})
     opts[:person] = self.person
