@@ -193,6 +193,10 @@ describe User do
         @user.should_receive(:contact_for_person_id).with(person_one.id)
         @user.contact_for(person_one)
       end
+
+      it 'returns nil if the input is nil' do
+        @user.contact_for(nil).should be_nil 
+      end
     end
   end
 

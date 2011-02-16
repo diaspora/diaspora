@@ -177,35 +177,6 @@ class AspectsController < ApplicationController
     end
   end
 
-  def remove_from_aspect
-    begin current_user.delete_person_from_aspect(params[:person_id], params[:aspect_id])
-      @person_id = params[:person_id]
-      @aspect_id = params[:aspect_id]
-      flash.now[:notice] = I18n.t 'aspects.remove_from_aspect.success'
-
-      respond_to do |format|
-        format.js { render :json => {:button_html =>
-          render_to_string(:partial => 'aspects/remove_from_aspect',
-                           :locals => {:aspect_id => @aspect_id,
-                                       :person_id => @person_id}),
-          :aspect_id => @aspect_id
-        }}
-        format.html{
-          redirect_to :back
-        }
-      end
-    rescue Exception => e
-      flash.now[:error] = I18n.t 'aspects.remove_from_aspect.failure'
-
-      respond_to do |format|
-        format.js  { render :text => e, :status => 403 }
-        format.html{
-          redirect_to :back
-        }
-      end
-    end
-  end
-
   private
   def invite_or_add_contact_to_aspect( aspect, person, contact)
     if contact

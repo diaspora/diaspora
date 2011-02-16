@@ -319,19 +319,6 @@ describe AspectsController do
     end
   end
 
-  describe "#remove_from_aspect" do
-    it 'removes contacts from an aspect' do
-      @user.add_contact_to_aspect(@contact, @aspect1)
-      post 'remove_from_aspect',
-        :format => 'js',
-        :person_id => @user2.person.id,
-        :aspect_id => @aspect0.id
-      response.should be_success
-      @aspect0.reload
-      @aspect0.contacts.include?(@contact).should be false
-    end
-  end
-
   describe "#hashes_for_posts" do
     it 'returns only distinct people' do
     end

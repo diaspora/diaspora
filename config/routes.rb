@@ -21,6 +21,9 @@ Diaspora::Application.routes.draw do
   resources :notifications,   :only => [:index, :update]
   resources :posts,           :only => [:show], :path => '/p/'
 
+  resources :contacts
+  resources :aspect_memberships
+
   match '/people/share_with' => 'people#share_with', :as => 'share_with'
   resources :people, :except => [:edit, :update] do
     resources :status_messages

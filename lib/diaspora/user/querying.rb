@@ -34,6 +34,7 @@ module Diaspora
       end
 
       def contact_for(person)
+        return nil unless person
         contact_for_person_id(person.id)
       end
       def aspects_with_post(post_id)
