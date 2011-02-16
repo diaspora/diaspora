@@ -47,4 +47,27 @@ class AspectMembershipsController < ApplicationController
       end
     end
   end
+
+  def create
+    @person = Person.find(params[:person_id])
+    @aspect = current_user.aspects.find(params[:aspect_id])
+    @contact = current_user.contact_for(@person)
+
+
+    current_user.add_contact_to_aspect(contact, aspect)
+
+    flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
+
+    respond_to do |format|
+      format.js { render :json => {
+        :button_html => render_to_string(:partial => 'aspects/add_to_aspect',
+                         :locals => {:aspect_id => @aspect.id,
+                                     :person_id => @person.id}),
+        :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
+                            :locals => {:aspect => @aspect})
+        }}
+      format.html{ redirect_to aspect_path(@aspect.id)}
+    end
+  end
+
 end

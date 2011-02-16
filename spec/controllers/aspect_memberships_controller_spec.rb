@@ -28,6 +28,18 @@ describe AspectMembershipsController do
     end
   end
 
+  describe '#create' do
+    it 'creates an aspect membership' do
+      @user.should_receive(:add_contact_to_aspect)
+      post :create,
+        :format => 'js',
+        :person_id => @user2.person.id,
+        :aspect_id => @aspect1.id
+      response.should be_success
+    end
+  end
+
+
   describe "#destroy" do
     it 'removes contacts from an aspect' do
       @user.add_contact_to_aspect(@contact, @aspect1)
