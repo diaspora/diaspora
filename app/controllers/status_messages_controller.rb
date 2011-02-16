@@ -27,12 +27,11 @@ class StatusMessagesController < ApplicationController
       current_user.add_to_streams(@status_message, aspects)
       current_user.dispatch_post(@status_message, :url => post_url(@status_message))
       if !photos.empty?
-        @status_message.photos += photos
         for photo in photos
           was_pending = photo.pending
           photo.public = public_flag
           photo.pending = false
-          photo.save
+          @status_message.photos << photo
           if was_pending
             current_user.add_to_streams(photo, aspects)
             current_user.dispatch_post(photo)
