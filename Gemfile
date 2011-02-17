@@ -58,6 +58,7 @@ end
 
 group :test, :development do
   gem 'factory_girl_rails', :require => false
+  gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19' if RUBY_VERSION.include? '1.9'
   gem 'ruby-debug' if RUBY_VERSION.include? '1.8'
   gem 'launchy'
