@@ -13,9 +13,7 @@ end
 execute "htop" do
   command "yum install -y htop psmisc screen"
 end
-execute "JAVA!! for Jammit" do
-  command "yum install -y java"
-end
+
 execute "rvm deps" do
   command "yum install -y bzip2"
 end
@@ -35,3 +33,5 @@ def harden_ruby(ruby_string)
 end
 
 harden_ruby("ree-1.8.7-2010.02")
+
+include_recipe "centos::post_bootstrap"
