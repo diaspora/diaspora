@@ -22,7 +22,7 @@ describe Notification do
 
   it 'destoys the associated notification_actor' do
     @note.save
-    lambda{@note.destroy}.should change(NotificationActor, :count).by(-1)  
+    lambda{@note.destroy}.should change(NotificationActor, :count).by(-1)
   end
 
   describe '.for' do
@@ -51,6 +51,11 @@ describe Notification do
       it 'calls Notification.create if the object has a notification_type' do
         Notification.should_receive(:make_notification).once
         Notification.notify(@user, @request, @person)
+      end
+
+      it 'creates the notification already read' do
+        n = Notification.notify(@user, @request, @person)
+        n.unread?.should be_false
       end
 
       it 'sockets to the recipient' do
@@ -94,7 +99,7 @@ describe Notification do
         it "updates the notification with a more people if one already exists" do
           Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count.should == 2
         end
-        
+
         it 'handles double comments from the same person without raising' do
           Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
           Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count.should == 2

@@ -54,7 +54,7 @@ private
       unless n.actors.include?(actor)
         n.actors << actor
       end
-      
+
       n.unread = true
       n.save!
       n
@@ -68,6 +68,7 @@ private
                                :action => action,
                                :recipient_id => recipient.id)
     n.actors << actor
+    n.unread = false if target.is_a? Request
     n.save!
     n
   end
