@@ -90,7 +90,6 @@ $(document).ready(function() {
 
     if($('#aspects_list').length == 1) {
       $('.aspect_list').attr('data-contact_id', json.contact_id);
-      alert('^- TODO');
       $('.aspect_list ul').find('.add').each(function(a,b){$(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));})
     };
 

@@ -24,7 +24,8 @@ class ContactsController < ApplicationController
                          :locals => {:aspect_id => @aspect.id,
                                      :person_id => @person.id}),
         :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
-                            :locals => {:aspect => @aspect})
+                            :locals => {:aspect => @aspect}),
+        :contact_id => current_user.contact_for(@person).id
         }}
       format.html{ redirect_to aspect_path(@aspect.id)}
     end
