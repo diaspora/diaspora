@@ -162,7 +162,7 @@ gl:
       if_they_accept_info: "se aceptan, serán engadidos ao aspecto ao que os convidaches."
       invite_someone_to_join: "Convida a alguén a participar en Diaspora!"
       personal_message: "Mensaxe persoal"
-      resend: "Resend"
+      resend: "Reenviar"
       send_an_invitation: "Mensaxe persoal"
       send_invitation: "Enviar unha invitación"
       to: "a"
@@ -240,7 +240,7 @@ gl:
   password_confirmation: "Confirmación do contrasinal"
   people: 
     aspect_list: 
-      edit_membership: "editar membresía de aspecto"
+      edit_membership: "Editar membresía de aspecto"
     edit: 
       allow_search: "Permitir á xente buscarte dentro de Diaspora"
       edit_profile: "Editar perfil"
@@ -268,11 +268,11 @@ gl:
       pending_request: "solicitude pendente"
       thats_you: "es ti!"
     profile_sidebar: 
-      bio: "biografia"
-      born: "aniversario"
+      bio: "Biografia"
+      born: "Aniversario"
       cannot_remove: "Non se pode eliminar %{name} do último aspecto. (Se te queres desvincular desta persoa tes que eliminar o contacto.)"
       edit_my_profile: "Editar o meu perfil"
-      gender: "xénero"
+      gender: "Xénero"
       in_aspects: "en aspectos"
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
@@ -284,7 +284,7 @@ gl:
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
-      no_posts: "non hai mensaxes que amosar!"
+      no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
       recent_posts: "Publicacións recentes"
       recent_public_posts: "Publicacións Públicas Recentes"
@@ -431,7 +431,7 @@ gl:
       posting: "Publicando..."
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
-      whats_on_your_mind: "que tes en mente?"
+      whats_on_your_mind: "Que tes en mente?"
     reshare: 
       reshare: "Recompartir "
   status_messages: 
@@ -440,7 +440,7 @@ gl:
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
     new_status_message: 
-      oh_yeah: "e logo!!"
+      oh_yeah: "e logo!"
       tell_me_something_good: "cóntame algo bo"
     show: 
       destroy: "Borrar"
@@ -464,7 +464,7 @@ gl:
       email_notifications: "Notificacións de correo-e"
       export_data: "Exportar datos"
       new_password: "Novo contrasinal"
-      receive_email_notifications: "Receibir notificacións por correo?"
+      receive_email_notifications: "Recibir notificacións por correo?"
       your_email: "O teu correo"
       your_handle: "A túa tarxeta diaspora"
     getting_started: 

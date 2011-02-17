@@ -21,23 +21,23 @@ fi:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "on oltava yksilöllinen."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "on jo varattu."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "on jo tehdyn pyynnön kaksoiskappale."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "on jo varattu."
             person: 
-              invalid: "is invalid."
+              invalid: "ei ole kelvollinen."
             username: 
-              taken: "is already taken."
+              taken: "on jo varattu."
   ago: "%{time} sitten"
   application: 
     helper: 
@@ -162,7 +162,7 @@ fi:
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
       personal_message: "Henkilökohtainen viesti"
-      resend: "Resend"
+      resend: "Lähetä uudelleen"
       send_an_invitation: "Lähetä kutsu"
       send_invitation: "Lähetä kutsu"
       to: "Vastaanottaja"
@@ -198,7 +198,7 @@ fi:
     index: 
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
-    mentioned: "has mentioned you in their"
+    mentioned: "on maininnut sinut heidän"
     new_request: "haluaa jakaa kanssasi."
     post: "viesti"
     request_accepted: "hyväksyi jakopyyntösi."
@@ -215,9 +215,9 @@ fi:
     hello: "Hei %{name}!"
     love: "terveisin,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "mainitsi sinut viestissään:"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on maininnut sinut Diaspora*:ssa"
     new_request: 
       just_sent_you: "lähetti juuri äsken sinulle kontaktipyynnön Diaspora*ssa"
       sign_in: "Kirjaudu sisään täältä"
@@ -280,7 +280,7 @@ fi:
       accepts: "Kun %{name} hyväksyy, alatte näkemään toistenne viestit Diasporassa."
       share_with: "Aloita jakaminen henkilölle %{name}"
     share_with_pane: 
-      add_new_aspect: "add new aspect"
+      add_new_aspect: "lisää näkymä"
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
@@ -325,7 +325,7 @@ fi:
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "laita profiilikuvaksi"
-      original_post: "Original Post"
+      original_post: "Alkuperäinen viesti"
       permalink: "pysyvä linkki"
       update_photo: "Päivitä kuva"
       view: "näytä"
@@ -426,7 +426,7 @@ fi:
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
       make_public: "tee julkiseksi"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "mainitaksesi jonkun, valitse '@' ja kirjoita nimen alku"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       share: "Jaa"

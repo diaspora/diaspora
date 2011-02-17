@@ -121,7 +121,7 @@ nl:
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%B %d %J"
+      birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Verwijderen"
   email: "E-mail"
