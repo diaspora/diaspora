@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110213052742) do
+ActiveRecord::Schema.define(:version => 20110217044519) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -341,7 +341,6 @@ ActiveRecord::Schema.define(:version => 20110213052742) do
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
   add_index "people", ["guid"], :name => "index_people_on_guid", :unique => true
-  add_index "people", ["id", "diaspora_handle"], :name => "index_people_on_id_and_diaspora_handle", :unique => true
   add_index "people", ["mongo_id"], :name => "index_people_on_mongo_id"
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
@@ -377,7 +376,6 @@ ActiveRecord::Schema.define(:version => 20110213052742) do
   end
 
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
-  add_index "posts", ["id", "type"], :name => "index_posts_on_id_and_type"
   add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
   add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
@@ -473,8 +471,6 @@ ActiveRecord::Schema.define(:version => 20110213052742) do
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
-  add_index "users", ["id", "email"], :name => "index_users_on_id_and_email"
-  add_index "users", ["id", "username"], :name => "index_users_on_id_and_username", :unique => true
   add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["mongo_id"], :name => "index_users_on_mongo_id"

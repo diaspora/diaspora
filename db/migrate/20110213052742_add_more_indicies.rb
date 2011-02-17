@@ -10,5 +10,10 @@ class AddMoreIndicies < ActiveRecord::Migration
   end
 
   def self.down
+    remove_index :users, [:id, :username]
+    remove_index :users, [:id, :email]
+    remove_index :people, [:id, :diaspora_handle]
+
+    remove_index :posts, [:id, :type]
   end
 end
