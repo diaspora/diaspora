@@ -17,6 +17,7 @@
             $("#spinner").fadeIn(300);
           });
         });
+        $(".login_error").remove();
       });
     });
 
@@ -25,6 +26,10 @@
     = image_tag('logo_caps.png', :id => 'logo', :width => 143, :height => 21)
     %br
     %br
+
+    - flash.each do |name, msg|
+      = content_tag :p, msg, :class => "login_error"
+
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       %p
         = f.label :username , t('username')
