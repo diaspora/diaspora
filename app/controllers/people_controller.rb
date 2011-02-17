@@ -76,11 +76,6 @@ class PeopleController < ApplicationController
     end
   end
 
-  def destroy
-    current_user.disconnect(Person.where(:id => params[:id]).first)
-    redirect_to root_url
-  end
-
   def retrieve_remote
     if params[:diaspora_handle]
       webfinger(params[:diaspora_handle], :single_aspect_form => true)

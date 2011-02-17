@@ -138,14 +138,14 @@ describe Person do
     it 'should not delete an orphaned contact' do
       @user.activate_contact(@person, @aspect)
 
-      lambda {@user.disconnect(@person)}.should_not change(Person, :count)
+      lambda {@user.disconnect(@user.contact_for(@person))}.should_not change(Person, :count)
     end
 
     it 'should not delete an un-orphaned contact' do
       @user.activate_contact(@person, @aspect)
       @user2.activate_contact(@person, @aspect2)
 
-      lambda {@user.disconnect(@person)}.should_not change(Person, :count)
+      lambda {@user.disconnect(@user.contact_for(@person))}.should_not change(Person, :count)
     end
   end
 

@@ -20,6 +20,8 @@ describe 'a user receives a post' do
 
     @user3   = eve
     @aspect3 = @user3.aspects.first
+
+    @contact = @user1.contact_for(@user2.person)
   end
 
   it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
@@ -89,7 +91,7 @@ describe 'a user receives a post' do
     end
 
     it 'removes posts upon disconnecting' do
-      @user1.disconnect(@user2.person)
+      @user1.disconnect(@contact)
       @user1.reload
       @user1.raw_visible_posts.should_not include @status_message
     end
@@ -128,7 +130,7 @@ describe 'a user receives a post' do
       @status_message.reload
       @status_message.user_refs.should == 3
 
-      @user1.disconnect(@user2.person)
+      @user1.disconnect(@contact)
       @status_message.reload
       @status_message.user_refs.should == 2
     end
@@ -146,7 +148,7 @@ describe 'a user receives a post' do
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 4
 
-      @user1.disconnect(@user2.person)
+      @user1.disconnect(@contact)
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 3
     end

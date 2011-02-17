@@ -4,6 +4,7 @@ namespace :backup do
   require 'cloudfiles'
 
   task :mysql do
+    NUMBER_OF_DAYS = 3
     puts("event=backup status=start type=mysql")
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
     user = db['production']['user']
@@ -28,6 +29,12 @@ namespace :backup do
         puts("event=backup status=success type=mysql")
         `rm /tmp/backup/#{tar_name}`
         `rm -rf /tmp/backup/mysql/`
+
+        files = mysql_container.objects
+        files.sort!.pop(NUMBER_OF_DAYS * 24)
+        files.each do |file|
+          mysql_container.delete_object(file)
+        end
       else
         puts("event=backup status=failure type=mysql")
       end

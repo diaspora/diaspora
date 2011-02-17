@@ -39,6 +39,9 @@ en:
     one:    "1 contact"
     few:    "%{count} contacts"
     other:  "%{count} contacts"
+    destroy:
+      success: "Successfully disconnected from %{name}"
+      failure: "Failed to disconnect from %{name}"
   new_requests:
     zero:   "no new requests"
     one:    "new request!"

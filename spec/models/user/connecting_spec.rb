@@ -250,7 +250,7 @@ describe Diaspora::UserModules::Connecting do
 
       it 'should disconnect the other user on the same seed' do
         lambda {
-          user2.disconnect user.person }.should change {
+          user2.disconnect user2.contact_for(user.person) }.should change {
           user2.reload.contacts.count }.by(-1)
         aspect2.reload.contacts.count.should == 0
       end
@@ -280,14 +280,14 @@ describe Diaspora::UserModules::Connecting do
 
         it "deletes the disconnected user's posts from visible_posts" do
           user2.reload.raw_visible_posts.include?(@message).should be_true
-          user2.disconnect user.person
+          user2.disconnect user2.contact_for(user.person)
           user2.reload.raw_visible_posts.include?(@message).should be_false
         end
 
         it "deletes the disconnected user's posts from the aspect's posts" do
           Post.count.should == 1
           aspect2.reload.posts.include?(@message).should be_true
-          user2.disconnect user.person
+          user2.disconnect user2.contact_for(user.person)
           aspect2.reload.posts.include?(@message).should be_false
           Post.count.should == 1
         end

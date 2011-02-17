@@ -7,7 +7,7 @@
   = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
   %ul
     - for contact in contacts
-      %li{:data=>{:guid=>contact.person.id}}
+      %li{:data=>{:contact_id=>contact.id}}
         = person_image_tag contact.person
         %h4.name
           = link_to contact.person.name, contact.person

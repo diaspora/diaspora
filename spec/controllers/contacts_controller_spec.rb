@@ -24,7 +24,7 @@ describe ContactsController do
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
-  describe 'new' do
+  describe '#new' do
 
     it 'succeeds' do
       pending "This is going to be new request"
@@ -33,7 +33,7 @@ describe ContactsController do
     end
   end
 
-  describe 'create' do
+  describe '#create' do
     context 'with an incoming request' do
       before do
         @user3 = Factory.create(:user)
@@ -72,6 +72,30 @@ describe ContactsController do
           :person_id => @person.id,
           :aspect_id => @aspect1.id
       end
+    end
+  end
+
+  describe '#destroy' do
+    it 'disconnects from the person' do
+      @user.should_receive(:disconnect).with(@contact)
+      delete :destroy, :id => @contact.id
+    end
+    
+    it 'flases success if the contact is not destroyed' do
+      @user.stub!(:disconnect).and_return(true)
+      delete :destroy, :id => @contact.id
+      flash[:notice].should_not be_empty
+    end
+
+    it 'flases failure if the contact is not destroyed' do
+      @user.stub!(:disconnect).and_return(false)
+      delete :destroy, :id => @contact.id
+      flash[:error].should_not be_empty
+    end
+
+    it 'redirects back to the person page' do
+      delete :destroy, :id => @contact.id
+      response.should redirect_to(@contact.person)
     end
   end
 end

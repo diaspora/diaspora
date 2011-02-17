@@ -30,6 +30,16 @@ class ContactsController < ApplicationController
     end
   end
 
+  def destroy
+    contact = current_user.contacts.where(:id => params[:id]).first
+    if current_user.disconnect(contact)
+      flash[:notice] = I18n.t('contacts.destroy.success', :name => contact.person.name)
+    else
+      flash[:error] = I18n.t('contacts.destroy.failure', :name => contact.person.name)
+    end
+    redirect_to contact.person 
+  end
+
   private
 
   def request_to_aspect(aspect, person)
