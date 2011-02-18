@@ -46,6 +46,8 @@ en:
       share_with: "Start sharing with %{name}"
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect" 
+    create:
+      failure: 'Failed to create contact'
   new_requests:
     zero:   "no new requests"
     one:    "new request!"
