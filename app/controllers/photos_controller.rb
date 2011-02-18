@@ -24,6 +24,9 @@ class PhotosController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
+      else
+        @contact = Contact.new
+        @contacts_of_contact = []
       end
 
       @posts = current_user.visible_photos.where(
