@@ -24,7 +24,6 @@ Diaspora::Application.routes.draw do
   resources :contacts
   resources :aspect_memberships
 
-  match '/people/share_with' => 'people#share_with', :as => 'share_with'
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
