@@ -1,0 +1,42 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+#share_with
+  #facebox_header
+    = person_image_link(person, :size => :thumb_small)
+    %h4
+      = t('.share_with', :name => person.name)
+
+      .description
+        = t('.accepts', :name => person.first_name)
+
+
+  .aspect_list#aspects_list{:data=> {:contact_id=> (contact ? contact.id : nil)}}
+    %ul
+      - for aspect in aspects_with_person
+        = render :partial => 'aspects/aspect_list_item', 
+                 :locals => {:aspect => aspect, :person => person,
+                             :contact => contact}
+
+      - for aspect in aspects_without_person
+        = render :partial => 'aspects/aspect_list_item', 
+                 :locals => {:aspect => aspect, :person => person,
+                             :contact => contact}
+  .add_aspect
+    = form_for(Aspect.new, :remote => true) do |aspect|
+      .right
+        = aspect.submit t('.add_new_aspect'), :class => 'button'
+      = aspect.error_messages
+      = aspect.hidden_field :person_id, :value => person.id if person
+      = aspect.hidden_field :contact_id, :value => contact.id if contact
+      = aspect.hidden_field :share_with, :value => true
+      %p
+        = aspect.text_field :name, :style => "display:inline;"
+      %p.checkbox_select
+        = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
+        = aspect.check_box :contacts_visible, :checked => true, :default => true
+  .done
+    .right
+      = link_to t('aspects.aspect_contacts.done_editing'), "#", :class => "button", :onClick => '$.facebox.close();'
+    - if contact
+      = link_to t('people.profile_sidebar.remove_contact'), contact, :confirm => t('are_you_sure'), :method => :delete
