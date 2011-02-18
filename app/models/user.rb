@@ -40,7 +40,7 @@ class User < ActiveRecord::Base
 
   before_destroy :disconnect_everyone, :remove_person
   before_save do
-    person.save if person
+    person.save if person && person.changed?
   end
 
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
