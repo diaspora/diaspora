@@ -1,5 +1,6 @@
-en: [:en-US, :en-GB]
-en-shaw: [:en, :en-GB, :en-US]
+en-GB: [:en]
+en-US: [:en]
+en_shaw: [:en, :en-GB, :en-US]
 sv: [:sv-SE]
 he: [:he-IL]
 es-CL: [:es]

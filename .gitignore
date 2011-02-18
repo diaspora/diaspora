@@ -18,7 +18,7 @@ config/database.yml
 log/*
 public/stylesheets/*.css
 public/diaspora
-spec/fixtures/*.yml
+spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 
 # Uploded files and local files
