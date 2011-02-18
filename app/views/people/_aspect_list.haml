@@ -4,26 +4,27 @@
 
 - content_for :head do
   =javascript_include_tag 'contact-list'
-
 .aspects
-  - if !contact
+  - if !contact || !contact.persisted?
     %h4
       = link_to truncate(t('people.show.not_connected', :name => person.name), :length => 49, :separator => ' ', :omission => ''),
-        {:controller => "people",
-        :action => "share_with",
-        :id => @person.id},
+        {:controller => "contacts",
+        :action => "new",
+        :person_id => person.id},
         :class => 'share_with button',
         :rel => 'facebox'
   - elsif contact.pending
     %h4
       = t('people.person.pending_request')
 
-  .badges{:class => ("hidden" if !contact)}
-    = aspect_badges(aspects_with_person)
-    %p
-    = link_to t('.edit_membership'),
-            {:controller => "people",
-            :action => "share_with",
-            :id => @person.id},
-            :class => 'button',
-            :rel => 'facebox'
+  - else
+    .badges{:class => ("hidden" if !contact.persisted?)}
+      = aspect_badges(aspects_with_person)
+      %p
+      = link_to t('.edit_membership'),
+              {:controller => "contacts",
+              :action => "edit",
+              :id => contact.id,
+              :person_id => person.id},
+              :class => 'button',
+              :rel => 'facebox'

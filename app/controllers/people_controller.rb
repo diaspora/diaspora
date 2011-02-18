@@ -57,6 +57,9 @@ class PeopleController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
+      else
+        @contact ||= Contact.new
+        @contacts_of_contact = []
       end
 
       if (@person != current_user.person) && (!@contact || @contact.pending)
@@ -67,7 +70,6 @@ class PeopleController < ApplicationController
 
       @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate  :per_page => 15, :page => params[:page]
       @fakes = PostsFake.new(@posts)
-
       respond_with @person, :locals => {:post_type => :all}
 
     else
@@ -83,20 +85,6 @@ class PeopleController < ApplicationController
     else
       render :nothing => true, :status => 422
     end
-  end
-
-  def share_with
-    @person = Person.find(params[:id])
-    @contact = current_user.contact_for(@person)
-    @aspects_with_person = []
-
-    if @contact
-      @aspects_with_person = @contact.aspects
-    end
-
-    @aspects_without_person = @all_aspects - @aspects_with_person
-
-    render :layout => nil
   end
 
   private

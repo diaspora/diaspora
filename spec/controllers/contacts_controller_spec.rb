@@ -25,15 +25,19 @@ describe ContactsController do
   end
 
   describe '#new' do
+    it 'assigns a person' do
+      get :new, :person_id => @user2.person.id
+      assigns[:person].should == @user2.person
+    end
 
-    it 'succeeds' do
-      pending "This is going to be new request"
-      get :new
-      response.should be_success
+    it 'assigns aspects without person' do
+      get :new, :person_id => @user2.person.id
+      assigns[:aspects_without_person].should =~ @user.aspects
     end
   end
 
   describe '#create' do
+
     context 'with an incoming request' do
       before do
         @user3 = Factory.create(:user)
@@ -58,6 +62,7 @@ describe ContactsController do
       before do
         @person = Factory(:person)
       end
+
       it 'calls send_contact_request_to' do
         @user.should_receive(:send_contact_request_to).with(@person, @aspect1)
         post :create,
@@ -65,6 +70,7 @@ describe ContactsController do
           :person_id => @person.id,
           :aspect_id => @aspect1.id
       end
+
       it 'does not call add_contact_to_aspect' do
         @user.should_not_receive(:add_contact_to_aspect)
         post :create,
@@ -72,6 +78,27 @@ describe ContactsController do
           :person_id => @person.id,
           :aspect_id => @aspect1.id
       end
+
+      it 'failure flashes error' do
+        @controller.should_receive(:request_to_aspect).and_return(nil)
+        post :create,
+          :format => 'js',
+          :person_id => @person.id,
+          :aspect_id => @aspect1.id
+        flash[:error].should_not be_empty
+      end
+    end
+  end
+
+  describe '#edit' do
+    it 'assigns a contact' do
+      get :edit, :id => @contact.id
+      assigns[:contact].should == @contact
+    end
+    
+    it 'assigns a person' do
+      get :edit, :id => @contact.id
+      assigns[:person].should == @contact.person
     end
   end
 

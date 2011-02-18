@@ -10,8 +10,8 @@
   - unless @contact || current_user.person == @person
     .right
       = link_to "start sharing",
-        {:controller => "people",
-        :action => "share_with",
+        {:controller => "contact",
+        :action => "new",
         :id => @person.id},
         :class => 'share_with button',
         :rel => 'facebox'

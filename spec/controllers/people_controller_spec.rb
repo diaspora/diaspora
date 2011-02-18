@@ -13,15 +13,6 @@ describe PeopleController do
     sign_in :user, @user
   end
 
-  describe '#share_with' do
-    before do
-      @person = Factory.create(:person)
-    end
-    it 'succeeds' do
-      get :share_with, :id => @person.id
-      response.should be_success
-    end
-  end
   describe '#index (search)' do
     before do
       @eugene = Factory.create(:person,

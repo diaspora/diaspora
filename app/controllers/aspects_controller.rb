@@ -53,7 +53,7 @@ class AspectsController < ApplicationController
       elsif params[:aspect][:share_with]
         @contact = Contact.where(:id => params[:aspect][:contact_id]).first
         @person = Person.where(:id => params[:aspect][:person_id]).first
-        @contact = current_user.contact_for(@person)
+        @contact = current_user.contact_for(@person) || Contact.new
 
         respond_to do |format|
           format.js { render :json => {:html => render_to_string(

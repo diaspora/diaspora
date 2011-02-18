@@ -42,7 +42,7 @@ module AspectsHelper
   end
 
   def contact_or_membership(contact)
-    (contact) ? 'aspect_memberships' : 'contacts'
+    (contact.persisted?) ? 'aspect_memberships' : 'contacts'
   end
 
   def aspect_membership_button(aspect, contact, person)
