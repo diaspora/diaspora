@@ -55,6 +55,25 @@ describe 'a user receives a post' do
     @user1.aspects.size.should == num_aspects
   end
 
+  context 'mentions' do
+    it 'adds the notifications for the mentioned users reguardless of the order they are received' do
+      pending 'this is for mnutt'
+      Notification.should_receive(:notify).with(@user1, anything(), @user2.person)
+      Notification.should_receive(:notify).with(@user3, anything(), @user2.person)
+
+      @sm = @user2.build_post(:status_message, :message => "@{#{@user1.name}; #{@user1.diaspora_handle}} stuff @{#{@user3.name}; #{@user3.diaspora_handle}}")
+      @sm.stub!(:socket_to_user)
+      @user2.add_to_streams(@sm, [@user2.aspects.first])
+      @sm.save
+
+      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
+      zord.receive_object
+
+      zord = Postzord::Receiver.new(@user3, :object => @sm, :person => @user2.person)
+      zord.receive_object
+    end
+  end
+
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
       status = @user1.post :status_message, :message => "store this!", :to => @aspect.id

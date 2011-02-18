@@ -8,6 +8,10 @@ describe Mention do
   describe 'before create' do
     before do
       @user = alice
+      @aspect1 = @user.aspects.create(:name => 'second_aspect')
+      @mentioned_user = bob
+      @non_friend = eve
+
       @sm =  Factory(:status_message)
       @m  = Mention.new(:person => @user.person, :post=> @sm)
 
@@ -22,6 +26,20 @@ describe Mention do
       Notification.should_not_receive(:notify)
       m.save
     end
+
+    it 'should not notify a user if they do not see the message' do
+      pending "this is for mnutt"
+      connect_users(@user, @aspect1, @non_friend, @non_friend.aspects.first)
+
+      Notification.should_not_receive(:notify).with(@mentioned_user, anything(), @user.person)
+      sm2 = @user.build_post(:status_message, :message => 'stuff')
+      sm2.stub!(:socket_to_user)
+      @user.add_to_streams(sm2, [@aspect1])
+      m2 = Mention.new(:person => @mentioned_user.person, :post => @sm)
+      sm2.save
+      m2.save
+    end
+
   end
 
   describe '#notification_type' do
