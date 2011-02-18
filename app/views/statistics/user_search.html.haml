@@ -30,5 +30,10 @@
 - for user in @users
   = user.inspect
   %br
+  = user.person.inspect
+  %br
+  = user.person.profile.inspect
+  %br
   = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token 
+  %br
   %br
