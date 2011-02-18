@@ -3,7 +3,7 @@ require 'spec_helper'
 describe AdminsController do
   render_views
   before do
-    @user = alice
+    @user = Factory :user 
     sign_in :user, @user
   end
 
@@ -14,7 +14,7 @@ describe AdminsController do
 
   context 'admin signed in' do
     before do
-      AppConfig[:admins] = [alice.username]
+      AppConfig[:admins] = [@user.username]
     end
 
     describe '#user_search' do
