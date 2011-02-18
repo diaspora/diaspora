@@ -9,7 +9,7 @@ describe AdminsController do
 
     it 'is behind redirect_unless_admin' do
       get :user_search
-      response.should be_redirect
+      response.should redirect_to root_url
     end
 
   context 'admin signed in' do
