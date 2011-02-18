@@ -12,6 +12,8 @@ Diaspora::Application.routes.draw do
   match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
 
+  match 'statistics/user_search' => 'statistics#user_search'
+  match 'statistics/admin_inviter' => 'statistics#admin_inviter'
   match 'statistics/generate_single' => 'statistics#generate_single'
   resources :statistics
 
@@ -31,7 +33,6 @@ Diaspora::Application.routes.draw do
 
   match 'photos/make_profile_photo' => 'photos#make_profile_photo'
   resources :photos, :except => [:index]
-
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",

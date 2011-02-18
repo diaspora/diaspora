@@ -27,6 +27,26 @@ class StatisticsController < ApplicationController
     redirect_to stat
   end
 
+  def user_search
+    user = params[:user] || {}
+    user = user.delete_if {|key, value| value.blank? }
+    params[:user] = user
+
+    if user.keys.count == 0
+      @users = []
+    else
+      @users = User.where(params[:user]).all || []
+    end
+
+    render 'statistics/user_search'
+  end
+
+  def admin_inviter
+    Invitation.create_invitee(:identifier => params[:identifier])
+    flash[:notice] = "invitation sent to #{params[:identifier]}"
+    redirect_to 'statistics/user_search'
+  end
+
   private
   def redirect_unauthorized
     unless AppConfig[:admins].include?(current_user.username)
