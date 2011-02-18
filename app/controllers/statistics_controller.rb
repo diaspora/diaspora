@@ -1,6 +1,6 @@
 class StatisticsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :redirect_unauthorized
+  before_filter :redirect_unless_admin 
   
   def index
     @statistics = Statistic.find(:all, :order => 'created_at DESC').paginate(:page => params[:page], :per_page => 15)
@@ -19,7 +19,6 @@ class StatisticsController < ApplicationController
                                      :axis_labels => [(0..@distribution.length-1).to_a.map{|d| d%10==0 ? d : ''},
                                                       (0..10).to_a.map!{|int| int.to_f/10}]
                                    )
-
   end
 
   def generate_single
@@ -47,11 +46,4 @@ class StatisticsController < ApplicationController
     redirect_to 'statistics/user_search'
   end
 
-  private
-  def redirect_unauthorized
-    unless AppConfig[:admins].include?(current_user.username)
-      redirect_to root_url
-    end
-  end
 end
-

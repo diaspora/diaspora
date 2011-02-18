@@ -12,8 +12,8 @@ Diaspora::Application.routes.draw do
   match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
 
-  match 'statistics/user_search' => 'statistics#user_search'
-  match 'statistics/admin_inviter' => 'statistics#admin_inviter'
+  match 'admins/user_search' => 'admins#user_search'
+  match 'admins/admin_inviter' => 'admins#admin_inviter'
   match 'statistics/generate_single' => 'statistics#generate_single'
   resources :statistics
 

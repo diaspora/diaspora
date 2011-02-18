@@ -1,6 +1,6 @@
 
 %h3
-  - form_tag 'admin_inviter', :method => :get do
+  = form_tag 'admin_inviter', :method => :get do
     email to invite:
     = text_field_tag 'identifier'
     = submit_tag 'invite'
@@ -9,7 +9,7 @@
 
 %h3
   user search
-- form_tag 'user_search', :method => :get do
+= form_tag 'user_search', :method => :get do
   username:
   = text_field_tag 'user[username]', params[:user][:username]
   
@@ -27,7 +27,7 @@
 = "#{@users.count} users found"
 %br
 %br
-- for user in @users
+= for user in @users
   = user.inspect
   %br
   = user.person.inspect

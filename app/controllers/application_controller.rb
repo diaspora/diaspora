@@ -55,4 +55,10 @@ class ApplicationController < ActionController::Base
   def clear_gc_stats
     GC.clear_stats if GC.respond_to?(:clear_stats)
   end
+
+  def redirect_unless_admin
+    unless AppConfig[:admins].include?(current_user.username)
+      redirect_to root_url
+    end
+  end
 end
