@@ -285,7 +285,7 @@ hu:
       does_not_exist: "Személy nem létezik!"
       incoming_request: "%{name} megosztást kezdeményezett veled."
       no_posts: "nincs bejegyzés!"
-      not_connected: "Nem osztassz meg vele: "
+      not_connected: "Nem ismerősöd"
       recent_posts: "Legutóbbi bejegyzések"
       recent_public_posts: "Legutóbbi nyilvános bejegyzések"
       return_to_aspects: "Menj vissza a csoportokhoz"

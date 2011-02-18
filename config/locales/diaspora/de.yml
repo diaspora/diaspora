@@ -154,7 +154,7 @@ de:
       rejected: "Mit dieser E-Mail-Adresse gab es Probleme:"
       sent: "Einladungen wurden verschickt an:"
     edit: 
-      sign_up: "anmelden"
+      sign_up: "registrieren"
     new: 
       already_invited: "Bereits eingeladen"
       aspect: "Aspekt"
@@ -351,7 +351,7 @@ de:
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
       enter_username: "Wähle einen Benutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       sign_up: "Anmelden"
-      sign_up_for_diaspora: "Bei Diaspora* anmelden"
+      sign_up_for_diaspora: "Bei Diaspora* registrieren"
   requests: 
     create: 
       sending: "Senden …"

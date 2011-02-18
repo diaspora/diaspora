@@ -194,7 +194,7 @@ nl:
   notifications: 
     also_commented: "heeft ook gereageerd op jouw contact zijn of haar"
     comment_on_post: "reageerde op jouw"
-    deleted: "verwijderd"
+    deleted: "verwijderde"
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
@@ -408,7 +408,7 @@ nl:
     invitations: 
       by_email: "via E-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
-      from_facebook: "Van Facebook"
+      from_facebook: "Via Facebook"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
       invite_your_friends: "Nodig je vrienden uit"

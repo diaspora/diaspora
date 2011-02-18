@@ -206,7 +206,7 @@ fi:
     also_commented: 
       commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
       sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on myös kommentoinut."
+      subject: "%{name} on myös kommentoinut kontaktisi viestiin."
     comment_on_post: 
       commented: "on kommentoinut viestiisi:"
       sign_in: "Kirjaudu sisään nähdäksesi."

@@ -16,7 +16,7 @@ fi:
       invalid_token: "Virheellinen todennustunnus."
       locked: "Käyttäjätilisi on lukittu."
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."
-      unauthenticated: "Sinun tulee kirjautua, tai rekisteröityä ennen jatkamista."
+      unauthenticated: "Sinun tulee rekisteröityä ja/tai kirjautua ennen jatkamista."
       unconfirmed: "Sinun täytyy vahvistaa käyttäjätilisi ennen kuin voit jatkaa"
     invitations: 
       invitation_token_invalid: "Kutsun vahvistustunnus on virheellinen!"
