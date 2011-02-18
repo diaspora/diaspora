@@ -4,6 +4,7 @@
 
 require 'json'
 require 'csv'
+require File.join(Rails.root, 'lib/data_conversion/base')
 
 module DataConversion
   class ExportFromMongo < DataConversion::Base
