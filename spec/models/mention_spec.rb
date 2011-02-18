@@ -10,11 +10,6 @@ describe Mention do
       @user = alice
       @mentioned_user = bob
 
-      # bob adds alice as a contact
-      Contact.create(:user => @mentioned_user,
-                     :person => @user.person,
-                     :aspects => [@mentioned_user.aspects.first])
-
       @sm =  Factory(:status_message, :person => @user.person)
       @m  = Mention.new(:person => @mentioned_user.person, :post=> @sm)
     end
@@ -49,9 +44,6 @@ describe Mention do
     it 'destroys a notification' do
       @user = alice
       @mentioned_user = bob
-
-      # bob adds alice as a contact so that bob is notified
-      Contact.create(:user => @mentioned_user, :person => @user.person, :aspects => [@mentioned_user.aspects.first])
 
       @sm =  Factory(:status_message, :person => @user.person)
       @m  = Mention.create(:person => @mentioned_user.person, :post=> @sm)
