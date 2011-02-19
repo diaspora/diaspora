@@ -23,7 +23,12 @@ class AspectsController < ApplicationController
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile?
       redirect_to getting_started_path
     else
-      sort_order = params[:created_at].blank? ? 'updated_at' : 'created_at'
+      if params[:sort_order].blank? and session[:sort_order].blank?
+         session[:sort_order] = 'updated_at'
+      elsif not params[:sort_order].blank? and not session[:sort_order] == params[:sort_order]
+        session[:sort_order] = params[:sort_order] == 'created_at' ? 'created_at' : 'updated_at'
+      end
+      sort_order = session[:sort_order] == 'created_at' ? 'created_at' : 'updated_at'
       @aspect_ids = @aspects.map{|a| a.id}
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
