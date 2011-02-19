@@ -62,6 +62,7 @@ Ongoing discussion:
 - [Diaspora Discussion Google Group](http://groups.google.com/group/diaspora-discuss)
 - [Diaspora Q&A site](http://diaspora.shapado.com/)
 - [#diaspora IRC channel](irc://irc.freenode.net/#diaspora)
+  ([join via the web client](http://webchat.freenode.net?channels=diaspora))
 - [#diaspora-dev IRC channel](irc://irc.freenode.net/#diaspora-dev)
   ([join via the web client](http://webchat.freenode.net?channels=diaspora-dev))
 
