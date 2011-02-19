@@ -169,6 +169,9 @@ en:
           make_aspect_list_visible: "make aspect list visible to others in aspect"
       aspect_contacts:
           done_editing: "done editing"
+      aspect_stream:
+        activity: 'activity'
+        post_time: 'post time'
       show:
           edit_aspect: "edit aspect"
       no_contacts_message:

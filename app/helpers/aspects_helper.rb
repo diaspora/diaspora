@@ -5,7 +5,8 @@
 module AspectsHelper
   def link_for_aspect(aspect, opts={})
     opts[:params] ||= {}
-    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id)
+    params ||= {}
+    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
 
     link_to aspect.name, aspects_path( opts[:params] ), opts
   end
