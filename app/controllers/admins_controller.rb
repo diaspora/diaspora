@@ -19,6 +19,6 @@ class AdminsController < ApplicationController
   def admin_inviter
     Invitation.create_invitee(:identifier => params[:identifier])
     flash[:notice] = "invitation sent to #{params[:identifier]}"
-    redirect_to 'admins/user_search'
+    redirect_to '/admins/user_search'
   end
 end
