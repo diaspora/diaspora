@@ -69,30 +69,43 @@ describe AspectsController do
       before do
         @posts = []
         @users = []
-        8.times do |n|
+        4.times do |n|
           user = Factory(:user)
           @users << user
           aspect = user.aspects.create(:name => 'people')
           connect_users(@user, @aspect0, user, aspect)
           post =  @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
           @posts << post
+          sleep(1)
         end
+        @user.build_comment('lalala', :on => @posts.first ).save
       end
 
       it "returns all posts" do
         @user.aspects.reload
         get :index
-        assigns(:posts).length.should == 8
+        assigns(:posts).length.should == 4
       end
 
       it "returns posts filtered by a single aspect" do
         get :index, :a_ids => [@aspect1.id.to_s]
-        assigns(:posts).length.should == 4
+        assigns(:posts).length.should == 2
       end
 
       it "returns posts from filtered aspects" do
         get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
-        assigns(:posts).length.should == 8
+        assigns(:posts).length.should == 4
+      end
+
+      it 'returns posts by updated at by default' do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
+        assigns(:posts).should =~ @posts
+        assigns(:posts).should_not == @posts.reverse
+      end
+
+      it 'return posts by created at if passed created_at=true' do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s], :created_at => true
+        assigns(:posts).should == @posts.reverse
       end
     end
 

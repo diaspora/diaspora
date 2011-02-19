@@ -23,12 +23,12 @@ class AspectsController < ApplicationController
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile?
       redirect_to getting_started_path
     else
-
+      sort_order = params[:created_at].blank? ? 'updated_at' : 'created_at'
       @aspect_ids = @aspects.map{|a| a.id}
 
       @posts = StatusMessage.joins(:aspects).where(:pending => false,
                :aspects => {:id => @aspect_ids}).includes(:comments, :photos).select('DISTINCT `posts`.*').paginate(
-               :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+               :page => params[:page], :per_page => 15, :order => sort_order + ' DESC')
       @fakes = PostsFake.new(@posts)
 
       @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
