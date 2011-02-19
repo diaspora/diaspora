@@ -8,7 +8,7 @@ describe PeopleController do
   render_views
 
   before do
-    @user   = alice
+    @user = alice
     @aspect = @user.aspects.first
     sign_in :user, @user
   end
@@ -16,11 +16,11 @@ describe PeopleController do
   describe '#index (search)' do
     before do
       @eugene = Factory.create(:person,
-        :profile => Factory.build(:profile, :first_name => "Eugene",
-                     :last_name => "w"))
-      @korth  = Factory.create(:person,
-        :profile => Factory.build(:profile, :first_name => "Evan",
-                     :last_name => "Korth"))
+                               :profile => Factory.build(:profile, :first_name => "Eugene",
+                                                         :last_name => "w"))
+      @korth = Factory.create(:person,
+                              :profile => Factory.build(:profile, :first_name => "Evan",
+                                                        :last_name => "Korth"))
     end
 
     it 'responds with json' do
@@ -37,8 +37,8 @@ describe PeopleController do
     end
     it "assigns people" do
       eugene2 = Factory.create(:person,
-        :profile => Factory.build(:profile, :first_name => "Eugene",
-                     :last_name => "w"))
+                               :profile => Factory.build(:profile, :first_name => "Eugene",
+                                                         :last_name => "w"))
       get :index, :q => "Eug"
       assigns[:people].should =~ [@eugene, eugene2]
     end
@@ -54,50 +54,34 @@ describe PeopleController do
     end
   end
 
+  describe "#show performance" do
+    before do
+      require 'benchmark'
+      @posts = []
+      @users = []
+      8.times do |n|
+        user = Factory.create(:user)
+        @users << user
+        aspect = user.aspects.create(:name => 'people')
+        connect_users(@user, @user.aspects.first, user, aspect)
+
+        @posts << @user.post(:status_message, :message => "hello#{n}", :to => aspect.id)
+      end
+      @posts.each do |post|
+        @users.each do |user|
+          user.comment "yo#{post.message}", :on => post
+        end
+      end
+    end
+
+    it 'takes time' do
+      Benchmark.realtime {
+        get :show, :id => @user.person.id
+      }.should < 0.8
+    end
+  end
+
   describe '#show' do
-    it 'goes to the current_user show page' do
-      get :show, :id => @user.person.id
-      response.should be_success
-    end
-    describe 'performance' do
-      before do
-        require 'benchmark'
-        @posts = []
-        @users = []
-        8.times do |n|
-          user = Factory.create(:user)
-          @users << user
-          aspect = user.aspects.create(:name => 'people')
-          connect_users(@user, @user.aspects.first, user, aspect)
-
-          @posts << @user.post(:status_message, :message => "hello#{n}", :to => aspect.id)
-        end
-        @posts.each do |post|
-          @users.each do |user|
-            user.comment "yo#{post.message}", :on => post
-          end
-        end
-      end
-
-      it 'takes time' do
-        Benchmark.realtime{
-          get :show, :id => @user.person.id
-        }.should < 0.8
-      end
-    end
-    it 'renders with a post' do
-      @user.post :status_message, :message => 'test more', :to => @aspect.id
-      get :show, :id => @user.person.id
-      response.should be_success
-    end
-
-    it 'renders with a post' do
-      message = @user.post :status_message, :message => 'test more', :to => @aspect.id
-      @user.comment 'I mean it', :on => message
-      get :show, :id => @user.person.id
-      response.should be_success
-    end
-
     it "redirects to #index if the id is invalid" do
       get :show, :id => 'delicious'
       response.should redirect_to people_path
@@ -106,12 +90,6 @@ describe PeopleController do
     it "redirects to #index if no person is found" do
       get :show, :id => 3920397846
       response.should redirect_to people_path
-    end
-
-    it "renders the show page of a contact" do
-      user2 = bob
-      get :show, :id => user2.person.id
-      response.should be_success
     end
 
     it 'does not allow xss attacks' do
@@ -124,19 +102,48 @@ describe PeopleController do
       response.body.match(profile.first_name).should be_false
     end
 
-    it "renders the show page of a non-contact" do
-      user2 = eve
-      get :show, :id => user2.person.id
-      response.should be_success
+    context "when the person is the current user" do
+      it "succeeds" do
+        get :show, :id => @user.person.id
+        response.should be_success
+      end
+      it "renders the user's posts" do
+        @user.post :status_message, :message => 'test more', :to => @aspect.id
+        get :show, :id => @user.person.id
+        response.should be_success
+      end
+      it "renders the comments on the user's posts" do
+        message = @user.post :status_message, :message => 'test more', :to => @aspect.id
+        @user.comment 'I mean it', :on => message
+        get :show, :id => @user.person.id
+        response.should be_success
+      end
     end
 
-    it "renders with public posts of a non-contact" do
-      user2 = eve
-      status_message = user2.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+    context "when the person is a contact of the current user" do
+      before do
+        @person = bob.person
+      end
+      it "succeeds" do
+        get :show, :id => @person.id
+        response.should be_success
+      end
+    end
 
-      get :show, :id => user2.person.id
-      assigns[:posts].should include status_message
-      response.body.should include status_message.message
+    context "when the person is not a contact of the current user" do
+      before do
+        @person = eve.person
+      end
+      it "succeeds" do
+        get :show, :id => @person.id
+        response.should be_success
+      end
+      it "shows public posts only" do
+        status_message = @person.owner.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+        get :show, :id => @person.id
+        assigns[:posts].should include status_message
+        response.body.should include status_message.message
+      end
     end
   end
 
