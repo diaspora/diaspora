@@ -103,8 +103,8 @@ describe AspectsController do
         assigns(:posts).should_not == @posts.reverse
       end
 
-      it 'return posts by created at if passed created_at=true' do
-        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s], :created_at => true
+      it 'return posts by created at if passed sort_order=created_at' do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s], :sort_order => 'created_at'
         assigns(:posts).should == @posts.reverse
       end
     end
