@@ -47,12 +47,21 @@ nl:
       video_title: 
         unknown: "Onbekende Videotitel"
   are_you_sure: "Weet je het zeker?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Contact toevoegen aan aspect is mislukt."
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_contacts: 
       done_editing: "klaar met bewerken"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
@@ -96,9 +105,6 @@ nl:
       nobody_in_aspect: "Je aspect '%{aspect_name}' is leeg."
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
-    remove_from_aspect: 
-      failure: "Persoon van aspect verwijderen mislukt"
-      success: "Persoon succesvol verwijderd van aspect"
     seed: 
       family: "Familie"
       work: "Werk"
@@ -114,9 +120,18 @@ nl:
       comment: "Reactie"
       commenting: "Reageren..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "geen contacten"
   date: 
     formats: 
@@ -241,19 +256,6 @@ nl:
   people: 
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
-    edit: 
-      allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
-      edit_profile: "Bewerk profiel"
-      first_name: "Voornaam"
-      info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
-      last_name: "Achternaam"
-      update_profile: "Update profiel"
-      your_bio: "Jouw bio"
-      your_birthday: "Je verjaardag"
-      your_gender: "Je geslacht"
-      your_name: "Je naam"
-      your_photo: "Je foto"
-      your_profile: "Je profiel"
     helper: 
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
@@ -276,11 +278,6 @@ nl:
       in_aspects: "in de aspecten"
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
-    share_with: 
-      accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
-      share_with: "Start delen met %{name}"
-    share_with_pane: 
-      add_new_aspect: "voeg nieuw aspect toe"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
@@ -292,9 +289,6 @@ nl:
       similar_contacts: "vergelijkbare contacten"
       start_sharing: "start met delen"
       to_accept_or_ignore: "om te accepteren of te negeren."
-    update: 
-      failed: "Updaten van profiel mislukt"
-      updated: "Profiel geüpdatet"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
   photos: 
@@ -334,6 +328,23 @@ nl:
       notice: "Foto succesvol veranderd."
   previous: "vorige"
   profile: "Profiel"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 

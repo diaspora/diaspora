@@ -47,12 +47,21 @@ sk:
       video_title: 
         unknown: "Neznámy názov videa"
   are_you_sure: "Ste si istý?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Pridanie kontaktu do aspektu zlyhalo."
       success: "Kontakt bol úspešne pridaný."
     aspect_contacts: 
       done_editing: "úprava dokončená"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Kontakty v tomto aspekte sa nebudú môcť navzájom vidieť."
     contacts_visible: "Kontakty v tomto aspekte sa budú môcť navzájom vidieť."
     create: 
@@ -96,9 +105,6 @@ sk:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdny."
     no_posts_message: 
       start_talking: "Nikto nič nevraví. Začnite Vy!"
-    remove_from_aspect: 
-      failure: "Chyba pri odstraňovaní osoby z aspektu"
-      success: "Osoba bola z aspektu úspešne odstránená."
     seed: 
       family: "Rodina"
       work: "Práca"
@@ -114,9 +120,18 @@ sk:
       comment: "Komentár"
       commenting: "Komentuje..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "kontakty (%{count})"
     one: "1 kontakt"
     other: "kontakty (%{count})"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "žiadne kontakty"
   date: 
     formats: 
@@ -241,19 +256,6 @@ sk:
   people: 
     aspect_list: 
       edit_membership: "upraviť členstvo v Aspekte."
-    edit: 
-      allow_search: "Dovoliť ostatným vyhľadať Vás v Diaspore"
-      edit_profile: "Upraviť profil"
-      first_name: "Meno"
-      info_available_to: "Tieto informácie budú dostupné komukoľvek, s kým sa spojíte na Diaspore."
-      last_name: "Priezvisko"
-      update_profile: "Aktualizovať profil"
-      your_bio: "O Vás"
-      your_birthday: "Vaše narodeniny"
-      your_gender: "Vaše pohlavie"
-      your_name: "Vaše meno"
-      your_photo: "Vaša fotografia"
-      your_profile: "Váš profil"
     helper: 
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "Výsledky hľadania %{params}"
@@ -276,11 +278,6 @@ sk:
       in_aspects: "v aspektoch"
       remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť užívateľa %{name} z aspektu %{aspect}?"
-    share_with: 
-      accepts: "Akonáhle dá %{name} súhlas, budete môcť vidieť aj ostatné príspevky"
-      share_with: "Začať zdieľať s %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
@@ -292,9 +289,6 @@ sk:
       similar_contacts: "podobné kontakty"
       start_sharing: "začať zdieľať"
       to_accept_or_ignore: "akceptovať, alebo ignorovať."
-    update: 
-      failed: "Aktualizácia profilu zlyhala"
-      updated: "Profil upravený"
     webfinger: 
       fail: "Prepáčte, nie je možné nájsť %{handle}."
   photos: 
@@ -334,6 +328,23 @@ sk:
       notice: "Fotka bola úspešne aktualizovaná."
   previous: "Predchádzajúce"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Registrácie sú zatvorené"
     create: 

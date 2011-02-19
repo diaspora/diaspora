@@ -47,12 +47,21 @@ pl:
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Na pewno?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Nie udało się dodać kontaktu do aspektu."
       success: "Dodano kontakt to aspektu."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ pl:
       nobody_in_aspect: "Twój aspekt '%{aspect_name}' jest pusty."
     no_posts_message: 
       start_talking: "Nikt jeszcze nic nie powiedział. Rozkręć rozmowę!"
-    remove_from_aspect: 
-      failure: "Nie udało się usunąć osoby z aspektu"
-      success: "Pomyślnie usunięto osobę z aspektu"
     seed: 
       family: "Rodzina"
       work: "Praca"
@@ -114,9 +120,18 @@ pl:
       comment: "Skomentuj…"
       commenting: "Komentowanie…"
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} kontakty"
     one: "1 kontakt"
     other: "%{count} kontaktów"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "brak kontaktów"
   date: 
     formats: 
@@ -241,19 +256,6 @@ pl:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Zezwól na wyszukiwanie Twojego profilu w Diasporze"
-      edit_profile: "Edit profile"
-      first_name: "Imię"
-      info_available_to: "Ta informacja będzie widoczna dla każdego, z kim połączysz się w Diasporze."
-      last_name: "Nazwisko"
-      update_profile: "Aktualizuj profil"
-      your_bio: "O Tobie"
-      your_birthday: "Twoja data urodzenia"
-      your_gender: "Twoja płeć"
-      your_name: "Twoje imię"
-      your_photo: "Twoje zdjęcie"
-      your_profile: "Twój profil"
     helper: 
       people_on_pod_are_aware_of: " osoby na podzie wiedzą, że"
       results_for: " wyniki dla %{params}"
@@ -276,11 +278,6 @@ pl:
       in_aspects: "w aspektach"
       remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
-    share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Osoba nie istnieje!"
       incoming_request: "Masz nowe zaproszenie od tej osoby."
@@ -292,9 +289,6 @@ pl:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
-    update: 
-      failed: "Nie udało się zaktualizować profilu"
-      updated: "Profil zaktualizowany"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +328,23 @@ pl:
       notice: "Pomyślnie zaktualizowano zdjęcie."
   previous: "previous"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Na tym podzie Diaspory rejestracja jest zamknięta"
     create: 

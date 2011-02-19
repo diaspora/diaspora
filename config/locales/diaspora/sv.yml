@@ -47,12 +47,21 @@ sv:
       video_title: 
         unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Personen kunde inte läggas till på sidan."
       success: "Personen tillagd på sidan."
     aspect_contacts: 
       done_editing: "dölj"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ sv:
       nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
     no_posts_message: 
       start_talking: "Ingen har sagt något än. Bli först!"
-    remove_from_aspect: 
-      failure: "Misslyckades med att ta bort personen från vald sida"
-      success: "Personen är nu borttagen från vald sida"
     seed: 
       family: "Familj"
       work: "Arbete"
@@ -114,9 +120,18 @@ sv:
       comment: "Kommentar"
       commenting: "Kommenterar..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "inga kontakter"
   date: 
     formats: 
@@ -241,19 +256,6 @@ sv:
   people: 
     aspect_list: 
       edit_membership: "flytta mellan sidor"
-    edit: 
-      allow_search: "Tillåt andra användare på Diaspora att söka efter dig"
-      edit_profile: "Ändra profil"
-      first_name: "Förnamn"
-      info_available_to: "Den här informationen kommer vara synlig för alla som du ansluter till på diaspora."
-      last_name: "Efternamn"
-      update_profile: "Uppdatera profil"
-      your_bio: "Din biografi"
-      your_birthday: "Din födelsedag"
-      your_gender: "Ditt kön"
-      your_name: "Ditt namn"
-      your_photo: "Ditt foto"
-      your_profile: "Din profil"
     helper: 
       people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
       results_for: " resultat för %{params}"
@@ -276,11 +278,6 @@ sv:
       in_aspects: "på sidor"
       remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
-    share_with: 
-      accepts: "Så snart %{name} accepterar kommer ni kunna se varandras meddelanden och bilder"
-      share_with: "Börja dela med %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Den här personen finns inte!"
       incoming_request: "%{name} vill dela med dig"
@@ -292,9 +289,6 @@ sv:
       similar_contacts: "liknande kontakter"
       start_sharing: "start sharing"
       to_accept_or_ignore: "for att acceptera eller ignorera."
-    update: 
-      failed: "Misslyckades med att uppdatera profilen"
-      updated: "Profilen är uppdaterad"
     webfinger: 
       fail: "Förlåt, vi kunde inte hitta %{handle}."
   photos: 
@@ -334,6 +328,23 @@ sv:
       notice: "Fotot är nu uppdaterat."
   previous: "föregående"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Registreringsformuläret är stäng på den här poden."
     create: 

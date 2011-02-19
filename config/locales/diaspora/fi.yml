@@ -47,12 +47,21 @@ fi:
       video_title: 
         unknown: "Videon Otsikko Tuntematon"
   are_you_sure: "Oletko varma?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Kontaktin lisäys näkymään epäonnistui."
       success: "Ystävän lisäys näkymään onnistui."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -96,9 +105,6 @@ fi:
       nobody_in_aspect: "Näkymäsi, '%{aspect_name}', on tyhjä."
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
-    remove_from_aspect: 
-      failure: "Henkilön poisto näkymästä epäonnistui"
-      success: "Henkilön poisto näkymästä onnistui"
     seed: 
       family: "Perhe"
       work: "Työ"
@@ -114,9 +120,18 @@ fi:
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} kontaktia"
     one: "1 kontakti"
     other: "%{count} kontaktia"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "ei kontakteja"
   date: 
     formats: 
@@ -241,19 +256,6 @@ fi:
   people: 
     aspect_list: 
       edit_membership: "muokkaa näkymän jäsenyyttä."
-    edit: 
-      allow_search: "Salli ihmisten etsiä sinua Diasporassa"
-      edit_profile: "Muokkaa profiilia"
-      first_name: "Etunimi"
-      info_available_to: "Nämä tiedot näkyvät kaikille, keihin olet yhteydessä Diasporassa."
-      last_name: "Sukunimi"
-      update_profile: "Päivitä profiili"
-      your_bio: "Tietoja sinusta"
-      your_birthday: "Syntymäpäiväsi"
-      your_gender: "Sukupuolesi"
-      your_name: "Nimesi"
-      your_photo: "Kuvasi"
-      your_profile: "Profiilisi"
     helper: 
       people_on_pod_are_aware_of: " ihmiset podissa tietävät, että"
       results_for: " tulokset kyselylle %{params}"
@@ -276,11 +278,6 @@ fi:
       in_aspects: "näkymissä"
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
-    share_with: 
-      accepts: "Kun %{name} hyväksyy, alatte näkemään toistenne viestit Diasporassa."
-      share_with: "Aloita jakaminen henkilölle %{name}"
-    share_with_pane: 
-      add_new_aspect: "lisää näkymä"
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
@@ -292,9 +289,6 @@ fi:
       similar_contacts: "Yhteiset kontaktit"
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
-    update: 
-      failed: "Profiilin päivittäminen epäonnistui"
-      updated: "Profiili päivitetty"
     webfinger: 
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
   photos: 
@@ -334,6 +328,23 @@ fi:
       notice: "Kuva päivitettiin onnistuneesti."
   previous: "edellinen"
   profile: "Profiili"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create: 

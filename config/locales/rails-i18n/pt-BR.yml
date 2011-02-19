@@ -1,4 +1,4 @@
-pt-BR:
+"pt-BR":
   # formatos de data e hora
   date:
     formats:
@@ -74,14 +74,16 @@ pt-BR:
       day:    "Dia"
       hour:   "Hora"
       minute: "Minuto"
-      second: "Segundos"
+      second: "Segundo"
 
-  # numeros
   number:
     format:
       precision: 3
       separator: ','
       delimiter: '.'
+      significant: false
+      strip_insignificant_zeros: false
+
     currency:
       format:
         unit: 'R$'
@@ -89,19 +91,24 @@ pt-BR:
         format: '%u %n'
         separator: ','
         delimiter: '.'
+        significant: false
+        strip_insignificant_zeros: false
+
     percentage:
       format:
         delimiter: '.'
+
     precision:
       format:
         delimiter: '.'
+
     human:
       format:
         precision: 2
         delimiter: '.'
         significant: true
-        strip_unsignificant_zeros: true
-      # number_to_human_size()
+        strip_insignificant_zeros: true
+
       storage_units:
         format: "%n %u"
         units:
@@ -139,7 +146,48 @@ pt-BR:
       two_words_connector: " e "
       last_word_connector: " e "
     
-  # ActiveRecord
+    select:    
+      prompt: "Por favor selecione"
+
+  helpers:
+    select:
+      prompt: "Por favor selecione"
+
+    submit:
+      create: 'Criar %{model}'
+      update: 'Atualizar %{model}'
+      submit: 'Salvar %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    template:
+      header:
+        one: "Não foi possível gravar %{model}: 1 erro"
+        other: "Não foi possível gravar %{model}: %{count} erros."
+      body: "Por favor, verifique o(s) seguinte(s) campo(s):"
+
+    messages: &errors_messages
+      inclusion: "não está incluído na lista"
+      exclusion: "não está disponível"
+      invalid: "não é válido"
+      confirmation: "não está de acordo com a confirmação"
+      accepted: "deve ser aceito"
+      empty: "não pode ficar vazio"
+      blank: "não pode ficar em branco"
+      too_long: "é muito longo (máximo: %{count} caracteres)"
+      too_short: "é muito curto (mínimo: %{count} caracteres)"
+      wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
+      not_a_number: "não é um número"
+      not_an_integer: "não é um número inteiro"
+      greater_than: "deve ser maior que %{count}"
+      greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
+      equal_to: "deve ser igual a %{count}"
+      less_than: "deve ser menor que %{count}"
+      less_than_or_equal_to: "deve ser menor ou igual a %{count}"
+      odd: "deve ser ímpar"
+      even: "deve ser par"
+    
   activerecord:
     errors:
       template:
@@ -147,25 +195,11 @@ pt-BR:
           one: "Não foi possível gravar %{model}: 1 erro"
           other: "Não foi possível gravar %{model}: %{count} erros."
         body: "Por favor, verifique o(s) seguinte(s) campo(s):"
+
       messages:
-        inclusion: "não está incluído na lista"
-        exclusion: "não está disponível"
-        invalid: "não é válido"
-        confirmation: "não está de acordo com a confirmação"
-        accepted: "deve ser aceito"
-        empty: "não pode ficar vazio"
-        blank: "não pode ficar em branco"
-        too_long: "é muito longo (máximo: %{count} caracteres)"
-        too_short: "é muito curto (mínimo: %{count} caracteres)"
-        wrong_length: "não possui o tamanho esperado (%{count} caracteres)"
         taken: "já está em uso"
-        not_a_number: "não é um número"
-        not_an_integer: "não é um número inteiro"
-        greater_than: "deve ser maior do que %{count}"
-        greater_than_or_equal_to: "deve ser maior ou igual a %{count}"
-        equal_to: "deve ser igual a %{count}"
-        less_than: "deve ser menor do que %{count}"
-        less_than_or_equal_to: "deve ser menor ou igual a %{count}"
-        odd: "deve ser ímpar"
-        even: "deve ser par"
         record_invalid: "A validação falhou: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

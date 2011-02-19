@@ -47,12 +47,21 @@ eu:
       video_title: 
         unknown: "Bideo izen ezezaguna"
   are_you_sure: "Ziur al zaude?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Akatsa adiskidea alderdira gehitzean."
       success: "Adiskidea arrakastaz gehitu da alderdira."
     aspect_contacts: 
       done_editing: "aldaketak gauzatu"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Alderdi honetako adiskideak nor dagoen bere alderdian ezingo dute ikusi."
     contacts_visible: "Alderdi honetako adiskideak jokingo dute nor dagoen alderdian."
     create: 
@@ -96,9 +105,6 @@ eu:
       nobody_in_aspect: "Zure alderdi '%{aspect_name}' hutsik dago."
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
-    remove_from_aspect: 
-      failure: "Akatsa pertsona alderditik ezabatzean"
-      success: "Pertsona arrakastaz alderditik ezabatua"
     seed: 
       family: "Familia"
       work: "Lantokia"
@@ -114,9 +120,18 @@ eu:
       comment: "Iruzkindu"
       commenting: "Iruzkintzen..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "adiskiderik ez"
   date: 
     formats: 
@@ -241,19 +256,6 @@ eu:
   people: 
     aspect_list: 
       edit_membership: "aldatu alderdiaren bazkidetza"
-    edit: 
-      allow_search: "Utzi ezazu jendeak zu bilatzea Diasporan"
-      edit_profile: "Profila aldatu"
-      first_name: "Izena"
-      info_available_to: "Zurekin harremanetan dagoen edozeinek izango du informazio hau irakurtzeko ahalmena."
-      last_name: "Abizena"
-      update_profile: "Profila Eguneratu"
-      your_bio: "Zuri buruz"
-      your_birthday: "Zure jaioteguna"
-      your_gender: "Zure sexua"
-      your_name: "Zure izena"
-      your_photo: "Zure argazkia"
-      your_profile: "Zure profila"
     helper: 
       people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
       results_for: " %{params}(r)entzat emaitzak"
@@ -276,11 +278,6 @@ eu:
       in_aspects: "alderdietan"
       remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
-    share_with: 
-      accepts: "Behin %{name}(e)k onartzen zaituela, bakoitzak bestearen berriak Diasporan ikusi ahalko dituzue"
-      share_with: "%{name}(r)ekin hasi partekatzen"
-    share_with_pane: 
-      add_new_aspect: "alderdi berria gehitu"
     show: 
       does_not_exist: "Pertsona hau ez dago!"
       incoming_request: "Adiskide eskaera bat bidali dizu pertsona honek."
@@ -292,9 +289,6 @@ eu:
       similar_contacts: "antzeko adiskideak"
       start_sharing: "harremanetan hasi"
       to_accept_or_ignore: "onartu edo utzi"
-    update: 
-      failed: "Akatsa profila eguneratzean"
-      updated: "Profila eguneratuta"
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
   photos: 
@@ -334,6 +328,23 @@ eu:
       notice: "Argazkia arrakastaz eguneratua."
   previous: "aurrekoa"
   profile: "Profila"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create: 

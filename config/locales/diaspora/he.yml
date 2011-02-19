@@ -47,12 +47,21 @@ he:
       video_title: 
         unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: "בבטחה?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
     aspect_contacts: 
       done_editing: "סיום העריכה"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "אנשי הקשר בהיבט זה לא יוכלו לראות אחד את השני."
     contacts_visible: "אנשי קשר בהיבט זה יוכלו לראות זה את זה."
     create: 
@@ -96,9 +105,6 @@ he:
       nobody_in_aspect: "ההיבט שלך '%{aspect_name}' ריק."
     no_posts_message: 
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
-    remove_from_aspect: 
-      failure: "אירע כשר בהסרת איש הקשר מההיבט"
-      success: "איש הקשר הוסר בהצלחה מההיבט"
     seed: 
       family: "משפחה"
       work: "עבודה"
@@ -114,9 +120,18 @@ he:
       comment: "הערה"
       commenting: "נוספת הערה..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "אין אנשי קשר"
   date: 
     formats: 
@@ -241,19 +256,6 @@ he:
   people: 
     aspect_list: 
       edit_membership: "עריכת חברות בהיבט"
-    edit: 
-      allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
-      edit_profile: "עריכת הפרופיל"
-      first_name: "השם הפרטי"
-      info_available_to: "פרטים אלו יהיו זמינים לכל אלו שנוצר ביניכם קשר דרך דיאספורה."
-      last_name: "שם המשפחה"
-      update_profile: "עדכון הפרופיל"
-      your_bio: "פרטיך האישיים"
-      your_birthday: "יום ההולדת שלך"
-      your_gender: "המגדר שלך"
-      your_name: "השם שלך"
-      your_photo: "התמונה שלך"
-      your_profile: "הפרופיל שלך"
     helper: 
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
@@ -276,11 +278,6 @@ he:
       in_aspects: "בהיבטים"
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
-    share_with: 
-      accepts: "לאחר שבקשתך תתקבל על ידי %{name}, תהיה באפשרותכם לצפות זה ברשומותיו של זה בדיאספורה"
-      share_with: "התחלת השיתוף עם %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
@@ -292,9 +289,6 @@ he:
       similar_contacts: "אנשי קשר דומים"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
-    update: 
-      failed: "אירע כשל בעדכון הפרופיל"
-      updated: "הפרופיל עודכן"
     webfinger: 
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
   photos: 
@@ -334,6 +328,23 @@ he:
       notice: "התמונה עודכנה בהצלחה."
   previous: "הקודמת"
   profile: "פרופיל"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
     create: 

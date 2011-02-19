@@ -47,12 +47,21 @@ sl:
       video_title: 
         unknown: "Neznani video naslov"
   are_you_sure: "Ste prepričani?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Dodajanje stika v skupino ni uspelo."
       success: "Dodajanje stika v skupino je uspelo."
     aspect_contacts: 
       done_editing: "zaključi urejanje"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ sl:
       nobody_in_aspect: "Vaša skupina '%{aspect_name}' je prazna."
     no_posts_message: 
       start_talking: "Trenutno še brez objav. Začnite s prvo objavo!"
-    remove_from_aspect: 
-      failure: "Odstranitev osebe iz skupine ni uspelo"
-      success: "Odstranitev osebe iz skupine je uspešno"
     seed: 
       family: "Družina"
       work: "Služba"
@@ -114,9 +120,18 @@ sl:
       comment: "komentar"
       commenting: "komentiraj..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "število stikov %{count}"
     one: "1 stik"
     other: "število stikov %{count}"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "brez stikov"
   date: 
     formats: 
@@ -241,19 +256,6 @@ sl:
   people: 
     aspect_list: 
       edit_membership: "uredi člane skupin"
-    edit: 
-      allow_search: "Dovoli osebam, da me lahko poiščejo znotraj Diaspore"
-      edit_profile: "Uredi profil"
-      first_name: "Ime"
-      info_available_to: "Ti podatki bodo na voljo vsem vašim stikom znotraj Diaspore."
-      last_name: "Priimek"
-      update_profile: "Posodobi profil"
-      your_bio: "Vaš življenjepis"
-      your_birthday: "Vaš datum rojstva"
-      your_gender: "Vaš spol"
-      your_name: "Vaše ime"
-      your_photo: "Vaša fotografija"
-      your_profile: "Vaš profil"
     helper: 
       people_on_pod_are_aware_of: " ljudje v 'podu' so seznanjeni o"
       results_for: "zadetkov za %{params}"
@@ -276,11 +278,6 @@ sl:
       in_aspects: "v skupinah"
       remove_contact: "odstrani stik"
       remove_from: "Ali odstranim %{name} iz skupine %{aspect}?"
-    share_with: 
-      accepts: "Ko vas bo oseba %{name} sprejela, boste lahko začeli drug drugem spremljati prispevke znotraj Diaspore."
-      share_with: "Začnite deliti z osebo %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Oseba ne obstaja!"
       incoming_request: "Od te osebe ste prejeli novo prošnjo."
@@ -292,9 +289,6 @@ sl:
       similar_contacts: "podobni stiki"
       start_sharing: "začni deliti"
       to_accept_or_ignore: "sprejmite ali zavrnite."
-    update: 
-      failed: "Posodobitev profila ni uspelo"
-      updated: "Profil posodobljen"
     webfinger: 
       fail: "Žal ni bilo mogoče najti %{handle}."
   photos: 
@@ -334,6 +328,23 @@ sl:
       notice: "Slika uspešno posodobljena."
   previous: "prejšnja"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Za ta 'Diaspora pod' registracije trentno niso omogočene."
     create: 

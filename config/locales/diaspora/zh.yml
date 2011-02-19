@@ -47,12 +47,21 @@ zh:
       video_title: 
         unknown: "未知的视频标题"
   are_you_sure: "你确定吗？"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "无法把联系人加入分组。"
       success: "联系人已成功加入分组。"
     aspect_contacts: 
       done_editing: "编辑完成"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ zh:
       nobody_in_aspect: "您的'%{aspect_name}'是个空白分组。"
     no_posts_message: 
       start_talking: "还没人冒泡，说点什么吧！"
-    remove_from_aspect: 
-      failure: "从分组中移除联系人失败"
-      success: "成功从分组中移除联系人"
     seed: 
       family: "家庭"
       work: "工作"
@@ -114,9 +120,18 @@ zh:
       comment: "评论"
       commenting: "评论中"
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count}个联系人"
     one: "1个联系人"
     other: "%{count}个联系人"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "没有联系人"
   date: 
     formats: 
@@ -241,19 +256,6 @@ zh:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "允许人们在Diaspora内搜寻您"
-      edit_profile: "编辑个人资料"
-      first_name: "名字"
-      info_available_to: "任何和您在Diaspora有关联的人都能看到这条消息。"
-      last_name: "姓氏"
-      update_profile: "更新资料"
-      your_bio: "您的自我简介"
-      your_birthday: "您的生日"
-      your_gender: "性别"
-      your_name: "您的名字"
-      your_photo: "您的照片"
-      your_profile: "您的个人资料"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -276,11 +278,6 @@ zh:
       in_aspects: "在分组中"
       remove_contact: "删除联系人"
       remove_from: "真的要把%{name}从%{aspect}中删除吗？"
-    share_with: 
-      accepts: "一旦%{name}接受了您的邀请，你们就可以在Diaspora上相互查看彼此的帖子了。"
-      share_with: "开始和%{name}分享"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "此人不存在！"
       incoming_request: "您有一条这个人发的邀请。"
@@ -292,9 +289,6 @@ zh:
       similar_contacts: "相似联系人"
       start_sharing: "start sharing"
       to_accept_or_ignore: "接受或者忽略。"
-    update: 
-      failed: "更新资料失败"
-      updated: "资料已更新"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +328,23 @@ zh:
       notice: "头像更新成功。"
   previous: "后退"
   profile: "个人资料"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "这个Diaspora节点已关闭注册"
     create: 

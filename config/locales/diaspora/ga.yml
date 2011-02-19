@@ -47,12 +47,21 @@ ga:
       video_title: 
         unknown: "Teideal Físeán Anaithnid"
   are_you_sure: "An bhfuil tú cinnte?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Níor éirigh leis an teagmháil a chuir leis an gné."
       success: "D'eirigh le teagmháil a chuir le gné."
     aspect_contacts: 
       done_editing: "críochnaithe ag aithriú"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ ga:
       nobody_in_aspect: "Tá do gné '%{aspect_name}' folamh."
     no_posts_message: 
       start_talking: "Níor deireadh aon rud fós. Cuir tús leis an comhrá!"
-    remove_from_aspect: 
-      failure: "Níor fuaireadh ré leis an duine ón gné"
-      success: "Fuaireadh ré leis an duine ón gné"
     seed: 
       family: "Clann"
       work: "Oibre"
@@ -114,9 +120,18 @@ ga:
       comment: "Scríobh Nóta Tráchta"
       commenting: "Ag scríobh nóta tráchta"
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} teagmháil"
     one: "teagmháil amháin"
     other: "%{count} teagmháil"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "níl aon teagmháila"
   date: 
     formats: 
@@ -241,19 +256,6 @@ ga:
   people: 
     aspect_list: 
       edit_membership: "athraigh ballraíocht gné"
-    edit: 
-      allow_search: "Lig do daoine cuardaigh a dhéanamh ort laistigh do Diaspora"
-      edit_profile: "Athraigh próifíl"
-      first_name: "Chéadainm"
-      info_available_to: "Beidh an eolas seo ar fáil chuig gach duine a cheanglaíonn tú le ar Diaspora."
-      last_name: "Shloinne"
-      update_profile: "Nuashonrú Próifíl"
-      your_bio: "Do beathaisnéis"
-      your_birthday: "Do bhreithlá"
-      your_gender: "Do inscne"
-      your_name: "Do ainm"
-      your_photo: "Your photo"
-      your_profile: "Do próifíl"
     helper: 
       people_on_pod_are_aware_of: " tá a fhios ag daoine ar an phod faoi"
       results_for: " torthaí do %{params}"
@@ -276,11 +278,6 @@ ga:
       in_aspects: "i gnéithe"
       remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
-    share_with: 
-      accepts: "Nuair a glacann %{name} leat, tosóidh tú ag feiceáil póstanna a chéile ar Diaspora"
-      share_with: "Tosnú ag roint le %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Person does not exist!"
       incoming_request: "Tá iarratas nua agat ón duine seo."
@@ -292,9 +289,6 @@ ga:
       similar_contacts: "teagmháillí cosúil"
       start_sharing: "start sharing"
       to_accept_or_ignore: "chun glacadh leis nó neamhaird a dhéanamh de"
-    update: 
-      failed: "Níor éirigh le do próifíl a nuashonrú"
-      updated: "Próifíl nuashonraithe"
     webfinger: 
       fail: "Brón orn, níor raibhamar abálta %{handle} a fháil."
   photos: 
@@ -334,6 +328,23 @@ ga:
       notice: "Pictiure Uaslódaithe."
   previous: "roimhhe"
   profile: "Próifíl"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Tá síniú suas dúnta ar an phod Diaspora seo."
     create: 

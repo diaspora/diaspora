@@ -47,12 +47,21 @@ ca:
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Estàs segur?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Error a l'afegir el contacte a aquest aspecte."
       success: "S'ha agregat correctament el seu contacte a un aspecte."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ ca:
       nobody_in_aspect: "El teu aspecte '%{aspect_name}' està buit."
     no_posts_message: 
       start_talking: "Ningú ha dit res encara, inicia la conversa!"
-    remove_from_aspect: 
-      failure: "No s'ha pogut eliminar a la persona de l'aspecte."
-      success: "Persona eliminada de l'aspecte correctament"
     seed: 
       family: "Família"
       work: "Feina"
@@ -114,9 +120,18 @@ ca:
       comment: "Comentar"
       commenting: "Comentant..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contactes"
     one: "1 contacte"
     other: "%{count} contactes"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "no hi ha contactes"
   date: 
     formats: 
@@ -241,19 +256,6 @@ ca:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Permetre que la gent et busqui a Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "Nom"
-      info_available_to: "Aquesta informació estarà disponible per qualsevol que es connecti a Diaspora."
-      last_name: "Cognoms"
-      update_profile: "Actualitzar perfil"
-      your_bio: "La teva biografia"
-      your_birthday: "El teu aniversari"
-      your_gender: "El teu sexe"
-      your_name: "El teu nom"
-      your_photo: "La teva fotografia"
-      your_profile: "El teu perfil"
     helper: 
       people_on_pod_are_aware_of: "persones al \"pod\" són conscients de"
       results_for: "resultats per %{params}"
@@ -276,11 +278,6 @@ ca:
       in_aspects: "a aspectes"
       remove_contact: "eliminar contacte"
       remove_from: "Eliminar a %{name} de %{aspect}?"
-    share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "L'usuari no existeix!"
       incoming_request: "Tens una petició d'aquesta persona."
@@ -292,9 +289,6 @@ ca:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "acceptar o ignorar."
-    update: 
-      failed: "No s'ha pogut actualitzar el teu perfil"
-      updated: "Perfil actualitzat"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +328,23 @@ ca:
       notice: "Fotografia actualitzada correctament."
   previous: "previous"
   profile: "Perfil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Los registros están cerrados en este servidor Diaspora"
     create: 

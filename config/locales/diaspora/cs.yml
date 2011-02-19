@@ -47,12 +47,21 @@ cs:
       video_title: 
         unknown: "Neznámý název videa"
   are_you_sure: "Jste si jist?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Přidání kontaktu do aspektu selhalo."
       success: "Kontakt byl úspěšně přidán do aspektu."
     aspect_contacts: 
       done_editing: "ukončit úpravy"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
     create: 
@@ -96,9 +105,6 @@ cs:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
-    remove_from_aspect: 
-      failure: "Odstranění kontaktu z aspektu selhalo"
-      success: "Kontakt úspěšně odstraněn z aspektu"
     seed: 
       family: "Rodina"
       work: "Práce"
@@ -114,9 +120,18 @@ cs:
       comment: "Komentář"
       commenting: "Komentování..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "žádné kontakty"
   date: 
     formats: 
@@ -241,19 +256,6 @@ cs:
   people: 
     aspect_list: 
       edit_membership: "upravit člena aspektu"
-    edit: 
-      allow_search: "Umožnit lidem najít vás na Diaspoře"
-      edit_profile: "Upravit profil"
-      first_name: "Jméno"
-      info_available_to: "Tyto informace budou dostupné komukoliv, ke komu jste připojeni na Diaspoře."
-      last_name: "Příjmení"
-      update_profile: "Aktualizovat profil"
-      your_bio: "Váš životopis"
-      your_birthday: "Vaše datum narození"
-      your_gender: "Vaše pohlaví"
-      your_name: "Vaše jméno"
-      your_photo: "Vaše fotka"
-      your_profile: "Váš profil"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -276,11 +278,6 @@ cs:
       in_aspects: "v aspektech"
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
-    share_with: 
-      accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
-      share_with: "Začněte sdílet s %{name}"
-    share_with_pane: 
-      add_new_aspect: "přidat nový aspekt"
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "%{name} s vámi chce sdílet"
@@ -292,9 +289,6 @@ cs:
       similar_contacts: "podobné kontakty"
       start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
-    update: 
-      failed: "Aktualizace profilu selhala"
-      updated: "Profil aktualizován"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
   photos: 
@@ -334,6 +328,23 @@ cs:
       notice: "Fotka úspěšně aktualizována."
   previous: "předchozí"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 

@@ -21,7 +21,7 @@ is:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "verður að vera einstakt meðal tengiliða þessa notanda."
         person: 
           attributes: 
             diaspora_handle: 
@@ -29,15 +29,15 @@ is:
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "er afrit af fyrirliggjandi beiðni."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "er þegar í notkun."
             person: 
-              invalid: "is invalid."
+              invalid: "er ógilt."
             username: 
-              taken: "is already taken."
+              taken: "er þegar í notkun."
   ago: "%{time} síðan"
   application: 
     helper: 
@@ -47,12 +47,21 @@ is:
       video_title: 
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Failed to add contact to aspect."
       success: "Successfully added contact to aspect."
     aspect_contacts: 
       done_editing: "búið að breyta"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ is:
       nobody_in_aspect: "Ásýndin þín '%{aspect_name}' er auð."
     no_posts_message: 
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
-    remove_from_aspect: 
-      failure: "Failed to remove person from aspect"
-      success: "Successfully removed person from aspect"
     seed: 
       family: "Fjölskylda"
       work: "Vinna"
@@ -114,9 +120,18 @@ is:
       comment: "Athugasemd"
       commenting: "Athugasemd gerð..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "no contacts"
   date: 
     formats: 
@@ -135,15 +150,15 @@ is:
       already_account: "nú þegar með notandastillingar?"
       choice: "Choice"
       choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
-      learn_about_host: "Learn about how to host your own Diaspora server."
+      learn_about_host: "Lærðu hvernig á að hýsa sinn eigin Diaspora miðlara."
       login_here: "innskráning hér"
       ownership: "Eignarréttur"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      ownership_explanation: "Þú átt þínar myndir og þú ættir ekki að þurfa að gefa þær frá þér þótt þú deilir þeim. Þú heldur eign þinni á öllu því sem þú deilir um Diaspora, sem gefur þér fulla stjórn á því hvernig því er dreift."
+      share_what_you_want: "Deildu því sem þú vilt, með þeim sem þú vilt."
       simplicity: "Einfaldleiki"
       simplicity_explanation: "Diaspora gerir samnýtingu hreina og auðvelda - og það gildir líka fyrir friðhelgi. Þar sem Diaspora er í eðli sínu persónulegt, þarftu ekki að vaða í gegnum síður með stillingum og möguleikum til að halda síðunni þinni öruggri."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Deildu því sem þú vilt,"
+      tagline_second_half: "með þeim sem þú vilt."
   invitations: 
     check_token: 
       not_found: "Invitation token not found"
@@ -154,7 +169,7 @@ is:
       rejected: "Eftirfarandi netföng ollu vandræðum: "
       sent: "Boðsmiðar hafa verið sendir til:"
     edit: 
-      sign_up: "sign_up"
+      sign_up: "inn_skráning"
     new: 
       already_invited: "Nu þegar boðið"
       aspect: "Aspect"
@@ -162,7 +177,7 @@ is:
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
       personal_message: "Persónuleg skilaboð"
-      resend: "Resend"
+      resend: "Endursenda"
       send_an_invitation: "Sendu boðsmiða"
       send_invitation: "Senda boðsmiða"
       to: "Til"
@@ -198,7 +213,7 @@ is:
     index: 
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: "Tilkynningar"
-    mentioned: "has mentioned you in their"
+    mentioned: "hefur getið þín í þeirra"
     new_request: "bauð þér samnýtingu."
     post: "setja inn"
     request_accepted: "accepted your share request."
@@ -213,11 +228,11 @@ is:
       subject: "%{name} hefur gert atugasemd við þína færslu."
     diaspora: "the diaspora email robot"
     hello: "Halló %{name}!"
-    love: "love,"
+    love: "ást,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "gat þín í pósti:"
+      sign_in: "Skráðu þig inn til að sjá það."
+      subject: "% {Nafn} hefur getið þín á Diaspora*"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
       sign_in: "innskráning hér"
@@ -241,19 +256,6 @@ is:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Breyta síðunni minni"
-      first_name: "First name"
-      info_available_to: "Þessar upplýsingar verða aðgengilegar hverjum þeim sem tengist þér á Diaspora."
-      last_name: "Eftirnafn/Kenninafn"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Fæðingardagurinn þinn"
-      your_gender: "Kyn þitt"
-      your_name: "Nafnið þitt"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " niðurstöður fyrir %{params}"
@@ -276,11 +278,6 @@ is:
       in_aspects: "in aspects"
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
-    share_with: 
-      accepts: "Þegar %{name} samþykkir, getið þið byrjað að sjá færslur hvors annars á Diaspora"
-      share_with: "Byrja að samnýta með notandanum %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Manneskjan er ekki til!"
       incoming_request: "%{name} vill samnýta með þér"
@@ -292,14 +289,11 @@ is:
       similar_contacts: "svipaðir tengiliðir"
       start_sharing: "Byrja að samnýta"
       to_accept_or_ignore: "að samþykkja eða hunsa það."
-    update: 
-      failed: "Ekki tókst að uppfæra síðuna mína"
-      updated: "Síðan mín var uppfærð"
     webfinger: 
       fail: "Því miður, %{handle} fannst ekki."
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
       runtime_error: "Innsetning á mynd mistóḱst.  Ertu viss um að sætisbeltin séu spennt?"
       type_error: "Innsetning á mynd mistóḱst. Ertu viss um að mynd hafi verið bætt við?"
     destroy: 
@@ -312,7 +306,7 @@ is:
       post_it: "færa inn!"
     new_photo: 
       empty: "{file} skráin er tóm, veldu vinsamlegast skrárnar aftur en slepptu henni."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+      invalid_ext: "{file} hefur ógilt viðskeyti. Aðeins {extensions} eru leyfð."
       size_error: "{file} skráin er of stór, mesta stærð er {sizeLimit}."
     new_profile_photo: 
       or_select_one: "eða veldu eitthvað úr núverandi "
@@ -325,7 +319,7 @@ is:
       edit: "breyta"
       edit_delete_photo: "Breyta lýsingu við mynd / eyða mynd"
       make_profile_photo: "setja mynd á síðuna mína"
-      original_post: "Original Post"
+      original_post: "Upphaflegur póstur."
       permalink: "permalink"
       update_photo: "Uppfæra mynd"
       view: "sýn"
@@ -334,24 +328,41 @@ is:
       notice: "Velheppnuð uppfærsla á mynd. "
   previous: "fyrra"
   profile: "Síðan mín"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Innskráningar eru lokaðar á þessum Diaspora pod."
     create: 
       success: "Nú hefurðu tengst Diaspora!"
     edit: 
       cancel_my_account: "Aflýsa mínum notandastillingum"
       edit: "Breyta %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
+      leave_blank: "(Skildu eftir autt ef þú vilt ekki gera breytingu)"
+      password_to_confirm: "(Við þurfum núverandi lykilorðið þitt til að staðfesta breytingar þínar)"
+      unhappy: "Óhamingjusamur?"
       update: "Uppfæra"
     new: 
       enter_email: "Gefðu upp netfang"
       enter_password: "Skrifaðu lykilorð"
       enter_password_again: "Skrifaðu sama lykilorð og áður"
       enter_username: "Veldu notandanafn (aðeins bókstafi, tölur, og undirstrikun)"
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      sign_up: "Skráðu þig"
+      sign_up_for_diaspora: "Skráðu þig á Diaspora"
   requests: 
     create: 
       sending: "Sendi"
@@ -368,7 +379,7 @@ is:
   search: "Leita"
   services: 
     create: 
-      success: "Authentication successful."
+      success: "Auðkenning tókst."
     destroy: 
       success: "Successfully deleted authentication."
     failure: 
@@ -436,7 +447,7 @@ is:
       reshare: "Reshare"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Ekki tókst að eyða færslu"
     helper: 
       no_message_to_display: "Engin skilaboð að sýna!"
     new_status_message: 
@@ -468,18 +479,18 @@ is:
       your_email: "Netfangið þitt"
       your_handle: "Díaspora netfangið þitt."
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Tengjast á Diaspora"
       connect_services: "Tengjast öðrum þjónustum þínum"
       edit_profile: "Edit your profile"
       finished: "Búið!"
       save_and_continue: "Vista og halda áfram"
-      signup_steps: "Finish your sign up by completing these three steps:"
-      skip: "skip getting started"
+      signup_steps: "Kláraðu innskráningu þína með því að ljúka þessum þremur skrefum:"
+      skip: "sleppa að byrja"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Viltu finna Facebook vini þína á Diaspora?"
+        skip: "Sleppa"
       step_3: 
-        finish: "Finish"
+        finish: "Búið"
         people_already_on_diaspora: "People already on Diaspora"
       welcome: "Velkomin(n) í Diaspora!"
     public: 
