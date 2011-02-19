@@ -5,7 +5,7 @@
 
 = render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
 .prepend-11
-  sort by: 
+  = t('.sort_by')
   = link_to_if(params[:created_at], t('.activity'), aspects_path(:a_ids => params[:a_ids])) 
   |
   = link_to_unless(params[:created_at], t('.post_time'), aspects_path(:a_ids => params[:a_ids], :created_at => true ))

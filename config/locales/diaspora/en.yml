@@ -32,8 +32,8 @@ en:
   _comments: "Comments"
   _comment: "Comment"
   more: "More"
-  next: 'next'
-  previous: 'previous'
+  next: "next"
+  previous: "previous"
   contacts:
     zero:   "no contacts"
     one:    "1 contact"
@@ -47,7 +47,7 @@ en:
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect" 
     create:
-      failure: 'Failed to create contact'
+      failure: "Failed to create contact"
   new_requests:
     zero:   "no new requests"
     one:    "new request!"
@@ -111,7 +111,7 @@ en:
         have_a_problem: "Have a problem? Find an answer here"
         your_aspects: "your aspects"
         logged_in_as: "logged in as %{name}"
-        toggle: 'toggle mobile site'
+        toggle: "toggle mobile site"
   shared:
       publisher:
           mention_helper_text: "to mention someone, press '@' and start typing their name"
@@ -170,8 +170,9 @@ en:
       aspect_contacts:
           done_editing: "done editing"
       aspect_stream:
-        activity: 'activity'
-        post_time: 'post time'
+        sort_by: "sort by:"
+        activity: "activity"
+        post_time: "post time"
       show:
           edit_aspect: "edit aspect"
       no_contacts_message:
@@ -224,8 +225,8 @@ en:
       comment_on_post: "commented on your"
       also_commented: "also commented on your contact's"
       mentioned: "has mentioned you in their"
-      post: 'post'
-      deleted: 'deleted'
+      post: "post"
+      deleted: "deleted"
       index:
         notifications: "Notifications"
         mark_all_as_read: "Mark All as Read"
