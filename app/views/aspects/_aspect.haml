@@ -1,7 +1,7 @@
-%li{:data=>{:guid=>aspect.id}, :class => ("dull" if contacts.length == 0)}
+%li{:data=>{:guid=>aspect.id}, :class => ("dull" if contacts.size == 0)}
   .right
     %b
-      = link_to t('contacts', :count => contacts.count), edit_aspect_path(aspect), :rel => 'facebox'
+      = link_to t('contacts', :count => contacts.size), edit_aspect_path(aspect), :rel => 'facebox'
   %b
     = link_to aspect.name, edit_aspect_path(aspect), :rel => 'facebox'
   %br

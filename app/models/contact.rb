@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class Contact < ActiveRecord::Base
+  default_scope where(:pending => false)
+  
   belongs_to :user
   validates_presence_of :user
 

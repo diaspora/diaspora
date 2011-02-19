@@ -40,7 +40,7 @@ class ContactsController < ApplicationController
   end
 
   def edit
-    @contact = current_user.contacts.find(params[:id])
+    @contact = Contact.unscoped.where(:id => params[:id], :user_id => current_user.id).first
 
     @person = @contact.person
     @aspects_with_person = []
@@ -55,7 +55,7 @@ class ContactsController < ApplicationController
   end
 
   def destroy
-    contact = current_user.contacts.where(:id => params[:id]).first
+    contact = Contact.unscoped.where(:id => params[:id], :user_id => current_user.id).first
     if current_user.disconnect(contact)
       flash[:notice] = I18n.t('contacts.destroy.success', :name => contact.person.name)
     else

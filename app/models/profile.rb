@@ -32,7 +32,7 @@ class Profile < ActiveRecord::Base
   belongs_to :person
 
   def subscribers(user)
-    Person.joins(:contacts).where(:contacts => {:user_id => user.id, :pending => false})
+    Person.joins(:contacts).where(:contacts => {:user_id => user.id})
   end
 
   def receive(user, person)

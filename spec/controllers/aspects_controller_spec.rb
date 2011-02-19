@@ -198,9 +198,9 @@ describe AspectsController do
       assigns(:remote_requests).should be_empty
     end
     it "assigns contacts to only non-pending" do
-      @user.contacts.count.should == 1
+      Contact.unscoped.where(:user_id => @user.id).count.should == 1
       @user.send_contact_request_to(Factory(:user).person, @aspect0)
-      @user.contacts.count.should == 2
+      Contact.unscoped.where(:user_id => @user.id).count.should == 2
 
       get :manage
       contacts = assigns(:contacts)

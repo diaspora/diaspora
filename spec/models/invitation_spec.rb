@@ -338,7 +338,7 @@ describe Invitation do
     it 'creates a pending contact for the inviter' do
       lambda {
         @invitation.to_request!
-      }.should change(Contact, :count).by(1)
+      }.should change(Contact.unscoped, :count).by(1)
       @invitation.sender.contact_for(@new_user.person).should be_pending
     end
     describe 'return values' do

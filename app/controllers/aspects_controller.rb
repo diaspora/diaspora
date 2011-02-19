@@ -31,7 +31,7 @@ class AspectsController < ApplicationController
                :page => params[:page], :per_page => 15, :order => sort_order + ' DESC')
       @fakes = PostsFake.new(@posts)
 
-      @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
+      @contacts = current_user.contacts.includes(:person => :profile)
 
       @aspect = :all unless params[:a_ids]
       @aspect ||= @aspects.first #used in mobile
@@ -100,7 +100,7 @@ class AspectsController < ApplicationController
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-    @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
+    @contacts = current_user.contacts.includes(:person => :profile)
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
@@ -112,7 +112,7 @@ class AspectsController < ApplicationController
 
   def manage
     @aspect = :manage
-    @contacts = current_user.contacts.includes(:person => :profile).where(:pending => false)
+    @contacts = current_user.contacts.includes(:person => :profile)
     @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender => :profile)
     @aspects = @all_aspects.includes(:contacts => {:person => :profile})
   end

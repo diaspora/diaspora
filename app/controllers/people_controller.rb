@@ -30,7 +30,7 @@ class PeopleController < ApplicationController
       requests[r.id] = r
     end
     contacts = {}
-    Contact.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
       contacts[contact.person_id] = contact
     end
 

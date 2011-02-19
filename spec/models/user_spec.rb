@@ -268,7 +268,7 @@ describe User do
       connect_users(user, aspect, user2, aspect2)
       lambda {
         user.send_contact_request_to(Factory(:user).person, aspect)
-      }.should change(user.contacts, :count).by(1)
+      }.should change(Contact.unscoped.where(:user_id => user.id), :count).by(1)
 
       m = mock()
       m.should_receive(:post)

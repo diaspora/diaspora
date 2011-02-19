@@ -34,7 +34,7 @@ describe Diaspora::UserModules::Connecting do
     it 'creates a pending contact' do
       proc {
         user.send_contact_request_to(user2.person, aspect1)
-      }.should change(Contact, :count).by(1)
+      }.should change(Contact.unscoped, :count).by(1)
       user.contact_for(user2.person).pending.should == true
       user.contact_for(user2.person).should be_pending
     end
