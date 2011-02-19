@@ -35,6 +35,7 @@ class UsersController < ApplicationController
       end
     elsif params[:user][:language]
       if @user.update_attributes(:language => params[:user][:language])
+        I18n.locale = @user.language
         flash[:notice] = I18n.t 'users.update.language_changed'
       else
         flash[:error] = I18n.t 'users.update.language_not_changed'
