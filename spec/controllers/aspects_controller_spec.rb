@@ -55,7 +55,7 @@ describe AspectsController do
   describe "#index" do
     it "assigns @contacts to all the user's contacts" do
       get :index
-      assigns[:contacts].map{|c| c.id}.should == @user.contacts.map{|c| c.id}
+      assigns[:contacts].should =~ @user.contacts
     end
     it "generates a jasmine fixture" do
       get :index
@@ -74,9 +74,10 @@ describe AspectsController do
           @users << user
           aspect = user.aspects.create(:name => 'people')
           connect_users(@user, @aspect0, user, aspect)
-          post =  @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
+          post = @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
+          post.created_at = Time.now - (4 - n).seconds
+          post.save!
           @posts << post
-          sleep(1)
         end
         @user.build_comment('lalala', :on => @posts.first ).save
       end
