@@ -138,21 +138,40 @@ describe PeopleController do
         get :show, :id => @person.id
         response.should be_success
       end
+
+      it "assigns only the posts the current user can see" do
+        bob.posts.should be_empty
+        posts_user_can_see = []
+        posts_user_can_see << bob.post(:status_message, :message => "to an aspect @user is in", :to => bob.aspects[0].id)
+        bob.post(:status_message, :message => "to an aspect @user is not in", :to => bob.aspects[1].id)
+        posts_user_can_see << bob.post(:status_message, :message => "to all aspects", :to => 'all')
+        posts_user_can_see << bob.post(:status_message, :message => "public", :to => 'all', :public => true)
+        bob.reload.posts.length.should == 4
+
+        get :show, :id => @person.id
+        assigns(:posts).should =~ posts_user_can_see
+      end
     end
 
     context "when the person is not a contact of the current user" do
       before do
         @person = eve.person
       end
+
       it "succeeds" do
         get :show, :id => @person.id
         response.should be_success
       end
-      it "shows public posts only" do
-        status_message = @person.owner.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+
+      it "assigns only public posts" do
+        eve.posts.should be_empty
+        eve.post(:status_message, :message => "to an aspect @user is not in", :to => eve.aspects.first.id)
+        eve.post(:status_message, :message => "to all aspects", :to => 'all')
+        public_post = eve.post(:status_message, :message => "public", :to => 'all', :public => true)
+        eve.reload.posts.length.should == 3
+
         get :show, :id => @person.id
-        assigns[:posts].should include status_message
-        response.body.should include status_message.message
+        assigns[:posts].should =~ [public_post]
       end
     end
   end
