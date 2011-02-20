@@ -20,7 +20,10 @@ include HelperMethods
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+fixture_builder_file = "#{File.dirname(__FILE__)}/support/fixture_builder.rb"
+support_files = Dir["#{File.dirname(__FILE__)}/support/**/*.rb"] - [fixture_builder_file]
+support_files.each {|f| require f }
+require fixture_builder_file
 
 RSpec.configure do |config|
   config.mock_with :rspec
