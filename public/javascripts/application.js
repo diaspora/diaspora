@@ -9,7 +9,7 @@ $(document).ready(function() {
     itemSelector : "#main_stream .stream_element",
                    // selector for all items you'll retrieve
     bufferPx: 300,
-    debug: true,
+    debug: false,
     donetext: "no more.",
     loadingText: "",
     loadingImg: '/images/ajax-loader.gif'

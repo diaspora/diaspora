@@ -14,6 +14,9 @@
       = f.label :password , t('password')
       = f.password_field :password
   = f.submit t('.sign_in')
+  - if devise_mapping.rememberable?
+    = f.check_box :remember_me
+    = f.label :remember_me, t('.remember_me')
 
 %p
   = render :partial => "devise/shared/links"
