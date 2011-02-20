@@ -35,7 +35,7 @@
       %br
       %hr{:style=>"width:300px;"}
 
-  -if (contact && !contact.pending?) || person == current_user.person || @incoming_request
+  -if (contact.persisted? && !contact.pending?) || person == current_user.person || @incoming_request
     %ul#profile_information
       %li
         - unless person.profile.bio.blank?
