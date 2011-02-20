@@ -22,6 +22,8 @@
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
+    - if RTL_LANGUAGES.include? I18n.locale
+      = include_stylesheets :rtl, :media => 'all'
 
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"

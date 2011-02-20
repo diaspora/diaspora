@@ -17,6 +17,9 @@
 
     = stylesheet_link_tag 'vendor/jquery.mobile-1.0a4.min', 'mobile'
     = csrf_meta_tag
+    
+    - if RTL_LANGUAGES.include? I18n.locale
+      = include_stylesheets :rtl, :media => 'all'
 
     = yield(:head)
 
