@@ -52,7 +52,7 @@ describe PeopleController do
     end
   end
 
-  describe "#show performance" do
+  describe "#show performance", :performance => true do
     before do
       require 'benchmark'
       @posts = []

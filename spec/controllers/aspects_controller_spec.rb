@@ -110,7 +110,7 @@ describe AspectsController do
       end
     end
 
-    context 'performance' do
+    context 'performance', :performance => true do
       before do
         require 'benchmark'
         @posts = []
@@ -177,7 +177,7 @@ describe AspectsController do
       get :manage
       response.should be_success
     end
-    it "performs reasonably" do
+    it "performs reasonably", :performance => true do
         require 'benchmark'
         8.times do |n|
           aspect = @user.aspects.create(:name => "aspect#{n}")
