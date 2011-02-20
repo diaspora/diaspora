@@ -7,20 +7,16 @@ require File.expand_path('../application', __FILE__)
 Haml::Template.options[:format] = :html5
 Haml::Template.options[:escape_html] = true
 
-if File.exists?(File.expand_path("./config/languages.yml"))
-  languages = YAML::load(File.open(File.expand_path("./config/languages.yml")))
-  AVAILABLE_LANGUAGES = (languages['available'].length > 0) ? languages['available'] : { :en => 'English' }
-  DEFAULT_LANGUAGE = (AVAILABLE_LANGUAGES.include?(languages['default'])) ? languages['default'] : AVAILABLE_LANGUAGES.keys[0].to_s
-  AVAILABLE_LANGUAGE_CODES = languages['available'].keys.map { |v| v.to_s }
+if File.exists?(File.expand_path("./config/locale_settings.yml"))
+  locale_settings = YAML::load(File.open(File.expand_path("./config/locale_settings.yml")))
+  AVAILABLE_LANGUAGES = (locale_settings['available'].length > 0) ? locale_settings['available'] : { :en => 'English' }
+  DEFAULT_LANGUAGE = (AVAILABLE_LANGUAGES.include?(locale_settings['default'])) ? locale_settings['default'] : AVAILABLE_LANGUAGES.keys[0].to_s
+  AVAILABLE_LANGUAGE_CODES = locale_settings['available'].keys.map { |v| v.to_s }
+  LANGUAGE_CODES_MAP = locale_settings['fallbacks']
 else
   AVAILABLE_LANGUAGES = { :en => 'English' }
   DEFAULT_LANGUAGE = 'en'
   AVAILABLE_LANGUAGE_CODES = ['en']
-end
-
-if File.exists?(File.expand_path("./config/langcodes_alias_map.yml"))
-  LANGUAGE_CODES_MAP = YAML::load(File.open(File.expand_path("./config/langcodes_alias_map.yml")))
-else
   LANGUAGE_CODES_MAP = {}
 end
 
