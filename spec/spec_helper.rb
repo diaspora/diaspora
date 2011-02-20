@@ -16,7 +16,7 @@ include WebMock::API
 include HelperMethods
 
 # Force fixture rebuild
-`rm #{File.join(Rails.root, 'tmp', 'fixture_builder.yml')}`
+FileUtils.rm_f(File.join(Rails.root, 'tmp', 'fixture_builder.yml'))
 
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
