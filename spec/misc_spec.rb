@@ -10,9 +10,10 @@ describe 'making sure the spec runner works' do
     loaded_user = User.find(user.id)
     loaded_user.person.owner_id.should == user.id
   end
+
   describe 'fixtures' do
     it 'loads fixtures' do
-      User.count.should == 3
+      User.count.should_not == 0
     end
   end
 

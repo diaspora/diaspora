@@ -275,6 +275,7 @@ describe Diaspora::UserModules::Connecting do
 
       context 'with a post' do
         before do
+          StatusMessage.delete_all
           @message = user.post(:status_message, :message => "hi", :to => aspect.id)
         end
 
