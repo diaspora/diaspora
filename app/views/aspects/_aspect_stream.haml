@@ -4,7 +4,7 @@
 
 
 = render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
-.prepend-11
+#sort_by
   = t('.sort_by')
   = link_to_if(session[:sort_order] == 'created_at', t('.activity'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'updated_at')) 
   |
