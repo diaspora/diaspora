@@ -49,9 +49,9 @@ nl:
   are_you_sure: "Weet je het zeker?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Persoon verwijderen van aspect mislukt"
+      no_membership: "Kon de geselecteerde persoon niet vinden in dat aspect"
+      success: "Persoon succesvol van aspect verwijderd"
   aspects: 
     add_to_aspect: 
       failure: "Contact toevoegen aan aspect is mislukt."
@@ -59,9 +59,9 @@ nl:
     aspect_contacts: 
       done_editing: "klaar met bewerken"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "activiteit"
+      post_time: "tijd van plaatsing"
+      sort_by: "sorteren op:"
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
@@ -121,17 +121,17 @@ nl:
       commenting: "Reageren..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Verbinding maken mislukt"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Verbinding met %{name} verbreken mislukt"
+      success: "Verbinding met %{name} succesvol verbroken"
     few: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Zodra %{name} accepteert, zul je elkaars posts gaan zien op Diaspora"
+      add_new_aspect: "voeg toe aan nieuw aspect"
+      share_with: "Start delen met %{name}"
     zero: "geen contacten"
   date: 
     formats: 
@@ -330,21 +330,21 @@ nl:
   profile: "Profiel"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Sta mensen toe je op te zoeken binnen Diaspora"
+      edit_profile: "Bewerk profiel"
+      first_name: "Voornaam"
+      info_available_to: "Deze info zal beschikbaar zijn voor iedereen waarmee je contact legt op Diaspora."
+      last_name: "Achternaam"
+      update_profile: "Profiel bijwerken"
+      your_bio: "Jouw bio"
+      your_birthday: "Je verjaardag"
+      your_gender: "Je geslacht"
+      your_name: "Je naam"
+      your_photo: "Je profielfoto"
+      your_profile: "Jou profiel"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Profiel bijwerken mislukt"
+      updated: "Profiel bijgewerkt"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 

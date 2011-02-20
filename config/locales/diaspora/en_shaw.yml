@@ -21,23 +21,23 @@ en_shaw:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "𐑥𐑳𐑕𐑑 𐑚𐑰 𐑿𐑯𐑰𐑒 𐑩𐑥𐑳𐑙 𐑞𐑦𐑕 𐑿𐑟𐑼𐑟 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯"
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "𐑦𐑟 𐑛𐑵𐑐𐑤𐑦𐑒𐑩𐑑 𐑝 𐑩 𐑐𐑮𐑦-𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
             person: 
-              invalid: "is invalid."
+              invalid: "𐑦𐑟 𐑦𐑯𐑝𐑨𐑤𐑦𐑛."
             username: 
-              taken: "is already taken."
+              taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
   ago: "%{time} ago"
   application: 
     helper: 
@@ -49,9 +49,9 @@ en_shaw:
   are_you_sure: "𐑸 𐑿 𐑖𐑻?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
+      no_membership: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑞 𐑕𐑦𐑤𐑧𐑒𐑑𐑩𐑛 𐑐𐑻𐑕𐑩𐑯 𐑦𐑯 𐑞𐑨𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
   aspects: 
     add_to_aspect: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
@@ -59,9 +59,9 @@ en_shaw:
     aspect_contacts: 
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "𐑨𐑒𐑑𐑦𐑝𐑦𐑑𐑦"
+      post_time: "𐑐𐑴𐑕𐑑 𐑑𐑲𐑥"
+      sort_by: "𐑕𐑹𐑑 𐑚𐑲:"
     contacts_not_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
     contacts_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
     create: 
@@ -121,17 +121,17 @@ en_shaw:
       commenting: "𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 %{name}"
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 %{name}"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "𐑢𐑳𐑯𐑕 %{name} 𐑩𐑒𐑕𐑧𐑐𐑑𐑕, 𐑿'𐑤 𐑕𐑑𐑸𐑑 𐑕𐑰𐑦𐑙 𐑰𐑗 𐑳𐑞𐑼𐑟 𐑐𐑴𐑕𐑑𐑕 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      add_new_aspect: "𐑨𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+      share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   date: 
     formats: 
@@ -177,7 +177,7 @@ en_shaw:
       if_they_accept_info: "𐑦𐑓 𐑞𐑱 𐑩𐑒𐑕𐑧𐑐𐑑, 𐑞𐑱 𐑢𐑦𐑤 𐑚𐑰 𐑨𐑛𐑩𐑛 𐑑 𐑞 𐑨𐑕𐑐𐑧𐑒𐑑 𐑿 𐑦𐑯𐑝𐑲𐑑𐑩𐑛 𐑞𐑧𐑥."
       invite_someone_to_join: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 𐑡𐑶𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
       personal_message: "𐑐𐑻𐑕𐑩𐑯𐑩𐑤 𐑥𐑧𐑕𐑩𐑡"
-      resend: "Resend"
+      resend: "𐑮𐑦𐑕𐑧𐑯𐑛"
       send_an_invitation: "𐑕𐑧𐑯𐑛 𐑩𐑯 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
       send_invitation: "𐑕𐑧𐑯𐑛 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
       to: "𐑑"
@@ -221,7 +221,7 @@ en_shaw:
     also_commented: 
       commented: "𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
-      subject: "%{name} 𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛."
+      subject: "%{name} 𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑."
     comment_on_post: 
       commented: "𐑣𐑨𐑟 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
@@ -330,21 +330,21 @@ en_shaw:
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "𐑩𐑤𐑬 𐑓𐑹 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑿 𐑢𐑦𐑞𐑦𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      first_name: "𐑓𐑻𐑕𐑑 𐑯𐑱𐑥"
+      info_available_to: "𐑞𐑦𐑕 𐑦𐑯𐑓𐑴 𐑢𐑦𐑤 𐑚𐑰 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑑 𐑣𐑵𐑥𐑧𐑝𐑼 𐑿 𐑒𐑩𐑯𐑧𐑒𐑑 𐑢𐑦𐑞 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
+      last_name: "𐑤𐑨𐑕𐑑 𐑯𐑱𐑥"
+      update_profile: "𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_bio: "𐑿𐑼 𐑚𐑲𐑴"
+      your_birthday: "𐑿𐑼 𐑚𐑻𐑔𐑛𐑱"
+      your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
+      your_name: "𐑿𐑼 𐑯𐑱𐑥"
+      your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
+      your_profile: "𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
   registrations: 
     closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
     create: 

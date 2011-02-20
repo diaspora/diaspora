@@ -49,9 +49,9 @@ cs:
   are_you_sure: "Jste si jist?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Nepodařilo se odstranit osobu z aspektu"
+      no_membership: "Nelze najít vybrané osoby v tomto aspektu"
+      success: "Osoba byla úspěšně odstraněna z aspektu"
   aspects: 
     add_to_aspect: 
       failure: "Přidání kontaktu do aspektu selhalo."
@@ -59,9 +59,9 @@ cs:
     aspect_contacts: 
       done_editing: "ukončit úpravy"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "činnost"
+      post_time: "čas příspěvku"
+      sort_by: "řadit podle:"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
     create: 
@@ -121,17 +121,17 @@ cs:
       commenting: "Komentování..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Nepodařilo se vytvořit kontakt"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Nepodařilo se odpojit od %{name}"
+      success: "Úspěšně odpojeno od %{name}"
     few: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
+      add_new_aspect: "přidat do nového aspektu"
+      share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
   date: 
     formats: 
@@ -330,21 +330,21 @@ cs:
   profile: "Profil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Umožnit, aby vás lidé mohli najít na Diaspoře"
+      edit_profile: "Upravit profil"
+      first_name: "Jméno"
+      info_available_to: "Tyto informace budou dostupné komukoliv, ke komu jste připojeni na Diaspoře."
+      last_name: "Příjmení"
+      update_profile: "Aktualizovat profil"
+      your_bio: "Váš životopis"
+      your_birthday: "Vaše narozeniny"
+      your_gender: "Vaše pohlaví"
+      your_name: "Vaše jméno"
+      your_photo: "Vaše fotografie"
+      your_profile: "Váš profil"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Nepodařilo se aktualizovat profil"
+      updated: "Profil aktualizován"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 

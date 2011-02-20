@@ -4,8 +4,8 @@
 
 
 is: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
+  _aspect: "Ásýnd"
+  _aspects: "Ásýndir"
   _comment: "Athugasemd"
   _comments: "Athugasemdir"
   _contact: "Tengiliður"
@@ -42,43 +42,43 @@ is:
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Allar ásýndir"
       unknown_person: "unknown person"
       video_title: 
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Ekki tókst að fjarlægja persónu af ásýnd"
+      no_membership: "Valda manneskjan fannst ekki í þeirri ásýnd"
+      success: "Það heppnaðist að fjarlægja persónu af ásýnd"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add contact to aspect."
-      success: "Successfully added contact to aspect."
+      failure: "Ekki tókst að bæta tengilið við ásýnd."
+      success: "Það heppnaðist að bæta tengilið við ásýnd."
     aspect_contacts: 
       done_editing: "búið að breyta"
     aspect_stream: 
       activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+      post_time: "færslutími"
+      sort_by: "raða eftir:"
+    contacts_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
+    contacts_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
     create: 
-      failure: "Aspect creation failed."
-      success: "Your new aspect %{name} was created"
+      failure: "Ekki tókst að búa til ásýnd."
+      success: "Nýja ásýndin þín %{name} var búin til"
     destroy: 
       success: "það heppnaðist að fjarlægja %{name}."
     edit: 
       add_existing: "Bæta við tengilið sem er þegar til"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       make_aspect_list_visible: "make aspect list visible to others in aspect"
-      remove_aspect: "Delete this aspect"
+      remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
       save: "Vista"
     helper: 
-      are_you_sure: "Are you sure you want to delete this aspect?"
-      aspect_not_empty: "Aspect not empty"
+      are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
+      aspect_not_empty: "Ásýnd er ekki tóm"
       remove: "fjarlægja"
     index: 
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
@@ -136,8 +136,8 @@ is:
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Eyða"
   email: "Netfang"
   error_messages: 
@@ -148,7 +148,7 @@ is:
   home: 
     show: 
       already_account: "nú þegar með notandastillingar?"
-      choice: "Choice"
+      choice: "Valkostur"
       choice_explanation: "Diaspora gerir þér kleift að raða tengingum í hópa sem kallast ásýndir. Einungis í Diaspora tryggja ásýndir að myndir þínar, sögur og brandarar séu einungis samnýtt með þeim sem þú ætlar. "
       learn_about_host: "Lærðu hvernig á að hýsa sinn eigin Diaspora miðlara."
       login_here: "innskráning hér"
@@ -172,7 +172,7 @@ is:
       sign_up: "inn_skráning"
     new: 
       already_invited: "Nu þegar boðið"
-      aspect: "Aspect"
+      aspect: "Ásýnd"
       comma_seperated_plz: "Þú getur sett inn mörg netföng með því að aðskilja þau með kommu. "
       if_they_accept_info: "ef þau þiggja boðið, verður þeim bætt við þá ásýnd sem þú bauðst þeim á."
       invite_someone_to_join: "Bjóddu einhverjum að tengjast Díaspora!"
@@ -188,7 +188,7 @@ is:
       powered_by: "DÍASPORA* STJÓRNAR HÉR"
       toggle: "toggle mobile site"
       whats_new: "hvað er að frétta?"
-      your_aspects: "your aspects"
+      your_aspects: "þínar ásýndir"
     header: 
       account_settings: "stillingar"
       blog: "blogg"
@@ -207,7 +207,7 @@ is:
   next: "næsta"
   no_new_notifications: "engar nýjar tilkynningar"
   notifications: 
-    also_commented: "also commented on your contact's"
+    also_commented: "gerðu einnig athugasemdir við "
     comment_on_post: "gerði athugasemd við þitt"
     deleted: "eytt"
     index: 
@@ -234,14 +234,14 @@ is:
       sign_in: "Skráðu þig inn til að sjá það."
       subject: "% {Nafn} hefur getið þín á Diaspora*"
     new_request: 
-      just_sent_you: "just sent you a contact request on Diaspora*"
+      just_sent_you: "var að senda þér vinabeiðni á Díaspora*"
       sign_in: "innskráning hér"
-      subject: "new Diaspora* contact request from %{from}"
+      subject: "ný Diaspora* vinabeiðni frá %{from}"
       try_it_out: "Þú ættir virkilega að skoða það."
     request_accepted: 
-      accepted: "has accepted your contact request!"
+      accepted: "hefur samþykkt vinabeiðni þína!"
       sign_in: "Innskráning hér"
-      subject: "%{name} has accepted your contact request on Diaspora*"
+      subject: "%{name} hefur samþykkt vinabeiðni þína á Díaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "Skilaboð um notandastillingar þínar í Diaspora:"
@@ -255,7 +255,7 @@ is:
   password_confirmation: "Staðfesting lykilorðs"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "breyta aðild að ásýnd"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " niðurstöður fyrir %{params}"
@@ -265,7 +265,7 @@ is:
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "leitarniðurstöður fyrir"
     person: 
-      add_contact: "add contact"
+      add_contact: "bæta tengilið við"
       already_connected: "Already connected"
       pending_request: "pending request"
       thats_you: "thats you!"
@@ -331,20 +331,20 @@ is:
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
+      edit_profile: "Breyta síðunni minni"
+      first_name: "Fornafn"
+      info_available_to: "Þetta verður sýnilegt hverjum þeim sem þú tengist við í gegnum Díaspora."
+      last_name: "Kenninafn/Eftirnafn"
+      update_profile: "Uppfæra síðuna mína"
       your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_birthday: "Fæðingardagur þinn"
+      your_gender: "Kyn þitt"
+      your_name: "Nafn þitt"
+      your_photo: "Mynd þín"
+      your_profile: "Síðan mín"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Ekki tókst að uppfæra síðuna mína"
+      updated: "Síðan mín uppfærð"
   registrations: 
     closed: "Innskráningar eru lokaðar á þessum Diaspora pod."
     create: 
@@ -368,12 +368,12 @@ is:
       sending: "Sendi"
       sent: "%{name} hefur verið beðin(n) um að tengjast þér.  Þau ættu að sjá það þegar þau logga næst inn í Díaspora."
     destroy: 
-      error: "Please select an aspect!"
-      ignore: "Ignored contact request."
+      error: "Þú þarft að velja ásýnd!"
+      ignore: "Hundsaði vinabeiðni. "
       success: "Nú er vinátta á milli ykkar."
     manage_aspect_contacts: 
-      existing: "Existing contacts"
-      manage_within: "Manage contacts within"
+      existing: "Núverandi tengiliðir"
+      manage_within: "Umsjón tengiliða innan"
     new_request_to_person: 
       sent: "sent!"
   search: "Leita"
@@ -404,7 +404,7 @@ is:
       join_me_on_diaspora: "Tengstu mér á DIASPORA*"
     remote_friend: 
       invite: "bjóða"
-      resend: "resend"
+      resend: "endursenda"
   settings: "Stillingar"
   shared: 
     add_contact: 
