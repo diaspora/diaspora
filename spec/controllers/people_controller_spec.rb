@@ -16,11 +16,9 @@ describe PeopleController do
   describe '#index (search)' do
     before do
       @eugene = Factory.create(:person,
-                               :profile => Factory.build(:profile, :first_name => "Eugene",
-                                                         :last_name => "w"))
+        :profile => Factory.build(:profile, :first_name => "Eugene", :last_name => "w"))
       @korth = Factory.create(:person,
-                              :profile => Factory.build(:profile, :first_name => "Evan",
-                                                        :last_name => "Korth"))
+        :profile => Factory.build(:profile, :first_name => "Evan", :last_name => "Korth"))
     end
 
     it 'responds with json' do
@@ -104,14 +102,25 @@ describe PeopleController do
 
     context "when the person is the current user" do
       it "succeeds" do
-        get :show, :id => @user.person.id
+        get :show, :id => @user.person.to_param
         response.should be_success
       end
-      it "renders the user's posts" do
-        @user.post :status_message, :message => 'test more', :to => @aspect.id
-        get :show, :id => @user.person.id
-        response.should be_success
+
+      it "assigns the right person" do
+        get :show, :id => @user.person.to_param
+        assigns(:person).should == @user.person
       end
+
+      it "assigns all the user's posts" do
+        @user.posts.should be_empty
+        @user.post(:status_message, :message => "to one aspect", :to => @aspect.id)
+        @user.post(:status_message, :message => "to all aspects", :to => 'all')
+        @user.post(:status_message, :message => "public", :to => 'all', :public => true)
+        @user.reload.posts.length.should == 3
+        get :show, :id => @user.person.to_param
+        assigns(:posts).should =~ @user.posts
+      end
+
       it "renders the comments on the user's posts" do
         message = @user.post :status_message, :message => 'test more', :to => @aspect.id
         @user.comment 'I mean it', :on => message
@@ -124,6 +133,7 @@ describe PeopleController do
       before do
         @person = bob.person
       end
+
       it "succeeds" do
         get :show, :id => @person.id
         response.should be_success
