@@ -57,7 +57,8 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_unless_admin
-    unless AppConfig[:admins].include?(current_user.username)
+    admins = AppConfig[:admins]
+    unless admins.present? && admins.include?(current_user.username)
       redirect_to root_url
     end
   end
