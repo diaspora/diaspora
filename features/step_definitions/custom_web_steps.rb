@@ -15,12 +15,16 @@ And /^I hover over the post$/ do
   page.execute_script('$(".stream_element").first().mouseover()')
 end
 
+When /^I click to delete the first post$/ do
+  page.execute_script('$(".stream_element").first().find(".delete").click()')
+end
+
 And /^I preemptively confirm the alert$/ do
-  a = page.evaluate_script("window.confirm = function() { return true; }")
+  page.evaluate_script("window.confirm = function() { return true; }")
 end
 
 And /^I preemptively reject the alert$/ do
-  a = page.evaluate_script("window.confirm = function() { return false; }")
+  page.evaluate_script("window.confirm = function() { return false; }")
 end
 
 When /^(.*) in the modal window$/ do |action|
