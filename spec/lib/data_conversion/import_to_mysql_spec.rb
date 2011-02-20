@@ -255,9 +255,9 @@ describe DataConversion::ImportToMysql do
       end
 
       it "imports data into the mongo_contacts table" do
-        lambda {
-          @migrator.process_raw_contacts
-        }.should change(Contact, :count).by(Mongo::Contact.count)
+        original_contact_count = Contact.unscoped.count
+        @migrator.process_raw_contacts
+        Contact.unscoped.count.should == original_contact_count + Mongo::Contact.count
       end
 
       it "imports all the columns" do
