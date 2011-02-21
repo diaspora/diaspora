@@ -49,9 +49,9 @@ fr:
   are_you_sure: "Êtes-vous certains?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Impossible de retirer la personne de l'aspect"
+      no_membership: "Impossible de trouver la personne sélectionnée dans cet aspect"
+      success: "La personne a été retirée de l'aspect"
   aspects: 
     add_to_aspect: 
       failure: "L’ajout du contact à l’aspect a échoué."
@@ -59,9 +59,9 @@ fr:
     aspect_contacts: 
       done_editing: "fin de la modification"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "activité"
+      post_time: "heure du message"
+      sort_by: "trier par :"
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
     contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
@@ -121,17 +121,17 @@ fr:
       commenting: "Commentaire en cours d'envoi..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Impossible de créer le contact"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Impossible de se déconnecter de %{name}"
+      success: "Vous êtes déconnecté(e) de %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Dès que %{name} acceptera, vous commencerez à voir mutuellement vos messages sur Diaspora"
+      add_new_aspect: "ajouter à un nouvel aspect"
+      share_with: "Commencer à partager avec %{name}"
     zero: "aucun contact"
   date: 
     formats: 
@@ -330,21 +330,21 @@ fr:
   profile: "Profil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Permettre à tous de vous rechercher dans Diaspora"
+      edit_profile: "Modifier le profil"
+      first_name: "Prénom"
+      info_available_to: "Cette information sera visible de tous ceux avec qui vous avez une connexion sur Diaspora."
+      last_name: "Nom de famille"
+      update_profile: "Mettre à jour le profil"
+      your_bio: "Votre biographie"
+      your_birthday: "Votre anniversaire"
+      your_gender: "Votre sexe"
+      your_name: "Votre nom"
+      your_photo: "Votre photo"
+      your_profile: "Votre profil"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Impossible de mettre à jour le profil"
+      updated: "Profil mis à jour"
   registrations: 
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."
     create: 
