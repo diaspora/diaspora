@@ -46,7 +46,7 @@ describe NotificationsController do
 
   describe '#index' do
     it 'paginates the notifications' do
-      35.times do
+      26.times do
         Factory(:notification, :recipient => @user)
       end
 
@@ -54,7 +54,7 @@ describe NotificationsController do
       assigns[:notifications].count.should == 25
 
       get :index, :page => 2
-      assigns[:notifications].count.should == 10
+      assigns[:notifications].count.should == 1
     end
   end
 end
