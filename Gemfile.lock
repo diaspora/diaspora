@@ -37,14 +37,6 @@ GIT
       simple_oauth (~> 0.1.2)
 
 GIT
-  remote: git://github.com/recruitmilitary/carrierwave.git
-  revision: a30bb2603a51b646fd771065d6c203abef2e936e
-  branch: master
-  specs:
-    carrierwave (0.5.0)
-      activesupport (~> 3.0)
-
-GIT
   remote: git://github.com/zhitomirskiyi/devise_invitable.git
   revision: 85abb5fef4ab4f74db818ed3d8104c2f7d24b94e
   branch: 0.3.5
@@ -119,6 +111,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
+    carrierwave (0.5.2)
+      activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
       bunny (>= 0.6.0)
@@ -388,7 +382,7 @@ DEPENDENCIES
   capistrano (= 2.5.19)
   capistrano-ext (= 1.2.1)
   capybara (~> 0.3.9)
-  carrierwave!
+  carrierwave (= 0.5.2)
   chef (= 0.9.12)
   cloudfiles (= 1.4.10)
   cucumber-rails (= 0.3.2)
