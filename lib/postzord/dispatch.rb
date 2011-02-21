@@ -34,7 +34,7 @@ class Postzord::Dispatch
 
       self.deliver_to_remote(remote_people)
     end
-    self.deliver_to_services(opts[:url])
+    self.deliver_to_services(opts[:url], opts[:services] || [])
   end
 
   protected
@@ -55,11 +55,11 @@ class Postzord::Dispatch
     Resque.enqueue(Job::PublishToHub, @sender.public_url)
   end
 
-  def deliver_to_services(url)
+  def deliver_to_services(url, services)
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
       if @object.respond_to?(:message)
-        @sender.services.each do |service|
+        services.each do |service|
           Resque.enqueue(Job::PostToService, service.id, @object.id, url)
         end
       end

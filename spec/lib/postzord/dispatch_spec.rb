@@ -250,24 +250,30 @@ describe Postzord::Dispatch do
         @user.services << @service
       end
 
-      it 'calls post for each of the users services' do
-        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
-        Resque.should_receive(:enqueue).with(Job::PostToService, @service.id, anything, anything).once
-        @zord.instance_variable_get(:@sender).should_receive(:services).and_return([@service])
-        @zord.send(:deliver_to_services, nil)
-      end
-
       it 'queues a job to notify the hub' do
         Resque.stub!(:enqueue).with(Job::PostToService, anything, anything, anything)
         Resque.should_receive(:enqueue).with(Job::PublishToHub, @user.public_url)
-        @zord.send(:deliver_to_services, nil)
+        @zord.send(:deliver_to_services, nil, [])
       end
 
-      it 'only pushes to services if the object is public' do
-       mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
+      it 'does not push to hub for non-public posts' do
+       @sm     = Factory(:status_message)
+       mailman = Postzord::Dispatch.new(@user, @sm)
 
        mailman.should_not_receive(:deliver_to_hub)
-       mailman.instance_variable_get(:@sender).should_not_receive(:services)
+       mailman.post(:url => "http://joindiaspora.com/p/123")
+      end
+
+      it 'only pushes to specified services' do
+       @s1 = Factory.create(:service, :user_id => @user.id)
+       @user.services << @s1
+       @s2 = Factory.create(:service, :user_id => @user.id)
+       @user.services << @s2
+       mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
+
+       Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
+       Resque.should_receive(:enqueue).with(Job::PostToService, @s1.id, anything, anything)
+       mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1, @s2])
       end
     end
 

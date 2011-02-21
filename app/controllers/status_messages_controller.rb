@@ -25,7 +25,7 @@ class StatusMessagesController < ApplicationController
       Rails.logger.info("event=create type=status_message chars=#{params[:status_message][:message].length}")
 
       current_user.add_to_streams(@status_message, aspects)
-      current_user.dispatch_post(@status_message, :url => post_url(@status_message))
+      current_user.dispatch_post(@status_message, :url => post_url(@status_message), :services => current_user.services)
       if !photos.empty?
         for photo in photos
           was_pending = photo.pending

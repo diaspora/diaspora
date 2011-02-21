@@ -64,6 +64,12 @@ describe StatusMessagesController do
       response.status.should == 201
     end
 
+    it "dispatches the post to the user's services" do
+      @user1.services << Services::Facebook.new 
+      @user1.should_receive(:dispatch_post).with(anything(),hash_including(:services => @user1.services))
+      post :create, status_message_hash
+    end
+
     it "doesn't overwrite person_id" do
       status_message_hash[:status_message][:person_id] = @user2.person.id
       post :create, status_message_hash
