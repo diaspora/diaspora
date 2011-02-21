@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
+  before_filter :set_git_header
   before_filter :which_action_and_user
   prepend_before_filter :clear_gc_stats
 
@@ -31,6 +32,11 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @invites = current_user.invites
     end
+  end
+
+  def set_git_header
+    headers['X-Git-Update'] = GIT_UPDATE unless GIT_UPDATE.nil?
+    headers['X-Git-Revision'] = GIT_REVISION unless GIT_REVISION.nil?
   end
 
   def which_action_and_user
