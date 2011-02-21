@@ -23,6 +23,54 @@
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
 
+    <!--[if IE]>
+    = javascript_include_tag "/javascripts/ie.js"
+    <![endif]-->
+    = javascript_include_tag  AppConfig[:pod_uri].scheme.to_s + "://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
+
+    - unless @landing_page
+      = include_javascripts :main
+      -if current_user
+        :javascript
+          Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+
+
+    - if current_user
+      = include_javascripts :flash_socket #unless modern_browser?
+      = javascript_include_tag 'web-socket-receiver'
+      = render 'js/websocket_js'
+
+    = csrf_meta_tag
+
+    = yield(:head)
+    = csrf_meta_tag
+
+    -if AppConfig[:google_a_site]
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    -if AppConfig[:piwik_id]
+      :javascript
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+      :javascript
+        try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+
 
     - if current_user
       %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.name}"}
@@ -73,48 +121,3 @@
           feedback_widget_options.style = "idea";
           var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
 
-    -if AppConfig[:google_a_site]
-      :javascript
-        var _gaq = [['_setAccount', '#{AppConfig[:google_a_site]}'], ['_trackPageview']];
-        (function(d, t) {
-           var g = d.createElement(t),
-           s = d.getElementsByTagName(t)[0];
-           g.async = true;
-           g.src = ('https:' == location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-           s.parentNode.insertBefore(g, s);
-         })(document, 'script');
-
-    -if AppConfig[:piwik_id]
-      :javascript
-        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
-        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
-      :javascript
-        try {
-        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
-        piwikTracker.trackPageView();
-        piwikTracker.enableLinkTracking();
-        } catch( err ) {}
-
-
-    <!--[if IE]>
-    = javascript_include_tag "/javascripts/ie.js"
-    <![endif]-->
-    = javascript_include_tag  AppConfig[:pod_uri].scheme.to_s + "://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
-
-    :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
-
-    - unless @landing_page
-      = include_javascripts :main
-      -if current_user
-        :javascript
-          Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-
-    - if current_user
-      = include_javascripts :flash_socket #unless modern_browser?
-      = javascript_include_tag 'web-socket-receiver'
-      = render 'js/websocket_js'
-
-    = csrf_meta_tag
-
-    = yield(:head)
