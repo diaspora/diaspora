@@ -23,23 +23,9 @@ FixtureBuilder.configure do |fbuilder|
     stat = Statistic.new
     time = Time.now
 
-    1.times do
-      p = frodo.post(:status_message, :message => 'hi', :to => frodo.aspects.first)
-      p.created_at = time
-      p.save!
-    end
-
-    5.times do
-      p = sam.post(:status_message, :message => 'hi', :to => sam.aspects.first)
-      p.created_at = time
-      p.save!
-    end
-
-    10.times do
-      p = bilbo.post(:status_message, :message => 'hi', :to => bilbo.aspects.first)
-      p.created_at = time
-      p.save!
-    end
+    1.times  { frodo.post_at_time(time) }
+    5.times  { sam.post_at_time(time)   }
+    10.times { bilbo.post_at_time(time) }
 
     (0..10).each do |n|
       stat.data_points << DataPoint.users_with_posts_on_day(time, n)
