@@ -59,11 +59,11 @@ it:
     aspect_contacts: 
       done_editing: "modifica eseguita"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+      activity: "attività"
+      post_time: "ora del post"
+      sort_by: "ordina per:"
+    contacts_not_visible: "I contatti in questo aspetto non potranno vedersi tra loro."
+    contacts_visible: "I contatti in questo aspetto potranno vedersi tra loro."
     create: 
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
@@ -75,7 +75,7 @@ it:
       make_aspect_list_visible: "make aspect list visible to others in aspect"
       remove_aspect: "Elimina questo aspetto"
       rename: "rinomina"
-      save: "Save"
+      save: "Salva"
     helper: 
       are_you_sure: "Sei sicuro di voler eliminare questo aspetto?"
       aspect_not_empty: "Aspetto non vuoto"
@@ -130,7 +130,7 @@ it:
     other: "%{count} contatti"
     share_with_pane: 
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
+      add_new_aspect: "aggiungi ad un nuovo aspetto"
       share_with: "Start sharing with %{name}"
     zero: "nessun contatto"
   date: 
@@ -186,7 +186,7 @@ it:
       have_a_problem: "Hai un problema? Trova qui la soluzione"
       logged_in_as: "autenticato come %{name}"
       powered_by: "CREATO CON DIASPORA*"
-      toggle: "toggle mobile site"
+      toggle: "attiva/disattiva sito mobile"
       whats_new: "novità"
       your_aspects: "I tuoi aspetti"
     header: 
@@ -213,7 +213,7 @@ it:
     index: 
       mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
-    mentioned: "has mentioned you in their"
+    mentioned: "ti ha menzionato nel suo"
     new_request: "vuole condividere con te."
     post: "post"
     request_accepted: "ha accettato la tua richiesta di condivisione."
@@ -221,7 +221,7 @@ it:
     also_commented: 
       commented: "ha anche commentato sul post di %{post_author}:"
       sign_in: "Autenticati per vederlo."
-      subject: "%{name} ha anche commentato."
+      subject: "%{name} ha anche commentato sul post del tuo contatto."
     comment_on_post: 
       commented: "ha commentato il tuo post:"
       sign_in: "Autenticati per vederlo."
@@ -230,9 +230,9 @@ it:
     hello: "Ciao %{name}!"
     love: "amore,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "ti ha menzionato in un post:"
+      sign_in: "Loggati per vederlo."
+      subject: "%{name} ti ha menzionato su Diaspora*"
     new_request: 
       just_sent_you: "ti ha appena inviato una richiesta di contatto su Diaspora*"
       sign_in: "accedi qui"
@@ -330,21 +330,21 @@ it:
   profile: "Profilo"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
+      allow_search: "Permetti ad altri di trovarti su Diaspora"
       edit_profile: "Edit profile"
-      first_name: "First name"
+      first_name: "Nome"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
+      last_name: "Cognome"
+      update_profile: "Aggiorna Profilo"
       your_bio: "Your bio"
       your_birthday: "Your birthday"
-      your_gender: "Your gender"
+      your_gender: "Sesso"
       your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_photo: "La tua foto"
+      your_profile: "Il tuo profilo"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Aggiornamento del profilo non riuscito"
+      updated: "Profilo aggiornato"
   registrations: 
     closed: "Le iscrizioni sono chiuse su questo pod Diaspora."
     create: 
@@ -403,8 +403,8 @@ it:
       click_link_to_accept_invitation: "Fai click su questo link per accettare l'invito"
       join_me_on_diaspora: "Vieni anche tu su DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "invita"
+      resend: "reinvia"
   settings: "Impostazioni"
   shared: 
     add_contact: 
@@ -447,7 +447,7 @@ it:
       reshare: "Ricondividi"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Eliminazione post non riuscita"
     helper: 
       no_message_to_display: "Nessun messaggio da visualizzare."
     new_status_message: 
@@ -479,7 +479,7 @@ it:
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Connetti su Diaspora"
       connect_services: "Collega i tuoi servizi"
       edit_profile: "Modifica il tuo profilo"
       finished: "Finito!"
@@ -487,11 +487,11 @@ it:
       signup_steps: "Completa la tua iscrizione facendo quanto segue:"
       skip: "salta l'introduzione"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Vuoi trovare i tuoi amici di Facebook su Diaspora?"
+        skip: "Salta"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Completa"
+        people_already_on_diaspora: "Persone già su Diaspora"
       welcome: "Benvenuto su Diaspora!"
     public: 
       does_not_exist: "L'utente %{username} non esiste!"

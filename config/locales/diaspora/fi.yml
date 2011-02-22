@@ -49,9 +49,9 @@ fi:
   are_you_sure: "Oletko varma?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Henkilön poisto näkymästä epäonnistui"
+      no_membership: "Kyseistä henkilöä ei löytynyt valitusta näkymästä"
+      success: "Henkilö poistettiin näkymästä onnistuneesti"
   aspects: 
     add_to_aspect: 
       failure: "Kontaktin lisäys näkymään epäonnistui."
@@ -59,9 +59,9 @@ fi:
     aspect_contacts: 
       done_editing: "muokkaus valmis"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "aktiivisuus"
+      post_time: "lähetys aika"
+      sort_by: "järjestä:"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -330,21 +330,21 @@ fi:
   profile: "Profiili"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Salli ihmisten etsiä sinua Diasporassa"
+      edit_profile: "Muokkaa profiilia"
+      first_name: "Etunimi"
+      info_available_to: "Tämä tieto tulee näkyviin niille kenen kanssa olet yhteydessä Diasporassa"
+      last_name: "Sukunimi"
+      update_profile: "Päivitä profiili"
+      your_bio: "Biografia"
+      your_birthday: "Syntymäpäivä"
+      your_gender: "Sukupuolesi"
+      your_name: "Nimesi"
+      your_photo: "Profiili kuva"
+      your_profile: "Profiilisi"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Profiilin päivitys epäonnistui"
+      updated: "Profiili päivitetty"
   registrations: 
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create: 

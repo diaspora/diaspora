@@ -101,7 +101,7 @@ de:
       add_contact: "Kontakt hinzufügen"
       add_contact_to: "Jemanden zum Aspekt %{aspect_name} hinzufügen"
       invite: "Lade jemanden zu Diaspora* ein!"
-      nobody: "Bring die dir wichtigen Leute zu Diaspora!"
+      nobody: "Bring die dir wichtigen Leute zu Diaspora*!"
       nobody_in_aspect: "‚%{aspect_name}‘ ist leer."
     no_posts_message: 
       start_talking: "Niemand hat bisher etwas gesagt. Fange eine Unterhaltung an!"
@@ -360,7 +360,7 @@ de:
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Passwort ein"
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
-      enter_username: "Wähle einen Benutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       sign_up: "Anmelden"
       sign_up_for_diaspora: "Bei Diaspora* registrieren"
   requests: 
@@ -492,7 +492,7 @@ de:
       step_3: 
         finish: "Beenden"
         people_already_on_diaspora: "Leute, die schon bei Diaspora* sind"
-      welcome: "Willkommen bei Diaspora!"
+      welcome: "Willkommen bei Diaspora*!"
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 
