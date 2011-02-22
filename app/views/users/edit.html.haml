@@ -5,18 +5,6 @@
 - content_for :page_title do
   = t('.edit_account')
 
-:javascript
-  $(document).ready(function(){
-    $("#settings_nav li > a").live("click", function() {
-      var target = "#"+$(this).attr('class');
-      if( !$(target).is(":visible") ) {
-        $(".settings_pane").fadeOut(200, function() {
-          $(target).delay(200).fadeIn(200);
-        });
-      }
-    });
-  });
-
 #section_header
   %h2
     = t('settings')
