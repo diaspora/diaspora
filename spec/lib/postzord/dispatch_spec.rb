@@ -273,7 +273,15 @@ describe Postzord::Dispatch do
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
        Resque.should_receive(:enqueue).with(Job::PostToService, @s1.id, anything, anything)
-       mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1, @s2])
+       mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1])
+      end
+
+      it 'does not push to services if none are specified' do
+       mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
+
+       Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
+       Resque.should_not_receive(:enqueue).with(Job::PostToService, anything, anything, anything)
+       mailman.post(:url => "http://joindiaspora.com/p/123")
       end
     end
 

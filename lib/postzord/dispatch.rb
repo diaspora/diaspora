@@ -58,10 +58,10 @@ class Postzord::Dispatch
   def deliver_to_services(url, services)
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
-      if @object.respond_to?(:message)
-        services.each do |service|
-          Resque.enqueue(Job::PostToService, service.id, @object.id, url)
-        end
+    end
+    if @object.respond_to?(:message)
+      services.each do |service|
+        Resque.enqueue(Job::PostToService, service.id, @object.id, url)
       end
     end
   end

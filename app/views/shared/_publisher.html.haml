@@ -50,7 +50,7 @@
                 = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
                 - if current_user.services
                   - for service in current_user.services
-                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
+                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider, :class => "service", :id =>"#{service.provider}"
 
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;", :rel => 'facebox'
 
