@@ -5,11 +5,11 @@
 
 it: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
-    search_for: "Search for {{name}}"
+    confirm_dialog: "Sei sicuro?"
+    search_for: "Ricerca per {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto. (Se vuoi disconnetterti da questa persona devi rimuovere il contatto.)"
     timeago: 
       day: "un giorno"
       days: "%d giorni"
@@ -27,5 +27,5 @@ it:
       year: "circa un anno"
       years: "%d anni"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Tipo di video sconosciuto"
+      watch: "Guarda questo video su {{provider}}"

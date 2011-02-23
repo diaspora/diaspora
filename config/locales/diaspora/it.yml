@@ -21,23 +21,23 @@ it:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "deve essere univoco tra i contatti di questo utente."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "è già stato preso."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "è un duplicato di una richiesta pre-esistente."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "è già stato preso."
             person: 
-              invalid: "is invalid."
+              invalid: "non è valido."
             username: 
-              taken: "is already taken."
+              taken: "è già stato preso."
   ago: "%{time} fa"
   application: 
     helper: 
@@ -49,9 +49,9 @@ it:
   are_you_sure: "Sei sicuro?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Impossibile rimuovere la persona dall'aspetto"
+      no_membership: "Impossibile trovare la persona selezionata in questo aspetto"
+      success: "Persona rimossa con successo dall'aspetto"
   aspects: 
     add_to_aspect: 
       failure: "Errore nell'aggiungere il contatto all'aspetto."
@@ -72,7 +72,7 @@ it:
     edit: 
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      make_aspect_list_visible: "rendi la lista dei contatti presente nell'aspetto visibile agli altri"
       remove_aspect: "Elimina questo aspetto"
       rename: "rinomina"
       save: "Salva"
@@ -121,23 +121,23 @@ it:
       commenting: "Invio commento in corso..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Impossibile creare il contatto"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Impossibile disconnettersi da %{name}"
+      success: "Disconnessione effettuata con successo da %{name}"
     few: "%{count} contatti"
     one: "1 contatto"
     other: "%{count} contatti"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      accepts: "Quando %{name} avrà accettato, inizierete a vedere reciprocamente i vostri posts su Diaspora"
       add_new_aspect: "aggiungi ad un nuovo aspetto"
-      share_with: "Start sharing with %{name}"
+      share_with: "Inizia a condividere con %{name}"
     zero: "nessun contatto"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Cancella"
   email: "Email"
   error_messages: 
@@ -177,7 +177,7 @@ it:
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
       invite_someone_to_join: "Invita qualcuno ad unirsi a Diaspora!"
       personal_message: "Messaggio privato"
-      resend: "Resend"
+      resend: "Inviato di nuovo"
       send_an_invitation: "Invia un invito"
       send_invitation: "Invito inviato"
       to: "A"
@@ -319,7 +319,7 @@ it:
       edit: "modifica"
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"
       make_profile_photo: "usala come foto profilo"
-      original_post: "Original Post"
+      original_post: "Post Originale"
       permalink: "permalink"
       update_photo: "Aggiorna Foto"
       view: "guarda"
@@ -331,15 +331,15 @@ it:
   profiles: 
     edit: 
       allow_search: "Permetti ad altri di trovarti su Diaspora"
-      edit_profile: "Edit profile"
+      edit_profile: "Edita il profilo"
       first_name: "Nome"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      info_available_to: "Queste informazioni saranno disponibili a chiunque sarà connesso con te su Diaspora."
       last_name: "Cognome"
       update_profile: "Aggiorna Profilo"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
+      your_bio: "La tua biografia"
+      your_birthday: "Il tuo compleanno"
       your_gender: "Sesso"
-      your_name: "Your name"
+      your_name: "Il tuo nome"
       your_photo: "La tua foto"
       your_profile: "Il tuo profilo"
     update: 
@@ -437,7 +437,7 @@ it:
       all: "tutti"
       all_contacts: "tutti i contatti"
       make_public: "pubblica"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "per menzionare qualcuno, inserisci '@' e digita il suo nome"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
       share: "Condividi"

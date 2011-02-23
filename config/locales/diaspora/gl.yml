@@ -49,9 +49,9 @@ gl:
   are_you_sure: "Estás seguro?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Fallouse ao eliminar persoa do aspecto"
+      no_membership: "Non se puido atopar a persoa seleccionada neste aspecto"
+      success: "Exito ao eliminar persoa do aspecto"
   aspects: 
     add_to_aspect: 
       failure: "Non se puido engadir o contacto ao aspecto."
@@ -59,9 +59,9 @@ gl:
     aspect_contacts: 
       done_editing: "edición rematada"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "actividade"
+      post_time: "tempo de publicación"
+      sort_by: "ordear por:"
     contacts_not_visible: "Os contactos deste aspecto non se poderán ver os uns aos outros."
     contacts_visible: "Os contactos neste aspecto poderanse ver os uns aos outros."
     create: 
@@ -121,17 +121,17 @@ gl:
       commenting: "Comentando..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Fallouse ao crear contacto"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Fallouse ao desconectarse de %{name}"
+      success: "Exito ao desconectarse de %{name}"
     few: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Unha vez que %{name} acepte, xa poderedes ver as vosas publicacións en Diaspora"
+      add_new_aspect: "engadir ao novo aspecto"
+      share_with: "Comezar a compartir con %{name}"
     zero: "non hai contactos"
   date: 
     formats: 
@@ -330,21 +330,21 @@ gl:
   profile: "Perfil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Permitir á xente buscarte en Diaspora"
+      edit_profile: "Editar perfil"
+      first_name: "Nome"
+      info_available_to: "Esta información estará dispoñible para calquera que se conecte contigo en Diaspora"
+      last_name: "Apelidos"
+      update_profile: "Actualizar Perfil"
+      your_bio: "Biografía"
+      your_birthday: "O teu aniversario"
+      your_gender: "O teu xénero"
+      your_name: "O teu nome"
+      your_photo: "A túa foto"
+      your_profile: "O teu perfil"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Fallouse ao actualizar perfil"
+      updated: "Perfil actualizado"
   registrations: 
     closed: "Rexistros pechados nesta vaíña de Diaspora."
     create: 
