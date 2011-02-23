@@ -7,7 +7,7 @@ execute "compile daemontools" do
 end
 
 execute "mysql run" do
-  command "mkdir -p /service/mysql && echo '#!/bin/sh' > /service/mysql/run && echo 'exec /usr/bin/mysqld_safe --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --user=mysql'  >> /service/mysql/run"
+  command "mkdir -p /service/mysql && echo '#!/bin/sh' > /service/mysql/run && echo 'exec /usr/libexec/mysqld --datadir=/var/lib/mysql --socket=/var/lib/mysql/mysql.sock --log-error=/var/log/mysqld.log --pid-file=/var/run/mysqld/mysqld.pid --user=mysql'  >> /service/mysql/run"
 end
 execute "executable" do
   command "chmod -R 755 /service/mysql"
