@@ -1,16 +1,15 @@
-module Jobs
-  class HttpMulti
+module Job
+  class HttpMulti < Base
     @queue = :http
 
     MAX_RETRIES = 3
     OPTS = {:max_redirects => 3, :timeout => 5000, :method => :post}
 
-    def self.perform(user_id, object_type, object_id, person_ids, retry_count=0)
+    def self.perform_delegate(user_id, enc_object_xml, person_ids, retry_count=0)
       user = User.find(user_id)
-      people = Person.all(:id.in => person_ids)
+      people = Person.where(:id => person_ids)
 
-      object = object_type.constantize.find(object_id)
-      salmon = user.salmon(object)
+      salmon = Salmon::SalmonSlap.create(user, Base64.decode64(enc_object_xml))
 
       failed_request_people = []
 
@@ -33,7 +32,7 @@ module Jobs
       hydra.run
 
       unless failed_request_people.empty? || retry_count >= MAX_RETRIES
-        Resque.enqueue(Jobs::HttpMulti, user_id, object_type, object_id, failed_request_people, retry_count+=1 )
+        Resque.enqueue(Job::HttpMulti, user_id, enc_object_xml, failed_request_people, retry_count+=1 )
       end
     end
   end

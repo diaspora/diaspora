@@ -40,11 +40,7 @@ class Postzord::Dispatch
   protected
 
   def deliver_to_remote(people)
-    people.each do |person|
-      enc_xml = salmon.xml_for(person)
-      Rails.logger.info("event=deliver_to_remote route=remote sender=#{@sender.person.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
-      Resque.enqueue(Job::HttpPost, person.receive_url, enc_xml)
-    end
+    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), people.map{|p| p.id})
   end
 
   def deliver_to_local(people)

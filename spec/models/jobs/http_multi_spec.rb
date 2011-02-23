@@ -1,16 +1,11 @@
 require 'spec_helper'
 
-describe Jobs::HttpMulti do
-  
-  let!(:user){ make_user }
-  let!(:aspect){ user.aspects.create(:name => "awesome")}
+describe Job::HttpMulti do
 
   before do
     @people = [Factory(:person), Factory(:person)]
-    @post = user.build_post(:status_message, :message => "hey", :to => [aspect])
-    @post.save
+    @post_xml = Base64.encode64("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH")
 
-    @post_type = @post.class.to_s
 
     @hydra = Typhoeus::Hydra.new
     @response = Typhoeus::Response.new(:code => 200, :headers => "", :body => "", :time => 0.2)
@@ -27,7 +22,7 @@ describe Jobs::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     people_ids = @people.map{ |p| p.id }
-    Jobs::HttpMulti.perform(user.id, @post_type, @post.id, people_ids)
+    Job::HttpMulti.perform(bob.id, @post_xml, people_ids)
   end
 
   it 'retries' do
@@ -37,8 +32,8 @@ describe Jobs::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    Resque.should_receive(:enqueue).with(Jobs::HttpMulti, user.id, @post_type, @post.id, [person.id], 1).once
-    Jobs::HttpMulti.perform(user.id, @post_type, @post.id, [person.id])
+    Resque.should_receive(:enqueue).with(Job::HttpMulti, bob.id, @post_xml, [person.id], 1).once
+    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
   end
 
   it 'max retries' do
@@ -49,18 +44,7 @@ describe Jobs::HttpMulti do
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
     Resque.should_not_receive(:enqueue)
-    Jobs::HttpMulti.perform(user.id, @post_type, @post.id, [person.id], 3)
-  end
-
-  it 'generates salmon from user' do
-    person = @people[0]
-
-    @hydra.stub(:post, person.receive_url).and_return(@response)
-
-    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
-
-    user.should_receive(:salmon).with(@post).and_return(user.salmon(@post))
-    Jobs::HttpMulti.perform(user.id, @post_type, @post.id, [person.id])
+    Job::HttpMulti.perform(bob.id, @post_xml, [person.id], 3)
   end
 
   it 'generates encrypted xml for people' do
@@ -70,10 +54,10 @@ describe Jobs::HttpMulti do
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)
 
-    salmon = user.salmon(@post)
-    user.stub(:salmon).and_return(salmon)
-    salmon.should_receive(:xml_for).and_return(salmon.xml_for(@post))
+    salmon = Salmon::SalmonSlap.create(bob, Base64.decode64(@post_xml))
+    Salmon::SalmonSlap.stub(:create).and_return(salmon)
+    salmon.should_receive(:xml_for).and_return("encrypted things")
 
-    Jobs::HttpMulti.perform(user.id, @post_type, @post.id, [person.id])
+    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
   end
 end

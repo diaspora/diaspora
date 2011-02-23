@@ -212,17 +212,24 @@ describe Postzord::Dispatch do
         @remote_people = []
         @remote_people << @user.person
         @mailman = Postzord::Dispatch.new(@user, @sm)
+        @hydra = mock()
+        Typhoeus::Hydra.stub!(:new).and_return(@hydra)
       end
 
       it 'should queue an HttpPost job for each remote person' do
-        Resque.should_receive(:enqueue).with(Job::HttpPost, @user.person.receive_url, anything).once
+        Resque.should_receive(:enqueue).with(Job::HttpMulti, @user.id, anything, @remote_people.map{|p| p.id}).once
         @mailman.send(:deliver_to_remote, @remote_people)
       end
 
       it 'calls salmon_for each remote person' do
        salmon = @mailman.salmon
-       salmon.should_receive(:xml_for).with(@user.person)
-       @mailman.send(:deliver_to_remote, @remote_people)
+       Salmon::SalmonSlap.stub(:create).and_return(salmon)
+       salmon.should_receive(:xml_for).with(@user.person).times
+       @hydra.stub!(:queue)
+       @hydra.stub!(:run)
+       fantasy_resque do
+         @mailman.send(:deliver_to_remote, @remote_people)
+       end
       end
     end
 
