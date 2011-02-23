@@ -268,11 +268,6 @@ module ApplicationHelper
     return processed_message
   end
 
-  def process_hearts(message)
-    Rails.logger.info message
-    message
-  end
-
   def info_text(text)
     image_tag 'icons/monotone_question.png', :class => 'what_is_this', :title => text
   end
