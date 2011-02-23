@@ -106,6 +106,22 @@ describe ApplicationHelper do
           res.should =~ /data-host="youtube.com"/
           res.should =~ /data-video-id="#{video_id}"/
         end
+
+        it "leaves the links in the href of the #a tag" do
+          video_id = "ABYnqp-bxvg"
+          start_url ="http://www.youtube.com/watch?v=" + video_id
+          url = start_url + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.should =~ /href=[\S]+v=#{video_id}/
+        end
+        it 'does not autolink inside the link' do
+          video_id = "ABYnqp-bxvg"
+          start_url ="http://www.youtube.com/watch?v=" + video_id
+          url = start_url + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          pp res
+          res.match(/href="<a/).should be_nil
+        end
       end
 
       it "recognizes multiple links of different types" do
