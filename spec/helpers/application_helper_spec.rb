@@ -121,7 +121,6 @@ describe ApplicationHelper do
           start_url ="http://www.youtube.com/watch?v=" + video_id
           url = start_url + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
           res = markdownify(url)
-          pp res
           res.match(/href="<a/).should be_nil
         end
       end

@@ -42,7 +42,7 @@ class Retraction
   def perform receiving_user
     Rails.logger.debug "Performing retraction for #{post_guid}"
     self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
-    self.target.delete
+    self.target.destroy
     target.post_visibilities.delete_all
     Rails.logger.info("event=retraction status=complete type=#{self.type} guid=#{self.post_guid}")
   end
