@@ -59,7 +59,8 @@ class StatusMessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { render :status => 406 }
+        format.js { render :text =>  @status_message.errors.full_messages, :status => 406 }
+        format.html {redirect_to :back} 
       end
     end
   end
