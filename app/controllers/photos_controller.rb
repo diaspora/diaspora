@@ -56,8 +56,6 @@ class PhotosController < ApplicationController
       @photo = current_user.build_post(:photo, params[:photo])
 
       if @photo.save
-        raise 'MongoMapper failed to catch a failed save' unless @photo.id
-
 
         aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
 
