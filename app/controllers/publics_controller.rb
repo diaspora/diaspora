@@ -11,6 +11,7 @@ class PublicsController < ApplicationController
   skip_before_filter :set_invites
   skip_before_filter :set_locale
   skip_before_filter :which_action_and_user
+  skip_before_filter :set_grammatical_gender
 
   layout false
   caches_page :host_meta

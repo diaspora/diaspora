@@ -26,6 +26,9 @@ gem 'will_paginate', '3.0.pre2'
 #Statistics
 gem 'googlecharts'
 
+#Inflected translations
+gem 'i18n-inflector-rails', '~> 1.0'
+
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
 gem 'addressable', '2.2.2', :require => 'addressable/uri'
