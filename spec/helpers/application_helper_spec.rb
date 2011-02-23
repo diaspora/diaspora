@@ -80,6 +80,8 @@ describe ApplicationHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
+
+
       describe "video links" do
         it "recognizes vimeo links" do
           video_id = "17449557"
@@ -144,6 +146,13 @@ describe ApplicationHelper do
       it "should recognize www links" do
         url="www.joindiaspora.com"
         markdownify(url).should == "<a target=\"_blank\" href=\"http://"+url+"\">"+url+"</a>"
+      end
+    end
+
+    describe "hearts" do
+      it "replaces &lt;3 with &hearts;" do
+        message = "i <3 you"
+        markdownify(message).should == "i &hearts; you"
       end
     end
 

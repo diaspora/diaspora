@@ -170,6 +170,7 @@ module ApplicationHelper
     message = process_vimeo(message, options[:vimeo_maps])
     message = process_autolinks(message)
     message = process_emphasis(message)
+    message.gsub!(/&lt;3/, "&hearts;")
 
     if options[:newlines]
       message.gsub!(/\n+/, '<br />')
@@ -177,6 +178,7 @@ module ApplicationHelper
 
     return message
   end
+
 
   def process_links(message)
     message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
@@ -264,6 +266,11 @@ module ApplicationHelper
       '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '">Vimeo: ' + title + '</a>'
     end
     return processed_message
+  end
+
+  def process_hearts(message)
+    Rails.logger.info message
+    message
   end
 
   def info_text(text)
