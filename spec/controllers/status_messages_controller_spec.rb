@@ -86,7 +86,7 @@ describe StatusMessagesController do
     end
     it 'sends the errors in the body on js' do
       post :create, status_message_hash.merge!(:format => 'js', :status_message => {:message => ''})
-      response.body.should == 'Status message requires a message or at least one photo'
+      response.body.should include('Status message requires a message or at least one photo')
     end
 
 
