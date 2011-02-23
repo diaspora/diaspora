@@ -19,7 +19,7 @@ module Job
         url = person.receive_url
         xml = salmon.xml_for(person)
 
-        request = Typhoeus::Request.new(url, OPTS.merge(:params => {:xml => xml}))
+        request = Typhoeus::Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
 
         request.on_complete do |response|
           unless response.success?
