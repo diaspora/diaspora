@@ -18,7 +18,7 @@ class StatusMessagesController < ApplicationController
     public_flag.to_s.match(/(true)|(on)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag
 
-    @status_message = current_user.build_post(:status_message, params[:status_message])
+    @status_message = current_user.build_post(:status_message, params[:status_message].merge!(:message => ''))
     aspects = current_user.aspects_from_ids(params[:aspect_ids])
 
     if @status_message.save
@@ -59,7 +59,7 @@ class StatusMessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { render :text =>  @status_message.errors.full_messages, :status => 406 }
+        format.js { render :json =>{:errors =>   @status_message.errors.full_messages}, :status => 406 }
         format.html {redirect_to :back} 
       end
     end
