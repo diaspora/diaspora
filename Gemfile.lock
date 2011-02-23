@@ -194,6 +194,12 @@ GEM
     highline (1.6.1)
     http_connection (1.4.0)
     i18n (0.5.0)
+    i18n-inflector (2.5.0)
+      i18n (>= 0.4.1)
+    i18n-inflector-rails (1.0.3)
+      actionpack (~> 3.0)
+      i18n-inflector (~> 2.5)
+      railties (~> 3.0)
     jammit (0.5.4)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
@@ -399,6 +405,7 @@ DEPENDENCIES
   googlecharts
   haml (= 3.0.25)
   http_accept_language!
+  i18n-inflector-rails (~> 1.0)
   jammit (= 0.5.4)
   jasmine!
   json (= 1.4.6)
