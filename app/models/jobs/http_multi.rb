@@ -23,6 +23,7 @@ module Job
 
         request.on_complete do |response|
           unless response.success?
+            Rails.logger.info("event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} response='#{response}' xml='#{Base64.decode64(enc_object_xml)}'")
             failed_request_people << person.id
           end
         end
@@ -31,8 +32,12 @@ module Job
       end
       hydra.run
 
-      unless failed_request_people.empty? || retry_count >= MAX_RETRIES
-        Resque.enqueue(Job::HttpMulti, user_id, enc_object_xml, failed_request_people, retry_count+=1 )
+      unless failed_request_people.empty?
+        if retry_count < MAX_RETRIES
+          Resque.enqueue(Job::HttpMulti, user_id, enc_object_xml, failed_request_people, retry_count + 1 )
+        else
+          Rails.logger.info("event=http_multi_abandon sender_id=#{user_id} failed_recipient_ids='[#{person_ids.join(', ')}] xml='#{Base64.decode64(enc_object_xml)}'")
+        end
       end
     end
   end
