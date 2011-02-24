@@ -46,11 +46,11 @@
             %p.checkbox_select
               = status.check_box( :public, {:title => t('.make_public')}, true, false)
 
-              %span#publisher_service_icons.dim
-                = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
+              %span#publisher_service_icons
+                = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url, :class => 'public_icon dim'
                 - if current_user.services
                   - for service in current_user.services
-                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider, :class => "service", :id =>"#{service.provider}"
+                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider, :class => "service_icon dim", :id =>"#{service.provider}"
 
             = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;", :rel => 'facebox'
 

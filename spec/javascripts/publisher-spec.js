@@ -20,6 +20,73 @@ describe("Publisher", function() {
         expect(Publisher.close).wasNotCalled();
         });
     });
+
+   describe("bindServiceIcons", function() {
+     beforeEach( function(){
+      spec.loadFixture('aspects_index_services');
+     });
+
+     it('gets called on initialize', function(){
+        spyOn(Publisher, 'bindServiceIcons'); 
+        Publisher.initialize();
+        expect(Publisher.bindServiceIcons).toHaveBeenCalled();
+     });
+      it('binds to the services icons on click', function(){
+        expect("pending").toEqual("Is this a valid test? If so how do I test it?");
+        //spyOn($(".service"), 'bind');
+
+        //Publisher.bindServiceIcons();
+        //expect($(".service").bind).toHaveBeenCalled();
+      });
+      it('toggles dim only on the clicked icon', function(){
+        expect($(".service_icon#facebook").hasClass("dim")).toBeTruthy();
+        expect($(".service_icon#twitter").hasClass("dim")).toBeTruthy();
+
+        Publisher.bindServiceIcons();
+        $(".service_icon#facebook").click();
+
+        expect($(".service_icon#facebook").hasClass("dim")).toBeFalsy();
+        expect($(".service_icon#twitter").hasClass("dim")).toBeTruthy();
+      });
+      it('binds to the services icons and toggles the hidden field', function(){
+        spyOn(Publisher, 'toggleServiceField');
+        Publisher.bindServiceIcons();
+        $(".service_icon#facebook").click();
+
+        expect(Publisher.toggleServiceField).toHaveBeenCalledWith("facebook");
+      });
+    });
+
+    describe('toggleServiceField', function(){
+      beforeEach( function(){
+        spec.loadFixture('aspects_index_services');
+      });
+
+      it('adds a hidden field to the form if there is not one already', function(){
+        expect($('#publisher [name="services[]"]').length).toBe(0);
+        Publisher.toggleServiceField("facebook");
+        expect($('#publisher [name="services[]"]').length).toBe(1);
+        expect($('#publisher [name="services[]"]').attr('value')).toBe("facebook");
+        //<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="1">
+      });
+
+      it('removes the hidden field if its already there', function() {
+        Publisher.toggleServiceField("facebook");
+        expect($('#publisher [name="services[]"]').length).toBe(1);
+        
+        Publisher.toggleServiceField("facebook");
+        expect($('#publisher [name="services[]"]').length).toBe(0);
+      });
+
+      it('does not remove a hidden field with a different value', function() {
+        Publisher.toggleServiceField("facebook");
+        expect($('#publisher [name="services[]"]').length).toBe(1);
+        
+        Publisher.toggleServiceField("twitter");
+        expect($('#publisher [name="services[]"]').length).toBe(2);
+      });
+    });
+
     describe("open", function() {
       beforeEach(function() {
         spec.loadFixture('aspects_index');

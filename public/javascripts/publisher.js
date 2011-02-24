@@ -283,13 +283,30 @@ var Publisher = {
     $("#photodropzone").find('li').remove();
     $("#publisher textarea").removeClass("with_attachments");
   },
+  bindServiceIcons: function(){
+    $(".service_icon").bind("click", function(evt){
+      $(this).toggleClass("dim");
+      Publisher.toggleServiceField($(this).attr('id'));
+    });
+  },
+  toggleServiceField: function(service){
+    var hidden_field = $('#publisher [name="services[]"][value="'+service+'"]')
+    if(hidden_field.length > 0){
+      hidden_field.remove();
+    } else {
+      $("#publisher .content_creation form").append(
+      '<input id="services_" name="services[]" type="hidden" value="'+service+'">');
+    };
+  },
   initialize: function() {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
     Publisher.cachedHiddenInput = false;
     Publisher.cachedSubmit = false;
+    
+    Publisher.bindServiceIcons();
     $("div.public_toggle input").live("click", function(evt) {
-      $("#publisher_service_icons").toggleClass("dim");
+      $(".public_icon").toggleClass("dim");
       if ($(this).attr('checked') == true) {
         $(".question_mark").click();
       }
