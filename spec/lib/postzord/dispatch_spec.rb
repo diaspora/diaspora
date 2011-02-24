@@ -224,7 +224,7 @@ describe Postzord::Dispatch do
       it 'calls salmon_for each remote person' do
        salmon = @mailman.salmon
        Salmon::SalmonSlap.stub(:create).and_return(salmon)
-       salmon.should_receive(:xml_for).with(@user.person).times
+       salmon.should_receive(:xml_for).with(@user.person).and_return('what')
        @hydra.stub!(:queue)
        @hydra.stub!(:run)
        fantasy_resque do
