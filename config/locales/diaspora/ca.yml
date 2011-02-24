@@ -24,7 +24,7 @@ ca:
   password: "Contrasenya"
   password_confirmation: "Confirmació de la contrasenya"
   are_you_sure: "N'esteu segur?"
-  fill_me_out: "Fill me out"
+  fill_me_out: "Emplena'm"
   back: "Enrere"
   the_world: "el món"
   search: "Cerca"
@@ -92,7 +92,7 @@ ca:
       helper:
           unknown_person: "persona desconeguda"
           video_title:
-              unknown: "Títol de vídeo desconegut"
+              unknown: "Títol del vídeo desconegut"
           aspect_badge:
               all_aspects: "Tots els aspectes"
   error_messages:
@@ -131,13 +131,13 @@ ca:
           enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
           your_diaspora_username_is: "El vostre nom d'usuari de Diàspora és: %{diaspora_handle}"
           create_request: "Cerca per identificador de Diàspora"
-          diaspora_handle: "diaspora@indentificador.cat"
+          diaspora_handle: "diaspora@identificador.cat"
           know_email: "Coneixeu el seu correu electrònic? L'hauríeu de convidar"
       invitations:
           invites: "Invitacions"
-          invite_someone: "Inviteu algú"
+          invite_someone: "Convideu algú"
           invitations_left: "(en queden %{count})"
-          dont_have_now: "No en teniu cap ara mateix, però prompte arribaran més invitacions!"
+          dont_have_now: "No en teniu cap ara mateix, però aviat arribaran més invitacions!"
           invites_closed: "Actualment, les invitacions són tancades a aquesta beina de Diàspora"
           invite_your_friends: "Convideu el vostres amics"
           from_facebook: "Des del Facebook"
@@ -179,7 +179,7 @@ ca:
       show:
           edit_aspect: "edita l'aspecte"
       no_contacts_message:
-          nobody: "Bring the people that matter in your life to Diaspora!"
+          nobody: "Introduïu la gent que us importa al Diàspora!"
           nobody_in_aspect: "El vostre aspecte '%{aspect_name}' és buit."
           add_contact: "Afegeix un contacte"
           add_contact_to: "Afegeix algú a l'aspecte %{aspect_name}"
@@ -317,15 +317,15 @@ ca:
           sign_up: "Registreu-vos"
           sign_up_for_diaspora: "Registreu-vos al Diàspora"
           enter_email: "Introduïu una adreça de correu electrònic"
-          enter_username: "Pick a username (only letters, numbers, and underscores)"
-          enter_password: "Enter a password"
-          enter_password_again: "Enter the same password as before"
+          enter_username: "Trieu un nom d'usuari (només amb lletres, números i subratllats)"
+          enter_password: "Introduïu una contrasenya"
+          enter_password_again: "Introduïu la mateixa contrasenya de nou"
       create:
           success: "Us heu unit al Diàspora!"
       edit:
           edit: "Edita %{name}"
-          leave_blank: "(leave blank if you don't want to change it)"
-          password_to_confirm: "(we need your current password to confirm your changes)"
+          leave_blank: "(deixeu-ho en blanc si no ho voleu canviar)"
+          password_to_confirm: "(és necessària la vostra contrasenya actual per a confirmar els canvis)"
           unhappy: "No esteu content?"
           update: "Actualitza"
           cancel_my_account: "Canceŀla el meu compte"
@@ -354,8 +354,8 @@ ca:
           sign_up: "registreu-vos"
   status_messages:
       new_status_message:
-          tell_me_something_good: "tell me something good"
-          oh_yeah: "oh yeah!"
+          tell_me_something_good: "dis-me alguna cosa bonica"
+          oh_yeah: "oh sí!"
       show:
           destroy: "Suprimeix"
           permalink: "enllaç permanent"
@@ -410,7 +410,7 @@ ca:
           edit_my_profile: "Edita el meu perfil"
           bio: "biografia"
           gender: "gènere"
-          born: "birthday"
+          born: "aniversari"
           in_aspects: "als aspectes"
           cannot_remove: "No es pot suprimir a %{name} de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
           remove_from: "Voleu suprimir a %{name} de l'aspecte %{aspect}?"
@@ -441,16 +441,16 @@ ca:
         connect_to_facebook: "Connecta al Facebook"
         edit_services: "Edita els serveis"
       create:
-          success: "Authentication successful."
+          success: "S'ha autenticat amb èxit."
       destroy:
-          success: "Successfully deleted authentication."
+          success: "S'ha suprimit l'autenticació amb èxit."
       failure:
-          error: "there was an error connecting that service"
+          error: "s'ha produït un error en connectar a aquell servei"
       inviter:
           join_me_on_diaspora: "Uneix-te a mi al DIÀSPORA*"
           click_link_to_accept_invitation: "Feu clic en aquest enllaç per a acceptar la invitació"
       finder:
-          invite_your_friends_from: "Convida els vostres amics del %{service}"
+          invite_your_friends_from: "Convideu els vostres amics del %{service}"
           friends:
             zero:   "cap amic"
             one:    "1 amic"
@@ -491,17 +491,17 @@ ca:
           sign_in: "Identifiqueu-vos per a mostrar-ho."
   home:
       show:
-          share_what_you_want: "Compartiu el que vullgueu, amb qui vullgueu."
-          tagline_first_half: "Compartiu el que vullgueu,"
-          tagline_second_half: "amb qui vullgueu."
+          share_what_you_want: "Compartiu el que vulgueu, amb qui vulgueu."
+          tagline_first_half: "Compartiu el que vulgueu,"
+          tagline_second_half: "amb qui vulgueu."
           already_account: "ja teniu un compte?"
           login_here: "Identifiqueu-vos aquí"
           choice: "Elecció"
-          choice_explanation: "Diàspora us permet ordenar les vostres connexions en grups anomenats aspectes. Únics al Diàspora, els aspectes asseguren que les vostres fotos, històries i acudits només són compartits amb les persones que vosaltres voleu."
+          choice_explanation: "El Diàspora us permet ordenar les vostres connexions en grups anomenats aspectes. Únics al Diàspora, els aspectes asseguren que les vostres fotos, històries i acudits només són compartits amb les persones que vosaltres voleu."
           ownership: "Pertinença"
-          ownership_explanation: "Les vostres imatges us pertanyen, i no hauríeu de renunciar a això només per poder compartir-les. Conserveu la propietat de tot el que compartiu al Diàspora, i això us dona control total sobre la seua distribució."
+          ownership_explanation: "Les vostres imatges us pertanyen, i no hauríeu de renunciar a això només per poder compartir-les. Conserveu la propietat de tot el que compartiu al Diàspora, i això us dona control total sobre la seva distribució."
           simplicity: "Simplicitat"
-          simplicity_explanation: "El Diàspora fa que compartir siga net i fàcil – i això també s'aplica a la privacitat. Inherenment privat, Diàspora no fa que us perdeu entre pàgines de paràmetres i opcions només per mantenir el vostre perfil segur."
+          simplicity_explanation: "El Diàspora fa que compartir siga net i fàcil – i això també s'aplica a la privacitat. Inherentment privat, el Diàspora no fa que us hagueu de perdre entre pàgines de paràmetres i opcions només per mantenir el vostre perfil segur."
           learn_about_host: "Aprengueu com hostatjar el vostre servidor de Diàspora propi."
   stream_helper:
       show_comments: "mostra tots els comentaris"

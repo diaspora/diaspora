@@ -31,5 +31,5 @@ ca:
       search_for: "Cerca per {{name}}"
       shared:
         contact_list:
-          cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+          cannot_remove: "No es pot suprimir a una persona de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
           
