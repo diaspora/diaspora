@@ -4,12 +4,12 @@
 
 
 pl: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
+  _aspect: "Aspekt"
+  _aspects: "Aspekty"
+  _comment: "Komentarz"
   _comments: "Komentarze"
-  _contact: "Contact"
-  _contacts: "Contacts"
+  _contact: "Kontakt"
+  _contacts: "Kontakty"
   _home: "Wszyscy"
   _more: "More"
   _photos: "zdjęcia"
@@ -57,32 +57,32 @@ pl:
       failure: "Nie udało się dodać kontaktu do aspektu."
       success: "Dodano kontakt to aspektu."
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "edycja zakończona"
     aspect_stream: 
       activity: "activity"
       post_time: "post time"
       sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Kontakty z tego aspektu nie będą dla siebie widoczne."
+    contacts_visible: "Kontakty z tego aspektu będą widziały się nawzajem."
     create: 
       failure: "Nie udało się utworzyć aspektu."
       success: "Twój nowy aspekt, on nazwie %{name}, został utworzony"
     destroy: 
       success: "%{name} został usunięty."
     edit: 
-      add_existing: "Add an existing contact"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      add_existing: "Dodaj istniejący kontakt"
+      confirm_remove_aspect: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       make_aspect_list_visible: "make aspect list visible to others in aspect"
-      remove_aspect: "Delete this aspect"
-      rename: "rename"
-      save: "Save"
+      remove_aspect: "Usuń ten aspekt"
+      rename: "zmień nazwę"
+      save: "Zapisz"
     helper: 
-      are_you_sure: "Are you sure you want to delete this aspect?"
+      are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       aspect_not_empty: "Aspekt nie jest pusty"
       remove: "usuń"
     index: 
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
-      no_contacts: "No contacts"
+      no_contacts: "Brak kontaktów"
     manage: 
       add_a_new_aspect: "Dodaj nowy aspekt"
       add_a_new_contact: "Dodaj nowy kontakt"
@@ -135,9 +135,9 @@ pl:
     zero: "brak kontaktów"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Skasuj"
   email: "E-mail"
   error_messages: 
@@ -157,14 +157,14 @@ pl:
       share_what_you_want: "Dziel się czym chcesz i z kim chcesz."
       simplicity: "Prostota"
       simplicity_explanation: "Diaspora sprawia, że dzielenie się ze znajomymi jest miłe, łatwe i przyjemne, zwłaszcza w odniesieniu do ochrony prywatności. Dbając o prywatność Dispora nie każe Ci korzystać z mnóstwa stron ustawień czy opcji, przez które trzeba się przedzierać, aby zabezpieczyć profil."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Dziel się czym chcesz"
+      tagline_second_half: "i z kim chcesz."
   invitations: 
     check_token: 
       not_found: "Identyfikator zaproszenia nie znaleziony"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_contacts: "{m,f:Jesteś już|n:Połączono już}{ }{m,f:połączon}{m:y|f:a} z tą osobą."
+      already_sent: "Już zapros@{m:iłeś|f:iłaś|n:zono} tę osobę."
       no_more: "Nie masz więcej zaproszeń."
       rejected: "Poniższy adres e-mail okazał się problematyczny:"
       sent: "Zaproszenia zostały wysłane do:"
@@ -174,19 +174,19 @@ pl:
       already_invited: "Already invited"
       aspect: "Aspekt"
       comma_seperated_plz: "Możesz podać kilka adresów e-mailowych, oddzielając je przecinkami."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      if_they_accept_info: "Jeśli wybrana osoba przyjmie zaproszenie, zostanie dodana do aspektów, do których ją zapros@{m:iłeś|f:iłaś|n:zono}."
       invite_someone_to_join: "Zaproś kogoś do Diaspory!"
-      personal_message: "Personal message"
+      personal_message: "Dodatkowa wiadomość"
       resend: "Resend"
       send_an_invitation: "Wyślij zaproszenie"
       send_invitation: "Wyślij zaproszenie"
       to: "Do"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Masz problem? Tu znajdziesz rozwiązanie"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      toggle: "toggle mobile site"
+      toggle: "przełącz widok mobilny"
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
@@ -198,34 +198,34 @@ pl:
       logout: "wyloguj"
       view_profile: "podgląd profilu"
   more: "More"
-  new_notifications: "%{count} new notifications"
+  new_notifications: "%{count} nowych powiadomień"
   new_requests: 
     few: "Masz %{count} nowe zaproszenia!"
     one: "nowe zaproszenie!"
     other: "%{count} nowych zaproszeń!"
     zero: "brak nowych zaproszeń"
   next: "next"
-  no_new_notifications: "no new notifications"
+  no_new_notifications: "brak nowych powiadomień"
   notifications: 
     also_commented: "also commented on"
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    comment_on_post: "komentuje twój"
+    deleted: "usunięte"
     index: 
       mark_all_as_read: "Mark All as Read"
-      notifications: "Notifications"
+      notifications: "Powiadomienia"
     mentioned: "has mentioned you in their"
-    new_request: "offered to share with you."
+    new_request: "wysłał Ci zaproszenie do współdzielenia."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "zaakceptował Twoje zaproszenie."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
+      commented: "skomentował też wpis użytkownika %{post_author}:"
+      sign_in: "Zaloguj się, aby je obejrzeć."
       subject: "%{name} has also commented."
     comment_on_post: 
       commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      sign_in: "Zaloguj się, aby go obejrzeć."
+      subject: "Użytkownik %{name} skomentował Twój wpis."
     diaspora: "robot e-mailowy diaspory"
     hello: "Cześć %{name}!"
     love: "uściski,"
@@ -240,7 +240,7 @@ pl:
       try_it_out: "Przemyśl to, naprawdę warto spróbować."
     request_accepted: 
       accepted: "zaakceptował(-a) Twoje zaproszenie. Jest w aspekcie"
-      sign_in: "Sign in here"
+      sign_in: "Zaloguj się"
       subject: "%{name} zaakceptował(-a) twoje zaproszenie do znajomych w Diasporze*"
     single_admin: 
       admin: "Twój panel zarządzania Diaspora"
@@ -283,19 +283,19 @@ pl:
       incoming_request: "Masz nowe zaproszenie od tej osoby."
       no_posts: "brak wpisów!"
       not_connected: "You are not connected with this person"
-      recent_posts: "Recent Posts"
+      recent_posts: "Ostatnie wpisy"
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Wróć do strony aspektów"
       similar_contacts: "similar contacts"
-      start_sharing: "start sharing"
+      start_sharing: "współdziel"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
     webfinger: 
-      fail: "Sorry, we couldn't find %{handle}."
+      fail: "Wybacz, nie można było znaleźć %{handle}."
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      integrity_error: "Nie udało się przesłać zdjęcia. Czy @{m,f:jesteś pew}{m:ien|f:na|n:to na pewno}{m,f: że to} był obraz?"
+      runtime_error: "Nie udało się przesłać zdjęcia. Czy @{m:zapiąłeś |f:zapięłaś }pasy bezpieczeństwa@{n: są zapięte}?"
+      type_error: "Nie udało się przesłać zdjęcia.  Czy na pewno doda@{m:łeś|f:łaś|n:no} obraz?"
     destroy: 
       notice: "Zdjęcie usunięte."
     edit: 
@@ -314,7 +314,7 @@ pl:
     photo: 
       view_all: "pokaż wszystkie zdjęcia należące do: %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "permalink kolekcji"
       delete_photo: "Usuń zdjęcie"
       edit: "edytuj"
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
@@ -357,16 +357,16 @@ pl:
       unhappy: "Niezadowolony(-a)?"
       update: "Aktualizacja"
     new: 
-      enter_email: "Enter an e-mail"
+      enter_email: "Wprowadź e-mail"
       enter_password: "Podaj hasło"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_password_again: "Wprowadź ponownie to samo hasło"
+      enter_username: "Wybierz nazwę użytkownika (możliwe litery, cyfry i podkreślenia)"
       sign_up: "Zarejestruj się"
       sign_up_for_diaspora: "Zarejestruj się w Diasporze"
   requests: 
     create: 
       sending: "Wysyłanie"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Zażąda@{m:łeś|f:łaś|n:no} współdzielenia z %{name}. Otrzyma komunikat, gdy tylko zaloguje się w Diasporze."
     destroy: 
       error: "Proszę, wybierz aspekt!"
       ignore: "Zignorowano zaproszenie do znajomości."
@@ -383,7 +383,7 @@ pl:
     destroy: 
       success: "Pomyślnie zniszczono hasło i login."
     failure: 
-      error: "there was an error connecting that service"
+      error: "wystąpił błąd podczas łączenia z tą usługą"
     finder: 
       friends: 
         few: "%{count} friends"
@@ -403,15 +403,15 @@ pl:
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "zaproś"
+      resend: "wyślij ponownie"
   settings: "Ustawienia"
   shared: 
     add_contact: 
       create_request: "Znajdź po identyfikatorze Diaspory"
       diaspora_handle: "identyfikator@diaspory"
       enter_a_diaspora_username: "Wpisz nazwę użytkownika Diaspory:"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Znasz ich adresy e-mailowe? Powi@{m:nieneś|f:nnaś|n:nni}{ }{m,f:ich zaprosić|n:zostać zaproszeni}!"
       your_diaspora_username_is: "Twój identyfikator w Diasporze: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Wszystkie kontakty"
@@ -442,12 +442,12 @@ pl:
       posting: "Wysyłanie…"
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "co Ci chodzi po głowie?"
     reshare: 
       reshare: "Podziel się ponownie"
   status_messages: 
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Błąd podczas usuwania wpisu"
     helper: 
       no_message_to_display: "Brak wiadomości."
     new_status_message: 
