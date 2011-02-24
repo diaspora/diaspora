@@ -25,7 +25,7 @@ module NotificationsHelper
       if post
         "#{translation(target_type, post.person.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
-        "#{translation(target_type, post.person.name)} #{t('notifications.deleted')} #{t('notifications.post')}"
+        t('notifications.also_commented_deleted')
       end
     else
     end

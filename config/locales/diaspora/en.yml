@@ -227,6 +227,7 @@ en:
       mentioned: "has mentioned you in their"
       post: "post"
       deleted: "deleted"
+      also_commented_deleted: "commented on a deleted post"
       index:
         notifications: "Notifications"
         mark_all_as_read: "Mark All as Read"
