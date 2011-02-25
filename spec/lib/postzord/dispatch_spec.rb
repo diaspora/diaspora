@@ -272,6 +272,7 @@ describe Postzord::Dispatch do
        mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
+       Resque.stub!(:enqueue).with(Job::HttpMulti, anything, anything, anything)
        Resque.should_receive(:enqueue).with(Job::PostToService, @s1.id, anything, anything)
        mailman.post(:url => "http://joindiaspora.com/p/123", :services => [@s1])
       end
