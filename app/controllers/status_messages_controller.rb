@@ -80,7 +80,7 @@ class StatusMessagesController < ApplicationController
 
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
-    if @status_message
+    if @status_messag
       @object_aspect_ids = @status_message.aspects.map{|a| a.id}
 
       # mark corresponding notification as read

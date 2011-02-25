@@ -9,7 +9,7 @@
 = form_for PrivateMessage.new do |private_message|
   %h4
     to
-  = private_message.text_field :recipients
+  = text_field_tag "private_message[contact_ids]"
 
   %h4
     message

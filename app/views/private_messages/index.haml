@@ -3,3 +3,15 @@
 -#   the COPYRIGHT file.
 
 
+= link_to 'new message', new_private_message_path
+
+%br
+%br
+%br
+
+- for message in @messages
+  %b
+    = message.author.name
+  %br
+  = link_to message.message, message
+  %hr

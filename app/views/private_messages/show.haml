@@ -2,4 +2,28 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+= link_to 'back', private_messages_path
 
+%br
+%br
+%br
+%br
+
+%h4
+  from
+= @message.author.name
+
+%br
+%br
+
+%h4
+  to
+- for recipient in @message.recipients
+  = recipient.name
+
+%br
+%br
+
+%h4
+  message
+= @message.message
