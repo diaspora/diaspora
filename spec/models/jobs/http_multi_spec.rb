@@ -60,4 +60,18 @@ describe Job::HttpMulti do
 
     Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
   end
+
+  it 'updates http users who have moved to https' do
+    person = @people.first
+    person.url = 'http://remote.net/'
+    person.save
+    response = Typhoeus::Response.new(:code => 301, :headers_hash => {"Location" => person.receive_url.sub('http://', 'https://')}, :body => "", :time => 0.2)
+    @hydra.stub(:post, person.receive_url).and_return(response)
+
+    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+
+    Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
+    person.reload
+    person.url.should =~ /https:\/\/remote.net\//
+  end
 end
