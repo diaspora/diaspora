@@ -74,6 +74,7 @@ class Invitation < ActiveRecord::Base
       opts[:from].save!
       invitee.reload
     end
+    puts (opts[:service] == 'email')
     invitee.invite!(:email => (opts[:service] == 'email'))
     log_string = "event=invitation_sent to=#{opts[:identifier]} service=#{opts[:service]} "
     log_string << "inviter=#{opts[:from].diaspora_handle} inviter_uid=#{opts[:from].id} inviter_created_at_unix=#{opts[:from].created_at.to_i}" if opts[:from]
