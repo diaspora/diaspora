@@ -47,3 +47,5 @@ end
 execute 'rebundle' do
   command 'bundle install'
 end
+
+include_recipe "centos::startcom_bundle"
