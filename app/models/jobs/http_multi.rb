@@ -23,7 +23,7 @@ module Job
 
         request.on_complete do |response|
           unless response.success?
-            Rails.logger.info("event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} response='#{response}' xml='#{Base64.decode64(enc_object_xml)}'")
+            Rails.logger.info("event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}' xml='#{Base64.decode64(enc_object_xml)}'")
             failed_request_people << person.id
           end
         end
