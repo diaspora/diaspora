@@ -208,6 +208,7 @@ es:
   no_new_notifications: "No hay nuevas notificaciones"
   notifications: 
     also_commented: "también comentado"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "escribió en tu"
     deleted: "eliminado"
     index: 

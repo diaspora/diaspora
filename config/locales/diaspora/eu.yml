@@ -208,6 +208,7 @@ eu:
   no_new_notifications: "jakinarazpen berririk ez"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "iruzkindua zure"
     deleted: "ezabatuta"
     index: 

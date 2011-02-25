@@ -208,6 +208,7 @@ fr:
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
     also_commented: "a/ont également commenté ce"
+    also_commented_deleted: "a commenté un message supprimé"
     comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"
     index: 

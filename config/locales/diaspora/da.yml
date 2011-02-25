@@ -208,6 +208,7 @@ da:
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
     also_commented: "kommenterede også på din kontakts"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     index: 

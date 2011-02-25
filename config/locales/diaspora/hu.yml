@@ -208,6 +208,7 @@ hu:
   no_new_notifications: "nincs új értesítés"
   notifications: 
     also_commented: "hozzászólt még ehhez"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
     index: 

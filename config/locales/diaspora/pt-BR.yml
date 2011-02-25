@@ -208,6 +208,7 @@ pt-BR:
   no_new_notifications: "Nenhuma notificação nova"
   notifications: 
     also_commented: "também comentou em"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "Comentou no seu"
     deleted: "Excluído"
     index: 

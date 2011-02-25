@@ -208,6 +208,7 @@ ru:
   no_new_notifications: "новых уведомлений нет"
   notifications: 
     also_commented: "также прокомментировал"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "комментариев на "
     deleted: "удален"
     index: 

@@ -208,6 +208,7 @@ he:
   no_new_notifications: "אין התרעות חדשות"
   notifications: 
     also_commented: "גם כן הגיב/ה על הפריט של איש הקשר שלך"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "הגיב/ה על ה"
     deleted: "נמחקה"
     index: 

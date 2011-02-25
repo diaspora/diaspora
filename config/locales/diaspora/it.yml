@@ -72,7 +72,7 @@ it:
     edit: 
       add_existing: "Aggiungi un contatto esistente"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
-      make_aspect_list_visible: "rendi la lista dei contatti presente nell'aspetto visibile agli altri"
+      make_aspect_list_visible: "rendi i contatti presenti in questo aspetto visibili agli altri"
       remove_aspect: "Elimina questo aspetto"
       rename: "rinomina"
       save: "Salva"
@@ -208,6 +208,7 @@ it:
   no_new_notifications: "nessuna nuova notifica"
   notifications: 
     also_commented: "ha anche commentato"
+    also_commented_deleted: "hai commentato un post cancellato"
     comment_on_post: "ha commentato sul tuo"
     deleted: "eliminato"
     index: 

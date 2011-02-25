@@ -208,6 +208,7 @@ pt-PT:
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 

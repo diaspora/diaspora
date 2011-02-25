@@ -207,7 +207,8 @@ cs:
   next: "další"
   no_new_notifications: "žádná nová oznámení"
   notifications: 
-    also_commented: "také komentoval ve vašich kontaktech"
+    also_commented: "také komentoval v %{post_author}"
+    also_commented_deleted: "komentován smazaný příspěvek"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
     index: 
@@ -221,7 +222,7 @@ cs:
     also_commented: 
       commented: "také komentoval příspěvek od %{post_author}:"
       sign_in: "Přihlašte se pro zobrazení."
-      subject: "%{name} se také vyjádřil k vašemu příspěvku."
+      subject: "%{name} se také vyjádřil k vašemu %{post_author} příspěvku."
     comment_on_post: 
       commented: "komentoval váš příspěvek:"
       sign_in: "Přihlašte se pro zobrazení."
@@ -439,7 +440,7 @@ cs:
       make_public: "vytvořit veřejnou"
       mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
-      posting: "Posílání..."
+      posting: "Odesílání..."
       share: "Sdělit"
       share_with: "sdílet s"
       whats_on_your_mind: "co máte na mysli?"

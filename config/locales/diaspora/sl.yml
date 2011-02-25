@@ -208,6 +208,7 @@ sl:
   no_new_notifications: "ni novih sporočil"
   notifications: 
     also_commented: "komentirano tudi na vaših stikih"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
     index: 

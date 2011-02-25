@@ -208,6 +208,7 @@ fi:
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös kontaktisi"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 

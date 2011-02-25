@@ -208,6 +208,7 @@ zh:
   no_new_notifications: "没有新的通知"
   notifications: 
     also_commented: "also commented on your contact's"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
