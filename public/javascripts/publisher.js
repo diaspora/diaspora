@@ -289,6 +289,14 @@ var Publisher = {
       Publisher.toggleServiceField($(this).attr('id'));
     });
   },
+  bindPublicIcon: function(){
+    $(".public_icon").bind("click", function(evt){
+      $(this).toggleClass("dim");
+      var public_field= $("#publisher #status_message_public");
+
+      (public_field.val() == 'false')?(public_field.val('true')):(public_field.val('false'));
+    });
+  },
   toggleServiceField: function(service){
     var hidden_field = $('#publisher [name="services[]"][value="'+service+'"]')
     if(hidden_field.length > 0){
@@ -305,12 +313,7 @@ var Publisher = {
     Publisher.cachedSubmit = false;
     
     Publisher.bindServiceIcons();
-    $("div.public_toggle input").live("click", function(evt) {
-      $(".public_icon").toggleClass("dim");
-      if ($(this).attr('checked') == true) {
-        $(".question_mark").click();
-      }
-    });
+    Publisher.bindPublicIcon();
 
     if ($("#status_message_fake_message").val() == "") {
       Publisher.close();

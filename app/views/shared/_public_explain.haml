@@ -9,7 +9,8 @@
     =t('.outside')
     %br
     %br
-
+    = link_to "RSS", current_user.public_url
+    %br
     - if current_user.services
       - for service in current_user.services
         = t('.logged_in', :service => service.provider)

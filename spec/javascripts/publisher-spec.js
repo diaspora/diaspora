@@ -20,7 +20,35 @@ describe("Publisher", function() {
         expect(Publisher.close).wasNotCalled();
         });
     });
+    
+   describe("bindPublicIcon", function() {
+     beforeEach( function(){
+      spec.loadFixture('aspects_index_services');
+     });
 
+     it('gets called on initialize', function(){
+        spyOn(Publisher, 'bindPublicIcon'); 
+        Publisher.initialize();
+        expect(Publisher.bindPublicIcon).toHaveBeenCalled();
+     });
+      it('toggles dim only on the clicked icon', function(){
+        expect($(".public_icon").hasClass("dim")).toBeTruthy();
+
+        Publisher.bindPublicIcon();
+        $(".public_icon").click();
+
+        expect($(".public_icon").hasClass("dim")).toBeFalsy();
+      });
+      it('toggles the hidden field', function(){
+        Publisher.bindPublicIcon();
+        expect($('#publisher #status_message_public').val()).toBe('false');
+        
+        $(".public_icon").click();
+        expect($('#publisher #status_message_public').val()).toBe('true');
+
+
+      });
+   });
    describe("bindServiceIcons", function() {
      beforeEach( function(){
       spec.loadFixture('aspects_index_services');

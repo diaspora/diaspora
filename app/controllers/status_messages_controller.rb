@@ -10,7 +10,6 @@ class StatusMessagesController < ApplicationController
   respond_to :json, :only => :show
 
   def create
-    pp params
     params[:status_message][:aspect_ids] = params[:aspect_ids]
 
     photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
