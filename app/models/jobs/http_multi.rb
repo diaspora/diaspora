@@ -3,7 +3,7 @@ module Job
     @queue = :http
 
     MAX_RETRIES = 3
-    OPTS = {:max_redirects => 3, :timeout => 5000, :method => :post}
+    OPTS = {:max_redirects => 3, :follow_location => true, :timeout => 5000, :method => :post}
 
     def self.perform_delegate(user_id, enc_object_xml, person_ids, retry_count=0)
       user = User.find(user_id)
