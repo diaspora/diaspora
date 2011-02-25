@@ -55,7 +55,7 @@ describe AdminsController do
 
     describe '#admin_inviter' do
       it 'invites a user' do
-        Invitation.should_receive(:create_invitee).with(:identifier => 'bob@moms.com')
+        Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com')
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should be_redirect
       end
