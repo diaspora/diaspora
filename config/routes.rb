@@ -24,7 +24,7 @@ Diaspora::Application.routes.draw do
   resources :posts,           :only => [:show], :path => '/p/'
 
   resources :contacts
-  resources :aspect_memberships
+  resources :aspect_memberships, :only => [:destroy, :create]
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages
@@ -41,7 +41,7 @@ Diaspora::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
                                       :invitations   => "invitations"} do
-                                      
+
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
                                       end
 

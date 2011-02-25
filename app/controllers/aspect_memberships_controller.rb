@@ -3,20 +3,10 @@
 #   the COPYRIGHT file.
 #
 
-class AspectMembershipsController < ApplicationController 
+class AspectMembershipsController < ApplicationController
   before_filter :authenticate_user!
 
-  def new
-    render :nothing => true
-  end
-
-  def index
-   raise
-  end
-
-
-
-  def destroy 
+  def destroy
     #note :id is garbage
 
       @person_id = params[:person_id]
@@ -57,7 +47,6 @@ class AspectMembershipsController < ApplicationController
     @person = Person.find(params[:person_id])
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
     @contact = current_user.contact_for(@person)
-
 
     current_user.add_contact_to_aspect(@contact, @aspect)
 
