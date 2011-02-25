@@ -480,7 +480,7 @@ en:
           commented: "has commented on your post:"
           sign_in: "Sign in to view it."
       also_commented:
-          subject: "%{name} has also commented on your %{post_author}'s post."
+          subject: "%{name} has also commented on %{post_author}'s post."
           commented: "has also commented on %{post_author}'s post:"
           sign_in: "Sign in to view it."
       mentioned:
