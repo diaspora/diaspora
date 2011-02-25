@@ -10,7 +10,10 @@
     abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
     month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
     abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
   
   time:
     formats:
@@ -127,17 +130,17 @@
           unit: ""     
           thousand: "mil"
           million:
-            one: milhão
-            other: milhões
+            one: "milhão"
+            other: "milhões"
           billion:
-            one: bilhão
-            other: bilhões
+            one: "bilhão"
+            other: "bilhões"
           trillion:
-            one: trilhão
-            other: trilhões
+            one: "trilhão"
+            other: "trilhões"
           quadrillion:
-            one: quatrilhão
-            other: quatrilhões
+            one: "quatrilhão"
+            other: "quatrilhões"
 
   # Usado no Array.to_sentence
   support:

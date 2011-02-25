@@ -216,7 +216,10 @@ uk:
     month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
     abbr_month_names: [~, січ., лют., бер., квіт., трав., черв., лип., серп., вер., жовт., лист., груд.]
     # Used in date_select and datime_select.
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:

@@ -81,11 +81,11 @@ cy:
         format: "%n %u"
         units:
           unit: ""
-          thousand: Mil
-          million: Miliwn
-          billion: Biliwn
-          trillion: Triliwn
-          quadrillion: Cwadriliwn
+          thousand: "Mil"
+          million: "Miliwn"
+          billion: "Biliwn"
+          trillion: "Triliwn"
+          quadrillion: "Cwadriliwn"
 
   datetime:
     distance_in_words:

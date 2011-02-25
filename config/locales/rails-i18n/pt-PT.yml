@@ -82,16 +82,16 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: mil
+          thousand: "mil"
           million:
-            one: milhão
-            other: milhões
+            one: "milhão"
+            other: "milhões"
           billion:
             one: mil milhões
             other: mil milhões
           trillion:
-            one: bilião
-            other: biliões
+            one: "bilião"
+            other: "biliões"
           quadrillion:
             one: mil biliões
             other:  mil biliões

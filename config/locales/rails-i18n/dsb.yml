@@ -21,7 +21,10 @@ dsb:
     abbr_day_names:   [Nj, Pó, Wu, Sr, St, Pě, So]
     month_names:      [~, Januar, Februar, Měrc, Apryl, Maj, Junij, Julij, Awgust, September, Oktober, Nowember, December]
     abbr_month_names: [~, jan, feb, měr, apr, maj, jun, jul, awg, sep, okt, now, dec]
-    order:            [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
 
   # Time
   time:

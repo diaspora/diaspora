@@ -12,7 +12,10 @@ rm:
     abbr_day_names: [du, gli, ma, me, gie, ve, so]
     month_names: [~, schaner, favrer, mars, avrigl, matg, zercladur, fanadur, avust, settember, october, november, december]
     abbr_month_names: [~, schan, favr, mars, avr, matg, zercl, fan, avust, sett, oct, nov, dec]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
   
   time:
     formats:

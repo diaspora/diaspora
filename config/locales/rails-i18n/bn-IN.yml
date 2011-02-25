@@ -159,7 +159,10 @@ bn-IN:
     month_names: [~, জানুয়ারি, ফেব্রুয়ারি, মার্চ, এপ্রিল, মে, জুন, জুলাই, অগাস্ট, সেপ্টেমবার, অক্টোবার, নভেম্বার, ডিসেম্বার]
     abbr_month_names: [~, জানুয়ারি, ফেব্রুয়ারি, মার্চ, এপ্রিল, মে, জুন, জুলাই, অগাস্ট, সেপ্টেমবার, অক্টোবার, নভেম্বার, ডিসেম্বার]
     # Used in date_select and datime_select.
-    order: [ :year, :month, :day ]
+    order:
+      - :year
+      - :month
+      - :day
 
   time:
     formats:

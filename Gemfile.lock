@@ -194,7 +194,7 @@ GEM
     highline (1.6.1)
     http_connection (1.4.0)
     i18n (0.5.0)
-    i18n-inflector (2.5.0)
+    i18n-inflector (2.5.1)
       i18n (>= 0.4.1)
     i18n-inflector-rails (1.0.3)
       actionpack (~> 3.0)

@@ -12,7 +12,10 @@ lv:
     abbr_day_names: [Sv., P., O., T., C., Pk., S.]
     month_names: [~, janvārī, februārī, martā, aprīlī, maijā, jūnijā, jūlijā, augustā, septembrī, oktobrī, novembrī, decembrī]
     abbr_month_names: [~, Janv, Febr, Marts, Apr, Maijs, Jūn, Jūl, Aug, Sept, Okt, Nov, Dec]
-    order: [ :year, :month, :day ]
+    order:
+      - :year
+      - :month
+      - :day
 
   time:
     formats:
@@ -113,11 +116,11 @@ lv:
         format: "%n %u"
         units:
           unit: ""
-          thousand: Tūkstotis
-          million: Miljons
-          billion: Biljons
-          trillion: Triljons
-          quadrillion: Kvadriljons
+          thousand: "Tūkstotis"
+          million: "Miljons"
+          billion: "Biljons"
+          trillion: "Triljons"
+          quadrillion: "Kvadriljons"
 
   support:
     array:

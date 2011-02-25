@@ -24,7 +24,7 @@ available:
   mk: 'македонски'
   nb: 'Norske'
   nl: 'Nederlands'
-  pl: "Polski"
+  pl: "polski"
   pt-BR: 'Português'
   ro: 'Română'
   ru: 'Русский'
@@ -34,11 +34,22 @@ available:
   tr: 'Türk'
   zh: '中文'
 fallbacks:
-  en-GB: [:en]
-  en-US: [:en]
-  en_shaw: [:en, :en-GB, :en-US]
-  sv: [:sv-SE]
-  he: [:he-IL]
-  es-CL: [:es]
-  gl: [:gl-ES]
-  zh: [:zh-CN, :zh-TW]
+  en-GB:
+    - :en
+  en-US:
+    - :en
+  en_shaw:
+    - :en
+    - :en-GB
+    - :en-US
+  sv:
+    - :sv-SE
+  he:
+    - :he-IL
+  es-CL:
+    - :es
+  gl:
+    - :gl-ES
+  zh:
+    - :zh-CN
+    - :zh-TW
