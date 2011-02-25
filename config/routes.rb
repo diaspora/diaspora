@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
+  resources :private_messages
+
   resources :status_messages, :only => [:create, :destroy, :show]
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]

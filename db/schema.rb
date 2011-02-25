@@ -10,7 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110228201109) do
+=======
+ActiveRecord::Schema.define(:version => 20110225193130) do
+>>>>>>> added PrivateMessage and PrivateMessageVisibility models and migrations
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -382,6 +386,28 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
   add_index "posts", ["type"], :name => "index_posts_on_type"
+
+  create_table "private_message_visibilities", :force => true do |t|
+    t.integer  "private_message_id"
+    t.integer  "person_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "private_message_visibilities", ["person_id"], :name => "index_private_message_visibilities_on_person_id"
+  add_index "private_message_visibilities", ["private_message_id", "person_id"], :name => "pm_visibilities_on_pm_id_and_person_id", :unique => true
+  add_index "private_message_visibilities", ["private_message_id"], :name => "index_private_message_visibilities_on_private_message_id"
+
+  create_table "private_messages", :force => true do |t|
+    t.integer  "author_id",                    :null => false
+    t.boolean  "unread",     :default => true, :null => false
+    t.string   "guid",                         :null => false
+    t.text     "message",                      :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "private_messages", ["author_id"], :name => "index_private_messages_on_author_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"

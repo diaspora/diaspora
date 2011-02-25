@@ -1,0 +1,19 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h2
+  New Message
+
+= form_for PrivateMessage.new do |private_message|
+  %h4
+    to
+  = private_message.text_field :recipients
+
+  %h4
+    message
+  = private_message.text_area :message, :rows => 5
+
+  = link_to 'cancel', private_messages_path
+  = private_message.submit :send
