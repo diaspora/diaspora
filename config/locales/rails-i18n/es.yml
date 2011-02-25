@@ -249,7 +249,7 @@
       - :day
       - :month
       - :year
-
+  
   time:
     formats:
       default: "%A, %d de %B de %Y %H:%M:%S %z"

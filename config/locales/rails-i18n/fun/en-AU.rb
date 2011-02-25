@@ -14,7 +14,7 @@
       :abbr_day_names => Date::ABBR_DAYNAMES,
       :month_names => Date::MONTHNAMES,
       :abbr_month_names => Date::ABBR_MONTHNAMES,
-      :order => [:year, :month, :day]
+      :order => [ :year, :month, :day ]
     },
     :time => {
       :formats => {

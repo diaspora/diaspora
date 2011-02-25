@@ -124,7 +124,10 @@ lt:
       
     month_names: [~, sausio, vasario, kovo, balandžio, gegužės, birželio, liepos, rugpjūčio, rugsėjo, spalio, lapkričio, gruodžio]
     abbr_month_names: [~, Sau, Vas, Kov, Bal, Geg, Bir, Lie, Rgp, Rgs, Spa, Lap, Grd]
-    order: [ :year, :month, :day ]
+    order:
+      - :year
+      - :month
+      - :day
 
   time:
     formats:

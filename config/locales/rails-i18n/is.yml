@@ -58,7 +58,10 @@ is:
     month_names: [~, janúar, febrúar, mars, apríl, maí, júní, júlí, ágúst, september, október, nóvember, desember]
     abbr_month_names: [~, jan, feb, mar, apr, maí, jún, júl, ágú, sep, okt, nóv, des]
     # Used in date_select and datime_select.
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:
