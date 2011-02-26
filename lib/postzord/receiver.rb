@@ -70,6 +70,11 @@ module Postzord
         @object.sender_handle = @sender.diaspora_handle
       end
 
+      # abort if we haven't received the post to a comment
+      if @object.is_a?(Comment) && @object.post.nil?
+        Rails.logger.info("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
+        return false
+      end
 
       if (@author.diaspora_handle != xml_author)
         Rails.logger.info("event=receive status=abort reason='author in xml does not match retrieved person' payload_type=#{@object.class} recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
