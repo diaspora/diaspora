@@ -1,3 +1,9 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+require 'uri'
+
 module Job
   class HttpMulti < Base
     @queue = :http
@@ -24,7 +30,11 @@ module Job
         request.on_complete do |response|
           if response.code >= 300 && response.code < 400
             if response.headers_hash['Location'] == response.request.url.sub('http://', 'https://')
-              person.url = response.headers_hash['Location']
+              location = URI.parse(response.headers_hash['Location'])
+              newuri = "#{location.scheme}://#{location.host}"
+              newuri += ":#{location.port}" unless ["80", "443"].include?(location.port.to_s)
+              newuri += "/"
+              person.url = newuri
               person.save
             end
           end

@@ -72,6 +72,6 @@ describe Job::HttpMulti do
 
     Job::HttpMulti.perform(bob.id, @post_xml, [person.id])
     person.reload
-    person.url.should =~ /https:\/\/remote.net\//
+    person.url.should == "https://remote.net/"
   end
 end

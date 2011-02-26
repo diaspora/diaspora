@@ -20,11 +20,21 @@ describe Person do
   end
 
   describe "vaild url" do
-      it 'should allow for https urls' do
+    it 'should allow for https urls' do
       person = Factory.create(:person, :url => "https://example.com")
       person.should be_valid
-      end
     end
+    
+    it 'should always return the correct receive url' do
+      person = Factory.create(:person, :url => "https://example.com/a/bit/messed/up")
+      person.receive_url.should == "https://example.com/receive/users/#{person.guid}/"
+    end
+    
+    it 'should allow ports in the url' do
+      person = Factory.create(:person, :url => "https://example.com:3000/")
+      person.url.should == "https://example.com:3000/"
+    end
+  end
 
 
   describe '#diaspora_handle' do
