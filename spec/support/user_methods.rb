@@ -40,4 +40,10 @@ class User
       c
     end
   end
+
+  def post_at_time(time)
+    p = self.post(:status_message, :message => 'hi', :to => self.aspects.first)
+    p.created_at = time
+    p.save!
+  end
 end

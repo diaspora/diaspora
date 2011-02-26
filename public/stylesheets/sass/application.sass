@@ -90,6 +90,10 @@ form
   :text
     :shadow 0 1px #C66
 
+.login_error
+  :color rgb(208,49,43)
+  :text-shadow 1px 1px 20px rgb(208,49,43)
+
 .fieldWithErrors
   :display inline
 
@@ -677,7 +681,7 @@ a.paginate, #infscr-loading
 
 #main_stream .pagination
   :display none
-  
+
 .stream_element
   .right
     :position absolute
@@ -865,6 +869,9 @@ label
 
     input
       :display inline
+    
+    .right
+      :top 2px
 
     .public_toggle
       :font
@@ -1311,8 +1318,9 @@ ul#settings_nav
   :padding 0
   :font
     :size large
-  :margin
-    :left 5.68em
+  :position absolute
+  :left 198px
+  :top 5px
 
   > li
     :display inline
@@ -1323,6 +1331,10 @@ ul#settings_nav
 
 .settings_pane
   :display none
+
+#account_data
+  a
+    :line-height 30px
 
 .contact_pictures,
 #aspect_listings li
@@ -2180,8 +2192,7 @@ h3,h4
     :top -0.2em
 
 #share_with
-  :min-width 400px
-  :max-width 400px
+  :min-width 430px
 
   .avatar
     :width 50px
@@ -2386,6 +2397,7 @@ ul.show_comments
 
       &.submit
         :width auto
+        :bottom 15px
 
         input
           :width auto
@@ -2420,6 +2432,8 @@ ul.show_comments
     p
       :padding
         :left 1em
+      input[type='text']
+        :width 60%
 
       &.checkbox_select
         label
@@ -2438,3 +2452,27 @@ ul.show_comments
     .right
       :right 1em
 
+.invite_friends
+  :padding 1em
+  :background
+    :color #eee
+  :border 1px solid #ccc
+
+.webfinger_form
+  input[type='search']
+    :width 100%
+
+#sort_by
+  :text-align right
+
+#remember_me
+  input[type='checkbox']
+    :display inline
+    :height auto !important
+    :top 2px !important
+  label
+    :font-size inherit !important
+    :position static
+
+.public_icon, .service_icon
+  :cursor pointer

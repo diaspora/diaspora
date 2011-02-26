@@ -17,6 +17,7 @@
             $("#spinner").fadeIn(300);
           });
         });
+        $(".login_error").remove();
       });
     });
 
@@ -25,12 +26,18 @@
     = image_tag('logo_caps.png', :id => 'logo', :width => 143, :height => 21)
     %br
     %br
+
+    - flash.each do |name, msg|
+      = content_tag :p, msg, :class => "login_error"
+
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
       %p
         = f.label :username , t('username')
         = f.text_field :username
         %span.pod_location
           ="@#{AppConfig[:pod_uri].host}"
+          %br
+          %br
 
       %p
         = f.label :password , t('password')
@@ -40,12 +47,18 @@
             = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name)
           - else
             \.
+          %br
+          - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+            = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+          - else
+            \.
 
       %p.submit
         = f.submit t('.sign_in')
-        %span
-          - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
-            = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+        %span#remember_me
+          - if devise_mapping.rememberable?
+            = f.check_box :remember_me
+            = f.label :remember_me, t('.remember_me')
           - else
             \.
 

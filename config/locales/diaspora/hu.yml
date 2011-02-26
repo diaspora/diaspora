@@ -47,12 +47,21 @@ hu:
       video_title: 
         unknown: "Ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Személy törlése a csoportból sikertelen"
+      no_membership: "Nem található a személy ebben a csoportban"
+      success: "Sikeresen törölted a személyt a csoportból"
   aspects: 
     add_to_aspect: 
       failure: "A kapcsolatot nem sikerült felvenni a csoportba."
       success: "A kapcsolat hozzáadva a csoporthoz."
     aspect_contacts: 
       done_editing: "szerkesztés kész"
+    aspect_stream: 
+      activity: "tevékenység"
+      post_time: "időpont"
+      sort_by: "rendezés:"
     contacts_not_visible: "A csoporttagok nem láthatják egymást."
     contacts_visible: "A csoport tagjai láthatják egymást."
     create: 
@@ -96,9 +105,6 @@ hu:
       nobody_in_aspect: "A '%{aspect_name}' csoportod üres."
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
-    remove_from_aspect: 
-      failure: "Nem sikerült eltávolítani személyt a csoportból"
-      success: "A személyt sikeresen eltávolítottad a csoportból."
     seed: 
       family: "Család"
       work: "Munka"
@@ -114,9 +120,18 @@ hu:
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
   contacts: 
+    create: 
+      failure: "Kapcsolat létrehozása sikertelen"
+    destroy: 
+      failure: "Sikertelen a kapcsolat megszakítása vele: %{name}"
+      success: "Kapcsolat megszakítva vele: %{name}"
     few: "%{count} ismerős"
     one: "1 ismerős"
     other: "%{count} ismerős"
+    share_with_pane: 
+      accepts: "Ha %{name} elfogadja a felkérésed, akkor látjátok majd egymás bejegyzéseit."
+      add_new_aspect: "hozzáadás új csoporthoz"
+      share_with: "Megosztás indítása vele: %{name}"
     zero: "nincs ismerős"
   date: 
     formats: 
@@ -162,7 +177,7 @@ hu:
       if_they_accept_info: "Ha elfogadják felkérésed, akkor belekerülnek abba a csoportba amelyikbe meghívtad őket."
       invite_someone_to_join: "Hívj meg valakit, hogy csatlakozzon a Diaspora-hoz!"
       personal_message: "Személyes üzenet"
-      resend: "Resend"
+      resend: "Újraküld"
       send_an_invitation: "Küldj egy meghívót"
       send_invitation: "Meghívás küldése"
       to: "Címzett"
@@ -193,6 +208,7 @@ hu:
   no_new_notifications: "nincs új értesítés"
   notifications: 
     also_commented: "hozzászólt még ehhez"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
     index: 
@@ -241,19 +257,6 @@ hu:
   people: 
     aspect_list: 
       edit_membership: "csoport tagság szerkesztése"
-    edit: 
-      allow_search: "Megengedem, hogy megtalálható legyek a Diaspora keresési találatokban."
-      edit_profile: "Profil szerkesztése"
-      first_name: "Keresztnév"
-      info_available_to: "Ez az információ elérhető lesz Diaspora ismerőseidnek."
-      last_name: "Vezetéknév"
-      update_profile: "Profil frissítése"
-      your_bio: "Rólam"
-      your_birthday: "Születésnapom"
-      your_gender: "Nem"
-      your_name: "Neved"
-      your_photo: "Fényképed"
-      your_profile: "Profilod"
     helper: 
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
@@ -276,25 +279,17 @@ hu:
       in_aspects: "csoportokban"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
-    share_with: 
-      accepts: "Ha %{name} elfogadja a felkérést, akkor látjátok majd egymás bejegyzéseit."
-      share_with: "Megosztás vele: %{name}"
-    share_with_pane: 
-      add_new_aspect: "új csoport hozzáadása"
     show: 
       does_not_exist: "Személy nem létezik!"
       incoming_request: "%{name} megosztást kezdeményezett veled."
       no_posts: "nincs bejegyzés!"
-      not_connected: "Nem osztassz meg vele: "
+      not_connected: "Nem ismerősöd"
       recent_posts: "Legutóbbi bejegyzések"
       recent_public_posts: "Legutóbbi nyilvános bejegyzések"
       return_to_aspects: "Menj vissza a csoportokhoz"
       similar_contacts: "hasonló kapcsolatok"
       start_sharing: "Megosztás indítása"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
-    update: 
-      failed: "Profil frissítése sikertelen"
-      updated: "Profil frissítve"
     webfinger: 
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
   photos: 
@@ -334,6 +329,23 @@ hu:
       notice: "Kép szerkesztése sikerült."
   previous: "előző"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Megtalálható legyek a Diaspora keresőben"
+      edit_profile: "Profil szerkesztése"
+      first_name: "Keresztnév"
+      info_available_to: "Ez az információ elérhető lesz a Diaspora ismerőseid számára."
+      last_name: "Vezetéknév"
+      update_profile: "Profil frissítése"
+      your_bio: "Rólam"
+      your_birthday: "Szülinapom"
+      your_gender: "Nem"
+      your_name: "Nevem"
+      your_photo: "Fényképem"
+      your_profile: "Profilom"
+    update: 
+      failed: "Profil frissítése sikertelen"
+      updated: "Profil frissítve"
   registrations: 
     closed: "A regisztráció zárva ezen a Diaspora kiszolgálón."
     create: 

@@ -32,13 +32,22 @@ en:
   _comments: "Comments"
   _comment: "Comment"
   more: "More"
-  next: 'next'
-  previous: 'previous'
+  next: "next"
+  previous: "previous"
   contacts:
     zero:   "no contacts"
     one:    "1 contact"
     few:    "%{count} contacts"
     other:  "%{count} contacts"
+    destroy:
+      success: "Successfully disconnected from %{name}"
+      failure: "Failed to disconnect from %{name}"
+    share_with_pane:
+      share_with: "Start sharing with %{name}"
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect" 
+    create:
+      failure: "Failed to create contact"
   new_requests:
     zero:   "no new requests"
     one:    "new request!"
@@ -102,7 +111,7 @@ en:
         have_a_problem: "Have a problem? Find an answer here"
         your_aspects: "your aspects"
         logged_in_as: "logged in as %{name}"
-        toggle: 'toggle mobile site'
+        toggle: "toggle mobile site"
   shared:
       publisher:
           mention_helper_text: "to mention someone, press '@' and start typing their name"
@@ -142,6 +151,12 @@ en:
       contact_list:
           all_contacts: "All contacts"
           cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+  aspect_memberships:
+      destroy:
+          success: "Successfully removed person from aspect"
+          failure: "Failed to remove person from aspect"
+          no_membership: "Could not find the selected person in that aspect"
+ 
   aspects:
       contacts_visible: "Contacts in this aspect will be able to see each other."
       contacts_not_visible: "Contacts in this aspect will not be able to see each other."
@@ -154,6 +169,10 @@ en:
           make_aspect_list_visible: "make aspect list visible to others in aspect"
       aspect_contacts:
           done_editing: "done editing"
+      aspect_stream:
+        sort_by: "sort by:"
+        activity: "activity"
+        post_time: "post time"
       show:
           edit_aspect: "edit aspect"
       no_contacts_message:
@@ -194,9 +213,6 @@ en:
           remove: "remove"
           aspect_not_empty: "Aspect not empty"
           are_you_sure: "Are you sure you want to delete this aspect?"
-      remove_from_aspect:
-          success: "Successfully removed person from aspect"
-          failure: "Failed to remove person from aspect"
       seed:
           family: "Family"
           work: "Work"
@@ -207,10 +223,11 @@ en:
       request_accepted: "accepted your share request."
       new_request: "offered to share with you."
       comment_on_post: "commented on your"
-      also_commented: "also commented on your contact's"
+      also_commented: "also commented on %{post_author}'s"
       mentioned: "has mentioned you in their"
-      post: 'post'
-      deleted: 'deleted'
+      post: "post"
+      deleted: "deleted"
+      also_commented_deleted: "commented on a deleted post"
       index:
         notifications: "Notifications"
         mark_all_as_read: "Mark All as Read"
@@ -398,13 +415,8 @@ en:
       helper:
            results_for: " results for %{params}"
            people_on_pod_are_aware_of: " people on pod are aware of"
-      share_with:
-           share_with: "Start sharing with %{name}"
-           accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       aspect_list:
            edit_membership: "edit aspect membership"
-      share_with_pane:
-           add_new_aspect: "add new aspect"
   requests:
       manage_aspect_contacts:
           manage_within: "Manage contacts within"
@@ -468,7 +480,7 @@ en:
           commented: "has commented on your post:"
           sign_in: "Sign in to view it."
       also_commented:
-          subject: "%{name} has also commented on your contact's post."
+          subject: "%{name} has also commented on %{post_author}'s post."
           commented: "has also commented on %{post_author}'s post:"
           sign_in: "Sign in to view it."
       mentioned:

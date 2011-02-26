@@ -47,12 +47,21 @@ el:
       video_title: 
         unknown: "Άγνωστος τίτλος video"
   are_you_sure: "Είστε σίγουρος/η;"
+  aspect_memberships: 
+    destroy: 
+      failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
+      no_membership: "Δεν βρέθηκε το επιλεγμένο άτομο σε αυτή την πτυχή"
+      success: "Αφαιρέθει επιτυχώς το πρόσωπο από την πτυχή"
   aspects: 
     add_to_aspect: 
       failure: "Αποτυχία προσθήκης επαφής στην πτυχή."
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
     aspect_contacts: 
       done_editing: "ολοκλήρωση επεξεργασίας"
+    aspect_stream: 
+      activity: "δραστηριότητα"
+      post_time: "χρόνο δημοσίευσης"
+      sort_by: "ταξινόμηση κατά:"
     contacts_not_visible: "Οι επαφές σ' αυτήν την πτυχή δεν θα μπορούν να δουν ο ένας τον άλλον."
     contacts_visible: "Οι επαφές σ' αυτήν την πτυχή θα μπορούν να δουν ο ένας τον άλλον."
     create: 
@@ -96,9 +105,6 @@ el:
       nobody_in_aspect: "Η πτυχή σας '%{aspect_name}' είναι κενή."
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
-    remove_from_aspect: 
-      failure: "Αδυναμία αφαίρεσης ατόμου από την πτυχή"
-      success: "Επιτυχής αφαίρεση ατόμου από την πτυχή"
     seed: 
       family: "Οικογένεια"
       work: "Εργασία"
@@ -114,9 +120,18 @@ el:
       comment: "Σχολιάστε"
       commenting: "Σχολιάζει..."
   contacts: 
+    create: 
+      failure: "Αποτυχία δημιουργίας επαφής"
+    destroy: 
+      failure: "Αποτυχία αποσύνδεσης από τον/την %{name}"
+      success: "Επιτυχία αποσύνδεσης από τον/την %{name}"
     few: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
+    share_with_pane: 
+      accepts: "Όταν ο/η %{name} σας αποδεχτεί, θα ξεκινήσετε να βλέπετε μεταξύ σας τις δημοσιεύεσεις σας στο Diaspora"
+      add_new_aspect: "προσθήκη σε νεα πτυχή"
+      share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     zero: "καμία επαφή"
   date: 
     formats: 
@@ -162,7 +177,7 @@ el:
       if_they_accept_info: "αν δεχτούν, θα προστεθούν στην πτυχή που τους πρασκαλέσατε. "
       invite_someone_to_join: "Προσκαλέστε κάποιον στο Diaspora!"
       personal_message: "Προσωπικό μήνυμα"
-      resend: "Resend"
+      resend: "Αποστολή ξανά"
       send_an_invitation: "Στείλτε μια πρόσκληση"
       send_invitation: "Στείλτε πρόσκληση"
       to: "Στον"
@@ -193,6 +208,7 @@ el:
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
     also_commented: "επίσης σχολίασε στην επαφή σας"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
@@ -241,19 +257,6 @@ el:
   people: 
     aspect_list: 
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
-    edit: 
-      allow_search: "Επιτρέψτε σε άτομα να σας αναζητήσουν στο Diaspora"
-      edit_profile: "Επεξεργασία προφίλ"
-      first_name: "Όνομα"
-      info_available_to: "Η πληροφορία αυτή θα είναι διαθέσιμη σε όποιον ειναι συνδεδεμένος μαζί σας στο Diaspora"
-      last_name: "Επίθετο"
-      update_profile: "Ενημέρωση Προφίλ"
-      your_bio: "Βιογραφικό"
-      your_birthday: "Τα γενέθλια σας"
-      your_gender: "Το φύλο σας"
-      your_name: "Το όνομα σας"
-      your_photo: "Η φωτογραφία σας"
-      your_profile: "Το προφίλ σας"
     helper: 
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
@@ -276,11 +279,6 @@ el:
       in_aspects: "στις πτυχές"
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
-    share_with: 
-      accepts: "Μόλις ο χρήστης %{name} δεχθεί, θα αρχίσει ο καθένας να βλέπει τις δημοσιεύσεις του άλλου στο Diaspora"
-      share_with: "Αρχή διαμοιρασμού με τον χρήστη %{name}"
-    share_with_pane: 
-      add_new_aspect: "προσθήκη νέας πτυχής"
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
@@ -292,9 +290,6 @@ el:
       similar_contacts: "παρόμοιες επαφές"
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
-    update: 
-      failed: "Αποτυχία ενημέρωσης προφίλ"
-      updated: "Το προφίλ ενημερώθηκε επιτυχώς"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
   photos: 
@@ -334,6 +329,23 @@ el:
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   previous: "προηγούμενο"
   profile: "Προφίλ"
+  profiles: 
+    edit: 
+      allow_search: "Επιτρέψτε σε άλλους ανθρώπους να σας αναζητούν στο Diaspora"
+      edit_profile: "Επεξεργασία προφίλ"
+      first_name: "Όνομα"
+      info_available_to: "Η πληροφορία θα είναι διαθέσιμη σε όποιον σε όποιον συνδεθείτε στο Diaspora."
+      last_name: "Επώνυμο"
+      update_profile: "Ενημέρωση Προφίλ"
+      your_bio: "To βιογραφικό σας"
+      your_birthday: "Τα γενέθλιά σας"
+      your_gender: "Tο φύλο σας"
+      your_name: "Το όνομά σας"
+      your_photo: "Η φωτογραφία σας"
+      your_profile: "Το προφίλ σας"
+    update: 
+      failed: "Αποτυχία ενημέρωσης προφίλ"
+      updated: "Το προφίλ ενημερώθηκε"
   registrations: 
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του Diaspora."
     create: 

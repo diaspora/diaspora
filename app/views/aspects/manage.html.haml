@@ -46,7 +46,7 @@
       .aspect.span-9{:data=>{:guid => aspect.id}}
         .aspect_name
           %span.edit_name_field
-            %h3{:contenteditable=>true}
+            %h3{:contenteditable=>true, :ondragenter=>"return false;", :ondragleave=>"return false;", :ondragover=>"return false;", :ondrop=>"return false;"}
               = aspect.name
             %span.tip click to edit
 

@@ -57,7 +57,10 @@ es-MX:
         delimiter: ","
 
   date:
-    order: [:day, :month, :year]
+    order:
+      - :day
+      - :month
+      - :year
     abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
     abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
     day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]

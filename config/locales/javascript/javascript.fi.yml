@@ -9,7 +9,7 @@ fi:
     search_for: "Etsi nimellä {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Et voi poistaa henkilöä viimeisestä näkymästä. (Jos halauat katkaista yhteytesi tähän henkilöön, sinun täytyy poistaa kontakti.)"
+        cannot_remove: "Et voi poistaa henkilöä viimeisestä näkymästä. (Jos haluat katkaista yhteytesi tähän henkilöön, sinun täytyy poistaa kontakti.)"
     timeago: 
       day: "päivä"
       days: "%d päivää"
@@ -27,5 +27,5 @@ fi:
       year: "noin vuosi"
       years: "%d vuotta"
     videos: 
-      unknown: "Tuntematon video muoto"
+      unknown: "Tuntematon videomuoto"
       watch: "Katso video {{provider}} :ssa"

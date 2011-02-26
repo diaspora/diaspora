@@ -64,6 +64,15 @@ describe StatusMessagesController do
       response.status.should == 201
     end
 
+    it "dispatches the post to the specified services" do
+      s1 = Services::Facebook.new 
+      @user1.services << s1
+      @user1.services << Services::Twitter.new 
+      status_message_hash[:services] = ['facebook']
+      @user1.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      post :create, status_message_hash
+    end
+
     it "doesn't overwrite person_id" do
       status_message_hash[:status_message][:person_id] = @user2.person.id
       post :create, status_message_hash
@@ -84,6 +93,11 @@ describe StatusMessagesController do
       }
       post :create, status_message_hash
     end
+    it 'sends the errors in the body on js' do
+      post :create, status_message_hash.merge!(:format => 'js', :status_message => {:message => ''})
+      response.body.should include('Status message requires a message or at least one photo')
+    end
+
 
     context 'with photos' do
       before do

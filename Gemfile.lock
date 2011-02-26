@@ -37,14 +37,6 @@ GIT
       simple_oauth (~> 0.1.2)
 
 GIT
-  remote: git://github.com/recruitmilitary/carrierwave.git
-  revision: a30bb2603a51b646fd771065d6c203abef2e936e
-  branch: master
-  specs:
-    carrierwave (0.5.0)
-      activesupport (~> 3.0)
-
-GIT
   remote: git://github.com/zhitomirskiyi/devise_invitable.git
   revision: 85abb5fef4ab4f74db818ed3d8104c2f7d24b94e
   branch: 0.3.5
@@ -119,6 +111,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.3)
+    carrierwave (0.5.2)
+      activesupport (~> 3.0)
     cgi_multipart_eof_fix (2.5.0)
     chef (0.9.12)
       bunny (>= 0.6.0)
@@ -134,7 +128,7 @@ GEM
       ohai (>= 0.5.7)
       rest-client (>= 1.0.4, < 1.7.0)
       uuidtools
-    childprocess (0.1.6)
+    childprocess (0.1.7)
       ffi (~> 0.6.3)
     closure-compiler (1.0.0)
     cloudfiles (1.4.10)
@@ -200,6 +194,12 @@ GEM
     highline (1.6.1)
     http_connection (1.4.0)
     i18n (0.5.0)
+    i18n-inflector (2.5.1)
+      i18n (>= 0.4.1)
+    i18n-inflector-rails (1.0.3)
+      actionpack (~> 3.0)
+      i18n-inflector (~> 2.5)
+      railties (~> 3.0)
     jammit (0.5.4)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
@@ -342,17 +342,17 @@ GEM
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     selenium-client (1.2.18)
-    selenium-rc (2.2.4)
+    selenium-rc (2.3.1)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.1.2)
+    selenium-webdriver (0.1.3)
       childprocess (~> 0.1.5)
       ffi (~> 0.6.3)
       json_pure
       rubyzip
     simple_oauth (0.1.4)
-    sinatra (1.1.2)
+    sinatra (1.1.3)
       rack (~> 1.1)
-      tilt (~> 1.2)
+      tilt (>= 1.2.2, < 2.0)
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
@@ -364,8 +364,9 @@ GEM
     tilt (1.2.2)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    tzinfo (0.3.24)
-    uuidtools (2.1.2)
+    typhoeus (0.2.0)
+    tzinfo (0.3.23)
+    uuidtools (2.1.1)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (0.10.7)
@@ -375,7 +376,7 @@ GEM
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
     xml-simple (1.0.14)
-    yui-compressor (0.9.3)
+    yui-compressor (0.9.4)
 
 PLATFORMS
   ruby
@@ -388,7 +389,7 @@ DEPENDENCIES
   capistrano (= 2.5.19)
   capistrano-ext (= 1.2.1)
   capybara (~> 0.3.9)
-  carrierwave!
+  carrierwave (= 0.5.2)
   chef (= 0.9.12)
   cloudfiles (= 1.4.10)
   cucumber-rails (= 0.3.2)
@@ -405,6 +406,7 @@ DEPENDENCIES
   googlecharts
   haml (= 3.0.25)
   http_accept_language!
+  i18n-inflector-rails (~> 1.0)
   jammit (= 0.5.4)
   jasmine!
   json (= 1.4.6)
@@ -424,5 +426,6 @@ DEPENDENCIES
   ruby-debug
   thin (= 1.2.7)
   twitter!
+  typhoeus
   webmock
   will_paginate (= 3.0.pre2)

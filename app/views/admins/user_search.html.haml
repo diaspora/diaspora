@@ -1,0 +1,41 @@
+
+%h3
+  = form_tag 'admin_inviter', :method => :get do
+    email to invite:
+    = text_field_tag 'identifier'
+    = submit_tag 'invite'
+
+
+
+%h3
+  user search
+= form_tag 'user_search', :method => :get do
+  username:
+  = text_field_tag 'user[username]', params[:user][:username]
+  
+  email:
+  = text_field_tag 'user[email]', params[:user][:email]
+
+  invitation identifier 
+  = text_field_tag 'user[invitation_identifier]', params[:user][:invitation_identifier]
+
+  invitation token:
+  = text_field_tag 'user[invitation_token]', params[:user][:invitation_token]
+  = submit_tag 'go'
+
+
+= "#{@users.count} users found"
+%br
+%br
+= for user in @users
+  = user.inspect
+  %br
+  - if user.person
+    = user.person.inspect
+    %br
+    - if user.person.profile
+      = user.person.profile.inspect
+    %br
+  = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token 
+  %br
+  %br

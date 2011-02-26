@@ -13,16 +13,16 @@
       = t('.pending_request')
     - elsif request && request.sender == person
       = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => '')),
-        {:controller => "people",
-        :action => "share_with",
-        :id => person.id},
+        {:controller => "contacts",
+        :action => "new",
+        :person_id => person.id},
         :class => 'share_with button',
         :rel => 'facebox'
     - else
       = link_to t('people.show.start_sharing'),
-        {:controller => "people",
-        :action => "share_with",
-        :id => person.id},
+        {:controller => "contacts",
+        :action => "new",
+        :person_id => person.id},
         :class => 'button',
         :rel => 'facebox'
 

@@ -21,23 +21,23 @@ fi:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "on oltava yksilöllinen."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "on jo varattu."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "on jo tehdyn pyynnön kaksoiskappale."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "on jo varattu."
             person: 
-              invalid: "is invalid."
+              invalid: "ei ole kelvollinen."
             username: 
-              taken: "is already taken."
+              taken: "on jo varattu."
   ago: "%{time} sitten"
   application: 
     helper: 
@@ -47,12 +47,21 @@ fi:
       video_title: 
         unknown: "Videon Otsikko Tuntematon"
   are_you_sure: "Oletko varma?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Henkilön poisto näkymästä epäonnistui"
+      no_membership: "Kyseistä henkilöä ei löytynyt valitusta näkymästä"
+      success: "Henkilö poistettiin näkymästä onnistuneesti"
   aspects: 
     add_to_aspect: 
       failure: "Kontaktin lisäys näkymään epäonnistui."
       success: "Ystävän lisäys näkymään onnistui."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
+    aspect_stream: 
+      activity: "aktiivisuus"
+      post_time: "lähetys aika"
+      sort_by: "järjestä:"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -96,9 +105,6 @@ fi:
       nobody_in_aspect: "Näkymäsi, '%{aspect_name}', on tyhjä."
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
-    remove_from_aspect: 
-      failure: "Henkilön poisto näkymästä epäonnistui"
-      success: "Henkilön poisto näkymästä onnistui"
     seed: 
       family: "Perhe"
       work: "Työ"
@@ -114,9 +120,18 @@ fi:
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} kontaktia"
     one: "1 kontakti"
     other: "%{count} kontaktia"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "ei kontakteja"
   date: 
     formats: 
@@ -162,7 +177,7 @@ fi:
       if_they_accept_info: "jos he hyväksyvät kutsun, heidät lisätään siihen näkymään, johon heidät kutsuit."
       invite_someone_to_join: "Kutsu joku Diasporan käyttäjäksi!"
       personal_message: "Henkilökohtainen viesti"
-      resend: "Resend"
+      resend: "Lähetä uudelleen"
       send_an_invitation: "Lähetä kutsu"
       send_invitation: "Lähetä kutsu"
       to: "Vastaanottaja"
@@ -193,12 +208,13 @@ fi:
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös kontaktisi"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
-    mentioned: "has mentioned you in their"
+    mentioned: "on maininnut sinut heidän"
     new_request: "haluaa jakaa kanssasi."
     post: "viesti"
     request_accepted: "hyväksyi jakopyyntösi."
@@ -206,7 +222,7 @@ fi:
     also_commented: 
       commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
       sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on myös kommentoinut."
+      subject: "%{name} on myös kommentoinut kontaktisi viestiin."
     comment_on_post: 
       commented: "on kommentoinut viestiisi:"
       sign_in: "Kirjaudu sisään nähdäksesi."
@@ -215,9 +231,9 @@ fi:
     hello: "Hei %{name}!"
     love: "terveisin,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "mainitsi sinut viestissään:"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on maininnut sinut Diaspora*:ssa"
     new_request: 
       just_sent_you: "lähetti juuri äsken sinulle kontaktipyynnön Diaspora*ssa"
       sign_in: "Kirjaudu sisään täältä"
@@ -241,19 +257,6 @@ fi:
   people: 
     aspect_list: 
       edit_membership: "muokkaa näkymän jäsenyyttä."
-    edit: 
-      allow_search: "Salli ihmisten etsiä sinua Diasporassa"
-      edit_profile: "Muokkaa profiilia"
-      first_name: "Etunimi"
-      info_available_to: "Nämä tiedot näkyvät kaikille, keihin olet yhteydessä Diasporassa."
-      last_name: "Sukunimi"
-      update_profile: "Päivitä profiili"
-      your_bio: "Tietoja sinusta"
-      your_birthday: "Syntymäpäiväsi"
-      your_gender: "Sukupuolesi"
-      your_name: "Nimesi"
-      your_photo: "Kuvasi"
-      your_profile: "Profiilisi"
     helper: 
       people_on_pod_are_aware_of: " ihmiset podissa tietävät, että"
       results_for: " tulokset kyselylle %{params}"
@@ -276,11 +279,6 @@ fi:
       in_aspects: "näkymissä"
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
-    share_with: 
-      accepts: "Kun %{name} hyväksyy, alatte näkemään toistenne viestit Diasporassa."
-      share_with: "Aloita jakaminen henkilölle %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
@@ -292,9 +290,6 @@ fi:
       similar_contacts: "Yhteiset kontaktit"
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
-    update: 
-      failed: "Profiilin päivittäminen epäonnistui"
-      updated: "Profiili päivitetty"
     webfinger: 
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
   photos: 
@@ -325,7 +320,7 @@ fi:
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "laita profiilikuvaksi"
-      original_post: "Original Post"
+      original_post: "Alkuperäinen viesti"
       permalink: "pysyvä linkki"
       update_photo: "Päivitä kuva"
       view: "näytä"
@@ -334,6 +329,23 @@ fi:
       notice: "Kuva päivitettiin onnistuneesti."
   previous: "edellinen"
   profile: "Profiili"
+  profiles: 
+    edit: 
+      allow_search: "Salli ihmisten etsiä sinua Diasporassa"
+      edit_profile: "Muokkaa profiilia"
+      first_name: "Etunimi"
+      info_available_to: "Tämä tieto tulee näkyviin niille kenen kanssa olet yhteydessä Diasporassa"
+      last_name: "Sukunimi"
+      update_profile: "Päivitä profiili"
+      your_bio: "Biografia"
+      your_birthday: "Syntymäpäivä"
+      your_gender: "Sukupuolesi"
+      your_name: "Nimesi"
+      your_photo: "Profiili kuva"
+      your_profile: "Profiilisi"
+    update: 
+      failed: "Profiilin päivitys epäonnistui"
+      updated: "Profiili päivitetty"
   registrations: 
     closed: "Rekisteröityminen on suljettu tässä Diaspora-podissa."
     create: 
@@ -426,7 +438,7 @@ fi:
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
       make_public: "tee julkiseksi"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
+      mention_helper_text: "mainitaksesi jonkun, valitse '@' ja kirjoita nimen alku"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       share: "Jaa"

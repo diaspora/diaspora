@@ -65,38 +65,58 @@ describe AspectsController do
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_prefill")
     end
+    it 'generates a jasmine fixture with services' do
+      @user.services << Services::Facebook.create(:user_id => @user.id)
+      @user.services << Services::Twitter.create(:user_id => @user.id)
+      get :index, :prefill => "reshare things"
+      save_fixture(html_for("body"), "aspects_index_services")
+    end
     context 'filtering' do
       before do
         @posts = []
         @users = []
-        8.times do |n|
+        4.times do |n|
           user = Factory(:user)
           @users << user
           aspect = user.aspects.create(:name => 'people')
           connect_users(@user, @aspect0, user, aspect)
-          post =  @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
+          post = @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
+          post.created_at = Time.now - (4 - n).seconds
+          post.save!
           @posts << post
         end
+        @user.build_comment('lalala', :on => @posts.first ).save
       end
 
       it "returns all posts" do
         @user.aspects.reload
         get :index
-        assigns(:posts).length.should == 8
+        assigns(:posts).length.should == 4
       end
 
       it "returns posts filtered by a single aspect" do
         get :index, :a_ids => [@aspect1.id.to_s]
-        assigns(:posts).length.should == 4
+        assigns(:posts).length.should == 2
       end
 
       it "returns posts from filtered aspects" do
         get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
-        assigns(:posts).length.should == 8
+        assigns(:posts).length.should == 4
+      end
+
+      it 'returns posts by updated at by default' do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
+        assigns(:posts).should =~ @posts
+        assigns(:posts).should_not == @posts.reverse
+      end
+
+      it 'return posts by created at if passed sort_order=created_at' do
+        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s], :sort_order => 'created_at'
+        assigns(:posts).should == @posts.reverse
       end
     end
 
-    context 'performance' do
+    context 'performance', :performance => true do
       before do
         require 'benchmark'
         @posts = []
@@ -156,14 +176,6 @@ describe AspectsController do
         response.should redirect_to(:back)
       end
     end
-    it "adds to aspect if the person_id is present" do
-      @aspect = @user.aspects.create(:name => "new aspect")
-      @user.aspects.stub!(:create).and_return(@aspect)
-      @controller.should_receive(:invite_or_add_contact_to_aspect).with(
-                            anything(), @user2.person, @user.contact_for(@user2.person))
-
-      post :create, "aspect" => {"name" => "new aspect", :person_id => @user2.person.id, :share_with => true}
-    end
   end
 
   describe "#manage" do
@@ -171,7 +183,7 @@ describe AspectsController do
       get :manage
       response.should be_success
     end
-    it "performs reasonably" do
+    it "performs reasonably", :performance => true do
         require 'benchmark'
         8.times do |n|
           aspect = @user.aspects.create(:name => "aspect#{n}")
@@ -193,9 +205,9 @@ describe AspectsController do
       assigns(:remote_requests).should be_empty
     end
     it "assigns contacts to only non-pending" do
-      @user.contacts.count.should == 1
+      Contact.unscoped.where(:user_id => @user.id).count.should == 1
       @user.send_contact_request_to(Factory(:user).person, @aspect0)
-      @user.contacts.count.should == 2
+      Contact.unscoped.where(:user_id => @user.id).count.should == 2
 
       get :manage
       contacts = assigns(:contacts)
@@ -262,73 +274,10 @@ describe AspectsController do
     end
   end
 
-  describe "#add_to_aspect" do
-    context 'with an incoming request' do
-      before do
-        @user3 = Factory.create(:user)
-        @user3.send_contact_request_to(@user.person, @user3.aspects.create(:name => "Walruses"))
-      end
-      it 'deletes the request' do
-        post 'add_to_aspect',
-          :format => 'js',
-          :person_id => @user3.person.id,
-          :aspect_id => @aspect1.id
-        Request.where(:sender_id => @user3.person.id, :recipient_id => @user.person.id).first.should be_nil
-      end
-      it 'does not leave the contact pending' do
-        post 'add_to_aspect',
-          :format => 'js',
-          :person_id => @user3.person.id,
-          :aspect_id => @aspect1.id
-        @user.contact_for(@user3.person).should_not be_pending
-      end
-    end
-    context 'with a non-contact' do
-      before do
-        @person = Factory(:person)
-      end
-      it 'calls send_contact_request_to' do
-        @user.should_receive(:send_contact_request_to).with(@person, @aspect1)
-        post 'add_to_aspect',
-          :format => 'js',
-          :person_id => @person.id,
-          :aspect_id => @aspect1.id
-      end
-      it 'does not call add_contact_to_aspect' do
-        @user.should_not_receive(:add_contact_to_aspect)
-        post 'add_to_aspect',
-          :format => 'js',
-          :person_id => @person.id,
-          :aspect_id => @aspect1.id
-      end
-    end
-    it 'adds the users to the aspect' do
-      @user.should_receive(:add_contact_to_aspect)
-      post 'add_to_aspect',
-        :format => 'js',
-        :person_id => @user2.person.id,
-        :aspect_id => @aspect1.id
-      response.should be_success
-    end
-  end
-
   describe '#edit' do
     it 'renders' do
       get :edit, :id => @aspect0.id
       response.should be_success
-    end
-  end
-
-  describe "#remove_from_aspect" do
-    it 'removes contacts from an aspect' do
-      @user.add_contact_to_aspect(@contact, @aspect1)
-      post 'remove_from_aspect',
-        :format => 'js',
-        :person_id => @user2.person.id,
-        :aspect_id => @aspect0.id
-      response.should be_success
-      @aspect0.reload
-      @aspect0.contacts.include?(@contact).should be false
     end
   end
 

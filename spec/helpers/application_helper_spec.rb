@@ -80,6 +80,8 @@ describe ApplicationHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
+
+
       describe "video links" do
         it "recognizes vimeo links" do
           video_id = "17449557"
@@ -106,6 +108,21 @@ describe ApplicationHelper do
           res.should =~ /data-host="youtube.com"/
           res.should =~ /data-video-id="#{video_id}"/
         end
+
+        it "leaves the links in the href of the #a tag" do
+          video_id = "ABYnqp-bxvg"
+          start_url ="http://www.youtube.com/watch?v=" + video_id
+          url = start_url + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.should =~ /href=[\S]+v=#{video_id}/
+        end
+        it 'does not autolink inside the link' do
+          video_id = "ABYnqp-bxvg"
+          start_url ="http://www.youtube.com/watch?v=" + video_id
+          url = start_url + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.match(/href="<a/).should be_nil
+        end
       end
 
       it "recognizes multiple links of different types" do
@@ -128,6 +145,13 @@ describe ApplicationHelper do
       it "should recognize www links" do
         url="www.joindiaspora.com"
         markdownify(url).should == "<a target=\"_blank\" href=\"http://"+url+"\">"+url+"</a>"
+      end
+    end
+
+    describe "hearts" do
+      it "replaces &lt;3 with &hearts;" do
+        message = "i <3 you"
+        markdownify(message).should == "i &hearts; you"
       end
     end
 

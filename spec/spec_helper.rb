@@ -15,11 +15,15 @@ include Devise::TestHelpers
 include WebMock::API
 include HelperMethods
 
-`rm #{File.join(Rails.root, 'tmp', 'fixture_builder.yml')}`
-#
+# Force fixture rebuild
+FileUtils.rm_f(File.join(Rails.root, 'tmp', 'fixture_builder.yml'))
+
 # Requires supporting files with custom matchers and macros, etc,
 # in ./support/ and its subdirectories.
-Dir["#{File.dirname(__FILE__)}/support/**/*.rb"].each {|f| require f}
+fixture_builder_file = "#{File.dirname(__FILE__)}/support/fixture_builder.rb"
+support_files = Dir["#{File.dirname(__FILE__)}/support/**/*.rb"] - [fixture_builder_file]
+support_files.each {|f| require f }
+require fixture_builder_file
 
 RSpec.configure do |config|
   config.mock_with :rspec
@@ -34,6 +38,8 @@ RSpec.configure do |config|
   end
 end
 
+ImageUploader.enable_processing = false
+
 def set_up_friends
   local_luke = Factory(:user_with_aspect, :username => "luke")
   local_leia = Factory(:user_with_aspect, :username => "leia")
@@ -44,7 +50,6 @@ def set_up_friends
 
   [local_luke, local_leia, remote_raphael]
 end
-
 
 def alice
   #users(:alice)
@@ -60,64 +65,4 @@ def eve
   #users(:eve)
   User.where(:username => 'eve').first
 end
-module Diaspora::WebSocket
-  def self.redis
-    FakeRedis.new
-  end
-end
-class FakeRedis
-  def rpop(*args)
-    true
-  end
-  def llen(*args)
-    true
-  end
-  def lpush(*args)
-    true
-  end
-end
 
-ImageUploader.enable_processing = false
-
-class FakeHttpRequest
-  def initialize(callback_wanted)
-    @callback = callback_wanted
-    @callbacks = []
-  end
-
-  def callbacks=(rs)
-    @callbacks += rs.reverse
-  end
-
-  def response
-    @callbacks.pop unless @callbacks.nil? || @callbacks.empty?
-  end
-
-  def response_header
-    self
-  end
-
-  def method_missing(method)
-    self
-  end
-
-  def post(opts = nil);
-    self
-  end
-
-  def get(opts = nil)
-    self
-  end
-
-  def publish(opts = nil)
-    self
-  end
-
-  def callback(&b)
-    b.call if @callback == :success
-  end
-
-  def errback(&b)
-    b.call if @callback == :failure
-  end
-end

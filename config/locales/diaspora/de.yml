@@ -47,12 +47,21 @@ de:
       video_title: 
         unknown: "Unbekannter Video-Titel"
   are_you_sure: "Bist du sicher?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
+      no_membership: "Konnte die ausgewählte Person in diesem Aspekt leider nicht finden"
+      success: "Die Person wurde erfolgreich aus dem Aspekt entfernt"
   aspects: 
     add_to_aspect: 
       failure: "Hinzufügen des Kontakts zum Aspekt fehlgeschlagen."
       success: "Kontakt erfolgreich zum Aspekt hinzugefügt."
     aspect_contacts: 
       done_editing: "Änderungen abgeschlossen"
+    aspect_stream: 
+      activity: "Aktivität"
+      post_time: "Zeit des Beitrags"
+      sort_by: "sortieren nach:"
     contacts_not_visible: "Kontakte in diesem Aspekt sind nicht in der Lage, einander zu sehen."
     contacts_visible: "Kontakte in diesem Aspekt können sich sehen."
     create: 
@@ -92,13 +101,10 @@ de:
       add_contact: "Kontakt hinzufügen"
       add_contact_to: "Jemanden zum Aspekt %{aspect_name} hinzufügen"
       invite: "Lade jemanden zu Diaspora* ein!"
-      nobody: "Bring die dir wichtigen Leute zu Diaspora!"
+      nobody: "Bring die dir wichtigen Leute zu Diaspora*!"
       nobody_in_aspect: "‚%{aspect_name}‘ ist leer."
     no_posts_message: 
       start_talking: "Niemand hat bisher etwas gesagt. Fange eine Unterhaltung an!"
-    remove_from_aspect: 
-      failure: "Person konnte nicht aus dem Aspekt entfernt werden"
-      success: "Person erfolgreich aus dem Aspekt entfernt"
     seed: 
       family: "Familie"
       work: "Arbeit"
@@ -114,9 +120,18 @@ de:
       comment: "Kommentieren"
       commenting: "Kommentieren …"
   contacts: 
+    create: 
+      failure: "Konnte Kontakt nicht erstellen"
+    destroy: 
+      failure: "Konnte nicht von %{name} trennen"
+      success: "Erfolgreich von %{name} getrennt"
     few: "%{count} Kontakte"
     one: "1 Kontakt"
     other: "%{count} Kontakte"
+    share_with_pane: 
+      accepts: "Sobald %{name} die Anfrage akzeptiert hat, könnt ihr eure Beiträge auf Diaspora* sehen"
+      add_new_aspect: "zu neuem Aspekt hinzufügen"
+      share_with: "Beginne Inhalte mit %{name} zu teilen"
     zero: "Keine Kontakte"
   date: 
     formats: 
@@ -154,7 +169,7 @@ de:
       rejected: "Mit dieser E-Mail-Adresse gab es Probleme:"
       sent: "Einladungen wurden verschickt an:"
     edit: 
-      sign_up: "anmelden"
+      sign_up: "registrieren"
     new: 
       already_invited: "Bereits eingeladen"
       aspect: "Aspekt"
@@ -193,6 +208,7 @@ de:
   no_new_notifications: "Keine neuen Benachrichtigungen"
   notifications: 
     also_commented: "kommentierte ebenfalls"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommentierte Deinen"
     deleted: "gelöschten"
     index: 
@@ -241,19 +257,6 @@ de:
   people: 
     aspect_list: 
       edit_membership: "bearbeite die Aspekt-Zugehörigkeit"
-    edit: 
-      allow_search: "Erlaube anderen Diaspora-Nutzern, nach dir zu suchen"
-      edit_profile: "Profil bearbeiten"
-      first_name: "Vorname"
-      info_available_to: "Diese Infos werden für alle verfügbar sein, mit denen du bei Diaspora* verbunden bist."
-      last_name: "Nachname"
-      update_profile: "Profil aktualisieren"
-      your_bio: "Deine Beschreibung"
-      your_birthday: "Dein Geburtstag"
-      your_gender: "Dein Geschlecht"
-      your_name: "Dein Name"
-      your_photo: "Dein Foto"
-      your_profile: "Dein Profil"
     helper: 
       people_on_pod_are_aware_of: "Leute auf dem Pod wissen von"
       results_for: "Ergebnisse für %{params}"
@@ -276,11 +279,6 @@ de:
       in_aspects: "in Aspekten"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
-    share_with: 
-      accepts: "Sobald %{name} akzeptiert, werdet ihr gegenseitig eure Beiträge auf Diaspora sehen können."
-      share_with: "Beginne, mit %{name} zu teilen."
-    share_with_pane: 
-      add_new_aspect: "Neuen Aspekt hinzufügen"
     show: 
       does_not_exist: "Person existiert nicht!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
@@ -292,9 +290,6 @@ de:
       similar_contacts: "ähnliche Kontakte"
       start_sharing: "Fang an zu teilen!"
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
-    update: 
-      failed: "Ändern des Profils fehlgeschlagen"
-      updated: "Profil aktualisiert"
     webfinger: 
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
   photos: 
@@ -334,6 +329,23 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   previous: "Vorherige"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Erlaube anderen nach dir zu suchen"
+      edit_profile: "Profil bearbeiten"
+      first_name: "Vorname"
+      info_available_to: "Diese Informationen sind für alle mit denen Du Kontakt auf Diaspora* hast sichtbar."
+      last_name: "Nachname"
+      update_profile: "Profil aktualisieren"
+      your_bio: "Deine Biographie"
+      your_birthday: "Dein Geburtstag"
+      your_gender: "Dein Geschlecht"
+      your_name: "Dein Name"
+      your_photo: "Dein Profilbild"
+      your_profile: "Dein Profil"
+    update: 
+      failed: "Fehler beim aktualisieren deines Profils"
+      updated: "Profil aktualisiert"
   registrations: 
     closed: "Registrierungen sind auf diesem Pod geschlossen."
     create: 
@@ -349,9 +361,9 @@ de:
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Passwort ein"
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
-      enter_username: "Wähle einen Benutzernamen (nur Buchstaben, Nummern und Unterstriche)"
+      enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
       sign_up: "Anmelden"
-      sign_up_for_diaspora: "Bei Diaspora* anmelden"
+      sign_up_for_diaspora: "Bei Diaspora* registrieren"
   requests: 
     create: 
       sending: "Senden …"
@@ -481,7 +493,7 @@ de:
       step_3: 
         finish: "Beenden"
         people_already_on_diaspora: "Leute, die schon bei Diaspora* sind"
-      welcome: "Willkommen bei Diaspora!"
+      welcome: "Willkommen bei Diaspora*!"
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 

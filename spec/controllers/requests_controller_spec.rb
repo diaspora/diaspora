@@ -30,7 +30,8 @@ describe RequestsController do
       end
       it "marks the notification as read" do
         notification = Notification.where(:recipient_id => @user.id, :target_id=> @friend_request.id).first
-        notification.reload.unread.should == true
+        notification.unread = true
+        notification.save
         xhr :delete, :destroy,
           :accept    => "true",
           :aspect_id => @user.aspects.first.id.to_s,
@@ -53,7 +54,8 @@ describe RequestsController do
 
       it "marks the notification as read" do
         notification = Notification.where(:recipient_id => @user.id, :target_id=> @friend_request.id).first
-        notification.reload.unread.should == true
+        notification.unread = true
+        notification.save
           xhr :delete, :destroy,
             :id => @friend_request.id.to_s
         notification.reload.unread.should == false
@@ -73,7 +75,7 @@ describe RequestsController do
         @user.contact_for(@other_user).should be_nil
         lambda {
           post :create, @params
-        }.should change(Contact,:count).by(1)
+        }.should change(Contact.unscoped,:count).by(1)
         new_contact = @user.reload.contact_for(@other_user.person)
         new_contact.should_not be_nil
         new_contact.should be_pending

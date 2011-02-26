@@ -13,7 +13,10 @@
     abbr_day_names: [Ned, Pon, Uto, Sre, Čet, Pet, Sub]
     month_names: [~, Siječanj, Veljača, Ožujak, Travanj, Svibanj, Lipanj, Srpanj, Kolovoz, Rujan, Listopad, Studeni, Prosinac]
     abbr_month_names: [~, Sij, Vel, Ožu, Tra, Svi, Lip, Srp, Kol, Ruj, Lis, Stu, Pro]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:

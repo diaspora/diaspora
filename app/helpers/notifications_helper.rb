@@ -1,35 +1,38 @@
 module NotificationsHelper
   def object_link(note)
     target_type = note.action
-    translation = t("notifications.#{target_type}")
     case target_type
     when 'mentioned'
       post = Mention.find(note.target_id).post
       if post
-        "#{translation} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
-        "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
+        "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
     when 'request_accepted'
-      translation
+      translation(target_type)
     when 'new_request'
-      translation
+      translation(target_type)
     when 'comment_on_post'
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
-        "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
+        "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
     when 'also_commented'
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type, post.person.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
-        "#{translation} #{t('notifications.deleted')} #{t('notifications.post')}"
+        t('notifications.also_commented_deleted')
       end
     else
     end
+  end
+
+  def translation(target_type, post_author = nil)
+    t("notifications.#{target_type}", :post_author => post_author)
   end
 
   def new_notification_text(count)

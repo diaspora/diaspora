@@ -21,23 +21,23 @@ he:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "חייב להיות ייחודי בקרב אנשי הקשר של משתמש זה."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "כבר תפוס."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "הוא כפיל של בקשה שהתקבלה קודם לכן."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "כבר תפוס."
             person: 
-              invalid: "is invalid."
+              invalid: "שגוי."
             username: 
-              taken: "is already taken."
+              taken: "כבר תפוס."
   ago: "%{time} עברו"
   application: 
     helper: 
@@ -47,12 +47,21 @@ he:
       video_title: 
         unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: "בבטחה?"
+  aspect_memberships: 
+    destroy: 
+      failure: "אירע כשל בהסרת המשתמש מההיבט"
+      no_membership: "לא ניתן למצוא את איש הקשר הנבחר בהיבט זה"
+      success: "איש הקשר הוסר בהצלחה מההיבט"
   aspects: 
     add_to_aspect: 
       failure: "אירע כשל בהוספת איש הקשר להיבט."
       success: "איש הקשר נוסף בהצלחה להיבט."
     aspect_contacts: 
       done_editing: "סיום העריכה"
+    aspect_stream: 
+      activity: "פעילות"
+      post_time: "מועד הפרסום"
+      sort_by: "סידור לפי:"
     contacts_not_visible: "אנשי הקשר בהיבט זה לא יוכלו לראות אחד את השני."
     contacts_visible: "אנשי קשר בהיבט זה יוכלו לראות זה את זה."
     create: 
@@ -96,9 +105,6 @@ he:
       nobody_in_aspect: "ההיבט שלך '%{aspect_name}' ריק."
     no_posts_message: 
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
-    remove_from_aspect: 
-      failure: "אירע כשר בהסרת איש הקשר מההיבט"
-      success: "איש הקשר הוסר בהצלחה מההיבט"
     seed: 
       family: "משפחה"
       work: "עבודה"
@@ -114,9 +120,18 @@ he:
       comment: "הערה"
       commenting: "נוספת הערה..."
   contacts: 
+    create: 
+      failure: "אירע כשל ביצירת איש קשר"
+    destroy: 
+      failure: "אירע כשל בניתוק מאיש הקשר %{name}"
+      success: "הניתוק מאיש הקשר %{name} הצליח"
     few: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
+    share_with_pane: 
+      accepts: "לאחר שיתקבל אישור מאיש הקשר %{name}, תתחילו לראות את הרשומות זה של זה בדיאספורה"
+      add_new_aspect: "הוספה להיבט חדש"
+      share_with: "התחלת השיתוף עם %{name}"
     zero: "אין אנשי קשר"
   date: 
     formats: 
@@ -162,7 +177,7 @@ he:
       if_they_accept_info: "אם הם יאשרו, הם יתווספו להיבט שאליו הזמנת אותם."
       invite_someone_to_join: "להזמין מישהו להשתמש בדיאספורה!"
       personal_message: "הודעה אישית"
-      resend: "Resend"
+      resend: "שליחה חוזרת"
       send_an_invitation: "שליחת הזמנה"
       send_invitation: "שליחת הזמנה"
       to: "אל"
@@ -193,6 +208,7 @@ he:
   no_new_notifications: "אין התרעות חדשות"
   notifications: 
     also_commented: "גם כן הגיב/ה על הפריט של איש הקשר שלך"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "הגיב/ה על ה"
     deleted: "נמחקה"
     index: 
@@ -241,19 +257,6 @@ he:
   people: 
     aspect_list: 
       edit_membership: "עריכת חברות בהיבט"
-    edit: 
-      allow_search: "אישור לאחרים לחפש אחריך בדיאספורה"
-      edit_profile: "עריכת הפרופיל"
-      first_name: "השם הפרטי"
-      info_available_to: "פרטים אלו יהיו זמינים לכל אלו שנוצר ביניכם קשר דרך דיאספורה."
-      last_name: "שם המשפחה"
-      update_profile: "עדכון הפרופיל"
-      your_bio: "פרטיך האישיים"
-      your_birthday: "יום ההולדת שלך"
-      your_gender: "המגדר שלך"
-      your_name: "השם שלך"
-      your_photo: "התמונה שלך"
-      your_profile: "הפרופיל שלך"
     helper: 
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
@@ -276,11 +279,6 @@ he:
       in_aspects: "בהיבטים"
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
-    share_with: 
-      accepts: "לאחר שבקשתך תתקבל על ידי %{name}, תהיה באפשרותכם לצפות זה ברשומותיו של זה בדיאספורה"
-      share_with: "התחלת השיתוף עם %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
@@ -292,9 +290,6 @@ he:
       similar_contacts: "אנשי קשר דומים"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
-    update: 
-      failed: "אירע כשל בעדכון הפרופיל"
-      updated: "הפרופיל עודכן"
     webfinger: 
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
   photos: 
@@ -325,7 +320,7 @@ he:
       edit: "עריכה"
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
-      original_post: "Original Post"
+      original_post: "רשומה מקורית"
       permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"
@@ -334,6 +329,23 @@ he:
       notice: "התמונה עודכנה בהצלחה."
   previous: "הקודמת"
   profile: "פרופיל"
+  profiles: 
+    edit: 
+      allow_search: "מתן אישור לאנשים לחפש אחריך ברשת דיאספורה"
+      edit_profile: "עריכת הפרופיל"
+      first_name: "שם פרטי"
+      info_available_to: "מידע זה יוצג לכל מי שייצור אתך קשר דרך דיאספורה."
+      last_name: "שם משפחה"
+      update_profile: "עדכון הפרופיל"
+      your_bio: "הביוגרפיה שלך"
+      your_birthday: "יום ההולדת שלך"
+      your_gender: "המגדר שלך"
+      your_name: "שמך"
+      your_photo: "התמונה שלך"
+      your_profile: "הפרופיל שלך"
+    update: 
+      failed: "אירע כשל בעדכון הפרופיל"
+      updated: "הפרופיל עודכן"
   registrations: 
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
     create: 

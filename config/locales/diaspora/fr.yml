@@ -47,12 +47,21 @@ fr:
       video_title: 
         unknown: "Titre de vidéo inconnu"
   are_you_sure: "Êtes-vous certains?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Impossible de retirer la personne de l'aspect"
+      no_membership: "Impossible de trouver la personne sélectionnée dans cet aspect"
+      success: "La personne a été retirée de l'aspect"
   aspects: 
     add_to_aspect: 
       failure: "L’ajout du contact à l’aspect a échoué."
       success: "Vous avez ajouté le contact à l’aspect avec succès."
     aspect_contacts: 
       done_editing: "fin de la modification"
+    aspect_stream: 
+      activity: "activité"
+      post_time: "heure du message"
+      sort_by: "trier par :"
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
     contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
@@ -96,9 +105,6 @@ fr:
       nobody_in_aspect: "Votre aspect « %{aspect_name} » est vide."
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
-    remove_from_aspect: 
-      failure: "Impossible de supprimer la personne de l'aspect"
-      success: "Personne supprimée de l'aspect avec succès"
     seed: 
       family: "Famille"
       work: "Travail"
@@ -114,9 +120,18 @@ fr:
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
   contacts: 
+    create: 
+      failure: "Impossible de créer le contact"
+    destroy: 
+      failure: "Impossible de se déconnecter de %{name}"
+      success: "Vous êtes déconnecté(e) de %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
+    share_with_pane: 
+      accepts: "Dès que %{name} acceptera, vous commencerez à voir mutuellement vos messages sur Diaspora"
+      add_new_aspect: "ajouter à un nouvel aspect"
+      share_with: "Commencer à partager avec %{name}"
     zero: "aucun contact"
   date: 
     formats: 
@@ -162,7 +177,7 @@ fr:
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
       invite_someone_to_join: "Inviter quelqu'un à rejoindre Diaspora !"
       personal_message: "Message personnel"
-      resend: "Resend"
+      resend: "Envoyer à nouveau"
       send_an_invitation: "Envoyer une invitation"
       send_invitation: "Envoyer l'invitation"
       to: "À"
@@ -192,7 +207,8 @@ fr:
   next: "suivant"
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
-    also_commented: "a/ont également commenté ce"
+    also_commented: "a/ont également commenté"
+    also_commented_deleted: "a commenté un message supprimé"
     comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"
     index: 
@@ -206,7 +222,7 @@ fr:
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
       sign_in: "Connectez-vous pour le voir."
-      subject: "%{name} a également commenté sur le message de votre contact."
+      subject: "%{name} a également commenté le message de votre %{post_author}."
     comment_on_post: 
       commented: "a commenté votre message:"
       sign_in: "Connectez-vous pour le voir."
@@ -241,19 +257,6 @@ fr:
   people: 
     aspect_list: 
       edit_membership: "modifier l'appartenance à vos aspects"
-    edit: 
-      allow_search: "Autoriser des personnes à vous rechercher au sein de Diaspora"
-      edit_profile: "Modifier le profil"
-      first_name: "Votre prénom"
-      info_available_to: "Cette info sera consultable par toutes les personnes avec qui vous êtes connecté(e) sur Diaspora."
-      last_name: "Votre nom de famille"
-      update_profile: "Mettre à jour le profil"
-      your_bio: "Votre bio"
-      your_birthday: "Votre anniversaire"
-      your_gender: "Votre sexe"
-      your_name: "Votre nom"
-      your_photo: "Votre photo"
-      your_profile: "Votre profil"
     helper: 
       people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
       results_for: "résultats pour %{params}"
@@ -276,11 +279,6 @@ fr:
       in_aspects: "dans les aspects"
       remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
-    share_with: 
-      accepts: "Dès que %{name} acceptera, vous commencerez à voir ses messages sur Diaspora et réciproquement"
-      share_with: "Commencer à partager avec %{name}"
-    share_with_pane: 
-      add_new_aspect: "ajouter un nouvel aspect"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
       incoming_request: "%{name} désire partager avec vous"
@@ -292,9 +290,6 @@ fr:
       similar_contacts: "Contacts similaires"
       start_sharing: "commencer à partager"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
-    update: 
-      failed: "La mise à jour du profil a échoué"
-      updated: "Profil mis à jour"
     webfinger: 
       fail: "Impossible de trouver %{handle}."
   photos: 
@@ -334,6 +329,23 @@ fr:
       notice: "La photo a été mise à jour avec succès."
   previous: "précédent"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Permettre à tous de vous rechercher dans Diaspora"
+      edit_profile: "Modifier le profil"
+      first_name: "Prénom"
+      info_available_to: "Cette information sera visible de tous ceux avec qui vous avez une connexion sur Diaspora."
+      last_name: "Nom de famille"
+      update_profile: "Mettre à jour le profil"
+      your_bio: "Votre biographie"
+      your_birthday: "Votre anniversaire"
+      your_gender: "Votre sexe"
+      your_name: "Votre nom"
+      your_photo: "Votre photo"
+      your_profile: "Votre profil"
+    update: 
+      failed: "Impossible de mettre à jour le profil"
+      updated: "Profil mis à jour"
   registrations: 
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."
     create: 

@@ -169,42 +169,6 @@ describe Aspect do
         user.add_contact_to_aspect(@contact, aspect).should == true
       end
     end
-
-    describe '#delete_person_from_aspect' do
-      it 'deletes a user from the aspect' do
-        user.add_contact_to_aspect(@contact, aspect1)
-        user.reload
-        user.delete_person_from_aspect(user2.person.id, aspect1.id)
-        user.reload
-        aspect1.contacts(true).include?(@contact).should be_false
-      end
-
-      it 'should check to make sure you have the aspect ' do
-        proc{user.delete_person_from_aspect(user2.person.id, aspect2.id) }.should raise_error /Can not delete a person from an aspect you do not own/
-      end
-
-      it 'deletes no posts' do
-         user.add_contact_to_aspect(@contact, aspect1)
-         user.reload
-         user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
-         lambda{
-           user.delete_person_from_aspect(user2.person.id, aspect1.id)
-         }.should_not change(Post, :count)
-      end
-
-      it 'should not allow removing a contact from their last aspect' do
-        proc{user.delete_person_from_aspect(user2.person.id, aspect.id) }.should raise_error /Can not delete a person from last aspect/
-      end
-
-      it 'should allow a force removal of a contact from an aspect' do
-        @contact.aspect_ids.should_receive(:count).exactly(0).times
-
-        user.add_contact_to_aspect(@contact, aspect1)
-        user.delete_person_from_aspect(user2.person.id, aspect.id, :force => true)
-      end
-
-    end
-
     context 'moving and removing posts' do
       before do
         @message  = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
@@ -214,7 +178,8 @@ describe Aspect do
 
       it 'should keep the contact\'s posts in previous aspect' do
         aspect.post_ids.count.should == 1
-        user.delete_person_from_aspect(user2.person.id, aspect.id, :force => true)
+        user.move_contact(user2.person, user.aspects.create(:name => "Another aspect"), aspect)
+
 
         aspect.reload
         aspect.post_ids.count.should == 1
@@ -222,7 +187,7 @@ describe Aspect do
 
       it 'should not delete other peoples posts' do
         connect_users(user, aspect, user3, aspect3)
-        user.delete_person_from_aspect(user3.person.id, aspect.id, :force => true)
+        user.move_contact(user3.person, user.aspects.create(:name => "Another aspect"), aspect)
         aspect.reload
         aspect.posts.should == [@message]
       end

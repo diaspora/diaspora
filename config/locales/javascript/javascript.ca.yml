@@ -1,0 +1,35 @@
+#   Copyright © 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+# 
+#   Jordi Mallach <jordi@softcatala.org>, 2011.
+#   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
+#   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
+
+ca:
+  javascripts:
+      confirm_dialog: "N'esteu segur?"
+      timeago:
+        prefixAgo: "fa"
+        prefixFromNow: "fa"
+        suffixAgo: ""
+        suffixFromNow: ""
+        seconds: "menys d'un minut"
+        minute: "aproximadament un minut"
+        minutes: "%d minuts"
+        hour: "aproximadament una hora"
+        hours: "aproximadament %d hours"
+        day: "un dia"
+        days: "%d dies"
+        month: "aproximadament un mes"
+        months: "%d mesos"
+        year: "aproximadament un any"
+        years: "%d anys"
+      videos:
+          watch: "Visualitza aquest video a {{provider}}"
+          unknown: "El tipus de vídeo és desconegut"
+      search_for: "Cerca per {{name}}"
+      shared:
+        contact_list:
+          cannot_remove: "No es pot suprimir a una persona de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
+          

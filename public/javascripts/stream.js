@@ -59,8 +59,13 @@ var Stream = {
       Publisher.clear();
     });
 
-    $(".new_status_message").bind('ajax:failure', function(data, html, xhr) {
-      Diaspora.widgets.alert.alert('Failed to post message!');
+    $(".new_status_message").bind('ajax:failure', function(data, html , xhr) {
+      json = $.parseJSON(html.response);
+      if(json.errors.length != 0){
+        Diaspora.widgets.alert.alert(json.errors);
+      }else{
+        Diaspora.widgets.alert.alert('Failed to post message!');
+      }
     });
 
     $(".new_comment").live('ajax:success', function(data, json, xhr) {

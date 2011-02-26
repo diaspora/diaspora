@@ -15,7 +15,10 @@ gsw-CH:
     abbr_day_names: [Su, Mä, Zi, Mi, Du, Fr, Sa]
     month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, Auguscht, Septämber, Oktober, Novämber, Dezämber]
     abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
   
   time:
     formats:
@@ -115,11 +118,11 @@ gsw-CH:
         format: "%n %u"
         units:
           unit: ""
-          thousand: Tuusig
-          million: Milioon
-          billion: Bilioon
-          trillion: Trilioon
-          quadrillion: Quadrilioon
+          thousand: "Tuusig"
+          million: "Milioon"
+          billion: "Bilioon"
+          trillion: "Trilioon"
+          quadrillion: "Quadrilioon"
 
   support:
     array:

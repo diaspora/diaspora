@@ -24,6 +24,9 @@ class PhotosController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
+      else
+        @contact = Contact.new
+        @contacts_of_contact = []
       end
 
       @posts = current_user.visible_photos.where(
@@ -53,8 +56,6 @@ class PhotosController < ApplicationController
       @photo = current_user.build_post(:photo, params[:photo])
 
       if @photo.save
-        raise 'MongoMapper failed to catch a failed save' unless @photo.id
-
 
         aspects = current_user.aspects_from_ids(params[:photo][:aspect_ids])
 

@@ -81,8 +81,8 @@ STR
     describe '#formatted_message' do
       it 'adds the links in the formated message text' do
         @sm.formatted_message.should == <<-STR
-@#{link_to(@people[0].name, person_path(@people[0]), :class => 'mention')} can mention people like Raphael @#{link_to(@people[1].name, person_path(@people[1]), :class => 'mention')}
-can mention people like Raphaellike Raphael @#{link_to(@people[2].name, person_path(@people[2]), :class => 'mention')} can mention people like Raph
+#{link_to('@' << @people[0].name, person_path(@people[0]), :class => 'mention')} can mention people like Raphael #{link_to('@' << @people[1].name, person_path(@people[1]), :class => 'mention')}
+can mention people like Raphaellike Raphael #{link_to('@' << @people[2].name, person_path(@people[2]), :class => 'mention')} can mention people like Raph
 STR
       end
 

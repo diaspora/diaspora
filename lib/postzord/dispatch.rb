@@ -34,17 +34,13 @@ class Postzord::Dispatch
 
       self.deliver_to_remote(remote_people)
     end
-    self.deliver_to_services(opts[:url])
+    self.deliver_to_services(opts[:url], opts[:services] || [])
   end
 
   protected
 
   def deliver_to_remote(people)
-    people.each do |person|
-      enc_xml = salmon.xml_for(person)
-      Rails.logger.info("event=deliver_to_remote route=remote sender=#{@sender.person.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
-      Resque.enqueue(Job::HttpPost, person.receive_url, enc_xml)
-    end
+    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), people.map{|p| p.id})
   end
 
   def deliver_to_local(people)
@@ -59,13 +55,13 @@ class Postzord::Dispatch
     Resque.enqueue(Job::PublishToHub, @sender.public_url)
   end
 
-  def deliver_to_services(url)
+  def deliver_to_services(url, services)
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
-      if @object.respond_to?(:message)
-        @sender.services.each do |service|
-          Resque.enqueue(Job::PostToService, service.id, @object.id, url)
-        end
+    end
+    if @object.respond_to?(:message)
+      services.each do |service|
+        Resque.enqueue(Job::PostToService, service.id, @object.id, url)
       end
     end
   end

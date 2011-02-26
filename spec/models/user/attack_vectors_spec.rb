@@ -112,6 +112,7 @@ describe "attack vectors" do
     end
 
     it "ignores retractions on a post not owned by the retraction's sender" do
+      StatusMessage.delete_all
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
@@ -135,6 +136,7 @@ describe "attack vectors" do
     end
 
     it "disregards retractions for non-existent posts that are from someone other than the post's author" do
+      StatusMessage.delete_all
       original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
       id = original_message.reload.id
 
@@ -145,7 +147,7 @@ describe "attack vectors" do
 
       original_message.delete
 
-      StatusMessage.count.should be 0
+      StatusMessage.count.should == 0
       proc {
         salmon_xml = user3.salmon(ret).xml_for(user.person)
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)

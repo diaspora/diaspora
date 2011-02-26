@@ -22,13 +22,13 @@ var List = {
       });
     });
   },
-  disconnectUser: function(person_id){
+  disconnectUser: function(contact_id){
         $.ajax({
-            url: "/people/" + person_id,
+            url: "/contacts/" + contact_id,
             type: "DELETE",
             success: function(){
                 if( $('.contact_list').length == 1){
-                  $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+                  $('.contact_list li[data-contact_id='+contact_id+']').fadeOut(200);
                 } else if($('#aspects_list').length == 1) {
                   $.facebox.close();
                 };
@@ -60,16 +60,16 @@ $(document).ready(function() {
 
   $('.added').live('ajax:failure', function(data, html, xhr) {
     if(confirm(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'))){
-      var person_id;
+      var contact_id;
 
       if( $('.contact_list').length == 1){
-        person_id = $(this).parents('li').attr("data-guid");
-        $('.contact_list li[data-guid='+person_id+']').fadeOut(200);
+        contact_id = $(this).parents('li').attr("data-contact_id");
+        $('.contact_list li[data-contact_id='+contact_id+']').fadeOut(200);
       } else if($('#aspects_list').length == 1) {
-        person_id = $(this).parents('#aspects_list').attr("data-person_id");
+        contact_id = $(this).parents('#aspects_list').attr("data-contact_id");
       };
 
-      List.disconnectUser(person_id);
+      List.disconnectUser(contact_id);
     };
     $(this).fadeTo(200,1);
   });
@@ -87,6 +87,12 @@ $(document).ready(function() {
 
     $(".badges").prepend(json.badge_html);
     $(this).parent().html(json.button_html);
+
+    if($('#aspects_list').length == 1) {
+      $('.aspect_list').attr('data-contact_id', json.contact_id);
+      $('.aspect_list ul').find('.add').each(function(a,b){$(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));})
+    };
+
     $(this).fadeTo(200,1);
   });
 
@@ -101,6 +107,7 @@ $(document).ready(function() {
   $('.new_aspect').live('ajax:success', function(data, json, xhr){
       var json = JSON.parse(json);
       $('#aspects_list ul').append(json.html);
+      $("#aspects_list ul li[data-guid='" + json.aspect_id + "'] .add.button").click();
       });
 
   List.initialize();

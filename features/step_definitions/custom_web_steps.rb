@@ -15,12 +15,16 @@ And /^I hover over the post$/ do
   page.execute_script('$(".stream_element").first().mouseover()')
 end
 
+When /^I click to delete the first post$/ do
+  page.execute_script('$(".stream_element").first().find(".delete").click()')
+end
+
 And /^I preemptively confirm the alert$/ do
-  a = page.evaluate_script("window.confirm = function() { return true; }")
+  page.evaluate_script("window.confirm = function() { return true; }")
 end
 
 And /^I preemptively reject the alert$/ do
-  a = page.evaluate_script("window.confirm = function() { return false; }")
+  page.evaluate_script("window.confirm = function() { return false; }")
 end
 
 When /^(.*) in the modal window$/ do |action|
@@ -38,6 +42,12 @@ end
 When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, within_selector|
   with_scope(within_selector) do
    find(:css, link_selector).click
+  end
+end
+
+When /^I press the ([\d])(nd|rd|st|th) "([^"]*)"(?: within "([^"]*)")?$/ do |number,rd, link_selector, within_selector|
+  with_scope(within_selector) do
+   find(:css, link_selector+":nth-child(#{number})").click
   end
 end
 Then /^(?:|I )should see a "([^"]*)"(?: within "([^"]*)")?$/ do |selector, scope_selector|

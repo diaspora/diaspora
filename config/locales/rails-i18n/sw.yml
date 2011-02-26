@@ -82,11 +82,11 @@ sw:
         format: '%n %u'
         units:
           unit: ''
-          thousand: Elfu
-          million: Milioni
-          billion: Bilioni
-          trillion: Trilioni
-          quadrillion: Quadrillion
+          thousand: "Elfu"
+          million: "Milioni"
+          billion: "Bilioni"
+          trillion: "Trilioni"
+          quadrillion: "Quadrillion"
 
   datetime:
     distance_in_words:

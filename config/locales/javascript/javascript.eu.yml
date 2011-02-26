@@ -1,0 +1,31 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+eu: 
+  javascripts: 
+    confirm_dialog: "Ziur al zaude?"
+    search_for: "Bilatu {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Ezin izan da adiskidea azken alderditik ezabatu. (Pertsona honekin harremanak bukatu nahi badituzu, hura ezabatu behar duzu.)"
+    timeago: 
+      day: "egun bat"
+      days: "%d egun"
+      hour: "ordu bat"
+      hours: "%d ordu"
+      minute: "minutu bat"
+      minutes: "%d minutu"
+      month: "hilabete bat"
+      months: "%d hilabete"
+      prefixAgo: "duela"
+      prefixFromNow: ""
+      seconds: "minutu bat baino gutxiago"
+      suffixAgo: ""
+      suffixFromNow: "barru"
+      year: "urte bat"
+      years: "%d urte"
+    videos: 
+      unknown: "Bideo mota ezezaguna"
+      watch: "Ikusi bideo hau {{provider}}(e)n"

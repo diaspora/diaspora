@@ -30,7 +30,7 @@ class PeopleController < ApplicationController
       requests[r.id] = r
     end
     contacts = {}
-    Contact.where(:user_id => current_user.id, :person_id => ids).each do |contact|
+    Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
       contacts[contact.person_id] = contact
     end
 
@@ -57,6 +57,9 @@ class PeopleController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
+      else
+        @contact ||= Contact.new
+        @contacts_of_contact = []
       end
 
       if (@person != current_user.person) && (!@contact || @contact.pending)
@@ -67,18 +70,12 @@ class PeopleController < ApplicationController
 
       @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate  :per_page => 15, :page => params[:page]
       @fakes = PostsFake.new(@posts)
-
       respond_with @person, :locals => {:post_type => :all}
 
     else
       flash[:error] = I18n.t 'people.show.does_not_exist'
       redirect_to people_path
     end
-  end
-
-  def destroy
-    current_user.disconnect(Person.where(:id => params[:id]).first)
-    redirect_to root_url
   end
 
   def retrieve_remote
@@ -88,22 +85,6 @@ class PeopleController < ApplicationController
     else
       render :nothing => true, :status => 422
     end
-  end
-
-  def share_with
-    @person = Person.find(params[:id])
-    @contact = current_user.contact_for(@person)
-    @aspects_with_person = []
-
-    if @contact
-      @aspects_with_person = @contact.aspects
-    end
-
-    @aspects_without_person = @all_aspects.reject do |aspect|
-      @aspects_with_person.include?(aspect)
-    end
-
-    render :layout => nil
   end
 
   private

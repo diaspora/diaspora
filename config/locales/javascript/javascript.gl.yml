@@ -6,7 +6,7 @@
 gl: 
   javascripts: 
     confirm_dialog: "Seguro?"
-    search_for: "Procurar a {{name}}"
+    search_for: "Buscar a {{name}}"
     shared: 
       contact_list: 
         cannot_remove: "Non podes quitar esta persoa do aspecto. Se te queres desconectar dela tes que borrar o contacto."
@@ -19,7 +19,7 @@ gl:
       minutes: "%d minutos"
       month: "sobre un mes"
       months: "%d meses"
-      prefixAgo: "hai"
+      prefixAgo: "Hai"
       prefixFromNow: "javascripts:timeago:prefixDendeAgora"
       seconds: "menos dun minuto"
       suffixAgo: ""

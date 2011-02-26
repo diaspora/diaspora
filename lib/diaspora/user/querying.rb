@@ -34,6 +34,7 @@ module Diaspora
       end
 
       def contact_for(person)
+        return nil unless person
         contact_for_person_id(person.id)
       end
       def aspects_with_post(post_id)
@@ -41,7 +42,7 @@ module Diaspora
       end
 
       def contact_for_person_id(person_id)
-        Contact.where(:user_id => self.id, :person_id => person_id).first if person_id
+        Contact.unscoped.where(:user_id => self.id, :person_id => person_id).first if person_id
       end
 
       def people_in_aspects(aspects, opts={})

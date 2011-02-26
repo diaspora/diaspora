@@ -2,6 +2,7 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
   @me ||= Factory(:user, :username       => username, :password => password,
           :password_confirmation => password, :getting_started => false)
   @me.aspects.create(:name => "Besties")
+  @me.aspects.create(:name => "Unicorns")
 end
 
 Given /^that I am a rock star$/ do
@@ -12,6 +13,7 @@ Given /^a user with email "([^\"]*)"$/ do |email|
   user = Factory(:user, :email => email, :password => 'password',
           :password_confirmation => 'password', :getting_started => false)
   user.aspects.create(:name => "Besties")
+  user.aspects.create(:name => "Unicorns")
 end
 
 Given /^I have been invited by an admin$/ do

@@ -35,7 +35,7 @@ describe StatisticsController do
     end
   end
 
-  describe '#redirect_unauthorized' do
+  describe ' sets a before filter to use #redirect_unless_admin' do
     it 'redirects for non admins' do
       AppConfig[:admins] = ['bob']
       get :index

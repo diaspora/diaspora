@@ -14,7 +14,10 @@
 
         month_names: [~, Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, November, December]
         abbr_month_names: [~, Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec]
-        order: [:day, :month, :year]
+        order:
+          - :day
+          - :month
+          - :year
 
     # Time
     time:
@@ -82,11 +85,11 @@
                 format: "%n %u"
                 units:
                    unit: ""
-                   thousand: Tisíc
-                   million: Milión
-                   billion: Miliarda
-                   trillion: Trilión
-                   quadrillion: Quadrilión
+                   thousand: "Tisíc"
+                   million: "Milión"
+                   billion: "Miliarda"
+                   trillion: "Trilión"
+                   quadrillion: "Quadrilión"
 
     # Distance of time ... helper
     datetime:

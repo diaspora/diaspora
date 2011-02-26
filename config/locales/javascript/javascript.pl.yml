@@ -1,0 +1,31 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+pl: 
+  javascripts: 
+    confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    search_for: "Szukaj: {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Nie można usunąć osoby z ostatniego aspektu. (Jeśli chcesz się z nią rozłączyć, musisz usunąć kontakt.)"
+    timeago: 
+      day: "dzień"
+      days: "%d dni"
+      hour: "około godzinę"
+      hours: "około %d godzin"
+      minute: "około minuty"
+      minutes: "%d minut"
+      month: "około miesiąca"
+      months: "%d miesięcy"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "niecałą minutę"
+      suffixAgo: "temu"
+      suffixFromNow: "od teraz"
+      year: "około roku"
+      years: "%d lat"
+    videos: 
+      unknown: "Nieznany typ wideo"
+      watch: "Oglądaj to wideo na {{provider}}"

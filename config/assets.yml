@@ -7,6 +7,8 @@ javascripts:
     - public/javascripts/vendor/FABridge.js
     - public/javascripts/vendor/swfobject.js
     - public/javascripts/vendor/web_socket.js
+  jquery:
+    - public/javascripts/vendor/jquery144.min.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.infieldlabel.js

@@ -19,7 +19,10 @@ et:
     abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
     standalone_abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
 
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:
@@ -85,11 +88,11 @@ et:
         format: "%n %u"
         units:
           unit: ""
-          thousand: tuhat
-          million: miljon
-          billion: miljard
-          trillion: triljon
-          quadrillion: kvadriljon
+          thousand: "tuhat"
+          million: "miljon"
+          billion: "miljard"
+          trillion: "triljon"
+          quadrillion: "kvadriljon"
 
   datetime:
     distance_in_words:

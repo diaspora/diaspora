@@ -38,10 +38,16 @@
           = new_notification_link(@notification_count)
     %hr
 
+  - if @invites > 0
+    .section.invite_friends
+      %h4= t('shared.invitations.invite_your_friends')
+      = render "shared/invitations", :invites => @invites
+
+
   #aspect_listings.section
     = render 'aspects/aspect_listings', :aspects => @aspects, :contacts => @contacts
 
-  .section
-    %h4= t('shared.invitations.invite_your_friends')
-    = render "shared/invitations", :invites => @invites
-
+  - if @invites <= 0
+    .section.invite_friends
+      %h4= t('shared.invitations.invite_your_friends')
+      = render "shared/invitations", :invites => @invites

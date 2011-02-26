@@ -13,7 +13,10 @@
     abbr_day_names: [ned, pon, uto, sri, čet, pet, sub]
     month_names: [~, Januar, Februar, Mart, April, Maj, Јun, Јul, Аvgust, Septembar, Оktobar, Novembar, Decembar]
     abbr_month_names: [~, Jan, Feb, Mar, Apr, Мaj, Jun, Јul, Avg, Sep, Okt, Nov, Dec]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
 
   time:
     formats:

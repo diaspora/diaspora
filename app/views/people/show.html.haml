@@ -8,7 +8,7 @@
 .span-8.append-1.last
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
-  - if @contact && @contacts_of_contact.count > 0
+  - if @contact.persisted? && @contacts_of_contact.count > 0
     .span-8.last
       %hr{:style=>"width:300px;"}
       .section.contact_pictures
@@ -20,24 +20,24 @@
 
 .span-15.last
   #author_info
-    - unless @contact || current_user.person == @person
+    - unless @contact.persisted? || current_user.person == @person
       .right
         - if @incoming_request
           = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
-            {:controller => "people",
-            :action => "share_with",
-            :id => @person.id},
+            {:controller => "contacts",
+            :action => "new",
+            :person_id => @person.id},
             :class => 'share_with button',
             :rel => 'facebox'
         -else
           = link_to t('.start_sharing'),
-            {:controller => "people",
-            :action => "share_with",
-            :id => @person.id},
+            {:controller => "contacts",
+            :action => "new",
+            :person_id => @person.id},
             :class => 'share_with button',
             :rel => 'facebox'
         - if @share_with
-          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{share_with_path(:id => @person.id)}' });});"
+          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
 
 
     - else

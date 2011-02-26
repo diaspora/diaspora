@@ -47,12 +47,21 @@ cs:
       video_title: 
         unknown: "Neznámý název videa"
   are_you_sure: "Jste si jist?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Nepodařilo se odstranit osobu z aspektu"
+      no_membership: "Nelze najít vybrané osoby v tomto aspektu"
+      success: "Osoba byla úspěšně odstraněna z aspektu"
   aspects: 
     add_to_aspect: 
       failure: "Přidání kontaktu do aspektu selhalo."
       success: "Kontakt byl úspěšně přidán do aspektu."
     aspect_contacts: 
       done_editing: "ukončit úpravy"
+    aspect_stream: 
+      activity: "činnost"
+      post_time: "čas příspěvku"
+      sort_by: "řadit podle:"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
     create: 
@@ -96,9 +105,6 @@ cs:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
-    remove_from_aspect: 
-      failure: "Odstranění kontaktu z aspektu selhalo"
-      success: "Kontakt úspěšně odstraněn z aspektu"
     seed: 
       family: "Rodina"
       work: "Práce"
@@ -114,9 +120,18 @@ cs:
       comment: "Komentář"
       commenting: "Komentování..."
   contacts: 
+    create: 
+      failure: "Nepodařilo se vytvořit kontakt"
+    destroy: 
+      failure: "Nepodařilo se odpojit od %{name}"
+      success: "Úspěšně odpojeno od %{name}"
     few: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
+    share_with_pane: 
+      accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
+      add_new_aspect: "přidat do nového aspektu"
+      share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
   date: 
     formats: 
@@ -192,7 +207,8 @@ cs:
   next: "další"
   no_new_notifications: "žádná nová oznámení"
   notifications: 
-    also_commented: "také komentoval ve vašich kontaktech"
+    also_commented: "také komentoval v %{post_author}"
+    also_commented_deleted: "komentován smazaný příspěvek"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
     index: 
@@ -206,7 +222,7 @@ cs:
     also_commented: 
       commented: "také komentoval příspěvek od %{post_author}:"
       sign_in: "Přihlašte se pro zobrazení."
-      subject: "%{name} se také vyjádřil k vašemu příspěvku."
+      subject: "%{name} se také vyjádřil k vašemu %{post_author} příspěvku."
     comment_on_post: 
       commented: "komentoval váš příspěvek:"
       sign_in: "Přihlašte se pro zobrazení."
@@ -241,19 +257,6 @@ cs:
   people: 
     aspect_list: 
       edit_membership: "upravit člena aspektu"
-    edit: 
-      allow_search: "Umožnit lidem najít vás na Diaspoře"
-      edit_profile: "Upravit profil"
-      first_name: "Jméno"
-      info_available_to: "Tyto informace budou dostupné komukoliv, ke komu jste připojeni na Diaspoře."
-      last_name: "Příjmení"
-      update_profile: "Aktualizovat profil"
-      your_bio: "Váš životopis"
-      your_birthday: "Vaše datum narození"
-      your_gender: "Vaše pohlaví"
-      your_name: "Vaše jméno"
-      your_photo: "Vaše fotka"
-      your_profile: "Váš profil"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -276,11 +279,6 @@ cs:
       in_aspects: "v aspektech"
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
-    share_with: 
-      accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
-      share_with: "Začněte sdílet s %{name}"
-    share_with_pane: 
-      add_new_aspect: "přidat nový aspekt"
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "%{name} s vámi chce sdílet"
@@ -292,9 +290,6 @@ cs:
       similar_contacts: "podobné kontakty"
       start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
-    update: 
-      failed: "Aktualizace profilu selhala"
-      updated: "Profil aktualizován"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
   photos: 
@@ -334,6 +329,23 @@ cs:
       notice: "Fotka úspěšně aktualizována."
   previous: "předchozí"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Umožnit, aby vás lidé mohli najít na Diaspoře"
+      edit_profile: "Upravit profil"
+      first_name: "Jméno"
+      info_available_to: "Tyto informace budou dostupné komukoliv, ke komu jste připojeni na Diaspoře."
+      last_name: "Příjmení"
+      update_profile: "Aktualizovat profil"
+      your_bio: "Váš životopis"
+      your_birthday: "Vaše narozeniny"
+      your_gender: "Vaše pohlaví"
+      your_name: "Vaše jméno"
+      your_photo: "Vaše fotografie"
+      your_profile: "Váš profil"
+    update: 
+      failed: "Nepodařilo se aktualizovat profil"
+      updated: "Profil aktualizován"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 
@@ -428,7 +440,7 @@ cs:
       make_public: "vytvořit veřejnou"
       mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
-      posting: "Posílání..."
+      posting: "Odesílání..."
       share: "Sdělit"
       share_with: "sdílet s"
       whats_on_your_mind: "co máte na mysli?"

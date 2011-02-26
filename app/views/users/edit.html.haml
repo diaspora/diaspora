@@ -5,18 +5,6 @@
 - content_for :page_title do
   = t('.edit_account')
 
-:javascript
-  $(document).ready(function(){
-    $("#settings_nav li > a").live("click", function() {
-      var target = "#"+$(this).attr('class');
-      if( !$(target).is(":visible") ) {
-        $(".settings_pane").fadeOut(200, function() {
-          $(target).delay(200).fadeIn(200);
-        });
-      }
-    });
-  });
-
 #section_header
   %h2
     = t('settings')
@@ -101,10 +89,11 @@
   %br
 
 
-  .span-9.append-2
+  #account_data.span-9.append-2
     %h3 
       = t('.export_data')
     = link_to t('.download_xml'), users_export_path, :class => "button"
+    %br
     = link_to t('.download_photos'), users_export_photos_path, :class => "button"
 
   .span-8.last

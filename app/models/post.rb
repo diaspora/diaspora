@@ -23,7 +23,7 @@ class Post < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
-  before_destroy :propogate_retraction
+  after_destroy :propogate_retraction
 
   def user_refs
     self.post_visibilities.count

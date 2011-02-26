@@ -47,12 +47,21 @@ pt-PT:
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Falha ao adicionar amigo ao grupo."
       success: "Amigo adicionado com sucesso ao grupo."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ pt-PT:
       nobody_in_aspect: "O teu grupo '%{aspect_name}' está vazio."
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada. Dá início à conversa!"
-    remove_from_aspect: 
-      failure: "Falha ao remover pessoa do grupo"
-      success: "Pessoa removida do grupo com sucesso"
     seed: 
       family: "Família"
       work: "Trabalho"
@@ -114,9 +120,18 @@ pt-PT:
       comment: "Comentar"
       commenting: "A comentar..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "no contacts"
   date: 
     formats: 
@@ -193,6 +208,7 @@ pt-PT:
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
@@ -241,19 +257,6 @@ pt-PT:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Autoriza a que as pessoas te procurem dentro do Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "Primeiro Nome"
-      info_available_to: "Esta informação ficará disponível para todos aqueles a que te ligares no Diaspora. "
-      last_name: "Último Nome"
-      update_profile: "Actualizar o Perfil"
-      your_bio: "Sobre ti"
-      your_birthday: "Aniversário"
-      your_gender: "Género"
-      your_name: "Nome"
-      your_photo: "A tua foto"
-      your_profile: "Perfil"
     helper: 
       people_on_pod_are_aware_of: " as pessoas no pod estão cientes de que"
       results_for: " resultados para %{params}"
@@ -276,11 +279,6 @@ pt-PT:
       in_aspects: "nos grupos"
       remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
-    share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Essa pessoa não existe!"
       incoming_request: "Tens um pedido desta pessoa"
@@ -292,9 +290,6 @@ pt-PT:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "para o aceitares ou ignorares"
-    update: 
-      failed: "Falha ao actualizar o perfil"
-      updated: "Perfil actualizado"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +329,23 @@ pt-PT:
       notice: "Fotografia adicionada com sucesso."
   previous: "previous"
   profile: "Perfil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."
     create: 

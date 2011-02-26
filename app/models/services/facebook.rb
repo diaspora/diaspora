@@ -49,7 +49,7 @@ class Services::Facebook < Service
     requests.each{|r| data_h[person_ids_and_uids[r.sender_id]][:request] = r}
 
 
-    contact_objects = self.user.contacts.where(:person_id => person_ids_and_uids.keys)
+    contact_objects = Contact.unscoped.where(:user_id => self.user.id, :person_id => person_ids_and_uids.keys)
     contact_objects.each{|c| data_h[person_ids_and_uids[c.person_id]][:contact] = c}
 
     if opts[:local]

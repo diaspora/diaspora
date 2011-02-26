@@ -88,8 +88,8 @@ eu:
     unlocks: 
       new: 
         resend_unlock: "Desblokeatzeko argibideak bidali"
-      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      unlocked: "Your account was successfully unlocked. You are now signed in."
+      send_instructions: "Zure kontua berriro aktibatzeko argibidedun mezu bat jasoko duzu e-postan minutu batzuetan."
+      unlocked: "Zure kontua berraktibatu duzu. Orain sartu egin zara."
   errors: 
     messages: 
       already_confirmed: "jadanik baieztatua zegoen"

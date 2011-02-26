@@ -54,7 +54,10 @@ fur:
 
     month_names: [~, Zenâr, Fevrâr, Març, Avrîl, Mai, Jugn, Lui, Avost, Setembar, Otubar, Novembar, Dicembar]
     abbr_month_names: [~, Zen, Fev, Mar, Avr, Mai, Jug, Lui, Avo, Set, Otu, Nov, Dic]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
   
   time:
     formats:

@@ -2,30 +2,8 @@ require 'spec_helper'
 
 describe Statistic do
   before do
-    @stat = Statistic.new
+    @stat = Statistic.first
     @time = Time.now
-
-    1.times do |n|
-      p = alice.post(:status_message, :message => 'hi', :to => alice.aspects.first)
-      p.created_at = @time
-      p.save
-    end
-
-    5.times do |n|
-      p = bob.post(:status_message, :message => 'hi', :to => bob.aspects.first)
-      p.created_at = @time
-      p.save
-    end
-    
-    10.times do |n|
-      p = eve.post(:status_message, :message => 'hi', :to => eve.aspects.first)
-      p.created_at = @time
-      p.save
-    end
-
-    (0..10).each do |n|
-      @stat.data_points << DataPoint.users_with_posts_on_day(@time, n)
-    end
   end
 
   describe '#compute_average' do

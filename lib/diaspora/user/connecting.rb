@@ -74,18 +74,19 @@ module Diaspora
       end
 
       def disconnect(bad_contact)
-        Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{bad_contact.diaspora_handle}")
+        person = bad_contact.person
+        Rails.logger.info("event=disconnect user=#{diaspora_handle} target=#{person.diaspora_handle}")
         retraction = Retraction.for(self)
-        retraction.subscribers = [bad_contact]#HAX
+        retraction.subscribers = [person]#HAX
         Postzord::Dispatch.new(self, retraction).post
         remove_contact(bad_contact)
       end
 
-      def remove_contact(bad_person)
-        contact = contact_for(bad_person)
-        posts = raw_visible_posts.where(:person_id => bad_person.id).all
+      def remove_contact(contact)
+        bad_person_id = contact.person_id
+        posts = raw_visible_posts.where(:person_id => bad_person_id).all
         visibilities = PostVisibility.joins(:post, :aspect).where(
-          :posts => {:person_id => bad_person.id},
+          :posts => {:person_id => bad_person_id},
           :aspects => {:user_id => self.id}
         )
         visibility_ids = visibilities.map{|v| v.id}
@@ -95,12 +96,12 @@ module Diaspora
             post.destroy
           end
         end
-        raise "Contact not deleted" unless contact.destroy
+        contact.destroy
       end
 
-      def disconnected_by(bad_contact)
-        Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{bad_contact.diaspora_handle}")
-        remove_contact bad_contact
+      def disconnected_by(person)
+        Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
+        remove_contact(self.contact_for(person))
       end
 
       def activate_contact(person, aspect)

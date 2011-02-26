@@ -47,7 +47,7 @@ class StatusMessage < Post
       if opts[:plain_text]
         person ? ERB::Util.h(person.name) : ERB::Util.h(inner_captures.first)
       else
-        person ? "@<a href=\"/people/#{person.id}\" class=\"mention\">#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
+        person ? "<a href=\"/people/#{person.id}\" class=\"mention\">@#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
       end
     end
     form_message

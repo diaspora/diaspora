@@ -13,7 +13,10 @@ eo:
     abbr_day_names: [dim, lun, mar, mer, ĵaŭ, ven, sam]
     month_names: [~, januaro, februaro, marto, aprilo, majo, junio, julio, aŭgusto, septembro, oktobro, novembro, decembro]
     abbr_month_names: [~, jan., feb., mar., apr., majo, jun., jul., aŭg., sep., okt., nov., dec.]
-    order: [ :day, :month, :year ]
+    order:
+      - :day
+      - :month
+      - :year
   
   time:
     formats:

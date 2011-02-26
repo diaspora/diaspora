@@ -47,12 +47,21 @@ nl:
       video_title: 
         unknown: "Onbekende Videotitel"
   are_you_sure: "Weet je het zeker?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Persoon verwijderen van aspect mislukt"
+      no_membership: "Kon de geselecteerde persoon niet vinden in dat aspect"
+      success: "Persoon succesvol van aspect verwijderd"
   aspects: 
     add_to_aspect: 
       failure: "Contact toevoegen aan aspect is mislukt."
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_contacts: 
       done_editing: "klaar met bewerken"
+    aspect_stream: 
+      activity: "activiteit"
+      post_time: "tijd van plaatsing"
+      sort_by: "sorteren op:"
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
@@ -96,9 +105,6 @@ nl:
       nobody_in_aspect: "Je aspect '%{aspect_name}' is leeg."
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
-    remove_from_aspect: 
-      failure: "Persoon van aspect verwijderen mislukt"
-      success: "Persoon succesvol verwijderd van aspect"
     seed: 
       family: "Familie"
       work: "Werk"
@@ -114,14 +120,23 @@ nl:
       comment: "Reactie"
       commenting: "Reageren..."
   contacts: 
+    create: 
+      failure: "Verbinding maken mislukt"
+    destroy: 
+      failure: "Verbinding met %{name} verbreken mislukt"
+      success: "Verbinding met %{name} succesvol verbroken"
     few: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
+    share_with_pane: 
+      accepts: "Zodra %{name} accepteert, zul je elkaars posts gaan zien op Diaspora"
+      add_new_aspect: "voeg toe aan nieuw aspect"
+      share_with: "Start delen met %{name}"
     zero: "geen contacten"
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%B %d %J"
+      birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Verwijderen"
   email: "E-mail"
@@ -192,9 +207,10 @@ nl:
   next: "volgende"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
-    also_commented: "heeft ook gereageerd op jouw contact zijn of haar"
+    also_commented: "heeft ook gereageerd %{post_author}'s"
+    also_commented_deleted: "reageerde op een verwijderde post"
     comment_on_post: "reageerde op jouw"
-    deleted: "verwijderd"
+    deleted: "verwijderde"
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
@@ -206,7 +222,7 @@ nl:
     also_commented: 
       commented: "heeft ook op %{post_author}'s post gereageerd:"
       sign_in: "Log in om het te zien."
-      subject: "%{name} heeft ook gereageerd op de post van jou contact."
+      subject: "%{name} heeft ook gereageerd %{post_author}'s post."
     comment_on_post: 
       commented: "heeft gereageerd op jou post:"
       sign_in: "Log in om het te zien."
@@ -241,19 +257,6 @@ nl:
   people: 
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
-    edit: 
-      allow_search: "Sta toe door anderen gevonden te kunnen worden binnen Diaspora"
-      edit_profile: "Bewerk profiel"
-      first_name: "Voornaam"
-      info_available_to: "Deze informatie is beschikbaar voor al je contacten op Diaspora."
-      last_name: "Achternaam"
-      update_profile: "Update profiel"
-      your_bio: "Jouw bio"
-      your_birthday: "Je verjaardag"
-      your_gender: "Je geslacht"
-      your_name: "Je naam"
-      your_photo: "Je foto"
-      your_profile: "Je profiel"
     helper: 
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
@@ -276,11 +279,6 @@ nl:
       in_aspects: "in de aspecten"
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
-    share_with: 
-      accepts: "Zodra %{name} accepteert, zul je elkaars posts kunnen gaan zien op Diaspora"
-      share_with: "Start delen met %{name}"
-    share_with_pane: 
-      add_new_aspect: "voeg nieuw aspect toe"
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
@@ -292,9 +290,6 @@ nl:
       similar_contacts: "vergelijkbare contacten"
       start_sharing: "start met delen"
       to_accept_or_ignore: "om te accepteren of te negeren."
-    update: 
-      failed: "Updaten van profiel mislukt"
-      updated: "Profiel geüpdatet"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
   photos: 
@@ -334,6 +329,23 @@ nl:
       notice: "Foto succesvol veranderd."
   previous: "vorige"
   profile: "Profiel"
+  profiles: 
+    edit: 
+      allow_search: "Sta mensen toe je op te zoeken binnen Diaspora"
+      edit_profile: "Bewerk profiel"
+      first_name: "Voornaam"
+      info_available_to: "Deze info zal beschikbaar zijn voor iedereen waarmee je contact legt op Diaspora."
+      last_name: "Achternaam"
+      update_profile: "Profiel bijwerken"
+      your_bio: "Jouw bio"
+      your_birthday: "Je verjaardag"
+      your_gender: "Je geslacht"
+      your_name: "Je naam"
+      your_photo: "Je profielfoto"
+      your_profile: "Jou profiel"
+    update: 
+      failed: "Profiel bijwerken mislukt"
+      updated: "Profiel bijgewerkt"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 
@@ -408,7 +420,7 @@ nl:
     invitations: 
       by_email: "via E-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
-      from_facebook: "Van Facebook"
+      from_facebook: "Via Facebook"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
       invite_your_friends: "Nodig je vrienden uit"
@@ -426,7 +438,7 @@ nl:
       all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
-      mention_helper_text: "om iemand te noemen, druk op '@' en typ zijn of haar naam"
+      mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
       share: "Delen"

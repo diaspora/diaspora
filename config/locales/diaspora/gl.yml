@@ -47,12 +47,21 @@ gl:
       video_title: 
         unknown: "Título de vídeo descoñecido"
   are_you_sure: "Estás seguro?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Fallouse ao eliminar persoa do aspecto"
+      no_membership: "Non se puido atopar a persoa seleccionada neste aspecto"
+      success: "Exito ao eliminar persoa do aspecto"
   aspects: 
     add_to_aspect: 
       failure: "Non se puido engadir o contacto ao aspecto."
       success: "Engadiuse correctamente o contacto ao aspecto."
     aspect_contacts: 
       done_editing: "edición rematada"
+    aspect_stream: 
+      activity: "actividade"
+      post_time: "tempo de publicación"
+      sort_by: "ordear por:"
     contacts_not_visible: "Os contactos deste aspecto non se poderán ver os uns aos outros."
     contacts_visible: "Os contactos neste aspecto poderanse ver os uns aos outros."
     create: 
@@ -96,9 +105,6 @@ gl:
       nobody_in_aspect: "O seu aspecto '%{aspect_name}' está baleiro."
     no_posts_message: 
       start_talking: "Ninguén dixo nada. Comeza unha conversa!"
-    remove_from_aspect: 
-      failure: "Fallo ao borrar persoa do aspecto"
-      success: "Persoa eliminada correctamente do aspecto"
     seed: 
       family: "Familia"
       work: "Traballo"
@@ -114,9 +120,18 @@ gl:
       comment: "Comentar"
       commenting: "Comentando..."
   contacts: 
+    create: 
+      failure: "Fallouse ao crear contacto"
+    destroy: 
+      failure: "Fallouse ao desconectarse de %{name}"
+      success: "Exito ao desconectarse de %{name}"
     few: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
+    share_with_pane: 
+      accepts: "Unha vez que %{name} acepte, xa poderedes ver as vosas publicacións en Diaspora"
+      add_new_aspect: "engadir ao novo aspecto"
+      share_with: "Comezar a compartir con %{name}"
     zero: "non hai contactos"
   date: 
     formats: 
@@ -162,7 +177,7 @@ gl:
       if_they_accept_info: "se aceptan, serán engadidos ao aspecto ao que os convidaches."
       invite_someone_to_join: "Convida a alguén a participar en Diaspora!"
       personal_message: "Mensaxe persoal"
-      resend: "Resend"
+      resend: "Reenviar"
       send_an_invitation: "Mensaxe persoal"
       send_invitation: "Enviar unha invitación"
       to: "a"
@@ -193,6 +208,7 @@ gl:
   no_new_notifications: "non hai novas peticións"
   notifications: 
     also_commented: "tamén comentou nos do teu contacto"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "comentou no teu"
     deleted: "borrado"
     index: 
@@ -240,20 +256,7 @@ gl:
   password_confirmation: "Confirmación do contrasinal"
   people: 
     aspect_list: 
-      edit_membership: "editar membresía de aspecto"
-    edit: 
-      allow_search: "Permitir á xente buscarte dentro de Diaspora"
-      edit_profile: "Editar perfil"
-      first_name: "Nome"
-      info_available_to: "Esta información estará dispoñíbel a quen te conectes en Diaspora."
-      last_name: "Apelidos"
-      update_profile: "Actualizar perfil"
-      your_bio: "Sobre min"
-      your_birthday: "O teu aniversario"
-      your_gender: "O teu xénero"
-      your_name: "O teu nome"
-      your_photo: "A túa foto"
-      your_profile: "O teu perfil"
+      edit_membership: "Editar membresía de aspecto"
     helper: 
       people_on_pod_are_aware_of: "xente nesta vaíña están ao tanto de"
       results_for: "resultados para %{params}"
@@ -268,23 +271,18 @@ gl:
       pending_request: "solicitude pendente"
       thats_you: "es ti!"
     profile_sidebar: 
-      bio: "biografia"
-      born: "aniversario"
+      bio: "Biografia"
+      born: "Aniversario"
       cannot_remove: "Non se pode eliminar %{name} do último aspecto. (Se te queres desvincular desta persoa tes que eliminar o contacto.)"
       edit_my_profile: "Editar o meu perfil"
-      gender: "xénero"
+      gender: "Xénero"
       in_aspects: "en aspectos"
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
-    share_with: 
-      accepts: "Cando %{name} acepte, comezaredes a ver as publicacións do outro en Diaspora"
-      share_with: "Comeza a compartir con %{name}"
-    share_with_pane: 
-      add_new_aspect: "engadir aspecto"
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
-      no_posts: "non hai mensaxes que amosar!"
+      no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
       recent_posts: "Publicacións recentes"
       recent_public_posts: "Publicacións Públicas Recentes"
@@ -292,9 +290,6 @@ gl:
       similar_contacts: "contactos semellantes"
       start_sharing: "comezar a compartir"
       to_accept_or_ignore: "aceptalo ou ignoralo"
-    update: 
-      failed: "Non se puido actualizar o perfil"
-      updated: "Perfil actualizado"
     webfinger: 
       fail: "Sentímolo, non poidemos atopar %{handle}."
   photos: 
@@ -334,6 +329,23 @@ gl:
       notice: "Foto actualizada correctamente."
   previous: "anterior"
   profile: "Perfil"
+  profiles: 
+    edit: 
+      allow_search: "Permitir á xente buscarte en Diaspora"
+      edit_profile: "Editar perfil"
+      first_name: "Nome"
+      info_available_to: "Esta información estará dispoñible para calquera que se conecte contigo en Diaspora"
+      last_name: "Apelidos"
+      update_profile: "Actualizar Perfil"
+      your_bio: "Biografía"
+      your_birthday: "O teu aniversario"
+      your_gender: "O teu xénero"
+      your_name: "O teu nome"
+      your_photo: "A túa foto"
+      your_profile: "O teu perfil"
+    update: 
+      failed: "Fallouse ao actualizar perfil"
+      updated: "Perfil actualizado"
   registrations: 
     closed: "Rexistros pechados nesta vaíña de Diaspora."
     create: 
@@ -431,7 +443,7 @@ gl:
       posting: "Publicando..."
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
-      whats_on_your_mind: "que tes en mente?"
+      whats_on_your_mind: "Que tes en mente?"
     reshare: 
       reshare: "Recompartir "
   status_messages: 
@@ -440,7 +452,7 @@ gl:
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
     new_status_message: 
-      oh_yeah: "e logo!!"
+      oh_yeah: "e logo!"
       tell_me_something_good: "cóntame algo bo"
     show: 
       destroy: "Borrar"
@@ -464,7 +476,7 @@ gl:
       email_notifications: "Notificacións de correo-e"
       export_data: "Exportar datos"
       new_password: "Novo contrasinal"
-      receive_email_notifications: "Receibir notificacións por correo?"
+      receive_email_notifications: "Recibir notificacións por correo?"
       your_email: "O teu correo"
       your_handle: "A túa tarxeta diaspora"
     getting_started: 

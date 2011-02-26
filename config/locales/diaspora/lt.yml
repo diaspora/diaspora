@@ -47,12 +47,21 @@ lt:
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Nepavyko pridėti draugo į aspektą."
       success: "Draugas į aspektą pridėtas sėkmingai."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ lt:
       nobody_in_aspect: "Aspektas \"%{aspect_name}\" tuščias."
     no_posts_message: 
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
-    remove_from_aspect: 
-      failure: "Nepavyko pašalinti asmens iš aspekto"
-      success: "Asmuo pašalintas iš aspekto sėkmingai!"
     seed: 
       family: "Šeima"
       work: "Darbas"
@@ -114,9 +120,18 @@ lt:
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "no contacts"
   date: 
     formats: 
@@ -193,6 +208,7 @@ lt:
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
     index: 
@@ -241,19 +257,6 @@ lt:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Leisti kitiems tavęs ieškoti"
-      edit_profile: "Edit profile"
-      first_name: "Vardas"
-      info_available_to: "Ši informacija bus prieinama visiems tavo Diasporos kontaktams."
-      last_name: "Pavardė"
-      update_profile: "Atnaujinti profilį"
-      your_bio: "Tavo bio"
-      your_birthday: "Tavo gimtadienis"
-      your_gender: "Tavo lytis"
-      your_name: "Tavo slapyvardis"
-      your_photo: "Tavo nuotrauka"
-      your_profile: "Tavo profilis"
     helper: 
       people_on_pod_are_aware_of: " žmonės serveryje žino"
       results_for: " \"%{params}\" rezultatai"
@@ -276,11 +279,6 @@ lt:
       in_aspects: "aspektuose"
       remove_contact: "pašalinti kontaktą"
       remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
-    share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Asmuo neegzistuoja!"
       incoming_request: "Jūs gavote pakvietimą iš šio asmens."
@@ -292,9 +290,6 @@ lt:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "priimti arba ignoruoti."
-    update: 
-      failed: "Nepavyko atnaujinti profilio"
-      updated: "Profilis atnaujintas"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +329,23 @@ lt:
       notice: "Nuotrauka atnaujinta sėkmingai."
   previous: "previous"
   profile: "Profilis"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Naujų paskyrų kūrimas šiame Diasporos serveryje yra uždarytas."
     create: 

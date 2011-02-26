@@ -283,17 +283,37 @@ var Publisher = {
     $("#photodropzone").find('li').remove();
     $("#publisher textarea").removeClass("with_attachments");
   },
+  bindServiceIcons: function(){
+    $(".service_icon").bind("click", function(evt){
+      $(this).toggleClass("dim");
+      Publisher.toggleServiceField($(this).attr('id'));
+    });
+  },
+  bindPublicIcon: function(){
+    $(".public_icon").bind("click", function(evt){
+      $(this).toggleClass("dim");
+      var public_field= $("#publisher #status_message_public");
+
+      (public_field.val() == 'false')?(public_field.val('true')):(public_field.val('false'));
+    });
+  },
+  toggleServiceField: function(service){
+    var hidden_field = $('#publisher [name="services[]"][value="'+service+'"]')
+    if(hidden_field.length > 0){
+      hidden_field.remove();
+    } else {
+      $("#publisher .content_creation form").append(
+      '<input id="services_" name="services[]" type="hidden" value="'+service+'">');
+    };
+  },
   initialize: function() {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
     Publisher.cachedHiddenInput = false;
     Publisher.cachedSubmit = false;
-    $("div.public_toggle input").live("click", function(evt) {
-      $("#publisher_service_icons").toggleClass("dim");
-      if ($(this).attr('checked') == true) {
-        $(".question_mark").click();
-      }
-    });
+    
+    Publisher.bindServiceIcons();
+    Publisher.bindPublicIcon();
 
     if ($("#status_message_fake_message").val() == "") {
       Publisher.close();

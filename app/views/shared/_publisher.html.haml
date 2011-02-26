@@ -2,6 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $(function() {
+    $(".question_mark").tipsy({trigger: 'hover', gravity: 'w'});
+  });
 
 #publisher
 
@@ -41,22 +45,20 @@
           = image_tag 'ajax-loader.gif', :class => 'hidden', :id => "publisher_spinner"
           = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button'
 
-        - if aspect == :all
-          .public_toggle
-            %p.checkbox_select
-              = status.check_box( :public, {:title => t('.make_public')}, true, false)
+        .public_toggle
+          %span#publisher_service_icons
+            - if aspect == :all
+              = status.hidden_field( :public)
+              = image_tag "social_media_logos/feed-16x16.png", :title => "RSS", :class => 'public_icon dim'
+            - if current_user.services
+              - for service in current_user.services
+                = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider, :class => "service_icon dim", :id =>"#{service.provider}"
+            = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')#, :style=>"display:none;"
 
-              %span#publisher_service_icons.dim
-                = link_to (image_tag "social_media_logos/feed-16x16.png", :title => "RSS"), current_user.public_url
-                - if current_user.services
-                  - for service in current_user.services
-                    = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider
 
-            = link_to '(?)', "#question_mark_pane", :class => 'question_mark', :style=>"display:none;", :rel => 'facebox'
-
-            .facebox_content
-              #question_mark_pane
-                = render 'shared/public_explain'
+          .facebox_content
+            #question_mark_pane
+              = render 'shared/public_explain'
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => @aspect_ids.join(',')

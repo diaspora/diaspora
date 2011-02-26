@@ -47,12 +47,21 @@ ro:
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Eşti sigur?"
+  aspect_memberships: 
+    destroy: 
+      failure: "Failed to remove person from aspect"
+      no_membership: "Could not find the selected person in that aspect"
+      success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
       failure: "Nu s-a reuşit adăuga contactul la aspect."
       success: "Contactul a fost adăugat cu succes la aspect."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -96,9 +105,6 @@ ro:
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
       start_talking: "Nimeni nu a spus nimic deocamdată. Începe tu o conversaţie!"
-    remove_from_aspect: 
-      failure: "Failed to remove person from aspect"
-      success: "Successfully removed person from aspect"
     seed: 
       family: "Familie"
       work: "Lucru"
@@ -114,9 +120,18 @@ ro:
       comment: "Comentariu"
       commenting: "Comentând..."
   contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacte"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
     zero: "nici un contact"
   date: 
     formats: 
@@ -193,6 +208,7 @@ ro:
   no_new_notifications: "nu sunt notificări noi"
   notifications: 
     also_commented: "also commented on"
+    also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "eliminat"
     index: 
@@ -241,19 +257,6 @@ ro:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    edit: 
-      allow_search: "Permite tuturor să te caute pe Diaspora"
-      edit_profile: "Editează profilul"
-      first_name: "Nume"
-      info_available_to: "Această informaţie va fi disponibilă pentru toţi cei cu care sunteţi conectaţi pe Diaspora."
-      last_name: "Prenume"
-      update_profile: "Actualizează Profilul"
-      your_bio: "Biografia ta"
-      your_birthday: "Ziua ta de naştere"
-      your_gender: "Sexul"
-      your_name: "Numele tău"
-      your_photo: "Fotografia ta"
-      your_profile: "Profilul tău"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -276,11 +279,6 @@ ro:
       in_aspects: "în aspecte"
       remove_contact: "Elimină contactul"
       remove_from: "Elimini pe %{name} din %{aspect}?"
-    share_with: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      share_with: "Start sharing with %{name}"
-    share_with_pane: 
-      add_new_aspect: "add new aspect"
     show: 
       does_not_exist: "Persoana nu există!"
       incoming_request: "You have an incoming request from this person."
@@ -292,9 +290,6 @@ ro:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "to accept or ignore it."
-    update: 
-      failed: "Nu s-a reuşit actualizarea profilului"
-      updated: "Profil actualizat"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
   photos: 
@@ -334,6 +329,23 @@ ro:
       notice: "Fotografia a fost actualizată cu succes."
   previous: "anterioare"
   profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_profile: "Your profile"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 

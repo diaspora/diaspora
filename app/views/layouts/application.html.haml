@@ -26,17 +26,16 @@
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"
     <![endif]-->
-    = javascript_include_tag  AppConfig[:pod_uri].scheme.to_s + "://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
 
+    = include_javascripts :jquery
     :javascript
-      !window.jQuery && document.write(unescape('%3Cscript src="/javascripts/vendor/jquery144.min.js"%3E%3C/script%3E'))
+      !window.jQuery && document.write(unescape('%3Cscript src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%3E%3C/script%3E'))
 
     - unless @landing_page
       = include_javascripts :main
       -if current_user
         :javascript
           Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-
 
     - if current_user
       = include_javascripts :flash_socket #unless modern_browser?

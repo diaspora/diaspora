@@ -12,6 +12,8 @@ Diaspora::Application.routes.draw do
   match 'services/finder/:provider' => 'services#finder', :as => 'friend_finder'
   resources :services
 
+  match 'admins/user_search' => 'admins#user_search'
+  match 'admins/admin_inviter' => 'admins#admin_inviter'
   match 'statistics/generate_single' => 'statistics#generate_single'
   resources :statistics
 
@@ -19,7 +21,9 @@ Diaspora::Application.routes.draw do
   resources :notifications,   :only => [:index, :update]
   resources :posts,           :only => [:show], :path => '/p/'
 
-  match '/people/share_with' => 'people#share_with', :as => 'share_with'
+  resources :contacts
+  resources :aspect_memberships
+
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
@@ -31,7 +35,6 @@ Diaspora::Application.routes.draw do
 
   match 'photos/make_profile_photo' => 'photos#make_profile_photo'
   resources :photos, :except => [:index]
-
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
