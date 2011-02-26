@@ -207,8 +207,8 @@ nl:
   next: "volgende"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
-    also_commented: "heeft ook gereageerd op jouw contact zijn of haar"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "heeft ook gereageerd %{post_author}'s"
+    also_commented_deleted: "reageerde op een verwijderde post"
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderde"
     index: 
@@ -222,7 +222,7 @@ nl:
     also_commented: 
       commented: "heeft ook op %{post_author}'s post gereageerd:"
       sign_in: "Log in om het te zien."
-      subject: "%{name} heeft ook gereageerd op de post van jou contact."
+      subject: "%{name} heeft ook gereageerd %{post_author}'s post."
     comment_on_post: 
       commented: "heeft gereageerd op jou post:"
       sign_in: "Log in om het te zien."
@@ -438,7 +438,7 @@ nl:
       all: "al"
       all_contacts: "alle contacten"
       make_public: "maak openbaar"
-      mention_helper_text: "om iemand te noemen, druk op '@' en typ zijn of haar naam"
+      mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
       share: "Delen"

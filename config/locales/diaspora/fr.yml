@@ -207,7 +207,7 @@ fr:
   next: "suivant"
   no_new_notifications: "aucune nouvelle notification"
   notifications: 
-    also_commented: "a/ont également commenté ce"
+    also_commented: "a/ont également commenté"
     also_commented_deleted: "a commenté un message supprimé"
     comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"
@@ -222,7 +222,7 @@ fr:
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
       sign_in: "Connectez-vous pour le voir."
-      subject: "%{name} a également commenté sur le message de votre contact."
+      subject: "%{name} a également commenté le message de votre %{post_author}."
     comment_on_post: 
       commented: "a commenté votre message:"
       sign_in: "Connectez-vous pour le voir."
