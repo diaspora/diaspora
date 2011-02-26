@@ -65,9 +65,9 @@ describe StatusMessagesController do
     end
 
     it "dispatches the post to the specified services" do
-      s1 = Services::Facebook.new 
+      s1 = Services::Facebook.new
       @user1.services << s1
-      @user1.services << Services::Twitter.new 
+      @user1.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
       @user1.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
       post :create, status_message_hash

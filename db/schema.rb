@@ -10,11 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-<<<<<<< HEAD
 ActiveRecord::Schema.define(:version => 20110228201109) do
-=======
-ActiveRecord::Schema.define(:version => 20110225193130) do
->>>>>>> added PrivateMessage and PrivateMessageVisibility models and migrations
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -390,6 +386,7 @@ ActiveRecord::Schema.define(:version => 20110225193130) do
   create_table "private_message_visibilities", :force => true do |t|
     t.integer  "private_message_id"
     t.integer  "person_id"
+    t.boolean  "unread",             :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -399,10 +396,9 @@ ActiveRecord::Schema.define(:version => 20110225193130) do
   add_index "private_message_visibilities", ["private_message_id"], :name => "index_private_message_visibilities_on_private_message_id"
 
   create_table "private_messages", :force => true do |t|
-    t.integer  "author_id",                    :null => false
-    t.boolean  "unread",     :default => true, :null => false
-    t.string   "guid",                         :null => false
-    t.text     "message",                      :null => false
+    t.integer  "author_id",  :null => false
+    t.string   "guid",       :null => false
+    t.text     "message",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end

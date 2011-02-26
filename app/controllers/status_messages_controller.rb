@@ -62,7 +62,7 @@ class StatusMessagesController < ApplicationController
     else
       respond_to do |format|
         format.js { render :json =>{:errors =>   @status_message.errors.full_messages}, :status => 406 }
-        format.html {redirect_to :back} 
+        format.html {redirect_to :back}
       end
     end
   end
@@ -80,7 +80,7 @@ class StatusMessagesController < ApplicationController
 
   def show
     @status_message = current_user.find_visible_post_by_id params[:id]
-    if @status_messag
+    if @status_message
       @object_aspect_ids = @status_message.aspects.map{|a| a.id}
 
       # mark corresponding notification as read

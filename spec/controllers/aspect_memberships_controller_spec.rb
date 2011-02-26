@@ -23,13 +23,6 @@ describe AspectMembershipsController do
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
-  describe "#new" do
-    it 'succeeds' do
-      get :new
-      response.should be_success
-    end
-  end
-
   describe '#create' do
     it 'creates an aspect membership' do
       @user.should_receive(:add_contact_to_aspect)
