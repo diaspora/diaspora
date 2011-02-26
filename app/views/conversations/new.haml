@@ -1,0 +1,24 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+%h2
+  New Message
+
+= form_for Conversation.new do |conversation|
+  %h4
+    to
+  = text_field_tag "private_message[contact_ids]"
+
+  %h4
+    subject
+  = conversation.text_field :subject
+
+  = fields_for :message do |message|
+    %h4
+      message
+    = message.text_area :text, :rows => 5
+
+  = conversation.submit :send
+  = link_to 'cancel', conversations_path

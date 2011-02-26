@@ -70,6 +70,25 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
   add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
 
+  create_table "conversation_visibilities", :force => true do |t|
+    t.integer  "conversation_id",                :null => false
+    t.integer  "person_id",                      :null => false
+    t.integer  "unread",          :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
+  add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
+  add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
+
+  create_table "conversations", :force => true do |t|
+    t.string   "subject"
+    t.string   "guid",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "data_points", :force => true do |t|
     t.string   "key",          :null => false
     t.integer  "value",        :null => false
@@ -103,6 +122,17 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
   add_index "mentions", ["person_id", "post_id"], :name => "index_mentions_on_person_id_and_post_id", :unique => true
   add_index "mentions", ["person_id"], :name => "index_mentions_on_person_id"
   add_index "mentions", ["post_id"], :name => "index_mentions_on_post_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "conversation_id", :null => false
+    t.integer  "author_id",       :null => false
+    t.string   "guid",            :null => false
+    t.text     "text",            :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
 
   create_table "mongo_aspect_memberships", :force => true do |t|
     t.string   "aspect_mongo_id"
@@ -382,28 +412,6 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
   add_index "posts", ["type"], :name => "index_posts_on_type"
-
-  create_table "private_message_visibilities", :force => true do |t|
-    t.integer  "private_message_id"
-    t.integer  "person_id"
-    t.boolean  "unread",             :default => true, :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "private_message_visibilities", ["person_id"], :name => "index_private_message_visibilities_on_person_id"
-  add_index "private_message_visibilities", ["private_message_id", "person_id"], :name => "pm_visibilities_on_pm_id_and_person_id", :unique => true
-  add_index "private_message_visibilities", ["private_message_id"], :name => "index_private_message_visibilities_on_private_message_id"
-
-  create_table "private_messages", :force => true do |t|
-    t.integer  "author_id",  :null => false
-    t.string   "guid",       :null => false
-    t.text     "message",    :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "private_messages", ["author_id"], :name => "index_private_messages_on_author_id"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"

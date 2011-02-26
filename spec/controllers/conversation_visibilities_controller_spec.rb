@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe PrivateMessageVisibilitiesController do
+describe ConversationVisibilitiesController do
   render_views
 
   before do
@@ -12,15 +12,15 @@ describe PrivateMessageVisibilitiesController do
     sign_in :user, @user1
 
     @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-    :author => @user1.person, :message => "cool stuff" }
-    @message = PrivateMessage.create(@create_hash)
+    :subject => "cool stuff" }
+    @conversation = Conversation.create(@create_hash)
   end
 
   describe '#destroy' do
     it 'deletes the visibility' do
       lambda {
-        delete :destroy, :private_message_id => @message.id
-      }.should change(PrivateMessageVisibility, :count).by(-1)
+        delete :destroy, :conversation_id => @conversation.id
+      }.should change(ConversationVisibility, :count).by(-1)
     end
 
     it 'does not let a user destroy a visibility that is not theirs' do
@@ -28,8 +28,8 @@ describe PrivateMessageVisibilitiesController do
       sign_in :user, user2
 
       lambda {
-        delete :destroy, :private_message_id => @message.id
-      }.should_not change(PrivateMessageVisibility, :count)
+        delete :destroy, :conversation_id => @conversation.id
+      }.should_not change(ConversationVisibility, :count)
     end
   end
 end

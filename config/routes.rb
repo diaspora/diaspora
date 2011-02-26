@@ -26,8 +26,8 @@ Diaspora::Application.routes.draw do
   resources :contacts
   resources :aspect_memberships, :only => [:destroy, :create]
 
-  resources :private_messages do
-    resource :private_message_visibility, :only => [:destroy], :path => '/visibility/'
+  resources :conversations do
+    resource :conversation_visibility, :only => [:destroy], :path => '/visibility/'
   end
 
   resources :people, :except => [:edit, :update] do

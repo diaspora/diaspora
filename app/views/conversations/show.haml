@@ -1,0 +1,32 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+= link_to 'back', conversations_path
+
+%br
+%br
+%br
+%br
+
+
+- for participant in @conversation.participants
+  = participant.name
+
+- for message in @conversation.messages
+  %h4
+    from
+  = message.author.name
+
+  %br
+  %br
+
+  %h4
+    message
+  = message.text
+
+  %hr
+
+= link_to t('delete'), conversation_conversation_visibility_path(@conversation), :method => 'delete', :confirm => t('are_you_sure')
+
+
