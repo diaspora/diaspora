@@ -21,23 +21,23 @@ da:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "skal være unik for denne brugers kontakter."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "er allerede taget."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "er en kopi af en allerede eksisterende forespørgsel."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "er allerede taget."
             person: 
-              invalid: "is invalid."
+              invalid: "er ugyldig."
             username: 
-              taken: "is already taken."
+              taken: "er allerede taget."
   ago: "%{time} siden"
   application: 
     helper: 
@@ -49,9 +49,9 @@ da:
   are_you_sure: "Er du sikker?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Kunne ikke fjerne person fra aspekt"
+      no_membership: "Kunne ikke finde den valgte person i det aspekt"
+      success: "Personen er fjernet fra aspektet"
   aspects: 
     add_to_aspect: 
       failure: "Kunne ikke tilføje kontakten til aspektet."
@@ -59,9 +59,9 @@ da:
     aspect_contacts: 
       done_editing: "afslut redigering"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "aktivitet"
+      post_time: "post tid"
+      sort_by: "sorter efter:"
     contacts_not_visible: "Kontakter i dette aspekt vil ikke være i stand til at se hinanden."
     contacts_visible: "Kontakter i dette aspekt vil være i stand til at se hinanden."
     create: 
@@ -121,17 +121,17 @@ da:
       commenting: "Kommentering ..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Kunne ikke oprette kontakt"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Det lykkedes ikke at afbryde forbindelse til %{name}"
+      success: "Forbindelse til %{name} er nu afbrudt "
     few: "%{count} kontaktpersoner"
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Når %{name} acceptere, vil i kunne se hinandens indlæg på Diaspora"
+      add_new_aspect: "tilføj til nyt aspekt"
+      share_with: "Begynd at dele med %{name}"
     zero: "Ingen kontaktpersoner"
   date: 
     formats: 
@@ -177,7 +177,7 @@ da:
       if_they_accept_info: "hvis de accepterer, vil de blive tilføjet til det aspekt du inviterede dem til."
       invite_someone_to_join: "Invitér en person til Diaspora!"
       personal_message: "Personlig besked"
-      resend: "Resend"
+      resend: "Send igen"
       send_an_invitation: "Send en invitation"
       send_invitation: "Send invitation"
       to: "Til"
@@ -208,7 +208,7 @@ da:
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
     also_commented: "kommenterede også på din kontakts"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "kommenterede på en slettet post"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     index: 
@@ -331,21 +331,21 @@ da:
   profile: "Profil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Tillad folk at søge på dig indeni Diaspora"
+      edit_profile: "Rediger profil"
+      first_name: "Fornavn"
+      info_available_to: "Denne information vil være tilgenelig for alle du forbinder til på Diaspora."
+      last_name: "Efternavn"
+      update_profile: "Opdater profil"
+      your_bio: "Din bio"
+      your_birthday: "Din fødselsdag"
+      your_gender: "Dit køn"
+      your_name: "Dit navn"
+      your_photo: "Dit foto"
+      your_profile: "Din profil"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Kunne ikke opdatere profil"
+      updated: "Profil opdateret"
   registrations: 
     closed: "Der er lukket for tilmeldinger på dette Diaspora server."
     create: 
@@ -480,7 +480,7 @@ da:
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
+      connect_on_diaspora: "Forbind på Diaspora"
       connect_services: "Tilslut dine eksisterende tjenester"
       edit_profile: "Redigér din profil"
       finished: "Færdig!"
