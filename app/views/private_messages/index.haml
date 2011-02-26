@@ -3,15 +3,26 @@
 -#   the COPYRIGHT file.
 
 
-= link_to 'new message', new_private_message_path
+.span-12.last
 
-%br
-%br
-%br
+  %h2
+    .right
+      = link_to 'new message', new_private_message_path, :class => 'button'
+    Message Inbox
 
-- for message in @messages
-  %b
-    = message.author.name
-  %br
-  = link_to message.message, message
-  %hr
+
+  - if @messages.count > 0
+    .stream
+      - for message in @messages
+        .stream_element
+          .right
+            = link_to image_tag('deletelabel.png'), private_message_private_message_visibility_path(message), :method => 'delete', :confirm => t('are_you_sure')
+
+          .from
+            = message.author.name
+          %p
+            = link_to message.message, message
+
+  - else
+    %i
+      You have no messages

@@ -27,3 +27,12 @@
 %h4
   message
 = @message.message
+
+%br
+%br
+%br
+%br
+
+= link_to t('delete'), private_message_private_message_visibility_path(@message), :method => 'delete', :confirm => t('are_you_sure')
+
+
