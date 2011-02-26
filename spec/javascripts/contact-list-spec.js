@@ -9,13 +9,13 @@ describe("Contact List", function() {
         var id = '3';
         spyOn($,'ajax').andCallThrough();
         List.disconnectUser(id);
-        expect($.ajax).toHaveBeenCalledWith(
-            url: "/people/" + id,
+        expect($.ajax).toHaveBeenCalledWith({
+            url: "/contacts/" + id,
             type: "DELETE",
             success: function(){
                 $('.contact_list li[data-guid='+id+']').fadeOut(200);
               }
-          );
+        });
       });
   });
 });
