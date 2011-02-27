@@ -87,7 +87,7 @@ GEM
       activesupport (= 3.0.3)
     activesupport (3.0.3)
     addressable (2.2.2)
-    arel (2.0.8)
+    arel (2.0.9)
     aws (2.3.32)
       activesupport
       http_connection
@@ -364,9 +364,11 @@ GEM
     tilt (1.2.2)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
-    typhoeus (0.2.0)
-    tzinfo (0.3.23)
-    uuidtools (2.1.1)
+    typhoeus (0.2.4)
+      mime-types
+      mime-types
+    tzinfo (0.3.24)
+    uuidtools (2.1.2)
     vegas (0.1.8)
       rack (>= 1.0.0)
     warden (0.10.7)
