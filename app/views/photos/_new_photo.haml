@@ -30,14 +30,14 @@
        onSubmit: function(id, fileName){
         $('#file-upload').addClass("loading");
         $('#publisher').find("input[type='submit']").attr('disabled','disabled');
-        $("#publisher .options_and_submit").fadeIn(50);
+        $("div.mention_helper").fadeTo(100, 0, function() {
+          $("#publisher .options_and_submit, #fileInfo").fadeIn(50);
+        });
         $("#publisher_spinner").fadeIn(100);
        },
 
-       onComplete: function(id, fileName, responseJSON){
-        $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
-        $("#publisher_spinner").fadeOut(100);
-        $('#file-upload').removeClass("loading");
+       onComplete: function(id, fileName, responseJSON) {
+        $('#fileInfo').text(fileName + ' completed');
         var id = responseJSON.data.photo.id;
         var url = responseJSON.data.photo.thumb_small;
 
@@ -70,6 +70,15 @@
                           }
                   });
         });
+
+       },
+
+       onAllComplete: function(completed_files){
+        $('#fileInfo').delay(1800).fadeOut(200, function() {
+          $("div.mention_helper").fadeTo(100, 100);
+        });
+        $("#publisher_spinner").fadeOut(100);
+        $('#file-upload').removeClass("loading");
        }
 
    });
