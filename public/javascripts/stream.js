@@ -48,7 +48,7 @@ var Stream = {
 
     $(".new_status_message").live('ajax:loading', function(data, json, xhr) {
       $("#photodropzone").find('li').remove();
-      $("#publisher textarea").removeClass("with_attachments");
+      $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
     });
 
     $(".new_status_message").live('ajax:success', function(data, json, xhr) {

@@ -281,7 +281,7 @@ var Publisher = {
   clear: function(){
     this.autocompletion.mentionList.clear();
     $("#photodropzone").find('li').remove();
-    $("#publisher textarea").removeClass("with_attachments");
+    $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
   bindServiceIcons: function(){
     $(".service_icon").bind("click", function(evt){

@@ -46,12 +46,13 @@
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
         $('#photodropzone').append(
           "<li class='publisher_photo' style='position:relative;'>" +
-            "<img  src='" + url +"' data-id='" + id + "' />" + 
+            "<img  src='" + url +"' data-id='" + id + "' />" +
             "<div class='x'> X </div>" +
             "<div class='circle'></div>" +
           "</li>"
           );
         $('#publisher').find("input[type='submit']").removeAttr('disabled');
+        $("#publisher textarea").css('paddingBottom', $("#photodropzone").height() + 10);
         $('.x').live('click', function(){
           var photo = $(this).closest('.publisher_photo');
           photo.addClass("dim");
@@ -60,8 +61,10 @@
                   success: function() {
                             photo.fadeOut(400, function(){
                               photo.remove();
+                              $("#publisher textarea").css('paddingBottom', $("#photodropzone").height() + 10);
                               if ( $('.publisher_photo').length  == 0){
                                 $("#publisher textarea").removeClass("with_attachments");
+                                $("#publisher textarea").css('paddingBottom', '');
                               }
                             });
                           }
