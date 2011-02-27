@@ -68,6 +68,14 @@ class StatusMessage < Post
     end
   end
 
+  def mentions?(person)
+    mentioned_people.include? person
+  end
+
+  def notify_person(person)
+    self.mentions.where(:person_id => person.id).first.try(:notify_recipient)
+  end
+
   def mentioned_people_from_string
     regex = /@\{([^;]+); ([^\}]+)\}/
     identifiers = self.raw_message.scan(regex).map do |match|

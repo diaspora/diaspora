@@ -8,13 +8,11 @@ class Mention < ActiveRecord::Base
   validates_presence_of :post
   validates_presence_of :person
 
-  after_create :notify_recipient
-
   after_destroy :delete_notification
 
   def notify_recipient
     Rails.logger.info "event=mention_sent id=#{self.id} to=#{person.diaspora_handle} from=#{post.person.diaspora_handle}"
-    Notification.notify(person.owner, self, post.person) unless person.remote? or person.owner.contact_for(post.person).nil?
+    Notification.notify(person.owner, self, post.person) unless person.remote?
   end
 
 
