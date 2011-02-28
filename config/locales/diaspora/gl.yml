@@ -208,7 +208,7 @@ gl:
   no_new_notifications: "non hai novas peticións"
   notifications: 
     also_commented: "tamén comentou nos do teu contacto"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "comentou nun post eliminado"
     comment_on_post: "comentou no teu"
     deleted: "borrado"
     index: 

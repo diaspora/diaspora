@@ -207,8 +207,8 @@ de:
   next: "Nächste"
   no_new_notifications: "Keine neuen Benachrichtigungen"
   notifications: 
-    also_commented: "kommentierte ebenfalls"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "kommentierte auch %{post_author}'s"
+    also_commented_deleted: "kommentierte einen gelöschten Beitrag"
     comment_on_post: "kommentierte Deinen"
     deleted: "gelöschten"
     index: 
@@ -222,7 +222,7 @@ de:
     also_commented: 
       commented: "hat den Beitrag von %{post_author} ebenfalls kommentiert:"
       sign_in: "Melde dich an, um ihn anzuzeigen."
-      subject: "%{name} hat auch einen Kommentar hinterlassen."
+      subject: "%{name} hat den Beitrag von %{post_author} auch kommentiert."
     comment_on_post: 
       commented: "hat deinen Beitrag kommentiert:"
       sign_in: "Melde dich an, um ihn anzuzeigen."

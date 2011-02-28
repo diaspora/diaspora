@@ -222,7 +222,7 @@ fr:
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
       sign_in: "Connectez-vous pour le voir."
-      subject: "%{name} a également commenté le message de votre %{post_author}."
+      subject: "%{name} a également commenté le message de %{post_author}."
     comment_on_post: 
       commented: "a commenté votre message:"
       sign_in: "Connectez-vous pour le voir."
