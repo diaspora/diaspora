@@ -101,7 +101,11 @@ module Diaspora
 
       def disconnected_by(person)
         Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
-        remove_contact(self.contact_for(person))
+        if contact = self.contact_for(person)
+          remove_contact(contact)
+        elsif request = Request.where(:recipient_id => self.person.id, :sender_id => person.id).first
+          request.delete
+        end
       end
 
       def activate_contact(person, aspect)

@@ -244,52 +244,58 @@ describe Diaspora::UserModules::Connecting do
     end
 
     describe 'disconnecting' do
-      before do
-        connect_users(user, aspect, user2, aspect2)
+
+      describe 'disconnected_by' do
+        it 'is disconnected by another user' do
+          lambda { alice.disconnected_by bob.person }.should change {
+            alice.contacts.count }.by(-1)
+          alice.aspects.first.contacts.count.should == 0
+        end
+
+        it 'deletes incoming requests' do
+          alice.send_contact_request_to(eve.person, alice.aspects.first)
+          Request.where(:recipient_id => eve.person.id, :sender_id => alice.person.id).first.should_not be_nil
+          eve.disconnected_by(alice.person)
+          Request.where(:recipient_id => eve.person.id, :sender_id => alice.person.id).first.should be_nil
+        end
       end
 
-      it 'should disconnect the other user on the same seed' do
+      it 'disconnects a contact on the same seed' do
+        bob.aspects.first.contacts.count.should == 2
         lambda {
-          user2.disconnect user2.contact_for(user.person) }.should change {
-          user2.reload.contacts.count }.by(-1)
-        aspect2.reload.contacts.count.should == 0
-      end
-
-      it 'is disconnected by another user' do
-        lambda { user.disconnected_by user2.person }.should change {
-          user.contacts.count }.by(-1)
-        aspect.reload.contacts.count.should == 0
+          bob.disconnect bob.contact_for(alice.person) }.should change {
+          bob.contacts(true).count }.by(-1)
+        bob.aspects.first.contacts(true).count.should == 1
       end
 
       it 'should remove the contact from all aspects they are in' do
-        user.add_contact_to_aspect(
-          user.contact_for(user2.person),
-          aspect1)
-        aspect.reload.contacts.count.should == 1
-        aspect1.reload.contacts.count.should == 1
-        lambda { user.disconnected_by user2.person }.should change {
-          user.contacts.count }.by(-1)
-        aspect.reload.contacts.count.should == 0
-        aspect1.reload.contacts.count.should == 0
+        new_aspect = alice.aspects.create(:name => 'new')
+        alice.add_contact_to_aspect( alice.contact_for(bob.person), new_aspect)
+        alice.aspects.first.reload.contacts.count.should == 1
+        new_aspect.reload.contacts.count.should == 1
+        lambda { alice.disconnected_by bob.person }.should change {
+          alice.contacts.count }.by(-1)
+        alice.aspects.first.reload.contacts.count.should == 0
+        new_aspect.reload.contacts.count.should == 0
       end
 
       context 'with a post' do
         before do
           StatusMessage.delete_all
-          @message = user.post(:status_message, :message => "hi", :to => aspect.id)
+          @message = alice.post(:status_message, :message => "hi", :to => alice.aspects.first.id)
         end
 
         it "deletes the disconnected user's posts from visible_posts" do
-          user2.reload.raw_visible_posts.include?(@message).should be_true
-          user2.disconnect user2.contact_for(user.person)
-          user2.reload.raw_visible_posts.include?(@message).should be_false
+          bob.reload.raw_visible_posts.include?(@message).should be_true
+          bob.disconnect bob.contact_for(alice.person)
+          bob.reload.raw_visible_posts.include?(@message).should be_false
         end
 
         it "deletes the disconnected user's posts from the aspect's posts" do
           Post.count.should == 1
-          aspect2.reload.posts.include?(@message).should be_true
-          user2.disconnect user2.contact_for(user.person)
-          aspect2.reload.posts.include?(@message).should be_false
+          bob.aspects.first.reload.posts.include?(@message).should be_true
+          bob.disconnect bob.contact_for(alice.person)
+          bob.aspects.first.reload.posts.include?(@message).should be_false
           Post.count.should == 1
         end
       end

@@ -5,19 +5,14 @@
 require 'spec_helper'
 
 describe User do
-  let(:user) { alice }
-  let(:aspect) { user.aspects.create(:name => 'heroes') }
-  let(:user2) { eve }
-  let(:aspect2) { user2.aspects.create(:name => 'stuff') }
-
   it 'should have a key' do
-    user.encryption_key.should_not be nil
+    alice.encryption_key.should_not be nil
   end
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
       lambda {
-        new_user = Factory.create(:user, :id => user.id)
+        new_user = Factory.create(:user, :id => alice.id)
       }.should raise_error ActiveRecord::RecordNotUnique
     end
     it 'does not overwrite old users with create' do
@@ -31,11 +26,11 @@ describe User do
                          :last_name => "Hai"}
                       }
           }
-          params[:id] = user.id
+          params[:id] = alice.id
       new_user = User.build(params)
       new_user.save
       new_user.persisted?.should be_true
-      new_user.id.should_not == user.id
+      new_user.id.should_not == alice.id
     end
   end
   describe "validation" do
@@ -72,7 +67,7 @@ describe User do
       end
 
       it "requires uniqueness" do
-        duplicate_user = Factory.build(:user, :username => user.username)
+        duplicate_user = Factory.build(:user, :username => alice.username)
         duplicate_user.should_not be_valid
       end
 
@@ -83,7 +78,7 @@ describe User do
       end
 
       it "fails if the requested username is only different in case from an existing username" do
-        duplicate_user = Factory.build(:user, :username => user.username.upcase)
+        duplicate_user = Factory.build(:user, :username => alice.username.upcase)
         duplicate_user.should_not be_valid
       end
 
@@ -126,7 +121,7 @@ describe User do
       end
 
       it "requires a unique email address" do
-        duplicate_user = Factory.build(:user, :email => user.email)
+        duplicate_user = Factory.build(:user, :email => alice.email)
         duplicate_user.should_not be_valid
       end
     end
@@ -222,19 +217,15 @@ describe User do
   end
 
   describe ".find_for_authentication" do
-    before do
-      user
-      user2
-    end
     it 'finds a user' do
-      User.find_for_authentication(:username => user.username).should == user
+      User.find_for_authentication(:username => alice.username).should == alice
     end
     it "does not preserve case" do
-      User.find_for_authentication(:username => user.username.upcase).should == user
+      User.find_for_authentication(:username => alice.username.upcase).should == alice
     end
     it 'errors out when passed a non-hash' do
       lambda {
-        User.find_for_authentication(user.username)
+        User.find_for_authentication(alice.username)
       }.should raise_error
     end
   end
@@ -247,33 +238,32 @@ describe User do
       }
     end
     it 'sends a profile to their contacts' do
-      connect_users(user, aspect, user2, aspect2)
-      mailman = Postzord::Dispatch.new(user, Profile.new)
+      mailman = Postzord::Dispatch.new(alice, Profile.new)
       Postzord::Dispatch.should_receive(:new).and_return(mailman)
       mailman.should_receive(:deliver_to_local)
-      user.update_profile(@params).should be_true
+      alice.update_profile(@params).should be_true
     end
     it 'updates names' do
-      user.update_profile(@params).should be_true
-      user.reload.profile.first_name.should == 'bob'
+      alice.update_profile(@params).should be_true
+      alice.reload.profile.first_name.should == 'bob'
     end
     it 'updates image_url' do
       params = {:image_url => "http://clown.com"}
 
-      user.update_profile(params).should be_true
-      user.reload.profile.image_url.should == "http://clown.com"
+      alice.update_profile(params).should be_true
+      alice.reload.profile.image_url.should == "http://clown.com"
     end
 
     it "only pushes to non-pending contacts" do
-      connect_users(user, aspect, user2, aspect2)
+      pending "this test doesn't really test what it says it tests"
       lambda {
-        user.send_contact_request_to(Factory(:user).person, aspect)
-      }.should change(Contact.unscoped.where(:user_id => user.id), :count).by(1)
+        alice.send_contact_request_to(Factory(:user).person, alice.aspects.first)
+      }.should change(Contact.unscoped.where(:user_id => alice.id), :count).by(1)
 
       m = mock()
       m.should_receive(:post)
       Postzord::Dispatch.should_receive(:new).and_return(m)
-      user.update_profile(@params).should be_true
+      alice.update_profile(@params).should be_true
     end
     context 'passing in a photo' do
       before do
@@ -281,21 +271,21 @@ describe User do
         fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
         image = File.open(fixture_name)
         @photo = Photo.diaspora_initialize(
-                  :person => user.person, :user_file => image)
+                  :person => alice.person, :user_file => image)
         @photo.save!
         @params = {:photo => @photo}
       end
       it 'updates image_url' do
-        user.update_profile(@params).should be_true
-        user.reload.profile.image_url.should == @photo.url(:thumb_large)
-        user.profile.image_url_medium.should == @photo.url(:thumb_medium)
-        user.profile.image_url_small.should == @photo.url(:thumb_small)
+        alice.update_profile(@params).should be_true
+        alice.reload.profile.image_url.should == @photo.url(:thumb_large)
+        alice.profile.image_url_medium.should == @photo.url(:thumb_medium)
+        alice.profile.image_url_small.should == @photo.url(:thumb_small)
       end
       it 'unpends the photo' do
         @photo.pending = true
         @photo.save!
         @photo.reload
-        user.update_profile(@params).should be true
+        alice.update_profile(@params).should be true
         @photo.reload.pending.should be_false
       end
     end
@@ -303,15 +293,17 @@ describe User do
 
   context 'aspects' do
     it 'should delete an empty aspect' do
-      user.drop_aspect(aspect)
-      user.aspects(true).include?(aspect).should == false
+      empty_aspect = alice.aspects.create(:name => 'decoy')
+      alice.aspects(true).include?(empty_aspect).should == true
+      alice.drop_aspect(empty_aspect)
+      alice.aspects(true).include?(empty_aspect).should == false
     end
 
     it 'should not delete an aspect with contacts' do
-      connect_users(user, aspect, user2, aspect2)
-      aspect.reload
-      proc { user.drop_aspect(aspect) }.should raise_error /Aspect not empty/
-      user.aspects.include?(aspect).should == true
+      aspect = alice.aspects.first
+      aspect.contacts.count.should > 0
+      proc { alice.drop_aspect(aspect) }.should raise_error /Aspect not empty/
+      alice.aspects.include?(aspect).should == true
     end
   end
 
@@ -320,84 +312,96 @@ describe User do
       m = mock()
       m.should_receive(:post)
       Postzord::Dispatch.should_receive(:new).and_return(m)
-      photo = user.build_post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => aspect.id)
-      user.update_post(photo, :caption => 'hellp')
+      photo = alice.build_post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => alice.aspects.first.id)
+      alice.update_post(photo, :caption => 'hellp')
     end
   end
 
   describe 'account removal' do
     it 'should disconnect everyone' do
-      user.should_receive(:disconnect_everyone)
-      user.destroy
+      alice.should_receive(:disconnect_everyone)
+      alice.destroy
     end
 
     it 'should remove person' do
-      user.should_receive(:remove_person)
-      user.destroy
+      alice.should_receive(:remove_person)
+      alice.destroy
     end
 
     it 'should remove all aspects' do
-      aspect
       lambda {
-        user.destroy
-      }.should change{ user.aspects(true).count }.by(-2)
+        alice.destroy
+      }.should change{ alice.aspects(true).count }.by(-1)
     end
 
     describe '#remove_person' do
       it 'should remove the person object' do
-        person = user.person
-        user.destroy
+        person = alice.person
+        alice.destroy
         person.reload
         person.should be nil
       end
 
       it 'should remove the posts' do
-        message = user.post(:status_message, :message => "hi", :to => aspect.id)
-        user.reload
-        user.destroy
+        message = alice.post(:status_message, :message => "hi", :to => alice.aspects.first.id)
+        alice.reload
+        alice.destroy
         proc { message.reload }.should raise_error ActiveRecord::RecordNotFound
       end
     end
 
     describe '#disconnect_everyone' do
 
+      it 'has no error on a local friend who has deleted his account' do
+        alice.destroy
+        lambda {
+          bob.destroy
+        }.should_not raise_error
+      end
+
+      it 'has no error when the user has sent local requests' do
+        alice.send_contact_request_to(eve.person, alice.aspects.first)
+        lambda {
+          alice.destroy
+        }.should_not raise_error
+      end
+
       it 'should send retractions to remote poeple' do
-        person = user2.person
-        user2.delete
+        person = eve.person
+        eve.delete
         person.owner_id = nil
         person.save
-        user.activate_contact(user2.person, aspect)
+        alice.activate_contact(person, alice.aspects.first)
 
-        user.should_receive(:disconnect).once
-        user.destroy
+        alice.should_receive(:disconnect).once
+        alice.destroy
       end
 
       it 'should disconnect local people' do
-        connect_users(user, aspect, user2, aspect2)
         lambda {
-          user.destroy
-        }.should change{user2.reload.contacts.count}.by(-1)
+          alice.destroy
+        }.should change{bob.reload.contacts.count}.by(-1)
       end
     end
   end
 
   describe '#mail' do
     it 'enqueues a mail job' do
-      user.disable_mail = false
-      user.save
-      user.reload
+      alice.disable_mail = false
+      alice.save
+      alice.reload
 
-      Resque.should_receive(:enqueue).with(Job::MailRequestReceived, user.id, 'contactrequestid').once
-      user.mail(Job::MailRequestReceived, user.id, 'contactrequestid')
+      Resque.should_receive(:enqueue).with(Job::MailRequestReceived, alice.id, 'contactrequestid').once
+      alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job' do
-      user.disable_mail = true
-      user.save
-      user.reload
+      alice.disable_mail = true
+      alice.save
+      alice.reload
 
       Resque.should_not_receive(:enqueue)
-      user.mail(Job::MailRequestReceived, user.id, 'contactrequestid')
+      alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
     end
   end
 
