@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
-  has_many :aspects, :dependent => :destroy
+  has_many :aspects
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
@@ -66,11 +66,7 @@ class User < ActiveRecord::Base
 
   ######### Aspects ######################
   def drop_aspect(aspect)
-    if aspect.contacts.count == 0
       aspect.destroy
-    else
-      raise "Aspect not empty"
-    end
   end
 
   def move_contact(person, to_aspect, from_aspect)
@@ -287,9 +283,11 @@ class User < ActiveRecord::Base
     Contact.unscoped.where(:user_id => self.id).each { |contact|
       if contact.person.owner_id
         contact.person.owner.disconnected_by self.person
+        remove_contact(contact)
       else
         self.disconnect contact
       end
     }
+    self.aspects.delete_all
   end
 end

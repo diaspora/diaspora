@@ -180,6 +180,7 @@ GEM
       net-ssh (~> 2.0.23)
       nokogiri (~> 1.4.3.1)
       ruby-hmac
+    foreigner (0.9.1)
     formatador (0.0.16)
     fuubar (0.0.3)
       rspec (~> 2.0)
@@ -404,6 +405,7 @@ DEPENDENCIES
   fastercsv (= 1.5.4)
   fixture_builder (~> 0.2.0)
   fog (= 0.3.25)
+  foreigner (= 0.9.1)
   fuubar
   googlecharts
   haml (= 3.0.25)

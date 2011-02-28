@@ -4,14 +4,14 @@
 
 class Contact < ActiveRecord::Base
   default_scope where(:pending => false)
-  
+
   belongs_to :user
   validates_presence_of :user
 
   belongs_to :person
   validates_presence_of :person
 
-  has_many :aspect_memberships, :dependent => :delete_all
+  has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships
   validate :not_contact_for_self
   validates_uniqueness_of :person_id, :scope => :user_id

@@ -302,7 +302,7 @@ describe User do
     it 'should not delete an aspect with contacts' do
       aspect = alice.aspects.first
       aspect.contacts.count.should > 0
-      proc { alice.drop_aspect(aspect) }.should raise_error /Aspect not empty/
+      proc { alice.drop_aspect(aspect) }.should raise_error ActiveRecord::StatementInvalid
       alice.aspects.include?(aspect).should == true
     end
   end
@@ -323,6 +323,20 @@ describe User do
       alice.destroy
     end
 
+    it 'removes invitations from the user' do
+      alice.invite_user alice.aspects.first.id, 'email', 'blah@blah.blah'
+      lambda {
+        alice.destroy
+      }.should change {alice.invitations_from_me(true).count }.by(-1)
+    end
+
+    it 'removes invitations to the user' do
+      Invitation.create(:sender_id => eve.id, :recipient_id => alice.id, :aspect_id => eve.aspects.first.id)
+      lambda {
+        alice.destroy
+      }.should change {alice.invitations_to_me(true).count }.by(-1)
+    end
+
     it 'should remove person' do
       alice.should_receive(:remove_person)
       alice.destroy
@@ -332,6 +346,19 @@ describe User do
       lambda {
         alice.destroy
       }.should change{ alice.aspects(true).count }.by(-1)
+    end
+
+    it 'removes all contacts' do
+      lambda {
+        alice.destroy
+      }.should change { alice.contacts(true).count }.by(-1)
+    end
+
+    it 'removes all service connections' do
+      Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
+      lambda {
+        alice.destroy
+      }.should change { alice.services(true).count }.by(-1)
     end
 
     describe '#remove_person' do

@@ -199,6 +199,7 @@ en:
           failure: "Aspect creation failed."
       destroy:
           success: "%{name} was successfully removed."
+          failure: "%{name} is not empty and could not be removed."
       update:
           success: "Your aspect, %{name}, has been successfully edited."
           failure: "Your aspect, %{name}, had too long name to be saved."

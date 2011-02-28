@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110217044519) do
+ActiveRecord::Schema.define(:version => 20110228201109) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -475,5 +475,27 @@ ActiveRecord::Schema.define(:version => 20110217044519) do
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
   add_index "users", ["mongo_id"], :name => "index_users_on_mongo_id"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
+
+  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk"
+  add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
+
+  add_foreign_key "comments", "people", :name => "comments_person_id_fk", :dependent => :delete
+  add_foreign_key "comments", "posts", :name => "comments_post_id_fk", :dependent => :delete
+
+  add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
+
+  add_foreign_key "invitations", "users", :name => "invitations_recipient_id_fk", :column => "recipient_id", :dependent => :delete
+  add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id", :dependent => :delete
+
+  add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
+
+  add_foreign_key "posts", "people", :name => "posts_person_id_fk", :dependent => :delete
+
+  add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
+
+  add_foreign_key "requests", "people", :name => "requests_recipient_id_fk", :column => "recipient_id", :dependent => :delete
+  add_foreign_key "requests", "people", :name => "requests_sender_id_fk", :column => "sender_id", :dependent => :delete
+
+  add_foreign_key "services", "users", :name => "services_user_id_fk", :dependent => :delete
 
 end

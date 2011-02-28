@@ -10,7 +10,7 @@ describe Contact do
       @user = alice
       @user2 = bob
     end
-    it 'set to dependant delete_all' do
+    it 'deletes dependent aspect memberships' do
       lambda{
         @user.contact_for(@user2.person).destroy
       }.should change(AspectMembership, :count).by(-1)

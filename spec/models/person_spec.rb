@@ -24,12 +24,12 @@ describe Person do
       person = Factory.create(:person, :url => "https://example.com")
       person.should be_valid
     end
-    
+
     it 'should always return the correct receive url' do
       person = Factory.create(:person, :url => "https://example.com/a/bit/messed/up")
       person.receive_url.should == "https://example.com/receive/users/#{person.guid}/"
     end
-    
+
     it 'should allow ports in the url' do
       person = Factory.create(:person, :url => "https://example.com:3000/")
       person.url.should == "https://example.com:3000/"
@@ -129,6 +129,28 @@ describe Person do
 
     it "deletes all of a person's posts upon person deletion" do
       lambda {@deleter.destroy}.should change(Post, :count).by(-1)
+    end
+
+    it "deletes a person's profile" do
+      lambda {
+        @deleter.destroy
+      }.should change(Profile, :count).by(-1)
+    end
+
+    it 'deletes all requests to a person' do
+      alice.send_contact_request_to(eve.person, alice.aspects.first)
+      Request.count.should == 1
+      lambda {
+        eve.person.destroy
+      }.should change(Request, :count).by(-1)
+    end
+
+    it 'deletes all requests from a person' do
+      Request.create(:sender_id => @deleter.id, :recipient_id => alice.person.id)
+      Request.count.should == 1
+      lambda {
+        @deleter.destroy
+      }.should change(Request, :count).by(-1)
     end
 
     it "deletes a person's comments on person deletion" do

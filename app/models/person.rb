@@ -33,6 +33,8 @@ class Person < ActiveRecord::Base
   has_many :notification_actors
   has_many :notifications, :through => :notification_actors
 
+  has_many :mentions, :dependent => :destroy
+
   before_destroy :remove_all_traces
   before_validation :clean_url
 
@@ -94,7 +96,7 @@ class Person < ActiveRecord::Base
   def owns?(post)
     self == post.person
   end
-  
+
   def url
     begin
       uri = URI.parse(@attributes['url'])
@@ -188,9 +190,6 @@ class Person < ActiveRecord::Base
 
   private
   def remove_all_traces
-    Post.where(:person_id => id).delete_all
-    Comment.where(:person_id => id).delete_all
-    Contact.where(:person_id => id).delete_all
     Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
   end
 end

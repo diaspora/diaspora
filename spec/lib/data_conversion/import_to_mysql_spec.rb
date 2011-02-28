@@ -37,8 +37,8 @@ describe DataConversion::ImportToMysql do
     Mongo::Service.delete_all
 
     User.delete_all
-    Aspect.delete_all
     AspectMembership.delete_all
+    Aspect.delete_all
     Comment.delete_all
     Invitation.delete_all
     Notification.delete_all
