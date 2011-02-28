@@ -6,7 +6,7 @@
 module Job
   class MailRequestReceived < Base
     @queue = :mail
-    def self.perform_delegate(recipient_id, sender_id)
+    def self.perform_delegate(recipient_id, sender_id, target_id)
       Notifier.new_request(recipient_id, sender_id).deliver
     end
   end

@@ -5,7 +5,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
       t.integer :person_id
       t.timestamps
     end
-    
+
     add_index :notification_actors, :notification_id
     add_index :notification_actors, [:notification_id, :person_id] , :unique => true
     add_index :notification_actors, :person_id  ## if i am not mistaken we don't need this one because we won't query person.notifications
@@ -14,15 +14,15 @@ class NotificationMultiplePeople < ActiveRecord::Migration
     execute "INSERT INTO notification_actors (notification_id, person_id) " +
       " SELECT id , actor_id " +
       " FROM notifications"
-    
+
     #update the notifications to reference the post
     execute "UPDATE notifications, comments " +
               "SET notifications.target_id = comments.post_id, " +
-                "target_type = 'Post' " + 
+                "target_type = 'Post' " +
               "WHERE (notifications.target_id = comments.id " +
                 "AND (notifications.action = 'comment_on_post' " +
                 "OR notifications.action = 'also_commented'))"
-    
+
     #select all the notifications to keep
     execute "CREATE TEMPORARY TABLE keep_table " +
                "(SELECT id as keep_id, actor_id , target_type , target_id , recipient_id , action " +
@@ -49,7 +49,7 @@ class NotificationMultiplePeople < ActiveRecord::Migration
 
     #delete all the notifications that need to be deleted
     execute "DELETE notifications.* " +
-              "FROM notifications, keep_delete " + 
+              "FROM notifications, keep_delete " +
               "WHERE notifications.id != keep_delete.keep_id AND "+
                      "notifications.target_type = keep_delete.target_type AND "+
                      "notifications.target_id = keep_delete.target_id AND "+
@@ -62,10 +62,6 @@ class NotificationMultiplePeople < ActiveRecord::Migration
   end
 
   def self.down
-    remove_index :notification_actors, :notification_id
-    remove_index :notification_actors, [:notification_id, :person_id]
-    remove_index :notification_actors, :person_id
-    
-    drop_table :notification_actors
+    raise ActiveRecord::IrreversibleMigration.new
   end
 end

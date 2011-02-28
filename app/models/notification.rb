@@ -31,18 +31,7 @@ class Notification < ActiveRecord::Base
   end
 
   def email_the_user(target, actor)
-    case self.action
-    when "new_request"
-      self.recipient.mail(Job::MailRequestReceived, self.recipient_id, actor.id)
-    when "request_accepted"
-      self.recipient.mail(Job::MailRequestAcceptance, self.recipient_id, actor.id)
-    when "comment_on_post"
-      self.recipient.mail(Job::MailCommentOnPost, self.recipient_id, actor.id, target.id)
-    when "also_commented"
-      self.recipient.mail(Job::MailAlsoCommented, self.recipient_id, actor.id, target.id)
-    when "mentioned"
-      self.recipient.mail(Job::MailMentioned, self.recipient_id, actor.id, target.id)
-    end
+    self.recipient.mail(self.mail_job, self.recipient_id, actor.id, target.id)
   end
 
 private
