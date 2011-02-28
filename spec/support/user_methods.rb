@@ -18,10 +18,7 @@ class User
     fantasy_resque do
       p = build_post(class_name, opts)
       if p.save!
-        raise 'MongoMapper failed to catch a failed save' unless p.id
-
         self.aspects.reload
-        
         aspects = self.aspects_from_ids(opts[:to])
         add_to_streams(p, aspects)
         dispatch_post(p, :to => opts[:to])
@@ -34,8 +31,7 @@ class User
     fantasy_resque do
       c = build_comment(text, options)
       if c.save!
-        raise 'MongoMapper failed to catch a failed save' unless c.id
-        dispatch_comment(c)
+        Postzord::Dispatch.new(self, c).post
       end
       c
     end

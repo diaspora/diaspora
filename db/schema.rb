@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228201109) do
+ActiveRecord::Schema.define(:version => 20110228220810) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "text",                   :null => false
-    t.integer  "post_id",                :null => false
-    t.integer  "person_id",              :null => false
-    t.string   "guid",                   :null => false
-    t.text     "creator_signature"
-    t.text     "post_creator_signature"
+    t.text     "text",                    :null => false
+    t.integer  "post_id",                 :null => false
+    t.integer  "person_id",               :null => false
+    t.string   "guid",                    :null => false
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"

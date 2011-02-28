@@ -128,8 +128,7 @@ class User < ActiveRecord::Base
   end
 
   def salmon(post)
-    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    created_salmon
+    Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
   end
 
   ######## Commenting  ########
@@ -139,19 +138,14 @@ class User < ActiveRecord::Base
                           :post => options[:on])
     comment.set_guid
     #sign comment as commenter
-    comment.creator_signature = comment.sign_with_key(self.encryption_key)
+    comment.author_signature = comment.sign_with_key(self.encryption_key)
 
-    if !comment.post_id.blank? && person.owns?(comment.post)
+    if !comment.post_id.blank? && person.owns?(comment.parent)
       #sign comment as post owner
-      comment.post_creator_signature = comment.sign_with_key(self.encryption_key)
+      comment.parent_author_signature = comment.sign_with_key(self.encryption_key)
     end
 
     comment
-  end
-
-  def dispatch_comment(comment)
-    mailman = Postzord::Dispatch.new(self, comment)
-    mailman.post
   end
 
   ######### Mailer #######################

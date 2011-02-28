@@ -186,7 +186,7 @@ describe 'a user receives a post' do
         receive_with_zord(@user3, @user1.person, xml)
 
         @comment = @user3.comment('tada',:on => @post)
-        @comment.post_creator_signature = @comment.sign_with_key(@user1.encryption_key)
+        @comment.parent_author_signature = @comment.sign_with_key(@user1.encryption_key)
         @xml = @comment.to_diaspora_xml
         @comment.delete
       end
