@@ -1,33 +1,31 @@
 module NotificationsHelper
   def object_link(note)
-    target_type = note.class
-    case target_type
-    when Notifications::Mentioned
+    target_type = note.translation_key
+    if note.instance_of?(Notifications::Mentioned)
       post = Mention.find(note.target_id).post
       if post
         "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
-    when Notifications::RequestAccepted
+    elsif note.instance_of?(Notifications::RequestAccepted)
       translation(target_type)
-    when Notifications::NewRequest
+    elsif note.instance_of?(Notifications::NewRequest)
       translation(target_type)
-    when Notifications::CommentOnPost
+    elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first
       if post
         "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
-    when Notifications::AlsoCommented
+    elsif note.instance_of?(Notifications::AlsoCommented)
       post = Post.where(:id => note.target_id).first
       if post
         "#{translation(target_type, post.person.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         t('notifications.also_commented_deleted')
       end
-    else
     end
   end
 
