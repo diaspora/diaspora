@@ -13,7 +13,7 @@ SQL
     return unless bad_ids
     execute <<SQL
 DELETE FROM #{dependent_table}
-WHERE #{dependent_table}.id IN (#{bad_ids.join(',')};)
+WHERE #{dependent_table}.id IN (#{bad_ids.join(',')});
 SQL
   end
 
