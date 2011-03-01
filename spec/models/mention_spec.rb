@@ -21,7 +21,7 @@ describe Mention do
       @m.save
     end
 
-    it 'should only notify if the person is local' do 
+    it 'should only notify if the person is local' do
       m = Mention.new(:person => Factory(:person), :post => @sm)
       Notification.should_not_receive(:notify)
       m.save
@@ -44,10 +44,10 @@ describe Mention do
 
   describe '#notification_type' do
     it "returns 'mentioned'" do
-     Mention.new.notification_type.should == 'mentioned' 
+     Mention.new.notification_type.should == Notifications::Mentioned
     end
   end
-  
+
   describe 'after destroy' do
     it 'destroys a notification' do
       @user = alice

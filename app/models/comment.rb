@@ -44,9 +44,9 @@ class Comment < ActiveRecord::Base
 
   def notification_type(user, person)
     if self.post.person == user.person
-      return "comment_on_post"
+      return Notifications::CommentOnPost
     elsif self.post.comments.where(:person_id => user.person.id) != [] && self.person_id != user.person.id
-      return "also_commented"
+      return Notifications::AlsoCommented
     else
       return false
     end

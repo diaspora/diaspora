@@ -92,10 +92,10 @@ end
 Factory.define(:notification) do |n|
   n.association :recipient, :factory => :user
   n.association :target, :factory => :comment
+  n.type 'Notifications::AlsoCommented'
 
   n.after_build do |note|
     note.actors << Factory.build( :person )
-    note.action = note.target.notification_type(note.recipient, note.actors.first)
   end
 end
 

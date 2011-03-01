@@ -19,7 +19,7 @@ class Mention < ActiveRecord::Base
 
 
   def notification_type(*args)
-    'mentioned'
+    Notifications::Mentioned
   end
 
   def delete_notification

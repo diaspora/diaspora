@@ -56,9 +56,9 @@ class Request < ActiveRecord::Base
 
   def notification_type(user, person)
     if Contact.where(:user_id => user.id, :person_id => person.id).first
-      "request_accepted"
+      Notifications::RequestAccepted
     else
-      "new_request"
+      Notifications::NewRequest
     end
   end
 

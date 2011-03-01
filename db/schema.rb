@@ -318,10 +318,10 @@ ActiveRecord::Schema.define(:version => 20110228201109) do
     t.string   "target_type"
     t.integer  "target_id"
     t.integer  "recipient_id",                   :null => false
-    t.string   "action",                         :null => false
     t.boolean  "unread",       :default => true, :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "type"
   end
 
   add_index "notifications", ["recipient_id"], :name => "index_notifications_on_recipient_id"

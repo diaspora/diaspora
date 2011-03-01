@@ -67,7 +67,7 @@ describe Diaspora::UserModules::Connecting do
       end
 
       it 'enqueues a mail job' do
-        Resque.should_receive(:enqueue).with(Job::MailRequestReceived, user.id, person.id)
+        Resque.should_receive(:enqueue).with(Job::MailRequestReceived, user.id, person.id, anything)
         zord = Postzord::Receiver.new(user, :object => @r, :person => person)
         zord.receive_object
       end
@@ -87,7 +87,7 @@ describe Diaspora::UserModules::Connecting do
         Request.where(:sender_id => user2.person.id, :recipient_id => user.person.id).should be_empty
       end
       it 'enqueues a mail job' do
-        Resque.should_receive(:enqueue).with(Job::MailRequestAcceptance, user.id, user2.person.id).once
+        Resque.should_receive(:enqueue).with(Job::MailRequestAcceptance, user.id, user2.person.id, nil).once
         zord = Postzord::Receiver.new(user, :object => @acceptance, :person => user2.person)
         zord.receive_object
       end

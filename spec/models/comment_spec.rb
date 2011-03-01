@@ -20,7 +20,7 @@ describe Comment do
 
     it "returns 'comment_on_post' if the comment is on a post you own" do
       comment = bob.comment("why so formal?", :on => @alices_post)
-      comment.notification_type(alice, bob.person).should == 'comment_on_post'
+      comment.notification_type(alice, bob.person).should == Notifications::CommentOnPost
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
@@ -39,7 +39,7 @@ describe Comment do
       end
 
       it "returns 'also_commented' if another person commented on a post you commented on" do
-        @comment.notification_type(bob, alice.person).should == 'also_commented'
+        @comment.notification_type(bob, alice.person).should == Notifications::AlsoCommented
       end
     end
   end

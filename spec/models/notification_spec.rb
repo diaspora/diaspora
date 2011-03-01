@@ -13,7 +13,7 @@ describe Notification do
     @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:target_id => @sm.id,
       :target_type => @sm.class.name,
-      :action => "comment_on_post",
+      :type => 'Notifications::CommentOnPost',
       :actors => [@person],
       :recipient_id => @user.id}
     @note = Notification.new(@opts)
@@ -61,11 +61,10 @@ describe Notification do
       it 'sockets to the recipient' do
         opts = {:target_id => @request.id,
           :target_type => "Request",
-          :action => @request.notification_type(@user, @person),
           :actors => [@person],
           :recipient_id => @user.id}
 
-        n = Notification.create(opts)
+        n = @request.notification_type(@user, @person).create(opts)
         Notification.stub!(:make_notification).and_return n
 
         n.should_receive(:socket_to_user).once
@@ -75,15 +74,14 @@ describe Notification do
       describe '#emails_the_user' do
         it 'calls mail' do
           opts = {
-            :action => "new_request",
             :actors => [@person],
             :recipient_id => @user.id}
 
-            n = Notification.new(opts)
+            n = Notifications::NewRequest.new(opts)
             n.stub!(:recipient).and_return @user
 
             @user.should_receive(:mail)
-            n.email_the_user("mock", @person)
+            n.email_the_user(@request, @person)
         end
       end
 

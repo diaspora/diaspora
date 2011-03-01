@@ -8,8 +8,8 @@ class NotificationSubclasses < ActiveRecord::Migration
       :mentioned => 'Notifications::Mentioned'
     }.each_pair do |key, value|
       execute("UPDATE notifications
-              set type = #{value}
-              where action = #{key.to_s}")
+              set type = '#{value}'
+              where action = '#{key.to_s}'")
     end
     remove_column :notifications, :action
   end
@@ -23,8 +23,9 @@ class NotificationSubclasses < ActiveRecord::Migration
       :mentioned => 'Notifications::Mentioned'
     }.each_pair do |key, value|
       execute("UPDATE notifications
-              set action = #{key.to_s}
-              where type = #{value}")
+              set action = '#{key.to_s}'
+              where type = '#{value}'")
+    end
     remove_column :notifications, :type
   end
 end

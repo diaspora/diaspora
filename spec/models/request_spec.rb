@@ -56,11 +56,11 @@ describe Request do
     end
     it "returns 'request_accepted' if there is a pending contact" do
       Contact.create(:user_id => @user.id, :person_id => @person.id)
-      @request.notification_type(@user, @person).should  == "request_accepted"
+      @request.notification_type(@user, @person).should  == Notifications::RequestAccepted
     end
 
     it 'returns new_request if there is not a pending contact' do
-      @request.notification_type(@user, @person).should  == "new_request"
+      @request.notification_type(@user, @person).should  == Notifications::NewRequest
     end
   end
 
