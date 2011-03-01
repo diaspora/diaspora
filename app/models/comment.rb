@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
   xml_attr :diaspora_handle
 
   belongs_to :post, :touch => true
-  belongs_to :person
+  belongs_to :author, :class_name => 'Person'
 
   validates_presence_of :text, :post
   validates_length_of :text, :maximum => 2500

@@ -1,7 +1,9 @@
 class Message < ActiveRecord::Base
   include ROXML
+
   include Diaspora::Guid
   include Diaspora::Webhooks
+  include Diaspora::Relayable
 
   xml_attr :text
   xml_attr :created_at
@@ -10,6 +12,16 @@ class Message < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation
+
+  after_initialize do
+    #sign comment as commenter
+    self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
+
+    if !self.parent.blank? &&  self.parent.author.person.owns?(self.parent)
+      #sign comment as post owner
+      self.parent_author_signature = self.sign_with_key( self.parent.author.owner.encryption_key) if self.parent.author.owner
+    end
+  end
 
   def diaspora_handle
     self.author.diaspora_handle
@@ -29,15 +41,15 @@ class Message < ActiveRecord::Base
     end
   end
 
-  def receive(user, person)
-    Message.find_or_create_by_guid(self.attributes)
+  def parent_class
+    Conversation
   end
 
-  def subscribers(user)
-    if self.conversation.author == user.person
-      p = self.conversation.subscribers(user)
-    else
-      p = self.conversation.author
-    end
+  def parent
+    self.conversation
+  end
+
+  def parent= parent
+    self.conversation = parent
   end
 end

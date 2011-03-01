@@ -1,16 +1,37 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 require 'spec_helper'
+require File.join(Rails.root, "spec", "lib", "diaspora", "relayable_spec")
 
 describe Message do
   before do
     @user1 = alice
     @user2 = bob
 
-    @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff" }
+    @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff",
+                     :message => {:author => @user1.person, :text => "stuff"} }
     @cnv = Conversation.create(@create_hash)
-    @message = Message.new(:author => @user1.person, :text => "stuff")
-    @cnv.messages << @message
-    @message.save
+    @message = @cnv.messages.first
     @xml = @message.to_diaspora_xml
+  end
+
+  describe '#after_initialize' do
+    before do
+      @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff"}
+
+      @cnv = Conversation.new(@create_hash)
+      @cnv.save
+      @msg = Message.new(:text => "21312", :conversation => @cnv)
+    end
+    it 'signs the message' do
+      @msg.author_signature.should_not be_blank
+    end
+
+    it 'signs the message author if author of conversation' do
+      @msg.parent_author_signature.should_not be_blank
+    end
   end
 
   describe 'serialization' do
@@ -30,24 +51,32 @@ describe Message do
     end
   end
 
-  describe '#subscribers' do
-    it 'returns the recipients for the post owner' do
-      @message.subscribers(@user1).should == @user1.contacts.map{|c| c.person}
-    end
-    it 'returns the conversation author for the post owner' do
-      @message.subscribers(@user2).should == @user1.person
-    end
-  end
-  
-  describe '#receive' do
+  describe 'it is relayable' do
     before do
-      Message.delete_all
-    end
+      @local_luke, @local_leia, @remote_raphael = set_up_friends
 
-    it 'creates a message' do
-      lambda{
-        Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
-      }.should change(Message, :count).by(1)
+      cnv_hash = {:subject => 'cool story, bro', :participant_ids => [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
+                  :message => {:author => @remote_raphael, :text => 'hey'}}
+
+      @remote_parent = Conversation.create(cnv_hash.dup)
+
+      cnv_hash[:message][:author] = @local_luke.person
+      @local_parent = Conversation.create(cnv_hash)
+
+      msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}
+      @object_by_parent_author = Message.create(msg_hash.dup)
+      Postzord::Dispatch.new(@local_luke, @object_by_parent_author).post
+
+      msg_hash[:author] = @local_leia.person
+      @object_by_recipient = Message.create(msg_hash.dup)
+
+      @dup_object_by_parent_author = @object_by_parent_author.dup
+
+      msg_hash[:author] = @local_luke.person
+      msg_hash[:conversation] = @remote_parent
+      @object_on_remote_parent = Message.create(msg_hash)
+      Postzord::Dispatch.new(@local_luke, @object_on_remote_parent).post
     end
+    it_should_behave_like 'it is relayable'
   end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228220810) do
+ActiveRecord::Schema.define(:version => 20110228233419) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -124,12 +124,14 @@ ActiveRecord::Schema.define(:version => 20110228220810) do
   add_index "mentions", ["post_id"], :name => "index_mentions_on_post_id"
 
   create_table "messages", :force => true do |t|
-    t.integer  "conversation_id", :null => false
-    t.integer  "author_id",       :null => false
-    t.string   "guid",            :null => false
-    t.text     "text",            :null => false
+    t.integer  "conversation_id",         :null => false
+    t.integer  "author_id",               :null => false
+    t.string   "guid",                    :null => false
+    t.text     "text",                    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"

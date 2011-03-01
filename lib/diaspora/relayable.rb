@@ -25,15 +25,15 @@ module Diaspora
       if user.owns?(self.parent)
         self.parent.subscribers(user)
       elsif user.owns?(self)
-        [self.parent.person]
+        [self.parent.author]
       end
     end
 
     def receive(user, person)
       object = self.class.where(:guid => self.guid).first || self
 
-      unless object.parent.person == user.person || object.verify_parent_author_signature
-        Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.person.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
+      unless object.parent.author == user.person || object.verify_parent_author_signature
+        Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{user.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
         return
       end
 
@@ -49,7 +49,7 @@ module Diaspora
         Postzord::Dispatch.new(user, object).post
       end
 
-      object.socket_to_user(user, :aspect_ids => object.parent.aspect_ids)
+      object.socket_to_user(user, :aspect_ids => object.parent.aspect_ids) if object.respond_to? :socket_to_user
       object
     end
 
@@ -58,7 +58,7 @@ module Diaspora
     end
 
     def signature_valid?
-      verify_signature(creator_signature, person)
+      verify_signature(creator_signature, self.author)
     end
 
     def verify_signature(signature, person)
@@ -89,7 +89,7 @@ module Diaspora
       accessors = self.class.roxml_attrs.collect do |definition|
         definition.accessor
       end
-      ['person', 'author_signature', 'parent_author_signature'].each do |acc|
+      ['author', 'author_signature', 'parent_author_signature'].each do |acc|
         accessors.delete acc
       end
       accessors
@@ -102,11 +102,11 @@ module Diaspora
     end
 
     def verify_parent_author_signature
-      verify_signature(self.parent_author_signature, parent.person)
+      verify_signature(self.parent_author_signature, self.parent.author)
     end
 
     def signature_valid?
-      verify_signature(self.author_signature, person)
+      verify_signature(self.author_signature, self.author)
     end
 
 

@@ -12,6 +12,15 @@ class Conversation < ActiveRecord::Base
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
   has_many :messages, :order => 'created_at ASC'
 
+  def self.create(opts={})
+    msg_opts = opts.delete(:message)
+
+    cnv = super(opts)
+    message = Message.new(msg_opts.merge({:conversation_id => cnv.id}))
+    message.save
+    cnv
+  end
+
   def author
     self.messages.first.author
   end
@@ -29,10 +38,11 @@ class Conversation < ActiveRecord::Base
       self.participants << Webfinger.new(handle).fetch
     end
   end
+
   def subscribers(user)
     self.recipients
   end
-  
+
   def receive(user, person)
     cnv = Conversation.find_or_create_by_guid(self.attributes)
     self.messages.each do |msg|
