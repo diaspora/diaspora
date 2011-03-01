@@ -341,7 +341,8 @@ describe 'a user receives a post' do
     #Create person
     person = @user2.person
     id = person.id
-    person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com")
+    person.profile.delete
+    person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com", :person_id => person.id)
     person.save
 
     #Cache profile for checking against marshaled profile
