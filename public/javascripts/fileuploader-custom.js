@@ -5,6 +5,7 @@
  * © 2010 Andrew Valums ( andrew(at)valums.com )
  *
  * Licensed under GNU GPL 2 or later, see license.txt.
+ * Modified by Diaspora
  */
 
 //
