@@ -22,13 +22,13 @@ module ApplicationHelper
 
   def aspects_with_post aspects, post
     aspects.select do |aspect|
-      aspect.post_ids.include?(post.id)
+      aspect.post_visibilities.detect{|pv| pv.post_id == post.id}
     end
   end
 
   def aspects_without_post aspects, post
     aspects.reject do |aspect|
-      aspect.post_ids.include?(post.id)
+      aspect.post_visibilities.detect{|pv| pv.post_id == post.id}
     end
   end
 

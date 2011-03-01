@@ -26,7 +26,7 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       @aspect = nil
       @object_aspect_ids = []
-      @all_aspects = current_user.aspects.includes(:aspect_memberships)
+      @all_aspects = current_user.aspects.includes(:aspect_memberships, :post_visibilities)
       @notification_count = Notification.for(current_user, :unread =>true).count
       @user_id = current_user.id
     end
