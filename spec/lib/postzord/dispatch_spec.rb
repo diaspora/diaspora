@@ -134,7 +134,7 @@ describe Postzord::Dispatch do
           end
           context "remote raphael" do
             before do
-              @comment = Factory.build(:comment, :person => @remote_raphael, :post => @post)
+              @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
               @comment.save
               @mailman = Postzord::Dispatch.new(@local_luke, @comment)
             end

@@ -85,8 +85,8 @@ end
 
 Factory.define(:comment) do |comment|
   comment.sequence(:text) {|n| "#{n} cats"}
-  comment.association(:person)
-  comment.association :post, :factory => :status_message
+  comment.association(:author, :factory => :person)
+  comment.association(:post, :factory => :status_message)
 end
 
 Factory.define(:notification) do |n|

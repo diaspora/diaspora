@@ -20,6 +20,7 @@ class CreateConversationsAndMessagesAndVisibilities < ActiveRecord::Migration
     create_table :conversations do |t|
       t.string :subject
       t.string :guid, :null => false
+      t.integer :author_id, :null => false
 
       t.timestamps
     end

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "lib", "diaspora", "relayable_spec")
+require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
 
 describe Comment do
   before do
@@ -80,7 +80,7 @@ describe Comment do
         @marshalled_comment = Comment.from_xml(@xml)
       end
       it 'marshals the author' do
-        @marshalled_comment.person.should == @commenter.person
+        @marshalled_comment.author.should == @commenter.person
       end
       it 'marshals the post' do
         @marshalled_comment.post.should == @post

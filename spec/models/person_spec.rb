@@ -154,8 +154,8 @@ describe Person do
     end
 
     it "deletes a person's comments on person deletion" do
-      Factory.create(:comment, :person_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you",     :post => @other_status)
-      Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => @other_status)
+      Factory.create(:comment, :author_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you",     :post => @other_status)
+      Factory.create(:comment, :author_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => @other_status)
 
       lambda {@deleter.destroy}.should change(Comment, :count).by(-1)
     end

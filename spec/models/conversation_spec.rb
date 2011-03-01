@@ -9,14 +9,8 @@ describe Conversation do
     @user1 = alice
     @user2 = bob
 
-    @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff",
-                     :message => {:author => @user1.person, :text => 'hey'}}
-=begin
-    @message = Message.new(:author => @user1.person, :text => "stuff")
-    @cnv.messages << @message
-    @message.save
-    @xml = @cnv.to_diaspora_xml
-=end
+    @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+                     :subject => "cool stuff", :text => 'hey'}
   end
 
   it 'creates a message on create' do

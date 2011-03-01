@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110228233419) do
+ActiveRecord::Schema.define(:version => 20110301014507) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(:version => 20110228233419) do
   create_table "comments", :force => true do |t|
     t.text     "text",                    :null => false
     t.integer  "post_id",                 :null => false
-    t.integer  "person_id",               :null => false
+    t.integer  "author_id",               :null => false
     t.string   "guid",                    :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
@@ -51,9 +51,9 @@ ActiveRecord::Schema.define(:version => 20110228233419) do
     t.string   "mongo_id"
   end
 
+  add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
   add_index "comments", ["mongo_id"], :name => "index_comments_on_mongo_id"
-  add_index "comments", ["person_id"], :name => "index_comments_on_person_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
@@ -85,6 +85,7 @@ ActiveRecord::Schema.define(:version => 20110228233419) do
   create_table "conversations", :force => true do |t|
     t.string   "subject"
     t.string   "guid",       :null => false
+    t.integer  "author_id",  :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -511,7 +512,7 @@ ActiveRecord::Schema.define(:version => 20110228233419) do
   add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk"
   add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
 
-  add_foreign_key "comments", "people", :name => "comments_person_id_fk", :dependent => :delete
+  add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
   add_foreign_key "comments", "posts", :name => "comments_post_id_fk", :dependent => :delete
 
   add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete

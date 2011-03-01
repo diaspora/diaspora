@@ -29,16 +29,16 @@ class Comment < ActiveRecord::Base
     self.text.strip! unless self.text.nil?
   end
   def diaspora_handle
-    person.diaspora_handle
+    self.author.diaspora_handle
   end
   def diaspora_handle= nh
-    self.person = Webfinger.new(nh).fetch
+    self.author = Webfinger.new(nh).fetch
   end
 
   def notification_type(user, person)
-    if self.post.person == user.person
+    if self.post.author == user.person
       return Notifications::CommentOnPost
-    elsif self.post.comments.where(:person_id => user.person.id) != [] && self.person_id != user.person.id
+    elsif self.post.comments.where(:author_id => user.person.id) != [] && self.author_id != user.person.id
       return Notifications::AlsoCommented
     else
       return false

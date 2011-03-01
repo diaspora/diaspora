@@ -13,14 +13,16 @@ class Message < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation
 
-  after_initialize do
+  after_create do
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner
 
-    if !self.parent.blank? &&  self.parent.author.person.owns?(self.parent)
+    if !self.parent.blank? &&  self.author.owns?(self.parent)
       #sign comment as post owner
       self.parent_author_signature = self.sign_with_key( self.parent.author.owner.encryption_key) if self.parent.author.owner
     end
+    self.save!
+    self
   end
 
   def diaspora_handle

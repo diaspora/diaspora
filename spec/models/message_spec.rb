@@ -3,34 +3,28 @@
 #   the COPYRIGHT file.
 
 require 'spec_helper'
-require File.join(Rails.root, "spec", "lib", "diaspora", "relayable_spec")
+require File.join(Rails.root, "spec", "shared_behaviors", "relayable")
 
 describe Message do
   before do
     @user1 = alice
     @user2 = bob
 
-    @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff",
-                     :message => {:author => @user1.person, :text => "stuff"} }
+    @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+                     :subject => "cool stuff", :text => "stuff"}
+
     @cnv = Conversation.create(@create_hash)
     @message = @cnv.messages.first
     @xml = @message.to_diaspora_xml
   end
 
-  describe '#after_initialize' do
-    before do
-      @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id], :subject => "cool stuff"}
-
-      @cnv = Conversation.new(@create_hash)
-      @cnv.save
-      @msg = Message.new(:text => "21312", :conversation => @cnv)
-    end
+  describe '#before_create' do
     it 'signs the message' do
-      @msg.author_signature.should_not be_blank
+      @message.author_signature.should_not be_blank
     end
 
     it 'signs the message author if author of conversation' do
-      @msg.parent_author_signature.should_not be_blank
+      @message.parent_author_signature.should_not be_blank
     end
   end
 
@@ -46,6 +40,7 @@ describe Message do
     it 'serializes the created_at time' do
       @xml.should include(@message.created_at.to_s)
     end
+
     it 'serializes the conversation_guid time' do
       @xml.should include(@message.conversation.guid)
     end
@@ -55,12 +50,12 @@ describe Message do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
 
-      cnv_hash = {:subject => 'cool story, bro', :participant_ids => [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
-                  :message => {:author => @remote_raphael, :text => 'hey'}}
+      cnv_hash = {:author => @remote_raphael, :participant_ids => [@local_luke.person, @local_leia.person, @remote_raphael].map(&:id),
+                  :subject => 'cool story, bro', :text => 'hey'}
 
       @remote_parent = Conversation.create(cnv_hash.dup)
 
-      cnv_hash[:message][:author] = @local_luke.person
+      cnv_hash[:author] = @local_luke.person
       @local_parent = Conversation.create(cnv_hash)
 
       msg_hash = {:author => @local_luke.person, :text => 'yo', :conversation => @local_parent}

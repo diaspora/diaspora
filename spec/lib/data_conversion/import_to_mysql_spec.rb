@@ -412,7 +412,7 @@ describe DataConversion::ImportToMysql do
         @migrator.process_raw_comments
         comment = Comment.first
         comment.post_id.should == Post.where(:mongo_id => "4d2b6ebecc8cb43cc2000029").first.id
-        comment.person_id.should == Person.where(:mongo_id => "4d2b6eb7cc8cb43cc2000017").first.id
+        comment.author_id.should == Person.where(:mongo_id => "4d2b6eb7cc8cb43cc2000017").first.id
       end
     end
     describe "notifications" do

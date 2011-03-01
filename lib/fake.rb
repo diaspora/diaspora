@@ -6,22 +6,22 @@ class PostsFake
   end
 
   def initialize(posts)
-    person_ids = []
-    posts.each do |p| 
-      person_ids << p.person_id
+    author_ids = []
+    posts.each do |p|
+      author_ids << p.person_id
       p.comments.each do |c|
-        person_ids << c.person_id
+        author_ids << c.author_id
       end
     end
 
-    people = Person.where(:id => person_ids).includes(:profile)
+    people = Person.where(:id => author_ids).includes(:profile)
     @people_hash = {}
     people.each{|person| @people_hash[person.id] = person}
 
     @post_fakes = posts.map do |post|
-      f = Fake.new(post, self) 
+      f = Fake.new(post, self)
       f.comments = post.comments.map do |comment|
-        Fake.new(comment, self) 
+        Fake.new(comment, self)
       end
       f
     end

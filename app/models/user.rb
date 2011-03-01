@@ -133,7 +133,7 @@ class User < ActiveRecord::Base
 
   ######## Commenting  ########
   def build_comment(text, options = {})
-    comment = Comment.new(:person_id => self.person.id,
+    comment = Comment.new(:author_id => self.person.id,
                           :text => text,
                           :post => options[:on])
     comment.set_guid

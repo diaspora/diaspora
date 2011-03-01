@@ -11,9 +11,9 @@ describe ConversationVisibilitiesController do
     @user1 = alice
     sign_in :user, @user1
 
-    @create_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-    :subject => "cool stuff" }
-    @conversation = Conversation.create(@create_hash)
+    hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+             :subject => 'not spam', :text => 'cool stuff'}
+    @conversation = Conversation.create(hash)
   end
 
   describe '#destroy' do

@@ -197,7 +197,7 @@ describe 'a user receives a post' do
         post_in_db.comments.should == []
         receive_with_zord(@user2, @user1.person, @xml)
 
-        post_in_db.comments(true).first.person.should == @user3.person
+        post_in_db.comments(true).first.author.should == @user3.person
       end
 
       it 'should correctly marshal a stranger for the downstream user' do
@@ -225,7 +225,7 @@ describe 'a user receives a post' do
 
         receive_with_zord(@user2, @user1.person, @xml)
 
-        post_in_db.comments(true).first.person.should == remote_person
+        post_in_db.comments(true).first.author.should == remote_person
       end
     end
 

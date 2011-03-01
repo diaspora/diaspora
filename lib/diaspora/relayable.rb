@@ -89,7 +89,7 @@ module Diaspora
       accessors = self.class.roxml_attrs.collect do |definition|
         definition.accessor
       end
-      ['author', 'author_signature', 'parent_author_signature'].each do |acc|
+      ['author_signature', 'parent_author_signature'].each do |acc|
         accessors.delete acc
       end
       accessors

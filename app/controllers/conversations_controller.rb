@@ -9,20 +9,14 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    person_ids = Contact.where(:id => params[:conversation][:contact_ids]).map! do |contact|
+    person_ids = Contact.where(:id => params[:conversation].delete(:contact_ids)).map! do |contact|
       contact.person_id
     end
 
-    person_ids = person_ids | [current_user.person.id]
+    params[:conversation][:participant_ids] = person_ids | [current_user.person.id]
+    params[:conversation][:author] = current_user.person
 
-    @conversation = Conversation.new(:subject => params[:conversation][:subject], :participant_ids => person_ids)
-
-    if @conversation.save
-      @message = Message.new(:text => params[:message][:text], :author => current_user.person, :conversation_id => @conversation.id )
-      unless @message.save
-        @conversation.destroy
-      end
-    end
+    @conversation = Conversation.create(params[:conversation])
 
     respond_with @conversation
   end

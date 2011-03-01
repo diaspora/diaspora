@@ -61,6 +61,7 @@ describe Diaspora::Relayable do
         end
 
         it 'sockets to the user' do
+          pending
           @object_by_recipient.should_receive(:socket_to_user).exactly(3).times
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end

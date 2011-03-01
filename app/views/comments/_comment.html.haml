@@ -3,10 +3,10 @@
 -#   the COPYRIGHT file.
 
 %li.comment{:data=>{:guid => comment.id}, :class => ("hidden" if(defined? hidden))}
-  = person_image_link(comment.person)
+  = person_image_link(comment.author)
   .content
     %strong
-      = person_link(comment.person)
+      = person_link(comment.author)
 
     = markdownify(comment.text, :youtube_maps => comment.youtube_titles)
 

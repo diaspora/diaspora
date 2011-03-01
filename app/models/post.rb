@@ -24,6 +24,13 @@ class Post < ActiveRecord::Base
 
   after_destroy :propogate_retraction
 
+  def author
+    self.person
+  end
+  def author= author
+    self.person = author
+  end
+
   def user_refs
     self.post_visibilities.count
   end

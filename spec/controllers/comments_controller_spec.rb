@@ -41,11 +41,11 @@ describe CommentsController do
         post :create, comment_hash
         response.code.should == '201'
       end
-      it "doesn't overwrite person_id" do
+      it "doesn't overwrite author_id" do
         new_user = Factory.create(:user)
-        comment_hash[:person_id] = new_user.person.id.to_s
+        comment_hash[:author_id] = new_user.person.id.to_s
         post :create, comment_hash
-        Comment.find_by_text(comment_hash[:text]).person_id.should == @user1.person.id
+        Comment.find_by_text(comment_hash[:text]).author_id.should == @user1.person.id
       end
       it "doesn't overwrite id" do
         old_comment = @user1.comment("hello", :on => @post)

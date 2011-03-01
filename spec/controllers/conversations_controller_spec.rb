@@ -21,14 +21,12 @@ describe ConversationsController do
       response.should be_success
     end
 
-    it 'retrieves all messages for a user' do
-      @conversation_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-                             :subject => 'not spam' }
-      @message_hash = {:author => @user1.person, :text => 'cool stuff'}
+    it 'retrieves all conversations for a user' do
+      hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+               :subject => 'not spam', :text => 'cool stuff'}
 
       3.times do
-        cnv = Conversation.create(@conversation_hash)
-        Message.create(@message_hash.merge({:conversation_id => cnv.id}))
+        cnv = Conversation.create(hash)
       end
 
       get :index
@@ -38,34 +36,38 @@ describe ConversationsController do
 
   describe '#create' do
     before do
-     @message_hash = {:conversation => {
-                    :contact_ids => [@user1.contacts.first.id],
-                    :subject => "secret stuff"},
-                    :message => {:text => "text"}
-                    }
+     @hash = {:conversation => {
+                :contact_ids => [@user1.contacts.first.id],
+                :subject => "secret stuff",
+                :text => 'text'}}
     end
 
     it 'creates a conversation' do
       lambda {
-        post :create, @message_hash
+        post :create, @hash
       }.should change(Conversation, :count).by(1)
     end
 
     it 'creates a message' do
       lambda {
-        post :create, @message_hash
+        post :create, @hash
       }.should change(Message, :count).by(1)
+    end
+
+    it 'sets the author to the current_user' do
+      pending
+      @hash[:author] = Factory.create(:user)
+      post :create, @hash
+      Message.first.author.should == @user1.person
+      Conversation.first.author.should == @user1.person
     end
   end
 
   describe '#show' do
     before do
-      conversation_hash = { :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-                             :subject => 'not spam' }
-      message_hash = {:author => @user1.person, :text => 'cool stuff'}
-
-      @conversation = Conversation.create(conversation_hash)
-      @message = Message.create(message_hash.merge({:conversation_id => @conversation.id}))
+      hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+               :subject => 'not spam', :text => 'cool stuff'}
+      @conversation = Conversation.create(hash)
     end
 
     it 'succeeds' do
