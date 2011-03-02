@@ -4,7 +4,7 @@ class AddContactsVisible < ActiveRecord::Migration
     add_index :aspects, [:user_id, :contacts_visible]
 
     ActiveRecord::Base.connection.execute <<-SQL
-    UPDATE `aspects`
+    UPDATE aspects
       SET contacts_visible = false
       WHERE contacts_visible IS NULL
     SQL
