@@ -16,7 +16,7 @@ class AspectsController < ApplicationController
       @selected_contacts.uniq!
     else
       @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
-      @selected_contacts = current_user.contacts
+      @selected_contacts = current_user.contacts.includes(:person => :profile)
     end
 
     # redirect to signup
