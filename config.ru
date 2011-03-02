@@ -7,5 +7,7 @@
 require ::File.expand_path('../config/environment',  __FILE__)
 require ::File.expand_path('../lib/chrome_frame', __FILE__)
 
+require 'memprof/middleware'
+use Memprof::Middleware
 use Rack::ChromeFrame, :minimum => 8
 run Diaspora::Application
