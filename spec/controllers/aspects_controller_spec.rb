@@ -53,10 +53,6 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it "assigns @contacts to all the user's contacts" do
-      get :index
-      assigns[:contacts].map{|c| c.id}.should == @user.contacts.map{|c| c.id}
-    end
     it "generates a jasmine fixture" do
       get :index
       save_fixture(html_for("body"), "aspects_index")

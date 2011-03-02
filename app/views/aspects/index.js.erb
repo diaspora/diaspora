@@ -1,5 +1,5 @@
 $('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :aspect => @aspect, :aspect_ids => @aspect_ids, :posts => @posts, :fakes => @fakes)) %>");
-$('#aspect_listings').html("<%= escape_javascript(render('aspects/aspect_listings', :aspects => @aspects, :contacts => @contacts)) %>");
+$('#aspect_listings').html("<%= escape_javascript(render('aspects/aspect_listings', :aspects => @aspects)) %>");
 $('a[rel*=facebox]').facebox();
 
 $(document).ready(function() {

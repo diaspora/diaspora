@@ -36,7 +36,7 @@ class AspectsController < ApplicationController
                :page => params[:page], :per_page => 15, :order => sort_order + ' DESC')
       @fakes = PostsFake.new(@posts)
 
-      @contacts = current_user.contacts.includes(:person => :profile)
+      @contact_count = current_user.contacts.count
 
       @aspect = :all unless params[:a_ids]
       @aspect ||= @aspects.first #used in mobile
