@@ -101,8 +101,8 @@ describe Person do
   end
 
   it '#owns? posts' do
-    person_message = Factory.create(:status_message, :person => @person)
-    person_two =     Factory.create(:person)
+    person_message = Factory.create(:status_message, :author => @person)
+    person_two = Factory.create(:person)
 
     @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
@@ -111,8 +111,8 @@ describe Person do
   describe '#remove_all_traces' do
     before do
       @deleter = Factory(:person)
-      @status = Factory.create(:status_message, :person => @deleter)
-      @other_status = Factory.create(:status_message, :person => @person)
+      @status = Factory.create(:status_message, :author => @deleter)
+      @other_status = Factory.create(:status_message, :author => @person)
     end
 
     it "deletes all notifications from a person's actions" do

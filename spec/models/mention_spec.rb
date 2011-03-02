@@ -17,7 +17,7 @@ describe Mention do
 
     end
     it 'notifies the person being mention' do
-      Notification.should_receive(:notify).with(@user, @m, @sm.person)
+      Notification.should_receive(:notify).with(@user, @m, @sm.author)
       @m.save
     end
 

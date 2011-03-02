@@ -87,7 +87,7 @@ describe Notifier do
       @sm =  Factory(:status_message)
       @m  = Mention.create(:person => @user.person, :post=> @sm)
 
-      @mail = Notifier.mentioned(@user.id, @sm.person.id, @m.id)
+      @mail = Notifier.mentioned(@user.id, @sm.author.id, @m.id)
     end
     it 'goes to the right person' do
       @mail.to.should == [@user.email]
@@ -98,7 +98,7 @@ describe Notifier do
     end
 
     it 'has the name of person mentioning in the body' do
-      @mail.body.encoded.include?(@sm.person.name).should be true
+      @mail.body.encoded.include?(@sm.author.name).should be true
     end
 
     it 'has the post text in the body' do

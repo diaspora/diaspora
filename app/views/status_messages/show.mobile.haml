@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 #show_content{:data=>{:guid=>@status_message.id}}
-  = render 'shared/author_info', :person => @status_message.person, :post => @status_message
+  = render 'shared/author_info', :person => @status_message.author, :post => @status_message
 
   %p
     = markdownify(@status_message.message, :youtube_maps => @status_message[:youtube_titles])

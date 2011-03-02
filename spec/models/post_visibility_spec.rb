@@ -6,7 +6,7 @@ describe PostVisibility do
     @aspect = @user.aspects.create(:name => 'Boozers')
 
     @person = Factory(:person)
-    @post = Factory(:status_message, :person => @person)
+    @post = Factory(:status_message, :author => @person)
   end
   it 'has an aspect' do
     pv = PostVisibility.new(:aspect => @aspect)

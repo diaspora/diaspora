@@ -115,35 +115,29 @@ describe 'a user receives a post' do
       @user1.raw_visible_posts.should_not include @status_message
     end
 
-    it 'deletes a post if the noone links to it' do
-      person = Factory(:person)
-      @user1.activate_contact(person, @aspect)
-      post = Factory.create(:status_message, :person => person)
-      post.post_visibilities.should be_empty
-      receive_with_zord(@user1, person, post.to_diaspora_xml)
-      @aspect.post_visibilities.reset
-      @aspect.posts(true).should include(post)
-      post.post_visibilities.reset
-      post.post_visibilities.length.should == 1
+    context 'dependant delete' do
+      before do
+        @person = Factory(:person)
+        @user1.activate_contact(@person, @aspect)
+        @post = Factory.create(:status_message, :author => @person)
+        @post.post_visibilities.should be_empty
+        receive_with_zord(@user1, @person, @post.to_diaspora_xml)
+        @aspect.post_visibilities.reset
+        @aspect.posts(true).should include(@post)
+        @post.post_visibilities.reset
+      end
 
-      lambda {
-        @user1.disconnected_by(person)
-      }.should change(Post, :count).by(-1)
-    end
-    it 'deletes post_visibilities on disconnected by' do
-      person = Factory(:person)
-      @user1.activate_contact(person, @aspect)
-      post = Factory.create(:status_message, :person => person)
-      post.post_visibilities.should be_empty
-      receive_with_zord(@user1, person, post.to_diaspora_xml)
-      @aspect.post_visibilities.reset
-      @aspect.posts(true).should include(post)
-      post.post_visibilities.reset
-      post.post_visibilities.length.should == 1
+      it 'deletes a post if the noone links to it' do
+        lambda {
+          @user1.disconnected_by(@person)
+        }.should change(Post, :count).by(-1)
+      end
 
-      lambda {
-        @user1.disconnected_by(person)
-      }.should change{post.post_visibilities(true).count}.by(-1)
+      it 'deletes post_visibilities on disconnected by' do
+        lambda {
+          @user1.disconnected_by(@person)
+        }.should change{@post.post_visibilities(true).count}.by(-1)
+      end
     end
     it 'should keep track of user references for one person ' do
       @status_message.reload
@@ -254,11 +248,11 @@ describe 'a user receives a post' do
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
     end
 
     it 'does not update created_at or updated_at when two people save the same post' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
       sleep(2)
@@ -269,11 +263,11 @@ describe 'a user receives a post' do
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 5.days.ago)
       old_time = @post.created_at
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 2.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 2.days.ago)
       receive_with_zord(@local_luke, @remote_raphael, xml)
       (Post.find_by_guid @post.guid).created_at.day.should == old_time.day
     end

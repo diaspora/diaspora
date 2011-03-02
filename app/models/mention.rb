@@ -13,8 +13,8 @@ class Mention < ActiveRecord::Base
   after_destroy :delete_notification
 
   def notify_recipient
-    Rails.logger.info "event=mention_sent id=#{self.id} to=#{person.diaspora_handle} from=#{post.person.diaspora_handle}"
-    Notification.notify(person.owner, self, post.person) unless person.remote?
+    Rails.logger.info "event=mention_sent id=#{self.id} to=#{person.diaspora_handle} from=#{post.author.diaspora_handle}"
+    Notification.notify(person.owner, self, post.author) unless person.remote?
   end
 
 

@@ -47,7 +47,7 @@ class StatusMessagesController < ApplicationController
                                        :partial => 'shared/stream_element',
                                        :locals => {
                                          :post => @status_message,
-                                         :person => @status_message.person,
+                                         :author => @status_message.author,
                                          :photos => @status_message.photos,
                                          :comments => [],
                                          :all_aspects => current_user.aspects,
@@ -61,7 +61,7 @@ class StatusMessagesController < ApplicationController
       end
     else
       respond_to do |format|
-        format.js { render :json =>{:errors =>   @status_message.errors.full_messages}, :status => 406 }
+        format.js { render :json =>{:errors => @status_message.errors.full_messages}, :status => 406 }
         format.html {redirect_to :back}
       end
     end

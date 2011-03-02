@@ -84,7 +84,7 @@ class Notifier < ActionMailer::Base
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)
     @comment  = Comment.find_by_id(comment_id)
-    @post_author_name = @comment.post.person.name
+    @post_author_name = @comment.post.author.name
 
 
     log_mail(recipient_id, sender_id, 'comment_on_post')

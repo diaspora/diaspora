@@ -114,7 +114,7 @@ describe Aspect do
       aspect = user.aspects.create(:name => 'losers')
       contact = aspect.contacts.create(:person => connected_person)
 
-      status_message = user.post( :status_message, :message => "hey", :to => aspect.id )
+      status_message = user.post(:status_message, :message => "hey", :to => aspect.id)
 
       aspect.reload
       aspect.posts.include?(status_message).should be true

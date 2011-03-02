@@ -14,7 +14,7 @@
         =link_to "#{t('next')} →", @next_photo, :rel => 'prefetch',  :id => 'photo_show_right'
 
   #original_post_info
-    = render 'shared/author_info', :person => @photo.person, :post => @photo
+    = render 'shared/author_info', :person => @photo.author, :post => @photo
 
   #photo_container
     #show_photo{:data=>{:guid=>@photo.id}}
@@ -28,7 +28,7 @@
         = @photo.caption
 
     - if @ownership
-      .photo_options{:data=>{:actor=>"#{@photo.person.owner.id}",:actor_person=>"#{@photo.person.id}",:image_url=>"#{@photo.url(:thumb_large)}"}}
+      .photo_options{:data=>{:actor=>"#{@photo.author.owner.id}", :actor_person => "#{@photo.author.id}", :image_url => "#{@photo.url(:thumb_large)}"}}
         = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
         |
         = link_to t('.edit'), '#', :id => "edit_photo_toggle"

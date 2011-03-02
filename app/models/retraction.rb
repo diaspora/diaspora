@@ -54,7 +54,7 @@ class Retraction
         return
       end
       user.disconnected_by(self.target)
-    elsif self.target.nil? || self.target.person != self.person
+    elsif self.target.nil? || self.target.author != self.person
       Rails.logger.info("event=retraction status=abort reason='no post found authored by retractor' sender=#{person.diaspora_handle} post_guid=#{post_guid}")
     else
       self.perform(user)

@@ -389,7 +389,7 @@ ActiveRecord::Schema.define(:version => 20110301014507) do
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "person_id",                            :null => false
+    t.integer  "author_id",                            :null => false
     t.boolean  "public",            :default => false, :null => false
     t.string   "diaspora_handle"
     t.string   "guid",                                 :null => false
@@ -408,9 +408,9 @@ ActiveRecord::Schema.define(:version => 20110301014507) do
     t.string   "mongo_id"
   end
 
+  add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
   add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
-  add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
@@ -522,7 +522,7 @@ ActiveRecord::Schema.define(:version => 20110301014507) do
 
   add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
 
-  add_foreign_key "posts", "people", :name => "posts_person_id_fk", :dependent => :delete
+  add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
 

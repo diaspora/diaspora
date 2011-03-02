@@ -5,7 +5,7 @@
 
 .span-16.append-4.prepend-4.last
   #original_post_info
-    = render 'shared/author_info', :person => @status_message.person, :post => @status_message
+    = render 'shared/author_info', :person => @status_message.author, :post => @status_message
 
   #show_text
     %p

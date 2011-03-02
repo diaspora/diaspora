@@ -8,7 +8,7 @@ class PostsFake
   def initialize(posts)
     author_ids = []
     posts.each do |p|
-      author_ids << p.person_id
+      author_ids << p.author_id
       p.comments.each do |c|
         author_ids << c.author_id
       end

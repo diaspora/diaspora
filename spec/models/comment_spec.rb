@@ -112,7 +112,7 @@ describe Comment do
   describe 'it is relayable' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @remote_parent = Factory.create(:status_message, :person => @remote_raphael)
+      @remote_parent = Factory.create(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :message => "hi", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.comment("yo", :on => @local_parent)

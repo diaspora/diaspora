@@ -3,18 +3,18 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  - if post.person.owner_id == current_user.id
+  - if post.author.owner_id == current_user.id
     .right.hidden.controls
       - reshare_aspects = aspects_without_post(all_aspects, post)
       - unless reshare_aspects.empty?
         = render 'shared/reshare', :aspects => reshare_aspects, :post => post
       = link_to image_tag('deletelabel.png'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete", :title => t('delete')
 
-  = person_image_link(post.person, :size => :thumb_small)
+  = person_image_link(post.author, :size => :thumb_small)
 
   .content
     %strong
-      = person_link(post.person)
+      = person_link(post.author)
 
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
@@ -23,7 +23,7 @@
         %span.aspect_badges
           %span.aspect_badge.public
             = t('the_world')
-      - elsif post.person.owner_id == current_user.id
+      - elsif post.author.owner_id == current_user.id
         %span.aspect_badges
           = aspect_badges(aspects_with_post(all_aspects, post))
 

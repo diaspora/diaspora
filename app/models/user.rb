@@ -87,8 +87,8 @@ class User < ActiveRecord::Base
 
   ######## Posting ########
   def build_post(class_name, opts = {})
-    opts[:person] = self.person
-    opts[:diaspora_handle] = opts[:person].diaspora_handle
+    opts[:author] = self.person
+    opts[:diaspora_handle] = opts[:author].diaspora_handle
 
     model_class = class_name.to_s.camelize.constantize
     model_class.diaspora_initialize(opts)
@@ -108,7 +108,7 @@ class User < ActiveRecord::Base
 
   def add_post_to_aspects(post)
     Rails.logger.debug("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
-    add_to_streams(post, self.aspects_with_person(post.person))
+    add_to_streams(post, self.aspects_with_person(post.author))
     post
   end
 

@@ -5,7 +5,7 @@ describe PostsFake do
     @people = []
     4.times do
       post = Factory(:status_message)
-      @people << post.person
+      @people << post.author
       4.times do
         comment = Factory(:comment, :post => post)
         @people << comment.author

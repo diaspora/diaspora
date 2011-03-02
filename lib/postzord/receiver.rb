@@ -51,7 +51,7 @@ module Postzord
     def xml_author
       if @object.is_a?(Comment)
         #if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
-        xml_author = @user.owns?(@object.post) ? @object.diaspora_handle : @object.post.person.diaspora_handle
+        xml_author = @user.owns?(@object.post) ? @object.diaspora_handle : @object.post.author.diaspora_handle
         @author = Webfinger.new(@object.diaspora_handle).fetch
       else
         xml_author = @object.diaspora_handle
@@ -82,6 +82,7 @@ module Postzord
       end
 
       if @author
+        @object.author = @author if @object.respond_to? :author=
         @object.person = @author if @object.respond_to? :person=
       end
 

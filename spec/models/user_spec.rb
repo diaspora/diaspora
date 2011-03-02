@@ -271,7 +271,7 @@ describe User do
         fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
         image = File.open(fixture_name)
         @photo = Photo.diaspora_initialize(
-                  :person => alice.person, :user_file => image)
+                  :author => alice.person, :user_file => image)
         @photo.save!
         @params = {:photo => @photo}
       end

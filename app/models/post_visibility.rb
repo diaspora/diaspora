@@ -10,6 +10,6 @@ class PostVisibility < ActiveRecord::Base
   belongs_to :post
   validates_presence_of :post
   has_one :user, :through => :aspect
-  has_one :person, :through => :post
+  has_one :person, :through => :post, :foreign_key => :author_id
 
 end

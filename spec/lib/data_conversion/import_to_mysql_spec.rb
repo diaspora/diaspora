@@ -357,8 +357,8 @@ describe DataConversion::ImportToMysql do
         post.image.should be_nil
         post.mongo_id.should == "4d2b6ebecc8cb43cc2000027"
         post.guid.should == post.mongo_id
-        post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
-        post.diaspora_handle.should == post.person.diaspora_handle
+        post.author_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
+        post.diaspora_handle.should == post.author.diaspora_handle
         post.message.should == "User2 can see this"
         post.created_at.should == mongo_post.created_at
         post.updated_at.should == mongo_post.updated_at
@@ -379,8 +379,8 @@ describe DataConversion::ImportToMysql do
         post.image.file.file.should =~ /mUKUIxkYlV4d2b6ebfcc8cb43cc200002d\.png/
         post.mongo_id.should == "4d2b6ebfcc8cb43cc200002d"
         post.guid.should == post.mongo_id
-        post.person_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
-        post.diaspora_handle.should == post.person.diaspora_handle
+        post.author_id.should == Person.where(:mongo_id => mongo_post.person_mongo_id).first.id
+        post.diaspora_handle.should == post.author.diaspora_handle
         post.message.should be_nil
         post.created_at.should == mongo_post.created_at
         post.updated_at.should == mongo_post.updated_at
