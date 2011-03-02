@@ -1,5 +1,9 @@
 class Object
   def id
-    raise "You have called id on a non-ActiveRecord object."
+    if self.class.ancestors.include?(ActiveRecord::Base)
+      super
+    else
+      raise "You are calling id on a non-ActiveRecord object. STOP IT."
+    end
   end
 end
