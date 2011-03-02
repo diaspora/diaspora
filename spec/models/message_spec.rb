@@ -18,6 +18,11 @@ describe Message do
     @xml = @message.to_diaspora_xml
   end
 
+  it 'validates that the author is a participant in the conversation' do
+    msg = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @cnv.id)
+    pp msg.valid?
+  end
+
   describe '#before_create' do
     it 'signs the message' do
       @message.author_signature.should_not be_blank

@@ -25,6 +25,8 @@ class Message < ActiveRecord::Base
     self
   end
 
+  validate :participant_of_parent_conversation
+
   def diaspora_handle
     self.author.diaspora_handle
   end
@@ -53,5 +55,14 @@ class Message < ActiveRecord::Base
 
   def parent= parent
     self.conversation = parent
+  end
+
+  private
+  def participant_of_parent_conversation
+    if self.parent && !self.parent.participants.include?(self.author)
+      errors[:base] << "Author is not participating in the conversation"
+    else
+      true
+    end
   end
 end
