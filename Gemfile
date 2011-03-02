@@ -76,6 +76,7 @@ group :test do
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-rails', '>= 2.0.0'
+  gem 'rcov'
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false

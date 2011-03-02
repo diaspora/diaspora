@@ -306,6 +306,7 @@ GEM
       rake (>= 0.8.7)
       thor (~> 0.14.4)
     rake (0.8.7)
+    rcov (0.9.9)
     redis (2.1.1)
     redis-namespace (0.8.0)
       redis (< 3.0.0)
@@ -421,6 +422,7 @@ DEPENDENCIES
   nokogiri (= 1.4.3.1)
   omniauth (= 0.1.6)
   rails (= 3.0.3)
+  rcov
   resque (= 1.10.0)
   rest-client (= 1.6.1)
   roxml!

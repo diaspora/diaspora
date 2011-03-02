@@ -39,6 +39,11 @@ task :stats => "spec:statsetup"
 desc "Run all specs in spec directory (excluding plugin specs)"
 RSpec::Core::RakeTask.new(:spec => spec_prereq)
 
+desc "Run the specs with rcov"
+Rspec::Core::RakeTask.new(:rcov => spec_prereq) do |t|
+  t.rcov = true
+  t.rcov_opts = ['-Ispec', '--exclude', 'spec', '--exclude', 'gems']
+end
 namespace :"spec --color" do
   [:requests, :models, :controllers, :views, :helpers, :mailers, :lib].each do |sub|
     desc "Run the code examples in spec/#{sub}"
@@ -66,5 +71,6 @@ namespace :"spec --color" do
     ::CodeStatistics::TEST_TYPES << "Routing specs" if File.exist?('spec/routing')
     ::CodeStatistics::TEST_TYPES << "Request specs" if File.exist?('spec/requests')
   end
+
 end
 
