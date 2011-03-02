@@ -55,15 +55,6 @@ namespace :statistics do
       puts "Users with 10 or more contacts: %i" % users_with_x_contacts(9)
     end
 
-    task :model => :environment do
-      stat = Statistic.new(:type => "posts_per_day")
-      [0..15].each do |n|
-        stat.data_points << DataPoint.posts_per_day(n)
-      end
-      stat.compute_average
-      stat.save
-    end
-
     task :splunk => :environment do
       set_up_user_stats
       puts "event=statistic, type=users, count=#{@users}, "+

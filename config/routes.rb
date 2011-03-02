@@ -14,8 +14,6 @@ Diaspora::Application.routes.draw do
 
   match 'admins/user_search' => 'admins#user_search'
   match 'admins/admin_inviter' => 'admins#admin_inviter'
-  match 'statistics/generate_single' => 'statistics#generate_single'
-  resources :statistics
 
   match 'notifications/read_all' => 'notifications#read_all'
   resources :notifications,   :only => [:index, :update]
@@ -39,7 +37,7 @@ Diaspora::Application.routes.draw do
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
                                       :invitations   => "invitations"} do
-                                      
+
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
                                       end
 

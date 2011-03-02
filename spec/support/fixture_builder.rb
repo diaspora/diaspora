@@ -14,24 +14,6 @@ FixtureBuilder.configure do |fbuilder|
 
     connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
     connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
-
-    # Statistics
-    frodo = Factory(:user_with_aspect, :username => "frodo")
-    sam = Factory(:user_with_aspect, :username => "sam")
-    bilbo = Factory(:user_with_aspect, :username => "bilbo")
-
-    stat = Statistic.new
-    time = Time.now
-
-    1.times  { frodo.post_at_time(time) }
-    5.times  { sam.post_at_time(time)   }
-    10.times { bilbo.post_at_time(time) }
-
-    (0..10).each do |n|
-      stat.data_points << DataPoint.users_with_posts_on_day(time, n)
-    end
-    stat.time = time
-    stat.save!
    end
 end
 
