@@ -2,29 +2,36 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+:javascript
+  $(document).ready(function(){
+    $('.conversation', '.stream').click(function(){
+      var conversationGuid = $(this).attr('data-guid');
+      $.get("conversations/"+conversationGuid, function(data){
+        $('#conversation_show').html(data);
+      });
+    });
+  });
 
-.span-12.last
+.span-24.last{:style => 'position:relative;'}
+  .right
+    = link_to 'New Message', new_conversation_path, :class => 'button'
+  = link_to 'Inbox', conversations_path, :class => 'button'
+  = link_to 'Sent', conversations_path, :class => 'button'
+  %br
+  %br
+  %br
 
-  %h2
-    .right
-      = link_to 'new message', new_conversation_path, :class => 'button'
-    Inbox
-
-
+.span-6.append-1
   - if @conversations.count > 0
     .stream
-      - for conversation in @conversations
-        .stream_element
-          .right
-            = link_to image_tag('deletelabel.png'), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
-
-          .from
-            = conversation.messages.last.author.name
-          %p
-            = link_to conversation.subject, conversation
-          %p
-            = link_to conversation.messages.last, conversation
-
+      = render :partial => 'conversations/conversation', :collection => @conversations
   - else
     %i
       You have no messages
+
+#conversation_show.span-17.last
+  - if @conversation
+    = render 'conversations/show', :conversation => @conversation
+  - else
+    %i
+      no conversation selected

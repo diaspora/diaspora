@@ -21,19 +21,18 @@ describe MessagesController do
     before do
       @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
                        :subject => "cool stuff", :text => "stuff"}
-      
     end
     context "on my own post" do
       before do
         @cnv = Conversation.create(@create_hash)
-        @message_hash = {:conversation_id => @cnv.id, :text => "here is something else"}
+        @message_hash = {:conversation_id => @cnv.id, :message => {:text => "here is something else"}}
       end
-      it 'responds to format js' do
+      it 'redirects to conversation' do
         lambda{
           post :create, @message_hash
         }.should change(Message, :count).by(1)
-        response.code.should == '201'
-        response.should redirect_to(@cnv)
+        response.code.should == '302'
+        response.should redirect_to(conversations_path(:conversation_id => @cnv))
       end
     end
 
@@ -41,17 +40,18 @@ describe MessagesController do
       before do
         @create_hash[:author] = @user2.person
         @cnv = Conversation.create(@create_hash)
-        @message_hash = {:conversation_id => @cnv.id, :text => "here is something else"}
+        @message_hash = {:conversation_id => @cnv.id, :message => {:text => "here is something else"}}
       end
       it 'comments' do
         post :create, @message_hash
-        response.code.should == '201'
+        response.code.should == '302'
+        response.should redirect_to(conversations_path(:conversation_id => @cnv))
       end
       it "doesn't overwrite author_id" do
         new_user = Factory.create(:user)
         @message_hash[:author_id] = new_user.person.id.to_s
         post :create, @message_hash
-        Message.find_by_text(@message_hash[:text]).author_id.should == @user1.person.id
+        Message.find_by_text(@message_hash[:message][:text]).author_id.should == @user1.person.id
       end
       it "doesn't overwrite id" do
         old_message = Message.create(:text => "hello", :author_id => @user1.person.id, :conversation_id => @cnv.id)
@@ -63,11 +63,11 @@ describe MessagesController do
     context 'on a post from a stranger' do
       before do
         @create_hash[:author] = eve.person
+        @create_hash[:participant_ids] = [eve.person.id, bob.person.id]
         @cnv = Conversation.create(@create_hash)
-        @message_hash = {:conversation_id => @cnv.id, :text => "here is something else"}
+        @message_hash = {:conversation_id => @cnv.id, :message => {:text => "here is something else"}}
       end
       it 'posts no comment' do
-        Message.should_not_receive(:new)
         post :create, @message_hash
         response.code.should == '406'
       end

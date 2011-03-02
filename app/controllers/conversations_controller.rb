@@ -1,11 +1,13 @@
 class ConversationsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
+  respond_to :html, :json
 
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id}).all
+    @conversation = Conversation.joins(:conversation_visibilities).where(
+                              :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
   end
 
   def create
@@ -18,7 +20,7 @@ class ConversationsController < ApplicationController
 
     @conversation = Conversation.create(params[:conversation])
 
-    respond_with @conversation
+    redirect_to conversations_path(:conversation_id => @conversation.id)
   end
 
   def show
@@ -26,7 +28,7 @@ class ConversationsController < ApplicationController
                               :conversation_visibilities => {:person_id => current_user.person.id}).first
 
     if @conversation
-      respond_with @conversation
+      render :layout => false
     else
       redirect_to conversations_path
     end

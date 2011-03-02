@@ -1,0 +1,22 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.conversation_participants
+  .right
+    = link_to t('delete'), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
+  - for participant in conversation.participants
+    = person_image_link(participant)
+
+.stream
+  = render :partial => 'messages/message', :collection => conversation.messages
+
+  .stream_element.new_message
+    = owner_image_tag
+
+    .content
+      = form_for [conversation, Message.new] do |message|
+        = message.text_area :text, :rows => 5
+        .right
+          = message.submit 'Reply'
+          = link_to 'Cancel', '#'

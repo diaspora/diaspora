@@ -2481,3 +2481,30 @@ ul.show_comments
 
 .public_icon, .service_icon
   :cursor pointer
+
+.stream_element
+  .subject
+    :font
+      :weight bold
+
+.conversation_participants
+  :background
+    :color #eee
+  :border
+    :bottom 1px solid #999
+  :padding 1em
+
+.stream_element.new_message
+  :border
+    :top 1px solid #999
+    :bottom none
+  &:hover
+    :border
+      :bottom none
+  textarea
+    :margin 0
+      :bottom 0.5em
+    :width 100%
+  .right
+    :right -11px
+

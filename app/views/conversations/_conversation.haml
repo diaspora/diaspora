@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.stream_element.conversation{:data=>{:guid=>conversation.id}}
+  - if conversation.author.owner_id == current_user.id
+    .right.hidden.controls
+      /= link_to image_tag('deletelabel.png'), status_message_path(conversation), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete", :title => t('delete')
+
+  %strong
+    = person_link(conversation.author)
+
+  .subject
+    = conversation.subject
+  .message
+    = "#{conversation.messages.first.text[0..20]}..."
+
+  .info
+    /%span.timeago= link_to(how_long_ago(conversation), status_message_path(conversation))
+
