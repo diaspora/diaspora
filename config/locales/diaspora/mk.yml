@@ -68,6 +68,7 @@ mk:
       failure: "Неуспешно креирање на аспект."
       success: "Вашиот нов аспект %{name} е креиран"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} е отстранет успешно."
     edit: 
       add_existing: "Add an existing contact"

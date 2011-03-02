@@ -68,6 +68,7 @@ nb:
       failure: "Greide ikke å opprette aspektet."
       success: "Klikk på plusstegnet på venstre side for å fortelle Diaspora hvem som kan se det nye aspektet ditt."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} har blitt fjerna."
     edit: 
       add_existing: "Add an existing contact"

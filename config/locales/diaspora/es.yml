@@ -68,6 +68,7 @@ es:
       failure: "Creación de Aspecto fallida."
       success: "Tu nuevo Aspecto %{name} ha sido creado."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} fue eliminado correctamente."
     edit: 
       add_existing: "Añadir un contacto existente."

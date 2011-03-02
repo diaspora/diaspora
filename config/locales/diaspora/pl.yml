@@ -68,6 +68,7 @@ pl:
       failure: "Nie udało się utworzyć aspektu."
       success: "Twój nowy aspekt, on nazwie %{name}, został utworzony"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} został usunięty."
     edit: 
       add_existing: "Dodaj istniejący kontakt"

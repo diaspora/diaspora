@@ -68,6 +68,7 @@ ga:
       failure: "Níor d'eirigh leis an gné nua a cruthú"
       success: "Bhí do gné nua, {%name}, cruthaithe"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "Fuaireadh ré le %{name}"
     edit: 
       add_existing: "Add an existing contact"

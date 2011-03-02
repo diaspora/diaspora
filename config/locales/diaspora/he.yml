@@ -68,6 +68,7 @@ he:
       failure: "יצירת ההיבט נכשלה."
       success: "ההיבט החדש שלך %{name} נוצר"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} הוסר בהצלחה."
     edit: 
       add_existing: "הוספת איש קשר קיים"

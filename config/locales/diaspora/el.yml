@@ -68,6 +68,7 @@ el:
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"

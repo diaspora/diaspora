@@ -68,6 +68,7 @@ sv:
       failure: "Sidan kunde inte skapas."
       success: "Din nya sida %{name} har skapats"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} är nu borttagen."
     edit: 
       add_existing: "Add an existing contact"

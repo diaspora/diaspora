@@ -68,6 +68,7 @@ es-CL:
       failure: "Error al crear el aspecto."
       success: "Tu nuevo aspecto %{name} fué creado"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} fue correctamente eliminado."
     edit: 
       add_existing: "Add an existing contact"

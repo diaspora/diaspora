@@ -68,6 +68,7 @@ gl:
       failure: "Fallou a creación do aspecto."
       success: "O aspecto %{name} foi creado"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} foi eliminado correctamente."
     edit: 
       add_existing: "Engadir un contacto existente"

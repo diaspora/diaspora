@@ -68,6 +68,7 @@ sl:
       failure: "Ustvarjanje skupine ni uspelo."
       success: "Skupina %{name} je ustvarjena"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} je uspešno odstranjen."
     edit: 
       add_existing: "Dodaj obstoječ kontakt"

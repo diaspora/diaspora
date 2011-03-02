@@ -68,6 +68,7 @@ ro:
       failure: "Crearea aspectului a eşuat."
       success: "S-a creat noul aspect %{name}"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} a fost eliminat cu succes."
     edit: 
       add_existing: "Adaugă o persoană de contact existentă"

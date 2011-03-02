@@ -68,6 +68,7 @@ it:
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} è stato rimosso con successo."
     edit: 
       add_existing: "Aggiungi un contatto esistente"

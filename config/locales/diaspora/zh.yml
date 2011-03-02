@@ -68,6 +68,7 @@ zh:
       failure: "分组创建失败。"
       success: "您的新分组%{name}已创建成功"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "成功删除%{name}。"
     edit: 
       add_existing: "增加一个现有联系人"

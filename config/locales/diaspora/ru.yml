@@ -68,6 +68,7 @@ ru:
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} удалён."
     edit: 
       add_existing: "Добавить существующий контакт"

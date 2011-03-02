@@ -68,6 +68,7 @@ eu:
       failure: "Akatsa alderdiaren sormenean."
       success: "Zure alderdia, %{name}, sortua izan da."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} arrakastaz ezabatu da."
     edit: 
       add_existing: "Jada adiskide den norbait gehitu"

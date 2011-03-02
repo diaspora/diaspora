@@ -68,6 +68,7 @@ tr:
       failure: "Yan yaratimi basarılı değildi."
       success: "Sol taraftaki arti ya tıklıyarak Diasporaya sizin yeni yanınızı kimlerin görebileceğini belirtin."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} başarıyla yaratıldı."
     edit: 
       add_existing: "Add an existing contact"

@@ -68,6 +68,7 @@ cs:
       failure: "Vytvoření aspektu selhalo."
       success: "Váš nový aspekt %{name} byl vytvořen"
     destroy: 
+      failure: "%{name} není prázdný a nemůže být odstraněn."
       success: "%{name} byl úspěšně odebrán."
     edit: 
       add_existing: "Přidat existující kontakt"

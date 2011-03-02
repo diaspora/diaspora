@@ -68,6 +68,7 @@ hu:
       failure: "Csoport létrehozása sikertelen."
       success: "Új csoport létrehozva: %{name}"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} csoport sikeresen törölve."
     edit: 
       add_existing: "Létező kapcsolat hozzáadása"
@@ -207,8 +208,8 @@ hu:
   next: "következő"
   no_new_notifications: "nincs új értesítés"
   notifications: 
-    also_commented: "hozzászólt még ehhez"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "hozzászólt még az övéhez is:"
+    also_commented_deleted: "hozzászólt egy már törölt bejegyzéshez"
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
     index: 
@@ -222,7 +223,7 @@ hu:
     also_commented: 
       commented: "hozzászólt még %{post_author} bejegyzéséhez is:"
       sign_in: "Jelentkezz be, hogy megnézhesd."
-      subject: "%{name} is hozzászólt az ismerősöd bejegyzéséhez."
+      subject: "%{name} is hozzászólt %{post_author} bejegyzéséhez."
     comment_on_post: 
       commented: "hozzászólt a bejegyzésedhez:"
       sign_in: "Jelentkezz be, hogy megnézd."

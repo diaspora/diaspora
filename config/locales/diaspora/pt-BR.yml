@@ -68,6 +68,7 @@ pt-BR:
       failure: "Erro ao criar aspecto."
       success: "Seu novo aspecto %{name} foi criado"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} foi removido com sucesso."
     edit: 
       add_existing: "Incluir um contato existente"

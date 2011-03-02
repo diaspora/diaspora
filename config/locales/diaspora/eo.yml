@@ -68,6 +68,7 @@ eo:
       failure: "Aspect creation failed."
       success: "Via nova aspekto, %{name} kreiĝis"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} was successfully removed."
     edit: 
       add_existing: "Add an existing contact"
@@ -138,7 +139,7 @@ eo:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Delete"
+  delete: "Forigi"
   email: "Email"
   error_messages: 
     helper: 

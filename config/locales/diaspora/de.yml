@@ -68,6 +68,7 @@ de:
       failure: "Erstellen des Aspekts fehlgeschlagen."
       success: "Dein neuer Aspekt %{name} wurde erstellt."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} wurde erfolgreich entfernt."
     edit: 
       add_existing: "Ein bereits bestehendes Konto hinzufügen"

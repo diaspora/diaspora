@@ -68,6 +68,7 @@ ar:
       failure: ".فشل إنشاء الجانب"
       success: ".من الذي يمكنه مشاهدة مظهرك الجديد Diaspora انقر على علامة الزائد على الجانب الأيسر لتقول ل"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: ".بنجاح %{name} تم إزالة"
     edit: 
       add_existing: "Add an existing contact"

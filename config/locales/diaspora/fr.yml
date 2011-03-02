@@ -68,6 +68,7 @@ fr:
       failure: "La création de l’aspect a échoué."
       success: "Votre nouvel aspect %{name} a été créé."
     destroy: 
+      failure: "%{name} n'est pas vide et n'a pas pu être supprimé."
       success: "%{name} a été supprimé avec succès."
     edit: 
       add_existing: "Ajouter un contact existant"

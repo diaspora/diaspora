@@ -68,6 +68,7 @@ is:
       failure: "Ekki tókst að búa til ásýnd."
       success: "Nýja ásýndin þín %{name} var búin til"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "það heppnaðist að fjarlægja %{name}."
     edit: 
       add_existing: "Bæta við tengilið sem er þegar til"

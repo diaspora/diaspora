@@ -68,6 +68,7 @@ id:
       failure: "Aspek gagal dibuat."
       success: "Klik pada tanda plus di sisi kiri untuk memberitahu Diaspora siapa yang dapat melihat aspek baru Anda."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} berhasil dihapus."
     edit: 
       add_existing: "Add an existing contact"

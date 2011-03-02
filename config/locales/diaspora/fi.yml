@@ -68,6 +68,7 @@ fi:
       failure: "Näkymän luonti epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} poistettiin onnistuneesti."
     edit: 
       add_existing: "Lisää olemassa oleva kontakti"

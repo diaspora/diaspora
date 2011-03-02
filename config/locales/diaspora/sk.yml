@@ -68,6 +68,7 @@ sk:
       failure: "Vytvorenie aspektu zlyhalo."
       success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "Užívateľ %{name} bol úspešne odstránený."
     edit: 
       add_existing: "Pridať existujúci kontakt"

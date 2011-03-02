@@ -68,6 +68,7 @@ nl:
       failure: "Aanmaken van aspect is mislukt."
       success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} is met succes verwijderd."
     edit: 
       add_existing: "Voeg een bestaand contact toe"

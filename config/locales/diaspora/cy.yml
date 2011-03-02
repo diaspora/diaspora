@@ -68,6 +68,7 @@ cy:
       failure: "Aspect creation failed."
       success: "Click on the plus on the left side to tell Diaspora who can see your new aspect."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} was successfully removed."
     edit: 
       add_existing: "Add an existing contact"

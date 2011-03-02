@@ -68,6 +68,7 @@ lt:
       failure: "Aspekto sukurti nepavyko."
       success: "Spustelk pliusą kairėje ir nurodyk, kas Diasporoje gali matyti tavo naują aspektą."
     destroy: 
+      failure: "%{name} is not empty and could not be removed."
       success: "%{name} sėkmingai pašalintas."
     edit: 
       add_existing: "Add an existing contact"
