@@ -5,8 +5,12 @@
 :javascript
   $(document).ready(function(){
     $('.conversation', '.stream').click(function(){
-      var conversationGuid = $(this).attr('data-guid');
+      var conversationSummary = $(this),
+          conversationGuid = conversationSummary.attr('data-guid');
       $.get("conversations/"+conversationGuid, function(data){
+
+        $('.conversation', '.stream').removeClass('selected');
+        conversationSummary.addClass('selected');
         $('#conversation_show').html(data);
       });
     });
@@ -21,9 +25,9 @@
   %br
   %br
 
-.span-6.append-1
+.span-7
   - if @conversations.count > 0
-    .stream
+    .stream.conversations
       = render :partial => 'conversations/conversation', :collection => @conversations
   - else
     %i

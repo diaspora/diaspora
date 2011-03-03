@@ -247,20 +247,11 @@ header
 
 .stream
   .stream_element
-    :font
-      :family 'arial', 'helvetica', sans-serif
-    :padding 10px 14px
-      :right 75px
+    :padding 20px 20px
     :min-height 50px
     :border
       :bottom 1px solid #ddd
       :top 1px solid #fff
-
-    :font
-      :size 13px
-    :line
-      :height 19px
-
 
     &:hover
       :border
@@ -273,9 +264,14 @@ header
       :height 370px
       :width 500px
 
+    time
+      :font
+        :weight normal
+        :size smaller
+      :position absolute
+      :right 20px
+
 .from
-  :text
-    :shadow 0 1px #fff
   a
     :font
       :weight bold
@@ -334,11 +330,15 @@ header
 .stream_element
   :position relative
   :word-wrap break-word
-  :color #777
+  :color #888
 
-  .from
-    h5
-      :display inline
+  :font
+    :size 14px
+
+  a.author
+    :font
+      :weight bold
+    :color #444
 
   .content
     :margin
@@ -346,17 +346,17 @@ header
     :padding
       :left 60px
 
-    :color #444
+    :color #666
     :font
       :weight normal
 
     p
       :margin
-        :bottom 6px
-      :padding
-        :right 1em
+        :bottom 0px
       :font
-        :family 'arial', 'helvetica', 'sans-serif'
+        :size 12px
+      :line
+        :height 16px
 
     .photo_attachments
       :margin
@@ -406,8 +406,9 @@ header
 
 .time,
 .timeago
+  :color #ccc
   a
-    :color #bbb
+    :color #ccc
   :margin
     :right 1px
   :text
@@ -2485,9 +2486,25 @@ ul.show_comments
 .stream_element
   .subject
     :font
+      :size 13px
       :weight bold
+  .message
+    :font
+      :size 12px
+
+  .participants
+    .avatar
+      :float none
+      :height 24px
+      :width 24px
+    :margin
+      :top 3px
 
 .conversation_participants
+  .avatar
+    :height 30px
+    :width 30px
+
   :background
     :color #eee
   :border
@@ -2508,3 +2525,13 @@ ul.show_comments
   .right
     :right -11px
 
+.stream_element.conversation
+  :padding 10px
+
+.stream.conversations
+  :border
+    :right 1px solid #ccc
+
+.conversation.selected
+  :background
+    :color #ccc

@@ -13,8 +13,10 @@
   = person_image_link(post.author, :size => :thumb_small)
 
   .content
-    %strong
-      = person_link(post.author)
+    .from
+      = person_link(post.author, :class => 'author')
+      %time.timeago{:datetime => post.created_at}
+        = link_to(how_long_ago(post), status_message_path(post))
 
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
@@ -27,7 +29,6 @@
         %span.aspect_badges
           = aspect_badges(aspects_with_post(all_aspects, post))
 
-      %span.timeago= link_to(how_long_ago(post), status_message_path(post))
       = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
 
     = render "comments/comments", :post_id => post.id, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => defined?(@commenting_disabled)

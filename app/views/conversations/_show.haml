@@ -3,6 +3,8 @@
 -#   the COPYRIGHT file.
 
 .conversation_participants
+  %h3
+    = conversation.subject
   .right
     = link_to t('delete'), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
   - for participant in conversation.participants

@@ -5,13 +5,12 @@
 .stream_element{:data=>{:guid=>message.id}}
   = person_image_link(message.author, :size => :thumb_small)
 
-  .right
-    %span.timeago= link_to(how_long_ago(message), status_message_path(message))
-
   .content
-    %strong
-      = person_link(message.author)
+    .from
+      = person_link(message.author, :class => 'author')
+      %time.timeago{:datetime => message.created_at}
+        = how_long_ago(message)
 
-    .message
+    %p
       = message.text
 
