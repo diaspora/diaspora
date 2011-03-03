@@ -36,7 +36,7 @@ gem 'addressable', '2.2.2', :require => 'addressable/uri'
 gem 'json', '1.4.6'
 gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
 
-gem 'thin', '1.2.7', :require => false
+gem 'thin', '1.2.8', :require => false
 
 #Websocket
 gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => 'e278f5a1c4db60be7485'

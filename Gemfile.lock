@@ -358,7 +358,7 @@ GEM
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
-    thin (1.2.7)
+    thin (1.2.8)
       daemons (>= 1.0.9)
       eventmachine (>= 0.12.6)
       rack (>= 1.0.0)
@@ -430,7 +430,7 @@ DEPENDENCIES
   rspec-instafail
   rspec-rails (>= 2.0.0)
   ruby-debug
-  thin (= 1.2.7)
+  thin (= 1.2.8)
   twitter!
   typhoeus
   webmock
