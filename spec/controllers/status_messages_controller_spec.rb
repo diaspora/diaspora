@@ -59,15 +59,29 @@ describe StatusMessagesController do
         },
       :aspect_ids => [@aspect1.id.to_s] }
     }
-    it 'responds to js requests' do
-      post :create, status_message_hash.merge(:format => 'js')
-      response.status.should == 201
+    context 'js requests' do
+      it 'responds' do
+        post :create, status_message_hash.merge(:format => 'js')
+        response.status.should == 201
+      end
+      it 'responds with json' do
+        post :create, status_message_hash.merge(:format => 'js')
+        json = JSON.parse(response.body)
+        json['post_id'].should_not be_nil
+        json['html'].should_not be_nil
+      end
+      it 'escapes XSS' do
+        xss = "<script> alert('hi browser') </script>"
+        post :create, status_message_hash.merge(:format => 'js', :message => xss)
+        json = JSON.parse(response.body)
+        json['html'].should_not =~ /<script>/
+      end
     end
 
     it "dispatches the post to the specified services" do
-      s1 = Services::Facebook.new 
+      s1 = Services::Facebook.new
       @user1.services << s1
-      @user1.services << Services::Twitter.new 
+      @user1.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
       @user1.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
       post :create, status_message_hash

@@ -42,27 +42,14 @@ class StatusMessagesController < ApplicationController
       end
 
       respond_to do |format|
-        format.js { render :json => {:post_id => @status_message.id,
-                                     :html => render_to_string(
-                                       :partial => 'shared/stream_element',
-                                       :locals => {
-                                         :post => @status_message,
-                                         :person => @status_message.person,
-                                         :photos => @status_message.photos,
-                                         :comments => [],
-                                         :all_aspects => current_user.aspects,
-                                         :current_user => current_user
-                                       }
-                                     )
-        },
-                           :status => 201 }
+        format.js { render :create, :status => 201}
         format.html { redirect_to :back}
         format.mobile{ redirect_to :back}
       end
     else
       respond_to do |format|
         format.js { render :json =>{:errors =>   @status_message.errors.full_messages}, :status => 406 }
-        format.html {redirect_to :back} 
+        format.html {redirect_to :back}
       end
     end
   end
