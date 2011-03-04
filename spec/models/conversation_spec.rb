@@ -8,8 +8,9 @@ describe Conversation do
   before do
     @user1 = alice
     @user2 = bob
+    @participant_ids = [@user1.contacts.first.person.id, @user1.person.id]
 
-    @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+    @create_hash = { :author => @user1.person, :participant_ids => @participant_ids ,
                      :subject => "cool stuff", :text => 'hey'}
   end
 
@@ -18,6 +19,16 @@ describe Conversation do
       Conversation.create(@create_hash)
     }.should change(Message, :count).by(1)
   end
+
+  describe '#last_author' do
+    it 'returns the last author to a conversation' do
+      time = Time.now
+      cnv = Conversation.create(@create_hash)
+      Message.create(:author => @user2.person, :created_at => time + 1.second, :text => "last", :conversation_id => cnv.id)
+      cnv.reload.last_author.id.should == @user2.person.id
+    end
+  end
+
 
   context 'transport' do
     before do
@@ -50,8 +61,8 @@ describe Conversation do
 
     describe '#receive' do
       before do
-        Conversation.delete_all
-        Message.delete_all
+        Conversation.destroy_all
+        Message.destroy_all
       end
 
       it 'creates a message' do
@@ -67,7 +78,7 @@ describe Conversation do
       it 'creates appropriate visibilities' do
         lambda{
           Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
-        }.should change(ConversationVisibility, :count).by(@cnv.participants.count)
+        }.should change(ConversationVisibility, :count).by(@participant_ids.size)
       end
       it 'does not save before receive' do
         Diaspora::Parser.from_xml(@xml).persisted?.should be_false

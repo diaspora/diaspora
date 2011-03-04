@@ -9,7 +9,7 @@ class Conversation < ActiveRecord::Base
   xml_reader :diaspora_handle
   xml_reader :participant_handles
 
-  has_many :conversation_visibilities
+  has_many :conversation_visibilities, :dependent => :destroy
   has_many :participants, :class_name => 'Person', :through => :conversation_visibilities, :source => :person
   has_many :messages, :order => 'created_at ASC'
 
@@ -45,18 +45,23 @@ class Conversation < ActiveRecord::Base
     end
   end
 
+  def last_author
+    self.messages.last.author if self.messages.size > 0
+  end
+
   def subscribers(user)
     self.recipients
   end
 
   def receive(user, person)
     cnv = Conversation.find_or_create_by_guid(self.attributes)
+
+    self.participants.each do |participant|
+      ConversationVisibility.create(:conversation_id => cnv.id, :person_id => participant.id)
+    end
     self.messages.each do |msg|
       msg.conversation_id = cnv.id
       msg.receive(user, person)
-    end
-    self.participants.each do |participant|
-      ConversationVisibility.create(:conversation_id => cnv.id, :person_id => participant.id)
     end
   end
 end

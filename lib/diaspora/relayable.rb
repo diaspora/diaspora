@@ -40,12 +40,12 @@ module Diaspora
       #sign object as the parent creator if you've been hit UPSTREAM
       if user.owns? object.parent
         object.parent_author_signature = object.sign_with_key(user.encryption_key)
-        object.save
+        object.save!
       end
 
       #dispatch object DOWNSTREAM, received it via UPSTREAM
       unless user.owns?(object)
-        object.save
+        object.save!
         Postzord::Dispatch.new(user, object).post
       end
 
