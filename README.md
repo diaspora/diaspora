@@ -3,9 +3,8 @@
 The privacy aware, personally controlled, do-it-all, open source social
 network.
 
-**THIS IS PRE-ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
-**PLEASE, DO NOT RUN IN PRODUCTION. IT IS FUN TO GET RUNNING, BUT EXPECT THINGS
-TO BE BROKEN.**
+**THIS IS ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
+**IT IS FUN TO GET RUNNING, BUT EXPECT THINGS TO BE BROKEN.**
 
 ## Installation instructions
 
@@ -53,7 +52,7 @@ We're currently working on revising it more details on what we're going for can 
 
 Here is our [bug tracker](http://bugs.joindiaspora.com) and our
 [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap). Also, you can
-find see what the core team is upto [here](http://www.pivotaltracker.com/projects/61641).
+find see what the core team is up to [here](http://www.pivotaltracker.com/projects/61641).
 
 
 Ongoing discussion:
