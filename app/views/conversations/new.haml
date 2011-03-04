@@ -3,21 +3,32 @@
 -#   the COPYRIGHT file.
 
 
-%h2
-  New Message
+#new_message_pane
+  #facebox_header
+    %h4
+      New Message
 
-= form_for Conversation.new do |conversation|
-  %h4
-    to
-  = text_field_tag "conversation[contact_ids]"
+  = form_for Conversation.new do |conversation|
 
-  %h4
-    subject
-  = conversation.text_field :subject
+    - if @contact
+      send a message to
+      = @contact.person.name
 
-  %h4
-    message
-  = text_area_tag "conversation[text]", '', :rows => 5
+      = hidden_field_tag "conversation[contact_ids]", @contact.id
+      = hidden_field_tag "profile", @contact.person.id
 
-  = conversation.submit :send
-  = link_to 'cancel', conversations_path
+    -else
+      %h4
+        to
+      = text_field_tag "conversation[contact_ids]"
+
+    %h4
+      subject
+    = conversation.text_field :subject
+
+    %h4
+      message
+    = text_area_tag "conversation[text]", '', :rows => 5
+
+    = conversation.submit :send
+    = link_to 'cancel', conversations_path

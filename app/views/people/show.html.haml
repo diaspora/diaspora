@@ -42,10 +42,12 @@
 
     - else
       .right
-        - if @post_type == :photos
-          = link_to t('layouts.header.view_profile'), person_path(@person)
-        - else
-          = link_to t('_photos'), person_photos_path(@person)
+        = link_to 'Message', new_conversation_path(:contact_id => @contact.id), :class => 'button', :rel => 'facebox'
+
+        /- if @post_type == :photos
+        /  = link_to t('layouts.header.view_profile'), person_path(@person)
+        /- else
+        /  = link_to t('_photos'), person_photos_path(@person)
 
     %h3
       = @person.name

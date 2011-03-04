@@ -6,7 +6,9 @@ class ConversationsController < ApplicationController
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
-                                                             :page => params[:page], :per_page => 7, :order => 'updated_at DESC')
+                                                             :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+    @authors = {}
+    @conversations.each{|c| @authors[c.id] = c.last_author}
     
     @conversation = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
@@ -22,7 +24,12 @@ class ConversationsController < ApplicationController
 
     @conversation = Conversation.create(params[:conversation])
 
-    redirect_to conversations_path(:conversation_id => @conversation.id)
+    flash[:notice] = "Message sent"
+    if params[:profile]
+      redirect_to person_path(params[:profile])
+    else
+      redirect_to conversations_path(:conversation_id => @conversation.id)
+    end
   end
 
   def show
@@ -37,6 +44,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
+    @contact = current_user.contacts.find(params[:contact_id]) if params[:contact_id]
     render :layout => false
   end
 
