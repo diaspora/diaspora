@@ -68,7 +68,7 @@ da:
       failure: "Fejl under oprettelse af aspektet."
       success: "Klik på plusset i venstre side for at fortælle diaspora, hvem der kan se dit nye aspekt."
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} er ikke tom, og kan derfor ikke slettes."
       success: "%{name} fjernet."
     edit: 
       add_existing: "Tilføj en eksisterende kontakt "

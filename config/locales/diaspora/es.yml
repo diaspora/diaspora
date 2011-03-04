@@ -38,7 +38,7 @@ es:
               invalid: "no es válido."
             username: 
               taken: "ya está ocupado."
-  ago: "hace %{time} "
+  ago: "%{time} "
   application: 
     helper: 
       aspect_badge: 
@@ -68,7 +68,7 @@ es:
       failure: "Creación de Aspecto fallida."
       success: "Tu nuevo Aspecto %{name} ha sido creado."
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
       success: "%{name} fue eliminado correctamente."
     edit: 
       add_existing: "Añadir un contacto existente."
@@ -199,7 +199,7 @@ es:
       logout: "Desconectarse"
       view_profile: "Ver Perfil"
   more: "Más"
-  new_notifications: "%{count} nuevas notificaciones"
+  new_notifications: "%{count} nueva/s notificacion/es"
   new_requests: 
     few: "¡%{count} nuevas notificaciones!"
     one: "¡Nueva solicitud!"
@@ -208,8 +208,8 @@ es:
   next: "Siguiente"
   no_new_notifications: "No hay nuevas notificaciones"
   notifications: 
-    also_commented: "también comentado"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "también ha comentado en %{post_author}"
+    also_commented_deleted: "comentó en una publicación eliminada"
     comment_on_post: "escribió en tu"
     deleted: "eliminado"
     index: 
@@ -223,7 +223,7 @@ es:
     also_commented: 
       commented: "también participó en la publicación de %{post_author}:"
       sign_in: "Conéctate para verlo."
-      subject: "%{name} también participó en la publicación de tu contacto."
+      subject: "%{name} también participó en la publicación de %{post_author}."
     comment_on_post: 
       commented: "escribió en tu publicación:"
       sign_in: "Conéctate para verlo."

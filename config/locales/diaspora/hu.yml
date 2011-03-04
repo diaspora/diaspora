@@ -68,7 +68,7 @@ hu:
       failure: "Csoport létrehozása sikertelen."
       success: "Új csoport létrehozva: %{name}"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} nem üres, így nem lehet törölni."
       success: "%{name} csoport sikeresen törölve."
     edit: 
       add_existing: "Létező kapcsolat hozzáadása"
