@@ -1,7 +1,7 @@
 class AdminsController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :redirect_unless_admin 
-  
+  before_filter :redirect_unless_admin
+
   def user_search
     user = params[:user] || {}
     user = user.delete_if {|key, value| value.blank? }
@@ -17,7 +17,10 @@ class AdminsController < ApplicationController
   end
 
   def admin_inviter
-    Invitation.create_invitee(:service => 'email', :identifier => params[:identifier])
+    opts = {:service => 'email', :identifier => params[:identifier]}
+    existing_user = Invitation.find_existing_user('email', params[:identifier])
+    opts.merge!(:existing_user => existing_user) if existing_user
+    Invitation.create_invitee(opts)
     flash[:notice] = "invitation sent to #{params[:identifier]}"
     redirect_to '/admins/user_search'
   end
