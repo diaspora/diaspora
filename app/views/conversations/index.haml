@@ -2,40 +2,39 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:javascript
-  $(document).ready(function(){
-    $('.conversation', '.stream').click(function(){
-      var conversationSummary = $(this),
-          conversationGuid = conversationSummary.attr('data-guid');
-      $.get("conversations/"+conversationGuid, function(data){
 
-        $('.conversation', '.stream').removeClass('selected');
-        conversationSummary.addClass('selected');
-        $('#conversation_show').html(data);
-      });
-    });
-  });
+- content_for :head do
+  = include_javascripts :inbox
 
-.span-24.last{:style => 'position:relative;'}
-  .right
-    = link_to 'New Message', new_conversation_path, :class => 'button'
-  = link_to 'Inbox', conversations_path, :class => 'button'
-  = link_to 'Sent', conversations_path, :class => 'button'
+- content_for :page_title do
+  Message Inbox
+
+:css
+  footer{ display:none;}
+
+.span-5.append-3
+  %h3.fixit{:style => 'width:300px;'}
+    .right
+      = link_to 'New Message', new_conversation_path, :class => 'button', :rel => 'facebox'
+    Inbox
   %br
   %br
   %br
 
-.span-7
-  - if @conversations.count > 0
-    .stream.conversations
-      = render :partial => 'conversations/conversation', :collection => @conversations
-  - else
-    %i
-      You have no messages
+  #conversation_inbox
+    - if @conversations.count > 0
+      .stream.conversations
+        = render :partial => 'conversations/conversation', :collection => @conversations
+      = will_paginate @conversations
+    - else
+      %i
+        You have no messages
 
-#conversation_show.span-17.last
+#conversation_show.span-16.last
   - if @conversation
     = render 'conversations/show', :conversation => @conversation
   - else
-    %i
+    #no_conversation_text
       no conversation selected
+    #no_conversation_controls
+      = link_to 'create a new message', new_conversation_path, :rel => 'facebox'

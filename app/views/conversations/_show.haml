@@ -2,23 +2,32 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.conversation_participants
-  %h3
-    = conversation.subject
-  .right
-    = link_to t('delete'), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
-  - for participant in conversation.participants
-    = person_image_link(participant)
+.conversation_participants.span-16.last
+  .span-10
+    %h3
+      = conversation.subject
+      
+    .conversation_controls
+      = link_to (image_tag('reply.png', :height => 14, :width => 14) + ' ' + 'reply'), '#', :id => 'reply_to_conversation'
+      = link_to (image_tag('deletelabel.png') + ' ' + t('delete').downcase), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
 
-.stream
-  = render :partial => 'messages/message', :collection => conversation.messages
+  .span-6.avatars.last
+    - for participant in conversation.participants
+      = person_image_link(participant)
 
-  .stream_element.new_message
-    = owner_image_tag
+%br
+%br
+%br
+.span-16.last
+  .stream
+    = render :partial => 'messages/message', :collection => conversation.messages
 
-    .content
-      = form_for [conversation, Message.new] do |message|
-        = message.text_area :text, :rows => 5
-        .right
-          = message.submit 'Reply'
-          = link_to 'Cancel', '#'
+    .stream_element.new_message
+      = owner_image_tag
+
+      .content
+        = form_for [conversation, Message.new] do |message|
+          = message.text_area :text, :rows => 5
+          .right
+            = message.submit 'Reply'
+            = link_to 'Cancel', '#'

@@ -9,7 +9,7 @@ $background: rgb(252,252,252)
 body
   :padding 2em
   :margin 0
-    :top 60px
+    :top 50px
   :background-color $background
 a
   :color #107FC9
@@ -127,8 +127,8 @@ header
     :color #111
     :color rgba(15,15,15,0.90)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.85)), to(rgba(20,20,20,1)))
-  :background -moz-linear-gradient(top, rgba(30,30,30,0.85), rgba(20,20,20,0.98))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(20,20,20,0.85)), to(rgba(20,20,20,1)))
+  :background -moz-linear-gradient(top, rgba(20,20,20,0.85), rgba(20,20,20,0.98))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
@@ -254,8 +254,6 @@ header
       :top 1px solid #fff
 
     &:hover
-      :border
-        :bottom 1px solid #ddd
       .right
         :display inline
 
@@ -2486,30 +2484,63 @@ ul.show_comments
 .stream_element
   .subject
     :font
-      :size 13px
+      :size 14px
       :weight bold
+    :color #444
+    :overflow hidden
+    :white-space nowrap
+  
+  .last_author
+    :font
+      :size 12px
+      :weight bold
+    :color #777
+
   .message
     :font
       :size 12px
 
-  .participants
-    .avatar
-      :float none
-      :height 24px
-      :width 24px
-    :margin
-      :top 3px
-
 .conversation_participants
+  :z-index 3
+  :background
+    :color $background
+  :position fixed
+  :margin
+    :bottom 10px
+
+  :-webkit-box-shadow 0 3px 3px -3px #333
+  :-moz-box-shadow 0 3px 3px -3px #333
+
+  h3
+    :margin 0
+      :top 6px
+      :bottom 0px
   .avatar
     :height 30px
     :width 30px
 
-  :background
-    :color #eee
+  :line
+    :height 0
+
+  .conversation_controls
+    a
+      :margin
+        :right 10px
+
+    :margin
+      :bottom 10px
+
   :border
-    :bottom 1px solid #999
-  :padding 1em
+    :bottom 1px solid #666
+  :padding 5px
+    :left 10px
+    :top 90px
+  :margin
+    :top -100px
+
+  .avatars
+    :text
+      :align right
 
 .stream_element.new_message
   :border
@@ -2526,12 +2557,92 @@ ul.show_comments
     :right -11px
 
 .stream_element.conversation
-  :padding 10px
+  :padding 5px
 
-.stream.conversations
-  :border
-    :right 1px solid #ccc
+  .message_count
+    :right 6px
+    :background
+      :color #999
+    :color #eee
+    :position absolute
+    :padding 0 5px
+    :font
+      :size 12px
+      :weight normal
+    :-webkit-border-radius 3px
+
+  .participant_count
+    :font
+      :weight normal
+
+  .timestamp
+    :position absolute
+    :right 6px
+    :font
+      :weight normal
+    :color $blue
+
+  .avatar
+    :display inline
+    :width 35px
+    :height 35px
+    :margin
+      :right 5px
+
+  .message
+    :padding
+      :left 40px
+
+  &:hover:not(.selected)
+    :background
+      :color #f0f0f0
+  &:hover
+    :cursor pointer
 
 .conversation.selected
   :background
-    :color #ccc
+    :color $blue
+  .subject
+    :color #fff
+  .last_author
+    :color #fff
+  .message
+    :color #eee
+  .timestamp
+    :color #eee
+  :border
+    :bottom 1px solid darken($blue, 10%)
+    :top 1px solid darken($blue, 10%)
+
+#conversation_inbox
+  :position fixed
+  :height 100%
+  :overflow-y auto
+  :overflow-x none
+  :background
+    :color #f8f8f8
+  :width 300px
+
+  :border
+    :right 2px solid #999
+    :left 2px solid #eee
+
+.fixit
+  :position fixed
+
+#no_conversation_text
+  :font
+    :size 20px
+    :weight bold
+  :color #ccc
+  :text
+    :align center
+  :margin
+    :top 100px
+
+#no_conversation_controls
+  :text
+    :align center
+  :font
+    :size 12px
+

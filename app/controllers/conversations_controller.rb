@@ -5,7 +5,9 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
-                              :conversation_visibilities => {:person_id => current_user.person.id}).all
+                              :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
+                                                             :page => params[:page], :per_page => 7, :order => 'updated_at DESC')
+    
     @conversation = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
   end
@@ -32,6 +34,10 @@ class ConversationsController < ApplicationController
     else
       redirect_to conversations_path
     end
+  end
+
+  def new
+    render :layout => false
   end
 
 end

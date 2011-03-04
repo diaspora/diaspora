@@ -11,7 +11,7 @@ class Message < ActiveRecord::Base
   xml_reader :conversation_guid
 
   belongs_to :author, :class_name => 'Person'
-  belongs_to :conversation
+  belongs_to :conversation, :touch => true
 
   after_create do
     #sign comment as commenter
