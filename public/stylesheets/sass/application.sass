@@ -52,6 +52,12 @@ form
   :width 50px
   :height 50px
 
+#content
+  :background
+    :color #fff
+  :border 1px solid #ccc
+  :height 100%
+
 #flash_notice,
 #flash_error,
 #flash_alert
@@ -2271,7 +2277,8 @@ ul.show_comments
   :position relative
   :top 10px
 
-#aspect_edit_pane
+#aspect_edit_pane,
+#new_message_pane
   :width 400px
   .person_tiles
     .tile
@@ -2294,6 +2301,10 @@ ul.show_comments
 
   &.larger
     :width 600px
+
+#new_message_pane
+  input
+    :width 90%
 
 #facebox_header
   :padding 1em
@@ -2484,7 +2495,7 @@ ul.show_comments
 .stream_element
   .subject
     :font
-      :size 14px
+      :size 13px
       :weight bold
     :color #444
     :overflow hidden
@@ -2493,12 +2504,8 @@ ul.show_comments
   .last_author
     :font
       :size 12px
-      :weight bold
     :color #777
 
-  .message
-    :font
-      :size 12px
 
 .conversation_participants
   :z-index 3
@@ -2532,8 +2539,7 @@ ul.show_comments
 
   :border
     :bottom 1px solid #666
-  :padding 5px
-    :left 10px
+  :padding 0
     :top 90px
   :margin
     :top -100px
@@ -2541,6 +2547,8 @@ ul.show_comments
   .avatars
     :text
       :align right
+    :margin
+      :top 9px
 
 .stream_element.new_message
   :border
@@ -2557,10 +2565,11 @@ ul.show_comments
     :right -11px
 
 .stream_element.conversation
-  :padding 5px
+  :padding 10px
+  :min-height 0px
 
   .message_count
-    :right 6px
+    :right 10px
     :background
       :color #999
     :color #eee
@@ -2570,6 +2579,8 @@ ul.show_comments
       :size 12px
       :weight normal
     :-webkit-border-radius 3px
+    :-moz-border-radius 3px
+    :border-radius 3px
 
   .participant_count
     :font
@@ -2577,7 +2588,7 @@ ul.show_comments
 
   .timestamp
     :position absolute
-    :right 6px
+    :right 10px
     :font
       :weight normal
     :color $blue
@@ -2587,11 +2598,7 @@ ul.show_comments
     :width 35px
     :height 35px
     :margin
-      :right 5px
-
-  .message
-    :padding
-      :left 40px
+      :right 10px
 
   &:hover:not(.selected)
     :background
@@ -2606,8 +2613,6 @@ ul.show_comments
     :color #fff
   .last_author
     :color #fff
-  .message
-    :color #eee
   .timestamp
     :color #eee
   :border
@@ -2621,11 +2626,10 @@ ul.show_comments
   :overflow-x none
   :background
     :color #f8f8f8
-  :width 300px
+  :width 358px
 
   :border
     :right 2px solid #999
-    :left 2px solid #eee
 
 .fixit
   :position fixed

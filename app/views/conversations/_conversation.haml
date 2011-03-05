@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .stream_element.conversation{:data=>{:guid=>conversation.id}}
-  = person_image_tag(conversation.messages.last.author)
+  = person_image_tag(authors[conversation.id])
 
   .subject
     .message_count
@@ -14,11 +14,7 @@
   .last_author
     .timestamp
       = time_ago_in_words conversation.updated_at
-    = conversation.author.name
+    = authors[conversation.id].name
     - if conversation.participants.size > 2
       %span.participant_count
         = "(+#{conversation.participants.size - 1})"
-
-  .message
-    = "#{conversation.messages.last.text[0..45]}..."
-

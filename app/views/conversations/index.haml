@@ -12,8 +12,11 @@
 :css
   footer{ display:none;}
 
-.span-5.append-3
-  %h3.fixit{:style => 'width:300px;'}
+
+= hidden_field_tag :contact_json, @all_contacts_and_ids.to_json
+
+.span-5.append-4
+  %h3.fixit{:style => 'width:340px;'}
     .right
       = link_to 'New Message', new_conversation_path, :class => 'button', :rel => 'facebox'
     Inbox
@@ -24,13 +27,13 @@
   #conversation_inbox
     - if @conversations.count > 0
       .stream.conversations
-        = render :partial => 'conversations/conversation', :collection => @conversations
+        = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors}
       = will_paginate @conversations
     - else
       %i
         You have no messages
 
-#conversation_show.span-16.last
+#conversation_show.span-15.last
   - if @conversation
     = render 'conversations/show', :conversation => @conversation
   - else

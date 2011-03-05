@@ -4,6 +4,9 @@ class ConversationsController < ApplicationController
   respond_to :html, :json
 
   def index
+
+    @all_contacts_and_ids = current_user.contacts.map{|c| {:id => c.id, :name => c.person.name}}
+
     @conversations = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
                                                              :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
