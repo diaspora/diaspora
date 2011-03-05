@@ -68,7 +68,7 @@ en_shaw:
       failure: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑒𐑮𐑦𐑱𐑖𐑩𐑯 𐑓𐑱𐑤𐑛."
       success: "𐑿𐑼 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑 %{name} 𐑢𐑪𐑟 𐑒𐑮𐑦𐑱𐑑𐑩𐑛"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} ez dago hutsik eta ezin izan da ezabatu."
       success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
     edit: 
       add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
@@ -208,7 +208,7 @@ en_shaw:
   next: "𐑯𐑧𐑒𐑕𐑑"
   no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
   notifications: 
-    also_commented: "𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+    also_commented: "(e)k iruzkindu du %{post_author}(r)en mezuan ere"
     also_commented_deleted: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑"
     comment_on_post: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼"
     deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
@@ -223,7 +223,7 @@ en_shaw:
     also_commented: 
       commented: "𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
-      subject: "%{name} 𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑."
+      subject: "%{name}(e)k ere iruzkindu du %{post_author}(r)en mezua."
     comment_on_post: 
       commented: "𐑣𐑨𐑟 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
