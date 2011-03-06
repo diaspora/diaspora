@@ -81,6 +81,6 @@ group :test do
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
-  gem 'rspec-instafail', :require => false
+  gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
 end

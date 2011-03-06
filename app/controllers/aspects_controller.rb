@@ -12,12 +12,11 @@ class AspectsController < ApplicationController
   def index
     if params[:a_ids]
       @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts => {:person => :profile})
-      @selected_contacts = @aspects.inject([]){|arr, aspect| arr.concat(aspect.contacts)}
-      @selected_contacts.uniq!
     else
       @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
-      @selected_contacts = current_user.contacts.includes(:person => :profile)
     end
+    @selected_contacts = @aspects.inject([]){|arr, aspect| arr.concat(aspect.contacts)}
+    @selected_contacts.uniq!
 
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile?

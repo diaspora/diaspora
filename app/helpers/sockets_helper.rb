@@ -58,7 +58,6 @@ module SocketsHelper
       end
     rescue Exception => e
       Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
-      raise e.original_exception if e.respond_to?(:original_exception)
       raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}

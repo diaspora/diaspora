@@ -324,7 +324,7 @@ GEM
     rspec-core (2.5.1)
     rspec-expectations (2.5.0)
       diff-lcs (~> 1.1.2)
-    rspec-instafail (0.1.6)
+    rspec-instafail (0.1.7)
     rspec-mocks (2.5.0)
     rspec-rails (2.5.0)
       actionpack (~> 3.0)
@@ -427,7 +427,7 @@ DEPENDENCIES
   rest-client (= 1.6.1)
   roxml!
   rspec (>= 2.0.0)
-  rspec-instafail
+  rspec-instafail (>= 0.1.7)
   rspec-rails (>= 2.0.0)
   ruby-debug
   thin (= 1.2.8)

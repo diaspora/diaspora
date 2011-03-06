@@ -30,7 +30,7 @@ describe HomeController do
       sign_in @user
       @aspect0 = @user.aspects.all[0]
       @aspect1 = @user.aspects.create(:name => "Yeaaaah!")
-      @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]} 
+      @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]}
       @user.aspects.where(:id => @index_params[:a_ids]).update_all(:open => true)
       @user.save
       get :show

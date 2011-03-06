@@ -5,9 +5,6 @@
 
 git_cmd = `git log -1 --format="%H %ci"`
 if git_cmd =~ /^([\d\w]+?)\s(.+)$/
-  GIT_REVISION = $1
-  GIT_UPDATE = $2.strip
-else
-  GIT_REVISION = nil
-  GIT_UPDATE = nil
+  AppConfig[:git_revision] = $1
+  AppConfig[:git_update] = $2.strip
 end

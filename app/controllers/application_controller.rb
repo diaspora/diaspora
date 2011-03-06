@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
-  before_filter :set_git_header
+  before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :which_action_and_user
   prepend_before_filter :clear_gc_stats
   before_filter :set_grammatical_gender
@@ -43,8 +43,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_git_header
-    headers['X-Git-Update'] = GIT_UPDATE unless GIT_UPDATE.nil?
-    headers['X-Git-Revision'] = GIT_REVISION unless GIT_REVISION.nil?
+    headers['X-Git-Update'] = AppConfig[:git_update]
+    headers['X-Git-Revision'] = AppConfig[:git_revision]
   end
 
   def which_action_and_user
