@@ -68,7 +68,7 @@ el:
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "Το όνομα %{name} δεν είναι άδειο και δεν μπορεί να αφαιρεθεί."
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
@@ -208,8 +208,8 @@ el:
   next: "επόμενο"
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
-    also_commented: "επίσης σχολίασε στην επαφή σας"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "επίσης σχολίασε τη %{post_author}"
+    also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     index: 
@@ -221,9 +221,9 @@ el:
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
   notifier: 
     also_commented: 
-      commented: "σχολίασε επίσης τη δημοσίευση του χρήστη %{post_author} :"
+      commented: "σχολίασε επίσης τη %{post_author} :"
       sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο/Η %{name} επίσης σχολίασε στη δημοσίευση της επαφής σας."
+      subject: "Ο/Η %{name} επίσης σχολίασε τη %{post_author}"
     comment_on_post: 
       commented: "έχει σχολιάσει σε δημοσίευση σας:"
       sign_in: "Συνδεθείτε για να το δείτε."

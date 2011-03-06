@@ -49,9 +49,9 @@ eu:
   are_you_sure: "Ziur al zaude?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Akatsa pertsona alderditik ezabatzean"
+      no_membership: "Ezin izan da hautatutako pertsona aurkitu alderdian"
+      success: "Pertsona arrakastaz ezabatua alderditik"
   aspects: 
     add_to_aspect: 
       failure: "Akatsa adiskidea alderdira gehitzean."
@@ -59,16 +59,16 @@ eu:
     aspect_contacts: 
       done_editing: "aldaketak gauzatu"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "jarduera"
+      post_time: "mezuaren dataren arabera"
+      sort_by: "sailkatu:"
     contacts_not_visible: "Alderdi honetako adiskideak nor dagoen bere alderdian ezingo dute ikusi."
     contacts_visible: "Alderdi honetako adiskideak jokingo dute nor dagoen alderdian."
     create: 
       failure: "Akatsa alderdiaren sormenean."
       success: "Zure alderdia, %{name}, sortua izan da."
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} ez dago hutsik eta ezin izan da ezabatu."
       success: "%{name} arrakastaz ezabatu da."
     edit: 
       add_existing: "Jada adiskide den norbait gehitu"
@@ -122,17 +122,17 @@ eu:
       commenting: "Iruzkintzen..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Akatsa adiskide berria sortzean"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Akatsa %{name} ezabatzean"
+      success: "Arrakastaz ezabatu duzu %{name} adiskide zerrendatik"
     few: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "%{name}(e)k onartzen duenean, bakoitzak bestearen mezuak ikusiko ditu Diasporan"
+      add_new_aspect: "alderdi berrira gehitu"
+      share_with: "%{name}(r)ekin harremanetan hasi"
     zero: "adiskiderik ez"
   date: 
     formats: 
@@ -209,7 +209,7 @@ eu:
   no_new_notifications: "jakinarazpen berririk ez"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "mezu ezabatu bat iruzkindu du"
     comment_on_post: "iruzkindua zure"
     deleted: "ezabatuta"
     index: 
@@ -332,21 +332,21 @@ eu:
   profile: "Profila"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Jendea baimendu zu Diasporan bilatzera"
+      edit_profile: "Profila aldatu"
+      first_name: "Izena"
+      info_available_to: "Informazio hau eskuragarri egongo da zure Diasporako harreman guztientzat"
+      last_name: "Abizena"
+      update_profile: "Profila Eguneratu"
+      your_bio: "Zuri buruz"
+      your_birthday: "Zure urtemuga"
+      your_gender: "Zure sexua"
+      your_name: "Zure izena"
+      your_photo: "Zure argazkia"
+      your_profile: "Zure profila"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Akatsa profila eguneratzean"
+      updated: "Profila eguneratu duzu."
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create: 

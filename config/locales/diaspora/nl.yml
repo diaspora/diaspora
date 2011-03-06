@@ -68,7 +68,7 @@ nl:
       failure: "Aanmaken van aspect is mislukt."
       success: "Je nieuwe aspect %{name} is aangemaakt"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} is niet leeg en kan niet verwijderd worden."
       success: "%{name} is met succes verwijderd."
     edit: 
       add_existing: "Voeg een bestaand contact toe"
@@ -189,7 +189,7 @@ nl:
       powered_by: "POWERED BY DIASPORA*"
       toggle: "switch mobiele versie"
       whats_new: "wat is nieuw op Diaspora?"
-      your_aspects: "jou aspecten"
+      your_aspects: "jouw aspecten"
     header: 
       account_settings: "account instellingen"
       blog: "blog"
@@ -223,11 +223,11 @@ nl:
     also_commented: 
       commented: "heeft ook op %{post_author}'s post gereageerd:"
       sign_in: "Log in om het te zien."
-      subject: "%{name} heeft ook gereageerd %{post_author}'s post."
+      subject: "%{name} heeft ook gereageerd op %{post_author}'s post."
     comment_on_post: 
-      commented: "heeft gereageerd op jou post:"
+      commented: "heeft gereageerd op jouw post:"
       sign_in: "Log in om het te zien."
-      subject: "%{name} heeft op jou post gereageerd."
+      subject: "%{name} heeft op jouw post gereageerd."
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
     love: "liefs,"
@@ -489,7 +489,7 @@ nl:
       signup_steps: "Voltooi je aanmelding door middel van de volgende drie stappen:"
       skip: "sla 'getting started' over"
       step_2: 
-        find_your_friends_on_diaspora: "Wil je jou Facebook-vrienden vinden op Diaspora?"
+        find_your_friends_on_diaspora: "Wil je jouw Facebook-vrienden vinden op Diaspora?"
         skip: "Overslaan"
       step_3: 
         finish: "Voltooien"

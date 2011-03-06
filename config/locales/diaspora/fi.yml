@@ -208,7 +208,7 @@ fi:
   next: "seuraava"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
-    also_commented: "kommentoi myös kontaktisi"
+    also_commented: "kommentoi myös %{post_author}:n"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
@@ -223,7 +223,7 @@ fi:
     also_commented: 
       commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
       sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on myös kommentoinut kontaktisi viestiin."
+      subject: "%{name} on myös kommentoinut %{post_author}:n viestiin."
     comment_on_post: 
       commented: "on kommentoinut viestiisi:"
       sign_in: "Kirjaudu sisään nähdäksesi."
