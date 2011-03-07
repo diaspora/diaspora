@@ -53,16 +53,18 @@ $(document).ready(function() {
 
   // right/left hotkeys
   $(document).keyup(function(e){
-    //left
-    if(e.keyCode == 37) {
-      if( $("#photo_show_left").length > 0 ){
-        document.location = $("#photo_show_left").attr('href');
-      }
+    if(!$(e.target).hasClass('comment_box')){
+      //left
+      if(e.keyCode == 37) {
+        if( $("#photo_show_left").length > 0 ){
+          document.location = $("#photo_show_left").attr('href');
+        }
 
-    //right
-    } else if(e.keyCode == 39) {
-      if( $("#photo_show_right").length > 0 ){
-        document.location = $("#photo_show_right").attr('href');
+      //right
+      } else if(e.keyCode == 39) {
+        if( $("#photo_show_right").length > 0 ){
+          document.location = $("#photo_show_right").attr('href');
+        }
       }
     }
   });
