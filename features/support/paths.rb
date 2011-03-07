@@ -23,6 +23,8 @@ module NavigationHelpers
         person_path(User.find_by_email($1).person)
       when /^my account settings page$/
         edit_user_path(@me)
+      when /^the photo page for "([^\"]*)"'s post "([^\"]*)"$/
+        photo_path(User.find_by_email($1).posts.find_by_message($2))
       when /^"(\/.*)"/
         $1
       else

@@ -45,12 +45,12 @@ When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, wi
   end
 end
 
-When /^I press the ([\d])(nd|rd|st|th) "([^"]*)"(?: within "([^"]*)")?$/ do |number,rd, link_selector, within_selector|
+When /^I press the ([\d])(nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |number,rd, link_selector, within_selector|
   with_scope(within_selector) do
    find(:css, link_selector+":nth-child(#{number})").click
   end
 end
-Then /^(?:|I )should see a "([^"]*)"(?: within "([^"]*)")?$/ do |selector, scope_selector|
+Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
   with_scope(scope_selector) do
     page.has_css?(selector).should be_true
   end
@@ -69,9 +69,25 @@ When /^I have turned off jQuery effects$/ do
   evaluate_script("$.fx.off = true")
 end
 
+When /^I attach the file "([^\"]*)" to hidden element "([^\"]*)"(?: within "([^\"]*)")?$/ do |path, field, selector|
+  page.execute_script <<-JS
+    $("#{selector || 'body'}").find("input[name=#{field}]").css({opacity: 1});
+  JS
+
+  if selector
+    When "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\" within \"#{selector}\""
+  else
+    When "I attach the file \"#{Rails.root.join(path).to_s}\" to \"#{field}\""
+  end
+
+  page.execute_script <<-JS
+    $("#{selector || 'body'}").find("input[name=#{field}]").css({opacity: 0});
+  JS
+end
+
 When /^I click ok in the confirm dialog to appear next$/ do
   evaluate_script <<-JS
-    window.confirm = function() { return true; };    
+    window.confirm = function() { return true; };
   JS
 end
 

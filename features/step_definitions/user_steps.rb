@@ -11,7 +11,17 @@ end
 
 Given /^a user with email "([^\"]*)"$/ do |email|
   user = Factory(:user, :email => email, :password => 'password',
-          :password_confirmation => 'password', :getting_started => false)
+                 :password_confirmation => 'password', :getting_started => false)
+  user.aspects.create(:name => "Besties")
+  user.aspects.create(:name => "Unicorns")
+end
+
+Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
+  first, last = name.split
+  username = "#{first}_#{last}" if first
+  user = Factory(:user, :email => email, :password => 'password', :username => "#{first}_#{last}",
+                 :password_confirmation => 'password', :getting_started => false)
+  user.profile.update_attributes(:first_name => first, :last_name => last) if first
   user.aspects.create(:name => "Besties")
   user.aspects.create(:name => "Unicorns")
 end
@@ -30,7 +40,7 @@ When /^I click on my name$/ do
   click_link("#{@me.first_name} #{@me.last_name}")
 end
 
-Given /^I have an aspect called "([^"]*)"$/ do |aspect_name|
+Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
   @me.aspects.create!(:name => aspect_name)
   @me.reload
 end
@@ -52,21 +62,21 @@ Then /^I should see (\d+) contact request(?:s)?$/ do |request_count|
   end
 end
 
-Then /^I should see (\d+) contact(?:s)? in "([^"]*)"$/ do |contact_count, aspect_name|
+Then /^I should see (\d+) contact(?:s)? in "([^\"]*)"$/ do |contact_count, aspect_name|
   aspect = @me.reload.aspects.find_by_name(aspect_name)
   number_of_contacts = evaluate_script(
     "$('ul.dropzone.ui-droppable[data-aspect_id=\"#{aspect.id}\"]').children('li.person').length")
   number_of_contacts.should == contact_count.to_i
 end
 
-Then /^I should see no contact(?:s)? in "([^"]*)"$/ do |aspect_name|
+Then /^I should see no contact(?:s)? in "([^\"]*)"$/ do |aspect_name|
   aspect = @me.reload.aspects.find_by_name(aspect_name)
   number_of_contacts = evaluate_script(
     "$('ul.dropzone.ui-droppable[data-aspect_id=\"#{aspect.id}\"]').children('li.person').length")
   number_of_contacts.should == 0
 end
 
-When /^I drag the contact request to the "([^"]*)" aspect$/ do |aspect_name|
+When /^I drag the contact request to the "([^\"]*)" aspect$/ do |aspect_name|
   Given "I have turned off jQuery effects"
   aspect = @me.reload.aspects.find_by_name(aspect_name)
   aspect_div = find("ul.dropzone[data-aspect_id='#{aspect.id}']")
@@ -105,4 +115,17 @@ Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2
   connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
 end
 
+Given /^a user with email "([^\"]*)" has posted a status message "([^\"]*)" in all aspects$/ do |arg1, arg2|
+  user = User.where(:email => arg1).first
+  status_message = user.build_post(:status_message, :message => arg2)
+  def status_message.socket_to_user(a1, a2); end
+  user.add_to_streams(status_message, user.aspects)
+  status_message.save!
+  bob = User.where(:email => "bob@bob.bob").first
+  raise bob.visible_posts.inspect
+end
 
+When /^I log out$/ do
+  When "I click on my name in the header"
+  When "I follow \"logout\""
+end
