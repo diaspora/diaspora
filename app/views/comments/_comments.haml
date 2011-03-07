@@ -2,14 +2,15 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- is_expanded = defined?(always_expanded) && always_expanded
 
-- unless defined?(always_expanded) && always_expanded
+- unless is_expanded
   %ul.show_comments{:class => ("hidden" if comments.size == 0)}
     %li
       = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
       %b= comment_toggle(comments.size)
 
-%ul.comments{:id => post_id, :class => ("hidden" if comments.size == 0 && !(defined?(always_expanded) && always_expanded))}
+%ul.comments{:id => post_id, :class => ("hidden" if comments.size == 0 && !defined?(force_open) && !is_expanded)}
   -if comments.size > 3
     .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}
       = render :partial => 'comments/comment', :collection => comments[0..-4]
