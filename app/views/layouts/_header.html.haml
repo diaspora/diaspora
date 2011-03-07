@@ -25,7 +25,12 @@
       #notification_badge
         = link_to "", notifications_path, :title => new_notification_text(@notification_count)
         = image_tag 'icons/mail_grey.png'
-        #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
+        .badge_count{:class => ("hidden" if @notification_count == 0)}
+          = @notification_count
+      #message_inbox_badge
+        = link_to "", conversations_path #, :title => new_notification_text(@notification_count)
+        = image_tag 'icons/mail_grey.png'
+        .badge_count{:class => ("hidden" if @notification_count == 0)}
           = @notification_count
 
     %ul#user_menu

@@ -67,7 +67,6 @@ $(document).ready(function(){
       $('#message_text').focus();
      });
   });
-
 });
 
 var resize = function(){

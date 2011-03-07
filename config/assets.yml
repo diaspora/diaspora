@@ -57,6 +57,7 @@ javascripts:
   photos:
     - public/javascripts/photo-show.js
   inbox:
+    - public/javascripts/vendor/jquery.autoSuggest.js
     - public/javascripts/inbox.js
 
 stylesheets:
@@ -67,4 +68,5 @@ stylesheets:
     - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css
+    - public/stylesheets/vendor/autoSuggest.css
  

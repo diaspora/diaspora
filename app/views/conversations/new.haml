@@ -4,10 +4,13 @@
 
 :javascript
   $(document).ready(function () {
-    $("#my-text-input").tokenInput("/url/to/your/script/");
+    var data = $.parseJSON( $('#contact_json').val() );
+    $("#contact_autocomplete").autoSuggest(data, {
+      selectedItemProp: "name",
+      searchObjProps: "name",
+      asHtmlID: "contact_ids"
+      });
   });
-  
-
 
 #new_message_pane
   #facebox_header
@@ -26,7 +29,7 @@
     -else
       %h4
         to
-      = text_field_tag "conversation[contact_ids]"
+      = text_field_tag "contact_autocomplete"
 
     %h4
       subject

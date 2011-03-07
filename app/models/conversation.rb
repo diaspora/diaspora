@@ -49,6 +49,10 @@ class Conversation < ActiveRecord::Base
     self.messages.last.author if self.messages.size > 0
   end
 
+  def subject
+    self[:subject].blank? ? "no subject" : self[:subject]
+  end
+
   def subscribers(user)
     self.recipients
   end

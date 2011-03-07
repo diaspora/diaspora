@@ -1666,11 +1666,13 @@ h3 span.current_gs_step
       :background
         :color #22AAE0
 
-#notification_badge
+#notification_badge,
+#message_inbox_badge
   :position relative
   :top 5px
   :display inline
-  :margin 0 1em
+  :margin 0 10px
+    :right 0
   :font
     :weight bold
     :size smaller
@@ -1683,7 +1685,7 @@ h3 span.current_gs_step
     :width 20px
     :height 20px
 
-#notification_badge_number
+.badge_count
   :z-index 3
   :position absolute
   :top -10px
@@ -2539,8 +2541,9 @@ ul.show_comments
 
   :border
     :bottom 1px solid #666
-  :padding 0
-    :top 90px
+  :padding 20px
+    :top 110px
+    :bottom 10px
   :margin
     :top -100px
 
@@ -2620,19 +2623,36 @@ ul.show_comments
     :top 1px solid darken($blue, 10%)
 
 #conversation_inbox
-  :position fixed
   :height 100%
   :overflow-y auto
   :overflow-x none
   :background
-    :color #f8f8f8
-  :width 358px
+    :color #f3f3f3
+
+#left_pane
+  :position fixed
+  :width 320px
+  :background
+    :color #ddd
+
+  :-webkit-box-shadow 2px 2px 5px -1px #999
 
   :border
-    :right 2px solid #999
+    :right 1px solid #999
+  :z-index 4
 
-.fixit
-  :position fixed
+  h3
+    :padding
+      :bottom 0
+    :margin
+      :bottom 15px
+
+  #left_pane_header
+    :padding 10px
+    :height 22px
+    :border
+      :bottom 1px solid #ddd
+
 
 #no_conversation_text
   :font

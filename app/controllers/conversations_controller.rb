@@ -4,8 +4,7 @@ class ConversationsController < ApplicationController
   respond_to :html, :json
 
   def index
-
-    @all_contacts_and_ids = current_user.contacts.map{|c| {:id => c.id, :name => c.person.name}}
+    @all_contacts_and_ids = current_user.contacts.map{|c| {:value => c.id, :name => c.person.name}}
 
     @conversations = Conversation.joins(:conversation_visibilities).where(
                               :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
@@ -18,7 +17,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
-    person_ids = Contact.where(:id => params[:conversation].delete(:contact_ids)).map! do |contact|
+    person_ids = Contact.where(:id => params[:contact_ids]).map! do |contact|
       contact.person_id
     end
 
