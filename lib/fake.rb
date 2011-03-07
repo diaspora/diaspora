@@ -1,13 +1,10 @@
 class PostsFake
   attr_reader :people_hash, :post_fakes
-
-  def method_missing(method, *args, &block)
-    @post_fakes.send(method, *args, &block)
-  end
+  delegate :length, :each, :to_ary, :to => :post_fakes
 
   def initialize(posts)
     person_ids = []
-    posts.each do |p| 
+    posts.each do |p|
       person_ids << p.person_id
       p.comments.each do |c|
         person_ids << c.person_id
@@ -19,9 +16,9 @@ class PostsFake
     people.each{|person| @people_hash[person.id] = person}
 
     @post_fakes = posts.map do |post|
-      f = Fake.new(post, self) 
+      f = Fake.new(post, self)
       f.comments = post.comments.map do |comment|
-        Fake.new(comment, self) 
+        Fake.new(comment, self)
       end
       f
     end
