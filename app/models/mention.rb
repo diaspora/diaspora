@@ -8,8 +8,6 @@ class Mention < ActiveRecord::Base
   validates_presence_of :post
   validates_presence_of :person
 
-  after_create :notify_recipient
-
   after_destroy :delete_notification
 
   def notify_recipient

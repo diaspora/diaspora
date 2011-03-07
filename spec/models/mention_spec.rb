@@ -12,32 +12,20 @@ describe Mention do
       @mentioned_user = bob
       @non_friend = eve
 
-      @sm =  Factory(:status_message)
-      @m  = Mention.new(:person => @user.person, :post=> @sm)
-
-    end
-    it 'notifies the person being mention' do
-      Notification.should_receive(:notify).with(@user, @m, @sm.person)
-      @m.save
+      @sm = @user.build_post(:status_message, :message => "hi @{#{@mentioned_user.name}; #{@mentioned_user.diaspora_handle}}", :to => @user.aspects.first)
     end
 
-    it 'should only notify if the person is local' do
-      m = Mention.new(:person => Factory(:person), :post => @sm)
-      Notification.should_not_receive(:notify)
-      m.save
+    it 'notifies the person being mentioned' do
+      Notification.should_receive(:notify).with(@mentioned_user, anything(), @sm.person)
+      @sm.receive(@mentioned_user, @mentioned_user.person)
     end
 
     it 'should not notify a user if they do not see the message' do
-      pending "this is for mnutt"
       connect_users(@user, @aspect1, @non_friend, @non_friend.aspects.first)
 
       Notification.should_not_receive(:notify).with(@mentioned_user, anything(), @user.person)
-      sm2 = @user.build_post(:status_message, :message => 'stuff')
-      sm2.stub!(:socket_to_user)
-      @user.add_to_streams(sm2, [@aspect1])
-      m2 = Mention.new(:person => @mentioned_user.person, :post => @sm)
-      sm2.save
-      m2.save
+      sm2 = @user.post(:status_message, :message => "stuff @{#{@non_friend.name}; #{@non_friend.diaspora_handle}}", :to => @user.aspects.first)
+      sm2.receive(@non_friend, @non_friend.person)
     end
 
   end
@@ -51,8 +39,11 @@ describe Mention do
   describe 'after destroy' do
     it 'destroys a notification' do
       @user = alice
-      @sm =  Factory(:status_message)
-      @m  = Mention.create(:person => @user.person, :post=> @sm)
+      @mentioned_user = bob
+
+      @sm =  @user.post(:status_message, :message => "hi", :to => @user.aspects.first)
+      @m  = Mention.create!(:person => @mentioned_user.person, :post => @sm)
+      @m.notify_recipient
 
       lambda{
         @m.destroy
