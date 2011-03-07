@@ -9,7 +9,7 @@
       = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
       %b= comment_toggle(comments.size)
 
-%ul.comments{:id => post_id, :class => ("hidden" if comments.size == 0 && !defined?(force_open))}
+%ul.comments{:id => post_id, :class => ("hidden" if comments.size == 0 && !(defined?(always_expanded) && always_expanded))}
   -if comments.size > 3
     .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}
       = render :partial => 'comments/comment', :collection => comments[0..-4]
