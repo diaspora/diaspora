@@ -43,7 +43,7 @@ describe StatusMessage do
     photo.save!
 
     n.photos << photo
-    n.valid?
+    n.valid?.should be_true
     n.errors.full_messages.should == []
   end
 

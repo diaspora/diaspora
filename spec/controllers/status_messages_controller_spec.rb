@@ -127,6 +127,11 @@ describe StatusMessagesController do
         @hash = status_message_hash
         @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
       end
+      it "will post a photo without text" do
+        @hash.delete :message
+        post :create, @hash
+        response.should be_redirect
+      end
       it "dispatches all referenced photos" do
         @user1.should_receive(:dispatch_post).exactly(3).times
         post :create, @hash
