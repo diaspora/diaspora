@@ -68,7 +68,7 @@ fi:
       failure: "Näkymän luonti epäonnistui."
       success: "Uusi näkymäsi, %{name}, on luotu"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} ei ole tyhjä, eikä sitä voida poistaa."
       success: "%{name} poistettiin onnistuneesti."
     edit: 
       add_existing: "Lisää olemassa oleva kontakti"
@@ -122,7 +122,7 @@ fi:
       commenting: "Kommentoidaan..."
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Kontaktin luonti epäonnistui"
     destroy: 
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
@@ -130,9 +130,9 @@ fi:
     one: "1 kontakti"
     other: "%{count} kontaktia"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      accepts: "Kunhan %{name} hyväksyy pyyntösi, alatte näkemään toisenne postit Diasporassa"
+      add_new_aspect: "Lisää uusi näkymä"
+      share_with: "Aloita jakamaan %{name} kanssa"
     zero: "ei kontakteja"
   date: 
     formats: 
@@ -209,7 +209,7 @@ fi:
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "kommentoi poistettuun viestiin"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     index: 
@@ -270,7 +270,7 @@ fi:
       add_contact: "lisää kontakti"
       already_connected: "Yhteys jo olemassa"
       pending_request: "odottaa vastausta"
-      thats_you: "tarkoittaa sinua!"
+      thats_you: "Olet sinä!"
     profile_sidebar: 
       bio: "Biografia"
       born: "Syntymäpäivä"
@@ -283,7 +283,7 @@ fi:
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
-      no_posts: "ei näytettäviä viestejä!"
+      no_posts: "Ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä henkilöön %{name}"
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
@@ -471,8 +471,8 @@ fi:
       change_password: "Vaihda salasana"
       close_account: "Sulje käyttäjätili"
       current_password: "Nykyinen salasana"
-      download_photos: "lataa kaikki kuvat"
-      download_xml: "lataa tiedot XML-muodossa"
+      download_photos: "Lataa kaikki kuvat"
+      download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"
       email_notifications: "Sähköposti-ilmoitukset"
       export_data: "Vie tietoja"

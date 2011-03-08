@@ -20,10 +20,10 @@ it:
       month: "circa un mese"
       months: "%d mesi"
       prefixAgo: ""
-      prefixFromNow: ""
+      prefixFromNow: "fra"
       seconds: "meno di un minuto"
       suffixAgo: "fa"
-      suffixFromNow: "da ora"
+      suffixFromNow: ""
       year: "circa un anno"
       years: "%d anni"
     videos: 

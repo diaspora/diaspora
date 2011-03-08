@@ -343,7 +343,7 @@ nl:
       your_gender: "Je geslacht"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
-      your_profile: "Jou profiel"
+      your_profile: "Jouw profiel"
     update: 
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"

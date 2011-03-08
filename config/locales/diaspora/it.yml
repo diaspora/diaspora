@@ -68,7 +68,7 @@ it:
       failure: "Creazione dell'aspetto fallita."
       success: "Clicca sul segno più nella parte sinistra per dire a Diaspora chi può vedere il tuo nuovo aspetto."
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} non è stato rimosso perchè non è vuoto."
       success: "%{name} è stato rimosso con successo."
     edit: 
       add_existing: "Aggiungi un contatto esistente"
@@ -208,7 +208,7 @@ it:
   next: "successivo"
   no_new_notifications: "nessuna nuova notifica"
   notifications: 
-    also_commented: "ha anche commentato"
+    also_commented: "ha anche commentato su quello di %{post_author}"
     also_commented_deleted: "hai commentato un post cancellato"
     comment_on_post: "ha commentato sul tuo"
     deleted: "eliminato"
@@ -223,7 +223,7 @@ it:
     also_commented: 
       commented: "ha anche commentato sul post di %{post_author}:"
       sign_in: "Autenticati per vederlo."
-      subject: "%{name} ha anche commentato sul post del tuo contatto."
+      subject: "%{name} ha anche commentato sul post di %{post_author}."
     comment_on_post: 
       commented: "ha commentato il tuo post:"
       sign_in: "Autenticati per vederlo."

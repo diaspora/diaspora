@@ -54,7 +54,7 @@ es-CL:
         change_password: "Cambiar mi contraseña"
       new: 
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "No existe una cuenta asociada con ese email. Si estas esperando una invitación, la enviaremos a la brevedad"
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
       send_instructions: "Recibirás un correo con instrucciones para restablecer tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has entrado a tu cuenta."
