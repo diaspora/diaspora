@@ -37,7 +37,7 @@ class StatusMessage < Post
     return self.raw_message unless self.raw_message
     people = self.mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
-    escaped_message = ERB::Util.h(raw_message)
+    escaped_message = opts[:plain_text] ? raw_message : ERB::Util.h(raw_message)
     form_message = escaped_message.gsub(regex) do |matched_string|
       inner_captures = matched_string.match(regex).captures
       person = people.detect{ |p|
@@ -87,8 +87,8 @@ class StatusMessage < Post
   def to_activity
     <<-XML
   <entry>
-    <title>#{x(self.message)}</title>
-    <link rel="alternate" type="text/html" href="#{person.url}status_messages/#{self.id}"/>
+    <title>#{x(self.formatted_message(:plain_text => true))}</title>
+    <link rel="alternate" type="text/html" href="#{person.url}p/#{self.id}"/>
     <id>#{person.url}posts/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>
     <updated>#{self.updated_at.xmlschema}</updated>

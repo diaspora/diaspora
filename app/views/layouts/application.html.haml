@@ -70,8 +70,10 @@
         } catch( err ) {}
 
 
-    - if current_user
-      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "Public Diaspora Feed for #{current_user.name}"}
+    - if @person
+      %link{:rel => "alternate", :href => "#{@person.public_url}", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
+    - elsif current_user
+      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => current_user.name)}"}
 
   %body
     - unless @landing_page

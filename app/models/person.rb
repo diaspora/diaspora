@@ -114,7 +114,12 @@ class Person < ActiveRecord::Base
   end
 
   def public_url
-    "#{url}public/#{self.owner.username}"
+    if self.owner
+      username = self.owner.username
+    else
+      username = self.diaspora_handle.split("@")[0]
+    end
+    "#{url}public/#{username}"
   end
 
   def public_key_hash

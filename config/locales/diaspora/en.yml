@@ -112,6 +112,7 @@ en:
         your_aspects: "your aspects"
         logged_in_as: "logged in as %{name}"
         toggle: "toggle mobile site"
+        public_feed: "Public Diaspora Feed for %{name}"
   shared:
       publisher:
           mention_helper_text: "to mention someone, press '@' and start typing their name"
