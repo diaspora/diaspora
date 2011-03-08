@@ -2,17 +2,17 @@
 
 ul.as-selections {
 	list-style-type: none;
-	border-top: 1px solid #888;
-	border-bottom: 1px solid #b6b6b6;
-	border-left: 1px solid #aaa;
-	border-right: 1px solid #aaa;
+	border: 1px solid #ccc;
 	padding: 4px 0 4px 4px;
 	margin: 0;
 	overflow: auto;
 	background-color: #fff;
-	box-shadow:inset 0 1px 2px #888;
-	-webkit-box-shadow:inset 0 1px 2px #888;
-	-moz-box-shadow:inset 0 1px 2px #888;
+
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  
+  width: 383px;
 }
 
 ul.as-selections.loading {
@@ -27,19 +27,21 @@ ul.as-selections li {
 ul.as-selections li.as-selection-item {
 	color: #2b3840;
 	font-size: 13px;
-	font-family: "Lucida Grande", arial, sans-serif;
 	text-shadow: 0 1px 1px #fff;
 	background-color: #ddeefe;
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddeefe), to(#bfe0f1));
 	border: 1px solid #acc3ec;
-	border-top-color: #c0d9e9;
-	padding: 2px 7px 2px 10px;
-	border-radius: 12px;
-	-webkit-border-radius: 12px;
-	-moz-border-radius: 12px;
+	padding: 0;
+  padding-left: 6px;
+	border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
 	box-shadow: 0 1px 1px #e4edf2;
 	-webkit-box-shadow: 0 1px 1px #e4edf2;
 	-moz-box-shadow: 0 1px 1px #e4edf2;
+  line-height: 10px;
+  margin-top: -1px;
+  margin-bottom: -1px;
 }
 
 ul.as-selections li.as-selection-item:last-child {
@@ -48,8 +50,8 @@ ul.as-selections li.as-selection-item:last-child {
 
 ul.as-selections li.as-selection-item a.as-close {
 	float: right;
-	margin: 1px 0 0 7px;
-	padding: 0 2px;
+	margin: 0px 3px 0 0px;
+	padding: 0 3px;
 	cursor: pointer;
 	color: #5491be;
 	font-family: "Helvetica", helvetica, arial, sans-serif;
@@ -107,8 +109,9 @@ ul.as-selections li.as-original input {
 	outline: none;
 	font-size: 13px;
 	width: 120px;
-	height: 18px;
-	padding-top: 3px;
+	height: 14px;
+	padding: 0;
+  margin: 0;
 }
 
 ul.as-list {
@@ -116,9 +119,8 @@ ul.as-list {
 	list-style-type: none;
 	margin: 2px 0 0 0;
 	padding: 0;
-	font-size: 14px;
+	font-size: 13px;
 	color: #000;
-	font-family: "Lucida Grande", arial, sans-serif;
 	background-color: #fff;
 	background-color: rgba(255,255,255,0.95);
 	z-index: 2;
@@ -132,14 +134,14 @@ ul.as-list {
 
 li.as-result-item, li.as-message {
 	margin: 0 0 0 0;
-	padding: 5px 12px;
+	padding: 5px;
 	background-color: transparent;
 	border: 1px solid #fff;
 	border-bottom: 1px solid #ddd;
 	cursor: pointer;
-	border-radius: 5px;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
 }
 
 li:first-child.as-result-item {
@@ -173,9 +175,6 @@ li.as-result-item.active em {
 
 /* Webkit Hacks  */
 @media screen and (-webkit-min-device-pixel-ratio:0) {	
-	ul.as-selections {
-		border-top-width: 2px;
-	}
 	ul.as-selections li.as-selection-item {
 		padding-top: 3px;
 		padding-bottom: 3px;
@@ -184,14 +183,14 @@ li.as-result-item.active em {
 		margin-top: -1px;
 	}
 	ul.as-selections li.as-original input {
-		height: 19px;
+		height: 15px;
 	}
 }
 
 /* Opera Hacks  */
 @media all and (-webkit-min-device-pixel-ratio:10000), not all and (-webkit-min-device-pixel-ratio:0) {
 	ul.as-list {
-		border: 1px solid #888;
+		border: 1px solid #ccc;
 	}
 	ul.as-selections li.as-selection-item a.as-close {
 		margin-left: 4px;
@@ -201,7 +200,7 @@ li.as-result-item.active em {
 
 /* IE Hacks  */
 ul.as-list {
-	border: 1px solid #888\9;
+	border: 1px solid #ccc\9;
 }
 ul.as-selections li.as-selection-item a.as-close {
 	margin-left: 4px\9;
@@ -210,7 +209,7 @@ ul.as-selections li.as-selection-item a.as-close {
 
 /* Firefox 3.0 Hacks */
 ul.as-list,  x:-moz-any-link, x:default { 
-	border: 1px solid #888;
+	border: 1px solid #ccc;
 }
 BODY:first-of-type ul.as-list, x:-moz-any-link, x:default { /* Target FF 3.5+ */
 	border: none;

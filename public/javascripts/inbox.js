@@ -11,8 +11,9 @@ $(document).ready(function(){
     $.get("conversations/"+conversationGuid, function(data){
 
       $('.conversation', '.stream').removeClass('selected');
-      conversationSummary.addClass('selected');
+      conversationSummary.addClass('selected').removeClass('unread');
       $('#conversation_show').html(data);
+      Diaspora.widgets.timeago.updateTimeAgo();
     });
 
     if (typeof(history.pushState) == 'function') {

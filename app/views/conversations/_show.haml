@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-.span-15.last
+.span-16.last
   .conversation_participants
     .span-9
       %h3
@@ -22,7 +22,7 @@
 %br
 %br
 %br
-.span-15.last
+.span-16.last
   .stream
     = render :partial => 'messages/message', :collection => conversation.messages
 
@@ -33,5 +33,5 @@
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5
           .right
-            = message.submit 'Reply'
+            = message.submit 'Reply', :class => 'button'
             = link_to 'Cancel', '#'

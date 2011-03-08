@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  skip_before_filter :set_contacts_notifications_and_status
+  skip_before_filter :set_contacts_notifications_unread_count_and_status
   skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :set_locale
