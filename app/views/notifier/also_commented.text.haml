@@ -1,8 +1,8 @@
-= t('notifier.hello', :name => @receiver.profile.first_name)
-= "#{@sender.name} (#{@sender.diaspora_handle})"
-= t('notifier.also_commented.commented', :post_author => @post_author_name)
+!= t('notifier.hello', :name => @receiver.profile.first_name)
+!= "#{@sender.name} (#{@sender.diaspora_handle})"
+!= t('notifier.also_commented.commented', :post_author => @post_author_name)
 
-= @comment.text
+!= @comment.text
 
-= "#{t('notifier.love')} \n"
-= t('notifier.diaspora')
+!= "#{t('notifier.love')} \n"
+!= t('notifier.diaspora')

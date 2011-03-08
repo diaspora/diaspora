@@ -1,9 +1,9 @@
-= t('notifier.hello', :name => @receiver.profile.first_name)
-= "#{@sender.name} (#{@sender.diaspora_handle})"
-= t('notifier.new_request.just_sent_you')
-= t('notifier.new_request.try_it_out')
+!= t('notifier.hello', :name => @receiver.profile.first_name)
+!= "#{@sender.name} (#{@sender.diaspora_handle})"
+!= t('notifier.new_request.just_sent_you')
+!= t('notifier.new_request.try_it_out')
 
-= "#{t('notifier.new_request.sign_in')}: #{new_user_session_url}"
+!= "#{t('notifier.new_request.sign_in')}: #{new_user_session_url}"
 
-= t('notifier.love')
-= t('notifier.diaspora')
+!= t('notifier.love')
+!= t('notifier.diaspora')

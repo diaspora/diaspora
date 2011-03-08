@@ -1,8 +1,8 @@
-= t('notifier.hello', :name => @receiver.profile.first_name)
-= "#{@sender.name} (#{@sender.diaspora_handle})"
-= t('notifier.request_accepted.accepted')
+!= t('notifier.hello', :name => @receiver.profile.first_name)
+!= "#{@sender.name} (#{@sender.diaspora_handle})"
+!= t('notifier.request_accepted.accepted')
 
-= t('.sign_in')
-= new_user_session_url
-= "#{t('notifier.love')} \n"
-= t('notifier.diaspora')
+!= t('.sign_in')
+!= new_user_session_url
+!= "#{t('notifier.love')} \n"
+!= t('notifier.diaspora')
