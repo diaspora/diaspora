@@ -2306,7 +2306,7 @@ ul.show_comments
 #new_message_pane
   input:not([type='submit']),
   textarea
-    :width 377px
+    :width 378px
     :margin
       :right 0
 
@@ -2614,6 +2614,10 @@ ul.show_comments
       :color #f0f0f0
   &:hover
     :cursor pointer
+
+.conversation.unread
+  :background
+    :color lighten($background,5%)
 
 .conversation.selected
   :background

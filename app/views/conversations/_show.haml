@@ -33,5 +33,5 @@
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5
           .right
-            = message.submit 'Reply'
+            = message.submit 'Reply', :class => 'button'
             = link_to 'Cancel', '#'

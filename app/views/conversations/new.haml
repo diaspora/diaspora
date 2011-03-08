@@ -12,12 +12,15 @@
       searchObjProps: "name",
       asHtmlID: "contact_ids",
       keyDelay: 0,
-      startText: ''
+      startText: '',
+      preFill: [{ 'name' : "#{params[:name]}",
+                 'value' : "#{params[:contact_id]}"}]
       });
 
     autocompleteInput.focus();
-
   });
+
+= hidden_field_tag :contact_json, @all_contacts_and_ids.to_json
 
 #new_message_pane
   .span-12.last

@@ -12,8 +12,6 @@
 :css
   footer{ display:none;}
 
-= hidden_field_tag :contact_json, @all_contacts_and_ids.to_json
-
 #left_pane
   #left_pane_header
     %h3
@@ -24,7 +22,7 @@
   #conversation_inbox
     - if @conversations.count > 0
       .stream.conversations
-        = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors}
+        = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
       = will_paginate @conversations
     - else
       %i
