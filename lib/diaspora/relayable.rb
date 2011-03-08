@@ -13,6 +13,10 @@ module Diaspora
         xml_attr :author_signature
       end
     end
+    
+    def relayable
+      true
+    end
 
     def parent_guid
       self.parent.guid
