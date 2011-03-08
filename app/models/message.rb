@@ -67,6 +67,10 @@ class Message < ActiveRecord::Base
     end
   end
 
+  def notification_type(user, person)
+    Notifications::PrivateMessage
+  end
+
   private
   def participant_of_parent_conversation
     if self.parent && !self.parent.participants.include?(self.author)

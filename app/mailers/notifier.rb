@@ -97,6 +97,24 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def private_message(recipient_id, sender_id, message_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender   = Person.find_by_id(sender_id)
+    @message  = Message.find_by_id(message_id)
+    @conversation = @message.conversation
+    @participants = @conversation.participants
+
+
+    log_mail(recipient_id, sender_id, 'private_message')
+
+    attachments.inline['logo_caps.png'] = ATTACHMENT
+
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.private_message.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
+  end
+
   private
   def log_mail recipient_id, sender_id, type
     log_string = "event=mail mail_type=#{type} recipient_id=#{recipient_id} sender_id=#{sender_id}"

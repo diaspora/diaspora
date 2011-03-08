@@ -110,7 +110,38 @@ describe Notifier do
     end
   end
 
+  describe ".private_message" do
+    before do
+      @user2 = bob
+      @participant_ids = @user2.contacts.map{|c| c.person.id} + [ @user2.person.id]
 
+      @create_hash = { :author => @user2.person, :participant_ids => @participant_ids ,
+                       :subject => "cool stuff", :text => 'hey'}
+   
+      @cnv = Conversation.create(@create_hash)
+
+      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.id)
+    end
+    it 'goes to the right person' do
+      @mail.to.should == [user.email]
+    end
+
+    it 'has the recipients in the body' do
+      @mail.body.encoded.include?(user.person.first_name).should be true
+    end
+
+    it 'has the name of the sender in the body' do
+      @mail.body.encoded.include?(@cnv.author.name).should be true
+    end
+
+    it 'has the post text in the body' do
+      @mail.body.encoded.should include(@cnv.messages.first.text)
+    end
+
+    it 'should not include translation missing' do
+      @mail.body.encoded.should_not include("missing")
+    end
+  end
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}

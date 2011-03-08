@@ -1,0 +1,8 @@
+= t('notifier.hello', :name => @receiver.profile.first_name)
+= "#{@sender.name} (#{@sender.diaspora_handle})"
+= t('notifier.private_message.private_message')
+
+= @message.text
+
+= "#{t('notifier.love')} \n"
+= t('notifier.diaspora')
