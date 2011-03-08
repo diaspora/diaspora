@@ -254,6 +254,7 @@ header
 .stream
   .stream_element
     :padding 20px 20px
+      :right 70px
     :min-height 50px
     :border
       :bottom 1px solid #ddd
@@ -262,6 +263,9 @@ header
     &:hover
       .right
         :display inline
+      .from
+        a
+          :color $blue
 
     .youtube-player, .vimeo-player
       :border none
@@ -393,7 +397,7 @@ header
       :margin
         :top 2px
       :color #999
-      :font-size smaller
+      :font-size 11px
 
     .comments
       .info
@@ -410,7 +414,7 @@ header
 
 .time,
 .timeago
-  :color #ccc
+  :color #999
   a
     :color #ccc
   :margin
@@ -559,6 +563,8 @@ ul.show_comments
   :line
     :height 18px
 
+  :position relative
+  
   textarea
     :width 100%
     :height 1.4em
@@ -592,9 +598,6 @@ ul.show_comments
       .from
         a
           :color #444
-
-      div.time
-        :color #bbb
 
     form
       :margin
@@ -634,6 +637,12 @@ ul.show_comments
       textarea
         :min-height 2.4em
 
+.comments 
+  time
+    :margin
+      :right -15px
+  .timeago
+    :color #999
 
 .stream.show
   ul.comments
@@ -693,11 +702,14 @@ a.paginate, #infscr-loading
     :right 12px
 
     &.controls
+      :z-index 6
       :background
         :color $background
       :font
         :size 12px
       :color #999
+      :padding
+        :left 100px
       a
         :color #999
         :font
@@ -1672,11 +1684,11 @@ h3 span.current_gs_step
   :top 5px
   :display inline
   :margin 0 10px
-    :right 0
+    :right -5px
   :font
     :weight bold
     :size smaller
-  :width 30px
+  :width 28px
 
   a
     :z-index 5
@@ -1684,6 +1696,16 @@ h3 span.current_gs_step
     :top -9px
     :width 20px
     :height 20px
+
+  &:hover
+    .badge_count
+      :background
+        :color lighten(#A40802, 5%)
+
+#notification_badge
+  img
+    :position relative
+    :top 2px
 
 .badge_count
   :z-index 3
@@ -2275,6 +2297,7 @@ ul.show_comments
       :margin
         :left 0.5em
         :right 0.5em
+
 .mark_all_read
   :position relative
   :top 10px

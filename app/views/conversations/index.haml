@@ -7,7 +7,7 @@
   = include_javascripts :inbox
 
 - content_for :page_title do
-  Message Inbox
+  = t('.message_inbox')
 
 :css
   footer{ display:none;}
@@ -16,7 +16,7 @@
   #left_pane_header
     %h3
       .right
-        = link_to 'New Message', new_conversation_path, :class => 'button', :rel => 'facebox'
+        = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
       Inbox
 
   #conversation_inbox
@@ -26,13 +26,13 @@
       = will_paginate @conversations
     - else
       %i
-        You have no messages
+        = t('.you_have_no_new_messages')
 
 #conversation_show.span-16.prepend-8.last
   - if @conversation
     = render 'conversations/show', :conversation => @conversation
   - else
     #no_conversation_text
-      no conversation selected
+      = t('.no_conversation_selected')
     #no_conversation_controls
-      = link_to 'create a new message', new_conversation_path, :rel => 'facebox'
+      = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'

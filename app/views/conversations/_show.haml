@@ -10,7 +10,7 @@
         = conversation.subject
         
       .conversation_controls
-        = link_to (image_tag('reply.png', :height => 14, :width => 14) + ' ' + 'reply'), '#', :id => 'reply_to_conversation'
+        = link_to (image_tag('reply.png', :height => 14, :width => 14) + ' ' + t('.reply')), '#', :id => 'reply_to_conversation'
         = link_to (image_tag('deletelabel.png') + ' ' + t('delete').downcase), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
 
     .span-6.avatars.last
@@ -33,5 +33,5 @@
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5
           .right
-            = message.submit 'Reply', :class => 'button'
-            = link_to 'Cancel', '#'
+            = message.submit t('.reply').capitalize, :class => 'button'
+            = link_to t('cancel'), '#'

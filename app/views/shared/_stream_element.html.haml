@@ -16,7 +16,6 @@
     .from
       = person_link(post.author, :class => 'author')
       %time.timeago{:datetime => post.created_at}
-        = link_to(how_long_ago(post), status_message_path(post))
       %p
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
@@ -28,6 +27,9 @@
       - elsif post.author.owner_id == current_user.id
         %span.aspect_badges
           = aspect_badges(aspects_with_post(all_aspects, post))
+
+      %span.timeago
+        = link_to(how_long_ago(post), status_message_path(post))
 
       = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
 

@@ -26,20 +26,20 @@
   .span-12.last
     #facebox_header
       %h4
-        New Message
+        = t('conversations.index.new_message')
 
     = form_for Conversation.new do |conversation|
       %br
 
       .span-2
         %h4
-          to
+          = t('.to')
       .span-10.last
         = text_field_tag "contact_autocomplete"
 
       .span-2
         %h4
-          subject
+          = t('.subject')
       .span-10.last
         = conversation.text_field :subject
 
@@ -47,5 +47,5 @@
         = text_area_tag "conversation[text]", '', :rows => 5
 
       .text-right
-        = conversation.submit :send, :class => 'button'
-        = link_to 'cancel', conversations_path
+        = conversation.submit t('.send'), :class => 'button'
+        = link_to t('cancel'), conversations_path

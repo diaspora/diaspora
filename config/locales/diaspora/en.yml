@@ -27,6 +27,8 @@ en:
   search: "Search"
   new_notifications: "%{count} new notifications"
   no_new_notifications: "no new notifications"
+  new_messages: "%{count} new messages"
+  no_new_messages: "no new messages"
   _home: "Home"
   _more: "More"
   _comments: "Comments"
@@ -523,3 +525,16 @@ en:
           fullmonth_day: "%B %d"
           birthday: "%B %d"
           birthday_with_year: "%B %d %Y"
+
+  conversations:
+      index:
+          message_inbox: "Message Inbox"
+          new_message: "New Message"
+          no_conversation_selected: "no conversation selected"
+          create_a_new_message: "create a new message"
+      show:
+          reply: 'reply'
+      new:
+          to: 'to'
+          subject: 'subject'
+          send: 'Send'
