@@ -37,9 +37,9 @@ describe ConversationsController do
   describe '#create' do
     before do
      @hash = {:conversation => {
-                :contact_ids => [@user1.contacts.first.id],
                 :subject => "secret stuff",
-                :text => 'text'}}
+                :text => 'text'},
+              :contact_ids => '@user1.contacts.first.id'}
     end
 
     it 'creates a conversation' do
@@ -60,6 +60,17 @@ describe ConversationsController do
       post :create, @hash
       Message.first.author.should == @user1.person
       Conversation.first.author.should == @user1.person
+    end
+
+    it 'dispatches the conversation' do
+      cnv = Conversation.create(@hash[:conversation].merge({
+                :author => @user1.person,
+                :participant_ids => [@user1.contacts.first.person.id]}))
+
+      p = Postzord::Dispatch.new(@user1, cnv)
+      Postzord::Dispatch.stub!(:new).and_return(p)
+      p.should_receive(:post)
+      post :create, @hash
     end
   end
 

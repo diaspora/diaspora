@@ -57,6 +57,16 @@ class Message < ActiveRecord::Base
     self.conversation = parent
   end
 
+  def after_receive(user, person)
+    if vis = ConversationVisibility.where(:conversation_id => self.conversation_id, :person_id => user.person.id).first
+      vis.unread += 1
+      vis.save
+      self
+    else
+      raise NotVisibileException("Attempting to access a ConversationVisibility that does not exist!")
+    end
+  end
+
   private
   def participant_of_parent_conversation
     if self.parent && !self.parent.participants.include?(self.author)

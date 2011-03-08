@@ -30,8 +30,8 @@
       #message_inbox_badge
         = link_to "", conversations_path #, :title => new_notification_text(@notification_count)
         = image_tag 'icons/mail_grey.png'
-        .badge_count{:class => ("hidden" if @notification_count == 0)}
-          = @notification_count
+        .badge_count{:class => ("hidden" if @unread_message_count == 0)}
+          = @unread_message_count
 
     %ul#user_menu
       .right

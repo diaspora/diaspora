@@ -24,13 +24,15 @@ class ConversationsController < ApplicationController
     params[:conversation][:participant_ids] = person_ids | [current_user.person.id]
     params[:conversation][:author] = current_user.person
 
-    @conversation = Conversation.create(params[:conversation])
+    if @conversation = Conversation.create(params[:conversation])
+      Postzord::Dispatch.new(current_user, @conversation).post
 
-    flash[:notice] = "Message sent"
-    if params[:profile]
-      redirect_to person_path(params[:profile])
-    else
-      redirect_to conversations_path(:conversation_id => @conversation.id)
+      flash[:notice] = "Message sent"
+      if params[:profile]
+        redirect_to person_path(params[:profile])
+      else
+        redirect_to conversations_path(:conversation_id => @conversation.id)
+      end
     end
   end
 

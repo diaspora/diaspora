@@ -8,7 +8,7 @@ describe Diaspora::Relayable do
   shared_examples_for "it is relayable" do
     context 'encryption' do
       describe '#parent_author_signature' do
-        it 'should sign the comment if the user is the post author' do
+        it 'should sign the object if the user is the post author' do
           @object_by_parent_author.verify_parent_author_signature.should be_true
         end
 
@@ -17,7 +17,7 @@ describe Diaspora::Relayable do
           @object_by_recipient.verify_parent_author_signature.should be_false
         end
 
-        it 'should verify a comment made on a remote post by a different contact' do
+        it 'should verify a object made on a remote post by a different contact' do
           @object_by_recipient.author_signature = @object_by_recipient.send(:sign_with_key, @local_leia.encryption_key)
           @object_by_recipient.parent_author_signature = @object_by_recipient.send(:sign_with_key, @local_luke.encryption_key)
           @object_by_recipient.verify_parent_author_signature.should be_true
@@ -35,14 +35,14 @@ describe Diaspora::Relayable do
 
     context 'propagation' do
       describe '#receive' do
-        it 'does not overwrite a comment that is already in the db' do
+        it 'does not overwrite a object that is already in the db' do
           lambda{
             @dup_object_by_parent_author.receive(@local_leia, @local_luke.person)
-          }.should_not change(Comment, :count)
+          }.should_not change(@dup_object_by_parent_author.class, :count)
         end
 
         it 'does not process if post_creator_signature is invalid' do
-          @object_by_parent_author.delete # remove comment from db so we set a creator sig
+          @object_by_parent_author.delete # remove object from db so we set a creator sig
           @dup_object_by_parent_author.parent_author_signature = "dsfadsfdsa"
           @dup_object_by_parent_author.receive(@local_leia, @local_luke.person).should == nil
         end
@@ -65,6 +65,11 @@ describe Diaspora::Relayable do
           @object_by_recipient.should_receive(:socket_to_user).exactly(3).times
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end
+
+        it 'calls after_receive callback' do
+          @object_by_recipient.should_receive(:after_receive)
+          @object_by_recipient.receive(@local_luke, @local_leia.person)
+        end
       end
 
       describe '#subscribers' do
@@ -72,7 +77,7 @@ describe Diaspora::Relayable do
           @object_by_parent_author.subscribers(@local_luke).map(&:id).should =~ [@local_leia.person, @remote_raphael].map(&:id)
         end
 
-        it 'returns the owner of the original post, if the user owns the comment' do
+        it 'returns the owner of the original post, if the user owns the object' do
           @object_by_recipient.subscribers(@local_leia).map(&:id).should =~ [@local_luke.person].map(&:id)
         end
       end

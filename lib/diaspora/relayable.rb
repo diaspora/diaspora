@@ -50,7 +50,13 @@ module Diaspora
       end
 
       object.socket_to_user(user, :aspect_ids => object.parent.aspect_ids) if object.respond_to? :socket_to_user
-      object
+      if object.after_receive(user, person)
+        object
+      end
+    end
+
+    def after_receive(user, person)
+      self
     end
 
     def signable_string
