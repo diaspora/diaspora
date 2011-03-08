@@ -2279,8 +2279,7 @@ ul.show_comments
   :position relative
   :top 10px
 
-#aspect_edit_pane,
-#new_message_pane
+#aspect_edit_pane
   :width 400px
   .person_tiles
     .tile
@@ -2305,8 +2304,15 @@ ul.show_comments
     :width 600px
 
 #new_message_pane
-  input
-    :width 90%
+  input:not([type='submit']),
+  textarea
+    :width 377px
+    :margin
+      :right 0
+
+  .as-selections
+    input
+      :width 200px
 
 #facebox_header
   :padding 1em
@@ -2653,7 +2659,6 @@ ul.show_comments
     :border
       :bottom 1px solid #ddd
 
-
 #no_conversation_text
   :font
     :size 20px
@@ -2670,3 +2675,8 @@ ul.show_comments
   :font
     :size 12px
 
+.text-right
+  :text
+    :align right
+  :margin
+    :right 5px
