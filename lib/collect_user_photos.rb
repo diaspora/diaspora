@@ -5,10 +5,10 @@ module PhotoMover
     FileUtils::mkdir_p temp_dir
     Dir.chdir 'tmp/exports'
 
-    photos = user.visible_posts(:person_id => user.person.id, :type => 'Photo')
+    photos = user.visible_posts(:author_id => user.person.id, :type => 'Photo')
 
     photos_dir = "#{user.id}/photos"
-    FileUtils::mkdir_p photos_dir 
+    FileUtils::mkdir_p photos_dir
 
     photos.each do |photo|
       current_photo_location = "#{Rails.root}/public/uploads/images/#{photo.image_filename}"

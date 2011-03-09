@@ -39,8 +39,8 @@ class PostsFake
       @model.id.to_s
     end
 
-    def person
-      @fakes_collection.people_hash[@model.person_id]
+    def author
+      @fakes_collection.people_hash[@model.author_id]
     end
 
     def method_missing(method, *args)

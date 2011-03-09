@@ -61,7 +61,7 @@ module Diaspora
     end
 
     def create_body
-      @user.visible_posts(:person_id => @user.person.id, :public=>true).inject("") do |xml,curr|
+      @user.visible_posts(:author_id => @user.person.id, :public=>true).inject("") do |xml,curr|
         if curr.respond_to?(:to_activity)
           unless xml
             curr.to_activity

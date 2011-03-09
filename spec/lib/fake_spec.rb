@@ -36,10 +36,10 @@ describe PostsFake do
       @fakes = mock()
       @fake = PostsFake::Fake.new(@post, @fakes)
     end
-    it 'refers to the parent collection for a person' do
-      @post.should_receive(:person_id)
+    it 'refers to the parent collection for an author' do
+      @post.should_receive(:author_id)
       @fakes.should_receive(:people_hash).and_return({})
-      @fake.person
+      @fake.author
     end
     it 'refers to its comments array for comments' do
       @fake.comments = [mock()]
