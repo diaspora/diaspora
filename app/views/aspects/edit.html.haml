@@ -6,25 +6,34 @@
   = include_javascripts :aspects
 
 #aspect_edit_pane
-  #facebox_header
-    %h4
-      = @aspect
-      .description
-        = t('contacts', :count =>@aspect_contacts_count)
+  #facebox_header{:data=>{:guid=>@aspect.id}}
+    .right
+      = t('contacts', :count =>@aspect_contacts_count)
+
+      - if @aspect.contacts_visible
+        = link_to image_tag('icons/padlock-open.png', :height => 16, :width => 16, :id => "contact_visibility_padlock", :class => 'open'),
+          "aspects/#{@aspect.id}/toggle_contact_visibility", :remote => true
+          
+      - else
+        = link_to image_tag('icons/padlock-closed.png', :height => 16, :width => 16, :id => "contact_visibility_padlock"),
+          "aspects/#{@aspect.id}/toggle_contact_visibility", :remote => true
+          
+      
+    %h3#aspect_name_title
+      %span.name= @aspect
+      %span.tiny_text
+        = link_to 'rename', '#', :id => 'rename_aspect_link'
+
+    #aspect_name_edit.hidden
+      = form_for @aspect, :remote => true do |aspect|
+        = aspect.text_field :name
+        = aspect.submit 'update', :disable_with => 'updating', :class => 'button'
 
   - if @contacts.count > 0
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
-  #aspect_edit_controls
-    = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect')
-
-  #rename_aspect
-    = form_for @aspect do |asp|
-      = asp.text_field :name
-      %p.checkbox_select{:style => 'font-size:14px'}
-        = asp.label :contacts_visible, t('.make_aspect_list_visible')
-        = asp.check_box :contacts_visible
-      %br
-      %div{:style => "text-align:right;"}
-        = asp.submit t('.save'), :class => 'button'
+  %br
+  %div{:style => "text-align:right;"}
+    = link_to t('.done'), '#', :class => 'button', :rel => 'close'
+    = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
 

@@ -52,6 +52,7 @@ javascripts:
     - public/javascripts/publisher.js
     - public/javascripts/aspect-filters.js
     - public/javascripts/contact-list.js
+    - public/javascripts/aspect-edit-pane.js
   people:
     - public/javascripts/vendor/jquery.autoSuggest.js
   photos:

@@ -1,0 +1,5 @@
+$(document).ready(function() {
+  var newName = "<%= @aspect.name %>"
+  $("#aspect_name").val( newName );
+  $("*[data-guid='<%= @aspect.id %>']").find('.name').html( newName );
+});

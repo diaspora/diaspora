@@ -136,6 +136,17 @@ class AspectsController < ApplicationController
     respond_with @aspect
   end
 
+  def toggle_contact_visibility
+    @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
+
+    if @aspect.contacts_visible?
+      @aspect.contacts_visible = false
+    else
+      @aspect.contacts_visible = true
+    end
+    @aspect.save
+  end
+
   def move_contact
     @person = Person.find(params[:person_id])
     @from_aspect = current_user.aspects.where(:id => params[:from]).first

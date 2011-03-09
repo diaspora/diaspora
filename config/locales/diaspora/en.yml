@@ -167,7 +167,7 @@ en:
           remove_aspect: "Delete this aspect"
           confirm_remove_aspect: "Are you sure you want to delete this aspect?"
           add_existing: "Add an existing contact"
-          save: "Save"
+          done: "Done"
           rename: "rename"
           make_aspect_list_visible: "make aspect list visible to others in aspect"
       aspect_contacts:

@@ -31,11 +31,6 @@
         %h4
           = new_request_link(@request_count)
 
-    #new_notifications
-      - if @notification_count > 0
-        = image_tag 'icons/mail_big.png', :height => 20, :width => 20, :style=>"margin-top:3px;"
-        %h4
-          = new_notification_link(@notification_count)
     %hr
 
   - if @invites > 0

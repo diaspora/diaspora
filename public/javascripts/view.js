@@ -58,6 +58,9 @@ var View = {
     $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
     $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
     $('a[rel*=facebox]').facebox();
+
+    /* facebox 'done' buttons */
+    $("a[rel*=close]").live('click', function(){ $.facebox.close() });
   },
 
   addAspectButton: {

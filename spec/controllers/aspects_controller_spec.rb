@@ -279,6 +279,26 @@ describe AspectsController do
 
   describe "#hashes_for_posts" do
     it 'returns only distinct people' do
+      pending
     end
+  end
+
+  describe "#toggle_contact_visibility" do
+    it 'sets contacts visible' do
+      @aspect0.contacts_visible = false
+      @aspect0.save
+
+      get :toggle_contact_visibility, :format => 'js', :aspect_id => @aspect0.id
+      @aspect0.reload.contacts_visible.should be_true
+    end
+
+    it 'sets contacts hidden' do
+      @aspect0.contacts_visible = true
+      @aspect0.save
+
+      get :toggle_contact_visibility, :format => 'js', :aspect_id => @aspect0.id
+      @aspect0.reload.contacts_visible.should be_false
+    end
+
   end
 end
