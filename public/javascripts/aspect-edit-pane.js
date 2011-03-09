@@ -16,5 +16,4 @@ $(document).ready(function() {
   $(".edit_aspect").live('ajax:success', function(data, json, xhr) {
     toggleAspectTitle();
   });
-
 });

@@ -169,7 +169,8 @@ en:
           add_existing: "Add an existing contact"
           done: "Done"
           rename: "rename"
-          make_aspect_list_visible: "make aspect list visible to others in aspect"
+          aspect_list_is_visible: "aspect list is visible to others in aspect"
+          aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       aspect_contacts:
           done_editing: "done editing"
       aspect_stream:
