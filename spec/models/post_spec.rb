@@ -12,7 +12,7 @@ describe Post do
 
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
-      post = Factory.create(:status_message, :person => @user.person)
+      post = Factory.create(:status_message, :author => @user.person)
       @user.comment "hey", :on => post
       post.destroy
       Post.where(:id => post.id).empty?.should == true

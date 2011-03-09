@@ -26,11 +26,11 @@ module SocketsHelper
 
       if object.is_a? StatusMessage
         post_hash = {:post => object,
-          :person => object.person,
+          :author => object.author,
           :photos => object.photos,
           :comments => object.comments.map{|c|
             {:comment => c,
-             :person => c.person
+             :author => c.author
             }
         },
           :current_user => user,
@@ -48,7 +48,7 @@ module SocketsHelper
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment
-        v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.person})
+        v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.author})
 
       elsif object.is_a? Notification
         v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => opts[:actor]})
@@ -69,12 +69,12 @@ module SocketsHelper
     if object.is_a? Comment
       post = object.post
       action_hash[:comment_id] = object.id
-      action_hash[:my_post?] = (post.person.owner_id == uid)
+      action_hash[:my_post?] = (post.author.owner_id == uid)
       action_hash[:post_guid] = post.guid
 
     end
 
-    action_hash[:mine?] = object.person && (object.person.owner_id == uid) if object.respond_to?(:person)
+    action_hash[:mine?] = object.author && (object.author.owner_id == uid) if object.respond_to?(:author)
 
     I18n.locale = old_locale unless user.nil?
 

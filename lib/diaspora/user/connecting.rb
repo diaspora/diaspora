@@ -84,9 +84,9 @@ module Diaspora
 
       def remove_contact(contact)
         bad_person_id = contact.person_id
-        posts = raw_visible_posts.where(:person_id => bad_person_id).all
+        posts = raw_visible_posts.where(:author_id => bad_person_id).all
         visibilities = PostVisibility.joins(:post, :aspect).where(
-          :posts => {:person_id => bad_person_id},
+          :posts => {:author_id => bad_person_id},
           :aspects => {:user_id => self.id}
         )
         visibility_ids = visibilities.map{|v| v.id}

@@ -21,11 +21,11 @@ describe StatusMessage do
   end
 
   describe '#diaspora_handle=' do
-    it 'sets #person' do
+    it 'sets #author' do
       person = Factory.create(:person)
-      post = Factory.create(:status_message, :person => @user.person)
+      post = Factory.create(:status_message, :author => @user.person)
       post.diaspora_handle = person.diaspora_handle
-      post.person.should == person
+      post.author.should == person
     end
   end
   it "should have either a message or at least one photo" do
@@ -167,7 +167,7 @@ STR
   end
   describe "XML" do
     before do
-      @message = Factory.create(:status_message, :message => "I hate WALRUSES!", :person => @user.person)
+      @message = Factory.create(:status_message, :message => "I hate WALRUSES!", :author => @user.person)
       @xml = @message.to_xml.to_s
     end
     it 'serializes the unescaped, unprocessed message' do
@@ -193,7 +193,7 @@ STR
         @marshalled.guid.should == @message.guid
       end
       it 'marshals the author' do
-        @marshalled.person.should == @message.person
+        @marshalled.author.should == @message.author
       end
       it 'marshals the diaspora_handle' do
         @marshalled.diaspora_handle.should == @message.diaspora_handle

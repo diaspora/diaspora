@@ -39,21 +39,21 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "text",                   :null => false
-    t.integer  "post_id",                :null => false
-    t.integer  "person_id",              :null => false
-    t.string   "guid",                   :null => false
-    t.text     "creator_signature"
-    t.text     "post_creator_signature"
+    t.text     "text",                    :null => false
+    t.integer  "post_id",                 :null => false
+    t.integer  "author_id",               :null => false
+    t.string   "guid",                    :null => false
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
   end
 
+  add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
   add_index "comments", ["guid"], :name => "index_comments_on_guid", :unique => true
   add_index "comments", ["mongo_id"], :name => "index_comments_on_mongo_id"
-  add_index "comments", ["person_id"], :name => "index_comments_on_person_id"
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
@@ -69,6 +69,26 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
   add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
   add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
+
+  create_table "conversation_visibilities", :force => true do |t|
+    t.integer  "conversation_id",                :null => false
+    t.integer  "person_id",                      :null => false
+    t.integer  "unread",          :default => 0, :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
+  add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
+  add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
+
+  create_table "conversations", :force => true do |t|
+    t.string   "subject"
+    t.string   "guid",       :null => false
+    t.integer  "author_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -93,6 +113,19 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
   add_index "mentions", ["person_id", "post_id"], :name => "index_mentions_on_person_id_and_post_id", :unique => true
   add_index "mentions", ["person_id"], :name => "index_mentions_on_person_id"
   add_index "mentions", ["post_id"], :name => "index_mentions_on_post_id"
+
+  create_table "messages", :force => true do |t|
+    t.integer  "conversation_id",         :null => false
+    t.integer  "author_id",               :null => false
+    t.string   "guid",                    :null => false
+    t.text     "text",                    :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
+  end
+
+  add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
 
   create_table "mongo_aspect_memberships", :force => true do |t|
     t.string   "aspect_mongo_id"
@@ -346,7 +379,7 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "person_id",                            :null => false
+    t.integer  "author_id",                            :null => false
     t.boolean  "public",            :default => false, :null => false
     t.string   "diaspora_handle"
     t.string   "guid",                                 :null => false
@@ -365,9 +398,9 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
     t.string   "mongo_id"
   end
 
+  add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid"
   add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
-  add_index "posts", ["person_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
@@ -462,7 +495,7 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
   add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk"
   add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
 
-  add_foreign_key "comments", "people", :name => "comments_person_id_fk", :dependent => :delete
+  add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
   add_foreign_key "comments", "posts", :name => "comments_post_id_fk", :dependent => :delete
 
   add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
@@ -472,7 +505,7 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
 
   add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
 
-  add_foreign_key "posts", "people", :name => "posts_person_id_fk", :dependent => :delete
+  add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
 

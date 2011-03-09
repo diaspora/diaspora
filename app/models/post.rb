@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class Post < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/encryptable')
   require File.join(Rails.root, 'lib/diaspora/web_socket')
   include ApplicationHelper
   include ROXML
@@ -18,7 +17,7 @@ class Post < ActiveRecord::Base
   has_many :post_visibilities
   has_many :aspects, :through => :post_visibilities
   has_many :mentions, :dependent => :destroy
-  belongs_to :person
+  belongs_to :author, :class_name => 'Person'
 
   cattr_reader :per_page
   @@per_page = 10
@@ -30,16 +29,16 @@ class Post < ActiveRecord::Base
   end
 
   def diaspora_handle= nd
-    self.person = Person.where(:diaspora_handle => nd).first
+    self.author = Person.where(:diaspora_handle => nd).first
     write_attribute(:diaspora_handle, nd)
   end
 
   def self.diaspora_initialize params
     new_post = self.new params.to_hash
-    new_post.person = params[:person]
+    new_post.author = params[:author]
     new_post.public = params[:public] if params[:public]
     new_post.pending = params[:pending] if params[:pending]
-    new_post.diaspora_handle = new_post.person.diaspora_handle
+    new_post.diaspora_handle = new_post.author.diaspora_handle
     new_post
   end
 
@@ -47,7 +46,7 @@ class Post < ActiveRecord::Base
     {
         :post => {
             :id     => self.id,
-            :person => self.person.as_json,
+            :author => self.author.as_json,
         }
     }
   end
@@ -68,7 +67,7 @@ class Post < ActiveRecord::Base
     #you know about it, and it is not mutable
 
     local_post = Post.where(:guid => self.guid).first
-    if local_post && local_post.person_id == self.person_id
+    if local_post && local_post.author_id == self.author_id
       known_post = user.visible_posts(:guid => self.guid).first
       if known_post
         if known_post.mutable?
@@ -95,7 +94,7 @@ class Post < ActiveRecord::Base
 
   protected
   def propogate_retraction
-    self.person.owner.retract(self) if self.person.owner
+    self.author.owner.retract(self) if self.author.owner
   end
 end
 

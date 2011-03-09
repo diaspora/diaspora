@@ -101,8 +101,8 @@ describe Person do
   end
 
   it '#owns? posts' do
-    person_message = Factory.create(:status_message, :person => @person)
-    person_two =     Factory.create(:person)
+    person_message = Factory.create(:status_message, :author => @person)
+    person_two = Factory.create(:person)
 
     @person.owns?(person_message).should be true
     person_two.owns?(person_message).should be false
@@ -111,8 +111,8 @@ describe Person do
   describe '#remove_all_traces' do
     before do
       @deleter = Factory(:person)
-      @status = Factory.create(:status_message, :person => @deleter)
-      @other_status = Factory.create(:status_message, :person => @person)
+      @status = Factory.create(:status_message, :author => @deleter)
+      @other_status = Factory.create(:status_message, :author => @person)
     end
 
     it "deletes all notifications from a person's actions" do
@@ -154,8 +154,8 @@ describe Person do
     end
 
     it "deletes a person's comments on person deletion" do
-      Factory.create(:comment, :person_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you",     :post => @other_status)
-      Factory.create(:comment, :person_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => @other_status)
+      Factory.create(:comment, :author_id => @deleter.id, :diaspora_handle => @deleter.diaspora_handle, :text => "i love you",     :post => @other_status)
+      Factory.create(:comment, :author_id => @person.id,:diaspora_handle => @person.diaspora_handle,  :text => "you are creepy", :post => @other_status)
 
       lambda {@deleter.destroy}.should change(Comment, :count).by(-1)
     end

@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 Diaspora::Application.routes.draw do
+
+
   resources :status_messages, :only => [:create, :destroy, :show]
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
@@ -20,7 +22,13 @@ Diaspora::Application.routes.draw do
   resources :posts,           :only => [:show], :path => '/p/'
 
   resources :contacts
-  resources :aspect_memberships
+  resources :aspect_memberships, :only => [:destroy, :create]
+
+
+  resources :conversations do
+    resources :messages, :only => [:create, :show]
+    resource :conversation_visibility, :only => [:destroy], :path => '/visibility/'
+  end
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages

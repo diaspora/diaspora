@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  skip_before_filter :set_contacts_notifications_and_status
+  skip_before_filter :set_contacts_notifications_unread_count_and_status
   skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :set_locale
@@ -11,11 +11,11 @@ class PostsController < ApplicationController
   skip_before_filter :set_grammatical_gender
 
   def show
-    @post = Post.where(:id => params[:id], :public => true).includes(:person, :comments => :person).first
+    @post = Post.where(:id => params[:id], :public => true).includes(:author, :comments => :author).first
 
     if @post
       @landing_page = true
-      @person = @post.person
+      @person = @post.author
       if @person.owner_id
         I18n.locale = @person.owner.language
         render "posts/#{@post.class.to_s.underscore}", :layout => true

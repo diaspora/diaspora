@@ -7,11 +7,11 @@
     %span.time
       = time_ago_in_words(post.created_at)
 
-  = person_image_link(post.person, :size => :thumb_small)
+  = person_image_link(post.author, :size => :thumb_small)
 
   .content
     .from
-      = person_link(post.person)
+      = person_link(post.author)
 
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 

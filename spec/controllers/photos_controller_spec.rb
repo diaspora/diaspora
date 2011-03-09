@@ -18,7 +18,7 @@ describe PhotosController do
     @photo2 = @user2.post(:photo, :user_file => uploaded_photo, :to => @aspect2.id, :public => true)
 
     @controller.stub!(:current_user).and_return(@user1)
-    sign_in :user, @user1 
+    sign_in :user, @user1
     request.env["HTTP_REFERER"] = ''
   end
 
@@ -128,9 +128,9 @@ describe PhotosController do
 
     it "doesn't overwrite random attributes" do
       new_user = Factory.create(:user)
-      params = { :caption => "now with lasers!", :person_id => new_user.id }
+      params = { :caption => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @photo1.id, :photo => params
-      @photo1.reload.person_id.should == @user1.person.id
+      @photo1.reload.author_id.should == @user1.person.id
     end
 
     it 'redirects if you do not have access to the post' do

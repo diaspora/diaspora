@@ -47,7 +47,7 @@ describe User do
 
     describe "#visible_posts" do
       it "queries by person id" do
-        query = @user2.visible_posts(:person_id => @user2.person.id)
+        query = @user2.visible_posts(:author_id => @user2.person.id)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == false
@@ -195,7 +195,7 @@ describe User do
       end
 
       it 'returns nil if the input is nil' do
-        @user.contact_for(nil).should be_nil 
+        @user.contact_for(nil).should be_nil
       end
     end
   end

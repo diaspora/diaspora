@@ -38,9 +38,7 @@ namespace :db do
 
     puts "Purging the database for #{Rails.env}..."
 
-    # Specifiy what models to remove
-    # No!  Drop the fucking database.
-   MongoMapper::connection.drop_database(MongoMapper::database.name)
+    Rake::Task['db:rebuild'].invoke
 
    puts 'Deleting tmp folder...'
    `rm -rf #{File.dirname(__FILE__)}/../../public/uploads/*`
@@ -51,15 +49,8 @@ namespace :db do
 
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:dev'].invoke
+    Rake::Task['db:seed'].invoke
     puts "Success!"
-  end
-
-  task :reset_dev do
-    puts "making a new base user"
-    Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:dev'].invoke
-    puts "you did it!"
   end
 
   desc "Purge database and then add the first user"

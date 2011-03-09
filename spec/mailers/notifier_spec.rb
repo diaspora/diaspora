@@ -87,7 +87,7 @@ describe Notifier do
       @sm =  Factory(:status_message)
       @m  = Mention.create(:person => @user.person, :post=> @sm)
 
-      @mail = Notifier.mentioned(@user.id, @sm.person.id, @m.id)
+      @mail = Notifier.mentioned(@user.id, @sm.author.id, @m.id)
     end
     it 'goes to the right person' do
       @mail.to.should == [@user.email]
@@ -98,7 +98,7 @@ describe Notifier do
     end
 
     it 'has the name of person mentioning in the body' do
-      @mail.body.encoded.include?(@sm.person.name).should be true
+      @mail.body.encoded.include?(@sm.author.name).should be true
     end
 
     it 'has the post text in the body' do
@@ -110,7 +110,42 @@ describe Notifier do
     end
   end
 
+  describe ".private_message" do
+    before do
+      @user2 = bob
+      @participant_ids = @user2.contacts.map{|c| c.person.id} + [ @user2.person.id]
 
+      @create_hash = { :author => @user2.person, :participant_ids => @participant_ids ,
+                       :subject => "cool stuff", :text => 'hey'}
+   
+      @cnv = Conversation.create(@create_hash)
+
+      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.messages.first.id)
+    end
+    it 'goes to the right person' do
+      @mail.to.should == [user.email]
+    end
+
+    it 'has the recipients in the body' do
+      @mail.body.encoded.include?(user.person.first_name).should be true
+    end
+
+    it 'has the name of the sender in the body' do
+      @mail.body.encoded.include?(@cnv.author.name).should be true
+    end
+
+    it 'has the conversation subject in the body' do
+      @mail.body.encoded.should include(@cnv.subject)
+    end
+
+    it 'has the post text in the body' do
+      @mail.body.encoded.should include(@cnv.messages.first.text)
+    end
+
+    it 'should not include translation missing' do
+      @mail.body.encoded.should_not include("missing")
+    end
+  end
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}

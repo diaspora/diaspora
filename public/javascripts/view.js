@@ -165,6 +165,14 @@ var View = {
       }
     },
 
+    conversation_participants: {
+      bind: function() {
+        $(".conversation_participants img").tipsy({
+          live: true
+        });
+      }
+    },
+
     whatIsThis: {
       bind: function() {
         $(".what_is_this").tipsy({

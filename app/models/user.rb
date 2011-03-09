@@ -87,8 +87,8 @@ class User < ActiveRecord::Base
 
   ######## Posting ########
   def build_post(class_name, opts = {})
-    opts[:person] = self.person
-    opts[:diaspora_handle] = opts[:person].diaspora_handle
+    opts[:author] = self.person
+    opts[:diaspora_handle] = opts[:author].diaspora_handle
 
     model_class = class_name.to_s.camelize.constantize
     model_class.diaspora_initialize(opts)
@@ -107,16 +107,16 @@ class User < ActiveRecord::Base
   end
 
   def notify_if_mentioned(post)
-    return unless self.contact_for(post.person) && post.respond_to?(:mentions?)
+    return unless self.contact_for(post.author) && post.respond_to?(:mentions?)
 
     post.notify_person(self.person) if post.mentions? self.person
   end
 
   def add_post_to_aspects(post)
-    return unless self.contact_for(post.person)
+    return unless self.contact_for(post.author)
 
     Rails.logger.debug("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
-    add_to_streams(post, self.aspects_with_person(post.person))
+    add_to_streams(post, self.aspects_with_person(post.author))
     post
   end
 
@@ -136,30 +136,24 @@ class User < ActiveRecord::Base
   end
 
   def salmon(post)
-    created_salmon = Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
-    created_salmon
+    Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
   end
 
   ######## Commenting  ########
   def build_comment(text, options = {})
-    comment = Comment.new(:person_id => self.person.id,
+    comment = Comment.new(:author_id => self.person.id,
                           :text => text,
                           :post => options[:on])
     comment.set_guid
     #sign comment as commenter
-    comment.creator_signature = comment.sign_with_key(self.encryption_key)
+    comment.author_signature = comment.sign_with_key(self.encryption_key)
 
-    if !comment.post_id.blank? && person.owns?(comment.post)
+    if !comment.post_id.blank? && person.owns?(comment.parent)
       #sign comment as post owner
-      comment.post_creator_signature = comment.sign_with_key(self.encryption_key)
+      comment.parent_author_signature = comment.sign_with_key(self.encryption_key)
     end
 
     comment
-  end
-
-  def dispatch_comment(comment)
-    mailman = Postzord::Dispatch.new(self, comment)
-    mailman.post
   end
 
   ######### Mailer #######################

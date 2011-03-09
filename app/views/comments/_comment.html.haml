@@ -3,13 +3,12 @@
 -#   the COPYRIGHT file.
 
 %li.comment{:data=>{:guid => comment.id}, :class => ("hidden" if(defined? hidden))}
-  = person_image_link(comment.person)
+  = person_image_link(comment.author)
   .content
-    %strong
-      = person_link(comment.person)
-
-    = markdownify(comment.text, :youtube_maps => comment.youtube_titles)
-
-    .info
-      %span.time
+    .from
+      = person_link(comment.author)
+      %time.timeago{:datetime => comment.created_at}
         = comment.created_at ? timeago(comment.created_at) : timeago(Time.now)
+
+    %p
+      = markdownify(comment.text, :youtube_maps => comment.youtube_titles)

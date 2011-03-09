@@ -22,7 +22,7 @@ module NotificationsHelper
     elsif note.instance_of?(Notifications::AlsoCommented)
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(target_type, post.person.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
       else
         t('notifications.also_commented_deleted')
       end

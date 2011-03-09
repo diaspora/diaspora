@@ -134,7 +134,7 @@ describe Postzord::Dispatch do
           end
           context "remote raphael" do
             before do
-              @comment = Factory.build(:comment, :person => @remote_raphael, :post => @post)
+              @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
               @comment.save
               @mailman = Postzord::Dispatch.new(@local_luke, @comment)
             end
@@ -181,7 +181,7 @@ describe Postzord::Dispatch do
         end
         context "remote raphael's post is commented on by local luke" do
           before do
-            @post = Factory(:status_message, :person => @remote_raphael)
+            @post = Factory(:status_message, :author => @remote_raphael)
             @comment = @local_luke.build_comment "yo", :on => @post
             @comment.save
             @mailman = Postzord::Dispatch.new(@local_luke, @comment)
@@ -304,7 +304,7 @@ describe Postzord::Dispatch do
 
       it 'queues Job::NotifyLocalUsers jobs' do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_user).and_return(false)
-        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, @sm.person.id)
+        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, @sm.author.id)
         @zord.send(:socket_and_notify_users, [@local_user])
       end
     end

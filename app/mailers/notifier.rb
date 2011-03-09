@@ -84,7 +84,7 @@ class Notifier < ActionMailer::Base
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)
     @comment  = Comment.find_by_id(comment_id)
-    @post_author_name = @comment.post.person.name
+    @post_author_name = @comment.post.author.name
 
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
@@ -94,6 +94,24 @@ class Notifier < ActionMailer::Base
     I18n.with_locale(@receiver.language) do
       mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
            :subject => I18n.t('notifier.also_commented.subject', :name => @sender.name, :post_author => @post_author_name ), :host => AppConfig[:pod_uri].host)
+    end
+  end
+
+  def private_message(recipient_id, sender_id, message_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender   = Person.find_by_id(sender_id)
+    @message  = Message.find_by_id(message_id)
+    @conversation = @message.conversation
+    @participants = @conversation.participants
+
+
+    log_mail(recipient_id, sender_id, 'private_message')
+
+    attachments.inline['logo_caps.png'] = ATTACHMENT
+
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.private_message.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
     end
   end
 

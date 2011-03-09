@@ -2,7 +2,7 @@
     :partial => 'shared/stream_element',
     :locals => {
       :post => @status_message,
-      :person => @status_message.person,
+      :author => @status_message.author,
       :photos => @status_message.photos,
       :comments => [],
       :all_aspects => current_user.aspects

@@ -3,15 +3,15 @@ class PostsFake
   delegate :length, :each, :to_ary, :to => :post_fakes
 
   def initialize(posts)
-    person_ids = []
+    author_ids = []
     posts.each do |p|
-      person_ids << p.person_id
+      author_ids << p.author_id
       p.comments.each do |c|
-        person_ids << c.person_id
+        author_ids << c.author_id
       end
     end
 
-    people = Person.where(:id => person_ids).includes(:profile)
+    people = Person.where(:id => author_ids).includes(:profile)
     @people_hash = {}
     people.each{|person| @people_hash[person.id] = person}
 

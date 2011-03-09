@@ -12,12 +12,13 @@ describe Mention do
       @mentioned_user = bob
       @non_friend = eve
 
-      @sm = @user.build_post(:status_message, :message => "hi @{#{@mentioned_user.name}; #{@mentioned_user.diaspora_handle}}", :to => @user.aspects.first)
-    end
+      @sm =  Factory(:status_message)
+      @m  = Mention.new(:person => @user.person, :post=> @sm)
 
+    end
     it 'notifies the person being mentioned' do
-      Notification.should_receive(:notify).with(@mentioned_user, anything(), @sm.person)
-      @sm.receive(@mentioned_user, @mentioned_user.person)
+      Notification.should_receive(:notify).with(@user, anything(), @sm.author)
+      @m.save
     end
 
     it 'should not notify a user if they do not see the message' do
@@ -39,11 +40,8 @@ describe Mention do
   describe 'after destroy' do
     it 'destroys a notification' do
       @user = alice
-      @mentioned_user = bob
-
-      @sm =  @user.post(:status_message, :message => "hi", :to => @user.aspects.first)
-      @m  = Mention.create!(:person => @mentioned_user.person, :post => @sm)
-      @m.notify_recipient
+      @sm =  Factory(:status_message)
+      @m  = Mention.create(:person => @user.person, :post=> @sm)
 
       lambda{
         @m.destroy

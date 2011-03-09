@@ -68,8 +68,9 @@ describe 'a user receives a post' do
     alice.visible_posts.count.should == 1
   end
 
-  context 'mentions' do
-    it 'adds the notifications for the mentioned users regardless of the order they are received' do
+ context 'mentions' do
+    it 'adds the notifications for the mentioned users reguardless of the order they are received' do
+      pending 'this is for mnutt'
       Notification.should_receive(:notify).with(@user1, anything(), @user2.person)
       Notification.should_receive(:notify).with(@user3, anything(), @user2.person)
 
@@ -82,32 +83,6 @@ describe 'a user receives a post' do
       zord.receive_object
 
       zord = Postzord::Receiver.new(@user3, :object => @sm, :person => @user2.person)
-      zord.receive_object
-    end
-
-    it 'notifies users when receiving a mention in a post from a remote user' do
-      @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
-      Contact.create!(:user => @user1, :person => @remote_person, :aspects => [@aspect], :pending => false)
-
-      Notification.should_receive(:notify).with(@user1, anything(), @remote_person)
-
-      @sm = Factory.build(:status_message, :message => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :person => @remote_person)
-      @sm.stub!(:socket_to_user)
-      @sm.save
-
-      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
-      zord.receive_object
-    end
-
-    it 'does not notify the mentioned user if the mentioned user is not friends with the post author' do
-      Notification.should_not_receive(:notify).with(@user1, anything(), @user3.person)
-
-      @sm = @user3.build_post(:status_message, :message => "should not notify @{#{@user1.name}; #{@user1.diaspora_handle}}")
-      @sm.stub!(:socket_to_user)
-      @user3.add_to_streams(@sm, [@user3.aspects.first])
-      @sm.save
-
-      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
       zord.receive_object
     end
   end
@@ -153,35 +128,29 @@ describe 'a user receives a post' do
       @user1.raw_visible_posts.should_not include @status_message
     end
 
-    it 'deletes a post if the noone links to it' do
-      person = Factory(:person)
-      @user1.activate_contact(person, @aspect)
-      post = Factory.create(:status_message, :person => person)
-      post.post_visibilities.should be_empty
-      receive_with_zord(@user1, person, post.to_diaspora_xml)
-      @aspect.post_visibilities.reset
-      @aspect.posts(true).should include(post)
-      post.post_visibilities.reset
-      post.post_visibilities.length.should == 1
+    context 'dependant delete' do
+      before do
+        @person = Factory(:person)
+        @user1.activate_contact(@person, @aspect)
+        @post = Factory.create(:status_message, :author => @person)
+        @post.post_visibilities.should be_empty
+        receive_with_zord(@user1, @person, @post.to_diaspora_xml)
+        @aspect.post_visibilities.reset
+        @aspect.posts(true).should include(@post)
+        @post.post_visibilities.reset
+      end
 
-      lambda {
-        @user1.disconnected_by(person)
-      }.should change(Post, :count).by(-1)
-    end
-    it 'deletes post_visibilities on disconnected by' do
-      person = Factory(:person)
-      @user1.activate_contact(person, @aspect)
-      post = Factory.create(:status_message, :person => person)
-      post.post_visibilities.should be_empty
-      receive_with_zord(@user1, person, post.to_diaspora_xml)
-      @aspect.post_visibilities.reset
-      @aspect.posts(true).should include(post)
-      post.post_visibilities.reset
-      post.post_visibilities.length.should == 1
+      it 'deletes a post if the noone links to it' do
+        lambda {
+          @user1.disconnected_by(@person)
+        }.should change(Post, :count).by(-1)
+      end
 
-      lambda {
-        @user1.disconnected_by(person)
-      }.should change{post.post_visibilities(true).count}.by(-1)
+      it 'deletes post_visibilities on disconnected by' do
+        lambda {
+          @user1.disconnected_by(@person)
+        }.should change{@post.post_visibilities(true).count}.by(-1)
+      end
     end
     it 'should keep track of user references for one person ' do
       @status_message.reload
@@ -224,7 +193,7 @@ describe 'a user receives a post' do
         receive_with_zord(@user3, @user1.person, xml)
 
         @comment = @user3.comment('tada',:on => @post)
-        @comment.post_creator_signature = @comment.sign_with_key(@user1.encryption_key)
+        @comment.parent_author_signature = @comment.sign_with_key(@user1.encryption_key)
         @xml = @comment.to_diaspora_xml
         @comment.delete
       end
@@ -235,7 +204,7 @@ describe 'a user receives a post' do
         post_in_db.comments.should == []
         receive_with_zord(@user2, @user1.person, @xml)
 
-        post_in_db.comments(true).first.person.should == @user3.person
+        post_in_db.comments(true).first.author.should == @user3.person
       end
 
       it 'should correctly marshal a stranger for the downstream user' do
@@ -263,7 +232,7 @@ describe 'a user receives a post' do
 
         receive_with_zord(@user2, @user1.person, @xml)
 
-        post_in_db.comments(true).first.person.should == remote_person
+        post_in_db.comments(true).first.author.should == remote_person
       end
     end
 
@@ -292,11 +261,11 @@ describe 'a user receives a post' do
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
     end
 
     it 'does not update created_at or updated_at when two people save the same post' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
       sleep(2)
@@ -307,11 +276,11 @@ describe 'a user receives a post' do
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 5.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 5.days.ago)
       old_time = @post.created_at
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :person => @remote_raphael, :created_at => 2.days.ago)
+      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 2.days.ago)
       receive_with_zord(@local_luke, @remote_raphael, xml)
       (Post.find_by_guid @post.guid).created_at.day.should == old_time.day
     end

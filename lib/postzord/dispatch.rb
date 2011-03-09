@@ -22,11 +22,11 @@ class Postzord::Dispatch
     unless @subscribers == nil
       remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
 
-      if @object.is_a?(Comment) && @sender.owns?(@object.post)
+      if @object.respond_to?(:relayable) && @sender.owns?(@object.parent)
         user_ids = [*local_people].map{|x| x.owner_id }
         local_users = User.where(:id => user_ids)
         self.notify_users(local_users)
-        local_users << @sender if @object.person.local?
+        local_users << @sender if @object.author.local?
         self.socket_to_users(local_users)
       else
         self.deliver_to_local(local_people)
@@ -73,7 +73,7 @@ class Postzord::Dispatch
 
   def notify_users(users)
     users.each do |user|
-      Resque.enqueue(Job::NotifyLocalUsers, user.id, @object.class.to_s, @object.id, @object.person_id)
+      Resque.enqueue(Job::NotifyLocalUsers, user.id, @object.class.to_s, @object.id, @object.author.id)
     end
   end
   def socket_to_users(users)

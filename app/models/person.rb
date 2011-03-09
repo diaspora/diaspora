@@ -26,7 +26,7 @@ class Person < ActiveRecord::Base
   end
 
   has_many :contacts #Other people's contacts for this person
-  has_many :posts #his own posts
+  has_many :posts, :foreign_key => :author_id #his own posts
 
   belongs_to :owner, :class_name => 'User'
 
@@ -93,8 +93,8 @@ class Person < ActiveRecord::Base
               end
   end
 
-  def owns?(post)
-    self == post.person
+  def owns?(obj)
+    self == obj.author
   end
 
   def url

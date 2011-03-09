@@ -87,11 +87,11 @@ describe StatusMessagesController do
       post :create, status_message_hash
     end
 
-    it "doesn't overwrite person_id" do
-      status_message_hash[:status_message][:person_id] = @user2.person.id
+    it "doesn't overwrite author_id" do
+      status_message_hash[:status_message][:author_id] = @user2.person.id
       post :create, status_message_hash
       new_message = StatusMessage.find_by_message(status_message_hash[:status_message][:message])
-      new_message.person_id.should == @user1.person.id
+      new_message.author_id.should == @user1.person.id
     end
 
     it "doesn't overwrite id" do

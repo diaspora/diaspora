@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
 
   before_filter :ensure_http_referer_is_set
-  before_filter :set_contacts_notifications_and_status, :except => [:create, :update]
+  before_filter :set_contacts_notifications_unread_count_and_status, :except => [:create, :update]
   before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
@@ -22,12 +22,13 @@ class ApplicationController < ActionController::Base
     request.env['HTTP_REFERER'] ||= '/aspects'
   end
 
-  def set_contacts_notifications_and_status
+  def set_contacts_notifications_unread_count_and_status
     if user_signed_in?
       @aspect = nil
       @object_aspect_ids = []
       @all_aspects = current_user.aspects.includes(:aspect_memberships, :post_visibilities)
       @notification_count = Notification.for(current_user, :unread =>true).count
+      @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       @user_id = current_user.id
     end
   end

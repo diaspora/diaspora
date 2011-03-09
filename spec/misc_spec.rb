@@ -49,4 +49,17 @@ describe 'making sure the spec runner works' do
       @user2.reload.visible_posts.should include message
     end
   end
+
+  describe '#comment' do
+    it "should send a user's comment on a person's post to that person" do
+      person = Factory.create(:person)
+      person_status = Factory.create(:status_message, :author => person)
+      m = mock()
+      m.stub!(:post)
+      Postzord::Dispatch.should_receive(:new).and_return(m)
+
+      alice.comment "yo", :on => person_status
+    end
+  end
+
 end

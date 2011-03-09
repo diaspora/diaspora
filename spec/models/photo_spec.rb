@@ -20,13 +20,13 @@ describe Photo do
   describe "protected attributes" do
     it "doesn't allow mass assignment of person" do
       @photo.save!
-      @photo.update_attributes(:person => Factory(:person))
-      @photo.reload.person.should == @user.person
+      @photo.update_attributes(:author => Factory(:person))
+      @photo.reload.author.should == @user.person
     end
     it "doesn't allow mass assignment of person_id" do
       @photo.save!
-      @photo.update_attributes(:person_id => Factory(:person).id)
-      @photo.reload.person.should == @user.person
+      @photo.update_attributes(:author_id => Factory(:person).id)
+      @photo.reload.author.should == @user.person
     end
     it 'allows assignmant of caption' do
       @photo.save!
@@ -50,14 +50,14 @@ describe Photo do
     it 'has a constructor' do
       image = File.open(@fixture_name)
       photo = Photo.diaspora_initialize(
-                :person => @user.person, :user_file => image)
+                :author => @user.person, :user_file => image)
       photo.created_at.nil?.should be_true
       photo.image.read.nil?.should be_false
     end
     it 'sets a remote url' do
       image = File.open(@fixture_name)
       photo = Photo.diaspora_initialize(
-                :person => @user.person, :user_file => image)
+                :author => @user.person, :user_file => image)
       photo.remote_photo_path.should include("http")
       photo.remote_photo_name.should include(".png")
     end
@@ -139,7 +139,7 @@ describe Photo do
       xml = @photo.to_diaspora_xml
 
       @photo.destroy
-      zord = Postzord::Receiver.new(user2, :person => @photo.person)
+      zord = Postzord::Receiver.new(user2, :person => @photo.author)
       zord.parse_and_receive(xml)
 
       new_photo = Photo.where(:guid => @photo.guid).first

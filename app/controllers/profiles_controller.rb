@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
      # upload and set new profile photo
     params[:profile] ||= {}
     params[:profile][:searchable] ||= false
-    params[:profile][:photo] = Photo.where(:person_id => current_user.person.id,
+    params[:profile][:photo] = Photo.where(:author_id => current_user.person.id,
                                            :id => params[:photo_id]).first if params[:photo_id]
 
     if current_user.update_profile params[:profile]

@@ -13,11 +13,10 @@ module ApplicationHelper
   def page_title text=nil
     title = ""
     if text.blank?
-      title = "#{current_user.name} | " if current_user
+      title = "#{current_user.name}" if current_user
     else
-      title = "#{text} | "
+      title = "#{text}"
     end
-    title += "DIASPORA*"
   end
 
   def aspects_with_post aspects, post
@@ -133,8 +132,8 @@ module ApplicationHelper
     "<img alt=\"#{h(person.name)}\" class=\"avatar\" #{("data-owner_id="+@user_id.to_s) if @user_id} data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)}\">".html_safe
   end
 
-  def person_link(person)
-    "<a href='/people/#{person.id}'>
+  def person_link(person, opts={})
+    "<a href='/people/#{person.id}' class='#{opts[:class]}'>
   #{h(person.name)}
 </a>".html_safe
   end

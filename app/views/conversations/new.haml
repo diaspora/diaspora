@@ -1,0 +1,51 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+:javascript
+  $(document).ready(function () {
+    var data = $.parseJSON( $('#contact_json').val() ),
+        autocompleteInput = $("#contact_autocomplete");
+
+    autocompleteInput.autoSuggest(data, {
+      selectedItemProp: "name",
+      searchObjProps: "name",
+      asHtmlID: "contact_ids",
+      keyDelay: 0,
+      startText: '',
+      preFill: [{ 'name' : "#{params[:name]}",
+                 'value' : "#{params[:contact_id]}"}]
+      });
+
+    autocompleteInput.focus();
+  });
+
+= hidden_field_tag :contact_json, @all_contacts_and_ids.to_json
+
+#new_message_pane
+  .span-12.last
+    #facebox_header
+      %h4
+        = t('conversations.index.new_message')
+
+    = form_for Conversation.new do |conversation|
+      %br
+
+      .span-2
+        %h4
+          = t('.to')
+      .span-10.last
+        = text_field_tag "contact_autocomplete"
+
+      .span-2
+        %h4
+          = t('.subject')
+      .span-10.last
+        = conversation.text_field :subject
+
+      .span-10.prepend-2.last
+        = text_area_tag "conversation[text]", '', :rows => 5
+
+      .text-right
+        = conversation.submit t('.send'), :class => 'button'
+        = link_to t('cancel'), conversations_path

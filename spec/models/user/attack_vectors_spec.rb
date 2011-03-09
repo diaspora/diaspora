@@ -67,7 +67,7 @@ describe "attack vectors" do
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
-        malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user3.person)
+        malicious_message = Factory.build(:status_message, :id => original_message.id, :message => 'BAD!!!', :author => user3.person)
         salmon_xml = user3.salmon(malicious_message).xml_for(user.person)
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
@@ -83,7 +83,7 @@ describe "attack vectors" do
         zord.perform
 
         lambda {
-          malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :person => user2.person)
+          malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :author => user2.person)
 
           salmon_xml2 = user3.salmon(malicious_message).xml_for(user.person)
           zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)

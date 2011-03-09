@@ -24,9 +24,14 @@
     - if @notification_count
       #notification_badge
         = link_to "", notifications_path, :title => new_notification_text(@notification_count)
-        = image_tag 'icons/mail_grey.png'
-        #notification_badge_number{:class => ("hidden" if @notification_count == 0)}
+        = image_tag 'icons/monotone_flag.png', :height => 20, :width => 20
+        .badge_count{:class => ("hidden" if @notification_count == 0)}
           = @notification_count
+      #message_inbox_badge
+        = link_to "", conversations_path , :title => new_message_text(@unread_message_count)
+        = image_tag 'icons/mail_grey.png', :height => 16, :width => 16
+        .badge_count{:class => ("hidden" if @unread_message_count == 0)}
+          = @unread_message_count
 
     %ul#user_menu
       .right

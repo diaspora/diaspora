@@ -6,7 +6,7 @@ class PublicsController < ApplicationController
   require File.join(Rails.root, '/lib/diaspora/parser')
   include Diaspora::Parser
 
-  skip_before_filter :set_contacts_notifications_and_status, :except => [:create, :update]
+  skip_before_filter :set_contacts_notifications_unread_count_and_status, :except => [:create, :update]
   skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :set_locale

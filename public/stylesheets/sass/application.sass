@@ -9,7 +9,7 @@ $background: rgb(252,252,252)
 body
   :padding 2em
   :margin 0
-    :top 60px
+    :top 50px
   :background-color $background
 a
   :color #107FC9
@@ -51,6 +51,12 @@ form
 .avatar
   :width 50px
   :height 50px
+
+#content
+  :background
+    :color #fff
+  :border 1px solid #ccc
+  :height 100%
 
 #flash_notice,
 #flash_error,
@@ -127,8 +133,8 @@ header
     :color #111
     :color rgba(15,15,15,0.90)
 
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(30,30,30,0.85)), to(rgba(20,20,20,1)))
-  :background -moz-linear-gradient(top, rgba(30,30,30,0.85), rgba(20,20,20,0.98))
+  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(20,20,20,0.85)), to(rgba(20,20,20,1)))
+  :background -moz-linear-gradient(top, rgba(20,20,20,0.85), rgba(20,20,20,0.98))
 
   :-webkit-box-shadow 0 1px 3px #111
   :-moz-box-shadow 0 1px 2px #111
@@ -247,35 +253,33 @@ header
 
 .stream
   .stream_element
-    :font
-      :family 'arial', 'helvetica', sans-serif
-    :padding 10px 14px
-      :right 75px
+    :padding 20px 20px
+      :right 70px
     :min-height 50px
     :border
       :bottom 1px solid #ddd
       :top 1px solid #fff
 
-    :font
-      :size 13px
-    :line
-      :height 19px
-
-
     &:hover
-      :border
-        :bottom 1px solid #ddd
       .right
         :display inline
+      .from
+        a
+          :color $blue
 
     .youtube-player, .vimeo-player
       :border none
       :height 370px
       :width 500px
 
+    time
+      :font
+        :weight normal
+        :size smaller
+      :position absolute
+      :right 20px
+
 .from
-  :text
-    :shadow 0 1px #fff
   a
     :font
       :weight bold
@@ -334,11 +338,15 @@ header
 .stream_element
   :position relative
   :word-wrap break-word
-  :color #777
+  :color #888
 
-  .from
-    h5
-      :display inline
+  :font
+    :size 14px
+
+  a.author
+    :font
+      :weight bold
+    :color #444
 
   .content
     :margin
@@ -346,17 +354,17 @@ header
     :padding
       :left 60px
 
-    :color #444
+    :color #666
     :font
       :weight normal
 
     p
       :margin
-        :bottom 6px
-      :padding
-        :right 1em
+        :bottom 0px
       :font
-        :family 'arial', 'helvetica', 'sans-serif'
+        :size 13px
+      :line
+        :height 18px
 
     .photo_attachments
       :margin
@@ -389,7 +397,7 @@ header
       :margin
         :top 2px
       :color #999
-      :font-size smaller
+      :font-size 11px
 
     .comments
       .info
@@ -406,8 +414,9 @@ header
 
 .time,
 .timeago
+  :color #999
   a
-    :color #bbb
+    :color #ccc
   :margin
     :right 1px
   :text
@@ -554,6 +563,8 @@ ul.show_comments
   :line
     :height 18px
 
+  :position relative
+  
   textarea
     :width 100%
     :height 1.4em
@@ -587,9 +598,6 @@ ul.show_comments
       .from
         a
           :color #444
-
-      div.time
-        :color #bbb
 
     form
       :margin
@@ -629,6 +637,12 @@ ul.show_comments
       textarea
         :min-height 2.4em
 
+.comments 
+  time
+    :margin
+      :right -15px
+  .timeago
+    :color #999
 
 .stream.show
   ul.comments
@@ -688,11 +702,14 @@ a.paginate, #infscr-loading
     :right 12px
 
     &.controls
+      :z-index 6
       :background
         :color $background
       :font
         :size 12px
       :color #999
+      :padding
+        :left 100px
       a
         :color #999
         :font
@@ -1663,15 +1680,17 @@ h3 span.current_gs_step
       :background
         :color #22AAE0
 
-#notification_badge
+#notification_badge,
+#message_inbox_badge
   :position relative
   :top 5px
   :display inline
-  :margin 0 1em
+  :margin 0 10px
+    :right -5px
   :font
     :weight bold
     :size smaller
-  :width 30px
+  :width 28px
 
   a
     :z-index 5
@@ -1680,7 +1699,17 @@ h3 span.current_gs_step
     :width 20px
     :height 20px
 
-#notification_badge_number
+  &:hover
+    .badge_count
+      :background
+        :color lighten(#A40802, 5%)
+
+#notification_badge
+  img
+    :position relative
+    :top 2px
+
+.badge_count
   :z-index 3
   :position absolute
   :top -10px
@@ -2270,6 +2299,7 @@ ul.show_comments
       :margin
         :left 0.5em
         :right 0.5em
+
 .mark_all_read
   :position relative
   :top 10px
@@ -2297,6 +2327,17 @@ ul.show_comments
 
   &.larger
     :width 600px
+
+#new_message_pane
+  input:not([type='submit']),
+  textarea
+    :width 378px
+    :margin
+      :right 0
+
+  .as-selections
+    input
+      :width 200px
 
 #facebox_header
   :padding 1em
@@ -2483,3 +2524,188 @@ ul.show_comments
 
 .public_icon, .service_icon
   :cursor pointer
+
+.stream_element
+  .subject
+    :font
+      :size 13px
+      :weight bold
+    :color #444
+    :overflow hidden
+    :white-space nowrap
+  
+  .last_author
+    :font
+      :size 12px
+    :color #777
+
+
+.conversation_participants
+  :z-index 3
+  :background
+    :color $background
+  :position fixed
+  :margin
+    :bottom 10px
+
+  :-webkit-box-shadow 0 3px 3px -3px #333
+  :-moz-box-shadow 0 3px 3px -3px #333
+
+  h3
+    :margin 0
+      :top 6px
+      :bottom 0px
+  .avatar
+    :height 30px
+    :width 30px
+
+  :line
+    :height 0
+
+  .conversation_controls
+    a
+      :margin
+        :right 10px
+
+    :margin
+      :bottom 10px
+
+  :border
+    :bottom 1px solid #666
+  :padding 20px
+    :top 110px
+    :bottom 10px
+  :margin
+    :top -100px
+
+  .avatars
+    :text
+      :align right
+    :margin
+      :top 9px
+
+.stream_element.new_message
+  :border
+    :top 1px solid #999
+    :bottom none
+  &:hover
+    :border
+      :bottom none
+  textarea
+    :margin 0
+      :bottom 0.5em
+    :width 100%
+  .right
+    :right -11px
+
+.stream_element.conversation
+  :padding 10px
+  :min-height 0px
+
+  .message_count
+    :right 10px
+    :background
+      :color #999
+    :color #eee
+    :position absolute
+    :padding 0 5px
+    :font
+      :size 12px
+      :weight normal
+    :-webkit-border-radius 3px
+    :-moz-border-radius 3px
+    :border-radius 3px
+
+  .participant_count
+    :font
+      :weight normal
+
+  .timestamp
+    :position absolute
+    :right 10px
+    :font
+      :weight normal
+    :color $blue
+
+  .avatar
+    :display inline
+    :width 35px
+    :height 35px
+    :margin
+      :right 10px
+
+  &:hover:not(.selected)
+    :background
+      :color #f0f0f0
+  &:hover
+    :cursor pointer
+
+.conversation.unread
+  :background
+    :color lighten($background,5%)
+
+.conversation.selected
+  :background
+    :color $blue
+  .subject
+    :color #fff
+  .last_author
+    :color #fff
+  .timestamp
+    :color #eee
+  :border
+    :bottom 1px solid darken($blue, 10%)
+    :top 1px solid darken($blue, 10%)
+
+#conversation_inbox
+  :height 100%
+  :overflow-y auto
+  :overflow-x none
+  :background
+    :color #f3f3f3
+
+#left_pane
+  :position fixed
+  :width 320px
+  :background
+    :color #ddd
+
+  :-webkit-box-shadow 2px 2px 5px -1px #999
+
+  :border
+    :right 1px solid #999
+  :z-index 4
+
+  h3
+    :padding
+      :bottom 0
+    :margin
+      :bottom 15px
+
+  #left_pane_header
+    :padding 10px
+    :height 22px
+    :border
+      :bottom 1px solid #ddd
+
+#no_conversation_text
+  :font
+    :size 20px
+    :weight bold
+  :color #ccc
+  :text
+    :align center
+  :margin
+    :top 100px
+
+#no_conversation_controls
+  :text
+    :align center
+  :font
+    :size 12px
+
+.text-right
+  :text
+    :align right
+  :margin
+    :right 5px

@@ -27,6 +27,8 @@ en:
   search: "Search"
   new_notifications: "%{count} new notifications"
   no_new_notifications: "no new notifications"
+  new_messages: "%{count} new messages"
+  no_new_messages: "no new messages"
   _home: "Home"
   _more: "More"
   _comments: "Comments"
@@ -489,6 +491,11 @@ en:
           subject: "%{name} has mentioned you on Diaspora*"
           mentioned: "mentioned you in a post:"
           sign_in: "Sign in to view it."
+      private_message:
+          subject: "%{name} has sent you a private message yon Diaspora*"
+          private_message: "has sent you a private message:"
+          message_subject: "Subject: %{subject}"
+          sign_in: "Sign in to view it."
   home:
       show:
           share_what_you_want: "Share what you want, with whom you want."
@@ -520,3 +527,17 @@ en:
           fullmonth_day: "%B %d"
           birthday: "%B %d"
           birthday_with_year: "%B %d %Y"
+
+  conversations:
+      index:
+          message_inbox: "Message Inbox"
+          new_message: "New Message"
+          no_conversation_selected: "no conversation selected"
+          create_a_new_message: "create a new message"
+          no_messages: "no messages"
+      show:
+          reply: 'reply'
+      new:
+          to: 'to'
+          subject: 'subject'
+          send: 'Send'

@@ -5,10 +5,10 @@ describe PostsFake do
     @people = []
     4.times do
       post = Factory(:status_message)
-      @people << post.person
+      @people << post.author
       4.times do
         comment = Factory(:comment, :post => post)
-        @people << comment.person
+        @people << comment.author
       end
       @posts << post
     end
@@ -30,7 +30,7 @@ describe PostsFake do
     end
   end
   describe PostsFake::Fake do
-    include Rails.application.routes.url_helpers    
+    include Rails.application.routes.url_helpers
     before do
       @post = mock()
       @fakes = mock()
