@@ -10,7 +10,7 @@
 %p
 
   %br
-  = link_to t('.sign_in'), conversation_url(@conversation)
+  = link_to t('.sign_in'), conversations_url(:conversation_id => @conversation)
 
   %br
   = t('notifier.love') 
