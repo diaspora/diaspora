@@ -11,7 +11,11 @@ module SplunkLogging
     if hash.respond_to?(:keys)
       string = ''
       hash.each_pair do |key, value|
-        string << "#{key}='#{value}' "
+        if(value.instance_of?(Symbol)||value.instance_of?(Fixnum))
+           string << "#{key}=#{value} "
+        else
+           string << "#{key}='#{value}' "
+        end
       end
       string
     else
