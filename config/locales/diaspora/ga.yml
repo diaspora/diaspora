@@ -134,6 +134,20 @@ ga:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "níl aon teagmháila"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ ga:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "AG ÚSÁID DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "cad atá nua?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ ga:
       logout: "logáil amach"
       view_profile: "brathnaigh air próifíl"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} fógraí nua"
   new_requests: 
     few: "%{count} iarratas nua!"
@@ -206,6 +222,7 @@ ga:
     other: "%{count} iarratas nua!"
     zero: "níl aon iarrata"
   next: "ar aghaidh"
+  no_new_messages: "no new messages"
   no_new_notifications: "níl aon fógrái nua"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ ga:
       sign_in: "síniú isteach anseo"
       subject: "Iarratas teagmháil Diaspora* nua ó %{from}"
       try_it_out: "Ba cheart duit smaoineamh faoi é a thriala."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "tar éis do iarratas teagmháil a glacadh!"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ ga:
     show: 
       does_not_exist: "Person does not exist!"
       incoming_request: "Tá iarratas nua agat ón duine seo."
+      message: "Message"
       no_posts: "níl aon póstanna chun taispeáint!"
       not_connected: "Níl tú ag roinnt le %{name}"
       recent_posts: "Póstanna Déanaí"

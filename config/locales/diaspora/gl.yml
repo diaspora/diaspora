@@ -134,6 +134,20 @@ gl:
       add_new_aspect: "engadir ao novo aspecto"
       share_with: "Comezar a compartir con %{name}"
     zero: "non hai contactos"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ gl:
       have_a_problem: "Tes problemas? Atopa aquí a resposta"
       logged_in_as: "conectado como %{name}"
       powered_by: "FORNECIDO POR DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "cambiar a web móbil"
       whats_new: "que hai de novo?"
       your_aspects: "os teus aspectos"
@@ -199,6 +214,7 @@ gl:
       logout: "Saír"
       view_profile: "Ver o perfil"
   more: "Máis"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} novas notificacións"
   new_requests: 
     few: "%{count} novas peticións!"
@@ -206,6 +222,7 @@ gl:
     other: "%{count} novas peticións!"
     zero: "non hai novas peticións"
   next: "seguinte"
+  no_new_messages: "no new messages"
   no_new_notifications: "non hai novas peticións"
   notifications: 
     also_commented: "tamén comentou nos do teu contacto"
@@ -240,6 +257,11 @@ gl:
       sign_in: "entra aquí"
       subject: "Ten unha nova petición de contacto en Diaspora* de %{from}."
       try_it_out: "Deberías pensar seriamente en botarlle unha ollada."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "aceptou a túa petición de contacto."
       sign_in: "Entra aquí"
@@ -283,6 +305,7 @@ gl:
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
+      message: "Message"
       no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
       recent_posts: "Publicacións recentes"

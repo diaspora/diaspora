@@ -134,6 +134,20 @@ nl:
       add_new_aspect: "voeg toe aan nieuw aspect"
       share_with: "Start delen met %{name}"
     zero: "geen contacten"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -155,11 +169,11 @@ nl:
       login_here: "log hier in"
       ownership: "Eigendom"
       ownership_explanation: "Je bent zelf de eigenaar van je eigen foto's. Dus waarom zou je dat opgeven om ze met iemand te delen? Op Diaspora behoud je het eigendom over alles wat jij met anderen deelt, waardoor je volledige controle hebt over de distributie ervan."
-      share_what_you_want: "Deel wat je wil delen, met degenen met wie je het wil delen."
+      share_what_you_want: "Deel wat je wilt delen, met degenen met wie je het wilt delen."
       simplicity: "Eenvoud"
       simplicity_explanation: "Diaspora maakt delen helder en simpel – vooral als het om privacy gaat. Je hoeft namelijk niet eindeloos door pagina's met instellingen en opties te klikken om je profiel veilig en afgeschermd te houden."
-      tagline_first_half: "Deel wat je wil delen,"
-      tagline_second_half: "met degenen met wie je het wil delen."
+      tagline_first_half: "Deel wat je wilt delen,"
+      tagline_second_half: "met degenen met wie je het wilt delen."
   invitations: 
     check_token: 
       not_found: "Uitnodigingstoken niet gevonden"
@@ -187,6 +201,7 @@ nl:
       have_a_problem: "Probleem? Vind hier een antwoord"
       logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "switch mobiele versie"
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jouw aspecten"
@@ -199,6 +214,7 @@ nl:
       logout: "log uit"
       view_profile: "bekijk profiel"
   more: "Meer"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nieuwe notificaties"
   new_requests: 
     few: "%{count} nieuwe verzoeken!"
@@ -206,6 +222,7 @@ nl:
     other: "%{count} nieuwe verzoeken!"
     zero: "geen nieuwe verzoeken"
   next: "volgende"
+  no_new_messages: "no new messages"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
@@ -240,6 +257,11 @@ nl:
       sign_in: "Log hier in"
       subject: "nieuw Diaspora* contactverzoek van %{from}"
       try_it_out: "Overweeg eens een kijkje te nemen."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "heeft je contactverzoek geaccepteerd!"
       sign_in: "Log hier in"
@@ -283,6 +305,7 @@ nl:
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
+      message: "Message"
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"

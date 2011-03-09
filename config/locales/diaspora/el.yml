@@ -134,6 +134,20 @@ el:
       add_new_aspect: "προσθήκη σε νεα πτυχή"
       share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     zero: "καμία επαφή"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ el:
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
@@ -199,6 +214,7 @@ el:
       logout: "αποσύνδεση"
       view_profile: "προβολή προφίλ"
   more: "Περισσότερα"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} νέες ειδοποιήσεις"
   new_requests: 
     few: "%{count} νέα αιτήματα!"
@@ -206,6 +222,7 @@ el:
     other: "%{count} νέα αιτήματα!"
     zero: "δεν υπάρχουν νέα αιτήματα"
   next: "επόμενο"
+  no_new_messages: "no new messages"
   no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
     also_commented: "επίσης σχολίασε τη %{post_author}"
@@ -240,6 +257,11 @@ el:
       sign_in: "Είσοδος εδώ"
       subject: "έχετε νέο αίτημα επαφής Diaspora από τον χρήστη %{from}"
       try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "έχει αποδεχθεί το αίτημα φιλίας σας!"
       sign_in: "Συνδεθείτε εδώ"
@@ -283,6 +305,7 @@ el:
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
+      message: "Message"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν είστε συνδεδεμένος με τον χρήστη %{name}"
       recent_posts: "Πρόσφατες δημοσιεύσεις"

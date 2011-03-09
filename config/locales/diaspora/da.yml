@@ -134,6 +134,20 @@ da:
       add_new_aspect: "tilføj til nyt aspekt"
       share_with: "Begynd at dele med %{name}"
     zero: "Ingen kontaktpersoner"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ da:
       have_a_problem: "Har du et problem? Find svaret her"
       logged_in_as: "Logget ind som %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "Hvad er nyt?"
       your_aspects: "dine aspekter"
@@ -199,6 +214,7 @@ da:
       logout: "Log ud"
       view_profile: "Vis profil"
   more: "Mere"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nye notifikationer"
   new_requests: 
     few: "%{count} nye anmodninger!"
@@ -206,6 +222,7 @@ da:
     other: "%{count} nye anmodninger!"
     zero: "Ingen nye anmodninger"
   next: "Næste"
+  no_new_messages: "no new messages"
   no_new_notifications: "Ingen nye notifikationer"
   notifications: 
     also_commented: "kommenterede også på din kontakts"
@@ -240,6 +257,11 @@ da:
       sign_in: "Log ind her"
       subject: "ny Diaspora* kontaktanmodning fra %{from}"
       try_it_out: "Du bør virkelig overveje at tjekke den ud."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "har accepteret din kontaktanmodning."
       sign_in: "Log ind her"
@@ -283,6 +305,7 @@ da:
     show: 
       does_not_exist: "Personen findes ikke!"
       incoming_request: "%{name} vil gerne dele med dig."
+      message: "Message"
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
       recent_posts: "Nylige indlæg"

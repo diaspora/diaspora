@@ -134,6 +134,20 @@ sl:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "brez stikov"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ sl:
       have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
       logged_in_as: "logged in as %{name}"
       powered_by: "STRAN POGANJA DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "kaj je novega?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ sl:
       logout: "odjavi me"
       view_profile: "ogled profila"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "število novih sporočil %{count}"
   new_requests: 
     few: "število novih prošenj %{count}!"
@@ -206,6 +222,7 @@ sl:
     other: "število novih prošenj %{count}!"
     zero: "ni novih prošenj"
   next: "naslednja"
+  no_new_messages: "no new messages"
   no_new_notifications: "ni novih sporočil"
   notifications: 
     also_commented: "komentirano tudi na vaših stikih"
@@ -240,6 +257,11 @@ sl:
       sign_in: "prijavite se tukaj"
       subject: "nova Diaspora* prošnja za stik od %{from}"
       try_it_out: "Preverite in se prepričajte."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "vaše povabilo je bilo sprejeto!"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ sl:
     show: 
       does_not_exist: "Oseba ne obstaja!"
       incoming_request: "Od te osebe ste prejeli novo prošnjo."
+      message: "Message"
       no_posts: "ni prispevkov na ogled!"
       not_connected: "Niste povezani s/z %{name}"
       recent_posts: "Zadnje objave"

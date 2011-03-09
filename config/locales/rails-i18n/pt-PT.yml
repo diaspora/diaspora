@@ -160,7 +160,7 @@
       accepted: "tem de ser aceite"
       empty: "não pode estar vazio"
       blank: "não pode estar em branco"
-      too_long: "é demasiado grande (o mínimo é de %{count} characters)"
+      too_long: "é demasiado grande (o máximo é de %{count} caracteres)"
       too_short: "é demasiado pequeno (o mínimo é de %{count} caracteres)"
       wrong_length: "comprimento errado (deve ter %{count} caracteres)"
       not_a_number: "não é um número"

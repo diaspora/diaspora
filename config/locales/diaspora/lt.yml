@@ -134,6 +134,20 @@ lt:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ lt:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ lt:
       logout: "atsijungti"
       view_profile: "peržiūrėti profilį"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} nuove richieste!"
@@ -206,6 +222,7 @@ lt:
     other: "%{count} nuove richieste!"
     zero: "nessuna nuova richiesta"
   next: "next"
+  no_new_messages: "no new messages"
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ lt:
       sign_in: "prisijungimas čia"
       subject: "naujas prašymas priimti į Diasporos* draugus iš %{from}"
       try_it_out: "Pabandyk!"
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "priėmė tavo prašymą draugauti. Jie dabar yra tavo"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ lt:
     show: 
       does_not_exist: "Asmuo neegzistuoja!"
       incoming_request: "Jūs gavote pakvietimą iš šio asmens."
+      message: "Message"
       no_posts: "nėra jokių pokalbių"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"

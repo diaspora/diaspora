@@ -1,0 +1,534 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+zh-TW: 
+  _aspect: "面向"
+  _aspects: "面向"
+  _comment: "意見"
+  _comments: "意見"
+  _contact: "聯繫"
+  _contacts: "聯繫"
+  _home: "首頁"
+  _more: "More"
+  _photos: "相片"
+  _services: "服務"
+  account: "帳號"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "must be unique among this user's contacts."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "is already taken."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "is a duplicate of a pre-existing request."
+        user: 
+          attributes: 
+            email: 
+              taken: "is already taken."
+            person: 
+              invalid: "is invalid."
+            username: 
+              taken: "is already taken."
+  ago: "%{time} 前"
+  application: 
+    helper: 
+      aspect_badge: 
+        all_aspects: "全部面向"
+      unknown_person: "unknown person"
+      video_title: 
+        unknown: "Unknown Video Title"
+  are_you_sure: "你確定嗎?"
+  aspect_memberships: 
+    destroy: 
+      failure: "從面向中移除聯絡人失敗"
+      no_membership: "在面向中找不到選擇的聯絡人"
+      success: "從面向中移除聯絡人成功"
+  aspects: 
+    add_to_aspect: 
+      failure: "將聯繫加入至面向失敗."
+      success: "將聯繫加入至面向成功."
+    aspect_contacts: 
+      done_editing: "編輯完成"
+    aspect_stream: 
+      activity: "活躍度"
+      post_time: "發表時間"
+      sort_by: "排序:"
+    contacts_not_visible: "此面向中的聯繫無法看見彼此."
+    contacts_visible: "此面向中的聯繫可以看見彼此."
+    create: 
+      failure: "創造面向失敗."
+      success: "新的面向 %{name} 已造出來了"
+    destroy: 
+      failure: "無法刪除 %{name} 因為它不是空的."
+      success: "成功刪除 %{name} 了."
+    edit: 
+      add_existing: "加入既有聯繫"
+      confirm_remove_aspect: "你確定要刪除這個面向?"
+      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      remove_aspect: "刪除這個面向"
+      rename: "改名"
+      save: "儲存"
+    helper: 
+      are_you_sure: "你確定要刪除這個面向?"
+      aspect_not_empty: "面向不是空的"
+      remove: "刪除"
+    index: 
+      handle_explanation: "這是你的 diaspora 識別碼. 就像是電子郵件信箱一樣, 你可以把它給想聯絡你的人."
+      no_contacts: "沒有任何聯繫"
+    manage: 
+      add_a_new_aspect: "新增面向"
+      add_a_new_contact: "加入新的聯繫"
+      drag_to_add: "Drag to add people"
+      manage_aspects: "面向管理"
+      no_requests: "No new requests"
+      requests: "Requests"
+    move_contact: 
+      error: "聯繫移動錯誤: %{inspect}"
+      failure: "didn't work %{inspect}"
+      success: "Person moved to new aspect"
+    new_aspect: 
+      create: "創造"
+      name: "名稱"
+    no_contacts_message: 
+      add_contact: "加入聯繫"
+      add_contact_to: "將某人加入至 %{aspect_name}"
+      invite: "邀請某人加入 Diaspora!"
+      nobody: "帶生活中重要的人來 Diaspora!"
+      nobody_in_aspect: "你的面向 '%{aspect_name}' 是空的."
+    no_posts_message: 
+      start_talking: "還沒人說話. 你來起頭吧!"
+    seed: 
+      family: "家庭"
+      work: "工作"
+    show: 
+      edit_aspect: "編輯面向"
+    update: 
+      failure: "你的面向 %{name} 因名稱太長了無法儲存."
+      success: "你的面向 %{name} 已編輯完成."
+  back: "Back"
+  cancel: "取消"
+  comments: 
+    new_comment: 
+      comment: "發表意見"
+      commenting: "發表意見中..."
+  contacts: 
+    create: 
+      failure: "建立聯繫失敗"
+    destroy: 
+      failure: "跟 %{name} 切斷聯繫失敗"
+      success: "成功切斷與 %{name} 的聯繫"
+    few: "%{count} 個聯繫"
+    one: "1 個聯繫"
+    other: "%{count} 個聯繫"
+    share_with_pane: 
+      accepts: "當 %{name} 接受後, 你們就開始可以看到彼此在 Diaspora 上發表的東西"
+      add_new_aspect: "加入至新的面向"
+      share_with: "開始跟 %{name} 分享"
+    zero: "沒有任何聯繫"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "Delete"
+  email: "電子郵件"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+      invalid_fields: "Invalid Fields"
+  fill_me_out: "Fill me out"
+  home: 
+    show: 
+      already_account: "已經有帳號了嗎?"
+      choice: "Choice"
+      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
+      learn_about_host: "Learn about how to host your own Diaspora server."
+      login_here: "從這裡登入"
+      ownership: "Ownership"
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      share_what_you_want: "Share what you want, with whom you want."
+      simplicity: "Simplicity"
+      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
+  invitations: 
+    check_token: 
+      not_found: "Invitation token not found"
+    create: 
+      already_contacts: "你已經和這個人相連了"
+      already_sent: "你邀請過這個人了."
+      no_more: "You have no more invitations."
+      rejected: "The following email addresses had problems: "
+      sent: "Invitations have been sent to: "
+    edit: 
+      sign_up: "sign_up"
+    new: 
+      already_invited: "已邀請了"
+      aspect: "面向"
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
+      invite_someone_to_join: "邀請某人來加入 Diaspora!"
+      personal_message: "Personal message"
+      resend: "Resend"
+      send_an_invitation: "Send an invitation"
+      send_invitation: "Send invitation"
+      to: "To"
+  layouts: 
+    application: 
+      have_a_problem: "有問題嗎? 這裡有解答"
+      logged_in_as: "logged in as %{name}"
+      powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
+      toggle: "toggle mobile site"
+      whats_new: "有什麼新消息?"
+      your_aspects: "你的面向"
+    header: 
+      account_settings: "帳號設定"
+      blog: "部落格"
+      code: "源碼"
+      edit_profile: "編輯個人檔案"
+      login: "登入"
+      logout: "登出"
+      view_profile: "檢視個人檔案"
+  more: "More"
+  new_messages: "%{count} new messages"
+  new_notifications: "%{count} 則新消息"
+  new_requests: 
+    few: "%{count} 個新請求!"
+    one: "新的請求!"
+    other: "%{count} 個新請求!"
+    zero: "沒有新要求"
+  next: "next"
+  no_new_messages: "no new messages"
+  no_new_notifications: "沒有新消息"
+  notifications: 
+    also_commented: "also commented on %{post_author}'s"
+    also_commented_deleted: "對一則已刪除的貼文發表意見"
+    comment_on_post: "commented on your"
+    deleted: "已刪除"
+    index: 
+      mark_all_as_read: "全部標示為已讀"
+      notifications: "消息"
+    mentioned: "has mentioned you in their"
+    new_request: "想要跟你分享."
+    post: "貼文"
+    request_accepted: "已同意和你分享."
+  notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented on %{post_author}'s post."
+    comment_on_post: 
+      commented: "has commented on your post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
+    diaspora: "the diaspora email robot"
+    hello: "Hello %{name}!"
+    love: "love,"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
+    new_request: 
+      just_sent_you: "剛剛向你要求在 Diaspora* 上建立聯繫"
+      sign_in: "Sign in here"
+      subject: "%{from} 想跟你在 Diaspora* 上建立聯繫的新請求"
+      try_it_out: "You should really think about checking it out."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
+    request_accepted: 
+      accepted: "已接受了跟你聯繫的請求!"
+      sign_in: "Sign in here"
+      subject: "%{name} 已接受了跟你在 Diaspora* 上聯繫的請求"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message about your Diaspora account:"
+    thanks: "Thanks,"
+  ok: "OK"
+  or: "or"
+  pagination: 
+    next: "Next"
+    previous: "Previous"
+  password: "密碼"
+  password_confirmation: "密碼確認"
+  people: 
+    aspect_list: 
+      edit_membership: "edit aspect membership"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: " results for %{params}"
+    index: 
+      couldnt_find_them_send_invite: "找不到他們? 送一張邀請卡吧!"
+      no_one_found: "...找不到任何東西."
+      no_results: "Hey! You need to search for something."
+      results_for: "search results for"
+    person: 
+      add_contact: "加入聯繫"
+      already_connected: "Already connected"
+      pending_request: "pending request"
+      thats_you: "thats you!"
+    profile_sidebar: 
+      bio: "bio"
+      born: "生日"
+      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      edit_my_profile: "編輯我的個人檔案"
+      gender: "性別"
+      in_aspects: "in aspects"
+      remove_contact: "刪除聯繫"
+      remove_from: "Remove %{name} from %{aspect}?"
+    show: 
+      does_not_exist: "Person does not exist!"
+      incoming_request: "%{name} wants to share with you"
+      message: "Message"
+      no_posts: "no posts to display!"
+      not_connected: "You are not sharing with %{name}"
+      recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
+      return_to_aspects: "回你的面向主頁"
+      similar_contacts: "相似的聯繫"
+      start_sharing: "start sharing"
+      to_accept_or_ignore: "to accept or ignore it."
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
+  photos: 
+    create: 
+      integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
+      runtime_error: "相片上傳失敗. 你確定有扣安全帶嗎?"
+      type_error: "相片上傳失敗. 你確定有加入任何圖片嗎?"
+    destroy: 
+      notice: "相片已刪除."
+    edit: 
+      editing: "Editing"
+    new: 
+      back_to_list: "回列表"
+      new_photo: "新相片"
+      post_it: "發表!"
+    new_photo: 
+      empty: "檔案 {file} 是空的, 請重新挑選檔案, 且不要再選它."
+      invalid_ext: "檔案 {file} 的副檔名不合格. 只接受 {extensions}."
+      size_error: "檔案 {file} 太大了, 上限是 {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "或從既有相片中挑選一張"
+      upload: "上傳新的個人照!"
+    photo: 
+      view_all: "檢視 %{name} 所有的相片"
+    show: 
+      collection_permalink: "collection permalink"
+      delete_photo: "刪除相片"
+      edit: "編輯"
+      edit_delete_photo: "Edit photo description / delete photo"
+      make_profile_photo: "選為個人照"
+      original_post: "原貼文"
+      permalink: "靜態連結"
+      update_photo: "更新相片"
+      view: "檢視"
+    update: 
+      error: "相片編輯失敗."
+      notice: "相片更新成功."
+  previous: "previous"
+  profile: "個人檔案"
+  profiles: 
+    edit: 
+      allow_search: "讓別人在 Diaspora 可以搜尋到你"
+      edit_profile: "編輯個人檔案"
+      first_name: "First name"
+      info_available_to: "和你在 Diaspora 建立聯繫的每個人都能看到這些資訊."
+      last_name: "Last name"
+      update_profile: "更新個人檔案"
+      your_bio: "你的自我介紹"
+      your_birthday: "你的生日"
+      your_gender: "你的性別"
+      your_name: "你的名字"
+      your_photo: "你的相片"
+      your_profile: "你的個人檔案"
+    update: 
+      failed: "個人檔案更新失敗"
+      updated: "個人檔案已更新"
+  registrations: 
+    closed: "Signups are closed on this Diaspora pod."
+    create: 
+      success: "You've joined Diaspora!"
+    edit: 
+      cancel_my_account: "取消我的帳號"
+      edit: "Edit %{name}"
+      leave_blank: "(leave blank if you don't want to change it)"
+      password_to_confirm: "(we need your current password to confirm your changes)"
+      unhappy: "Unhappy?"
+      update: "更新"
+    new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "輸入密碼"
+      enter_password_again: "輸入與前面相同的密碼"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      sign_up: "Sign up"
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: "Sending"
+      sent: "你已經要求要和 %{name} 分享. 他們下次登入 Diaspora 時就會看見."
+    destroy: 
+      error: "請選一個面向!"
+      ignore: "忽略建立聯繫的請求."
+      success: "You are now friends."
+    manage_aspect_contacts: 
+      existing: "聯繫編輯"
+      manage_within: "Manage contacts within"
+    new_request_to_person: 
+      sent: "sent!"
+  search: "搜尋"
+  services: 
+    create: 
+      success: "Authentication successful."
+    destroy: 
+      success: "Successfully deleted authentication."
+    failure: 
+      error: "there was an error connecting that service"
+    finder: 
+      friends: 
+        few: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
+      invite_your_friends_from: "邀請你在 %{service} 的朋友"
+      not_connected: "not connected"
+    index: 
+      connect_to_facebook: "和 facebook 連結"
+      connect_to_twitter: "和 twitter 連結"
+      disconnect: "disconnect"
+      edit_services: "Edit services"
+      logged_in_as: "logged in as"
+      really_disconnect: "disconnect %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "按一下這個連結來接受邀請"
+      join_me_on_diaspora: "跟我來加入 DIASPORA*"
+    remote_friend: 
+      invite: "邀請"
+      resend: "resend"
+  settings: "設定"
+  shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "輸入 Diaspora 用戶名稱:"
+      know_email: "知道他們的電子郵件信箱嗎? 你應該邀請他們來"
+      your_diaspora_username_is: "你的 Diaspora 用戶名稱是: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "全部聯繫"
+      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    invitations: 
+      by_email: "by Email"
+      dont_have_now: "目前你還不能邀請任何人, 但很快就可以了!"
+      from_facebook: "From Facebook"
+      invitations_left: "(%{count} left)"
+      invite_someone: "邀請某人來"
+      invite_your_friends: "邀請你的朋友來"
+      invites: "邀請"
+      invites_closed: "Invites are currently closed on this Diaspora pod"
+    notification: 
+      new: "%{from} 有新的 %{type}"
+    public_explain: 
+      logged_in: "logged in to %{service}"
+      manage: "管理已連線的服務"
+      outside: "Public messages will be available for others outside of Diaspora to see."
+      title: "You are about to post a public message!"
+    publisher: 
+      add_photos: "加入相片"
+      all: "all"
+      all_contacts: "全部的聯繫"
+      make_public: "make public"
+      mention_helper_text: "想提到某人的話, 先敲 '@' 再接著打他們的名字"
+      post_a_message_to: "Post a message to %{aspect}"
+      posting: "Posting..."
+      share: "分享"
+      share_with: "share with"
+      whats_on_your_mind: "在想什麼?"
+    reshare: 
+      reshare: "重新分享"
+  status_messages: 
+    destroy: 
+      failure: "刪除貼文失敗"
+    helper: 
+      no_message_to_display: "沒有訊息可顯示."
+    new_status_message: 
+      oh_yeah: "oh yeah!"
+      tell_me_something_good: "tell me something good"
+    show: 
+      destroy: "Delete"
+      permalink: "permalink"
+  stream_helper: 
+    hide_comments: "隱藏意見"
+    show_comments: "顯示所有意見"
+  the_world: "the world"
+  username: "用戶名稱"
+  users: 
+    destroy: "帳號關閉成功."
+    edit: 
+      change: "更改"
+      change_language: "更改語言"
+      change_password: "更改密碼"
+      close_account: "關閉帳號"
+      current_password: "目前密碼"
+      download_photos: "下載我的相片"
+      download_xml: "下載我的 xml"
+      edit_account: "編輯帳號"
+      email_notifications: "電子郵件消息"
+      export_data: "資料匯出"
+      new_password: "新的密碼"
+      receive_email_notifications: "要透過電子郵件接收消息?"
+      your_email: "你的電子郵件"
+      your_handle: "你的 diaspora 識別"
+    getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
+      connect_services: "Connect your other services"
+      edit_profile: "編輯個人檔案"
+      finished: "Finished!"
+      save_and_continue: "Save and continue"
+      signup_steps: "Finish your sign up by completing these three steps:"
+      skip: "skip getting started"
+      step_2: 
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
+      step_3: 
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
+      welcome: "Welcome to Diaspora!"
+    public: 
+      does_not_exist: "User %{username} does not exist!"
+    update: 
+      email_notifications_changed: "電子郵件消息已更改"
+      language_changed: "語言已更改"
+      language_not_changed: "語言更改失敗"
+      password_changed: "密碼已更改"
+      password_not_changed: "密碼更改失敗"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"

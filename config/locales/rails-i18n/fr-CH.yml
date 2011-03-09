@@ -181,3 +181,4 @@ fr-CH:
         <<: *errors_template
       full_messages:
         format: "%{attribute} %{message}"
+

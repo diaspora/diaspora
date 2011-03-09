@@ -134,6 +134,20 @@ ru:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "ни одного контакта"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ ru:
       have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
       logged_in_as: "Вошли как %{name}"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
@@ -199,6 +214,7 @@ ru:
       logout: "выйти"
       view_profile: "просмотр профиля"
   more: "Подробнее"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} новых уведомлений"
   new_requests: 
     few: "%{count} новых запросов!"
@@ -206,6 +222,7 @@ ru:
     other: "%{count} новых запросов!"
     zero: "новых запросов нет"
   next: "далее"
+  no_new_messages: "no new messages"
   no_new_notifications: "новых уведомлений нет"
   notifications: 
     also_commented: "также прокомментировал"
@@ -240,6 +257,11 @@ ru:
       sign_in: "Войдите в систему здесь"
       subject: "новый запрос Диаспоры от %{from}"
       try_it_out: "Вы должны подумать о его проверке.\n"
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "принял Ваш запрос!"
       sign_in: "Войти здесь"
@@ -283,6 +305,7 @@ ru:
     show: 
       does_not_exist: "Персоны не существует !"
       incoming_request: "%{name} хочет поделиться с вами"
+      message: "Message"
       no_posts: "новых сообщений нет!"
       not_connected: "Вы не поделились с %{name}"
       recent_posts: "Последние сообщения"

@@ -134,6 +134,20 @@ is:
       add_new_aspect: "bæta við í nýja ásýnd"
       share_with: "Byrja að deila með %{nafn}"
     zero: "Engin tengsl"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ is:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "innskráð/ur sem% {Nafn}"
       powered_by: "DÍASPORA* STJÓRNAR HÉR"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
@@ -199,6 +214,7 @@ is:
       logout: "Útskrá"
       view_profile: "skoða síðuna mína"
   more: "Meira"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nýjar tilkynningar"
   new_requests: 
     few: "%{count} nýjar beiðnir!"
@@ -206,6 +222,7 @@ is:
     other: "%{count} nýjar beiðnir!"
     zero: "engar nýjar beiðnir"
   next: "næsta"
+  no_new_messages: "no new messages"
   no_new_notifications: "engar nýjar tilkynningar"
   notifications: 
     also_commented: "gerðu einnig athugasemdir við "
@@ -240,6 +257,11 @@ is:
       sign_in: "innskráning hér"
       subject: "ný Diaspora* vinabeiðni frá %{from}"
       try_it_out: "Þú ættir virkilega að skoða það."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "hefur samþykkt vinabeiðni þína!"
       sign_in: "Innskráning hér"
@@ -283,6 +305,7 @@ is:
     show: 
       does_not_exist: "Manneskjan er ekki til!"
       incoming_request: "%{name} vill samnýta með þér"
+      message: "Message"
       no_posts: "no posts to display!"
       not_connected: "Þú samnýtir ekki með %{name}"
       recent_posts: "Nýlegar færslur"

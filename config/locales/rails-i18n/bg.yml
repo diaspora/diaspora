@@ -1,20 +1,24 @@
-# Bulgarian localization for Ruby on Rails 2.2+
-# by Samson Behar <master.webmaster.master@gmail.com>
-# Fixes by Yavor Ivanov, http://github.com/YavorIvanov
+# Full Bulgarian localization for Ruby on Rails 3+
 #
-# Минимална локализация на приложения за поддръжка на български език.
+# extracted from www.termo.bg
+# supported by Samson Behar <master.webmaster.master@gmail.com>
+# supported by Yavor Ivanov, http://github.com/YavorIvanov
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 bg:
+  
+  # ===== Rails Specific ===========================================================================
+  
   date:
     formats:
       default: "%d.%m.%Y"
       short: "%d %b"
       long: "%d %B %Y"
-
+      
     day_names: [неделя, понеделник, вторник, сряда, четвъртък, петък, събота]
     standalone_day_names: [Неделя, Понеделник, Вторник, Сряда, Четвъртък, Петък, Събота]
-    abbr_day_names: [Нд, Пн, Вт, Ср, Чт, Пт, Сб]
-
+    abbr_day_names: [Нед, Пон, Вт, Ср, Чет, Пет, Съб]
+    
     # should start with nil cause there is no 0-th month
     month_names: [~, Януари, Февруари, Март, Април, Май, Юни, Юли, Август, Септември, Октомври, Ноември, Декември]
     abbr_month_names: [~, яну., фев., март, апр., май, юни, юли, авг., сеп., окт., ноем., дек.]
@@ -29,58 +33,52 @@ bg:
       default: "%a, %d %b %Y, %H:%M:%S %z"
       short: "%d %b, %H:%M"
       long: "%d %B %Y, %H:%M"
-
+      
     am: "преди обяд"
     pm: "следобед"
-
+    
   number:
     format:
       separator: "."
-      delimiter: " "
+      delimiter: ""
       precision: 3
-
+      
     currency:
       format:
         format: "%n %u"
         unit: "лв."
         separator: "."
-        delimiter: " "
+        delimiter: ""
         precision: 2
-
+        
     percentage:
       format:
         delimiter: ""
-
+        
     precision:
       format:
         delimiter: ""
-
+        
     human:
       format:
         delimiter: ""
         precision: 1
-      # Rails 2.2
-      # storage_units: [байт, КБ, МБ, ГБ, ТБ]
-
-      # Rails 2.3
       storage_units:
         # Storage units output formatting.
         # %u is the storage unit, %n is the number (default: 2 MB)
         format: "%n %u"
         units:
           byte:
-            one: "байт"
-            few: "байта"
-            many: "байт"
-            other: "байта"
+            one:   "Байт"
+            other: "Байта"
           kb: "КБ"
           mb: "МБ"
           gb: "ГБ"
           tb: "ТБ"
-
+          
   datetime:
     distance_in_words:
-      half_a_minute: "по-малко от минута"
+      half_a_minute: "половин минута"
       less_than_x_seconds:
         one: "по-малко от %{count} секунди"
         few: "по-малко от %{count} секунди"
@@ -110,7 +108,7 @@ bg:
         one: "%{count} ден"
         few: "%{count} дни"
         many: "%{count} дни"
-        other: "%{count} дена"
+        other: "%{count} дни"
       about_x_months:
         one: "около %{count} месеца"
         few: "около %{count} месеца"
@@ -140,21 +138,34 @@ bg:
       year: "Година"
       month: "Месец"
       day: "Ден"
-      hour: "Часа"
-      minute: "Минути"
-      second: "Секунди"
-
+      hour: "Час"
+      minute: "Минута"
+      second: "Секунда"
+      
+  activemodel:
+    errors:
+      template:
+        header:
+          one:    "%{count} грешка спряха %{model} да бъде запазен"
+          other:  "%{count} грешки спряха %{model} да бъде запазен"
+        # The variable :count is also available
+        body: "Имаше проблем с следните полета:"
+          
+  support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Моля отбележете"
+      
   activerecord:
     errors:
       template:
         header:
-          one: "%{model}: записа неуспешен заради %{count} грешка"
-          few: "%{model}: записа неуспешен заради %{count} грешки"
-          many: "%{model}: записа неуспешен заради %{count} грешки"
-          other: "%{model}: записа неуспешен заради %{count} грешки"
-
+          one: "%{model}: записа е неуспешен заради %{count} грешка"
+          few: "%{model}: записа е неуспешен заради %{count} грешки"
+          many: "%{model}: записа е неуспешен заради %{count} грешки"
+          other: "%{model}: записа е неуспешен заради %{count} грешки"
         body: "Възникнаха проблеми при следните полета:"
-
+        
       messages:
         inclusion: "съдържа непредвидена стойност"
         exclusion: "съдържа предварително зададена стойност"
@@ -164,15 +175,15 @@ bg:
         empty: "не може да е празно"
         blank: "не може да е без стойност"
         too_long:
-          one: "е с прекалена дължина (не може да е повече от %{count} символ)"
-          few: "е с прекалена дължина (не може да е повече от %{count} символа)"
-          many: "е с прекалена дължина (не може да е повече от %{count} символи)"
-          other: "е с прекалена дължина (не може да е повече от %{count} символа)"
+          one: "е с прекаленo дълго (не може да е повече от %{count} символ)"
+          few: "е с прекаленo дълго (не може да е повече от %{count} символа)"
+          many: "е с прекаленo дълго (не може да е повече от %{count} символи)"
+          other: "е с прекаленo дълго (не може да е повече от %{count} символа)"
         too_short:
-          one: "е с недостатъчна дължина (не может быть меньше %{count} символ)"
-          few: "е с недостатъчна дължина (не может быть меньше %{count} символа)"
-          many: "е с недостатъчна дължина (не может быть меньше %{count} символи)"
-          other: "е с недостатъчна дължина (не может быть меньше %{count} символа)"
+          one: "е с прекалено късо (не може да бъде по-малко от %{count} символ)"
+          few: "е с прекалено късо (не може да бъде по-малко от %{count} символа)"
+          many: "е с прекалено късо (не може да бъде по-малко от %{count} символи)"
+          other: "е с прекалено късо (не може да бъде по-малко от %{count} символа)"
         wrong_length:
           one: "е с грешна дължина (трябва да е с дължина, равна на %{count} символ)"
           few: "е с грешна дължина (трябва да е с дължина, равна на %{count} символа)"
@@ -188,14 +199,77 @@ bg:
         odd: "може да е единствено четно"
         even: "може да е единствено нечетно"
         record_invalid: "имаше грешки: %{errors}"
-
-  support:
-    array:
-      # Rails 2.2
-      sentence_connector: "и"
-      skip_last_comma: true
-
-      # Rails 2.3
-      words_connector: ", "
-      two_words_connector: " и "
-      last_word_connector: " и "
+  
+  # ===== I18n Specific ============================================================================
+  
+  i18n:
+    transliterate:
+      rule:
+        а: "a"
+        А: "A"
+        б: "b"
+        Б: "B"
+        в: "v"
+        В: "V"
+        г: "g"
+        Г: "G"
+        д: "d"
+        Д: "D"
+        е: "e"
+        Е: "E"
+        ж: "zh"
+        Ж: "Zh"
+        з: "z"
+        З: "Z"
+        и: "i"
+        И: "I"
+        й: "y"
+        Й: "Y"
+        к: "k"
+        К: "K"
+        л: "l"
+        Л: "L"
+        м: "m"
+        М: "M"
+        н: "n"
+        Н: "N"
+        о: "o"
+        О: "O"
+        п: "p"
+        П: "P"
+        р: "r"
+        Р: "R"
+        с: "s"
+        С: "S"
+        т: "t"
+        Т: "T"
+        у: "u"
+        У: "U"
+        ф: "f"
+        Ф: "F"
+        х: "h"
+        Х: "H"
+        ц: "ts"
+        Ц: "Ts"
+        ч: "ch"
+        Ч: "Ch"
+        ш: "sh"
+        Ш: "Sh"
+        щ: "sht"
+        Щ: "Sht"
+        ъ: "a"
+        Ъ: "A"
+        ь: "y"
+        Ь: "Y"
+        ю: "yu"
+        Ю: "Yu"
+        я: "ya"
+        Я: "Ya"
+        
+  # ===== Paginate Specific ========================================================================
+  
+  pagination:
+    previous: "&laquo; предишна"
+    next: "следваща &raquo;"
+    
+  # ===== Application Specific =====================================================================

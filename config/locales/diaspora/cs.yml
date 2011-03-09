@@ -134,6 +134,20 @@ cs:
       add_new_aspect: "přidat do nového aspektu"
       share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ cs:
       have_a_problem: "Máte problém? Zde najdete odpověď"
       logged_in_as: "přihlášen jako %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "přepnout mobilní stránku"
       whats_new: "co je nového?"
       your_aspects: "vaše aspekty"
@@ -199,6 +214,7 @@ cs:
       logout: "odhlásit"
       view_profile: "zobrazit profil"
   more: "Více"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nových oznámení"
   new_requests: 
     few: "%{count} nových žádostí!"
@@ -206,6 +222,7 @@ cs:
     other: "%{count} nových žádostí!"
     zero: "žádná nová žadost"
   next: "další"
+  no_new_messages: "no new messages"
   no_new_notifications: "žádná nová oznámení"
   notifications: 
     also_commented: "také komentoval v %{post_author}"
@@ -240,6 +257,11 @@ cs:
       sign_in: "Přihlaste se zde"
       subject: "nová žádost na Diasporu* od %{from}"
       try_it_out: "Měli byste o tom opravdu přemýšlet."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "přijal vaši žádost!"
       sign_in: "Přihlaste se zde"
@@ -283,6 +305,7 @@ cs:
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "%{name} s vámi chce sdílet"
+      message: "Message"
       no_posts: "žádné zprávy k zobrazení!"
       not_connected: "Nesdílíte s %{name}"
       recent_posts: "Poslední příspěvky"

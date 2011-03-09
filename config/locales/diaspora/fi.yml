@@ -134,6 +134,20 @@ fi:
       add_new_aspect: "Lisää uusi näkymä"
       share_with: "Aloita jakamaan %{name} kanssa"
     zero: "ei kontakteja"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ fi:
       have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
       logged_in_as: "kirjautuneena nimellä %{name}"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "vaihda mobiili sivustoon"
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
@@ -199,6 +214,7 @@ fi:
       logout: "kirjaudu ulos"
       view_profile: "profiili"
   more: "Lisää"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} uutta ilmoitusta"
   new_requests: 
     few: "%{count} uutta pyyntöä!"
@@ -206,6 +222,7 @@ fi:
     other: "%{count} uutta pyyntöä!"
     zero: "ei uusia pyyntöjä"
   next: "seuraava"
+  no_new_messages: "no new messages"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
@@ -240,6 +257,11 @@ fi:
       sign_in: "Kirjaudu sisään täältä"
       subject: "uusi Diaspora* kontaktipyyntö henkilöltä %{from}"
       try_it_out: "Sinun todella kannattaisi tutustua siihen."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "on hyväksynyt kontaktipyyntösi!"
       sign_in: "Enregistrez-vous ici"
@@ -283,6 +305,7 @@ fi:
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
+      message: "Message"
       no_posts: "Ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä henkilöön %{name}"
       recent_posts: "Viimeisimmät tapahtumat"

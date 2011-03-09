@@ -134,6 +134,20 @@ de:
       add_new_aspect: "zu neuem Aspekt hinzufügen"
       share_with: "Beginne Inhalte mit %{name} zu teilen"
     zero: "Keine Kontakte"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%d. %B"
@@ -187,6 +201,7 @@ de:
       have_a_problem: "Du hast ein Problem? Finde hier eine Antwort (Englisch)"
       logged_in_as: "Angemeldet als %{name}"
       powered_by: "BETRIEBEN MIT DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt’s Neues?"
       your_aspects: "Deine Aspekte"
@@ -199,6 +214,7 @@ de:
       logout: "Abmelden"
       view_profile: "Profil ansehen"
   more: "Mehr"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} neue Benachrichtigungen"
   new_requests: 
     few: "%{count} neue Anfragen!"
@@ -206,6 +222,7 @@ de:
     other: "%{count} neue Anfragen!"
     zero: "keine neuen Anfragen"
   next: "Nächste"
+  no_new_messages: "no new messages"
   no_new_notifications: "Keine neuen Benachrichtigungen"
   notifications: 
     also_commented: "kommentierte auch %{post_author}'s"
@@ -240,6 +257,11 @@ de:
       sign_in: "Melde dich hier an"
       subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
       try_it_out: "Probier’s aus!"
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert!"
       sign_in: "Hier anmelden"
@@ -283,6 +305,7 @@ de:
     show: 
       does_not_exist: "Person existiert nicht!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
+      message: "Message"
       no_posts: "Keine Beiträge zum Anzeigen!"
       not_connected: "Du teilst nicht mit %{name}"
       recent_posts: "Neueste Beiträge"

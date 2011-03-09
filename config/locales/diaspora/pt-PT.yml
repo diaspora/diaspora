@@ -134,6 +134,20 @@ pt-PT:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ pt-PT:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ pt-PT:
       logout: "sair"
       view_profile: "ver perfil"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} new requests!"
@@ -206,6 +222,7 @@ pt-PT:
     other: "%{count} new requests!"
     zero: "no new requests"
   next: "next"
+  no_new_messages: "no new messages"
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ pt-PT:
       sign_in: "regista-te aqui"
       subject: "novo pedido de contacto do Diaspora* de %{from}"
       try_it_out: "Devias mesmo pensar em dar-lhe uma vista de olhos."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "aceitou(aram) o teu pedido de contacto. Está(ão) agora no teu"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ pt-PT:
     show: 
       does_not_exist: "Essa pessoa não existe!"
       incoming_request: "Tens um pedido desta pessoa"
+      message: "Message"
       no_posts: "Não existem entradas para mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"

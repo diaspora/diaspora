@@ -134,6 +134,20 @@ tr:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "kişi yok"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ tr:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ tr:
       logout: "Çıkış"
       view_profile: "Profili görüntüle"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} yeni istek!"
@@ -206,6 +222,7 @@ tr:
     other: "%{count} yeni istek!"
     zero: "yeni istek yok"
   next: "next"
+  no_new_messages: "no new messages"
   no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ tr:
       sign_in: "sign in here"
       subject: "new Diaspora* friend request from %{from}"
       try_it_out: "Bunu gerçekten kontrol etmeyi düşünmelisiniz."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ tr:
     show: 
       does_not_exist: "Person does not exist!"
       incoming_request: "You have an incoming request from this person."
+      message: "Message"
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"

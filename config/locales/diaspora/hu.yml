@@ -134,6 +134,20 @@ hu:
       add_new_aspect: "hozzáadás új csoporthoz"
       share_with: "Megosztás indítása vele: %{name}"
     zero: "nincs ismerős"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ hu:
       have_a_problem: "Problémád van?"
       logged_in_as: "bejelentkezve, mint %{name}"
       powered_by: "DIASPORA* fordította ADAMEX"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "mobil változat"
       whats_new: "Újdonságok"
       your_aspects: "csoportjaid"
@@ -199,6 +214,7 @@ hu:
       logout: "kilépés"
       view_profile: "profil megtekintése"
   more: "Bővebben"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} új értesítés"
   new_requests: 
     few: "%{count} darab új felkérés!"
@@ -206,6 +222,7 @@ hu:
     other: "%{count} darab új felkérés!"
     zero: "nincsenek új felkérések"
   next: "következő"
+  no_new_messages: "no new messages"
   no_new_notifications: "nincs új értesítés"
   notifications: 
     also_commented: "hozzászólt még az övéhez is:"
@@ -240,6 +257,11 @@ hu:
       sign_in: "Jelentkezz be"
       subject: "új Diaspora* ismerősnek jelölt: %{from}"
       try_it_out: "Tényleg ki kellene próbálnod."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "elfogadta a jelölésed."
       sign_in: "Jelentkezz be"
@@ -283,6 +305,7 @@ hu:
     show: 
       does_not_exist: "Személy nem létezik!"
       incoming_request: "%{name} megosztást kezdeményezett veled."
+      message: "Message"
       no_posts: "nincs bejegyzés!"
       not_connected: "Nem ismerősöd"
       recent_posts: "Legutóbbi bejegyzések"

@@ -134,6 +134,20 @@ he:
       add_new_aspect: "הוספה להיבט חדש"
       share_with: "התחלת השיתוף עם %{name}"
     zero: "אין אנשי קשר"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "ה־%d ב%B"
@@ -187,6 +201,7 @@ he:
       have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה להלן"
       logged_in_as: "נכנסת בשם %{name}"
       powered_by: "מופעל על גבי דיאספורה*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "הפעלה/נטרול האתר לניידים"
       whats_new: "מה חדש?"
       your_aspects: "ההיבטים שלך"
@@ -199,6 +214,7 @@ he:
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
   more: "המשך"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} התרעות חדשות"
   new_requests: 
     few: "%{count} בקשות חדשות!"
@@ -206,6 +222,7 @@ he:
     other: "%{count} בקשות חדשות!"
     zero: "אין בקשות חדשות"
   next: "הבאה"
+  no_new_messages: "no new messages"
   no_new_notifications: "אין התרעות חדשות"
   notifications: 
     also_commented: "גם כן הגיב/ה על הפריט של איש הקשר שלך"
@@ -240,6 +257,11 @@ he:
       sign_in: "כניסה מכאן"
       subject: "בקשת התקשרות חדשה בדיאספורה* מאת %{from}"
       try_it_out: "מאוד כדאי לבדוק זאת."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "קיבל/ה את בקשת ההתקשרות שלך!"
       sign_in: "כניסה מכאן"
@@ -283,6 +305,7 @@ he:
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
+      message: "Message"
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך שיתוף עם %{name}"
       recent_posts: "רשומות אחרונות"

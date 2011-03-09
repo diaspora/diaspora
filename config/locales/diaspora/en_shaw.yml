@@ -134,6 +134,20 @@ en_shaw:
       add_new_aspect: "𐑨𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ en_shaw:
       have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥, 𐑓𐑲𐑯𐑛 𐑩𐑯 𐑨𐑯𐑕𐑼 𐑣𐑽"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
@@ -199,6 +214,7 @@ en_shaw:
       logout: "𐑤𐑪𐑜𐑬𐑑"
       view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
   more: "𐑥𐑹"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} new notifications"
   new_requests: 
     few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
@@ -206,6 +222,7 @@ en_shaw:
     other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
     zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
   next: "𐑯𐑧𐑒𐑕𐑑"
+  no_new_messages: "no new messages"
   no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
   notifications: 
     also_commented: "(e)k iruzkindu du %{post_author}(r)en mezuan ere"
@@ -240,6 +257,11 @@ en_shaw:
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
       subject: "𐑯𐑿 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 %{from}"
       try_it_out: "𐑿 𐑖𐑫𐑛 𐑮𐑦𐑤𐑦 𐑔𐑦𐑙𐑒 𐑩𐑚𐑬𐑑 𐑗𐑧𐑒𐑦𐑙 𐑦𐑑 𐑬𐑑."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
@@ -283,6 +305,7 @@ en_shaw:
     show: 
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
+      message: "Message"
       no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
       not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
       recent_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑴𐑕𐑑𐑕"

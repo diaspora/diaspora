@@ -134,6 +134,20 @@ eu:
       add_new_aspect: "alderdi berrira gehitu"
       share_with: "%{name}(r)ekin harremanetan hasi"
     zero: "adiskiderik ez"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -153,7 +167,7 @@ eu:
       choice_explanation: "Diasporan zure adiskideak kudeatu ditzakezu alderdi izeneko taldeetan. Zure argitalpen guztiak; bai argazkiak, egoera aldaketak, eta abar nahi duzun jendearekin soilik partekatzeko; honek egiten du Diaspora bereizgarri."
       learn_about_host: "Ikasi nola eskaini Diaspora zure zerbitzarian."
       login_here: "hemen sartu"
-      ownership: "jabego"
+      ownership: "Jabegoa"
       ownership_explanation: "Zure argazkiak zureak dira, eta ez duzu hori ahaztu behar partekatzeagatik soilik. Diasporan partekatzen duzun guztiaren jabe zara, zuri eskainiz zer modutan banatzeko askatasuna."
       share_what_you_want: "Partekatu nahi duzuna, nahi duzun pertsonarekin."
       simplicity: "Sinplizitatea"
@@ -187,6 +201,7 @@ eu:
       have_a_problem: "Arazoren bat? Aurkitu erantzuna hemen"
       logged_in_as: "%{name} zara."
       powered_by: "DIASPORAK ESKAINIA"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "aldatu mugikorreko orrialdera"
       whats_new: "ezer berririk?"
       your_aspects: "zure alderdiak"
@@ -199,6 +214,7 @@ eu:
       logout: "irten"
       view_profile: "profila ikusi"
   more: "Gehiago"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} jakinarazpen berri"
   new_requests: 
     few: "%{count} eskaera berri!"
@@ -206,6 +222,7 @@ eu:
     other: "%{count} esakaera berri!"
     zero: "eskaera berririk ez"
   next: "hurrengoa"
+  no_new_messages: "no new messages"
   no_new_notifications: "jakinarazpen berririk ez"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
@@ -240,6 +257,11 @@ eu:
       sign_in: "sartu hemen"
       subject: "Diaspora* adiskide eskaera berria %{from}(e)k bidalia"
       try_it_out: "Hobe zenuke begiztatzea."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "(e)k zure adiskide eskaera onartu du. Orain hemen dago:"
       sign_in: "Sartu hemen"
@@ -283,6 +305,7 @@ eu:
     show: 
       does_not_exist: "Pertsona hau ez dago!"
       incoming_request: "Adiskide eskaera bat bidali dizu pertsona honek."
+      message: "Message"
       no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude partekatzen %{name}(r)ekin"
       recent_posts: "Post berrienak"

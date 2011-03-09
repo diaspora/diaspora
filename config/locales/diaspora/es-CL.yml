@@ -57,7 +57,7 @@ es-CL:
       failure: "Error al agregar el contacto a este aspecto."
       success: "Contacto agregado correctamente al aspecto."
     aspect_contacts: 
-      done_editing: "editado"
+      done_editing: "Aceptar"
     aspect_stream: 
       activity: "actividad"
       post_time: "fecha del post"
@@ -134,6 +134,20 @@ es-CL:
       add_new_aspect: "Agregar a un nuevo Aspecto"
       share_with: "Empezar a compartir con %{name}"
     zero: "no hay contactos"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ es-CL:
       have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
       logged_in_as: "Conectado como %{name}"
       powered_by: "POTENCIADO POR DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "cambiar sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus Aspectos"
@@ -199,6 +214,7 @@ es-CL:
       logout: "salir"
       view_profile: "ver perfil"
   more: "Más"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nueva/s notificación/es"
   new_requests: 
     few: "¡%{count} nuevas solicitudes!"
@@ -206,6 +222,7 @@ es-CL:
     other: "¡%{count} nuevas solicitudes!"
     zero: "no hay nuevas solicitudes"
   next: "Siguiente"
+  no_new_messages: "no new messages"
   no_new_notifications: "No hay nuevas notificaciones"
   notifications: 
     also_commented: "también comentó en el post de %{post_author}"
@@ -240,6 +257,11 @@ es-CL:
       sign_in: "Conéctate aquí"
       subject: "nueva solicitud de contacto Diaspora* de %{from}"
       try_it_out: "Deberías pensar en echarle un vistazo."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "aceptó tu solicitud de contacto!"
       sign_in: "Conéctate aquí"
@@ -283,6 +305,7 @@ es-CL:
     show: 
       does_not_exist: "¡La persona no existe!"
       incoming_request: "Tienes una solicitud pendiente de %{name}"
+      message: "Message"
       no_posts: "¡no hay posteos para mostrar!"
       not_connected: "No estás conectado con %{name}"
       recent_posts: "Posteos Recientes"
@@ -308,7 +331,7 @@ es-CL:
       post_it: "¡postéalo!"
     new_photo: 
       empty: "{file} está vacío, por favor, seleccione los archivos nuevamente sin éste último"
-      invalid_ext: "{file} tiene una extensión no válida. Solo {extensions} están permitidas."
+      invalid_ext: "{file} tiene una extensión no válida. Solo están permitidas {extensions}."
       size_error: "{file} es demasiado grande, el tamaño máximo por archivo es {sizeLimit}."
     new_profile_photo: 
       or_select_one: "o selecciona uno de los que ya existen"

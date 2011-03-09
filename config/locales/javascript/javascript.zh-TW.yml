@@ -1,0 +1,31 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+zh-TW: 
+  javascripts: 
+    confirm_dialog: "你確定嗎?"
+    search_for: "搜尋 {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "無法將人從它最後一個面向移除. (如果你想和這個人切斷連結, 你必須刪除和它的聯繫.)"
+    timeago: 
+      day: "一天"
+      days: "%d 天"
+      hour: "約一小時"
+      hours: "約 %d 小時"
+      minute: "約一分鐘"
+      minutes: "%d 分鐘"
+      month: "約一個月"
+      months: "%d 個月"
+      prefixAgo: ""
+      prefixFromNow: "距今"
+      seconds: "少於一分鐘"
+      suffixAgo: "前"
+      suffixFromNow: "前"
+      year: "約一年"
+      years: "%d 年"
+    videos: 
+      unknown: "不明的影片類別"
+      watch: "從 {{provider}} 看這部影片"

@@ -134,6 +134,20 @@ pl:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "brak kontaktów"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%d %B"
@@ -187,6 +201,7 @@ pl:
       have_a_problem: "Masz problem? Tu znajdziesz rozwiązanie"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "przełącz widok mobilny"
       whats_new: "what's new?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ pl:
       logout: "wyloguj"
       view_profile: "podgląd profilu"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} nowych powiadomień"
   new_requests: 
     few: "Masz %{count} nowe zaproszenia!"
@@ -206,6 +222,7 @@ pl:
     other: "%{count} nowych zaproszeń!"
     zero: "brak nowych zaproszeń"
   next: "next"
+  no_new_messages: "no new messages"
   no_new_notifications: "brak nowych powiadomień"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ pl:
       sign_in: "zaloguj się"
       subject: "nowe zaproszenie do znajomych w Diasporze* od %{from}"
       try_it_out: "Przemyśl to, naprawdę warto spróbować."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "zaakceptował(-a) Twoje zaproszenie. Jest w aspekcie"
       sign_in: "Zaloguj się"
@@ -283,6 +305,7 @@ pl:
     show: 
       does_not_exist: "Osoba nie istnieje!"
       incoming_request: "Masz nowe zaproszenie od tej osoby."
+      message: "Message"
       no_posts: "brak wpisów!"
       not_connected: "You are not connected with this person"
       recent_posts: "Ostatnie wpisy"

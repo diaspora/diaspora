@@ -134,6 +134,20 @@ zh:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "没有联系人"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ zh:
       have_a_problem: "Have a problem? Find an answer here"
       logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "what's new?"
       your_aspects: "your aspects"
@@ -199,6 +214,7 @@ zh:
       logout: "退出"
       view_profile: "查看个人资料"
   more: "More"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count}个新通知"
   new_requests: 
     few: "%{count}个新的请求！"
@@ -206,6 +222,7 @@ zh:
     other: "%{count}个新的邀请！"
     zero: "没有新的邀请"
   next: "下一步"
+  no_new_messages: "no new messages"
   no_new_notifications: "没有新的通知"
   notifications: 
     also_commented: "also commented on your contact's"
@@ -240,6 +257,11 @@ zh:
       sign_in: "请于此登录"
       subject: "有从%{from}发送过来的Diaspora*联系人请求"
       try_it_out: "您最好认真的查看一下。"
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "已接受您的联系人请求！"
       sign_in: "Sign in here"
@@ -283,6 +305,7 @@ zh:
     show: 
       does_not_exist: "此人不存在！"
       incoming_request: "您有一条这个人发的邀请。"
+      message: "Message"
       no_posts: "无贴见人！"
       not_connected: "还还没有和%{name}共享"
       recent_posts: "最近的帖子"

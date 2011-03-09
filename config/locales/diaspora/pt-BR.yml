@@ -134,6 +134,20 @@ pt-BR:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "sem contatos"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ pt-BR:
       have_a_problem: "Problemas? Encontre sua resposta aqui."
       logged_in_as: "Entrou como %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "O que há de novo?"
       your_aspects: "Seus aspectos"
@@ -199,6 +214,7 @@ pt-BR:
       logout: "Sair"
       view_profile: "ver perfil"
   more: "Mais"
+  new_messages: "%{count} new messages"
   new_notifications: "%{count} novas notificações"
   new_requests: 
     few: "%{count} novos pedidos!"
@@ -206,6 +222,7 @@ pt-BR:
     other: "%{count} novos pedidos!"
     zero: "Nenhum pedido novo."
   next: "Próximo"
+  no_new_messages: "no new messages"
   no_new_notifications: "Nenhuma notificação nova"
   notifications: 
     also_commented: "também comentou em"
@@ -240,6 +257,11 @@ pt-BR:
       sign_in: "Cadastre-se aqui"
       subject: "Novo pedido de contato na Diaspora* de %{from}"
       try_it_out: "Você deve dar uma olhada."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "aceitou seu pedido de contato!"
       sign_in: "Entre aqui"
@@ -283,6 +305,7 @@ pt-BR:
     show: 
       does_not_exist: "Pessoa inexistente!"
       incoming_request: "Você possui uma solicitação dessa pessoa."
+      message: "Message"
       no_posts: "Nada para mostrar por aqui."
       not_connected: "Você não está conectado com %{name}."
       recent_posts: "Postagens recentes"

@@ -134,6 +134,20 @@ sk:
       add_new_aspect: "add to new aspect"
       share_with: "Start sharing with %{name}"
     zero: "žiadne kontakty"
+  conversations: 
+    index: 
+      create_a_new_message: "create a new message"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      no_results: "No Results Found"
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      reply: "reply"
   date: 
     formats: 
       birthday: "%B %d"
@@ -187,6 +201,7 @@ sk:
       have_a_problem: "Máte problém? Nájdite odpoveď tu"
       logged_in_as: "Prihlásený ako %{name}"
       powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
       toggle: "Zapnúť mobilné zobrazenie"
       whats_new: "Čo je nové?"
       your_aspects: "Vaše aspekty"
@@ -199,6 +214,7 @@ sk:
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
   more: "Viac"
+  new_messages: "%{count} new messages"
   new_notifications: "Počet nových notifikácií %{count} "
   new_requests: 
     few: "Počet nových žiadostí : (%{count})"
@@ -206,6 +222,7 @@ sk:
     other: "Počet nových žiadostí : (%{count})!"
     zero: "žiadne nové žiadosti"
   next: "ďalej"
+  no_new_messages: "no new messages"
   no_new_notifications: "žiadne nové notifikácie"
   notifications: 
     also_commented: "also commented on"
@@ -240,6 +257,11 @@ sk:
       sign_in: "Prihláste sa"
       subject: "Nová žiadosť o kontakt od %{from}"
       try_it_out: "Mali by ste to skontrolovať."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
       sign_in: "Prihláste sa"
@@ -283,6 +305,7 @@ sk:
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
+      message: "Message"
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
       recent_posts: "Posledné príspevky"
