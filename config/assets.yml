@@ -54,7 +54,6 @@ javascripts:
     - public/javascripts/contact-list.js
   people:
     - public/javascripts/vendor/jquery.autoSuggest.js
-    - public/javascripts/contact-list.js
   photos:
     - public/javascripts/photo-show.js
   inbox:
