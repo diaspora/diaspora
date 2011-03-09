@@ -406,7 +406,7 @@ en:
           recent_public_posts: "Recent Public Posts"
           similar_contacts: "similar contacts"
           start_sharing: "start sharing"
-
+          message: "Message"
       profile_sidebar:
           remove_contact: "remove contact"
           edit_my_profile: "Edit my profile"
@@ -527,7 +527,6 @@ en:
           fullmonth_day: "%B %d"
           birthday: "%B %d"
           birthday_with_year: "%B %d %Y"
-
   conversations:
       index:
           message_inbox: "Message Inbox"
@@ -536,8 +535,9 @@ en:
           create_a_new_message: "create a new message"
           no_messages: "no messages"
       show:
-          reply: 'reply'
+          reply: "reply"
       new:
-          to: 'to'
-          subject: 'subject'
-          send: 'Send'
+          to: "to"
+          subject: "subject"
+          send: "Send"
+          no_results: "No Results Found"

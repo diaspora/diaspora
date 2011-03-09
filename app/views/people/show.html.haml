@@ -47,7 +47,7 @@
     - else
       - if @contact.person
         .right
-          = link_to 'Message', new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
+          = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
 
         /- if @post_type == :photos
         /  = link_to t('layouts.header.view_profile'), person_path(@person)
