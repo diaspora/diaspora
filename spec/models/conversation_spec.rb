@@ -83,6 +83,10 @@ describe Conversation do
       it 'does not save before receive' do
         Diaspora::Parser.from_xml(@xml).persisted?.should be_false
       end
+      it 'notifies for the message' do
+        Notification.should_receive(:notify).once
+        Diaspora::Parser.from_xml(@xml).receive(@user1, @user2.person)
+      end
     end
   end
 end

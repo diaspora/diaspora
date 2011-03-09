@@ -68,7 +68,7 @@ class Message < ActiveRecord::Base
   end
 
   def notification_type(user, person)
-    Notifications::PrivateMessage
+    Notifications::PrivateMessage unless user.person == person
   end
 
   private

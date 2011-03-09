@@ -68,6 +68,7 @@ describe Diaspora::Relayable do
 
         it 'calls after_receive callback' do
           @object_by_recipient.should_receive(:after_receive)
+          @object_by_recipient.class.stub(:where).and_return([@object_by_recipient])
           @object_by_recipient.receive(@local_luke, @local_leia.person)
         end
       end

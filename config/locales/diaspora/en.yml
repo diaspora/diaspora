@@ -493,6 +493,7 @@ en:
       private_message:
           subject: "%{name} has sent you a private message yon Diaspora*"
           private_message: "has sent you a private message:"
+          message_subject: "Subject: %{subject}"
           sign_in: "Sign in to view it."
   home:
       show:

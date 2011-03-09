@@ -120,7 +120,7 @@ describe Notifier do
    
       @cnv = Conversation.create(@create_hash)
 
-      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.id)
+      @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.messages.first.id)
     end
     it 'goes to the right person' do
       @mail.to.should == [user.email]
@@ -132,6 +132,10 @@ describe Notifier do
 
     it 'has the name of the sender in the body' do
       @mail.body.encoded.include?(@cnv.author.name).should be true
+    end
+
+    it 'has the conversation subject in the body' do
+      @mail.body.encoded.should include(@cnv.subject)
     end
 
     it 'has the post text in the body' do

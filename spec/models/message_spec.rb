@@ -20,7 +20,16 @@ describe Message do
 
   it 'validates that the author is a participant in the conversation' do
     msg = Message.new(:text => 'yo', :author => eve.person, :conversation_id => @cnv.id)
-    pp msg.valid?
+  end
+
+  describe '#notification_type' do
+    it 'does not return anything for the author' do
+      @message.notification_type(@user1, @user1.person).should be_nil
+    end
+
+    it 'returns private mesage for an actual receiver' do
+      @message.notification_type(@user2, @user1.person).should == Notifications::PrivateMessage
+    end
   end
 
   describe '#before_create' do

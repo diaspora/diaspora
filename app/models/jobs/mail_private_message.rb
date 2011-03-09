@@ -7,9 +7,7 @@ module Job
   class MailPrivateMessage < Base
     @queue = :mail
     def self.perform_delegate(recipient_id, actor_id, target_id)
-      
       Notifier.private_message( recipient_id, actor_id, target_id).deliver
-
     end
   end
 end
