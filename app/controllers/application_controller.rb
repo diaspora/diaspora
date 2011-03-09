@@ -17,7 +17,6 @@ class ApplicationController < ActionController::Base
   before_filter :set_grammatical_gender
 
   inflection_method :grammatical_gender => :gender
-  #include Oink::InstanceTypeCounter
 
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'

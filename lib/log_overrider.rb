@@ -30,6 +30,8 @@ module ActionDispatch
 end
 
 class ActionController::LogSubscriber
+  require 'lib/active_record_instantiation_logs'
+  include Oink::InstanceTypeCounter
   def start_processing(event)
     #noop
   end
@@ -46,15 +48,14 @@ class ActionController::LogSubscriber
                 :format => payload[:formats].first.to_s.upcase,
                 :ms => "%.0f" % event.duration,
                 :params => params.inspect}
-    log_hash.merge({
+    log_hash.merge!({
                 :gc_ms => GC.time/1000,
                 :gc_collections => GC.collections,
                 :gc_bytes=> GC.growth}) if GC.respond_to?(:enable_stats)
 
 
-    log_hash.merge({:params =>params.inspect}) unless params.empty?
     #log_hash << "additions='#{additions.join(" | ")}' " unless additions.blank?
-
+    log_hash.merge!(report_hash!)
 
     Rails.logger.info(log_hash)
   end
