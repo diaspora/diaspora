@@ -19,6 +19,7 @@ class AppConfig
     generate_pod_uri
     normalize_pod_url
     check_pod_uri
+    downcase_admins
   end
 
   def self.load_config_for_environment(env)
@@ -58,6 +59,11 @@ class AppConfig
     if self.config_vars[:pod_uri].host == "example.org" && Rails.env != "test"
       puts "WARNING: Please modify your app_config.yml to have a proper pod_url!"
     end
+  end
+
+
+  def self.downcase_admins
+    self.config_vars[:admins].collect! {|admin| admin.downcase}
   end
 
   def self.load_config_yaml filename
