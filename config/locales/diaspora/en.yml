@@ -249,7 +249,7 @@ en:
           your_email: "Your email"
           edit_account: "Edit account"
           email_notifications: "Email notifications"
-          receive_email_notifications: "Receive email notificaions?"
+          receive_email_notifications: "Receive email notifications?"
           change: "Change"
       destroy: "Account successfully closed."
       getting_started:
