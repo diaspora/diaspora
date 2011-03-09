@@ -25,8 +25,13 @@
         = render :partial => 'conversations/conversation', :collection => @conversations, :locals => {:authors => @authors, :unread_counts => @unread_counts}
       = will_paginate @conversations
     - else
-      %i
-        = t('.you_have_no_new_messages')
+      %br
+      %br
+      %br
+      %br
+      %div{:style => 'text-align:center;'}
+        %i
+          = t('.no_messages')
 
 #conversation_show.span-16.prepend-8.last
   - if @conversation
