@@ -41,7 +41,7 @@ class ActionController::LogSubscriber
     additions = ActionController::Base.log_process_action(payload)
     params  = payload[:params].except(*INTERNAL_PARAMS)
 
-    log_hash = {:event => 'request_completed',
+    log_hash = {:event => :request_completed,
                 :status => payload[:status],
                 :controller => payload[:controller],
                 :action => payload[:action],
@@ -53,8 +53,8 @@ class ActionController::LogSubscriber
                 :gc_collections => GC.collections,
                 :gc_bytes=> GC.growth}) if GC.respond_to?(:enable_stats)
 
-
-    #log_hash << "additions='#{additions.join(" | ")}' " unless additions.blank?
+    log_hash.merge!({:view_ms => payload[:view_runtime],
+                     :db_ms => payload[:db_runtime]}) unless additions.blank?
     log_hash.merge!(report_hash!)
 
     Rails.logger.info(log_hash)

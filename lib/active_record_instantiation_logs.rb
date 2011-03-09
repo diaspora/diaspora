@@ -27,8 +27,8 @@ module Oink
     end
     def report_hash
       hash = ActiveRecord::Base.instantiated_hash.merge(
-        :total_ar_inst => ActiveRecord::Base.total_objects_instantiated,
-        :total_ar_ms => ActiveRecord::Base.instantiation_time)
+        :total_ar_instances => ActiveRecord::Base.total_objects_instantiated,
+        :ms_in_instantiate => ActiveRecord::Base.instantiation_time)
       before_report_active_record_count(hash)
       hash
     end

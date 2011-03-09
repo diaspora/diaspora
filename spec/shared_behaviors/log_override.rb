@@ -41,10 +41,10 @@ shared_examples_for 'it overrides the logs on success' do
         @line = Rails.logger.infos.last
       end
       it 'logs the completion of a request' do
-        @line.include?("event='request_completed'").should be_true
+        @line.include?("event=request_completed").should be_true
       end
       it 'logs an ok' do
-        @line.include?("status='200'").should be_true
+        @line.include?("status=200").should be_true
       end
       it 'logs the controller' do
         @line.include?("controller='#{controller.class.name}'").should be_true
@@ -58,7 +58,7 @@ shared_examples_for 'it overrides the logs on success' do
         end
       end
       it 'does not log the view rendering time addition' do
-        @line.include?("(Views: ").should be_false
+        @line.include?("view_ms=").should be_true
       end
     end
   end
@@ -92,6 +92,6 @@ shared_examples_for 'it overrides the logs on redirect' do
     @line = Rails.logger.infos.last
   end
   it 'logs a redirect' do
-    @line.include?("status='302'").should be_true
+    @line.include?("status=302").should be_true
   end
 end
