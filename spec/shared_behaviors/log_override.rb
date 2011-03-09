@@ -1,19 +1,26 @@
 class FakeLogger
   attr_accessor :infos
   attr_accessor :lines
+  attr_accessor :fatals
 
   def initialize
     self.infos = []
+    self.fatals = []
     self.lines = []
   end
 
-  def info line
-    self.infos << line
+  def add(arg1, line, targ_arr, &block)
     self.lines << line
+    targ_arr << line
+  end
+  def info line
+    self.add(nil, line, self.infos)
   end
   def fatal line
-    self.lines << line
+    self.add(nil, line, self.fatals)
   end
+
+  include SplunkLogging
 end
 
 shared_examples_for 'it overrides the logs on success' do
@@ -34,16 +41,16 @@ shared_examples_for 'it overrides the logs on success' do
         @line = Rails.logger.infos.last
       end
       it 'logs the completion of a request' do
-        @line.include?('event=request_completed').should be_true
+        @line.include?("event='request_completed'").should be_true
       end
       it 'logs an ok' do
-        @line.include?('status=200').should be_true
+        @line.include?("status='200'").should be_true
       end
       it 'logs the controller' do
-        @line.include?("controller=#{controller.class.name}").should be_true
+        @line.include?("controller='#{controller.class.name}'").should be_true
       end
       it 'logs the action' do
-        @line.include?("action=#{@action}").should be_true
+        @line.include?("action='#{@action}'").should be_true
       end
       it 'logs params' do
         if @action_params
@@ -85,6 +92,6 @@ shared_examples_for 'it overrides the logs on redirect' do
     @line = Rails.logger.infos.last
   end
   it 'logs a redirect' do
-    @line.include?('status=302').should be_true
+    @line.include?("status='302'").should be_true
   end
 end

@@ -39,14 +39,24 @@ class ActionController::LogSubscriber
     additions = ActionController::Base.log_process_action(payload)
     params  = payload[:params].except(*INTERNAL_PARAMS)
 
-    log_string = "event=request_completed status=#{payload[:status]} "
-    log_string << "controller=#{payload[:controller]} action=#{payload[:action]} format=#{payload[:formats].first.to_s.upcase} "
-    log_string << "ms=#{"%.0f" % event.duration} "
-    log_string << "gc_ms=#{GC.time/1000} gc_collections=#{GC.collections} gc_bytes=#{GC.growth} " if GC.respond_to?(:enable_stats)
-    log_string << "params='#{params.inspect}' " unless params.empty?
-    #log_string << "additions='#{additions.join(" | ")}' " unless additions.blank?
+    log_hash = {:event => 'request_completed',
+                :status => payload[:status],
+                :controller => payload[:controller],
+                :action => payload[:action],
+                :format => payload[:formats].first.to_s.upcase,
+                :ms => "%.0f" % event.duration,
+                :params => params.inspect}
+    log_hash.merge({
+                :gc_ms => GC.time/1000,
+                :gc_collections => GC.collections,
+                :gc_bytes=> GC.growth}) if GC.respond_to?(:enable_stats)
 
-    Rails.logger.info(log_string)
+
+    log_hash.merge({:params =>params.inspect}) unless params.empty?
+    #log_hash << "additions='#{additions.join(" | ")}' " unless additions.blank?
+
+
+    Rails.logger.info(log_hash)
   end
 end
 
