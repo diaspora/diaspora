@@ -17,5 +17,8 @@ describe SplunkLogging do
     it 'does not quote numbers' do
       format_hash({:key => 500 }).should =~ /=500/
     end
+    it 'does not quote floats' do
+      format_hash({:key => 2.324}).should =~ /=2.324/
+    end
   end
 end
