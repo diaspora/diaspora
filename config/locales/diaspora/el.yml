@@ -72,11 +72,13 @@ el:
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
-      make_aspect_list_visible: "ορίστε τη λίστα πτυχών σας ορατή σε όλους στη πτυχή "
+      done: "Done"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
-      save: "Αποθήκευση"
+      update: "update"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -147,6 +149,7 @@ el:
       subject: "subject"
       to: "to"
     show: 
+      delete: "delete and block conversation"
       reply: "reply"
   date: 
     formats: 

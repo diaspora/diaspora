@@ -72,11 +72,13 @@ sl:
       success: "%{name} je uspešno odstranjen."
     edit: 
       add_existing: "Dodaj obstoječ kontakt"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Ste prepričani, da bi radi izbrisali ta vidik?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      done: "Done"
       remove_aspect: "Izbriši ta vidik"
       rename: "preimenuj"
-      save: "Save"
+      update: "update"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"
       aspect_not_empty: "Skupina vsebuje stike"
@@ -147,6 +149,7 @@ sl:
       subject: "subject"
       to: "to"
     show: 
+      delete: "delete and block conversation"
       reply: "reply"
   date: 
     formats: 

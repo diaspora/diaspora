@@ -72,11 +72,13 @@ pl:
       success: "%{name} został usunięty."
     edit: 
       add_existing: "Dodaj istniejący kontakt"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
-      make_aspect_list_visible: "make aspect list visible to others in aspect"
+      done: "Done"
       remove_aspect: "Usuń ten aspekt"
       rename: "zmień nazwę"
-      save: "Zapisz"
+      update: "update"
     helper: 
       are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
       aspect_not_empty: "Aspekt nie jest pusty"
@@ -147,6 +149,7 @@ pl:
       subject: "subject"
       to: "to"
     show: 
+      delete: "delete and block conversation"
       reply: "reply"
   date: 
     formats: 

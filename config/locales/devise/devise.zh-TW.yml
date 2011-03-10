@@ -8,19 +8,19 @@ zh-TW:
     confirmations: 
       confirmed: "帳號已確認成功. 你已經登入了."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+        resend_confirmation: "重送確認步驟"
+      send_instructions: "幾分鐘內你會收到一封說明如何確認帳號的信件."
     failure: 
       inactive: "你的帳號尚未開通."
-      invalid: "電子郵件信箱或密碼有誤."
-      invalid_token: "Invalid authentication token."
+      invalid: "電子信箱或密碼有誤."
+      invalid_token: "認證信物無效."
       locked: "你的帳號已鎖定."
       timeout: "工作階段已逾時, 請重新登入已繼續."
-      unauthenticated: "繼續之前你必須先登入或註冊."
+      unauthenticated: "繼續之前你必須先登入或登記."
       unconfirmed: "你必須先確認帳號才能繼續."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
+      invitation_token_invalid: "提供的邀請信物無效!"
+      send_instructions: "邀請函已寄出."
       updated: "密碼已設定成功. 你已經登入了."
     mailer: 
       confirmation_instructions: 
@@ -31,7 +31,7 @@ zh-TW:
       invitation: 
         accept: "接受邀請"
         ignore: "如果你不想接受邀請, 請忽略這封信件."
-        no_account_till: "在你使用以上連結註冊後, 你的帳號才會建立."
+        no_account_till: "在你使用以上連結登記後, 你的帳號才會建立."
         subject: "有人邀請你加入 Diaspora!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
@@ -44,7 +44,7 @@ zh-TW:
         subject: "密碼重設步驟"
         wont_change: "在使用以上連結設定新的密碼後, 你的密碼才會改變."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        account_locked: "你的帳號因為登入失敗太多次而被鎖定了."
         click_to_unlock: "點一下以下連結以將你的帳號解鎖:"
         subject: "解鎖步驟"
         unlock: "帳號解鎖"
@@ -54,19 +54,19 @@ zh-TW:
         change_password: "更改密碼"
       new: 
         forgot_password: "忘記密碼?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "無此電子信箱關聯的帳號. 如果你是在等邀請函, 我們會盡快寄出."
         send_password_instructions: "傳送密碼重設的步驟給我"
       send_instructions: "幾分鐘內你會收到一封說明如何重設密碼的信件."
       updated: "密碼更改成功. 你已經登入了."
     registrations: 
-      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
-      signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
-      updated: "You updated your account successfully."
+      destroyed: "再會! 你的帳號已經取消了. 希望不久後再見."
+      signed_up: "你已經成功登記了. 如果有設定的話, 確認信會送到你的信箱."
+      updated: "帳號更新成功."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "你將要使用剛開發的軟體."
+        bugs_and_feedback: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順, 都請你使用瀏覽器右手邊的\"回饋\"按鈕向我們回報! 我們會盡快處理你回報的任何問題."
+        bugs_and_feedback_mobile: "給你個忠告, 你將會遭遇到臭蟲. 遇到任何不順都請你向我們回報! 我們會盡快處理你回報的任何問題."
         login: "登入"
         modern_browsers: "只支援摩登的瀏覽器."
         password: "密碼"
@@ -80,11 +80,11 @@ zh-TW:
         forgot_your_password: "忘記密碼?"
         receive_confirmation: "沒收到確認步驟?"
         receive_unlock: "沒收到解鎖步驟?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_in: "登入"
+        sign_up: "登記"
+        sign_up_closed: "目前不開放公開登記."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "邀請函登記!"
     unlocks: 
       new: 
         resend_unlock: "重送解鎖步驟"
@@ -92,6 +92,6 @@ zh-TW:
       unlocked: "帳號解鎖成功. 你已經登入了."
   errors: 
     messages: 
-      already_confirmed: "was already confirmed"
-      not_found: "not found"
-      not_locked: "was not locked"
+      already_confirmed: "已確認"
+      not_found: "沒找到"
+      not_locked: "沒鎖定"

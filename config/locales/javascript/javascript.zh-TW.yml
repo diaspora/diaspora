@@ -19,7 +19,7 @@ zh-TW:
       minutes: "%d 分鐘"
       month: "約一個月"
       months: "%d 個月"
-      prefixAgo: ""
+      prefixAgo: "在"
       prefixFromNow: "距今"
       seconds: "少於一分鐘"
       suffixAgo: "前"

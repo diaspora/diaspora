@@ -72,11 +72,13 @@ es-CL:
       success: "%{name} fue correctamente eliminado."
     edit: 
       add_existing: "Agregar un contacto existente"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "¿Estás seguro que quieres eliminar este aspecto?"
-      make_aspect_list_visible: "Hacer visible la lista de contactos a todos en el Aspecto"
+      done: "Done"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
-      save: "Guardar"
+      update: "update"
     helper: 
       are_you_sure: "¿Estás seguro que quieres eliminar este aspecto?"
       aspect_not_empty: "El aspecto no está vacío"
@@ -136,18 +138,19 @@ es-CL:
     zero: "no hay contactos"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "crear un nuevo mensaje"
+      message_inbox: "Bandeja de Entrada"
+      new_message: "Nuevo Mensaje"
+      no_conversation_selected: "ninguna conversación seleccionada"
+      no_messages: "Sin mensajes"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Ningún resultado encontrado"
+      send: "Enviar"
+      subject: "asunto"
+      to: "para"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "responder"
   date: 
     formats: 
       birthday: "%B %d"
@@ -201,7 +204,7 @@ es-CL:
       have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
       logged_in_as: "Conectado como %{name}"
       powered_by: "POTENCIADO POR DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Canal publico de %{name}"
       toggle: "cambiar sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus Aspectos"
@@ -214,7 +217,7 @@ es-CL:
       logout: "salir"
       view_profile: "ver perfil"
   more: "Más"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} nuevos mensajes"
   new_notifications: "%{count} nueva/s notificación/es"
   new_requests: 
     few: "¡%{count} nuevas solicitudes!"
@@ -222,7 +225,7 @@ es-CL:
     other: "¡%{count} nuevas solicitudes!"
     zero: "no hay nuevas solicitudes"
   next: "Siguiente"
-  no_new_messages: "no new messages"
+  no_new_messages: "no hay mensajes nuevos"
   no_new_notifications: "No hay nuevas notificaciones"
   notifications: 
     also_commented: "también comentó en el post de %{post_author}"
@@ -258,10 +261,10 @@ es-CL:
       subject: "nueva solicitud de contacto Diaspora* de %{from}"
       try_it_out: "Deberías pensar en echarle un vistazo."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Asunto: %{subject}"
+      private_message: "te envió un mensaje privado:"
+      sign_in: "Conéctate para verlo."
+      subject: "%{name} te envió un mensaje privado en Diaspora*"
     request_accepted: 
       accepted: "aceptó tu solicitud de contacto!"
       sign_in: "Conéctate aquí"
@@ -305,7 +308,7 @@ es-CL:
     show: 
       does_not_exist: "¡La persona no existe!"
       incoming_request: "Tienes una solicitud pendiente de %{name}"
-      message: "Message"
+      message: "Mensaje"
       no_posts: "¡no hay posteos para mostrar!"
       not_connected: "No estás conectado con %{name}"
       recent_posts: "Posteos Recientes"

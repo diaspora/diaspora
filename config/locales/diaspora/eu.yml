@@ -72,11 +72,13 @@ eu:
       success: "%{name} arrakastaz ezabatu da."
     edit: 
       add_existing: "Jada adiskide den norbait gehitu"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
-      make_aspect_list_visible: "alderdi zerrenda publikoa egin"
+      done: "Done"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
-      save: "Gorde"
+      update: "update"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Alderdi ez hutsa"
@@ -136,18 +138,19 @@ eu:
     zero: "adiskiderik ez"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "mezu berria sortu"
+      message_inbox: "Sarrera-ontzia"
+      new_message: "Mezu Berria"
+      no_conversation_selected: "ez da aukeratu elkarrizketarik"
+      no_messages: "mezurik ez"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Ez da ezer aurkitu"
+      send: "Bidali"
+      subject: "igorlea"
+      to: "nori:"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "erantzun"
   date: 
     formats: 
       birthday: "%B %d"
@@ -201,7 +204,7 @@ eu:
       have_a_problem: "Arazoren bat? Aurkitu erantzuna hemen"
       logged_in_as: "%{name} zara."
       powered_by: "DIASPORAK ESKAINIA"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "%{name}(r)en Diaspora Feed publikoa"
       toggle: "aldatu mugikorreko orrialdera"
       whats_new: "ezer berririk?"
       your_aspects: "zure alderdiak"
@@ -214,7 +217,7 @@ eu:
       logout: "irten"
       view_profile: "profila ikusi"
   more: "Gehiago"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} mezu berri"
   new_notifications: "%{count} jakinarazpen berri"
   new_requests: 
     few: "%{count} eskaera berri!"
@@ -222,7 +225,7 @@ eu:
     other: "%{count} esakaera berri!"
     zero: "eskaera berririk ez"
   next: "hurrengoa"
-  no_new_messages: "no new messages"
+  no_new_messages: "mezu berririk ez"
   no_new_notifications: "jakinarazpen berririk ez"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
@@ -258,10 +261,10 @@ eu:
       subject: "Diaspora* adiskide eskaera berria %{from}(e)k bidalia"
       try_it_out: "Hobe zenuke begiztatzea."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Gaia: %{subject}"
+      private_message: "(e)k mezu pribatu bat bidali dizu:"
+      sign_in: "Sartu zaitez ikusteko."
+      subject: "%{name}(e)k mezu pribatu bat bidali dizu Diasporan"
     request_accepted: 
       accepted: "(e)k zure adiskide eskaera onartu du. Orain hemen dago:"
       sign_in: "Sartu hemen"
@@ -305,7 +308,7 @@ eu:
     show: 
       does_not_exist: "Pertsona hau ez dago!"
       incoming_request: "Adiskide eskaera bat bidali dizu pertsona honek."
-      message: "Message"
+      message: "Mezua"
       no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude partekatzen %{name}(r)ekin"
       recent_posts: "Post berrienak"

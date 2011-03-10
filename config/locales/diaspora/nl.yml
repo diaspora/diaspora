@@ -72,11 +72,13 @@ nl:
       success: "%{name} is met succes verwijderd."
     edit: 
       add_existing: "Voeg een bestaand contact toe"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
-      make_aspect_list_visible: "maak aspect lijst zichtbaar voor anderen in aspect"
+      done: "Done"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
-      save: "Opslaan"
+      update: "update"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -136,18 +138,19 @@ nl:
     zero: "geen contacten"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "maak een nieuw bericht"
+      message_inbox: "Berichten Inbox"
+      new_message: "Nieuw Bericht"
+      no_conversation_selected: "geen conversatie geselecteerd"
+      no_messages: "geen berichten"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Geen resultaten gevonden"
+      send: "Verstuur"
+      subject: "onderwerp"
+      to: "aan"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "beantwoord"
   date: 
     formats: 
       birthday: "%B %d"
@@ -201,7 +204,7 @@ nl:
       have_a_problem: "Probleem? Vind hier een antwoord"
       logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Publieke Diaspora Feed van %{name}"
       toggle: "switch mobiele versie"
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jouw aspecten"
@@ -214,7 +217,7 @@ nl:
       logout: "log uit"
       view_profile: "bekijk profiel"
   more: "Meer"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} nieuwe berichten"
   new_notifications: "%{count} nieuwe notificaties"
   new_requests: 
     few: "%{count} nieuwe verzoeken!"
@@ -222,7 +225,7 @@ nl:
     other: "%{count} nieuwe verzoeken!"
     zero: "geen nieuwe verzoeken"
   next: "volgende"
-  no_new_messages: "no new messages"
+  no_new_messages: "Geen nieuwe berichten"
   no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
@@ -258,10 +261,10 @@ nl:
       subject: "nieuw Diaspora* contactverzoek van %{from}"
       try_it_out: "Overweeg eens een kijkje te nemen."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Onderwerp: %{subject}"
+      private_message: "heeft je een persoonlijk bericht gestuurd:"
+      sign_in: "Log in om het te zien."
+      subject: "%{name} heeft je een persoonlijk bericht gestuurd op Diaspora*"
     request_accepted: 
       accepted: "heeft je contactverzoek geaccepteerd!"
       sign_in: "Log hier in"
@@ -305,7 +308,7 @@ nl:
     show: 
       does_not_exist: "Die persoon bestaat niet!"
       incoming_request: "% {name} wil met je delen"
-      message: "Message"
+      message: "Bericht"
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je deelt niet met %{name}"
       recent_posts: "Recente Berichten"

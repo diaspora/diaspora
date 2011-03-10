@@ -72,11 +72,13 @@ fi:
       success: "%{name} poistettiin onnistuneesti."
     edit: 
       add_existing: "Lisää olemassa oleva kontakti"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
-      make_aspect_list_visible: "tee näkymälistasta näkyvä sen jäsenille"
+      done: "Done"
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
-      save: "Tallenna"
+      update: "update"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
       aspect_not_empty: "Näkymä ei ole tyhjä"
@@ -136,18 +138,19 @@ fi:
     zero: "ei kontakteja"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "tee uusi viesti"
+      message_inbox: "Postilaatikko"
+      new_message: "Uusi viesti"
+      no_conversation_selected: "ei valittua keskustelua"
+      no_messages: "ei viestejä"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Ei tuloksia"
+      send: "Lähetä"
+      subject: "aihe"
+      to: "vastaanottaja"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "vastaa"
   date: 
     formats: 
       birthday: "%B %d"
@@ -214,7 +217,7 @@ fi:
       logout: "kirjaudu ulos"
       view_profile: "profiili"
   more: "Lisää"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} uutta viestiä"
   new_notifications: "%{count} uutta ilmoitusta"
   new_requests: 
     few: "%{count} uutta pyyntöä!"
@@ -222,7 +225,7 @@ fi:
     other: "%{count} uutta pyyntöä!"
     zero: "ei uusia pyyntöjä"
   next: "seuraava"
-  no_new_messages: "no new messages"
+  no_new_messages: "Ei uusia viestejä"
   no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
@@ -245,9 +248,9 @@ fi:
       commented: "on kommentoinut viestiisi:"
       sign_in: "Kirjaudu sisään nähdäksesi."
       subject: "%{name} on kommentoinut viestiisi."
-    diaspora: "diasporan sähköpostirobotti"
+    diaspora: "Diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
-    love: "terveisin,"
+    love: "Terveisin,"
     mentioned: 
       mentioned: "mainitsi sinut viestissään:"
       sign_in: "Kirjaudu sisään nähdäksesi."
@@ -258,10 +261,10 @@ fi:
       subject: "uusi Diaspora* kontaktipyyntö henkilöltä %{from}"
       try_it_out: "Sinun todella kannattaisi tutustua siihen."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Aihe: %{subject}"
+      private_message: "on lähettänyt sinulle henkilökohtaisen viestin:"
+      sign_in: "Kirjaudu sisään nähdäksesi."
+      subject: "%{name} on lähettänyt sinulle henkilökohtaisen viestin Diaspora*:ssa"
     request_accepted: 
       accepted: "on hyväksynyt kontaktipyyntösi!"
       sign_in: "Enregistrez-vous ici"
@@ -305,7 +308,7 @@ fi:
     show: 
       does_not_exist: "Henkilöä ei ole olemassa!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
-      message: "Message"
+      message: "Viesti"
       no_posts: "Ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä henkilöön %{name}"
       recent_posts: "Viimeisimmät tapahtumat"

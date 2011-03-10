@@ -72,11 +72,13 @@ de:
       success: "%{name} wurde erfolgreich entfernt."
     edit: 
       add_existing: "Ein bereits bestehendes Konto hinzufügen"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
-      make_aspect_list_visible: "Zeige Deine Aspekt-Liste anderen in diesem Aspekt"
+      done: "Done"
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
-      save: "Speichern"
+      update: "update"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
@@ -136,18 +138,19 @@ de:
     zero: "Keine Kontakte"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
+      create_a_new_message: "Erstelle neue Nachricht"
       message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      new_message: "Neue Nachricht"
+      no_conversation_selected: "Keine Konversation ausgewählt"
+      no_messages: "Keine Nachrichten"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Keine Ergebnisse Gefunden"
+      send: "Senden"
+      subject: "Betreff"
+      to: "An"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "Antworten"
   date: 
     formats: 
       birthday: "%d. %B"
@@ -201,7 +204,7 @@ de:
       have_a_problem: "Du hast ein Problem? Finde hier eine Antwort (Englisch)"
       logged_in_as: "Angemeldet als %{name}"
       powered_by: "BETRIEBEN MIT DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Öffentlicher Diaspora Feed von %{name}"
       toggle: "Mobile Ansicht umschalten"
       whats_new: "Was gibt’s Neues?"
       your_aspects: "Deine Aspekte"
@@ -214,7 +217,7 @@ de:
       logout: "Abmelden"
       view_profile: "Profil ansehen"
   more: "Mehr"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} neue Nachrichten"
   new_notifications: "%{count} neue Benachrichtigungen"
   new_requests: 
     few: "%{count} neue Anfragen!"
@@ -222,7 +225,7 @@ de:
     other: "%{count} neue Anfragen!"
     zero: "keine neuen Anfragen"
   next: "Nächste"
-  no_new_messages: "no new messages"
+  no_new_messages: "keine neue Nachrichten"
   no_new_notifications: "Keine neuen Benachrichtigungen"
   notifications: 
     also_commented: "kommentierte auch %{post_author}'s"
@@ -258,10 +261,10 @@ de:
       subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
       try_it_out: "Probier’s aus!"
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Betreff: %{subject}"
+      private_message: "hat dir eine Private Nachricht gesendet."
+      sign_in: "Melde dich an um sie Anzuschauen"
+      subject: "%{name} hat dir eine Private Nachricht bei Diaspora* gesendet"
     request_accepted: 
       accepted: "hat deine Kontakt-Anfrage akzeptiert!"
       sign_in: "Hier anmelden"
@@ -305,7 +308,7 @@ de:
     show: 
       does_not_exist: "Person existiert nicht!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
-      message: "Message"
+      message: "Nachricht"
       no_posts: "Keine Beiträge zum Anzeigen!"
       not_connected: "Du teilst nicht mit %{name}"
       recent_posts: "Neueste Beiträge"

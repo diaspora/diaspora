@@ -72,11 +72,13 @@ gl:
       success: "%{name} foi eliminado correctamente."
     edit: 
       add_existing: "Engadir un contacto existente"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Estás seguro de querer eliminar este aspecto?"
-      make_aspect_list_visible: "facer lista de aspectos visible para a xente do aspecto"
+      done: "Done"
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
-      save: "Gardar"
+      update: "update"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "O aspecto non esta baleiro"
@@ -136,18 +138,19 @@ gl:
     zero: "non hai contactos"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "crear mensaxe"
+      message_inbox: "Caixa de entrada"
+      new_message: "Nova mensaxe"
+      no_conversation_selected: "non se seleccionou conversación"
+      no_messages: "sen mensaxes"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Sen resultados"
+      send: "Enviar"
+      subject: "asunto"
+      to: "para"
     show: 
-      reply: "reply"
+      delete: "delete and block conversation"
+      reply: "responder"
   date: 
     formats: 
       birthday: "%B %d"
@@ -214,7 +217,7 @@ gl:
       logout: "Saír"
       view_profile: "Ver o perfil"
   more: "Máis"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} novas mensaxes"
   new_notifications: "%{count} novas notificacións"
   new_requests: 
     few: "%{count} novas peticións!"
@@ -222,7 +225,7 @@ gl:
     other: "%{count} novas peticións!"
     zero: "non hai novas peticións"
   next: "seguinte"
-  no_new_messages: "no new messages"
+  no_new_messages: "non hai novas mensaxes"
   no_new_notifications: "non hai novas peticións"
   notifications: 
     also_commented: "tamén comentou nos do teu contacto"
@@ -258,10 +261,10 @@ gl:
       subject: "Ten unha nova petición de contacto en Diaspora* de %{from}."
       try_it_out: "Deberías pensar seriamente en botarlle unha ollada."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Asunto: %{subject}"
+      private_message: "enviouche unha mensaxe privada:"
+      sign_in: "Entrar para velo."
+      subject: "%{name} enviouche unha mensaxe privada en Diaspora*"
     request_accepted: 
       accepted: "aceptou a túa petición de contacto."
       sign_in: "Entra aquí"
@@ -305,7 +308,7 @@ gl:
     show: 
       does_not_exist: "Esa persoa non existe!"
       incoming_request: "%{name} quere compartir contigo"
-      message: "Message"
+      message: "Mensaxe"
       no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás conectado a %{name}"
       recent_posts: "Publicacións recentes"
