@@ -22,11 +22,10 @@ describe Diaspora::OstatusBuilder do
       arr << s
     end
   }
-  let!(:atom) { director = Diaspora::Director.new; director.build(Diaspora::OstatusBuilder.new(user)) }
+  let!(:atom) { director = Diaspora::Director.new; director.build(Diaspora::OstatusBuilder.new(user, public_status_messages)) }
 
   it 'should include a users posts' do
     public_status_messages.each{ |status| atom.should include status.message }
-    private_status_messages.each{ |status| atom.should_not include status.message }
   end
 
 end

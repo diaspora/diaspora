@@ -21,9 +21,9 @@ module Diaspora
   class OstatusBuilder
     include Diaspora::Webhooks
 
-    def initialize(user)
+    def initialize(user, posts)
       @user = user
-      @posts = Post.where(:author_id => @user.person.id, :public => true)
+      @posts = posts
     end
 
     def create_headers

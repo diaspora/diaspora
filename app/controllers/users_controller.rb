@@ -68,8 +68,9 @@ class UsersController < ApplicationController
     user = User.find_by_username(params[:username])
 
     if user
+      posts = Post.where(:author_id => user.person.id, :public => true).order('created_at DESC')
       director = Diaspora::Director.new
-      ostatus_builder = Diaspora::OstatusBuilder.new(user)
+      ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
 
       render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
     else
