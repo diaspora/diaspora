@@ -11,7 +11,6 @@ require 'rspec/rails'
 require 'webmock/rspec'
 require 'factory_girl'
 
-include Devise::TestHelpers
 include WebMock::API
 include HelperMethods
 
@@ -26,6 +25,7 @@ support_files.each {|f| require f }
 require fixture_builder_file
 
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
   config.mock_with :rspec
 
   config.use_transactional_fixtures = true

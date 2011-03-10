@@ -9,9 +9,17 @@ describe PostsController do
 
   before do
     @user = alice
-    @controller.stub!(:current_user).and_return(nil)
   end
   describe '#index' do
+    context 'signed in' do
+      before do
+        sign_in :user, @user
+      end
+      it 'works' do
+        get :index
+        response.status.should == 200
+      end
+    end
     it 'shows the most recent public posts' do
       posts = []
       10.times do
