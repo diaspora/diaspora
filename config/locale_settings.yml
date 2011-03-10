@@ -33,6 +33,7 @@ available:
   sv: 'Svenska'
   tr: 'Türk'
   zh: '中文'
+  zh-TW: '台灣中文'
 fallbacks:
   en-GB:
     - :en
