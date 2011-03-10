@@ -79,5 +79,4 @@ module Diaspora
       XML
     end
   end
-
 end
