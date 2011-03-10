@@ -21,6 +21,14 @@ describe UsersController do
     end
   end
 
+  describe '#public' do
+    it 'renders xml' do
+      sm = Factory(:status_message, :public => true, :author => @user.person)
+      get :public, :username => @user.username
+      response.body.should include(sm.message)
+    end
+  end
+
   describe '#update' do
     before do
       @params  = { :id => @user.id,

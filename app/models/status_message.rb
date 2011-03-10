@@ -89,7 +89,7 @@ class StatusMessage < Post
   <entry>
     <title>#{x(self.formatted_message(:plain_text => true))}</title>
     <link rel="alternate" type="text/html" href="#{self.author.url}status_messages/#{self.id}"/>
-    <id>#{person.url}posts/#{self.id}</id>
+    <id>#{self.author.url}posts/#{self.id}</id>
     <published>#{self.created_at.xmlschema}</published>
     <updated>#{self.updated_at.xmlschema}</updated>
     <activity:verb>http://activitystrea.ms/schema/1.0/post</activity:verb>

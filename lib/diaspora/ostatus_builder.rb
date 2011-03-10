@@ -23,13 +23,14 @@ module Diaspora
 
     def initialize(user)
       @user = user
+      @posts = Post.where(:author_id => @user.person.id, :public => true)
     end
 
     def create_headers
       <<-XML
 <?xml version="1.0" encoding="UTF-8"?>
 <feed xml:lang="en-US" xmlns="http://www.w3.org/2005/Atom" xmlns:thr="http://purl.org/syndication/thread/1.0" xmlns:georss="http://www.georss.org/georss" xmlns:activity="http://activitystrea.ms/spec/1.0/" xmlns:media="http://purl.org/syndication/atommedia" xmlns:poco="http://portablecontacts.net/spec/1.0" xmlns:ostatus="http://ostatus.org/schema/1.0" xmlns:statusnet="http://status.net/schema/api/1/">
-<generator uri="http://joindiaspora.com/">Diaspora</generator>
+<generator uri="#{AppConfig[:pod_url]}">Diaspora</generator>
 <id>#{@user.public_url}.atom</id>
 <title>#{x(@user.name)}'s Public Feed</title>
 <subtitle>Posts from Diaspora</subtitle>
@@ -61,7 +62,7 @@ module Diaspora
     end
 
     def create_body
-      @user.visible_posts(:author_id => @user.person.id, :public=>true).inject("") do |xml,curr|
+      @posts.inject("") do |xml,curr|
         if curr.respond_to?(:to_activity)
           unless xml
             curr.to_activity

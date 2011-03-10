@@ -17,6 +17,7 @@ class StatusMessagesController < ApplicationController
     public_flag = params[:status_message][:public]
     public_flag.to_s.match(/(true)|(on)/) ? public_flag = true : public_flag = false
     params[:status_message][:public] = public_flag
+    puts public_flag
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
     aspects = current_user.aspects_from_ids(params[:aspect_ids])

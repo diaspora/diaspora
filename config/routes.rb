@@ -51,7 +51,7 @@ Diaspora::Application.routes.draw do
 
 
   # added public route to user
-  match 'public/:username',          :to => 'users#public'
+  match 'public/:username',          :to => 'users#public', :as => 'users_public'
   match 'getting_started',           :to => 'users#getting_started', :as => 'getting_started'
   match 'getting_started_completed', :to => 'users#getting_started_completed'
   match 'users/export',              :to => 'users#export'
