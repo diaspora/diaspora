@@ -21,6 +21,81 @@ describe("Publisher", function() {
     });
   });
 
+  describe("bindAspectToggles", function() {
+    beforeEach( function(){
+      spec.loadFixture('person_show');
+    });
+
+    it('gets called on initialize', function(){
+      spyOn(Publisher, 'bindAspectToggles'); 
+      Publisher.initialize();
+      expect(Publisher.bindAspectToggles).toHaveBeenCalled();
+    });
+   
+    it('toggles removed only on the clicked icon', function(){
+      expect($("#publisher .aspect_badge").first().hasClass("removed")).toBeFalsy();
+      expect($("#publihser .aspect_badge").last().hasClass("removed")).toBeFalsy();
+
+      Publisher.bindAspectToggles();
+      $("#publisher .aspect_badge").last().click();
+
+      expect($("#publisher .aspect_badge").first().hasClass("removed")).toBeFalsy();
+      expect($("#publisher .aspect_badge").last().hasClass("removed")).toBeTruthy();
+    });
+
+    it('binds to the services icons and toggles the hidden field', function(){
+      spyOn(Publisher, 'toggleAspectIds');
+      Publisher.bindAspectToggles();
+      var aspBadge = $("#publisher .aspect_badge a").last();
+      var aspNum = aspBadge.attr('data-guid');
+      aspBadge.click();
+
+      expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspNum);
+    });
+
+    it('does not execute if it is the last non-removed aspect', function(){
+      var aspects = $("#publisher .aspect_badge").length;
+      spyOn(Publisher, 'toggleAspectIds');
+
+      Publisher.bindAspectToggles();
+      spyOn(window, 'alert');// click through the dialog if it happens
+      $("#publisher .aspect_badge a").each(function(){$(this).click()});
+
+      var lastAspectNum = $("#publisher .aspect_badge a").last().attr('data-guid');
+
+      expect($("#publisher .aspect_badge.removed").length).toBe(aspects-1);
+      expect(Publisher.toggleAspectIds.callCount).toBe(1);
+    });
+  });
+  describe('toggleAspectIds', function(){
+    beforeEach( function(){
+      spec.loadFixture('person_show');
+    });
+
+    it('adds a hidden field to the form if there is not one already', function(){
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(2);
+      Publisher.toggleAspectIds(42);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+      expect($('#publisher [name="aspect_ids[]"]').last().attr('value')).toBe('42');
+    });
+
+    it('removes the hidden field if its already there', function() {
+      Publisher.toggleAspectIds(42);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+
+      Publisher.toggleAspectIds(42);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(2);
+    });
+
+    it('does not remove a hidden field with a different value', function() {
+      Publisher.toggleAspectIds(42);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(3);
+
+      Publisher.toggleAspectIds(99);
+      expect($('#publisher [name="aspect_ids[]"]').length).toBe(4);
+    });
+  });
+
   describe("bindPublicIcon", function() {
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');

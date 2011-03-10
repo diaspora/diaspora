@@ -22,7 +22,7 @@
   = render 'aspects/edit_aspect_pane', :contacts => @all_contacts, :aspect => @aspect
 
 .span-15.last
-  = render 'shared/publisher', :aspect => @aspect
+  = render 'shared/publisher', :aspect => @aspect, :aspect_ids => @aspect_ids
 
   #main_stream.stream{:data => {:guids => @aspect.id}}
     = render 'shared/stream', :posts => @posts

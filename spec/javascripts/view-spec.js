@@ -98,7 +98,7 @@ describe("View", function() {
       $("#jasmine_content").html(
         '<div id="publisher">' +
           '<form action="/status_messages" class="new_status_message" id="new_status_message" method="post">' +
-            '<textarea id="status_message_message" name="status_message[message]"></textarea>' +
+            '<textarea id="status_message_text" name="status_message[text]"></textarea>' +
           '</form>' +
         '</div>'
       );

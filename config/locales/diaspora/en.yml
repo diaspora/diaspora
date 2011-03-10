@@ -346,6 +346,7 @@ en:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       message: "Message"
+      mention: "Mention"
     profile_sidebar:
       remove_contact: "remove contact"
       edit_my_profile: "Edit my profile"

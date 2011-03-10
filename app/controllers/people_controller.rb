@@ -45,6 +45,7 @@ class PeopleController < ApplicationController
   def show
     @person = Person.where(:id => params[:id]).first
     @post_type = :all
+    @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
     if @person
@@ -57,7 +58,9 @@ class PeopleController < ApplicationController
         @aspects_with_person = []
         if @contact
           @aspects_with_person = @contact.aspects
+          @aspect_ids = @aspects_with_person.map(&:id)
           @contacts_of_contact = @contact.contacts
+
         else
           @contact ||= Contact.new
           @contacts_of_contact = []

@@ -9,6 +9,22 @@ class StatusMessagesController < ApplicationController
   respond_to :mobile
   respond_to :json, :only => :show
 
+  def new
+    @person = Person.find(params[:person_id])
+    @aspect = :profile
+    @contact = current_user.contact_for(@person)
+    @aspects_with_person = []
+    if @contact
+      @aspects_with_person = @contact.aspects
+      @aspect_ids = @aspects_with_person.map(&:id)
+      @contacts_of_contact = @contact.contacts
+
+      render :layout => nil
+    else
+      redirect_to :back
+    end
+  end
+
   def create
     params[:status_message][:aspect_ids] = params[:aspect_ids]
 
