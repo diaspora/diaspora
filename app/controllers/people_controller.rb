@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
 
   respond_to :html
   respond_to :json, :only => [:index, :show]
@@ -48,27 +48,32 @@ class PeopleController < ApplicationController
     @share_with = (params[:share_with] == 'true')
 
     if @person
-      @incoming_request = current_user.request_from(@person)
 
       @profile = @person.profile
-      @contact = current_user.contact_for(@person)
-      @aspects_with_person = []
 
-      if @contact
-        @aspects_with_person = @contact.aspects
-        @contacts_of_contact = @contact.contacts
+      if current_user
+        @incoming_request = current_user.request_from(@person)
+        @contact = current_user.contact_for(@person)
+        @aspects_with_person = []
+        if @contact
+          @aspects_with_person = @contact.aspects
+          @contacts_of_contact = @contact.contacts
+        else
+          @contact ||= Contact.new
+          @contacts_of_contact = []
+        end
+
+        if (@person != current_user.person) && (!@contact || @contact.pending)
+          @commenting_disabled = true
+        else
+          @commenting_disabled = false
+        end
+        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate(:per_page => 15, :page => params[:page])
       else
-        @contact ||= Contact.new
-        @contacts_of_contact = []
-      end
-
-      if (@person != current_user.person) && (!@contact || @contact.pending)
         @commenting_disabled = true
-      else
-        @commenting_disabled = false
+        @posts = @person.posts.where(:type => "StatusMessage", :public => true).paginate(:per_page => 15, :page => params[:page])
       end
 
-      @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate  :per_page => 15, :page => params[:page]
       @fakes = PostsFake.new(@posts)
       respond_with @person, :locals => {:post_type => :all}
 

@@ -12,7 +12,7 @@
 .span-8.append-1.last
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
-  - if @contact.persisted? && @contacts_of_contact.count > 0
+  - if user_signed_in? && @contact.persisted? && @contacts_of_contact.count > 0
     .span-8.last
       %hr{:style=>"width:300px;"}
       .section.contact_pictures
@@ -24,7 +24,7 @@
 
 .span-15.last
   #author_info
-    - unless @contact.persisted? || current_user.person == @person
+    - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
       .right
         - if @incoming_request
           = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
@@ -45,7 +45,7 @@
 
 
     - else
-      - if @contact.person
+      - if user_signed_in? && @contact.person
         .right
           = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
 

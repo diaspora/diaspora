@@ -18,14 +18,14 @@
   .profile_photo
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
-  - if person == current_user.person
+  - if user_signed_in? && person == current_user.person
     %p
       = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
 
     %hr{:style=>"width:300px;"}
 
   %ul
-    - unless person == current_user.person
+    - if user_signed_in? && person != current_user.person
       %li
         = render :partial => 'people/aspect_list',
           :locals => {:person => person,
@@ -35,7 +35,7 @@
       %br
       %hr{:style=>"width:300px;"}
 
-  -if (contact.persisted? && !contact.pending?) || person == current_user.person || @incoming_request
+  -if user_signed_in? && ((contact.persisted? && !contact.pending?) || person == current_user.person || @incoming_request)
     %ul#profile_information
       %li
         - unless person.profile.bio.blank?

@@ -86,10 +86,10 @@ class AspectsController < ApplicationController
     begin
       current_user.drop_aspect @aspect
       flash[:notice] = I18n.t 'aspects.destroy.success',:name => @aspect.name
-      redirect_to :back
+      redirect_to aspects_path
     rescue ActiveRecord::StatementInvalid => e
       flash[:error] = I18n.t 'aspects.destroy.failure',:name => @aspect.name
-      redirect_to :back
+      redirect_to aspects_path
     end
   end
 

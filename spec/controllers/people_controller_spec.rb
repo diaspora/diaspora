@@ -129,6 +129,27 @@ describe PeopleController do
       end
     end
 
+    context "with no user signed in" do
+      before do
+        sign_out :user
+        @person = bob.person
+      end
+      it "succeeds" do
+        get :show, :id => @person.id
+        response.status.should == 200
+      end
+      it "assigns only public posts" do
+        public_posts = []
+        public_posts << bob.post(:status_message, :message => "first public ", :to => bob.aspects[0].id, :public => true)
+        bob.post(:status_message, :message => "to an aspect @user is not in", :to => bob.aspects[1].id)
+        bob.post(:status_message, :message => "to all aspects", :to => 'all')
+        public_posts << bob.post(:status_message, :message => "public", :to => 'all', :public => true)
+
+        get :show, :id => @person.id
+
+        assigns[:posts].should == public_posts
+      end
+    end
     context "when the person is a contact of the current user" do
       before do
         @person = bob.person

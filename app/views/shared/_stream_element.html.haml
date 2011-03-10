@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  - if post.author.owner_id == current_user.id
+  - if current_user && post.author.owner_id == current_user.id
     .right.hidden.controls
       - reshare_aspects = aspects_without_post(all_aspects, post)
       - unless reshare_aspects.empty?
