@@ -12,6 +12,7 @@ class Pubsubhubbub
   end
 
   def publish(feed)
-    RestClient.post(@hub, :headers => @headers, 'hub.url' => feed, 'hub.mode' => 'publish')
+    response = RestClient.post(@hub, :headers => @headers, 'hub.url' => feed, 'hub.mode' => 'publish')
+    response
   end
 end
