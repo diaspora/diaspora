@@ -27,7 +27,7 @@ Feature: commenting
     And   I fill in "Comment" with "is that a poodle?"
     And   I press "Comment"
     Then  I should see "is that a poodle?" within "li.comment div.content"
-    And   I should see "less than a minute ago" within "li.comment span.time"
+    And   I should see "less than a minute ago" within "li.comment time"
 
   Scenario: comment on a photo from the photo page
     When  I sign in as "bob@bob.bob"
@@ -36,7 +36,7 @@ Feature: commenting
      And  I fill in "Comment" with "hahahah"
      And  I press "Comment"
     Then  I should see "hahaha" within "li.comment div.content"
-    And   I should see "less than a minute ago" within "li.comment span.time"
+    And   I should see "less than a minute ago" within "li.comment time"
 
   Scenario: comment on your own photo from the photo page
     When  I sign in as "alice@alice.alice"
@@ -45,4 +45,4 @@ Feature: commenting
      And  I fill in "Comment" with "hahahah"
      And  I press "Comment"
     Then  I should see "hahaha" within "li.comment div.content"
-    And   I should see "less than a minute ago" within "li.comment span.time"
+    And   I should see "less than a minute ago" within "li.comment time"
