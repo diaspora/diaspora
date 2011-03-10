@@ -28,5 +28,12 @@ describe Diaspora::OstatusBuilder do
     public_status_messages.each{ |status| atom.should include status.message }
   end
 
+  it 'should iterate through all objects, and not stop if it runs into a post without a to_activity' do
+    messages = public_status_messages.collect{|x| x.message}
+    public_status_messages.insert(1, [])
+    director = Diaspora::Director.new;
+    atom2 = director.build(Diaspora::OstatusBuilder.new(user, public_status_messages))
+    messages.each{ |status| atom2.should include status.message }
+  end
 end
 
