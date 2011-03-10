@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= markdownify(post.message, :youtube_maps => post[:youtube_titles])
 
 - if photos.size > 0
   .photo_attachments
@@ -14,3 +13,7 @@
       - else
         - for photo in photos[1..photos.size]
           = link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
+  = markdownify(post.message, :youtube_maps => post[:youtube_titles])
+
+- else
+  = markdownify(post.message, :youtube_maps => post[:youtube_titles])
