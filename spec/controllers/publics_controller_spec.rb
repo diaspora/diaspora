@@ -100,4 +100,11 @@ describe PublicsController do
       response.should be_not_found
     end
   end
+
+  describe '#hub' do
+    it 'succeeds' do
+      get :hub
+      response.should be_success
+    end
+  end
 end
