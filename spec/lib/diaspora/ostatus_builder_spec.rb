@@ -33,7 +33,7 @@ describe Diaspora::OstatusBuilder do
     public_status_messages.insert(1, [])
     director = Diaspora::Director.new;
     atom2 = director.build(Diaspora::OstatusBuilder.new(user, public_status_messages))
-    messages.each{ |status| atom2.should include status.message }
+    messages.each{ |message| atom2.should include message }
   end
 end
 

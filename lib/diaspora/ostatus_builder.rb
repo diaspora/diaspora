@@ -69,6 +69,8 @@ module Diaspora
           else
             xml + curr.to_activity
           end
+        else
+          xml
         end
       end
     end
