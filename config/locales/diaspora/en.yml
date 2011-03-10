@@ -538,6 +538,7 @@ en:
           no_messages: "no messages"
       show:
           reply: "reply"
+          delete:"delete and block conversation"
       new:
           to: "to"
           subject: "subject"
