@@ -317,6 +317,34 @@ describe User do
     end
   end
 
+  describe '#notify_if_mentioned' do
+    before do
+      @post = Factory.create(:status_message, :author => bob.person)
+    end
+
+    it 'notifies the user if the incoming post mentions them' do
+      @post.should_receive(:mentions?).with(alice.person).and_return(true)
+      @post.should_receive(:notify_person).with(alice.person)
+
+      alice.notify_if_mentioned(@post)
+    end
+
+    it 'does not notify the user if the incoming post does not mention them' do
+      @post.should_receive(:mentions?).with(alice.person).and_return(false)
+      @post.should_not_receive(:notify_person)
+
+      alice.notify_if_mentioned(@post)
+    end
+
+    it 'does not notify the user if the post author is not a contact' do
+      @post = Factory.create(:status_message, :author => eve.person)
+      @post.stub(:mentions?).and_return(true)
+      @post.should_not_receive(:notify_person)
+
+      alice.notify_if_mentioned(@post)
+    end
+  end
+
   describe 'account removal' do
     it 'should disconnect everyone' do
       alice.should_receive(:disconnect_everyone)
