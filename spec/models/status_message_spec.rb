@@ -225,25 +225,4 @@ STR
       Post.find(post.id).youtube_titles.should == {video_id => CGI::escape(expected_title)}
     end
   end
-
-  describe '#public_message' do
-    before do
-      message = ""
-      440.times{message << 'd'}
-      @status_message = @user.post(:status_message, :message => message, :to => @aspect.id)
-    end
-
-    it 'truncates the message' do
-      @status_message.public_message(140).length.should == 140
-      @status_message.public_message(420).length.should == 420
-    end
-
-    it 'has the correct length if a url is present' do
-      @status_message.public_message(140, "a_url_goes_here").length.should == 140
-    end
-
-    it 'adds the public link if present' do
-      @status_message.public_message(140, "/p/#{@status_message.id}").should include "/p/#{@status_message.id}"
-    end
-  end
 end

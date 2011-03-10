@@ -98,13 +98,6 @@ class StatusMessage < Post
       XML
   end
 
-  def public_message(length, url = "")
-    space_for_url = url.blank? ? 0 : (url.length + 1)
-    truncated = truncate(self.message, :length => (length - space_for_url))
-    truncated = "#{truncated} #{url}" unless url.blank?
-    return truncated
-  end
-
   protected
 
   def message_or_photos_present?
