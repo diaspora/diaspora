@@ -11,12 +11,23 @@ And /^I expand the publisher$/ do
     ')
 end
 
+
+When /^(?:|I )append "([^"]*)" with "([^"]*)"$/ do |field, value|
+  script = "$('#{ field }').val(function(index, value) {
+  return value + ' ' + '#{value}'; });"
+   page.execute_script(script)
+end
+
 And /^I hover over the post$/ do
   page.execute_script('$(".stream_element").first().mouseover()')
 end
 
 When /^I click to delete the first post$/ do
   page.execute_script('$(".stream_element").first().find(".delete").click()')
+end
+
+And /^I click "([^"]*)" button$/ do |arg1|
+  page.execute_script('$(".button:contains('+arg1+')").click()')
 end
 
 And /^I preemptively confirm the alert$/ do

@@ -26,7 +26,7 @@
             = t('the_world')
       - elsif post.author.owner_id == current_user.id
         %span.aspect_badges
-          = aspect_badges(aspects_with_post(all_aspects, post))
+          = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
 
       %span.timeago
         = link_to(how_long_ago(post), status_message_path(post))

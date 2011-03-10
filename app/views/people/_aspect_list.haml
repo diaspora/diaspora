@@ -19,7 +19,7 @@
 
   - else
     .badges{:class => ("hidden" if !contact.persisted?)}
-      = aspect_badges(aspects_with_person)
+      = aspect_badges(aspects_with_person, :link => true)
       %p
       = link_to t('.edit_membership'),
               {:controller => "contacts",

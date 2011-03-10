@@ -16,6 +16,13 @@ Given /^a user with email "([^\"]*)"$/ do |email|
   user.aspects.create(:name => "Unicorns")
 end
 
+Given /^a user with username "([^\"]*)"$/ do |username|
+  user = Factory(:user, :email => username + "@" + username + '.' + username, :username => username,
+                 :password => 'password', :password_confirmation => 'password', :getting_started => false)
+  user.aspects.create(:name => "Besties")
+  user.aspects.create(:name => "Unicorns")
+end
+
 Given /^a user named "([^\"]*)" with email "([^\"]*)"$/ do |name, email|
   first, last = name.split
   username = "#{first}_#{last}" if first
@@ -44,6 +51,13 @@ Given /^I have an aspect called "([^\"]*)"$/ do |aspect_name|
   @me.aspects.create!(:name => aspect_name)
   @me.reload
 end
+
+When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |username, aspect|
+  user = User.find_by_username(username)
+  contact = @me.reload.contact_for(user.person)
+  contact.aspects << @me.aspects.find_by_name(aspect)
+end
+
 
 Given /^I have one contact request$/ do
   other_user   = Factory(:user)
@@ -112,6 +126,12 @@ end
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
   user1 = User.where(:email => arg1).first
   user2 = User.where(:email => arg2).first
+  connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
+end
+
+Given /^a user with username "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
+  user1 = User.where(:username => arg1).first
+  user2 = User.where(:username => arg2).first
   connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
 end
 

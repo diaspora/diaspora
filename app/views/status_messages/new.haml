@@ -1,0 +1,22 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+= javascript_include_tag "publisher.js"
+
+:javascript
+  $(document).ready(function() 
+    {
+      var person = {name: '#{@person.name}', handle: '#{@person.diaspora_handle}' };
+      Publisher.autocompletion.onSelect($("#status_message_fake_text"),person,'#{@person.name}');
+      $("#publisher #status_message_submit.button").click(function(){$.facebox.close();});
+    });
+
+#new_status_message_pane
+  .span-15
+    #facebox_header
+      %h4
+        = t('conversations.index.new_message')
+
+    = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :aspects_with_person => @aspects_with_person, :person => @person}

@@ -20,6 +20,14 @@ describe StatusMessagesController do
     @user1.reload
   end
 
+  describe '#new' do
+    it 'succeeds' do
+      get :new,
+        :person_id => @user2.person.id
+      response.should be_success
+    end
+  end
+
   describe '#show' do
     before do
       @message = @user1.build_post :status_message, :text => "ohai", :to => @aspect1.id

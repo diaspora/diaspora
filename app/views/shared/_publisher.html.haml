@@ -13,7 +13,7 @@
     = image_tag 'icons/doc_edit.png'
     %span= t('.whats_on_your_mind')
 
-    = t('aspects', :count => @aspect_ids.length)
+    = t('aspects', :count => aspect_ids.length)
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
@@ -30,12 +30,18 @@
             = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill])
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
-      - for aspect_id in @aspect_ids
+      - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
         %div.mention_helper
-          %i= t('.mention_helper_text')
+          - if aspect != :profile
+            %i= t('.mention_helper_text')
+          - else
+            .badges
+              %i= 'publishing to: '
+              = aspect_badges(aspects_with_person, :link => false)
+
 
         .right
           #fileInfo
@@ -58,5 +64,5 @@
               = render 'shared/public_explain'
 
     #publisher_photo_upload
-      = render 'photos/new_photo', :aspect_ids => @aspect_ids.join(',')
+      = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')
 

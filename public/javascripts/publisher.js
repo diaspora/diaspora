@@ -306,6 +306,26 @@ var Publisher = {
       '<input id="services_" name="services[]" type="hidden" value="'+service+'">');
     };
   },
+  toggleAspectIds: function(aspectId) {
+    var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]')
+    if(hidden_field.length > 0){
+      hidden_field.remove();
+    } else {
+      $("#publisher .content_creation form").append(
+      '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
+    };
+  },
+  bindAspectToggles: function() {
+    $('#publisher .aspect_badge').bind("click", function(){
+      var unremovedAspects = $(this).parent().children('.aspect_badge').length - $(this).parent().children(".aspect_badge.removed").length;
+      if(!$(this).hasClass('removed') && ( unremovedAspects == 1 )){
+        alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'))
+      }else{
+        Publisher.toggleAspectIds($(this).children('a').attr('data-guid'));
+        $(this).toggleClass("removed");
+      };
+    });
+  },
   initialize: function() {
     Publisher.cachedForm = false;
     Publisher.cachedInput = false;
@@ -314,6 +334,7 @@ var Publisher = {
 
     Publisher.bindServiceIcons();
     Publisher.bindPublicIcon();
+    Publisher.bindAspectToggles();
 
     if ($("#status_message_fake_text").val() == "") {
       Publisher.close();
