@@ -46,7 +46,7 @@ class ActionController::LogSubscriber
                 :controller => payload[:controller],
                 :action => payload[:action],
                 :format => payload[:formats].first.to_s.upcase,
-                :ms => "%.0f" % event.duration,
+                :ms => ("%.0f" % event.duration).to_i,
                 :params => params.inspect}
     log_hash.merge!({
                 :gc_ms => GC.time/1000,
