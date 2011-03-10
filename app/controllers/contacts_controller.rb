@@ -4,7 +4,7 @@
 
 class ContactsController < ApplicationController
   before_filter :authenticate_user!
-  
+
   def new
     @person = Person.find(params[:person_id])
     @aspects_with_person = []
@@ -40,6 +40,7 @@ class ContactsController < ApplicationController
   end
 
   def edit
+    @all_aspects ||= current_user.aspects
     @contact = Contact.unscoped.where(:id => params[:id], :user_id => current_user.id).first
 
     @person = @contact.person
@@ -61,7 +62,7 @@ class ContactsController < ApplicationController
     else
       flash[:error] = I18n.t('contacts.destroy.failure', :name => contact.person.name)
     end
-    redirect_to contact.person 
+    redirect_to contact.person
   end
 
   private
