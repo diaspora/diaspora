@@ -104,7 +104,7 @@ $(document).ready(function(){
 
   function performAspectUpdate(home){
       // update the open aspects in the user
-      updateURL = "/users/" + $('div.avatar').children('img').attr("data-owner_id");
+      updateURL = "/users/" + $('#user_menu').find('div.avatar').children('img').attr("data-owner_id");
       updateURL += '?';
       if(home == 'home'){
         updateURL += 'user[a_ids][]=home';
