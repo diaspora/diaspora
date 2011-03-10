@@ -19,7 +19,7 @@ Diaspora::Application.routes.draw do
 
   match 'notifications/read_all' => 'notifications#read_all'
   resources :notifications,   :only => [:index, :update]
-  resources :posts,           :only => [:show], :path => '/p/'
+  resources :posts,           :only => [:show, :index], :path => '/p/'
 
   resources :contacts
   resources :aspect_memberships, :only => [:destroy, :create]

@@ -1,0 +1,20 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.whatup', :pod => @pod_url)
+
+
+- content_for :head do
+  = include_javascripts :home
+
+%h1
+  = t('.whatup', :pod => @pod_url)
+
+.span-15
+  #main_stream.stream
+    = render 'shared/stream', :posts => @fakes
+    %a.paginate
+      = t("more")
+  = will_paginate @posts

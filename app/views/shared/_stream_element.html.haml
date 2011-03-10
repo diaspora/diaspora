@@ -31,6 +31,7 @@
       %span.timeago
         = link_to(how_long_ago(post), status_message_path(post))
 
-      = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
+      - unless (defined?(@commenting_disabled) && @commenting_disabled)
+        = link_to t('comments.new_comment.comment').downcase, '#', :class => 'focus_comment_textarea'
 
-    = render "comments/comments", :post_id => post.id, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => defined?(@commenting_disabled)
+    = render "comments/comments", :post_id => post.id, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

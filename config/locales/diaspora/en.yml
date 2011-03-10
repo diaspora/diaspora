@@ -423,6 +423,9 @@ en:
            people_on_pod_are_aware_of: " people on pod are aware of"
       aspect_list:
            edit_membership: "edit aspect membership"
+  posts:
+      index:
+          whatup: "What's happening on %{pod}"
   requests:
       manage_aspect_contacts:
           manage_within: "Manage contacts within"

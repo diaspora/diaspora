@@ -10,6 +10,16 @@ class PostsController < ApplicationController
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
 
+  def index
+    @posts = StatusMessage.joins(:author).where(Person.arel_table[:owner_id].not_eq(nil)).where(:public => true, :pending => false
+             ).includes(:comments, :photos
+             ).paginate(:page => params[:page], :per_page => 15, :order => 'created_at DESC')
+
+    @fakes = PostsFake.new(@posts)
+    @commenting_disabled = true
+    @pod_url = AppConfig[:pod_uri].host
+  end
+
   def show
     @post = Post.where(:id => params[:id], :public => true).includes(:author, :comments => :author).first
 
