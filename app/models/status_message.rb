@@ -8,6 +8,9 @@ class StatusMessage < Post
   require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
 
+  acts_as_taggable
+  acts_as_taggable_on :tags
+
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
   xml_name :status_message
   xml_attr :raw_message
@@ -21,6 +24,8 @@ class StatusMessage < Post
   before_save do
     get_youtube_title message
   end
+
+  before_create :build_tags
 
   def message(opts = {})
     self.formatted_message(opts)
@@ -82,6 +87,22 @@ class StatusMessage < Post
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
+  end
+
+  def build_tags
+    self.tag_list = tag_strings
+  end
+
+  def tag_strings
+    regex = /(^|\s)#(\w+)/
+    matches = self.raw_message.scan(regex).map do |match|
+      match.last
+    end
+    unique_matches = matches.inject(Hash.new) do |h,element|
+      h[element.downcase] = element unless h[element.downcase]
+      h
+    end
+    unique_matches.values
   end
 
   def to_activity

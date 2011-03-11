@@ -24,11 +24,11 @@ gem 'twitter', :git => 'git://github.com/jnunemaker/twitter.git', :ref => 'ef122
 gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
 
-#Statistics
-gem 'googlecharts'
-
 #Inflected translations
 gem 'i18n-inflector-rails', '~> 1.0'
+
+#Tags
+gem 'acts-as-taggable-on', '2.0.6'
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'

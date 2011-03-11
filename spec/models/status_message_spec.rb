@@ -18,6 +18,11 @@ describe StatusMessage do
       status.should_receive(:create_mentions)
       status.save
     end
+    it 'calls build_tags' do
+      status = Factory.build(:status_message)
+      status.should_receive(:build_tags)
+      status.save
+    end
   end
 
   describe '#diaspora_handle=' do
@@ -103,6 +108,9 @@ STR
       it 'escapes the link title' do
         p = @people[0].profile
         p.first_name="</a><script>alert('h')</script>"
+["a", "b", "A", "C"]\
+.inject(Hash.new){ |h,element| h[element.downcase] = element  unless h[element.downcase]  ; h }\
+.values
         p.save!
 
         @sm.formatted_message.should_not include(@people[0].profile.first_name)
@@ -162,6 +170,44 @@ STR
       it 'notifies the person mentioned' do
         Notification.should_receive(:notify).with(alice, anything, anything)
         @sm.notify_person(alice.person)
+      end
+    end
+  end
+  describe 'tags' do
+    before do
+      @sm = Factory.build(:status_message)
+    end
+    describe '#build_tags' do
+      it 'builds the tags' do
+        @sm.message = '#what'
+        @sm.build_tags
+        @sm.tag_list.should == ['what']
+        lambda {
+          @sm.save
+        }.should change{@sm.tags.count}.by(1)
+      end
+    end
+    describe '#tag_strings' do
+      it 'returns a string for every #thing' do
+        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #hey#there #135440we #abc/23 ###'
+        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', '135440we', 'abc']
+
+        @sm.message = str
+        @sm.tag_strings.should =~ arr
+      end
+      it 'returns no duplicates' do
+        str = '#what #what #what #whaaaaaaaaaat'
+        arr = ['what','whaaaaaaaaaat']
+
+        @sm.message = str
+        @sm.tag_strings.should =~ arr
+      end
+      it 'is case insensitive' do
+        str = '#what #wHaT #WHAT'
+        arr = ['what']
+
+        @sm.message = str
+        @sm.tag_strings.should =~ arr
       end
     end
   end

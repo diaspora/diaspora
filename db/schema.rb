@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110301202619) do
+ActiveRecord::Schema.define(:version => 20110311000150) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -458,6 +458,23 @@ ActiveRecord::Schema.define(:version => 20110301202619) do
 
   add_index "services", ["mongo_id"], :name => "index_services_on_mongo_id"
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
+
+  create_table "taggings", :force => true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type", :limit => 127
+    t.integer  "tagger_id"
+    t.string   "tagger_type",   :limit => 127
+    t.string   "context",       :limit => 127
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
+
+  create_table "tags", :force => true do |t|
+    t.string "name"
+  end
 
   create_table "users", :force => true do |t|
     t.string   "username"

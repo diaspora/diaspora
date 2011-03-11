@@ -86,6 +86,7 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
+    acts-as-taggable-on (2.0.6)
     addressable (2.2.2)
     arel (2.0.9)
     aws (2.3.32)
@@ -189,7 +190,6 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
-    googlecharts (1.6.1)
     haml (3.0.25)
     hashie (0.4.0)
     highline (1.6.1)
@@ -387,6 +387,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer (= 1.2.1)
+  acts-as-taggable-on (= 2.0.6)
   addressable (= 2.2.2)
   aws (= 2.3.32)
   bundler (>= 1.0.0)
@@ -408,7 +409,6 @@ DEPENDENCIES
   fog (= 0.3.25)
   foreigner (= 0.9.1)
   fuubar
-  googlecharts
   haml (= 3.0.25)
   http_accept_language!
   i18n-inflector-rails (~> 1.0)
