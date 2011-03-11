@@ -12,8 +12,8 @@ var Stream = {
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
     //audio linx
     $("a[target='_blank']").each(function(){
-      if($(this).attr('href').match(/\.mp3$||.ogg$/)) {
-        $(this).html("<audio src='" + this.href + "' controls='controls'>mom</audio>");}
+      if($(this).attr('href').match(/\.mp3$||\.ogg$/)) {
+        $(this).parent().html("<audio src='" + this.href + "' controls='controls'>mom</audio>");}
     });
 
 
