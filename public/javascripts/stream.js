@@ -10,6 +10,12 @@ var Stream = {
 
     Diaspora.widgets.timeago.updateTimeAgo();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
+    //audio linx
+    $("a[target='_blank']").each(function(){
+      if($(this).attr('href').match(/\.mp3$/)) {
+        $(this).html("<audio src='" + this.href + "' controls='controls'>mom</audio>");}
+    });
+
 
     // comment link form focus
     $stream.delegate(".focus_comment_textarea", "click", function(e){
