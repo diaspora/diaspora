@@ -11,17 +11,17 @@ class PostsController < ApplicationController
 
   def index
     if current_user
-      @posts = StatusMessage.joins(:aspects, :author).where(:pending => false
+      @posts = StatusMessage.joins(:aspects).where(:pending => false
                ).where(Aspect.arel_table[:user_id].eq(current_user.id).or(StatusMessage.arel_table[:public].eq(true))
                ).select('DISTINCT `posts`.*')
     else
-      @posts = StatusMessage.joins(:author).where(:public => true, :pending => false)
+      @posts = StatusMessage.where(:public => true, :pending => false)
     end
 
     if params[:tag]
       @posts = @posts.tagged_with(params[:tag])
     else
-      @posts = @posts.where(Person.arel_table[:owner_id].not_eq(nil))
+      @posts = @posts.joins(:author).where(Person.arel_table[:owner_id].not_eq(nil))
     end
 
     @posts = @posts.includes(:comments, :photos).paginate(:page => params[:page], :per_page => 15, :order => 'created_at DESC')

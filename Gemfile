@@ -9,9 +9,6 @@ gem 'chef', '0.9.12', :require => false
 
 gem 'nokogiri', '1.4.3.1'
 
-gem "fog", '0.3.25'
-gem "excon", "0.2.4"
-
 #Security
 gem 'devise', '1.1.3'
 gem 'devise_invitable', :git => 'git://github.com/zhitomirskiyi/devise_invitable.git', :branch => '0.3.5'
@@ -43,12 +40,16 @@ gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => '
 
 #File uploading
 gem 'carrierwave', '0.5.2'
+gem "fog", '0.3.25'
+gem "excon", "0.2.4"
 gem 'mini_magick', '3.2'
 gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
+
 gem 'fastercsv', '1.5.4', :require => false
 gem 'jammit', '0.5.4'
 gem 'rest-client', '1.6.1'
 gem 'typhoeus'
+
 #Backups
 gem 'cloudfiles', '1.4.10', :require => false
 
