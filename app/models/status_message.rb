@@ -8,7 +8,6 @@ class StatusMessage < Post
   require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
 
-  acts_as_taggable
   acts_as_taggable_on :tags
 
   validates_length_of :message, :maximum => 1000, :message => "please make your status messages less than 1000 characters"
@@ -50,10 +49,7 @@ class StatusMessage < Post
     return text if opts[:plain_text]
     regex = /(^|\s)#(\w+)/
     form_message = text.gsub(regex) do |matched_string|
-      tag = self.tags.detect do |t|
-        t.name == $~[2]
-      end
-      tag ? "#{$~[1]}<a href=\"/p?tag=#{tag.name}\" class=\"tag\">##{ERB::Util.h(tag.name)}</a>" : ERB::Util.h($~[2])
+      "#{$~[1]}<a href=\"/p?tag=#{$~[2]}\" class=\"tag\">##{ERB::Util.h($~[2])}</a>"
     end
     form_message
   end
