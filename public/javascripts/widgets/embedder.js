@@ -24,7 +24,7 @@
     var service = $this.data("host"),
       container = document.createElement("div"),
       $container = $(container).attr("class", "video-container"),
-      $videoContainer = $this.siblings(".video-container");
+      $videoContainer = $this.closest(".from").siblings(".video-container");
 
     if($videoContainer.length) {
       $videoContainer.slideUp("fast", function() { $(this).detach(); });
@@ -40,7 +40,7 @@
     );
 
     $container.hide()
-      .insertBefore($this.siblings(".info"))
+      .insertBefore($this.closest(".from").siblings(".info"))
       .slideDown('fast');
 
     $this.click(function() {
@@ -53,6 +53,12 @@
   Embedder.prototype.start = function() {
     $(".stream").delegate("a.video-link", "click", this.onVideoLinkClicked);
     this.registerServices();
+
+    var $post = $("#main_stream").children(".stream_element:first"),
+      $contentParagraph = $post.children(".content").children(".from").children("p"),
+      $infoDiv = $contentParagraph.closest(".from").siblings(".info");
+
+    this.canEmbed = $infoDiv.length;
   };
 
   Embedder.prototype.registerServices = function() {
@@ -70,8 +76,10 @@
   };
 
   Embedder.prototype.onVideoLinkClicked = function(evt) {
-    evt.preventDefault();
-    Diaspora.widgets.embedder.embed($(this));
+    if(this.canEmbed) {
+      evt.preventDefault();
+      Diaspora.widgets.embedder.embed($(this));
+    }
   };
 
   Diaspora.widgets.add("embedder", Embedder);
