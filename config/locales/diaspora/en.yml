@@ -498,7 +498,7 @@ en:
           mentioned: "mentioned you in a post:"
           sign_in: "Sign in to view it."
       private_message:
-          subject: "%{name} has sent you a private message yon Diaspora*"
+          subject: "%{name} has sent you a private message on Diaspora*"
           private_message: "has sent you a private message:"
           message_subject: "Subject: %{subject}"
           sign_in: "Sign in to view it."
