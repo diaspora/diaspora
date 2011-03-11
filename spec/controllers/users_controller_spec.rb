@@ -120,5 +120,11 @@ describe UsersController do
       get 'edit', :id => @user.id
       response.status.should == 200
     end
+
+    it 'set @email_pref to false when there is a user pref' do
+      @user.user_preferences.create(:email_type => 'mentioned')
+      get 'edit', :id => @user.id
+      assigns[:email_prefs]['mentioned'].should be_false
+    end
   end
 end
