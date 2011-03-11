@@ -16,7 +16,8 @@ var WebSocketReceiver = {
 
   onMessage: function(evt) {
       var obj = jQuery.parseJSON(evt.data);
-      if(obj['class'] == 'notifications') {
+
+      if(obj['class'].match(/^notifications/)) {
         WebSocketReceiver.processNotification(obj);
       } else if (obj['class'] == 'people') {
         WSR.debug("got a " + obj['class']);
@@ -60,7 +61,7 @@ var WebSocketReceiver = {
 
 
   processNotification: function(notification){
-    var nBadge = $("#notification_badge_number");
+    var nBadge = $("#notification_badge div.badge_count");
 
     nBadge.html().replace(/\d+/, function(num){
       nBadge.html(parseInt(num)+1);
