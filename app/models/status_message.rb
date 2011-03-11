@@ -44,15 +44,14 @@ class StatusMessage < Post
     regex = /@\{([^;]+); ([^\}]+)\}/
     escaped_message = opts[:plain_text] ? raw_message : ERB::Util.h(raw_message)
     form_message = escaped_message.gsub(regex) do |matched_string|
-      inner_captures = matched_string.match(regex).captures
       person = people.detect{ |p|
-        p.diaspora_handle == inner_captures.last
+        p.diaspora_handle == $~[2]
       }
 
       if opts[:plain_text]
-        person ? ERB::Util.h(person.name) : ERB::Util.h(inner_captures.first)
+        person ? ERB::Util.h(person.name) : ERB::Util.h($~[1])
       else
-        person ? "<a href=\"/people/#{person.id}\" class=\"mention\">@#{ERB::Util.h(person.name)}</a>" : ERB::Util.h(inner_captures.first)
+        person ? "<a href=\"/people/#{person.id}\" class=\"mention\">@#{ERB::Util.h(person.name)}</a>" : ERB::Util.h($~[1])
       end
     end
     form_message
@@ -94,7 +93,7 @@ class StatusMessage < Post
   end
 
   def tag_strings
-    regex = /(^|\s)#(\w+)/
+    regex = /(?:^|\s)#(\w+)/
     matches = self.raw_message.scan(regex).map do |match|
       match.last
     end
