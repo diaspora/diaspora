@@ -18,12 +18,9 @@ class PostsController < ApplicationController
       @posts = StatusMessage.where(:public => true, :pending => false)
     end
 
-    if params[:tag]
-      @posts = @posts.tagged_with(params[:tag])
-    else
-      @posts = @posts.joins(:author).where(Person.arel_table[:owner_id].not_eq(nil))
-    end
+    params[:tag] ||= 'partytimeexcellent'
 
+    @posts = @posts.tagged_with(params[:tag])
     @posts = @posts.includes(:comments, :photos).paginate(:page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
     @fakes = PostsFake.new(@posts)

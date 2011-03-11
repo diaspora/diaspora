@@ -20,6 +20,7 @@ describe PostsController do
         response.status.should == 200
       end
       it "shows the signed in user's posts" do
+        pending
         posts = []
         2.times do
           posts << @user.post(:status_message, :message => "#what", :to => 'all')
@@ -30,6 +31,7 @@ describe PostsController do
         assigns[:posts].should =~ posts
       end
       it "shows any posts that the user can see" do
+        pending
         posts = []
         2.times do
           posts << bob.post(:status_message, :message => "#what", :to => 'all')
@@ -54,6 +56,7 @@ describe PostsController do
 
     end
     it 'shows the most recent public posts' do
+      pending
       posts = []
       3.times do
         posts << @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
@@ -62,6 +65,7 @@ describe PostsController do
       assigns[:posts].should =~ posts
     end
     it' shows only local posts' do
+      pending
       3.times do
         @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
       end
