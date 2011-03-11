@@ -1,5 +1,5 @@
 class DowncaseTags < ActiveRecord::Migration
-  def consolidate_tags_with_name(name)
+  def self.consolidate_tags_with_name(name)
     tags = execute("SELECT * FROM tags WHERE tags.name = ?;", name)
     keep_tag = tags.pop
     tags.each do |bad_tag|
