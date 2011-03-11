@@ -19,7 +19,7 @@
       = "(#{@aspect_ids.length} #{t('_aspects').downcase})"
 
   .content_creation
-    = form_for(StatusMessage.new, :remote => true) do |status|
+    = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
       = status.error_messages
       #file-upload
         = image_tag 'icons/photos.png'
