@@ -91,7 +91,7 @@ describe 'a user receives a post' do
 
       Notification.should_receive(:notify).with(@user1, anything(), @remote_person)
 
-      @sm = Factory.build(:status_message, :message => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :person => @remote_person)
+      @sm = Factory.build(:status_message, :message => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
       @sm.stub!(:socket_to_user)
       @sm.save
 
