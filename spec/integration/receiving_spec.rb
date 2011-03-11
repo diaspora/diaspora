@@ -68,9 +68,8 @@ describe 'a user receives a post' do
     alice.visible_posts.count.should == 1
   end
 
- context 'mentions' do
-    it 'adds the notifications for the mentioned users reguardless of the order they are received' do
-      pending 'this is for mnutt'
+  context 'mentions' do
+    it 'adds the notifications for the mentioned users regardless of the order they are received' do
       Notification.should_receive(:notify).with(@user1, anything(), @user2.person)
       Notification.should_receive(:notify).with(@user3, anything(), @user2.person)
 
@@ -83,6 +82,32 @@ describe 'a user receives a post' do
       zord.receive_object
 
       zord = Postzord::Receiver.new(@user3, :object => @sm, :person => @user2.person)
+      zord.receive_object
+    end
+
+    it 'notifies users when receiving a mention in a post from a remote user' do
+      @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
+      Contact.create!(:user => @user1, :person => @remote_person, :aspects => [@aspect], :pending => false)
+
+      Notification.should_receive(:notify).with(@user1, anything(), @remote_person)
+
+      @sm = Factory.build(:status_message, :message => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :person => @remote_person)
+      @sm.stub!(:socket_to_user)
+      @sm.save
+
+      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
+      zord.receive_object
+    end
+
+    it 'does not notify the mentioned user if the mentioned user is not friends with the post author' do
+      Notification.should_not_receive(:notify).with(@user1, anything(), @user3.person)
+
+      @sm = @user3.build_post(:status_message, :message => "should not notify @{#{@user1.name}; #{@user1.diaspora_handle}}")
+      @sm.stub!(:socket_to_user)
+      @user3.add_to_streams(@sm, [@user3.aspects.first])
+      @sm.save
+
+      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
       zord.receive_object
     end
   end
