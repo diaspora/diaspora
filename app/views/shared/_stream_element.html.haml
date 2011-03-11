@@ -16,7 +16,7 @@
     .from
       = person_link(post.author, :class => 'author')
       %time.timeago{:datetime => post.created_at}
-      %p
+      %div
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
