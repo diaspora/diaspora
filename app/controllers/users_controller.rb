@@ -13,37 +13,44 @@ class UsersController < ApplicationController
   def edit
     @aspect = :user_edit
     @user   = current_user
+    @email_prefs = Hash.new(true) 
+    @user.user_preferences.each do |pref|
+      @email_prefs[pref.email_type] = false
+    end
   end
 
   def update
+    
+    u = params[:user]
     @user = current_user
 
-    params[:user].delete(:password) if params[:user][:password].blank?
-    params[:user].delete(:password_confirmation) if params[:user][:password].blank? and params[:user][:password_confirmation].blank?
-    params[:user].delete(:language) if params[:user][:language].blank?
+    u.delete(:password) if u[:password].blank?
+    u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
+    u.delete(:language) if u[:language].blank?
 
     # change email notifications
-    if params[:user][:disable_mail]
-      @user.update_attributes(:disable_mail => params[:user][:disable_mail])
+    if u[:email_preferences]
+      pp u[:email_preferences]
+      @user.update_user_preferences(u[:email_preferences])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
     # change passowrd
-    elsif params[:user][:current_password] && params[:user][:password] && params[:user][:password_confirmation]
-      if @user.update_with_password(params[:user])
+    elsif u[:current_password] && u[:password] && u[:password_confirmation]
+      if @user.update_with_password(u)
         flash[:notice] = I18n.t 'users.update.password_changed'
       else
         flash[:error] = I18n.t 'users.update.password_not_changed'
       end
-    elsif params[:user][:language]
-      if @user.update_attributes(:language => params[:user][:language])
+    elsif u[:language]
+      if @user.update_attributes(:language => u[:language])
         I18n.locale = @user.language
         flash[:notice] = I18n.t 'users.update.language_changed'
       else
         flash[:error] = I18n.t 'users.update.language_not_changed'
       end
-    elsif params[:user][:a_ids]
+    elsif u[:a_ids]
       @user.aspects.update_all(:open => false)
-      unless params[:user][:a_ids] == ["home"]
-        @user.aspects.where(:id => params[:user][:a_ids]).update_all(:open => true)
+      unless u[:a_ids] == ["home"]
+        @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
       end
     end
 

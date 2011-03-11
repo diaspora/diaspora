@@ -476,6 +476,13 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
     t.string "name"
   end
 
+  create_table "user_preferences", :force => true do |t|
+    t.string   "email_type"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", :force => true do |t|
     t.string   "username"
     t.text     "serialized_private_key"
@@ -501,6 +508,7 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
     t.string   "mongo_id"
     t.string   "invitation_service",     :limit => 127
     t.string   "invitation_identifier",  :limit => 127
+    t.text     "email_disabled"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"

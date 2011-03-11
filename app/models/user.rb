@@ -37,6 +37,7 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
   has_many :services
+  has_many :user_preferences  
 
   before_destroy :disconnect_everyone, :remove_person
   before_save do
@@ -44,6 +45,22 @@ class User < ActiveRecord::Base
   end
 
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
+
+
+
+
+  def update_user_preferences(pref_hash)
+    pref_hash.keys.each do |key|
+      if pref_hash[key] == 'true'
+        self.user_preferences.find_or_create_by_email_type(key)
+      else
+        block = self.user_preferences.where(:email_type => key).first
+        if block
+          block.destroy
+        end
+      end
+    end
+  end
 
   def strip_and_downcase_username
     if username.present?
