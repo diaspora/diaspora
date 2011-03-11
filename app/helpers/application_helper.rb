@@ -215,7 +215,7 @@ module ApplicationHelper
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      '<a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="'+ match_data[0].strip + '">Youtube: ' + title + '</a>'
+      ' <a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="'+ match_data[0].strip + '">Youtube: ' + title + '</a>'
     end
     return processed_message
   end
@@ -262,7 +262,7 @@ module ApplicationHelper
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      '<a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '">Vimeo: ' + title + '</a>'
+      ' <a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '">Vimeo: ' + title + '</a>'
     end
     return processed_message
   end
