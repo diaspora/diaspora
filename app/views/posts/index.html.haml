@@ -10,7 +10,10 @@
   = include_javascripts :home
 
 %h1
-  = t('.whatup', :pod => @pod_url)
+  - if params[:tag]
+    = t('.posts_tagged_with', :tag => params[:tag])
+  - else
+    = t('.whatup', :pod => @pod_url)
 
 .span-15
   #main_stream.stream

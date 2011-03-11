@@ -19,17 +19,50 @@ describe PostsController do
         get :index
         response.status.should == 200
       end
+      it "shows the signed in user's posts" do
+        posts = []
+        2.times do
+          posts << @user.post(:status_message, :message => "#what", :to => 'all')
+        end
+        eve.post(:status_message, :message => "#what", :to => 'all')
+
+        get :index
+        assigns[:posts].should =~ posts
+      end
+      it "shows any posts that the user can see" do
+        posts = []
+        2.times do
+          posts << bob.post(:status_message, :message => "#what", :to => 'all')
+        end
+        eve.post(:status_message, :message => "#what", :to => 'all')
+
+        get :index
+        assigns[:posts].should =~ posts
+      end
+    end
+    it 'restricts the posts by tag' do
+      posts = []
+      2.times do
+        posts << @user.post(:status_message, :message => "#what", :public => true, :to => 'all')
+      end
+      2.times do
+        @user.post(:status_message, :message => "#hello", :public => true, :to => 'all')
+      end
+
+      get :index, :tag => 'what'
+      assigns[:posts].should =~ posts
+
     end
     it 'shows the most recent public posts' do
       posts = []
-      10.times do
+      3.times do
         posts << @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
       end
       get :index
       assigns[:posts].should =~ posts
     end
     it' shows only local posts' do
-      10.times do
+      3.times do
         @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
       end
       @user.person.update_attributes(:owner_id => nil)
