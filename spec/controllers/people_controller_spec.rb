@@ -147,7 +147,7 @@ describe PeopleController do
 
         get :show, :id => @person.id
 
-        assigns[:posts].should == public_posts
+        assigns[:posts].should =~ public_posts
       end
     end
     context "when the person is a contact of the current user" do
