@@ -67,6 +67,11 @@ describe AspectsController do
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_services")
     end
+    it 'generates a jasmine fixture with posts' do
+      @user.post(:status_message, :message => "hello", :to => @aspect1.id)
+      get :index
+      save_fixture(html_for("body"), "aspects_index_with_posts")
+    end
     context 'filtering' do
       before do
         @posts = []
