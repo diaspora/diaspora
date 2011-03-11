@@ -7,9 +7,9 @@
     %span.time
       = comment.created_at ? time_ago_in_words(comment.created_at) : time_ago_in_words(Time.now)
 
-  = person_image_link(comment.person)
+  = person_image_link(comment.author)
   .content
     .from
-      = person_link(comment.person)
+      = person_link(comment.author)
     = markdownify(comment.text, :youtube_maps => comment[:youtube_titles])
 
