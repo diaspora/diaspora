@@ -245,9 +245,9 @@ describe User do
     it 'displays recent posts first' do
       msg3 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
       msg4 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
-      msg3.updated_at = Time.now+10
+      msg3.created_at = Time.now+10
       msg3.save!
-      msg4.updated_at = Time.now+14
+      msg4.created_at = Time.now+14
       msg4.save!
 
       @user.posts_from(@user3.person).map{|p| p.id}.should == [msg4, msg3, @public_message].map{|p| p.id}

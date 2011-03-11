@@ -180,7 +180,7 @@ STR
     end
     describe '#format_tags' do
       before do
-        @str =  '#what #hey'
+        @str = '#what #hey'
         @sm.message = @str
         @sm.build_tags
         @sm.save
@@ -192,7 +192,6 @@ STR
       end
       it 'responds to plain_text' do
         @sm.format_tags(@str, :plain_text => true).should == @str
-
       end
     end
     describe '#build_tags' do

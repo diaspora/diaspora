@@ -25,7 +25,7 @@ gem 'will_paginate', '3.0.pre2'
 gem 'i18n-inflector-rails', '~> 1.0'
 
 #Tags
-gem 'acts-as-taggable-on', '2.0.6'
+gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-on.git'
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'

@@ -8,6 +8,19 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
+  remote: git://github.com/diaspora/acts-as-taggable-on.git
+  revision: 498089b41503af633f55bdc1d43b142e7d76e1f1
+  specs:
+    acts-as-taggable-on (2.0.6)
+      jeweler
+      mysql
+      pg
+      rails (>= 3.0)
+      rcov
+      rspec (>= 2.0)
+      sqlite3-ruby
+
+GIT
   remote: git://github.com/iain/http_accept_language.git
   revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
   ref: 0b78aa7849fc90cf9e12
@@ -86,7 +99,6 @@ GEM
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
     activesupport (3.0.3)
-    acts-as-taggable-on (2.0.6)
     addressable (2.2.2)
     arel (2.0.9)
     aws (2.3.32)
@@ -190,6 +202,7 @@ GEM
     gem_plugin (0.2.3)
     gherkin (2.3.3)
       json (~> 1.4.6)
+    git (1.2.5)
     haml (3.0.25)
     hashie (0.4.0)
     highline (1.6.1)
@@ -204,6 +217,10 @@ GEM
     jammit (0.5.4)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
+    jeweler (1.5.2)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
     json (1.4.6)
     json_pure (1.5.1)
     launchy (0.4.0)
@@ -232,6 +249,7 @@ GEM
     multi_json (0.0.5)
     multi_xml (0.2.1)
     multipart-post (1.1.0)
+    mysql (2.8.1)
     mysql2 (0.2.6)
     net-ldap (0.1.1)
     net-scp (1.0.4)
@@ -282,6 +300,7 @@ GEM
       oa-enterprise (= 0.1.6)
       oa-oauth (= 0.1.6)
       oa-openid (= 0.1.6)
+    pg (0.10.1)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.1)
@@ -355,6 +374,9 @@ GEM
     sinatra (1.2.0)
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
+    sqlite3 (1.3.3)
+    sqlite3-ruby (1.3.3)
+      sqlite3 (>= 1.3.3)
     subexec (0.0.4)
     systemu (1.2.0)
     term-ansicolor (1.0.5)
@@ -387,7 +409,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer (= 1.2.1)
-  acts-as-taggable-on (= 2.0.6)
+  acts-as-taggable-on!
   addressable (= 2.2.2)
   aws (= 2.3.32)
   bundler (>= 1.0.0)
