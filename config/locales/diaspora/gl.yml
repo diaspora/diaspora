@@ -72,19 +72,19 @@ gl:
       success: "%{name} foi eliminado correctamente."
     edit: 
       add_existing: "Engadir un contacto existente"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "a lista do aspecto está agochada para outros contactos neste aspecto"
+      aspect_list_is_visible: "a lista do aspecto está visible para outros contactos neste aspecto"
       confirm_remove_aspect: "Estás seguro de querer eliminar este aspecto?"
-      done: "Done"
+      done: "Feito"
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
-      update: "update"
+      update: "actualizar"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "O aspecto non esta baleiro"
       remove: "eliminar"
     index: 
-      handle_explanation: "Esta é a súa tarxeta de diaspora. Coma un enderezo electrónico, podes darllo ás persoas para que te localicen."
+      handle_explanation: "Esta é o seu ederezo de Diaspora. Coma un enderezo electrónico, podes darllo ás persoas para que te localicen."
       no_contacts: "sen contactos"
     manage: 
       add_a_new_aspect: "Engadir un novo aspecto"
@@ -149,7 +149,7 @@ gl:
       subject: "asunto"
       to: "para"
     show: 
-      delete: "delete and block conversation"
+      delete: "borrar e bloquear conversación"
       reply: "responder"
   date: 
     formats: 
@@ -204,7 +204,7 @@ gl:
       have_a_problem: "Tes problemas? Atopa aquí a resposta"
       logged_in_as: "conectado como %{name}"
       powered_by: "FORNECIDO POR DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Comentarios públicos de %{name}"
       toggle: "cambiar a web móbil"
       whats_new: "que hai de novo?"
       your_aspects: "os teus aspectos"
@@ -228,8 +228,8 @@ gl:
   no_new_messages: "non hai novas mensaxes"
   no_new_notifications: "non hai novas peticións"
   notifications: 
-    also_commented: "tamén comentou nos do teu contacto"
-    also_commented_deleted: "comentou nun post eliminado"
+    also_commented: "tamén comentou nos de %{post_author}"
+    also_commented_deleted: "comentou nunha publicación eliminada"
     comment_on_post: "comentou no teu"
     deleted: "borrado"
     index: 
@@ -243,7 +243,7 @@ gl:
     also_commented: 
       commented: "tamén comentou na publicación de %{post_author}:"
       sign_in: "Identificarse para velo."
-      subject: "%{name} tamén comentou."
+      subject: "%{name} tamén comentou na publicación de %{post_author}"
     comment_on_post: 
       commented: "comentou na túa publicación!"
       sign_in: "Entrar para velo."
@@ -354,6 +354,10 @@ gl:
     update: 
       error: "Erro ao editar a foto."
       notice: "Foto actualizada correctamente."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
@@ -436,7 +440,7 @@ gl:
   settings: "Axustes"
   shared: 
     add_contact: 
-      create_request: "Pescudar por tarxeta Diaspora"
+      create_request: "Pescudar por enderezo Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Introduza un nome de usuario de Diaspora:"
       know_email: "Sabes os seus enderezos electrónicos? Deberías invitalos"
@@ -505,7 +509,7 @@ gl:
       new_password: "Novo contrasinal"
       receive_email_notifications: "Recibir notificacións por correo?"
       your_email: "O teu correo"
-      your_handle: "A túa tarxeta diaspora"
+      your_handle: "O teu enderezo Diaspora"
     getting_started: 
       connect_on_diaspora: "Conectar a Diaspora"
       connect_services: "Conectar a outros servizos"

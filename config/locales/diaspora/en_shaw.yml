@@ -354,6 +354,10 @@ en_shaw:
     update: 
       error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles: 

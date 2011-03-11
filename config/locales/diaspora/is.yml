@@ -354,6 +354,10 @@ is:
     update: 
       error: "Ekki tókst að breyta mynd."
       notice: "Velheppnuð uppfærsla á mynd. "
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "fyrra"
   profile: "Síðan mín"
   profiles: 

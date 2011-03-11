@@ -354,6 +354,10 @@ da:
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "Forrige"
   profile: "Profil"
   profiles: 

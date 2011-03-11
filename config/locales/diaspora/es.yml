@@ -72,13 +72,13 @@ es:
       success: "%{name} fue eliminado correctamente."
     edit: 
       add_existing: "Añadir un contacto existente."
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
+      aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
-      done: "Done"
+      done: "Listo"
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
-      update: "update"
+      update: "Actualizar"
     helper: 
       are_you_sure: "¿Seguro que quieres eliminar este Aspecto?"
       aspect_not_empty: "El Aspecto no está vacío"
@@ -149,7 +149,7 @@ es:
       subject: "Asunto"
       to: "para"
     show: 
-      delete: "delete and block conversation"
+      delete: "Eliminar y bloquear conversación"
       reply: "Responder"
   date: 
     formats: 
@@ -354,6 +354,10 @@ es:
     update: 
       error: "Falló la edición de la foto."
       notice: "Foto actualizada correctamente."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "Anterior"
   profile: "Perfil"
   profiles: 

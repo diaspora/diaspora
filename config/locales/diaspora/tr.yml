@@ -354,6 +354,10 @@ tr:
     update: 
       error: "Fotoyu düzeltme basarısız oldu."
       notice: "Resim başarıyla eklendi."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Profil"
   profiles: 

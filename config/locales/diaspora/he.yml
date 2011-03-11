@@ -68,17 +68,17 @@ he:
       failure: "יצירת ההיבט נכשלה."
       success: "ההיבט החדש שלך %{name} נוצר"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "ההיבט %{name} אינו ריק ולא ניתן להסירו."
       success: "%{name} הוסר בהצלחה."
     edit: 
       add_existing: "הוספת איש קשר קיים"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "רשימת ההיבטים מוסתרת בפני אחרים בהיבט"
+      aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
       confirm_remove_aspect: "האם אכן ברצונך למחוק את ההיבט?"
-      done: "Done"
+      done: "בוצע"
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
-      update: "update"
+      update: "עדכון"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
@@ -138,19 +138,19 @@ he:
     zero: "אין אנשי קשר"
   conversations: 
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "כתיבת הודעה חדשה"
+      message_inbox: "תיבת הודעות נכנסות"
+      new_message: "הודעה חדשה"
+      no_conversation_selected: "לא נבחר דיון"
+      no_messages: "אין הודעות"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "לא נמצאו תוצאות"
+      send: "שליחה"
+      subject: "נושא"
+      to: "אל"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "מחיקה וחסימת הדיון"
+      reply: "תגובה"
   date: 
     formats: 
       birthday: "ה־%d ב%B"
@@ -204,7 +204,7 @@ he:
       have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה להלן"
       logged_in_as: "נכנסת בשם %{name}"
       powered_by: "מופעל על גבי דיאספורה*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "הזנת דיאספורה ציבורית עבור %{name}"
       toggle: "הפעלה/נטרול האתר לניידים"
       whats_new: "מה חדש?"
       your_aspects: "ההיבטים שלך"
@@ -217,7 +217,7 @@ he:
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
   more: "המשך"
-  new_messages: "%{count} new messages"
+  new_messages: "%{count} הודעות חדשות"
   new_notifications: "%{count} התרעות חדשות"
   new_requests: 
     few: "%{count} בקשות חדשות!"
@@ -225,11 +225,11 @@ he:
     other: "%{count} בקשות חדשות!"
     zero: "אין בקשות חדשות"
   next: "הבאה"
-  no_new_messages: "no new messages"
+  no_new_messages: "אין הודעות חדשות"
   no_new_notifications: "אין התרעות חדשות"
   notifications: 
-    also_commented: "גם כן הגיב/ה על הפריט של איש הקשר שלך"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented: "גם כן הגיב/ה על הפריט של %{post_author}"
+    also_commented_deleted: "הגיב/ה על רשומה שנמחקה"
     comment_on_post: "הגיב/ה על ה"
     deleted: "נמחקה"
     index: 
@@ -243,7 +243,7 @@ he:
     also_commented: 
       commented: "גם כן הגיב/ה על הרשומה של %{post_author}:"
       sign_in: "יש להיכנס כדי לצפות בזה."
-      subject: "%{name} גם כן הגיב/ה על הרשומה של איש הקשר שלך."
+      subject: "%{name} גם כן הגיב/ה על הרשומה של %{post_author}."
     comment_on_post: 
       commented: "הגיב/ה על הרשומה שלך:"
       sign_in: "יש להיכנס כדי לצפות בזה."
@@ -261,10 +261,10 @@ he:
       subject: "בקשת התקשרות חדשה בדיאספורה* מאת %{from}"
       try_it_out: "מאוד כדאי לבדוק זאת."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "נושא: %{subject}"
+      private_message: "שלח/ה לך הודעה פרטית:"
+      sign_in: "יש להיכנס כדי לצפות בזה."
+      subject: "נשלחה אליך הודעה פרטית מאת %{name} דרך דיאספורה*"
     request_accepted: 
       accepted: "קיבל/ה את בקשת ההתקשרות שלך!"
       sign_in: "כניסה מכאן"
@@ -308,7 +308,7 @@ he:
     show: 
       does_not_exist: "אדם זה אינו קיים!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
-      message: "Message"
+      message: "הודעה"
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך שיתוף עם %{name}"
       recent_posts: "רשומות אחרונות"
@@ -354,6 +354,10 @@ he:
     update: 
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "הקודמת"
   profile: "פרופיל"
   profiles: 

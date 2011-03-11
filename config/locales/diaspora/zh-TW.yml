@@ -4,14 +4,14 @@
 
 
 zh-TW: 
-  _aspect: "面向"
-  _aspects: "面向"
+  _aspect: "個面向"
+  _aspects: "個面向"
   _comment: "意見"
   _comments: "意見"
   _contact: "聯繫"
   _contacts: "聯繫"
   _home: "首頁"
-  _more: "More"
+  _more: "更多"
   _photos: "相片"
   _services: "服務"
   account: "帳號"
@@ -72,13 +72,13 @@ zh-TW:
       success: "成功刪除 %{name} 了."
     edit: 
       add_existing: "加入既有聯繫"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "面向中的其他人看不到他/她被加入"
+      aspect_list_is_visible: "面向中的其他人可看到他/她被加入"
       confirm_remove_aspect: "你確定要刪除這個面向?"
-      done: "Done"
+      done: "完成"
       remove_aspect: "刪除這個面向"
       rename: "改名"
-      update: "update"
+      update: "更新"
     helper: 
       are_you_sure: "你確定要刪除這個面向?"
       aspect_not_empty: "面向不是空的"
@@ -149,12 +149,12 @@ zh-TW:
       subject: "主旨"
       to: "收件人"
     show: 
-      delete: "delete and block conversation"
+      delete: "刪除並中止對話"
       reply: "回覆"
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
+      birthday_with_year: "%Y %B %d"
       fullmonth_day: "%B %d"
   delete: "刪除"
   email: "電子郵件"
@@ -172,11 +172,11 @@ zh-TW:
       login_here: "從這裡登入"
       ownership: "所有權"
       ownership_explanation: "你擁有你的圖片, 且不該因為分享出去就失去它. 在 Diaspora, 所有你分享出去的東西, 你都仍有所有權, 你可以控制它們如何散布."
-      share_what_you_want: "跟你想要的人, 分享你想要的東西."
+      share_what_you_want: "分享你想分享的東西, 給你想分享的人."
       simplicity: "簡單"
       simplicity_explanation: "Diaspora 讓分享變得單純且簡單, 而隱私也是一樣. 以隱私為出發點, Diaspora 讓你不用必須千辛萬苦的調整設定, 才能保護你的個人檔案安全."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "分享你想分享的東西,"
+      tagline_second_half: "給你想分享的人."
   invitations: 
     check_token: 
       not_found: "找不到該邀請信物"
@@ -195,8 +195,8 @@ zh-TW:
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
       invite_someone_to_join: "邀請某人來加入 Diaspora!"
       personal_message: "個人訊息"
-      resend: "重送"
-      send_an_invitation: "送出邀請函"
+      resend: "重寄"
+      send_an_invitation: "寄出邀請函"
       send_invitation: "寄送邀請函"
       to: "收件人"
   layouts: 
@@ -224,46 +224,46 @@ zh-TW:
     one: "新的請求!"
     other: "%{count} 個新請求!"
     zero: "沒有新請求"
-  next: "next"
+  next: "後面"
   no_new_messages: "沒有新訊息"
   no_new_notifications: "沒有新消息"
   notifications: 
-    also_commented: "also commented on %{post_author}'s"
+    also_commented: "也在別處發表了意見, 在 %{post_author} 的"
     also_commented_deleted: "對一則已刪除的貼文發表意見"
-    comment_on_post: "commented on your"
+    comment_on_post: "發表了意見, 在你的"
     deleted: "已刪除"
     index: 
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
-    mentioned: "has mentioned you in their"
+    mentioned: "提到了你, 在他們的"
     new_request: "想要跟你分享."
     post: "貼文"
     request_accepted: "已同意和你分享."
   notifier: 
     also_commented: 
-      commented: "也對 %{post_author} 的以下貼文發表意見:"
-      sign_in: "登入後才能觀看."
+      commented: "也對 %{post_author} 的貼文發表意見:"
+      sign_in: "登入來看看."
       subject: "%{name} 也對 %{post_author} 的貼文發表意見."
     comment_on_post: 
-      commented: "對你以下貼文發表意見:"
-      sign_in: "登入後才能觀看."
+      commented: "對你的貼文發表意見:"
+      sign_in: "登入來看看."
       subject: "%{name} 對你的貼文發表意見."
-    diaspora: "diaspora 電子郵件機器人"
-    hello: "%{name}, 你好!"
-    love: "love,"
+    diaspora: "diaspora 電郵機器人"
+    hello: "%{name}你好!"
+    love: "衷心祝福,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "登入後才能觀看."
+      mentioned: "在貼文中提到你:"
+      sign_in: "登入來看看."
       subject: "%{name} 在 Diaspora* 提到你"
     new_request: 
       just_sent_you: "剛剛向你要求在 Diaspora* 上建立聯繫"
       sign_in: "由此登入"
       subject: "%{from} 想跟你在 Diaspora* 上建立聯繫的新請求"
-      try_it_out: "你應該考慮看一看."
+      try_it_out: "你應該考慮來看一看."
     private_message: 
       message_subject: "主旨: %{subject}"
       private_message: "已傳送私人訊息給你:"
-      sign_in: "登入後才能觀看."
+      sign_in: "登入來看看."
       subject: "%{name} 已在 Diaspora* 傳送私人訊息給你"
     request_accepted: 
       accepted: "已接受了跟你聯繫的請求!"
@@ -272,9 +272,9 @@ zh-TW:
     single_admin: 
       admin: "為您服務的 Diaspora 管理員"
       subject: "關於你的 Diaspora 帳號的訊息:"
-    thanks: "Thanks,"
-  ok: "OK"
-  or: "or"
+    thanks: "謝謝,"
+  ok: "好了"
+  or: "或是"
   pagination: 
     next: "下一頁"
     previous: "上一頁"
@@ -282,15 +282,15 @@ zh-TW:
   password_confirmation: "密碼確認"
   people: 
     aspect_list: 
-      edit_membership: "編輯面向成員"
+      edit_membership: "編輯所屬面向"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: "Pod 上已知的人"
+      results_for: "%{params} 的搜尋結果"
     index: 
-      couldnt_find_them_send_invite: "找不到他們? 寄一張邀請函吧!"
+      couldnt_find_them_send_invite: "找不到他們? 寄一封邀請函吧!"
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
-      results_for: "search results for"
+      results_for: "搜尋結果:"
     person: 
       add_contact: "加入聯繫"
       already_connected: "已建立連結"
@@ -302,7 +302,7 @@ zh-TW:
       cannot_remove: "無法將聯絡人從他/她最後一個面向中移除. (如果你想跟這個人斷絕連結, 你必須刪除他/她的聯繫.)"
       edit_my_profile: "編輯我的個人檔案"
       gender: "性別"
-      in_aspects: "in aspects"
+      in_aspects: "所屬面向"
       remove_contact: "刪除聯繫"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
@@ -316,7 +316,7 @@ zh-TW:
       return_to_aspects: "回你的面向主頁"
       similar_contacts: "相似的聯繫"
       start_sharing: "開始分享"
-      to_accept_or_ignore: "to accept or ignore it."
+      to_accept_or_ignore: "接受或不管它."
     webfinger: 
       fail: "抱歉, 找不到 %{handle}."
   photos: 
@@ -354,7 +354,11 @@ zh-TW:
     update: 
       error: "相片編輯失敗."
       notice: "相片更新成功."
-  previous: "previous"
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
+  previous: "前面"
   profile: "個人檔案"
   profiles: 
     edit: 
@@ -401,7 +405,7 @@ zh-TW:
       success: "你們現在是朋友了."
     manage_aspect_contacts: 
       existing: "聯繫編輯"
-      manage_within: "Manage contacts within"
+      manage_within: "管理聯繫:"
     new_request_to_person: 
       sent: "已送出!"
   search: "搜尋"
@@ -425,7 +429,7 @@ zh-TW:
       connect_to_twitter: "與 twitter 連結"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
-      logged_in_as: "logged in as"
+      logged_in_as: "登入為"
       really_disconnect: "切斷與 %{service} 的連結?"
     inviter: 
       click_link_to_accept_invitation: "按一下這個連結來接受邀請"
@@ -469,7 +473,7 @@ zh-TW:
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
       share: "分享"
-      share_with: "share with"
+      share_with: "與他/她分享:"
       whats_on_your_mind: "在想什麼?"
     reshare: 
       reshare: "重新分享"
@@ -480,14 +484,14 @@ zh-TW:
       no_message_to_display: "沒有訊息可顯示."
     new_status_message: 
       oh_yeah: "oh yeah!"
-      tell_me_something_good: "tell me something good"
+      tell_me_something_good: "報好康的給我"
     show: 
       destroy: "刪除"
       permalink: "靜態連結"
   stream_helper: 
     hide_comments: "隱藏意見"
     show_comments: "顯示所有意見"
-  the_world: "the world"
+  the_world: "全世界"
   username: "用戶名稱"
   users: 
     destroy: "帳號關閉成功."
@@ -500,7 +504,7 @@ zh-TW:
       download_photos: "下載我的相片"
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
-      email_notifications: "電子郵件消息"
+      email_notifications: "電郵通知"
       export_data: "資料匯出"
       new_password: "新的密碼"
       receive_email_notifications: "要透過電子郵件接收消息?"
@@ -524,14 +528,14 @@ zh-TW:
     public: 
       does_not_exist: "不存在 %{username} 這個用戶!"
     update: 
-      email_notifications_changed: "電子郵件消息已更改"
+      email_notifications_changed: "電郵通知已更改"
       language_changed: "語言已更改"
       language_not_changed: "語言更改失敗"
       password_changed: "密碼已更改"
       password_not_changed: "密碼更改失敗"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    fetch_failed: "擷取 %{profile_url} 的 webfinger 個人檔案失敗"
+    hcard_fetch_failed: "擷取 %{account} 的 hcard 資料時發生錯誤"
+    no_person_constructed: "從這份 hcard 資料無法組出聯絡人."
+    not_enabled: "%{account} 的主機似乎沒有啟用 webfinger"
+    xrd_fetch_failed: "從 %{account} 這個帳號取得 xrd 時發生錯誤"

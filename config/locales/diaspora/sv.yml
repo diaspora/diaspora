@@ -354,6 +354,10 @@ sv:
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "föregående"
   profile: "Profil"
   profiles: 

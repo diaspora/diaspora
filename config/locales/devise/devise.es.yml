@@ -60,7 +60,7 @@ es:
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations: 
       destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado correctamente. Ya puedes consulta en tu correo el email de confirmación."
+      signed_up: "Te has registrado correctamente. Ya puedes consultar en tu correo el email de confirmación."
       updated: "Has actualizado tu cuenta correctamente."
     sessions: 
       new: 
@@ -71,7 +71,7 @@ es:
         modern_browsers: "Sólo es compatible con navegadores modernos."
         password: "Contraseña"
         remember_me: "Recordarme"
-        sign_in: "Ingresar"
+        sign_in: "Acceder"
         username: "Nombre de usuario"
       signed_in: "Has ingresado correctamente."
       signed_out: "Has salido correctamente."
@@ -80,7 +80,7 @@ es:
         forgot_your_password: "¿Olvidaste tu contraseña?"
         receive_confirmation: "No has recibido instrucciones de confirmación?"
         receive_unlock: "No has recibido las instrucciones de desbloqueo?"
-        sign_in: "Ingresar"
+        sign_in: "Acceder"
         sign_up: "Regístrate"
         sign_up_closed: "Los registros están cerrados temporalmente."
       mail_signup_form: 

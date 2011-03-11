@@ -354,6 +354,10 @@ mk:
     update: 
       error: "Неуспешно уредување на слика."
       notice: "Ажурирањето на сликата е успешно."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Профил"
   profiles: 

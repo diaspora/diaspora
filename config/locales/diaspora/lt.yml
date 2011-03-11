@@ -354,6 +354,10 @@ lt:
     update: 
       error: "Nuotraukos atnaujinti nepavyko."
       notice: "Nuotrauka atnaujinta sėkmingai."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Profilis"
   profiles: 

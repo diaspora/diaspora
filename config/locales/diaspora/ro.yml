@@ -354,6 +354,10 @@ ro:
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Fotografia a fost actualizată cu succes."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "anterioare"
   profile: "Profil"
   profiles: 

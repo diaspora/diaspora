@@ -354,6 +354,10 @@ sl:
     update: 
       error: "Urejanje slike ni uspelo."
       notice: "Slika uspešno posodobljena."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "prejšnja"
   profile: "Profil"
   profiles: 

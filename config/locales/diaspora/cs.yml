@@ -354,6 +354,10 @@ cs:
     update: 
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "předchozí"
   profile: "Profil"
   profiles: 

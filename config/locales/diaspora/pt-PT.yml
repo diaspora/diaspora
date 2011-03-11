@@ -354,6 +354,10 @@ pt-PT:
     update: 
       error: "Falha ao editar a fotografia"
       notice: "Fotografia adicionada com sucesso."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Perfil"
   profiles: 

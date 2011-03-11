@@ -354,6 +354,10 @@ fr:
     update: 
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour avec succès."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "précédent"
   profile: "Profil"
   profiles: 

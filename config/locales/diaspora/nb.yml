@@ -354,6 +354,10 @@ nb:
     update: 
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Profile"
   profiles: 

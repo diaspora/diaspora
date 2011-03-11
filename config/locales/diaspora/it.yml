@@ -354,6 +354,10 @@ it:
     update: 
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "precedente"
   profile: "Profilo"
   profiles: 

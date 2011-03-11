@@ -72,13 +72,13 @@ fi:
       success: "%{name} poistettiin onnistuneesti."
     edit: 
       add_existing: "Lisää olemassa oleva kontakti"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "näkymälista on piilotettu muilta näkymässä olevilta"
+      aspect_list_is_visible: "näkymälista näkyy muille näkymässä oleville"
       confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
-      done: "Done"
+      done: "Valmis"
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
-      update: "update"
+      update: "päivitä"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
       aspect_not_empty: "Näkymä ei ole tyhjä"
@@ -149,7 +149,7 @@ fi:
       subject: "aihe"
       to: "vastaanottaja"
     show: 
-      delete: "delete and block conversation"
+      delete: "poista ja estä tämä keskustelu"
       reply: "vastaa"
   date: 
     formats: 
@@ -354,6 +354,10 @@ fi:
     update: 
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "edellinen"
   profile: "Profiili"
   profiles: 

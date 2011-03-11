@@ -54,7 +54,7 @@ eu:
       success: "Pertsona arrakastaz ezabatua alderditik"
   aspects: 
     add_to_aspect: 
-      failure: "Akatsa adiskidea alderdira gehitzean."
+      failure: "Huts egin du adiskidea alderdira gehitzeak."
       success: "Adiskidea arrakastaz gehitu da alderdira."
     aspect_contacts: 
       done_editing: "aldaketak gauzatu"
@@ -66,19 +66,19 @@ eu:
     contacts_visible: "Alderdi honetako adiskideak jokingo dute nor dagoen alderdian."
     create: 
       failure: "Akatsa alderdiaren sormenean."
-      success: "Zure alderdia, %{name}, sortua izan da."
+      success: "Zure alderdi berria, %{name}, sortua izan da."
     destroy: 
       failure: "%{name} ez dago hutsik eta ezin izan da ezabatu."
       success: "%{name} arrakastaz ezabatu da."
     edit: 
       add_existing: "Jada adiskide den norbait gehitu"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "alderdiaren zerrenda ezktua da alderdiko besteentzat"
+      aspect_list_is_visible: "alderdiaren zerrenda ikusgarria da aldediko besteengandik"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
-      done: "Done"
+      done: "Egina"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
-      update: "update"
+      update: "eguneratu"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Alderdi ez hutsa"
@@ -94,8 +94,8 @@ eu:
       no_requests: "Ez duzu eskaera berririk"
       requests: "Eskaerak"
     move_contact: 
-      error: "Akatsa adiskidea mugitzean: %{inspect}"
-      failure: "akatsa izan da %{inspect}"
+      error: "Huts adiskidea mugitzean: %{inspect}"
+      failure: "huts egin du %{inspect}"
       success: "Pertsona alderdi berrira gehitua"
     new_aspect: 
       create: "Sortu"
@@ -149,7 +149,7 @@ eu:
       subject: "igorlea"
       to: "nori:"
     show: 
-      delete: "delete and block conversation"
+      delete: "ezabatu eta giltzapetu elkarrizketa"
       reply: "erantzun"
   date: 
     formats: 
@@ -206,7 +206,7 @@ eu:
       powered_by: "DIASPORAK ESKAINIA"
       public_feed: "%{name}(r)en Diaspora Feed publikoa"
       toggle: "aldatu mugikorreko orrialdera"
-      whats_new: "ezer berririk?"
+      whats_new: "zer berri?"
       your_aspects: "zure alderdiak"
     header: 
       account_settings: "kontuaren lehentasunak"
@@ -222,11 +222,11 @@ eu:
   new_requests: 
     few: "%{count} eskaera berri!"
     one: "eskaera berria!"
-    other: "%{count} esakaera berri!"
+    other: "%{count} eskaera berri!"
     zero: "eskaera berririk ez"
   next: "hurrengoa"
   no_new_messages: "mezu berririk ez"
-  no_new_notifications: "jakinarazpen berririk ez"
+  no_new_notifications: "jakinarazpen berririk ez dago"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
     also_commented_deleted: "mezu ezabatu bat iruzkindu du"
@@ -245,7 +245,7 @@ eu:
       sign_in: "Sartu zaitez ikusteko."
       subject: "%{name}(e)k ere iruzkindu du."
     comment_on_post: 
-      commented: "has commented on your post!"
+      commented: "zure mezua iruzkindu du:"
       sign_in: "Sartu zaitez ikusteko."
       subject: "%{name} zure mezua iruzkindu du."
     diaspora: "diasporaren e-posta robota"
@@ -287,7 +287,7 @@ eu:
       people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
       results_for: " %{params}(r)entzat emaitzak"
     index: 
-      couldnt_find_them_send_invite: "Aurkitu ezini,? Bidali gonbidapen bat!"
+      couldnt_find_them_send_invite: "Aurkitu ezinik? Bidali gonbidapen bat!"
       no_one_found: "... ez da inor aurkitu."
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
@@ -299,7 +299,7 @@ eu:
     profile_sidebar: 
       bio: "niri buruz"
       born: "jaioteguna"
-      cannot_remove: "Ezin izan da %{name} ezabatu azken alderditik. (Pertsona honekin harremanak bukatu nahi badituzu, adiskidea ezabatu egin beharko duzu.)"
+      cannot_remove: "Ezin izan da %{name} ezabatu azken alderditik. (Pertsona honekin harremanak etendu nahi badituzu, adiskidea ezabatu egin beharko duzu.)"
       edit_my_profile: "Nire profila aldatu"
       gender: "sexua"
       in_aspects: "alderdietan"
@@ -307,23 +307,23 @@ eu:
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
       does_not_exist: "Pertsona hau ez dago!"
-      incoming_request: "Adiskide eskaera bat bidali dizu pertsona honek."
+      incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
       message: "Mezua"
       no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude partekatzen %{name}(r)ekin"
-      recent_posts: "Post berrienak"
+      recent_posts: "Mezu Berrienak"
       recent_public_posts: "Azken berri publikoak"
       return_to_aspects: "Zure alderdi orrialdera itzuli"
       similar_contacts: "antzeko adiskideak"
       start_sharing: "harremanetan hasi"
-      to_accept_or_ignore: "onartu edo utzi"
+      to_accept_or_ignore: "onartu edo utzi."
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
   photos: 
     create: 
-      integrity_error: "Argazki igoera akasduna. Ziur al zaude irudi bat zela?"
-      runtime_error: "Argazki igoera akasduna. Ziur zure uhala azkarra dela?"
-      type_error: "Argazki igoera akasduna- Ziur al zaude irudia gehitu duzunaz?"
+      integrity_error: "Argazki igoerak huts egin du. Ziur al zaude irudi bat zela?"
+      runtime_error: "Argazki igoerak huts egin du. Ziur zaude zure uhala azkarra dela?"
+      type_error: "Argazki igoerak huts egin du. Ziur al zaude irudia gehitu duzunaz?"
     destroy: 
       notice: "Argazkia ezabatu duzu."
     edit: 
@@ -333,11 +333,11 @@ eu:
       new_photo: "Argazki Berria"
       post_it: "partekatu ezazu!"
     new_photo: 
-      empty: "{file} hutsik dago, mesedez aukera itzazu fitxategiak hura gabe."
+      empty: "{file} hutsik dago, mesedez aukera itzazu fitxategiak hura kenduta."
       invalid_ext: "{file}(r)en luzapena ez da onartu. {extensions} dira onartuak soilik."
       size_error: "{file} pisutsuegia da, fitxategi baten gehiengo pisua {sizeLimit} da."
     new_profile_photo: 
-      or_select_one: "edo aukeratu dagoeneko eginda dagoen bat"
+      or_select_one: "edo aukeratu dagoeneko badagoen bat"
       upload: "Igo ezazu profil argazki berri bat!"
     photo: 
       view_all: "%{aspect}(r)en argazki guztiak ikusi"
@@ -349,11 +349,15 @@ eu:
       make_profile_photo: "profileko argazki bihurtu"
       original_post: "Jatorrizko mezua"
       permalink: "permalink"
-      update_photo: "Argazkia Igo"
+      update_photo: "Argazkia Eguneratu"
       view: "ikusi"
     update: 
-      error: "Akatsa argazkia aldatzean."
+      error: "Huts argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "aurrekoa"
   profile: "Profila"
   profiles: 
@@ -394,7 +398,7 @@ eu:
   requests: 
     create: 
       sending: "Bidaltzen"
-      sent: "%{name}(r)ekin partekatzea eskatu duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute."
+      sent: "%{name}(r)ekin partekatzea eskatu duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute eskaera."
     destroy: 
       error: "Alderdi bat aukeratu, mesedez!"
       ignore: "Adiskide eskaera baztertua."
@@ -411,7 +415,7 @@ eu:
     destroy: 
       success: "Egiaztapena arrakastaz ezabatua."
     failure: 
-      error: "akatsa zerbitzu hori konektatzean"
+      error: "huts zerbitzu hori konektatzean"
     finder: 
       friends: 
         few: "%{count} adiskide"
@@ -438,7 +442,7 @@ eu:
     add_contact: 
       create_request: "Diaspora helbide arabera bilatu"
       diaspora_handle: "diaspora@helbidea.org"
-      enter_a_diaspora_username: "Diaspora erabiltzaile izena sartu:"
+      enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
       know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
       your_diaspora_username_is: "Zure Diaspora erabiltzailea honakoa da: %{diaspora_handle}"
     contact_list: 
@@ -446,7 +450,7 @@ eu:
       cannot_remove: "Ezin izan da pertsona azken alderditik ezabatu. (Pertsona honekin harremanak nahi ez badituzu, adiskidea ezabatu behar duzu.)"
     invitations: 
       by_email: "e-posta bidez"
-      dont_have_now: "Bat ere ez duzu, baina gonbidapen gehiago iritsiko dira laister!"
+      dont_have_now: "Bukatu egin zaizkizu, baina gonbidapen gehiago iritsiko dira laister!"
       from_facebook: "Facebooketik"
       invitations_left: "(%{count} geratzen zai(zki)zu)"
       invite_someone: "Norbait gonbidatu"
@@ -458,7 +462,7 @@ eu:
     public_explain: 
       logged_in: "%{service}(e)n sartuta"
       manage: "kudeatu lotutako zerbitzuak"
-      outside: "Mezu publikoak edozeinek irakurtzeko ahalmena izango du, Diaspora kontua ez badu ere."
+      outside: "Mezu publikoak edozeinek irakurtzeko ahalmena izango ditu, Diaspora kontua ez badu ere."
       title: "Mezu publiko bat partekatzear zaude!"
     publisher: 
       add_photos: "argazkiak gehitu"
@@ -469,7 +473,7 @@ eu:
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
       share: "Partekatu"
-      share_with: "%{aspect}(r)ekin partekatu"
+      share_with: "honekin partekatu:"
       whats_on_your_mind: "zer berri?"
     reshare: 
       reshare: "Berriz partekatu"
@@ -493,9 +497,9 @@ eu:
     destroy: "Kontua arrakastaz ezabatua."
     edit: 
       change: "Aldatu"
-      change_language: "Hizkuntza aldatu"
+      change_language: "Hizkuntza Aldatu"
       change_password: "Pasahitza aldatu"
-      close_account: "Kontua ezabatu"
+      close_account: "Kontua Ezabatu"
       current_password: "Oraingo pasahitza"
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
@@ -510,7 +514,7 @@ eu:
       connect_on_diaspora: "Konektatu Diasporan"
       connect_services: "Beste zerbitzu batzuekin lotu"
       edit_profile: "Zure profila aldatu"
-      finished: "Bukatuta!"
+      finished: "Bukatua!"
       save_and_continue: "Gorde eta jarraitu"
       signup_steps: "Zure izen ematea bukatu ezazu hiru pauso hauek emanez:"
       skip: "jauzi hastapenak"
@@ -522,13 +526,13 @@ eu:
         people_already_on_diaspora: "Diasporako jendea"
       welcome: "Ongi Etorri Diasporara!"
     public: 
-      does_not_exist: "%{username}(r)ik ez dago!"
+      does_not_exist: "%{username} erabiltzailerik ez dago!"
     update: 
-      email_notifications_changed: "Hizkuntza aldaketa akasduna"
-      language_changed: "Hizkuntza aldatua"
-      language_not_changed: "Hizkuntza aldaketa akatsduna"
+      email_notifications_changed: "E-posta janirazpenak aldatu dituzu"
+      language_changed: "Hizkuntza Aldatua"
+      language_not_changed: "Hizkuntza aldaketak huts egin du"
       password_changed: "Pasahitza aldatu duzu"
-      password_not_changed: "Pasahitz Aldaketa Akatsduna"
+      password_not_changed: "Pasahitz Aldaketak Huts egin du"
   webfinger: 
     fetch_failed: "ezin izan da webfinger profila hartu %{profile_url} webgunetik"
     hcard_fetch_failed: "%{account} kontutik ezin izan da hcard sortu"

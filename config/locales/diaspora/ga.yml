@@ -354,6 +354,10 @@ ga:
     update: 
       error: "Níor d'éirigh le aithrú an pictiúr."
       notice: "Pictiure Uaslódaithe."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "roimhhe"
   profile: "Próifíl"
   profiles: 

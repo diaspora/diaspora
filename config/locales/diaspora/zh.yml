@@ -354,6 +354,10 @@ zh:
     update: 
       error: "照片编辑失败。"
       notice: "头像更新成功。"
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "后退"
   profile: "个人资料"
   profiles: 

@@ -72,13 +72,13 @@ es-CL:
       success: "%{name} fue correctamente eliminado."
     edit: 
       add_existing: "Agregar un contacto existente"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
+      aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Estás seguro que quieres eliminar este aspecto?"
-      done: "Done"
+      done: "Listo"
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
-      update: "update"
+      update: "Actualizar"
     helper: 
       are_you_sure: "¿Estás seguro que quieres eliminar este aspecto?"
       aspect_not_empty: "El aspecto no está vacío"
@@ -149,7 +149,7 @@ es-CL:
       subject: "asunto"
       to: "para"
     show: 
-      delete: "delete and block conversation"
+      delete: "Eliminar y bloquear conversación"
       reply: "responder"
   date: 
     formats: 
@@ -203,7 +203,7 @@ es-CL:
     application: 
       have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
       logged_in_as: "Conectado como %{name}"
-      powered_by: "POTENCIADO POR DIASPORA*"
+      powered_by: "POWERED BY DIASPORA*"
       public_feed: "Canal publico de %{name}"
       toggle: "cambiar sitio móvil"
       whats_new: "¿Qué hay de nuevo?"
@@ -354,6 +354,10 @@ es-CL:
     update: 
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "Anterior"
   profile: "Perfil"
   profiles: 

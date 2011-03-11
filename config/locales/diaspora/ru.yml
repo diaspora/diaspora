@@ -354,6 +354,10 @@ ru:
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография загружена."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "предыдущая"
   profile: "Профиль"
   profiles: 

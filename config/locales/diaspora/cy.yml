@@ -354,6 +354,10 @@ cy:
     update: 
       error: "Failed to edit photo."
       notice: "Photo successfully updated."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Profile"
   profiles: 

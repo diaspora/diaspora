@@ -354,6 +354,10 @@ id:
     update: 
       error: "Gagal mengubah foto."
       notice: "Foto berhasil diperbarui."
+  posts: 
+    index: 
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      whatup: "What's happening on %{pod}"
   previous: "previous"
   profile: "Profile"
   profiles: 
