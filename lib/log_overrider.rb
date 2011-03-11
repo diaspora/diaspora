@@ -30,7 +30,7 @@ module ActionDispatch
 end
 
 class ActionController::LogSubscriber
-  require 'lib/active_record_instantiation_logs'
+  require "#{File.dirname(__FILE__)}/active_record_instantiation_logs.rb"
   include Oink::InstanceTypeCounter
   def start_processing(event)
     #noop
