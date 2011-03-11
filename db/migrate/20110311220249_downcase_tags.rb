@@ -1,6 +1,6 @@
 class DowncaseTags < ActiveRecord::Migration
   def self.consolidate_tags_with_name(name)
-    tags = execute("SELECT * FROM tags WHERE tags.name = #{name};").to_a
+    tags = execute("SELECT * FROM tags WHERE tags.name = '#{name}';").to_a
     keep_tag = tags.pop
     tags.each do |bad_tag|
       execute("UPDATE taggings
