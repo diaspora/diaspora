@@ -508,7 +508,6 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
     t.string   "mongo_id"
     t.string   "invitation_service",     :limit => 127
     t.string   "invitation_identifier",  :limit => 127
-    t.text     "email_disabled"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
