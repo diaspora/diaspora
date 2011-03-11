@@ -4,4 +4,8 @@
 
 - content_for :page_title do
   DIASPORA* ALPHA
-=render :partial => 'home/show' rescue  "put something in app/views/home/_show.html.haml"
+- begin
+  = render :partial => 'home/show' 
+- rescue
+  :erb
+    <%= File.open(File.join(Rails.root, 'public/default.html')).read %>
