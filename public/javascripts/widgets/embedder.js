@@ -76,7 +76,7 @@
   };
 
   Embedder.prototype.onVideoLinkClicked = function(evt) {
-    if(this.canEmbed) {
+    if(Diaspora.widgets.embedder.canEmbed) {
       evt.preventDefault();
       Diaspora.widgets.embedder.embed($(this));
     }
