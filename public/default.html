@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ruby on Rails: Welcome aboard</title>
+    <title>Diaspora: Getting Started</title>
     <style type="text/css" media="screen">
       body {
         margin: 0;
         margin-bottom: 25px;
         margin-top: 2em;
         padding: 0;
-        background-color: #f0f0f0;
-        font-family: "Lucida Grande", "Bitstream Vera Sans", "Verdana";
+        background-color: #fff;
+        font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
         font-size: 13px;
         color: #333;
       }
@@ -17,31 +17,26 @@
       h1 {
         font-size: 28px;
         color: #000;
+        text-shadow: #999 0px 1px 3px;
       }
 
-      a  {color: #03c}
-      a:hover {
-        background-color: #03c;
-        color: white;
-        text-decoration: none;
+      a {
+        color: #3F8FBA;
       }
-
 
       #page {
         background-color: #f0f0f0;
-        width: 750px;
-        margin: 0;
-        margin-left: auto;
-        margin-right: auto;
+        width: 950px;
+        margin: 0 auto;
       }
 
       #content {
         float: left;
         background-color: white;
-        border: 3px solid #aaa;
+        border: 1px solid #ddd;
         border-top: none;
         padding: 25px;
-        width: 500px;
+        width: 700px;
       }
 
       #sidebar {
@@ -51,28 +46,13 @@
 
       #footer {
         clear: both;
+        height: 0;
       }
-
 
       #header, #about, #getting-started {
-        padding-left: 75px;
+        padding-left: 25px;
         padding-right: 30px;
       }
-
-
-      #header {
-        background-image: url("images/rails.png");
-        background-repeat: no-repeat;
-        background-position: top left;
-        height: 64px;
-      }
-      #header h1, #header h2 {margin: 0}
-      #header h2 {
-        color: #888;
-        font-weight: normal;
-        font-size: 16px;
-      }
-
 
       #about h3 {
         margin: 0;
@@ -83,32 +63,20 @@
       #about-content {
         background-color: #ffd;
         border: 1px solid #fc0;
-        margin-left: -55px;
-        margin-right: -10px;
       }
+
       #about-content table {
         margin-top: 10px;
         margin-bottom: 10px;
         font-size: 11px;
         border-collapse: collapse;
       }
-      #about-content td {
-        padding: 10px;
-        padding-top: 3px;
-        padding-bottom: 3px;
-      }
-      #about-content td.name  {color: #555}
-      #about-content td.value {color: #000}
 
       #about-content ul {
         padding: 0;
         list-style-type: none;
       }
 
-      #about-content.failure {
-        background-color: #fcc;
-        border: 1px solid #f00;
-      }
       #about-content.failure p {
         margin: 0;
         padding: 10px;
@@ -120,8 +88,9 @@
         margin-top: 25px;
         padding-top: 15px;
       }
+      
       #getting-started h1 {
-        margin: 0;
+        margin-bottom: 10px;
         font-size: 20px;
       }
       #getting-started h2 {
@@ -129,20 +98,20 @@
         font-size: 14px;
         font-weight: normal;
         color: #333;
-        margin-bottom: 25px;
       }
+
       #getting-started ol {
         margin-left: 0;
         padding-left: 0;
       }
+
       #getting-started li {
-        font-size: 18px;
-        color: #888;
-        margin-bottom: 25px;
+        margin-bottom: 5px;
       }
+
       #getting-started li h2 {
         margin: 0;
-        font-weight: normal;
+        font-weight: bold;
         font-size: 18px;
         color: #333;
       }
@@ -186,23 +155,6 @@
   </head>
   <body>
     <div id="page">
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://github.com/diaspora/diaspora/">Diaspora Github</a></li>
-              <li><a href="http://github.com/diaspora/diaspora/wiki">Diaspora Wiki</a></li>
-              <li><a href="http://webchat.freenode.net/?channels=diaspora-dev">Diaspora IRC</a></li>
-              <li><a href="http://bugs.joindiaspora.com/">Diaspora Bug Tracker</a></li>
-              <li><a href="http://groups.google.com/group/diaspora-dev">Dev Mailing List</a></li>
-              <li><a href="http://getsatisfaction.com/diaspora/">Get Satisfaction</a></li>
-              <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
-
       <div id="content">
         <div id="header">
           <h1>Looking Good!</h1>
@@ -210,7 +162,7 @@
         </div>
 
         <div id="about">
-          <h3><a href="rails/info/properties" onclick="about(); return false">About your seed&rsquo;s environment</a></h3>
+          <h3><a href="rails/info/properties" onclick="about(); return false;">About your seed&rsquo;s environment</a></h3>
           <div id="about-content" style="display: none"></div>
         </div>
 
@@ -231,10 +183,27 @@
 
             <li>
               <h2>Tell us what you think!</h2>
-              <p>make bug reports, feature requests at: <a href='bugs.joindiaspora.com'>our bug tracker </a></p>
+              <p>make bug reports, feature requests at: <a href="http://bugs.joindiaspora.com">our bug tracker </a></p>
             </li>
           </ol>
         </div>
+      </div>
+
+      <div id="sidebar">
+        <ul id="sidebar-items">
+          <li>
+            <h3>Browse the documentation</h3>
+            <ul class="links">
+              <li><a href="http://github.com/diaspora/diaspora/">Diaspora Github</a></li>
+              <li><a href="http://github.com/diaspora/diaspora/wiki">Diaspora Wiki</a></li>
+              <li><a href="http://webchat.freenode.net/?channels=diaspora-dev">Diaspora IRC</a></li>
+              <li><a href="http://bugs.joindiaspora.com/">Diaspora Bug Tracker</a></li>
+              <li><a href="http://groups.google.com/group/diaspora-dev">Dev Mailing List</a></li>
+              <li><a href="http://getsatisfaction.com/diaspora/">Get Satisfaction</a></li>
+              <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
 
       <div id="footer">&nbsp;</div>
