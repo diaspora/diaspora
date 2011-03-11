@@ -6,7 +6,7 @@ class DowncaseTags < ActiveRecord::Migration
       execute("UPDATE taggings
         SET taggings.tag_id = #{keep_tag.first}
         WHERE taggings.tag_id = #{bad_tag.first};")
-      execute("DELETE tags WHERE tags.id = #{bad_tag.first};")
+      execute("DELETE FROM tags WHERE tags.id = #{bad_tag.first};")
     end
   end
   def self.up
