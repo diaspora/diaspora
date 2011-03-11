@@ -38,12 +38,30 @@ class StatusMessage < Post
     write_attribute(:message, text)
   end
 
-  def formatted_message(opts = {})
+  def formatted_message(opts={})
     return self.raw_message unless self.raw_message
+
+    escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
+    mentioned_message = self.format_mentions(escaped_message, opts)
+    self.format_tags(mentioned_message, opts)
+  end
+
+  def format_tags(text, opts={})
+    return text if opts[:plain_text]
+    regex = /(^|\s)#(\w+)/
+    form_message = text.gsub(regex) do |matched_string|
+      tag = self.tags.detect do |t|
+        t.name == $~[2]
+      end
+      tag ? "#{$~[1]}<a href=\"/p?tag=#{tag.name}\" class=\"tag\">##{ERB::Util.h(tag.name)}</a>" : ERB::Util.h($~[2])
+    end
+    form_message
+  end
+
+  def format_mentions(text, opts = {})
     people = self.mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
-    escaped_message = opts[:plain_text] ? raw_message : ERB::Util.h(raw_message)
-    form_message = escaped_message.gsub(regex) do |matched_string|
+    form_message = text.gsub(regex) do |matched_string|
       person = people.detect{ |p|
         p.diaspora_handle == $~[2]
       }
