@@ -30,7 +30,6 @@ class UsersController < ApplicationController
 
     # change email notifications
     if u[:email_preferences]
-      pp u[:email_preferences]
       @user.update_user_preferences(u[:email_preferences])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
     # change passowrd

@@ -467,8 +467,6 @@ describe User do
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a prefrence entry' do
-      alice.save
-      alice.reload
       alice.user_preferences.create(:email_type => 'request_received')
       Resque.should_not_receive(:enqueue)
       alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
