@@ -4,14 +4,7 @@
 
 
 cs: 
-  _aspect: "Aspekt"
-  _aspects: "Aspekty"
-  _comment: "Komentář"
-  _comments: "Komentáře"
-  _contact: "Kontakt"
-  _contacts: "Kontakty"
   _home: "Doma"
-  _more: "Více"
   _photos: "fotky"
   _services: "Služby"
   account: "Účet"
@@ -72,13 +65,15 @@ cs:
       success: "%{name} byl úspěšně odebrán."
     edit: 
       add_existing: "Přidat existující kontakt"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "seznam aspektů je skryt ostatním v aspektu"
+      aspect_list_is_visible: "seznam aspektů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
-      done: "Done"
+      done: "Hotovo"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Odstranit tento aspekt"
       rename: "přejmenovat"
-      update: "update"
+      update: "aktualizovat"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"
       aspect_not_empty: "Aspekt není prázdný"
@@ -93,6 +88,7 @@ cs:
       manage_aspects: "Upravit aspekty"
       no_requests: "Žádné nové žádosti"
       requests: "Žádosti"
+    many: "%{count} aspects"
     move_contact: 
       error: "Chyba při přesunu kontaktu: %{inspect}"
       failure: "%{inspect} nefunguje"
@@ -108,6 +104,8 @@ cs:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Rodina"
       work: "Práce"
@@ -116,12 +114,18 @@ cs:
     update: 
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt, %{name}, byl úspěšně upraven."
+    zero: "no aspects"
   back: "Zpět"
   cancel: "Zrušit"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Komentář"
       commenting: "Komentování..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
@@ -129,6 +133,7 @@ cs:
       failure: "Nepodařilo se odpojit od %{name}"
       success: "Úspěšně odpojeno od %{name}"
     few: "%{count} kontaktů"
+    many: "%{count} contacts"
     one: "1 kontakt"
     other: "%{count} kontaktů"
     share_with_pane: 
@@ -137,6 +142,13 @@ cs:
       share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "vytvořit novou zprávu"
       message_inbox: "Doručené zprávy"
@@ -149,7 +161,7 @@ cs:
       subject: "předmět"
       to: "pro"
     show: 
-      delete: "delete and block conversation"
+      delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
   date: 
     formats: 
@@ -217,21 +229,19 @@ cs:
       logout: "odhlásit"
       view_profile: "zobrazit profil"
   more: "Více"
-  new_messages: "%{count} nových zpráv"
-  new_notifications: "%{count} nových oznámení"
-  new_requests: 
-    few: "%{count} nových žádostí!"
-    one: "nová žádost!"
-    other: "%{count} nových žádostí!"
-    zero: "žádná nová žadost"
   next: "další"
-  no_new_messages: "žádné nové zprávy"
-  no_new_notifications: "žádná nová oznámení"
   notifications: 
     also_commented: "také komentoval v %{post_author}"
     also_commented_deleted: "komentován smazaný příspěvek"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
@@ -275,9 +285,6 @@ cs:
     thanks: "Díky,"
   ok: "OK"
   or: "nebo"
-  pagination: 
-    next: "Další"
-    previous: "Předchozí"
   password: "Heslo"
   password_confirmation: "Potvrzení hesla"
   people: 
@@ -356,8 +363,8 @@ cs:
       notice: "Fotka úspěšně aktualizována."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Příspěvky označené #%{tag}"
+      whatup: "Co se děje na %{pod}"
   previous: "předchozí"
   profile: "Profil"
   profiles: 
@@ -403,6 +410,13 @@ cs:
       error: "Prosím vyberte aspekt!"
       ignore: "Ignorovat žádost kontaktu."
       success: "Nyní jste přáteli."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Existující kontakty"
       manage_within: "Spravovat kontakty uvnitř"
@@ -419,6 +433,7 @@ cs:
     finder: 
       friends: 
         few: "%{count} přátele"
+        many: "%{count} friends"
         one: "1 přítel"
         other: "%{count} přátel"
         zero: "žádní přátelé"
@@ -496,18 +511,23 @@ cs:
   users: 
     destroy: "Účet byl úspěšně uzavřen."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Změnit"
       change_language: "Změnit jazyk"
       change_password: "Změnit heslo"
       close_account: "Uzavřít účet"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Současné heslo"
       download_photos: "stáhnout moje fotky"
       download_xml: "stáhnout moje xml"
       edit_account: "Upravit účet"
-      email_notifications: "Oznámení emailem"
       export_data: "Exportovat data"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nové heslo"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Přijímat oznámení emailem?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Váš email"
       your_handle: "Váše identifikace na Diaspoře"
     getting_started: 

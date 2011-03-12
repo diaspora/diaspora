@@ -4,14 +4,7 @@
 
 
 mk: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Коментари"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Дома"
-  _more: "More"
   _photos: "фотографии"
   _services: "Сервиси"
   account: "Корисничка сметка"
@@ -76,9 +69,11 @@ mk:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Аспектот не е празен"
@@ -93,6 +88,7 @@ mk:
       manage_aspects: "Менаџирај аспекти"
       no_requests: "Нема нови барања"
       requests: "Барања"
+    many: "%{count} aspects"
     move_contact: 
       error: "Грешка при преместувањето на контактот: %{inspect}"
       failure: "не проработи %{inspect}"
@@ -108,6 +104,8 @@ mk:
       nobody_in_aspect: "Вашиот аспект '%{aspect_name}' е празен."
     no_posts_message: 
       start_talking: "Никој досега нема кажано ништо. Започни го разговорот!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Фамилија"
       work: "Работа"
@@ -116,12 +114,18 @@ mk:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Вашиот аспект, %{name}, беше успешно уреден."
+    zero: "no aspects"
   back: "Назад"
   cancel: "Откажи"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Коментар"
       commenting: "Коментирање..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ mk:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
@@ -137,6 +142,13 @@ mk:
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ mk:
       logout: "одјави се"
       view_profile: "погледни профил"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} new notifications"
-  new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
   next: "next"
-  no_new_messages: "no new messages"
-  no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ mk:
     thanks: "Thanks,"
   ok: "ОК"
   or: "или"
-  pagination: 
-    next: "Next"
-    previous: "Previous"
   password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people: 
@@ -403,6 +410,13 @@ mk:
       error: "Ве молиме изберете аспект!"
       ignore: "Игнорирано контакт барање."
       success: "Сега сте пријатели."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Постоечки контакти"
       manage_within: "Менаџирај контакти во"
@@ -419,6 +433,7 @@ mk:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ mk:
   users: 
     destroy: "Корисничката сметка е успешно затворена."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Change"
       change_language: "Промени јазик"
       change_password: "Промени лозинка"
       close_account: "Затвори корисничка сметка"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "симни ги моите слики"
       download_xml: "симни го мојот xml"
       edit_account: "Edit account"
-      email_notifications: "Email notificaions"
       export_data: "Изнеси податоци"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Нова лозинка"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Вашиот е-маил"
       your_handle: "Вашето diaspora корисничко име"
     getting_started: 

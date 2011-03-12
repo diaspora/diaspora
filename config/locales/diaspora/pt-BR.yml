@@ -4,14 +4,7 @@
 
 
 pt-BR: 
-  _aspect: "Aspecto"
-  _aspects: "Aspectos"
-  _comment: "Comentário"
-  _comments: "Comentários"
-  _contact: "Contato"
-  _contacts: "Contatos"
   _home: "Página inicial"
-  _more: "Mais"
   _photos: "Fotos"
   _services: "Serviços"
   account: "Conta"
@@ -76,9 +69,11 @@ pt-BR:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Tem certeza que quer excluir este aspecto?"
       done: "Done"
+      make_aspect_list_visible: "Permitir que as pessoas deste aspecto vejam quem está nele."
       remove_aspect: "Excluir este aspecto"
       rename: "Renomear"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Tem certeza que quer excluir este aspecto?"
       aspect_not_empty: "Aspecto não está vazio"
@@ -93,6 +88,7 @@ pt-BR:
       manage_aspects: "Gerenciar aspectos"
       no_requests: "Sem novos pedidos"
       requests: "Pedidos"
+    many: "%{count} aspects"
     move_contact: 
       error: "Erro ao mover contato: %{inspect}"
       failure: "Falhou %{inspect}"
@@ -108,6 +104,8 @@ pt-BR:
       nobody_in_aspect: "Seu aspecto '%{aspect_name}' está vazio."
     no_posts_message: 
       start_talking: "Ninguém postou ainda. Comece você! Diga algo!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Família"
       work: "Trabalho"
@@ -116,12 +114,18 @@ pt-BR:
     update: 
       failure: "Seu aspecto %{name} deve ter um nome mais curto."
       success: "Seu aspecto %{name} foi editado com sucesso."
+    zero: "no aspects"
   back: "Voltar"
   cancel: "Cancelar"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ pt-BR:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} contatos"
+    many: "%{count} contacts"
     one: "1 contato"
     other: "%{count} contatos"
     share_with_pane: 
@@ -137,6 +142,13 @@ pt-BR:
       share_with: "Start sharing with %{name}"
     zero: "sem contatos"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ pt-BR:
       logout: "Sair"
       view_profile: "ver perfil"
   more: "Mais"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} novas notificações"
-  new_requests: 
-    few: "%{count} novos pedidos!"
-    one: "Novo pedido!"
-    other: "%{count} novos pedidos!"
-    zero: "Nenhum pedido novo."
   next: "Próximo"
-  no_new_messages: "no new messages"
-  no_new_notifications: "Nenhuma notificação nova"
   notifications: 
     also_commented: "também comentou em"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "Comentou no seu"
     deleted: "Excluído"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Marcar todas como lido"
       notifications: "Notificações"
@@ -275,9 +285,6 @@ pt-BR:
     thanks: "Obrigado,"
   ok: "OK"
   or: "ou"
-  pagination: 
-    next: "Próximo"
-    previous: "Anterior"
   password: "Senha"
   password_confirmation: "Confirmação de senha"
   people: 
@@ -403,6 +410,13 @@ pt-BR:
       error: "Por favor, selecione um aspecto!"
       ignore: "Pedido de contato ignorado."
       success: "Vocês agora são amigos."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Contatos existentes"
       manage_within: "Gerenciar contatos de"
@@ -419,6 +433,7 @@ pt-BR:
     finder: 
       friends: 
         few: "%{count} amigos"
+        many: "%{count} friends"
         one: "1 amigo"
         other: "%{count} amigos"
         zero: "nenhum amigo"
@@ -496,18 +511,23 @@ pt-BR:
   users: 
     destroy: "Conta encerrada com sucesso."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Trocar"
       change_language: "Trocar idioma"
       change_password: "Trocar senha"
       close_account: "Encerrar minha conta"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Senha atual"
       download_photos: "Baixar minhas fotos"
       download_xml: "Baixar meu XML"
       edit_account: "Alterar conta"
-      email_notifications: "Notificações por email"
       export_data: "Exportar dados"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nova Senha"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receber notificações por email?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Seu email"
       your_handle: "Seu endereço Diaspora*"
     getting_started: 

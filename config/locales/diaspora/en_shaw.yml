@@ -4,14 +4,7 @@
 
 
 en_shaw: 
-  _aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
-  _aspects: "𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-  _comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
-  _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-  _contact: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-  _contacts: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   _home: "Home"
-  _more: "𐑥𐑹"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
   account: "𐑩𐑒𐑬𐑯𐑑"
@@ -76,9 +69,11 @@ en_shaw:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       done: "Done"
+      make_aspect_list_visible: "𐑥𐑱𐑒 𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
       rename: "𐑮𐑦𐑯𐑱𐑥"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       aspect_not_empty: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑯𐑪𐑑 𐑧𐑥𐑐𐑑𐑦"
@@ -93,6 +88,7 @@ en_shaw:
       manage_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
       no_requests: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
       requests: "𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
+    many: "%{count} aspects"
     move_contact: 
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
       failure: "𐑛𐑦𐑛𐑯𐑑 𐑢𐑻𐑒 %{inspect}"
@@ -108,6 +104,8 @@ en_shaw:
       nobody_in_aspect: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑 '%{aspect_name}' 𐑦𐑟 𐑧𐑥𐑐𐑑𐑦."
     no_posts_message: 
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
       work: "𐑢𐑻𐑒"
@@ -116,12 +114,18 @@ en_shaw:
     update: 
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
+    zero: "no aspects"
   back: "𐑚𐑨𐑒"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "𐑒𐑪𐑥𐑩𐑯𐑑"
       commenting: "𐑒𐑪𐑥𐑩𐑯𐑑𐑦𐑙..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
@@ -129,6 +133,7 @@ en_shaw:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 %{name}"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 %{name}"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+    many: "%{count} contacts"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     share_with_pane: 
@@ -137,6 +142,13 @@ en_shaw:
       share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ en_shaw:
       logout: "𐑤𐑪𐑜𐑬𐑑"
       view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
   more: "𐑥𐑹"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} new notifications"
-  new_requests: 
-    few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
-    one: "𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
-    other: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
-    zero: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
   next: "𐑯𐑧𐑒𐑕𐑑"
-  no_new_messages: "no new messages"
-  no_new_notifications: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
   notifications: 
     also_commented: "(e)k iruzkindu du %{post_author}(r)en mezuan ere"
     also_commented_deleted: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑"
     comment_on_post: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼"
     deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
@@ -275,9 +285,6 @@ en_shaw:
     thanks: "𐑔𐑱𐑙𐑒𐑕,"
   ok: "𐑴𐑒𐑱"
   or: "𐑹"
-  pagination: 
-    next: "𐑯𐑧𐑒𐑕𐑑"
-    previous: "𐑐𐑮𐑦𐑝𐑾𐑕"
   password: "Password"
   password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
   people: 
@@ -403,6 +410,13 @@ en_shaw:
       error: "𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑!"
       ignore: "𐑦𐑜𐑯𐑹𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
       success: "𐑿 𐑸 𐑯𐑬 𐑓𐑮𐑧𐑯𐑛𐑟."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       manage_within: "𐑥𐑨𐑯𐑩𐑡 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑢𐑦𐑞𐑦𐑯"
@@ -419,6 +433,7 @@ en_shaw:
     finder: 
       friends: 
         few: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
+        many: "%{count} friends"
         one: "1 𐑓𐑮𐑧𐑯𐑛"
         other: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
         zero: "𐑯𐑴 𐑓𐑮𐑧𐑯𐑛𐑟"
@@ -496,18 +511,23 @@ en_shaw:
   users: 
     destroy: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑤𐑴𐑟𐑛."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "𐑗𐑱𐑯𐑡"
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
       close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
+      comment_on_post: "...someone comments on your post?"
       current_password: "𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛"
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"
-      email_notifications: "𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
       export_data: "𐑧𐑒𐑕𐑐𐑹𐑑 𐑛𐑱𐑑𐑩"
+      mentioned: "...you are mentioned in a post?"
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 

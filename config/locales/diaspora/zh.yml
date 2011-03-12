@@ -4,14 +4,7 @@
 
 
 zh: 
-  _aspect: "分组"
-  _aspects: "分组"
-  _comment: "Comment"
-  _comments: "评论"
-  _contact: "联系"
-  _contacts: "联系人"
   _home: "首页"
-  _more: "More"
   _photos: "照片"
   _services: "服务"
   account: "帐户"
@@ -76,9 +69,11 @@ zh:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "你确定你要删除这个分组吗？"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "删除这个分组"
       rename: "改名"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "您确定要删除这个分组吗？"
       aspect_not_empty: "此分组非空"
@@ -93,6 +88,7 @@ zh:
       manage_aspects: "管理分组"
       no_requests: "没有新的邀请"
       requests: "邀请"
+    many: "%{count} aspects"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -108,6 +104,8 @@ zh:
       nobody_in_aspect: "您的'%{aspect_name}'是个空白分组。"
     no_posts_message: 
       start_talking: "还没人冒泡，说点什么吧！"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "家庭"
       work: "工作"
@@ -116,12 +114,18 @@ zh:
     update: 
       failure: "您的分组%{name}因名字太长而无法保存。"
       success: "您的%{name}分组编辑完成。"
+    zero: "no aspects"
   back: "后退"
   cancel: "取消"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "评论"
       commenting: "评论中"
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ zh:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count}个联系人"
+    many: "%{count} contacts"
     one: "1个联系人"
     other: "%{count}个联系人"
     share_with_pane: 
@@ -137,6 +142,13 @@ zh:
       share_with: "Start sharing with %{name}"
     zero: "没有联系人"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ zh:
       logout: "退出"
       view_profile: "查看个人资料"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count}个新通知"
-  new_requests: 
-    few: "%{count}个新的请求！"
-    one: "有新邀请！"
-    other: "%{count}个新的邀请！"
-    zero: "没有新的邀请"
   next: "下一步"
-  no_new_messages: "no new messages"
-  no_new_notifications: "没有新的通知"
   notifications: 
     also_commented: "also commented on your contact's"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ zh:
     thanks: "谢谢。"
   ok: "好"
   or: "或者"
-  pagination: 
-    next: "下一个"
-    previous: "后退"
   password: "密码"
   password_confirmation: "密码确认"
   people: 
@@ -403,6 +410,13 @@ zh:
       error: "请选择一个分组！"
       ignore: "忽略联系人邀请。"
       success: "你们现在是朋友关系了。"
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "已有联系人"
       manage_within: "Manage contacts within"
@@ -419,6 +433,7 @@ zh:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ zh:
   users: 
     destroy: "帐户已成功关闭。"
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "修改"
       change_language: "改变语言"
       change_password: "修改密码"
       close_account: "关闭帐户"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "下载我的照片"
       download_xml: "下载我的xml文件"
       edit_account: "编辑帐户"
-      email_notifications: "用电子邮件发送通知"
       export_data: "导出数据"
+      mentioned: "...you are mentioned in a post?"
       new_password: "新密码"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "愿意接收电子邮件通知吗？"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "您的电子邮件"
       your_handle: "Your diaspora handle"
     getting_started: 

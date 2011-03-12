@@ -4,14 +4,7 @@
 
 
 fi: 
-  _aspect: "Näkymä"
-  _aspects: "Näkymää"
-  _comment: "Kommentoi"
-  _comments: "Kommentit"
-  _contact: "Kontakti"
-  _contacts: "Kontaktit"
   _home: "Etusivu"
-  _more: "Lisää"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
   account: "Käyttäjätili"
@@ -76,9 +69,11 @@ fi:
       aspect_list_is_visible: "näkymälista näkyy muille näkymässä oleville"
       confirm_remove_aspect: "Oletko varma että haluat poistaa tämän näkymän?"
       done: "Valmis"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
       update: "päivitä"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
       aspect_not_empty: "Näkymä ei ole tyhjä"
@@ -93,6 +88,7 @@ fi:
       manage_aspects: "Hallitse näkymiä"
       no_requests: "Ei uusia pyyntöjä"
       requests: "Pyynnöt"
+    many: "%{count} aspects"
     move_contact: 
       error: "Virhe siirrettäessä kontaktia: %{inspect}"
       failure: "ei toiminut %{inspect}"
@@ -108,6 +104,8 @@ fi:
       nobody_in_aspect: "Näkymäsi, '%{aspect_name}', on tyhjä."
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Perhe"
       work: "Työ"
@@ -116,12 +114,18 @@ fi:
     update: 
       failure: "Antamasi näkymän nimi, %{name}, on liian pitkä."
       success: "Näkymäsi, %{name}, muokkaus onnistui."
+    zero: "no aspects"
   back: "Takaisin"
   cancel: "Peruuta"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Kommentoi"
       commenting: "Kommentoidaan..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Kontaktin luonti epäonnistui"
@@ -129,6 +133,7 @@ fi:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} kontaktia"
+    many: "%{count} contacts"
     one: "1 kontakti"
     other: "%{count} kontaktia"
     share_with_pane: 
@@ -137,6 +142,13 @@ fi:
       share_with: "Aloita jakamaan %{name} kanssa"
     zero: "ei kontakteja"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "tee uusi viesti"
       message_inbox: "Postilaatikko"
@@ -217,21 +229,19 @@ fi:
       logout: "kirjaudu ulos"
       view_profile: "profiili"
   more: "Lisää"
-  new_messages: "%{count} uutta viestiä"
-  new_notifications: "%{count} uutta ilmoitusta"
-  new_requests: 
-    few: "%{count} uutta pyyntöä!"
-    one: "uusi pyyntö!"
-    other: "%{count} uutta pyyntöä!"
-    zero: "ei uusia pyyntöjä"
   next: "seuraava"
-  no_new_messages: "Ei uusia viestejä"
-  no_new_notifications: "ei uusia ilmoituksia"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
     also_commented_deleted: "kommentoi poistettuun viestiin"
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
@@ -275,9 +285,6 @@ fi:
     thanks: "Kiitos,"
   ok: "OK"
   or: "tai"
-  pagination: 
-    next: "Seuraava"
-    previous: "Edellinen"
   password: "Salasana"
   password_confirmation: "Salasanan varmistus"
   people: 
@@ -403,6 +410,13 @@ fi:
       error: "Ole hyvä, valitse näkymä!"
       ignore: "Hylätty kontaktipyyntö."
       success: "Olette nyt ystäviä."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Olemassa olevat kontaktit"
       manage_within: "Muokkaa kontakteja näkymässä"
@@ -419,6 +433,7 @@ fi:
     finder: 
       friends: 
         few: "%{count} ystävää"
+        many: "%{count} friends"
         one: "1 ystävä"
         other: "%{count} ystävää"
         zero: "ei ystäviä"
@@ -496,18 +511,23 @@ fi:
   users: 
     destroy: "Käyttäjätilin sulkeminen onnistui."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Vaihda"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
       close_account: "Sulje käyttäjätili"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Nykyinen salasana"
       download_photos: "Lataa kaikki kuvat"
       download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"
-      email_notifications: "Sähköposti-ilmoitukset"
       export_data: "Vie tietoja"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Uusi salasana"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 

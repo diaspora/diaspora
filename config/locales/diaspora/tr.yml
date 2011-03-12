@@ -4,14 +4,7 @@
 
 
 tr: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Yorumlar"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Ev"
-  _more: "More"
   _photos: "fotoğraflar"
   _services: "Servisler"
   account: "Hesap"
@@ -76,9 +69,11 @@ tr:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Yan boş değil"
@@ -93,6 +88,7 @@ tr:
       manage_aspects: "Manage aspects"
       no_requests: "Yeni istek yok"
       requests: "İstekler"
+    many: "%{count} aspects"
     move_contact: 
       error: "Kontak taşıma problemi: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -108,6 +104,8 @@ tr:
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
       start_talking: "Kimse henüz birşey söylemedi. Sohbeti başlatın!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Aile"
       work: "İş"
@@ -116,12 +114,18 @@ tr:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Sizin yanınız, %{name}, başariyla düzeltildi."
+    zero: "no aspects"
   back: "Geri"
   cancel: "İptal Et"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Yorum"
       commenting: "Yorumlama..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ tr:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} kişi"
+    many: "%{count} contacts"
     one: "1 kişi"
     other: "%{count} kişi"
     share_with_pane: 
@@ -137,6 +142,13 @@ tr:
       share_with: "Start sharing with %{name}"
     zero: "kişi yok"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ tr:
       logout: "Çıkış"
       view_profile: "Profili görüntüle"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} new notifications"
-  new_requests: 
-    few: "%{count} yeni istek!"
-    one: "yeni istek!"
-    other: "%{count} yeni istek!"
-    zero: "yeni istek yok"
   next: "next"
-  no_new_messages: "no new messages"
-  no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ tr:
     thanks: "Thanks,"
   ok: "Tamam"
   or: "ya da"
-  pagination: 
-    next: "Next"
-    previous: "Previous"
   password: "Parola"
   password_confirmation: "Şifre doğrulama"
   people: 
@@ -403,6 +410,13 @@ tr:
       error: "Lutfen bir yan seçiniz!"
       ignore: "Arkadaş isteğini reddettiniz."
       success: "Siz şimdi arkadaşsınız."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
@@ -419,6 +433,7 @@ tr:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ tr:
   users: 
     destroy: "Hesap başarıyla kapatıldı"
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Change"
       change_language: "Dili Değiştir"
       change_password: "Şifremi Değiştir"
       close_account: "Hesabımı kapat"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "fotoğraflarımı kaydet"
       download_xml: "xml dosyamı kaydet"
       edit_account: "Edit account"
-      email_notifications: "Email notificaions"
       export_data: "Bilgilerimi Dışarı taşı"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Yeni Şifre"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "E-postan"
       your_handle: "Your diaspora handle"
     getting_started: 

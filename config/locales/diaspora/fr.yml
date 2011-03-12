@@ -4,14 +4,7 @@
 
 
 fr: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Commentaire"
-  _comments: "Commentaires"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Accueil"
-  _more: "Plus"
   _photos: "photos"
   _services: "Services"
   account: "Compte"
@@ -72,13 +65,15 @@ fr:
       success: "%{name} a été supprimé avec succès."
     edit: 
       add_existing: "Ajouter un contact existant"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "la liste d'aspect est masquée pour les autres membres de cet aspect"
+      aspect_list_is_visible: "la liste d'aspect est visible pour les autres membres de cet aspect"
       confirm_remove_aspect: "Voulez-vous vraiment supprimer cet aspect ?"
-      done: "Done"
+      done: "Terminé"
+      make_aspect_list_visible: "rendre la liste de l'aspect visible ?"
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
-      update: "update"
+      update: "mettre à jour"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
       aspect_not_empty: "L’aspect n’est pas vide"
@@ -93,6 +88,7 @@ fr:
       manage_aspects: "Gérer les aspects"
       no_requests: "Pas de nouvelle requête"
       requests: "Requêtes"
+    many: "%{count} aspects"
     move_contact: 
       error: "Erreur lors du déplacement du contact : %{inspect}"
       failure: "n'a pas fonctionné %{inspect}"
@@ -108,6 +104,8 @@ fr:
       nobody_in_aspect: "Votre aspect « %{aspect_name} » est vide."
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Famille"
       work: "Travail"
@@ -116,12 +114,18 @@ fr:
     update: 
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié avec succès."
+    zero: "aucun aspect"
   back: "Retour"
   cancel: "Annuler"
   comments: 
+    few: "%{count} commentaires"
+    many: "%{count} commentaires"
     new_comment: 
       comment: "Commenter"
       commenting: "Commentaire en cours d'envoi..."
+    one: "1 commentaire"
+    other: "%{count} commentaires"
+    zero: "aucun commentaire"
   contacts: 
     create: 
       failure: "Impossible de créer le contact"
@@ -129,6 +133,7 @@ fr:
       failure: "Impossible de se déconnecter de %{name}"
       success: "Vous êtes déconnecté(e) de %{name}"
     few: "%{count} contacts"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
@@ -137,6 +142,13 @@ fr:
       share_with: "Commencer à partager avec %{name}"
     zero: "aucun contact"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} nouveaux messages"
+        many: "%{count} nouveaux messages"
+        one: "1 nouveau message"
+        other: "%{count} nouveaux messages"
+        zero: "aucun nouveau message"
     index: 
       create_a_new_message: "créer un nouveau message"
       message_inbox: "Messages reçus"
@@ -149,7 +161,7 @@ fr:
       subject: "sujet"
       to: "pour"
     show: 
-      delete: "delete and block conversation"
+      delete: "supprimer et bloquer la conversation"
       reply: "répondre"
   date: 
     formats: 
@@ -217,21 +229,19 @@ fr:
       logout: "se déconnecter"
       view_profile: "voir le profil"
   more: "Plus"
-  new_messages: "%{count} nouveaux messages"
-  new_notifications: "%{count} nouvelle(s) notification(s)"
-  new_requests: 
-    few: "%{count} nouvelles requêtes !"
-    one: "nouvelle requête !"
-    other: "%{count} nouvelles requêtes !"
-    zero: "aucune nouvelle requête"
   next: "suivant"
-  no_new_messages: "aucun nouveau message"
-  no_new_notifications: "aucune nouvelle notification"
   notifications: 
     also_commented: "a/ont également commenté"
     also_commented_deleted: "a commenté un message supprimé"
     comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"
+    helper: 
+      new_notifications: 
+        few: "%{count} nouvelles notifications"
+        many: "%{count} nouvelles notifications"
+        one: "1 nouvelle notification"
+        other: "%{count} nouvelles notifications"
+        zero: "aucune nouvelle notification"
     index: 
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ fr:
     thanks: "Merci,"
   ok: "OK"
   or: "ou"
-  pagination: 
-    next: "Suivant"
-    previous: "Précédent"
   password: "Mot de passe"
   password_confirmation: "Confirmation du mot de passe"
   people: 
@@ -356,8 +363,8 @@ fr:
       notice: "La photo a été mise à jour avec succès."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Publications marquées avec #%{tag}"
+      whatup: "Quoi de neuf sur %{pod}"
   previous: "précédent"
   profile: "Profil"
   profiles: 
@@ -403,6 +410,13 @@ fr:
       error: "Veuillez sélectionner un aspect !"
       ignore: "Requête de contact ignorée."
       success: "Vous êtes à présent ami(e)s."
+    helper: 
+      new_requests: 
+        few: "%{count} nouvelles requêtes !"
+        many: "%{count} nouvelles requêtes !"
+        one: "nouvelle requête !"
+        other: "%{count} nouvelles requêtes !"
+        zero: "aucune nouvelle requête"
     manage_aspect_contacts: 
       existing: "Contacts existants"
       manage_within: "Gérer les contacts de"
@@ -419,6 +433,7 @@ fr:
     finder: 
       friends: 
         few: "%{count} amis"
+        many: "%{count} amis"
         one: "1 ami"
         other: "%{count} amis"
         zero: "aucun ami"
@@ -496,18 +511,23 @@ fr:
   users: 
     destroy: "Compte clôturé avec succès."
     edit: 
+      also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
       close_account: "Clôturer le compte"
+      comment_on_post: "…quelqu'un commente votre publication ?"
       current_password: "Mot de passe actuel"
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"
-      email_notifications: "Notifications par courrier électronique"
       export_data: "Exporter des données"
+      mentioned: "…vous êtes mentionné(e) dans une publication ?"
       new_password: "Nouveau mot de passe"
-      receive_email_notifications: "Recevoir des notifications par courrier électronique ?"
+      private_message: "…vous recevez un message privé ?"
+      receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
+      request_acceptence: "…votre demande de partage est acceptée ?"
+      request_received: "…vous recevez une nouvelle demande de partage ?"
       your_email: "Votre adresse électronique"
       your_handle: "Votre handle diaspora"
     getting_started: 

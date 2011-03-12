@@ -4,14 +4,7 @@
 
 
 lt: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Komentarai"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Pradžia"
-  _more: "More"
   _photos: "Nuotraukos"
   _services: "Paslaugos"
   account: "Paskyra"
@@ -76,9 +69,11 @@ lt:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspektas netuščias"
@@ -93,6 +88,7 @@ lt:
       manage_aspects: "Tvarkyti aspektus"
       no_requests: "Nėra naujų aspektų"
       requests: "Prašymai"
+    many: "%{count} aspects"
     move_contact: 
       error: "Klaida perkeliant kontaktą: %{inspect}"
       failure: "nepavyko %{inspect}"
@@ -108,6 +104,8 @@ lt:
       nobody_in_aspect: "Aspektas \"%{aspect_name}\" tuščias."
     no_posts_message: 
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Šeima"
       work: "Darbas"
@@ -116,12 +114,18 @@ lt:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
+    zero: "no aspects"
   back: "Atgal"
   cancel: "Atšaukti"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Komentuoti"
       commenting: "Siunčiamas komentaras..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ lt:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
@@ -137,6 +142,13 @@ lt:
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ lt:
       logout: "atsijungti"
       view_profile: "peržiūrėti profilį"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} new notifications"
-  new_requests: 
-    few: "%{count} nuove richieste!"
-    one: "nuova richiesta!"
-    other: "%{count} nuove richieste!"
-    zero: "nessuna nuova richiesta"
   next: "next"
-  no_new_messages: "no new messages"
-  no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ lt:
     thanks: "Thanks,"
   ok: "gerai"
   or: "arba"
-  pagination: 
-    next: "Next"
-    previous: "Previous"
   password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
   people: 
@@ -403,6 +410,13 @@ lt:
       error: "Pasirink aspektą!"
       ignore: "Ignoruotas prašymas draugauti."
       success: "Susidraugavai."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Egzistuojantys kontaktai"
       manage_within: "Valdyti kontaktus ties"
@@ -419,6 +433,7 @@ lt:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ lt:
   users: 
     destroy: "Paskyra uždaryta sėkmingai."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Change"
       change_language: "Keisti kalbą"
       change_password: "Keisti slaptažodį"
       close_account: "Uždaryti paskyrą"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "atsisiųsti mano nuotraukas"
       download_xml: "atsisiųsti mano duomenis xml formatu"
       edit_account: "Edit account"
-      email_notifications: "Email notificaions"
       export_data: "Eksportuoti duomenis"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Naujas slaptažodis"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Tavo el. pašto adresas"
       your_handle: "Tavo Diasporos vartotojo vardas"
     getting_started: 

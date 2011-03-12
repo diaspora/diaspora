@@ -5,16 +5,16 @@
 
 de: 
   javascripts: 
-    confirm_dialog: "Bist du sicher?"
-    search_for: "Suche nach {{name}}"
+    confirm_dialog: "Bist du dir sicher?"
+    search_for: "Nach {{name}} suchen"
     shared: 
       contact_list: 
-        cannot_remove: "Konnte die Person nicht vom letzten Aspekt entfernen. (Wenn du dich von dieser Person trennen willst, musst du diesen Kontakt entfernen.)"
+        cannot_remove: "Die Person kann vom letzten Aspekt nicht entfernt werden. (Wenn du dich von dieser Person trennen willst, musst du diesen Kontakt entfernen.)"
     timeago: 
-      day: "etwa einem Tag"
+      day: "einem Tag"
       days: "%d Tagen"
       hour: "etwa einer Stunde"
-      hours: "%d Stunden"
+      hours: "etwa %d Stunden"
       minute: "etwa einer Minute"
       minutes: "%d Minuten"
       month: "etwa einem Monat"
@@ -27,5 +27,5 @@ de:
       year: "etwa einem Jahr"
       years: "%d Jahren"
     videos: 
-      unknown: "Unbekanntes Video-Format."
-      watch: "Dieses Video auf {{provider}} ansehen."
+      unknown: "Unbekanntes Videoformat"
+      watch: "Dieses Video auf {{provider}} ansehen"

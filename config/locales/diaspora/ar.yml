@@ -4,14 +4,7 @@
 
 
 ar: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Comments"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Home"
-  _more: "More"
   _photos: "fotos"
   _services: "Servicios"
   account: "Cuenta"
@@ -76,9 +69,11 @@ ar:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "الجانب ليس فارغ"
@@ -93,6 +88,7 @@ ar:
       manage_aspects: "Manage aspects"
       no_requests: "No hay nuevas solicitudes"
       requests: "طلبات"
+    many: "%{count} aspects"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -108,6 +104,8 @@ ar:
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
       start_talking: "Nadie ha dicho nada todavía. ¡Empezá la conversación!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Family"
       work: "Work"
@@ -116,12 +114,18 @@ ar:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: ".بنجاح %{name} تم تعديل"
+    zero: "no aspects"
   back: "Back"
   cancel: "Cancelar"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "تعليق"
       commenting: "Commenting..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ ar:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
@@ -137,6 +142,13 @@ ar:
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ ar:
       logout: "logout"
       view_profile: "view profile"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} new notifications"
-  new_requests: 
-    few: "%{count} new requests!"
-    one: "new request!"
-    other: "%{count} new requests!"
-    zero: "no new requests"
   next: "next"
-  no_new_messages: "no new messages"
-  no_new_notifications: "no new notifications"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
@@ -275,9 +285,6 @@ ar:
     thanks: "Thanks,"
   ok: "OK"
   or: "or"
-  pagination: 
-    next: "Next"
-    previous: "Previous"
   password: "Password"
   password_confirmation: "Password confirmation"
   people: 
@@ -403,6 +410,13 @@ ar:
       error: "!الرجاء اختيار جانب"
       ignore: ". تجاهل طلب الصداقة"
       success: ".أنتم الآن أصدقاء"
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
@@ -419,6 +433,7 @@ ar:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ ar:
   users: 
     destroy: "Account successfully closed."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Change"
       change_language: "Change Language"
       change_password: "Cambiar Contraseña"
       close_account: "Cerrar Cuenta"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "descargar mis fotos"
       download_xml: "download my xml"
       edit_account: "Edit account"
-      email_notifications: "Email notificaions"
       export_data: "Exportar datos"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nueva Contraseña"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 

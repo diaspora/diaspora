@@ -4,14 +4,7 @@
 
 
 nl: 
-  _aspect: "Aspect"
-  _aspects: "Aspecten"
-  _comment: "Reageer"
-  _comments: "Reacties"
-  _contact: "Contact"
-  _contacts: "Contacten"
   _home: "Home"
-  _more: "Meer"
   _photos: "foto's"
   _services: "Services"
   account: "Account"
@@ -76,9 +69,11 @@ nl:
       aspect_list_is_visible: "contactlijst van aspect is zichtbaar voor anderen in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
       done: "Klaar"
+      make_aspect_list_visible: "maak aspect lijst zichtbaar voor anderen in aspect"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -93,6 +88,7 @@ nl:
       manage_aspects: "Beheer aspecten"
       no_requests: "Geen nieuwe verzoeken"
       requests: "Contactverzoeken"
+    many: "%{count} aspects"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
       failure: "werkte niet %{inspect}"
@@ -108,6 +104,8 @@ nl:
       nobody_in_aspect: "Je aspect '%{aspect_name}' is leeg."
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familie"
       work: "Werk"
@@ -116,12 +114,18 @@ nl:
     update: 
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
+    zero: "no aspects"
   back: "Terug"
   cancel: "Annuleren"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Verbinding maken mislukt"
@@ -129,6 +133,7 @@ nl:
       failure: "Verbinding met %{name} verbreken mislukt"
       success: "Verbinding met %{name} succesvol verbroken"
     few: "%{count} contacten"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacten"
     share_with_pane: 
@@ -137,6 +142,13 @@ nl:
       share_with: "Start delen met %{name}"
     zero: "geen contacten"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "maak een nieuw bericht"
       message_inbox: "Berichten Inbox"
@@ -217,21 +229,19 @@ nl:
       logout: "log uit"
       view_profile: "bekijk profiel"
   more: "Meer"
-  new_messages: "%{count} nieuwe berichten"
-  new_notifications: "%{count} nieuwe notificaties"
-  new_requests: 
-    few: "%{count} nieuwe verzoeken!"
-    one: "nieuw verzoek!"
-    other: "%{count} nieuwe verzoeken!"
-    zero: "geen nieuwe verzoeken"
   next: "volgende"
-  no_new_messages: "Geen nieuwe berichten"
-  no_new_notifications: "Geen nieuwe notificaties"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
     also_commented_deleted: "reageerde op een verwijderde post"
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderde"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
@@ -275,9 +285,6 @@ nl:
     thanks: "Bedankt,"
   ok: "OK"
   or: "of"
-  pagination: 
-    next: "Volgende"
-    previous: "Vorige"
   password: "Wachtwoord"
   password_confirmation: "Wachtwoordbevestiging"
   people: 
@@ -356,8 +363,8 @@ nl:
       notice: "Foto succesvol veranderd."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Posts getagged met #%{tag}"
+      whatup: "Nu op %{pod}"
   previous: "vorige"
   profile: "Profiel"
   profiles: 
@@ -403,6 +410,13 @@ nl:
       error: "Selecteer een aspect!"
       ignore: "Contactverzoek genegeerd."
       success: "Jullie zijn nu contacten."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Bestaande contacten"
       manage_within: "Beheer contacten in"
@@ -419,6 +433,7 @@ nl:
     finder: 
       friends: 
         few: "%{count} contacten"
+        many: "%{count} friends"
         one: "1 contact"
         other: "%{count} contacten"
         zero: "geen contacten"
@@ -496,18 +511,23 @@ nl:
   users: 
     destroy: "Account succesvol verwijderd."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Verander"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Huidig wachtwoord"
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
-      email_notifications: "E-mail notificaties"
       export_data: "Exporteer data"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nieuw wachtwoord"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "E-mail notificaties ontvangen?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora handle"
     getting_started: 

@@ -4,14 +4,7 @@
 
 
 el: 
-  _aspect: "Πτυχή"
-  _aspects: "Πτυχές"
-  _comment: "Σχόλιο"
-  _comments: "Σχόλια"
-  _contact: "Επαφή"
-  _contacts: "Επαφές"
   _home: "Αρχική"
-  _more: "Περισσότερα"
   _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"
   account: "Λογαριασμός"
@@ -76,9 +69,11 @@ el:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       done: "Done"
+      make_aspect_list_visible: "ορίστε τη λίστα πτυχών σας ορατή σε όλους στη πτυχή "
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -93,6 +88,7 @@ el:
       manage_aspects: "Διαχείρηση πτυχών"
       no_requests: "Κανένα νέο αίτημα"
       requests: "Αιτήματα"
+    many: "%{count} aspects"
     move_contact: 
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
       failure: "δεν λειτούργησε %{inspect}"
@@ -108,6 +104,8 @@ el:
       nobody_in_aspect: "Η πτυχή σας '%{aspect_name}' είναι κενή."
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Οικογένεια"
       work: "Εργασία"
@@ -116,12 +114,18 @@ el:
     update: 
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
+    zero: "no aspects"
   back: "Πίσω"
   cancel: "Ακύρωση"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Σχολιάστε"
       commenting: "Σχολιάζει..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
@@ -129,6 +133,7 @@ el:
       failure: "Αποτυχία αποσύνδεσης από τον/την %{name}"
       success: "Επιτυχία αποσύνδεσης από τον/την %{name}"
     few: "%{count} επαφές"
+    many: "%{count} contacts"
     one: "1 επαφή"
     other: "%{count} επαφές"
     share_with_pane: 
@@ -137,6 +142,13 @@ el:
       share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     zero: "καμία επαφή"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ el:
       logout: "αποσύνδεση"
       view_profile: "προβολή προφίλ"
   more: "Περισσότερα"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} νέες ειδοποιήσεις"
-  new_requests: 
-    few: "%{count} νέα αιτήματα!"
-    one: "νέο αίτημα!"
-    other: "%{count} νέα αιτήματα!"
-    zero: "δεν υπάρχουν νέα αιτήματα"
   next: "επόμενο"
-  no_new_messages: "no new messages"
-  no_new_notifications: "καμία νέα ειδοποίηση"
   notifications: 
     also_commented: "επίσης σχολίασε τη %{post_author}"
     also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
@@ -275,9 +285,6 @@ el:
     thanks: "Ευχαριστώ,"
   ok: "OK"
   or: "ή"
-  pagination: 
-    next: "Επόμενο"
-    previous: "Προηγούμενο"
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
   people: 
@@ -403,6 +410,13 @@ el:
       error: "Παρακαλώ επιλέξτε μια πτυχή!"
       ignore: "Αγνοήθηκε αίτηση επαφής."
       success: "Είστε πλέον φίλοι."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Υφιστάμενες επαφές"
       manage_within: "Διαχειριστείτε τις επαφές της πτυχής"
@@ -419,6 +433,7 @@ el:
     finder: 
       friends: 
         few: "%{count} φίλοι"
+        many: "%{count} friends"
         one: "1 φίλος"
         other: "%{count} φίλοι"
         zero: "κανένας φίλος"
@@ -496,18 +511,23 @@ el:
   users: 
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Αλλαγή"
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       close_account: "Κλείσιμο Λογαριασμού"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Τρέχων κωδικός πρόσβασης"
       download_photos: "κατέβασε τις φωτογραφίες μου"
       download_xml: "κατέβασε το xml μου"
       edit_account: "Επεξεργασία λογαριασμού"
-      email_notifications: "Ειδοποιήσεις ηλεκτρονικού ταχυδρομείου"
       export_data: "Εξαγωγή Δεδομένων"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Νέος κωδικός πρόσβασης"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο; "
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 

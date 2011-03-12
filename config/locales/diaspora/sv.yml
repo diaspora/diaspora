@@ -4,14 +4,7 @@
 
 
 sv: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Kommentarer"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Hem"
-  _more: "More"
   _photos: "foton"
   _services: "Tjänster"
   account: "Konto"
@@ -76,9 +69,11 @@ sv:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Är du säker på att du vill tabort den här sidan?"
       aspect_not_empty: "Sidan är inte tom"
@@ -93,6 +88,7 @@ sv:
       manage_aspects: "Hantera sidor"
       no_requests: "Inga nya förfrågningar"
       requests: "Kontaktförfrågningar"
+    many: "%{count} aspects"
     move_contact: 
       error: "Kunde inte flytta kontakt: %{inspect}"
       failure: "fungerade inte %{inspect}"
@@ -108,6 +104,8 @@ sv:
       nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
     no_posts_message: 
       start_talking: "Ingen har sagt något än. Bli först!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familj"
       work: "Arbete"
@@ -116,12 +114,18 @@ sv:
     update: 
       failure: "Din sida, %{name}, hade för långt namn för att kunna sparas."
       success: "Din sida %{name} är nu ändrad."
+    zero: "no aspects"
   back: "Tillbaka"
   cancel: "Avbryt"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Kommentar"
       commenting: "Kommenterar..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ sv:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} kontakter"
+    many: "%{count} contacts"
     one: "1 kontakt"
     other: "%{count} kontakter"
     share_with_pane: 
@@ -137,6 +142,13 @@ sv:
       share_with: "Start sharing with %{name}"
     zero: "inga kontakter"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ sv:
       logout: "logga ut"
       view_profile: "visa profil"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} nya notifieringar"
-  new_requests: 
-    few: "%{count} nya förfrågningar!"
-    one: "ny förfrågan!"
-    other: "%{count} nya förfrågningar!"
-    zero: "inga nya förfrågningar"
   next: "nästa"
-  no_new_messages: "no new messages"
-  no_new_notifications: "inga nya notifieringar"
   notifications: 
     also_commented: "kommenterade även din kontakts"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "kommenterade din"
     deleted: "borttaget"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifieringar"
@@ -275,9 +285,6 @@ sv:
     thanks: "Tack,"
   ok: "OK"
   or: "eller"
-  pagination: 
-    next: "Nästa"
-    previous: "Föregående"
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
   people: 
@@ -403,6 +410,13 @@ sv:
       error: "Var god välj en sida!"
       ignore: "Ignorerade kontaktförfrågan."
       success: "Kontakten är nu tillagd."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Befintliga kontakter"
       manage_within: "Hantera kontakter i "
@@ -419,6 +433,7 @@ sv:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ sv:
   users: 
     destroy: "Ditt konto är nu stängt."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Ändra"
       change_language: "Ändra språk"
       change_password: "Ändra lösenord"
       close_account: "Stäng kontot"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "Ladda ner mina foton"
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"
-      email_notifications: "E-post notifieringar"
       export_data: "Exportera data"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nytt lösenord"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Vill du få meddelande via e-post?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 

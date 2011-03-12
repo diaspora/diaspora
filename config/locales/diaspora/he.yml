@@ -4,14 +4,7 @@
 
 
 he: 
-  _aspect: "היבט"
-  _aspects: "היבטים"
-  _comment: "תגובה"
-  _comments: "תגובות"
-  _contact: "איש קשר"
-  _contacts: "אנשי קשר"
   _home: "בית"
-  _more: "המשך"
   _photos: "תמונות"
   _services: "שירותים"
   account: "חשבון"
@@ -76,9 +69,11 @@ he:
       aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
       confirm_remove_aspect: "האם אכן ברצונך למחוק את ההיבט?"
       done: "בוצע"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
       update: "עדכון"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
       aspect_not_empty: "ההיבט אינו ריק"
@@ -93,6 +88,7 @@ he:
       manage_aspects: "ניהול היבטים"
       no_requests: "אין בקשות חדשות"
       requests: "בקשות"
+    many: "%{count} aspects"
     move_contact: 
       error: "שגיאה בהעברת איש הקשר: %{inspect}"
       failure: "%{inspect} לא עבד"
@@ -108,6 +104,8 @@ he:
       nobody_in_aspect: "ההיבט שלך '%{aspect_name}' ריק."
     no_posts_message: 
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "משפחה"
       work: "עבודה"
@@ -116,12 +114,18 @@ he:
     update: 
       failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
+    zero: "no aspects"
   back: "חזרה"
   cancel: "ביטול"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "הערה"
       commenting: "נוספת הערה..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "אירע כשל ביצירת איש קשר"
@@ -129,6 +133,7 @@ he:
       failure: "אירע כשל בניתוק מאיש הקשר %{name}"
       success: "הניתוק מאיש הקשר %{name} הצליח"
     few: "%{count} אנשי קשר"
+    many: "%{count} contacts"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
     share_with_pane: 
@@ -137,6 +142,13 @@ he:
       share_with: "התחלת השיתוף עם %{name}"
     zero: "אין אנשי קשר"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "כתיבת הודעה חדשה"
       message_inbox: "תיבת הודעות נכנסות"
@@ -217,21 +229,19 @@ he:
       logout: "יציאה"
       view_profile: "צפייה בפרופיל"
   more: "המשך"
-  new_messages: "%{count} הודעות חדשות"
-  new_notifications: "%{count} התרעות חדשות"
-  new_requests: 
-    few: "%{count} בקשות חדשות!"
-    one: "בקשה חדשה!"
-    other: "%{count} בקשות חדשות!"
-    zero: "אין בקשות חדשות"
   next: "הבאה"
-  no_new_messages: "אין הודעות חדשות"
-  no_new_notifications: "אין התרעות חדשות"
   notifications: 
     also_commented: "גם כן הגיב/ה על הפריט של %{post_author}"
     also_commented_deleted: "הגיב/ה על רשומה שנמחקה"
     comment_on_post: "הגיב/ה על ה"
     deleted: "נמחקה"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
@@ -275,9 +285,6 @@ he:
     thanks: "רב תודות,"
   ok: "אישור"
   or: "או"
-  pagination: 
-    next: "הבא"
-    previous: "הקודם"
   password: "ססמה"
   password_confirmation: "אישור הססמה"
   people: 
@@ -403,6 +410,13 @@ he:
       error: "נא לבחור בהיבט!"
       ignore: "התעלמת מבקשת החברות."
       success: "אתם חברים כעת."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "אנשי הקשר הקיימים"
       manage_within: "ניהול אנשי קשר בתוך"
@@ -419,6 +433,7 @@ he:
     finder: 
       friends: 
         few: "%{count} חברים"
+        many: "%{count} friends"
         one: "חבר אחד"
         other: "%{count} חברים"
         zero: "אין חברים"
@@ -496,18 +511,23 @@ he:
   users: 
     destroy: "החשבון נסגר בהצלחה."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "שינוי"
       change_language: "החלפת השפה"
       change_password: "החלפת הססמה"
       close_account: "סגירת החשבון"
+      comment_on_post: "...someone comments on your post?"
       current_password: "הססמה הנוכחית"
       download_photos: "הורדת התמונות שלי"
       download_xml: "הורדת ה־xml שלי"
       edit_account: "עריכת החשבון"
-      email_notifications: "התרעות בדוא״ל"
       export_data: "יצוא הנתונים"
+      mentioned: "...you are mentioned in a post?"
       new_password: "ססמה חדשה"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "האם לקבל התרעות בדוא״ל?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 

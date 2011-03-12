@@ -4,14 +4,7 @@
 
 
 ga: 
-  _aspect: "Aspect"
-  _aspects: "Aspects"
-  _comment: "Comment"
-  _comments: "Nótaí tráchta"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Abhaile"
-  _more: "More"
   _photos: "pictíurí"
   _services: "Seirbhísí"
   account: "Cúntas"
@@ -76,9 +69,11 @@ ga:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Níl an gné folamh"
@@ -93,6 +88,7 @@ ga:
       manage_aspects: "Bhainistiú gné"
       no_requests: "Níl aon iarratas nua"
       requests: "Iarratais"
+    many: "%{count} aspects"
     move_contact: 
       error: "Earráid ag boga teagmháil: %{inspect}"
       failure: "níor d'eirigh le %{inspect}"
@@ -108,6 +104,8 @@ ga:
       nobody_in_aspect: "Tá do gné '%{aspect_name}' folamh."
     no_posts_message: 
       start_talking: "Níor deireadh aon rud fós. Cuir tús leis an comhrá!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Clann"
       work: "Oibre"
@@ -116,12 +114,18 @@ ga:
     update: 
       failure: "Bhí ainm ró-fhada ag do gné, %{name}."
       success: "D'eirigh le athrú do gné %{name}."
+    zero: "no aspects"
   back: "Ar ais"
   cancel: "Cealaigh"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Scríobh Nóta Tráchta"
       commenting: "Ag scríobh nóta tráchta"
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ ga:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} teagmháil"
+    many: "%{count} contacts"
     one: "teagmháil amháin"
     other: "%{count} teagmháil"
     share_with_pane: 
@@ -137,6 +142,13 @@ ga:
       share_with: "Start sharing with %{name}"
     zero: "níl aon teagmháila"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ ga:
       logout: "logáil amach"
       view_profile: "brathnaigh air próifíl"
   more: "More"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} fógraí nua"
-  new_requests: 
-    few: "%{count} iarratas nua!"
-    one: "iarratas nua!"
-    other: "%{count} iarratas nua!"
-    zero: "níl aon iarrata"
   next: "ar aghaidh"
-  no_new_messages: "no new messages"
-  no_new_notifications: "níl aon fógrái nua"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "scriosadh"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mark All as Read"
       notifications: "Fograí"
@@ -275,9 +285,6 @@ ga:
     thanks: "Gur raibh maith agat,"
   ok: "OK"
   or: "nó"
-  pagination: 
-    next: "Ar Aghaidh"
-    previous: "Roimhe"
   password: "Pasfhocal"
   password_confirmation: "Deimhniú pasfhocal"
   people: 
@@ -403,6 +410,13 @@ ga:
       error: "Pioc gné más é do thoill é!"
       ignore: "Neamhard déanta ar iarratas teagmháil"
       success: "Tá sibh cairde anois."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Teagmháillí eiseadh"
       manage_within: "Bainistiú teagmháilí istigh"
@@ -419,6 +433,7 @@ ga:
     finder: 
       friends: 
         few: "%{count} friends"
+        many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
         zero: "no friends"
@@ -496,18 +511,23 @@ ga:
   users: 
     destroy: "D'eirigh le dúna do cúntas"
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Athraigh"
       change_language: "Athraigh Teanga"
       change_password: "Athraigh Pasfhocal"
       close_account: "Dún Cúntas"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
       download_photos: "íoslódáil mo phictiúrí"
       download_xml: "íoslódáil mo xml"
       edit_account: "Athraigh cúntas"
-      email_notifications: "Fógraí ríomhphost"
       export_data: "Easpórtáil Sonraí"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Pasfhocal nua"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Fháil fógraí ríomhphost?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Do seola ríomhphost"
       your_handle: "Do hanla diaspora"
     getting_started: 

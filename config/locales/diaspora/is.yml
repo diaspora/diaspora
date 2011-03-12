@@ -4,14 +4,7 @@
 
 
 is: 
-  _aspect: "Ásýnd"
-  _aspects: "Ásýndir"
-  _comment: "Athugasemd"
-  _comments: "Athugasemdir"
-  _contact: "Tengiliður"
-  _contacts: "Tengiliðir"
   _home: "Forsíða"
-  _more: "Meira"
   _photos: "Myndir"
   _services: "Þjónusta"
   account: "Notandastillingar"
@@ -76,9 +69,11 @@ is:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       done: "Done"
+      make_aspect_list_visible: "gera þáttökulista ásýndar sýnilegan öðrum í ásýnd"
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"
       aspect_not_empty: "Ásýnd er ekki tóm"
@@ -93,6 +88,7 @@ is:
       manage_aspects: "Stjórna ásýndum"
       no_requests: "Engar nýjar beiðnir"
       requests: "Beiðnir"
+    many: "%{count} aspects"
     move_contact: 
       error: "Villa við að breyta tengiliði: %{inspect}"
       failure: "virkaði ekki %{inspect}"
@@ -108,6 +104,8 @@ is:
       nobody_in_aspect: "Ásýndin þín '%{aspect_name}' er auð."
     no_posts_message: 
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Fjölskylda"
       work: "Vinna"
@@ -116,12 +114,18 @@ is:
     update: 
       failure: "Ásýnd þín,%{nafn}, hefur of langt nafn til að geta verið vistuð."
       success: "Ásýnd þinni,% {nafn}, hefur verið breytt."
+    zero: "no aspects"
   back: "Til baka"
   cancel: "Hætta við"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Athugasemd"
       commenting: "Athugasemd gerð..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Ekki tókst að mynda tengsl"
@@ -129,6 +133,7 @@ is:
       failure: "Ekki tókst að aftengjast %{name}"
       success: "Tókst að aftengjast %{name}"
     few: "%{count} tengsl"
+    many: "%{count} contacts"
     one: "Ein tengsl"
     other: "%{count} tengsl"
     share_with_pane: 
@@ -137,6 +142,13 @@ is:
       share_with: "Byrja að deila með %{nafn}"
     zero: "Engin tengsl"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ is:
       logout: "Útskrá"
       view_profile: "skoða síðuna mína"
   more: "Meira"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} nýjar tilkynningar"
-  new_requests: 
-    few: "%{count} nýjar beiðnir!"
-    one: "nýjar beiðnir!"
-    other: "%{count} nýjar beiðnir!"
-    zero: "engar nýjar beiðnir"
   next: "næsta"
-  no_new_messages: "no new messages"
-  no_new_notifications: "engar nýjar tilkynningar"
   notifications: 
     also_commented: "gerðu einnig athugasemdir við "
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "gerði athugasemd við þitt"
     deleted: "eytt"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: "Tilkynningar"
@@ -275,9 +285,6 @@ is:
     thanks: "Takk,"
   ok: "OK"
   or: "eða"
-  pagination: 
-    next: "Næsta"
-    previous: "Fyrra"
   password: "Lykilorð"
   password_confirmation: "Staðfesting lykilorðs"
   people: 
@@ -403,6 +410,13 @@ is:
       error: "Þú þarft að velja ásýnd!"
       ignore: "Hundsaði vinabeiðni. "
       success: "Nú er vinátta á milli ykkar."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Núverandi tengiliðir"
       manage_within: "Umsjón tengiliða innan"
@@ -419,6 +433,7 @@ is:
     finder: 
       friends: 
         few: "%{count} vinir"
+        many: "%{count} friends"
         one: "1 vinur"
         other: "%{count} vinir"
         zero: "engir vinir"
@@ -496,18 +511,23 @@ is:
   users: 
     destroy: "Notandastillingar voru afskráðar."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Breyting"
       change_language: "Breyta um tungumál"
       change_password: "Breyta lykilorði"
       close_account: "Loka notendastillingum."
+      comment_on_post: "...someone comments on your post?"
       current_password: "Núverandi lykilorð"
       download_photos: "download my photos"
       download_xml: "download my xml"
       edit_account: "Breyta notandastillingum"
-      email_notifications: "Tilkynningar með tölvupósti"
       export_data: "Export Data"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nýtt lykilorð"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Fá tilkynningar í tölvupósti?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora netfangið þitt."
     getting_started: 

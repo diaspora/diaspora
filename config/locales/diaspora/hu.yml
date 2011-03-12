@@ -4,14 +4,7 @@
 
 
 hu: 
-  _aspect: "Csoport"
-  _aspects: "Csoportok"
-  _comment: "Hozzászólás"
-  _comments: "Hozzászólások"
-  _contact: "Kapcsolat"
-  _contacts: "Ismerősök"
   _home: "Kezdőlap"
-  _more: "Bővebben"
   _photos: "Képek"
   _services: "Szolgáltatások"
   account: "Felhasználói fiók"
@@ -76,9 +69,11 @@ hu:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
       done: "Done"
+      make_aspect_list_visible: "a csoporttagok láthassák egymást"
       remove_aspect: "Csoport törlése"
       rename: "átnevezés"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Biztos, hogy törlöd a csoportot?"
       aspect_not_empty: "A csoport nem üres"
@@ -93,6 +88,7 @@ hu:
       manage_aspects: "Csoportok kezelése"
       no_requests: "Nincs új felkérés"
       requests: "Felkérések"
+    many: "%{count} aspects"
     move_contact: 
       error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
       failure: "nem működött: %{inspect}"
@@ -108,6 +104,8 @@ hu:
       nobody_in_aspect: "A '%{aspect_name}' csoportod üres."
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Család"
       work: "Munka"
@@ -116,12 +114,18 @@ hu:
     update: 
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
+    zero: "no aspects"
   back: "Vissza"
   cancel: "Mégsem"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
@@ -129,6 +133,7 @@ hu:
       failure: "Sikertelen a kapcsolat megszakítása vele: %{name}"
       success: "Kapcsolat megszakítva vele: %{name}"
     few: "%{count} ismerős"
+    many: "%{count} contacts"
     one: "1 ismerős"
     other: "%{count} ismerős"
     share_with_pane: 
@@ -137,6 +142,13 @@ hu:
       share_with: "Megosztás indítása vele: %{name}"
     zero: "nincs ismerős"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ hu:
       logout: "kilépés"
       view_profile: "profil megtekintése"
   more: "Bővebben"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} új értesítés"
-  new_requests: 
-    few: "%{count} darab új felkérés!"
-    one: "új felkérés!"
-    other: "%{count} darab új felkérés!"
-    zero: "nincsenek új felkérések"
   next: "következő"
-  no_new_messages: "no new messages"
-  no_new_notifications: "nincs új értesítés"
   notifications: 
     also_commented: "hozzászólt még az övéhez is:"
     also_commented_deleted: "hozzászólt egy már törölt bejegyzéshez"
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
@@ -275,9 +285,6 @@ hu:
     thanks: "Köszi,"
   ok: "Rendben"
   or: "vagy"
-  pagination: 
-    next: "Következő"
-    previous: "Előző"
   password: "Jelszó"
   password_confirmation: "Jelszó megerősítése"
   people: 
@@ -403,6 +410,13 @@ hu:
       error: "Kérlek válassz egy csoportot!"
       ignore: "Elutasított kapcsolati felkérés."
       success: "Barátok lettek."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Meglévő kapcsolatok"
       manage_within: "Kapcsolatok kezelése"
@@ -419,6 +433,7 @@ hu:
     finder: 
       friends: 
         few: "%{count} barát"
+        many: "%{count} friends"
         one: "1 barát"
         other: "%{count} barát"
         zero: "itt nincs barátod"
@@ -496,18 +511,23 @@ hu:
   users: 
     destroy: "Fiók sikeresen lezárult."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Módosítás"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
       close_account: "Fiók bezárása"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Jelenlegi jelszó"
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
-      email_notifications: "E-mail értesítések"
       export_data: "Adatok exportálása"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Új jelszó"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Kérsz e-mail értesítéseket?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "E-mail címed"
       your_handle: "Diaspora felhasználóneved"
     getting_started: 

@@ -4,14 +4,7 @@
 
 
 es: 
-  _aspect: "Aspecto"
-  _aspects: "Aspectos"
-  _comment: "Comentario"
-  _comments: "Comentarios"
-  _contact: "Contacto"
-  _contacts: "Contactos"
   _home: "Inicio"
-  _more: "Más"
   _photos: "Fotos"
   _services: "Servicios"
   account: "Cuenta"
@@ -76,9 +69,11 @@ es:
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
       done: "Listo"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "¿Seguro que quieres eliminar este Aspecto?"
       aspect_not_empty: "El Aspecto no está vacío"
@@ -93,6 +88,7 @@ es:
       manage_aspects: "Gestionar Aspectos"
       no_requests: "No hay nuevas solicitudes"
       requests: "Solicitudes"
+    many: "%{count} aspects"
     move_contact: 
       error: "Error al mover el contacto: %{inspect}"
       failure: "error %{inspect}"
@@ -108,6 +104,8 @@ es:
       nobody_in_aspect: "El Aspecto '%{aspect_name}' está vacío."
     no_posts_message: 
       start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familia"
       work: "Trabajo"
@@ -116,12 +114,18 @@ es:
     update: 
       failure: "Tu Aspecto, %{name}, tiene un nombre demasiado largo para guardarlo."
       success: "Tu Aspecto, %{name}, fue editado correctamente."
+    zero: "no aspects"
   back: "Atrás"
   cancel: "Cancelar"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "No se pudo crear el contacto"
@@ -129,6 +133,7 @@ es:
       failure: "No se pudo desconectar de %{name}"
       success: "Se desconectó con éxito de %{name}"
     few: "%{count} contactos"
+    many: "%{count} contacts"
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
@@ -137,6 +142,13 @@ es:
       share_with: "Empezar a compartir con %{name}"
     zero: "no hay contactos"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "Crear un nuevo mensaje"
       message_inbox: "Bandeja de entrada"
@@ -217,21 +229,19 @@ es:
       logout: "Desconectarse"
       view_profile: "Ver Perfil"
   more: "Más"
-  new_messages: "%{count} nuevos mensajes"
-  new_notifications: "%{count} nueva/s notificacion/es"
-  new_requests: 
-    few: "¡%{count} nuevas notificaciones!"
-    one: "¡Nueva solicitud!"
-    other: "¡%{count} nuevas solicitudes!"
-    zero: "No hay nuevas solicitudes."
   next: "Siguiente"
-  no_new_messages: "No hay mensajes nuevos"
-  no_new_notifications: "No hay nuevas notificaciones"
   notifications: 
     also_commented: "también ha comentado en la publicación de %{post_author}"
     also_commented_deleted: "comentó en una publicación eliminada"
     comment_on_post: "escribió en tu"
     deleted: "eliminado"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
@@ -275,9 +285,6 @@ es:
     thanks: "Gracias,"
   ok: "OK"
   or: "o"
-  pagination: 
-    next: "Siguiente"
-    previous: "Anterior"
   password: "Contraseña"
   password_confirmation: "Confirmación de contraseña"
   people: 
@@ -356,8 +363,8 @@ es:
       notice: "Foto actualizada correctamente."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "La Publicación se ha etiquetado en #%{tag}"
+      whatup: "Que esta pasando en %{pod}"
   previous: "Anterior"
   profile: "Perfil"
   profiles: 
@@ -403,6 +410,13 @@ es:
       error: "¡Selecciona un Aspecto!"
       ignore: "Solicitud de contacto ignorada."
       success: "Ahora está conectado."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
       manage_within: "Gestiona los contactos en"
@@ -419,6 +433,7 @@ es:
     finder: 
       friends: 
         few: "%{count} amigos"
+        many: "%{count} friends"
         one: "1 amigo"
         other: "%{count} amigos"
         zero: "No hay amigos"
@@ -496,18 +511,23 @@ es:
   users: 
     destroy: "Cuenta cerrada con éxito."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Cambiar"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       close_account: "Cerrar cuenta"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Contraseña actual"
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi xml"
       edit_account: "Editar cuenta"
-      email_notifications: "Notificaciones de email"
       export_data: "Exportar datos"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nueva contraseña"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "¿Recibir notificaciones por email?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Tu dirección de email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 

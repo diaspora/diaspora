@@ -4,14 +4,7 @@
 
 
 ru: 
-  _aspect: "Аспект"
-  _aspects: "Аспекты"
-  _comment: "Комментарий"
-  _comments: "Коментарии"
-  _contact: "Контакт"
-  _contacts: "Контакты"
   _home: "Домашний"
-  _more: "Подробнее"
   _photos: "Фотографии"
   _services: "Сервисы"
   account: "Учётная запись"
@@ -76,9 +69,11 @@ ru:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
       done: "Done"
+      make_aspect_list_visible: "сделать список аспектов видным для других пользователей в аспекте"
       remove_aspect: "Удалить этот аспект"
       rename: "переименовать"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
@@ -93,6 +88,7 @@ ru:
       manage_aspects: "Управление аспектами"
       no_requests: "Новых запросов нет"
       requests: "Запросы"
+    many: "%{count} aspects"
     move_contact: 
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
@@ -108,6 +104,8 @@ ru:
       nobody_in_aspect: "Ваш аспект '%{aspect_name}' пуст."
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал.  Начать разговор!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Семья"
       work: "Работа"
@@ -116,12 +114,18 @@ ru:
     update: 
       failure: "ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Аспект, %{name}, отредактирован."
+    zero: "no aspects"
   back: "Назад"
   cancel: "Отмена"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Комментарий"
       commenting: "Комментирование ..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ ru:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} контактов"
+    many: "%{count} contacts"
     one: "1 контакт"
     other: "%{count} контактов"
     share_with_pane: 
@@ -137,6 +142,13 @@ ru:
       share_with: "Start sharing with %{name}"
     zero: "ни одного контакта"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ ru:
       logout: "выйти"
       view_profile: "просмотр профиля"
   more: "Подробнее"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} новых уведомлений"
-  new_requests: 
-    few: "%{count} новых запросов!"
-    one: "новый запрос!"
-    other: "%{count} новых запросов!"
-    zero: "новых запросов нет"
   next: "далее"
-  no_new_messages: "no new messages"
-  no_new_notifications: "новых уведомлений нет"
   notifications: 
     also_commented: "также прокомментировал"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "комментариев на "
     deleted: "удален"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
@@ -275,9 +285,6 @@ ru:
     thanks: "Спасибо,"
   ok: "Ок"
   or: "или"
-  pagination: 
-    next: "Следующая"
-    previous: "Предыдущая"
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people: 
@@ -403,6 +410,13 @@ ru:
       error: "Выберите аспект!"
       ignore: "Игнорированые запросы на дружбу."
       success: "Теперь вы друзья."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Существующие контакты"
       manage_within: "Управление контактами в"
@@ -419,6 +433,7 @@ ru:
     finder: 
       friends: 
         few: "%{count} друзей"
+        many: "%{count} friends"
         one: "1 друг"
         other: "%{count} друзей"
         zero: "нет друзей"
@@ -496,18 +511,23 @@ ru:
   users: 
     destroy: "Аккаунт закрыт."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Изменение"
       change_language: "Сменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть учётную запись"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Текущий пароль"
       download_photos: "Скачать мои изображения"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"
-      email_notifications: "Уведомления по электронной почте"
       export_data: "Экспорт информации"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Новый пароль"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Получили письмо уведомление?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Ваш адрес электронной почты"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 

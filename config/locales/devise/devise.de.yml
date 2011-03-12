@@ -31,21 +31,21 @@ de:
       invitation: 
         accept: "Einladung annehmen"
         ignore: "Wenn du die Einladung nicht annehmen willst, dann ignoriere diese E-Mail."
-        no_account_till: "Dein Konto wird nicht erstellt bis du dich über den Link registriert."
+        no_account_till: "Dein Konto wird erst erstellt, wenn du dich über den Link registrierst."
         subject: "Du wurdest zu Diaspora eingeladen!"
       inviters: 
-        accept_at: "%{url} teilzunehmen, du kannst die Einladung durch den Link unten annehmen."
-        has_invited_you: "%{name} hat dich eingeladen an Diaspora auf"
-        have_invited_you: "%{names} haben dich eingeladen an Diaspora auf"
+        accept_at: "%{url} teilzunehmen. Du kannst die Einladung durch den Link unten annehmen."
+        has_invited_you: "%{name} hat dich dazu eingeladen, bei Diaspora auf"
+        have_invited_you: "%{names} haben dich dazu eingeladen, bei Diaspora auf"
       reset_password_instructions: 
         change: "Mein Passwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
-        someone_requested: "Jemand hat einen Link angefordert um dein Passwort zu ändern und du kannst das durch den Link unten tun."
+        someone_requested: "Jemand hat einen Link angefordert, um dein Passwort zu ändern und du kannst das durch den Link unten tun."
         subject: "Zurücksetzen deines Passworts"
-        wont_change: "Dein Passwort bleibt unverändert bis du es über den Link änderst."
+        wont_change: "Dein Passwort bleibt unverändert, bis du es über den Link änderst."
       unlock_instructions: 
         account_locked: "Dein Konto wurde aufgrund zu vieler fehlgeschlagener Anmeldeversuche gesperrt."
-        click_to_unlock: "Folge dem unten aufgeführtem Link, um dein Konto zu entsperren:"
+        click_to_unlock: "Folge dem unten aufgeführten Link, um dein Konto zu entsperren:"
         subject: "Konto entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
@@ -54,13 +54,13 @@ de:
         change_password: "Mein Passwort ändern"
       new: 
         forgot_password: "Passwort vergessen?"
-        no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse.  Falls du auf eine Einladung wartest, dann geben wir dir eine sobald wie möglich."
+        no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse. Falls du auf eine Einladung wartest, dann geben wir dir eine sobald wie möglich"
         send_password_instructions: "Anleitung zum Zurücksetzen des Passworts anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Passwort zurücksetzt."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     registrations: 
-      destroyed: "Tschüss! Dein Konto wurde erfolgreich geschlossen. Wir hoffen dich bald wiederzusehen."
-      signed_up: "Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail gesendet."
+      destroyed: "Tschüss! Dein Konto wurde erfolgreich geschlossen. Wir hoffen, dich bald wiederzusehen."
+      signed_up: "Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail zugesandt."
       updated: "Dein Konto wurde aktualisiert."
     sessions: 
       new: 

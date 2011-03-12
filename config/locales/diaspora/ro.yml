@@ -4,14 +4,7 @@
 
 
 ro: 
-  _aspect: "Aspect"
-  _aspects: "Aspecte"
-  _comment: "Comentariu"
-  _comments: "Comentarii"
-  _contact: "Contact"
-  _contacts: "Contacts"
   _home: "Acasă"
-  _more: "Mai mult"
   _photos: "Fotografii"
   _services: "Servicii"
   account: "Cont"
@@ -76,9 +69,11 @@ ro:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Eşti sigur că doreşti să ştergi acest aspect?"
       done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Eşti sigur că doreşti să ştergi acest aspect?"
       aspect_not_empty: "Aspectul nu este gol"
@@ -93,6 +88,7 @@ ro:
       manage_aspects: "Gestionează aspectele"
       no_requests: "Nici o cerere nouă"
       requests: "Cereri"
+    many: "%{count} aspects"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -108,6 +104,8 @@ ro:
       nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
       start_talking: "Nimeni nu a spus nimic deocamdată. Începe tu o conversaţie!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familie"
       work: "Lucru"
@@ -116,12 +114,18 @@ ro:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspectul, %{name}, a fost editat cu succes."
+    zero: "no aspects"
   back: "Înapoi"
   cancel: "Anulează"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Comentariu"
       commenting: "Comentând..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ ro:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} contacts"
+    many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacte"
     share_with_pane: 
@@ -137,6 +142,13 @@ ro:
       share_with: "Start sharing with %{name}"
     zero: "nici un contact"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -217,21 +229,19 @@ ro:
       logout: "Ieşire"
       view_profile: "Profilul meu"
   more: "Mai mult"
-  new_messages: "%{count} new messages"
-  new_notifications: "%{count} notificări noi"
-  new_requests: 
-    few: "%{count} noi cereri!"
-    one: "nouă cerere!"
-    other: "%{count} noi cereri!"
-    zero: "nici o cerere nouă"
   next: "următorul"
-  no_new_messages: "no new messages"
-  no_new_notifications: "nu sunt notificări noi"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "commented on your"
     deleted: "eliminat"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Marchează-le pe toate ca citite"
       notifications: "Notificări"
@@ -275,9 +285,6 @@ ro:
     thanks: "Mulţumim,"
   ok: "OK"
   or: "sau"
-  pagination: 
-    next: "Următorul"
-    previous: "Anterior"
   password: "Parola"
   password_confirmation: "Confirmă parola"
   people: 
@@ -403,6 +410,13 @@ ro:
       error: "Vă rugăm să selectaţi un aspect!"
       ignore: "Ignorează cererea de contact."
       success: "Sunteţi acum prieteni."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Contactele existente"
       manage_within: "Manage contacts within"
@@ -419,6 +433,7 @@ ro:
     finder: 
       friends: 
         few: "%{count} prieteni"
+        many: "%{count} friends"
         one: "1 prieten"
         other: "%{count} prieteni"
         zero: "nici un prieten"
@@ -496,18 +511,23 @@ ro:
   users: 
     destroy: "Contul a fost închis cu succes."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Modifică"
       change_language: "Modificare limbă"
       change_password: "Modificare parolă"
       close_account: "Închide cont"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"
       download_xml: "descarcă datele mele (xml)"
       edit_account: "Edit account"
-      email_notifications: "Email notificaions"
       export_data: "Exportare de date"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Parolă nouă"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tau pe Diaspora"
     getting_started: 

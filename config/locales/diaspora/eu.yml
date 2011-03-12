@@ -4,14 +4,7 @@
 
 
 eu: 
-  _aspect: "Alderdia"
-  _aspects: "Alderdiak"
-  _comment: "Iruzkindu"
-  _comments: "Iruzkinak"
-  _contact: "Adiskidea"
-  _contacts: "Adiskideak"
   _home: "Hasiera"
-  _more: "Gehiago"
   _photos: "argazkiak"
   _services: "Zerbitzuak"
   account: "Kontua"
@@ -76,9 +69,11 @@ eu:
       aspect_list_is_visible: "alderdiaren zerrenda ikusgarria da aldediko besteengandik"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       done: "Egina"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
       update: "eguneratu"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Alderdi ez hutsa"
@@ -93,6 +88,7 @@ eu:
       manage_aspects: "Alderdiak kudeatu"
       no_requests: "Ez duzu eskaera berririk"
       requests: "Eskaerak"
+    many: "%{count} aspects"
     move_contact: 
       error: "Huts adiskidea mugitzean: %{inspect}"
       failure: "huts egin du %{inspect}"
@@ -108,6 +104,8 @@ eu:
       nobody_in_aspect: "Zure alderdi '%{aspect_name}' hutsik dago."
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familia"
       work: "Lantokia"
@@ -116,12 +114,18 @@ eu:
     update: 
       failure: "Zure alderdiak, %{name}(e)k, izen luzeegia du."
       success: "Zure alderdia, %{name}, eraldatua izan da."
+    zero: "no aspects"
   back: "Atzera"
   cancel: "Ezeztatu"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Iruzkindu"
       commenting: "Iruzkintzen..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Akatsa adiskide berria sortzean"
@@ -129,6 +133,7 @@ eu:
       failure: "Akatsa %{name} ezabatzean"
       success: "Arrakastaz ezabatu duzu %{name} adiskide zerrendatik"
     few: "%{count} adiskide"
+    many: "%{count} contacts"
     one: "adiskide 1"
     other: "%{count} adiskide"
     share_with_pane: 
@@ -137,6 +142,13 @@ eu:
       share_with: "%{name}(r)ekin harremanetan hasi"
     zero: "adiskiderik ez"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "mezu berria sortu"
       message_inbox: "Sarrera-ontzia"
@@ -217,21 +229,19 @@ eu:
       logout: "irten"
       view_profile: "profila ikusi"
   more: "Gehiago"
-  new_messages: "%{count} mezu berri"
-  new_notifications: "%{count} jakinarazpen berri"
-  new_requests: 
-    few: "%{count} eskaera berri!"
-    one: "eskaera berria!"
-    other: "%{count} eskaera berri!"
-    zero: "eskaera berririk ez"
   next: "hurrengoa"
-  no_new_messages: "mezu berririk ez"
-  no_new_notifications: "jakinarazpen berririk ez dago"
   notifications: 
     also_commented: "iruzkindua baita zure kontaktuaren"
     also_commented_deleted: "mezu ezabatu bat iruzkindu du"
     comment_on_post: "iruzkindua zure"
     deleted: "ezabatuta"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
@@ -275,9 +285,6 @@ eu:
     thanks: "Milesker,"
   ok: "Onartu"
   or: "edo"
-  pagination: 
-    next: "Hurrengoa"
-    previous: "Aurrekoa"
   password: "Pasahitza"
   password_confirmation: "Pasahitz baieztapena"
   people: 
@@ -403,6 +410,13 @@ eu:
       error: "Alderdi bat aukeratu, mesedez!"
       ignore: "Adiskide eskaera baztertua."
       success: "Orain adiskideak zarete."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Adiskideak"
       manage_within: "Adiskideak kudeatu hemen:"
@@ -419,6 +433,7 @@ eu:
     finder: 
       friends: 
         few: "%{count} adiskide"
+        many: "%{count} friends"
         one: "adiskide 1"
         other: "%{count} adiskide"
         zero: "adiskiderik ez"
@@ -496,18 +511,23 @@ eu:
   users: 
     destroy: "Kontua arrakastaz ezabatua."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Aldatu"
       change_language: "Hizkuntza Aldatu"
       change_password: "Pasahitza aldatu"
       close_account: "Kontua Ezabatu"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Oraingo pasahitza"
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
-      email_notifications: "E-posta bidezko jakinarazpenak"
       export_data: "Datuak esportatu"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Pasahitz Berria"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora erabiltzailea"
     getting_started: 

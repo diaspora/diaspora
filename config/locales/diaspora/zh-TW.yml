@@ -4,14 +4,7 @@
 
 
 zh-TW: 
-  _aspect: "個面向"
-  _aspects: "個面向"
-  _comment: "意見"
-  _comments: "意見"
-  _contact: "聯繫"
-  _contacts: "聯繫"
   _home: "首頁"
-  _more: "更多"
   _photos: "相片"
   _services: "服務"
   account: "帳號"
@@ -76,9 +69,11 @@ zh-TW:
       aspect_list_is_visible: "面向中的其他人可看到他/她被加入"
       confirm_remove_aspect: "你確定要刪除這個面向?"
       done: "完成"
+      make_aspect_list_visible: "讓大家可以看見面向裡的人?"
       remove_aspect: "刪除這個面向"
       rename: "改名"
       update: "更新"
+    few: "%{count} 個面向"
     helper: 
       are_you_sure: "你確定要刪除這個面向?"
       aspect_not_empty: "面向不是空的"
@@ -93,6 +88,7 @@ zh-TW:
       manage_aspects: "面向管理"
       no_requests: "沒有新要求"
       requests: "請求"
+    many: "%{count} 個面向"
     move_contact: 
       error: "聯繫移動錯誤: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -108,6 +104,8 @@ zh-TW:
       nobody_in_aspect: "你的面向 '%{aspect_name}' 是空的."
     no_posts_message: 
       start_talking: "還沒人說話. 你來起個頭吧!"
+    one: "一個面向"
+    other: "%{count} 個面向"
     seed: 
       family: "家庭"
       work: "工作"
@@ -116,12 +114,18 @@ zh-TW:
     update: 
       failure: "你的面向 %{name} 因名稱太長了無法儲存."
       success: "你的面向 %{name} 已編輯完成."
+    zero: "沒有面向"
   back: "後退"
   cancel: "取消"
   comments: 
+    few: "%{count} 則回應"
+    many: "%{count} 則回應"
     new_comment: 
       comment: "發表意見"
       commenting: "意見發表中..."
+    one: "一則回應"
+    other: "%{count} 則回應"
+    zero: "沒有回應"
   contacts: 
     create: 
       failure: "建立聯繫失敗"
@@ -129,6 +133,7 @@ zh-TW:
       failure: "跟 %{name} 切斷聯繫失敗"
       success: "成功切斷與 %{name} 的聯繫"
     few: "%{count} 個聯繫"
+    many: "%{count} 個聯繫"
     one: "一個聯繫"
     other: "%{count} 個聯繫"
     share_with_pane: 
@@ -137,6 +142,13 @@ zh-TW:
       share_with: "開始跟 %{name} 分享"
     zero: "沒有任何聯繫"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} 則新訊息"
+        many: "%{count} 則新訊息"
+        one: "一則新訊息"
+        other: "%{count} 則新訊息"
+        zero: "沒有新訊息"
     index: 
       create_a_new_message: "編寫新訊息"
       message_inbox: "訊息信箱"
@@ -217,21 +229,19 @@ zh-TW:
       logout: "登出"
       view_profile: "檢視個人檔案"
   more: "更多"
-  new_messages: "%{count} 則新訊息"
-  new_notifications: "%{count} 則新消息"
-  new_requests: 
-    few: "%{count} 個新請求!"
-    one: "新的請求!"
-    other: "%{count} 個新請求!"
-    zero: "沒有新請求"
   next: "後面"
-  no_new_messages: "沒有新訊息"
-  no_new_notifications: "沒有新消息"
   notifications: 
     also_commented: "也在別處發表了意見, 在 %{post_author} 的"
     also_commented_deleted: "對一則已刪除的貼文發表意見"
     comment_on_post: "發表了意見, 在你的"
     deleted: "已刪除"
+    helper: 
+      new_notifications: 
+        few: "%{count} 個新消息"
+        many: "%{count} 個新消息"
+        one: "一個新消息"
+        other: "%{count} 個新消息"
+        zero: "沒有新消息"
     index: 
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
@@ -264,7 +274,7 @@ zh-TW:
       message_subject: "主旨: %{subject}"
       private_message: "已傳送私人訊息給你:"
       sign_in: "登入來看看."
-      subject: "%{name} 已在 Diaspora* 傳送私人訊息給你"
+      subject: "%{name} 在 Diaspora* 傳送私人訊息給你"
     request_accepted: 
       accepted: "已接受了跟你聯繫的請求!"
       sign_in: "由此登入"
@@ -275,9 +285,6 @@ zh-TW:
     thanks: "謝謝,"
   ok: "好了"
   or: "或是"
-  pagination: 
-    next: "下一頁"
-    previous: "上一頁"
   password: "密碼"
   password_confirmation: "密碼確認"
   people: 
@@ -356,8 +363,8 @@ zh-TW:
       notice: "相片更新成功."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "標記為#%{tag}的貼文"
+      whatup: "%{pod}的新鮮事"
   previous: "前面"
   profile: "個人檔案"
   profiles: 
@@ -403,6 +410,13 @@ zh-TW:
       error: "請選一個面向!"
       ignore: "忽略建立聯繫的請求."
       success: "你們現在是朋友了."
+    helper: 
+      new_requests: 
+        few: "%{count} 個新請求!"
+        many: "%{count} 個新請求!"
+        one: "新的請求!"
+        other: "%{count} 個新請求!"
+        zero: "沒有新請求"
     manage_aspect_contacts: 
       existing: "聯繫編輯"
       manage_within: "管理聯繫:"
@@ -419,6 +433,7 @@ zh-TW:
     finder: 
       friends: 
         few: "%{count} 個朋友"
+        many: "%{count} 個朋友"
         one: "一個朋友"
         other: "%{count} 個朋友"
         zero: "沒有朋友"
@@ -496,18 +511,23 @@ zh-TW:
   users: 
     destroy: "帳號關閉成功."
     edit: 
+      also_commented: "...當有人也對你的聯繫的貼文發表意見時?"
       change: "更改"
       change_language: "更改語言"
       change_password: "更改密碼"
       close_account: "關閉帳號"
+      comment_on_post: "...當有人對你的貼文發表意見時?"
       current_password: "目前密碼"
       download_photos: "下載我的相片"
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
-      email_notifications: "電郵通知"
       export_data: "資料匯出"
+      mentioned: "...當貼文中有提到你時?"
       new_password: "新的密碼"
-      receive_email_notifications: "要透過電子郵件接收消息?"
+      private_message: "...當你收到私人訊息時?"
+      receive_email_notifications: "要在以下時機透過電子郵件接收消息..."
+      request_acceptence: "...當你想跟人分享的請求被接受時?"
+      request_received: "...當你收到有人想跟你分享的新請求時?"
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 

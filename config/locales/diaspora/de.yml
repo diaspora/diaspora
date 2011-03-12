@@ -4,14 +4,7 @@
 
 
 de: 
-  _aspect: "Aspekt"
-  _aspects: "Aspekte"
-  _comment: "Kommentar"
-  _comments: "Kommentare"
-  _contact: "Kontakt"
-  _contacts: "Kontakte"
   _home: "Startseite"
-  _more: "Mehr"
   _photos: "Fotos"
   _services: "Dienste"
   account: "Konto"
@@ -72,13 +65,15 @@ de:
       success: "%{name} wurde erfolgreich entfernt."
     edit: 
       add_existing: "Ein bereits bestehendes Konto hinzufügen"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "Die Aspektliste wird vor anderen im Aspekt versteckt"
+      aspect_list_is_visible: "Die Aspektliste ist für andere im Aspekt sichtbar"
       confirm_remove_aspect: "Bist du dir sicher, dass du diesen Aspekt löschen möchtest?"
-      done: "Done"
+      done: "Fertig"
+      make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
-      update: "update"
+      update: "Aktualisieren"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
       aspect_not_empty: "Aspekt ist nicht leer"
@@ -93,6 +88,7 @@ de:
       manage_aspects: "Aspekte verwalten"
       no_requests: "Keine neuen Anfragen"
       requests: "Anfragen"
+    many: "%{count} aspects"
     move_contact: 
       error: "Fehler beim Verschieben des Kontakts: %{inspect}"
       failure: "hat nicht funktioniert: %{inspect}"
@@ -108,6 +104,8 @@ de:
       nobody_in_aspect: "‚%{aspect_name}‘ ist leer."
     no_posts_message: 
       start_talking: "Niemand hat bisher etwas gesagt. Fange eine Unterhaltung an!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Familie"
       work: "Arbeit"
@@ -116,12 +114,18 @@ de:
     update: 
       failure: "%{name} ist ein zu langer Name um gespeichert zu werden."
       success: "Aspekt %{name} erfolgreich bearbeitet."
+    zero: "no aspects"
   back: "Zurück"
   cancel: "Abbrechen"
   comments: 
+    few: "%{count} Kommentare"
+    many: "%{count} Kommentare"
     new_comment: 
       comment: "Kommentieren"
       commenting: "Kommentieren …"
+    one: "Ein Kommentar"
+    other: "%{count} Kommentare"
+    zero: "%{count} Kommentare"
   contacts: 
     create: 
       failure: "Konnte Kontakt nicht erstellen"
@@ -129,6 +133,7 @@ de:
       failure: "Konnte nicht von %{name} trennen"
       success: "Erfolgreich von %{name} getrennt"
     few: "%{count} Kontakte"
+    many: "%{count} contacts"
     one: "1 Kontakt"
     other: "%{count} Kontakte"
     share_with_pane: 
@@ -137,6 +142,13 @@ de:
       share_with: "Beginne Inhalte mit %{name} zu teilen"
     zero: "Keine Kontakte"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} neue Nachrichten"
+        many: "%{count} neue Nachrichten"
+        one: "Eine neue Nachricht"
+        other: "%{count} neue Nachrichten"
+        zero: "Keine neuen Nachrichten"
     index: 
       create_a_new_message: "Erstelle neue Nachricht"
       message_inbox: "Message Inbox"
@@ -149,7 +161,7 @@ de:
       subject: "Betreff"
       to: "An"
     show: 
-      delete: "delete and block conversation"
+      delete: "Diese Konversation löschen und blockieren"
       reply: "Antworten"
   date: 
     formats: 
@@ -217,26 +229,24 @@ de:
       logout: "Abmelden"
       view_profile: "Profil ansehen"
   more: "Mehr"
-  new_messages: "%{count} neue Nachrichten"
-  new_notifications: "%{count} neue Benachrichtigungen"
-  new_requests: 
-    few: "%{count} neue Anfragen!"
-    one: "Neue Anfrage!"
-    other: "%{count} neue Anfragen!"
-    zero: "keine neuen Anfragen"
   next: "Nächste"
-  no_new_messages: "keine neue Nachrichten"
-  no_new_notifications: "Keine neuen Benachrichtigungen"
   notifications: 
-    also_commented: "kommentierte auch %{post_author}'s"
+    also_commented: "kommentierte auch %{post_author}s"
     also_commented_deleted: "kommentierte einen gelöschten Beitrag"
     comment_on_post: "kommentierte Deinen"
     deleted: "gelöschten"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Markiere alle als gelesen"
       notifications: "Benachrichtigungen"
     mentioned: "hat dich erwähnt in "
-    new_request: "hat angeboten, mit dir zu teilen."
+    new_request: "hat angeboten mit dir zu teilen."
     post: "Beitrag"
     request_accepted: "hat deine Teilen-Anfrage angenommen."
   notifier: 
@@ -275,9 +285,6 @@ de:
     thanks: "Danke,"
   ok: "OK"
   or: "oder"
-  pagination: 
-    next: "Nächste"
-    previous: "Vorherige"
   password: "Passwort"
   password_confirmation: "Passwort-Bestätigung"
   people: 
@@ -356,8 +363,8 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Posts, die mit #%{tag} getaggt sind"
+      whatup: "Was auf %{pod} passiert"
   previous: "Vorherige"
   profile: "Profil"
   profiles: 
@@ -403,6 +410,13 @@ de:
       error: "Bitte wähle einen Aspekt!"
       ignore: "Kontaktanfrage ignoriert."
       success: "Ihr seid jetzt verbunden."
+    helper: 
+      new_requests: 
+        few: "%{count} neue Anfragen!"
+        many: "%{count} neue Anfragen!"
+        one: "Neue Anfrage!"
+        other: "%{count} neue Anfragen!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Existierende Kontakte"
       manage_within: "Kontakte verwalten in"
@@ -419,6 +433,7 @@ de:
     finder: 
       friends: 
         few: "%{count} Freunde"
+        many: "%{count} friends"
         one: "Ein Freund"
         other: "%{count} Freunde"
         zero: "Keine Freunde"
@@ -496,18 +511,23 @@ de:
   users: 
     destroy: "Konto erfolgreich geschlossen."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto schließen"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Derzeitiges Passwort"
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Meine Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
-      email_notifications: "E-Mail-Benachrichtigungen"
       export_data: "Daten exportieren"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Neues Passwort"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora* Adresse"
     getting_started: 

@@ -4,14 +4,7 @@
 
 
 sk: 
-  _aspect: "Aspekt"
-  _aspects: "Aspekty"
-  _comment: "Komentár"
-  _comments: "Komentáre"
-  _contact: "Kontakt"
-  _contacts: "Kontakty"
   _home: "Domov"
-  _more: "Viac"
   _photos: "Fotky"
   _services: "Služby"
   account: "Účet"
@@ -75,10 +68,12 @@ sk:
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Ste si istý, že chcete zmazať tento aspekt?"
-      done: "Done"
+      done: "Hotovo"
+      make_aspect_list_visible: "Zviditeľniť zoznam aspektov ostatným"
       remove_aspect: "Zmazať tento aspekt"
       rename: "premenovať"
-      update: "update"
+      update: "aktualizovať"
+    few: "%{count} aspects"
     helper: 
       are_you_sure: "Ste si istý, že chcete zmazať tento aspekt?"
       aspect_not_empty: "Aspekt nie je prázdny"
@@ -93,6 +88,7 @@ sk:
       manage_aspects: "Spravovať aspekty"
       no_requests: "Žiadne nové žiadosti"
       requests: "Žiadosti"
+    many: "%{count} aspects"
     move_contact: 
       error: "Chyba pri presúvaní kontaktu: %{inspect}"
       failure: "nepracuje %{inspect}"
@@ -108,6 +104,8 @@ sk:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdny."
     no_posts_message: 
       start_talking: "Nikto nič nevraví. Začnite Vy!"
+    one: "1 aspect"
+    other: "%{count} aspects"
     seed: 
       family: "Rodina"
       work: "Práca"
@@ -116,12 +114,18 @@ sk:
     update: 
       failure: "Váš aspekt, %{name}, má príliš dlhý názov."
       success: "Váš aspekt, %{name}, bol úspešne upravený."
+    zero: "no aspects"
   back: "Späť"
   cancel: "Zrušiť"
   comments: 
+    few: "%{count} comments"
+    many: "%{count} comments"
     new_comment: 
       comment: "Komentár"
       commenting: "Komentuje..."
+    one: "1 comment"
+    other: "%{count} comments"
+    zero: "no comments"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -129,6 +133,7 @@ sk:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "kontakty (%{count})"
+    many: "%{count} contacts"
     one: "1 kontakt"
     other: "kontakty (%{count})"
     share_with_pane: 
@@ -137,6 +142,13 @@ sk:
       share_with: "Start sharing with %{name}"
     zero: "žiadne kontakty"
   conversations: 
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
     index: 
       create_a_new_message: "vytvoriť novú správu"
       message_inbox: "Message Inbox"
@@ -145,11 +157,11 @@ sk:
       no_messages: "žiadne správy"
     new: 
       no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      send: "Poslať"
+      subject: "predmet"
+      to: "komu"
     show: 
-      delete: "delete and block conversation"
+      delete: "odstrániť a blokovať konverzáciu"
       reply: "reply"
   date: 
     formats: 
@@ -217,21 +229,19 @@ sk:
       logout: "odhlásiť sa"
       view_profile: "pozrieť profil"
   more: "Viac"
-  new_messages: "%{count} new messages"
-  new_notifications: "Počet nových notifikácií %{count} "
-  new_requests: 
-    few: "Počet nových žiadostí : (%{count})"
-    one: "nová žiadosť!"
-    other: "Počet nových žiadostí : (%{count})!"
-    zero: "žiadne nové žiadosti"
   next: "ďalej"
-  no_new_messages: "no new messages"
-  no_new_notifications: "žiadne nové notifikácie"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "komentoval Váš"
     deleted: "zmazané"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
     index: 
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
@@ -261,8 +271,8 @@ sk:
       subject: "Nová žiadosť o kontakt od %{from}"
       try_it_out: "Mali by ste to skontrolovať."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
+      message_subject: "Predmet: %{subject}"
+      private_message: "ti poslal súkromnú správu:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
@@ -275,9 +285,6 @@ sk:
     thanks: "Vďaka,"
   ok: "OK"
   or: "alebo"
-  pagination: 
-    next: "Ďalej"
-    previous: "Predchádzajúce"
   password: "Heslo"
   password_confirmation: "Potvrdenie hesla"
   people: 
@@ -308,7 +315,7 @@ sk:
     show: 
       does_not_exist: "Osoba neexistuje!"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
-      message: "Message"
+      message: "Správa"
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
       recent_posts: "Posledné príspevky"
@@ -357,7 +364,7 @@ sk:
   posts: 
     index: 
       posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      whatup: "Čo sa deje na  %{pod}"
   previous: "Predchádzajúce"
   profile: "Profil"
   profiles: 
@@ -403,6 +410,13 @@ sk:
       error: "Vyberte prosím aspekt!"
       ignore: "Ignorované žiadosti."
       success: "Teraz ste priatelia."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
     manage_aspect_contacts: 
       existing: "Existujúce kontakty"
       manage_within: "Spravovať kontakty v rámci"
@@ -419,6 +433,7 @@ sk:
     finder: 
       friends: 
         few: "Počet priateľov %{count}"
+        many: "%{count} friends"
         one: "1 priateľ"
         other: "Počet priateľov : %{count} "
         zero: "žiadni priatelia"
@@ -496,18 +511,23 @@ sk:
   users: 
     destroy: "Účet bol úspešne zrušený."
     edit: 
+      also_commented: "...someone also comments on your contact's post?"
       change: "Zmeniť"
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
       close_account: "Zrušiť účet"
+      comment_on_post: "...someone comments on your post?"
       current_password: "Súčasné heslo"
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
       edit_account: "Upraviť účet"
-      email_notifications: "Email notificaions"
       export_data: "Exportovať dáta"
+      mentioned: "...you are mentioned in a post?"
       new_password: "Nové heslo"
+      private_message: "...you receive a private message?"
       receive_email_notifications: "Zasielať e-mailové notifikácie?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 
