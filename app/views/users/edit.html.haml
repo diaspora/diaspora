@@ -73,15 +73,43 @@
   %br
 
   %h3 
-    = t('.email_notifications')
+    = t('.receive_email_notifications')
   = form_for @user do |f|
     = f.error_messages
 
-    %p.checkbox_select
-      = f.label :disable_mail, t('.receive_email_notifications')
-      = f.check_box :disable_mail, {:checked => !@user.disable_mail}, false, true
-      %br
-      = f.submit t('.change')
+    = f.fields_for :email_preferences do |type|
+      #email_prefs
+        %p.checkbox_select
+          = type.label t('.also_commented')
+          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true 
+        %br
+        %p.checkbox_select
+          = type.label t('.mentioned') 
+          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true 
+
+
+        %br
+        %p.checkbox_select
+          = type.label t('.comment_on_post') 
+          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true 
+        
+        %br
+        %p.checkbox_select
+          = type.label t('.request_received') 
+          = type.check_box :request_received, {:checked =>  @email_prefs['request_received']}, false, true 
+
+        %br
+        %p.checkbox_select
+          = type.label t('.private_message')
+          = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true 
+          
+        %br
+        %p.checkbox_select
+          = type.label t('.request_acceptence') 
+          = type.check_box :request_acceptence, {:checked =>  @email_prefs['request_accpetence']}, false, true 
+
+    %br
+    = f.submit t('.change')
 
   %br
   %br
@@ -100,5 +128,5 @@
     %h3 
       = t('.close_account')
     = link_to t('.close_account'), current_user,
-                :confirm => t('are_you_sure'), :method => :delete,
-                :class => "button"
+      :confirm => t('are_you_sure'), :method => :delete,
+        :class => "button"

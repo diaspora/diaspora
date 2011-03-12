@@ -164,6 +164,7 @@ en:
       contacts_visible: "Contacts in this aspect will be able to see each other."
       contacts_not_visible: "Contacts in this aspect will not be able to see each other."
       edit:
+          make_aspect_list_visible: 'make aspect list visible?'
           remove_aspect: "Delete this aspect"
           confirm_remove_aspect: "Are you sure you want to delete this aspect?"
           add_existing: "Add an existing contact"
@@ -250,8 +251,13 @@ en:
           your_handle: "Your diaspora handle"
           your_email: "Your email"
           edit_account: "Edit account"
-          email_notifications: "Email notifications"
-          receive_email_notifications: "Receive email notifications?"
+          receive_email_notifications: "Receive email notifications when..."
+          also_commented: "...someone also comments on your contacts post?"
+          comment_on_post: "...someone comments on your post?"
+          mentioned: "...you are mentioned in a post?"
+          request_received: "...you receive a new share request?"
+          request_acceptence: "...your share request is accepted?"
+          private_message: "...you recevie a private message?"
           change: "Change"
       destroy: "Account successfully closed."
       getting_started:
