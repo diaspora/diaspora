@@ -215,6 +215,22 @@ describe User do
       end
     end
   end
+  
+  describe 'update_user_preferences' do
+    it 'unsets disable mail and makes the right amount of prefs' do
+      alice.disable_mail = true
+      proc {
+        alice.update_user_preferences({})
+      }.should change(alice.user_preferences, :count).by(6)
+    end
+    it 'still sets new prefs to false on update' do
+      alice.disable_mail = true
+      proc {
+        alice.update_user_preferences({'mentioned' => false})
+      }.should change(alice.user_preferences, :count).by(5)
+    end
+
+  end
 
   describe ".find_for_authentication" do
     it 'finds a user' do
@@ -450,11 +466,8 @@ describe User do
       alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
     end
 
-    it 'does not enqueue a mail job' do
-      alice.disable_mail = true
-      alice.save
-      alice.reload
-
+    it 'does not enqueue a mail job if the correct corresponding job has a prefrence entry' do
+      alice.user_preferences.create(:email_type => 'request_received')
       Resque.should_not_receive(:enqueue)
       alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
     end
