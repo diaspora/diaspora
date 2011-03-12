@@ -30,6 +30,8 @@ ca:
   search: "Cerca"
   new_notifications: "%{count} notificacions noves"
   no_new_notifications: "cap notificació nova"
+  new_messages: "%{count} missatges nous"
+  no_new_messages: "cap missatge nou"
   _home: "Inici"
   _more: "Més"
   _comments: "Comentaris"
@@ -115,6 +117,7 @@ ca:
         your_aspects: "els vostres aspectes"
         logged_in_as: "autenticat com a %{name}"
         toggle: "commuta el lloc per a mòbils"
+        public_feed: "Canal públic del Diàspora per a %{name}"
   shared:
       publisher:
           mention_helper_text: "per a mencionar algú, premeu «@» i comenceu a escriure el seu nom"
@@ -167,9 +170,11 @@ ca:
           remove_aspect: "Suprimeix aquest aspecte"
           confirm_remove_aspect: "Esteu segur de voler suprimir aquest aspecte?"
           add_existing: "Afegeix un contacte existent"
-          save: "Desa"
+          done: "Fet"
           rename: "canvia el nom"
-          make_aspect_list_visible: "fes la llista de l'aspecte visible a tots els membres de l'aspecte"
+          aspect_list_is_visible: "la llista de l'aspecte és visible a tots els membres de l'aspecte"
+          aspect_list_is_not_visible: "la llista de l'aspecte està amagada per a tots els membres de l'aspecte"
+          update: "actualitza"
       aspect_contacts:
           done_editing: "finalitza l'edició"
       aspect_stream:
@@ -202,6 +207,7 @@ ca:
           failure: "Ha fallat la creació de l'aspecte."
       destroy:
           success: "S'ha suprimit %{name} amb èxit."
+          failure: "%{name} no és buit i no es pot suprimir."
       update:
           success: "S'ha editat l'aspecte %{name} amb èxit."
           failure: "El nom de l'aspecte %{name} és massa llarg i no es pot desar."
@@ -230,6 +236,7 @@ ca:
       mentioned: "us ha mencionat a la seva"
       post: "publicació"
       deleted: "suprimida"
+      also_commented_deleted: "ha comentat una publicació suprimida"
       index:
         notifications: "Notificacions"
         mark_all_as_read: "Marca-les totes com a llegides"
@@ -404,7 +411,7 @@ ca:
           recent_public_posts: "Publicacions públiques recents"
           similar_contacts: "contactes similars"
           start_sharing: "comença a compartir"
-
+          message: "Missatge"
       profile_sidebar:
           remove_contact: "suprimeix el contacte"
           edit_my_profile: "Edita el meu perfil"
@@ -419,6 +426,10 @@ ca:
            people_on_pod_are_aware_of: " persones a la beina són conscients de"
       aspect_list:
            edit_membership: "edita la pertinença de l'aspecte"
+  posts:
+      index:
+          whatup: "Què està passant a %{pod}"
+          posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
   requests:
       manage_aspect_contacts:
           manage_within: "Gestiona els contactes inclosos"
@@ -482,12 +493,17 @@ ca:
           commented: "ha comentat la vostra publicació:"
           sign_in: "Identifiqueu-vos per a mostrar-ho."
       also_commented:
-          subject: "%{name} també ha comentat la publicació del vostre contacte."
+          subject: "%{name} també ha comentat la publicació de %{post_author}."
           commented: "també ha comentat la publicació de %{post_author}:"
           sign_in: "Identifiqueu-vos per a mostrar-ho."
       mentioned:
           subject: "%{name} t'ha mencionat al Diàspora*"
           mentioned: "t'ha mencionat en una publicació:"
+          sign_in: "Identifiqueu-vos per a mostrar-ho."
+      private_message:
+          subject: "%{name} us ha enviat un missatge privat al Diàspora*"
+          private_message: "us ha enviat un missatge privat:"
+          message_subject: "Assumpte: %{subject}"
           sign_in: "Identifiqueu-vos per a mostrar-ho."
   home:
       show:
@@ -520,3 +536,18 @@ ca:
           fullmonth_day: "%B %d"
           birthday: "%B %d"
           birthday_with_year: "%B %d %Y"
+  conversations:
+      index:
+          message_inbox: "Bústia d'entrada"
+          new_message: "Missatge nou"
+          no_conversation_selected: "no hi ha cap conversa seleccionada"
+          create_a_new_message: "crea un missatge nou"
+          no_messages: "no hi ha missatges"
+      show:
+          reply: "respon"
+          delete: "suprimeix i bloca la conversa"
+      new:
+          to: "a"
+          subject: "assumpte"
+          send: "Envia"
+          no_results: "No s'ha trobat cap resultat"
