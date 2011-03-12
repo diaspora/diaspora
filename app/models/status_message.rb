@@ -59,7 +59,7 @@ class StatusMessage < Post
     regex = /@\{([^;]+); ([^\}]+)\}/
     form_message = text.gsub(regex) do |matched_string|
       person = people.detect{ |p|
-        p.diaspora_handle == $~[2]
+        p.diaspora_handle == $~[2] unless p.nil?
       }
 
       if opts[:plain_text]
