@@ -8,11 +8,7 @@
   .right
     = link_to t('contacts', :count => @contact_count), aspects_manage_path, :title => t('aspects.manage.manage_aspects')
 
-  = aspects.count
-  - if aspects.count == 1
-    = t('_aspect')
-  - else
-    = t('_aspects')
+  = t('aspects', :count => aspects.count)
 
 %ul
   - for aspect in aspects

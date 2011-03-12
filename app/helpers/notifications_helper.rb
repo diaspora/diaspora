@@ -34,11 +34,7 @@ module NotificationsHelper
   end
 
   def new_notification_text(count)
-    if count > 0
-      t('new_notifications', :count => count)
-    else
-      t('no_new_notifications')
-    end
+      t('notifications.helper.new_notifications', :count => count)
   end
 
   def new_notification_link(count)

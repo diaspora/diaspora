@@ -53,14 +53,4 @@ module AspectsHelper
       remove_from_aspect_button(aspect.id, person.id)
     end
   end
-
-  def publisher_description(aspect_count)
-    str = "#{t('.share_with')} #{aspect_count} "
-    if aspect_count == 1
-      str += t('_aspect').downcase
-    else
-      str += t('_aspects').downcase
-    end
-    ("<span>#{str}</span>").html_safe
-  end
 end

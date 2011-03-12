@@ -13,10 +13,7 @@
     = image_tag 'icons/doc_edit.png'
     %span= t('.whats_on_your_mind')
 
-    - if @aspect_ids.length == 1
-      = "(#{@aspect_ids.length} #{t('_aspect').downcase})"
-    - else
-      = "(#{@aspect_ids.length} #{t('_aspects').downcase})"
+    = t('aspects', :count => @aspect_ids.length)
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
