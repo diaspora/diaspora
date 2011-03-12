@@ -39,7 +39,7 @@ class User < ActiveRecord::Base
   has_many :services
   has_many :user_preferences  
 
-  before_destroy :disconnect_everyone, :remove_person
+  before_destroy :disconnect_everyone, :remove_mentions, :remove_person
   before_save do
     person.save if person && person.changed?
   end
@@ -313,4 +313,11 @@ class User < ActiveRecord::Base
     }
     self.aspects.delete_all
   end
+
+  def remove_mentions
+    Mention.where( :person_id => self.person.id).each do |mentioned_person|
+      mentioned_person.delete
+    end
+  end
+
 end

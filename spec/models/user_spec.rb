@@ -381,6 +381,11 @@ describe User do
       }.should change {alice.invitations_to_me(true).count }.by(-1)
     end
 
+    it 'should remove mentions' do
+      alice.should_receive(:remove_mentions)
+      alice.destroy
+    end
+
     it 'should remove person' do
       alice.should_receive(:remove_person)
       alice.destroy
@@ -418,6 +423,17 @@ describe User do
         alice.reload
         alice.destroy
         proc { message.reload }.should raise_error ActiveRecord::RecordNotFound
+      end
+    end
+
+    describe '#remove_mentions' do
+      it 'should remove the mentions' do
+        person = alice.person
+        sm =  Factory(:status_message)
+        mention  = Mention.create(:person => person, :post=> sm)
+        alice.reload
+        alice.destroy
+        proc { mention.reload }.should raise_error ActiveRecord::RecordNotFound
       end
     end
 
