@@ -167,6 +167,7 @@ ca:
       contacts_visible: "Els contactes en aquest aspecte es podran veure entre ells."
       contacts_not_visible: "Els contactes en aquest aspecte no es podran veure entre ells."
       edit:
+          make_aspect_list_visible: "voleu fer visible aquest aspecte?"
           remove_aspect: "Suprimeix aquest aspecte"
           confirm_remove_aspect: "Esteu segur de voler suprimir aquest aspecte?"
           add_existing: "Afegeix un contacte existent"
@@ -253,8 +254,13 @@ ca:
           your_handle: "El vostre identificador de diàspora"
           your_email: "El vostre correu electrònic"
           edit_account: "Edita el compte"
-          email_notifications: "Notificacions per correu"
-          receive_email_notifications: "Voleu rebre notificacions per correu?"
+          receive_email_notifications: "Voleu rebre notificacions per correu quan…"
+          also_commented: "… algú també comenti la publicació del vostre contacte?"
+          comment_on_post: "… algú comenti la vostra publicació?"
+          mentioned: "… us mencionin a una publicació?"
+          request_received: "… rebeu una petició per a compartir nova?"
+          request_acceptence: "… la vostra petició per a compartir siga acceptada?"
+          private_message: "… rebeu un missatge privat?"
           change: "Canvia"
       destroy: "S'ha tancat el compte amb èxit."
       getting_started:
