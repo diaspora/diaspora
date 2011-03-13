@@ -1,39 +1,41 @@
-default: 'en'
+default: "en"
 available:
   ca: "Català"
-  cs: 'Čeština'
-  cy: 'Cymraeg'
-  da: 'Dansk'
-  de: 'Deutsch'
+  cs: "Čeština"
+  cy: "Cymraeg"
+  da: "Dansk"
+  de: "Deutsch"
   el: "Ελληνικά"
-  en: 'English'
-  en_shaw: '𐑦𐑙𐑤𐑦𐑖'
-  es: 'Español'
-  es-CL: 'Español Chileno'
-  eu: 'Euskara'
-  fi: 'Suomi'
-  fr: 'Français'
-  ga: 'Gaeilge'
-  gl: 'Galego'
-  he: 'עברית'
-  hu: 'magyar nyelv'
-  id: 'Bahasa Indonesia'
-  is: 'íslenska'  
-  it: 'Italiano'
-  lt: 'Lietuviškai'
-  mk: 'македонски'
-  nb: 'Norske'
-  nl: 'Nederlands'
+  en: "English"
+  en_shaw: "𐑦𐑙𐑤𐑦𐑖"
+  es: "Español"
+  es-CL: "Español Chileno"
+  eu: "Euskara"
+  fi: "Suomi"
+  fr: "Français"
+  ga: "Gaeilge"
+  gl: "Galego"
+  he: "עברית"
+  hu: "magyar nyelv"
+  id: "Bahasa Indonesia"
+  is: "íslenska"  
+  it: "Italiano"
+  lt: "Lietuviškai"
+  mk: "македонски"
+  ml: "മലയാളം"
+  nb: "Norske"
+  nl: "Nederlands"
+  pa: "ਪੰਜਾਬੀ"
   pl: "polski"
-  pt-BR: 'Português'
-  ro: 'Română'
-  ru: 'Русский'
-  sl: 'Slovenščina'
-  sk: 'Slovenčina'
-  sv: 'Svenska'
-  tr: 'Türk'
-  zh: '中文'
-  zh-TW: '台灣中文'
+  pt-BR: "Português"
+  ro: "Română"
+  ru: "Русский"
+  sl: "Slovenščina"
+  sk: "Slovenčina"
+  sv: "Svenska"
+  tr: "Türk"
+  zh: "中文"
+  zh-TW: "台灣中文"
 fallbacks:
   en-GB:
     - :en
