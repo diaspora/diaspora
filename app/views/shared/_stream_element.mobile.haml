@@ -16,8 +16,4 @@
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
-      - if post.comments.length == 1
-        = link_to "#{post.comments.length} #{t('_comment').downcase} →", status_message_path(post), :class => 'comment_link'
-      - else
-        = link_to "#{post.comments.length} #{t('_comments').downcase} →", status_message_path(post), :class => 'comment_link'
-
+      = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link'

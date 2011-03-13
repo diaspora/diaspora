@@ -29,6 +29,7 @@ en:
   more: "More"
   next: "next"
   previous: "previous"
+  _comments: "Comments"
 
 
   #for reference translation, the real activerecord english transations are actually
