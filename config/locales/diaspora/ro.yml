@@ -4,6 +4,7 @@
 
 
 ro: 
+  _comments: "Comentarii"
   _home: "Acasă"
   _photos: "Fotografii"
   _services: "Servicii"

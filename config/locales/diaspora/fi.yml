@@ -4,6 +4,7 @@
 
 
 fi: 
+  _comments: "Comments"
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
@@ -130,8 +131,8 @@ fi:
     create: 
       failure: "Kontaktin luonti epäonnistui"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
+      failure: "Katkaiseminen kontaktiin %{name} epäonnistui"
+      success: "Yhteys henkilöön %{name} katkaistu onnistuneesti"
     few: "%{count} kontaktia"
     many: "%{count} kontaktia"
     one: "1 kontakti"

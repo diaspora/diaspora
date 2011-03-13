@@ -4,6 +4,7 @@
 
 
 it: 
+  _comments: "Commenti"
   _home: "Home"
   _photos: "foto"
   _services: "Servizi"

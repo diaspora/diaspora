@@ -4,6 +4,7 @@
 
 
 el: 
+  _comments: "Σχόλια"
   _home: "Αρχική"
   _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"

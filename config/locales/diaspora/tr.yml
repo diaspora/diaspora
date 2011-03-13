@@ -4,6 +4,7 @@
 
 
 tr: 
+  _comments: "Yorumlar"
   _home: "Ev"
   _photos: "fotoğraflar"
   _services: "Servisler"

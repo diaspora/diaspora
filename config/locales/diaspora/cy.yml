@@ -4,6 +4,7 @@
 
 
 cy: 
+  _comments: "Comments"
   _home: "Home"
   _photos: "Photos"
   _services: "Services"

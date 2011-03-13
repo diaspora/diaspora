@@ -4,6 +4,7 @@
 
 
 ar: 
+  _comments: "Comments"
   _home: "Home"
   _photos: "fotos"
   _services: "Servicios"

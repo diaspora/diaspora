@@ -4,6 +4,7 @@
 
 
 lt: 
+  _comments: "Komentarai"
   _home: "Pradžia"
   _photos: "Nuotraukos"
   _services: "Paslaugos"

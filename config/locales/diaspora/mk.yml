@@ -4,6 +4,7 @@
 
 
 mk: 
+  _comments: "Коментари"
   _home: "Дома"
   _photos: "фотографии"
   _services: "Сервиси"

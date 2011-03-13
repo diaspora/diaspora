@@ -4,6 +4,7 @@
 
 
 gl: 
+  _comments: "Comentarios"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servizos"

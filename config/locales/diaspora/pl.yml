@@ -4,6 +4,7 @@
 
 
 pl: 
+  _comments: "Komentarze"
   _home: "Wszyscy"
   _photos: "zdjęcia"
   _services: "Usługi"

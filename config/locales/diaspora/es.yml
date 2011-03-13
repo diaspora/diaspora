@@ -4,6 +4,7 @@
 
 
 es: 
+  _comments: "Comments"
   _home: "Inicio"
   _photos: "Fotos"
   _services: "Servicios"
@@ -69,11 +70,11 @@ es:
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "make aspect list visible?"
+      make_aspect_list_visible: "hacer visible el aspecto?"
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
-    few: "%{count} aspects"
+    few: "%{count} aspectos"
     helper: 
       are_you_sure: "¿Seguro que quieres eliminar este Aspecto?"
       aspect_not_empty: "El Aspecto no está vacío"
@@ -88,7 +89,7 @@ es:
       manage_aspects: "Gestionar Aspectos"
       no_requests: "No hay nuevas solicitudes"
       requests: "Solicitudes"
-    many: "%{count} aspects"
+    many: "%{count} aspectos"
     move_contact: 
       error: "Error al mover el contacto: %{inspect}"
       failure: "error %{inspect}"
@@ -104,8 +105,8 @@ es:
       nobody_in_aspect: "El Aspecto '%{aspect_name}' está vacío."
     no_posts_message: 
       start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspecto"
+    other: "%{count} aspectos"
     seed: 
       family: "Familia"
       work: "Trabajo"
@@ -114,18 +115,18 @@ es:
     update: 
       failure: "Tu Aspecto, %{name}, tiene un nombre demasiado largo para guardarlo."
       success: "Tu Aspecto, %{name}, fue editado correctamente."
-    zero: "no aspects"
+    zero: "no hay aspectos"
   back: "Atrás"
   cancel: "Cancelar"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} comentarios"
+    many: "%{count} comentarios"
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 comentario"
+    other: "%{count} comentarios"
+    zero: "no hay comentarios"
   contacts: 
     create: 
       failure: "No se pudo crear el contacto"
@@ -133,7 +134,7 @@ es:
       failure: "No se pudo desconectar de %{name}"
       success: "Se desconectó con éxito de %{name}"
     few: "%{count} contactos"
-    many: "%{count} contacts"
+    many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
@@ -144,11 +145,11 @@ es:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} nuevos mensajes"
+        many: "%{count} nuevos mensajes"
+        one: "1 nuevo mensaje"
+        other: "%{count} nuevos mensajes"
+        zero: "no hay nuevos mensajes"
     index: 
       create_a_new_message: "Crear un nuevo mensaje"
       message_inbox: "Bandeja de entrada"
@@ -237,11 +238,11 @@ es:
     deleted: "eliminado"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} nuevas notificaciones"
+        many: "%{count} nuevas notificaciones"
+        one: "1 nueva notificación"
+        other: "%{count} nuevas notificaciones"
+        zero: "no hay notificaciones"
     index: 
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
@@ -412,11 +413,11 @@ es:
       success: "Ahora está conectado."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} nuevas solicitudes!"
+        many: "%{count} nuevas solicitudes!"
+        one: "nueva solicitud!"
+        other: "%{count} nuevas solicitudes!"
+        zero: "no hay nuevas solicitudes"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
       manage_within: "Gestiona los contactos en"
@@ -433,7 +434,7 @@ es:
     finder: 
       friends: 
         few: "%{count} amigos"
-        many: "%{count} friends"
+        many: "%{count} amigos"
         one: "1 amigo"
         other: "%{count} amigos"
         zero: "No hay amigos"
@@ -511,23 +512,23 @@ es:
   users: 
     destroy: "Cuenta cerrada con éxito."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...alguien comenta en la publicación de tu contacto?"
       change: "Cambiar"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
       close_account: "Cerrar cuenta"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       download_photos: "Descargar mis fotos"
       download_xml: "Descargar mi xml"
       edit_account: "Editar cuenta"
       export_data: "Exportar datos"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...eres mencionado en una publicación?"
       new_password: "Nueva contraseña"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "¿Recibir notificaciones por email?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...recibes un mensaje privado?"
+      receive_email_notifications: "Recibir notificaciones por email cuando..."
+      request_acceptence: "...tu solicitud de contacto es aceptada?"
+      request_received: "...recibes una nueva solicitud de contacto?"
       your_email: "Tu dirección de email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 

@@ -4,6 +4,7 @@
 
 
 sl: 
+  _comments: "Komentarji"
   _home: "Domov"
   _photos: "slike"
   _services: "Servisi"

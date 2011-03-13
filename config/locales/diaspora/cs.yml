@@ -4,6 +4,7 @@
 
 
 cs: 
+  _comments: "Comments"
   _home: "Doma"
   _photos: "fotky"
   _services: "Služby"
