@@ -1,8 +1,9 @@
 # Arabic translations for Ruby on Rails 
 # by Rida Al Barazi (me@rida.me)
 # updated by Ahmed Hazem (nardgo@gmail.com)
+# Rails 3 edit by rbjarnason
 
-ar:
+"ar":
   date:
     formats:
       default: "%Y-%m-%d"
@@ -11,33 +12,86 @@ ar:
 
     day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
     abbr_day_names: [الأحد, الإثنين, الثلاثاء, الأربعاء, الخميس, الجمعة, السبت]
+
     month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
     abbr_month_names: [~, يناير, فبراير, مارس, ابريل, مايو, يونيو, يوليو, اغسطس, سبتمبر, اكتوبر, نوفمبر, ديسمبر]
     order:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%a %b %d %H:%M:%S %Z %Y"
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
       only_second: "%S"
-      
-      datetime:
-        formats:
-          default: "%Y-%m-%dT%H:%M:%S%Z"
-          
     am: 'صباحا'
     pm: 'مساءا'
 
-  # Used in array.to_sentence.
   support:
     array:
       sentence_connector: "و"
+      words_connector: ", "
+      two_words_connector: " و "
+      last_word_connector: ", و "
       skip_last_comma: false
-      
+
+    select:
+      prompt: "الرجاء اختيار"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "ألف"
+          million: "مليون"
+          billion: "مليار"
+          trillion: "تريليون"
+          quadrillion: الكدريليون رقم
+
   datetime:
     distance_in_words:
       half_a_minute: 'نصف دقيقة'
@@ -71,30 +125,50 @@ ar:
       over_x_years:
         one: 'أكثر من سنة'
         other: '%{count} سنوات'
-      
-  number:
-    format:
-      separator: '.'
-      delimiter: ','
-      precision: 3
-    human:
-      format:
-        delimiter: ','
-        precision: 1
-    currency:
-      format:
-        separator: '.'
-        delimiter: ','
-        precision: 2
-        format: '%u %n'
-        unit: '$'
-    percentage:
-      format:
-        delimiter: ','
-    precision:
-      format:
-        delimiter: ','
-        
+      almost_x_years:
+        one:   "تقريبا سنة واحدة"
+        other: "ما يقرب من %{count} سنة"
+    prompts:
+      year:   "السنة"
+      month:  "الشهر"
+      day:    "اليوم"
+      hour:   "ساعة"
+      minute: "دقيقة"
+      second: "ثانية"
+
+  helpers:
+    select:
+      prompt: "الرجاء اختيار"
+
+    submit:
+      create: "%{model} إنشاء"
+      update: "%{model} نموذج"
+      submit: "%{model} حفظ"
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "ليس خيارا مقبولا"
+      exclusion: "محجوز"
+      invalid: "غير معرف أو محدد"
+      confirmation: "لا تتوافق مع التأكيد"
+      accepted: "يجب أن تقبل"
+      empty: "فارغ، يرجى ملء الحقل"
+      blank: "فارغ، يرجى ملء الحقل"
+      too_long: "أطول من اللازم (الحد الأقصى هو %{count})"
+      too_short: "أقصر من اللازم (الحد الأدنى هو %{count})"
+      wrong_length: "بطول غير مناسب (يجب أن يكون %{count})"
+      not_an_integer: "يجب أن يكون صحيحا"
+      not_a_number: "ليس رقما"
+      greater_than: "يجب أن يكون أكبر من %{count}"
+      greater_than_or_equal_to: "يجب أن يكون أكبر من أو يساوي %{count}"
+      equal_to: "يجب أن يساوي %{count}"
+      less_than: "يجب أن يكون أصغر من %{count}"
+      less_than_or_equal_to: "يجب أن يكون أصغر من أو يساوي %{count}"
+      odd: "يجب أن يكون فردي"
+      even: "يجب أن يكون زوجي"
+
   activerecord:
     errors:
       template:
@@ -102,23 +176,11 @@ ar:
           one: "ليس بالامكان حفظ %{model}: خطأ واحد."
           other: "ليس بالامكان حفظ %{model}: %{count} أخطاء."
         body: "يرجى التحقق من الحقول التالية:"
+
       messages:
-        inclusion: "ليس خيارا مقبولا"
-        exclusion: "محجوز"
-        invalid: "غير معرف أو محدد"
-        confirmation: "لا تتوافق مع التأكيد"
-        accepted: "يجب أن تقبل"
-        empty: "فارغ، يرجى ملء الحقل"
-        blank: "فارغ، يرجى ملء الحقل"
-        too_long: "أطول من اللازم (الحد الأقصى هو %{count})"
-        too_short: "أقصر من اللازم (الحد الأدنى هو %{count})"
-        wrong_length: "بطول غير مناسب (يجب أن يكون %{count})"
         taken: "غير متوفر (مستخدم)"
-        not_a_number: "ليس رقما"
-        greater_than: "يجب أن يكون أكبر من %{count}"
-        greater_than_or_equal_to: "يجب أن يكون أكبر من أو يساوي %{count}"
-        equal_to: "يجب أن يساوي %{count}"
-        less_than: "يجب أن يكون أصغر من %{count}"
-        less_than_or_equal_to: "يجب أن يكون أصغر من أو يساوي %{count}"
-        odd: "يجب أن يكون فردي"
-        even: "يجب أن يكون زوجي"
+        record_invalid: "%{errors} فشل التحقق من صحة"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

@@ -1,7 +1,8 @@
 # Hebrew translations for Ruby on Rails 
 # by Dotan Nahum (dipidi@gmail.com)
+# Rails 3 update by rbjarnason
 
-"he-IL":
+"he":
   date:
     formats:
       default: "%Y-%m-%d"
@@ -11,13 +12,14 @@
 
     day_names: [ראשון, שני, שלישי, רביעי, חמישי, שישי, שבת]
     abbr_day_names: [א, ב, ג, ד, ה, ו, ש]
+
     month_names: [~, ינואר, פברואר, מרץ, אפריל, מאי, יוני, יולי, אוגוסט, ספטמבר, אוקטובר, נובמבר, דצמבר]
     abbr_month_names: [~, יאנ, פב, מרץ, אפר, מאי, יונ, יול, אוג, ספט, אוק, נוב, דצ]
     order:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%a %b %d %H:%M:%S %Z %Y"
@@ -25,14 +27,70 @@
       short: "%d %b %H:%M"
       long: "%B %d, %Y %H:%M"
       only_second: "%S"
-      
-      datetime:
-        formats:
-          default: "%d-%m-%YT%H:%M:%S%Z"
-          
-      am: 'am'
-      pm: 'pm'
-      
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " את "
+      last_word_connector: ", את "
+
+    select:
+      prompt: "נא לבחור"
+
+  number:
+    format:
+      precision: 3
+      separator: '.'
+      delimiter: ','
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        unit: 'שח'
+        precision: 2
+        format: '%u %n'
+        separator: "."
+        delimiter: ","
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "בתים"
+            other: "בתים"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "אלף"
+          million: "מיליון"
+          billion: "מיליארד"
+          trillion: "טריליון"
+          quadrillion: "קודריליון"
+
   datetime:
     distance_in_words:
       half_a_minute: 'חצי דקה'
@@ -68,23 +126,30 @@
       over_x_years:
         one: 'מעל שנה אחת'
         other: 'מעל %{count} שנים'
-      
-  number:
-    format:
-      precision: 3
-      separator: '.'
-      delimiter: ','
-    currency:
-      format:
-        unit: 'שח'
-        precision: 2
-        format: '%u %n'
-        
-  active_record:
-    error:
-      header_message: ["לא ניתן לשמור %{model}: שגיאה אחת", "לא ניתן לשמור %{model}: %{count} שגיאות."]
-      message: "אנא בדוק את השדות הבאים:"
-    error_messages:
+      almost_x_years:
+        one:   "כמעט שנה"
+        other: "כמעט %{count} שנים"
+    prompts:
+      year:   "שנה"
+      month:  "חודש"
+      day:    "יום"
+      hour:   "שעה"
+      minute: "דקה"
+      second: "שניות"
+
+  helpers:
+    select:
+      prompt: "נא לבחור"
+
+    submit:
+      create: '%{model} יצירת'
+      update: '%{model} עדכון'
+      submit: '%{model} שמור'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
       inclusion: "לא נכלל ברשימה"
       exclusion: "לא זמין"
       invalid: "לא ולידי"
@@ -95,8 +160,8 @@
       too_long: "יותר מדי ארוך (לא יותר מ- %{count} תוים)"
       too_short: "יותר מדי קצר (לא יותר מ- %{count} תוים)"
       wrong_length: "לא באורך הנכון (חייב להיות %{count} תוים)"
-      taken: "לא זמין"
       not_a_number: "הוא לא מספר"
+      not_an_integer: "must be an integer"
       greater_than: "חייב להיות גדול מ- %{count}"
       greater_than_or_equal_to: "חייב להיות גדול או שווה ל- %{count}"
       equal_to: "חייב להיות שווה ל- %{count}"
@@ -104,3 +169,19 @@
       less_than_or_equal_to: "חייב להיות קטן או שווה ל- %{count}"
       odd: "חייב להיות אי זוגי"
       even: "חייב להיות זוגי"
+      
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "לא ניתן לשמור %{model}: שגיאה אחת"
+          other: "לא ניתן לשמור %{model}: %{count} שגיאות."
+        body: "אנא בדוק את השדות הבאים:"
+
+      messages:
+        taken: "לא זמין"
+        record_invalid: "אימות נכשל: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

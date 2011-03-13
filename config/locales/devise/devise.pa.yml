@@ -1,0 +1,97 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+pa: 
+  devise: 
+    confirmations: 
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+    failure: 
+      inactive: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਹਾਲੇ ਐਕਟੀਵੇਟ ਨਹੀਂ ਹੋਇਆ ਹੈ।"
+      invalid: "ਗਲਤ ਈਮੇਲ ਜਾਂ ਪਾਸਵਰਡ ਹੈ।"
+      invalid_token: "Invalid authentication token."
+      locked: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਲਾਕ ਹੈ।"
+      timeout: "ਤੁਹਾਡੇ ਸ਼ੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ, ਜਾਰੀ ਰੱਖਣ ਲਈ ਫੇਰ ਲਾਗਇਨ ਕਰੋ ਜੀ।"
+      unauthenticated: "ਤੁਹਾਨੂੰ ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਲਾਗਇਨ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸਾਇਨ ਅੱਪ"
+      unconfirmed: "You have to confirm your account before continuing."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "ਮੇਰੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ"
+        subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
+        you_can_confirm: "You can confirm your account through the link below:"
+      hello: "Hello %{email}!"
+      invitation: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
+      inviters: 
+        accept_at: ", at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name} has invited you to join Diaspora"
+        have_invited_you: "%{names} have invited you to join Diaspora"
+      reset_password_instructions: 
+        change: "Change my password"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "Reset password instructions"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        click_to_unlock: "Click the link below to unlock your account:"
+        subject: "Unlock Instructions"
+        unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
+      welcome: "Welcome %{email}!"
+    passwords: 
+      edit: 
+        change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
+      new: 
+        forgot_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ ਹੋ?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        send_password_instructions: "Send me reset password instructions"
+      send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
+      updated: "Your password was changed successfully. You are now signed in."
+    registrations: 
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+      updated: "You updated your account successfully."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        login: "ਲਾਗਇਨ"
+        modern_browsers: "only supports modern browsers."
+        password: "ਪਾਸਵਰਡ"
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: "Username"
+      signed_in: "Signed in successfully."
+      signed_out: "Signed out successfully."
+    shared: 
+      links: 
+        forgot_your_password: "ਆਪਣਾ ਪਾਸਵਰਡ ਭੁੱਲ ਗਏ?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "ਸਾਇਨ ਇਨ"
+        sign_up: "ਸਾਇਨ ਅੱਪ"
+        sign_up_closed: "Open signups are closed at this time."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
+    unlocks: 
+      new: 
+        resend_unlock: "Resend unlock instructions"
+      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
+      unlocked: "Your account was successfully unlocked. You are now signed in."
+  errors: 
+    messages: 
+      already_confirmed: "ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ"
+      not_found: "ਨਹੀਂ ਲੱਭਿਆ"
+      not_locked: "was not locked"

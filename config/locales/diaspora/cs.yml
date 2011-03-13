@@ -69,11 +69,11 @@ cs:
       aspect_list_is_visible: "seznam aspektů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       done: "Hotovo"
-      make_aspect_list_visible: "make aspect list visible?"
+      make_aspect_list_visible: "zviditelnit seznam apektů?"
       remove_aspect: "Odstranit tento aspekt"
       rename: "přejmenovat"
       update: "aktualizovat"
-    few: "%{count} aspects"
+    few: "%{count} aspekty"
     helper: 
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"
       aspect_not_empty: "Aspekt není prázdný"
@@ -88,7 +88,7 @@ cs:
       manage_aspects: "Upravit aspekty"
       no_requests: "Žádné nové žádosti"
       requests: "Žádosti"
-    many: "%{count} aspects"
+    many: "%{count} aspektů"
     move_contact: 
       error: "Chyba při přesunu kontaktu: %{inspect}"
       failure: "%{inspect} nefunguje"
@@ -104,8 +104,8 @@ cs:
       nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspekt"
+    other: "%{count} aspektů"
     seed: 
       family: "Rodina"
       work: "Práce"
@@ -114,18 +114,18 @@ cs:
     update: 
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt, %{name}, byl úspěšně upraven."
-    zero: "no aspects"
+    zero: "žádné aspekty"
   back: "Zpět"
   cancel: "Zrušit"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} komentáře"
+    many: "%{count} komentářů"
     new_comment: 
       comment: "Komentář"
       commenting: "Komentování..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 komentář"
+    other: "%{count} komentářů"
+    zero: "žádné komentáře"
   contacts: 
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
@@ -133,7 +133,7 @@ cs:
       failure: "Nepodařilo se odpojit od %{name}"
       success: "Úspěšně odpojeno od %{name}"
     few: "%{count} kontaktů"
-    many: "%{count} contacts"
+    many: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
     share_with_pane: 
@@ -144,11 +144,11 @@ cs:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} nové zprávy"
+        many: "%{count} nových zpráv"
+        one: "1 nová zpráva"
+        other: "%{count} nových zpráv"
+        zero: "žádné nové zprávy"
     index: 
       create_a_new_message: "vytvořit novou zprávu"
       message_inbox: "Doručené zprávy"
@@ -237,11 +237,11 @@ cs:
     deleted: "smazáno"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} nové oznámení"
+        many: "%{count} nových oznámení"
+        one: "1 nové oznámení"
+        other: "%{count} nových oznámení"
+        zero: "žádná nová oznámení"
     index: 
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
@@ -412,11 +412,11 @@ cs:
       success: "Nyní jste přáteli."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} nové žádosti!"
+        many: "%{count} nové žádosti!"
+        one: "nová žádost!"
+        other: "%{count} nových žádostí!"
+        zero: "žádné nové žádosti"
     manage_aspect_contacts: 
       existing: "Existující kontakty"
       manage_within: "Spravovat kontakty uvnitř"
@@ -433,7 +433,7 @@ cs:
     finder: 
       friends: 
         few: "%{count} přátele"
-        many: "%{count} friends"
+        many: "%{count} přátel"
         one: "1 přítel"
         other: "%{count} přátel"
         zero: "žádní přátelé"
@@ -511,23 +511,23 @@ cs:
   users: 
     destroy: "Účet byl úspěšně uzavřen."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...někdo komentoval váš příspěvek?"
       change: "Změnit"
       change_language: "Změnit jazyk"
       change_password: "Změnit heslo"
       close_account: "Uzavřít účet"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...někdo komentoval váš příspěvek?"
       current_password: "Současné heslo"
       download_photos: "stáhnout moje fotky"
       download_xml: "stáhnout moje xml"
       edit_account: "Upravit účet"
       export_data: "Exportovat data"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...jste zmíněn v příspěvku?"
       new_password: "Nové heslo"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Přijímat oznámení emailem?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...obdržíte soukromou zprávu?"
+      receive_email_notifications: "Přijímat oznámení emailem když..."
+      request_acceptence: "...je vaše žádost o sdílení akceptována?"
+      request_received: "...obdržíte novou žádost o sdílení?"
       your_email: "Váš email"
       your_handle: "Váše identifikace na Diaspoře"
     getting_started: 

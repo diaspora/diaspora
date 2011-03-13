@@ -1,52 +1,8 @@
 # Icelandic, by Ævar Arnfjörð Bjarmason <avarab@gmail.com>
-is:
-  number:
-    # Used in number_with_delimiter()
-    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
-    format:
-      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: ","
-      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: "."
-      # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
-      precision: 2
 
-    # Used in number_to_currency()
-    currency:
-      format:
-        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%u %n"
-        unit: "kr."
-        # These three are to override number.format and are optional
-        #separator: ","
-        #delimiter: "."
-        #precision: 2
-
-    # Used in number_to_human_size()
-    human:
-      format:
-        # These three are to override number.format and are optional
-        # separator: 
-        delimiter: ""
-        precision: 1
-      storage_units:
-        # Storage units output formatting.
-        # %u is the storage unit, %n is the number (default: 2 MB)
-        format: "%n %u"
-        units:
-          byte:
-            one:   "bæti"
-            other: "bæti"
-          kb: "KB"
-          mb: "MB"
-          gb: "GB"
-          tb: "TB"
-
+"is":
   date:
     formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
       default: "%d.%m.%Y"
       short: "%e. %b"
       long: "%e. %B %Y"
@@ -54,10 +10,8 @@ is:
     day_names: [sunnudaginn, mánudaginn, þriðjudaginn, miðvikudaginn, fimmtudaginn, föstudaginn, laugardaginn]
     abbr_day_names: [sun, mán, þri, mið, fim, fös, lau]
 
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [~, janúar, febrúar, mars, apríl, maí, júní, júlí, ágúst, september, október, nóvember, desember]
     abbr_month_names: [~, jan, feb, mar, apr, maí, jún, júl, ágú, sep, okt, nóv, des]
-    # Used in date_select and datime_select.
     order:
       - :day
       - :month
@@ -72,16 +26,67 @@ is:
     am: ""
     pm: ""
 
-  # Used in array.to_sentence.
   support:
     array:
-      sentence_connector: "og"
       words_connector: ", "
       two_words_connector: " og "
       last_word_connector: " og "
-      skip_last_comma: true
 
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+    select:
+      prompt: "Veldu"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ","
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: "%n %u"
+        unit: "kr."
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "bæti"
+            other: "bæti"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "þúsund"
+          million: "milljón"
+          billion: "billjón"
+          trillion: "trilljón"
+          quadrillion: "grasilljón"
+
   datetime:
     distance_in_words:
       half_a_minute: "hálf mínúta"
@@ -115,31 +120,62 @@ is:
       over_x_years:
         one: "meira en 1 ár"
         other: "meira en %{count} ár"
+      almost_x_years:
+        one:   "næstum 1 ár"
+        other: "næstum %{count} ár"
+    prompts:
+      year:   "Ár"
+      month:  "Mánuður"
+      day:    "Dagur"
+      hour:   "Klukkustund"
+      minute: "Mínúta"
+      second: "Sekónda"
+
+  helpers:
+    select:
+      prompt: "Veldu"
+
+    submit:
+      create: 'Búa til %{model}'
+      update: 'Uppfæra %{model}'
+      submit: 'Geyma %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "er ekki í listanum"
+      exclusion: "er frátekið"
+      invalid: "er ógilt"
+      confirmation: "er ekki jafngilt staðfestingunni"
+      accepted: "þarf að vera tekið gilt"
+      empty: "má ekki vera tómt"
+      blank: "má ekki innihalda auða stafi"
+      too_long: "er of langt (má mest vera %{count} stafir)"
+      too_short: "er of stutt (má minnst vera %{count} stafir)"
+      wrong_length: "er af rangri lengd (má mest vera %{count} stafir)"
+      not_a_number: "er ekki tala"
+      not_an_integer: "verður að vera heiltala"
+      greater_than: "þarf að vera stærri en %{count}"
+      greater_than_or_equal_to: "þarf að vera stærri en eða jafngilt %{count}"
+      equal_to: "þarf að vera jafngilt %{count}"
+      less_than: "þarf að vera minna en %{count}"
+      less_than_or_equal_to: "þarf að vera minna en eða jafngilt %{count}"
+      odd: "þarf að vera oddatala"
+      even: "þarf að vera slétt tala"
 
   activerecord:
     errors:
       template:
-        header: 
+        header:
           one:    "Ekki var hægt að vista %{model} vegna einnar villu."
           other:  "Ekki var hægt að vista %{model} vegna %{count} villna."
         body: "Upp kom vandamál í eftirfarandi dálkum:"
+
       messages:
-        inclusion: "er ekki í listanum"
-        exclusion: "er frátekið"
-        invalid: "er ógilt"
-        confirmation: "er ekki jafngilt staðfestingunni"
-        accepted: "þarf að vera tekið gilt"
-        empty: "má ekki vera tómt"
-        blank: "má ekki innihalda auða stafi"
-        too_long: "er of langt (má mest vera %{count} stafir)"
-        too_short: "er of stutt (má minnst vera %{count} stafir)"
-        wrong_length: "er af rangri lengd (má mest vera %{count} stafir)"
         taken: "er þegar í notkun"
-        not_a_number: "er ekki tala"
-        greater_than: "þarf að vera stærri en %{count}"
-        greater_than_or_equal_to: "þarf að vera stærri en eða jafngilt %{count}"
-        equal_to: "þarf að vera jafngilt %{count}"
-        less_than: "þarf að vera minna en %{count}"
-        less_than_or_equal_to: "þarf að vera minna en eða jafngilt %{count}"
-        odd: "þarf að vera oddatala"
-        even: "þarf að vera slétt tala"
+        record_invalid: "Villur: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

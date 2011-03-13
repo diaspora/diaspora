@@ -1,47 +1,17 @@
 # Persian translations for Ruby on Rails 
 # by Reza (reza@balatarin.com)
+# Rails 3 update by rbjarnason
 
-fa:
-  number:
-    format:
-      precision: 2
-      separator: '٫'
-      delimiter: '٬'
-    currency:
-      format:
-        unit: 'ریال'
-        format: '%n %u'
-        separator: '٫'
-        delimiter: '٬'
-        precision: 0
-    percentage:
-      format:
-        delimiter: ""
-    precision:
-      format:
-        delimiter: ""
-    human:
-      format:
-        delimiter: ""
-        precision: 1
-      storage_units:
-        format: "%n %u"
-        units:
-          byte:
-            one: "بایت"
-            other: "بایت"
-          kb: "کیلوبایت"
-          mb: "مگابایت"
-          gb: "گیگابایت"
-          tb: "ترابایت"
-
+"fa":
   date:
     formats:
       default: "%Y/%m/%d"
       short: "%m/%d"
       long: "%e %B %Y"
+
     day_names: [یکشنبه, دوشنبه, سه‌شنبه, چهارشنبه, پنج‌شنبه, جمعه, شنبه]
     abbr_day_names: [ی, د, س, چ, پ, ج, ش]
+
     month_names: [~, ژانویه, فوریه, مارس, آوریل, مه, ژوئن, ژوئیه, اوت, سپتامبر, اکتبر, نوامبر, دسامبر]
     abbr_month_names: [~, ژانویه, فوریه, مارس, آوریل, مه, ژوئن, ژوئیه, اوت, سپتامبر, اکتبر, نوامبر, دسامبر]
     order:
@@ -62,8 +32,61 @@ fa:
       words_connector: "، "
       two_words_connector: " و "
       last_word_connector: "، و "
+
     select:
       prompt: "لطفا انتخاب کنید"
+
+  number:
+    format:
+      separator: '٫'
+      delimiter: '٬'
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        unit: 'ریال'
+        format: '%n %u'
+        separator: '٫'
+        delimiter: '٬'
+        precision: 0
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ""
+
+    precision:
+      format:
+        delimiter: ""
+
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "بایت"
+            other: "بایت"
+          kb: "کیلوبایت"
+          mb: "مگابایت"
+          gb: "گیگابایت"
+          tb: "ترابایت"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "هزار"
+          million: "میلیون"
+          billion: "بیلیون"
+          trillion: "تریلیون"
+          quadrillion: "کادریلیون"
 
   datetime:
     distance_in_words:
@@ -109,35 +132,51 @@ fa:
       minute: "دقیقه"
       second: "ثانیه"
 
-  activemodel:
+  helpers:
+    select:
+      prompt: "لطفا انتخاب کنید"
+
+    submit:
+      create: '%{model} ایجاد'
+      update: '%{model} بروز'
+      submit: '%{model} ذخیره'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "در لیست موجود نیست" 
+      exclusion: "رزرو است" 
+      invalid: "نامعتبر است" 
+      confirmation: "با تایید نمی‌خواند"
+      accepted: "باید پذیرفته شود" 
+      empty: "نمی‌تواند خالی باشد"
+      blank: "نباید خالی باشد"
+      too_long: "بلند است (حداکثر %{count} کاراکتر)"
+      too_short: "کوتاه است (حداقل %{count} کاراکتر)"
+      wrong_length: "نااندازه است (باید %{count} کاراکتر باشد)"
+      not_a_number: "عدد نیست"
+      not_an_integer: "عدد صحیح نیست"
+      greater_than: "باید بزرگتر از %{count} باشد"
+      greater_than_or_equal_to: "باید بزرگتر یا برابر %{count} باشد"
+      equal_to: "باید برابر %{count} باشد"
+      less_than: "باید کمتر از %{count} باشد"
+      less_than_or_equal_to: "باید کمتر یا برابر %{count} باشد"
+      odd: "باید فرد باشد"
+      even: "باید زوج باشد"
+
+  activerecord:
     errors:
       template:
-        header: 
+        header:
           one: "1 خطا جلوی ذخیره این %{model} را گرفت"
           other: "%{count} خطا جلوی ذخیره این %{model} را گرفت"
         body: "موارد زیر مشکل داشت:"
 
-  activerecord:
-    errors:
       messages:
-        inclusion: "در لیست موجود نیست" 
-        exclusion: "رزرو است" 
-        invalid: "نامعتبر است" 
-        confirmation: "با تایید نمی‌خواند"
-        accepted: "باید پذیرفته شود" 
-        empty: "نمی‌تواند خالی باشد"
-        blank: "نباید خالی باشد"
-        too_long: "بلند است (حداکثر %{count} کاراکتر)"
-        too_short: "کوتاه است (حداقل %{count} کاراکتر)"
-        wrong_length: "نااندازه است (باید %{count} کاراکتر باشد)"
         taken: "پیشتر گرفته شده"
-        not_a_number: "عدد نیست"
-        not_an_integer: "عدد صحیح نیست"
-        greater_than: "باید بزرگتر از %{count} باشد"
-        greater_than_or_equal_to: "باید بزرگتر یا برابر %{count} باشد"
-        equal_to: "باید برابر %{count} باشد"
-        less_than: "باید کمتر از %{count} باشد"
-        less_than_or_equal_to: "باید کمتر یا برابر %{count} باشد"
-        odd: "باید فرد باشد"
-        even: "باید زوج باشد"
         record_invalid: "رکورد نامعتبر است %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

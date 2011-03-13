@@ -3,6 +3,7 @@
 #
 # corrected by Petri Kivikangas (pkivik@gmail.com)
 # corrected and amended by Niklas Laxström (niklas.laxstrom+rails@gmail.com) 2009
+# Rails 3 conversion by rbjarnason
 
 fi:
   date:
@@ -13,6 +14,7 @@ fi:
 
     day_names: [sunnuntai, maanantai, tiistai, keskiviikko, torstai, perjantai, lauantai]
     abbr_day_names: [su, ma, ti, ke, to, pe, la]
+
     month_names: [~, tammikuu, helmikuu, maaliskuu, huhtikuu, toukokuu, kesäkuu, heinäkuu, elokuu, syyskuu, lokakuu, marraskuu, joulukuu]
     abbr_month_names: [~, tammi, helmi, maalis, huhti, touko, kesä, heinä, elo, syys, loka, marras, joulu]
     order:
@@ -33,14 +35,17 @@ fi:
       words_connector: ", "
       two_words_connector: " ja "
       last_word_connector: " ja "
+
     select:
       prompt: "Valitse"
 
   number:
     format:
-      separator: ","
-      delimiter: "."
+      separator: "."
+      delimiter: ","
       precision: 3
+      significant: false
+      strip_insignificant_zeros: false
 
     currency:
       format:
@@ -49,23 +54,23 @@ fi:
         separator: ","
         delimiter: "."
         precision: 2
+        significant: false
+        strip_insignificant_zeros: false
 
     percentage:
       format:
-        # separator:
         delimiter: ""
-        # precision:
 
     precision:
       format:
-        # separator:
         delimiter: ""
-        # precision:
 
     human:
       format:
         delimiter: ""
-        precision: 1
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
       storage_units:
         format: "%n %u"
         units:
@@ -76,6 +81,15 @@ fi:
           mb: "MB"
           gb: "GB"
           tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "Tuhatta"
+          million: "Euroa"
+          billion: "Miljardia"
+          trillion: "Biljoona"
+          quadrillion: "Kvadriljoona"
 
   datetime:
     distance_in_words:
@@ -121,8 +135,39 @@ fi:
       minute: "Minuutti"
       second: "Sekunti"
 
-  # which one should it be
-  #activemodel:
+  helpers:
+    select:
+      prompt: "Valitse"
+
+    submit:
+      create: 'Luo %{model}'
+      update: 'Päivitä %{model}'
+      submit: 'Tallenna %{model}'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "ei löydy listasta"
+      exclusion: "on varattu"
+      invalid: "on kelvoton"
+      confirmation: "ei vastaa varmennusta"
+      accepted: "täytyy olla hyväksytty"
+      empty: "ei voi olla tyhjä"
+      blank: "ei voi olla sisällötön"
+      too_long: "on liian pitkä (saa olla enintään %{count} merkkiä)"
+      too_short: "on liian lyhyt (oltava vähintään %{count} merkkiä)"
+      wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
+      not_an_integer: "on kokonaisluku"
+      not_a_number: "ei ole luku"
+      greater_than: "täytyy olla suurempi kuin %{count}"
+      greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin %{count}"
+      equal_to: "täytyy olla yhtä suuri kuin %{count}"
+      less_than: "täytyy olla pienempi kuin %{count}"
+      less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin %{count}"
+      odd: "täytyy olla pariton"
+      even: "täytyy olla parillinen"
+
   activerecord:
     errors:
       template:
@@ -130,26 +175,11 @@ fi:
           one:    "Virhe syötteessä esti mallin %{model} tallentamisen"
           other:  "%{count} virhettä esti mallin %{model} tallentamisen"
         body: "Seuraavat kentät aiheuttivat ongelmia:"
-  #activerecord:
-    #errors:
+
       messages:
-        inclusion: "ei löydy listasta"
-        exclusion: "on varattu"
-        invalid: "on kelvoton"
-        confirmation: "ei vastaa varmennusta"
-        accepted: "täytyy olla hyväksytty"
-        empty: "ei voi olla tyhjä"
-        blank: "ei voi olla sisällötön"
-        too_long: "on liian pitkä (saa olla enintään %{count} merkkiä)"
-        too_short: "on liian lyhyt (oltava vähintään %{count} merkkiä)"
-        wrong_length: "on väärän pituinen (täytyy olla täsmälleen %{count} merkkiä)"
         taken: "on jo käytössä"
-        not_a_number: "ei ole luku"
-        greater_than: "täytyy olla suurempi kuin %{count}"
-        greater_than_or_equal_to: "täytyy olla suurempi tai yhtä suuri kuin %{count}"
-        equal_to: "täytyy olla yhtä suuri kuin %{count}"
-        less_than: "täytyy olla pienempi kuin %{count}"
-        less_than_or_equal_to: "täytyy olla pienempi tai yhtä suuri kuin %{count}"
-        odd: "täytyy olla pariton"
-        even: "täytyy olla parillinen"
         record_invalid: "Validointi epäonnistui: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

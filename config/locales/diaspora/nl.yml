@@ -69,11 +69,11 @@ nl:
       aspect_list_is_visible: "contactlijst van aspect is zichtbaar voor anderen in aspect"
       confirm_remove_aspect: "Weet je zeker dat je dit aspect wilt verwijderen?"
       done: "Klaar"
-      make_aspect_list_visible: "maak aspect lijst zichtbaar voor anderen in aspect"
+      make_aspect_list_visible: "maak contactlijst van aspect zichtbaar?"
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
       update: "update"
-    few: "%{count} aspects"
+    few: "%{count} aspecten"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
       aspect_not_empty: "Aspect niet leeg"
@@ -88,7 +88,7 @@ nl:
       manage_aspects: "Beheer aspecten"
       no_requests: "Geen nieuwe verzoeken"
       requests: "Contactverzoeken"
-    many: "%{count} aspects"
+    many: "%{count} aspecten"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
       failure: "werkte niet %{inspect}"
@@ -105,7 +105,7 @@ nl:
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
     one: "1 aspect"
-    other: "%{count} aspects"
+    other: "%{count} aspecten"
     seed: 
       family: "Familie"
       work: "Werk"
@@ -114,18 +114,18 @@ nl:
     update: 
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
-    zero: "no aspects"
+    zero: "geen aspecten"
   back: "Terug"
   cancel: "Annuleren"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} reacties"
+    many: "%{count} reacties"
     new_comment: 
       comment: "Reactie"
       commenting: "Reageren..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 reactie"
+    other: "%{count} reacties"
+    zero: "geen reacties"
   contacts: 
     create: 
       failure: "Verbinding maken mislukt"
@@ -133,7 +133,7 @@ nl:
       failure: "Verbinding met %{name} verbreken mislukt"
       success: "Verbinding met %{name} succesvol verbroken"
     few: "%{count} contacten"
-    many: "%{count} contacts"
+    many: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
     share_with_pane: 
@@ -144,11 +144,11 @@ nl:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} nieuwe berichten"
+        many: "%{count} nieuwe berichten"
+        one: "1 nieuw bericht"
+        other: "%{count} nieuwe berichten"
+        zero: "geen nieuwe berichten"
     index: 
       create_a_new_message: "maak een nieuw bericht"
       message_inbox: "Berichten Inbox"
@@ -237,11 +237,11 @@ nl:
     deleted: "verwijderde"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} nieuwe notificaties"
+        many: "%{count} nieuwe notificaties"
+        one: "1 nieuwe notificatie"
+        other: "%{count} nieuwe notificaties"
+        zero: "geen nieuwe notificaties"
     index: 
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
@@ -412,11 +412,11 @@ nl:
       success: "Jullie zijn nu contacten."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} nieuwe verzoeken!"
+        many: "%{count} nieuwe verzoeken!"
+        one: "nieuw verzoek!"
+        other: "%{count} nieuwe verzoeken!"
+        zero: "geen nieuwe verzoeken"
     manage_aspect_contacts: 
       existing: "Bestaande contacten"
       manage_within: "Beheer contacten in"
@@ -433,7 +433,7 @@ nl:
     finder: 
       friends: 
         few: "%{count} contacten"
-        many: "%{count} friends"
+        many: "%{count} vrienden"
         one: "1 contact"
         other: "%{count} contacten"
         zero: "geen contacten"
@@ -511,23 +511,23 @@ nl:
   users: 
     destroy: "Account succesvol verwijderd."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...iemand na jou op de post van jou contact reageert?"
       change: "Verander"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...iemand op jou post reageert?"
       current_password: "Huidig wachtwoord"
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
       export_data: "Exporteer data"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...je genoemd word in een post?"
       new_password: "Nieuw wachtwoord"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "E-mail notificaties ontvangen?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...je een privébericht ontvangt?"
+      receive_email_notifications: "Ontvang e-mail notificaties wanneer..."
+      request_acceptence: "...jou contactverzoek accepteert?"
+      request_received: "...je een nieuw contactverzoek ontvangt?"
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora handle"
     getting_started: 

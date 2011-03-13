@@ -5,7 +5,7 @@
 
 gl: 
   _home: "Inicio"
-  _photos: "fotos"
+  _photos: "Fotos"
   _services: "Servizos"
   account: "Conta"
   activerecord: 
@@ -69,11 +69,11 @@ gl:
       aspect_list_is_visible: "a lista do aspecto está visible para outros contactos neste aspecto"
       confirm_remove_aspect: "Estás seguro de querer eliminar este aspecto?"
       done: "Feito"
-      make_aspect_list_visible: "facer lista de aspectos visible para a xente do aspecto"
+      make_aspect_list_visible: "facer lista de aspectos visible?"
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
       update: "actualizar"
-    few: "%{count} aspects"
+    few: "%{count} aspectos"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
       aspect_not_empty: "O aspecto non esta baleiro"
@@ -88,7 +88,7 @@ gl:
       manage_aspects: "Xestionar aspectos"
       no_requests: "Non hai solicitudes novas"
       requests: "Solicitudes"
-    many: "%{count} aspects"
+    many: "%{count} aspectos"
     move_contact: 
       error: "Erro movendo ao contacto: %{inspect}"
       failure: "non funcionou %{inspect}"
@@ -104,8 +104,8 @@ gl:
       nobody_in_aspect: "O seu aspecto '%{aspect_name}' está baleiro."
     no_posts_message: 
       start_talking: "Ninguén dixo nada. Comeza unha conversa!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspecto"
+    other: "%{count} aspectos"
     seed: 
       family: "Familia"
       work: "Traballo"
@@ -114,18 +114,18 @@ gl:
     update: 
       failure: "O seu aspecto, %{name}, ten un nome demasiado longo para ser gardado."
       success: "O seu aspecto, %{name}, foi editado con éxito."
-    zero: "no aspects"
+    zero: "non hai aspectos"
   back: "Volver"
   cancel: "Cancelar"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} comentarios"
+    many: "%{count} comentarios"
     new_comment: 
       comment: "Comentar"
       commenting: "Comentando..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 comentario"
+    other: "%{count} comentarios"
+    zero: "non hai comentarios"
   contacts: 
     create: 
       failure: "Fallouse ao crear contacto"
@@ -133,7 +133,7 @@ gl:
       failure: "Fallouse ao desconectarse de %{name}"
       success: "Exito ao desconectarse de %{name}"
     few: "%{count} contactos"
-    many: "%{count} contacts"
+    many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
@@ -144,11 +144,11 @@ gl:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} novas mensaxes"
+        many: "%{count} novas mensaxes"
+        one: "1 nova mensaxe"
+        other: "%{count} novas mensaxes"
+        zero: "non hai novas mensaxes"
     index: 
       create_a_new_message: "crear mensaxe"
       message_inbox: "Caixa de entrada"
@@ -237,18 +237,18 @@ gl:
     deleted: "borrado"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} novas notificacións"
+        many: "%{count} novas notificacións"
+        one: "1 nova notificación"
+        other: "%{count} novas notificacións"
+        zero: "non hai novas notificacións"
     index: 
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
     mentioned: "citoute nos seus"
-    new_request: "ofrecido para compartir contigo."
+    new_request: "ofreceu compartir contigo."
     post: "publicación"
-    request_accepted: "aceptada a túa petición para compartir."
+    request_accepted: "aceptou a túa petición para compartir."
   notifier: 
     also_commented: 
       commented: "tamén comentou na publicación de %{post_author}:"
@@ -344,7 +344,7 @@ gl:
       invalid_ext: "{file} ten unha extensión incorrecta. Só se permiten estas: {extensions}."
       size_error: "{file} é moi grande, o peso máximo de arquivo é {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ou escolle un xa existente"
+      or_select_one: "ou escolle unha xa existente:"
       upload: "Sube unha nova foto de perfil!"
     photo: 
       view_all: "ver todas as fotos de %{name}"
@@ -412,11 +412,11 @@ gl:
       success: "Agora sodes amigos"
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} novas peticións!"
+        many: "%{count} novas peticións!"
+        one: "nova petición!"
+        other: "%{count} novas peticións!"
+        zero: "non hai novas peticións!"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
       manage_within: "Administrar contactos"
@@ -433,7 +433,7 @@ gl:
     finder: 
       friends: 
         few: "%{count} amigos"
-        many: "%{count} friends"
+        many: "%{count} amigos"
         one: "1 amigo"
         other: "%{count} amigos"
         zero: "non hai amigos"
@@ -511,23 +511,23 @@ gl:
   users: 
     destroy: "Conta pechada satisfactoriamente."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...comenta alguén na publicación do teu contacto?"
       change: "Cambiar"
       change_language: "Cambiar lingua"
       change_password: "Cambiar contrasinal"
       close_account: "Pechar conta"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...alguén comenta na túa publicación?"
       current_password: "Contrasinal actual"
       download_photos: "Descargar as miñas imaxes"
       download_xml: "descargar o meu xml"
       edit_account: "Editar conta"
       export_data: "Exportar datos"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...estás mencionado nunha publicación?"
       new_password: "Novo contrasinal"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Recibir notificacións por correo?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...recibes unha mensaxe privada?"
+      receive_email_notifications: "Recibir notificacións por correo cando..."
+      request_acceptence: "...a túa petición é aceptada?"
+      request_received: "...recibes unha petición?"
       your_email: "O teu correo"
       your_handle: "O teu enderezo Diaspora"
     getting_started: 
