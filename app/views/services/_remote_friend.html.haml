@@ -39,3 +39,12 @@
       = link_to friend[:name], person_path(friend[:person])
     - else
       = friend[:name]
+
+%li{:style => "height:400px"}
+  - if friend[:person]
+    = render :partial => 'contacts/share_with_list',
+          :locals => {:person => friend[:person],
+            :contact => Contact.new,
+              :aspects_with_person => [],
+              :aspects_without_person => current_user.aspects,
+              :friend_finder => true}
