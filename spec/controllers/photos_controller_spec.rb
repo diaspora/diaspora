@@ -138,7 +138,7 @@ describe PhotosController do
   describe "#update" do
     it "updates the caption of a photo" do
       put :update, :id => @alices_photo.id, :photo => { :text => "now with lasers!" }
-      @alices_photo.reload.caption.should == "now with lasers!"
+      @alices_photo.reload.text.should == "now with lasers!"
     end
 
     it "doesn't overwrite random attributes" do
