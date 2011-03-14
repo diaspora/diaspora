@@ -66,15 +66,15 @@ da:
       success: "%{name} fjernet."
     edit: 
       add_existing: "Tilføj en eksisterende kontakt "
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "aspekt liste er gemt for andre i aspektet"
+      aspect_list_is_visible: "aspekt lise er synlig for andre i aspektet"
       confirm_remove_aspect: "Er du sikker på du vil slette dette aspekt?"
-      done: "Done"
-      make_aspect_list_visible: "gør aspekt listen synlig for andre i aspektet"
+      done: "Gennemført"
+      make_aspect_list_visible: "gør aspekt synligt?"
       remove_aspect: "Slet dette aspekt"
       rename: "omdøb"
-      update: "update"
-    few: "%{count} aspects"
+      update: "Opdater"
+    few: "%{count} aspekter"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
       aspect_not_empty: "Aspektet er ikke tomt"
@@ -89,7 +89,7 @@ da:
       manage_aspects: "Administrér aspekter"
       no_requests: "Ingen nye anmodninger"
       requests: "Anmodninger"
-    many: "%{count} aspects"
+    many: "%{count} aspekter"
     move_contact: 
       error: "Kunne ikke flytte kontaktperson: %{inspect}"
       failure: "virkede ikke %{inspect}"
@@ -105,8 +105,8 @@ da:
       nobody_in_aspect: "Dit aspekt '%{aspect_name}' er tomt."
     no_posts_message: 
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspekt"
+    other: "%{count} aspekter"
     seed: 
       family: "Familie"
       work: "Arbejde"
@@ -115,18 +115,18 @@ da:
     update: 
       failure: "Dit aspekt, %{name}, var for langt til at blive gemt."
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
-    zero: "no aspects"
+    zero: "ingen aspekter"
   back: "Tilbage"
   cancel: "Annullér"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} kommentarer"
+    many: "%{count} kommentarer"
     new_comment: 
       comment: "Kommentér"
       commenting: "Kommentering ..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 kommentar"
+    other: "%{count} kommentarer"
+    zero: "ingen kommentarer"
   contacts: 
     create: 
       failure: "Kunne ikke oprette kontakt"
@@ -134,7 +134,7 @@ da:
       failure: "Det lykkedes ikke at afbryde forbindelse til %{name}"
       success: "Forbindelse til %{name} er nu afbrudt "
     few: "%{count} kontaktpersoner"
-    many: "%{count} contacts"
+    many: "%{count} kontakter"
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
     share_with_pane: 
@@ -145,30 +145,30 @@ da:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} nye beskeder"
+        many: "%{count} nye beskeder"
+        one: "1 ny besked"
+        other: "%{count} nye beskeder"
+        zero: "ingen nye beskeder"
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "Opret ny besked"
+      message_inbox: "Besked Inbox"
+      new_message: "Ny besked"
+      no_conversation_selected: "ingen samtale valgt"
+      no_messages: "ingen beskeder"
     new: 
-      no_results: "No Results Found"
+      no_results: "Fandt ingen resultater."
       send: "Send"
-      subject: "subject"
-      to: "to"
+      subject: "emne"
+      to: "til"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "slet og bloker samtalen"
+      reply: "Svar"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Slet"
   email: "E-mail"
   error_messages: 
@@ -217,7 +217,7 @@ da:
       have_a_problem: "Har du et problem? Find svaret her"
       logged_in_as: "Logget ind som %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Offentligt Diaspora nyheds feed for  %{name}"
       toggle: "toggle mobile site"
       whats_new: "Hvad er nyt?"
       your_aspects: "dine aspekter"
@@ -232,17 +232,17 @@ da:
   more: "Mere"
   next: "Næste"
   notifications: 
-    also_commented: "kommenterede også på din kontakts"
+    also_commented: "kommenterede også på %{post_author}'s"
     also_commented_deleted: "kommenterede på en slettet post"
     comment_on_post: "kommenterede et af dine"
     deleted: "slettet"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} nye notifikationer"
+        many: "%{count} ny notifikationer"
+        one: "1 ny notifikation"
+        other: "%{count} nye notifikationer"
+        zero: "ingen nye notifikationer"
     index: 
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
@@ -254,7 +254,7 @@ da:
     also_commented: 
       commented: "har også kommenteret på %{post_author}'s post:"
       sign_in: "Log in for at se det."
-      subject: "%{name} har også kommenteret på din kontakts post."
+      subject: "%{name} har også kommenteret på %{post_author}'s post."
     comment_on_post: 
       commented: "har kommenteret på din post:"
       sign_in: "Log in for at se det."
@@ -272,10 +272,10 @@ da:
       subject: "ny Diaspora* kontaktanmodning fra %{from}"
       try_it_out: "Du bør virkelig overveje at tjekke den ud."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Emne: %{subject}"
+      private_message: "har sendt dig en privat besked:"
+      sign_in: "Log in for at se."
+      subject: "%{name} har sendt dig en privat meddelelse på Diaspora*"
     request_accepted: 
       accepted: "har accepteret din kontaktanmodning."
       sign_in: "Log ind her"
@@ -316,7 +316,7 @@ da:
     show: 
       does_not_exist: "Personen findes ikke!"
       incoming_request: "%{name} vil gerne dele med dig."
-      message: "Message"
+      message: "Besked"
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
       recent_posts: "Nylige indlæg"
@@ -364,8 +364,8 @@ da:
       notice: "Billedet blev opdateret."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Post tagget med #%{tag}"
+      whatup: "Hvad sker der på %{pod}"
   previous: "Forrige"
   profile: "Profil"
   profiles: 
@@ -413,11 +413,11 @@ da:
       success: "I er nu venner."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} nye anmodninger!"
+        many: "%{Count} nye anmodninger!"
+        one: "ny anmodning!"
+        other: "%{count} nye anmodninger!"
+        zero: "ingen nye anmodninger"
     manage_aspect_contacts: 
       existing: "Eksisterende kontaktpersoner"
       manage_within: "Administrér kontaktpersoner indenfor"
@@ -434,7 +434,7 @@ da:
     finder: 
       friends: 
         few: "%{count} venner"
-        many: "%{count} friends"
+        many: "%{count} venner"
         one: "1 ven"
         other: "%{count} venner"
         zero: "ingen venner"
@@ -512,23 +512,23 @@ da:
   users: 
     destroy: "Kontoen er nu lukket."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...en eller anden har også kommenteret på din kontakts post?"
       change: "Skift"
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       close_account: "Luk konto"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...en eller anden har kommenteret på din post?"
       current_password: "Nuværende password"
       download_photos: "Download mine billeder"
       download_xml: "Download min XML"
       edit_account: "Rediger konto"
       export_data: "Exportér data"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...du er nævnt i en post?"
       new_password: "Ny adgangskode"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Modtag e-mail notifikation?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...du har modtaget en besked?"
+      receive_email_notifications: "Modtag e-mail notifikation når..."
+      request_acceptence: "...din anmodning om at dele er blevet accepteret?"
+      request_received: "...du har modtaget en nu dele anmodning?"
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 

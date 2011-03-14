@@ -4,7 +4,7 @@
 
 
 zh-TW: 
-  _comments: "Comments"
+  _comments: "意見"
   _home: "首頁"
   _photos: "相片"
   _services: "服務"
@@ -66,11 +66,11 @@ zh-TW:
       success: "成功刪除 %{name} 了."
     edit: 
       add_existing: "加入既有聯繫"
-      aspect_list_is_not_visible: "面向中的其他人看不到他/她被加入"
-      aspect_list_is_visible: "面向中的其他人可看到他/她被加入"
+      aspect_list_is_not_visible: "面向中的其他人無法看見聯繫列表"
+      aspect_list_is_visible: "面向中的其他人可以看見聯繫列表"
       confirm_remove_aspect: "你確定要刪除這個面向?"
       done: "完成"
-      make_aspect_list_visible: "讓大家可以看見面向裡的人?"
+      make_aspect_list_visible: "是否讓其他人可以看見面向裡的聯繫列表?"
       remove_aspect: "刪除這個面向"
       rename: "改名"
       update: "更新"
