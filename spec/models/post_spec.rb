@@ -22,7 +22,7 @@ describe Post do
 
   describe 'serialization' do
     it 'should serialize the handle and not the sender' do
-      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post = @user.post :status_message, :text => "hello", :to => @aspect.id
       xml = post.to_diaspora_xml
 
       xml.include?("person_id").should be false
@@ -32,7 +32,7 @@ describe Post do
 
   describe '#mutable?' do
     it 'should be false by default' do
-      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post = @user.post :status_message, :text => "hello", :to => @aspect.id
       post.mutable?.should == false
     end
   end
@@ -40,7 +40,7 @@ describe Post do
   describe '#subscribers' do
     it 'returns the people contained in the aspects the post appears in' do
 
-      post = @user.post :status_message, :message => "hello", :to => @aspect.id
+      post = @user.post :status_message, :text => "hello", :to => @aspect.id
 
       post.subscribers(@user).should == []
     end

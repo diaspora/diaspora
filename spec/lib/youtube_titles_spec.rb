@@ -31,7 +31,7 @@ describe YoutubeTitles do
       Net::HTTP.stub!(:new).with('gdata.youtube.com', 80).and_return(mock_http)
       mock_http.should_receive(:get).with(@api_path, nil).and_return(
         [nil, "Foobar <title>#{@expected_title}</title> hallo welt <asd><dasdd><a>dsd</a>"])
-      @post = Factory.create(:status_message, :message => @url)
+      @post = Factory.create(:status_message, :text => @url)
     end
     it 'can be re-marshalled' do
       lambda {

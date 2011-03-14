@@ -117,7 +117,7 @@ describe Notifier do
 
       @create_hash = { :author => @user2.person, :participant_ids => @participant_ids ,
                        :subject => "cool stuff", :text => 'hey'}
-   
+
       @cnv = Conversation.create(@create_hash)
 
       @mail = Notifier.private_message(user.id, @cnv.author.id, @cnv.messages.first.id)
@@ -148,7 +148,7 @@ describe Notifier do
   end
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
-    let!(:sm) {user.post(:status_message, :message => "Sunny outside", :to => :all)}
+    let!(:sm) {user.post(:status_message, :text => "Sunny outside", :to => :all)}
     let!(:comment) { user2.comment("Totally is", :on => sm )}
     describe ".comment_on_post" do
 

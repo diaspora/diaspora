@@ -25,7 +25,7 @@
         = image_tag @photo.url(:scaled_full)
 
       #caption
-        = @photo.caption
+        = @photo.text
 
     - if @ownership
       .photo_options{:data=>{:actor=>"#{@photo.author.owner.id}", :actor_person => "#{@photo.author.id}", :image_url => "#{@photo.url(:thumb_large)}"}}
@@ -56,7 +56,7 @@
       %h4= t('.edit_delete_photo')
       %p
         = form_for @photo, :remote => true do |p|
-          = p.text_field :caption, :value => @photo.caption
+          = p.text_field :text, :value => @photo.text
           = p.submit t('.update_photo')
       %p
         = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete

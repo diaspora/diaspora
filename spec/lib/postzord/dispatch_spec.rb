@@ -81,7 +81,7 @@ describe Postzord::Dispatch do
 
         context "local luke's post is commented on by" do
           before do
-            @post = @local_luke.post(:status_message, :message => "hello", :to => @local_luke.aspects.first)
+            @post = @local_luke.post(:status_message, :text => "hello", :to => @local_luke.aspects.first)
           end
           context "local leia" do
             before do

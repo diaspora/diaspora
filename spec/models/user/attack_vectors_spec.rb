@@ -20,7 +20,7 @@ describe "attack vectors" do
   context 'non-contact valid user' do
 
     it 'does not save a post from a non-contact' do
-      post_from_non_contact = bad_user.build_post( :status_message, :message => 'hi')
+      post_from_non_contact = bad_user.build_post( :status_message, :text => 'hi')
       salmon_xml = bad_user.salmon(post_from_non_contact).xml_for(user.person)
 
       post_from_non_contact.delete
@@ -39,7 +39,7 @@ describe "attack vectors" do
   it 'does not let a user attach to posts previously in the db unless its received from the author' do
     connect_users(user, aspect, user3, aspect3)
 
-    original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+    original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
     original_message.diaspora_handle = user.diaspora_handle
 
@@ -60,14 +60,14 @@ describe "attack vectors" do
 
     describe 'mass assignment on id' do
       it "does not save a message over an old message with a different author" do
-        original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+        original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
         salmon_xml = user2.salmon(original_message).xml_for(user.person)
 
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
-        malicious_message = Factory.build(:status_message, :id => original_message.id, :message => 'BAD!!!', :author => user3.person)
+        malicious_message = Factory.build(:status_message, :id => original_message.id, :text => 'BAD!!!', :author => user3.person)
         salmon_xml = user3.salmon(malicious_message).xml_for(user.person)
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
@@ -76,14 +76,14 @@ describe "attack vectors" do
       end
 
       it 'does not save a message over an old message with the same author' do
-        original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+        original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
         salmon_xml =  user2.salmon(original_message).xml_for(user.person)
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
         lambda {
-          malicious_message = Factory.build( :status_message, :id => original_message.id, :message => 'BAD!!!', :author => user2.person)
+          malicious_message = Factory.build( :status_message, :id => original_message.id, :text => 'BAD!!!', :author => user2.person)
 
           salmon_xml2 = user3.salmon(malicious_message).xml_for(user.person)
           zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
@@ -113,7 +113,7 @@ describe "attack vectors" do
 
     it "ignores retractions on a post not owned by the retraction's sender" do
       StatusMessage.delete_all
-      original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+      original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
@@ -137,7 +137,7 @@ describe "attack vectors" do
 
     it "disregards retractions for non-existent posts that are from someone other than the post's author" do
       StatusMessage.delete_all
-      original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+      original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
       id = original_message.reload.id
 
       ret = Retraction.new
@@ -156,7 +156,7 @@ describe "attack vectors" do
     end
 
     it 'should not receive retractions where the retractor and the salmon author do not match' do
-      original_message = user2.post :status_message, :message => 'store this!', :to => aspect2.id
+      original_message = user2.post :status_message, :text => 'store this!', :to => aspect2.id
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
@@ -209,21 +209,21 @@ describe "attack vectors" do
     end
 
     it 'does not let me update other persons post' do
-      original_message = user2.post(:photo, :user_file => uploaded_photo, :caption => "store this!", :to => aspect2.id)
+      original_message = user2.post(:photo, :user_file => uploaded_photo, :text => "store this!", :to => aspect2.id)
 
       salmon_xml = user2.salmon(original_message).xml_for(user.person)
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
       original_message.diaspora_handle = user3.diaspora_handle
-      original_message.caption = "bad bad bad"
+      original_message.text= "bad bad bad"
 
       salmon_xml = user3.salmon(original_message).xml_for(user.person)
 
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
-      original_message.reload.caption.should == "store this!"
+      original_message.reload.text.should == "store this!"
     end
   end
 end

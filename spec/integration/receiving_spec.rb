@@ -27,14 +27,14 @@ describe 'a user receives a post' do
   it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
     contact = @user1.contact_for(@user2.person)
     @user1.add_contact_to_aspect(contact, @user1.aspects.create(:name => "villains"))
-    status = @user2.build_post(:status_message, :message => "Users do things", :to => @aspect2.id)
+    status = @user2.build_post(:status_message, :text => "Users do things", :to => @aspect2.id)
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
     zord = Postzord::Receiver.new(@user1, :object => status, :person => @user2.person)
     zord.receive_object
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = @user2.post :status_message, :message => 'store this!', :to => @aspect2.id
+    status_message = @user2.post :status_message, :text => 'store this!', :to => @aspect2.id
 
     xml = status_message.to_diaspora_xml
     @user2.delete
@@ -49,7 +49,7 @@ describe 'a user receives a post' do
     num_aspects = @user1.aspects.size
 
     2.times do |n|
-      status_message = @user2.post :status_message, :message => "store this #{n}!", :to => @aspect2.id
+      status_message = @user2.post :status_message, :text => "store this #{n}!", :to => @aspect2.id
     end
 
     @user1.aspects.size.should == num_aspects
@@ -57,7 +57,7 @@ describe 'a user receives a post' do
 
   it "should show bob's post to alice" do
     fantasy_resque do
-      sm = bob.build_post(:status_message, :message => "hi")
+      sm = bob.build_post(:status_message, :text => "hi")
       sm.save!
       sm.stub!(:socket_to_user)
       bob.aspects.reload
@@ -73,7 +73,7 @@ describe 'a user receives a post' do
       Notification.should_receive(:notify).with(@user1, anything(), @user2.person)
       Notification.should_receive(:notify).with(@user3, anything(), @user2.person)
 
-      @sm = @user2.build_post(:status_message, :message => "@{#{@user1.name}; #{@user1.diaspora_handle}} stuff @{#{@user3.name}; #{@user3.diaspora_handle}}")
+      @sm = @user2.build_post(:status_message, :text => "@{#{@user1.name}; #{@user1.diaspora_handle}} stuff @{#{@user3.name}; #{@user3.diaspora_handle}}")
       @sm.stub!(:socket_to_user)
       @user2.add_to_streams(@sm, [@user2.aspects.first])
       @sm.save
@@ -91,7 +91,7 @@ describe 'a user receives a post' do
 
       Notification.should_receive(:notify).with(@user1, anything(), @remote_person)
 
-      @sm = Factory.build(:status_message, :message => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
+      @sm = Factory.build(:status_message, :text => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
       @sm.stub!(:socket_to_user)
       @sm.save
 
@@ -102,7 +102,7 @@ describe 'a user receives a post' do
     it 'does not notify the mentioned user if the mentioned user is not friends with the post author' do
       Notification.should_not_receive(:notify).with(@user1, anything(), @user3.person)
 
-      @sm = @user3.build_post(:status_message, :message => "should not notify @{#{@user1.name}; #{@user1.diaspora_handle}}")
+      @sm = @user3.build_post(:status_message, :text => "should not notify @{#{@user1.name}; #{@user1.diaspora_handle}}")
       @sm.stub!(:socket_to_user)
       @user3.add_to_streams(@sm, [@user3.aspects.first])
       @sm.save
@@ -114,8 +114,8 @@ describe 'a user receives a post' do
 
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
-      status = @user1.post :status_message, :message => "store this!", :to => @aspect.id
-      status.message = 'foo'
+      status = @user1.post :status_message, :text => "store this!", :to => @aspect.id
+      status.text = 'foo'
       xml = status.to_diaspora_xml
 
       receive_with_zord(@user2, @user1.person, xml)
@@ -124,20 +124,20 @@ describe 'a user receives a post' do
     end
 
     it 'updates posts marked as mutable' do
-      photo = @user1.post(:photo, :user_file => uploaded_photo, :caption => "Original", :to => @aspect.id)
-      photo.caption = 'foo'
+      photo = @user1.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @aspect.id)
+      photo.text = 'foo'
       xml = photo.to_diaspora_xml
       @user2.reload
 
       receive_with_zord(@user2, @user1.person, xml)
 
-      photo.reload.caption.should match(/foo/)
+      photo.reload.text.should match(/foo/)
     end
   end
 
   describe 'post refs' do
     before do
-      @status_message = @user2.post :status_message, :message => "hi", :to => @aspect2.id
+      @status_message = @user2.post :status_message, :text => "hi", :to => @aspect2.id
       @user1.reload
       @aspect.reload
     end
@@ -210,7 +210,7 @@ describe 'a user receives a post' do
     context 'remote' do
       before do
         connect_users(@user1, @aspect, @user3, @aspect3)
-        @post = @user1.post :status_message, :message => "hello", :to => @aspect.id
+        @post = @user1.post :status_message, :text => "hello", :to => @aspect.id
 
         xml = @post.to_diaspora_xml
 
@@ -263,7 +263,7 @@ describe 'a user receives a post' do
 
     context 'local' do
       before do
-        @post = @user1.post :status_message, :message => "hello", :to => @aspect.id
+        @post = @user1.post :status_message, :text => "hello", :to => @aspect.id
 
         xml = @post.to_diaspora_xml
 
@@ -286,11 +286,11 @@ describe 'a user receives a post' do
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
     end
 
     it 'does not update created_at or updated_at when two people save the same post' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
       sleep(2)
@@ -301,11 +301,11 @@ describe 'a user receives a post' do
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 5.days.ago)
       old_time = @post.created_at
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      @post = Factory.build(:status_message, :message => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 2.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 2.days.ago)
       receive_with_zord(@local_luke, @remote_raphael, xml)
       (Post.find_by_guid @post.guid).created_at.day.should == old_time.day
     end
@@ -313,7 +313,7 @@ describe 'a user receives a post' do
 
 
   describe 'salmon' do
-    let(:post){@user1.post :status_message, :message => "hello", :to => @aspect.id}
+    let(:post){@user1.post :status_message, :text => "hello", :to => @aspect.id}
     let(:salmon){@user1.salmon( post )}
 
     it 'processes a salmon for a post' do
@@ -329,7 +329,7 @@ describe 'a user receives a post' do
 
   context 'retractions' do
     it 'should accept retractions' do
-      message = @user2.post(:status_message, :message => "cats", :to => @aspect2.id)
+      message = @user2.post(:status_message, :text => "cats", :to => @aspect2.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 

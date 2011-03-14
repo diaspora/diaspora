@@ -27,7 +27,7 @@ describe Diaspora::Socketable do
   before do
     @user = alice
     @aspect = @user.aspects.first
-    @post = @user.build_post(:status_message, :message => "hey", :to => @aspect.id)
+    @post = @user.build_post(:status_message, :text => "hey", :to => @aspect.id)
     @post.save
   end
 

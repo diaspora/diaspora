@@ -24,7 +24,7 @@ describe CommentsController do
     }
     context "on my own post" do
       before do
-        @post = @user1.post :status_message, :message => 'GIANTS', :to => @aspect1.id
+        @post = @user1.post :status_message, :text => 'GIANTS', :to => @aspect1.id
       end
       it 'responds to format js' do
         post :create, comment_hash.merge(:format => 'js')
@@ -35,7 +35,7 @@ describe CommentsController do
 
     context "on a post from a contact" do
       before do
-        @post = @user2.post :status_message, :message => 'GIANTS', :to => @aspect2.id
+        @post = @user2.post :status_message, :text => 'GIANTS', :to => @aspect2.id
       end
       it 'comments' do
         post :create, comment_hash
@@ -56,7 +56,7 @@ describe CommentsController do
     end
     context 'on a post from a stranger' do
       before do
-        @post = eve.post :status_message, :message => 'GIANTS', :to => eve.aspects.first.id
+        @post = eve.post :status_message, :text => 'GIANTS', :to => eve.aspects.first.id
       end
       it 'posts no comment' do
         @user1.should_not_receive(:comment)

@@ -22,7 +22,7 @@ describe StatusMessagesController do
 
   describe '#show' do
     before do
-      @message = @user1.build_post :status_message, :message => "ohai", :to => @aspect1.id
+      @message = @user1.build_post :status_message, :text => "ohai", :to => @aspect1.id
       @message.save!
 
       @user1.add_to_streams(@message, [@aspect1])
@@ -55,7 +55,7 @@ describe StatusMessagesController do
     let(:status_message_hash) {
       { :status_message => {
         :public  => "true",
-        :message => "facebook, is that you?",
+        :text => "facebook, is that you?",
         },
       :aspect_ids => [@aspect1.id.to_s] }
     }
@@ -72,7 +72,7 @@ describe StatusMessagesController do
       end
       it 'escapes XSS' do
         xss = "<script> alert('hi browser') </script>"
-        post :create, status_message_hash.merge(:format => 'js', :message => xss)
+        post :create, status_message_hash.merge(:format => 'js', :text => xss)
         json = JSON.parse(response.body)
         json['html'].should_not =~ /<script>/
       end
@@ -90,12 +90,12 @@ describe StatusMessagesController do
     it "doesn't overwrite author_id" do
       status_message_hash[:status_message][:author_id] = @user2.person.id
       post :create, status_message_hash
-      new_message = StatusMessage.find_by_message(status_message_hash[:status_message][:message])
+      new_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
       new_message.author_id.should == @user1.person.id
     end
 
     it "doesn't overwrite id" do
-      old_status_message = @user1.post(:status_message, :message => "hello", :to => @aspect1.id)
+      old_status_message = @user1.post(:status_message, :text => "hello", :to => @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
       old_status_message.reload.message.should == 'hello'
@@ -108,7 +108,7 @@ describe StatusMessagesController do
       post :create, status_message_hash
     end
     it 'sends the errors in the body on js' do
-      post :create, status_message_hash.merge!(:format => 'js', :status_message => {:message => ''})
+      post :create, status_message_hash.merge!(:format => 'js', :status_message => {:text => ''})
       response.body.should include('Status message requires a message or at least one photo')
     end
 
@@ -128,7 +128,7 @@ describe StatusMessagesController do
         @hash[:photos] = [@photo1.id.to_s, @photo2.id.to_s]
       end
       it "will post a photo without text" do
-        @hash.delete :message
+        @hash.delete :text
         post :create, @hash
         response.should be_redirect
       end
@@ -145,8 +145,8 @@ describe StatusMessagesController do
   end
 
   describe '#destroy' do
-    let!(:message) {@user1.post(:status_message, :message => "hey", :to => @aspect1.id)}
-    let!(:message2) {@user2.post(:status_message, :message => "hey", :to => @aspect2.id)}
+    let!(:message) {@user1.post(:status_message, :text => "hey", :to => @aspect1.id)}
+    let!(:message2) {@user2.post(:status_message, :text => "hey", :to => @aspect2.id)}
 
     it 'let a user delete his photos' do
       delete :destroy, :id => message.id

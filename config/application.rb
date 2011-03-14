@@ -51,7 +51,6 @@ module Diaspora
     config.filter_parameters += [:xml]
     config.filter_parameters += [:message]
     config.filter_parameters += [:text]
-    config.filter_parameters += [:caption]
     config.filter_parameters += [:bio]
 
   end

@@ -114,7 +114,7 @@ describe Aspect do
       aspect = user.aspects.create(:name => 'losers')
       contact = aspect.contacts.create(:person => connected_person)
 
-      status_message = user.post(:status_message, :message => "hey", :to => aspect.id)
+      status_message = user.post(:status_message, :text => "hey", :to => aspect.id)
 
       aspect.reload
       aspect.posts.include?(status_message).should be true
@@ -125,7 +125,7 @@ describe Aspect do
       aspect2 = user2.aspects.create(:name => 'winners')
       connect_users(user, aspect, user2, aspect2)
 
-      message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
+      message = user2.post(:status_message, :text => "Hey Dude", :to => aspect2.id)
 
       aspect.reload
       aspect.posts.include?(message).should be true
@@ -137,7 +137,7 @@ describe Aspect do
       aspect2 = user2.aspects.create(:name => 'winners')
       connect_users(user, aspect, user2, aspect2)
 
-      message = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
+      message = user2.post(:status_message, :text => "Hey Dude", :to => aspect2.id)
 
       aspect.reload.post_ids.include?(message.id).should be true
 
@@ -171,7 +171,7 @@ describe Aspect do
     end
     context 'moving and removing posts' do
       before do
-        @message  = user2.post(:status_message, :message => "Hey Dude", :to => aspect2.id)
+        @message  = user2.post(:status_message, :text => "Hey Dude", :to => aspect2.id)
         aspect.reload
         user.reload
       end

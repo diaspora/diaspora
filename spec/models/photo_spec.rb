@@ -28,10 +28,10 @@ describe Photo do
       @photo.update_attributes(:author_id => Factory(:person).id)
       @photo.reload.author.should == @user.person
     end
-    it 'allows assignmant of caption' do
+    it 'allows assignment of text' do
       @photo.save!
-      @photo.update_attributes(:caption => "this is awesome!!")
-      @photo.reload.caption.should == "this is awesome!!"
+      @photo.update_attributes(:text => "this is awesome!!")
+      @photo.reload.text.should == "this is awesome!!"
     end
   end
 
@@ -80,8 +80,8 @@ describe Photo do
     before do
       @photo.image.store! File.open(@fixture_name)
     end
-    it 'should have a caption' do
-      @photo.caption = "cool story, bro"
+    it 'should have text' do
+      @photo.text= "cool story, bro"
       @photo.save.should be_true
     end
 
@@ -157,7 +157,7 @@ describe Photo do
 
   context "deletion" do
     before do
-      @status_message = @user.build_post(:status_message, :message => "", :to => @aspect.id)
+      @status_message = @user.build_post(:status_message, :text => "", :to => @aspect.id)
       @status_message.photos << @photo2
       @status_message.save
       @status_message.reload
@@ -188,7 +188,7 @@ describe Photo do
 
     it 'does not delete the parent if the parent has a message' do
       pending
-      @status_message.message = "hello there kids"
+      @status_message.text = "hello there kids"
       @status_message.save
 
       proc {

@@ -39,15 +39,15 @@ describe StatusMessage do
     end
   end
   it "should have either a message or at least one photo" do
-    n = Factory.build(:status_message, :message => nil)
+    n = Factory.build(:status_message, :text => nil)
     n.valid?.should be_false
 
-    n.message = ""
+    n.text = ""
     n.valid?.should be_false
 
-    n.message = "wales"
+    n.text = "wales"
     n.valid?.should be_true
-    n.message = nil
+    n.text = nil
 
     photo = @user.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
     photo.save!
@@ -59,7 +59,7 @@ describe StatusMessage do
 
   it 'should be postable through the user' do
     message = "Users do things"
-    status = @user.post(:status_message, :message => message, :to => @aspect.id)
+    status = @user.post(:status_message, :text => message, :to => @aspect.id)
     db_status = StatusMessage.find(status.id)
     db_status.message.should == message
   end
@@ -67,7 +67,7 @@ describe StatusMessage do
   it 'should require status messages to be less than 1000 characters' do
     message = ''
     1001.times do message = message +'1';end
-    status = Factory.build(:status_message, :message => message)
+    status = Factory.build(:status_message, :text => message)
 
     status.should_not be_valid
   end
@@ -79,7 +79,7 @@ describe StatusMessage do
 @{Raphael; #{@people[0].diaspora_handle}} can mention people like Raphael @{Ilya; #{@people[1].diaspora_handle}}
 can mention people like Raphaellike Raphael @{Daniel; #{@people[2].diaspora_handle}} can mention people like Raph
 STR
-      @sm = Factory.create(:status_message, :message => @test_string )
+      @sm = Factory.create(:status_message, :text => @test_string )
     end
 
     describe '#format_mentions' do
@@ -92,7 +92,7 @@ STR
 
       context 'with :plain_text option' do
         it 'removes the mention syntax and displays the unformatted name' do
-          status  = Factory(:status_message, :message => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
+          status  = Factory(:status_message, :text => "@{Barack Obama; barak@joindiaspora.com } is so cool @{Barack Obama; barak@joindiaspora.com } ")
           status.format_mentions(status.raw_message, :plain_text => true).should == 'Barack Obama is so cool Barack Obama '
         end
       end
@@ -181,7 +181,7 @@ STR
     describe '#format_tags' do
       before do
         @str = '#what #hey'
-        @sm.message = @str
+        @sm.text = @str
         @sm.build_tags
         @sm.save
         @sm.reload
@@ -196,7 +196,7 @@ STR
     end
     describe '#build_tags' do
       it 'builds the tags' do
-        @sm.message = '#what'
+        @sm.text = '#what'
         @sm.build_tags
         @sm.tag_list.should == ['what']
         lambda {
@@ -209,32 +209,32 @@ STR
         str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #hey#there #135440we #abc/23 ###'
         arr = ['what', 'hey', 'that', 'THATWASMYBIKE', '135440we', 'abc']
 
-        @sm.message = str
+        @sm.text = str
         @sm.tag_strings.should =~ arr
       end
       it 'returns no duplicates' do
         str = '#what #what #what #whaaaaaaaaaat'
         arr = ['what','whaaaaaaaaaat']
 
-        @sm.message = str
+        @sm.text = str
         @sm.tag_strings.should =~ arr
       end
       it 'is case insensitive' do
         str = '#what #wHaT #WHAT'
         arr = ['what']
 
-        @sm.message = str
+        @sm.text = str
         @sm.tag_strings.should =~ arr
       end
     end
   end
   describe "XML" do
     before do
-      @message = Factory.create(:status_message, :message => "I hate WALRUSES!", :author => @user.person)
+      @message = Factory.create(:status_message, :text => "I hate WALRUSES!", :author => @user.person)
       @xml = @message.to_xml.to_s
     end
     it 'serializes the unescaped, unprocessed message' do
-      @message.message = "<script> alert('xss should be federated');</script>"
+      @message.text = "<script> alert('xss should be federated');</script>"
       @message.to_xml.to_s.should include @message.message
     end
     it 'serializes the message' do
@@ -282,7 +282,7 @@ STR
       mock_http.should_receive(:get).with('/feeds/api/videos/'+video_id+'?v=2', nil).and_return(
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
-      post = @user.build_post :status_message, :message => url, :to => @aspect.id
+      post = @user.build_post :status_message, :text => url, :to => @aspect.id
 
       post.save!
       Post.find(post.id).youtube_titles.should == {video_id => CGI::escape(expected_title)}

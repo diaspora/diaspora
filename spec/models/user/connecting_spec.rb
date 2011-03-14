@@ -282,7 +282,7 @@ describe Diaspora::UserModules::Connecting do
       context 'with a post' do
         before do
           StatusMessage.delete_all
-          @message = alice.post(:status_message, :message => "hi", :to => alice.aspects.first.id)
+          @message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
         end
 
         it "deletes the disconnected user's posts from visible_posts" do

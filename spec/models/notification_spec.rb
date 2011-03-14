@@ -90,7 +90,7 @@ describe Notification do
 
         before do
           @user3 = bob
-          @sm = @user3.post(:status_message, :message => "comment!", :to => :all)
+          @sm = @user3.post(:status_message, :text => "comment!", :to => :all)
           Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
           Postzord::Receiver.new(@user3, :person => @user.person, :object => @user.comment("hey", :on => @sm)).receive_object
         end

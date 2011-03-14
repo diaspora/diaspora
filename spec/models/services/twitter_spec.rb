@@ -4,7 +4,7 @@ describe Services::Twitter do
 
   before do
     @user = alice
-    @post = @user.post(:status_message, :message => "hello", :to =>@user.aspects.first.id)
+    @post = @user.post(:status_message, :text => "hello", :to =>@user.aspects.first.id)
     @service = Services::Twitter.new(:access_token => "yeah", :access_secret => "foobar")
     @user.services << @service
   end

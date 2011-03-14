@@ -63,7 +63,7 @@ Factory.define :aspect do |aspect|
 end
 
 Factory.define(:status_message) do |m|
-  m.sequence(:message) { |n| "jimmy's #{n} whales" }
+  m.sequence(:text) { |n| "jimmy's #{n} whales" }
   m.association :author, :factory => :person
   m.after_build do|m|
     m.diaspora_handle = m.author.diaspora_handle

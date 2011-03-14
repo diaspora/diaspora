@@ -35,7 +35,7 @@ describe PublicsController do
 
     it 'unescapes the xml before sending it to receive_salmon' do
       aspect = @user.aspects.create(:name => 'foo')
-      post1 = @user.post(:status_message, :message => 'moms', :to => [aspect.id])
+      post1 = @user.post(:status_message, :text => 'moms', :to => [aspect.id])
       xml2 = post1.to_diaspora_xml
       user2 = Factory(:user)
 

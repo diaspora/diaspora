@@ -24,7 +24,7 @@ var Publisher = {
   cachedInput : false,
   input: function(){
     if(!Publisher.cachedInput){
-      Publisher.cachedInput = Publisher.form().find('#status_message_fake_message');
+      Publisher.cachedInput = Publisher.form().find('#status_message_fake_text');
     }
     return Publisher.cachedInput;
   },
@@ -39,7 +39,7 @@ var Publisher = {
   cachedHiddenInput : false,
   hiddenInput: function(){
     if(!Publisher.cachedHiddenInput){
-      Publisher.cachedHiddenInput = Publisher.form().find('#status_message_message');
+      Publisher.cachedHiddenInput = Publisher.form().find('#status_message_text');
     }
     return Publisher.cachedHiddenInput;
   },
@@ -315,7 +315,7 @@ var Publisher = {
     Publisher.bindServiceIcons();
     Publisher.bindPublicIcon();
 
-    if ($("#status_message_fake_message").val() == "") {
+    if ($("#status_message_fake_text").val() == "") {
       Publisher.close();
     };
 

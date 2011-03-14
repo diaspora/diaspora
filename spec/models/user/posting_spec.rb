@@ -18,7 +18,7 @@ describe User do
 
   describe '#add_to_streams' do
     before do
-      @params = {:message => "hey", :to => [aspect.id, aspect1.id]}
+      @params = {:text => "hey", :to => [aspect.id, aspect1.id]}
       @post = user.build_post(:status_message, @params)
       @post.save
       @aspect_ids = @params[:to]
@@ -61,11 +61,11 @@ describe User do
 
   describe '#build_post' do
     it 'sets status_message#message' do
-      post = user.build_post(:status_message, :message => "hey", :to => aspect.id)
+      post = user.build_post(:status_message, :text => "hey", :to => aspect.id)
       post.message.should == "hey"
     end
     it 'does not save a status_message' do
-      post = user.build_post(:status_message, :message => "hey", :to => aspect.id)
+      post = user.build_post(:status_message, :text => "hey", :to => aspect.id)
       post.persisted?.should be_false
     end
 
@@ -79,11 +79,11 @@ describe User do
 
   describe '#update_post' do
     it 'should update fields' do
-      photo = user.post(:photo, :user_file => uploaded_photo, :caption => "Old caption", :to => aspect.id)
-      update_hash = {:caption => "New caption"}
+      photo = user.post(:photo, :user_file => uploaded_photo, :text => "Old caption", :to => aspect.id)
+      update_hash = {:text => "New caption"}
       user.update_post(photo, update_hash)
 
-      photo.caption.should match(/New/)
+      photo.text.should match(/New/)
     end
   end
 end

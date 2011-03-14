@@ -9,7 +9,7 @@
     = image_tag @photo.url(:scaled_full)
 
   = form_for @photo do |photo|
-    = photo.label :caption
-    = photo.text_field :caption, :value => @photo.caption
+    = photo.label :text
+    = photo.text_field :text, :value => @photo.text
     = photo.submit
 

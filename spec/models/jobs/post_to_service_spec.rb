@@ -4,7 +4,7 @@ describe Job::PostToService do
   it 'calls service#post with the given service' do
     user = alice
     aspect = user.aspects.create(:name => "yeah")
-    post = user.post(:status_message, :message => 'foo', :to => aspect.id)
+    post = user.post(:status_message, :text => 'foo', :to => aspect.id)
     User.stub!(:find_by_id).with(user.id.to_s).and_return(user)
     m = mock()
     url = "foobar"

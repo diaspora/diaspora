@@ -117,7 +117,7 @@ end
 
 Given /^a user with email "([^\"]*)" has posted a status message "([^\"]*)" in all aspects$/ do |arg1, arg2|
   user = User.where(:email => arg1).first
-  status_message = user.build_post(:status_message, :message => arg2)
+  status_message = user.build_post(:status_message, :text => arg2)
   def status_message.socket_to_user(a1, a2); end
   user.add_to_streams(status_message, user.aspects)
   status_message.save!

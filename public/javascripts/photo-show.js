@@ -26,8 +26,8 @@ $(document).ready(function() {
 
   $('.edit_photo').bind('ajax:success', function(data, json, xhr) {
     json = $.parseJSON(json);
-    $(".edit_photo input:text").val(json.photo.caption);
-    $("#caption").html(json.photo.caption);
+    $(".edit_photo input:text").val(json.photo.text);
+    $("#caption").html(json.photo.text);
     $("#show_photo").find("img").fadeTo(200,1);
     $("#photo_spinner").hide();
   });

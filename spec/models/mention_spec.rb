@@ -12,7 +12,7 @@ describe Mention do
       @mentioned_user = bob
       @non_friend = eve
 
-      @sm = @user.build_post(:status_message, :message => "hi @{#{@mentioned_user.name}; #{@mentioned_user.diaspora_handle}}", :to => @user.aspects.first)
+      @sm = @user.build_post(:status_message, :text => "hi @{#{@mentioned_user.name}; #{@mentioned_user.diaspora_handle}}", :to => @user.aspects.first)
     end
 
     it 'notifies the person being mentioned' do
@@ -24,7 +24,7 @@ describe Mention do
       connect_users(@user, @aspect1, @non_friend, @non_friend.aspects.first)
 
       Notification.should_not_receive(:notify).with(@mentioned_user, anything(), @user.person)
-      sm2 = @user.post(:status_message, :message => "stuff @{#{@non_friend.name}; #{@non_friend.diaspora_handle}}", :to => @user.aspects.first)
+      sm2 = @user.post(:status_message, :text => "stuff @{#{@non_friend.name}; #{@non_friend.diaspora_handle}}", :to => @user.aspects.first)
       sm2.receive(@non_friend, @non_friend.person)
     end
   end
@@ -40,7 +40,7 @@ describe Mention do
       @user = alice
       @mentioned_user = bob
 
-      @sm =  @user.post(:status_message, :message => "hi", :to => @user.aspects.first)
+      @sm =  @user.post(:status_message, :text => "hi", :to => @user.aspects.first)
       @m  = Mention.create!(:person => @mentioned_user.person, :post => @sm)
       @m.notify_recipient
 

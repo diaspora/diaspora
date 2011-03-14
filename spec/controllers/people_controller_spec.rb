@@ -63,7 +63,7 @@ describe PeopleController do
         aspect = user.aspects.create(:name => 'people')
         connect_users(@user, @user.aspects.first, user, aspect)
 
-        @posts << @user.post(:status_message, :message => "hello#{n}", :to => aspect.id)
+        @posts << @user.post(:status_message, :text => "hello#{n}", :to => aspect.id)
       end
       @posts.each do |post|
         @users.each do |user|
@@ -113,16 +113,16 @@ describe PeopleController do
 
       it "assigns all the user's posts" do
         @user.posts.should be_empty
-        @user.post(:status_message, :message => "to one aspect", :to => @aspect.id)
-        @user.post(:status_message, :message => "to all aspects", :to => 'all')
-        @user.post(:status_message, :message => "public", :to => 'all', :public => true)
+        @user.post(:status_message, :text => "to one aspect", :to => @aspect.id)
+        @user.post(:status_message, :text => "to all aspects", :to => 'all')
+        @user.post(:status_message, :text => "public", :to => 'all', :public => true)
         @user.reload.posts.length.should == 3
         get :show, :id => @user.person.to_param
         assigns(:posts).should =~ @user.posts
       end
 
       it "renders the comments on the user's posts" do
-        message = @user.post :status_message, :message => 'test more', :to => @aspect.id
+        message = @user.post :status_message, :text => 'test more', :to => @aspect.id
         @user.comment 'I mean it', :on => message
         get :show, :id => @user.person.id
         response.should be_success
@@ -140,10 +140,10 @@ describe PeopleController do
       end
       it "assigns only public posts" do
         public_posts = []
-        public_posts << bob.post(:status_message, :message => "first public ", :to => bob.aspects[0].id, :public => true)
-        bob.post(:status_message, :message => "to an aspect @user is not in", :to => bob.aspects[1].id)
-        bob.post(:status_message, :message => "to all aspects", :to => 'all')
-        public_posts << bob.post(:status_message, :message => "public", :to => 'all', :public => true)
+        public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
+        bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
+        bob.post(:status_message, :text => "to all aspects", :to => 'all')
+        public_posts << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
 
         get :show, :id => @person.id
 
@@ -163,10 +163,10 @@ describe PeopleController do
       it "assigns only the posts the current user can see" do
         bob.posts.should be_empty
         posts_user_can_see = []
-        posts_user_can_see << bob.post(:status_message, :message => "to an aspect @user is in", :to => bob.aspects[0].id)
-        bob.post(:status_message, :message => "to an aspect @user is not in", :to => bob.aspects[1].id)
-        posts_user_can_see << bob.post(:status_message, :message => "to all aspects", :to => 'all')
-        posts_user_can_see << bob.post(:status_message, :message => "public", :to => 'all', :public => true)
+        posts_user_can_see << bob.post(:status_message, :text => "to an aspect @user is in", :to => bob.aspects[0].id)
+        bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
+        posts_user_can_see << bob.post(:status_message, :text => "to all aspects", :to => 'all')
+        posts_user_can_see << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
         bob.reload.posts.length.should == 4
 
         get :show, :id => @person.id
@@ -186,9 +186,9 @@ describe PeopleController do
 
       it "assigns only public posts" do
         eve.posts.should be_empty
-        eve.post(:status_message, :message => "to an aspect @user is not in", :to => eve.aspects.first.id)
-        eve.post(:status_message, :message => "to all aspects", :to => 'all')
-        public_post = eve.post(:status_message, :message => "public", :to => 'all', :public => true)
+        eve.post(:status_message, :text => "to an aspect @user is not in", :to => eve.aspects.first.id)
+        eve.post(:status_message, :text => "to all aspects", :to => 'all')
+        public_post = eve.post(:status_message, :text => "public", :to => 'all', :public => true)
         eve.reload.posts.length.should == 3
 
         get :show, :id => @person.id

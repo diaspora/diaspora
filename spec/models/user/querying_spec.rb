@@ -16,10 +16,10 @@ describe User do
   describe "#raw_visible_posts" do
     it "returns all the posts the user can see" do
       connect_users(@eve, @eves_aspect, @alice, @alices_aspect)
-      self_post = @alice.post(:status_message, :message => "hi", :to => @alices_aspect.id)
-      visible_post = @eve.post(:status_message, :message => "hello", :to => @eves_aspect.id)
+      self_post = @alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
+      visible_post = @eve.post(:status_message, :text => "hello", :to => @eves_aspect.id)
       dogs = @eve.aspects.create(:name => "dogs")
-      invisible_post = @eve.post(:status_message, :message => "foobar", :to => dogs.id)
+      invisible_post = @eve.post(:status_message, :text => "foobar", :to => dogs.id)
 
       stream = @alice.raw_visible_posts
       stream.should include(self_post)
@@ -32,13 +32,13 @@ describe User do
     before do
       connect_users(@eve, @eves_aspect, @alice, @alices_aspect)
       aspect3 = @alice.aspects.create(:name => "Snoozers")
-      @status_message1 = @eve.post :status_message, :message => "hi", :to => @eves_aspect.id
-      @status_message2 = @eve.post :status_message, :message => "hey", :public => true , :to => @eves_aspect.id
-      @status_message3 = @alice.post :status_message, :message => "hey", :public => true , :to => @alices_aspect.id
-      @status_message4 = @eve.post :status_message, :message => "blah", :public => true , :to => @eves_aspect.id
-      @status_message5 = @alice.post :status_message, :message => "secrets", :to => aspect3.id
+      @status_message1 = @eve.post :status_message, :text => "hi", :to => @eves_aspect.id
+      @status_message2 = @eve.post :status_message, :text => "hey", :public => true , :to => @eves_aspect.id
+      @status_message3 = @alice.post :status_message, :text => "hey", :public => true , :to => @alices_aspect.id
+      @status_message4 = @eve.post :status_message, :text => "blah", :public => true , :to => @eves_aspect.id
+      @status_message5 = @alice.post :status_message, :text => "secrets", :to => aspect3.id
 
-      @pending_status_message = @eve.post :status_message, :message => "hey", :public => true , :to => @eves_aspect.id, :pending => true
+      @pending_status_message = @eve.post :status_message, :text => "hey", :public => true , :to => @eves_aspect.id, :pending => true
     end
 
     describe "#visible_posts" do
@@ -70,7 +70,7 @@ describe User do
       end
 
       it "selects by message contents" do
-        query = @eve.visible_posts(:message => "hi")
+        query = @eve.visible_posts(:text=> "hi")
         query.should == [@status_message1]
       end
 
@@ -216,8 +216,8 @@ describe User do
       @user3 = Factory(:user)
       @aspect3 = @user3.aspects.create(:name => "bros")
 
-      @public_message = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
-      @private_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
+      @public_message = @user3.post(:status_message, :text => "hey there", :to => 'all', :public => true)
+      @private_message = @user3.post(:status_message, :text => "hey there", :to => @aspect3.id)
     end
 
     it 'displays public posts for a non-contact' do
@@ -230,7 +230,7 @@ describe User do
 
     it 'displays private and public posts for a non-contact after connecting' do
       connect_users(@alice, @alices_aspect, @user3, @aspect3)
-      new_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
+      new_message = @user3.post(:status_message, :text=> "hey there", :to => @aspect3.id)
 
       @alice.reload
 
@@ -239,8 +239,8 @@ describe User do
     end
 
     it 'displays recent posts first' do
-      msg3 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
-      msg4 = @user3.post(:status_message, :message => "hey there", :to => 'all', :public => true)
+      msg3 = @user3.post(:status_message, :text => "hey there", :to => 'all', :public => true)
+      msg4 = @user3.post(:status_message, :text => "hey there", :to => 'all', :public => true)
       msg3.created_at = Time.now+10
       msg3.save!
       msg4.created_at = Time.now+14

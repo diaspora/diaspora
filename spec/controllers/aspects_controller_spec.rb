@@ -64,7 +64,7 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_services")
     end
     it 'generates a jasmine fixture with posts' do
-      @alice.post(:status_message, :message => "hello", :to => @alices_aspect_2.id)
+      @alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
     end
@@ -76,7 +76,7 @@ describe AspectsController do
           aspect = user.aspects.create(:name => 'people')
           connect_users(@alice, @alices_aspect_1, user, aspect)
           target_aspect = n.even? ? @alices_aspect_1 : @alices_aspect_2
-          post = @alice.post(:status_message, :message => "hello#{n}", :to => target_aspect)
+          post = @alice.post(:status_message, :text=> "hello#{n}", :to => target_aspect)
           post.created_at = Time.now - (2 - n).seconds
           post.save!
           @posts << post
@@ -120,7 +120,7 @@ describe AspectsController do
           user = Factory.create(:user)
           aspect = user.aspects.create(:name => 'people')
           connect_users(@alice, @alices_aspect_1, user, aspect)
-          post =  @alice.post(:status_message, :message => "hello#{n}", :to => @alices_aspect_2.id)
+          post =  @alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
             user.comment "yo#{post.message}", :on => post
           end
@@ -272,7 +272,7 @@ describe AspectsController do
       response.should be_success
     end
   end
-  
+
   describe "#toggle_contact_visibility" do
     it 'sets contacts visible' do
       @alices_aspect_1.contacts_visible = false

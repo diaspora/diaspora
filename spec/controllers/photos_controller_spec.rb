@@ -30,7 +30,7 @@ describe PhotosController do
         post :create, @params
       }.should change(Photo, :count).by(1)
     end
-    
+
     it 'can set the photo as the profile photo' do
       old_url = @alice.person.profile.image_url
       @params[:photo][:set_profile_photo] = true
@@ -137,19 +137,19 @@ describe PhotosController do
 
   describe "#update" do
     it "updates the caption of a photo" do
-      put :update, :id => @alices_photo.id, :photo => { :caption => "now with lasers!" }
+      put :update, :id => @alices_photo.id, :photo => { :text => "now with lasers!" }
       @alices_photo.reload.caption.should == "now with lasers!"
     end
 
     it "doesn't overwrite random attributes" do
       new_user = Factory.create(:user)
-      params = { :caption => "now with lasers!", :author_id => new_user.id }
+      params = { :text => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @alices_photo.id, :photo => params
       @alices_photo.reload.author_id.should == @alice.person.id
     end
 
     it 'redirects if you do not have access to the post' do
-      params = { :caption => "now with lasers!" }
+      params = { :text => "now with lasers!" }
       put :update, :id => @bobs_photo.id, :photo => params
       response.should redirect_to(:action => :index, :person_id => @alice.person.id.to_s)
     end

@@ -215,7 +215,7 @@ describe User do
       end
     end
   end
-  
+
   describe 'update_user_preferences' do
     it 'unsets disable mail and makes the right amount of prefs' do
       alice.disable_mail = true
@@ -328,8 +328,8 @@ describe User do
       m = mock()
       m.should_receive(:post)
       Postzord::Dispatch.should_receive(:new).and_return(m)
-      photo = alice.build_post(:photo, :user_file => uploaded_photo, :caption => "hello", :to => alice.aspects.first.id)
-      alice.update_post(photo, :caption => 'hellp')
+      photo = alice.build_post(:photo, :user_file => uploaded_photo, :text => "hello", :to => alice.aspects.first.id)
+      alice.update_post(photo, :text => 'hellp')
     end
   end
 
@@ -419,7 +419,7 @@ describe User do
       end
 
       it 'should remove the posts' do
-        message = alice.post(:status_message, :message => "hi", :to => alice.aspects.first.id)
+        message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
         alice.reload
         alice.destroy
         proc { message.reload }.should raise_error ActiveRecord::RecordNotFound

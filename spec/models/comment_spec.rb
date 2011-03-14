@@ -12,7 +12,7 @@ describe Comment do
 
     @bob = bob
     @eve = eve
-    @status = alice.post(:status_message, :message => "hello", :to => @alices_aspect.id)
+    @status = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
   end
 
   describe 'comment#notification_type' do
@@ -65,7 +65,7 @@ describe Comment do
       @commenter = Factory.create(:user)
       @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
-      @post = alice.post :status_message, :message => "hello", :to => @alices_aspect.id
+      @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
       @comment = @commenter.comment "Fool!", :on => @post
       @xml = @comment.to_xml.to_s
     end
@@ -90,7 +90,7 @@ describe Comment do
 
   describe 'youtube' do
     before do
-      @message = alice.post :status_message, :message => "hi", :to => @alices_aspect.id
+      @message = alice.post :status_message, :text => "hi", :to => @alices_aspect.id
     end
     it 'should process youtube titles on the way in' do
       video_id = "ABYnqp-bxvg"
@@ -113,7 +113,7 @@ describe Comment do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
       @remote_parent = Factory.create(:status_message, :author => @remote_raphael)
-      @local_parent = @local_luke.post :status_message, :message => "hi", :to => @local_luke.aspects.first
+      @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.comment("yo", :on => @local_parent)
       @object_by_recipient = @local_leia.build_comment("yo", :on => @local_parent)

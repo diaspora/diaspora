@@ -23,9 +23,9 @@ describe PostsController do
         pending
         posts = []
         2.times do
-          posts << @user.post(:status_message, :message => "#what", :to => 'all')
+          posts << @user.post(:status_message, :text => "#what", :to => 'all')
         end
-        eve.post(:status_message, :message => "#what", :to => 'all')
+        eve.post(:status_message, :text => "#what", :to => 'all')
 
         get :index
         assigns[:posts].should =~ posts
@@ -34,9 +34,9 @@ describe PostsController do
         pending
         posts = []
         2.times do
-          posts << bob.post(:status_message, :message => "#what", :to => 'all')
+          posts << bob.post(:status_message, :text => "#what", :to => 'all')
         end
-        eve.post(:status_message, :message => "#what", :to => 'all')
+        eve.post(:status_message, :text => "#what", :to => 'all')
 
         get :index
         assigns[:posts].should =~ posts
@@ -45,10 +45,10 @@ describe PostsController do
     it 'restricts the posts by tag' do
       posts = []
       2.times do
-        posts << @user.post(:status_message, :message => "#what", :public => true, :to => 'all')
+        posts << @user.post(:status_message, :text => "#what", :public => true, :to => 'all')
       end
       2.times do
-        @user.post(:status_message, :message => "#hello", :public => true, :to => 'all')
+        @user.post(:status_message, :text => "#hello", :public => true, :to => 'all')
       end
 
       get :index, :tag => 'what'
@@ -59,7 +59,7 @@ describe PostsController do
       pending
       posts = []
       3.times do
-        posts << @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
+        posts << @user.post(:status_message, :text => "hello", :public => true, :to => 'all')
       end
       get :index
       assigns[:posts].should =~ posts
@@ -67,7 +67,7 @@ describe PostsController do
     it' shows only local posts' do
       pending
       3.times do
-        @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
+        @user.post(:status_message, :text => "hello", :public => true, :to => 'all')
       end
       @user.person.update_attributes(:owner_id => nil)
       get :index
@@ -76,14 +76,14 @@ describe PostsController do
   end
   describe '#show' do
     it 'shows a public post' do
-      status = @user.post(:status_message, :message => "hello", :public => true, :to => 'all')
+      status = @user.post(:status_message, :text => "hello", :public => true, :to => 'all')
 
       get :show, :id => status.id
       response.status= 200
     end
 
     it 'does not show a private post' do
-      status = @user.post(:status_message, :message => "hello", :public => false, :to => 'all')
+      status = @user.post(:status_message, :text => "hello", :public => false, :to => 'all')
       get :show, :id => status.id
       response.status = 302
     end

@@ -12,13 +12,13 @@ describe Diaspora::OstatusBuilder do
   let(:aspect) { user.aspects.first }
   let!(:public_status_messages) {
     3.times.inject([]) do |arr,n|
-      s = user.post(:status_message, :message => "hey#{n}", :public => true, :to => aspect.id)
+      s = user.post(:status_message, :text => "hey#{n}", :public => true, :to => aspect.id)
       arr << s
     end
   }
   let!(:private_status_messages) {
     3.times.inject([]) do |arr,n|
-      s = user.post(:status_message, :message => "secret_ney#{n}", :public => false, :to => aspect.id)
+      s = user.post(:status_message, :text => "secret_ney#{n}", :public => false, :to => aspect.id)
       arr << s
     end
   }

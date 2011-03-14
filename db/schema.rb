@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110311220249) do
+ActiveRecord::Schema.define(:version => 20110314043119) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -127,66 +127,6 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
 
-  create_table "mongo_aspect_memberships", :force => true do |t|
-    t.string   "aspect_mongo_id"
-    t.string   "contact_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_aspect_memberships", ["aspect_mongo_id"], :name => "index_mongo_aspect_memberships_on_aspect_mongo_id"
-  add_index "mongo_aspect_memberships", ["contact_mongo_id"], :name => "index_mongo_aspect_memberships_on_contact_mongo_id"
-
-  create_table "mongo_aspects", :force => true do |t|
-    t.string   "mongo_id"
-    t.string   "name"
-    t.string   "user_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_aspects", ["user_mongo_id"], :name => "index_mongo_aspects_on_user_mongo_id"
-
-  create_table "mongo_comments", :force => true do |t|
-    t.text     "text"
-    t.string   "mongo_id"
-    t.string   "post_mongo_id"
-    t.string   "person_mongo_id"
-    t.string   "guid"
-    t.text     "creator_signature"
-    t.text     "post_creator_signature"
-    t.text     "youtube_titles"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_comments", ["guid"], :name => "index_mongo_comments_on_guid", :unique => true
-  add_index "mongo_comments", ["post_mongo_id"], :name => "index_mongo_comments_on_post_mongo_id"
-
-  create_table "mongo_contacts", :force => true do |t|
-    t.string   "mongo_id"
-    t.string   "user_mongo_id"
-    t.string   "person_mongo_id"
-    t.boolean  "pending",         :default => true
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_contacts", ["person_mongo_id", "pending"], :name => "index_mongo_contacts_on_person_mongo_id_and_pending"
-  add_index "mongo_contacts", ["user_mongo_id", "pending"], :name => "index_mongo_contacts_on_user_mongo_id_and_pending"
-
-  create_table "mongo_invitations", :force => true do |t|
-    t.string   "mongo_id"
-    t.text     "message"
-    t.string   "sender_mongo_id"
-    t.string   "recipient_mongo_id"
-    t.string   "aspect_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_invitations", ["sender_mongo_id"], :name => "index_mongo_invitations_on_sender_mongo_id"
-
   create_table "mongo_notifications", :force => true do |t|
     t.string   "mongo_id"
     t.string   "target_type",        :limit => 127
@@ -200,131 +140,6 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
   end
 
   add_index "mongo_notifications", ["target_type", "target_mongo_id"], :name => "index_mongo_notifications_on_target_type_and_target_mongo_id"
-
-  create_table "mongo_people", :force => true do |t|
-    t.string   "mongo_id"
-    t.string   "guid"
-    t.text     "url"
-    t.string   "diaspora_handle"
-    t.text     "serialized_public_key"
-    t.string   "owner_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_people", ["diaspora_handle"], :name => "index_mongo_people_on_diaspora_handle", :unique => true
-  add_index "mongo_people", ["guid"], :name => "index_mongo_people_on_guid", :unique => true
-  add_index "mongo_people", ["owner_mongo_id"], :name => "index_mongo_people_on_owner_mongo_id", :unique => true
-
-  create_table "mongo_post_visibilities", :force => true do |t|
-    t.string   "aspect_mongo_id"
-    t.string   "post_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_post_visibilities", ["aspect_mongo_id"], :name => "index_mongo_post_visibilities_on_aspect_mongo_id"
-  add_index "mongo_post_visibilities", ["post_mongo_id"], :name => "index_mongo_post_visibilities_on_post_mongo_id"
-
-  create_table "mongo_posts", :force => true do |t|
-    t.string   "person_mongo_id"
-    t.boolean  "public",                  :default => false
-    t.string   "diaspora_handle"
-    t.string   "guid"
-    t.string   "mongo_id"
-    t.boolean  "pending",                 :default => false
-    t.string   "type"
-    t.text     "message"
-    t.string   "status_message_mongo_id"
-    t.text     "caption"
-    t.text     "remote_photo_path"
-    t.string   "remote_photo_name"
-    t.string   "random_string"
-    t.string   "image"
-    t.text     "youtube_titles"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_posts", ["guid"], :name => "index_mongo_posts_on_guid"
-  add_index "mongo_posts", ["person_mongo_id"], :name => "index_mongo_posts_on_person_mongo_id"
-  add_index "mongo_posts", ["type"], :name => "index_mongo_posts_on_type"
-
-  create_table "mongo_profiles", :force => true do |t|
-    t.string   "diaspora_handle"
-    t.string   "first_name",       :limit => 127
-    t.string   "last_name",        :limit => 127
-    t.string   "image_url"
-    t.string   "image_url_small"
-    t.string   "image_url_medium"
-    t.date     "birthday"
-    t.string   "gender"
-    t.text     "bio"
-    t.boolean  "searchable",                      :default => true
-    t.string   "person_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_profiles", ["first_name", "last_name", "searchable"], :name => "index_mongo_profiles_on_first_name_and_last_name_and_searchable"
-  add_index "mongo_profiles", ["first_name", "searchable"], :name => "index_mongo_profiles_on_first_name_and_searchable"
-  add_index "mongo_profiles", ["last_name", "searchable"], :name => "index_mongo_profiles_on_last_name_and_searchable"
-  add_index "mongo_profiles", ["person_mongo_id"], :name => "index_mongo_profiles_on_person_mongo_id", :unique => true
-
-  create_table "mongo_requests", :force => true do |t|
-    t.string   "mongo_id"
-    t.string   "sender_mongo_id",    :limit => 127
-    t.string   "recipient_mongo_id", :limit => 127
-    t.string   "aspect_mongo_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_requests", ["recipient_mongo_id"], :name => "index_mongo_requests_on_recipient_mongo_id"
-  add_index "mongo_requests", ["sender_mongo_id", "recipient_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id_and_recipient_mongo_id", :unique => true
-  add_index "mongo_requests", ["sender_mongo_id"], :name => "index_mongo_requests_on_sender_mongo_id"
-
-  create_table "mongo_services", :force => true do |t|
-    t.string   "mongo_id"
-    t.string   "type"
-    t.string   "user_mongo_id"
-    t.string   "provider"
-    t.string   "uid"
-    t.string   "access_token"
-    t.string   "access_secret"
-    t.string   "nickname"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "mongo_services", ["user_mongo_id"], :name => "index_mongo_services_on_user_mongo_id"
-
-  create_table "mongo_users", :force => true do |t|
-    t.string   "username"
-    t.text     "serialized_private_key"
-    t.integer  "invites"
-    t.boolean  "getting_started"
-    t.boolean  "disable_mail"
-    t.string   "language"
-    t.string   "email",                                 :default => "", :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                         :default => "", :null => false
-    t.string   "invitation_token",       :limit => 20
-    t.datetime "invitation_sent_at"
-    t.string   "reset_password_token"
-    t.string   "remember_token"
-    t.datetime "remember_created_at"
-    t.integer  "sign_in_count",                         :default => 0
-    t.datetime "current_sign_in_at"
-    t.datetime "last_sign_in_at"
-    t.string   "current_sign_in_ip"
-    t.string   "last_sign_in_ip"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "mongo_id"
-  end
-
-  add_index "mongo_users", ["mongo_id"], :name => "index_mongo_users_on_mongo_id", :unique => true
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"
@@ -385,9 +200,8 @@ ActiveRecord::Schema.define(:version => 20110311220249) do
     t.string   "guid",                                 :null => false
     t.boolean  "pending",           :default => false, :null => false
     t.string   "type",                                 :null => false
-    t.text     "message"
+    t.text     "text"
     t.integer  "status_message_id"
-    t.text     "caption"
     t.text     "remote_photo_path"
     t.string   "remote_photo_name"
     t.string   "random_string"

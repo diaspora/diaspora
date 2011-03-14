@@ -8,7 +8,7 @@
   = post.pending
 
 %p.photo_description
-  = post.caption
+  = post.text
 
 = link_to t('.view_all', :name => post.author.name), person_photos_path(post.author), :class => "small_text"
 

@@ -4,7 +4,7 @@ describe StreamHelper do
   before do
     @user = alice
     @aspect = @user.aspects.first
-    @post = @user.post(:status_message, :message => "hi", :to => @aspect.id)
+    @post = @user.post(:status_message, :text => "hi", :to => @aspect.id)
   end
   it 'renders a new comment form' do
     new_comment_form(@post.id, @user).should ==

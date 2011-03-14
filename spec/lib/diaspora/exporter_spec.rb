@@ -17,9 +17,9 @@ describe Diaspora::Exporter do
     @aspect2 =  @user2.aspects.create(:name => "Family")
     @aspect3 =  @user3.aspects.first
 
-    @status_message1 =  @user1.post(:status_message, :message => "One", :public => true, :to => @aspect1.id)
-    @status_message2 =  @user1.post(:status_message, :message => "Two", :public => true, :to => @aspect1.id)
-    @status_message3 =  @user2.post(:status_message, :message => "Three", :public => false, :to => @aspect2.id)
+    @status_message1 =  @user1.post(:status_message, :text => "One", :public => true, :to => @aspect1.id)
+    @status_message2 =  @user1.post(:status_message, :text => "Two", :public => true, :to => @aspect1.id)
+    @status_message3 =  @user2.post(:status_message, :text => "Three", :public => false, :to => @aspect2.id)
   end
 
   def exported

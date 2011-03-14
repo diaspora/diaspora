@@ -9,12 +9,12 @@ class Photo < Post
   xml_attr :remote_photo_path
   xml_attr :remote_photo_name
 
-  xml_attr :caption
+  xml_attr :text
   xml_attr :status_message_guid
 
   belongs_to :status_message
 
-  attr_accessible :caption, :pending
+  attr_accessible :text, :pending
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
@@ -101,7 +101,7 @@ class Photo < Post
       :id => self.id,
         :url => self.url(:thumb_medium),
         :thumb_small => self.url(:thumb_small),
-        :caption => self.caption
+        :text => self.text
       }
     }
   end

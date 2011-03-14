@@ -45,7 +45,7 @@ describe 'making sure the spec runner works' do
     end
 
     it 'allows posting after running' do
-      message = @user1.post(:status_message, :message => "Connection!", :to => @aspect1.id)
+      message = @user1.post(:status_message, :text => "Connection!", :to => @aspect1.id)
       @user2.reload.visible_posts.should include message
     end
   end
