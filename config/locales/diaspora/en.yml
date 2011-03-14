@@ -337,6 +337,8 @@ en:
       to_accept_or_ignore: "to accept or ignore it."
       does_not_exist: "Person does not exist!"
       not_connected: "You are not sharing with %{name}"
+      long_name_omitted_lc: " this person"
+      long_name_omitted_uc: "This person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
       similar_contacts: "similar contacts"

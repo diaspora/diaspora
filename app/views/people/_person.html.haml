@@ -12,7 +12,7 @@
     - elsif (contact && contact.pending) || (request && request.recipient == person)
       = t('.pending_request')
     - elsif request && request.sender == person
-      = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => '')),
+      = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => t('people.show.long_name_omitted_uc'))),
         {:controller => "contacts",
         :action => "new",
         :person_id => person.id},

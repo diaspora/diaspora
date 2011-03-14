@@ -5,7 +5,7 @@
     - elsif (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
       = t('people.person.pending_request')
     - elsif (friend[:request] && friend[:request].sender_id == friend[:person].id)
-      = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => '')),
+      = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => t('people.show.long_name_omitted_uc'))),
         {:controller => "people",
         :action => "show",
         :id => friend[:person].id,

@@ -27,7 +27,7 @@
     - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
       .right
         - if @incoming_request
-          = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
+          = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => t('people.show.long_name_omitted_uc'))),
             {:controller => "contacts",
             :action => "new",
             :person_id => @person.id},
