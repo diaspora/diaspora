@@ -7,25 +7,21 @@ require 'spec_helper'
 describe User do
 
   before do
-    @user = alice
-    @aspect = @user.aspects.first
-    @user2 = eve
-    @aspect2 = @user2.aspects.first
-
-    @person_one = Factory.create :person
-    @person_two = Factory.create :person
-    @person_three = Factory.create :person
+    @alice = alice
+    @alices_aspect = @alice.aspects.first
+    @eve = eve
+    @eves_aspect = @eve.aspects.first
   end
 
   describe "#raw_visible_posts" do
     it "returns all the posts the user can see" do
-      connect_users(@user2, @aspect2, @user, @aspect)
-      self_post = @user.post(:status_message, :message => "hi", :to => @aspect.id)
-      visible_post = @user2.post(:status_message, :message => "hello", :to => @aspect2.id)
-      dogs = @user2.aspects.create(:name => "dogs")
-      invisible_post = @user2.post(:status_message, :message => "foobar", :to => dogs.id)
+      connect_users(@eve, @eves_aspect, @alice, @alices_aspect)
+      self_post = @alice.post(:status_message, :message => "hi", :to => @alices_aspect.id)
+      visible_post = @eve.post(:status_message, :message => "hello", :to => @eves_aspect.id)
+      dogs = @eve.aspects.create(:name => "dogs")
+      invisible_post = @eve.post(:status_message, :message => "foobar", :to => dogs.id)
 
-      stream = @user.raw_visible_posts
+      stream = @alice.raw_visible_posts
       stream.should include(self_post)
       stream.should include(visible_post)
       stream.should_not include(invisible_post)
@@ -34,20 +30,20 @@ describe User do
 
   context 'with two posts' do
     before do
-      connect_users(@user2, @aspect2, @user, @aspect)
-      aspect3 = @user.aspects.create(:name => "Snoozers")
-      @status_message1 = @user2.post :status_message, :message => "hi", :to => @aspect2.id
-      @status_message2 = @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id
-      @status_message3 = @user.post :status_message, :message => "hey", :public => true , :to => @aspect.id
-      @status_message4 = @user2.post :status_message, :message => "blah", :public => true , :to => @aspect2.id
-      @status_message5 = @user.post :status_message, :message => "secrets", :to => aspect3.id
+      connect_users(@eve, @eves_aspect, @alice, @alices_aspect)
+      aspect3 = @alice.aspects.create(:name => "Snoozers")
+      @status_message1 = @eve.post :status_message, :message => "hi", :to => @eves_aspect.id
+      @status_message2 = @eve.post :status_message, :message => "hey", :public => true , :to => @eves_aspect.id
+      @status_message3 = @alice.post :status_message, :message => "hey", :public => true , :to => @alices_aspect.id
+      @status_message4 = @eve.post :status_message, :message => "blah", :public => true , :to => @eves_aspect.id
+      @status_message5 = @alice.post :status_message, :message => "secrets", :to => aspect3.id
 
-      @pending_status_message = @user2.post :status_message, :message => "hey", :public => true , :to => @aspect2.id, :pending => true
+      @pending_status_message = @eve.post :status_message, :message => "hey", :public => true , :to => @eves_aspect.id, :pending => true
     end
 
     describe "#visible_posts" do
       it "queries by person id" do
-        query = @user2.visible_posts(:author_id => @user2.person.id)
+        query = @eve.visible_posts(:author_id => @eve.person.id)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == false
@@ -56,7 +52,7 @@ describe User do
       end
 
       it "selects public posts" do
-        query = @user2.visible_posts(:public => true)
+        query = @eve.visible_posts(:public => true)
         query.include?(@status_message1).should == false
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == true
@@ -65,7 +61,7 @@ describe User do
       end
 
       it "selects non public posts" do
-        query = @user2.visible_posts(:public => false)
+        query = @eve.visible_posts(:public => false)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == false
         query.include?(@status_message3).should == false
@@ -74,27 +70,27 @@ describe User do
       end
 
       it "selects by message contents" do
-        query = @user2.visible_posts(:message => "hi")
+        query = @eve.visible_posts(:message => "hi")
         query.should == [@status_message1]
       end
 
       it "does not return pending posts" do
         @pending_status_message.pending.should be_true
-        @user2.visible_posts.should_not include @pending_status_message
+        @eve.visible_posts.should_not include @pending_status_message
       end
 
       it "queries by aspect" do
-        query = @user.visible_posts(:by_members_of => @aspect)
+        query = @alice.visible_posts(:by_members_of => @alices_aspect)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == true
         query.include?(@status_message4).should == true
         query.include?(@status_message5).should == false
-        @user.visible_posts(:by_members_of => @user.aspects.create(:name => "aaaaah")).should be_empty
+        @alice.visible_posts(:by_members_of => @alice.aspects.create(:name => "aaaaah")).should be_empty
       end
       it '#find_visible_post_by_id' do
-        @user2.find_visible_post_by_id(@status_message1.id).should == @status_message1
-        @user2.find_visible_post_by_id(@status_message5.id).should == nil
+        @eve.find_visible_post_by_id(@status_message1.id).should == @status_message1
+        @eve.find_visible_post_by_id(@status_message5.id).should == nil
       end
     end
   end
@@ -107,15 +103,15 @@ describe User do
 
     before do
       connect_users(user, first_aspect, user4, user4.aspects.first)
-      connect_users(user, second_aspect, @user2, @user2.aspects.first)
+      connect_users(user, second_aspect, @eve, @eve.aspects.first)
     end
 
     describe '#people_in_aspects' do
       it 'returns people objects for a users contact in each aspect' do
-        people = @user.people_in_aspects([first_aspect])
+        people = @alice.people_in_aspects([first_aspect])
         people.should == [user4.person]
-        people = @user.people_in_aspects([second_aspect])
-        people.should == [@user2.person]
+        people = @alice.people_in_aspects([second_aspect])
+        people.should == [@eve.person]
       end
 
       it 'returns local/remote people objects for a users contact in each aspect' do
@@ -136,9 +132,9 @@ describe User do
         local_person.save
         local_person.reload
 
-        @user.people_in_aspects([first_aspect]).count.should == 4
-        @user.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
-        q = @user.people_in_aspects([first_aspect], :type => 'local')
+        @alice.people_in_aspects([first_aspect]).count.should == 4
+        @alice.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
+        q = @alice.people_in_aspects([first_aspect], :type => 'local')
         q.count.should == 3
       end
 
@@ -147,7 +143,7 @@ describe User do
         local_user2 = Factory(:user)
         local_user3 = Factory(:user)
 
-        @user.people_in_aspects([first_aspect]).count.should == 1
+        @alice.people_in_aspects([first_aspect]).count.should == 1
       end
     end
   end
@@ -156,46 +152,46 @@ describe User do
     let(:person_one) { Factory.create :person }
     let(:person_two) { Factory.create :person }
     let(:person_three) { Factory.create :person }
-    let(:aspect) { @user.aspects.create(:name => 'heroes') }
+    let(:aspect) { @alice.aspects.create(:name => 'heroes') }
     describe '#contact_for_person_id' do
       it 'returns a contact' do
-        contact = Contact.create(:user => @user, :person => person_one, :aspects => [aspect])
-        @user.contacts << contact
-        @user.contact_for_person_id(person_one.id).should be_true
+        contact = Contact.create(:user => @alice, :person => person_one, :aspects => [aspect])
+        @alice.contacts << contact
+        @alice.contact_for_person_id(person_one.id).should be_true
       end
 
       it 'returns the correct contact' do
-        contact = Contact.create(:user => @user, :person => person_one, :aspects => [aspect])
-        @user.contacts << contact
+        contact = Contact.create(:user => @alice, :person => person_one, :aspects => [aspect])
+        @alice.contacts << contact
 
-        contact2 = Contact.create(:user => @user, :person => person_two, :aspects => [aspect])
-        @user.contacts << contact2
+        contact2 = Contact.create(:user => @alice, :person => person_two, :aspects => [aspect])
+        @alice.contacts << contact2
 
-        contact3 = Contact.create(:user => @user, :person => person_three, :aspects => [aspect])
-        @user.contacts << contact3
+        contact3 = Contact.create(:user => @alice, :person => person_three, :aspects => [aspect])
+        @alice.contacts << contact3
 
-        @user.contact_for_person_id(person_two.id).person.should == person_two
+        @alice.contact_for_person_id(person_two.id).person.should == person_two
       end
 
       it 'returns nil for a non-contact' do
-        @user.contact_for_person_id(person_one.id).should be_nil
+        @alice.contact_for_person_id(person_one.id).should be_nil
       end
 
       it 'returns nil when someone else has contact with the target' do
-        contact = Contact.create(:user => @user, :person => person_one, :aspects => [aspect])
-        @user.contacts << contact
-        @user2.contact_for_person_id(person_one.id).should be_nil
+        contact = Contact.create(:user => @alice, :person => person_one, :aspects => [aspect])
+        @alice.contacts << contact
+        @eve.contact_for_person_id(person_one.id).should be_nil
       end
     end
 
     describe '#contact_for' do
       it 'takes a person_id and returns a contact' do
-        @user.should_receive(:contact_for_person_id).with(person_one.id)
-        @user.contact_for(person_one)
+        @alice.should_receive(:contact_for_person_id).with(person_one.id)
+        @alice.contact_for(person_one)
       end
 
       it 'returns nil if the input is nil' do
-        @user.contact_for(nil).should be_nil
+        @alice.contact_for(nil).should be_nil
       end
     end
   end
@@ -204,13 +200,13 @@ describe User do
     let!(:user5) {Factory(:user)}
 
     it 'should not have a pending request before connecting' do
-      request = @user.request_from(user5.person)
+      request = @alice.request_from(user5.person)
       request.should be_nil
     end
 
     it 'should have a pending request after sending a request' do
-      @user.send_contact_request_to(user5.person, @user.aspects.first)
-      request = user5.request_from(@user.person)
+      @alice.send_contact_request_to(user5.person, @alice.aspects.first)
+      request = user5.request_from(@alice.person)
       request.should_not be_nil
     end
   end
@@ -225,21 +221,21 @@ describe User do
     end
 
     it 'displays public posts for a non-contact' do
-      @user.posts_from(@user3.person).should include @public_message
+      @alice.posts_from(@user3.person).should include @public_message
     end
 
     it 'does not display private posts for a non-contact' do
-      @user.posts_from(@user3.person).should_not include @private_message
+      @alice.posts_from(@user3.person).should_not include @private_message
     end
 
     it 'displays private and public posts for a non-contact after connecting' do
-      connect_users(@user, @aspect, @user3, @aspect3)
+      connect_users(@alice, @alices_aspect, @user3, @aspect3)
       new_message = @user3.post(:status_message, :message => "hey there", :to => @aspect3.id)
 
-      @user.reload
+      @alice.reload
 
-      @user.posts_from(@user3.person).should include @public_message
-      @user.posts_from(@user3.person).should include new_message
+      @alice.posts_from(@user3.person).should include @public_message
+      @alice.posts_from(@user3.person).should include new_message
     end
 
     it 'displays recent posts first' do
@@ -250,7 +246,7 @@ describe User do
       msg4.created_at = Time.now+14
       msg4.save!
 
-      @user.posts_from(@user3.person).map{|p| p.id}.should == [msg4, msg3, @public_message].map{|p| p.id}
+      @alice.posts_from(@user3.person).map{|p| p.id}.should == [msg4, msg3, @public_message].map{|p| p.id}
     end
   end
 end
