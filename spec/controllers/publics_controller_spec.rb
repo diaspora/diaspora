@@ -55,6 +55,10 @@ describe PublicsController do
       post :receive, "guid" => @person.guid.to_s, "xml" => xml
       response.should be_not_found
     end
+    it 'returns a 404 if no person is found' do
+      post :receive, :guid => '2398rq3948yftn', :xml => xml
+      response.should be_not_found
+    end
   end
 
   describe '#hcard' do

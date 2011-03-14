@@ -49,7 +49,7 @@ class PublicsController < ApplicationController
 
     person = Person.where(:guid => params[:guid]).first
 
-    if person.owner_id.nil?
+    if person.nil? || person.owner_id.nil?
       Rails.logger.error("Received post for nonexistent person #{params[:guid]}")
       render :nothing => true, :status => 404
       return
