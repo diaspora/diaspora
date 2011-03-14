@@ -11,7 +11,7 @@ Feature: commenting
    When I sign in as "alice@alice.alice"
     And I am on the home page
     And I expand the publisher
-    And I fill in "status_message_fake_message" with "Look at this dog"
+    And I fill in "status_message_fake_text" with "Look at this dog"
     And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
     And I press "Share"
     And I follow "Home"
