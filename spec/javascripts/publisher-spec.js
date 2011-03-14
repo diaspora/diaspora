@@ -27,7 +27,7 @@ describe("Publisher", function() {
     });
 
     it('gets called on initialize', function(){
-      spyOn(Publisher, 'bindPublicIcon'); 
+      spyOn(Publisher, 'bindPublicIcon');
       Publisher.initialize();
       expect(Publisher.bindPublicIcon).toHaveBeenCalled();
     });
@@ -55,7 +55,7 @@ describe("Publisher", function() {
     });
 
     it('gets called on initialize', function(){
-      spyOn(Publisher, 'bindServiceIcons'); 
+      spyOn(Publisher, 'bindServiceIcons');
       Publisher.initialize();
       expect(Publisher.bindServiceIcons).toHaveBeenCalled();
     });
@@ -141,8 +141,8 @@ describe("Publisher", function() {
     beforeEach(function(){
       spec.loadFixture('aspects_index_prefill');
     });
-    it("returns the status_message_fake_message textarea", function(){
-      expect(Publisher.input()[0].id).toBe('status_message_fake_message');
+    it("returns the status_message_fake_text textarea", function(){
+      expect(Publisher.input()[0].id).toBe('status_message_fake_text');
       expect(Publisher.input().length).toBe(1);
     });
   });
