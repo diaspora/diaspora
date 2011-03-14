@@ -48,8 +48,7 @@ class User < ActiveRecord::Base
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
-      mails = ['mentioned', 'request_received', 'comment_on_post', 'request_acceptance', 'also_commented', 'private_message']
-      mails.each{|x| self.user_preferences.find_or_create_by_email_type(x)}
+      UserPreference::VALID_EMAIL_TYPES.each{|x| self.user_preferences.find_or_create_by_email_type(x)}
       self.disable_mail = false
       self.save
     end
