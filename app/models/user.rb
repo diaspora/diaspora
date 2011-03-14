@@ -179,7 +179,9 @@ class User < ActiveRecord::Base
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Job::Mail', '').underscore
+    puts pref
     unless self.disable_mail || self.user_preferences.exists?(:email_type => pref)
+      puts 'im mailin'
       Resque.enqueue(job, *args)
     end
   end
