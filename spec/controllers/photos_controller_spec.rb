@@ -8,25 +8,15 @@ describe PhotosController do
   render_views
 
   before do
-    @user1 = alice
-    @user2 = bob
+    @alice = alice
+    @bob = bob
 
-    @aspect1 = @user1.aspects.first
-    @aspect2 = @user2.aspects.first
+    @alices_photo = @alice.post(:photo, :user_file => uploaded_photo, :to => @alice.aspects.first.id)
+    @bobs_photo = @bob.post(:photo, :user_file => uploaded_photo, :to => @bob.aspects.first.id, :public => true)
 
-    @photo1 = @user1.post(:photo, :user_file => uploaded_photo, :to => @aspect1.id)
-    @photo2 = @user2.post(:photo, :user_file => uploaded_photo, :to => @aspect2.id, :public => true)
-
-    @controller.stub!(:current_user).and_return(@user1)
-    sign_in :user, @user1
+    @controller.stub!(:current_user).and_return(@alice)
+    sign_in :user, @alice
     request.env["HTTP_REFERER"] = ''
-  end
-
-  it 'has working context' do
-    @photo1.url.should_not be_nil
-    Photo.find(@photo1.id).url.should_not be_nil
-    @photo2.url.should_not be_nil
-    Photo.find(@photo2.id).url.should_not be_nil
   end
 
   describe '#create' do
@@ -35,120 +25,145 @@ describe PhotosController do
       @params = {:photo => {:user_file => uploaded_photo, :aspect_ids => "all"} }
     end
 
-    it 'can make a photo' do
+    it "creates a photo" do
       lambda {
         post :create, @params
       }.should change(Photo, :count).by(1)
     end
+    
     it 'can set the photo as the profile photo' do
-      old_url = @user1.person.profile.image_url
+      old_url = @alice.person.profile.image_url
       @params[:photo][:set_profile_photo] = true
       post :create, @params
-      @user1.reload.person.profile.image_url.should_not == old_url
+      @alice.reload.person.profile.image_url.should_not == old_url
     end
   end
 
   describe '#index' do
     it "displays the logged in user's pictures" do
-      get :index, :person_id => @user1.person.id.to_s
-      assigns[:person].should == @user1.person
-      assigns[:posts].should == [@photo1]
+      get :index, :person_id => @alice.person.id.to_s
+      assigns[:person].should == @alice.person
+      assigns[:posts].should == [@alices_photo]
     end
 
     it "displays another person's pictures" do
-      get :index, :person_id => @user2.person.id.to_s
-
-      assigns[:person].should == @user2.person
-      assigns[:posts].should == [@photo2]
+      get :index, :person_id => @bob.person.id.to_s
+      assigns[:person].should == @bob.person
+      assigns[:posts].should == [@bobs_photo]
     end
   end
 
   describe '#show' do
-    it 'assigns the photo based on the photo id' do
-      get :show, :id => @photo1.id
-      response.status.should == 200
-
-      assigns[:photo].should == @photo1
-      assigns[:ownership].should be_true
+    context "user's own photo" do
+      before do
+        get :show, :id => @alices_photo.id
+      end
+      it "succeeds" do
+        response.should be_success
+      end
+      it "assigns the photo" do
+        assigns[:photo].should == @alices_photo
+        assigns[:ownership].should be_true
+      end
     end
-
-    it "renders a show page for another user's photo" do
-      get :show, :id => @photo2.id
-      response.status.should == 200
-
-      assigns[:photo].should == @photo2
-      assigns[:ownership].should be_false
+    context "private photo user can see" do
+      before do
+        get :show, :id => @bobs_photo.id
+      end
+      it "succeeds" do
+        response.should be_success
+      end
+      it "assigns the photo" do
+        assigns[:photo].should == @bobs_photo
+        assigns[:ownership].should be_false
+      end
     end
-
-    it 'shows a public photo of someone who is not friends' do
-      sign_out @user1
-      user3 = Factory(:user)
-      sign_in :user, user3
-      get :show, :id => @photo2.id
-      response.status.should == 200
-      assigns[:photo].should == @photo2
+    context "private photo user cannot see" do
+      before do
+        user3 = Factory(:user_with_aspect)
+        @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id)
+      end
+      it "redirects to the referrer" do
+        request.env["HTTP_REFERER"] = "http://google.com"
+        get :show, :id => @photo.to_param
+        response.should redirect_to("http://google.com")
+      end
+      it "redirects to the aspects page if there's no referrer" do
+        request.env.delete("HTTP_REFERER")
+        get :show, :id => @photo.to_param
+        response.should redirect_to(aspects_path)
+      end
     end
-
-    it 'redirects to the root url if the photo if you can not see it' do
-      get :show, :id => 23424
-      response.status.should == 302
+    context "public photo" do
+      before do
+        user3 = Factory(:user_with_aspect)
+        @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id, :public => true)
+        get :show, :id => @photo.to_param
+      end
+      it "succeeds" do
+        response.should be_success
+      end
+      it "assigns the photo" do
+        assigns[:photo].should == @photo
+        assigns[:ownership].should be_false
+      end
     end
   end
 
   describe '#edit' do
-    it 'lets the user edit a photo' do
-      get :edit, :id => @photo1.id
-      response.status.should == 200
+    it "succeeds when user owns the photo" do
+      get :edit, :id => @alices_photo.id
+      response.should be_success
     end
 
-    it 'does not let the user edit a photo that is not his' do
-      get :edit, :id => @photo2.id
-      response.should redirect_to(:action => :index, :person_id => @user1.person.id.to_s)
+    it "redirects when the user does not own the photo" do
+      get :edit, :id => @bobs_photo.id
+      response.should redirect_to(:action => :index, :person_id => @alice.person.id.to_s)
     end
   end
 
 
   describe '#destroy' do
     it 'allows the user to delete his photos' do
-      delete :destroy, :id => @photo1.id
-      Photo.find_by_id(@photo1.id).should be_nil
+      delete :destroy, :id => @alices_photo.id
+      Photo.find_by_id(@alices_photo.id).should be_nil
     end
 
     it 'will not let you destory posts you do not own' do
-      delete :destroy, :id => @photo2.id
-      Photo.find_by_id(@photo2.id).should be_true
+      delete :destroy, :id => @bobs_photo.id
+      Photo.find_by_id(@bobs_photo.id).should be_true
     end
   end
 
   describe "#update" do
     it "updates the caption of a photo" do
-      put :update, :id => @photo1.id, :photo => { :caption => "now with lasers!" }
-      @photo1.reload.caption.should == "now with lasers!"
+      put :update, :id => @alices_photo.id, :photo => { :caption => "now with lasers!" }
+      @alices_photo.reload.caption.should == "now with lasers!"
     end
 
     it "doesn't overwrite random attributes" do
       new_user = Factory.create(:user)
       params = { :caption => "now with lasers!", :author_id => new_user.id }
-      put :update, :id => @photo1.id, :photo => params
-      @photo1.reload.author_id.should == @user1.person.id
+      put :update, :id => @alices_photo.id, :photo => params
+      @alices_photo.reload.author_id.should == @alice.person.id
     end
 
     it 'redirects if you do not have access to the post' do
       params = { :caption => "now with lasers!" }
-      put :update, :id => @photo2.id, :photo => params
-      response.should redirect_to(:action => :index, :person_id => @user1.person.id.to_s)
+      put :update, :id => @bobs_photo.id, :photo => params
+      response.should redirect_to(:action => :index, :person_id => @alice.person.id.to_s)
     end
   end
 
   describe "#make_profile_photo" do
 
     it 'should return a 201 on a js success' do
-      get :make_profile_photo, :photo_id => @photo1.id, :format => 'js'
+      get :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
       response.code.should == "201"
     end
 
     it 'should return a 406 on failure' do
-      get :make_profile_photo, :photo_id => @photo2.id
+      get :make_profile_photo, :photo_id => @bobs_photo.id
       response.code.should == "406"
     end
 
