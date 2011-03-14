@@ -32,6 +32,10 @@ class Services::Facebook < Service
           {
             "name": "Person to Invite",
             "id": "abc123"
+          },
+          {
+            "name": "Creative Commons",
+            "id": "ccby"
           }
         ]
       }

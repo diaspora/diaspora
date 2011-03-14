@@ -1,4 +1,4 @@
-%li
+%li{:id => "uid_" + uid, :uid => uid}
   .right
     -if friend[:contact] && !friend[:contact].pending
       = t('people.person.already_connected')
@@ -6,10 +6,7 @@
       = t('people.person.pending_request')
     - elsif (friend[:request] && friend[:request].sender_id == friend[:person].id)
       = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => '')),
-        {:controller => "people",
-        :action => "show",
-        :id => friend[:person].id,
-        :share_with => true},
+        '#',
         :class => 'button'
     - elsif friend[:invitation_id]
       = t('invitations.new.already_invited')
@@ -17,10 +14,7 @@
       = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
     - elsif friend[:person]
       = link_to t('people.show.start_sharing'),
-        {:controller => "people",
-        :action => "show",
-        :id => friend[:person].id,
-        :share_with => true},
+        '#',
         :class => 'button'
 
     - elsif current_user.invites > 0
@@ -40,11 +34,13 @@
     - else
       = friend[:name]
 
-%li{:style => "height:400px"}
-  - if friend[:person]
+- unless friend[:person].nil? || (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
+  %li{:id => "options_" + uid, :class => "hidden", :style => "height:auto"}
+    - contact = friend[:contact]
+    - contact ||= Contact.new
     = render :partial => 'contacts/share_with_list',
           :locals => {:person => friend[:person],
-            :contact => Contact.new,
+            :contact => contact,
               :aspects_with_person => [],
               :aspects_without_person => current_user.aspects,
               :friend_finder => true}

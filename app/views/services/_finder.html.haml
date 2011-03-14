@@ -3,6 +3,6 @@
 -#   the COPYRIGHT file.
 
 = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
-%ul
+%ul.friend_finder
   - for uid in friends.keys
     = render :partial => 'services/remote_friend', :locals => {:friend => friends[uid], :uid => uid}
