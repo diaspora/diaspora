@@ -5,7 +5,7 @@
 module StatusMessagesHelper
   def my_latest_message
     unless @latest_status_message.nil?
-      return @latest_status_message.message
+      return @latest_status_message.text
     else
       return I18n.t('status_messages.helper.no_message_to_display')
     end

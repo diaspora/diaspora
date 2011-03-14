@@ -67,7 +67,7 @@ describe PeopleController do
       end
       @posts.each do |post|
         @users.each do |user|
-          user.comment "yo#{post.message}", :on => post
+          user.comment "yo#{post.text}", :on => post
         end
       end
     end

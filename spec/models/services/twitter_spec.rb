@@ -11,7 +11,7 @@ describe Services::Twitter do
 
   describe '#post' do
     it 'posts a status message to twitter' do
-      Twitter.should_receive(:update).with(@post.message)
+      Twitter.should_receive(:update).with(@post.text)
       @service.post(@post)
     end
 

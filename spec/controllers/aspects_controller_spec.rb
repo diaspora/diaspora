@@ -122,7 +122,7 @@ describe AspectsController do
           connect_users(@alice, @alices_aspect_1, user, aspect)
           post =  @alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
-            user.comment "yo#{post.message}", :on => post
+            user.comment "yo#{post.text}", :on => post
           end
         end
       end

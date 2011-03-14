@@ -11,7 +11,7 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-      RestClient.should_receive(:post).with("https://graph.facebook.com/me/feed", :message => @post.message, :access_token => @service.access_token)
+      RestClient.should_receive(:post).with("https://graph.facebook.com/me/feed", :message => @post.text, :access_token => @service.access_token)
       @service.post(@post)
     end
     it 'swallows exception raised by facebook always being down' do

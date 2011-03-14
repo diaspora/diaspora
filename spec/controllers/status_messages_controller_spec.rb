@@ -98,7 +98,7 @@ describe StatusMessagesController do
       old_status_message = @user1.post(:status_message, :text => "hello", :to => @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
-      old_status_message.reload.message.should == 'hello'
+      old_status_message.reload.text.should == 'hello'
     end
 
     it 'calls dispatch post once subscribers is set' do

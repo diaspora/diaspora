@@ -89,9 +89,9 @@ describe Diaspora::Exporter do
   context '<posts>' do
     let(:posts_xml) {exported.xpath('//posts').to_s}
     it 'should include many posts xml' do
-      posts_xml.should include @status_message1.message
-      posts_xml.should include @status_message2.message
-      posts_xml.should_not include @status_message3.message
+      posts_xml.should include @status_message1.text
+      posts_xml.should include @status_message2.text
+      posts_xml.should_not include @status_message3.text
     end
 
     it 'should include post created at time' do

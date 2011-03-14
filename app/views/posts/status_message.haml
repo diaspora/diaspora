@@ -11,7 +11,7 @@
 .span-14.append-1.last
   #show_text
     %p
-      = markdownify(@post.message, :youtube_maps => @post[:youtube_titles])
+      = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
 
     - for photo in @post.photos
       = link_to (image_tag photo.url(:thumb_small)), post_path(photo)

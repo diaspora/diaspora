@@ -59,7 +59,7 @@ class Postzord::Dispatch
     if @object.respond_to?(:public) && @object.public
       deliver_to_hub
     end
-    if @object.respond_to?(:message)
+    if @object.instance_of?(StatusMessage)
       services.each do |service|
         Resque.enqueue(Job::PostToService, service.id, @object.id, url)
       end

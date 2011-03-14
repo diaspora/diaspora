@@ -26,7 +26,7 @@ describe SocketsController do
 
     it 'actionhashes posts' do
       json = @controller.action_hash(@user, @message)
-      json.include?(@message.message).should be_true
+      json.include?(@message.text).should be_true
       json.include?('status_message').should be_true
     end
 

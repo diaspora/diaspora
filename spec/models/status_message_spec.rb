@@ -61,7 +61,7 @@ describe StatusMessage do
     message = "Users do things"
     status = @user.post(:status_message, :text => message, :to => @aspect.id)
     db_status = StatusMessage.find(status.id)
-    db_status.message.should == message
+    db_status.text.should == message
   end
 
   it 'should require status messages to be less than 1000 characters' do
@@ -118,7 +118,7 @@ STR
     describe '#formatted_message' do
       it 'escapes the message' do
         xss = "</a> <script> alert('hey'); </script>"
-        @sm.message << xss
+        @sm.text << xss
 
         @sm.formatted_message.should_not include xss
       end
@@ -235,7 +235,7 @@ STR
     end
     it 'serializes the unescaped, unprocessed message' do
       @message.text = "<script> alert('xss should be federated');</script>"
-      @message.to_xml.to_s.should include @message.message
+      @message.to_xml.to_s.should include @message.text
     end
     it 'serializes the message' do
       @xml.should include "<raw_message>I hate WALRUSES!</raw_message>"
@@ -250,7 +250,7 @@ STR
         @marshalled = StatusMessage.from_xml(@xml)
       end
       it 'marshals the message' do
-        @marshalled.message.should == "I hate WALRUSES!"
+        @marshalled.text.should == "I hate WALRUSES!"
       end
       it 'marshals the guid' do
         @marshalled.guid.should == @message.guid

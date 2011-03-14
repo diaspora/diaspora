@@ -120,7 +120,7 @@ describe 'a user receives a post' do
 
       receive_with_zord(@user2, @user1.person, xml)
 
-      status.reload.message.should == 'store this!'
+      status.reload.text.should == 'store this!'
     end
 
     it 'updates posts marked as mutable' do

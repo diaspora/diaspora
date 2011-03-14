@@ -27,7 +27,7 @@
         = link_to t('photos.show.view'), post_path(@post.status_message)
 
       %p
-        = @post.status_message.message
+        = @post.status_message.text
 
       %p
         - for photo in @post.status_message.photos

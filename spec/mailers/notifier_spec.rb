@@ -102,7 +102,7 @@ describe Notifier do
     end
 
     it 'has the post text in the body' do
-      @mail.body.encoded.should include(@sm.message)
+      @mail.body.encoded.should include(@sm.text)
     end
 
     it 'should not include translation missing' do

@@ -25,7 +25,7 @@ describe UsersController do
     it 'renders xml' do
       sm = Factory(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username
-      response.body.should include(sm.message)
+      response.body.should include(sm.text)
     end
   end
 

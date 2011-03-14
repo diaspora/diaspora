@@ -72,7 +72,7 @@ describe "attack vectors" do
         zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
         zord.perform
 
-        original_message.reload.message.should == "store this!"
+        original_message.reload.text.should == "store this!"
       end
 
       it 'does not save a message over an old message with the same author' do
@@ -91,8 +91,8 @@ describe "attack vectors" do
 
         }.should_not change{user.reload.raw_visible_posts.count}
 
-        original_message.reload.message.should == "store this!"
-        user.raw_visible_posts.first.message.should == "store this!"
+        original_message.reload.text.should == "store this!"
+        user.raw_visible_posts.first.text.should == "store this!"
       end
     end
     it 'should not overwrite another persons profile profile' do

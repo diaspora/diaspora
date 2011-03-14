@@ -10,7 +10,7 @@ class StatusMessage < Post
 
   acts_as_taggable_on :tags
 
-  validates_length_of :message, :maximum => 1000, :text => "please make your status messages less than 1000 characters"
+  validates_length_of :text, :maximum => 1000, :text => "please make your status messages less than 1000 characters"
   xml_name :status_message
   xml_attr :raw_message
 
@@ -26,7 +26,7 @@ class StatusMessage < Post
 
   before_create :build_tags
 
-  def message(opts = {})
+  def text(opts = {})
     self.formatted_message(opts)
   end
 
