@@ -9,18 +9,14 @@ describe AspectsController do
   render_views
 
   before do
-    @user  = alice
-    @user2 = bob
+    @alice = alice
+    @alice.getting_started = false
+    @alice.save
+    sign_in :user, @alice
+    @alices_aspect_1  = @alice.aspects.first
+    @alices_aspect_2  = @alice.aspects.create(:name => "another aspect")
 
-    @aspect0  = @user.aspects.first
-    @aspect1  = @user.aspects.create(:name => "another aspect")
-    @aspect2  = @user2.aspects.first
-
-    @contact = @user.contact_for(@user2.person)
-    @user.getting_started = false
-    @user.save
-    sign_in :user, @user
-    @controller.stub(:current_user).and_return(@user)
+    @controller.stub(:current_user).and_return(@alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
@@ -47,7 +43,7 @@ describe AspectsController do
   describe "custom logging on redirect" do
     before do
       @action = :show
-      @action_params = {'id' => @aspect0.id.to_s}
+      @action_params = {'id' => @alices_aspect_1.id.to_s}
     end
     it_should_behave_like "it overrides the logs on redirect"
   end
@@ -62,79 +58,74 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_prefill")
     end
     it 'generates a jasmine fixture with services' do
-      @user.services << Services::Facebook.create(:user_id => @user.id)
-      @user.services << Services::Twitter.create(:user_id => @user.id)
+      @alice.services << Services::Facebook.create(:user_id => @alice.id)
+      @alice.services << Services::Twitter.create(:user_id => @alice.id)
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_services")
     end
     it 'generates a jasmine fixture with posts' do
-      @user.post(:status_message, :message => "hello", :to => @aspect1.id)
+      @alice.post(:status_message, :message => "hello", :to => @alices_aspect_2.id)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
     end
     context 'filtering' do
       before do
         @posts = []
-        @users = []
-        4.times do |n|
+        2.times do |n|
           user = Factory(:user)
-          @users << user
           aspect = user.aspects.create(:name => 'people')
-          connect_users(@user, @aspect0, user, aspect)
-          post = @user.post(:status_message, :message => "hello#{n}", :to => eval("@aspect#{(n%2)}.id"))
-          post.created_at = Time.now - (4 - n).seconds
+          connect_users(@alice, @alices_aspect_1, user, aspect)
+          target_aspect = n.even? ? @alices_aspect_1 : @alices_aspect_2
+          post = @alice.post(:status_message, :message => "hello#{n}", :to => target_aspect)
+          post.created_at = Time.now - (2 - n).seconds
           post.save!
           @posts << post
         end
-        @user.build_comment('lalala', :on => @posts.first ).save
+        @alice.build_comment('lalala', :on => @posts.first ).save
       end
 
-      it "returns all posts" do
-        @user.aspects.reload
+      it "returns all posts by default" do
+        @alice.aspects.reload
         get :index
-        assigns(:posts).length.should == 4
-      end
-
-      it "returns posts filtered by a single aspect" do
-        get :index, :a_ids => [@aspect1.id.to_s]
         assigns(:posts).length.should == 2
       end
 
-      it "returns posts from filtered aspects" do
-        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
-        assigns(:posts).length.should == 4
+      it "returns posts from a single aspect" do
+        get :index, :a_ids => [@alices_aspect_2.id.to_s]
+        assigns(:posts).length.should == 1
       end
 
-      it 'returns posts by updated at by default' do
-        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]
-        assigns(:posts).should =~ @posts
-        assigns(:posts).should_not == @posts.reverse
+      it "returns posts from multiple aspects" do
+        get :index, :a_ids => [@alices_aspect_1.id.to_s, @alices_aspect_2.id.to_s]
+        assigns(:posts).length.should == 2
       end
 
-      it 'return posts by created at if passed sort_order=created_at' do
-        get :index, :a_ids => [@aspect0.id.to_s, @aspect1.id.to_s], :sort_order => 'created_at'
-        assigns(:posts).should == @posts.reverse
+      describe "ordering" do
+        it "orders posts by updated_at by default" do
+          get :index
+          assigns(:posts).should == @posts
+        end
+
+        it "orders posts by created_at on request" do
+          get :index, :sort_order => 'created_at'
+          assigns(:posts).should == @posts.reverse
+        end
       end
     end
 
     context 'performance', :performance => true do
       before do
         require 'benchmark'
-        @posts = []
-        @users = []
         8.times do |n|
           user = Factory.create(:user)
-          @users << user
           aspect = user.aspects.create(:name => 'people')
-          connect_users(@user, @aspect0, user, aspect)
-          post =  @user.post(:status_message, :message => "hello#{n}", :to => @aspect1.id)
-          @posts << post
+          connect_users(@alice, @alices_aspect_1, user, aspect)
+          post =  @alice.post(:status_message, :message => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
             user.comment "yo#{post.message}", :on => post
           end
         end
       end
-
       it 'takes time' do
         Benchmark.realtime{
           get :index
@@ -145,7 +136,7 @@ describe AspectsController do
 
   describe "#show" do
     it "succeeds" do
-      get :show, 'id' => @aspect0.id.to_s
+      get :show, 'id' => @alices_aspect_1.id.to_s
       response.should be_redirect
     end
     it 'redirects on an invalid id' do
@@ -157,9 +148,9 @@ describe AspectsController do
   describe "#create" do
     context "with valid params" do
       it "creates an aspect" do
-        @user.aspects.count.should == 2
+        @alice.aspects.count.should == 2
         post :create, "aspect" => {"name" => "new aspect"}
-        @user.reload.aspects.count.should == 3
+        @alice.reload.aspects.count.should == 3
       end
       it "redirects to the aspect page" do
         post :create, "aspect" => {"name" => "new aspect"}
@@ -168,9 +159,9 @@ describe AspectsController do
     end
     context "with invalid params" do
       it "does not create an aspect" do
-        @user.aspects.count.should == 2
+        @alice.aspects.count.should == 2
         post :create, "aspect" => {"name" => ""}
-        @user.reload.aspects.count.should == 2
+        @alice.reload.aspects.count.should == 2
       end
       it "goes back to the page you came from" do
         post :create, "aspect" => {"name" => ""}
@@ -187,10 +178,10 @@ describe AspectsController do
     it "performs reasonably", :performance => true do
         require 'benchmark'
         8.times do |n|
-          aspect = @user.aspects.create(:name => "aspect#{n}")
+          aspect = @alice.aspects.create(:name => "aspect#{n}")
           8.times do |o|
             person = Factory(:person)
-            @user.activate_contact(person, aspect)
+            @alice.activate_contact(person, aspect)
           end
         end
         Benchmark.realtime{
@@ -206,24 +197,25 @@ describe AspectsController do
       assigns(:remote_requests).should be_empty
     end
     it "assigns contacts to only non-pending" do
-      Contact.unscoped.where(:user_id => @user.id).count.should == 1
-      @user.send_contact_request_to(Factory(:user).person, @aspect0)
-      Contact.unscoped.where(:user_id => @user.id).count.should == 2
+      contact = @alice.contact_for(bob.person)
+      Contact.unscoped.where(:user_id => @alice.id).count.should == 1
+      @alice.send_contact_request_to(Factory(:user).person, @alices_aspect_1)
+      Contact.unscoped.where(:user_id => @alice.id).count.should == 2
 
       get :manage
       contacts = assigns(:contacts)
       contacts.count.should == 1
-      contacts.first.should == @contact
+      contacts.first.should == contact
     end
     context "when the user has pending requests" do
       before do
         requestor        = Factory.create(:user)
         requestor_aspect = requestor.aspects.create(:name => "Meh")
-        requestor.send_contact_request_to(@user.person, requestor_aspect)
+        requestor.send_contact_request_to(@alice.person, requestor_aspect)
 
         requestor.reload
         requestor_aspect.reload
-        @user.reload
+        @alice.reload
       end
       it "succeeds" do
         get :manage
@@ -249,61 +241,53 @@ describe AspectsController do
       @person = Factory.create(:person)
       @opts = {
         :person_id => @person.id,
-        :from => @aspect0.id,
+        :from => @alices_aspect_1.id,
         :to =>
-        {:to => @aspect1.id}
+        {:to => @alices_aspect_2.id}
       }
     end
     it 'calls the move_contact_method' do
-      @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_contact)
+      @controller.stub!(:current_user).and_return(@alice)
+      @alice.should_receive(:move_contact)
       post "move_contact", @opts
     end
   end
 
-
   describe "#update" do
     before do
-      @aspect0 = @user.aspects.create(:name => "Bruisers")
+      @alices_aspect_1 = @alice.aspects.create(:name => "Bruisers")
     end
     it "doesn't overwrite random attributes" do
       new_user         = Factory.create :user
       params           = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
-      put('update', :id => @aspect0.id, "aspect" => params)
-      Aspect.find(@aspect0.id).user_id.should == @user.id
+      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+      Aspect.find(@alices_aspect_1.id).user_id.should == @alice.id
     end
   end
 
   describe '#edit' do
     it 'renders' do
-      get :edit, :id => @aspect0.id
+      get :edit, :id => @alices_aspect_1.id
       response.should be_success
     end
   end
-
-  describe "#hashes_for_posts" do
-    it 'returns only distinct people' do
-      pending
-    end
-  end
-
+  
   describe "#toggle_contact_visibility" do
     it 'sets contacts visible' do
-      @aspect0.contacts_visible = false
-      @aspect0.save
+      @alices_aspect_1.contacts_visible = false
+      @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @aspect0.id
-      @aspect0.reload.contacts_visible.should be_true
+      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
+      @alices_aspect_1.reload.contacts_visible.should be_true
     end
 
     it 'sets contacts hidden' do
-      @aspect0.contacts_visible = true
-      @aspect0.save
+      @alices_aspect_1.contacts_visible = true
+      @alices_aspect_1.save
 
-      get :toggle_contact_visibility, :format => 'js', :aspect_id => @aspect0.id
-      @aspect0.reload.contacts_visible.should be_false
+      get :toggle_contact_visibility, :format => 'js', :aspect_id => @alices_aspect_1.id
+      @alices_aspect_1.reload.contacts_visible.should be_false
     end
-
   end
 end
