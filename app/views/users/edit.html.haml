@@ -106,7 +106,7 @@
         %br
         %p.checkbox_select
           = type.label t('.request_acceptence') 
-          = type.check_box :request_acceptence, {:checked =>  @email_prefs['request_acceptance']}, false, true 
+          = type.check_box :request_acceptance, {:checked =>  @email_prefs['request_acceptance']}, false, true 
 
     %br
     = f.submit t('.change')

@@ -48,11 +48,12 @@ class User < ActiveRecord::Base
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
-      mails = ['mentioned', 'request_received', 'comment_on_post', 'request_acceptence', 'also_commented', 'private_message']
+      mails = ['mentioned', 'request_received', 'comment_on_post', 'request_acceptance', 'also_commented', 'private_message']
       mails.each{|x| self.user_preferences.find_or_create_by_email_type(x)}
-      self.update_attributes(:disable_mail => false)
+      self.disable_mail = false
+      self.save
     end
-
+    
     pref_hash.keys.each do |key|
       if pref_hash[key] == 'true'
         self.user_preferences.find_or_create_by_email_type(key)
@@ -179,9 +180,7 @@ class User < ActiveRecord::Base
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Job::Mail', '').underscore
-    puts pref
     unless self.disable_mail || self.user_preferences.exists?(:email_type => pref)
-      puts 'im mailin'
       Resque.enqueue(job, *args)
     end
   end

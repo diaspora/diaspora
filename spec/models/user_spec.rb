@@ -228,8 +228,8 @@ describe User do
       proc {
         alice.update_user_preferences({'mentioned' => false})
       }.should change(alice.user_preferences, :count).by(5)
+      alice.reload.disable_mail.should be_false
     end
-
   end
 
   describe ".find_for_authentication" do
