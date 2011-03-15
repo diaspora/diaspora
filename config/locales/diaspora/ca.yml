@@ -59,8 +59,6 @@ ca:
     few:    "%{count} peticions noves!"
     other:  "%{count} peticions noves!"
 
-  _aspect: "Aspecte"
-  _aspects: "Aspectes"
   _contact: "Contacte"
   _contacts: "Contactes"
 
@@ -164,6 +162,9 @@ ca:
           no_membership: "No s'ha trobat a la persona seleccionada a l'aspecte"
  
   aspects:
+      zero: "no Aspectes"
+      one: "1 Aspecte"
+      other: "%{count} Aspectes"
       contacts_visible: "Els contactes en aquest aspecte es podran veure entre ells."
       contacts_not_visible: "Els contactes en aquest aspecte no es podran veure entre ells."
       edit:
