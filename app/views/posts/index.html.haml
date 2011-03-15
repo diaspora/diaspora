@@ -34,7 +34,7 @@
 .prepend-2.span-7.last
   %h3
     = t('.people_tagged_with', :tag => "##{params[:tag]}")
-  .side_stream
+  .side_stream.stream
     - for person in @people
       .stream_element{:id => person.id}
         = person_image_link(person)
