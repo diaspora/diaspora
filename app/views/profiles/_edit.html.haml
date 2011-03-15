@@ -31,7 +31,7 @@
 
   %h4
     = t('profiles.edit.your_tags')
-    = text_field_tag 'profile[tags]', profile.tags, :placeholder => t('.your_tags_placeholder')
+    = text_field_tag 'profile[tags]', profile.tag_string, :placeholder => t('.your_tags_placeholder')
 
   %h4
     = t('profiles.edit.your_bio')

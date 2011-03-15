@@ -6,16 +6,14 @@ module Diaspora
   module Taggable
     def self.included(model)
       model.class_eval do
-
-        cattr_reader :field_with_tags
-
-        def self.extract_tags_from sym
-          puts "extract_tags_from"
-          pp self
-          @field_with_tags = sym
+        cattr_accessor :field_with_tags
+      end
+      model.instance_eval do
+        def extract_tags_from sym
+          self.field_with_tags = sym
         end
-        def self.field_with_tags_setter
-          @field_with_tags_setter = "#{@field_with_tags}=".to_sym
+        def field_with_tags_setter
+          "#{self.field_with_tags}=".to_sym
         end
       end
     end
@@ -26,8 +24,6 @@ module Diaspora
 
     def tag_strings
       regex = /(?:^|\s)#(\w+)/
-      puts "tag strings"
-      pp self
       matches = self.send(self.class.field_with_tags).scan(regex).map do |match|
         match.last
       end
@@ -42,9 +38,9 @@ module Diaspora
       return text if opts[:plain_text]
       regex = /(^|\s)#(\w+)/
       form_message = text.gsub(regex) do |matched_string|
-        "#{$~[1]}<a href=\"/p?tag=#{$~[2]}\" class=\"tag\">##{ERB::Util.h($~[2])}</a>"
+        "#{$~[1]}<a href=\"/p?tag=#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
       end
-      form_message
+      form_message.html_safe
     end
   end
 end

@@ -101,6 +101,10 @@ class Profile < ActiveRecord::Base
     end
   end
 
+  def tag_string
+    @tag_string || self.tags.map{|t| '#' << t.to_s }.join(' ')
+  end
+
   protected
 
   def strip_names

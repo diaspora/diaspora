@@ -148,7 +148,8 @@ describe Profile do
 
   describe 'tags' do
     before do
-      @object = Factory.build(:profile)
+      person = Factory.create(:person)
+      @object = person.profile
     end
     it_should_behave_like 'it is taggable'
   end

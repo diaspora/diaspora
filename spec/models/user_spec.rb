@@ -253,6 +253,13 @@ describe User do
         :last_name => 'billytown',
       }
     end
+    it 'dispatches the profile when tags are set' do
+      @params = {:tags => '#what #hey'}
+      mailman = Postzord::Dispatch.new(alice, Profile.new)
+      Postzord::Dispatch.should_receive(:new).and_return(mailman)
+      mailman.should_receive(:deliver_to_local)
+      alice.update_profile(@params).should be_true
+    end
     it 'sends a profile to their contacts' do
       mailman = Postzord::Dispatch.new(alice, Profile.new)
       Postzord::Dispatch.should_receive(:new).and_return(mailman)

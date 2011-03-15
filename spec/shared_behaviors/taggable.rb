@@ -6,13 +6,17 @@ require 'spec_helper'
 
 describe Diaspora::Taggable do
   shared_examples_for "it is taggable" do
+    include ActionView::Helpers::UrlHelper
+    include Rails.application.routes.url_helpers
+    def controller
+    end
+
     describe '#format_tags' do
       before do
         @str = '#what #hey'
         @object.send(@object.class.field_with_tags_setter, @str)
         @object.build_tags
-        @object.save
-        @object.reload
+        @object.save!
       end
       it 'links the tag to /p' do
         link = link_to('#what', posts_path(:tag => 'what'), :class => 'tag')

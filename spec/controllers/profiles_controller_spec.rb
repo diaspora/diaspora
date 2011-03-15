@@ -50,7 +50,7 @@ describe ProfilesController do
                    { :tags => '#apples #oranges'}}
 
       put :update, params
-      @user.person(true).profile.tags.should =~ ['apples', 'oranges']
+      @user.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
     end
 
     context 'with a profile photo set' do
