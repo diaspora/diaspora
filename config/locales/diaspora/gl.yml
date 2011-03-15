@@ -244,6 +244,8 @@ gl:
         other: "%{count} novas notificacións"
         zero: "non hai novas notificacións"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
     mentioned: "citoute nos seus"

@@ -66,15 +66,15 @@ el:
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
     edit: 
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "η λίστα σας είναι κρυφή στους άλλους στην πτυχή"
+      aspect_list_is_visible: "η λίστα σας είναι ορατή στους άλλους στην πτυχή"
       confirm_remove_aspect: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
-      done: "Done"
-      make_aspect_list_visible: "ορίστε τη λίστα πτυχών σας ορατή σε όλους στη πτυχή "
+      done: "Ολοκληρώθηκε"
+      make_aspect_list_visible: "θέλετε να ορίσετε τη λίστα των πτυχών σας ορατή;"
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
-      update: "update"
-    few: "%{count} aspects"
+      update: "ενημέρωση"
+    few: "%{count} πτυχές"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
@@ -89,7 +89,7 @@ el:
       manage_aspects: "Διαχείρηση πτυχών"
       no_requests: "Κανένα νέο αίτημα"
       requests: "Αιτήματα"
-    many: "%{count} aspects"
+    many: "%{count} πτυχές"
     move_contact: 
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
       failure: "δεν λειτούργησε %{inspect}"
@@ -105,8 +105,8 @@ el:
       nobody_in_aspect: "Η πτυχή σας '%{aspect_name}' είναι κενή."
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 πτυχή"
+    other: "%{count} πτυχές"
     seed: 
       family: "Οικογένεια"
       work: "Εργασία"
@@ -115,18 +115,18 @@ el:
     update: 
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
-    zero: "no aspects"
+    zero: "καμία πτυχή"
   back: "Πίσω"
   cancel: "Ακύρωση"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} σχόλια"
+    many: "%{count} σχόλια"
     new_comment: 
       comment: "Σχολιάστε"
       commenting: "Σχολιάζει..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 σχόλιο"
+    other: "%{count} σχόλια"
+    zero: "κανένα σχόλιο"
   contacts: 
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
@@ -134,7 +134,7 @@ el:
       failure: "Αποτυχία αποσύνδεσης από τον/την %{name}"
       success: "Επιτυχία αποσύνδεσης από τον/την %{name}"
     few: "%{count} επαφές"
-    many: "%{count} contacts"
+    many: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
     share_with_pane: 
@@ -145,25 +145,25 @@ el:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} νέα μηνύματα"
+        many: "%{count} νέα μηνύματα"
+        one: "1 νέο μήνυμα"
+        other: "%{count} νέα μηνύματα"
+        zero: "κανένα νέο μήνυμα"
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "δημιουργία νέου μηνύματος"
+      message_inbox: "Εισερχόμενα"
+      new_message: "Νέο Μήνυμα"
+      no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
+      no_messages: "κανένα μήνυμα"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Δεν βρέθηκαν αποτελέσματα"
+      send: "Αποστολή"
+      subject: "θέμα"
+      to: "στον"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "διαγραφή και φραγή συζήτησης"
+      reply: "απάντηση"
   date: 
     formats: 
       birthday: "%B %d"
@@ -217,7 +217,7 @@ el:
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
@@ -238,12 +238,14 @@ el:
     deleted: "διαγράφηκε"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} νέες ειδοποιήσεις"
+        many: "%{count} νέες ειδοποιήσεις"
+        one: "1 νέα ειδοποίηση"
+        other: "%{count} νέες ειδοποιήσεις"
+        zero: "καμία νέα ειδοποίηση"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
     mentioned: "σας ανέφερε στο"
@@ -259,9 +261,9 @@ el:
       commented: "έχει σχολιάσει σε δημοσίευση σας:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
-    diaspora: "ρομπότ για τα email του δικτύου Diaspora"
+    diaspora: "το ρομποτάκι για τα email του δικτύου Diaspora.."
     hello: "Γειά σου %{name}!"
-    love: "αγάπη,"
+    love: "Με αγάπη,"
     mentioned: 
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
       sign_in: "Συνδεθείτε για να το δείτε."
@@ -272,10 +274,10 @@ el:
       subject: "έχετε νέο αίτημα επαφής Diaspora από τον χρήστη %{from}"
       try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Θέμα: %{subject}"
+      private_message: "σας έστειλε ένα ιδιωτικό μήνυμα:"
+      sign_in: "Συνδεθείτε για να το δείτε."
+      subject: "Ο χρήστης %{name} σας έστειλε ένα ιδιωτικό μήνυμα στο Diaspora*"
     request_accepted: 
       accepted: "έχει αποδεχθεί το αίτημα φιλίας σας!"
       sign_in: "Συνδεθείτε εδώ"
@@ -316,7 +318,7 @@ el:
     show: 
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
-      message: "Message"
+      message: "Μήνυμα"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν είστε συνδεδεμένος με τον χρήστη %{name}"
       recent_posts: "Πρόσφατες δημοσιεύσεις"
@@ -364,8 +366,8 @@ el:
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
+      whatup: "Τι συμβαίνει στο %{pod}"
   previous: "προηγούμενο"
   profile: "Προφίλ"
   profiles: 
@@ -413,11 +415,11 @@ el:
       success: "Είστε πλέον φίλοι."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} νέα αιτήματα!"
+        many: "%{count} νέα αιτήματα!"
+        one: "νέο αίτημα!"
+        other: "%{count} νέα αιτήματα!"
+        zero: "κανένα νέο αίτημα"
     manage_aspect_contacts: 
       existing: "Υφιστάμενες επαφές"
       manage_within: "Διαχειριστείτε τις επαφές της πτυχής"
@@ -434,7 +436,7 @@ el:
     finder: 
       friends: 
         few: "%{count} φίλοι"
-        many: "%{count} friends"
+        many: "%{count} φίλοι"
         one: "1 φίλος"
         other: "%{count} φίλοι"
         zero: "κανένας φίλος"
@@ -448,7 +450,7 @@ el:
       logged_in_as: "συνδεδεμένο ως"
       really_disconnect: "αποσύνδεση %{service};"
     inviter: 
-      click_link_to_accept_invitation: "Κάντε κλικ αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
+      click_link_to_accept_invitation: "Κάντε κλικ σ' αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
     remote_friend: 
       invite: "πρόσκληση"
@@ -486,7 +488,7 @@ el:
       all_contacts: "όλες οι επαφές"
       make_public: "Δημοσιοποίησε το"
       mention_helper_text: "για ν' αναφέρεις κάποιον, πάτα '@' και άρχισε να πληκτρολογείς το όνομα του"
-      post_a_message_to: "Αναρτήστε ένα μήνυμα στο %{aspect}"
+      post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
@@ -512,7 +514,7 @@ el:
   users: 
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
       change: "Αλλαγή"
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
@@ -526,7 +528,7 @@ el:
       mentioned: "...επισημανθήκατε σε μία φωτογραφία?"
       new_password: "Νέος κωδικός πρόσβασης"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση?"
-      receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο; "
+      receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο όταν..."
       request_acceptence: "...το αίτημα σας για διαμοιρασμό έγινε αποδεκτό?"
       request_received: "...μόλις λάβατε ένα καινούριο αίτημα για διαμοιρασμό?"
       your_email: "Το email σας"

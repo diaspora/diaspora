@@ -244,6 +244,8 @@ he:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
     mentioned: "הזכיר/ה אותך ב־"

@@ -244,6 +244,8 @@ fi:
         other: "%{count} uutta ilmoitusta"
         zero: "ei uusia ilmoituksia"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
     mentioned: "on maininnut sinut heidän"

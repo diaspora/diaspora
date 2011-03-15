@@ -244,6 +244,8 @@ ml:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
       notifications: "അറിയിപ്പുകള്‍"
     mentioned: "has mentioned you in their"

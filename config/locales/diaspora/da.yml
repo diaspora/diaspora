@@ -244,6 +244,8 @@ da:
         other: "%{count} nye notifikationer"
         zero: "ingen nye notifikationer"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
     mentioned: "har omtalt dig i deres"

@@ -244,6 +244,8 @@ zh-TW:
         other: "%{count} 個新消息"
         zero: "沒有新消息"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
     mentioned: "提到了你, 在他們的"

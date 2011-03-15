@@ -244,6 +244,8 @@ nl:
         other: "%{count} nieuwe notificaties"
         zero: "geen nieuwe notificaties"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
     mentioned: "heeft je genoemd in zijn/haar"

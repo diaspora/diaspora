@@ -244,6 +244,8 @@ ru:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
     mentioned: "has mentioned you in their"

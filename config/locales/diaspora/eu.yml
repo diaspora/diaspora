@@ -244,6 +244,8 @@ eu:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
     mentioned: "aipatu zaituzte bere"

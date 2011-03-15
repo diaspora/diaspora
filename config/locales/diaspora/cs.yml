@@ -4,7 +4,7 @@
 
 
 cs: 
-  _comments: "Comments"
+  _comments: "Komentáře"
   _home: "Doma"
   _photos: "fotky"
   _services: "Služby"
@@ -244,6 +244,8 @@ cs:
         other: "%{count} nových oznámení"
         zero: "žádná nová oznámení"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
     mentioned: "vás zmínil v jejich"

@@ -49,7 +49,7 @@ fr:
   aspects: 
     add_to_aspect: 
       failure: "L’ajout du contact à l’aspect a échoué."
-      success: "Vous avez ajouté le contact à l’aspect avec succès."
+      success: "Le contact a été ajouté à l’aspect."
     aspect_contacts: 
       done_editing: "fin de la modification"
     aspect_stream: 
@@ -63,7 +63,7 @@ fr:
       success: "Votre nouvel aspect %{name} a été créé."
     destroy: 
       failure: "%{name} n'est pas vide et n'a pas pu être supprimé."
-      success: "%{name} a été supprimé avec succès."
+      success: "%{name} a été supprimé."
     edit: 
       add_existing: "Ajouter un contact existant"
       aspect_list_is_not_visible: "la liste d'aspect est masquée pour les autres membres de cet aspect"
@@ -114,7 +114,7 @@ fr:
       edit_aspect: "modifier l'aspect"
     update: 
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
-      success: "Votre aspect « %{aspect_name} » a été modifié avec succès."
+      success: "Votre aspect « %{aspect_name} » a été modifié."
     zero: "aucun aspect"
   back: "Retour"
   cancel: "Annuler"
@@ -244,6 +244,8 @@ fr:
         other: "%{count} nouvelles notifications"
         zero: "aucune nouvelle notification"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
     mentioned: "vous a mentionné(e) dans son"
@@ -361,7 +363,7 @@ fr:
       view: "voir"
     update: 
       error: "La modification de la photo a échoué."
-      notice: "La photo a été mise à jour avec succès."
+      notice: "La photo a été mise à jour."
   posts: 
     index: 
       posts_tagged_with: "Publications marquées avec #%{tag}"
@@ -510,7 +512,7 @@ fr:
   the_world: "tout le monde"
   username: "Nom d'utilisateur"
   users: 
-    destroy: "Compte clôturé avec succès."
+    destroy: "Compte clôturé."
     edit: 
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"

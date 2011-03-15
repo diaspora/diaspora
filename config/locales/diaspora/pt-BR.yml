@@ -244,6 +244,8 @@ pt-BR:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Marcar todas como lido"
       notifications: "Notificações"
     mentioned: "has mentioned you in their"

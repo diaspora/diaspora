@@ -244,6 +244,8 @@ es-CL:
         other: "%{count} nuevas notificaciones"
         zero: "sin nuevas notificaciones"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
     mentioned: "te mencionó en su"

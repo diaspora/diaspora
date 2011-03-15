@@ -66,14 +66,14 @@ en_shaw:
       success: "%{name} 𐑢𐑪𐑟 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛."
     edit: 
       add_existing: "𐑨𐑛 𐑩𐑯 𐑧𐑜𐑟𐑦𐑕𐑑𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑦𐑟 𐑣𐑦𐑛𐑩𐑯 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
+      aspect_list_is_visible: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑦𐑟 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
-      done: "Done"
+      done: "𐑛𐑳𐑯"
       make_aspect_list_visible: "𐑥𐑱𐑒 𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
       rename: "𐑮𐑦𐑯𐑱𐑥"
-      update: "update"
+      update: "𐑳𐑐𐑛𐑱𐑑"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
@@ -106,7 +106,7 @@ en_shaw:
     no_posts_message: 
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
     one: "1 aspect"
-    other: "%{count} aspects"
+    other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed: 
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
       work: "𐑢𐑻𐑒"
@@ -115,7 +115,7 @@ en_shaw:
     update: 
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
-    zero: "no aspects"
+    zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   back: "𐑚𐑨𐑒"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
   comments: 
@@ -134,7 +134,7 @@ en_shaw:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 %{name}"
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 %{name}"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    many: "%{count} contacts"
+    many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     share_with_pane: 
@@ -151,19 +151,19 @@ en_shaw:
         other: "%{count} new messages"
         zero: "no new messages"
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "𐑒𐑮𐑦𐑱𐑑 𐑩 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
+      message_inbox: "𐑥𐑧𐑕𐑩𐑡 𐑦𐑯𐑚𐑪𐑒𐑕"
+      new_message: "𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
+      no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
+      no_messages: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
+      send: "𐑕𐑧𐑯𐑛"
+      subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
+      to: "𐑑"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "𐑛𐑦𐑤𐑰𐑑 𐑯 𐑚𐑤𐑪𐑒 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯"
+      reply: "𐑮𐑦𐑐𐑤𐑲"
   date: 
     formats: 
       birthday: "%B %d"
@@ -217,7 +217,7 @@ en_shaw:
       have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥, 𐑓𐑲𐑯𐑛 𐑩𐑯 𐑨𐑯𐑕𐑼 𐑣𐑽"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "𐑐𐑳𐑚𐑤𐑦𐑒 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑰𐑛 𐑓𐑹 %{name}"
       toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
@@ -238,12 +238,14 @@ en_shaw:
     deleted: "𐑛𐑦𐑤𐑰𐑑𐑩𐑛"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+        many: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+        one: "1 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
+        other: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+        zero: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑞𐑺"
@@ -272,9 +274,9 @@ en_shaw:
       subject: "𐑯𐑿 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 %{from}"
       try_it_out: "𐑿 𐑖𐑫𐑛 𐑮𐑦𐑤𐑦 𐑔𐑦𐑙𐑒 𐑩𐑚𐑬𐑑 𐑗𐑧𐑒𐑦𐑙 𐑦𐑑 𐑬𐑑."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
+      message_subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑: %{subject}"
+      private_message: "𐑣𐑨𐑟 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡:"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
       subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
@@ -316,7 +318,7 @@ en_shaw:
     show: 
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
-      message: "Message"
+      message: "𐑥𐑧𐑕𐑩𐑡"
       no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
       not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
       recent_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑴𐑕𐑑𐑕"
@@ -434,7 +436,7 @@ en_shaw:
     finder: 
       friends: 
         few: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
-        many: "%{count} friends"
+        many: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
         one: "1 𐑓𐑮𐑧𐑯𐑛"
         other: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
         zero: "𐑯𐑴 𐑓𐑮𐑧𐑯𐑛𐑟"
@@ -512,23 +514,23 @@ en_shaw:
   users: 
     destroy: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑤𐑴𐑟𐑛."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑?"
       change: "𐑗𐑱𐑯𐑡"
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
       close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑?"
       current_password: "𐑒𐑻𐑩𐑯𐑑 𐑐𐑨𐑕𐑢𐑼𐑛"
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"
       export_data: "𐑧𐑒𐑕𐑐𐑹𐑑 𐑛𐑱𐑑𐑩"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...𐑿 𐑸 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑?"
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
-      private_message: "...you receive a private message?"
+      private_message: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡?"
       receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      request_acceptence: "...𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑦𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛?"
+      request_received: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑯𐑿 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑?"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 

@@ -244,6 +244,8 @@ is:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: "Tilkynningar"
     mentioned: "hefur getið þín í þeirra"

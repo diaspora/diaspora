@@ -244,6 +244,8 @@ sk:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
+      and: "and"
+      and_others: "and %{number} others"
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
     mentioned: "ťa spomenuli v ich"
