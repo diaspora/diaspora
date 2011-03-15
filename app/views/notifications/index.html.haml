@@ -11,14 +11,21 @@
         type: 'PUT'
       });
     }
-
-    nBadge.html().replace(/\d+/, function(num){
-      num = parseInt(num);
-      nBadge.html(parseInt(num)-1);
-      if(num == 1) {
-        nBadge.addClass("hidden");
-      }
+      if(nBadge.html() != null) {
+      nBadge.html().replace(/\d+/, function(num){
+        num = parseInt(num);
+        nBadge.html(parseInt(num)-1);
+        if(num == 1) {
+          nBadge.addClass("hidden");
+        }
     });
+
+    }
+  });
+
+  $('a.more').live('click', function(){
+    $(this).hide();
+    $(this).next('span').removeClass('hidden');
   });
 
 .span-1

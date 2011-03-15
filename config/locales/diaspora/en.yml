@@ -274,6 +274,8 @@ en:
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
+      and_others: "and %{number} others"
+      and: 'and'
     helper:
         new_notifications:
           zero: "no new notifications"
