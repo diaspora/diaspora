@@ -2,22 +2,37 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :page_title do
-  = t('.whatup', :pod => @pod_url)
 
+- content_for :page_title do
+  - if params[:tag]
+    = "##{params[:tag]}"
+
+  - else
+    = t('.whatup', :pod => @pod_url)
 
 - content_for :head do
   = include_javascripts :home
 
-%h1
-  - if params[:tag]
-    = t('.posts_tagged_with', :tag => params[:tag])
-  - else
-    = t('.whatup', :pod => @pod_url)
+.span-24.last
+  %h1
+    - if params[:tag]
+      = "##{params[:tag]}"
+
+    - else
+      = t('.whatup', :pod => @pod_url)
 
 .span-15
   #main_stream.stream
-    = render 'shared/stream', :posts => @fakes
-    %a.paginate
-      = t("more")
+    - if @fakes.length > 0
+      = render 'shared/stream', :posts => @fakes
+      %a.paginate
+        = t("more")
+    - else
+      nobody likes ##{params[:tag]}.
   = will_paginate @posts
+
+.prepend-2.span-7.last
+  %h3
+    People tagged with ##{params[:tag]}
+  .side_stream
+    = render :collection => @people, :partial => 'people/person'

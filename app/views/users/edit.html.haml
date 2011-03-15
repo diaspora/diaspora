@@ -13,16 +13,16 @@
     %li=link_to t('account'), edit_user_path(current_user)
     %li=link_to t('_services'), services_path
 
-.span-19.prepend-5.last
+.span-12.prepend-5.last
   %h2
     = t('account')
 
-  .span-8.append-2
+  .span-5.append-1
     %h3
       = t('.your_handle')
     %p
       %b= current_user.diaspora_handle
-  .span-8.last
+  .span-5.last
     %h3
       = t('.your_email')
     %p
@@ -117,14 +117,14 @@
   %br
 
 
-  #account_data.span-9.append-2
+  #account_data.span-5.append-2
     %h3 
       = t('.export_data')
     = link_to t('.download_xml'), users_export_path, :class => "button"
     %br
     = link_to t('.download_photos'), users_export_photos_path, :class => "button"
 
-  .span-8.last
+  .span-5.last
     %h3 
       = t('.close_account')
     = link_to t('.close_account'), current_user,

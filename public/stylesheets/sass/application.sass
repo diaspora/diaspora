@@ -9,7 +9,7 @@ $background: rgb(252,252,252)
 body
   :padding 2em
   :margin 0
-    :top 50px
+    :top 60px
   :background-color $background
 a
   :color #107FC9
@@ -327,6 +327,8 @@ header
   h4,
   h5
     :display inline-block
+    :margin
+      :bottom 10px
 
   &.show
     a
@@ -781,7 +783,7 @@ textarea
     :size 14px
   :padding 0.3em
   :display block
-  :width 66%
+  :width 100%
   :border 1px solid #ccc
   :height auto
 
@@ -2744,3 +2746,27 @@ ul.show_comments
 
 #contact_visibility_padlock:hover
   :opacity 0.7
+
+.side_stream
+  .avatar
+    :float left
+  .right
+    :display none
+
+  .stream_element:hover
+    .right
+      :display none
+
+.tag
+  :background
+    :color lighten($blue, 47%)
+  :font
+    :weight bold
+
+.diaspora_handle
+  :font
+    :size 12px
+    :weight normal
+  :color #999
+  :margin
+    :left 6px

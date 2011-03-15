@@ -10,7 +10,10 @@
   |
   = link_to_if(session[:sort_order] == 'updated_at', t('.post_time'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'created_at' ))
 #main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
-  = render 'shared/stream', :posts => fakes
-  %a.paginate
-    = t("more")
+  - if posts.length > 0
+    = render 'shared/stream', :posts => fakes
+    %a.paginate
+      = t("more")
+  - else
+    = render 'aspects/no_posts_message', :post_count => posts.length
 = will_paginate posts

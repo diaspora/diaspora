@@ -37,13 +37,6 @@
 
   -if user_signed_in? && ((contact.persisted? && !contact.pending?) || person == current_user.person || @incoming_request)
     %ul#profile_information
-      - unless person.profile.tags.blank?
-        %li
-          %h4
-            tags
-          = person.profile.format_tags(person.profile.tag_string)
-
-
       - unless person.profile.bio.blank?
         %li
           %h4

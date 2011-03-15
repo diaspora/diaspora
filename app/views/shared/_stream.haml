@@ -3,14 +3,9 @@
 -#   the COPYRIGHT file.
 
 
-- if posts.length > 0
-  -# for post in posts
-    = render 'shared/stream_element', :post => post, :all_aspects => @all_aspects, :commenting_disabled => defined?(@commenting_disabled)
-  = render :partial => 'shared/stream_element',
-           :collection => posts,
-           :as => :post,
-           :locals => {:all_aspects => @all_aspects,
-             :commenting_disabled => defined?(@commenting_disabled)}
+= render :partial => 'shared/stream_element',
+         :collection => posts,
+         :as => :post,
+         :locals => {:all_aspects => @all_aspects,
+           :commenting_disabled => defined?(@commenting_disabled)}
 
-- else
-  = render 'aspects/no_posts_message', :post_count => posts.length

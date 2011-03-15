@@ -2,8 +2,21 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :submit_block do
-  = submit_tag "#{t('users.getting_started.save_and_continue')} →"
-= render :partial => 'profiles/edit', :locals => {:person => @person, 
-    :profile => @profile, :aspect => @aspect, :step => @step}
 
+= form_tag profile_path(@profile), :method => :put, :multipart => true, :id => 'update_profile_form' do
+  %div{:style => "width:360px"}
+    = render 'profiles/edit_public', :profile => @profile, :aspect => @aspect, :person => @person
+    = hidden_field_tag :getting_started, @step
+
+    %h4
+      = t('search')
+      %p{:class=>"checkbox_select"}
+        = label_tag 'profile[searchable]', t('profiles.edit.allow_search')
+        = check_box_tag 'profile[searchable]', true, @profile.searchable
+
+    %br
+    %br
+    %br
+
+  .submit_block
+    = submit_tag "#{t('users.getting_started.save_and_continue')} →"

@@ -3,8 +3,7 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:id => person.id}
-
-  .right{:style=>"display:inline;"}
+  .right
     - if person.owner_id == current_user.id
       = t('.thats_you')
     - elsif contact && !contact.pending

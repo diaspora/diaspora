@@ -56,8 +56,10 @@
 
     %h3
       = @person.name
-      .description
+      %span.diaspora_handle
         = @person.diaspora_handle
+      .description
+        = @person.profile.format_tags(@person.profile.tag_string)
   %hr
 
   - if @posts.count > 0

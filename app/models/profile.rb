@@ -12,6 +12,7 @@ class Profile < ActiveRecord::Base
 
   acts_as_taggable_on :tags
   extract_tags_from :tag_string
+  validates_length_of :tag_list, :maximum => 5
 
   xml_attr :diaspora_handle
   xml_attr :first_name

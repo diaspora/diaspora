@@ -1,0 +1,22 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%h3
+  = t('profiles.edit.your_public_profile')
+
+= error_messages_for profile
+
+%h4
+  = t('profiles.edit.your_name')
+  = text_field_tag 'profile[first_name]', profile.first_name, :placeholder => t('profiles.edit.first_name')
+  = text_field_tag 'profile[last_name]', profile.last_name, :placeholder => t('profiles.edit.last_name')
+
+%h4
+  = t('profiles.edit.your_tags')
+  = text_field_tag 'profile[tags]', profile.tag_string, :placeholder => t('profiles.edit.your_tags_placeholder')
+
+%h4
+  = t('profiles.edit.your_photo')
+  = render 'photos/new_profile_photo', :aspect => aspect, :person => person
+  %br

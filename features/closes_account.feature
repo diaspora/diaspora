@@ -7,7 +7,7 @@ Feature: Close Account
   Scenario: user closes account
     Given I am signed in
     When I click on my name in the header
-    And I follow "account settings"
+    And I follow "settings"
     And I click ok in the confirm dialog to appear next
     And I follow "Close Account"
     Then I should be on the home page
@@ -30,7 +30,7 @@ Feature: Close Account
     And I log out
     Then I sign in as "bob@bob.bob"
     When I click on my name in the header
-    And I follow "account settings"
+    And I follow "settings"
     And I click ok in the confirm dialog to appear next
     And I follow "Close Account"
     Then I sign in as "alice@alice.alice"
