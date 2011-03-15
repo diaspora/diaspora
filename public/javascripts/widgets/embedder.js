@@ -24,7 +24,7 @@
     var service = $this.data("host"),
       container = document.createElement("div"),
       $container = $(container).attr("class", "video-container"),
-      $videoContainer = $this.closest(".from").siblings(".video-container");
+      $videoContainer = $this.closest('.content').children(".video-container");
 
     if($videoContainer.length) {
       $videoContainer.slideUp("fast", function() { $(this).detach(); });
@@ -40,8 +40,9 @@
     );
 
     $container.hide()
-      .insertBefore($this.closest(".from").siblings(".info"))
-      .slideDown('fast');
+     .insertAfter($this.parent())
+     .slideDown('fast');
+
 
     $this.click(function() {
       $container.slideUp('fast', function() {
@@ -55,8 +56,8 @@
     this.registerServices();
 
     var $post = $("#main_stream").children(".stream_element:first"),
-      $contentParagraph = $post.children(".content").children(".from").children("p"),
-      $infoDiv = $contentParagraph.closest(".from").siblings(".info");
+      $contentParagraph = $post.children(".content").children("p"),
+      $infoDiv = $contentParagraph.prev(".from").siblings(".info");
 
     this.canEmbed = $infoDiv.length;
   };
