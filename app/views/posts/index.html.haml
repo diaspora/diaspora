@@ -35,4 +35,11 @@
   %h3
     = t('.people_tagged_with', :tag => "##{params[:tag]}")
   .side_stream
-    = render :collection => @people, :partial => 'people/person'
+    - for person in @people
+      .stream_element{:id => person.id}
+        = person_image_link(person)
+        .content
+          %span.from
+            =person_link(person)
+          .info
+            = person.diaspora_handle
