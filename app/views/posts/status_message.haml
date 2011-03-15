@@ -14,7 +14,7 @@
       = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
 
     - for photo in @post.photos
-      = link_to (image_tag photo.url(:thumb_small)), post_path(photo)
+      .thumb_small= link_to (image_tag photo.url(:thumb_small)), post_path(photo)
 
   .time
     = how_long_ago(@post)

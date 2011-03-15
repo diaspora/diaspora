@@ -34,20 +34,22 @@ class Photo < Post
     photo.random_string = gen_random_string(10)
 
     photo.image.store! image_file
+    photo.update_photo_remote_path
+    photo
+  end
 
-    unless photo.image.url.match(/^https?:\/\//)
+  def update_photo_remote_path
+    unless self.image.url.match(/^https?:\/\//)
       pod_url = AppConfig[:pod_url].dup
       pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{photo.image.url}"
+      remote_path = "#{pod_url}#{self.image.url}"
     else
-      remote_path = photo.image.url
+      remote_path = self.image.url
     end
 
     name_start = remote_path.rindex '/'
-    photo.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
-    photo.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
-
-    photo
+    self.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
+    self.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
   end
 
   def status_message_guid
@@ -99,7 +101,7 @@ class Photo < Post
     {
     :photo => {
       :id => self.id,
-        :url => self.url(:thumb_medium),
+        :url => self.url,
         :thumb_small => self.url(:thumb_small),
         :text => self.text
       }

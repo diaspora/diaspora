@@ -31,6 +31,6 @@
 
       %p
         - for photo in @post.status_message.photos
-          = link_to (image_tag photo.url(:thumb_small)), post_path(photo)
+          .thumb_small= link_to (image_tag photo.url(:thumb_small)), post_path(photo)
       %p
         = link_to t('photos.show.permalink'), post_path(@post)

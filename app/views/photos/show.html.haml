@@ -49,7 +49,7 @@
     .span-7.prepend-1
       .show_photo_attachments
         - for photo in @additional_photos
-          = link_to (image_tag photo.url(:thumb_small)), object_path(photo)
+          = link_to (image_tag photo.url(:thumb_small), :class => 'thumb_small'), object_path(photo)
 
 
     #photo_edit_options

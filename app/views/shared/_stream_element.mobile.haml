@@ -7,7 +7,7 @@
     %span.time
       = time_ago_in_words(post.created_at)
 
-  = person_image_link(post.author, :size => :thumb_small)
+  .thumb_small= person_image_link(post.author, :size => :thumb_small)
 
   .content
     .from

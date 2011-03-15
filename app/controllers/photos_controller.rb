@@ -42,6 +42,7 @@ class PhotosController < ApplicationController
   end
 
   def create
+    @time = Benchmark.realtime do
     begin
       raise unless params[:photo][:aspect_ids]
 
@@ -91,6 +92,8 @@ class PhotosController < ApplicationController
       respond_with @photo, :location => photos_path, :error => message
       raise e
     end
+    end
+    puts @time.inspect
   end
 
   def make_profile_photo

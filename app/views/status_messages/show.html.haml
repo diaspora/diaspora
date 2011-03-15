@@ -12,7 +12,7 @@
       = markdownify(@status_message.text, :youtube_maps => @status_message[:youtube_titles])
 
     - for photo in @status_message.photos
-      = link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
+      .thumb_small= link_to (image_tag photo.url(:thumb_small)), photo_path(photo)
 
   %p.time
     = how_long_ago(@status_message)
