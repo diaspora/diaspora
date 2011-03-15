@@ -338,7 +338,7 @@ en:
       return_to_aspects: "Return to your aspects page"
       to_accept_or_ignore: "to accept or ignore it."
       does_not_exist: "Person does not exist!"
-      not_connected: "You are not sharing with %{name}"
+      not_connected: "You are not sharing with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
       similar_contacts: "similar contacts"

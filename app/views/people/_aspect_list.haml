@@ -7,7 +7,7 @@
 .aspects
   - if !contact || !contact.persisted?
     %h4
-      = link_to truncate(t('people.show.not_connected', :name => person.name), :length => 49, :separator => ' ', :omission => ''),
+      = link_to t('people.show.not_connected'),
         {:controller => "contacts",
         :action => "new",
         :person_id => person.id},
