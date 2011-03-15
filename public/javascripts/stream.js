@@ -13,7 +13,8 @@ var Stream = {
     //audio linx
     $(".stream a[target='_blank']").each(function(){
       if($(this).attr('href').match(/\.mp3$|\.ogg$/)) {
-        $(this).parent().html("<audio preload='none' src='" + this.href + "' controls='controls'>mom</audio>");}
+        $(this).hide();
+        $(this).parent().append("<audio preload='none' src='" + this.href + "' controls='controls'>mom</audio>");}
     });
 
 
