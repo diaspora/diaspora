@@ -398,7 +398,7 @@ en:
     index:
       whatup: "What's happening on %{pod}"
       posts_tagged_with: "Posts tagged with #%{tag}"
-      nobody_likes: "nobody likes %{tag}."
+      nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
 
   profiles:

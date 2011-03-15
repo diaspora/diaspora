@@ -28,7 +28,7 @@
       %a.paginate
         = t("more")
     - else
-      = t('.nobody_likes', :tag => "##{params[:tag]}")
+      = t('.nobody_talking', :tag => "##{params[:tag]}")
   = will_paginate @posts
 
 .prepend-2.span-7.last
