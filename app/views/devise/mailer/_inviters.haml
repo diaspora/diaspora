@@ -5,7 +5,7 @@
     = t('.have_invited_you', :names => (@invs.map{|inv| inv.sender.name + " (#{inv.sender.diaspora_handle})"}.join(",")))
   = t('.accept_at', :url => root_url)
 - @invs.each do |inv|
-  - if inv.message
+  - unless inv.message.blank?
     = "#{inv.sender.name}:"
     = "\"#{inv.message}\""
     %p
