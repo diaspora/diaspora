@@ -15,9 +15,9 @@ require 'factory_girl_rails'
 require 'spec/helper_methods'
 include HelperMethods
 
-alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth')
-bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth')
-eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth')
+alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth', :invites => 10)
+bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth', :invites => 10)
+eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth', :invites => 10)
 
 alice.person.profile.update_attributes(:first_name => "Alice", :last_name => "Smith")
 bob.person.profile.update_attributes(:first_name => "Bob", :last_name => "Grimm")
@@ -25,3 +25,7 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe")
 
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
+
+alice.services << Services::Facebook.create(:user_id => alice.id, :uid => 'a1')
+bob.services << Services::Facebook.create(:user_id => bob.id, :uid => 'b2')
+eve.services << Services::Facebook.create(:user_id => eve.id, :uid => 'e3')

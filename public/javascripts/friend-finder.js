@@ -6,12 +6,18 @@
 var FriendFinder = {
 
   initialize: function() {
-    alert("party time");
     $('.contact_list .button').click(function(){
       $this = $(this);
-      var uid = $this.parent('li').attr("uid");
-      alert(uid);
-      $this.closest("options_"+uid).toggleClass("hidden").slideDown('slow', function(){});
+      var uid = $this.parents('li').attr("uid");
+      $this.parents('ul').children("#options_"+uid).slideToggle(function(){
+        if($this.text() == 'Done'){
+          $this.text($this.attr('old-text'));
+        } else {
+          $this.attr('old-text', $this.text());
+          $this.text('Done');
+        }
+        $(this).toggleClass('hidden');
+      });
     });
   }
 };

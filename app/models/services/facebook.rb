@@ -31,11 +31,11 @@ class Services::Facebook < Service
           },
           {
             "name": "Person to Invite",
-            "id": "abc123"
+            "id": "e3"
           },
           {
             "name": "Creative Commons",
-            "id": "ccby"
+            "id": "b2"
           }
         ]
       }
