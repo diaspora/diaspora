@@ -7,7 +7,7 @@
     DIASPORA*
 
 #author_info.profile
-  - unless @contact.persisted? || current_user.person == @person
+  - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
     .right
       = link_to "start sharing",
         {:controller => "contact",
@@ -24,7 +24,7 @@
       .description
         = @person.diaspora_handle
 
-- unless @contact.persisted? || current_user.person == @person
+- if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
   - if @incoming_request
     .floating
       %h3
