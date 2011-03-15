@@ -4,7 +4,6 @@
 
 require 'spec_helper'
 
-
 describe StatusMessage do
   include ActionView::Helpers::UrlHelper
   include Rails.application.routes.url_helpers
@@ -174,60 +173,14 @@ STR
       end
     end
   end
+
   describe 'tags' do
     before do
-      @sm = Factory.build(:status_message)
+      @object = Factory.build(:status_message)
     end
-    describe '#format_tags' do
-      before do
-        @str = '#what #hey'
-        @sm.text = @str
-        @sm.build_tags
-        @sm.save
-        @sm.reload
-      end
-      it 'links the tag to /p' do
-        link = link_to('#what', posts_path(:tag => 'what'), :class => 'tag')
-        @sm.format_tags(@str).should include(link)
-      end
-      it 'responds to plain_text' do
-        @sm.format_tags(@str, :plain_text => true).should == @str
-      end
-    end
-    describe '#build_tags' do
-      it 'builds the tags' do
-        @sm.text = '#what'
-        @sm.build_tags
-        @sm.tag_list.should == ['what']
-        lambda {
-          @sm.save
-        }.should change{@sm.tags.count}.by(1)
-      end
-    end
-    describe '#tag_strings' do
-      it 'returns a string for every #thing' do
-        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #hey#there #135440we #abc/23 ###'
-        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', '135440we', 'abc']
-
-        @sm.text = str
-        @sm.tag_strings.should =~ arr
-      end
-      it 'returns no duplicates' do
-        str = '#what #what #what #whaaaaaaaaaat'
-        arr = ['what','whaaaaaaaaaat']
-
-        @sm.text = str
-        @sm.tag_strings.should =~ arr
-      end
-      it 'is case insensitive' do
-        str = '#what #wHaT #WHAT'
-        arr = ['what']
-
-        @sm.text = str
-        @sm.tag_strings.should =~ arr
-      end
-    end
+    it_should_behave_like 'it is taggable'
   end
+
   describe "XML" do
     before do
       @message = Factory.create(:status_message, :text => "I hate WALRUSES!", :author => @user.person)

@@ -4,11 +4,14 @@
 
 class StatusMessage < Post
   include Diaspora::Socketable
+  include Diaspora::Taggable
+
   include YoutubeTitles
   require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
 
   acts_as_taggable_on :tags
+  extract_tags_from :raw_message
 
   validates_length_of :text, :maximum => 1000, :text => "please make your status messages less than 1000 characters"
   xml_name :status_message
@@ -43,15 +46,6 @@ class StatusMessage < Post
     escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
     mentioned_message = self.format_mentions(escaped_message, opts)
     self.format_tags(mentioned_message, opts)
-  end
-
-  def format_tags(text, opts={})
-    return text if opts[:plain_text]
-    regex = /(^|\s)#(\w+)/
-    form_message = text.gsub(regex) do |matched_string|
-      "#{$~[1]}<a href=\"/p?tag=#{$~[2]}\" class=\"tag\">##{ERB::Util.h($~[2])}</a>"
-    end
-    form_message
   end
 
   def format_mentions(text, opts = {})
@@ -100,22 +94,6 @@ class StatusMessage < Post
       match.last
     end
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
-  end
-
-  def build_tags
-    self.tag_list = tag_strings
-  end
-
-  def tag_strings
-    regex = /(?:^|\s)#(\w+)/
-    matches = self.raw_message.scan(regex).map do |match|
-      match.last
-    end
-    unique_matches = matches.inject(Hash.new) do |h,element|
-      h[element.downcase] = element unless h[element.downcase]
-      h
-    end
-    unique_matches.values
   end
 
   def to_activity

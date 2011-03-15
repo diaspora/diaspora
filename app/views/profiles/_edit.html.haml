@@ -30,6 +30,10 @@
       :default => true, :order => t('date.order'), :start_year => 2000, :end_year => 1930, :prefix => 'profile[date]'
 
   %h4
+    = t('profiles.edit.your_tags')
+    = text_field_tag 'profile[tags]', profile.tags, :placeholder => t('.your_tags_placeholder')
+
+  %h4
     = t('profiles.edit.your_bio')
     = text_area_tag 'profile[bio]', profile.bio, :rows => 5, :placeholder => t('fill_me_out')
 

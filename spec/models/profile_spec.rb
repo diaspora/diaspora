@@ -146,6 +146,13 @@ describe Profile do
     end
   end
 
+  describe 'tags' do
+    before do
+      @object = Factory.build(:profile)
+    end
+    it_should_behave_like 'it is taggable'
+  end
+
   describe '#receive' do
     
     it 'updates the profile in place' do

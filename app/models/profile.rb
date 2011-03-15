@@ -5,7 +5,13 @@
 class Profile < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/webhooks')
   include Diaspora::Webhooks
+  include Diaspora::Taggable
   include ROXML
+
+  attr_accessor :tag_string
+
+  acts_as_taggable_on :tags
+  extract_tags_from :tag_string
 
   xml_attr :diaspora_handle
   xml_attr :first_name

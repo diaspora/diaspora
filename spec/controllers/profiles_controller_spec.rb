@@ -34,7 +34,6 @@ describe ProfilesController do
     end
   end
 
-
   describe '#update' do
     it "sets the flash" do
       put :update, :profile => {
@@ -43,6 +42,15 @@ describe ProfilesController do
           :last_name  => "Smith"
         }
       flash[:notice].should_not be_empty
+    end
+
+    it 'sets tags' do
+      params = { :id => @user.person.id,
+                  :profile =>
+                   { :tags => '#apples #oranges'}}
+
+      put :update, params
+      @user.person(true).profile.tags.should =~ ['apples', 'oranges']
     end
 
     context 'with a profile photo set' do
