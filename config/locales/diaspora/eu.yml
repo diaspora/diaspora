@@ -53,7 +53,7 @@ eu:
     aspect_contacts: 
       done_editing: "aldaketak gauzatu"
     aspect_stream: 
-      activity: "jarduera"
+      activity: "jardueraren arabera"
       post_time: "mezuaren dataren arabera"
       sort_by: "sailkatu:"
     contacts_not_visible: "Alderdi honetako adiskideak nor dagoen bere alderdian ezingo dute ikusi."
@@ -70,11 +70,11 @@ eu:
       aspect_list_is_visible: "alderdiaren zerrenda ikusgarria da aldediko besteengandik"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       done: "Egina"
-      make_aspect_list_visible: "make aspect list visible?"
+      make_aspect_list_visible: "alderdiaren zerrenda publikoa egin?"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
       update: "eguneratu"
-    few: "%{count} aspects"
+    few: "%{count} alderdi"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
       aspect_not_empty: "Alderdi ez hutsa"
@@ -89,7 +89,7 @@ eu:
       manage_aspects: "Alderdiak kudeatu"
       no_requests: "Ez duzu eskaera berririk"
       requests: "Eskaerak"
-    many: "%{count} aspects"
+    many: "%{count} alderdi"
     move_contact: 
       error: "Huts adiskidea mugitzean: %{inspect}"
       failure: "huts egin du %{inspect}"
@@ -105,8 +105,8 @@ eu:
       nobody_in_aspect: "Zure alderdi '%{aspect_name}' hutsik dago."
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "alderdi 1"
+    other: "%{count} alderdi"
     seed: 
       family: "Familia"
       work: "Lantokia"
@@ -115,18 +115,18 @@ eu:
     update: 
       failure: "Zure alderdiak, %{name}(e)k, izen luzeegia du."
       success: "Zure alderdia, %{name}, eraldatua izan da."
-    zero: "no aspects"
+    zero: "alderdirik ez"
   back: "Atzera"
   cancel: "Ezeztatu"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} iruzkin"
+    many: "%{count} iruzkin"
     new_comment: 
       comment: "Iruzkindu"
       commenting: "Iruzkintzen..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "iruzkin 1"
+    other: "%{count} iruzkin"
+    zero: "iruzkinik ez"
   contacts: 
     create: 
       failure: "Akatsa adiskide berria sortzean"
@@ -134,7 +134,7 @@ eu:
       failure: "Akatsa %{name} ezabatzean"
       success: "Arrakastaz ezabatu duzu %{name} adiskide zerrendatik"
     few: "%{count} adiskide"
-    many: "%{count} contacts"
+    many: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
     share_with_pane: 
@@ -145,11 +145,11 @@ eu:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} mezu pribatu berri"
+        many: "%{count} mezu pribatu berri"
+        one: "mezu pribatu berri 1"
+        other: "%{count} mezu pribatu berri"
+        zero: "mezu pribatu berririk ez"
     index: 
       create_a_new_message: "mezu berria sortu"
       message_inbox: "Sarrera-ontzia"
@@ -159,7 +159,7 @@ eu:
     new: 
       no_results: "Ez da ezer aurkitu"
       send: "Bidali"
-      subject: "igorlea"
+      subject: "gaia"
       to: "nori:"
     show: 
       delete: "ezabatu eta giltzapetu elkarrizketa"
@@ -238,18 +238,18 @@ eu:
     deleted: "ezabatuta"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} jakinarazpen berri"
+        many: "%{count} jakinarazpen berri"
+        one: "jakinarazpen berri 1"
+        other: "%{count} jakinarazpen berri"
+        zero: "jakinarazpen berririk ez"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "eta"
+      and_others: "eta beste %{number}(e)k"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
     mentioned: "aipatu zaituzte bere"
-    new_request: "zurekin partekatzea eskatu dizu."
+    new_request: "(e)k zurekin partekatu nahi du."
     post: "berria"
     request_accepted: "zure partekatze eskaera onartu du."
   notifier: 
@@ -260,7 +260,7 @@ eu:
     comment_on_post: 
       commented: "zure mezua iruzkindu du:"
       sign_in: "Sartu zaitez ikusteko."
-      subject: "%{name} zure mezua iruzkindu du."
+      subject: "%{name}(e)k zure mezua iruzkindu du."
     diaspora: "diasporaren e-posta robota"
     hello: "Kaixo, %{name}!"
     love: "ikusi arte,"
@@ -304,7 +304,7 @@ eu:
     person: 
       add_contact: "adiskidea gehitu"
       already_connected: "Dagoeneko harremanetan"
-      pending_request: "eskaeraren zain"
+      pending_request: "onarpenaren zain"
       thats_you: "zu zeu zara!"
     profile_sidebar: 
       bio: "niri buruz"
@@ -318,7 +318,7 @@ eu:
     show: 
       does_not_exist: "Pertsona hau ez dago!"
       incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
-      message: "Mezua"
+      message: "Mezu pribatua bidali"
       no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude partekatzen %{name}(r)ekin"
       recent_posts: "Mezu Berrienak"
@@ -366,8 +366,8 @@ eu:
       notice: "Argazkia arrakastaz eguneratua."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "#%{tag}(r)ekin etiketatutako mezuak"
+      whatup: "Zer berri %{pod}(e)n"
   previous: "aurrekoa"
   profile: "Profila"
   profiles: 
@@ -385,7 +385,7 @@ eu:
       your_photo: "Zure argazkia"
       your_profile: "Zure profila"
     update: 
-      failed: "Akatsa profila eguneratzean"
+      failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
@@ -415,11 +415,11 @@ eu:
       success: "Orain adiskideak zarete."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} eskaera berri!"
+        many: "%{count} eskaera berri!"
+        one: "eskaera berria!"
+        other: "%{count} eskaera berri!"
+        zero: "eskaera berririk ez"
     manage_aspect_contacts: 
       existing: "Adiskideak"
       manage_within: "Adiskideak kudeatu hemen:"
@@ -436,7 +436,7 @@ eu:
     finder: 
       friends: 
         few: "%{count} adiskide"
-        many: "%{count} friends"
+        many: "%{count} adiskide"
         one: "adiskide 1"
         other: "%{count} adiskide"
         zero: "adiskiderik ez"
@@ -514,23 +514,23 @@ eu:
   users: 
     destroy: "Kontua arrakastaz ezabatua."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
       change: "Aldatu"
       change_language: "Hizkuntza Aldatu"
       change_password: "Pasahitza aldatu"
       close_account: "Kontua Ezabatu"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...norbaitek zure mezu bat iruzkintzen duenean?"
       current_password: "Oraingo pasahitza"
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
       export_data: "Datuak esportatu"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...mezu batean aipatzen zaituztenean?"
       new_password: "Pasahitz Berria"
-      private_message: "...you receive a private message?"
+      private_message: "...mezu pribatu bat jasotzen duzunean?"
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      request_acceptence: "...zure partekatze eskaerak onartuak izan direnean?"
+      request_received: "...partekatze eskaera berriak dituzunean?"
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora erabiltzailea"
     getting_started: 

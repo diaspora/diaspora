@@ -29,10 +29,10 @@ nb:
             email: 
               taken: "er allerede tatt."
             person: 
-              invalid: "is invalid."
+              invalid: "er invalid."
             username: 
               taken: "er allerede tatt."
-  ago: "%{time} ago"
+  ago: "%{time} siden"
   application: 
     helper: 
       aspect_badge: 
@@ -43,9 +43,9 @@ nb:
   are_you_sure: "Er du sikker?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Kunne ikke fjerne person fra aspekt"
+      no_membership: "Kunne ikke finne personen i det aspektet"
+      success: "Personen er fjernet fra aspektet"
   aspects: 
     add_to_aspect: 
       failure: "Failed to add friend to aspect."
@@ -53,9 +53,9 @@ nb:
     aspect_contacts: 
       done_editing: "done editing"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "aktivitet"
+      post_time: "tidspunkt"
+      sort_by: "sorter etter:"
     contacts_not_visible: "Kontakter i dette aspektet vil ikke kunne se hverandre."
     contacts_visible: "Kontakter i dette aspektet vil kunne se hverandre."
     create: 
@@ -70,18 +70,18 @@ nb:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Delete this aspect"
-      rename: "rename"
+      make_aspect_list_visible: "gjør aspektlisten synlig?"
+      remove_aspect: "Slett dette aspektet"
+      rename: "endre navn"
       update: "update"
-    few: "%{count} aspects"
+    few: "%{count} aspekter"
     helper: 
       are_you_sure: "Er du sikker på at du vil slette dette aspektet?"
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "fjern"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
-      no_contacts: "No contacts"
+      no_contacts: "Ingen kontakter"
     manage: 
       add_a_new_aspect: "Legg til et nytt aspekt"
       add_a_new_contact: "Legg til ny kontakt"
@@ -89,44 +89,44 @@ nb:
       manage_aspects: "Manage aspects"
       no_requests: "Ingen nye forespørsler"
       requests: "Forespørsler"
-    many: "%{count} aspects"
+    many: "%{count} aspekter"
     move_contact: 
-      error: "Error moving contact: %{inspect}"
+      error: "Feil ved flytting av kontakt: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
     new_aspect: 
       create: "Opprett"
       name: "Navn"
     no_contacts_message: 
-      add_contact: "Add a contact"
-      add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
+      add_contact: "Legg til en kontakt"
+      add_contact_to: "Legg til en kontakt i %{aspect_name}"
+      invite: "Inviter noen til Diaspora!"
       nobody: "We know you know people — bring them to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+      nobody_in_aspect: "Aspektet ditt '%{aspect_name}' er tomt."
     no_posts_message: 
       start_talking: "Ingen har sagt noe enda. Få samtalen i gang!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspekt"
+    other: "%{count} aspekter"
     seed: 
       family: "Familie"
       work: "Jobb"
     show: 
       edit_aspect: "endre aspekt"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "Aspektet ditt, %{name}, har for langt navn."
       success: "Aspektet ditt, %{name}, har blitt endra."
-    zero: "no aspects"
-  back: "Back"
+    zero: "ingen aspekter"
+  back: "Tilbake"
   cancel: "Avbryt"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} kommentarer"
+    many: "%{count} kommentarer"
     new_comment: 
       comment: "Kommenter"
       commenting: "Kommenterer..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 kommentar"
+    other: "%{count} kommentarer"
+    zero: "ingen kommentarer"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -138,22 +138,22 @@ nb:
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
+      accepts: "Straks %{name} aksepterer, vil dere se hverandres innlegg på Diaspora"
+      add_new_aspect: "legg til i nytt aspekt"
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} nye meldinger"
+        many: "%{count} nye meldinger"
+        one: "1 ny melding"
+        other: "%{count} nye meldinger"
+        zero: "ingen nye meldinger"
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
+      create_a_new_message: "skriv en ny melding"
+      message_inbox: "Meldingsinnboks"
+      new_message: "Ny Melding"
       no_conversation_selected: "ingen samtaler valgt"
       no_messages: "ingen meldinger"
     new: 
@@ -178,18 +178,18 @@ nb:
   fill_me_out: "Fill me out"
   home: 
     show: 
-      already_account: "already have an account?"
+      already_account: "har du allerede en konto?"
       choice: "Valg"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
-      login_here: "log in here"
+      login_here: "logg inn her"
       ownership: "Eierskap"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
       share_what_you_want: "Share what you want, with whom you want."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Del hva du vil,"
+      tagline_second_half: "med hvem du vil."
   invitations: 
     check_token: 
       not_found: "Invitation token not found"
@@ -205,16 +205,16 @@ nb:
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kan skrive inn flere epostadresser delt med komma."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      if_they_accept_info: "Hvis de aksepterer, vil de bli lagt til i aspektet du valgte."
       invite_someone_to_join: "Inviter noen til Diaspora!"
       personal_message: "Personlig melding"
-      resend: "Resend"
+      resend: "Send på nytt"
       send_an_invitation: "Send en invitasjon"
       send_invitation: "Send invitasjon"
       to: "Til"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "Har du et problem? Få svar her"
       logged_in_as: "logget inn som %{name}"
       powered_by: "DREVET AV DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
@@ -226,9 +226,9 @@ nb:
       blog: "blogg"
       code: "code"
       edit_profile: "rediger profil"
-      login: "login"
-      logout: "logout"
-      view_profile: "se profil"
+      login: "logg inn"
+      logout: "logg ut"
+      view_profile: "vis profil"
   more: "Mer"
   next: "neste"
   notifications: 
@@ -254,36 +254,36 @@ nb:
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
+      commented: "har også kommentert på %{post_author} sitt innlegg:"
       sign_in: "Sign in to view it."
       subject: "%{name} has also commented."
     comment_on_post: 
       commented: "has commented on your post!"
       sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      subject: "%{name} har kommentert på ditt innlegg."
     diaspora: "the diaspora email robot"
     hello: "Hei %{name}!"
     love: "love,"
     mentioned: 
-      mentioned: "mentioned you in a post:"
+      mentioned: "nevnte deg i et innlegg:"
       sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      subject: "%{name} har nevnt deg på Diaspora*"
     new_request: 
       just_sent_you: "just sent you a friend request on Diaspora*"
       sign_in: "sign in here"
       subject: "new Diaspora* friend request from %{from}"
       try_it_out: "You should really think about checking it out."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
+      message_subject: "Emne: %{subject}"
+      private_message: "har sendt deg en privat melding:"
+      sign_in: "Logg inn for å se den."
       subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
       sign_in: "Sign in here"
       subject: "%{name} has accepted your friend request on Diaspora*"
     single_admin: 
-      admin: "Your Diaspora administrator"
+      admin: "Din Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
     thanks: "Thanks,"
   ok: "OK"
@@ -308,20 +308,20 @@ nb:
       thats_you: "det er deg!"
     profile_sidebar: 
       bio: "bio"
-      born: "born"
-      cannot_remove: "Cannot remove %{name} from last aspect."
+      born: "født"
+      cannot_remove: "Kan ikke fjerne %{name} fra siste aspekt."
       edit_my_profile: "Endre profilen min"
       gender: "kjønn"
-      in_aspects: "in aspects"
+      in_aspects: "i aspekt"
       remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
       does_not_exist: "Personen eksisterer ikke!"
       incoming_request: "You have an incoming request from this person."
-      message: "Message"
-      no_posts: "ingen poster å vise!"
+      message: "Melding"
+      no_posts: "ingen innlegg å vise!"
       not_connected: "You are not connected with this person"
-      recent_posts: "Recent Posts"
+      recent_posts: "Nylige Innlegg"
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Return to your aspects page"
       similar_contacts: "lignende kontakter"
@@ -331,7 +331,7 @@ nb:
       fail: "Beklager, vi kunne ikke finne %{handle}."
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
+      integrity_error: "Bildeopplastning mislyktes. Er du sikker på det var et bilde?"
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
@@ -343,18 +343,18 @@ nb:
       new_photo: "Nytt bilde"
       post_it: "legg ut!"
     new_photo: 
-      empty: "{file} is empty, please select files again without it."
+      empty: "{file} er tom, vennligst velg filer igjen uten den"
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} er for stor, maks filstørrelse er {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      upload: "Last opp et nytt profilbilde!"
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "se alle bildene til %{name}"
     show: 
       collection_permalink: "collection permalink"
       delete_photo: "Slett bilde"
-      edit: "edit"
+      edit: "rediger"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "gjør til profilbilde"
       original_post: "Original Post"
@@ -366,29 +366,29 @@ nb:
       notice: "Bildet er oppdatert."
   posts: 
     index: 
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      posts_tagged_with: "Innlegg tagget med #%{tag}"
+      whatup: "Hva skjer på %{pod}"
   previous: "forrige"
   profile: "Profil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
+      allow_search: "Tillat folk å søke på deg i Diaspora"
+      edit_profile: "Endre profil"
+      first_name: "Fornavn"
       info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Etternavn"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Din Bursdag"
+      update_profile: "Oppdater Profil"
+      your_bio: "Om meg"
+      your_birthday: "Din Fødselsdato"
       your_gender: "Ditt kjønn"
       your_name: "Ditt navn"
-      your_photo: "Your photo"
+      your_photo: "Ditt profilbilde"
       your_profile: "Din profil"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Kunne ikke oppdatere profil"
+      updated: "Profil oppdatert"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Registreringer er stengt på denne Diaspora poden."
     create: 
       success: "Du er nå med i Diaspora!"
     edit: 
@@ -415,13 +415,13 @@ nb:
       success: "Dere er nå venner."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} nye forespørsler!"
+        many: "%{count} nye forespørsler!"
+        one: "nye forespørsler!"
+        other: "%{count} nye forespørsler!"
+        zero: "ingen nye forespørsler"
     manage_aspect_contacts: 
-      existing: "Existing contacts"
+      existing: "Eksisterende kontakter"
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "sendt!"
@@ -453,8 +453,8 @@ nb:
       click_link_to_accept_invitation: "Klikk denne linken for å akseptere invitasjonen din"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "inviter"
+      resend: "send på nytt"
   settings: "Innstillinger"
   shared: 
     add_contact: 
@@ -462,21 +462,21 @@ nb:
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Kan du epostadressen deres? Inviter dem!"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "Ditt Diaspora brukernavn er: %{diaspora_handle}"
     contact_list: 
       all_contacts: "All contacts"
       cannot_remove: "Cannot remove person from last aspect."
     invitations: 
-      by_email: "by Email"
+      by_email: "via Epost"
       dont_have_now: "Du har ingen akkurat nå, men flere invitasjoner kommer snart!"
       from_facebook: "Fra Facebook"
       invitations_left: "(%{count} igjen)"
-      invite_someone: "Invite someone"
+      invite_someone: "Inviter noen"
       invite_your_friends: "Innviter vennene dine"
-      invites: "Invites"
+      invites: "Invitasjoner "
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "Ny %{type} fra %{from}"
     public_explain: 
       logged_in: "innlogget på %{service}"
       manage: "manage connected services"
@@ -488,13 +488,13 @@ nb:
       all_contacts: "alle kontakter"
       make_public: "gjør offentlig"
       mention_helper_text: "for å nevne noen, skriv '@' og begynn å skriv navnet deres"
-      post_a_message_to: "Post a message to %{aspect}"
+      post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
       share: "Del"
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "Hva tenker du på?"
     reshare: 
-      reshare: "Reshare"
+      reshare: "Del på nytt"
   status_messages: 
     destroy: 
       failure: "Failed to delete post"
@@ -509,30 +509,30 @@ nb:
   stream_helper: 
     hide_comments: "hide comments"
     show_comments: "show comments"
-  the_world: "the world"
+  the_world: "verden"
   username: "Brukernavn"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "Kontoen er stengt."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
-      change: "Change"
+      change: "Endre"
       change_language: "Endre Språk"
       change_password: "Endre Passord"
       close_account: "Steng Konto"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"
-      download_photos: "download my photos"
-      download_xml: "download my xml"
+      download_photos: "last ned mine bilder"
+      download_xml: "last ned min xml"
       edit_account: "Endre konto"
       export_data: "Eksporter Data"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...du nevnes i et innlegg?"
       new_password: "Nytt Passord"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Receive email notificaions?"
+      private_message: "...du mottar en privat melding?"
+      receive_email_notifications: "Motta varsler på epost når:"
       request_acceptence: "...your share request is accepted?"
       request_received: "...you receive a new share request?"
       your_email: "Din epost"
-      your_handle: "Your diaspora handle"
+      your_handle: "Ditt Diaspora brukernavn"
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Connect your services"
@@ -546,14 +546,14 @@ nb:
         skip: "Skip"
       step_3: 
         finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        people_already_on_diaspora: "Personer allerede på Diaspora"
       welcome: "Velkommen til Diaspora!"
     public: 
-      does_not_exist: "User %{username} does not exist!"
+      does_not_exist: "Bruker %{username} finnes ikke!"
     update: 
       email_notifications_changed: "Language Change Failed"
       language_changed: "Språk Endret"
-      language_not_changed: "Language Change Failed"
+      language_not_changed: "Endring av språk mislyktes"
       password_changed: "Passord Endret"
       password_not_changed: "Endring av Passord mislyktes"
   webfinger: 
