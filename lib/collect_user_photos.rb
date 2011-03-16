@@ -11,8 +11,8 @@ module PhotoMover
     FileUtils::mkdir_p photos_dir
 
     photos.each do |photo|
-      current_photo_location = "#{Rails.root}/public/uploads/images/#{photo.image_filename}"
-      new_photo_location = "#{photos_dir}/#{photo.image_filename}"
+      current_photo_location = "#{Rails.root}/public/uploads/images/#{photo.remote_photo_name}"
+      new_photo_location = "#{photos_dir}/#{photo.remote_photo_name}"
       FileUtils::cp current_photo_location, new_photo_location
     end
 

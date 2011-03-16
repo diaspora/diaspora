@@ -21,6 +21,13 @@ describe UsersController do
     end
   end
 
+  describe '#export_photos' do
+    it 'returns a tar file'  do
+      get :export_photos
+      response.header["Content-Type"].should include "application/octet-stream"
+    end
+  end
+
   describe '#public' do
     it 'renders xml' do
       sm = Factory(:status_message, :public => true, :author => @user.person)
