@@ -21,6 +21,33 @@ describe Diaspora::WebSocket do
       Diaspora::WebSocket.queue_to_user("me", "Socket!")
     end
   end
+
+  describe '.subscribe' do
+    it 'adds the uid to the uid redis set' do
+      Diaspora::WebSocket.stub!(:length)
+      Diaspora::WebSocket.initialize_channels
+      @mock_redis.should_receive(:sadd).with(Diaspora::WebSocket::REDIS_CONNECTION_SET, alice.id)
+      Diaspora::WebSocket.subscribe(alice.id, mock())
+    end
+  end
+
+  describe '.unsubscribe' do
+    it 'removes the uid to the uid redis set' do
+      Diaspora::WebSocket.stub!(:length)
+      Diaspora::WebSocket.initialize_channels
+      @mock_redis.stub!(:sadd)
+      Diaspora::WebSocket.subscribe(alice.id, mock())
+      @mock_redis.should_receive(:srem).with(Diaspora::WebSocket::REDIS_CONNECTION_SET, alice.id)
+      Diaspora::WebSocket.unsubscribe(alice.id, mock())
+    end
+  end
+
+  describe '.is_connected?' do
+    it 'calls sismember' do
+      @mock_redis.should_receive(:sismember).with(Diaspora::WebSocket::REDIS_CONNECTION_SET, alice.id)
+      Diaspora::WebSocket.is_connected?(alice.id)
+    end
+  end
 end
 
 describe Diaspora::Socketable do
@@ -32,6 +59,7 @@ describe Diaspora::Socketable do
   end
 
   it 'sockets to a user' do
+    Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(true)
     Diaspora::WebSocket.should_receive(:queue_to_user)
     @post.socket_to_user(@user, :aspect_ids => @aspect.id)
   end

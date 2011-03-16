@@ -15,15 +15,11 @@ describe SocketsController do
   before do
     @user = alice
     @controller = SocketsController.new
+    @aspect = @user.aspects.first
+    @message = @user.post :status_message, :text => "post through user for victory", :to => @aspect.id
   end
 
   describe 'actionhash' do
-    before do
-      @aspect = @user.aspects.first
-      @message = @user.post :status_message, :text => "post through user for victory", :to => @aspect.id
-      @fixture_name = File.dirname(__FILE__) + '/../fixtures/button.png'
-    end
-
     it 'actionhashes posts' do
       json = @controller.action_hash(@user, @message)
       json.include?(@message.text).should be_true
@@ -35,6 +31,19 @@ describe SocketsController do
       json = @controller.action_hash(@user, retraction)
       json.include?('retraction').should be_true
       json.include?("html\":null").should be_true
+    end
+  end
+  describe '#outgoing' do
+    it 'calls queue_to_user' do
+      Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(true)
+      Diaspora::WebSocket.should_receive(:queue_to_user).with(@user.id, anything)
+      @controller.outgoing(@user, @message)
+    end
+
+    it 'does not call queue_to_user if the user is not connected' do
+      Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(false)
+      Diaspora::WebSocket.should_not_receive(:queue_to_user)
+      @controller.outgoing(@user, @message)
     end
   end
 end

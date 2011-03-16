@@ -28,6 +28,7 @@ describe 'a user receives a post' do
     contact = @user1.contact_for(@user2.person)
     @user1.add_contact_to_aspect(contact, @user1.aspects.create(:name => "villains"))
     status = @user2.build_post(:status_message, :text => "Users do things", :to => @aspect2.id)
+    Diaspora::WebSocket.stub!(:is_connected?).and_return(true)
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
     zord = Postzord::Receiver.new(@user1, :object => status, :person => @user2.person)
     zord.receive_object

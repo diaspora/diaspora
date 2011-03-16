@@ -41,6 +41,7 @@ Cucumber::Rails::World.use_transactional_fixtures = false
 
 require File.join(File.dirname(__FILE__), "database_cleaner_patches")
 
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_redis")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 include HelperMethods
 
@@ -54,26 +55,6 @@ end
 module Resque
   def enqueue(klass, *args)
     klass.send(:perform, *args)
-  end
-end
-
-module Diaspora::WebSocket
-  def self.redis
-    FakeRedis.new
-  end
-end
-
-class FakeRedis
-  def rpop(*args)
-    true
-  end
-
-  def llen(*args)
-    true
-  end
-
-  def lpush(*args)
-    true
   end
 end
 

@@ -12,6 +12,7 @@ class SocketsController < ApplicationController
   end
 
   def outgoing(user, object, opts={})
+    return unless Diaspora::WebSocket.is_connected?(user.id)
     @_request = ActionDispatch::Request.new({})
     Diaspora::WebSocket.queue_to_user(user.id, action_hash(user, object, opts))
   end

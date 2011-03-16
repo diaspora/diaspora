@@ -4,6 +4,9 @@
 
 module Diaspora
   module WebSocket
+
+    REDIS_CONNECTION_SET = 'ws-uids'
+
     def self.redis
       @redis ||= Resque.redis
     end
@@ -32,6 +35,8 @@ module Diaspora
       self.ensure_channel(uid)
       @channels[uid][0].subscribe{ |msg| ws.send msg }
       @channels[uid][1] += 1
+
+      redis.sadd(REDIS_CONNECTION_SET, uid)
     end
 
     def self.ensure_channel(uid)
@@ -44,7 +49,12 @@ module Diaspora
       @channels[uid][1] -= 1
       if @channels[uid][1] <= 0
         @channels.delete(uid)
+        redis.srem(REDIS_CONNECTION_SET, uid)
       end
+    end
+
+    def self.is_connected?(uid)
+      redis.sismember(REDIS_CONNECTION_SET, uid)
     end
   end
 

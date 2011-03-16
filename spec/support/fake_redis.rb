@@ -14,4 +14,7 @@ class FakeRedis
   def lpush(*args)
     true
   end
+  def sismember(*args)
+    false
+  end
 end
