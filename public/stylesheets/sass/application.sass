@@ -250,6 +250,8 @@ header
   :top 4px
   :margin
     :right 1em
+  &:active
+    :top 5px
 
 .stream
   audio
@@ -1698,6 +1700,9 @@ h3 span.current_gs_step
     :size smaller
   :width 28px
 
+  &:active
+    :top 6px
+
   a
     :z-index 5
     :position absolute
@@ -2760,8 +2765,16 @@ ul.show_comments
       :display none
 
 .tag
+  &:hover
+    :text
+      :decoration none
+    :border
+      :bottom 1px solid $blue
+
   :background
     :color lighten($blue, 47%)
+  :border
+    :bottom 1px dotted $blue
   :font
     :weight bold
 
@@ -2772,3 +2785,20 @@ ul.show_comments
   :color #999
   :margin
     :left 6px
+
+.add_tags
+  :font
+    :weight normal
+    :size 11px
+
+.hover_edit
+  :display none
+  :font
+    :weight normal
+    :size 11px
+  :margin
+    :left 5px
+
+.description:hover
+  .hover_edit
+    :display inline

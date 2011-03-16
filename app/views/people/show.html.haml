@@ -59,7 +59,17 @@
       %span.diaspora_handle
         = @person.diaspora_handle
       .description
-        = @person.profile.format_tags(@person.profile.tag_string)
+        - if !@person.profile.tag_string.blank?
+          = @person.profile.format_tags(@person.profile.tag_string)
+          - if @person == current_user.person
+            %span.hover_edit
+              = link_to t('.edit'), edit_profile_path
+        - else
+          - if @person == current_user.person
+            %i
+              = t('.you_have_no_tags')
+              %span.add_tags
+                = link_to t('.add_some'), edit_profile_path
   %hr
 
   - if @posts.count > 0
