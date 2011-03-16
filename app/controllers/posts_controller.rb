@@ -22,8 +22,8 @@ class PostsController < ApplicationController
     @posts = @posts.tagged_with(params[:tag])
     @posts = @posts.includes(:comments, :photos).paginate(:page => params[:page], :per_page => 15, :order => 'created_at DESC')
 
-    profiles = Profile.tagged_with(params[:tag]).where(:searchable => true).select('profiles.id')
-    @people = Person.where(:id => profiles.map{|p| p.id}).limit(15)
+    profiles = Profile.tagged_with(params[:tag]).where(:searchable => true).select('profiles.id, profiles.person_id')
+    @people = Person.where(:id => profiles.map{|p| p.person_id}).limit(15)
 
     @fakes = PostsFake.new(@posts)
     @commenting_disabled = true
