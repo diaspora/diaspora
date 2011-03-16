@@ -155,6 +155,13 @@ describe Photo do
     end
   end
 
+  describe '#queue_processing_job' do
+    it 'should queue a resque job to process the images' do
+      Resque.should_receive(:enqueue).with(Job::ProcessPhoto, @photo.id)
+      @photo.queue_processing_job
+    end
+  end
+
   context "deletion" do
     before do
       @status_message = @user.build_post(:status_message, :text => "", :to => @aspect.id)

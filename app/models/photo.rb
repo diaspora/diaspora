@@ -85,6 +85,10 @@ class Photo < Post
     {:thumb_url => url(:thumb_medium), :id => id, :album_id => nil}
   end
 
+  def queue_processing_job
+    Resque.enqueue(Job::ProcessPhoto, self.id)
+  end
+
   def mutable?
     true
   end

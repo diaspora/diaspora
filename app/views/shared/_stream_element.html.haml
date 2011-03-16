@@ -10,7 +10,7 @@
         = render 'shared/reshare', :aspects => reshare_aspects, :post => post
       = link_to image_tag('deletelabel.png'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete", :title => t('delete')
 
-  .thumb_small= person_image_link(post.author, :size => :thumb_small)
+  = person_image_link(post.author, :size => :thumb_small)
 
   .content
     .from
