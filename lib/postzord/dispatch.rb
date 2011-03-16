@@ -40,7 +40,7 @@ class Postzord::Dispatch
   protected
 
   def deliver_to_remote(people)
-    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), people.map{|p| p.id})
+    Resque.enqueue(Job::HttpMulti, @sender.id, Base64.encode64(@object.to_diaspora_xml), people.map{|p| p.id}) unless people.empty?
   end
 
   def deliver_to_local(people)
