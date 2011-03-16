@@ -33,7 +33,15 @@
         $("div.mention_helper").fadeTo(100, 0, function() {
           $("#publisher .options_and_submit, #fileInfo").fadeIn(50);
         });
+
+        $("#publisher textarea").addClass("with_attachments");
         $("#publisher_spinner").fadeIn(100);
+        $('#photodropzone').append(
+          "<li class='publisher_photo loading' style='position:relative;'>" +
+            "<img src='/images/ajax-loader2.gif' />" +
+          "</li>"
+          );
+
        },
 
        onComplete: function(id, fileName, responseJSON) {
@@ -44,7 +52,7 @@
         $("#publisher textarea").addClass("with_attachments");
 
         $('#new_status_message').append("<input type='hidden' value='" + id + "' name='photos[]' />");
-        $('#photodropzone').append(
+        $('li.loading').first().replaceWith(
           "<li class='publisher_photo' style='position:relative;'>" +
             "<img  src='" + url +"' data-id='" + id + "' />" +
             "<div class='x'> X </div>" +

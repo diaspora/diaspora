@@ -49,5 +49,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   version :scaled_full
   version :thumb_large
   version :thumb_medium
-  version :thumb_small
+  version :thumb_small do 
+    process :resize_to_fill => [50,50]
+  end
 end
