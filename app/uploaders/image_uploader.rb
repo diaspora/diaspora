@@ -18,6 +18,7 @@ class ImageUploader < CarrierWave::Uploader::Base
   end
 
   def post_process
+    self.send(:remove_versions!)
     unless self.file.file.include? '.gif'
       ImageUploader.instance_eval do
         version :thumb_small do

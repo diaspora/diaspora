@@ -158,6 +158,10 @@ describe StatusMessagesController do
         @photo1.reload.pending.should be_false
         @photo2.reload.pending.should be_false
       end
+
+      it 'queues all photos to be processed' do
+        pending
+      end
     end
   end
 
