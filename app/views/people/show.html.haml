@@ -61,11 +61,11 @@
       .description
         - if !@person.profile.tag_string.blank?
           = @person.profile.format_tags(@person.profile.tag_string)
-          - if @person == current_user.person
+          - if user_signed_in? && @person == current_user.person
             %span.hover_edit
               = link_to t('.edit'), edit_profile_path
         - else
-          - if @person == current_user.person
+          - if user_signed_in? && @person == current_user.person
             %i
               = t('.you_have_no_tags')
               %span.add_tags
