@@ -56,7 +56,6 @@ class StatusMessagesController < ApplicationController
           end
         end
         photos.update_all(:pending => false, :public => public_flag)
-        photos.each{|x| x.queue_processing_job; puts "i did it"}
       end
 
       if request.env['HTTP_REFERER'].include?("people")

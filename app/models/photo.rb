@@ -18,6 +18,7 @@ class Photo < Post
   validate :ownership_of_status_message
 
   before_destroy :ensure_user_picture
+  after_create :queue_processing_job
 
   def ownership_of_status_message
     message = StatusMessage.find_by_id(self.status_message_id)
