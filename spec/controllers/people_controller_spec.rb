@@ -172,15 +172,6 @@ describe PeopleController do
         get :show, :id => @person.id
         assigns(:posts).should =~ posts_user_can_see
       end
-
-      it 'generates a jasmine fixture' do
-        contact = @user.contact_for(@person)
-        aspect = @user.aspects.create(:name => 'people')
-        contact.aspects << aspect
-        contact.save
-        get :show, :id => @person
-        save_fixture(html_for("body"), "person_show")
-      end
     end
 
     context "when the person is not a contact of the current user" do
