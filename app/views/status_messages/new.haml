@@ -10,13 +10,14 @@
     {
       var person = {name: '#{@person.name}', handle: '#{@person.diaspora_handle}' };
       Publisher.autocompletion.onSelect($("#status_message_fake_text"),person,'#{@person.name}');
+      $("#publisher #status_message_fake_text").val(function(index, value){ return value + " " });
       $("#publisher #status_message_submit.button").click(function(){$.facebox.close();});
     });
 
 #new_status_message_pane
-  .span-15
+  .span-15.last
     #facebox_header
       %h4
-        = t('mentioning') + @person.name
+        = t('.mentioning') + @person.name
 
     = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :aspects_with_person => @aspects_with_person, :person => @person}
