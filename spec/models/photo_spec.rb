@@ -35,6 +35,15 @@ describe Photo do
     end
   end
 
+  describe 'after create' do
+    it 'calls #queue_processing_job' do
+      p = Factory.build(:photo, :image => File.open(@fixture_name))
+      p.should_receive(:queue_processing_job)
+
+      p.save!
+    end
+  end
+  
   it 'is mutable' do
     @photo.mutable?.should == true
   end
@@ -124,6 +133,7 @@ describe Photo do
       @xml.include?(@user.diaspora_handle).should be true
     end
   end
+  
   describe 'remote photos' do
     it 'should set the remote_photo on marshalling' do
       @photo.image.store! File.open(@fixture_name)
