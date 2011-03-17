@@ -35,8 +35,6 @@ ca:
   _comments: "Comentaris"
 
 
-  #for reference translation, the real activerecord english transations are actually
-  #in en-US, en-GB, and en-AU yml files
   activerecord:
     errors:
       models:
@@ -48,18 +46,18 @@ ca:
               taken: "ja és en ús."
             email:
               taken: "ja és en ús."
-          person:
-            attributes:
-              diaspora_handle:
-                taken: "ja és en ús."
-          contact:
-            attributes:
-              person_id:
-                taken: "ha de ser únic entre els contactes d'aquest usuari."
-            request:
-              attributes:
-                from_id:
-                  taken: "és un duplicat d'una petició ja existent."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ja és en ús."
+        contact:
+          attributes:
+            person_id:
+              taken: "ha de ser únic entre els contactes d'aquest usuari."
+        request:
+          attributes:
+            from_id:
+              taken: "és un duplicat d'una petició ja existent."
 
 
   error_messages:
@@ -257,9 +255,8 @@ ca:
 
   layouts:
     header:
-      view_profile: "mostra el perfil"
-      edit_profile: "edita el perfil"
-      account_settings: "paràmetres del compte"
+      profile: "perfil"
+      settings: "paràmetres"
       logout: "surt"
       blog: "bloc"
       login: "entra"
@@ -427,8 +424,8 @@ ca:
 
   profiles:
     edit:
-      info_available_to: "Aquesta informació serà disponible per a tots aquells amb qui connectes al Diàspora."
-      your_profile: "El vostre perfil"
+      your_public_profile: "El vostre perfil públic"
+      your_private_profile: "El vostre perfil privat"
       your_name: "El vostre nom"
       first_name: "Nom"
       last_name: "Cognom"
@@ -514,9 +511,9 @@ ca:
         many: "%{count} amics"
         other: "%{count} amics"
       not_connected: "no connectat"
-      remote_friend:
-        resend: "torna a enviar"
-        invite: "convida"
+    remote_friend:
+      resend: "torna a enviar"
+      invite: "convida"
 
 
   shared:
