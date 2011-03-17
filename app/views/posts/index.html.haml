@@ -48,7 +48,7 @@
           %span.from
             =person_link(person)
           .info
-            = person.diaspora_handle
+            = person.profile.format_tags(person.profile.tag_string)
 
     - if @people_count > 15
       \...
