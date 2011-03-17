@@ -204,11 +204,6 @@ class User < ActiveRecord::Base
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)
     end
-    if tag_string = params.delete(:tags)
-      self.person.profile.tag_string = tag_string
-      self.person.profile.build_tags
-      self.person.profile.save
-    end
     if self.person.profile.update_attributes(params)
       Postzord::Dispatch.new(self, profile).post
       true

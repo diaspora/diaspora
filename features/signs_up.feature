@@ -14,7 +14,7 @@ Feature: new user registration
   Scenario: new user goes through the setup wizard
    When I fill in "profile_first_name" with "O"
     And I fill in "profile_last_name" with "Hai"
-    And I fill in "profile_tags" with "#gender"
+    And I fill in "profile_tag_string" with "#gender"
     And I press "Save and continue"
     And I wait for "step 2" to load
     Then I should see "Profile updated"

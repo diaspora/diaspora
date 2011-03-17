@@ -80,6 +80,14 @@ describe Profile do
       xml = person.profile.to_diaspora_xml
       xml.should include "foobar"
     end
+
+    it 'includes tags' do
+      person.profile.tag_string = '#one'
+      person.profile.build_tags
+      person.profile.save
+      xml = person.profile.to_diaspora_xml
+      xml.should include "#one"
+    end
   end
 
   describe '#image_url' do

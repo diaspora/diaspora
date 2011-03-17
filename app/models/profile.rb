@@ -24,6 +24,7 @@ class Profile < ActiveRecord::Base
   xml_attr :gender
   xml_attr :bio
   xml_attr :searchable
+  xml_attr :tag_string
 
   before_save :strip_names
   after_validation :strip_names
@@ -34,9 +35,13 @@ class Profile < ActiveRecord::Base
   validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_blank => true
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :searchable, :date
+    :image_url_small, :birthday, :gender, :bio, :searchable, :date, :tag_string
 
   belongs_to :person
+
+  before_save do
+    self.build_tags
+  end
 
   def subscribers(user)
     Person.joins(:contacts).where(:contacts => {:user_id => user.id})
