@@ -114,10 +114,10 @@ ca:
     manage:
       add_a_new_aspect: "Afegeix un aspecte nou"
       add_a_new_contact: "Afegeix un contacte nou"
-      requests:
-        no_requests: "No hi ha cap petició nova"
-        manage_aspects: "Gestiona els espectes"
-        drag_to_add: "Arrossegueu i deixeu anar per afegir gent"
+      requests: "Peticions"
+      no_requests: "No hi ha cap petició nova"
+      manage_aspects: "Gestiona els espectes"
+      drag_to_add: "Arrossegueu i deixeu anar per afegir gent"
     new_aspect:
       name: "Nom"
       create: "Crea'l"
@@ -186,26 +186,26 @@ ca:
 
   conversations:
     index:
-      message_inbox:
-        new_message: "Missatge nou"
-        no_conversation_selected: "no hi ha cap conversa seleccionada"
-        create_a_new_message: "crea un missatge nou"
-        no_messages: "no hi ha missatges"
-      show:
-        reply: "respon"
-        delete: "suprimeix i bloca la conversa"
-      new:
-        to: "a"
-        subject: "assumpte"
-        send: "Envia"
-        no_results: "No s'ha trobat cap resultat"
-      helper:
-        new_messages:
-          zero: "cap missatge nou"
-          one: "1 missatge nou"
-          few: "%{count} missatges nous"
-          many: "%{count} missatges nous"
-          other: "%{count} missatges nous"
+      message_inbox: "Bústia d'entrada"
+      new_message: "Missatge nou"
+      no_conversation_selected: "no hi ha cap conversa seleccionada"
+      create_a_new_message: "crea un missatge nou"
+      no_messages: "no hi ha missatges"
+    show:
+      reply: "respon"
+      delete: "suprimeix i bloca la conversa"
+    new:
+      to: "a"
+      subject: "assumpte"
+      send: "Envia"
+      no_results: "No s'ha trobat cap resultat"
+    helper:
+      new_messages:
+        zero: "cap missatge nou"
+        one: "1 missatge nou"
+        few: "%{count} missatges nous"
+        many: "%{count} missatges nous"
+        other: "%{count} missatges nous"
 
 
   date:
