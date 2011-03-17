@@ -222,13 +222,12 @@ ru:
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
     header: 
-      account_settings: "настройки аккаунта"
       blog: "блог"
       code: "код"
-      edit_profile: "редактировать профиль"
       login: "логин"
       logout: "выйти"
-      view_profile: "просмотр профиля"
+      profile: "profile"
+      settings: "settings"
   more: "Подробнее"
   next: "далее"
   notifications: 
@@ -293,6 +292,7 @@ ru:
   people: 
     aspect_list: 
       edit_membership: "редактировать участников аспекта"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
@@ -301,6 +301,9 @@ ru:
       no_one_found: "...и не удалось кого либо найти."
       no_results: "Эй! Вам надо что то найти."
       results_for: "результат поиска для"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
@@ -316,8 +319,11 @@ ru:
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Персоны не существует !"
+      edit: "edit"
       incoming_request: "%{name} хочет поделиться с вами"
+      mention: "Mention"
       message: "Message"
       no_posts: "новых сообщений нет!"
       not_connected: "Вы не поделились с %{name}"
@@ -327,8 +333,10 @@ ru:
       similar_contacts: "аналогичные контакты"
       start_sharing: "поделиться"
       to_accept_or_ignore: "принять или игнорировать."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "К сожалению, мы не смогли найти %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Сбой при загрузке фото. Вы уверены, что это изображение?"
@@ -365,7 +373,10 @@ ru:
       error: "Не удалось изменить фотографию."
       notice: "Фотография загружена."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "предыдущая"
@@ -375,7 +386,6 @@ ru:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ ru:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ ru:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка ..."
+      publishing_to: "publishing to: "
       share: "Поделиться"
       share_with: "поделиться с"
       whats_on_your_mind: "о чём вы думаете?"
@@ -500,9 +514,8 @@ ru:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Новых сообщений нет."
-    new_status_message: 
-      oh_yeah: "о да!"
-      tell_me_something_good: "расскажи мне что-нибудь хорошее"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Уничтожить"
       permalink: "постоянная ссылка"

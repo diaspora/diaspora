@@ -222,13 +222,12 @@ zh:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "帐户设置"
       blog: "博客"
       code: "代码"
-      edit_profile: "编辑个人资料"
       login: "登录"
       logout: "退出"
-      view_profile: "查看个人资料"
+      profile: "profile"
+      settings: "settings"
   more: "More"
   next: "下一步"
   notifications: 
@@ -293,6 +292,7 @@ zh:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -301,6 +301,9 @@ zh:
       no_one_found: "...但是找不到任何人。"
       no_results: "你好！你得用搜索功能去查找。"
       results_for: "搜索结果"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "增加联系人"
       already_connected: "已关联"
@@ -316,8 +319,11 @@ zh:
       remove_contact: "删除联系人"
       remove_from: "真的要把%{name}从%{aspect}中删除吗？"
     show: 
+      add_some: "add some"
       does_not_exist: "此人不存在！"
+      edit: "edit"
       incoming_request: "您有一条这个人发的邀请。"
+      mention: "Mention"
       message: "Message"
       no_posts: "无贴见人！"
       not_connected: "还还没有和%{name}共享"
@@ -327,8 +333,10 @@ zh:
       similar_contacts: "相似联系人"
       start_sharing: "start sharing"
       to_accept_or_ignore: "接受或者忽略。"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "图片上传失败，你肯定你上传的是图片吗？"
@@ -365,7 +373,10 @@ zh:
       error: "照片编辑失败。"
       notice: "头像更新成功。"
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "后退"
@@ -375,7 +386,6 @@ zh:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ zh:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ zh:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "发送信息给%{aspect}这个分组的所有人"
       posting: "发布中"
+      publishing_to: "publishing to: "
       share: "分享"
       share_with: "和%{aspect}这个分组中的人分享"
       whats_on_your_mind: "what's on your mind?"
@@ -500,9 +514,8 @@ zh:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "没有消息。"
-    new_status_message: 
-      oh_yeah: "oh yeah!"
-      tell_me_something_good: "给我透露点好消息吧"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "删除"
       permalink: "永久链接"

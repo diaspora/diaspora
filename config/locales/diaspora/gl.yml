@@ -222,13 +222,12 @@ gl:
       whats_new: "que hai de novo?"
       your_aspects: "os teus aspectos"
     header: 
-      account_settings: "Configuración da conta"
       blog: "Bitácora"
       code: "código"
-      edit_profile: "Modificar o perfil"
       login: "Identificarse"
       logout: "Saír"
-      view_profile: "Ver o perfil"
+      profile: "profile"
+      settings: "settings"
   more: "Máis"
   next: "seguinte"
   notifications: 
@@ -293,6 +292,7 @@ gl:
   people: 
     aspect_list: 
       edit_membership: "Editar membresía de aspecto"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "xente nesta vaíña están ao tanto de"
       results_for: "resultados para %{params}"
@@ -301,6 +301,9 @@ gl:
       no_one_found: "...non se atopou ningún"
       no_results: "Ei! Precisas buscar algo."
       results_for: "resultados da procura para"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "engadir contacto"
       already_connected: "Xa conectado"
@@ -316,19 +319,24 @@ gl:
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Esa persoa non existe!"
+      edit: "edit"
       incoming_request: "%{name} quere compartir contigo"
+      mention: "Mention"
       message: "Mensaxe"
       no_posts: "Non hai mensaxes que amosar!"
-      not_connected: "Non estás conectado a %{name}"
+      not_connected: "Non estás compartindo con %{name}"
       recent_posts: "Publicacións recentes"
       recent_public_posts: "Publicacións Públicas Recentes"
       return_to_aspects: "Voltar á paxina dos teus aspectos"
       similar_contacts: "contactos semellantes"
       start_sharing: "comezar a compartir"
       to_accept_or_ignore: "aceptalo ou ignoralo"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sentímolo, non poidemos atopar %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Fallou a carga da foto.  Seguro que o ficheiro era unha imaxe?"
@@ -365,7 +373,10 @@ gl:
       error: "Erro ao editar a foto."
       notice: "Foto actualizada correctamente."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Publicacións etiquetadas como #%{tag}"
       whatup: "Que está acontecendo en %{pod}"
   previous: "anterior"
@@ -375,7 +386,6 @@ gl:
       allow_search: "Permitir á xente buscarte en Diaspora"
       edit_profile: "Editar perfil"
       first_name: "Nome"
-      info_available_to: "Esta información estará dispoñible para calquera que se conecte contigo en Diaspora"
       last_name: "Apelidos"
       update_profile: "Actualizar Perfil"
       your_bio: "Biografía"
@@ -383,7 +393,10 @@ gl:
       your_gender: "O teu xénero"
       your_name: "O teu nome"
       your_photo: "A túa foto"
-      your_profile: "O teu perfil"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Fallouse ao actualizar perfil"
       updated: "Perfil actualizado"
@@ -490,6 +503,7 @@ gl:
       mention_helper_text: "para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
+      publishing_to: "publishing to: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
       whats_on_your_mind: "Que tes en mente?"
@@ -500,9 +514,8 @@ gl:
       failure: "Fallo ao borrar publicación"
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
-    new_status_message: 
-      oh_yeah: "e logo!"
-      tell_me_something_good: "cóntame algo bo"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Borrar"
       permalink: "permalink"

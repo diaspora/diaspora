@@ -222,13 +222,12 @@ ga:
       whats_new: "cad atá nua?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "socraithe cúntas"
       blog: "blag"
       code: "cod"
-      edit_profile: "athraigh próifíl"
       login: "logáil isteach"
       logout: "logáil amach"
-      view_profile: "brathnaigh air próifíl"
+      profile: "profile"
+      settings: "settings"
   more: "More"
   next: "ar aghaidh"
   notifications: 
@@ -293,6 +292,7 @@ ga:
   people: 
     aspect_list: 
       edit_membership: "athraigh ballraíocht gné"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " tá a fhios ag daoine ar an phod faoi"
       results_for: " torthaí do %{params}"
@@ -301,6 +301,9 @@ ga:
       no_one_found: "...agus níor fuarthas aon duine"
       no_results: "Hé! Tá ort cuardaigh le rud éigin!"
       results_for: "cuardaigh torthaí do"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "cuir teagmháil leis"
       already_connected: "Cheanna féin nasctha"
@@ -316,8 +319,11 @@ ga:
       remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Person does not exist!"
+      edit: "edit"
       incoming_request: "Tá iarratas nua agat ón duine seo."
+      mention: "Mention"
       message: "Message"
       no_posts: "níl aon póstanna chun taispeáint!"
       not_connected: "Níl tú ag roinnt le %{name}"
@@ -327,8 +333,10 @@ ga:
       similar_contacts: "teagmháillí cosúil"
       start_sharing: "start sharing"
       to_accept_or_ignore: "chun glacadh leis nó neamhaird a dhéanamh de"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Brón orn, níor raibhamar abálta %{handle} a fháil."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Níor d'éirigh le uaslódáil an pictiúr. An bhfuil tú cinnte go raibh sé pictiúr?"
@@ -365,7 +373,10 @@ ga:
       error: "Níor d'éirigh le aithrú an pictiúr."
       notice: "Pictiure Uaslódaithe."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "roimhhe"
@@ -375,7 +386,6 @@ ga:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ ga:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ ga:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
       posting: "Póstáil..."
+      publishing_to: "publishing to: "
       share: "Roinn"
       share_with: "Roinn le %{aspect}"
       whats_on_your_mind: "what's on your mind?"
@@ -500,9 +514,8 @@ ga:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Níl aon teachtaireacht chun taispeáint."
-    new_status_message: 
-      oh_yeah: "ó sea!"
-      tell_me_something_good: "rá liom rud maith"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Scrios"
       permalink: "nasc-buan"

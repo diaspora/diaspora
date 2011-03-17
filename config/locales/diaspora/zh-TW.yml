@@ -222,13 +222,12 @@ zh-TW:
       whats_new: "有什麼新消息?"
       your_aspects: "你的面向"
     header: 
-      account_settings: "帳號設定"
       blog: "部落格"
       code: "源碼"
-      edit_profile: "編輯個人檔案"
       login: "登入"
       logout: "登出"
-      view_profile: "檢視個人檔案"
+      profile: "profile"
+      settings: "settings"
   more: "更多"
   next: "後面"
   notifications: 
@@ -293,6 +292,7 @@ zh-TW:
   people: 
     aspect_list: 
       edit_membership: "編輯所屬面向"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "Pod 上已知的人"
       results_for: "%{params} 的搜尋結果"
@@ -301,6 +301,9 @@ zh-TW:
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
       results_for: "搜尋結果:"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "加入聯繫"
       already_connected: "已建立連結"
@@ -316,8 +319,11 @@ zh-TW:
       remove_contact: "刪除聯繫"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
+      add_some: "add some"
       does_not_exist: "聯絡人不存在!"
+      edit: "edit"
       incoming_request: "%{name} 希望能和你分享"
+      mention: "Mention"
       message: "訊息"
       no_posts: "沒有貼文可顯示!"
       not_connected: "你不跟這個人分享"
@@ -327,8 +333,10 @@ zh-TW:
       similar_contacts: "相似的聯繫"
       start_sharing: "開始分享"
       to_accept_or_ignore: "接受或不管它."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "抱歉, 找不到 %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
@@ -365,7 +373,10 @@ zh-TW:
       error: "相片編輯失敗."
       notice: "相片更新成功."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "標記為#%{tag}的貼文"
       whatup: "%{pod}的新鮮事"
   previous: "前面"
@@ -375,7 +386,6 @@ zh-TW:
       allow_search: "讓別人在 Diaspora 可以搜尋到你"
       edit_profile: "編輯個人檔案"
       first_name: "First name"
-      info_available_to: "和你在 Diaspora 建立聯繫的每個人都能看到這些資訊."
       last_name: "Last name"
       update_profile: "更新個人檔案"
       your_bio: "你的自我介紹"
@@ -383,7 +393,10 @@ zh-TW:
       your_gender: "你的性別"
       your_name: "你的名字"
       your_photo: "你的相片"
-      your_profile: "你的個人檔案"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
@@ -490,6 +503,7 @@ zh-TW:
       mention_helper_text: "想提到某人的話, 先敲 '@' 再接著打他們的名字"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
+      publishing_to: "publishing to: "
       share: "分享"
       share_with: "與他/她分享:"
       whats_on_your_mind: "在想什麼?"
@@ -500,9 +514,8 @@ zh-TW:
       failure: "刪除貼文失敗"
     helper: 
       no_message_to_display: "沒有訊息可顯示."
-    new_status_message: 
-      oh_yeah: "oh yeah!"
-      tell_me_something_good: "報好康的給我"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "刪除"
       permalink: "靜態連結"

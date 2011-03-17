@@ -6,6 +6,8 @@
 ro: 
   javascripts: 
     confirm_dialog: "Eşti sigur?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Search for {{name}}"
     shared: 
       contact_list: 

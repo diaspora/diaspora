@@ -222,13 +222,12 @@ el:
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header: 
-      account_settings: "ρυθμίσεις λογαριασμού"
       blog: "blog"
       code: "κώδικας"
-      edit_profile: "επεξεργασία προφίλ"
       login: "Είσοδος"
       logout: "αποσύνδεση"
-      view_profile: "προβολή προφίλ"
+      profile: "profile"
+      settings: "settings"
   more: "Περισσότερα"
   next: "επόμενο"
   notifications: 
@@ -293,6 +292,7 @@ el:
   people: 
     aspect_list: 
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
@@ -301,6 +301,9 @@ el:
       no_one_found: "...κανένας δεν βρέθηκε. "
       no_results: "Επ! Χρειάζεται να ψάξετε για κάτι."
       results_for: "αποτελέσματα αναζήτησης για"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "προσθήκη επαφής"
       already_connected: "Είναι ήδη συνδεδεμένο"
@@ -316,8 +319,11 @@ el:
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
+      edit: "edit"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
+      mention: "Mention"
       message: "Μήνυμα"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν είστε συνδεδεμένος με τον χρήστη %{name}"
@@ -327,8 +333,10 @@ el:
       similar_contacts: "παρόμοιες επαφές"
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η ότι ήταν φωτογραφία;"
@@ -365,7 +373,10 @@ el:
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
       whatup: "Τι συμβαίνει στο %{pod}"
   previous: "προηγούμενο"
@@ -375,7 +386,6 @@ el:
       allow_search: "Επιτρέψτε σε άλλους ανθρώπους να σας αναζητούν στο Diaspora"
       edit_profile: "Επεξεργασία προφίλ"
       first_name: "Όνομα"
-      info_available_to: "Η πληροφορία θα είναι διαθέσιμη σε όποιον σε όποιον συνδεθείτε στο Diaspora."
       last_name: "Επώνυμο"
       update_profile: "Ενημέρωση Προφίλ"
       your_bio: "To βιογραφικό σας"
@@ -383,7 +393,10 @@ el:
       your_gender: "Tο φύλο σας"
       your_name: "Το όνομά σας"
       your_photo: "Η φωτογραφία σας"
-      your_profile: "Το προφίλ σας"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε"
@@ -490,6 +503,7 @@ el:
       mention_helper_text: "για ν' αναφέρεις κάποιον, πάτα '@' και άρχισε να πληκτρολογείς το όνομα του"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
+      publishing_to: "publishing to: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
       whats_on_your_mind: "Τι σκέφτεστε;"
@@ -500,9 +514,8 @@ el:
       failure: "Αποτυχία διαγραφής δημοσίευσης"
     helper: 
       no_message_to_display: "Κανένα μήνυμα"
-    new_status_message: 
-      oh_yeah: "ναι!"
-      tell_me_something_good: "πες μου κάτι καλό"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Διαγραφή"
       permalink: "permalink"

@@ -6,6 +6,8 @@
 pl: 
   javascripts: 
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Szukaj: {{name}}"
     shared: 
       contact_list: 

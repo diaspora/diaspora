@@ -15,73 +15,73 @@ pt-PT:
         contact: 
           attributes: 
             person_id: 
-              taken: "must be unique among this user's contacts."
+              taken: "tem de ser único entre os contactos deste utilizador."
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "já existe."
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "é duplicado de pedido pré-existente."
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "já existe."
             person: 
-              invalid: "is invalid."
+              invalid: "é inválido."
             username: 
-              taken: "is already taken."
+              taken: "já existe."
   ago: "%{time} atrás"
   application: 
     helper: 
       aspect_badge: 
-        all_aspects: "All aspects"
+        all_aspects: "Todos os aspectos"
       unknown_person: "utilizador(a) desconhecido(a)"
       video_title: 
-        unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+        unknown: "Video sem título	"
+  are_you_sure: "Tem a certeza?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Erro ao remover a pessoa do aspecto"
+      no_membership: "A pessoa seleccionada não foi encontrada neste aspecto"
+      success: "Pessoa removida com sucesso do aspecto."
   aspects: 
     add_to_aspect: 
       failure: "Falha ao adicionar amigo ao grupo."
       success: "Amigo adicionado com sucesso ao grupo."
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "finalizar edição"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+      activity: "actividade"
+      post_time: "hora do post"
+      sort_by: "ordenar por:"
+    contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
+    contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create: 
       failure: "A criação do grupo falhou."
       success: "O teu novo grupo %{name} foi  criado"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} não se encontra vazio e não pôde ser removido."
       success: "%{name} foi removido(a) com sucesso."
     edit: 
-      add_existing: "Add an existing contact"
+      add_existing: "Adicionar um contacto existente"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       aspect_list_is_visible: "aspect list is visible to others in aspect"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      confirm_remove_aspect: "Tem a certeza que deseja remover este aspecto?"
       done: "Done"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Delete this aspect"
-      rename: "rename"
+      make_aspect_list_visible: "tornar visível a lista de aspectos?"
+      remove_aspect: "Remover este aspecto"
+      rename: "renomear"
       update: "update"
-    few: "%{count} aspects"
+    few: "%{count} aspectos"
     helper: 
-      are_you_sure: "Are you sure you want to delete this aspect?"
+      are_you_sure: "Tem a certeza que deseja eliminar este aspecto?"
       aspect_not_empty: "Mini-Perfil não está vazio"
       remove: "remover"
     index: 
       handle_explanation: "Esta é a tua chave do Diaspora. Tal como um email, podes dar esta chave às pessoas para que te possam contactar."
-      no_contacts: "No contacts"
+      no_contacts: "Nenhum contacto"
     manage: 
       add_a_new_aspect: "Adicionar um novo grupo"
       add_a_new_contact: "Adicionar um novo contacto"
@@ -89,7 +89,7 @@ pt-PT:
       manage_aspects: "Gerir Grupos"
       no_requests: "Não existem novos pedidos"
       requests: "Pedidos"
-    many: "%{count} aspects"
+    many: "%{count} aspectos"
     move_contact: 
       error: "Erro ao mover contacto: %{inspect}"
       failure: "não funcionou %{inspect}"
@@ -105,8 +105,8 @@ pt-PT:
       nobody_in_aspect: "O teu grupo '%{aspect_name}' está vazio."
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada. Dá início à conversa!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 aspecto"
+    other: "%{count} aspectos"
     seed: 
       family: "Família"
       work: "Trabalho"
@@ -115,7 +115,7 @@ pt-PT:
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "O teu grupo, %{name}, foi editado com sucesso."
-    zero: "no aspects"
+    zero: "nenhum aspecto"
   back: "Voltar"
   cancel: "Cancelar"
   comments: 
@@ -125,31 +125,31 @@ pt-PT:
       comment: "Comentar"
       commenting: "A comentar..."
     one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    other: "%{count} comentários"
+    zero: "nenhum comentário"
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Erro ao criar contacto"
     destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
-    few: "%{count} contacts"
-    many: "%{count} contacts"
-    one: "1 contact"
-    other: "%{count} contacts"
+      failure: "Erro ao desligar de %{name}"
+      success: "Sucesso ao desligar de %{name}"
+    few: "%{count} contactos"
+    many: "%{count} contactos"
+    one: "1 contacto"
+    other: "%{count} contactos"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
-    zero: "no contacts"
+      accepts: "Uma vez que %{name} aceite, começarão a ver os posts de cada um no Diaspora"
+      add_new_aspect: "adicionar a novo aspecto"
+      share_with: "Começar a partilhar com %{name}"
+    zero: "nenhum contacto"
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} novas mensagens"
+        many: "%{count} novas mensagens"
+        one: "1 nova mensagem"
+        other: "%{count} novas mensagens"
+        zero: "nenhuma nova mensagem"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -157,10 +157,10 @@ pt-PT:
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Nenhum Resultado Encontrado"
+      send: "Enviar"
+      subject: "assunto"
+      to: "para"
     show: 
       delete: "delete and block conversation"
       reply: "reply"
@@ -188,79 +188,78 @@ pt-PT:
       share_what_you_want: "Partilha o que quiseres, com quem quiseres."
       simplicity: "Simplicidade"
       simplicity_explanation: "O Diaspora torna a partilha clara e fácil – e o mesmo se aplica à privacidade. Privado por definição, o Diaspora não tem inúmeras páginas de definições e opções de forma a manteres o teu perfil seguro e privado."
-      tagline_first_half: "Share what you want,"
-      tagline_second_half: "with whom you want."
+      tagline_first_half: "Partilhe o que desejar,"
+      tagline_second_half: "com quem desejar."
   invitations: 
     check_token: 
       not_found: "Token de convite não encontrado"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_contacts: "Você já está ligado a esta pessoa"
+      already_sent: "Você já convidou esta pessoa."
       no_more: "Não tens mais convites."
       rejected: "Os seguintes endereços de email tiveram problemas: "
       sent: "Os teu convites foram enviados a:"
     edit: 
       sign_up: "registar"
     new: 
-      already_invited: "Already invited"
-      aspect: "Aspect"
+      already_invited: "Já convidado"
+      aspect: "Aspecto"
       comma_seperated_plz: "Podes inserir vários endereços de email separados por vírgulas."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      if_they_accept_info: "se aceitarem, serão adicionados ao aspecto com que os convidou."
       invite_someone_to_join: "Convida alguém para se juntar ao Diaspora!"
       personal_message: "Personal message"
-      resend: "Resend"
+      resend: "Reenviar"
       send_an_invitation: "Envia um convite"
       send_invitation: "Enviar convite"
       to: "Para"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
+      have_a_problem: "Problema? Encontre uma resposta aqui"
+      logged_in_as: "entrou como %{name}"
       powered_by: "POWERED BY DIASPORA*"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Feed Diaspora público para %{name}"
       toggle: "toggle mobile site"
-      whats_new: "what's new?"
-      your_aspects: "your aspects"
+      whats_new: "O que há de novo?"
+      your_aspects: "seus aspectos"
     header: 
-      account_settings: "definições da conta"
       blog: "blog"
-      code: "code"
-      edit_profile: "editar perfil"
+      code: "código"
       login: "entrar"
       logout: "sair"
-      view_profile: "ver perfil"
-  more: "More"
-  next: "next"
+      profile: "profile"
+      settings: "settings"
+  more: "Mais"
+  next: "próximo"
   notifications: 
     also_commented: "also commented on"
-    also_commented_deleted: "commented on a deleted post"
-    comment_on_post: "commented on your"
-    deleted: "deleted"
+    also_commented_deleted: "comentou num post removido"
+    comment_on_post: "comentou no seu"
+    deleted: "excluído"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} novas notificações"
+        many: "%{count} novas notificações"
+        one: "1 nova notificação"
+        other: "%{count} novas notificações"
+        zero: "nenhuma nova notificação"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
-      mark_all_as_read: "Mark All as Read"
-      notifications: "Notifications"
+      and: "e"
+      and_others: "e %{number} outros"
+      mark_all_as_read: "Marcar Tudo como Lido"
+      notifications: "Notificações"
     mentioned: "has mentioned you in their"
-    new_request: "offered to share with you."
+    new_request: "deseja partilhar consigo."
     post: "post"
-    request_accepted: "accepted your share request."
+    request_accepted: "Aceitou a sua solicitação de partilha."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
+      commented: "também comentou no post de %{post_author}:"
+      sign_in: "Faça login para ver."
       subject: "%{name} has also commented."
     comment_on_post: 
       commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      sign_in: "Faça login para ver."
+      subject: "%{name} comentou no seu post."
     diaspora: "o robot de email do diaspora"
     hello: "Olá %{name}!"
     love: "com carinho,"
@@ -283,24 +282,28 @@ pt-PT:
       sign_in: "Sign in here"
       subject: "%{name} aceitou o teu pedido de contacto no Diaspora*"
     single_admin: 
-      admin: "Your Diaspora administrator"
+      admin: " O seu administrador do Diaspora"
       subject: "A message from your Diaspora administrator:"
-    thanks: "Thanks,"
+    thanks: "Obrigado,"
   ok: "OK"
   or: "ou"
   password: "Palavra-chave"
   password_confirmation: "Confirmação de palavra-chave"
   people: 
     aspect_list: 
-      edit_membership: "edit aspect membership"
+      edit_membership: "editar participação no aspecto"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " as pessoas no pod estão cientes de que"
       results_for: " resultados para %{params}"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
+      no_one_found: "...e ninguém foi encontrado."
       no_results: "Hey! You need to search for something."
       results_for: "resultados de pesquisa para"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "adicionar contacto"
       already_connected: "Já está ligado"
@@ -316,24 +319,29 @@ pt-PT:
       remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Essa pessoa não existe!"
+      edit: "edit"
       incoming_request: "Tens um pedido desta pessoa"
+      mention: "Mention"
       message: "Message"
       no_posts: "Não existem entradas para mostrar!"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Voltar à página dos grupos"
-      similar_contacts: "similar contacts"
-      start_sharing: "start sharing"
+      similar_contacts: "contactos similares"
+      start_sharing: "começar a partilhar"
       to_accept_or_ignore: "para o aceitares ou ignorares"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      integrity_error: "O envio de foto falhou.  Tem a certeza que isso era uma imagem?"
+      runtime_error: "Envio de foto falhou. Tem a certeza que o seu cinto de segurança está apertado?"
+      type_error: "Envio de foto falhou. Tem a certeza que uma imagem foi adicionada?"
     destroy: 
       notice: "Fotografia apagada."
     edit: 
@@ -348,7 +356,7 @@ pt-PT:
       size_error: "{file} é muito grande, o tamanho máximo é {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      upload: "Envie uma foto nova do seu perfil!"
     photo: 
       view_all: "ver todas as fotografias de %{name}"
     show: 
@@ -365,28 +373,33 @@ pt-PT:
       error: "Falha ao editar a fotografia"
       notice: "Fotografia adicionada com sucesso."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
-  previous: "previous"
+  previous: "anterior"
   profile: "Perfil"
   profiles: 
     edit: 
-      allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
-      last_name: "Last name"
-      update_profile: "Update Profile"
-      your_bio: "Your bio"
-      your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_profile: "Your profile"
+      allow_search: "Permitir que outros o busquem no Diaspora"
+      edit_profile: "Editar perfil"
+      first_name: "Prenome"
+      last_name: "Sobrenome"
+      update_profile: "Actualizar Perfil"
+      your_bio: "Sua biografia"
+      your_birthday: "O seu aniversário"
+      your_gender: "O seu sexo"
+      your_name: "O seu prenome"
+      your_photo: "A sua foto"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Erro ao actualizar o perfil"
+      updated: "Perfil actualizado"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."
     create: 
@@ -399,27 +412,27 @@ pt-PT:
       unhappy: "Descontente?"
       update: "Actualizar"
     new: 
-      enter_email: "Enter an e-mail"
-      enter_password: "Enter a password"
-      enter_password_again: "Enter the same password as before"
-      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      enter_email: "Insira um  endereço de e-mail"
+      enter_password: "Insira uma senha"
+      enter_password_again: "Insira a mesma senha que anteriormente"
+      enter_username: "Escolha um nome de utilizador (apenas letras, números e underscores)"
       sign_up: "Registar"
       sign_up_for_diaspora: "Regista-te no Diaspora"
   requests: 
     create: 
       sending: "A enviar..."
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "Você solicitou partilhar com %{name}, que será notificado assim que entrar no Diaspora."
     destroy: 
       error: "Por favor, escolhe um grupo!"
       ignore: "Ignorar pedido de contacto."
       success: "São agora amigos."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} novos pedidos!"
+        many: "% {count} novos pedidos!"
+        one: "novo pedido!"
+        other: "%{count} novos pedidos!"
+        zero: "nenhum novo pedido"
     manage_aspect_contacts: 
       existing: "Contactos existentes"
       manage_within: "Gerir contactos dentro"
@@ -435,23 +448,23 @@ pt-PT:
       error: "there was an error connecting that service"
     finder: 
       friends: 
-        few: "%{count} friends"
-        many: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
+        few: "%{count} amigos"
+        many: "%{count} amigos"
+        one: "1 amigo"
+        other: "%{count} amigos"
+        zero: "nenhum amigo"
+      invite_your_friends_from: "Convide os seus amigos de %{service}"
+      not_connected: "desligado"
     index: 
       connect_to_facebook: "Ligar ao Facebook"
       connect_to_twitter: "Ligar ao Twitter"
       disconnect: "Desligar"
-      edit_services: "Edit services"
+      edit_services: "Editar serviços"
       logged_in_as: "registado como"
       really_disconnect: "desligar do %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "Clique neste link para aceitar o convite"
+      join_me_on_diaspora: "Junte-se a mim no DIASPORA*"
     remote_friend: 
       invite: "invite"
       resend: "resend"
@@ -461,19 +474,19 @@ pt-PT:
       create_request: "Encontrar através do nome de utilizador no Diaspora"
       diaspora_handle: "Nome de Utilizador"
       enter_a_diaspora_username: "Insere um nome de utilizador do Diaspora"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O teu nome de utilizador do Diaspora é: %{diaspora_handle}"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "Todos os contactos"
       cannot_remove: "Impossível remover esta pessoa do último Grupo. (Se quiseres desligar-te desta pessoa terás que remover o contacto.)"
     invitations: 
-      by_email: "by Email"
+      by_email: "por Email"
       dont_have_now: "Não tens nenhum agora, mas terás mais convites brevemente!"
-      from_facebook: "From Facebook"
+      from_facebook: "Do Facebook"
       invitations_left: "(faltam %{count})"
       invite_someone: "Convida alguém"
-      invite_your_friends: "Invite your friends"
-      invites: "Invites"
+      invite_your_friends: "Convidar amigos"
+      invites: "Convites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "Novo %{type} de %{from}"
@@ -490,9 +503,10 @@ pt-PT:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
+      publishing_to: "publishing to: "
       share: "Partilhar"
       share_with: "Partilhar com %{aspect}"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "No que está a pensar?"
     reshare: 
       reshare: "Partilhar Novamente"
   status_messages: 
@@ -500,37 +514,36 @@ pt-PT:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Nenhuma mensagem para mostrar."
-    new_status_message: 
-      oh_yeah: "Boa!"
-      tell_me_something_good: "Diz-me algo bom"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Destruir"
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "hide comments"
+    hide_comments: "ocultar comentários"
     show_comments: "show comments"
   the_world: "o mundo"
   username: "Nome de Utilizador"
   users: 
     destroy: "Conta encerrada com sucesso"
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
-      change: "Change"
+      also_commented: "...alguém também comenta no post do seu contacto?"
+      change: "Mudar"
       change_language: "Modificar Idioma"
       change_password: "Modificar Palavra-chave"
       close_account: "Encerrar Conta"
-      comment_on_post: "...someone comments on your post?"
-      current_password: "Current password"
+      comment_on_post: "...alguém comenta nos seus post?"
+      current_password: "Senha actual"
       download_photos: "descarregar as minhas fotos"
       download_xml: "descarregar o meu xml"
-      edit_account: "Edit account"
+      edit_account: "Editar conta"
       export_data: "Exportar Dados"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...você é mencionado num post?"
       new_password: "Nova Palavra-chave"
-      private_message: "...you receive a private message?"
+      private_message: "...você recebe uma mensagem privada?"
       receive_email_notifications: "Receive email notificaions?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      request_acceptence: "...o seu pedido de partilha é aceite?"
+      request_received: "...você recebe um novo pedido de partilha?"
       your_email: "O teu email"
       your_handle: "O teu nome de utilizador no Diaspora"
     getting_started: 
@@ -557,8 +570,8 @@ pt-PT:
       password_changed: "Palavra-chave Modificada"
       password_not_changed: "Falha ao Modificar Palavra-chave"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    fetch_failed: "erro a obter perfil webfinger profile para %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
-    no_person_constructed: "No person could be constructed from this hcard."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
-    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
+    no_person_constructed: "Nenhuma pessoa pôde ser construída através deste hcard."
+    not_enabled: "webfinger parece não estar activado para o anfitrião de %{account}'s"
+    xrd_fetch_failed: "erro ao obter o xrd da conta %{account}"

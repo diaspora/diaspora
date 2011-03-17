@@ -222,13 +222,12 @@ sk:
       whats_new: "Čo je nové?"
       your_aspects: "Vaše aspekty"
     header: 
-      account_settings: "nastavenia účtu"
       blog: "blog"
       code: "kód"
-      edit_profile: "upraviť profil"
       login: "prihlásenie"
       logout: "odhlásiť sa"
-      view_profile: "pozrieť profil"
+      profile: "profile"
+      settings: "settings"
   more: "Viac"
   next: "ďalej"
   notifications: 
@@ -293,6 +292,7 @@ sk:
   people: 
     aspect_list: 
       edit_membership: "upraviť členstvo v Aspekte."
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "Ľudia na pode sú si vedomí"
       results_for: "Výsledky hľadania %{params}"
@@ -301,6 +301,9 @@ sk:
       no_one_found: "...a nenašlo sa."
       no_results: "Hej! Môžete sa po tom poobzerať."
       results_for: "Výsledky vyhľadávania pre"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "Pridať kontakt"
       already_connected: "Už pripojené"
@@ -316,8 +319,11 @@ sk:
       remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť užívateľa %{name} z aspektu %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Osoba neexistuje!"
+      edit: "edit"
       incoming_request: "Od tejto osoby máte prichádzajúcu žiadosť."
+      mention: "Mention"
       message: "Správa"
       no_posts: "Žiadne príspevky na zobrazenie!"
       not_connected: "You are not connected with this person"
@@ -327,8 +333,10 @@ sk:
       similar_contacts: "podobné kontakty"
       start_sharing: "začať zdieľať"
       to_accept_or_ignore: "akceptovať, alebo ignorovať."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Prepáčte, nie je možné nájsť %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Chyba pri nahrávani fotky.  Ste si istý, že je to obrázkový formát?"
@@ -365,7 +373,10 @@ sk:
       error: "Úprava fotky zlyhala."
       notice: "Fotka bola úspešne aktualizovaná."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "Čo sa deje na  %{pod}"
   previous: "Predchádzajúce"
@@ -375,7 +386,6 @@ sk:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Upraviť profil"
       first_name: "Meno"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Priezvisko"
       update_profile: "Aktualizovať profil"
       your_bio: "Niečo o mne"
@@ -383,7 +393,10 @@ sk:
       your_gender: "Pohlavie"
       your_name: "Meno"
       your_photo: "Tvoja fotka"
-      your_profile: "Profil"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Aktualizovanie profilu zlyhalo"
       updated: "Profil aktualizovaný"
@@ -490,6 +503,7 @@ sk:
       mention_helper_text: "spomenúť niekoho, stlač '@' a začni písať jeho meno"
       post_a_message_to: "Poslať správu na aspekt %{aspect}"
       posting: "Posielam..."
+      publishing_to: "publishing to: "
       share: "Zdieľať"
       share_with: "Zdieľať s aspektom %{aspect}"
       whats_on_your_mind: "Čo máte na mysli?"
@@ -500,9 +514,8 @@ sk:
       failure: "Odstránenie príspevku zlyhalo"
     helper: 
       no_message_to_display: "Žiadne správy k zobrazeniu."
-    new_status_message: 
-      oh_yeah: "Skvelé!"
-      tell_me_something_good: "Dajte o niečom vedieť"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Zmazať"
       permalink: "permalink"

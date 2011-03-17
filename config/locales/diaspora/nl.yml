@@ -222,13 +222,12 @@ nl:
       whats_new: "wat is nieuw op Diaspora?"
       your_aspects: "jouw aspecten"
     header: 
-      account_settings: "account instellingen"
       blog: "blog"
       code: "code"
-      edit_profile: "bewerk profiel"
       login: "inloggen"
       logout: "log uit"
-      view_profile: "bekijk profiel"
+      profile: "profile"
+      settings: "settings"
   more: "Meer"
   next: "volgende"
   notifications: 
@@ -244,8 +243,8 @@ nl:
         other: "%{count} nieuwe notificaties"
         zero: "geen nieuwe notificaties"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "en"
+      and_others: "en %{number} anderen"
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
     mentioned: "heeft je genoemd in zijn/haar"
@@ -293,6 +292,7 @@ nl:
   people: 
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
@@ -301,6 +301,9 @@ nl:
       no_one_found: "...en je hebt niemand gevonden."
       no_results: "Heey! Je moet wel ergens naar zoeken."
       results_for: "zoekresultaten voor"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "voeg contact toe"
       already_connected: "Al verbonden"
@@ -316,19 +319,24 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Die persoon bestaat niet!"
+      edit: "edit"
       incoming_request: "% {name} wil met je delen"
+      mention: "Mention"
       message: "Bericht"
       no_posts: "geen berichten om weer te geven!"
-      not_connected: "Je deelt niet met %{name}"
+      not_connected: "Je deelt niet met deze persoon"
       recent_posts: "Recente Berichten"
       recent_public_posts: "Recente Openbare Berichten"
       return_to_aspects: "Ga terug naar je aspecten pagina"
       similar_contacts: "vergelijkbare contacten"
       start_sharing: "start met delen"
       to_accept_or_ignore: "om te accepteren of te negeren."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding was?"
@@ -365,7 +373,10 @@ nl:
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts getagged met #%{tag}"
       whatup: "Nu op %{pod}"
   previous: "vorige"
@@ -375,7 +386,6 @@ nl:
       allow_search: "Sta mensen toe je op te zoeken binnen Diaspora"
       edit_profile: "Bewerk profiel"
       first_name: "Voornaam"
-      info_available_to: "Deze info zal beschikbaar zijn voor iedereen waarmee je contact legt op Diaspora."
       last_name: "Achternaam"
       update_profile: "Profiel bijwerken"
       your_bio: "Jouw bio"
@@ -383,7 +393,10 @@ nl:
       your_gender: "Je geslacht"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
-      your_profile: "Jouw profiel"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
@@ -490,6 +503,7 @@ nl:
       mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
+      publishing_to: "publishing to: "
       share: "Delen"
       share_with: "deel met"
       whats_on_your_mind: "waar denk je aan?"
@@ -500,9 +514,8 @@ nl:
       failure: "Verwijderen van post mislukt"
     helper: 
       no_message_to_display: "Geen bericht om te weergeven."
-    new_status_message: 
-      oh_yeah: "oh ja!"
-      tell_me_something_good: "vertel me iets leuks"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Verwijderen"
       permalink: "permalink"

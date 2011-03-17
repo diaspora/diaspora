@@ -138,9 +138,9 @@ pt-BR:
     one: "1 contato"
     other: "%{count} contatos"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      accepts: "Uma vez que %{name} aceite, começarão a ver os posts de cada um no Diaspora"
       add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      share_with: "Começar a partilhar com %{name}"
     zero: "sem contatos"
   conversations: 
     helper: 
@@ -222,13 +222,12 @@ pt-BR:
       whats_new: "O que há de novo?"
       your_aspects: "Seus aspectos"
     header: 
-      account_settings: "Editar conta"
       blog: "Blog"
       code: "Código"
-      edit_profile: "Editar perfil"
       login: "Entrar"
       logout: "Sair"
-      view_profile: "ver perfil"
+      profile: "profile"
+      settings: "settings"
   more: "Mais"
   next: "Próximo"
   notifications: 
@@ -246,12 +245,12 @@ pt-BR:
     index: 
       and: "and"
       and_others: "and %{number} others"
-      mark_all_as_read: "Marcar todas como lido"
+      mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
     mentioned: "has mentioned you in their"
-    new_request: "Deseja compartilhar com você."
+    new_request: "deseja partilhar com você."
     post: "post"
-    request_accepted: "Aceitou sua solicitação de compartilhamento."
+    request_accepted: "Aceitou a sua solicitação de partilha."
   notifier: 
     also_commented: 
       commented: "também comentou sobre a postagem de %{post_author}:"
@@ -292,15 +291,19 @@ pt-BR:
   password_confirmation: "Confirmação de senha"
   people: 
     aspect_list: 
-      edit_membership: "Editar participação no aspecto"
+      edit_membership: "editar participação no aspecto"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " as pessoas deste \"pod\" sabem que"
       results_for: " results for %{params}"
     index: 
-      couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Convide-os!"
-      no_one_found: "...ninguém foi encontrado."
+      couldnt_find_them_send_invite: "Não conseguiu encontrá-los? Envie um convite!"
+      no_one_found: "...e ninguém foi encontrado."
       no_results: "Ei! Você precisa buscar algo."
       results_for: "Resultado da busca por"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "adicionar contato"
       already_connected: "É seu contato"
@@ -316,8 +319,11 @@ pt-BR:
       remove_contact: "remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Pessoa inexistente!"
+      edit: "edit"
       incoming_request: "Você possui uma solicitação dessa pessoa."
+      mention: "Mention"
       message: "Message"
       no_posts: "Nada para mostrar por aqui."
       not_connected: "Você não está conectado com %{name}."
@@ -327,8 +333,10 @@ pt-BR:
       similar_contacts: "Contatos similares"
       start_sharing: "Comece a compartilhar"
       to_accept_or_ignore: "Aceitar ou ignorar."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Desculpe, não conseguimos encontrar %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "O envio da foto falhou. Tem certeza que era uma imagem?"
@@ -365,7 +373,10 @@ pt-BR:
       error: "Falha ao editar foto."
       notice: "Foto enviada com sucesso."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "Anterior"
@@ -374,18 +385,20 @@ pt-BR:
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
-      first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
+      first_name: "Prenome"
       last_name: "Last name"
       update_profile: "Update Profile"
-      your_bio: "Your bio"
+      your_bio: "Sua biografia"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
-      failed: "Failed to update profile"
+      failed: "Erro ao atualizar o perfil"
       updated: "Profile updated"
   registrations: 
     closed: "Cadastro temporariamente desabilitado."
@@ -440,7 +453,7 @@ pt-BR:
         one: "1 amigo"
         other: "%{count} amigos"
         zero: "nenhum amigo"
-      invite_your_friends_from: "Convide amigos de %{service}"
+      invite_your_friends_from: "Convide seus amigos de %{service}"
       not_connected: "desconectado"
     index: 
       connect_to_facebook: "Conectar com o Facebook"
@@ -490,6 +503,7 @@ pt-BR:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Enviar uma mensagem para %{aspect}"
       posting: "Postando..."
+      publishing_to: "publishing to: "
       share: "Compartilhar"
       share_with: "Compartilhar com %{aspect}"
       whats_on_your_mind: "O quê você está pensando?"
@@ -500,9 +514,8 @@ pt-BR:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Sem mensagens para mostrar."
-    new_status_message: 
-      oh_yeah: "É isso aí!"
-      tell_me_something_good: "Diga-me algo de bom"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Excluir"
       permalink: "Link permanente"

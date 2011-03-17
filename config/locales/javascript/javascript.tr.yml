@@ -6,6 +6,8 @@
 tr: 
   javascripts: 
     confirm_dialog: "Emin misiniz?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "{{name}}'i ara"
     shared: 
       contact_list: 

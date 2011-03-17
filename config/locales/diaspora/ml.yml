@@ -222,13 +222,12 @@ ml:
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
-      account_settings: "അക്കൌണ്ട് ക്രമീകരണങ്ങള്‍"
       blog: "ബ്ലോഗ്"
       code: "കോഡ്"
-      edit_profile: "പ്രൊഫൈല്‍ തിരുത്തുക"
       login: "അകത്ത് കടക്കുക"
       logout: "പുറത്ത് കടക്കു"
-      view_profile: "പ്രൊഫൈ‌ല്‍_കാണുക"
+      profile: "profile"
+      settings: "settings"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
   notifications: 
@@ -293,6 +292,7 @@ ml:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -301,6 +301,9 @@ ml:
       no_one_found: "...and no one was found."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "റിസള്‍ട്ടുകള്‍ക്കായി തെരയുക"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "സമ്പര്‍ക്കം ചേര്‍ക്കുക"
       already_connected: "Already connected"
@@ -316,8 +319,11 @@ ml:
       remove_contact: "സമ്പര്‍ക്കം മാറ്റുക"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
+      edit: "edit"
       incoming_request: "%{name} wants to share with you"
+      mention: "Mention"
       message: "Message"
       no_posts: "no posts to display!"
       not_connected: "താങ്കള്‍ %{name} യുമായി പങ്കുവെയ്ക്കുന്നില്ല"
@@ -327,8 +333,10 @@ ml:
       similar_contacts: "സാമ്യമുള്ള സമ്പര്‍ക്കങ്ങള്‍"
       start_sharing: "പങ്കുവച്ച് തുടങ്ങുക"
       to_accept_or_ignore: "to accept or ignore it."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -365,7 +373,10 @@ ml:
       error: "ചിത്രം തിരുത്താന്‍ പറ്റുന്നില്ല.."
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "മുന്‍‌പത്തെ"
@@ -375,7 +386,6 @@ ml:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ ml:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ ml:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "%{aspect}ല്‍ ഒരു സന്ദേശം പ്രസിദ്ധീകരിക്കുക"
       posting: "പ്രസിദ്ധീകരിക്കുന്നു..."
+      publishing_to: "publishing to: "
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"
       whats_on_your_mind: "എന്താണ് നിങ്ങളുടെ മനസ്സില്‍?"
@@ -500,9 +514,8 @@ ml:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "സന്ദേശമൊന്നും കാണിക്കാനില്ല."
-    new_status_message: 
-      oh_yeah: "oh yeah!"
-      tell_me_something_good: "എന്നോട് നല്ലതെന്തെങ്കിലും പറയുക"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "നീക്കം ചെയ്യുക"
       permalink: "സ്ഥിരം കണ്ണി"

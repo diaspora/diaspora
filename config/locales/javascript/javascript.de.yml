@@ -6,6 +6,8 @@
 de: 
   javascripts: 
     confirm_dialog: "Bist du dir sicher?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Nach {{name}} suchen"
     shared: 
       contact_list: 
