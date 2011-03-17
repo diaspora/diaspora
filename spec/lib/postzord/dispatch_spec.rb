@@ -304,7 +304,7 @@ describe Postzord::Dispatch do
 
       it 'queues Job::NotifyLocalUsers jobs' do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_user).and_return(false)
-        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, @local_user.id, @sm.class.to_s, @sm.id, @sm.author.id)
+        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [@local_user.id], @sm.class.to_s, @sm.id, @sm.author.id)
         @zord.send(:socket_and_notify_users, [@local_user])
       end
     end
