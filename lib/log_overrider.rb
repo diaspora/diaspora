@@ -1,11 +1,15 @@
 class ActionView::LogSubscriber
   def render_template(event)
-    message = "event=render "
-    message << "template=#{from_rails_root(event.payload[:identifier])} "
-    message << "layout=#{from_rails_root(event.payload[:layout])} " if event.payload[:layout]
-    message << "ms=#{("%.1f" % event.duration)} "
-    #message << "r_id=#{event.transaction_id} "
-    Rails.logger.info(message)
+    count = event.payload[:count] || 1
+    hash = {:event    => :render,
+            :template => from_rails_root(event.payload[:identifier]),
+            :total_ms => event.duration,
+            :count    => count,
+            :ms       => event.duration / count}
+
+    hash.merge(:layout => event.payload[:layout]) if event.payload[:layout]
+
+    Rails.logger.info(hash)
   end
   alias :render_partial :render_template
   alias :render_collection :render_template

@@ -57,7 +57,7 @@ shared_examples_for 'it overrides the logs on success' do
           @line.include?("params='#{@action_params.inspect.gsub(" ", "")}'").should be_true
         end
       end
-      it 'does not log the view rendering time addition' do
+      it 'logs the view rendering time addition' do
         @line.include?("view_ms=").should be_true
       end
     end
