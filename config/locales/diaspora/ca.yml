@@ -349,7 +349,7 @@ ca:
     show:
       no_posts: "no hi ha publicacions a mostrar!"
       you_have_no_tags: "no teniu cap etiqueta!"
-      add_some: "afegiu alguna"
+      add_some: "afegiu-ne alguna"
       edit: "edita"
       incoming_request: "%{name} vol compartir amb tu"
       return_to_aspects: "Torneu a la pàgina d'aspectes"
@@ -360,8 +360,8 @@ ca:
       recent_public_posts: "Publicacions públiques recents"
       similar_contacts: "contactes similars"
       start_sharing: "comença a compartir"
-      message: "Missatge"
-      mention: "Menció"
+      message: "Envia-li un missatge"
+      mention: "Menciona'l"
     profile_sidebar:
       remove_contact: "suprimeix el contacte"
       edit_my_profile: "Edita el meu perfil"
