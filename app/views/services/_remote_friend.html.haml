@@ -1,4 +1,4 @@
-%li{:id => "uid_" + uid, :uid => uid}
+%li.remote_friend{:id => "uid_" + uid, :uid => uid}
   .right
     -if friend[:contact] && !friend[:contact].pending
       = t('people.person.already_connected')
@@ -35,7 +35,7 @@
       = friend[:name]
 
 - unless friend[:person].nil? || (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
-  %li{:id => "options_" + uid, :class => "hidden", :style => "height:auto"}
+  %li{:id => "options_" + uid, :class => "share_with hidden", :style => "height:auto"}
     - contact = friend[:contact]
     - contact ||= Contact.new
     = render :partial => 'contacts/share_with_list',

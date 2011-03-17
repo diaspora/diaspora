@@ -21,27 +21,8 @@ class Services::Facebook < Service
 
   def finder(opts = {})
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
- #RestClient.get("https://graph.facebook.com/me/friends", {:params => {:access_token => self.access_token}})
-    response = <<JSON
-      {
-        "data": [
-          {
-            "name": "Snow Crash",
-            "id": "12321"
-          },
-          {
-            "name": "Person to Invite",
-            "id": "e3"
-          },
-          {
-            "name": "Creative Commons",
-            "id": "b2"
-          }
-        ]
-      }
-JSON
-    #data = JSON.parse(response.body)['data']
-    data = JSON.parse(response)['data']
+    response = RestClient.get("https://graph.facebook.com/me/friends", {:params => {:access_token => self.access_token}})
+    data = JSON.parse(response.body)['data']
 
     data_h = {}
     data.each do |d|

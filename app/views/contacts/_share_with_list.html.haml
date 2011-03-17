@@ -14,8 +14,6 @@
                            :contact => contact}
 .add_aspect
   = form_for(Aspect.new, :remote => true) do |aspect|
-    .right
-      = aspect.submit t('.add_new_aspect'), :class => 'button'
     = aspect.error_messages
     = aspect.hidden_field :person_id, :value => person.id if person
     = aspect.hidden_field :contact_id, :value => contact.id if contact
@@ -25,6 +23,8 @@
     %p.checkbox_select
       = aspect.label :contacts_visible, t('aspects.edit.make_aspect_list_visible')
       = aspect.check_box :contacts_visible, :checked => true, :default => true
+      .right
+        = aspect.submit t('contacts.share_with_pane.add_new_aspect'), :class => 'button'
 
 -unless friend_finder ||= false
   .done

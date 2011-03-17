@@ -6,17 +6,9 @@
   =javascript_include_tag 'contact-list'
 .aspects
   - if !contact || !contact.persisted?
-    %h4
-      = link_to t('people.show.not_connected'),
-        {:controller => "contacts",
-        :action => "new",
-        :person_id => person.id},
-        :class => 'share_with button',
-        :rel => 'facebox'
   - elsif contact.pending
     %h4
       = t('people.person.pending_request')
-
   - else
     .badges{:class => ("hidden" if !contact.persisted?)}
       = aspect_badges(aspects_with_person, :link => true)
