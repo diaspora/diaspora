@@ -26,6 +26,15 @@ describe StatusMessagesController do
         :person_id => @user2.person.id
       response.should be_success
     end
+
+      it 'generates a jasmine fixture' do
+        contact = @user1.contact_for(@user2.person)
+        aspect = @user1.aspects.create(:name => 'people')
+        contact.aspects << aspect
+        contact.save
+        get :new, :person_id => @user2.person.id, :layout => true
+        save_fixture(html_for("body"), "status_message_new")
+      end
   end
 
   describe '#show' do

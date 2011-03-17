@@ -17,6 +17,6 @@
   .span-15
     #facebox_header
       %h4
-        = t('conversations.index.new_message')
+        = t('mentioning') + @person.name
 
     = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :aspects_with_person => @aspects_with_person, :person => @person}

@@ -23,7 +23,7 @@ describe("Publisher", function() {
 
   describe("bindAspectToggles", function() {
     beforeEach( function(){
-      spec.loadFixture('person_show');
+      spec.loadFixture('status_message_new');
     });
 
     it('gets called on initialize', function(){
@@ -69,7 +69,7 @@ describe("Publisher", function() {
   });
   describe('toggleAspectIds', function(){
     beforeEach( function(){
-      spec.loadFixture('person_show');
+      spec.loadFixture('status_message_new');
     });
 
     it('adds a hidden field to the form if there is not one already', function(){

@@ -539,8 +539,7 @@ en:
 
   status_messages:
     new_status_message:
-      tell_me_something_good: "tell me something good"
-      oh_yeah: "oh yeah!"
+      mentioning: "Mentioning: "
     show:
       destroy: "Delete"
       permalink: "permalink"
