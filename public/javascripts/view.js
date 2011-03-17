@@ -57,7 +57,10 @@ var View = {
     /* facebox */
     $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
     $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
-    $('a[rel*=facebox]').facebox();
+    $('a[rel*=facebox]').live("mousedown", function() { 
+      $(this).unbind('click'); //everytime you click unbind the past event handled.
+      $(this).facebox();
+    });
 
     /* facebox 'done' buttons */
     $("a[rel*=close]").live('click', function(){ $.facebox.close() });
