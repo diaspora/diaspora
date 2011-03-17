@@ -32,4 +32,6 @@ ca:
       shared:
         contact_list:
           cannot_remove: "No es pot suprimir a una persona de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
+      publisher:
+        at_least_one_aspect: "Heu de publicar almenys un aspecte."
           
