@@ -13,8 +13,8 @@ describe Photo do
     @fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', @fixture_filename)
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
-    @photo  = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
-    @photo2 = @user.post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
+    @photo  = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
+    @photo2 = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
 
   describe "protected attributes" do
@@ -35,12 +35,11 @@ describe Photo do
     end
   end
 
-  describe 'after create' do
+  describe 'after_create' do
     it 'calls #queue_processing_job' do
-      p = Factory.build(:photo, :image => File.open(@fixture_name))
-      p.should_receive(:queue_processing_job)
+      @photo.should_receive(:queue_processing_job)
 
-      p.save!
+      @photo.save!
     end
   end
   
@@ -137,7 +136,7 @@ describe Photo do
   describe 'remote photos' do
     it 'should set the remote_photo on marshalling' do
       @photo.image.store! File.open(@fixture_name)
-
+      @photo.save
       #security hax
       user2 = Factory.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
