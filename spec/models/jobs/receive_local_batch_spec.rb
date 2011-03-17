@@ -36,7 +36,7 @@ describe Job::ReceiveLocalBatch do
       SocketsController.stub(:new).and_return(@controller)
     end
     it 'sockets to each user' do
-      @controller.should_receive(:outgoing).with(bob.id, @post)
+      @controller.should_receive(:outgoing).with(bob.id, @post, {})
       Job::ReceiveLocalBatch.socket_to_users(@post, [bob.id])
     end
   end
