@@ -32,6 +32,7 @@ ca:
   more: "Més"
   next: "següent"
   previous: "anterior"
+  _comments: "Comentaris"
 
 
   #for reference translation, the real activerecord english transations are actually
@@ -285,6 +286,8 @@ ca:
     index:
       notifications: "Notificacions"
       mark_all_as_read: "Marca-les totes com a llegides"
+      and_others: "i %{number} més"
+      and: "and"
     helper:
       new_notifications:
         zero: "cap notificació nova"
@@ -345,16 +348,20 @@ ca:
       fail: "No s'ha trobat a %{handle}."
     show:
       no_posts: "no hi ha publicacions a mostrar!"
+      you_have_no_tags: "no teniu cap etiqueta!"
+      add_some: "afegiu alguna"
+      edit: "edita"
       incoming_request: "%{name} vol compartir amb tu"
       return_to_aspects: "Torneu a la pàgina d'aspectes"
       to_accept_or_ignore: "per a acceptar-ho o descartar-ho."
       does_not_exist: "Aquesta persona no existeix!"
-      not_connected: "No esteu compartint amb %{name}"
+      not_connected: "No esteu compartint amb aquesta persona"
       recent_posts: "Publicacions recents"
       recent_public_posts: "Publicacions públiques recents"
       similar_contacts: "contactes similars"
       start_sharing: "comença a compartir"
       message: "Missatge"
+      mention: "Menció"
     profile_sidebar:
       remove_contact: "suprimeix el contacte"
       edit_my_profile: "Edita el meu perfil"
@@ -412,6 +419,10 @@ ca:
     index:
       whatup: "Què està passant a %{pod}"
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
+      nobody_talking: "Ningú està parlant de %{tag} encara."
+      people_tagged_with: "Gent etiquetada amb %{tag}"
+      people: "gent"
+      person: "persona"
 
 
   profiles:
@@ -423,6 +434,8 @@ ca:
       last_name: "Cognom"
       your_gender: "El vostre gènere"
       your_birthday: "El vostre aniversari"
+      your_tags: "Vosaltres: en 5 #etiquetes"
+      your_tags_placeholder: "P. ex. #música #llibres #esport #amics #cervesa"
       your_bio: "La vostra biografia"
       your_photo: "La vostra foto"
       update_profile: "Actualitza el perfil"
@@ -548,9 +561,8 @@ ca:
 
 
   status_messages:
-    new_status_message:
-      tell_me_something_good: "dis-me alguna cosa bonica"
-      oh_yeah: "oh sí!"
+    new:
+      mentioning: "Mencionant: "
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
