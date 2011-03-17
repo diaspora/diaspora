@@ -58,6 +58,10 @@ class StatusMessagesController < ApplicationController
         photos.update_all(:pending => false, :public => public_flag)
       end
 
+      if request.env['HTTP_REFERER'].include?("people")
+        flash[:notice] = t('.success', :names => @status_message.mentions.includes(:person => :profile).map{ |mention| mention.person.name }.join(', '))
+      end
+
       respond_to do |format|
         format.js { render :create, :status => 201}
         format.html { redirect_to :back}

@@ -11,7 +11,7 @@
       var person = {name: '#{@person.name}', handle: '#{@person.diaspora_handle}' };
       Publisher.autocompletion.onSelect($("#status_message_fake_text"),person,'#{@person.name}');
       $("#publisher #status_message_fake_text").val(function(index, value){ return value + " " });
-      $("#publisher #status_message_submit.button").click(function(){$.facebox.close();});
+      $("#publisher").bind('ajax:success', function(){location.reload();});
     });
 
 #new_status_message_pane

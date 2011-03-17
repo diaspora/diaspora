@@ -545,6 +545,8 @@ en:
   status_messages:
     new:
       mentioning: "Mentioning: %{person}"
+    create:
+      success: "Successfully mentioned: %{names}"
     show:
       destroy: "Delete"
       permalink: "permalink"
