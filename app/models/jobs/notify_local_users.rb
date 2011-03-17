@@ -8,12 +8,12 @@ module Job
 
     require File.join(Rails.root, 'app/models/notification')
 
-    def self.perform_delegate(user_id, object_klass, object_id, person_id)
-      user  = User.find_by_id(user_id)
+    def self.perform_delegate(user_ids, object_klass, object_id, person_id)
+      users = User.where(:id => user_ids)
       object = object_klass.constantize.find_by_id(object_id)
       person = Person.find_by_id(person_id)
 
-      Notification.notify(user, object, person)
+      users.each{|user| Notification.notify(user, object, person) }
     end
   end
 end
