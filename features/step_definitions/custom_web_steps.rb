@@ -110,3 +110,7 @@ When /^I wait for "([^\"]*)" to load$/ do |page_name|
     current_location == path_to(page_name)
   end
 end
+
+Then /^I should get download alert$/ do
+  page.evaluate_script("window.alert = function() { return true; }")
+end
