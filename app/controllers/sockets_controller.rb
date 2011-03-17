@@ -18,7 +18,7 @@ class SocketsController < ApplicationController
       user_id = user_or_id.id
       @user = user_or_id
     end
-    return unless Diaspora::WebSocket.is_connected?(user_id)
+    return unless Diaspora::WebSocket.is_connected?(user_id) && object.respond_to?(:socket_to_user)
     @_request = ActionDispatch::Request.new({})
     Diaspora::WebSocket.queue_to_user(user_id, action_hash(@user || User.find(user_id), object, opts))
   end
