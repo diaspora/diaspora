@@ -319,6 +319,11 @@ en:
         sign_in: "Sign in to view it."
 
   people:
+    zero: "no people"
+    one: "1 person"
+    few: "%{count} people"
+    many: "%{count} people"
+    other: "%{count} people"
     person:
       pending_request: "pending request"
       already_connected: "Already connected"
@@ -399,13 +404,12 @@ en:
       or_select_one: "or select one from your already existing"
 
   posts:
+    doesnt_exist: "that post does not exist!"
     index:
       whatup: "What's happening on %{pod}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
-      people: "people"
-      person: "person"
 
   profiles:
     edit:
@@ -509,6 +513,7 @@ en:
       all_contacts: "all contacts"
       share_with: "share with"
       whats_on_your_mind: "what's on your mind?"
+      publishing_to: "publishing to: "
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -539,7 +544,7 @@ en:
 
   status_messages:
     new:
-      mentioning: "Mentioning: "
+      mentioning: "Mentioning: %{person}"
     show:
       destroy: "Delete"
       permalink: "permalink"
