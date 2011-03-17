@@ -222,13 +222,12 @@ hu:
       whats_new: "Újdonságok"
       your_aspects: "csoportjaid"
     header: 
-      account_settings: "Fiók beállítások"
       blog: "blog"
       code: "kód"
-      edit_profile: "profil szerkesztése"
       login: "belépés"
       logout: "kilépés"
-      view_profile: "profil megtekintése"
+      profile: "profile"
+      settings: "settings"
   more: "Bővebben"
   next: "következő"
   notifications: 
@@ -293,6 +292,7 @@ hu:
   people: 
     aspect_list: 
       edit_membership: "csoport tagság szerkesztése"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
@@ -301,6 +301,9 @@ hu:
       no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "Kapcsolat hozzáadása"
       already_connected: "Már csatlakozott"
@@ -316,8 +319,11 @@ hu:
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show: 
+      add_some: "add some"
       does_not_exist: "Személy nem létezik!"
+      edit: "edit"
       incoming_request: "%{name} megosztást kezdeményezett veled."
+      mention: "Mention"
       message: "Message"
       no_posts: "nincs bejegyzés!"
       not_connected: "Nem ismerősöd"
@@ -327,8 +333,10 @@ hu:
       similar_contacts: "hasonló kapcsolatok"
       start_sharing: "Megosztás indítása"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Kép feltöltése nem sikerült. Biztos vagy benne, hogy ez egy kép?"
@@ -365,7 +373,10 @@ hu:
       error: "Nem sikerült szerkeszteni a képet."
       notice: "Kép szerkesztése sikerült."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "előző"
@@ -375,7 +386,6 @@ hu:
       allow_search: "Megtalálható legyek a Diaspora keresőben"
       edit_profile: "Profil szerkesztése"
       first_name: "Keresztnév"
-      info_available_to: "Ez az információ elérhető lesz a Diaspora ismerőseid számára."
       last_name: "Vezetéknév"
       update_profile: "Profil frissítése"
       your_bio: "Rólam"
@@ -383,7 +393,10 @@ hu:
       your_gender: "Nem"
       your_name: "Nevem"
       your_photo: "Fényképem"
-      your_profile: "Profilom"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Profil frissítése sikertelen"
       updated: "Profil frissítve"
@@ -490,6 +503,7 @@ hu:
       mention_helper_text: "valaki megemlítéséhez írj '@' jelet, és kezd el írni a nevet"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
+      publishing_to: "publishing to: "
       share: "Megosztás"
       share_with: "Megosztás vele: %{aspect}"
       whats_on_your_mind: "Mi jár a fejedben?"
@@ -500,9 +514,8 @@ hu:
       failure: "Bejegyzés törlése sikertelen"
     helper: 
       no_message_to_display: "Nincs üzenet."
-    new_status_message: 
-      oh_yeah: "Ez az!"
-      tell_me_something_good: "Mondj valamit!"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Töröl"
       permalink: "permalink"

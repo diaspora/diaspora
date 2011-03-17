@@ -222,13 +222,12 @@ da:
       whats_new: "Hvad er nyt?"
       your_aspects: "dine aspekter"
     header: 
-      account_settings: "Kontoindstillinger"
       blog: "blog"
       code: "kode"
-      edit_profile: "Redigér profil"
       login: "Log ind"
       logout: "Log ud"
-      view_profile: "Vis profil"
+      profile: "profile"
+      settings: "settings"
   more: "Mere"
   next: "Næste"
   notifications: 
@@ -293,6 +292,7 @@ da:
   people: 
     aspect_list: 
       edit_membership: "redigér aspektsmedlemsskab"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "brugere på serveren er bevidste om"
       results_for: " resultat for %{params}"
@@ -301,6 +301,9 @@ da:
       no_one_found: "... Og ingen blev fundet."
       no_results: "Hey! Du er nødt til at søge efter noget."
       results_for: "søgeresultater for"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "tilføj kontaktperson"
       already_connected: "Allerede forbundet"
@@ -316,8 +319,11 @@ da:
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Personen findes ikke!"
+      edit: "edit"
       incoming_request: "%{name} vil gerne dele med dig."
+      mention: "Mention"
       message: "Besked"
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
@@ -327,8 +333,10 @@ da:
       similar_contacts: "lignende kontakter"
       start_sharing: "begynd at dele"
       to_accept_or_ignore: "at godkende eller ignorere det."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Undskyld, vi kunne ikke finde %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Billed-upload fejlede. Er du sikker på det var et billede?"
@@ -365,7 +373,10 @@ da:
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Post tagget med #%{tag}"
       whatup: "Hvad sker der på %{pod}"
   previous: "Forrige"
@@ -375,7 +386,6 @@ da:
       allow_search: "Tillad folk at søge på dig indeni Diaspora"
       edit_profile: "Rediger profil"
       first_name: "Fornavn"
-      info_available_to: "Denne information vil være tilgenelig for alle du forbinder til på Diaspora."
       last_name: "Efternavn"
       update_profile: "Opdater profil"
       your_bio: "Din bio"
@@ -383,7 +393,10 @@ da:
       your_gender: "Dit køn"
       your_name: "Dit navn"
       your_photo: "Dit foto"
-      your_profile: "Din profil"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
@@ -490,6 +503,7 @@ da:
       mention_helper_text: "for at nævne nogen i en post, tryk '@' og begynd at skrive deres navn"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
+      publishing_to: "publishing to: "
       share: "Del"
       share_with: "Del med"
       whats_on_your_mind: "Hvad har du på hjertet?"
@@ -500,9 +514,8 @@ da:
       failure: "Kunne ikke slette post."
     helper: 
       no_message_to_display: "Ingen beskeder at vise."
-    new_status_message: 
-      oh_yeah: "Fedt mand!"
-      tell_me_something_good: "fortæl mig noget godt"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Slet"
       permalink: "permanentlink"

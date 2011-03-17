@@ -222,13 +222,12 @@ eu:
       whats_new: "zer berri?"
       your_aspects: "zure alderdiak"
     header: 
-      account_settings: "kontuaren lehentasunak"
       blog: "bloga"
       code: "kodea"
-      edit_profile: "profila aldatu"
       login: "sartu"
       logout: "irten"
-      view_profile: "profila ikusi"
+      profile: "profile"
+      settings: "settings"
   more: "Gehiago"
   next: "hurrengoa"
   notifications: 
@@ -293,6 +292,7 @@ eu:
   people: 
     aspect_list: 
       edit_membership: "aldatu alderdiaren bazkidetza"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
       results_for: " %{params}(r)entzat emaitzak"
@@ -301,6 +301,9 @@ eu:
       no_one_found: "... ez da inor aurkitu."
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "adiskidea gehitu"
       already_connected: "Dagoeneko harremanetan"
@@ -316,8 +319,11 @@ eu:
       remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
+      add_some: "add some"
       does_not_exist: "Pertsona hau ez dago!"
+      edit: "edit"
       incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
+      mention: "Mention"
       message: "Mezu pribatua bidali"
       no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude partekatzen %{name}(r)ekin"
@@ -327,8 +333,10 @@ eu:
       similar_contacts: "antzeko adiskideak"
       start_sharing: "harremanetan hasi"
       to_accept_or_ignore: "onartu edo utzi."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Argazki igoerak huts egin du. Ziur al zaude irudi bat zela?"
@@ -365,7 +373,10 @@ eu:
       error: "Huts argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "#%{tag}(r)ekin etiketatutako mezuak"
       whatup: "Zer berri %{pod}(e)n"
   previous: "aurrekoa"
@@ -375,7 +386,6 @@ eu:
       allow_search: "Jendea baimendu zu Diasporan bilatzera"
       edit_profile: "Profila aldatu"
       first_name: "Izena"
-      info_available_to: "Informazio hau eskuragarri egongo da zure Diasporako harreman guztientzat"
       last_name: "Abizena"
       update_profile: "Profila Eguneratu"
       your_bio: "Zuri buruz"
@@ -383,7 +393,10 @@ eu:
       your_gender: "Zure sexua"
       your_name: "Zure izena"
       your_photo: "Zure argazkia"
-      your_profile: "Zure profila"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
@@ -490,6 +503,7 @@ eu:
       mention_helper_text: "norbait aipatzeko, idatzi '@' eta hasi adiskidearen izena idazten"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
+      publishing_to: "publishing to: "
       share: "Partekatu"
       share_with: "honekin partekatu:"
       whats_on_your_mind: "zer berri?"
@@ -500,9 +514,8 @@ eu:
       failure: "Akatsa mezua ezabatzean"
     helper: 
       no_message_to_display: "Erakusteko mezurik ez."
-    new_status_message: 
-      oh_yeah: "hori da eta!"
-      tell_me_something_good: "zerbait polita esaidazu"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Suntsitu"
       permalink: "permalink"

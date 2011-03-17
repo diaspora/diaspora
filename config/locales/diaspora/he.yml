@@ -222,13 +222,12 @@ he:
       whats_new: "מה חדש?"
       your_aspects: "ההיבטים שלך"
     header: 
-      account_settings: "הגדרות החשבון"
       blog: "בלוג"
       code: "קוד"
-      edit_profile: "עריכת הפרופיל"
       login: "כניסה"
       logout: "יציאה"
-      view_profile: "צפייה בפרופיל"
+      profile: "profile"
+      settings: "settings"
   more: "המשך"
   next: "הבאה"
   notifications: 
@@ -293,6 +292,7 @@ he:
   people: 
     aspect_list: 
       edit_membership: "עריכת חברות בהיבט"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
       results_for: " תוצאות עבור %{params}"
@@ -301,6 +301,9 @@ he:
       no_one_found: "...ולא נמצא אף אחד."
       no_results: "הי! לא חיפשת שום דבר."
       results_for: "תוצאות חיפוש עבור"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "הוספת איש קשר"
       already_connected: "כבר קושרתם"
@@ -316,8 +319,11 @@ he:
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "אדם זה אינו קיים!"
+      edit: "edit"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
+      mention: "Mention"
       message: "הודעה"
       no_posts: "אין רשומות להצגה!"
       not_connected: "אין לך שיתוף עם %{name}"
@@ -327,8 +333,10 @@ he:
       similar_contacts: "אנשי קשר דומים"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "העלאת התמונה נכשלה.  האם זו אכן הייתה תמונה?"
@@ -365,7 +373,10 @@ he:
       error: "אירע כשל בעריכת התמונה."
       notice: "התמונה עודכנה בהצלחה."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "הקודמת"
@@ -375,7 +386,6 @@ he:
       allow_search: "מתן אישור לאנשים לחפש אחריך ברשת דיאספורה"
       edit_profile: "עריכת הפרופיל"
       first_name: "שם פרטי"
-      info_available_to: "מידע זה יוצג לכל מי שייצור אתך קשר דרך דיאספורה."
       last_name: "שם משפחה"
       update_profile: "עדכון הפרופיל"
       your_bio: "הביוגרפיה שלך"
@@ -383,7 +393,10 @@ he:
       your_gender: "המגדר שלך"
       your_name: "שמך"
       your_photo: "התמונה שלך"
-      your_profile: "הפרופיל שלך"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
@@ -490,6 +503,7 @@ he:
       mention_helper_text: "כדי להזכיר שם של מישהו, יש ללחוץ על '@' ולהתחיל לכתוב את שמו"
       post_a_message_to: "פרסום הודעה אל %{aspect}"
       posting: "פרסום..."
+      publishing_to: "publishing to: "
       share: "שיתוף"
       share_with: "שיתוף עם"
       whats_on_your_mind: "מה עובר לך בראש?"
@@ -500,9 +514,8 @@ he:
       failure: "אירע כשל במחיקת הרשומה"
     helper: 
       no_message_to_display: "אין הודעה להצגה."
-    new_status_message: 
-      oh_yeah: "אחלה!"
-      tell_me_something_good: "בא לי לשמוע סיפור נחמד"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "מחיקה"
       permalink: "קישור קבוע"

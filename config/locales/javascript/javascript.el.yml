@@ -6,6 +6,8 @@
 el: 
   javascripts: 
     confirm_dialog: "Είστε σίγουρος/η;"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Αναζήτηση για {{name}}"
     shared: 
       contact_list: 

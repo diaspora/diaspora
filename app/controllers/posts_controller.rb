@@ -41,11 +41,11 @@ class PostsController < ApplicationController
         I18n.locale = @person.owner.language
         render "posts/#{@post.class.to_s.underscore}", :layout => true
       else
-        flash[:error] = "that post does not exist!"
+        flash[:error] = I18n.t('posts.doesnt_exist')
         redirect_to root_url
       end
     else
-      flash[:error] = "that post does not exist!"
+      flash[:error] = I18n.t('posts.doesnt_exist')
       redirect_to root_url
     end
   end

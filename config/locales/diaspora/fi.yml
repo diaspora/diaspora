@@ -222,13 +222,12 @@ fi:
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
     header: 
-      account_settings: "käyttäjätilin asetukset"
       blog: "blogi"
       code: "lähdekoodi"
-      edit_profile: "muokkaa profiilia"
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
-      view_profile: "profiili"
+      profile: "profile"
+      settings: "settings"
   more: "Lisää"
   next: "seuraava"
   notifications: 
@@ -293,6 +292,7 @@ fi:
   people: 
     aspect_list: 
       edit_membership: "muokkaa näkymän jäsenyyttä."
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " ihmiset podissa tietävät, että"
       results_for: " tulokset kyselylle %{params}"
@@ -301,6 +301,9 @@ fi:
       no_one_found: "...ketään ei löytynyt."
       no_results: "Hei! Sinun tulisi etsiä jotakin."
       results_for: "hakutulokset kohteelle"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "lisää kontakti"
       already_connected: "Yhteys jo olemassa"
@@ -316,8 +319,11 @@ fi:
       remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Henkilöä ei ole olemassa!"
+      edit: "edit"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
+      mention: "Mention"
       message: "Viesti"
       no_posts: "Ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä henkilöön %{name}"
@@ -327,8 +333,10 @@ fi:
       similar_contacts: "Yhteiset kontaktit"
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Kuvan lataus epäonnistui. Oletko varma, että se oli kuva?"
@@ -365,7 +373,10 @@ fi:
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "edellinen"
@@ -375,7 +386,6 @@ fi:
       allow_search: "Salli ihmisten etsiä sinua Diasporassa"
       edit_profile: "Muokkaa profiilia"
       first_name: "Etunimi"
-      info_available_to: "Tämä tieto tulee näkyviin niille kenen kanssa olet yhteydessä Diasporassa"
       last_name: "Sukunimi"
       update_profile: "Päivitä profiili"
       your_bio: "Biografia"
@@ -383,7 +393,10 @@ fi:
       your_gender: "Sukupuolesi"
       your_name: "Nimesi"
       your_photo: "Profiili kuva"
-      your_profile: "Profiilisi"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Profiilin päivitys epäonnistui"
       updated: "Profiili päivitetty"
@@ -490,6 +503,7 @@ fi:
       mention_helper_text: "mainitaksesi jonkun, valitse '@' ja kirjoita nimen alku"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
+      publishing_to: "publishing to: "
       share: "Jaa"
       share_with: "Jaa"
       whats_on_your_mind: "Mitä mielessä?"
@@ -500,9 +514,8 @@ fi:
       failure: "Viestin poisto epäonnistui"
     helper: 
       no_message_to_display: "Ei näytettäviä viestejä."
-    new_status_message: 
-      oh_yeah: "Hienoa!"
-      tell_me_something_good: "kerro jotain mukavaa"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Poista"
       permalink: "pysyvä linkki"

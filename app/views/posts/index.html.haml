@@ -29,12 +29,7 @@
 
 .prepend-2.span-7.last
   %h3
-    = @people_count
-    %span{:style => "font-weight:normal"}
-      - if @people_count == 1
-        = t('.person')
-      - else
-        = t('.people')
+    = t('people', :count => @people_count)
 
   .side_stream.stream
     - for person in @people

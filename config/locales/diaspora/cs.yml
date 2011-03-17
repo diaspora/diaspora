@@ -222,13 +222,12 @@ cs:
       whats_new: "co je nového?"
       your_aspects: "vaše aspekty"
     header: 
-      account_settings: "nastavení účtu"
       blog: "blog"
       code: "kód"
-      edit_profile: "upravit profil"
       login: "přihlášení"
       logout: "odhlásit"
-      view_profile: "zobrazit profil"
+      profile: "profile"
+      settings: "settings"
   more: "Více"
   next: "další"
   notifications: 
@@ -293,6 +292,7 @@ cs:
   people: 
     aspect_list: 
       edit_membership: "upravit člena aspektu"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -301,6 +301,9 @@ cs:
       no_one_found: "... a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání pro"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "přidat kontakt"
       already_connected: "Již připojen"
@@ -316,8 +319,11 @@ cs:
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Osoba neexistuje!"
+      edit: "edit"
       incoming_request: "%{name} s vámi chce sdílet"
+      mention: "Mention"
       message: "Zpráva"
       no_posts: "žádné zprávy k zobrazení!"
       not_connected: "Nesdílíte s touto osobou"
@@ -327,8 +333,10 @@ cs:
       similar_contacts: "podobné kontakty"
       start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Nahrání fotky selhalo. Jste si jist, že to byl obrázek?"
@@ -365,7 +373,10 @@ cs:
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
       whatup: "Co se děje na %{pod}"
   previous: "předchozí"
@@ -375,7 +386,6 @@ cs:
       allow_search: "Umožnit, aby vás lidé mohli najít na Diaspoře"
       edit_profile: "Upravit profil"
       first_name: "Jméno"
-      info_available_to: "Tyto informace budou dostupné komukoliv, ke komu jste připojeni na Diaspoře."
       last_name: "Příjmení"
       update_profile: "Aktualizovat profil"
       your_bio: "Váš životopis"
@@ -383,7 +393,10 @@ cs:
       your_gender: "Vaše pohlaví"
       your_name: "Vaše jméno"
       your_photo: "Vaše fotografie"
-      your_profile: "Váš profil"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
@@ -490,6 +503,7 @@ cs:
       mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
+      publishing_to: "publishing to: "
       share: "Sdělit"
       share_with: "sdílet s"
       whats_on_your_mind: "co máte na mysli?"
@@ -500,9 +514,8 @@ cs:
       failure: "Nepodařilo se smazat příspěvek"
     helper: 
       no_message_to_display: "Není k zobrazení žádná zpráva."
-    new_status_message: 
-      oh_yeah: "ó ano!"
-      tell_me_something_good: "pověz mi něco dobrého"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Smazat"
       permalink: "trvalý odkaz"
