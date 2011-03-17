@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
     profiles = Profile.tagged_with(params[:tag]).where(:searchable => true).select('profiles.id, profiles.person_id')
     @people = Person.where(:id => profiles.map{|p| p.person_id}).limit(15)
+    @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
 
     @fakes = PostsFake.new(@posts)
     @commenting_disabled = true
@@ -40,11 +41,11 @@ class PostsController < ApplicationController
         I18n.locale = @person.owner.language
         render "posts/#{@post.class.to_s.underscore}", :layout => true
       else
-        flash[:error] = "that post does not exsist!"
+        flash[:error] = "that post does not exist!"
         redirect_to root_url
       end
     else
-      flash[:error] = "that post does not exsist!"
+      flash[:error] = "that post does not exist!"
       redirect_to root_url
     end
   end
