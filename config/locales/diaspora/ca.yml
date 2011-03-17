@@ -331,6 +331,11 @@ ca:
 
 
   people:
+    zero: "cap persona"
+    one: "1 persona"
+    few: "%{count} persones"
+    many: "%{count} persones"
+    other: "%{count} persones"
     person:
       pending_request: "petició pendent"
       already_connected: "Ja connectat"
@@ -413,13 +418,12 @@ ca:
 
 
   posts:
+    doesnt_exist: "aquest post no existeix!"
     index:
       whatup: "Què està passant a %{pod}"
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
       nobody_talking: "Ningú està parlant de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
-      people: "gent"
-      person: "persona"
 
 
   profiles:
@@ -528,6 +532,7 @@ ca:
       all_contacts: "tots els contactes"
       share_with: "comparteix amb"
       whats_on_your_mind: "què teniu al cap?"
+      publishing_to: "s'està publicant a: "
     add_contact:
       enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
       your_diaspora_username_is: "El vostre nom d'usuari de Diàspora és: %{diaspora_handle}"
@@ -559,7 +564,7 @@ ca:
 
   status_messages:
     new:
-      mentioning: "Mencionant: "
+      mentioning: "Mencionant: %{person}"
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
