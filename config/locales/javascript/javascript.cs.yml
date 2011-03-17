@@ -6,6 +6,8 @@
 cs: 
   javascripts: 
     confirm_dialog: "Jste si jisti?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Hledat {{name}}"
     shared: 
       contact_list: 

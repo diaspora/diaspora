@@ -222,13 +222,12 @@ en_shaw:
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
     header: 
-      account_settings: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑧𐑑𐑦𐑙𐑟"
       blog: "𐑚𐑤𐑪𐑜"
       code: "𐑒𐑴𐑛"
-      edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       login: "𐑤𐑪𐑜𐑦𐑯"
       logout: "𐑤𐑪𐑜𐑬𐑑"
-      view_profile: "𐑝𐑿 𐑐𐑮𐑴𐑓𐑲𐑤"
+      profile: "profile"
+      settings: "settings"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
   notifications: 
@@ -293,6 +292,7 @@ en_shaw:
   people: 
     aspect_list: 
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " 𐑐𐑰𐑐𐑤 𐑪𐑯 𐑐𐑪𐑛 𐑸 𐑩𐑢𐑺 𐑝"
       results_for: " 𐑮𐑦𐑟𐑫𐑤𐑑 𐑓𐑹 %{params}"
@@ -301,6 +301,9 @@ en_shaw:
       no_one_found: "...𐑯 𐑯𐑴 𐑢𐑳𐑯 𐑢𐑪𐑟 𐑓𐑬𐑯𐑛."
       no_results: "𐑣𐑱! 𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑕𐑳𐑥𐑔𐑦𐑙."
       results_for: "𐑕𐑻𐑗 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑹"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       already_connected: "𐑷𐑤𐑮𐑧𐑛𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
@@ -316,8 +319,11 @@ en_shaw:
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
+      edit: "edit"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
+      mention: "Mention"
       message: "𐑥𐑧𐑕𐑩𐑡"
       no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
       not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
@@ -327,8 +333,10 @@ en_shaw:
       similar_contacts: "𐑕𐑦𐑥𐑦𐑤𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       start_sharing: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙"
       to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "𐑓𐑴𐑑𐑴 𐑳𐑐𐑤𐑴𐑛 𐑓𐑱𐑤𐑛.  𐑸 𐑿 𐑖𐑻 𐑞𐑨𐑑 𐑢𐑪𐑟 𐑩𐑯 𐑦𐑥𐑩𐑡?"
@@ -365,7 +373,10 @@ en_shaw:
       error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
@@ -375,7 +386,6 @@ en_shaw:
       allow_search: "𐑩𐑤𐑬 𐑓𐑹 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑿 𐑢𐑦𐑞𐑦𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       edit_profile: "𐑧𐑛𐑦𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       first_name: "𐑓𐑻𐑕𐑑 𐑯𐑱𐑥"
-      info_available_to: "𐑞𐑦𐑕 𐑦𐑯𐑓𐑴 𐑢𐑦𐑤 𐑚𐑰 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑑 𐑣𐑵𐑥𐑧𐑝𐑼 𐑿 𐑒𐑩𐑯𐑧𐑒𐑑 𐑢𐑦𐑞 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
       last_name: "𐑤𐑨𐑕𐑑 𐑯𐑱𐑥"
       update_profile: "𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       your_bio: "𐑿𐑼 𐑚𐑲𐑴"
@@ -383,7 +393,10 @@ en_shaw:
       your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
       your_name: "𐑿𐑼 𐑯𐑱𐑥"
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
-      your_profile: "𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
@@ -490,6 +503,7 @@ en_shaw:
       mention_helper_text: "𐑑 𐑥𐑧𐑯𐑖𐑩𐑯 𐑕𐑳𐑥𐑢𐑩𐑯, 𐑐𐑮𐑧𐑕 '@' 𐑯 𐑕𐑑𐑸𐑑 𐑑𐑲𐑐𐑦𐑙 𐑞𐑺 𐑯𐑱𐑥"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
+      publishing_to: "publishing to: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
       whats_on_your_mind: "𐑢𐑪𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
@@ -500,9 +514,8 @@ en_shaw:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑐𐑴𐑕𐑑"
     helper: 
       no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
-    new_status_message: 
-      oh_yeah: "𐑴 𐑘𐑨!"
-      tell_me_something_good: "𐑑𐑧𐑤 𐑥𐑰 𐑕𐑳𐑥𐑔𐑦𐑙 𐑜𐑫𐑛"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "𐑛𐑦𐑤𐑰𐑑"
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"

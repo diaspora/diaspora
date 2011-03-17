@@ -6,6 +6,8 @@
 en_shaw: 
   javascripts: 
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "𐑕𐑻𐑗 𐑓𐑹 {{name}}"
     shared: 
       contact_list: 

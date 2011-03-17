@@ -222,13 +222,12 @@ is:
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
     header: 
-      account_settings: "stillingar"
       blog: "blogg"
       code: "code"
-      edit_profile: "edit profile"
       login: "Innskráning"
       logout: "Útskrá"
-      view_profile: "skoða síðuna mína"
+      profile: "profile"
+      settings: "settings"
   more: "Meira"
   next: "næsta"
   notifications: 
@@ -293,6 +292,7 @@ is:
   people: 
     aspect_list: 
       edit_membership: "breyta aðild að ásýnd"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " niðurstöður fyrir %{params}"
@@ -301,6 +301,9 @@ is:
       no_one_found: "...og enginn fannst."
       no_results: "Hey! Þú þarft að leita að einhverju."
       results_for: "leitarniðurstöður fyrir"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "bæta tengilið við"
       already_connected: "Þegar tengdur"
@@ -316,8 +319,11 @@ is:
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Manneskjan er ekki til!"
+      edit: "edit"
       incoming_request: "%{name} vill samnýta með þér"
+      mention: "Mention"
       message: "Message"
       no_posts: "no posts to display!"
       not_connected: "Þú samnýtir ekki með %{name}"
@@ -327,8 +333,10 @@ is:
       similar_contacts: "svipaðir tengiliðir"
       start_sharing: "Byrja að samnýta"
       to_accept_or_ignore: "að samþykkja eða hunsa það."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Því miður, %{handle} fannst ekki."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Innhlöðunn myndar mistókst. Ertu viss um að þetta hafi verið mynd?"
@@ -365,7 +373,10 @@ is:
       error: "Ekki tókst að breyta mynd."
       notice: "Velheppnuð uppfærsla á mynd. "
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "fyrra"
@@ -375,7 +386,6 @@ is:
       allow_search: "Leyfa fólki að leita að þér á Díaspora"
       edit_profile: "Breyta síðunni minni"
       first_name: "Fornafn"
-      info_available_to: "Þetta verður sýnilegt hverjum þeim sem þú tengist við í gegnum Díaspora."
       last_name: "Kenninafn/Eftirnafn"
       update_profile: "Uppfæra síðuna mína"
       your_bio: "Ferilskrá þín"
@@ -383,7 +393,10 @@ is:
       your_gender: "Kyn þitt"
       your_name: "Nafn þitt"
       your_photo: "Mynd þín"
-      your_profile: "Síðan mín"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Ekki tókst að uppfæra síðuna mína"
       updated: "Síðan mín uppfærð"
@@ -490,6 +503,7 @@ is:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: "Senda..."
+      publishing_to: "publishing to: "
       share: "Deila"
       share_with: "deila með"
       whats_on_your_mind: "hvað er þér efst í huga?"
@@ -500,9 +514,8 @@ is:
       failure: "Ekki tókst að eyða færslu"
     helper: 
       no_message_to_display: "Engin skilaboð að sýna!"
-    new_status_message: 
-      oh_yeah: "nú jæja!"
-      tell_me_something_good: "segðu mér eitthvað skemmtiegt"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Eyða"
       permalink: "varanleg slóð"

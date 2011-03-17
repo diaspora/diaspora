@@ -222,13 +222,12 @@ tr:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "hesap seçenekleri"
       blog: "blog"
       code: "code"
-      edit_profile: "Profili düzenle"
       login: "login"
       logout: "Çıkış"
-      view_profile: "Profili görüntüle"
+      profile: "profile"
+      settings: "settings"
   more: "More"
   next: "next"
   notifications: 
@@ -293,6 +292,7 @@ tr:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -301,6 +301,9 @@ tr:
       no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "search results for"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "kişi ekle"
       already_connected: "Zaten bağlı"
@@ -316,8 +319,11 @@ tr:
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Person does not exist!"
+      edit: "edit"
       incoming_request: "You have an incoming request from this person."
+      mention: "Mention"
       message: "Message"
       no_posts: "no posts to display!"
       not_connected: "You are not connected with this person"
@@ -327,8 +333,10 @@ tr:
       similar_contacts: "similar contacts"
       start_sharing: "start sharing"
       to_accept_or_ignore: "kabul et veya yoksay."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -365,7 +373,10 @@ tr:
       error: "Fotoyu düzeltme basarısız oldu."
       notice: "Resim başarıyla eklendi."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "previous"
@@ -375,7 +386,6 @@ tr:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ tr:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ tr:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "mesaj gönder %{aspect}"
       posting: "Posting..."
+      publishing_to: "publishing to: "
       share: "Paylaş"
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "what's on your mind?"
@@ -500,9 +514,8 @@ tr:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Gosterilcek bir mesaj yok."
-    new_status_message: 
-      oh_yeah: "tabi ya!"
-      tell_me_something_good: "bana iyi bir şey söyle"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Yok et"
       permalink: "permalink"

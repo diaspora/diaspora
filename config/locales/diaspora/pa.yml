@@ -222,13 +222,12 @@ pa:
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "ਅਕਾਊਂਟ ਸੈਟਿੰਗ"
       blog: "ਬਲੌਗ"
       code: "ਕੋਡ"
-      edit_profile: "ਪਰੋਫਾਇਲ ਸੋਧ"
       login: "ਲਾਗਇਨ"
       logout: "ਲਾਗਆਉਟ"
-      view_profile: "ਪਰੋਫਾਇਲ ਵੇਖੋ"
+      profile: "profile"
+      settings: "settings"
   more: "ਹੋਰ"
   next: "ਅੱਗੇ"
   notifications: 
@@ -293,6 +292,7 @@ pa:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: "%{params} ਲਈ ਨਤੀਜੇ"
@@ -301,6 +301,9 @@ pa:
       no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "search results for"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "ਸੰਪਰਕ ਸ਼ਾਮਲ"
       already_connected: "ਪਹਿਲਾਂ ਹੀ ਕੁਨੈਕਟ ਹੈ"
@@ -316,8 +319,11 @@ pa:
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Person does not exist!"
+      edit: "edit"
       incoming_request: "%{name} wants to share with you"
+      mention: "Mention"
       message: "Message"
       no_posts: "no posts to display!"
       not_connected: "You are not sharing with %{name}"
@@ -327,8 +333,10 @@ pa:
       similar_contacts: "ਰਲਦੇ ਸੰਪਰਕ"
       start_sharing: "start sharing"
       to_accept_or_ignore: "to accept or ignore it."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -365,7 +373,10 @@ pa:
       error: "Failed to edit photo."
       notice: "Photo successfully updated."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "ਪਿੱਛੇ"
@@ -375,7 +386,6 @@ pa:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ pa:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ pa:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+      publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"
       whats_on_your_mind: "ਤੁਹਾਡੇ ਦਿਮਾਗ 'ਚ ਕੀ ਹੈ?"
@@ -500,9 +514,8 @@ pa:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "ਵੇਖਾਉਣ ਲਈ ਕੋਈ ਸੁਨੇਹਾ ਨਹੀਂ ਹੈ।"
-    new_status_message: 
-      oh_yeah: "ਓਹ ਹਾਂ!"
-      tell_me_something_good: "tell me something good"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Delete"
       permalink: "permalink"

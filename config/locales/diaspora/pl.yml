@@ -222,13 +222,12 @@ pl:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
-      account_settings: "ustawienia konta"
       blog: "blog"
       code: "kod"
-      edit_profile: "edycja profilu"
       login: "logowanie"
       logout: "wyloguj"
-      view_profile: "podgląd profilu"
+      profile: "profile"
+      settings: "settings"
   more: "More"
   next: "next"
   notifications: 
@@ -293,6 +292,7 @@ pl:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " osoby na podzie wiedzą, że"
       results_for: " wyniki dla %{params}"
@@ -301,6 +301,9 @@ pl:
       no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
       results_for: "wyniki wyszukiwania dla"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "dodaj kontakt"
       already_connected: "Już podłączono"
@@ -316,8 +319,11 @@ pl:
       remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Osoba nie istnieje!"
+      edit: "edit"
       incoming_request: "Masz nowe zaproszenie od tej osoby."
+      mention: "Mention"
       message: "Message"
       no_posts: "brak wpisów!"
       not_connected: "You are not connected with this person"
@@ -327,8 +333,10 @@ pl:
       similar_contacts: "similar contacts"
       start_sharing: "współdziel"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Wybacz, nie można było znaleźć %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Nie udało się przesłać zdjęcia. Czy @{m,f:jesteś pew}{m:ien|f:na|n:to na pewno}{m,f: że to} był obraz?"
@@ -365,7 +373,10 @@ pl:
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "previous"
@@ -375,7 +386,6 @@ pl:
       allow_search: "Allow for people to search for you within Diaspora"
       edit_profile: "Edit profile"
       first_name: "First name"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
@@ -383,7 +393,10 @@ pl:
       your_gender: "Your gender"
       your_name: "Your name"
       your_photo: "Your photo"
-      your_profile: "Your profile"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -490,6 +503,7 @@ pl:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Wysyłanie…"
+      publishing_to: "publishing to: "
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
       whats_on_your_mind: "co Ci chodzi po głowie?"
@@ -500,9 +514,8 @@ pl:
       failure: "Błąd podczas usuwania wpisu"
     helper: 
       no_message_to_display: "Brak wiadomości."
-    new_status_message: 
-      oh_yeah: "o tak!"
-      tell_me_something_good: "co dobrego?"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Usuń"
       permalink: "permalink"

@@ -222,13 +222,12 @@ it:
       whats_new: "novità"
       your_aspects: "I tuoi aspetti"
     header: 
-      account_settings: "impostazioni account"
       blog: "blog"
       code: "codice"
-      edit_profile: "modifica profilo"
       login: "accedi"
       logout: "esci"
-      view_profile: "visualizza profilo"
+      profile: "profile"
+      settings: "settings"
   more: "Altro"
   next: "successivo"
   notifications: 
@@ -293,6 +292,7 @@ it:
   people: 
     aspect_list: 
       edit_membership: "modifica appartenenza all'aspetto"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " le persone sul pod sanno che"
       results_for: " risultati per %{params}"
@@ -301,6 +301,9 @@ it:
       no_one_found: "...e nessuno è stato trovato."
       no_results: "Ehi! Devi inserire qualcosa da cercare."
       results_for: "risultati della ricerca per"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "aggiungi contatto"
       already_connected: "Già connesso"
@@ -316,8 +319,11 @@ it:
       remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "La persona non esiste!"
+      edit: "edit"
       incoming_request: "%{name} vuole condividere con te"
+      mention: "Mention"
       message: "Message"
       no_posts: "nessun post da mostrare!"
       not_connected: "Non sei in contatto con %{name}"
@@ -327,8 +333,10 @@ it:
       similar_contacts: "contatti simili"
       start_sharing: "inizia a condividere"
       to_accept_or_ignore: "per accettarla o ignorarla."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Spiacenti, non possiamo trovare %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
@@ -365,7 +373,10 @@ it:
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
       whatup: "What's happening on %{pod}"
   previous: "precedente"
@@ -375,7 +386,6 @@ it:
       allow_search: "Permetti ad altri di trovarti su Diaspora"
       edit_profile: "Edita il profilo"
       first_name: "Nome"
-      info_available_to: "Queste informazioni saranno disponibili a chiunque sarà connesso con te su Diaspora."
       last_name: "Cognome"
       update_profile: "Aggiorna Profilo"
       your_bio: "La tua biografia"
@@ -383,7 +393,10 @@ it:
       your_gender: "Sesso"
       your_name: "Il tuo nome"
       your_photo: "La tua foto"
-      your_profile: "Il tuo profilo"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Aggiornamento del profilo non riuscito"
       updated: "Profilo aggiornato"
@@ -490,6 +503,7 @@ it:
       mention_helper_text: "per menzionare qualcuno, inserisci '@' e digita il suo nome"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
+      publishing_to: "publishing to: "
       share: "Condividi"
       share_with: "Condividi con"
       whats_on_your_mind: "cosa stai pensando?"
@@ -500,9 +514,8 @@ it:
       failure: "Eliminazione post non riuscita"
     helper: 
       no_message_to_display: "Nessun messaggio da visualizzare."
-    new_status_message: 
-      oh_yeah: "oh si!"
-      tell_me_something_good: "dimmi qualcosa di buono"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Elimina"
       permalink: "permalink"

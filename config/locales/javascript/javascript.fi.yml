@@ -6,6 +6,8 @@
 fi: 
   javascripts: 
     confirm_dialog: "Oletko varma?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Etsi nimellä {{name}}"
     shared: 
       contact_list: 

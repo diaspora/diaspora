@@ -222,13 +222,12 @@ nb:
       whats_new: "what's new?"
       your_aspects: "dine aspekt"
     header: 
-      account_settings: "kontoinstillinger"
       blog: "blogg"
       code: "code"
-      edit_profile: "rediger profil"
       login: "logg inn"
       logout: "logg ut"
-      view_profile: "vis profil"
+      profile: "profile"
+      settings: "settings"
   more: "Mer"
   next: "neste"
   notifications: 
@@ -293,6 +292,7 @@ nb:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
+    few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " resultater for %{params}"
@@ -301,6 +301,9 @@ nb:
       no_one_found: "...og ingen ble funnet."
       no_results: "Hey! You need to search for something."
       results_for: "søkeresultater for"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
     person: 
       add_contact: "legg til kontakt"
       already_connected: "Already connected"
@@ -316,8 +319,11 @@ nb:
       remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
+      add_some: "add some"
       does_not_exist: "Personen eksisterer ikke!"
+      edit: "edit"
       incoming_request: "You have an incoming request from this person."
+      mention: "Mention"
       message: "Melding"
       no_posts: "ingen innlegg å vise!"
       not_connected: "You are not connected with this person"
@@ -327,8 +333,10 @@ nb:
       similar_contacts: "lignende kontakter"
       start_sharing: "start sharing"
       to_accept_or_ignore: "to accept or ignore it."
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Beklager, vi kunne ikke finne %{handle}."
+    zero: "no people"
   photos: 
     create: 
       integrity_error: "Bildeopplastning mislyktes. Er du sikker på det var et bilde?"
@@ -365,7 +373,10 @@ nb:
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
   posts: 
+    doesnt_exist: "that post does not exist!"
     index: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Innlegg tagget med #%{tag}"
       whatup: "Hva skjer på %{pod}"
   previous: "forrige"
@@ -375,7 +386,6 @@ nb:
       allow_search: "Tillat folk å søke på deg i Diaspora"
       edit_profile: "Endre profil"
       first_name: "Fornavn"
-      info_available_to: "This info will be available to whomever you connect with on Diaspora."
       last_name: "Etternavn"
       update_profile: "Oppdater Profil"
       your_bio: "Om meg"
@@ -383,7 +393,10 @@ nb:
       your_gender: "Ditt kjønn"
       your_name: "Ditt navn"
       your_photo: "Ditt profilbilde"
-      your_profile: "Din profil"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Kunne ikke oppdatere profil"
       updated: "Profil oppdatert"
@@ -490,6 +503,7 @@ nb:
       mention_helper_text: "for å nevne noen, skriv '@' og begynn å skriv navnet deres"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
+      publishing_to: "publishing to: "
       share: "Del"
       share_with: "Share with %{aspect}"
       whats_on_your_mind: "Hva tenker du på?"
@@ -500,9 +514,8 @@ nb:
       failure: "Failed to delete post"
     helper: 
       no_message_to_display: "Ingen melding å vise."
-    new_status_message: 
-      oh_yeah: "Ja da!"
-      tell_me_something_good: "Fortell noe tøft"
+    new: 
+      mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Utslett"
       permalink: "permalink"
