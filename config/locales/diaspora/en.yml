@@ -404,6 +404,8 @@ en:
       posts_tagged_with: "Posts tagged with #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
+      people: "people"
+      person: "person"
 
   profiles:
     edit:

@@ -33,7 +33,13 @@
 
 .prepend-2.span-7.last
   %h3
-    = t('.people_tagged_with', :tag => "##{params[:tag]}")
+    = @people_count
+    %span{:style => "font-weight:normal"}
+      - if @people_count == 1
+        = t('.person')
+      - else
+        = t('.people')
+
   .side_stream.stream
     - for person in @people
       .stream_element{:id => person.id}
@@ -43,3 +49,6 @@
             =person_link(person)
           .info
             = person.diaspora_handle
+
+    - if @people_count > 15
+      \...
