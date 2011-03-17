@@ -872,16 +872,6 @@ label
     :position relative
     :top 0
 
-    ul
-      :padding 0
-      >li
-        :display inline
-        :margin-right 2px
-        img
-          :-webkit-border-radius 5px
-          :-moz-border-radius 5px
-          :border-radius 5px
-
   input[type='text'],
   textarea
     :width 435px
@@ -1014,17 +1004,19 @@ label
     :bottom 0
     :width 435px
     :left 5px
+    :padding 0
+
     li
+      :display inline-block
       :margin-right 4px
       img
-        :height 50px
         :width 50px
       .circle
         :display none
         :z-index 1
         :position absolute
         :right -7px
-        :top -47px
+        :top -5px
         :background
           :color #333
 
@@ -1035,19 +1027,15 @@ label
 
         :border 1px solid #fff
 
-        :-webkit-border-radius 10px
-        :-moz-border-radius 10px
-        :border-radius 10px
-
-        :-webkit-box-shadow 0 1px 3px #000
-        :-moz-box-shadow 0 1px 3px #000
-        :box-shadow 0 1px 3px #000
+        :-webkit-border-radius 20px
+        :-moz-border-radius 20px
+        :border-radius 20px
 
       .x
         :display none
         :z-index 2
         :position absolute
-        :top -45px
+        :top -3px
         :right -1px
         :font
           :size small

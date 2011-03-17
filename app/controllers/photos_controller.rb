@@ -5,8 +5,7 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
-  respond_to :json, :only => :show
+  respond_to :html, :json
 
   def index
     @post_type = :photos
@@ -124,18 +123,21 @@ class PhotosController < ApplicationController
 
     if photo
       photo.destroy
-      flash[:notice] = I18n.t 'photos.destroy.notice'
 
-
-      if photo.status_message_id
-        respond_with photo, :location => photo.status_message
-      else
-        respond_with photo, :location => person_photos_path(current_user.person)
+      respond_to do |format|
+        format.json{ render :nothing => true, :status => 204 }
+        format.html do
+          flash[:notice] = I18n.t 'photos.destroy.notice'
+          if photo.status_message_id
+            respond_with photo, :location => photo.status_message
+          else
+            respond_with photo, :location => person_photos_path(current_user.person)
+          end
+        end
       end
     else
       respond_with photo, :location => person_photos_path(current_user.person)
     end
-
   end
 
   def show
