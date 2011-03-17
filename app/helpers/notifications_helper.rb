@@ -48,7 +48,7 @@ module NotificationsHelper
     number_of_actors = actors.count
     actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase)}", person_path(person))}
     if number_of_actors < 4
-      message =  actor_links.join(',')
+      message =  actor_links.join(', ')
     else
       message  = actor_links[0..2].join(', ') << "<a class='more' href='#'> #{t('.and_others', :number =>(number_of_actors - 3))}</a><span class='hidden'>, " << actor_links[3..(number_of_actors-2)].join(', ')<< " #{t('.and')} "<< actor_links.last << '</span>'
     end
