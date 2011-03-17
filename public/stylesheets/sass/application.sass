@@ -26,7 +26,7 @@ p
   :word-wrap break-word
 
 h1, h2, h3, h4, h5
-  :color #444
+  :color #333
   :position relative
   :font
     :weight bold
@@ -2774,6 +2774,7 @@ ul.show_comments
       :display none
 
 .tag
+  :display inline-block
   &:hover
     :text
       :decoration none
@@ -2786,6 +2787,14 @@ ul.show_comments
     :bottom 1px dotted $blue
   :font
     :weight bold
+
+h1.tag
+  :border
+    :bottom 2px dotted $blue
+  &:hover
+    :border
+      :bottom 2px dotted $blue
+    
 
 .info
   :overflow hidden
