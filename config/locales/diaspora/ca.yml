@@ -56,10 +56,10 @@ ca:
             attributes:
               person_id:
                 taken: "ha de ser únic entre els contactes d'aquest usuari."
-           request:
-             attributes:
-               from_id:
-                 taken: "és un duplicat d'una petició ja existent."
+            request:
+              attributes:
+                from_id:
+                  taken: "és un duplicat d'una petició ja existent."
 
 
   error_messages:
@@ -114,7 +114,7 @@ ca:
     manage:
       add_a_new_aspect: "Afegeix un aspecte nou"
       add_a_new_contact: "Afegeix un contacte nou"
-      requests: "Peticions"
+      requests:
         no_requests: "No hi ha cap petició nova"
         manage_aspects: "Gestiona els espectes"
         drag_to_add: "Arrossegueu i deixeu anar per afegir gent"
@@ -186,7 +186,7 @@ ca:
 
   conversations:
     index:
-      message_inbox: "Bústia d'entrada"
+      message_inbox:
         new_message: "Missatge nou"
         no_conversation_selected: "no hi ha cap conversa seleccionada"
         create_a_new_message: "crea un missatge nou"
