@@ -34,7 +34,7 @@ en:
         change_password: "Change my password"
       new:
         forgot_password: "Forgot your password?"
-        no_account: 'No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible'
+        no_account: 'No account with this email exists.  If you are waiting for an invite, we are rolling them out as soon as possible'
         send_password_instructions: "Send me reset password instructions"
     confirmations:
       send_instructions: 'You will receive an email with instructions about how to confirm your account in a few minutes.'
