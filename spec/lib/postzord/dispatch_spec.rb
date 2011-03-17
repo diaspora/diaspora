@@ -234,11 +234,11 @@ describe Postzord::Dispatch do
     end
 
     describe '#deliver_to_local' do
-      it 'sends each person an object' do
+      it 'queues a batch receive' do
         local_people = []
         local_people << @user.person
         mailman = Postzord::Dispatch.new(@user, @sm)
-        Resque.should_receive(:enqueue).with(Job::Receive, @user.id, @xml, anything).once
+        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.id, [@user.id]).once
         mailman.send(:deliver_to_local, local_people)
       end
     end

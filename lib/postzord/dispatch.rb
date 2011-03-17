@@ -44,10 +44,10 @@ class Postzord::Dispatch
   end
 
   def deliver_to_local(people)
-    people.each do |person|
-      Rails.logger.info("event=push_to_local_person route=local sender=#{@sender_person.diaspora_handle} recipient=#{person.diaspora_handle} payload_type=#{@object.class}")
-      Resque.enqueue(Job::Receive, person.owner_id, @xml, @sender_person.id)
-    end
+    return if people.blank?
+    ids = people.map{ |p| p.owner_id }
+    Resque.enqueue(Job::ReceiveLocalBatch, @object.id, ids)
+    Rails.logger.info("event=push route=local sender=#{@sender_person.diaspora_handle} recipients=#{ids.join(',')} payload_type=#{@object.class}")
   end
 
   def deliver_to_hub
