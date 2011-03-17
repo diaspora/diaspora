@@ -538,7 +538,7 @@ en:
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
 
   status_messages:
-    new_status_message:
+    new:
       mentioning: "Mentioning: "
     show:
       destroy: "Delete"

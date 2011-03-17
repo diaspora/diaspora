@@ -7,13 +7,14 @@
     $(".question_mark").tipsy({trigger: 'hover', gravity: 'w'});
   });
 
-#publisher
+#publisher.mention_popup
 
   #click_to_share
-    = image_tag 'icons/doc_edit.png'
-    %span= t('.whats_on_your_mind')
+    -unless aspect == :profile
+      = image_tag 'icons/doc_edit.png'
+      %span= t('.whats_on_your_mind')
 
-    = t('aspects', :count => aspect_ids.length)
+      = t('aspects', :count => aspect_ids.length)
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
@@ -50,7 +51,7 @@
 
         .public_toggle
           %span#publisher_service_icons
-            - if aspect == :all
+            - if aspect == :all || :profile
               = status.hidden_field( :public)
               = image_tag "social_media_logos/feed-16x16.png", :title => "RSS", :class => 'public_icon dim'
             - if current_user.services
