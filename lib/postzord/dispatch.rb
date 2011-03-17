@@ -77,11 +77,9 @@ class Postzord::Dispatch
     end
   end
   def socket_to_users(users)
-    socket = @object.respond_to?(:socket_to_user)
+    return unless @object.respond_to?(:socket_to_user)
     users.each do |user|
-      if socket
-        @object.socket_to_user(user)
-      end
+      @object.socket_to_user(user)
     end
   end
 end

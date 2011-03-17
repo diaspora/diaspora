@@ -37,10 +37,15 @@ describe SocketsController do
     it 'calls queue_to_user' do
       Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(true)
       Diaspora::WebSocket.should_receive(:queue_to_user).with(@user.id, anything)
-      @controller.outgoing(@user, @message)
+      @controller.outgoing(@user.id, @message)
     end
 
     it 'does not call queue_to_user if the user is not connected' do
+      Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(false)
+      Diaspora::WebSocket.should_not_receive(:queue_to_user)
+      @controller.outgoing(@user.id, @message)
+    end
+    it 'takes a user or an id' do
       Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(false)
       Diaspora::WebSocket.should_not_receive(:queue_to_user)
       @controller.outgoing(@user, @message)

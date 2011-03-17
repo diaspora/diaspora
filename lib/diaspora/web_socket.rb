@@ -59,12 +59,12 @@ module Diaspora
   end
 
   module Socketable
-    def socket_to_user(user, opts={})
-      SocketsController.new.outgoing(user, self, opts)
+    def socket_to_user(user_or_id, opts={})
+      SocketsController.new.outgoing(user_or_id, self, opts)
     end
 
-    def unsocket_from_user(user, opts={})
-      SocketsController.new.outgoing(user, Retraction.for(self), opts)
+    def unsocket_from_user(user_or_id, opts={})
+      SocketsController.new.outgoing(user_or_id, Retraction.for(self), opts)
     end
   end
 end

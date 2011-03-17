@@ -22,7 +22,7 @@ describe Job::SocketWebfinger do
     person = Factory.create(:person)
     finger.stub(:fetch).and_return(person)
 
-    person.should_receive(:socket_to_user).with(@user, {})
+    person.should_receive(:socket_to_user).with(@user.id, {})
     Job::SocketWebfinger.perform(@user.id, @account)
   end
   it 'Passes opts through on success' do
@@ -32,7 +32,7 @@ describe Job::SocketWebfinger do
     finger.stub(:fetch).and_return(person)
 
     opts = {:symbol => true}
-    person.should_receive(:socket_to_user).with(@user, opts)
+    person.should_receive(:socket_to_user).with(@user.id, opts)
     Job::SocketWebfinger.perform(@user.id, @account, opts)
   end
   it 'sockets failure message on failure' do

@@ -11,9 +11,8 @@ module Job
     def self.perform_delegate(user_id, account, opts={})
       finger = Webfinger.new(account)
       begin
-        user = User.find_by_id(user_id)
         result = finger.fetch
-        result.socket_to_user(user, opts)
+        result.socket_to_user(user_id, opts)
       rescue
         Diaspora::WebSocket.queue_to_user(user_id,
           {:class => 'people',
