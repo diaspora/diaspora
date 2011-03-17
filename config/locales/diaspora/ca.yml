@@ -482,7 +482,7 @@ ca:
     helper:
       new_requests:
         zero: "no hi ha peticions noves"
-        one: "petició nova!"
+        one: "1 petició nova!"
         few: "%{count} peticions noves!"
         many: "%{count} peticions noves!"
         other: "%{count} peticions noves!"
