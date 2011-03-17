@@ -7,7 +7,7 @@
     $(".question_mark").tipsy({trigger: 'hover', gravity: 'w'});
   });
 
-#publisher.mention_popup
+#publisher{:class => ((aspect == :profile)? 'mention_popup' : nil )}
 
   #click_to_share
     -unless aspect == :profile
