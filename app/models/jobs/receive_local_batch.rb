@@ -11,7 +11,7 @@ module Job
     def self.perform_delegate(post_id, recipient_user_ids)
       post = Post.find(post_id)
       create_visibilities(post, recipient_user_ids)
-      socket_to_users(post, recipient_user_ids)
+      socket_to_users(post, recipient_user_ids) if post.respond_to?(:socket_to_user)
       notify_mentioned_users(post)
     end
     def self.create_visibilities(post, recipient_user_ids)
@@ -23,7 +23,7 @@ module Job
     end
     def self.socket_to_users(post, recipient_user_ids)
       recipient_user_ids.each do |id|
-        SocketsController.new.outgoing(id, post)
+        post.socket_to_user(id)
       end
     end
     def self.notify_mentioned_users(post)
