@@ -510,6 +510,8 @@ fr:
     reshare: 
       reshare: "Repartager"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Impossible de supprimer le message"
     helper: 

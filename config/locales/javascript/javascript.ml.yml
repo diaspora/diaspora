@@ -1,0 +1,33 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ml: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
+    search_for: "Search for {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    timeago: 
+      day: "a day"
+      days: "%d days"
+      hour: "about an hour"
+      hours: "about %d hours"
+      minute: "about a minute"
+      minutes: "%d minutes"
+      month: "about a month"
+      months: "%d months"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "less than a minute"
+      suffixAgo: "ago"
+      suffixFromNow: "from now"
+      year: "about a year"
+      years: "%d years"
+    videos: 
+      unknown: "Unknown video type"
+      watch: "Watch this video on {{provider}}"

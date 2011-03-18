@@ -3,6 +3,7 @@
 # With contributions by:
 #   * Sven Dahlstrand (sven.dahlstrand@gmail.com)
 #   * Henrik Nyh (henrik@nyh.se)
+#   * Magnus Bergmark (magnus.bergmark@gmail.com)
 
 "sv-SE":
   number:
@@ -12,25 +13,20 @@
       # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
       separator: ","
       # Delimits thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: " "
+      delimiter: " " # non-breaking space
       # Number of decimals after the separator (the number 1 with a precision of 2 gives: 1.00)
       precision: 2
       significant: false
       strip_insignificant_zeros: false
-      
 
     # Used in number_to_currency()
     currency:
       format:
         # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
         format: "%n %u"
+        negative_format: "-%n %u"
         unit: "kr"
-        separator: ","
-        delimiter: " "
-        precision: 2
-        significant: false
-        strip_insignificant_zeros: false
-        
+
     percentage:
       format:
          delimiter: ""
@@ -39,24 +35,19 @@
       format:
         delimiter: ""
 
-
     # Used in number_to_human_size()
     human:
       format:
-        # These three are to override number.format and are optional
-        # separator:
         delimiter: ""
         precision: 1
-        significant: false
-        strip_insignificant_zeros: false
-        
+
       storage_units:
         # Storage units output formatting.
         # %u is the storage unit, %n is the number (default: 2 MB)
         format: "%n %u"
         units:
           byte:
-            one:   "Byte"
+            one: "Byte"
             other: "Bytes"
           kb: "KB"
           mb: "MB"
@@ -70,8 +61,7 @@
           million: "Miljon"
           billion: "Miljard"
           trillion: "Biljon"
-          quadrillion: "Biljard"
-
+          quadrillion: "Triljon"
 
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
@@ -110,6 +100,7 @@
       almost_x_years:
         one:   "nästan ett år"
         other: "nästan %{count} år"
+
     prompts:
       year:   "År"
       month:  "Månad"
@@ -118,15 +109,14 @@
       minute: "Minut"
       second: "Sekund"
 
-
   helpers:
     select:
       prompt: "Välj"
 
     submit:
-      create: 'Skapa %{model}'
-      update: 'Ändra %{model}'
-      submit: 'Spara %{model}'
+      create: "Skapa %{model}"
+      update: "Ändra %{model}"
+      submit: "Spara %{model}"
 
   errors:
     format: "%{attribute} %{message}"
@@ -154,7 +144,6 @@
       even: "måste vara jämnt"
       record_invalid: "Ett fel uppstod: %{errors}"
 
-
   activerecord:
     errors:
       # model.errors.full_messages format.
@@ -165,14 +154,13 @@
         body: "Det var problem med följande fält:"
 
       messages:
-        taken: "has already been taken"
-        record_invalid: "Validation failed: %{errors}"
+        taken: "är upptaget"
+        record_invalid: "Validering misslyckades: %{errors}"
         <<: *errors_messages
 
       full_messages:
         format: "%{attribute} %{message}"
 
-      
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
         # Append your own errors here or at the model/attributes scope.
@@ -233,7 +221,7 @@
     am: ""
     pm: ""
 
-# Used in array.to_sentence.
+  # Used in array.to_sentence.
   support:
     array:
       words_connector: ", "

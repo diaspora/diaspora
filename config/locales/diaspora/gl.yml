@@ -510,6 +510,8 @@ gl:
     reshare: 
       reshare: "Recompartir "
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Fallo ao borrar publicación"
     helper: 

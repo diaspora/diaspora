@@ -167,7 +167,7 @@ eu:
   date: 
     formats: 
       birthday: "%B %d"
-      birthday_with_year: "%Y &B %d"
+      birthday_with_year: "%Y (e)ko &B ren %d an"
       fullmonth_day: "%B %d"
   delete: "Ezabatu"
   email: "E-posta"
@@ -226,14 +226,14 @@ eu:
       code: "kodea"
       login: "sartu"
       logout: "irten"
-      profile: "profile"
-      settings: "settings"
+      profile: "Profila"
+      settings: "Lehentasunak"
   more: "Gehiago"
   next: "hurrengoa"
   notifications: 
-    also_commented: "iruzkindua baita zure kontaktuaren"
+    also_commented: "(e)k iruzkindu du baita zure kontaktuaren"
     also_commented_deleted: "mezu ezabatu bat iruzkindu du"
-    comment_on_post: "iruzkindua zure"
+    comment_on_post: "(e)k iruzkindu du zure"
     deleted: "ezabatuta"
     helper: 
       new_notifications: 
@@ -249,7 +249,7 @@ eu:
       notifications: "Jakinarazpenak"
     mentioned: "aipatu zaituzte bere"
     new_request: "(e)k zurekin partekatu nahi du."
-    post: "berria"
+    post: "mezua"
     request_accepted: "zure partekatze eskaera onartu du."
   notifier: 
     also_commented: 
@@ -292,7 +292,7 @@ eu:
   people: 
     aspect_list: 
       edit_membership: "aldatu alderdiaren bazkidetza"
-    few: "%{count} people"
+    few: "%{count} pertsona"
     helper: 
       people_on_pod_are_aware_of: "zerbitzariko jendeak honen kontziente dira:"
       results_for: " %{params}(r)entzat emaitzak"
@@ -301,9 +301,9 @@ eu:
       no_one_found: "... ez da inor aurkitu."
       no_results: "Aizu! Zerbait bilatu behar duzu."
       results_for: "bilaketa emaitzak hontarako:"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} pertsona"
+    one: "pertsona 1"
+    other: "%{count} pertsona"
     person: 
       add_contact: "adiskidea gehitu"
       already_connected: "Dagoeneko harremanetan"
@@ -319,24 +319,24 @@ eu:
       remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
-      add_some: "add some"
+      add_some: "gehitu batzuk"
       does_not_exist: "Pertsona hau ez dago!"
-      edit: "edit"
+      edit: "aldatu"
       incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
-      mention: "Mention"
+      mention: "Aipatu"
       message: "Mezu pribatua bidali"
       no_posts: "erakusteko sarrerarik ez dago!"
-      not_connected: "Ez zaude partekatzen %{name}(r)ekin"
+      not_connected: "Ez zaude partekatzen pertsona honekin"
       recent_posts: "Mezu Berrienak"
       recent_public_posts: "Azken berri publikoak"
       return_to_aspects: "Zure alderdi orrialdera itzuli"
       similar_contacts: "antzeko adiskideak"
       start_sharing: "harremanetan hasi"
       to_accept_or_ignore: "onartu edo utzi."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "ez duzu etiketarik!"
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
-    zero: "no people"
+    zero: "jenderik ez"
   photos: 
     create: 
       integrity_error: "Argazki igoerak huts egin du. Ziur al zaude irudi bat zela?"
@@ -373,10 +373,10 @@ eu:
       error: "Huts argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "mezu hori ez dago!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "Inork ez du hitzegin %{tag}(r)i buruz oraindik."
+      people_tagged_with: "%{tag} etiketadun jendea"
       posts_tagged_with: "#%{tag}(r)ekin etiketatutako mezuak"
       whatup: "Zer berri %{pod}(e)n"
   previous: "aurrekoa"
@@ -393,10 +393,10 @@ eu:
       your_gender: "Zure sexua"
       your_name: "Zure izena"
       your_photo: "Zure argazkia"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Zure profil pribatua"
+      your_public_profile: "Zure profil publikoa"
+      your_tags: "Zu: 5 #etiketetan"
+      your_tags_placeholder: "adib. #diaspora #lisatu #katakumeak #musika"
     update: 
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
@@ -460,7 +460,7 @@ eu:
       connect_to_twitter: "Twitterekin lotu"
       disconnect: "irten"
       edit_services: "Aldatu zerbitzuak"
-      logged_in_as: "zu zara:"
+      logged_in_as: "Lotuta duzun kontua honakoa da:"
       really_disconnect: "irten %{service}(e)tik?"
     inviter: 
       click_link_to_accept_invitation: "Jarraitu esteka hau zure gonbidapena onartzeko"
@@ -500,22 +500,24 @@ eu:
       all: "guztiak"
       all_contacts: "adiskide guztiak"
       make_public: "publikoa egin"
-      mention_helper_text: "norbait aipatzeko, idatzi '@' eta hasi adiskidearen izena idazten"
+      mention_helper_text: "norbait aipatzeko, sakatu '@' eta hasi adiskidearen izena idazten"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
-      publishing_to: "publishing to: "
+      publishing_to: "hemen partekatzen:"
       share: "Partekatu"
       share_with: "honekin partekatu:"
       whats_on_your_mind: "zer berri?"
     reshare: 
       reshare: "Berriz partekatu"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Akatsa mezua ezabatzean"
     helper: 
       no_message_to_display: "Erakusteko mezurik ez."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Aipatzen: %{person}"
     show: 
       destroy: "Suntsitu"
       permalink: "permalink"
@@ -541,7 +543,7 @@ eu:
       mentioned: "...mezu batean aipatzen zaituztenean?"
       new_password: "Pasahitz Berria"
       private_message: "...mezu pribatu bat jasotzen duzunean?"
-      receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu?"
+      receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
       request_acceptence: "...zure partekatze eskaerak onartuak izan direnean?"
       request_received: "...partekatze eskaera berriak dituzunean?"
       your_email: "Zure e-posta"

@@ -7,7 +7,7 @@ de:
   javascripts: 
     confirm_dialog: "Bist du dir sicher?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
     search_for: "Nach {{name}} suchen"
     shared: 
       contact_list: 

@@ -510,6 +510,8 @@ sk:
     reshare: 
       reshare: "Znovu zdieľať"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Odstránenie príspevku zlyhalo"
     helper: 

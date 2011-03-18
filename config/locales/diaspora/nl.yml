@@ -226,8 +226,8 @@ nl:
       code: "code"
       login: "inloggen"
       logout: "log uit"
-      profile: "profile"
-      settings: "settings"
+      profile: "profiel"
+      settings: "instellingen"
   more: "Meer"
   next: "volgende"
   notifications: 
@@ -292,7 +292,7 @@ nl:
   people: 
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
-    few: "%{count} people"
+    few: "%{count} mensen"
     helper: 
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
@@ -301,9 +301,9 @@ nl:
       no_one_found: "...en je hebt niemand gevonden."
       no_results: "Heey! Je moet wel ergens naar zoeken."
       results_for: "zoekresultaten voor"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} mensen"
+    one: "1 persoon"
+    other: "%{count} mensen"
     person: 
       add_contact: "voeg contact toe"
       already_connected: "Al verbonden"
@@ -319,11 +319,11 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "Voeg wat"
       does_not_exist: "Die persoon bestaat niet!"
-      edit: "edit"
+      edit: "bewerk"
       incoming_request: "% {name} wil met je delen"
-      mention: "Mention"
+      mention: "Noemen"
       message: "Bericht"
       no_posts: "geen berichten om weer te geven!"
       not_connected: "Je deelt niet met deze persoon"
@@ -333,10 +333,10 @@ nl:
       similar_contacts: "vergelijkbare contacten"
       start_sharing: "start met delen"
       to_accept_or_ignore: "om te accepteren of te negeren."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "je hebt geen tags!"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
-    zero: "no people"
+    zero: "geen mensen"
   photos: 
     create: 
       integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding was?"
@@ -373,10 +373,10 @@ nl:
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "die post bestaat niet!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "Er is nog niemand die het over %{tag} heeft gehad."
+      people_tagged_with: "Mensen getagged met %{tag}"
       posts_tagged_with: "Posts getagged met #%{tag}"
       whatup: "Nu op %{pod}"
   previous: "vorige"
@@ -393,10 +393,10 @@ nl:
       your_gender: "Je geslacht"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Je privé-profiel"
+      your_public_profile: "Je openbare profiel"
+      your_tags: "Jezelf: in 5 #tags"
+      your_tags_placeholder: "b.v. #diaspora #strijken #kittens #muziek"
     update: 
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
@@ -503,19 +503,21 @@ nl:
       mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
-      publishing_to: "publishing to: "
+      publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
       whats_on_your_mind: "waar denk je aan?"
     reshare: 
       reshare: "Herdeel"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Verwijderen van post mislukt"
     helper: 
       no_message_to_display: "Geen bericht om te weergeven."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Noem: %{person}"
     show: 
       destroy: "Verwijderen"
       permalink: "permalink"

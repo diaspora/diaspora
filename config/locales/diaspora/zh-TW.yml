@@ -226,8 +226,8 @@ zh-TW:
       code: "源碼"
       login: "登入"
       logout: "登出"
-      profile: "profile"
-      settings: "settings"
+      profile: "個人檔案"
+      settings: "設定"
   more: "更多"
   next: "後面"
   notifications: 
@@ -292,7 +292,7 @@ zh-TW:
   people: 
     aspect_list: 
       edit_membership: "編輯所屬面向"
-    few: "%{count} people"
+    few: "%{count} 個聯絡人"
     helper: 
       people_on_pod_are_aware_of: "Pod 上已知的人"
       results_for: "%{params} 的搜尋結果"
@@ -301,9 +301,9 @@ zh-TW:
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
       results_for: "搜尋結果:"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} 個聯絡人"
+    one: "一個聯絡人"
+    other: "%{count} 個聯絡人"
     person: 
       add_contact: "加入聯繫"
       already_connected: "已建立連結"
@@ -319,11 +319,11 @@ zh-TW:
       remove_contact: "刪除聯繫"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
-      add_some: "add some"
+      add_some: "新增一些"
       does_not_exist: "聯絡人不存在!"
-      edit: "edit"
+      edit: "編輯"
       incoming_request: "%{name} 希望能和你分享"
-      mention: "Mention"
+      mention: "提及"
       message: "訊息"
       no_posts: "沒有貼文可顯示!"
       not_connected: "你不跟這個人分享"
@@ -333,10 +333,10 @@ zh-TW:
       similar_contacts: "相似的聯繫"
       start_sharing: "開始分享"
       to_accept_or_ignore: "接受或不管它."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "你沒有標籤!"
     webfinger: 
       fail: "抱歉, 找不到 %{handle}."
-    zero: "no people"
+    zero: "沒有聯絡人"
   photos: 
     create: 
       integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
@@ -373,10 +373,10 @@ zh-TW:
       error: "相片編輯失敗."
       notice: "相片更新成功."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "貼文不存在!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "還沒有人提到 %{tag}."
+      people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為#%{tag}的貼文"
       whatup: "%{pod}的新鮮事"
   previous: "前面"
@@ -393,10 +393,10 @@ zh-TW:
       your_gender: "你的性別"
       your_name: "你的名字"
       your_photo: "你的相片"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "你的私人檔案"
+      your_public_profile: "你的公開檔案"
+      your_tags: "你: 可以有 5 個\"#標籤\""
+      your_tags_placeholder: "像是: #diaspora #燙髮 #貓咪 #音樂"
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
@@ -503,19 +503,21 @@ zh-TW:
       mention_helper_text: "想提到某人的話, 先敲 '@' 再接著打他們的名字"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
-      publishing_to: "publishing to: "
+      publishing_to: "發表至: "
       share: "分享"
       share_with: "與他/她分享:"
       whats_on_your_mind: "在想什麼?"
     reshare: 
       reshare: "重新分享"
   status_messages: 
+    create: 
+      success: "成功推薦了: %{names}"
     destroy: 
       failure: "刪除貼文失敗"
     helper: 
       no_message_to_display: "沒有訊息可顯示."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "提及發表中: %{person}"
     show: 
       destroy: "刪除"
       permalink: "靜態連結"

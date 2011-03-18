@@ -7,7 +7,7 @@ es:
   javascripts: 
     confirm_dialog: "¿Estás seguro?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
     search_for: "Buscar a {{name}}"
     shared: 
       contact_list: 
@@ -21,10 +21,10 @@ es:
       minutes: "%d minutos"
       month: "un mes aproximadamente"
       months: "%d meses"
-      prefixAgo: "javascripts:timeago:prefixAgo"
-      prefixFromNow: "javascripts:timeago:prefixFromNow"
+      prefixAgo: "hace"
+      prefixFromNow: "desde ahora"
       seconds: "menos de un minuto"
-      suffixAgo: "hace"
+      suffixAgo: ""
       suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
       years: "%d años"

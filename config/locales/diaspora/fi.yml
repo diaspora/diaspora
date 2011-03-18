@@ -510,6 +510,8 @@ fi:
     reshare: 
       reshare: "Jaa uudelleen"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Viestin poisto epäonnistui"
     helper: 

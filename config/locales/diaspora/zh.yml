@@ -510,6 +510,8 @@ zh:
     reshare: 
       reshare: "再次分享"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Failed to delete post"
     helper: 

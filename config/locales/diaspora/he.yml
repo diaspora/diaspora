@@ -510,6 +510,8 @@ he:
     reshare: 
       reshare: "שיתוף מחדש"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "אירע כשל במחיקת הרשומה"
     helper: 

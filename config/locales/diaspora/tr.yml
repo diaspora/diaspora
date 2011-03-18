@@ -510,6 +510,8 @@ tr:
     reshare: 
       reshare: "Yeniden Paylaş"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Failed to delete post"
     helper: 

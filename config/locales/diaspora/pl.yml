@@ -510,6 +510,8 @@ pl:
     reshare: 
       reshare: "Podziel się ponownie"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Błąd podczas usuwania wpisu"
     helper: 

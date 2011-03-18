@@ -226,14 +226,14 @@ es:
       code: "Código"
       login: "Conectarse"
       logout: "Desconectarse"
-      profile: "profile"
-      settings: "settings"
+      profile: "perfil"
+      settings: "Configuración"
   more: "Más"
   next: "Siguiente"
   notifications: 
     also_commented: "también ha comentado en la publicación de %{post_author}"
     also_commented_deleted: "comentó en una publicación eliminada"
-    comment_on_post: "escribió en tu"
+    comment_on_post: "comentó en tu"
     deleted: "eliminado"
     helper: 
       new_notifications: 
@@ -292,7 +292,7 @@ es:
   people: 
     aspect_list: 
       edit_membership: "editar el Aspecto donde está el contacto"
-    few: "%{count} people"
+    few: "%{count} personas"
     helper: 
       people_on_pod_are_aware_of: "La gente que está en POD son conscientes de"
       results_for: "Resultados para %{params}"
@@ -301,9 +301,9 @@ es:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Eh! ¡Tienes que buscar algo!"
       results_for: "Resultados para"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} personas"
+    one: "1 persona"
+    other: "%{count} personas"
     person: 
       add_contact: "Añadir contacto"
       already_connected: "Ya está conectado"
@@ -319,11 +319,11 @@ es:
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "agrega algunos"
       does_not_exist: "¡El usuario no existe!"
-      edit: "edit"
+      edit: "editar"
       incoming_request: "%{name} quisiera compartir contigo"
-      mention: "Mention"
+      mention: "Mencionar"
       message: "Mensaje"
       no_posts: "¡No hay publicaciones que mostrar!"
       not_connected: "No estás conectado con esta persona."
@@ -333,10 +333,10 @@ es:
       similar_contacts: "Contactos similares"
       start_sharing: "Empezar a compartir"
       to_accept_or_ignore: "Aceptar o ignorar"
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "No tienes etiquetas!"
     webfinger: 
       fail: "Perdona, no pudimos encontrar %{handle}"
-    zero: "no people"
+    zero: "sin personas"
   photos: 
     create: 
       integrity_error: "Subida de foto fallida. ¿Estás seguro de que era una imagen?"
@@ -373,10 +373,10 @@ es:
       error: "Falló la edición de la foto."
       notice: "Foto actualizada correctamente."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "esa publicación no existe!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "Todavía nadie esta hablando sobre %{tag}."
+      people_tagged_with: "Personas etiquetadas con %{tag}"
       posts_tagged_with: "La Publicación se ha etiquetado en #%{tag}"
       whatup: "Que esta pasando en %{pod}"
   previous: "Anterior"
@@ -393,10 +393,10 @@ es:
       your_gender: "Tu Género / Sexo"
       your_name: "Tu Nombre"
       your_photo: "Tu Foto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Tu perfil privado"
+      your_public_profile: "Tu perfil publico"
+      your_tags: "Tu: en 5 #etiquetas"
+      your_tags_placeholder: "p.ej. #diaspora #panqueque #gatitos #musica"
     update: 
       failed: "No se pudo actualizar el Perfil"
       updated: "Perfil actualizado"
@@ -503,19 +503,21 @@ es:
       mention_helper_text: "para nombrar a alguien, usa \"@\" justo antes"
       post_a_message_to: "Enviar un mensaje a %{aspect}"
       posting: "Publicando..."
-      publishing_to: "publishing to: "
+      publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
       whats_on_your_mind: "¿Qué tal? ¡Qué pasa!"
     reshare: 
       reshare: "Publicar en..."
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Fallo elminando la publicación"
     helper: 
       no_message_to_display: "No hay mensajes que mostrar."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mencionar a: %{person}"
     show: 
       destroy: "Eliminar"
       permalink: "Enlace permanente"

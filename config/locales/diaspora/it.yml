@@ -510,6 +510,8 @@ it:
     reshare: 
       reshare: "Ricondividi"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Eliminazione post non riuscita"
     helper: 

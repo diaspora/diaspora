@@ -7,7 +7,7 @@ hu:
   javascripts: 
     confirm_dialog: "Biztos vagy benne?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
     search_for: "{{name}} keresése."
     shared: 
       contact_list: 

@@ -226,8 +226,8 @@ cs:
       code: "kód"
       login: "přihlášení"
       logout: "odhlásit"
-      profile: "profile"
-      settings: "settings"
+      profile: "profil"
+      settings: "nastavení"
   more: "Více"
   next: "další"
   notifications: 
@@ -292,7 +292,7 @@ cs:
   people: 
     aspect_list: 
       edit_membership: "upravit člena aspektu"
-    few: "%{count} people"
+    few: "%{count} lidi"
     helper: 
       people_on_pod_are_aware_of: " lidé na podu jsou si vědomi"
       results_for: " výsledky pro %{params}"
@@ -301,9 +301,9 @@ cs:
       no_one_found: "... a nikdo nebyl nalezen."
       no_results: "Hej! Musíte něco hledat."
       results_for: "výsledky hledání pro"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} lidí"
+    one: "1 osoba"
+    other: "%{count} lidí"
     person: 
       add_contact: "přidat kontakt"
       already_connected: "Již připojen"
@@ -319,11 +319,11 @@ cs:
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "přidat nějaké"
       does_not_exist: "Osoba neexistuje!"
-      edit: "edit"
+      edit: "upravit"
       incoming_request: "%{name} s vámi chce sdílet"
-      mention: "Mention"
+      mention: "Zmínka"
       message: "Zpráva"
       no_posts: "žádné zprávy k zobrazení!"
       not_connected: "Nesdílíte s touto osobou"
@@ -333,10 +333,10 @@ cs:
       similar_contacts: "podobné kontakty"
       start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "nemáte žádné značky!"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
-    zero: "no people"
+    zero: "žádní lidé"
   photos: 
     create: 
       integrity_error: "Nahrání fotky selhalo. Jste si jist, že to byl obrázek?"
@@ -373,10 +373,10 @@ cs:
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "tento příspěvek neexistuje!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "Nikdo dosud nemluví o %{tag}."
+      people_tagged_with: "Lidé označeni %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
       whatup: "Co se děje na %{pod}"
   previous: "předchozí"
@@ -393,10 +393,10 @@ cs:
       your_gender: "Vaše pohlaví"
       your_name: "Vaše jméno"
       your_photo: "Vaše fotografie"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Váš soukromý profil"
+      your_public_profile: "Váš veřejný profil"
+      your_tags: "Vy: v 5 #značkách"
+      your_tags_placeholder: "např. #diaspora #žehlení #koťata #hudba"
     update: 
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
@@ -503,19 +503,21 @@ cs:
       mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
-      publishing_to: "publishing to: "
+      publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"
       whats_on_your_mind: "co máte na mysli?"
     reshare: 
       reshare: "Přesdílet"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Nepodařilo se smazat příspěvek"
     helper: 
       no_message_to_display: "Není k zobrazení žádná zpráva."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Zmínka: %{person}"
     show: 
       destroy: "Smazat"
       permalink: "trvalý odkaz"
@@ -545,7 +547,7 @@ cs:
       request_acceptence: "...je vaše žádost o sdílení akceptována?"
       request_received: "...obdržíte novou žádost o sdílení?"
       your_email: "Váš email"
-      your_handle: "Váše identifikace na Diaspoře"
+      your_handle: "Vaše identifikace na Diaspoře"
     getting_started: 
       connect_on_diaspora: "Připojit na Diaspoře"
       connect_services: "Připojit vaše další služby"

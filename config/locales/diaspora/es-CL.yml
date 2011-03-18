@@ -226,8 +226,8 @@ es-CL:
       code: "codigo"
       login: "entrar"
       logout: "salir"
-      profile: "profile"
-      settings: "settings"
+      profile: "perfil"
+      settings: "Configuración"
   more: "Más"
   next: "Siguiente"
   notifications: 
@@ -292,7 +292,7 @@ es-CL:
   people: 
     aspect_list: 
       edit_membership: "Editar el Aspecto donde está el contacto"
-    few: "%{count} people"
+    few: "%{count} personas"
     helper: 
       people_on_pod_are_aware_of: "la gente en el servidor son conscientes de"
       results_for: "resultados para %{params}"
@@ -301,9 +301,9 @@ es-CL:
       no_one_found: "...y nadie fue encontrado."
       no_results: "¡Oye! Tienes que buscar algo."
       results_for: "resultados de búsqueda para"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} personas"
+    one: "1 persona"
+    other: "%{count} personas"
     person: 
       add_contact: "agregar contacto"
       already_connected: "Ya conectado"
@@ -319,11 +319,11 @@ es-CL:
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "agrega algunas"
       does_not_exist: "¡La persona no existe!"
-      edit: "edit"
+      edit: "editar"
       incoming_request: "Tienes una solicitud pendiente de %{name}"
-      mention: "Mention"
+      mention: "Mencionar"
       message: "Mensaje"
       no_posts: "¡no hay posteos para mostrar!"
       not_connected: "No estás conectado con esa persona"
@@ -333,10 +333,10 @@ es-CL:
       similar_contacts: "Contactos similares"
       start_sharing: "Empezar a compartir"
       to_accept_or_ignore: "aceptar o ignorar."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "No tienes ninguna etiqueta!"
     webfinger: 
       fail: "Lo siento, no pudimos encontrar %{handle}."
-    zero: "no people"
+    zero: "ninguna persona"
   photos: 
     create: 
       integrity_error: "Error al subir la foto.  ¿Estás seguro que eso era una imagen?"
@@ -373,10 +373,10 @@ es-CL:
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "Ese post no existe!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
+      nobody_talking: "Nadie está hablando de %{tag} todavia."
+      people_tagged_with: "Personas etiquetadas con %{tag}"
       posts_tagged_with: "Posts etiquetado en #%{tag}"
       whatup: "Que esta pasando en %{pod}"
   previous: "Anterior"
@@ -393,10 +393,10 @@ es-CL:
       your_gender: "Tu genero"
       your_name: "Tu nombre"
       your_photo: "Tu foto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Tú perfil privado"
+      your_public_profile: "Tú perfil publico"
+      your_tags: "Tú: en 5 #etiquetas"
+      your_tags_placeholder: "p.ej. #diaspora #carrete #gatitos #musica"
     update: 
       failed: "Error al actualizar perfil"
       updated: "Perfil actualizado"
@@ -503,19 +503,21 @@ es-CL:
       mention_helper_text: "para mencionar a alguien, usa '@' antes de su nombre"
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: "Posteando..."
-      publishing_to: "publishing to: "
+      publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con "
       whats_on_your_mind: "¿Que pasa por tu cabeza?"
     reshare: 
       reshare: "Compartir de nuevo"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Error al eliminar el post"
     helper: 
       no_message_to_display: "No hay mensaje que mostrar."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mencionar a: %{person}"
     show: 
       destroy: "Eliminar"
       permalink: "permalink"

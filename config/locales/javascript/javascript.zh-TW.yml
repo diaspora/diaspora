@@ -7,7 +7,7 @@ zh-TW:
   javascripts: 
     confirm_dialog: "你確定嗎?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"
     shared: 
       contact_list: 

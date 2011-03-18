@@ -7,7 +7,7 @@ eu:
   javascripts: 
     confirm_dialog: "Ziur al zaude?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
     shared: 
       contact_list: 

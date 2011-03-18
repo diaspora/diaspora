@@ -510,6 +510,8 @@ sl:
     reshare: 
       reshare: "Deli znova"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Failed to delete post"
     helper: 

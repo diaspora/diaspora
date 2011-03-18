@@ -510,6 +510,8 @@ da:
     reshare: 
       reshare: "Del igen"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Kunne ikke slette post."
     helper: 

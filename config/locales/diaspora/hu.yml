@@ -66,15 +66,15 @@ hu:
       success: "%{name} csoport sikeresen törölve."
     edit: 
       add_existing: "Létező kapcsolat hozzáadása"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "csoportlista rejtett a csoporttagok számára"
+      aspect_list_is_visible: "csoportlista látható a csoporttagok számára"
       confirm_remove_aspect: "Biztos, hogy törölni akarod a csoportot?"
-      done: "Done"
-      make_aspect_list_visible: "a csoporttagok láthassák egymást"
+      done: "Kész"
+      make_aspect_list_visible: "csoporttagok láthassák egymást?"
       remove_aspect: "Csoport törlése"
       rename: "átnevezés"
-      update: "update"
-    few: "%{count} aspects"
+      update: "frissítés"
+    few: "%{count} csoport"
     helper: 
       are_you_sure: "Biztos, hogy törlöd a csoportot?"
       aspect_not_empty: "A csoport nem üres"
@@ -89,7 +89,7 @@ hu:
       manage_aspects: "Csoportok kezelése"
       no_requests: "Nincs új felkérés"
       requests: "Felkérések"
-    many: "%{count} aspects"
+    many: "%{count} csoport"
     move_contact: 
       error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
       failure: "nem működött: %{inspect}"
@@ -105,8 +105,8 @@ hu:
       nobody_in_aspect: "A '%{aspect_name}' csoportod üres."
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "1 csoport"
+    other: "%{count} csoport"
     seed: 
       family: "Család"
       work: "Munka"
@@ -115,18 +115,18 @@ hu:
     update: 
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
-    zero: "no aspects"
+    zero: "nincs csoport"
   back: "Vissza"
   cancel: "Mégsem"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} hozzászólás"
+    many: "%{count} hozzászólás"
     new_comment: 
       comment: "Hozzászólás"
       commenting: "Hozzászólok.."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 hozzászólás"
+    other: "%{count} hozzászólás"
+    zero: "nincs hozzászólás"
   contacts: 
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
@@ -134,7 +134,7 @@ hu:
       failure: "Sikertelen a kapcsolat megszakítása vele: %{name}"
       success: "Kapcsolat megszakítva vele: %{name}"
     few: "%{count} ismerős"
-    many: "%{count} contacts"
+    many: "%{count} ismerős"
     one: "1 ismerős"
     other: "%{count} ismerős"
     share_with_pane: 
@@ -145,25 +145,25 @@ hu:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} új üzenet"
+        many: "%{count} új üzenet"
+        one: "1 új üzenet"
+        other: "%{count} új üzenet"
+        zero: "nincs új üzenet"
     index: 
-      create_a_new_message: "create a new message"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "új üzenet írása"
+      message_inbox: "Bejövő üzenetek"
+      new_message: "Új üzenet"
+      no_conversation_selected: "nincs beszélgetés kiválasztva"
+      no_messages: "nincs üzenet"
     new: 
-      no_results: "No Results Found"
-      send: "Send"
-      subject: "subject"
-      to: "to"
+      no_results: "Nincs eredmény"
+      send: "Küldés"
+      subject: "tárgy"
+      to: "címzett"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "beszélgetés törlése és blokkolása"
+      reply: "válasz"
   date: 
     formats: 
       birthday: "%B %d"
@@ -217,7 +217,7 @@ hu:
       have_a_problem: "Problémád van?"
       logged_in_as: "bejelentkezve, mint %{name}"
       powered_by: "DIASPORA* fordította ADAMEX"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "Nyílvános Diaspora hírfolyam neki: %{name}"
       toggle: "mobil változat"
       whats_new: "Újdonságok"
       your_aspects: "csoportjaid"
@@ -226,8 +226,8 @@ hu:
       code: "kód"
       login: "belépés"
       logout: "kilépés"
-      profile: "profile"
-      settings: "settings"
+      profile: "profil"
+      settings: "beállítások"
   more: "Bővebben"
   next: "következő"
   notifications: 
@@ -237,14 +237,14 @@ hu:
     deleted: "törölve"
     helper: 
       new_notifications: 
-        few: "%{count} new notifications"
-        many: "%{count} new notifications"
-        one: "1 new notifications"
-        other: "%{count} new notifications"
-        zero: "no new notifications"
+        few: "%{count} új értesítés"
+        many: "%{count} új értesítés"
+        one: "1 új értesítés"
+        other: "%{count} új értesítések"
+        zero: "nincs új értesítés"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "és"
+      and_others: "és %{number} másik"
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
     mentioned: "megemlítettek téged a"
@@ -273,10 +273,10 @@ hu:
       subject: "új Diaspora* ismerősnek jelölt: %{from}"
       try_it_out: "Tényleg ki kellene próbálnod."
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      message_subject: "Tárgy: %{subject}"
+      private_message: "egy személyes üzenetet küldött neked:"
+      sign_in: "Jelentkezz be, hogy megnézd."
+      subject: "%{name} egy személyes üzenetet küldött neked a Diaspora-n"
     request_accepted: 
       accepted: "elfogadta a jelölésed."
       sign_in: "Jelentkezz be"
@@ -292,7 +292,7 @@ hu:
   people: 
     aspect_list: 
       edit_membership: "csoport tagság szerkesztése"
-    few: "%{count} people"
+    few: "%{count} személy"
     helper: 
       people_on_pod_are_aware_of: "az emberek tisztában vannak"
       results_for: "eredmények %{params}"
@@ -301,9 +301,9 @@ hu:
       no_one_found: "...és nem találni senkit."
       no_results: "Hé! Valamit keresned kell."
       results_for: "találatok keresése"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} személy"
+    one: "1 személy"
+    other: "%{count} személy"
     person: 
       add_contact: "Kapcsolat hozzáadása"
       already_connected: "Már csatlakozott"
@@ -319,24 +319,24 @@ hu:
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show: 
-      add_some: "add some"
+      add_some: "hozzáad"
       does_not_exist: "Személy nem létezik!"
-      edit: "edit"
+      edit: "szerkeszt"
       incoming_request: "%{name} megosztást kezdeményezett veled."
-      mention: "Mention"
-      message: "Message"
+      mention: "Megemlít"
+      message: "Üzenet"
       no_posts: "nincs bejegyzés!"
-      not_connected: "Nem ismerősöd"
+      not_connected: "Nem az ismerősöd"
       recent_posts: "Legutóbbi bejegyzések"
       recent_public_posts: "Legutóbbi nyilvános bejegyzések"
       return_to_aspects: "Menj vissza a csoportokhoz"
       similar_contacts: "hasonló kapcsolatok"
       start_sharing: "Megosztás indítása"
       to_accept_or_ignore: "hogy elfogadd vagy elutasítsd."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "nincs címkéd!"
     webfinger: 
       fail: "Sajnáljuk, de nem találjuk őt: %{handle}."
-    zero: "no people"
+    zero: "nincs személy"
   photos: 
     create: 
       integrity_error: "Kép feltöltése nem sikerült. Biztos vagy benne, hogy ez egy kép?"
@@ -373,12 +373,12 @@ hu:
       error: "Nem sikerült szerkeszteni a képet."
       notice: "Kép szerkesztése sikerült."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "ez a bejegyzés nem létezik!"
     index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      nobody_talking: "Senki nem beszélt még erről: %{tag}."
+      people_tagged_with: "Személy felcímkézve %{tag}"
+      posts_tagged_with: "Bejegyzés felcímkézve: #%{tag}"
+      whatup: "Mi folyik itt: %{pod}"
   previous: "előző"
   profile: "Profil"
   profiles: 
@@ -393,10 +393,10 @@ hu:
       your_gender: "Nem"
       your_name: "Nevem"
       your_photo: "Fényképem"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Személyes profilod"
+      your_public_profile: "Nyilvános profilod"
+      your_tags: "Te: 5 #címkében"
+      your_tags_placeholder: "pl: #diaspora #buli #cica #zene"
     update: 
       failed: "Profil frissítése sikertelen"
       updated: "Profil frissítve"
@@ -428,11 +428,11 @@ hu:
       success: "Barátok lettek."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        few: "%{count} új felkérés!"
+        many: "%{count} új felkérés!"
+        one: "új felkérések!"
+        other: "%{count} új felkérés!"
+        zero: "nincs új felkérés"
     manage_aspect_contacts: 
       existing: "Meglévő kapcsolatok"
       manage_within: "Kapcsolatok kezelése"
@@ -449,7 +449,7 @@ hu:
     finder: 
       friends: 
         few: "%{count} barát"
-        many: "%{count} friends"
+        many: "%{count} barát"
         one: "1 barát"
         other: "%{count} barát"
         zero: "itt nincs barátod"
@@ -503,19 +503,21 @@ hu:
       mention_helper_text: "valaki megemlítéséhez írj '@' jelet, és kezd el írni a nevet"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
-      publishing_to: "publishing to: "
+      publishing_to: "Publikálás:"
       share: "Megosztás"
       share_with: "Megosztás vele: %{aspect}"
       whats_on_your_mind: "Mi jár a fejedben?"
     reshare: 
       reshare: "Újraosztás"
   status_messages: 
+    create: 
+      success: "Megemlítetted: %{names}"
     destroy: 
       failure: "Bejegyzés törlése sikertelen"
     helper: 
       no_message_to_display: "Nincs üzenet."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Megemlít: %{person}"
     show: 
       destroy: "Töröl"
       permalink: "permalink"
@@ -527,23 +529,23 @@ hu:
   users: 
     destroy: "Fiók sikeresen lezárult."
     edit: 
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...más is hozzászólt az ismerősöd bejegyzéséhez?"
       change: "Módosítás"
       change_language: "Nyelv megváltoztatása"
       change_password: "Jelszó módosítása"
       close_account: "Fiók bezárása"
-      comment_on_post: "...someone comments on your post?"
+      comment_on_post: "...valaki hozzászólt egy bejegyzésedhez?"
       current_password: "Jelenlegi jelszó"
       download_photos: "Képeim letöltése"
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
       export_data: "Adatok exportálása"
-      mentioned: "...you are mentioned in a post?"
+      mentioned: "...meg vagy említve egy bejegyzésben?"
       new_password: "Új jelszó"
-      private_message: "...you receive a private message?"
-      receive_email_notifications: "Kérsz e-mail értesítéseket?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      private_message: "...privát üzenetet kaptál?"
+      receive_email_notifications: "Email értesítést kérek amikor..."
+      request_acceptence: "...elfogadta a kérelmed?"
+      request_received: "...valaki meg szeretne osztani veled?"
       your_email: "E-mail címed"
       your_handle: "Diaspora felhasználóneved"
     getting_started: 

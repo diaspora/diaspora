@@ -510,6 +510,8 @@ en_shaw:
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑐𐑴𐑕𐑑"
     helper: 

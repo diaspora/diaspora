@@ -510,6 +510,8 @@ el:
     reshare: 
       reshare: "Μοιράσου και πάλι"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Αποτυχία διαγραφής δημοσίευσης"
     helper: 

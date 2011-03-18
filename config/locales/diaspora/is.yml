@@ -510,6 +510,8 @@ is:
     reshare: 
       reshare: "Endurdeila"
   status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
     destroy: 
       failure: "Ekki tókst að eyða færslu"
     helper: 
