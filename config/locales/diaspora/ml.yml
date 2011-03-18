@@ -19,7 +19,7 @@ ml:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
         request: 
           attributes: 
             from_id: 
@@ -27,11 +27,11 @@ ml:
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
             person: 
-              invalid: "is invalid."
+              invalid: "സാധുവല്ല."
             username: 
-              taken: "is already taken."
+              taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
   ago: "%{time} മുന്‍പ്"
   application: 
     helper: 
@@ -59,10 +59,10 @@ ml:
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
-      failure: "Aspect സൃഷ്ടിക്കല്‍ പരാജയപ്പെട്ടു."
+      failure: "പരിചയം സൃഷ്ടിക്കല്‍ പരാജയപ്പെട്ടു."
       success: "നിങ്ങളുടെ പുതിയ aspect %{name} സൃഷ്ടിക്കപ്പെട്ടു."
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
+      failure: "%{name} ശുന്യമല്ലാത്തതിനാല്‍ നീക്കാനാകുന്നില്ല."
       success: "%{name} വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     edit: 
       add_existing: "നിലവിലുള്ള സമ്പര്‍ക്കം ചേര്‍കുക"
@@ -73,11 +73,11 @@ ml:
       make_aspect_list_visible: "make aspect list visible?"
       remove_aspect: "Delete this aspect"
       rename: "പേര് മാറ്റുക"
-      update: "update"
-    few: "%{count} aspects"
+      update: "പുതുക്കു"
+    few: "%{count} പരിചയങ്ങള്‍"
     helper: 
-      are_you_sure: "നിങ്ങള്‍ ഈ aspect നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
-      aspect_not_empty: "Aspect ശൂന്യമല്ല "
+      are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
+      aspect_not_empty: "പരിചയം ശൂന്യമല്ല "
       remove: "നീക്കം ചെയ്യു"
     index: 
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
@@ -89,7 +89,7 @@ ml:
       manage_aspects: "പരിചയങ്ങള്‍ കൈകാര്യം ചെയ്യുക"
       no_requests: "പുതിയ അഭ്യര്‍ത്ഥനകള്‍ ഇല്ല"
       requests: "അഭ്യര്‍ത്ഥനകള്‍"
-    many: "%{count} aspects"
+    many: "%{count} പരിചയങ്ങള്‍"
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
@@ -102,11 +102,11 @@ ml:
       add_contact_to: "%{aspect_name} ലേയ്ക്ക് ആരെയെങ്കിലും ചേര്‍ക്കുക"
       invite: "ആരെയെങ്കിലും ഡയസ്പോറയില്‍ ചേരാന്‍ ക്ഷണിക്കുക!"
       nobody: "Bring the people that matter in your life to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
+      nobody_in_aspect: "താങ്കളുടെ '%{aspect_name}' പരിചയം ശൂന്യമാണ്."
     no_posts_message: 
       start_talking: "ആരും ഒന്നും പറയുന്നില്ല. സംഭാഷണം തുടങ്ങിവെയ്ക്കു!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+    one: "ഒരു പരിചയം"
+    other: "%{count} പരിചയങ്ങള്‍"
     seed: 
       family: "കുടുംബം"
       work: "ജോലി"
@@ -114,8 +114,8 @@ ml:
       edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
-      success: "നിങ്ങളുടെ aspect, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
-    zero: "no aspects"
+      success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
+    zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
   cancel: "റദ്ദാക്കുക"
   comments: 
@@ -134,22 +134,22 @@ ml:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
-    many: "%{count} contacts"
+    many: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     one: "ഒരു സമ്പര്‍ക്കം"
     other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
     share_with_pane: 
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
-      share_with: "Start sharing with %{name}"
+      add_new_aspect: "പുതിയ പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കുക"
+      share_with: "%{name} നോട് പങ്കിട്ട് തുടങ്ങുക"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} new messages"
-        many: "%{count} new messages"
-        one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        few: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
+        many: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
+        one: "ഒരു പുതിയ സന്ദേശം"
+        other: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
+        zero: "പുതിയ സന്ദേശങ്ങളില്ല"
     index: 
       create_a_new_message: "create a new message"
       message_inbox: "Message Inbox"
@@ -183,7 +183,7 @@ ml:
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
       learn_about_host: "Learn about how to host your own Diaspora server."
       login_here: "ഇവിടെ ലോഗിന്‍ ചെയ്യുന്നുണ്ടോ?"
-      ownership: "Ownership"
+      ownership: "ഉടമസ്ഥത"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
       share_what_you_want: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി, നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു."
       simplicity: "Simplicity"
@@ -200,15 +200,15 @@ ml:
       rejected: "ഈ ഇമെയില്‍ വിലാസങ്ങള്‍ക്ക് പ്രശ്നങ്ങളുണ്ട്: "
       sent: "Invitations have been sent to: "
     edit: 
-      sign_up: "sign_up"
+      sign_up: "ചേരുക"
     new: 
       already_invited: "ഇതിനകം തന്നെ ക്ഷണിച്ചു"
       aspect: "Aspect"
       comma_seperated_plz: "താങ്കള്‍ക്ക് കോമാ ഉപയോഗിച്ച് ഒന്നില്‍ കൂടൂതല്‍ ഇമെയില്‍ വിലാസങ്ങള്‍ ചേര്‍ക്കാം."
-      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      if_they_accept_info: "അവര്‍ അംഗീകരിക്കുകയാണെങ്കില്‍, അവരെ താങ്കള്‍ ക്ഷണിച്ച പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കും."
       invite_someone_to_join: "ഡയസ്പോറയില്‍ ചേരാന്‍ ആരെയെങ്കിലും ക്ഷണിക്കു!"
       personal_message: "വ്യക്തിപരമായ സന്ദേശം"
-      resend: "Resend"
+      resend: "വീണ്ടും അയയ്ക്കുക"
       send_an_invitation: "ഒരു ക്ഷണം അയയ്ക്കു"
       send_invitation: "ക്ഷണം അയയ്ക്കു"
       to: "To"
@@ -216,7 +216,7 @@ ml:
     application: 
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       logged_in_as: "%{name}എന്ന പേരില്‍ അകത്ത് പ്രവേശിച്ചിരിക്കുന്നു"
-      powered_by: "POWERED BY ഡയസ്പോറ*"
+      powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "പുതിയത്?"
@@ -227,7 +227,7 @@ ml:
       login: "അകത്ത് കടക്കുക"
       logout: "പുറത്ത് കടക്കു"
       profile: "profile"
-      settings: "settings"
+      settings: "ക്രമീകരണങ്ങള്‍"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
   notifications: 
@@ -249,7 +249,7 @@ ml:
       notifications: "അറിയിപ്പുകള്‍"
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
-    post: "പ്രസിദ്ധീകരണം"
+    post: "കുറിപ്പ്"
     request_accepted: "താങ്കളുടെ പങ്കിടല്‍ അഭ്യര്‍ത്ഥന അംഗീകരിച്ചു."
   notifier: 
     also_commented: 
@@ -274,7 +274,7 @@ ml:
       try_it_out: "You should really think about checking it out."
     private_message: 
       message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
+      private_message: "ഒരു സ്വകാര്യ സന്ദേശം അയച്ചു:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message on Diaspora*"
     request_accepted: 
@@ -292,7 +292,7 @@ ml:
   people: 
     aspect_list: 
       edit_membership: "edit aspect membership"
-    few: "%{count} people"
+    few: "%{count} ആളുകള്‍"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " results for %{params}"
@@ -301,14 +301,14 @@ ml:
       no_one_found: "...and no one was found."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
       results_for: "റിസള്‍ട്ടുകള്‍ക്കായി തെരയുക"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} ആളുകള്‍"
+    one: "ഒരാള്‍"
+    other: "%{count} ആളുകള്‍"
     person: 
       add_contact: "സമ്പര്‍ക്കം ചേര്‍ക്കുക"
       already_connected: "Already connected"
       pending_request: "pending request"
-      thats_you: "thats you!"
+      thats_you: "ഇത് താങ്കളാണ്!"
     profile_sidebar: 
       bio: "bio"
       born: "ജന്മദിനം"
@@ -321,14 +321,14 @@ ml:
     show: 
       add_some: "add some"
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
-      edit: "edit"
-      incoming_request: "%{name} wants to share with you"
+      edit: "തിരുത്തു"
+      incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
       mention: "Mention"
-      message: "Message"
-      no_posts: "no posts to display!"
+      message: "സന്ദേശം"
+      no_posts: "കുറിപ്പൊന്നും കാണിക്കാനില്ല!"
       not_connected: "താങ്കള്‍ %{name} യുമായി പങ്കുവെയ്ക്കുന്നില്ല"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
+      recent_posts: "സമീപകാല കുറിപ്പുകള്‍"
+      recent_public_posts: "സമീപകാല പൊതു കുറിപ്പുകള്‍"
       return_to_aspects: "Return to your aspects page"
       similar_contacts: "സാമ്യമുള്ള സമ്പര്‍ക്കങ്ങള്‍"
       start_sharing: "പങ്കുവച്ച് തുടങ്ങുക"
@@ -336,7 +336,7 @@ ml:
       you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
-    zero: "no people"
+    zero: "ആളുകളില്ല"
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -355,7 +355,7 @@ ml:
       invalid_ext: "{file} ന് തെറ്റായ extension ആണ്.  {extensions} മാത്രം അനുവദിച്ചിരിക്കുന്നു."
       size_error: "{file} വളരെ വലുതാണ്, കൂടിയ ഫയല്‍ വലിപ്പം {sizeLimit} ആകുന്നു."
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
+      or_select_one: "അല്ലെങ്കില്‍ ഇപ്പോഴുള്ളതില്‍ നിന്ന് തിരഞ്ഞെടുക്കുക"
       upload: "പുതിയ പ്രൊഫൈല്‍ ചിത്രം ചേര്‍ക്കുക!"
     photo: 
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
@@ -365,20 +365,20 @@ ml:
       edit: "തിരുത്തുക"
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "പ്രൊഫൈല്‍ ചിത്രം ഉണ്ടാക്കുക"
-      original_post: "Original Post"
+      original_post: "യഥാര്‍ത്ഥ കുറിപ്പ്"
       permalink: "സ്ഥിരം കണ്ണി"
       update_photo: "ചിത്രം പുതുക്കുക"
       view: "കാണുക"
     update: 
-      error: "ചിത്രം തിരുത്താന്‍ പറ്റുന്നില്ല.."
+      error: "ചിത്രം പുതുക്കാന്‍ പറ്റുന്നില്ല.."
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
     index: 
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
+      whatup: "%{pod} ല്‍ എന്താണ് സംഭവിക്കുന്നത്?"
   previous: "മുന്‍‌പത്തെ"
   profile: "പ്രൊഫൈല്‍"
   profiles: 
@@ -389,10 +389,10 @@ ml:
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
-      your_birthday: "Your birthday"
+      your_birthday: "താങ്കളുടെ ജന്മദിനം"
       your_gender: "Your gender"
-      your_name: "Your name"
-      your_photo: "Your photo"
+      your_name: "താങ്കളുടെ പേര്"
+      your_photo: "താങ്കളുടെ ചിത്രം"
       your_private_profile: "Your private profile"
       your_public_profile: "Your public profile"
       your_tags: "You: in 5 #tags"
@@ -408,8 +408,8 @@ ml:
       cancel_my_account: "എന്റെ അക്കൌണ്ട് റദ്ദാക്കു"
       edit: "%{name} തിരുത്തു"
       leave_blank: "(മാറ്റേണ്ടെങ്കില്‍ ഒഴിച്ച് തന്നെ ഇടുക)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
+      password_to_confirm: "(മാറ്റങ്ങള്‍ സ്ഥിരികരിക്കാന്‍ വേണ്ടി താങ്കളുടെ നിലവിലുള്ള രഹസ്യവാക്ക് ആവശ്യമുണ്ട്)"
+      unhappy: "സന്തോഷമായില്ല?"
       update: "പുതുക്കു"
     new: 
       enter_email: "ഒരു ഇമെയില്‍ നല്‍കുക"
