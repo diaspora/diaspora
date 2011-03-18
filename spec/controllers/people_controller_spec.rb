@@ -50,6 +50,11 @@ describe PeopleController do
       get :index, :q => "Korthsauce"
       response.should_not be_redirect
     end
+
+    it 'goes to a tag page if you search for a hash' do
+      get :index, :q => '#babies'
+      response.should redirect_to('/p/?tag=babies')
+    end
   end
 
   describe "#show performance", :performance => true do

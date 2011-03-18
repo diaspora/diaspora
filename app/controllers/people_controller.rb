@@ -11,6 +11,12 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
     params[:q] ||= params[:term]
+    
+    if params[:q][0] == 35 || params[:q][0] == '#'
+      redirect_to "/p/?tag=#{params[:q].gsub("#", "")}"
+      return
+    end
+
     limit = params[:limit] || 15
 
     @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
