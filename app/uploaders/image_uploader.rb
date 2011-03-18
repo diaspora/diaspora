@@ -19,6 +19,7 @@ class ImageUploader < CarrierWave::Uploader::Base
 
   def post_process
     self.send(:remove_versions!)
+    unless self.path.include?('.gif')
       ImageUploader.instance_eval do
         version :thumb_small do
           process :resize_to_fill => [50,50]
@@ -40,12 +41,13 @@ class ImageUploader < CarrierWave::Uploader::Base
       self.recreate_versions!
       self.model.update_photo_remote_path
       self.model.save
+    else
+      false
+    end
   end
 
   version :scaled_full
   version :thumb_large
   version :thumb_medium
-  version :thumb_small do 
-    process :resize_to_fill => [50,50]
-  end
+  version :thumb_small
 end
