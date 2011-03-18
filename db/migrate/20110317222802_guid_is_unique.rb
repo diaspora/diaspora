@@ -1,6 +1,6 @@
 class GuidIsUnique < ActiveRecord::Migration
   def self.consolidate_post(guid)
-    post_ids = execute("select posts.id from posts where posts.guid = #{guid}").to_a.flatten!
+    post_ids = execute("select posts.id from posts where posts.guid = '#{guid}'").to_a.flatten!
     keep_id = post_ids.pop
     execute("UPDATE comments
             SET comments.post_id = #{keep_id}
@@ -10,9 +10,9 @@ class GuidIsUnique < ActiveRecord::Migration
             SET posts.status_message_id = #{keep_id}
             WHERE posts.status_message_id IN (#{post_ids.join(',')})")
 
-    execute("DELETE post_visibilities WHERE post_visibilities.post_id IN (#{post_ids.join(',')})")
-    execute("DELETE mentions WHERE mentions.post_id IN (#{post_ids.join(',')})")
-    execute("DELETE posts WHERE posts.id IN (#{post_ids.join(',')})")
+    execute("DELETE FROM post_visibilities WHERE post_visibilities.post_id IN (#{post_ids.join(',')})")
+    execute("DELETE FROM mentions WHERE mentions.post_id IN (#{post_ids.join(',')})")
+    execute("DELETE FROM posts WHERE posts.id IN (#{post_ids.join(',')})")
   end
   def self.up
     sql = <<-SQL
