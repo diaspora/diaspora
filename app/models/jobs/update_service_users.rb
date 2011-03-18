@@ -7,7 +7,7 @@ module Job
   class UpdateServiceUsers < Base 
     def self.perform_delegate(service_id)
       service = Service.find(service_id)
-      response = RestClient.get("https://graph.facebook.com/me/friends", {:params => {:access_token => service.access_token}})
+      service.save_friends
     end
   end
 end
