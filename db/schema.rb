@@ -273,6 +273,17 @@ ActiveRecord::Schema.define(:version => 20110319172136) do
   add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
   add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
 
+  create_table "service_users", :force => true do |t|
+    t.string   "uid"
+    t.string   "name"
+    t.integer  "service_id"
+    t.integer  "person_id"
+    t.integer  "contact_id"
+    t.integer  "request_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "services", :force => true do |t|
     t.string   "type",          :null => false
     t.integer  "user_id",       :null => false

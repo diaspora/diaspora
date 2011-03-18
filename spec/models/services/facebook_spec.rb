@@ -58,8 +58,6 @@ JSON
       @service.finder
     end
 
-
-
     context 'returns a hash' do
       it 'returns a hash' do
         @service.finder.class.should == Hash
