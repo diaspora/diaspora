@@ -49,7 +49,7 @@ class Profile < ActiveRecord::Base
 
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=profile sender=#{person} to=#{user}")
-    person.profile.update_attributes self.attributes
+    person.profile.update_attributes self.attributes.merge(:tag_string => self.tag_string)
 
     person.profile
   end

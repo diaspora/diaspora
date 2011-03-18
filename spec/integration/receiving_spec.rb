@@ -136,6 +136,19 @@ describe 'a user receives a post' do
     end
   end
 
+  describe 'profiles' do
+   it 'federates tags' do
+     luke, leia, raph = set_up_friends
+     raph.profile.diaspora_handle = "raph@remote.net"
+     raph.profile.save!
+     p = raph.profile
+     
+     p.tag_string = "#big #rafi #style"
+     p.receive(luke, raph)
+     p.tags(true).count.should == 3
+   end 
+  end
+
   describe 'post refs' do
     before do
       @status_message = @user2.post :status_message, :text => "hi", :to => @aspect2.id
