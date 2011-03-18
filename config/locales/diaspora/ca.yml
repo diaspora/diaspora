@@ -564,7 +564,9 @@ ca:
 
   status_messages:
     new:
-      mentioning: "Mencionant: %{person}"
+      mentioning: "S'està mencionant: %{person}"
+    create:
+      success: "S'ha mencionat amb èxit: %{names}"
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
