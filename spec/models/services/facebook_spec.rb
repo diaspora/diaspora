@@ -66,5 +66,19 @@ JSON
         @service.save_friends
       }.should change(ServiceUser, :count).by(2)
     end
+
+    context 'only local' do
+      it 'does not return people who are remote' do
+        @service.finder(:local => true).should be_empty
+        @service.finder(:local => true).should_not be_empty
+      end
+    end
+
+    context 'only remote' do
+      it 'does not return people who are remote' do
+        @service.finder(:remote => true).should_not be_empty
+        @service.finder(:remote => true).should be_empty
+      end
+    end
   end
 end

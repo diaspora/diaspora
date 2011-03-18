@@ -68,8 +68,8 @@ class Services::Facebook < Service
                           {:fields => ['name', 'id', 'picture'], :access_token => self.access_token}})
     data = JSON.parse(response.body)['data']
     data.each{ |p|
-      ServiceUser.create(:service_id => self.id, :name => p["name"],
-                         :uid => p["id"], :picture_url => p["picture"])
+      ServiceUser.find_or_create(:service_id => self.id, :name => p["name"],
+                         :uid => p["id"], :photo_url => p["picture"])
     }
   end
 end

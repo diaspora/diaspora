@@ -46,7 +46,6 @@ namespace :db do
 
   desc 'Purge and seed the current RAILS_ENV database using information from db/seeds.rb'
   task :reset do
-
     puts "Resetting the database for #{Rails.env}".upcase
     Rake::Task['db:purge'].invoke
     Rake::Task['db:seed'].invoke
