@@ -88,19 +88,22 @@ var Stream = {
 
   setUpAudioLinks: function(){
     $(".stream a[target='_blank']").each(function(){
-      if($(this).attr('href').match(/\.gif$|\.jpg$|\.png$|\.jpeg$/)) {
-        $(this).hide();
-        $(this).parent().append("<img src='" + this.href + "'</img>");}
+      var link = $(this);
+      if(link.attr('href').match(/\.mp3$|\.ogg$/)) {
+        link.parent().append("<audio preload='none' src='" + this.href + "' controls='controls'>mom</audio>");
+        link.remove();
+      }
     });
   },
 
   setUpImageLinks: function(){
     $(".stream a[target='_blank']").each(function(){
-      if($(this).attr('href').match(/\.mp3$|\.ogg$/)) {
-        $(this).hide();
-        $(this).parent().append("<audio preload='none' src='" + this.href + "' controls='controls'>mom</audio>");}
+      var link = $(this);
+      if(link.attr('href').match(/\.gif$|\.jpg$|\.png$|\.jpeg$/)) {
+        link.parent().append("<img src='" + this.href + "'</img>");
+        link.remove();
+      }
     });
-
   },
 
   toggleComments: function(evt) {
