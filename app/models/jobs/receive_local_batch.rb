@@ -17,8 +17,12 @@ module Job
     def self.create_visibilities(post, recipient_user_ids)
       aspects = Aspect.where(:user_id => recipient_user_ids).joins(:contacts).where(:contacts => {:person_id => post.author_id}).select('aspects.id, aspects.user_id')
       aspects.each do |aspect|
-        PostVisibility.create(:aspect_id => aspect.id, :post_id => post.id)
-        post.socket_to_user(aspect.user_id, :aspect_ids => [aspect.id]) if post.respond_to? :socket_to_user
+        begin
+          PostVisibility.create(:aspect_id => aspect.id, :post_id => post.id)
+        rescue ActiveRecord::RecordNotUnique => e
+          Rails.logger.info(:event => :unexpected_pv, :aspect_id => aspect.id, :post_id => post.id)
+          #The post was already visible to that aspect
+        end
       end
     end
     def self.socket_to_users(post, recipient_user_ids)
