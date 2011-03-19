@@ -68,7 +68,7 @@ class Photo < Post
   def url(name = nil)
     if self.image.path.include? '.gif'
       image.url
-    if remote_photo_path
+    elsif remote_photo_path
       name = name.to_s + '_' if name
       remote_photo_path + name.to_s + remote_photo_name
     else
