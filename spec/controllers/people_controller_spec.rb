@@ -53,7 +53,7 @@ describe PeopleController do
 
     it 'goes to a tag page if you search for a hash' do
       get :index, :q => '#babies'
-      response.should redirect_to('/p/?tag=babies')
+      response.should redirect_to('/tags/babies')
     end
   end
 

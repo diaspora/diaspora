@@ -12,8 +12,8 @@ class PeopleController < ApplicationController
     @aspect = :search
     params[:q] ||= params[:term]
     
-    if params[:q][0] == 35 || params[:q][0] == '#'
-      redirect_to "/p/?tag=#{params[:q].gsub("#", "")}"
+    if (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length > 1
+      redirect_to "/tags/#{params[:q].gsub("#", "")}"
       return
     end
 
