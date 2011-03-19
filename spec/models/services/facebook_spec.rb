@@ -27,11 +27,12 @@ describe Services::Facebook do
     end
   end
 
-  describe '#cache_friends' do
+  context 'finder' do
     before do 
       @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
+      @user2_fb_photo_url = "http://cdn.fn.com/pic1.jpg"
       @user2_service = Services::Facebook.new(:uid => @user2_fb_id, :access_token => "yo")
       @user2.services << @user2_service
       @fb_list_hash =  <<JSON
@@ -40,7 +41,7 @@ describe Services::Facebook do
           {
             "name": "#{@user2_fb_name}",
             "id": "#{@user2_fb_id}",
-            "picture": "http://cdn.fn.com/pic1.jpg"
+            "picture": "#{@user2_fb_photo_url}"
           },
           {
             "name": "Person to Invite",
@@ -55,29 +56,44 @@ JSON
       RestClient.stub!(:get).and_return(@web_mock)
     end
 
-    it 'requests a friend list' do
-      RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => 
-                                           {:fields => ['name', 'id', 'picture'], :access_token => @service.access_token}}).and_return(@web_mock)
-                                           @service.save_friends
-    end
+    describe '#save_friends' do
+      it 'requests a friend list' do
+        RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends", {:params => 
+                                             {:fields => ['name', 'id', 'picture'], :access_token => @service.access_token}}).and_return(@web_mock)
+                                             @service.save_friends
+      end
 
-    it 'creates a service user objects' do
-      lambda{
-        @service.save_friends
-      }.should change(ServiceUser, :count).by(2)
-    end
-
-    context 'only local' do
-      it 'does not return people who are remote' do
-        @service.finder(:local => true).should be_empty
-        @service.finder(:local => true).should_not be_empty
+      it 'creates a service user objects' do
+        lambda{
+          @service.save_friends
+        }.should change(ServiceUser, :count).by(2)
       end
     end
 
-    context 'only remote' do
-      it 'does not return people who are remote' do
-        @service.finder(:remote => true).should_not be_empty
-        @service.finder(:remote => true).should be_empty
+    describe '#finder' do
+      it 'dispatches a resque job' do
+        Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, @service.id)
+        @service.finder
+      end
+      context 'opts' do
+        it 'only local does not return people who are remote' do
+          @service.save_friends
+          @service.finder(:local => true).all.each{|su| su.person.should == @user2.person}
+        end
+
+        it 'does not return people who are remote' do
+          @service.save_friends
+          @service.finder(:remote => true).all.each{|su| su.person.should be_nil}
+        end
+
+        it 'does not return wrong service objects' do
+          su2 = ServiceUser.create(:service => @user2_service, :uid => @user2_fb_id, :name => @user2_fb_name, :photo_url => @user2_fb_photo_url)
+          su2.person.should == @user2.person
+
+          @service.finder(:local => true).all.each{|su| su.service.should == @service}
+          @service.finder(:remote => true).all.each{|su| su.service.should == @service}
+          @service.finder.all.each{|su| su.service.should == @service}
+        end
       end
     end
   end

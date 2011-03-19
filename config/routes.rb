@@ -47,6 +47,7 @@ Diaspora::Application.routes.draw do
 
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
+                                      :sessions      => "sessions",
                                       :invitations   => "invitations"} do
 
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
