@@ -12,9 +12,11 @@ And /^I expand the publisher$/ do
 end
 
 
-When /^(?:|I )append "([^"]*)" with "([^"]*)"$/ do |field, value|
-  script = "$('#{ field }').val(function(index, value) {
-  return value + ' ' + '#{value}'; });"
+When /^I append "([^"]*)" to the publisher$/ do |stuff|
+  script = <<-JS
+    $('#status_message_fake_text').val(
+      $('#status_message_fake_text').val() + '#{stuff}').keyup();
+JS
    page.execute_script(script)
 end
 
