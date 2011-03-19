@@ -70,7 +70,7 @@ class Photo < Post
   end
 
   def url(name = nil)
-    if self.not_processed? || self.image.path.include? '.gif'
+    if self.not_processed? || (!self.image.path.blank? && self.image.path.include?('.gif'))
       image.url
     elsif remote_photo_path
       name = name.to_s + '_' if name
