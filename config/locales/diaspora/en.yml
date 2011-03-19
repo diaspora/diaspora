@@ -184,6 +184,7 @@ en:
       no_conversation_selected: "no conversation selected"
       create_a_new_message: "create a new message"
       no_messages: "no messages"
+      inbox: "Inbox"
     show:
       reply: "reply"
       delete: "delete and block conversation"
@@ -406,12 +407,6 @@ en:
   posts:
     doesnt_exist: "that post does not exist!"
 
-  tags:
-    show:
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-
   profiles:
     edit:
       your_public_profile: "Your public profile"
@@ -559,6 +554,12 @@ en:
   stream_helper:
     show_comments: "show all comments"
     hide_comments: "hide comments"
+
+  tags:
+    show:
+      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
 
   users:
     edit:
