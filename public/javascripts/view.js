@@ -204,9 +204,11 @@ var View = {
   },
 
   userMenu: {
-    click: function() {
+    click: function(evt) {
+      if(!$(View.userMenu.selector).hasClass("active")) {
+        evt.preventDefault();
+      }
       $(this).toggleClass("active");
-      return false;
     },
     removeFocus: function(evt) {
       var $target = $(evt.target);
