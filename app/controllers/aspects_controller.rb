@@ -19,7 +19,7 @@ class AspectsController < ApplicationController
     @selected_contacts.uniq!
 
     # redirect to signup
-    if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile?
+    if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
       redirect_to getting_started_path
     else
       if params[:sort_order].blank? and session[:sort_order].blank?

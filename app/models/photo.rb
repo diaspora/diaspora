@@ -33,10 +33,14 @@ class Photo < Post
     photo = super(params)
     image_file = params.delete(:user_file)
     photo.random_string = gen_random_string(10)
-
+    photo.processed = false
     photo.image.store! image_file
     photo.update_photo_remote_path
     photo
+  end
+
+  def not_processed?
+    !self.processed
   end
 
   def update_photo_remote_path
@@ -66,7 +70,9 @@ class Photo < Post
   end
 
   def url(name = nil)
-    if remote_photo_path
+    if self.not_processed? || (!self.image.path.blank? && self.image.path.include?('.gif'))
+      image.url
+    elsif remote_photo_path
       name = name.to_s + '_' if name
       remote_photo_path + name.to_s + remote_photo_name
     else

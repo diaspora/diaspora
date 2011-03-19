@@ -19,7 +19,7 @@ describe Diaspora::Taggable do
         @object.save!
       end
       it 'links the tag to /p' do
-        link = link_to('#what', posts_path(:tag => 'what'), :class => 'tag')
+        link = link_to('#what', '/tags/what', :class => 'tag')
         @object.format_tags(@str).should include(link)
       end
       it 'responds to plain_text' do

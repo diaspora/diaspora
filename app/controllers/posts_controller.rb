@@ -8,29 +8,6 @@ class PostsController < ApplicationController
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
 
-  def index
-    if current_user
-      @posts = StatusMessage.joins(:aspects).where(:pending => false
-               ).where(Aspect.arel_table[:user_id].eq(current_user.id).or(StatusMessage.arel_table[:public].eq(true))
-               ).select('DISTINCT `posts`.*')
-    else
-      @posts = StatusMessage.where(:public => true, :pending => false)
-    end
-
-    params[:tag] ||= 'partytimeexcellent'
-
-    @posts = @posts.tagged_with(params[:tag])
-    @posts = @posts.includes(:comments, :photos).paginate(:page => params[:page], :per_page => 15, :order => 'created_at DESC')
-
-    profiles = Profile.tagged_with(params[:tag]).where(:searchable => true).select('profiles.id, profiles.person_id')
-    @people = Person.where(:id => profiles.map{|p| p.person_id}).limit(15)
-    @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
-
-    @fakes = PostsFake.new(@posts)
-    @commenting_disabled = true
-    @pod_url = AppConfig[:pod_uri].host
-  end
-
   def show
     @post = Post.where(:id => params[:id], :public => true).includes(:author, :comments => :author).first
 

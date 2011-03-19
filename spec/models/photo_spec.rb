@@ -14,7 +14,9 @@ describe Photo do
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
     @photo  = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
+    @photo.processed = true
     @photo2 = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
+    @photo2.processed = true 
   end
 
   describe "protected attributes" do

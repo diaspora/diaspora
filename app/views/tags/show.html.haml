@@ -4,8 +4,8 @@
 
 
 - content_for :page_title do
-  - if params[:tag]
-    = "##{params[:tag]}"
+  - if params[:name]
+    = "##{params[:name]}"
 
   - else
     = t('.whatup', :pod => @pod_url)
@@ -15,7 +15,7 @@
 
 .span-24.last
   %h1.tag
-    = "##{params[:tag]}"
+    = "##{params[:name]}"
 
 .span-15
   #main_stream.stream
@@ -24,7 +24,7 @@
       %a.paginate
         = t("more")
     - else
-      = t('.nobody_talking', :tag => "##{params[:tag]}")
+      = t('.nobody_talking', :tag => "##{params[:name]}")
   = will_paginate @posts
 
 .prepend-2.span-7.last

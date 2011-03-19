@@ -38,7 +38,7 @@ module Diaspora
       return text if opts[:plain_text]
       regex = /(^|\s)#(\w+)/
       form_message = text.gsub(regex) do |matched_string|
-        "#{$~[1]}<a href=\"/p?tag=#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
+        "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
       end
       form_message.html_safe
     end

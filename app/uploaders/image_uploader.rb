@@ -39,6 +39,7 @@ class ImageUploader < CarrierWave::Uploader::Base
       end
 
       self.recreate_versions!
+      self.model.processed = true
       self.model.update_photo_remote_path
       self.model.save
     else
