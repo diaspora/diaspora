@@ -206,6 +206,7 @@ var View = {
   userMenu: {
     click: function() {
       $(this).toggleClass("active");
+      return false;
     },
     removeFocus: function(evt) {
       var $target = $(evt.target);
