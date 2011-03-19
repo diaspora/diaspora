@@ -67,7 +67,11 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = request.compatible_language_from AVAILABLE_LANGUAGE_CODES
     end
+
+    WillPaginate::ViewHelpers.pagination_options[:previous_label] = "&laquo; #{I18n.t('previous')}"
+    WillPaginate::ViewHelpers.pagination_options[:next_label] = "#{I18n.t('next')} &raquo;"
   end
+
   def clear_gc_stats
     GC.clear_stats if GC.respond_to?(:clear_stats)
   end

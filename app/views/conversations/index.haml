@@ -17,7 +17,7 @@
     %h3
       .right
         = link_to t('.new_message'), new_conversation_path, :class => 'button', :rel => 'facebox'
-      Inbox
+      = t('.inbox')
 
   #conversation_inbox
     - if @conversations.count > 0
