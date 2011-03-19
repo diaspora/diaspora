@@ -45,8 +45,9 @@ module Diaspora
         Contact.unscoped.where(:user_id => self.id, :person_id => person_id).first if person_id
       end
 
-      def people_in_aspects(aspects, opts={})
-        person_ids = contacts_in_aspects(aspects).collect{|contact| contact.person_id}
+      def people_in_aspects(requested_aspects, opts={})
+        allowed_aspects = self.aspects & requested_aspects
+        person_ids = contacts_in_aspects(allowed_aspects).collect{|contact| contact.person_id}
         people = Person.where(:id => person_ids)
 
         if opts[:type] == 'remote'

@@ -276,33 +276,22 @@ describe User do
       alice.update_profile(params).should be_true
       alice.reload.profile.image_url.should == "http://clown.com"
     end
-
-    it "only pushes to non-pending contacts" do
-      pending "this test doesn't really test what it says it tests"
-      lambda {
-        alice.send_contact_request_to(Factory(:user).person, alice.aspects.first)
-      }.should change(Contact.unscoped.where(:user_id => alice.id), :count).by(1)
-
-      m = mock()
-      m.should_receive(:post)
-      Postzord::Dispatch.should_receive(:new).and_return(m)
-      alice.update_profile(@params).should be_true
-    end
     context 'passing in a photo' do
       before do
         fixture_filename  = 'button.png'
         fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
         image = File.open(fixture_name)
-        @photo = Photo.diaspora_initialize(
-                  :author => alice.person, :user_file => image)
+        @photo = Photo.diaspora_initialize(:author => alice.person, :user_file => image)
         @photo.save!
         @params = {:photo => @photo}
       end
       it 'updates image_url' do
         alice.update_profile(@params).should be_true
-        alice.reload.profile.image_url.should == @photo.url(:thumb_large)
-        alice.profile.image_url_medium.should == @photo.url(:thumb_medium)
-        alice.profile.image_url_small.should == @photo.url(:thumb_small)
+        alice.reload
+
+        alice.profile.image_url.should =~ Regexp.new(@photo.url(:thumb_large))
+        alice.profile.image_url_medium.should =~ Regexp.new(@photo.url(:thumb_medium))
+        alice.profile.image_url_small.should =~ Regexp.new(@photo.url(:thumb_small))
       end
       it 'unpends the photo' do
         @photo.pending = true

@@ -96,22 +96,9 @@ describe User do
   end
 
   context 'with two users' do
-    let!(:user)          {Factory(:user)}
-    let!(:first_aspect)  {user.aspects.create(:name => 'bruisers')}
-    let!(:second_aspect) {user.aspects.create(:name => 'losers')}
-    let!(:user4) { Factory.create(:user_with_aspect)}
-
-    before do
-      connect_users(user, first_aspect, user4, user4.aspects.first)
-      connect_users(user, second_aspect, @eve, @eve.aspects.first)
-    end
-
     describe '#people_in_aspects' do
       it 'returns people objects for a users contact in each aspect' do
-        people = @alice.people_in_aspects([first_aspect])
-        people.should == [user4.person]
-        people = @alice.people_in_aspects([second_aspect])
-        people.should == [@eve.person]
+        @alice.people_in_aspects([@alices_aspect]).should == [bob.person]
       end
 
       it 'returns local/remote people objects for a users contact in each aspect' do
@@ -123,27 +110,37 @@ describe User do
         asp2 = local_user2.aspects.create(:name => "brb")
         asp3 = remote_user.aspects.create(:name => "ttyl")
 
-        connect_users(user, first_aspect, local_user1, asp1)
-        connect_users(user, first_aspect, local_user2, asp2)
-        connect_users(user, first_aspect, remote_user, asp3)
+        connect_users(@alice, @alices_aspect, local_user1, asp1)
+        connect_users(@alice, @alices_aspect, local_user2, asp2)
+        connect_users(@alice, @alices_aspect, remote_user, asp3)
 
         local_person = remote_user.person
         local_person.owner_id = nil
         local_person.save
         local_person.reload
 
-        @alice.people_in_aspects([first_aspect]).count.should == 4
-        @alice.people_in_aspects([first_aspect], :type => 'remote').count.should == 1
-        q = @alice.people_in_aspects([first_aspect], :type => 'local')
-        q.count.should == 3
+        @alice.people_in_aspects([@alices_aspect]).count.should == 4
+        @alice.people_in_aspects([@alices_aspect], :type => 'remote').count.should == 1
+        @alice.people_in_aspects([@alices_aspect], :type => 'local').count.should == 3
       end
 
       it 'does not return people not connected to user on same pod' do
-        local_user1 = Factory(:user)
-        local_user2 = Factory(:user)
-        local_user3 = Factory(:user)
+        3.times { Factory(:user) }
+        @alice.people_in_aspects([@alices_aspect]).count.should == 1
+      end
 
-        @alice.people_in_aspects([first_aspect]).count.should == 1
+      it "only returns non-pending contacts" do
+        @alice.send_contact_request_to(Factory(:user).person, @alices_aspect)
+        @alices_aspect.reload
+        @alice.reload
+
+        @alice.people_in_aspects([@alices_aspect]).should == [bob.person]
+      end
+
+      it "returns an empty array when passed an aspect the user doesn't own" do
+        other_user = Factory(:user_with_aspect)
+        connect_users(@eve, @eve.aspects.first, other_user, other_user.aspects.first)
+        @alice.people_in_aspects([other_user.aspects.first]).should == []
       end
     end
   end
