@@ -7,7 +7,7 @@ el:
   javascripts: 
     confirm_dialog: "Είστε σίγουρος/η;"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
     search_for: "Αναζήτηση για {{name}}"
     shared: 
       contact_list: 

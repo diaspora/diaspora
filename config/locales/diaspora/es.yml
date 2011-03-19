@@ -152,6 +152,7 @@ es:
         zero: "no hay nuevos mensajes"
     index: 
       create_a_new_message: "Crear un nuevo mensaje"
+      inbox: "Inbox"
       message_inbox: "Bandeja de entrada"
       new_message: "Nuevo Mensaje"
       no_conversation_selected: "ninguna conversación seleccionada"
@@ -374,11 +375,6 @@ es:
       notice: "Foto actualizada correctamente."
   posts: 
     doesnt_exist: "esa publicación no existe!"
-    index: 
-      nobody_talking: "Todavía nadie esta hablando sobre %{tag}."
-      people_tagged_with: "Personas etiquetadas con %{tag}"
-      posts_tagged_with: "La Publicación se ha etiquetado en #%{tag}"
-      whatup: "Que esta pasando en %{pod}"
   previous: "Anterior"
   profile: "Perfil"
   profiles: 
@@ -511,7 +507,7 @@ es:
       reshare: "Publicar en..."
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Se ha mencionado con éxito a: %{names}"
     destroy: 
       failure: "Fallo elminando la publicación"
     helper: 
@@ -524,6 +520,11 @@ es:
   stream_helper: 
     hide_comments: "Ocultar comentarios"
     show_comments: "Mostrar comentarios"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "el mundo"
   username: "Nombre de usuario"
   users: 

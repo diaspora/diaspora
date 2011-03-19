@@ -152,6 +152,7 @@ nl:
         zero: "geen nieuwe berichten"
     index: 
       create_a_new_message: "maak een nieuw bericht"
+      inbox: "Inbox"
       message_inbox: "Berichten Inbox"
       new_message: "Nieuw Bericht"
       no_conversation_selected: "geen conversatie geselecteerd"
@@ -374,11 +375,6 @@ nl:
       notice: "Foto succesvol veranderd."
   posts: 
     doesnt_exist: "die post bestaat niet!"
-    index: 
-      nobody_talking: "Er is nog niemand die het over %{tag} heeft gehad."
-      people_tagged_with: "Mensen getagged met %{tag}"
-      posts_tagged_with: "Posts getagged met #%{tag}"
-      whatup: "Nu op %{pod}"
   previous: "vorige"
   profile: "Profiel"
   profiles: 
@@ -524,6 +520,11 @@ nl:
   stream_helper: 
     hide_comments: "verberg reacties"
     show_comments: "toon alle reacties"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "de wereld"
   username: "Gebruikersnaam"
   users: 

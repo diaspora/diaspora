@@ -152,6 +152,7 @@ de:
         zero: "Keine neuen Nachrichten"
     index: 
       create_a_new_message: "Erstelle neue Nachricht"
+      inbox: "Eingang"
       message_inbox: "Message Inbox"
       new_message: "Neue Nachricht"
       no_conversation_selected: "Keine Konversation ausgewählt"
@@ -374,11 +375,6 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   posts: 
     doesnt_exist: "Dieser Post existiert nicht!"
-    index: 
-      nobody_talking: "Zurzeit spricht niemand über %{tag}."
-      people_tagged_with: "Personen getaggt mit %{tag}"
-      posts_tagged_with: "Posts, die mit #%{tag} getaggt sind"
-      whatup: "Was auf %{pod} passiert"
   previous: "Vorherige"
   profile: "Profil"
   profiles: 
@@ -524,6 +520,11 @@ de:
   stream_helper: 
     hide_comments: "Kommentare verbergen"
     show_comments: "alle Kommentare zeigen"
+  tags: 
+    show: 
+      nobody_talking: "Niemand hat bereits etwas über %{tag} gesagt."
+      people_tagged_with: "Personen die mit %{tag} getagt sind"
+      posts_tagged_with: "Beiträge die mit #%{tag} getagt sind"
   the_world: "Die Welt"
   username: "Benutzername"
   users: 

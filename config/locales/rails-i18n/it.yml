@@ -1,10 +1,9 @@
 # Italian translations for Ruby on Rails
 #
-# created by Claudio Poli (masterkain@gmail.com)
-#
-# This localization file targets Rails 2 and 3.
-#
-# Rails 3 version by Davide Guerri (d.guerri@caspur.it)
+# Contributors:
+# - Claudio Poli (masterkain@gmail.com)
+# - Simone Carletti (weppos@weppos.net)
+# - Davide Guerri (d.guerri@caspur.it)
 
 it:
   number:
@@ -14,7 +13,7 @@ it:
       significant: false
       strip_insignificant_zeros: false
       separator: "."
-      
+
     currency:
       format:
         format: "%n %u"
@@ -24,18 +23,18 @@ it:
         precision: 2
         significant: false
         strip_insignificant_zeros: false
-        
+
     percentage:
       format:
         delimiter: ""
         # precision: 
-        
+
     precision:
       format:
         # separator:
         delimiter: ""
         # precision:
-        
+
     human:
       format:
         # separator: 
@@ -59,9 +58,9 @@ it:
           unit: ""
           thousand: "Mila"
           million: "Milioni"
-          billion: "Bilioni"
-          trillion: "Trilioni"
-          quadrillion: "Quadrilioni"
+          billion: "Miliardi"
+          trillion: "Bilioni"
+          quadrillion: "Biliardi"
 
   date:
     formats:
@@ -78,16 +77,15 @@ it:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%a %d %b %Y, %H:%M:%S %z"
       short: "%d %b %H:%M"
       long: "%d %B %Y %H:%M"
-          
     am: 'am'
     pm: 'pm'
-      
+
   datetime:
     distance_in_words:
       half_a_minute: "mezzo minuto"
@@ -136,8 +134,8 @@ it:
     array:
       words_connector: ", "
       two_words_connector: " e "
-      last_word_connector: ", e "
-      
+      last_word_connector: " e "
+
     select:
       prompt: "Per favore, seleziona"
 
@@ -179,7 +177,7 @@ it:
         less_than_or_equal_to: "deve essere meno o uguale a %{count}"
         odd: "deve essere dispari"
         even: "deve essere pari"
-      
+
   activerecord:
     errors:
       template:
@@ -195,4 +193,3 @@ it:
 
       full_messages:
         format: "%{attribute}%{message}"
-        

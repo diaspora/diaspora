@@ -152,6 +152,7 @@ fi:
         zero: "ei uusia viestejä"
     index: 
       create_a_new_message: "tee uusi viesti"
+      inbox: "Inbox"
       message_inbox: "Postilaatikko"
       new_message: "Uusi viesti"
       no_conversation_selected: "ei valittua keskustelua"
@@ -374,11 +375,6 @@ fi:
       notice: "Kuva päivitettiin onnistuneesti."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
   previous: "edellinen"
   profile: "Profiili"
   profiles: 
@@ -524,6 +520,11 @@ fi:
   stream_helper: 
     hide_comments: "piilota kommentit"
     show_comments: "näytä kaikki kommentit"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "maailma"
   username: "Käyttäjätunnus"
   users: 

@@ -152,6 +152,7 @@ he:
         zero: "no new messages"
     index: 
       create_a_new_message: "כתיבת הודעה חדשה"
+      inbox: "Inbox"
       message_inbox: "תיבת הודעות נכנסות"
       new_message: "הודעה חדשה"
       no_conversation_selected: "לא נבחר דיון"
@@ -374,11 +375,6 @@ he:
       notice: "התמונה עודכנה בהצלחה."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
   previous: "הקודמת"
   profile: "פרופיל"
   profiles: 
@@ -524,6 +520,11 @@ he:
   stream_helper: 
     hide_comments: "הסתרת הערות"
     show_comments: "הצגת כל ההערות"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "העולם"
   username: "שם משתמש"
   users: 

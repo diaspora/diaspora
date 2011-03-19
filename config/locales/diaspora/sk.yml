@@ -152,6 +152,7 @@ sk:
         zero: "no new messages"
     index: 
       create_a_new_message: "vytvoriť novú správu"
+      inbox: "Inbox"
       message_inbox: "Message Inbox"
       new_message: "Nová správa"
       no_conversation_selected: "no conversation selected"
@@ -374,11 +375,6 @@ sk:
       notice: "Fotka bola úspešne aktualizovaná."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "Čo sa deje na  %{pod}"
   previous: "Predchádzajúce"
   profile: "Profil"
   profiles: 
@@ -524,6 +520,11 @@ sk:
   stream_helper: 
     hide_comments: "skyť komentáre"
     show_comments: "zobraziť komentáre"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "svet"
   username: "Užívateľské meno"
   users: 

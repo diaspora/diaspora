@@ -152,6 +152,7 @@ gl:
         zero: "non hai novas mensaxes"
     index: 
       create_a_new_message: "crear mensaxe"
+      inbox: "Inbox"
       message_inbox: "Caixa de entrada"
       new_message: "Nova mensaxe"
       no_conversation_selected: "non se seleccionou conversación"
@@ -226,8 +227,8 @@ gl:
       code: "código"
       login: "Identificarse"
       logout: "Saír"
-      profile: "profile"
-      settings: "settings"
+      profile: "perfil"
+      settings: "opcións"
   more: "Máis"
   next: "seguinte"
   notifications: 
@@ -243,8 +244,8 @@ gl:
         other: "%{count} novas notificacións"
         zero: "non hai novas notificacións"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "e"
+      and_others: "e outros %{number}"
       mark_all_as_read: "Marcar todos como lidos"
       notifications: "Notificacións"
     mentioned: "citoute nos seus"
@@ -292,7 +293,7 @@ gl:
   people: 
     aspect_list: 
       edit_membership: "Editar membresía de aspecto"
-    few: "%{count} people"
+    few: "%{count} persoas"
     helper: 
       people_on_pod_are_aware_of: "xente nesta vaíña están ao tanto de"
       results_for: "resultados para %{params}"
@@ -301,9 +302,9 @@ gl:
       no_one_found: "...non se atopou ningún"
       no_results: "Ei! Precisas buscar algo."
       results_for: "resultados da procura para"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} persoas"
+    one: "1 persoa"
+    other: "%{count} persoas"
     person: 
       add_contact: "engadir contacto"
       already_connected: "Xa conectado"
@@ -319,11 +320,11 @@ gl:
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "engade algún"
       does_not_exist: "Esa persoa non existe!"
-      edit: "edit"
+      edit: "editar"
       incoming_request: "%{name} quere compartir contigo"
-      mention: "Mention"
+      mention: "Mención"
       message: "Mensaxe"
       no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás compartindo con %{name}"
@@ -333,10 +334,10 @@ gl:
       similar_contacts: "contactos semellantes"
       start_sharing: "comezar a compartir"
       to_accept_or_ignore: "aceptalo ou ignoralo"
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "non tes etiquetas!"
     webfinger: 
       fail: "Sentímolo, non poidemos atopar %{handle}."
-    zero: "no people"
+    zero: "non hai xente"
   photos: 
     create: 
       integrity_error: "Fallou a carga da foto.  Seguro que o ficheiro era unha imaxe?"
@@ -373,12 +374,7 @@ gl:
       error: "Erro ao editar a foto."
       notice: "Foto actualizada correctamente."
   posts: 
-    doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Publicacións etiquetadas como #%{tag}"
-      whatup: "Que está acontecendo en %{pod}"
+    doesnt_exist: "esta publicación non existe!"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
@@ -393,10 +389,10 @@ gl:
       your_gender: "O teu xénero"
       your_name: "O teu nome"
       your_photo: "A túa foto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "O teu perfil privado"
+      your_public_profile: "O teu perfil público"
+      your_tags: "Defínete en 5 #etiquetas"
+      your_tags_placeholder: "por exemplo #diaspora #galego #canciños #música"
     update: 
       failed: "Fallouse ao actualizar perfil"
       updated: "Perfil actualizado"
@@ -503,7 +499,7 @@ gl:
       mention_helper_text: "para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
-      publishing_to: "publishing to: "
+      publishing_to: "publicar a: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
       whats_on_your_mind: "Que tes en mente?"
@@ -511,19 +507,24 @@ gl:
       reshare: "Recompartir "
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "%{names} mencionados correctamente"
     destroy: 
       failure: "Fallo ao borrar publicación"
     helper: 
       no_message_to_display: "Non hai mensaxes para amosar"
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mencionando: %{person}"
     show: 
       destroy: "Borrar"
       permalink: "permalink"
   stream_helper: 
     hide_comments: "esconder comentarios"
     show_comments: "Amosar todos os comentarios"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "o mundo"
   username: "Nome de usuario"
   users: 

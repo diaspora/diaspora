@@ -7,7 +7,7 @@ gl:
   javascripts: 
     confirm_dialog: "Seguro?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Tes que publicalo polo menos nun aspecto"
     search_for: "Buscar a {{name}}"
     shared: 
       contact_list: 

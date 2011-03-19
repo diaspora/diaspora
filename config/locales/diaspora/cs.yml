@@ -152,6 +152,7 @@ cs:
         zero: "žádné nové zprávy"
     index: 
       create_a_new_message: "vytvořit novou zprávu"
+      inbox: "Inbox"
       message_inbox: "Doručené zprávy"
       new_message: "Nová zpráva"
       no_conversation_selected: "není výbrána žádná konverzace"
@@ -374,11 +375,6 @@ cs:
       notice: "Fotka úspěšně aktualizována."
   posts: 
     doesnt_exist: "tento příspěvek neexistuje!"
-    index: 
-      nobody_talking: "Nikdo dosud nemluví o %{tag}."
-      people_tagged_with: "Lidé označeni %{tag}"
-      posts_tagged_with: "Příspěvky označené #%{tag}"
-      whatup: "Co se děje na %{pod}"
   previous: "předchozí"
   profile: "Profil"
   profiles: 
@@ -511,7 +507,7 @@ cs:
       reshare: "Přesdílet"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Úspěšně zmíněno: %{names}"
     destroy: 
       failure: "Nepodařilo se smazat příspěvek"
     helper: 
@@ -524,6 +520,11 @@ cs:
   stream_helper: 
     hide_comments: "skrýt komentáře"
     show_comments: "zobrazit komentáře"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "svět"
   username: "Uživatelské jméno"
   users: 

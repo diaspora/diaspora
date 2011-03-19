@@ -152,6 +152,7 @@ pa:
         zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
+      inbox: "Inbox"
       message_inbox: "Message Inbox"
       new_message: "New Message"
       no_conversation_selected: "no conversation selected"
@@ -374,11 +375,6 @@ pa:
       notice: "Photo successfully updated."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
   previous: "ਪਿੱਛੇ"
   profile: "Profile"
   profiles: 
@@ -524,6 +520,11 @@ pa:
   stream_helper: 
     hide_comments: "ਟਿੱਪਣੀਆਂ ਓਹਲੇ ਕਰੋ"
     show_comments: "ਸਭ ਟਿੱਪਣੀਆਂ ਵੇਖਾਓ"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "the world"
   username: "ਯੂਜ਼ਰ ਨਾਂ"
   users: 

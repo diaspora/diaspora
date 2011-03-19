@@ -152,6 +152,7 @@ da:
         zero: "ingen nye beskeder"
     index: 
       create_a_new_message: "Opret ny besked"
+      inbox: "Inbox"
       message_inbox: "Besked Inbox"
       new_message: "Ny besked"
       no_conversation_selected: "ingen samtale valgt"
@@ -374,11 +375,6 @@ da:
       notice: "Billedet blev opdateret."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Post tagget med #%{tag}"
-      whatup: "Hvad sker der på %{pod}"
   previous: "Forrige"
   profile: "Profil"
   profiles: 
@@ -524,6 +520,11 @@ da:
   stream_helper: 
     hide_comments: "Skjul kommentarer"
     show_comments: "Vis kommentarer"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "Verden"
   username: "Brugernavn"
   users: 

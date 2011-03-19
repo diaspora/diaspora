@@ -152,6 +152,7 @@ ml:
         zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
+      inbox: "Inbox"
       message_inbox: "Message Inbox"
       new_message: "New Message"
       no_conversation_selected: "no conversation selected"
@@ -374,11 +375,6 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
   previous: "മുന്‍‌പത്തെ"
   profile: "പ്രൊഫൈല്‍"
   profiles: 
@@ -524,6 +520,11 @@ ml:
   stream_helper: 
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
     show_comments: "എല്ലാ അഭിപ്രായവും കാണിക്കുക"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "ലോകം മുഴുവന്‍"
   username: "ഉപയോക്തൃനാമം"
   users: 

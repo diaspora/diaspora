@@ -152,6 +152,7 @@ zh-TW:
         zero: "沒有新訊息"
     index: 
       create_a_new_message: "編寫新訊息"
+      inbox: "Inbox"
       message_inbox: "訊息信箱"
       new_message: "新訊息"
       no_conversation_selected: "未選取任何對話"
@@ -374,11 +375,6 @@ zh-TW:
       notice: "相片更新成功."
   posts: 
     doesnt_exist: "貼文不存在!"
-    index: 
-      nobody_talking: "還沒有人提到 %{tag}."
-      people_tagged_with: "標記為 %{tag} 的人"
-      posts_tagged_with: "標記為#%{tag}的貼文"
-      whatup: "%{pod}的新鮮事"
   previous: "前面"
   profile: "個人檔案"
   profiles: 
@@ -524,6 +520,11 @@ zh-TW:
   stream_helper: 
     hide_comments: "隱藏意見"
     show_comments: "顯示所有意見"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "全世界"
   username: "用戶名稱"
   users: 

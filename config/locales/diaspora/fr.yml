@@ -152,6 +152,7 @@ fr:
         zero: "aucun nouveau message"
     index: 
       create_a_new_message: "créer un nouveau message"
+      inbox: "Inbox"
       message_inbox: "Messages reçus"
       new_message: "Nouveau message"
       no_conversation_selected: "aucune conversation sélectionnée"
@@ -374,11 +375,6 @@ fr:
       notice: "La photo a été mise à jour."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Publications marquées avec #%{tag}"
-      whatup: "Quoi de neuf sur %{pod}"
   previous: "précédent"
   profile: "Profil"
   profiles: 
@@ -524,6 +520,11 @@ fr:
   stream_helper: 
     hide_comments: "masquer les commentaires"
     show_comments: "afficher tous les commentaires"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "tout le monde"
   username: "Nom d'utilisateur"
   users: 

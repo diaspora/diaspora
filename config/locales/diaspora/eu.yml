@@ -152,6 +152,7 @@ eu:
         zero: "mezu pribatu berririk ez"
     index: 
       create_a_new_message: "mezu berria sortu"
+      inbox: "Inbox"
       message_inbox: "Sarrera-ontzia"
       new_message: "Mezu Berria"
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
@@ -374,11 +375,6 @@ eu:
       notice: "Argazkia arrakastaz eguneratua."
   posts: 
     doesnt_exist: "mezu hori ez dago!"
-    index: 
-      nobody_talking: "Inork ez du hitzegin %{tag}(r)i buruz oraindik."
-      people_tagged_with: "%{tag} etiketadun jendea"
-      posts_tagged_with: "#%{tag}(r)ekin etiketatutako mezuak"
-      whatup: "Zer berri %{pod}(e)n"
   previous: "aurrekoa"
   profile: "Profila"
   profiles: 
@@ -511,7 +507,7 @@ eu:
       reshare: "Berriz partekatu"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Arrakastaz aipatu dituzu: %{names}"
     destroy: 
       failure: "Akatsa mezua ezabatzean"
     helper: 
@@ -524,6 +520,11 @@ eu:
   stream_helper: 
     hide_comments: "iruzkinak ezkutatu"
     show_comments: "iruzkin guztiak erakutsi"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "mundua"
   username: "Erabiltzailea"
   users: 

@@ -152,6 +152,7 @@ el:
         zero: "κανένα νέο μήνυμα"
     index: 
       create_a_new_message: "δημιουργία νέου μηνύματος"
+      inbox: "Inbox"
       message_inbox: "Εισερχόμενα"
       new_message: "Νέο Μήνυμα"
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
@@ -226,8 +227,8 @@ el:
       code: "κώδικας"
       login: "Είσοδος"
       logout: "αποσύνδεση"
-      profile: "profile"
-      settings: "settings"
+      profile: "προφίλ"
+      settings: "ρυθμίσεις"
   more: "Περισσότερα"
   next: "επόμενο"
   notifications: 
@@ -243,8 +244,8 @@ el:
         other: "%{count} νέες ειδοποιήσεις"
         zero: "καμία νέα ειδοποίηση"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "και"
+      and_others: "και %{number} άλλοι"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
     mentioned: "σας ανέφερε στο"
@@ -292,7 +293,7 @@ el:
   people: 
     aspect_list: 
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
-    few: "%{count} people"
+    few: "%{count} άτομα"
     helper: 
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
@@ -301,9 +302,9 @@ el:
       no_one_found: "...κανένας δεν βρέθηκε. "
       no_results: "Επ! Χρειάζεται να ψάξετε για κάτι."
       results_for: "αποτελέσματα αναζήτησης για"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} άτομα"
+    one: "1 άτομο"
+    other: "%{count} άτομα"
     person: 
       add_contact: "προσθήκη επαφής"
       already_connected: "Είναι ήδη συνδεδεμένο"
@@ -319,24 +320,24 @@ el:
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "προσθέστε κάποιον"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
-      edit: "edit"
+      edit: "επεξεργασία"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
       mention: "Mention"
       message: "Μήνυμα"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
-      not_connected: "Δεν είστε συνδεδεμένος με τον χρήστη %{name}"
+      not_connected: "Δεν είστε συνδεδεμένος με αυτόν τον χρήστη "
       recent_posts: "Πρόσφατες δημοσιεύσεις"
       recent_public_posts: "Πρόσφατες Δημόσιες Δημοσιεύσεις"
       return_to_aspects: "Επιστροφή στη σελίδα με τις πτυχές σας"
       similar_contacts: "παρόμοιες επαφές"
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "δεν έχετε ετικέτες!"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
-    zero: "no people"
+    zero: "κανένα άτομο"
   photos: 
     create: 
       integrity_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η ότι ήταν φωτογραφία;"
@@ -373,12 +374,7 @@ el:
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   posts: 
-    doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
-      whatup: "Τι συμβαίνει στο %{pod}"
+    doesnt_exist: "η δημοσίευση δεν υπάρχει!"
   previous: "προηγούμενο"
   profile: "Προφίλ"
   profiles: 
@@ -393,8 +389,8 @@ el:
       your_gender: "Tο φύλο σας"
       your_name: "Το όνομά σας"
       your_photo: "Η φωτογραφία σας"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
+      your_private_profile: "Το ιδιωτικό σας προφίλ"
+      your_public_profile: "Το δημόσιο προφίλ σας"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
@@ -503,7 +499,7 @@ el:
       mention_helper_text: "για ν' αναφέρεις κάποιον, πάτα '@' και άρχισε να πληκτρολογείς το όνομα του"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
-      publishing_to: "publishing to: "
+      publishing_to: "δημοσίευση στο: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
       whats_on_your_mind: "Τι σκέφτεστε;"
@@ -524,6 +520,11 @@ el:
   stream_helper: 
     hide_comments: "απόκρυψη σχολίων"
     show_comments: "προβολή όλων των σχολίων"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "ο κόσμος"
   username: "Όνομα Χρήστη"
   users: 

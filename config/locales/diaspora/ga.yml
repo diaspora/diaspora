@@ -152,6 +152,7 @@ ga:
         zero: "no new messages"
     index: 
       create_a_new_message: "create a new message"
+      inbox: "Inbox"
       message_inbox: "Message Inbox"
       new_message: "New Message"
       no_conversation_selected: "no conversation selected"
@@ -374,11 +375,6 @@ ga:
       notice: "Pictiure Uaslódaithe."
   posts: 
     doesnt_exist: "that post does not exist!"
-    index: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-      whatup: "What's happening on %{pod}"
   previous: "roimhhe"
   profile: "Próifíl"
   profiles: 
@@ -524,6 +520,11 @@ ga:
   stream_helper: 
     hide_comments: "folaigh nótaí tráchta"
     show_comments: "taispeáin nótaí tráchta"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "an domhain"
   username: "Ainm úsáideora"
   users: 
