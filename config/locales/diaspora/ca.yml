@@ -189,6 +189,7 @@ ca:
       no_conversation_selected: "no hi ha cap conversa seleccionada"
       create_a_new_message: "crea un missatge nou"
       no_messages: "no hi ha missatges"
+      inbox: "Bústia d'entrada"
     show:
       reply: "respon"
       delete: "suprimeix i bloca la conversa"
@@ -418,12 +419,7 @@ ca:
 
 
   posts:
-    doesnt_exist: "aquest post no existeix!"
-    index:
-      whatup: "Què està passant a %{pod}"
-      posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
-      nobody_talking: "Ningú està parlant de %{tag} encara."
-      people_tagged_with: "Gent etiquetada amb %{tag}"
+    doesnt_exist: "aquesta publicació no existeix!"
 
 
   profiles:
@@ -564,7 +560,9 @@ ca:
 
   status_messages:
     new:
-      mentioning: "Mencionant: %{person}"
+      mentioning: "S'està mencionant: %{person}"
+    create:
+      success: "S'ha mencionat amb èxit: %{names}"
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
@@ -577,6 +575,13 @@ ca:
   stream_helper:
     show_comments: "mostra tots els comentaris"
     hide_comments: "amaga els comentaris"
+
+
+  tags:
+    show:
+      posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
+      nobody_talking: "Ningú està parlant de %{tag} encara."
+      people_tagged_with: "Gent etiquetada amb %{tag}"
 
 
   users:
