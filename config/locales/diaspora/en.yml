@@ -326,9 +326,9 @@ en:
     many: "%{count} people"
     other: "%{count} people"
     person:
-      pending_request: "pending request"
+      pending_request: "Pending request"
       already_connected: "Already connected"
-      thats_you: "thats you!"
+      thats_you: "That's you!"
       add_contact: "add contact"
     index:
       results_for: "search results for"

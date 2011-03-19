@@ -1,0 +1,20 @@
+- if person.owner_id == current_user.id
+  = t('people.person.thats_you')
+- elsif contact && !contact.pending
+  = t('people.person.already_connected')
+- elsif (contact && contact.pending) || (request && request.recipient == person)
+  = t('people.person.pending_request')
+- elsif request && request.sender == person
+  = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => '')),
+    {:controller => "contacts",
+    :action => "new",
+    :person_id => person.id},
+    :class => 'share_with button',
+    :rel => 'facebox'
+- else
+  = link_to t('people.show.start_sharing'),
+    {:controller => "contacts",
+    :action => "new",
+    :person_id => person.id},
+    :class => 'button',
+    :rel => 'facebox'

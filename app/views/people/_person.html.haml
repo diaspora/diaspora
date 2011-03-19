@@ -4,26 +4,8 @@
 
 .stream_element{:id => person.id}
   .right
-    - if person.owner_id == current_user.id
-      = t('.thats_you')
-    - elsif contact && !contact.pending
-      = t('.already_connected')
-    - elsif (contact && contact.pending) || (request && request.recipient == person)
-      = t('.pending_request')
-    - elsif request && request.sender == person
-      = link_to t('people.show.incoming_request', :name => truncate(person.name, :length => 20, :separator => ' ', :omission => '')),
-        {:controller => "contacts",
-        :action => "new",
-        :person_id => person.id},
-        :class => 'share_with button',
-        :rel => 'facebox'
-    - else
-      = link_to t('people.show.start_sharing'),
-        {:controller => "contacts",
-        :action => "new",
-        :person_id => person.id},
-        :class => 'button',
-        :rel => 'facebox'
+    = render :partial => 'people/relationship_action',
+             :locals => { :person => person, :contact => contact, :request => request}
 
   = person_image_link(person)
 
