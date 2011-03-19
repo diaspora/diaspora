@@ -189,6 +189,7 @@ ca:
       no_conversation_selected: "no hi ha cap conversa seleccionada"
       create_a_new_message: "crea un missatge nou"
       no_messages: "no hi ha missatges"
+      inbox: "Bústia d'entrada"
     show:
       reply: "respon"
       delete: "suprimeix i bloca la conversa"
