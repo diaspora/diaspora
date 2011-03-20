@@ -132,3 +132,12 @@ end
 Then /^I should get download alert$/ do
   page.evaluate_script("window.alert = function() { return true; }")
 end
+
+When /^I search for "([^\"]*)"$/ do |search_term|
+  When "I fill in \"q\" with \"#{search_term}\""
+  page.execute_script <<-JS
+    var e = jQuery.Event("keypress");
+    e.keyCode = 13;
+    $("#q").trigger(e);
+JS
+end

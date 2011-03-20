@@ -1,7 +1,7 @@
 module NavigationHelpers
   def path_to(page_name)
     case page_name
-      when /^the home page$/
+      when /^the home(?: )?page$/
         root_path
       when /^step (\d)$/
         if $1.to_i == 1
@@ -9,6 +9,8 @@ module NavigationHelpers
         else
           getting_started_path(:step => $1)
         end
+      when /^the tag page for "([^\"]*)"$/
+        tag_path($1)
       when /^its ([\w ]+) page$/
         send("#{$1.gsub(/\W+/, '_')}_path", @it)
       when /^the ([\w ]+) page$/
