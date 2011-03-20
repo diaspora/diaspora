@@ -4,14 +4,23 @@ describe ConversationsController do
   render_views
 
   before do
-    @user1 = alice
-    sign_in :user, @user1
+    @alice = alice
+    sign_in :user, @alice
   end
 
   describe '#new' do
-    it 'succeeds' do
+    before do
       get :new
+    end
+    it 'succeeds' do
       response.should be_success
+    end
+    it "assigns a list of the user's contacts" do
+      assigns(:all_contacts_and_ids).should == @alice.contacts.collect{|c| {"value" => c.id, "name" => c.person.name}}
+    end
+    it "assigns a contact if passed a contact id" do
+      get :new, :contact_id => @alice.contacts.first.id
+      assigns(:contact).should == @alice.contacts.first
     end
   end
 
@@ -22,12 +31,9 @@ describe ConversationsController do
     end
 
     it 'retrieves all conversations for a user' do
-      hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-               :subject => 'not spam', :text => 'cool stuff'}
-
-      3.times do
-        cnv = Conversation.create(hash)
-      end
+      hash = {:author => @alice.person, :participant_ids => [@alice.contacts.first.person.id, @alice.person.id],
+              :subject => 'not spam', :text => 'cool stuff'}
+      3.times { Conversation.create(hash) }
 
       get :index
       assigns[:conversations].count.should == 3
@@ -36,10 +42,12 @@ describe ConversationsController do
 
   describe '#create' do
     before do
-     @hash = {:conversation => {
-                :subject => "secret stuff",
-                :text => 'text'},
-              :contact_ids => '@user1.contacts.first.id'}
+      @hash = {
+        :conversation => {
+          :subject => "secret stuff",
+          :text => 'text'},
+        :contact_ids => [@alice.contacts.first.id]
+      }
     end
 
     it 'creates a conversation' do
@@ -55,19 +63,17 @@ describe ConversationsController do
     end
 
     it 'sets the author to the current_user' do
-      pending
       @hash[:author] = Factory.create(:user)
       post :create, @hash
-      Message.first.author.should == @user1.person
-      Conversation.first.author.should == @user1.person
+      Message.first.author.should == @alice.person
+      Conversation.first.author.should == @alice.person
     end
 
     it 'dispatches the conversation' do
-      cnv = Conversation.create(@hash[:conversation].merge({
-                :author => @user1.person,
-                :participant_ids => [@user1.contacts.first.person.id]}))
+      cnv = Conversation.create(
+        @hash[:conversation].merge({:author => @alice.person, :participant_ids => [@alice.contacts.first.person.id]}))
 
-      p = Postzord::Dispatch.new(@user1, cnv)
+      p = Postzord::Dispatch.new(@alice, cnv)
       Postzord::Dispatch.stub!(:new).and_return(p)
       p.should_receive(:post)
       post :create, @hash
@@ -76,8 +82,8 @@ describe ConversationsController do
 
   describe '#show' do
     before do
-      hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-               :subject => 'not spam', :text => 'cool stuff'}
+      hash = {:author => @alice.person, :participant_ids => [@alice.contacts.first.person.id, @alice.person.id],
+              :subject => 'not spam', :text => 'cool stuff'}
       @conversation = Conversation.create(hash)
     end
 

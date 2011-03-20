@@ -5,20 +5,20 @@ class ConversationsController < ApplicationController
 
   def index
     @conversations = Conversation.joins(:conversation_visibilities).where(
-                              :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
-                                                             :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+      :conversation_visibilities => {:person_id => current_user.person.id}).paginate(
+      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
 
-    @visibilities = ConversationVisibility.where( :person_id => current_user.person.id ).paginate(
-                                                             :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
+    @visibilities = ConversationVisibility.where(:person_id => current_user.person.id).paginate(
+      :page => params[:page], :per_page => 15, :order => 'updated_at DESC')
 
     @unread_counts = {}
-    @visibilities.each{|v| @unread_counts[v.conversation_id] = v.unread}
+    @visibilities.each { |v| @unread_counts[v.conversation_id] = v.unread }
 
     @authors = {}
-    @conversations.each{|c| @authors[c.id] = c.last_author}
-    
+    @conversations.each { |c| @authors[c.id] = c.last_author }
+
     @conversation = Conversation.joins(:conversation_visibilities).where(
-                              :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
+      :conversation_visibilities => {:person_id => current_user.person.id, :conversation_id => params[:conversation_id]}).first
   end
 
   def create
@@ -43,7 +43,7 @@ class ConversationsController < ApplicationController
 
   def show
     @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
-                              :conversation_visibilities => {:person_id => current_user.person.id}).first
+                                                                         :conversation_visibilities => {:person_id => current_user.person.id}).first
 
     if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
       @visibility.unread = 0
@@ -58,7 +58,7 @@ class ConversationsController < ApplicationController
   end
 
   def new
-    @all_contacts_and_ids = current_user.contacts.map{|c| {:value => c.id, :name => c.person.name}}
+    @all_contacts_and_ids = current_user.contacts.map { |c| {:value => c.id, :name => c.person.name} }
     @contact = current_user.contacts.find(params[:contact_id]) if params[:contact_id]
     render :layout => false
   end
