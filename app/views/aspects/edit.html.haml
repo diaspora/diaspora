@@ -26,7 +26,7 @@
     #aspect_name_edit.hidden
       = form_for @aspect, :remote => true do |aspect|
         = aspect.text_field :name
-        = aspect.submit t('.update'), :disable_with => 'updating', :class => 'button'
+        = aspect.submit t('.update'), :disable_with => t('.updating'), :class => 'button'
 
   - if @contacts.count > 0
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts

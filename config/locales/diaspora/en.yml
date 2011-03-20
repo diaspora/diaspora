@@ -91,6 +91,7 @@ en:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       update: "update"
+      updating: "updating"
     aspect_contacts:
       done_editing: "done editing"
     aspect_stream:
