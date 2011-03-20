@@ -1,0 +1,44 @@
+
+ml:
+  i18n:
+    inflections:
+      gender:
+        f:          "പെണ്‍"
+        m:          "ആണ്‍"
+        n:          "neuter"
+        masculine:  :"പുരുഷത്വം"
+        male:       :"ആണ്‍"
+        man:        :"പുരുഷന്‍"
+        boy:        :"ആണ്‍കുട്ടി"
+        b:          :"പു"
+        he:         :"അവന്‍"
+        sir:        :"സാര്‍"
+        mr:         :"ശ്രീമാന്‍"
+        mister:     :"ശ്രീമാന്‍"
+        guy:        :"പയ്യന്‍"
+        dude:       :"ചക്കരേ"
+        gentleman:  :"മാന്യന്‍"
+        mal:        :@m
+        female:     :"പെണ്‍"
+        feminine:   :"സ്ത്രീത്വം"
+        girl:       :"പെണ്‍"
+        g:          :"സ്ത്രി"
+        lady:       :"സ്ത്രി"
+        she:        :"അവള്‍"
+        miss:       :"കുമാരി"
+        missus:     :"കുമാരി"
+        mrs:        :"ശ്രീമതി"
+        missis:     :"ശ്രീമതി"
+        mistress:   :"ശ്രീമതി"
+        ms:         :"ശ്രീമതി"
+        neuter:     :@n
+        neutral:    :@n
+        it:         :"അത്"
+        they:       :"അവര്‍"
+        impersonal: :@n
+        default:    :@n
+      
+    
+  
+
+
