@@ -9,7 +9,7 @@ describe ResqueJobLogging do
     Rails.stub!(:logger).and_return(mock())
     Rails.logger.should_receive(:auto_flushing=).with(1)
 
-    Object.const_set("ResqueJobLoggingDummy", Class.new(Object))
+    silence_warnings { Object.const_set("ResqueJobLoggingDummy", Class.new(Object)) }
     ResqueJobLoggingDummy.extend(ResqueJobLogging)
   end
 
