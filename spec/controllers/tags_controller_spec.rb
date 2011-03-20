@@ -7,10 +7,11 @@ require 'spec_helper'
 describe TagsController do
   render_views
 
-  before do
-    @user = alice
-  end
   describe '#show' do
+    before do
+      @user = alice
+    end
+
     context 'signed in' do
       before do
         sign_in :user, @user
@@ -21,17 +22,34 @@ describe TagsController do
       end
     end
 
-    it 'restricts the posts by tag' do
-      posts = []
-      2.times do
-        posts << @user.post(:status_message, :text => "#what", :public => true, :to => 'all')
+    context "not signed in" do
+      context "when there are people to display" do
+        before do
+          @user.profile.tag_string = "#whatevs"
+          @user.profile.build_tags
+          @user.profile.save!
+          get :show, :name => "whatevs"
+        end
+        it "succeeds" do
+          response.should be_success
+        end
+        it "assigns the right set of people" do
+          assigns(:people).should == [@user.person]
+        end
       end
-      2.times do
-        @user.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+      context "when there are posts to display" do
+        before do
+          @post = @user.post(:status_message, :text => "#what", :public => true, :to => 'all')
+          @user.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+          get :show, :name => 'what'
+        end
+        it "succeeds" do
+          response.should be_success
+        end
+        it "assigns the right set of posts" do
+          assigns[:posts].should == [@post]
+        end
       end
-
-      get :show, :name => 'what'
-      assigns[:posts].should =~ posts
     end
   end
 end

@@ -12,10 +12,6 @@ FixtureBuilder.configure do |fbuilder|
     bob   = Factory(:user_with_aspect, :username => "bob")
     Factory(:aspect, :name => "empty", :user => bob)
 
-    alice.profile.tag_string = '#rockstar'
-    alice.profile.build_tags
-    alice.profile.save!
-
     connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
     connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
    end

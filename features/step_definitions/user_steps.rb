@@ -149,3 +149,12 @@ When /^I log out$/ do
   When "I click on my name in the header"
   When "I follow \"logout\""
 end
+
+Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
+  username = full_name.gsub(/\W/,"").underscore
+  Given "a user named \"#{full_name}\" with email \"#{username}@example.com\""
+  user = User.find_by_username(username)
+  user.profile.tag_string = tag
+  user.profile.build_tags
+  user.profile.save!
+end

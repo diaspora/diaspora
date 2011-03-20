@@ -75,7 +75,7 @@
     - elsif current_user
       %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => current_user.name)}"}
 
-  %body
+  %body{:class => "#{yield(:body_class)}"}
     - unless @landing_page
       #notification
 

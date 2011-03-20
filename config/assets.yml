@@ -68,6 +68,7 @@ stylesheets:
     - public/stylesheets/application.css
     - public/stylesheets/ui.css
     - public/stylesheets/autocomplete.css
+    - public/stylesheets/tags.css
     - public/stylesheets/vendor/facebox.css
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css

@@ -139,5 +139,21 @@ When /^I search for "([^\"]*)"$/ do |search_term|
     var e = jQuery.Event("keypress");
     e.keyCode = 13;
     $("#q").trigger(e);
-JS
+  JS
+end
+
+Then /^I should( not)? see the contact dialog$/ do |not_see|
+  if not_see
+    wait_until { !page.find("#facebox").visible? }
+  else
+    wait_until { page.find("#facebox .share_with") && page.find("#facebox .share_with").visible? }
+  end
+end
+
+When /^I add the person to my first aspect$/ do
+  steps %Q{
+    And I press the first ".add.button" within "#facebox #aspects_list ul > li:first-child"
+    And I wait for the ajax to finish
+    Then I should see a ".added.button" within "#facebox #aspects_list ul > li:first-child"
+  }
 end

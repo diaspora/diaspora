@@ -7,10 +7,7 @@ Feature: sending and receiving requests
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     And I press the first ".share_with.button" within "#author_info"
-    And I press the first ".add.button" within "#facebox #aspects_list ul > li:first-child"
-    #And I debug
-    And I wait for the ajax to finish
-    Then I should see a ".added.button" within "#facebox #aspects_list ul > li:first-child"
+    And I add the person to my first aspect
     Then I go to the destroy user session page
     
   Scenario: accepting a contact request
