@@ -152,7 +152,7 @@ el:
         zero: "κανένα νέο μήνυμα"
     index: 
       create_a_new_message: "δημιουργία νέου μηνύματος"
-      inbox: "Inbox"
+      inbox: "Εισερχόμενα"
       message_inbox: "Εισερχόμενα"
       new_message: "Νέο Μήνυμα"
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
@@ -229,6 +229,20 @@ el:
       logout: "αποσύνδεση"
       profile: "προφίλ"
       settings: "ρυθμίσεις"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Περισσότερα"
   next: "επόμενο"
   notifications: 
@@ -505,6 +519,9 @@ el:
       whats_on_your_mind: "Τι σκέφτεστε;"
     reshare: 
       reshare: "Μοιράσου και πάλι"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -522,9 +539,9 @@ el:
     show_comments: "προβολή όλων των σχολίων"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
+      people_tagged_with: "Άτομα με την ετικέτα %{tag}"
+      posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
   the_world: "ο κόσμος"
   username: "Όνομα Χρήστη"
   users: 

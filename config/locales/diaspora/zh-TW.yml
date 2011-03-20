@@ -229,6 +229,20 @@ zh-TW:
       logout: "登出"
       profile: "個人檔案"
       settings: "設定"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "更多"
   next: "後面"
   notifications: 
@@ -505,6 +519,9 @@ zh-TW:
       whats_on_your_mind: "在想什麼?"
     reshare: 
       reshare: "重新分享"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"

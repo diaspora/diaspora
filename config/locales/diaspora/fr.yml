@@ -152,7 +152,7 @@ fr:
         zero: "aucun nouveau message"
     index: 
       create_a_new_message: "créer un nouveau message"
-      inbox: "Inbox"
+      inbox: "Boîte de réception"
       message_inbox: "Messages reçus"
       new_message: "Nouveau message"
       no_conversation_selected: "aucune conversation sélectionnée"
@@ -227,8 +227,22 @@ fr:
       code: "code"
       login: "connexion"
       logout: "se déconnecter"
-      profile: "profile"
-      settings: "settings"
+      profile: "profil"
+      settings: "paramètres"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Plus"
   next: "suivant"
   notifications: 
@@ -293,7 +307,7 @@ fr:
   people: 
     aspect_list: 
       edit_membership: "modifier l'appartenance à vos aspects"
-    few: "%{count} people"
+    few: "%{count} personnes"
     helper: 
       people_on_pod_are_aware_of: "les personnes sur le pod sont au courant de"
       results_for: "résultats pour %{params}"
@@ -302,9 +316,9 @@ fr:
       no_one_found: "… et personne n'a été trouvé."
       no_results: "Hé ! Vous devez rechercher quelque chose."
       results_for: "résultats de la recherche pour"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} personnes"
+    one: "1 personne"
+    other: "%{count} personnes"
     person: 
       add_contact: "ajouter un contact"
       already_connected: "Déjà connecté"
@@ -320,11 +334,11 @@ fr:
       remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
-      add_some: "add some"
+      add_some: "ajouter"
       does_not_exist: "Cette personne n'existe pas !"
-      edit: "edit"
+      edit: "modifier"
       incoming_request: "%{name} désire partager avec vous"
-      mention: "Mention"
+      mention: "Mentionner"
       message: "Message"
       no_posts: "aucun message à afficher !"
       not_connected: "Vous n'êtes pas connecté(e) avec cette personne"
@@ -334,10 +348,10 @@ fr:
       similar_contacts: "Contacts similaires"
       start_sharing: "commencer à partager"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "vous n'avez aucun tag !"
     webfinger: 
       fail: "Impossible de trouver %{handle}."
-    zero: "no people"
+    zero: "personne"
   photos: 
     create: 
       integrity_error: "Impossible d'envoyer la photo. S'agit-il réellement d'une image ?"
@@ -374,7 +388,7 @@ fr:
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "cette publication n'existe pas !"
   previous: "précédent"
   profile: "Profil"
   profiles: 
@@ -389,10 +403,10 @@ fr:
       your_gender: "Votre sexe"
       your_name: "Votre nom"
       your_photo: "Votre photo"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Votre profil privé"
+      your_public_profile: "Votre profil public"
+      your_tags: "Vous en 5 #tags"
+      your_tags_placeholder: "par ex. #diaspora #repasssage #chatons #musique"
     update: 
       failed: "Impossible de mettre à jour le profil"
       updated: "Profil mis à jour"
@@ -499,21 +513,24 @@ fr:
       mention_helper_text: "pour mentionner quelqu'un, insérez un « @ » et commencez à écrire son nom"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
-      publishing_to: "publishing to: "
+      publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
       whats_on_your_mind: "exprimez-vous"
     reshare: 
       reshare: "Repartager"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Mention de : %{names}"
     destroy: 
       failure: "Impossible de supprimer le message"
     helper: 
       no_message_to_display: "Aucun message à afficher."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mentionne : %{person}"
     show: 
       destroy: "Supprimer"
       permalink: "permalien"
@@ -522,9 +539,9 @@ fr:
     show_comments: "afficher tous les commentaires"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Personne ne parle encore de %{tag}."
+      people_tagged_with: "Personnes taguées avec %{tag}"
+      posts_tagged_with: "Publications taguées avec #%{tag}"
   the_world: "tout le monde"
   username: "Nom d'utilisateur"
   users: 

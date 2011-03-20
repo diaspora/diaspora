@@ -152,7 +152,7 @@ gl:
         zero: "non hai novas mensaxes"
     index: 
       create_a_new_message: "crear mensaxe"
-      inbox: "Inbox"
+      inbox: "Caixa de Entrada"
       message_inbox: "Caixa de entrada"
       new_message: "Nova mensaxe"
       no_conversation_selected: "non se seleccionou conversación"
@@ -229,6 +229,20 @@ gl:
       logout: "Saír"
       profile: "perfil"
       settings: "opcións"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Máis"
   next: "seguinte"
   notifications: 
@@ -505,6 +519,9 @@ gl:
       whats_on_your_mind: "Que tes en mente?"
     reshare: 
       reshare: "Recompartir "
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "%{names} mencionados correctamente"
@@ -522,9 +539,9 @@ gl:
     show_comments: "Amosar todos os comentarios"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Ninguén falou aínda sobre %{tag} ."
+      people_tagged_with: "Xente etiquetada con %{tag}"
+      posts_tagged_with: "Publicacións etiquetadas con #%{tag}"
   the_world: "o mundo"
   username: "Nome de usuario"
   users: 

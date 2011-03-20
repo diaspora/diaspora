@@ -229,6 +229,20 @@ de:
       logout: "Abmelden"
       profile: "Profil"
       settings: "Einstellungen"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} Personen gefällt das nicht"
+        many: "%{count} Personen gefällt das nicht"
+        one: "1 Person gefällt das nicht"
+        other: "%{count} Personen gefällt das nicht"
+        zero: "Keinem gefällt das nicht"
+      people_like_this: 
+        few: "%{count} Personen gefällt das"
+        many: "%{count} Personen gefällt das"
+        one: "1 Person gefällt das"
+        other: "%{count} Personen gefällt das"
+        zero: "Keinem gefällt das"
   more: "Mehr"
   next: "Nächste"
   notifications: 
@@ -391,7 +405,7 @@ de:
       your_photo: "Dein Profilbild"
       your_private_profile: "Dein privates Profil"
       your_public_profile: "Dein öffentliches Profil"
-      your_tags: "Du: in fünf #Tags"
+      your_tags: "Du in fünf #Tags"
       your_tags_placeholder: "Zum Beispiel: #Diaspora #bügeln #Kätzchen #Musik"
     update: 
       failed: "Fehler beim aktualisieren deines Profils"
@@ -505,6 +519,9 @@ de:
       whats_on_your_mind: "Woran denkst du gerade?"
     reshare: 
       reshare: "Erneut senden an"
+    stream_element: 
+      dislike: "Gefällt mir nicht"
+      like: "Gefällt mir"
   status_messages: 
     create: 
       success: "Erfolgreich erwähnt: %{names}"
@@ -530,23 +547,23 @@ de:
   users: 
     destroy: "Konto erfolgreich geschlossen."
     edit: 
-      also_commented: "...jemand auch den Beitrag eines Kontaktes kommentiert hat?"
+      also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert hat?"
       change: "Ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto schließen"
-      comment_on_post: "...jemand deinen Beitrag kommentiert?"
+      comment_on_post: "… jemand deinen Beitrag kommentiert hat?"
       current_password: "Derzeitiges Passwort"
       download_photos: "Meine Fotos herunterladen"
       download_xml: "Meine Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
       export_data: "Daten exportieren"
-      mentioned: "...du in einem Beitrag erwähnt wirst?"
+      mentioned: "… du in einem Beitrag erwähnt wirst?"
       new_password: "Neues Passwort"
-      private_message: "...du eine private Nachricht erhälst?"
-      receive_email_notifications: "E-Mail-Benachrichtigungen empfangen wenn…"
-      request_acceptence: "...deine Teilen-Anfrage akzeptiert wurde?"
-      request_received: "...du eine neue Teilen-Anfrage erhalten hast?"
+      private_message: "… du eine private Nachricht erhältst?"
+      receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
+      request_acceptence: "… deine Teilen-Anfrage akzeptiert wurde?"
+      request_received: "… du eine neue Teilen-Anfrage erhalten hast?"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora* Adresse"
     getting_started: 

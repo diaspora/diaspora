@@ -54,7 +54,7 @@ da:
         change_password: "skift adgangskode"
       new: 
         forgot_password: "Glemt din adgangskode?"
-        no_account: "Ingen konto med den email adresse eksisterer. Hvis du venter på invitation, vi åbner op så snart som muligt"
+        no_account: "Ingen konto med den email adresse eksisterer. Hvis du venter på invitation, så åbner vi så snart som muligt"
         send_password_instructions: "Send mig instruktioner til nulstilning af kodeord"
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du kan nulstille din adgangskode om et par minutter."
       updated: "Dit adgangskode er nu ændret. Du er nu logget ind."

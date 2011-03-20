@@ -152,7 +152,7 @@ eu:
         zero: "mezu pribatu berririk ez"
     index: 
       create_a_new_message: "mezu berria sortu"
-      inbox: "Inbox"
+      inbox: "Sarrera-ontzia"
       message_inbox: "Sarrera-ontzia"
       new_message: "Mezu Berria"
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
@@ -229,6 +229,20 @@ eu:
       logout: "irten"
       profile: "Profila"
       settings: "Lehentasunak"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Gehiago"
   next: "hurrengoa"
   notifications: 
@@ -505,6 +519,9 @@ eu:
       whats_on_your_mind: "zer berri?"
     reshare: 
       reshare: "Berriz partekatu"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"
@@ -522,9 +539,9 @@ eu:
     show_comments: "iruzkin guztiak erakutsi"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
+      people_tagged_with: "%{tag} etiketadun jendea"
+      posts_tagged_with: "#%{tag} etiketadun mezuak"
   the_world: "mundua"
   username: "Erabiltzailea"
   users: 

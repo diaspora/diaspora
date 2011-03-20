@@ -227,8 +227,22 @@ da:
       code: "kode"
       login: "Log ind"
       logout: "Log ud"
-      profile: "profile"
-      settings: "settings"
+      profile: "profil"
+      settings: "indstillinger"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Mere"
   next: "Næste"
   notifications: 
@@ -244,8 +258,8 @@ da:
         other: "%{count} nye notifikationer"
         zero: "ingen nye notifikationer"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "og"
+      and_others: "og %{number} andre"
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
     mentioned: "har omtalt dig i deres"
@@ -293,7 +307,7 @@ da:
   people: 
     aspect_list: 
       edit_membership: "redigér aspektsmedlemsskab"
-    few: "%{count} people"
+    few: "%{count} personer"
     helper: 
       people_on_pod_are_aware_of: "brugere på serveren er bevidste om"
       results_for: " resultat for %{params}"
@@ -302,9 +316,9 @@ da:
       no_one_found: "... Og ingen blev fundet."
       no_results: "Hey! Du er nødt til at søge efter noget."
       results_for: "søgeresultater for"
-    many: "%{count} people"
+    many: "%{count} personer"
     one: "1 person"
-    other: "%{count} people"
+    other: "%{count} personer"
     person: 
       add_contact: "tilføj kontaktperson"
       already_connected: "Allerede forbundet"
@@ -320,11 +334,11 @@ da:
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "tilføj nogle"
       does_not_exist: "Personen findes ikke!"
-      edit: "edit"
+      edit: "rediger"
       incoming_request: "%{name} vil gerne dele med dig."
-      mention: "Mention"
+      mention: "Nævn"
       message: "Besked"
       no_posts: "ingen indlæg at vise!"
       not_connected: "Du er ikke forbundet til denne person."
@@ -334,10 +348,10 @@ da:
       similar_contacts: "lignende kontakter"
       start_sharing: "begynd at dele"
       to_accept_or_ignore: "at godkende eller ignorere det."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "du har ingen tags!"
     webfinger: 
       fail: "Undskyld, vi kunne ikke finde %{handle}."
-    zero: "no people"
+    zero: "ingen personer"
   photos: 
     create: 
       integrity_error: "Billed-upload fejlede. Er du sikker på det var et billede?"
@@ -374,7 +388,7 @@ da:
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "den post eksisterer ikke!"
   previous: "Forrige"
   profile: "Profil"
   profiles: 
@@ -389,10 +403,10 @@ da:
       your_gender: "Dit køn"
       your_name: "Dit navn"
       your_photo: "Dit foto"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "Din private profil"
+      your_public_profile: "Din offentlige profil"
+      your_tags: "Dig: i 5 #tags"
+      your_tags_placeholder: "f. eks. #diaspora #strygning #kattekillinger #musik"
     update: 
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
@@ -499,21 +513,24 @@ da:
       mention_helper_text: "for at nævne nogen i en post, tryk '@' og begynd at skrive deres navn"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
-      publishing_to: "publishing to: "
+      publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"
       whats_on_your_mind: "Hvad har du på hjertet?"
     reshare: 
       reshare: "Del igen"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "%{names} nævnet med succes"
     destroy: 
       failure: "Kunne ikke slette post."
     helper: 
       no_message_to_display: "Ingen beskeder at vise."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Nævnt: %{person}"
     show: 
       destroy: "Slet"
       permalink: "permanentlink"
@@ -522,9 +539,9 @@ da:
     show_comments: "Vis kommentarer"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Ingen har talt om %{tag} endnu."
+      people_tagged_with: "Personer tagged med %{tag}"
+      posts_tagged_with: "Poster tagged med #%{tag}"
   the_world: "Verden"
   username: "Brugernavn"
   users: 

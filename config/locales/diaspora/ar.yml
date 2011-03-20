@@ -229,6 +229,20 @@ ar:
       logout: "logout"
       profile: "profile"
       settings: "settings"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "More"
   next: "next"
   notifications: 
@@ -505,6 +519,9 @@ ar:
       whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Reshare"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

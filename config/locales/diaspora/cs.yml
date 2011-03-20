@@ -152,7 +152,7 @@ cs:
         zero: "žádné nové zprávy"
     index: 
       create_a_new_message: "vytvořit novou zprávu"
-      inbox: "Inbox"
+      inbox: "Doručená pošta"
       message_inbox: "Doručené zprávy"
       new_message: "Nová zpráva"
       no_conversation_selected: "není výbrána žádná konverzace"
@@ -229,6 +229,20 @@ cs:
       logout: "odhlásit"
       profile: "profil"
       settings: "nastavení"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
   more: "Více"
   next: "další"
   notifications: 
@@ -505,6 +519,9 @@ cs:
       whats_on_your_mind: "co máte na mysli?"
     reshare: 
       reshare: "Přesdílet"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"
@@ -522,9 +539,9 @@ cs:
     show_comments: "zobrazit komentáře"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Nikdo dosud nemluví o %{tag}."
+      people_tagged_with: "Lidé označeni %{tag}"
+      posts_tagged_with: "Příspěvky označené #%{tag}"
   the_world: "svět"
   username: "Uživatelské jméno"
   users: 

@@ -6,40 +6,40 @@
 ml: 
   devise: 
     confirmations: 
-      confirmed: "Your account was successfully confirmed. You are now signed in."
+      confirmed: "താങ്കളുടെ അക്കൌണ്ട് വിജയകരമായി സ്ഥിതീകരിച്ചിരിക്കുന്നു. നിങ്ങള്‍ ഇപ്പൊള്‍ പ്രവേശിച്ചിരിക്കുന്നു."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
-      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+        resend_confirmation: "സ്ഥിരീകരിക്കുവാനുള്ള വിവരങ്ങള്‍ വീണ്ടും അയയ്ക്കുക"
+      send_instructions: "താങ്കളുടെ അക്കൌണ്ട് സ്ഥിരീകരിക്കുന്നതിന് ആവശ്യമായ വിവരങ്ങള്‍ അടങ്ങിയ ഇമെയില്‍ അല്പസമയത്തിനകം ലഭിക്കുന്നതാണ്."
     failure: 
-      inactive: "Your account was not activated yet."
+      inactive: "താങ്കളുടെ അക്കൌണ്ട് ഇതുവരെ ളപയോഗപ്രദമാക്കിയിട്ടില്ല."
       invalid: "ഇമെയില്‍ അല്ലെങ്കില്‍ രഹസ്യവാക്ക് തെറ്റാണ്."
       invalid_token: "Invalid authentication token."
-      locked: "Your account is locked."
-      timeout: "Your session expired, please sign in again to continue."
-      unauthenticated: "ഇനി തുടരുന്നതിന് മുമ്പ് നിങ്ങള്‍ അകത്ത് പ്രവേശിക്കുകയോ അംഗത്വം എടുക്കുകയോ ചെയ്യണം."
-      unconfirmed: "You have to confirm your account before continuing."
+      locked: "നിങ്ങളുടെ അക്കൌണ്ട് പൂട്ടിയിരിക്കുന്നു."
+      timeout: "അനുവദിച്ചിരിക്കുന്ന സമയം തീര്‍ന്നിരിക്കുന്നു. തുടരുന്നതിനായി വീണ്ടും പ്രവേശിക്കുക."
+      unauthenticated: "തുടരുന്നതിന് മുമ്പ് നിങ്ങള്‍ അകത്ത് പ്രവേശിക്കുകയോ അംഗത്വം എടുക്കുകയോ ചെയ്യണം."
+      unconfirmed: "തുടരുന്നതിന് മുന്‍പ് താങ്കള്‍ താങ്കളുടെ അക്കൌണ്ട് സ്ഥിരീകരിക്കേണ്ടതാണ്."
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
-      send_instructions: "Your invitation has been sent."
-      updated: "Your password was set successfully. You are now signed in."
+      send_instructions: "താങ്കളുടെ ക്ഷണം അയച്ചു."
+      updated: "താങ്കളുടെ രഹസ്യവാക്ക് വിജയകരമായി രേഖപ്പെടുത്തിയിരിക്കുന്നു. താങ്കള്‍ ഇപ്പോള്‍ പ്രവേശിച്ചിരിക്കുന്നു."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirm my account"
-        subject: "Confirmation instructions"
-        you_can_confirm: "You can confirm your account through the link below:"
-      hello: "Hello %{email}!"
+        confirm: "എന്റെ അക്കൌണ്ട് സ്ഥിരീകരിക്കുക"
+        subject: "സ്ഥിരീകരണത്തിനുള്ള വിവരങ്ങള്‍"
+        you_can_confirm: "താഴെയുള്ള കണ്ണിയിലൂടെ താങ്കള്‍ക്ക് അക്കൌണ്ട് സ്ഥിരീകരിക്കാവുന്നതാണ്:"
+      hello: "നമസ്ക്കാരം %{email}!"
       invitation: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
+        accept: "ക്ഷണം സ്വീകരിക്കു"
+        ignore: "താങ്കള്‍ക്ക് ഈ ക്ഷണം സ്വീകരിക്കേണ്ടെങ്കില്‍ ദയവായി ഈ കത്ത് അവഗണിക്കുക."
         no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        subject: "ഡയസ്പോറയില്‍ ചേരാന്‍ താങ്കളെ ക്ഷണിച്ചിരിക്കുന്നു!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
         has_invited_you: "%{name} has invited you to join Diaspora"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
-        change: "Change my password"
-        ignore: "If you didn't request this, please ignore this email."
+        change: "എന്റെ രഹസ്യവാക്ക് മാറ്റുക"
+        ignore: "താങ്കള്‍ ഇത് ആവശ്യപ്പെട്ടിലെങ്കില്‍ ദയവായി അവഗണിക്കുക."
         someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
         subject: "Reset password instructions"
         wont_change: "Your password won't change until you access the link above and create a new one."
@@ -48,12 +48,12 @@ ml:
         click_to_unlock: "Click the link below to unlock your account:"
         subject: "Unlock Instructions"
         unlock: "Unlock my account"
-      welcome: "Welcome %{email}!"
+      welcome: "സ്വാഗതം %{email}!"
     passwords: 
       edit: 
-        change_password: "Change my password"
+        change_password: "എന്റെ രഹസ്യവാക്ക് മാറ്റുക"
       new: 
-        forgot_password: "Forgot your password?"
+        forgot_password: "താങ്കളുടെ രഹസ്യവാക്ക് മറന്നോ?"
         no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
@@ -61,37 +61,37 @@ ml:
     registrations: 
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
-      updated: "You updated your account successfully."
+      updated: "താങ്കള്‍ അക്കൌണ്ട് വിജയകരമായി പുതുക്കി."
     sessions: 
       new: 
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
         bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        login: "Login"
-        modern_browsers: "only supports modern browsers."
-        password: "Password"
-        remember_me: "Remember me"
-        sign_in: "Sign in"
+        login: "പ്രവേശിക്കു"
+        modern_browsers: "ആധുനിക ബ്രൌസറുകള്‍ മാത്രം പിന്‍തുണയ്ക്കുന്നു."
+        password: "രഹസ്യവാക്ക്"
+        remember_me: "ഓര്‍മ്മിക്കു"
+        sign_in: "പ്രവേശിക്കു"
         username: "Username"
-      signed_in: "Signed in successfully."
-      signed_out: "Signed out successfully."
+      signed_in: "വിജയകരമായി പ്രവേശിച്ചിരിക്കുന്നു."
+      signed_out: "വിജയകരമായി പുറത്ത് കടന്നു."
     shared: 
       links: 
-        forgot_your_password: "Forgot your password?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
-        sign_in: "Sign in"
-        sign_up: "Sign up"
+        forgot_your_password: "താങ്കളുടെ രഹസ്യവാക്ക് മറന്നോ?"
+        receive_confirmation: "സ്ഥിരീകരിക്കുവാനുള്ള വിവരങ്ങള്‍ ലഭിച്ചില്ലേ?"
+        receive_unlock: "തുറക്കാനുള്ള വിവരങ്ങള്‍ ലഭിച്ചില്ലേ?"
+        sign_in: "പ്രവേശിക്കു"
+        sign_up: "ചേരു"
         sign_up_closed: "Open signups are closed at this time."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "ഒരു ക്ഷണത്തിനായി ചേരു!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
-      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      unlocked: "Your account was successfully unlocked. You are now signed in."
+        resend_unlock: "തുറക്കുവാനുള്ള വിവരങ്ങള്‍ വീണ്ടും അയയ്ക്കുക"
+      send_instructions: "നിങ്ങളുടെ അക്കൌണ്ട് തുറക്കുന്നതിനാവശ്യമായ വിവരങ്ങള്‍ അടങ്ങിയ ഇമെയില്‍ അല്പസമയത്തിനകം ലഭിക്കുന്നതാണ്."
+      unlocked: "നിങ്ങളുടെ അക്കൌണ്ട് വിജയകരമായി തുറന്നു. നിങ്ങള്‍ ഇപ്പോള്‍ പ്രവേശിച്ചിരിക്കുന്നു."
   errors: 
     messages: 
-      already_confirmed: "ഇതിനകം തന്നെ സ്ഥിതീകരിച്ചു"
+      already_confirmed: "ഇതിനകം തന്നെ സ്ഥിരീകരിച്ചു"
       not_found: "സന്ദേശങ്ങള്‍ കണ്ടെത്തിയില്ല"
       not_locked: "പൂട്ടിയിട്ടില്ല"
