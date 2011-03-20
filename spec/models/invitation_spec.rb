@@ -5,9 +5,9 @@
 require 'spec_helper'
 
 describe Invitation do
-  let(:user)   {alice}
-  let(:aspect) {user.aspects.first}
-  let(:user2)  {eve}
+  let(:user) { alice }
+  let(:aspect) { user.aspects.first }
+  let(:user2) { eve }
   before do
     user.invites = 20
     user.save
@@ -46,8 +46,8 @@ describe Invitation do
   end
 
   describe '.new_user_by_service_and_identifier' do
-    let(:inv){Invitation.new_user_by_service_and_identifier(@type, @identifier)}
-    
+    let(:inv) { Invitation.new_user_by_service_and_identifier(@type, @identifier) }
+
     it 'returns User.new for a non-existent user for email' do
       @type = "email"
       @identifier = "maggie@example.org"
@@ -58,7 +58,7 @@ describe Invitation do
         inv.reload
       }.should raise_error ActiveRecord::RecordNotFound
     end
-    
+
     it 'returns User.new for a non-existent user' do
       @type = "facebook"
       @identifier = "1234892323"
@@ -72,7 +72,7 @@ describe Invitation do
   end
 
   describe '.find_existing_user' do
-    let(:inv){Invitation.find_existing_user(@type, @identifier)}
+    let(:inv) { Invitation.find_existing_user(@type, @identifier) }
     before do
       @users = []
       8.times do
@@ -132,7 +132,7 @@ describe Invitation do
     it 'associates the invitation with the inviter' do
       lambda {
         Invitation.invite(:service => 'email', :identifier => @email, :from => user, :into => aspect)
-      }.should change{user.reload.invitations_from_me.count}.by(1)
+      }.should change { user.reload.invitations_from_me.count }.by(1)
     end
 
     it 'associates the invitation with the invitee' do
@@ -165,7 +165,7 @@ describe Invitation do
 
     it 'sends a contact request to a user with that email into the aspect' do
       user2
-      user.should_receive(:send_contact_request_to){ |a, b|
+      user.should_receive(:send_contact_request_to) { |a, b|
         a.should == user2.person
         b.should == aspect
       }
@@ -174,7 +174,7 @@ describe Invitation do
 
     it 'decrements the invite count of the from user' do
       message = "How've you been?"
-      lambda{
+      lambda {
         new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
       }.should change(user, :invites).by(-1)
     end
@@ -184,7 +184,7 @@ describe Invitation do
       user.save!
       message = "How've you been?"
       lambda {
-        new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
+        Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
       }.should_not change(user, :invites)
     end
 
@@ -198,37 +198,37 @@ describe Invitation do
   end
 
   describe '.create_invitee' do
-    context 'with an existing invitee' do
+    context "when we're resending an invitation" do
       before do
         @valid_params = {:from => user,
-          :service => 'email',
-          :identifier => @email,
-          :into => aspect,
-          :message => @message}
+                         :service => 'email',
+                         :identifier => @email,
+                         :into => aspect,
+                         :message => @message}
         @invitee = Invitation.create_invitee(:service => 'email', :identifier => @email)
         @valid_params[:existing_user] = @invitee
       end
-      it 'creates no user' do
-        @valid_params[:existing_user] = @invitee
-        lambda {
-          Invitation.create_invitee(@valid_params)
-        }.should_not change(User, :count)
+
+      it "does not create a user" do
+        expect { Invitation.create_invitee(@valid_params) }.should_not change(User, :count)
       end
-      it 'sends mail' do
-        lambda {
+
+      it "sends mail" do
+        expect {
           Invitation.create_invitee(@valid_params)
-        }.should change{Devise.mailer.deliveries.size}.by(1)
+        }.should change { Devise.mailer.deliveries.size }.by(1)
       end
-      it 'does not set the key' do
-        lambda {
+
+      it "does not set the key" do
+        expect {
           Invitation.create_invitee(@valid_params)
-        }.should_not change{@invitee.reload.serialized_private_key}
+        }.should_not change { @invitee.reload.serialized_private_key }
       end
-      it 'does not change the invitation token' do
-        pending "until this passes, old invitation emails will be invalidated by new ones"
-        lambda {
-          Invitation.create_invitee(@valid_params)
-        }.should_not change{@invitee.reload.invitation_token}
+
+      it "changes the invitation token" do
+        old_token = @invitee.invitation_token
+        Invitation.create_invitee(@valid_params)
+        @invitee.reload.invitation_token.should_not == old_token
       end
     end
     context 'with an inviter' do
@@ -237,63 +237,56 @@ describe Invitation do
         @valid_params = {:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => @message}
       end
 
-      it 'sends mail' do
-        lambda {
+      it "sends mail" do
+        expect {
           Invitation.create_invitee(@valid_params)
-        }.should change{Devise.mailer.deliveries.size}.by(1)
+        }.should change { Devise.mailer.deliveries.size }.by(1)
       end
 
-      it 'mails the optional message' do
-        new_user = Invitation.create_invitee(@valid_params)
-        Devise.mailer.deliveries.first.to_s.include?(@message).should be_true
+      it "includes the message in the email" do
+        Invitation.create_invitee(@valid_params)
+        Devise.mailer.deliveries.last.to_s.should include(@message)
       end
 
-      it 'has no translation missing' do
-        new_user = Invitation.create_invitee(@valid_params)
-        Devise.mailer.deliveries.first.body.raw_source.match(/(translation_missing.+)/).should be_nil
+      it "has no translation missing" do
+        Invitation.create_invitee(@valid_params)
+        Devise.mailer.deliveries.last.body.raw_source.should_not match(/(translation_missing.+)/)
       end
 
-      it "doesn't create an invitation if the email is invalid" do
-         new_user = Invitation.create_invitee(@valid_params.merge(:identifier => 'fdfdfdfdf'))
-         new_user.should_not be_persisted
-         new_user.should have(1).error_on(:email)
+      it "doesn't create a user if the email is invalid" do
+        new_user = Invitation.create_invitee(@valid_params.merge(:identifier => 'fdfdfdfdf'))
+        new_user.should_not be_persisted
+        new_user.should have(1).error_on(:email)
       end
 
-      it 'does not save a user with an empty string email' do
+      it "does not save a user with an empty string email" do
         @valid_params[:service] = 'facebook'
         @valid_params[:identifier] = '3423423'
         Invitation.create_invitee(@valid_params)
         @valid_params[:identifier] = 'dfadsfdas'
-        lambda {
-            Invitation.create_invitee(@valid_params)
-        }.should_not raise_error
+        expect { Invitation.create_invitee(@valid_params) }.should_not raise_error
       end
     end
 
     context 'with no inviter' do
       it 'sends an email that includes the right things' do
         Invitation.create_invitee(:service => 'email', :identifier => @email)
-        Devise.mailer.deliveries.first.to_s.include?("Welcome #{@email}").should == true
+        Devise.mailer.deliveries.first.to_s.should include("Welcome #{@email}")
       end
       it 'creates a user' do
-        lambda {
+        expect {
           Invitation.create_invitee(:service => 'email', :identifier => @email)
         }.should change(User, :count).by(1)
       end
       it 'sends email to the invited user' do
-        lambda {
+        expect {
           Invitation.create_invitee(:service => 'email', :identifier => @email)
-        }.should change{Devise.mailer.deliveries.size}.by(1)
+        }.should change { Devise.mailer.deliveries.size }.by(1)
       end
-      it 'does not render nonsensical emails' do
-        Invitation.create_invitee(:service => 'email', :identifier => @email)
-        Devise.mailer.deliveries.first.body.raw_source.match(/have invited you to join/i).should be_false
-      end
-      it 'creates an invitation' do
-        pending "Invitations should be more flexible, allowing custom messages to be passed in without an inviter."
-        lambda {
+      it 'does not create an invitation' do
+        expect {
           Invitation.create_invitee(:service => 'email', :identifier => @email)
-        }.should change(Invitation, :count).by(1)
+        }.should_not change(Invitation, :count)
       end
     end
   end
@@ -306,7 +299,7 @@ describe Invitation do
     end
 
     it 'sends another email' do
-      lambda{@invitation.resend}.should change(Devise.mailer.deliveries, :count).by(1)
+      lambda { @invitation.resend }.should change(Devise.mailer.deliveries, :count).by(1)
     end
   end
 
@@ -314,12 +307,11 @@ describe Invitation do
     before do
       @new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect)
       acceptance_params = {:invitation_token => "abc",
-                              :username => "user",
-                              :email => @email,
-                              :password => "secret",
-                              :password_confirmation => "secret",
-                              :person => {:profile => {:first_name => "Bob",
-                                :last_name  => "Smith"}}}
+                           :username => "user",
+                           :email => @email,
+                           :password => "secret",
+                           :password_confirmation => "secret",
+                           :person => {:profile => {:first_name => "Bob", :last_name => "Smith"}}}
       @new_user.setup(acceptance_params)
       @new_user.person.save
       @new_user.save
