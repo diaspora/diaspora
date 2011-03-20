@@ -11,13 +11,29 @@ And /^I expand the publisher$/ do
     ')
 end
 
-
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
-  script = <<-JS
-    $('#status_message_fake_text').val(
-      $('#status_message_fake_text').val() + '#{stuff}').keyup();
-JS
-   page.execute_script(script)
+  # Wait for the publisher to appear and all the elements to lay out
+  wait_until { evaluate_script("$('#status_message_fake_text').focus().length == 1") }
+
+  # Write to the placeholder field and trigger a keyup to start the copy
+  page.execute_script <<-JS
+    $('#status_message_fake_text').val($('#status_message_fake_text').val() + '#{stuff}');
+    $('#status_message_fake_text').keyup();
+  JS
+
+  # Wait until the text appears in the placeholder
+  wait_until do
+    evaluate_script("$('#status_message_fake_text').val().match(/#{stuff}/) != null")
+  end
+
+  # WAIT FOR IT!...
+
+  # Wait until the text copy is finished
+  wait_until do
+    evaluate_script <<-JS
+      $('#status_message_text').val() && ($('#status_message_text').val().match(/#{stuff}/) != null)
+    JS
+  end
 end
 
 And /^I hover over the post$/ do
@@ -54,13 +70,13 @@ end
 
 When /^I press the first "([^"]*)"(?: within "([^"]*)")?$/ do |link_selector, within_selector|
   with_scope(within_selector) do
-   find(:css, link_selector).click
+    find(:css, link_selector).click
   end
 end
 
-When /^I press the ([\d])(nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |number,rd, link_selector, within_selector|
+When /^I press the ([\d])(nd|rd|st|th) "([^\"]*)"(?: within "([^\"]*)")?$/ do |number, rd, link_selector, within_selector|
   with_scope(within_selector) do
-   find(:css, link_selector+":nth-child(#{number})").click
+    find(:css, link_selector+":nth-child(#{number})").click
   end
 end
 Then /^(?:|I )should see a "([^\"]*)"(?: within "([^\"]*)")?$/ do |selector, scope_selector|
