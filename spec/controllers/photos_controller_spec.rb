@@ -162,9 +162,9 @@ describe PhotosController do
       response.code.should == "201"
     end
 
-    it 'should return a 406 on failure' do
+    it 'should return a 422 on failure' do
       get :make_profile_photo, :photo_id => @bobs_photo.id
-      response.code.should == "406"
+      response.code.should == "422"
     end
 
   end

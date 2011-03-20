@@ -61,7 +61,7 @@ describe CommentsController do
       it 'posts no comment' do
         @user1.should_not_receive(:comment)
         post :create, comment_hash
-        response.code.should == '406'
+        response.code.should == '422'
       end
     end
   end

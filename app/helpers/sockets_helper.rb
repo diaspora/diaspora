@@ -50,6 +50,9 @@ module SocketsHelper
       elsif object.is_a? Comment
         v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.author})
 
+      elsif object.is_a? Like
+        v = render_to_string(:partial => 'likes/likes', :locals => {:likes => object.post.likes, :dislikes => object.post.dislikes})
+
       elsif object.is_a? Notification
         v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => opts[:actor]})
 
@@ -72,6 +75,10 @@ module SocketsHelper
       action_hash[:my_post?] = (post.author.owner_id == uid)
       action_hash[:post_guid] = post.guid
 
+    end
+
+    if object.is_a? Like
+      action_hash[:post_guid] = object.post.guid
     end
 
     action_hash[:mine?] = object.author && (object.author.owner_id == uid) if object.respond_to?(:author)

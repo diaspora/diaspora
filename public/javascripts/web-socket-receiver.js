@@ -36,6 +36,9 @@ var WebSocketReceiver = {
             'my_post?': obj['my_post?']
           });
 
+        } else if (obj['class']=="likes") {
+          WebSocketReceiver.processLike(obj.post_id, obj.html)
+
         } else {
           WebSocketReceiver.processPost(obj['class'], obj.post_id, obj.html, obj.aspect_ids);
         }
@@ -114,6 +117,11 @@ var WebSocketReceiver = {
     }
 
     Diaspora.widgets.timeago.updateTimeAgo();
+  },
+
+  processLike: function(postId, html) {
+    var post = $("*[data-guid='"+postId+"']");
+    $(".likes_container", post).fadeOut('fast').html(html).fadeIn('fast');
   },
 
   processPost: function(className, postId, html, aspectIds) {

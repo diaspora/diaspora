@@ -1,0 +1,17 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- if likes.length > 0
+  .likes
+    = image_tag('icons/happy_smiley.png')
+    = link_to t('.people_like_this', :count => likes.length), "#", :class => "expand_likes"
+    %span.hidden.likes_list
+      = likes_list(likes)
+
+- if dislikes.length > 0
+  .dislikes
+    = image_tag('icons/sad_smiley.png')
+    = link_to t('.people_dislike_this', :count => dislikes.length), "#", :class => "expand_dislikes"
+    %span.hidden.dislikes_list
+      = likes_list(dislikes)

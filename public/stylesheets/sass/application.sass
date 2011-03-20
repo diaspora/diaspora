@@ -563,7 +563,9 @@ header
     :align right
 
 ul.comments,
-ul.show_comments
+ul.show_comments,
+div.likes,
+div.dislikes
   :margin 0
     :top 0.5em
   :padding 0
@@ -2320,7 +2322,9 @@ h3,h4
   :position relative
   :z-index 10
 
-ul.show_comments
+ul.show_comments,
+div.likes,
+div.dislikes
   :margin
     :bottom -0.5em
   > li
@@ -2852,3 +2856,16 @@ h1.tag
   .share_with
     :background
       :color rgb(245,245,245)
+
+.likes_container
+  .likes,
+  .dislikes
+    :border-bottom 1px solid white
+    a
+      :padding 1px
+      :vertical-align middle
+      :font-size smaller
+    img
+      :width 12px
+      :height 12px
+      :margin-left 0.5em

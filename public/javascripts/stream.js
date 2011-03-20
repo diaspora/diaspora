@@ -39,6 +39,32 @@ var Stream = {
       }
     });
 
+    // like/dislike
+    $stream.delegate("a.expand_likes", "click", function(evt) {
+      evt.preventDefault();
+      $(this).siblings('.likes_list').fadeToggle('fast');
+    });
+
+    $stream.delegate("a.expand_dislikes", "click", function(evt) {
+      evt.preventDefault();
+      $(this).siblings('.dislikes_list').fadeToggle('fast');
+    });
+
+    $(".like_it, .dislike_it").live('ajax:loading', function(data, json, xhr) {
+      $(this).parent().fadeOut('fast');
+    });
+
+    $(".like_it, .dislike_it").live('ajax:success', function(data, json, xhr) {
+      $(this).parent().detach();
+      json = $.parseJSON(json);
+      WebSocketReceiver.processLike(json.post_id, json.html);
+    });
+    
+    $('.like_it, .dislike_it').live('ajax:failure', function(data, html, xhr) {
+      Diaspora.widgets.alert.alert('Failed to like/dislike!');
+      $(this).parent().fadeIn('fast');
+    });
+
     // reshare button action
     $stream.delegate(".reshare_button", "click", function(evt) {
       evt.preventDefault();

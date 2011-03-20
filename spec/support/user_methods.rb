@@ -37,6 +37,16 @@ class User
     end
   end
 
+  def like(positive, options ={})
+    fantasy_resque do
+      l = build_like(positive, options)
+      if l.save!
+        Postzord::Dispatch.new(self, l).post
+      end
+      l
+    end
+  end
+
   def post_at_time(time)
     p = self.post(:status_message, :text => 'hi', :to => self.aspects.first)
     p.created_at = time

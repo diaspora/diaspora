@@ -176,6 +176,32 @@ class User < ActiveRecord::Base
     comment
   end
 
+  ######## Liking  ########
+  def build_like(positive, options = {})
+    like = Like.new(:author_id => self.person.id,
+                    :positive => positive,
+                    :post => options[:on])
+    like.set_guid
+    #sign like as liker
+    like.author_signature = like.sign_with_key(self.encryption_key)
+
+    if !like.post_id.blank? && person.owns?(like.parent)
+      #sign like as post owner
+      like.parent_author_signature = like.sign_with_key(self.encryption_key)
+    end
+
+    like
+  end
+
+  def liked?(post)
+    [post.likes, post.dislikes].each do |likes|
+      likes.each do |like|
+        return true if like.author_id == self.person.id
+      end
+    end
+    return false
+  end
+
   ######### Mailer #######################
   def mail(job, *args)
     pref = job.to_s.gsub('Job::Mail', '').underscore

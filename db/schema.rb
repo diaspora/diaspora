@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110319005509) do
+ActiveRecord::Schema.define(:version => 201110319172136) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -104,6 +104,21 @@ ActiveRecord::Schema.define(:version => 20110319005509) do
   add_index "invitations", ["mongo_id"], :name => "index_invitations_on_mongo_id"
   add_index "invitations", ["recipient_id"], :name => "index_invitations_on_recipient_id"
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
+
+  create_table "likes", :force => true do |t|
+    t.boolean  "positive",                :default => true
+    t.integer  "post_id"
+    t.integer  "author_id"
+    t.string   "guid"
+    t.text     "author_signature"
+    t.text     "parent_author_signature"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
+  add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
+  add_index "likes", ["post_id"], :name => "index_likes_on_post_id"
 
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
@@ -341,6 +356,9 @@ ActiveRecord::Schema.define(:version => 20110319005509) do
 
   add_foreign_key "invitations", "users", :name => "invitations_recipient_id_fk", :column => "recipient_id", :dependent => :delete
   add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id", :dependent => :delete
+
+  add_foreign_key "likes", "people", :name => "likes_author_id_fk", :column => "author_id"
+  add_foreign_key "likes", "posts", :name => "likes_post_id_fk"
 
   add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
 

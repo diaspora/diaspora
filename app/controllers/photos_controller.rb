@@ -111,10 +111,10 @@ class PhotosController < ApplicationController
                             :status => 201}
         end
       else
-        render :nothing => true, :status => 406
+        render :nothing => true, :status => 422
       end
     else
-      render :nothing => true, :status => 406
+      render :nothing => true, :status => 422
     end
   end
 

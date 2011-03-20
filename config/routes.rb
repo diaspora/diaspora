@@ -6,6 +6,8 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only => [:new, :create, :destroy, :show]
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
+  match '/likes' => 'likes#create'
+  resources :likes,           :only => [:create]
 
   match 'tags/:name' => 'tags#show'
   resources :tags, :only => [:show]
