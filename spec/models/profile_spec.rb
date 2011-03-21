@@ -174,9 +174,16 @@ describe Profile do
       @object = person.profile
     end
     it 'allows 5 tags' do
+      @object.tag_string = '#one #two #three #four #five'
+
+      @object.valid?
+      @object.errors.full_messages
+
+      @object.should be_valid
+    end
+    it 'allows no more than 5 tags' do
       @object.tag_string = '#one #two #three #four #five #six'
-      @object.build_tags
-      @object.valid?.should be_false
+      @object.should_not be_valid
     end
     it_should_behave_like 'it is taggable'
   end

@@ -33,6 +33,7 @@ class Profile < ActiveRecord::Base
   validates_length_of :last_name,  :maximum => 32
   validates_format_of :first_name, :with => /\A[^;]+\z/, :allow_blank => true
   validates_format_of :last_name, :with => /\A[^;]+\z/, :allow_blank => true
+  validate :max_tags
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
     :image_url_small, :birthday, :gender, :bio, :searchable, :date, :tag_string
@@ -112,10 +113,15 @@ class Profile < ActiveRecord::Base
   end
 
   protected
-
   def strip_names
     self.first_name.strip! if self.first_name
     self.last_name.strip! if self.last_name
+  end
+
+  def max_tags
+    if self.tag_string.count('#') > 5
+      errors[:base] << 'Profile cannot have more than five tags'
+    end
   end
 
   private
