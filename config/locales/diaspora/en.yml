@@ -100,12 +100,6 @@ en:
       post_time: "post time"
     show:
       edit_aspect: "edit aspect"
-    no_contacts_message:
-      nobody: "Bring the people that matter in your life to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
-      add_contact: "Add a contact"
-      add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
     manage:

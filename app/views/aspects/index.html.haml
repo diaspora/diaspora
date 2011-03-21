@@ -6,10 +6,7 @@
 - content_for :head do
   = include_javascripts :home
 
-
 .span-15.append-2
-  = render 'aspects/no_contacts_message', :aspect => @aspect, :contact_count => @contact_count
-
   #aspect_stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
