@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110319172136) do
+ActiveRecord::Schema.define(:version => 20110321205715) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -220,12 +220,12 @@ ActiveRecord::Schema.define(:version => 20110319172136) do
     t.text     "remote_photo_path"
     t.string   "remote_photo_name"
     t.string   "random_string"
-    t.string   "image"
+    t.string   "processed_image"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
-    t.boolean  "processed",         :default => true
+    t.string   "unprocessed_image"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"

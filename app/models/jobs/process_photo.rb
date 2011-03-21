@@ -4,10 +4,10 @@
 
 
 module Job
-  class ProcessPhoto < Base 
+  class ProcessPhoto < Base
     @queue = :photos
     def self.perform_delegate(photo_id)
-        Photo.find(photo_id).image.post_process
+      Photo.find(photo_id).process
     end
   end
 end

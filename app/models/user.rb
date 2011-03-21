@@ -37,7 +37,7 @@ class User < ActiveRecord::Base
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
   has_many :services
-  has_many :user_preferences  
+  has_many :user_preferences
 
   before_destroy :disconnect_everyone, :remove_mentions, :remove_person
   before_save do
@@ -52,7 +52,7 @@ class User < ActiveRecord::Base
       self.disable_mail = false
       self.save
     end
-    
+
     pref_hash.keys.each do |key|
       if pref_hash[key] == 'true'
         self.user_preferences.find_or_create_by_email_type(key)
@@ -226,6 +226,7 @@ class User < ActiveRecord::Base
   def update_profile(params)
     if photo = params.delete(:photo)
       photo.update_attributes(:pending => false) if photo.pending
+      photo.process
       params[:image_url] = photo.url(:thumb_large)
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)

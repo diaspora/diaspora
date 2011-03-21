@@ -4,7 +4,8 @@
 
 class Photo < Post
   require 'carrierwave/orm/activerecord'
-  mount_uploader :image, ImageUploader
+  mount_uploader :processed_image, ProcessedImage
+  mount_uploader :unprocessed_image, UnprocessedImage
 
   xml_attr :remote_photo_path
   xml_attr :remote_photo_name
@@ -33,23 +34,25 @@ class Photo < Post
     photo = super(params)
     image_file = params.delete(:user_file)
     photo.random_string = gen_random_string(10)
-    photo.processed = false
-    photo.image.store! image_file
-    photo.update_photo_remote_path
+    photo.unprocessed_image.store! image_file
     photo
   end
 
   def not_processed?
-    !self.processed
+    processed_image.path.nil?
   end
 
-  def update_photo_remote_path
-    unless self.image.url.match(/^https?:\/\//)
+  def processed?
+    !processed_image.path.nil?
+  end
+
+  def update_remote_path
+    unless self.processed_image.url.match(/^https?:\/\//)
       pod_url = AppConfig[:pod_url].dup
       pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{self.image.url}"
+      remote_path = "#{pod_url}#{self.processed_image.url}"
     else
-      remote_path = self.image.url
+      remote_path = self.processed_image.url
     end
 
     name_start = remote_path.rindex '/'
@@ -70,13 +73,13 @@ class Photo < Post
   end
 
   def url(name = nil)
-    if self.not_processed? || (!self.image.path.blank? && self.image.path.include?('.gif'))
-      image.url
-    elsif remote_photo_path
+    if remote_photo_path
       name = name.to_s + '_' if name
       remote_photo_path + name.to_s + remote_photo_name
+    elsif not_processed?
+      unprocessed_image.url
     else
-      image.url(name)
+      processed_image.url(name)
     end
   end
 
@@ -94,6 +97,13 @@ class Photo < Post
 
   def queue_processing_job
     Resque.enqueue(Job::ProcessPhoto, self.id)
+  end
+
+  def process
+    return false if unprocessed_image.path.include?('.gif') || self.processed?
+    processed_image.store!(unprocessed_image) #Ultra naive
+    update_remote_path
+    save!
   end
 
   def mutable?

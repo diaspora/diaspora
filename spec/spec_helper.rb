@@ -42,7 +42,7 @@ RSpec.configure do |config|
   end
 end
 
-ImageUploader.enable_processing = false
+ProcessedImage.enable_processing = false
 
 def set_up_friends
   local_luke = Factory(:user_with_aspect, :username => "luke")

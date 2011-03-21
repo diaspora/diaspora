@@ -300,6 +300,10 @@ describe User do
         alice.update_profile(@params).should be true
         @photo.reload.pending.should be_false
       end
+      it 'post-processes the photo' do
+        @photo.should_receive(:process)
+        alice.update_profile(@params).should be true
+      end
     end
   end
 

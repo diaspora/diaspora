@@ -14,9 +14,7 @@ describe Photo do
     @fail_fixture_name = File.join(File.dirname(__FILE__), '..', 'fixtures', 'msg.xml')
 
     @photo  = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
-    @photo.processed = true
     @photo2 = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
-    @photo2.processed = true 
   end
 
   describe "protected attributes" do
@@ -44,7 +42,7 @@ describe Photo do
       @photo.save!
     end
   end
-  
+
   it 'is mutable' do
     @photo.mutable?.should == true
   end
@@ -54,33 +52,47 @@ describe Photo do
   end
 
   describe '#diaspora_initialize' do
+    before do
+      image = File.open(@fixture_name)
+      @photo = Photo.diaspora_initialize(
+                :author => @user.person, :user_file => image)
+    end
     it 'sets the persons diaspora handle' do
       @photo2.diaspora_handle.should == @user.person.diaspora_handle
     end
-    it 'has a constructor' do
+    it 'builds the photo without saving' do
+      @photo.created_at.nil?.should be_true
+      @photo.unprocessed_image.read.nil?.should be_false
+    end
+  end
+
+  describe '#update_remote_path' do
+    before do
       image = File.open(@fixture_name)
-      photo = Photo.diaspora_initialize(
+      @photo = Photo.diaspora_initialize(
                 :author => @user.person, :user_file => image)
-      photo.created_at.nil?.should be_true
-      photo.image.read.nil?.should be_false
+      @photo.processed_image.store!(@photo.unprocessed_image)
+      @photo.save!
     end
     it 'sets a remote url' do
-      image = File.open(@fixture_name)
-      photo = Photo.diaspora_initialize(
-                :author => @user.person, :user_file => image)
-      photo.remote_photo_path.should include("http")
-      photo.remote_photo_name.should include(".png")
+      @photo.remote_photo_path.should be_nil
+      @photo.remote_photo_name.should be_nil
+
+      @photo.update_remote_path
+
+      @photo.remote_photo_path.should include("http")
+      @photo.remote_photo_name.should include(".png")
     end
   end
 
   it 'should save a photo' do
-    @photo.image.store! File.open(@fixture_name)
+    @photo.unprocessed_image.store! File.open(@fixture_name)
     @photo.save.should == true
     begin
-      binary = @photo.image.read.force_encoding('BINARY')
+      binary = @photo.unprocessed_image.read.force_encoding('BINARY')
       fixture_binary = File.open(@fixture_name).read.force_encoding('BINARY')
     rescue NoMethodError # Ruby 1.8 doesn't have force_encoding
-      binary = @photo.image.read
+      binary = @photo.unprocessed_image.read
       fixture_binary = File.open(@fixture_name).read
     end
     binary.should == fixture_binary
@@ -88,7 +100,7 @@ describe Photo do
 
   context 'with a saved photo' do
     before do
-      @photo.image.store! File.open(@fixture_name)
+      @photo.unprocessed_image.store! File.open(@fixture_name)
     end
     it 'should have text' do
       @photo.text= "cool story, bro"
@@ -105,25 +117,25 @@ describe Photo do
     end
 
     it 'should not use the imported filename as the url' do
-      @photo.image.url.include?(@fixture_filename).should be false
-      @photo.image.url(:thumb_medium).include?("/" + @fixture_filename).should be false
+      @photo.url.include?(@fixture_filename).should be false
+      @photo.url(:thumb_medium).include?("/" + @fixture_filename).should be false
     end
   end
 
   describe 'non-image files' do
     it 'should not store' do
       file = File.open(@fail_fixture_name)
-      @photo.image.should_receive(:check_whitelist!)
       lambda {
-        @photo.image.store! file
-      }.should raise_error
+        @photo.unprocessed_image.store! file
+      }.should raise_error CarrierWave::IntegrityError, 'You are not allowed to upload "xml" files, allowed types: ["jpg", "jpeg", "png", "gif"]'
     end
 
   end
 
   describe 'serialization' do
     before do
-      @photo.image.store! File.open(@fixture_name)
+      @photo.process
+      @photo.save!
       @xml = @photo.to_xml.to_s
     end
     it 'serializes the url' do
@@ -134,11 +146,11 @@ describe Photo do
       @xml.include?(@user.diaspora_handle).should be true
     end
   end
-  
+
   describe 'remote photos' do
     it 'should set the remote_photo on marshalling' do
-      @photo.image.store! File.open(@fixture_name)
-      @photo.save
+      @photo.process
+      @photo.save!
       #security hax
       user2 = Factory.create(:user)
       aspect2 = user2.aspects.create(:name => "foobars")
