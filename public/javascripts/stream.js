@@ -126,7 +126,7 @@ var Stream = {
     $(".stream a[target='_blank']").each(function(){
       var link = $(this);
       if(link.attr('href').match(/\.gif$|\.jpg$|\.png$|\.jpeg$/)) {
-        link.parent().append("<img src='" + this.href + "'</img>");
+        link.parent().append("<img width='100%' src='" + this.href + "' />");
         link.remove();
       }
     });
