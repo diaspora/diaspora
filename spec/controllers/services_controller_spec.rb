@@ -87,9 +87,9 @@ describe ServicesController do
       @user.services << @service1
       @person = Factory(:person)
       @user.services.stub!(:where).and_return([@service1])
-      @hash = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :person => bob.person,
+      @hash = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :person => bob.person,
                                   :service => @service1, :uid => "321" ),
-                ServiceUser.create(:name => "Robert Bobson", :service => @service1, :uid => "dsfasdfas")]
+                ServiceUser.create(:name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :service => @service1, :uid => "dsfasdfas")]
       @service1.should_receive(:finder).and_return(@hash)
     end
 
