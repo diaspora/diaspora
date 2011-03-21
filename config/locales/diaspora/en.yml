@@ -560,6 +560,7 @@ en:
     show:
       destroy: "Delete"
       permalink: "permalink"
+      not_found: "Sorry, we couldn't find that post."
     helper:
       no_message_to_display: "No message to display."
     destroy:

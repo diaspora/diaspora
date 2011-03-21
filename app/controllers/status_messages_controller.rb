@@ -102,6 +102,8 @@ class StatusMessagesController < ApplicationController
 
       respond_with @status_message
     else
+      Rails.logger.info(:event => :link_to_nonexistent_post, :ref => request.env['HTTP_REFERER'], :user_id => current_user.id, :post_id => params[:id])
+      flash[:error] = I18n.t('status_messages.show.not_found')
       redirect_to :back
     end
   end
