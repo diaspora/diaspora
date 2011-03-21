@@ -74,6 +74,7 @@ pt-BR:
       remove_aspect: "Excluir este aspecto"
       rename: "Renomear"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Tem certeza que quer excluir este aspecto?"

@@ -74,6 +74,7 @@ ro:
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Eşti sigur că doreşti să ştergi acest aspect?"

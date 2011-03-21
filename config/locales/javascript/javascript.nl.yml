@@ -7,7 +7,7 @@ nl:
   javascripts: 
     confirm_dialog: "Weet je het zeker?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"
     shared: 
       contact_list: 

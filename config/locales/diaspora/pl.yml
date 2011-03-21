@@ -74,6 +74,7 @@ pl:
       remove_aspect: "Usuń ten aspekt"
       rename: "zmień nazwę"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"

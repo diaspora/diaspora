@@ -74,6 +74,7 @@ he:
       remove_aspect: "מחיקת היבט זה"
       rename: "שינוי שם"
       update: "עדכון"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "האם אכן ברצונך למחוק היבט זה?"

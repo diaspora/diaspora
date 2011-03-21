@@ -74,6 +74,7 @@ sl:
       remove_aspect: "Izbriši ta vidik"
       rename: "preimenuj"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Ste prepričani, da želite izbrisati skupino?"

@@ -74,6 +74,7 @@ nl:
       remove_aspect: "Verwijder dit aspect"
       rename: "hernoem"
       update: "update"
+      updating: "updating"
     few: "%{count} aspecten"
     helper: 
       are_you_sure: "Weet je zeker dat je dit aspect wilt verwijderen?"
@@ -122,7 +123,7 @@ nl:
     few: "%{count} reacties"
     many: "%{count} reacties"
     new_comment: 
-      comment: "Reactie"
+      comment: "reactie"
       commenting: "Reageren..."
     one: "1 reactie"
     other: "%{count} reacties"
@@ -152,7 +153,7 @@ nl:
         zero: "geen nieuwe berichten"
     index: 
       create_a_new_message: "maak een nieuw bericht"
-      inbox: "Inbox"
+      inbox: "Postvak In"
       message_inbox: "Berichten Inbox"
       new_message: "Nieuw Bericht"
       no_conversation_selected: "geen conversatie geselecteerd"
@@ -232,17 +233,17 @@ nl:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} personen vinden dit niet leuk"
+        many: "%{count} personen vinden dit niet leuk"
+        one: "1 persoon vindt dit niet leuk"
+        other: "%{count} personen vinden dit niet leuk"
+        zero: "niemand vindt dit niet leuk"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} personen vinden dit leuk"
+        many: "%{count} personen vinden dit leuk"
+        one: "1 persoon vindt dit leuk"
+        other: "%{count} personen vinden dit leuk"
+        zero: "niemand vindt dit leuk"
   more: "Meer"
   next: "volgende"
   notifications: 
@@ -307,7 +308,7 @@ nl:
   people: 
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
-    few: "%{count} mensen"
+    few: "%{count} personen"
     helper: 
       people_on_pod_are_aware_of: "mensen op de pod zich bewust van zijn"
       results_for: "resultaten voor %{params}"
@@ -322,7 +323,7 @@ nl:
     person: 
       add_contact: "voeg contact toe"
       already_connected: "Al verbonden"
-      pending_request: "openstaand verzoek"
+      pending_request: "Openstaand verzoek"
       thats_you: "Dat ben jij!"
     profile_sidebar: 
       bio: "bio"
@@ -334,7 +335,7 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
-      add_some: "Voeg wat"
+      add_some: "Voeg toe"
       does_not_exist: "Die persoon bestaat niet!"
       edit: "bewerk"
       incoming_request: "% {name} wil met je delen"
@@ -520,11 +521,11 @@ nl:
     reshare: 
       reshare: "Herdeel"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Ik vind dit niet leuk"
+      like: "Ik vind dit leuk"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Succesvol genoemd: %{names}"
     destroy: 
       failure: "Verwijderen van post mislukt"
     helper: 
@@ -539,9 +540,9 @@ nl:
     show_comments: "toon alle reacties"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Nog niemand heeft het over %{tag}."
+      people_tagged_with: "Personen gemerkt met %{tag}"
+      posts_tagged_with: "Berichten gemerkt met #%{tag}"
   the_world: "de wereld"
   username: "Gebruikersnaam"
   users: 

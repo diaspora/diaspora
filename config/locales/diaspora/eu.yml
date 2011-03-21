@@ -74,6 +74,7 @@ eu:
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
       update: "eguneratu"
+      updating: "updating"
     few: "%{count} alderdi"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
@@ -232,17 +233,17 @@ eu:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} pertsonek ez dute hau gustuko"
+        many: "%{count} pertsonek ez dute hau gustuko"
+        one: "pertsona batek ez du hau gustuko"
+        other: "%{count} pertsonek ez dute hau gustuko"
+        zero: "gusoko ez duen pertsonarik ez dago"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} pertsonek gustoko dute hau"
+        many: "%{count} pertsonek gustoko dute hau"
+        one: "pertsona batek gustoko du hau"
+        other: "%{count} pertsonek gustoko dute hau"
+        zero: "hau ez du inork gustoko"
   more: "Gehiago"
   next: "hurrengoa"
   notifications: 
@@ -520,8 +521,8 @@ eu:
     reshare: 
       reshare: "Berriz partekatu"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Ez dut gustoko"
+      like: "Gustoko dut"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"

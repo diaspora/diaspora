@@ -74,6 +74,7 @@ es:
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
+      updating: "actualizando"
     few: "%{count} aspectos"
     helper: 
       are_you_sure: "¿Seguro que quieres eliminar este Aspecto?"
@@ -232,17 +233,17 @@ es:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} personas no les gusta esto"
+        many: "%{count} personas no les gusta esto"
+        one: "1 persona no le gusta esto"
+        other: "%{count} personas no les gusta esto"
+        zero: "a ninguna persona le disgusta esto"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} personas les gusta eso"
+        many: "%{count} personas les gusta esto"
+        one: "1 persona le gusta esto"
+        other: "%{count} personas les gusta esto"
+        zero: "a ninguna persona le gusta esto"
   more: "Más"
   next: "Siguiente"
   notifications: 
@@ -520,8 +521,8 @@ es:
     reshare: 
       reshare: "Publicar en..."
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "No me gusta esto"
+      like: "Me gusta esto"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"

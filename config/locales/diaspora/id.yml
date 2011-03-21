@@ -74,6 +74,7 @@ id:
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"

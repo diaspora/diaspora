@@ -70,10 +70,11 @@ en_shaw:
       aspect_list_is_visible: "𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑦𐑟 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
       confirm_remove_aspect: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
       done: "𐑛𐑳𐑯"
-      make_aspect_list_visible: "𐑥𐑱𐑒 𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑝𐑦𐑟𐑦𐑚𐑩𐑤 𐑑 𐑳𐑞𐑼𐑟 𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑"
+      make_aspect_list_visible: "𐑥𐑱𐑒 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑤𐑦𐑕𐑑 𐑝𐑦𐑟𐑦𐑚𐑩𐑤?"
       remove_aspect: "𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑"
       rename: "𐑮𐑦𐑯𐑱𐑥"
       update: "𐑳𐑐𐑛𐑱𐑑"
+      updating: "𐑳𐑐𐑛𐑱𐑑𐑦𐑙"
     few: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     helper: 
       are_you_sure: "𐑸 𐑿 𐑖𐑻 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑?"
@@ -152,7 +153,7 @@ en_shaw:
         zero: "𐑯𐑴 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     index: 
       create_a_new_message: "𐑒𐑮𐑦𐑱𐑑 𐑩 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
-      inbox: "Inbox"
+      inbox: "𐑦𐑯𐑚𐑪𐑒𐑕"
       message_inbox: "𐑥𐑧𐑕𐑩𐑡 𐑦𐑯𐑚𐑪𐑒𐑕"
       new_message: "𐑯𐑿 𐑥𐑧𐑕𐑩𐑡"
       no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
@@ -227,22 +228,22 @@ en_shaw:
       code: "𐑒𐑴𐑛"
       login: "𐑤𐑪𐑜𐑦𐑯"
       logout: "𐑤𐑪𐑜𐑬𐑑"
-      profile: "profile"
-      settings: "settings"
+      profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
+      settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        many: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑒𐑲𐑒𐑑 𐑞𐑦𐑕"
+        one: "1 𐑐𐑻𐑕𐑩𐑯 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        other: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        many: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒 𐑞𐑦𐑕"
+        one: "1 𐑐𐑻𐑕𐑩𐑯 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        other: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
   notifications: 
@@ -258,8 +259,8 @@ en_shaw:
         other: "%{count} 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
         zero: "𐑯𐑴 𐑯𐑿 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "𐑯"
+      and_others: "𐑯 %{number} 𐑳𐑞𐑼𐑟"
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
     mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑞𐑺"
@@ -291,7 +292,7 @@ en_shaw:
       message_subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑: %{subject}"
       private_message: "𐑣𐑨𐑟 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      subject: "%{name} 𐑣𐑨𐑟 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡 𐑪𐑯 *𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
     request_accepted: 
       accepted: "𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
@@ -307,7 +308,7 @@ en_shaw:
   people: 
     aspect_list: 
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
-    few: "%{count} people"
+    few: "%{count} 𐑐𐑰𐑐𐑩𐑤"
     helper: 
       people_on_pod_are_aware_of: " 𐑐𐑰𐑐𐑤 𐑪𐑯 𐑐𐑪𐑛 𐑸 𐑩𐑢𐑺 𐑝"
       results_for: " 𐑮𐑦𐑟𐑫𐑤𐑑 𐑓𐑹 %{params}"
@@ -316,8 +317,8 @@ en_shaw:
       no_one_found: "...𐑯 𐑯𐑴 𐑢𐑳𐑯 𐑢𐑪𐑟 𐑓𐑬𐑯𐑛."
       no_results: "𐑣𐑱! 𐑿 𐑯𐑰𐑛 𐑑 𐑕𐑻𐑗 𐑓𐑹 𐑕𐑳𐑥𐑔𐑦𐑙."
       results_for: "𐑕𐑻𐑗 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑹"
-    many: "%{count} people"
-    one: "1 person"
+    many: "%{count} 𐑐𐑰𐑐𐑩𐑤"
+    one: "1 𐑐𐑻𐑕𐑩𐑯"
     other: "%{count} 𐑐𐑰𐑐𐑩𐑤"
     person: 
       add_contact: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
@@ -334,21 +335,21 @@ en_shaw:
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "𐑨𐑛 𐑕𐑳𐑥"
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
-      edit: "edit"
+      edit: "𐑧𐑛𐑦𐑑"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
-      mention: "Mention"
+      mention: "𐑥𐑧𐑯𐑖𐑩𐑯"
       message: "𐑥𐑧𐑕𐑩𐑡"
       no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
-      not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
+      not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 %{name}"
       recent_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑴𐑕𐑑𐑕"
       recent_public_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑴𐑕𐑑𐑕"
       return_to_aspects: "𐑮𐑦𐑑𐑻𐑯 𐑑 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕 𐑐𐑱𐑡"
       similar_contacts: "𐑕𐑦𐑥𐑦𐑤𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       start_sharing: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙"
       to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "𐑿 𐑣𐑨𐑝 𐑯𐑴 𐑑𐑨𐑜𐑟!"
     webfinger: 
       fail: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 %{handle}."
     zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤"
@@ -388,7 +389,7 @@ en_shaw:
       error: "𐑓𐑱𐑤𐑛 𐑑 𐑧𐑛𐑦𐑑 𐑓𐑴𐑑𐑴."
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "𐑞𐑨𐑑 𐑐𐑴𐑕𐑑 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
   profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
   profiles: 
@@ -403,10 +404,10 @@ en_shaw:
       your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
       your_name: "𐑿𐑼 𐑯𐑱𐑥"
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "𐑿𐑼 𐑐𐑮𐑲𐑝𐑩𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_public_profile: "𐑿𐑼 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑮𐑴𐑓𐑲𐑤"
+      your_tags: "𐑿: 𐑦𐑯 5 #𐑑𐑨𐑜𐑟"
+      your_tags_placeholder: "𐑦.𐑧. #diaspora #ironing #kittens #music #𐑖𐑱𐑝𐑾𐑯"
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
@@ -513,24 +514,24 @@ en_shaw:
       mention_helper_text: "𐑑 𐑥𐑧𐑯𐑖𐑩𐑯 𐑕𐑳𐑥𐑢𐑩𐑯, 𐑐𐑮𐑧𐑕 '@' 𐑯 𐑕𐑑𐑸𐑑 𐑑𐑲𐑐𐑦𐑙 𐑞𐑺 𐑯𐑱𐑥"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
-      publishing_to: "publishing to: "
+      publishing_to: "𐑐𐑳𐑚𐑤𐑦𐑖𐑦𐑙 𐑑: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
       whats_on_your_mind: "𐑢𐑪𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "𐑲 𐑛𐑦𐑕𐑤𐑲𐑒 𐑞𐑦𐑕"
+      like: "𐑲 𐑤𐑲𐑒 𐑞𐑦𐑕"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑥𐑧𐑯𐑖𐑩𐑯𐑛: %{names}"
     destroy: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑤𐑰𐑑 𐑐𐑴𐑕𐑑"
     helper: 
       no_message_to_display: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "𐑥𐑧𐑯𐑖𐑩𐑯𐑦𐑙: %{person}"
     show: 
       destroy: "𐑛𐑦𐑤𐑰𐑑"
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
@@ -539,9 +540,9 @@ en_shaw:
     show_comments: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."
+      people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
+      posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
   the_world: "𐑞 𐑢𐑻𐑤𐑛"
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 
@@ -561,7 +562,7 @@ en_shaw:
       mentioned: "...𐑿 𐑸 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑?"
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
       private_message: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡?"
-      receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟?"
+      receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟 𐑢𐑧𐑯..."
       request_acceptence: "...𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑦𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛?"
       request_received: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑯𐑿 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑?"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"

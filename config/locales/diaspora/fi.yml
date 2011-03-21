@@ -74,6 +74,7 @@ fi:
       remove_aspect: "Poista näkymä"
       rename: "nimeä uudelleen"
       update: "päivitä"
+      updating: "updating"
     few: "%{count} näkymää"
     helper: 
       are_you_sure: "Haluatko varmasti poistaa tämän näkymän?"
@@ -227,8 +228,8 @@ fi:
       code: "lähdekoodi"
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
-      profile: "profile"
-      settings: "settings"
+      profile: "Profiili"
+      settings: "Asetukset"
   likes: 
     likes: 
       people_dislike_this: 
@@ -322,7 +323,7 @@ fi:
     person: 
       add_contact: "lisää kontakti"
       already_connected: "Yhteys jo olemassa"
-      pending_request: "odottaa vastausta"
+      pending_request: "Odottaa vastausta"
       thats_you: "Olet sinä!"
     profile_sidebar: 
       bio: "Biografia"
@@ -336,19 +337,19 @@ fi:
     show: 
       add_some: "add some"
       does_not_exist: "Henkilöä ei ole olemassa!"
-      edit: "edit"
+      edit: "muokkaa"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
-      mention: "Mention"
+      mention: "Mainitse"
       message: "Viesti"
       no_posts: "Ei näytettäviä viestejä!"
-      not_connected: "Et ole yhteydessä henkilöön %{name}"
+      not_connected: "Et ole yhteydessä tähän henkilöön "
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
       similar_contacts: "Yhteiset kontaktit"
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "Sinulla ei ole tageja!"
     webfinger: 
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
     zero: "no people"
@@ -403,8 +404,8 @@ fi:
       your_gender: "Sukupuolesi"
       your_name: "Nimesi"
       your_photo: "Profiili kuva"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
+      your_private_profile: "Yksityinen profiilisi"
+      your_public_profile: "Julkinen profiilisi"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 

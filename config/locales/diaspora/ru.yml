@@ -74,6 +74,7 @@ ru:
       remove_aspect: "Удалить этот аспект"
       rename: "переименовать"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"

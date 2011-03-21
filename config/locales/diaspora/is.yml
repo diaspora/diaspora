@@ -74,6 +74,7 @@ is:
       remove_aspect: "Eyða þessari ásýnd"
       rename: "breyta nafni"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Ertu viss um að þú viljir eyða þessari ásýnd?"

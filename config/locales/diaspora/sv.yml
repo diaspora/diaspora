@@ -74,6 +74,7 @@ sv:
       remove_aspect: "Delete this aspect"
       rename: "rename"
       update: "update"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Är du säker på att du vill tabort den här sidan?"

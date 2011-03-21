@@ -66,14 +66,15 @@ cs:
       success: "%{name} byl úspěšně odebrán."
     edit: 
       add_existing: "Přidat existující kontakt"
-      aspect_list_is_not_visible: "seznam aspektů je skryt ostatním v aspektu"
-      aspect_list_is_visible: "seznam aspektů je viditelný pro ostatní v aspektu"
+      aspect_list_is_not_visible: "seznam kontaktů je skryt ostatním v aspektu"
+      aspect_list_is_visible: "seznam kontaktů je viditelný pro ostatní v aspektu"
       confirm_remove_aspect: "Opravdu chcete odstranit tento aspekt?"
       done: "Hotovo"
-      make_aspect_list_visible: "zviditelnit seznam apektů?"
+      make_aspect_list_visible: "zviditelnit seznam kontaktů?"
       remove_aspect: "Odstranit tento aspekt"
       rename: "přejmenovat"
       update: "aktualizovat"
+      updating: "aktualizace"
     few: "%{count} aspekty"
     helper: 
       are_you_sure: "Opravdu chcete odstranit tento aspekt?"
@@ -122,7 +123,7 @@ cs:
     few: "%{count} komentáře"
     many: "%{count} komentářů"
     new_comment: 
-      comment: "Komentář"
+      comment: "komentář"
       commenting: "Komentování..."
     one: "1 komentář"
     other: "%{count} komentářů"
@@ -138,7 +139,7 @@ cs:
     one: "1 kontakt"
     other: "%{count} kontaktů"
     share_with_pane: 
-      accepts: "Jakmile %{name} přijme, uvidíte jeho další příspěvky na Diaspoře"
+      accepts: "Jakmile %{name} pozvání přijme, uvidíte jeho další příspěvky na Diaspoře"
       add_new_aspect: "přidat do nového aspektu"
       share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
@@ -232,17 +233,17 @@ cs:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} lidem se to nelíbí"
+        many: "%{count} lidem se to nelíbí"
+        one: "1 osobě se to nelíbí"
+        other: "%{count} lidem se to nelíbí"
+        zero: "žádná záporná hodnocení"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} lidem se to líbí"
+        many: "%{count} lidem se to líbí"
+        one: "1 osobě se to líbí"
+        other: "%{count} lidem se to líbí"
+        zero: "žádná kladná hodnocení"
   more: "Více"
   next: "další"
   notifications: 
@@ -322,8 +323,8 @@ cs:
     person: 
       add_contact: "přidat kontakt"
       already_connected: "Již připojen"
-      pending_request: "nevyřízené žádosti"
-      thats_you: "to jste vy!"
+      pending_request: "Nevyřízená žádost"
+      thats_you: "To jste vy!"
     profile_sidebar: 
       bio: "životopis"
       born: "datum narození"
@@ -518,10 +519,10 @@ cs:
       share_with: "sdílet s"
       whats_on_your_mind: "co máte na mysli?"
     reshare: 
-      reshare: "Přesdílet"
+      reshare: "Sdílet jinam"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "to se mi nelíbí"
+      like: "to se mi líbí"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"

@@ -74,6 +74,7 @@ zh-TW:
       remove_aspect: "刪除這個面向"
       rename: "改名"
       update: "更新"
+      updating: "更新中"
     few: "%{count} 個面向"
     helper: 
       are_you_sure: "你確定要刪除這個面向?"
@@ -108,7 +109,7 @@ zh-TW:
     one: "一個面向"
     other: "%{count} 個面向"
     seed: 
-      family: "家庭"
+      family: "家人"
       work: "工作"
     show: 
       edit_aspect: "編輯面向"
@@ -152,7 +153,7 @@ zh-TW:
         zero: "沒有新訊息"
     index: 
       create_a_new_message: "編寫新訊息"
-      inbox: "Inbox"
+      inbox: "收件匣"
       message_inbox: "訊息信箱"
       new_message: "新訊息"
       no_conversation_selected: "未選取任何對話"
@@ -232,17 +233,17 @@ zh-TW:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "有 %{count} 個人不喜歡"
+        many: "有 %{count} 個人不喜歡"
+        one: "有一個人不喜歡"
+        other: "有 %{count} 個人不喜歡"
+        zero: "沒有人不喜歡"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "有 %{count} 個人喜歡"
+        many: "有 %{count} 個人喜歡"
+        one: "有一個人喜歡"
+        other: "有 %{count} 個人喜歡"
+        zero: "沒有人喜歡"
   more: "更多"
   next: "後面"
   notifications: 
@@ -323,7 +324,7 @@ zh-TW:
       add_contact: "加入聯繫"
       already_connected: "已建立連結"
       pending_request: "請求等候中"
-      thats_you: "是你耶!"
+      thats_you: "那是你耶!"
     profile_sidebar: 
       bio: "自我介紹"
       born: "生日"
@@ -520,8 +521,8 @@ zh-TW:
     reshare: 
       reshare: "重新分享"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "不喜歡"
+      like: "喜歡"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"
@@ -539,9 +540,9 @@ zh-TW:
     show_comments: "顯示所有意見"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "尚還沒有人在討論 %{tag}."
+      people_tagged_with: "標記為 %{tag} 的人"
+      posts_tagged_with: "標記為 #%{tag} 的貼文"
   the_world: "全世界"
   username: "用戶名稱"
   users: 

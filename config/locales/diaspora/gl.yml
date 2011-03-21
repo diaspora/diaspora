@@ -55,7 +55,7 @@ gl:
     aspect_stream: 
       activity: "actividade"
       post_time: "tempo de publicación"
-      sort_by: "ordear por:"
+      sort_by: "Ordear por:"
     contacts_not_visible: "Os contactos deste aspecto non se poderán ver os uns aos outros."
     contacts_visible: "Os contactos neste aspecto poderanse ver os uns aos outros."
     create: 
@@ -74,6 +74,7 @@ gl:
       remove_aspect: "Borrar este aspecto"
       rename: "renomear"
       update: "actualizar"
+      updating: "actualizando"
     few: "%{count} aspectos"
     helper: 
       are_you_sure: "Estás seguro de querer borrar este aspecto?"
@@ -141,7 +142,7 @@ gl:
       accepts: "Unha vez que %{name} acepte, xa poderedes ver as vosas publicacións en Diaspora"
       add_new_aspect: "engadir ao novo aspecto"
       share_with: "Comezar a compartir con %{name}"
-    zero: "non hai contactos"
+    zero: "Non hai contactos"
   conversations: 
     helper: 
       new_messages: 
@@ -227,22 +228,22 @@ gl:
       code: "código"
       login: "Identificarse"
       logout: "Saír"
-      profile: "perfil"
-      settings: "opcións"
+      profile: "Perfil"
+      settings: "Opcións"
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "Non lle gustou a %{count} persoas."
+        many: "Non lle gustou a %{count} persoas."
+        one: "Non lle gustou a unha persoa"
+        other: "Non lle gustou a %{count} persoas."
+        zero: "A ninguén non lle gustou"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "Gustoulle a %{count} persoas."
+        many: "Gustoulle a %{count} persoas."
+        one: "Gustoulle a unha persoa"
+        other: "Gustoulle a %{count} persoas."
+        zero: "A ninguén lle gustou"
   more: "Máis"
   next: "seguinte"
   notifications: 
@@ -322,8 +323,8 @@ gl:
     person: 
       add_contact: "engadir contacto"
       already_connected: "Xa conectado"
-      pending_request: "solicitude pendente"
-      thats_you: "es ti!"
+      pending_request: "Solicitude Pendente"
+      thats_you: "Es ti!"
     profile_sidebar: 
       bio: "Biografia"
       born: "Aniversario"
@@ -338,7 +339,7 @@ gl:
       does_not_exist: "Esa persoa non existe!"
       edit: "editar"
       incoming_request: "%{name} quere compartir contigo"
-      mention: "Mención"
+      mention: "Mencionar"
       message: "Mensaxe"
       no_posts: "Non hai mensaxes que amosar!"
       not_connected: "Non estás compartindo con %{name}"
@@ -510,18 +511,18 @@ gl:
       all: "todos"
       all_contacts: "todos os contactos"
       make_public: "facer público"
-      mention_helper_text: "para citar a alguén, pon \"@\" e teclea o seu nome"
+      mention_helper_text: "Para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
-      publishing_to: "publicar a: "
+      publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
       whats_on_your_mind: "Que tes en mente?"
     reshare: 
       reshare: "Recompartir "
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Non me gusta"
+      like: "Gústame"
   status_messages: 
     create: 
       success: "%{names} mencionados correctamente"
@@ -555,7 +556,7 @@ gl:
       comment_on_post: "...alguén comenta na túa publicación?"
       current_password: "Contrasinal actual"
       download_photos: "Descargar as miñas imaxes"
-      download_xml: "descargar o meu xml"
+      download_xml: "Descargar o meu xml"
       edit_account: "Editar conta"
       export_data: "Exportar datos"
       mentioned: "...estás mencionado nunha publicación?"

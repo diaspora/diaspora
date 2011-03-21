@@ -74,6 +74,7 @@ ml:
       remove_aspect: "Delete this aspect"
       rename: "പേര് മാറ്റുക"
       update: "പുതുക്കു"
+      updating: "updating"
     few: "%{count} പരിചയങ്ങള്‍"
     helper: 
       are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"

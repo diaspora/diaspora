@@ -74,6 +74,7 @@ da:
       remove_aspect: "Slet dette aspekt"
       rename: "omdøb"
       update: "Opdater"
+      updating: "updating"
     few: "%{count} aspekter"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"

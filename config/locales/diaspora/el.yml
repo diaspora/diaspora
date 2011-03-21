@@ -74,6 +74,7 @@ el:
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
       update: "ενημέρωση"
+      updating: "updating"
     few: "%{count} πτυχές"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"

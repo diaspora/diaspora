@@ -74,6 +74,7 @@ fr:
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
       update: "mettre à jour"
+      updating: "updating"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
