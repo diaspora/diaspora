@@ -1,4 +1,4 @@
-%li.remote_friend{:id => "uid_" + uid, :uid => uid}
+%li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
   .right
     -if friend.contact && !friend.contact.pending
       = t('people.person.already_connected')
@@ -11,7 +11,7 @@
     - elsif friend.invitation_id
       = t('invitations.new.already_invited')
       %br
-      = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
+      = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.person
       = link_to t('people.show.start_sharing'),
         '#',
@@ -20,7 +20,7 @@
     - elsif current_user.invites > 0
       = form_tag service_inviter_path(:provider => 'facebook') do
         = select_tag(:aspect_id, options_from_collection_for_select(@all_aspects, 'id', 'name'))
-        = hidden_field_tag :uid, uid
+        = hidden_field_tag :uid, friend.uid
         = submit_tag t('.invite')
 
   - if friend.person
@@ -35,7 +35,7 @@
       = friend.name
 
 - unless friend.person.nil? || (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
-  %li{:id => "options_" + uid, :class => "share_with hidden", :style => "height:auto"}
+  %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
     - contact = friend.contact
     - contact ||= Contact.new
     = render :partial => 'contacts/share_with_list',

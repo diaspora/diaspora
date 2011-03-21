@@ -5,4 +5,4 @@
 = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('shared.contact_list.all_contacts')
 %ul.friend_finder
   - for friend in friends
-    = render :partial => 'services/remote_friend', :locals => {:friend => friend, :uid => friend.uid}
+    = render :partial => 'services/remote_friend', :locals => {:friend => friend}

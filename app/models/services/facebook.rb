@@ -29,9 +29,9 @@ class Services::Facebook < Service
     person = Person.arel_table
     service_user = ServiceUser.arel_table
     if opts[:local]
-      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].not_eq(nil))
+      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].not_eq(nil)).all
     elsif opts[:remote]
-      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].eq(nil))
+      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].eq(nil)).all
     else
       self.service_users
     end
