@@ -38,8 +38,8 @@ class Services::Facebook < Service
   end
 
   def save_friends
-    response = RestClient.get("https://graph.facebook.com/me/friends", {:params => 
-                          {:fields => ['name', 'id', 'picture'], :access_token => self.access_token}})
+    url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}" 
+    response = RestClient.get(url)
     data = JSON.parse(response.body)['data']
     data.each{ |p|
       ServiceUser.find_or_create_by_service_id_and_uid(:service_id => self.id, :name => p["name"],
