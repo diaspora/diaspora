@@ -93,6 +93,7 @@ ca:
       aspect_list_is_visible: "la llista de l'aspecte és visible a tots els membres de l'aspecte"
       aspect_list_is_not_visible: "la llista de l'aspecte està amagada per a tots els membres de l'aspecte"
       update: "actualitza"
+      updating: "s'està actualitzant"
     aspect_contacts:
       done_editing: "finalitza l'edició"
     aspect_stream:
@@ -161,7 +162,7 @@ ca:
     many: "%{count} comentaris"
     other: "%{count} comentaris"
     new_comment:
-      comment: "Comenta"
+      comment: "comenta"
       commenting: "S'està comentant…"
 
 
@@ -272,6 +273,22 @@ ca:
       public_feed: "Canal públic del Diàspora per a %{name}"
 
 
+  likes:
+    likes:
+      people_like_this:
+        zero: "A cap persona li agrada això"
+        one: "Això li agrada a 1 persona"
+        few: "Això li agrada a %{count} persones"
+        many: "Això li agrada a %{count} persones"
+        other: "Això li agrada a %{count} persones"
+      people_dislike_this:
+        zero: "A cap persona li desagrada això"
+        one: "Això li desagrada a 1 persona"
+        few: "Això li desagrada a %{count} persones"
+        many: "Això li desagrada a %{count} persones"
+        other: "Això li desagrada a %{count} persones"
+
+
   notifications:
     request_accepted: "ha acceptat la vostra petició per a compartir."
     new_request: "s'ha oferit a compartir amb vosaltres"
@@ -338,9 +355,9 @@ ca:
     many: "%{count} persones"
     other: "%{count} persones"
     person:
-      pending_request: "petició pendent"
+      pending_request: "Petició pendent"
       already_connected: "Ja connectat"
-      thats_you: "ets tu!"
+      thats_you: "Sou vosaltres!"
       add_contact: "afegeix un contacte"
     index:
       results_for: "resultats de la cerca per a"
@@ -354,7 +371,7 @@ ca:
       you_have_no_tags: "no teniu cap etiqueta!"
       add_some: "afegiu-ne alguna"
       edit: "edita"
-      incoming_request: "%{name} vol compartir amb tu"
+      incoming_request: "%{name} vol compartir amb vosaltres"
       return_to_aspects: "Torneu a la pàgina d'aspectes"
       to_accept_or_ignore: "per a acceptar-ho o descartar-ho."
       does_not_exist: "Aquesta persona no existeix!"
@@ -556,6 +573,9 @@ ca:
     contact_list:
       all_contacts: "Tots els contactes"
       cannot_remove: "No es pot suprimir a una persona de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
+    stream_element:
+      like: "M'agrada"
+      dislike: "No m'agrada"
 
 
   status_messages:
@@ -580,7 +600,7 @@ ca:
   tags:
     show:
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
-      nobody_talking: "Ningú està parlant de %{tag} encara."
+      nobody_talking: "Ningú ha parlat de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
 
 
