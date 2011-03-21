@@ -1,18 +1,18 @@
 %li.remote_friend{:id => "uid_" + uid, :uid => uid}
   .right
-    -if friend[:contact] && !friend[:contact].pending
+    -if friend.contact && !friend.contact.pending
       = t('people.person.already_connected')
-    - elsif (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
+    - elsif (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
       = t('people.person.pending_request')
-    - elsif (friend[:request] && friend[:request].sender_id == friend[:person].id)
-      = link_to t('people.show.incoming_request', :name => truncate(friend[:person].name, :length => 20, :separator => ' ', :omission => '')),
+    - elsif (friend.request && friend.request.sender_id == friend.person.id)
+      = link_to t('people.show.incoming_request', :name => truncate(friend.person.name, :length => 20, :separator => ' ', :omission => '')),
         '#',
         :class => 'button'
-    - elsif friend[:invitation_id]
+    - elsif friend.invitation_id
       = t('invitations.new.already_invited')
       %br
-      = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend[:invitation_id])
-    - elsif friend[:person]
+      = link_to t('.resend'), service_inviter_path(:uid => uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
+    - elsif friend.person
       = link_to t('people.show.start_sharing'),
         '#',
         :class => 'button'
@@ -23,23 +23,23 @@
         = hidden_field_tag :uid, uid
         = submit_tag t('.invite')
 
-  - if friend[:person]
-    = person_image_link(friend[:person])
+  - if friend.person
+    = person_image_link(friend.person)
   - else
     = image_tag('/images/user/default.png', :class => 'avatar')
 
   %h4.name
-    - if friend[:person]
-      = link_to friend[:name], person_path(friend[:person])
+    - if friend.person
+      = link_to friend.name, person_path(friend.person)
     - else
-      = friend[:name]
+      = friend.name
 
-- unless friend[:person].nil? || (friend[:contact] && friend[:contact].pending) || (friend[:request] && friend[:request].sender_id != friend[:person].id)
+- unless friend.person.nil? || (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
   %li{:id => "options_" + uid, :class => "share_with hidden", :style => "height:auto"}
-    - contact = friend[:contact]
+    - contact = friend.contact
     - contact ||= Contact.new
     = render :partial => 'contacts/share_with_list',
-          :locals => {:person => friend[:person],
+          :locals => {:person => friend.person,
             :contact => contact,
               :aspects_with_person => [],
               :aspects_without_person => current_user.aspects,

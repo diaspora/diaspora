@@ -21,7 +21,11 @@ class Services::Facebook < Service
 
   def finder(opts = {})
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
-    Resque.enqueue(Job::UpdateServiceUsers, self.id)
+    if self.service_users == []
+      self.save_friends
+    else
+      Resque.enqueue(Job::UpdateServiceUsers, self.id)
+    end
     person = Person.arel_table
     service_user = ServiceUser.arel_table
     if opts[:local]
@@ -38,7 +42,7 @@ class Services::Facebook < Service
                           {:fields => ['name', 'id', 'picture'], :access_token => self.access_token}})
     data = JSON.parse(response.body)['data']
     data.each{ |p|
-      ServiceUser.find_or_create_by_service_id_and_name_and_uid_and_photo_url(:service_id => self.id, :name => p["name"],
+      ServiceUser.find_or_create_by_service_id_and_uid(:service_id => self.id, :name => p["name"],
                          :uid => p["id"], :photo_url => p["picture"])
     }
   end

@@ -8,7 +8,6 @@ class SessionsController < Devise::SessionsController
   protected
   def enqueue_update
     if current_user
-      pp params
       current_user.services.each{|s|
         Resque.enqueue(Job::UpdateServiceUsers, s.id) if s.respond_to? :save_friends
       }

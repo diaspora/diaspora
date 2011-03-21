@@ -17,17 +17,11 @@ describe SessionsController do
 
   let(:mock_access_token) { Object.new }
 
-  let(:omniauth_auth) {
-    { 'provider' => 'twitter',
-      'uid'      => '2',
-      'user_info'   => { 'nickname' => 'grimmin' },
-      'credentials' => { 'token' => 'tokin', 'secret' =>"not_so_much" }
-      }
-  }
-
   before do
-    request.env["devise.mapping"] = Devise.mappings[:user]
+    @request.env["devise.mapping"] = Devise.mappings[:user]
     @user   = alice
+    @user.password = "evankorth"
+    @user.password_confirmation = "evankorth"
     @service = Services::Facebook.new(:access_token => "yeah")
     @user.services << @service
     @user.save
@@ -36,7 +30,7 @@ describe SessionsController do
   describe "#create" do
     it 'queues up an update job' do
       Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, @service.id)
-      post :create, {"user"=>{"remember_me"=>"0", "username"=>"alice",
+      post :create, {"user"=>{"remember_me"=>"0", "username"=> @user.username,
                                "password"=>"evankorth"}}
     end
   end

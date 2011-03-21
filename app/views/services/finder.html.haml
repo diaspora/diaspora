@@ -12,14 +12,14 @@
     %h4
       = t('.invite_your_friends_from', :service => params[:provider].titleize)
       .description
-        - if @friends.keys.length > 0
-          = t('.friends', :count => @friends.keys.length)
+        - if @friends.size > 0
+          = t('.friends', :count => @friends.size)
         - else
           %i= t('.not_connected')
 
 
   .contact_list
-    - if @friends.keys.length > 0
+    - if @friends.size > 0
       = render :partial => 'services/finder', :locals => {:friends => @friends}
     - else
       %br

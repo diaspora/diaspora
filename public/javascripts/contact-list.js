@@ -10,7 +10,7 @@ var List = {
       var list   = $(this).siblings("ul").first();
       var query  = new RegExp(search.val(),'i');
 
-      $("li", list).each( function() {
+      $("> li", list).each( function() {
         var element = $(this);
         if( !element.text().match(query) ) {
           if( !element.hasClass('hidden') ) {
