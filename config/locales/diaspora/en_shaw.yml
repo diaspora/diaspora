@@ -98,12 +98,6 @@ en_shaw:
     new_aspect: 
       create: "𐑒𐑮𐑦𐑱𐑑"
       name: "𐑯𐑱𐑥"
-    no_contacts_message: 
-      add_contact: "𐑨𐑛 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-      add_contact_to: "𐑨𐑛 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 %{aspect_name}"
-      invite: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯 𐑑 𐑡𐑶𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
-      nobody: "𐑚𐑮𐑦𐑙 𐑞 𐑐𐑰𐑐𐑩𐑤 𐑞𐑨𐑑 𐑥𐑨𐑑𐑼 𐑦𐑯 𐑿𐑼 𐑤𐑲𐑓 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
-      nobody_in_aspect: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑 '%{aspect_name}' 𐑦𐑟 𐑧𐑥𐑐𐑑𐑦."
     no_posts_message: 
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -279,6 +273,7 @@ en_shaw:
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     love: "𐑤𐑳𐑝,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
@@ -306,6 +301,8 @@ en_shaw:
   password: "Password"
   password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
     few: "%{count} 𐑐𐑰𐑐𐑩𐑤"
@@ -514,6 +511,7 @@ en_shaw:
       mention_helper_text: "𐑑 𐑥𐑧𐑯𐑖𐑩𐑯 𐑕𐑳𐑥𐑢𐑩𐑯, 𐑐𐑮𐑧𐑕 '@' 𐑯 𐑕𐑑𐑸𐑑 𐑑𐑲𐑐𐑦𐑙 𐑞𐑺 𐑯𐑱𐑥"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
+      public: "Public"
       publishing_to: "𐑐𐑳𐑚𐑤𐑦𐑖𐑦𐑙 𐑑: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
@@ -534,6 +532,7 @@ en_shaw:
       mentioning: "𐑥𐑧𐑯𐑖𐑩𐑯𐑦𐑙: %{person}"
     show: 
       destroy: "𐑛𐑦𐑤𐑰𐑑"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   stream_helper: 
     hide_comments: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"

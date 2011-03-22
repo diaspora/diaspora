@@ -32,7 +32,7 @@ zh-TW:
               invalid: "不合格."
             username: 
               taken: "已被使用."
-  ago: "%{time} 前"
+  ago: "%{time}前"
   application: 
     helper: 
       aspect_badge: 
@@ -75,7 +75,7 @@ zh-TW:
       rename: "改名"
       update: "更新"
       updating: "更新中"
-    few: "%{count} 個面向"
+    few: "%{count}個面向"
     helper: 
       are_you_sure: "你確定要刪除這個面向?"
       aspect_not_empty: "面向不是空的"
@@ -90,24 +90,18 @@ zh-TW:
       manage_aspects: "面向管理"
       no_requests: "沒有新要求"
       requests: "請求"
-    many: "%{count} 個面向"
+    many: "%{count}個面向"
     move_contact: 
       error: "聯繫移動錯誤: %{inspect}"
-      failure: "didn't work %{inspect}"
+      failure: "因%{inspect}沒有作用"
       success: "聯絡人已移至新的面向"
     new_aspect: 
       create: "創造"
       name: "名稱"
-    no_contacts_message: 
-      add_contact: "加入聯繫"
-      add_contact_to: "將某人加入至 %{aspect_name}"
-      invite: "邀請某人加入 Diaspora!"
-      nobody: "帶生活中重要的人來 Diaspora!"
-      nobody_in_aspect: "你的面向 '%{aspect_name}' 是空的."
     no_posts_message: 
       start_talking: "還沒人說話. 你來起個頭吧!"
-    one: "一個面向"
-    other: "%{count} 個面向"
+    one: "1個面向"
+    other: "%{count}個面向"
     seed: 
       family: "家人"
       work: "工作"
@@ -120,13 +114,13 @@ zh-TW:
   back: "後退"
   cancel: "取消"
   comments: 
-    few: "%{count} 則回應"
-    many: "%{count} 則回應"
+    few: "%{count}則回應"
+    many: "%{count}則回應"
     new_comment: 
       comment: "發表意見"
       commenting: "意見發表中..."
-    one: "一則回應"
-    other: "%{count} 則回應"
+    one: "1則回應"
+    other: "%{count}則回應"
     zero: "沒有回應"
   contacts: 
     create: 
@@ -134,10 +128,10 @@ zh-TW:
     destroy: 
       failure: "跟 %{name} 切斷聯繫失敗"
       success: "成功切斷與 %{name} 的聯繫"
-    few: "%{count} 個聯繫"
-    many: "%{count} 個聯繫"
-    one: "一個聯繫"
-    other: "%{count} 個聯繫"
+    few: "%{count}個聯繫"
+    many: "%{count}個聯繫"
+    one: "1個聯繫"
+    other: "%{count}個聯繫"
     share_with_pane: 
       accepts: "當 %{name} 接受後, 你們就開始可以看到彼此在 Diaspora 上發表的東西"
       add_new_aspect: "加入至新的面向"
@@ -146,16 +140,16 @@ zh-TW:
   conversations: 
     helper: 
       new_messages: 
-        few: "%{count} 則新訊息"
-        many: "%{count} 則新訊息"
-        one: "一則新訊息"
-        other: "%{count} 則新訊息"
+        few: "%{count}則新訊息"
+        many: "%{count}則新訊息"
+        one: "1則新訊息"
+        other: "%{count}則新訊息"
         zero: "沒有新訊息"
     index: 
       create_a_new_message: "編寫新訊息"
       inbox: "收件匣"
       message_inbox: "訊息信箱"
-      new_message: "新訊息"
+      new_message: "發新訊息"
       no_conversation_selected: "未選取任何對話"
       no_messages: "沒有訊息"
     new: 
@@ -175,7 +169,7 @@ zh-TW:
   email: "電子郵件"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "修正以下後再試一次."
+      correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
   home: 
@@ -189,7 +183,7 @@ zh-TW:
       ownership_explanation: "你擁有你的圖片, 且不該因為分享出去就失去它. 在 Diaspora, 所有你分享出去的東西, 你都仍有所有權, 你可以控制它們如何散布."
       share_what_you_want: "分享你想分享的東西, 給你想分享的人."
       simplicity: "簡單"
-      simplicity_explanation: "Diaspora 讓分享變得單純且簡單, 而隱私也是一樣. 以隱私為出發點, Diaspora 讓你不用必須千辛萬苦的調整設定, 才能保護你的個人檔案安全."
+      simplicity_explanation: "Diaspora 讓分享變得單純且簡單, 而隱私也是一樣. 以隱私為出發點, Diaspora 讓你不必千辛萬苦的調整設定, 才能保護你的個人檔案安全."
       tagline_first_half: "分享你想分享的東西,"
       tagline_second_half: "給你想分享的人."
   invitations: 
@@ -233,34 +227,34 @@ zh-TW:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "有 %{count} 個人不喜歡"
-        many: "有 %{count} 個人不喜歡"
-        one: "有一個人不喜歡"
-        other: "有 %{count} 個人不喜歡"
+        few: "有%{count}個人不喜歡"
+        many: "有%{count}個人不喜歡"
+        one: "有1個人不喜歡"
+        other: "有%{count}個人不喜歡"
         zero: "沒有人不喜歡"
       people_like_this: 
-        few: "有 %{count} 個人喜歡"
-        many: "有 %{count} 個人喜歡"
-        one: "有一個人喜歡"
-        other: "有 %{count} 個人喜歡"
+        few: "有%{count}個人喜歡"
+        many: "有%{count}個人喜歡"
+        one: "有1個人喜歡"
+        other: "有%{count}個人喜歡"
         zero: "沒有人喜歡"
   more: "更多"
   next: "後面"
   notifications: 
     also_commented: "也在別處發表了意見, 在 %{post_author} 的"
-    also_commented_deleted: "對一則已刪除的貼文發表意見"
+    also_commented_deleted: "對已刪除的貼文發表意見"
     comment_on_post: "發表了意見, 在你的"
     deleted: "已刪除"
     helper: 
       new_notifications: 
-        few: "%{count} 個新消息"
-        many: "%{count} 個新消息"
-        one: "一個新消息"
-        other: "%{count} 個新消息"
+        few: "%{count}個新消息"
+        many: "%{count}個新消息"
+        one: "1個新消息"
+        other: "%{count}個新消息"
         zero: "沒有新消息"
     index: 
       and: "和"
-      and_others: "和其他 %{number} 個人"
+      and_others: "和其他%{number}個人"
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
     mentioned: "提到了你, 在他們的"
@@ -279,6 +273,7 @@ zh-TW:
     diaspora: "diaspora 電郵機器人"
     hello: "%{name}你好!"
     love: "衷心祝福,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "在貼文中提到你:"
       sign_in: "登入來看看."
@@ -306,9 +301,11 @@ zh-TW:
   password: "密碼"
   password_confirmation: "密碼確認"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "編輯所屬面向"
-    few: "%{count} 個聯絡人"
+    few: "%{count}個聯絡人"
     helper: 
       people_on_pod_are_aware_of: "Pod 上已知的人"
       results_for: "%{params} 的搜尋結果"
@@ -317,9 +314,9 @@ zh-TW:
       no_one_found: "...找不到任何東西."
       no_results: "嘿! 搜尋要有目標."
       results_for: "搜尋結果:"
-    many: "%{count} 個聯絡人"
-    one: "一個聯絡人"
-    other: "%{count} 個聯絡人"
+    many: "%{count}個聯絡人"
+    one: "1個聯絡人"
+    other: "%{count}個聯絡人"
     person: 
       add_contact: "加入聯繫"
       already_connected: "已建立連結"
@@ -368,8 +365,8 @@ zh-TW:
       post_it: "發表!"
     new_photo: 
       empty: "檔案 {file} 是空的, 請重新挑選檔案, 且不要再選它."
-      invalid_ext: "檔案 {file} 的副檔名不合格. 只接受 {extensions}."
-      size_error: "檔案 {file} 太大了, 上限是 {sizeLimit}."
+      invalid_ext: "檔案 {file} 的副檔名不合格. 只接受{extensions}."
+      size_error: "檔案 {file} 太大了, 上限是{sizeLimit}."
     new_profile_photo: 
       or_select_one: "或從既有相片中挑選一張"
       upload: "上傳新的個人照!"
@@ -406,13 +403,13 @@ zh-TW:
       your_photo: "你的相片"
       your_private_profile: "你的私人檔案"
       your_public_profile: "你的公開檔案"
-      your_tags: "你: 可以有 5 個\"#標籤\""
+      your_tags: "你: 可以有5個\"#標籤\""
       your_tags_placeholder: "像是: #diaspora #燙髮 #貓咪 #音樂"
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
   registrations: 
-    closed: "此 Diaspora pod 不開放登記."
+    closed: "本 Diaspora pod 不開放登記."
     create: 
       success: "你已經加入 Diaspora 了!"
     edit: 
@@ -439,10 +436,10 @@ zh-TW:
       success: "你們現在是朋友了."
     helper: 
       new_requests: 
-        few: "%{count} 個新請求!"
-        many: "%{count} 個新請求!"
+        few: "%{count}個新請求!"
+        many: "%{count}個新請求!"
         one: "新的請求!"
-        other: "%{count} 個新請求!"
+        other: "%{count}個新請求!"
         zero: "沒有新請求"
     manage_aspect_contacts: 
       existing: "聯繫編輯"
@@ -459,10 +456,10 @@ zh-TW:
       error: "與該服務連結時有錯誤"
     finder: 
       friends: 
-        few: "%{count} 個朋友"
-        many: "%{count} 個朋友"
-        one: "一個朋友"
-        other: "%{count} 個朋友"
+        few: "%{count}個朋友"
+        many: "%{count}個朋友"
+        one: "1個朋友"
+        other: "%{count}個朋友"
         zero: "沒有朋友"
       invite_your_friends_from: "邀請你在 %{service} 的朋友"
       not_connected: "未連結"
@@ -491,16 +488,16 @@ zh-TW:
       all_contacts: "全部聯繫"
       cannot_remove: "無法將聯絡人從他/她最後一個面向中移除. (如果你想跟這個人斷絕連結, 你必須刪除他/她的聯繫.)"
     invitations: 
-      by_email: "by Email"
+      by_email: "透過電子郵件"
       dont_have_now: "目前你還不能邀請任何人, 但很快就可以了!"
-      from_facebook: "From Facebook"
-      invitations_left: "(剩餘 %{count} 張)"
+      from_facebook: "從 Facebook"
+      invitations_left: "(剩餘%{count}張)"
       invite_someone: "邀請某人來"
       invite_your_friends: "邀請你的朋友來"
       invites: "邀請"
       invites_closed: "目前本 Diaspora pod 不開放邀請功能"
     notification: 
-      new: "%{from} 有新的 %{type}"
+      new: "%{from} 有新的%{type}"
     public_explain: 
       logged_in: "已登入至 %{service}"
       manage: "管理已連線的服務"
@@ -514,6 +511,7 @@ zh-TW:
       mention_helper_text: "想提到某人的話, 先敲 '@' 再接著打他們的名字"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
+      public: "Public"
       publishing_to: "發表至: "
       share: "分享"
       share_with: "與他/她分享:"
@@ -534,6 +532,7 @@ zh-TW:
       mentioning: "提及發表中: %{person}"
     show: 
       destroy: "刪除"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "靜態連結"
   stream_helper: 
     hide_comments: "隱藏意見"

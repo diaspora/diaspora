@@ -98,12 +98,6 @@ is:
     new_aspect: 
       create: "Búa til"
       name: "Nafn"
-    no_contacts_message: 
-      add_contact: "Bæta tengilið við"
-      add_contact_to: "Bæta einhverjum við %{aspect_name}"
-      invite: "Bjóddu einhverjum að tengjast Diaspora!"
-      nobody: "Fáðu fólkið sem skiptir máli í lífi þínu með í Díaspora!"
-      nobody_in_aspect: "Ásýndin þín '%{aspect_name}' er auð."
     no_posts_message: 
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ is:
     diaspora: "the diaspora email robot"
     hello: "Halló %{name}!"
     love: "ást,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "gat þín í pósti:"
       sign_in: "Skráðu þig inn til að sjá það."
@@ -306,6 +301,8 @@ is:
   password: "Lykilorð"
   password_confirmation: "Staðfesting lykilorðs"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "breyta aðild að ásýnd"
     few: "%{count} people"
@@ -514,6 +511,7 @@ is:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: "Senda..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Deila"
       share_with: "deila með"
@@ -534,6 +532,7 @@ is:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Eyða"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "varanleg slóð"
   stream_helper: 
     hide_comments: "fela athugasemdir"

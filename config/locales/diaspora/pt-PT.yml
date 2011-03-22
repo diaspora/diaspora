@@ -98,12 +98,6 @@ pt-PT:
     new_aspect: 
       create: "Criar"
       name: "Nome"
-    no_contacts_message: 
-      add_contact: "Adicionar um contacto"
-      add_contact_to: "Adicionar alguém a %{aspect_name}"
-      invite: "Convida alguém para se juntar ao Diaspora!"
-      nobody: "Traz as pessoas que são importantes para ti para o Diaspora!"
-      nobody_in_aspect: "O teu grupo '%{aspect_name}' está vazio."
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada. Dá início à conversa!"
     one: "1 aspecto"
@@ -279,6 +273,7 @@ pt-PT:
     diaspora: "o robot de email do diaspora"
     hello: "Olá %{name}!"
     love: "com carinho,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ pt-PT:
   password: "Palavra-chave"
   password_confirmation: "Confirmação de palavra-chave"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "editar participação no aspecto"
     few: "%{count} people"
@@ -514,6 +511,7 @@ pt-PT:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Partilhar"
       share_with: "Partilhar com %{aspect}"
@@ -534,6 +532,7 @@ pt-PT:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Destruir"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "ocultar comentários"

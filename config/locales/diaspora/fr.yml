@@ -98,12 +98,6 @@ fr:
     new_aspect: 
       create: "Créer"
       name: "Nom"
-    no_contacts_message: 
-      add_contact: "Ajouter un contact"
-      add_contact_to: "Ajouter quelqu'un à %{aspect_name}"
-      invite: "Inviter quelqu'un à rejoindre Diaspora !"
-      nobody: "Invitez les personnes qui comptent dans votre vie sur Diaspora !"
-      nobody_in_aspect: "Votre aspect « %{aspect_name} » est vide."
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
     one: "1 aspect"
@@ -279,6 +273,7 @@ fr:
     diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "vous a mentionné(e) dans un message :"
       sign_in: "Connectez-vous pour le/la voir."
@@ -306,6 +301,8 @@ fr:
   password: "Mot de passe"
   password_confirmation: "Confirmation du mot de passe"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "modifier l'appartenance à vos aspects"
     few: "%{count} personnes"
@@ -514,6 +511,7 @@ fr:
       mention_helper_text: "pour mentionner quelqu'un, insérez un « @ » et commencez à écrire son nom"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
+      public: "Public"
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
@@ -534,6 +532,7 @@ fr:
       mentioning: "Mentionne : %{person}"
     show: 
       destroy: "Supprimer"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalien"
   stream_helper: 
     hide_comments: "masquer les commentaires"

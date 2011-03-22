@@ -98,12 +98,6 @@ ga:
     new_aspect: 
       create: "Cruthaigh"
       name: "Ainm"
-    no_contacts_message: 
-      add_contact: "Cuir teagmháil leis"
-      add_contact_to: "Cuir teaghmháil le %{aspect_name}"
-      invite: "Seol cuireadh chuig duine chun comhcheangail le Diaspora!"
-      nobody: "Tóg na daoine i gceist i do saol chuig Diaspora!"
-      nobody_in_aspect: "Tá do gné '%{aspect_name}' folamh."
     no_posts_message: 
       start_talking: "Níor deireadh aon rud fós. Cuir tús leis an comhrá!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ ga:
     diaspora: "an róbat ríomhpost diaspora"
     hello: "Haileo %{name}!"
     love: "le meas,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ ga:
   password: "Pasfhocal"
   password_confirmation: "Deimhniú pasfhocal"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "athraigh ballraíocht gné"
     few: "%{count} people"
@@ -514,6 +511,7 @@ ga:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
       posting: "Póstáil..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Roinn"
       share_with: "Roinn le %{aspect}"
@@ -534,6 +532,7 @@ ga:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Scrios"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "nasc-buan"
   stream_helper: 
     hide_comments: "folaigh nótaí tráchta"

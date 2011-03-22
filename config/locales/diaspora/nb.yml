@@ -98,12 +98,6 @@ nb:
     new_aspect: 
       create: "Opprett"
       name: "Navn"
-    no_contacts_message: 
-      add_contact: "Legg til en kontakt"
-      add_contact_to: "Legg til en kontakt i %{aspect_name}"
-      invite: "Inviter noen til Diaspora!"
-      nobody: "We know you know people — bring them to Diaspora!"
-      nobody_in_aspect: "Aspektet ditt '%{aspect_name}' er tomt."
     no_posts_message: 
       start_talking: "Ingen har sagt noe enda. Få samtalen i gang!"
     one: "1 aspekt"
@@ -279,6 +273,7 @@ nb:
     diaspora: "the diaspora email robot"
     hello: "Hei %{name}!"
     love: "love,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "nevnte deg i et innlegg:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ nb:
   password: "Passord"
   password_confirmation: "Passord bekreftelse"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "edit aspect membership"
     few: "%{count} people"
@@ -514,6 +511,7 @@ nb:
       mention_helper_text: "for å nevne noen, skriv '@' og begynn å skriv navnet deres"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Del"
       share_with: "Share with %{aspect}"
@@ -534,6 +532,7 @@ nb:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Utslett"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "hide comments"

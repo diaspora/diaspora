@@ -98,12 +98,6 @@ fi:
     new_aspect: 
       create: "Luo"
       name: "Nimi"
-    no_contacts_message: 
-      add_contact: "Lisää kontakti"
-      add_contact_to: "Lisää henkilö näkymään %{aspect_name}"
-      invite: "Kutsu ystäväsi Diasporan käyttäjäksi!"
-      nobody: "Tuo elämäsi tärkeät ihmiset Diasporaan!"
-      nobody_in_aspect: "Näkymäsi, '%{aspect_name}', on tyhjä."
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
     one: "1 näkymä"
@@ -279,6 +273,7 @@ fi:
     diaspora: "Diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
     love: "Terveisin,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mainitsi sinut viestissään:"
       sign_in: "Kirjaudu sisään nähdäksesi."
@@ -306,6 +301,8 @@ fi:
   password: "Salasana"
   password_confirmation: "Salasanan varmistus"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "muokkaa näkymän jäsenyyttä."
     few: "%{count} people"
@@ -514,6 +511,7 @@ fi:
       mention_helper_text: "mainitaksesi jonkun, valitse '@' ja kirjoita nimen alku"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Jaa"
       share_with: "Jaa"
@@ -534,6 +532,7 @@ fi:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Poista"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "pysyvä linkki"
   stream_helper: 
     hide_comments: "piilota kommentit"

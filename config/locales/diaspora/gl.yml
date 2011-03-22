@@ -98,12 +98,6 @@ gl:
     new_aspect: 
       create: "Crear"
       name: "Nome"
-    no_contacts_message: 
-      add_contact: "Engadir un contacto"
-      add_contact_to: "Engadir alguén a %{aspect_name}"
-      invite: "Convida a alguén a unirse a Diaspora!"
-      nobody: "Trae ás persoas que che importan a Diaspora!"
-      nobody_in_aspect: "O seu aspecto '%{aspect_name}' está baleiro."
     no_posts_message: 
       start_talking: "Ninguén dixo nada. Comeza unha conversa!"
     one: "1 aspecto"
@@ -279,6 +273,7 @@ gl:
     diaspora: "robot do correo electrónico de Diaspora"
     hello: "Ola %{name}!"
     love: "bicos,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "citoute nunha publicación:"
       sign_in: "Entra para velo."
@@ -306,6 +301,8 @@ gl:
   password: "Contrasinal"
   password_confirmation: "Confirmación do contrasinal"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "Editar membresía de aspecto"
     few: "%{count} persoas"
@@ -514,6 +511,7 @@ gl:
       mention_helper_text: "Para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
+      public: "Public"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
@@ -534,6 +532,7 @@ gl:
       mentioning: "Mencionando: %{person}"
     show: 
       destroy: "Borrar"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "esconder comentarios"

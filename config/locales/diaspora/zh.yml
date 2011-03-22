@@ -98,12 +98,6 @@ zh:
     new_aspect: 
       create: "创建"
       name: "名称"
-    no_contacts_message: 
-      add_contact: "增加一个联系人"
-      add_contact_to: "把某人加入%{aspect_name}这个分组"
-      invite: "邀请人们加入Diaspora!"
-      nobody: "Bring the people that matter in your life to Diaspora!"
-      nobody_in_aspect: "您的'%{aspect_name}'是个空白分组。"
     no_posts_message: 
       start_talking: "还没人冒泡，说点什么吧！"
     one: "1 aspect"
@@ -279,6 +273,7 @@ zh:
     diaspora: "diaspora email机器人"
     hello: "你好%{name}！"
     love: "爱，"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ zh:
   password: "密码"
   password_confirmation: "密码确认"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "edit aspect membership"
     few: "%{count} people"
@@ -514,6 +511,7 @@ zh:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "发送信息给%{aspect}这个分组的所有人"
       posting: "发布中"
+      public: "Public"
       publishing_to: "publishing to: "
       share: "分享"
       share_with: "和%{aspect}这个分组中的人分享"
@@ -534,6 +532,7 @@ zh:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "删除"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "永久链接"
   stream_helper: 
     hide_comments: "隐藏评论"

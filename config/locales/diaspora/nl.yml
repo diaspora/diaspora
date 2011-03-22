@@ -98,12 +98,6 @@ nl:
     new_aspect: 
       create: "Aanmaken"
       name: "Naam"
-    no_contacts_message: 
-      add_contact: "Voeg een contact toe"
-      add_contact_to: "Voeg iemand toe aan %{aspect_name}"
-      invite: "Nodig iemand uit om lid te worden op Diaspora!"
-      nobody: "Breng de mensen die je lief zijn naar Diaspora!"
-      nobody_in_aspect: "Je aspect '%{aspect_name}' is leeg."
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ nl:
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
     love: "liefs,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"
       sign_in: "Log in om het te bekijken."
@@ -306,6 +301,8 @@ nl:
   password: "Wachtwoord"
   password_confirmation: "Wachtwoordbevestiging"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
     few: "%{count} personen"
@@ -514,6 +511,7 @@ nl:
       mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
+      public: "Public"
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
@@ -534,6 +532,7 @@ nl:
       mentioning: "Noem: %{person}"
     show: 
       destroy: "Verwijderen"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "verberg reacties"

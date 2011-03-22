@@ -98,12 +98,6 @@ pa:
     new_aspect: 
       create: "Create"
       name: "Name"
-    no_contacts_message: 
-      add_contact: "Add a contact"
-      add_contact_to: "Add someone to %{aspect_name}"
-      invite: "Invite someone to join Diaspora!"
-      nobody: "Bring the people that matter in your life to Diaspora!"
-      nobody_in_aspect: "Your aspect '%{aspect_name}' is empty."
     no_posts_message: 
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ pa:
     diaspora: "the diaspora email robot"
     hello: "ਹੈਲੋ %{name}!"
     love: "love,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ pa:
   password: "ਪਾਸਵਰਡ"
   password_confirmation: "ਪਾਸਵਰਡ ਪੁਸ਼ਟੀ"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "edit aspect membership"
     few: "%{count} people"
@@ -514,6 +511,7 @@ pa:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"
@@ -534,6 +532,7 @@ pa:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "ਟਿੱਪਣੀਆਂ ਓਹਲੇ ਕਰੋ"

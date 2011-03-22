@@ -98,12 +98,6 @@ mk:
     new_aspect: 
       create: "Креирај"
       name: "Име"
-    no_contacts_message: 
-      add_contact: "Додај контакт"
-      add_contact_to: "Додај некој во %{aspect_name}"
-      invite: "Покани некој да се зачлени во Diaspora!"
-      nobody: "Донеси ги луѓето кои ти значат во Diaspora!"
-      nobody_in_aspect: "Вашиот аспект '%{aspect_name}' е празен."
     no_posts_message: 
       start_talking: "Никој досега нема кажано ништо. Започни го разговорот!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ mk:
     diaspora: "diaspora е-маил робот"
     hello: "Здраво %{name}!"
     love: "со љубов,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ mk:
   password: "Лозинка"
   password_confirmation: "Потврда на лозинка"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "edit aspect membership"
     few: "%{count} people"
@@ -514,6 +511,7 @@ mk:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Додај порака во %{aspect}"
       posting: "Објавување..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Сподели"
       share_with: "Сподели со %{aspect}"
@@ -534,6 +532,7 @@ mk:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Уништи"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "hide comments"

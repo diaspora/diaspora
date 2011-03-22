@@ -98,12 +98,6 @@ cs:
     new_aspect: 
       create: "Vytvořit"
       name: "Název"
-    no_contacts_message: 
-      add_contact: "Přidat kontakt"
-      add_contact_to: "Přidat někoho do %{aspect_name}"
-      invite: "Pozvěte někoho na Diasporu!"
-      nobody: "Přiveďte do Diaspory lidi, na kterých vám záleží!"
-      nobody_in_aspect: "Váš aspekt '%{aspect_name}' je prázdný."
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
     one: "1 aspekt"
@@ -279,6 +273,7 @@ cs:
     diaspora: "diaspora email robot"
     hello: "Vítej %{name}!"
     love: "s láskou,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "zmínil jste v příspěvku:"
       sign_in: "Přihlaste se pro zobrazení."
@@ -306,6 +301,8 @@ cs:
   password: "Heslo"
   password_confirmation: "Potvrzení hesla"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "upravit člena aspektu"
     few: "%{count} lidi"
@@ -514,6 +511,7 @@ cs:
       mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
+      public: "Veřejné"
       publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"
@@ -534,6 +532,7 @@ cs:
       mentioning: "Zmínka: %{person}"
     show: 
       destroy: "Smazat"
+      not_found: "Omlouváme se, ale nemůžeme najít tento příspěvek."
       permalink: "trvalý odkaz"
   stream_helper: 
     hide_comments: "skrýt komentáře"

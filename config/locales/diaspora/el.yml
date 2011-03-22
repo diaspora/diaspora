@@ -74,7 +74,7 @@ el:
       remove_aspect: "Διαγραφή αυτής της πτυχής"
       rename: "μετονομασία"
       update: "ενημέρωση"
-      updating: "updating"
+      updating: "ενημέρωση"
     few: "%{count} πτυχές"
     helper: 
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
@@ -98,12 +98,6 @@ el:
     new_aspect: 
       create: "Δημιουργία"
       name: "Όνομα"
-    no_contacts_message: 
-      add_contact: "Προσθήκη επαφής"
-      add_contact_to: "Προσθέστε κάποιον στην πτυχή %{aspect_name}"
-      invite: "Προσκαλέστε κάποιον να ενταχθεί στο Diaspora!"
-      nobody: "Φέρτε τους σημαντικούς ανθρώπους της ζωής σας στο Diaspora!"
-      nobody_in_aspect: "Η πτυχή σας '%{aspect_name}' είναι κενή."
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
     one: "1 πτυχή"
@@ -233,17 +227,17 @@ el:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "Δεν αρέσει σε %{count} άτομα"
+        many: "Δεν αρέσει σε %{count} άτομα"
+        one: "Δεν αρέσει σε 1 άτομο"
+        other: "Δεν αρέσει σε %{count} άτομα"
+        zero: "κανένας δεν ανέφερε ότι δεν του αρέσει"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "Αρέσει σε %{count} άτομα"
+        many: "Αρέσει σε %{count} άτομα"
+        one: "Αρέσει σε 1 άτομο"
+        other: "Αρέσει σε %{count} άτομα"
+        zero: "σε κανέναν δεν αρέσει"
   more: "Περισσότερα"
   next: "επόμενο"
   notifications: 
@@ -279,6 +273,7 @@ el:
     diaspora: "το ρομποτάκι για τα email του δικτύου Diaspora.."
     hello: "Γειά σου %{name}!"
     love: "Με αγάπη,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
       sign_in: "Συνδεθείτε για να το δείτε."
@@ -306,6 +301,8 @@ el:
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
     few: "%{count} άτομα"
@@ -323,8 +320,8 @@ el:
     person: 
       add_contact: "προσθήκη επαφής"
       already_connected: "Είναι ήδη συνδεδεμένο"
-      pending_request: "αίτημα σε αναμονή"
-      thats_you: "εσύ είσαι αυτός!"
+      pending_request: "Αίτημα σε αναμονή"
+      thats_you: "Εσύ είσαι αυτός!"
     profile_sidebar: 
       bio: "βιογραφικό"
       born: "γεννήθηκε"
@@ -339,7 +336,7 @@ el:
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       edit: "επεξεργασία"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
-      mention: "Mention"
+      mention: "Αναφορά"
       message: "Μήνυμα"
       no_posts: "κανένα μήνυμα προς εμφάνιση!"
       not_connected: "Δεν είστε συνδεδεμένος με αυτόν τον χρήστη "
@@ -514,6 +511,7 @@ el:
       mention_helper_text: "για ν' αναφέρεις κάποιον, πάτα '@' και άρχισε να πληκτρολογείς το όνομα του"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
+      public: "Public"
       publishing_to: "δημοσίευση στο: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
@@ -521,19 +519,20 @@ el:
     reshare: 
       reshare: "Μοιράσου και πάλι"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Δεν μ' αρέσει"
+      like: "Μου αρέσει"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Αναφέρθηκαν επιτυχώς: %{names}"
     destroy: 
       failure: "Αποτυχία διαγραφής δημοσίευσης"
     helper: 
       no_message_to_display: "Κανένα μήνυμα"
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Αναφορά σε: %{person}"
     show: 
       destroy: "Διαγραφή"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "απόκρυψη σχολίων"

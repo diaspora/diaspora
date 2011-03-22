@@ -98,12 +98,6 @@ lt:
     new_aspect: 
       create: "Sukurti"
       name: "Pavadinimas"
-    no_contacts_message: 
-      add_contact: "Pridėti kontaktą"
-      add_contact_to: "Pridėti kontaktą į aspektą \"%{aspect_name}\""
-      invite: "Pakviesk į Diasporą!"
-      nobody: "Žinome, kad pažįsti daug žmonių - pakviesk juos į Diasporą!"
-      nobody_in_aspect: "Aspektas \"%{aspect_name}\" tuščias."
     no_posts_message: 
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ lt:
     diaspora: "Diasporos pašto robotas"
     hello: "Labas, %{name}!"
     love: "su meile,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ lt:
   password: "Slaptažodis"
   password_confirmation: "Slaptažodžio patvirtinimas"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "edit aspect membership"
     few: "%{count} people"
@@ -514,6 +511,7 @@ lt:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""
       posting: "Rašoma..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Skelbti"
       share_with: "Skelbti aspekte \"%{aspect}\""
@@ -534,6 +532,7 @@ lt:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Sunaikinti"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "nascondi i commenti"

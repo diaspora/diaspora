@@ -74,7 +74,7 @@ eu:
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
       update: "eguneratu"
-      updating: "updating"
+      updating: "eguneratzen"
     few: "%{count} alderdi"
     helper: 
       are_you_sure: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
@@ -98,12 +98,6 @@ eu:
     new_aspect: 
       create: "Sortu"
       name: "Izena"
-    no_contacts_message: 
-      add_contact: "Adiskidea gehitu"
-      add_contact_to: "Norbait gehitu %{aspect_name}(r)a"
-      invite: "Gonbidatu norbait Diasporara!"
-      nobody: "Ekar ezazu zure bizitzako jende garrantzitsua Diasporara!"
-      nobody_in_aspect: "Zure alderdi '%{aspect_name}' hutsik dago."
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
     one: "alderdi 1"
@@ -123,7 +117,7 @@ eu:
     few: "%{count} iruzkin"
     many: "%{count} iruzkin"
     new_comment: 
-      comment: "Iruzkindu"
+      comment: "iruzkindu"
       commenting: "Iruzkintzen..."
     one: "iruzkin 1"
     other: "%{count} iruzkin"
@@ -279,6 +273,7 @@ eu:
     diaspora: "diasporaren e-posta robota"
     hello: "Kaixo, %{name}!"
     love: "ikusi arte,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "zu aipatu zaituzte mezu batean:"
       sign_in: "Sartu ikusteko."
@@ -306,6 +301,8 @@ eu:
   password: "Pasahitza"
   password_confirmation: "Pasahitz baieztapena"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "aldatu alderdiaren bazkidetza"
     few: "%{count} pertsona"
@@ -323,8 +320,8 @@ eu:
     person: 
       add_contact: "adiskidea gehitu"
       already_connected: "Dagoeneko harremanetan"
-      pending_request: "onarpenaren zain"
-      thats_you: "zu zeu zara!"
+      pending_request: "Onarpenaren zain"
+      thats_you: "Zu zeu zara!"
     profile_sidebar: 
       bio: "niri buruz"
       born: "jaioteguna"
@@ -514,6 +511,7 @@ eu:
       mention_helper_text: "norbait aipatzeko, sakatu '@' eta hasi adiskidearen izena idazten"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
+      public: "Publikoa"
       publishing_to: "hemen partekatzen:"
       share: "Partekatu"
       share_with: "honekin partekatu:"
@@ -534,6 +532,7 @@ eu:
       mentioning: "Aipatzen: %{person}"
     show: 
       destroy: "Suntsitu"
+      not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "iruzkinak ezkutatu"

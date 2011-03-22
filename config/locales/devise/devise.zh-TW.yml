@@ -15,7 +15,7 @@ zh-TW:
       invalid: "電子信箱或密碼有誤."
       invalid_token: "認證信物無效."
       locked: "你的帳號已鎖定."
-      timeout: "工作階段已逾時, 請重新登入已繼續."
+      timeout: "工作階段已逾時, 若要繼續請重新登入."
       unauthenticated: "繼續之前你必須先登入或登記."
       unconfirmed: "你必須先確認帳號才能繼續."
     invitations: 
@@ -31,16 +31,16 @@ zh-TW:
       invitation: 
         accept: "接受邀請"
         ignore: "如果你不想接受邀請, 請忽略這封信件."
-        no_account_till: "在你使用以上連結登記後, 你的帳號才會建立."
+        no_account_till: "在使用以上連結並登記後, 你的帳號才會建立."
         subject: "有人邀請你加入 Diaspora!"
       inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
+        accept_at: ", 在 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name} 邀請你加入 Diaspora"
         have_invited_you: "%{names} 邀請你加入 Diaspora"
       reset_password_instructions: 
         change: "更改密碼"
         ignore: "如果你沒請求過, 請忽略這封信件."
-        someone_requested: "有人請求要更改你的密碼, 請使用以下連結."
+        someone_requested: "有人要求更改你的密碼, 若確定要這麼做, 請使用以下連結."
         subject: "密碼重設步驟"
         wont_change: "在使用以上連結設定新的密碼後, 你的密碼才會改變."
       unlock_instructions: 

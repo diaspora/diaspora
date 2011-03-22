@@ -98,12 +98,6 @@ sl:
     new_aspect: 
       create: "Ustvari"
       name: "Ime"
-    no_contacts_message: 
-      add_contact: "Dodaj stik"
-      add_contact_to: "Dodaj osebo v skupino %{aspect_name}"
-      invite: "Povabi osebo naj se pridruži v Diasporo!"
-      nobody: "Povabite v Diasporo vse, ki vam v življenju nekaj pomenijo!"
-      nobody_in_aspect: "Vaša skupina '%{aspect_name}' je prazna."
     no_posts_message: 
       start_talking: "Trenutno še brez objav. Začnite s prvo objavo!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ sl:
     diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
     love: "vas pozdravlja,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ sl:
   password: "Geslo"
   password_confirmation: "Potrditev gesla"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "uredi člane skupin"
     few: "%{count} people"
@@ -514,6 +511,7 @@ sl:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Deli"
       share_with: "deli s/z"
@@ -534,6 +532,7 @@ sl:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Izbriši"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "trajna povezava"
   stream_helper: 
     hide_comments: "skrij komentarje"

@@ -98,12 +98,6 @@ ml:
     new_aspect: 
       create: "ഉണ്ടാക്കു"
       name: "പേര്"
-    no_contacts_message: 
-      add_contact: "ഒരു സമ്പര്‍ക്കം ചേര്‍ക്കുക"
-      add_contact_to: "%{aspect_name} ലേയ്ക്ക് ആരെയെങ്കിലും ചേര്‍ക്കുക"
-      invite: "ആരെയെങ്കിലും ഡയസ്പോറയില്‍ ചേരാന്‍ ക്ഷണിക്കുക!"
-      nobody: "Bring the people that matter in your life to Diaspora!"
-      nobody_in_aspect: "താങ്കളുടെ '%{aspect_name}' പരിചയം ശൂന്യമാണ്."
     no_posts_message: 
       start_talking: "ആരും ഒന്നും പറയുന്നില്ല. സംഭാഷണം തുടങ്ങിവെയ്ക്കു!"
     one: "ഒരു പരിചയം"
@@ -279,6 +273,7 @@ ml:
     diaspora: "ഡയസ്പോറ ഇമെയില്‍ ചാത്തന്‍"
     hello: "നമസ്‌കാരം %{name}!"
     love: "സ്നേഹപൂര്‍വ്വം,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "കാണാനായി അകത്ത് കയറുക."
@@ -306,6 +301,8 @@ ml:
   password: "അടയാളവാക്ക്"
   password_confirmation: "അടയാളവാക്ക് തിര്‍ച്ചപ്പെടുത്തുക"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
     few: "%{count} ആളുകള്‍"
@@ -514,6 +511,7 @@ ml:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "%{aspect}ല്‍ ഒരു സന്ദേശം പ്രസിദ്ധീകരിക്കുക"
       posting: "കുറിക്കുന്നു..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"
@@ -534,6 +532,7 @@ ml:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "നീക്കം ചെയ്യുക"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "സ്ഥിരം കണ്ണി"
   stream_helper: 
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"

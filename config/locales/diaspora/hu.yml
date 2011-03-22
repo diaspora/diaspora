@@ -98,12 +98,6 @@ hu:
     new_aspect: 
       create: "Létrehoz"
       name: "Név"
-    no_contacts_message: 
-      add_contact: "Ismerős felvétele"
-      add_contact_to: "Adj hozzá valakit ehhez: %{aspect_name}"
-      invite: "Hívj meg valakit a Diaspora-ra!"
-      nobody: "Hozd a Diaspora-ra azokat, akik számítanak az életedben!"
-      nobody_in_aspect: "A '%{aspect_name}' csoportod üres."
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
     one: "1 csoport"
@@ -279,6 +273,7 @@ hu:
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
     love: "Szeretettel,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "megemlített téged egy bejegyzésében:"
       sign_in: "Jelentkezz be, hogy megnézhesd."
@@ -306,6 +301,8 @@ hu:
   password: "Jelszó"
   password_confirmation: "Jelszó megerősítése"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "csoport tagság szerkesztése"
     few: "%{count} személy"
@@ -514,6 +511,7 @@ hu:
       mention_helper_text: "valaki megemlítéséhez írj '@' jelet, és kezd el írni a nevet"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
+      public: "Public"
       publishing_to: "Publikálás:"
       share: "Megosztás"
       share_with: "Megosztás vele: %{aspect}"
@@ -534,6 +532,7 @@ hu:
       mentioning: "Megemlít: %{person}"
     show: 
       destroy: "Töröl"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "hozzászólások elrejtése"

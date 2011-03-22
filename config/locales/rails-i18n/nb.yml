@@ -1,4 +1,8 @@
-# Norwegian, norsk bokmål, by irb.no
+# Norwegian, norsk bokmål
+# by irb.no
+# contributors:
+# - Kim Joar Bekkelund - http://kimjoar.net
+
 nb:
   support:
     array:
@@ -71,24 +75,27 @@ nb:
       minute: "Minutt"
       second: "Sekund"
   number:
-    format:
+    format: &number_format
       precision: 2
-      separator: "."
-      delimiter: ","
+      separator: ","
+      delimiter: " "
+      significant: false
+      strip_insignificant_zeros: true
     currency:
       format:
-        separator: "."
-        delimiter: ","
-        precision: 2
         unit: "kr"
         format: "%n %u"
+        <<: *number_format
     precision:
       format:
         delimiter: ""
     human:
       format:
         precision: 1
-        delimiter: ","
+        separator: ","
+        delimiter: " "
+        significant: false
+        strip_insignificant_zeros: true
       storage_units:
         # Storage units output formatting.
         # %u is the storage unit, %n is the number (default: 2 MB)
@@ -97,44 +104,77 @@ nb:
           byte:
             one:   "Byte"
             other: "Bytes"
-          kb: "KB"
+          kb: "kB"
           mb: "MB"
           gb: "GB"
           tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "tusen"
+          million:
+            one: "million"
+            other: "millioner"
+          billion:
+            one: "milliard"
+            other: "milliarder"
+          trillion:
+            one: "billion"
+            other: "billioner"
+          quadrillion:
+            one: "billiard"
+            other: "billiarder"
+
     percentage:
       format:
-        delimiter: ""        
+        delimiter: ""
 
-  activemodel:
+  helpers:
+    select:
+      prompt: "Vennligst velg"
+
+    submit:
+      create: "Lag %{model}"
+      update: "Oppdater %{model}"
+      submit: "Lagre %{model}"
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "er ikke inkludert i listen"
+      exclusion: "er reservert"
+      invalid: "er ugyldig"
+      confirmation: "passer ikke bekreftelsen"
+      accepted: "må være akseptert"
+      empty: "kan ikke være tom"
+      blank: "kan ikke være blank"
+      too_long: "er for lang (maksimum %{count} tegn)"
+      too_short: "er for kort (minimum %{count} tegn)"
+      wrong_length: "er av feil lengde (maksimum %{count} tegn)"
+      not_a_number: "er ikke et tall"
+      not_an_integer: "er ikke et heltall"
+      greater_than: "må være større enn %{count}"
+      greater_than_or_equal_to: "må være større enn eller lik %{count}"
+      equal_to: "må være lik %{count}"
+      less_than: "må være mindre enn %{count}"
+      less_than_or_equal_to: "må være mindre enn eller lik %{count}"
+      odd: "må være oddetall"
+      even: "må være partall"
+
+  activerecord:
     errors:
       template:
         header:
           one:   "Kunne ikke lagre %{model} på grunn av én feil."
           other: "Kunne ikke lagre %{model} på grunn av %{count} feil."
         body: "Det oppstod problemer i følgende felt:"
-                      
-  activerecord:
-    errors:
+
       messages:
-        inclusion: "er ikke inkludert i listen"
-        exclusion: "er reservert"
-        invalid: "er ugyldig"
-        confirmation: "passer ikke bekreftelsen"
-        accepted: "må være akseptert"
-        empty: "kan ikke være tom"
-        blank: "kan ikke være blank"
-        too_long: "er for lang (maksimum %{count} tegn)"
-        too_short: "er for kort (minimum %{count} tegn)"
-        wrong_length: "er av feil lengde (maksimum %{count} tegn)"
         taken: "er allerede i bruk"
-        not_a_number: "er ikke et tall"
-        greater_than: "må være større enn %{count}"
-        greater_than_or_equal_to: "må være større enn eller lik %{count}"
-        equal_to: "må være lik %{count}"
-        less_than: "må være mindre enn %{count}"
-        less_than_or_equal_to: "må være mindre enn eller lik %{count}"
-        odd: "må være oddetall"
-        even: "må være partall"
         record_invalid: "Det oppstod feil: %{errors}"
-      # models:
-      # attributes:
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute}%{message}"

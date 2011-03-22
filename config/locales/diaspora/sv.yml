@@ -98,12 +98,6 @@ sv:
     new_aspect: 
       create: "Skapa"
       name: "Namn"
-    no_contacts_message: 
-      add_contact: "Lägg till en kontakt"
-      add_contact_to: "Lägg till en kontakt i %{aspect_name}"
-      invite: "Bjud in en kontakt till Diaspora!"
-      nobody: "Bjud in dina vänner till Diaspora!"
-      nobody_in_aspect: "Sidan '%{aspect_name}' är tom."
     no_posts_message: 
       start_talking: "Ingen har sagt något än. Bli först!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ sv:
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
     love: "hälsningar,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ sv:
   password: "Lösenord"
   password_confirmation: "Bekräfta lösenord"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "flytta mellan sidor"
     few: "%{count} people"
@@ -514,6 +511,7 @@ sv:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Dela"
       share_with: "dela med"
@@ -534,6 +532,7 @@ sv:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Ta bort"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "permalänk"
   stream_helper: 
     hide_comments: "dölj kommentarer"

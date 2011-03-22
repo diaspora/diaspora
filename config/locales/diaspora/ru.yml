@@ -98,12 +98,6 @@ ru:
     new_aspect: 
       create: "Создать"
       name: "Имя"
-    no_contacts_message: 
-      add_contact: "Добавить контакт"
-      add_contact_to: "Добавить кого-нибудь в %{aspect_name}"
-      invite: "Пригласить кого-нибудь присоединится к Диаспоре!"
-      nobody: "Сообщите людям, что происходит в вашей жизни через Диаспору!"
-      nobody_in_aspect: "Ваш аспект '%{aspect_name}' пуст."
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал.  Начать разговор!"
     one: "1 aspect"
@@ -279,6 +273,7 @@ ru:
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
     love: "С любовью,"
+    manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
@@ -306,6 +301,8 @@ ru:
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
   people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
     aspect_list: 
       edit_membership: "редактировать участников аспекта"
     few: "%{count} people"
@@ -514,6 +511,7 @@ ru:
       mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка ..."
+      public: "Public"
       publishing_to: "publishing to: "
       share: "Поделиться"
       share_with: "поделиться с"
@@ -534,6 +532,7 @@ ru:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "Уничтожить"
+      not_found: "Sorry, we couldn't find that post."
       permalink: "постоянная ссылка"
   stream_helper: 
     hide_comments: "скрыть комментарии"
