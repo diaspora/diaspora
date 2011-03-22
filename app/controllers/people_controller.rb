@@ -50,6 +50,12 @@ class PeopleController < ApplicationController
 
   def show
     @person = Person.where(:id => params[:id]).first
+    if @person && @person.remote? && !user_signed_in?
+      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+      return
+    end
+
+
     @post_type = :all
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
