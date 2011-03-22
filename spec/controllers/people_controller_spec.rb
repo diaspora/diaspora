@@ -154,6 +154,13 @@ describe PeopleController do
 
         assigns[:posts].should =~ public_posts
       end
+
+      it 'throws 404 if the person is remote' do
+        p = Factory(:person)
+
+        get :show, :id => p.id
+        response.status.should == 404
+      end
     end
     context "when the person is a contact of the current user" do
       before do
