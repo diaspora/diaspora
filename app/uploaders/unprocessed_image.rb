@@ -6,7 +6,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   include CarrierWave::MiniMagick
 
   def store_dir
-    "uploads/u_images"
+    "uploads/images"
   end
 
   def extension_white_list
@@ -14,7 +14,11 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   end
 
   def filename
-    model.random_string + model.id.to_s + File.extname(@filename) if @filename
+    model.random_string + File.extname(@filename) if @filename
   end
 
+  version :thumb_small
+  version :thumb_medium
+  version :thumb_large
+  version :scaled_full
 end

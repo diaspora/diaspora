@@ -75,9 +75,6 @@ describe Photo do
       @photo.save!
     end
     it 'sets a remote url' do
-      @photo.remote_photo_path.should be_nil
-      @photo.remote_photo_name.should be_nil
-
       @photo.update_remote_path
 
       @photo.remote_photo_path.should include("http")

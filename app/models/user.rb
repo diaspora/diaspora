@@ -226,7 +226,6 @@ class User < ActiveRecord::Base
   def update_profile(params)
     if photo = params.delete(:photo)
       photo.update_attributes(:pending => false) if photo.pending
-      photo.process
       params[:image_url] = photo.url(:thumb_large)
       params[:image_url_medium] = photo.url(:thumb_medium)
       params[:image_url_small] = photo.url(:thumb_small)

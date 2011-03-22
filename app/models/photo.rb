@@ -33,8 +33,9 @@ class Photo < Post
   def self.diaspora_initialize(params = {})
     photo = super(params)
     image_file = params.delete(:user_file)
-    photo.random_string = gen_random_string(10)
+    photo.random_string = ActiveSupport::SecureRandom.hex(10)
     photo.unprocessed_image.store! image_file
+    photo.update_remote_path
     photo
   end
 
@@ -47,12 +48,12 @@ class Photo < Post
   end
 
   def update_remote_path
-    unless self.processed_image.url.match(/^https?:\/\//)
+    unless self.unprocessed_image.url.match(/^https?:\/\//)
       pod_url = AppConfig[:pod_url].dup
       pod_url.chop! if AppConfig[:pod_url][-1,1] == '/'
-      remote_path = "#{pod_url}#{self.processed_image.url}"
+      remote_path = "#{pod_url}#{self.unprocessed_image.url}"
     else
-      remote_path = self.processed_image.url
+      remote_path = self.unprocessed_image.url
     end
 
     name_start = remote_path.rindex '/'
@@ -77,7 +78,7 @@ class Photo < Post
       name = name.to_s + '_' if name
       remote_photo_path + name.to_s + remote_photo_name
     elsif not_processed?
-      unprocessed_image.url
+      unprocessed_image.url(name)
     else
       processed_image.url(name)
     end
@@ -102,21 +103,12 @@ class Photo < Post
   def process
     return false if unprocessed_image.path.include?('.gif') || self.processed?
     processed_image.store!(unprocessed_image) #Ultra naive
-    update_remote_path
     save!
   end
 
   def mutable?
     true
   end
-
-  def self.gen_random_string(len)
-    chars = ("a".."z").to_a + ("A".."Z").to_a + ("0".."9").to_a
-    string = ""
-    1.upto(len) { |i| string << chars[rand(chars.size-1)] }
-    return string
-  end
-
 
   def as_json(opts={})
     {
