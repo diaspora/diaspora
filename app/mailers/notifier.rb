@@ -1,6 +1,5 @@
 class Notifier < ActionMailer::Base
   helper :application
-
   default :from => AppConfig[:smtp_sender_address]
 
   ATTACHMENT = File.read("#{Rails.root}/public/images/logo_caps.png")
@@ -15,10 +14,10 @@ class Notifier < ActionMailer::Base
   end
 
   def single_admin(string, recipient)
-    @recipient = recipient
+    @receiver = recipient
     @string = string.html_safe
     attachments.inline['logo_caps.png'] = ATTACHMENT
-    mail(:to => @recipient.email,
+    mail(:to => @receiver.email,
          :subject => I18n.t('notifier.single_admin.subject'), :host => AppConfig[:pod_uri].host)
   end
 

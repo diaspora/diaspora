@@ -8,3 +8,5 @@
       = image_tag attachments['logo_caps.png'].url, :alt => "DIASPORA"
     #container
       = yield
+    %a{:href => "#{ AppConfig[:pod_uri].host}/users/#{@receiver.id}/edit"}
+      = t('notifier.manage_your_email_settings')

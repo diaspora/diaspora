@@ -300,6 +300,7 @@ en:
     love: "love,"
     thanks: "Thanks,"
     diaspora: "the diaspora email robot"
+    manage_your_email_settings: "manage your email settings"
     single_admin:
         subject: "A message about your Diaspora account:"
         admin: "Your Diaspora administrator"
