@@ -47,7 +47,6 @@ describe Notifier do
     it 'has the layout' do
       
       mail = Notifier.single_admin("Welcome to bureaucracy!", user)
-      puts mail.body.encoded
       mail.body.encoded.should match /manage your email settings/
     end
   end
