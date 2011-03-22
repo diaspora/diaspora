@@ -27,3 +27,10 @@
   background: -webkit-gradient(linear, 0% $start, 0% $end, from($from), to($to));
   background: -moz-linear-gradient(top, $from $start, $to $end);
 }
+
+@mixin opacity($val){
+  filter: alpha(opacity= $val* 100);
+  -moz-opacity: $val;
+  -khtml-opacity: $val;
+  opacity: $val;
+}
