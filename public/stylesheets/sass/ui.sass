@@ -9,6 +9,8 @@
 
 .button, .button_set
   @include border-radius(3px)
+  @include linear-gradient(#f6f6f6,#d0d0d0)
+
   :font
     :style normal
     :weight bold
@@ -25,11 +27,6 @@
 
   :min-height 10px
 
-  :background
-    :color #ccc
-  :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#F6F6F6), to(#d0d0d0))
-  :background -moz-linear-gradient(top, #F6F6F6, #d0d0d0)
-
   :border 1px solid #aaa
     :top 1px solid #ccc
     :bottom 1px solid #666
@@ -41,17 +38,17 @@
     :shadow 0 1px 1px #eee
 
   &:hover
+    @include linear-gradient(#d6d6d6,#b0b0b0)
+
     :text
       :decoration none
     :color #444
-    :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#D6D6D6), to(#b0b0b0))
-    :background -moz-linear-gradient(top, #D6D6D6, #b0b0b0)
 
   &:active
+    @include linear-gradient(#acacac,#808080)
+
     :color #111
     :text-shadow 0 1px 0 #ccc
-    :background -webkit-gradient(linear, 0% 39%, 0% 100%, from(#ACACAC), to(#808080))
-    :background -moz-linear-gradient(top, #ACACAC, #808080)
     :border 1px solid #666
       :top 1px solid #333
       :bottom 1px solid #888
@@ -93,8 +90,7 @@ ul.button_set
         :right none
 
 .button .selected, .button_set .selected
-  :background -webkit-gradient(linear, 0% 29%, 0% 85%, from(#F0F0F0), to(#FAFAFA))
-  :background -moz-linear-gradient(top, #F0F0F0, #fafafa)
+  @include linear-gradient(#f0f0f0,#fafafa,29%,85%)
 
   :border
     :top 1px solid #aaa

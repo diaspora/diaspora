@@ -17,3 +17,13 @@
   -moz-box-shadow: $left $top $blur $color; 
   box-shadow: $left $top $blur $color; 
 }
+
+@mixin linear-gradient($from, $to, $start:0%, $end:100%){
+  background: mix($from,$to);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=$from, endColorstr=$to);
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient (GradientType=0, startColorstr=#{$from}, endColorstr=#{$to})";
+  
+  background: -webkit-gradient(linear, 0% $start, 0% $end, from($from), to($to));
+  background: -moz-linear-gradient(top, $from $start, $to $end);
+}

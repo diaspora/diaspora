@@ -125,17 +125,9 @@ form
 
 header
   @include box-shadow(0,1px,3px,#222)
+  @include linear-gradient(rgba(15,15,15,0.85),rgba(10,10,10,1))
 
   :z-index 50
-  :position relative
-
-  :background
-    :color #111
-    :color rgba(15,15,15,0.90)
-
-  :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(20,20,20,0.85)), to(rgba(20,20,20,1)))
-  :background -moz-linear-gradient(top, rgba(20,20,20,0.85), rgba(20,20,20,0.98))
-
   :padding 0
     :top 2px
   :color #CCC
@@ -1159,7 +1151,7 @@ ul#aspect_nav
     :display inline
 
     input
-      @include box-shadow(0,1px,2px,#666)
+      @include box-shadow(0,1px,0px,#444)
 
       :display inline
       :background-color #ccc
@@ -1823,16 +1815,13 @@ ul#request_result
           :right 4px
           :left 4px
         &.added
-          :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(92,199,86)), color-stop(1, rgb(158,255,153)))
-          :background -moz-linear-gradient(top, rgb(158,255,153), rgb(92,199,86))
+          @include linear-gradient(rgb(92,199,86),rgb(158,255,153))
 
         &.added.remove
-          :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(199,86,86)), color-stop(1, rgb(255,153,153)))
-          :background -moz-linear-gradient(top, rgb(255,153,153), rgb(199,86,86))
+          @include linear-gradient(rgb(199,86,86),rgb(255,153,153))
 
           &:active
-            :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(130,55,55)), color-stop(1, rgb(199,119,119)))
-            :background -moz-linear-gradient(top, rgb(199,119,119), rgb(130,55,55))
+            @include linear-gradient(rgb(130,55,55),rgb(199,119,119))
 
 .aspect_list
   :height 300px
@@ -1960,6 +1949,8 @@ ul#landing_nav
       :size 18px
 
   #big_action_button, input[type='submit']
+    @include linear-gradient(rgb(0,123,194),rgb(65,182,250))
+
     :height 47px
     :margin 0
     :background
@@ -1969,9 +1960,6 @@ ul#landing_nav
     :-moz-border-radius 0 5px 5px 0
     :border-radius 0 5px 5px 0
     :border 1px solid #CCC
-
-    :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,123,194)), color-stop(1, rgb(65,182,250)))
-    :background -moz-linear-gradient( center bottom, rgb(0,123,194) 0%, rgb(65,182,250) 100%)
 
     :padding 12px
     :font
@@ -1984,8 +1972,7 @@ ul#landing_nav
       :align center
 
     &:hover
-      :background -webkit-gradient( linear, left bottom, left top, color-stop(0, rgb(0,136,209)), color-stop(1, rgb(113,204,255)))
-      :background -moz-linear-gradient( center bottom, rgb(0,136,209) 0%, rgb(113,204,255) 100%)
+      @include linear-gradient(rgb(0,136,209),rgb(113,204,255))
 
 #diaspora_description
   :background
