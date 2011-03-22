@@ -7,6 +7,7 @@ class RegistrationsController < Devise::RegistrationsController
 
   def create
     @user = User.build(params[:user])
+    @user.invites = 20
     if @user.save
       flash[:notice] = I18n.t 'registrations.create.success'
       @user.seed_aspects
