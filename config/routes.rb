@@ -82,6 +82,15 @@ Diaspora::Application.routes.draw do
   match 'receive/users/:guid',    :to => 'publics#receive'
   match 'hub',                  :to => 'publics#hub'
 
+  scope '/v-1' do
+    match '/posts', :to => 'apis#posts_index'
+    match '/posts/:guid', :to => 'apis#posts'
+    match '/tags_posts/:tag', :to => 'apis#tag_posts'
+    match '/tags_people/:tag', :to => 'apis#tag_people'
+    match '/people', :to => 'apis#people_index'
+    match '/person/:diaspora_handle', :to => 'apis#people'
+  end
+
   match'localize', :to => "localize#show"
   match 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
   #root

@@ -180,7 +180,7 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-   {:id => self.guid, :name => self.name, :avatar => self.profile.image_url(:thumb_small), :handle => self.diaspora_handle, :url => "/people/#{self.id}"}
+    super(:include => [:profile], :except => [:mongo_id, :owner_id, :serialized_public_key])
   end
 
   protected

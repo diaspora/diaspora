@@ -96,6 +96,17 @@ class StatusMessage < Post
     identifiers.empty? ? [] : Person.where(:diaspora_handle => identifiers)
   end
 
+  def as_json(opts={})
+    {:guid => self.guid,
+     :id => self.id,
+     :author => self.author.as_json,
+     :photos => self.photos.as_json,
+     :created_at => self.created_at,
+     :updated_at => self.updated_at,
+     :raw_message => self.raw_message,
+     :text => self.text, }
+  end
+
   def to_activity
     <<-XML
   <entry>
