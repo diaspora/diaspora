@@ -84,6 +84,12 @@ class User < ActiveRecord::Base
     super(conditions)
   end
 
+  def can_add?(person)
+    return false if self.person == person
+    return false if self.contact_for(person).present?
+    true
+  end
+
   ######### Aspects ######################
   def drop_aspect(aspect)
       aspect.destroy

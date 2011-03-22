@@ -157,3 +157,12 @@ When /^I add the person to my first aspect$/ do
     Then I should see a ".added.button" within "#facebox #aspects_list ul > li:first-child"
   }
 end
+
+Then /^I should( not)? see an add contact button$/ do |not_see|
+  expected_length = not_see ? 0 : 1
+  evaluate_script("$('.add_contact a').length == #{expected_length};")
+end
+
+When /^I click on the add contact button$/ do
+  page.execute_script("$('.add_contact a').click();")
+end

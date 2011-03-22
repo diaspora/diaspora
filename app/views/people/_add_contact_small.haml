@@ -1,0 +1,9 @@
+- if current_user.can_add?(person)
+  .add_contact
+    = link_to image_tag("icons/monotone_plus_add_round.png"),
+      {:controller => "contacts",
+      :action => "new",
+      :person_id => person.id},
+      :alt => 'add contact from tag',
+      :class => 'button',
+      :rel => 'facebox'

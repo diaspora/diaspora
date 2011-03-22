@@ -13,15 +13,13 @@ Feature: Interacting with tags
 
   Scenario: adding a contact from a tag page
     When I search for "#rockstar"
-    Then I should see "start sharing"
-    But I should not see "Pending request"
+    Then I should see an add contact button
 
-    When I follow "start sharing"
+    When I click on the add contact button
     Then I should see the contact dialog
     When I add the person to my first aspect
     And I follow "done editing"
     Then I should not see the contact dialog
 
     When I search for "#rockstar"
-    Then I should not see "start sharing"
-    But I should see "Pending request"
+    Then I should not see an add contact button

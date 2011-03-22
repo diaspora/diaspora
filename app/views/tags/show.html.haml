@@ -37,9 +37,8 @@
       .stream_element{:id => person.id}
         = person_image_link(person)
         - if current_user
-          .right
-            = render :partial => 'people/relationship_action',
-                     :locals => { :person => person, :contact => current_user.contact_for(person), :request => nil}
+          = render :partial => 'people/add_contact_small',
+                   :locals => { :person => person }
         .content
           %span.from
             =person_link(person)
