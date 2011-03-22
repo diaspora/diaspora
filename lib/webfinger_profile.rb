@@ -7,7 +7,7 @@ class WebfingerProfile
     @links = {}
     set_fields
   end
-  
+
   def valid_diaspora_profile?
     !(@webfinger_profile.nil? || @account.nil? || @links.nil? || @hcard.nil? ||
         @guid.nil? || @public_key.nil? || @seed_location.nil? )
@@ -17,12 +17,12 @@ class WebfingerProfile
 
   def set_fields
     doc = Nokogiri::XML.parse(webfinger_profile)
-    
+
     account_string = doc.css('Subject').text.gsub('acct:', '').strip
-    
+
     raise "account in profile(#{account_string}) and account requested (#{@account}) do not match" if account_string != @account
 
-    doc.css('Link').each do |l|  
+    doc.css('Link').each do |l|
       rel = text_of_attribute(l, 'rel')
       href = text_of_attribute(l, 'href')
       @links[rel] = href
@@ -30,7 +30,7 @@ class WebfingerProfile
         when "http://microformats.org/profile/hcard"
           @hcard = href
         when "http://joindiaspora.com/guid"
-          @guid = href     
+          @guid = href
         when "http://joindiaspora.com/seed_location"
           @seed_location = href
       end
@@ -38,14 +38,14 @@ class WebfingerProfile
 
     if doc.at('Link[rel=diaspora-public-key]')
       begin
-        pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href') 
+        pubkey = text_of_attribute( doc.at('Link[rel=diaspora-public-key]'), 'href')
         @public_key = Base64.decode64 pubkey
       rescue Exception => e
-        puts "probally not diaspora..."
+        Rails.logger.info(:event => :invalid_profile, :identifier => @account)
       end
     end
   end
-  
+
   def text_of_attribute(doc, attr)
     doc.attribute(attr) ? doc.attribute(attr).text : nil
   end
