@@ -379,6 +379,8 @@ en:
       people_on_pod_are_aware_of: " people on pod are aware of"
     aspect_list:
       edit_membership: "edit aspect membership"
+    add_contact_small:
+      add_contact_from_tag: "add contact from tag"
 
   photos:
     show:
