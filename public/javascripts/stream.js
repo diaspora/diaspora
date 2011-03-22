@@ -11,9 +11,8 @@ var Stream = {
     Diaspora.widgets.timeago.updateTimeAgo();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
     //audio linx
-    //
     Stream.setUpAudioLinks();
-    Stream.setUpImageLinks();
+    //Stream.setUpImageLinks();
 
     // comment link form focus
     $stream.delegate(".focus_comment_textarea", "click", function(e){
@@ -86,7 +85,7 @@ var Stream = {
       //collapse publisher
       Publisher.close();
       Publisher.clear();
-      Stream.setUpImageLinks();
+      //Stream.setUpImageLinks();
       Stream.setUpAudioLinks();
     });
 
