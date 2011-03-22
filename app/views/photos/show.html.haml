@@ -66,11 +66,12 @@
     = t('_comments')
 
   #photo_stream.stream.show
-    - if (defined?(current_user) && !current_user.liked?(@parent))
-      %span.like_links
-        = link_to t('shared.stream_element.like'), {:controller => "likes", :action => "create", :positive => 'true', :post_id => @parent.id }, :class => "like_it", :remote => true
-        |
-        = link_to t('shared.stream_element.dislike'), {:controller => "likes", :action =>  "create", :positive => 'false', :post_id => @parent.id }, :class => "dislike_it", :remote => true
+    // TODO(likes)
+    /- if (defined?(current_user) && !current_user.liked?(@parent))
+    /  %span.like_links
+    /    = link_to t('shared.stream_element.like'), {:controller => "likes", :action => "create", :positive => 'true', :post_id => @parent.id }, :class => "like_it", :remote => true
+    /    |
+    /    = link_to t('shared.stream_element.dislike'), {:controller => "likes", :action =>  "create", :positive => 'false', :post_id => @parent.id }, :class => "dislike_it", :remote => true
 
     %div{:data=>{:guid=>@parent.id}}
       .likes_container
