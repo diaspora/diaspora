@@ -2,10 +2,13 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
+@import 'mixins'
+
 .ui-autocomplete
   :left -11px
 
 .button, .button_set
+  @include border-radius(3px)
   :font
     :style normal
     :weight bold
@@ -30,10 +33,6 @@
   :border 1px solid #aaa
     :top 1px solid #ccc
     :bottom 1px solid #666
-
-  :-webkit-border-radius 3px
-  :-moz-border-radius 3px
-  :border-radius 3px
 
   :cursor pointer
 
@@ -105,23 +104,17 @@ ul.button_set
   :right 0
 
 .contextual_pane
+  @include border-radius(3px)
+  @include box-shadow(0,0,0,10,#000)
+
   :z-index 20
 
   :position absolute
-
   :display none
 
   :background
     :color #fff
 
   :border 4px solid #000
-
-  :border-radius 3px
-  :-moz-border-radius 3px
-  :-webkit-border-radius 3px
-
-  :box-shadow 0 0 5px #000
-  :-webkit-box-shadow 0 0 10px #000
-
   :padding 2em
 

@@ -1,0 +1,19 @@
+@mixin mobile-box {
+  margin: 10px;
+  padding: 0 15px;
+  border: 1px #999 solid;
+  -moz-border-radius: 15px;
+  border-radius: 15px;
+}
+
+@mixin border-radius($radius){
+  -moz-border-radius: $radius;
+  -webkit-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin box-shadow($left, $top, $blur, $color:#000){
+  -webkit-box-shadow: $left $top $blur $color; 
+  -moz-box-shadow: $left $top $blur $color; 
+  box-shadow: $left $top $blur $color; 
+}

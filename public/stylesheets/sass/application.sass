@@ -2,6 +2,7 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
+@import 'mixins'
 
 $blue: #3F8FBA
 $red: #FF0000 
@@ -62,6 +63,7 @@ form
 #flash_notice,
 #flash_error,
 #flash_alert
+  @include box-shadow(0, 1px, 2px, #333)
   :z-index 100
   :position fixed
   :color #fff
@@ -70,12 +72,7 @@ form
   :left 0
 
   :width 100%
-
   :padding 1em
-
-  :-moz-box-shadow 0 1px 2px #333
-  :-webkit-box-shadow 0 1px 2px #333
-  :box-shadow 0 1px 2px #333
 
   :font
     :weight bold
@@ -127,6 +124,8 @@ form
     :margin 0
 
 header
+  @include box-shadow(0,1px,3px,#222)
+
   :z-index 50
   :position relative
 
@@ -136,11 +135,6 @@ header
 
   :background -webkit-gradient(linear, 0% 0%, 0% 100%, from(rgba(20,20,20,0.85)), to(rgba(20,20,20,1)))
   :background -moz-linear-gradient(top, rgba(20,20,20,0.85), rgba(20,20,20,0.98))
-
-  :-webkit-box-shadow 0 1px 3px #111
-  :-moz-box-shadow 0 1px 2px #111
-  :box-shadow 0 1px 3px #222
-
 
   :padding 0
     :top 2px
@@ -164,6 +158,8 @@ header
     :height 40px
 
   ul#user_menu
+    @include border-radius(5px)
+
     :overflow hidden
     :white-space nowrap
     :text-overflow ellipsis
@@ -183,10 +179,6 @@ header
 
     :background
       :color #000
-
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
 
     :position absolute
     :display inline
@@ -221,16 +213,14 @@ header
         :color #fff
 
     &.active
+      @include box-shadow(0,1px,2px,#333)
+
       :margin
         :top -3px
         :right -6px
       :background
         :color #000
       :border 1px solid #999
-
-      :box-shadow 0 1px 2px #333
-      :-webkit-box-shadow 0 1px 2px #333
-      :-moz-box-shadow 0 1px 2px #333
 
       li
         :display block
@@ -445,13 +435,10 @@ header
 .right .reshare_pane .reshare_button
   :padding 2px
   &.active
+    @include border-radius(5px)
+
     :background
       :color #333
-
-    :-webkit-border-radius 5px 5px 0 0
-    :-moz-border-radius 5px 5px 0 0
-    :border-radius 5px 5px 0 0
-
     a
       :color #fff
       :text-shadow none
@@ -674,12 +661,10 @@ div.dislikes
 
 .profile_photo
   img
+    @include box-shadow(0,2px,2px,#333)
+
     :height 300px
     :width 300px
-
-    :-webkit-box-shadow 0 2px 2px #333
-    :-moz-box-shadow 0 2px 2px #333
-    :box-shadow 0 2px 2px #333
 
 #profile
   h3
@@ -789,6 +774,8 @@ a.paginate, #infscr-loading
 
 input:not([type='submit']),
 textarea
+  @include border-radius(3px)
+
   :font
     :family 'Arial', 'Helvetica', sans-serif
     :size 14px
@@ -797,10 +784,6 @@ textarea
   :width 100%
   :border 1px solid #ccc
   :height auto
-
-  :-webkit-border-radius 3px
-  :-moz-border-radius 3px
-  :border-radius 3px
 
 input[type='checkbox']
   :width auto
@@ -947,15 +930,13 @@ label
       :left 0px
 
   #file-upload
+    @include border-radius(3px)
+
     :z-index 10
     :float right
     :height 42px
     :width 103px
     :margin 0
-
-    :-webkit-border-radius 3px
-    :-moz-border-radius 3px
-    :border-radius 3px
 
     :border 2px solid #ccc
     :background
@@ -1022,6 +1003,8 @@ label
       img
         :width 50px
       .circle
+        @include border-radius(20px)
+
         :display none
         :z-index 1
         :position absolute
@@ -1036,10 +1019,6 @@ label
         :max-height 20px
 
         :border 1px solid #fff
-
-        :-webkit-border-radius 20px
-        :-moz-border-radius 20px
-        :border-radius 20px
 
       .x
         :display none
@@ -1112,14 +1091,12 @@ ul#aspect_nav
       :decoration none
 
   > li
+    @include border-radius(2px)
+
     :display inline
     :padding 1px 8px
     :margin 0
       :right 2px
-
-    :-webkit-border-radius 2px
-    :-moz-border-radius 2px
-    :border-radius 2px
 
     :text-shadow 0 1px 0 #444
 
@@ -1182,6 +1159,8 @@ ul#aspect_nav
     :display inline
 
     input
+      @include box-shadow(0,1px,2px,#666)
+
       :display inline
       :background-color #ccc
       :border
@@ -1189,10 +1168,6 @@ ul#aspect_nav
 
       :font
         :size 12px
-
-      :-webkit-box-shadow 0 1px #666
-      :-moz-box-shadow 0 1px #666
-      :box-shadow 0 1px #666
 
       :border 1px solid #000
 
@@ -1249,14 +1224,12 @@ ul#aspect_nav
   :cursor default
   :text-shadow 0 1px #fff
   ul.dropzone
+    @include border-radius(10px)
+
     :position relative
     :min-height 65px
     :margin 0
       :bottom 25px
-
-    :-webkit-border-radius 10px
-    :-moz-border-radius 10px
-    :border-radius 10px
 
     :padding 15px
     :border 2px dashed #ccc
@@ -1286,16 +1259,10 @@ ul#aspect_nav
     :color #eee
 
     img
+      @include border-radius(5px)
+
       :height 50px
       :width 50px
-
-      :-webkit-box-shadow 0 1px 2px #999
-      :-moz-box-shadow 0 1px 2px #999
-      :box-shadow 0 1px 2px #999
-
-      :-webkit-border-radius 5px
-      :-moz-border-radius 5px
-      :border-radius 5px
 
     a:hover
       :cursor move
@@ -1307,9 +1274,7 @@ ul#aspect_nav
     &:active
       :z-index 20
       img
-        :-webkit-box-shadow 0 1px 3px #000
-        :-moz-box-shadow 0 2px 4px #000
-        :box-shadow 0 2px 4px #000
+        @include box-shadow(0,1px,3px,#000)
 
       .delete
         :display none
@@ -1322,6 +1287,9 @@ ul#aspect_nav
       :left -8px
 
       .circle
+        @include border-radius(20px)
+        @include box-shadow(0,1px,3px,#000)
+
         :z-index 1
         :position absolute
         :background
@@ -1333,14 +1301,6 @@ ul#aspect_nav
         :max-height 20px
 
         :border 1px solid #fff
-
-        :-webkit-border-radius 20px
-        :-moz-border-radius 20px
-        :border-radius 20px
-
-        :-webkit-box-shadow 0 1px 3px #000
-        :-moz-box-shadow 0 1px 3px #000
-        :box-shadow 0 1px 3px #000
 
       .x
         :z-index 2
@@ -1552,14 +1512,12 @@ ul.aspects
     :right 12px
 
   .delete
+    @include border-radius(10px)
+
     :background
       :color #eee
     :width 20px
     :height 20px
-
-    :-webkit-border-radius 10px
-    :-moz-border-radius 10px
-    :border-radius 10px
 
     :line-height 16px
     :text-indent 6px
@@ -1569,16 +1527,14 @@ ul.aspects
   :display inline
 
 .floating
+  @include box-shadow(0,1px,3px,#333)
+
   :position relative
   :padding 12px
   :margin
     :bottom 2em
   :background
     :color rgb(255,255,255)
-
-  :-webkit-box-shadow 0 1px 3px #333
-  :-moz-box-shadow 0 1px 3px #333
-  :box-shadow 0 1px 3px #333
 
   :border
     :bottom 1px solid #ccc
@@ -1617,9 +1573,7 @@ ul.aspects
 
 #user_photo_uploader
   .avatar
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
+    @include border-radius(5px)
 
     :height 100px
     :width 100px
@@ -1637,18 +1591,13 @@ ul.aspects
     :top 5px
   :min-height 100px
   img
+    @include border-radius(5px)
+    @include box-shadow(0,1px,2px,#666)
+
     :position absolute
     :left 0
     :height 100px
     :width 100px
-
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
-
-    :-webkit-box-shadow 0 1px 2px #666
-    :-moz-box-shadow 0 1px 2px #666
-    :box-shadow 0 1px 2px #666
 
   :padding
     :left 120px
@@ -1657,6 +1606,9 @@ h3 span.current_gs_step
   :color #22C910
 
 #notification
+  @include border-radius(5px)
+  @include box-shadow(0,2px,3px,#333)
+
   :z-index 10
   :display none
   :position fixed
@@ -1666,14 +1618,6 @@ h3 span.current_gs_step
   :background
     :color rgb(30,30,30)
     :color rgba(30,30,30,0.9)
-
-  :-webkit-box-shadow 0 2px 3px #333
-  :-moz-box-shadow 0 2px 3px #333
-  :box-shadow 0 2px 3px #333
-
-  :-webkit-border-radius 5px
-  :border-radius 5px
-  :-moz-border-radius 5px
 
   :min-width 200px
   :padding 12px
@@ -1697,14 +1641,12 @@ h3 span.current_gs_step
     :bottom 10px
 
   a
+    @include border-radius(10px)
+
     :color #fafafa
     :background
       :color $blue
     :padding 8px
-
-    :-webkit-border-radius 10px
-    :-moz-border-radius 10px
-    :border-radius 10px
 
     &:hover
       :background
@@ -1743,6 +1685,8 @@ h3 span.current_gs_step
     :top 2px
 
 .badge_count
+  @include border-radius(2px)
+
   :z-index 3
   :position absolute
   :top -10px
@@ -1751,7 +1695,6 @@ h3 span.current_gs_step
     :bottom 1px
   :background
     :color #A40802
-  :border-radius 2px
   :line
     :height 12px
 
@@ -1799,6 +1742,7 @@ h3 span.current_gs_step
           :text-shadow none
 
       a:first-child
+        @include border-radius(2px)
         :-webkit-border-radius 6px 0 0 6px
         :-moz-border-radius 6px 0 0 6px
         :border-radius 6px 0 0 6px
@@ -1841,10 +1785,6 @@ ul#request_result
     :left 6px
     :height 50px
     :width 50px
-
-  :-webkit-box-shadow 0 1px #fff
-  :-moz-box-shadow 0 1px #fff
-  :box-shadow 0 1px #fff
 
   :-webkit-border-radius 0 0 5px 5px
   :-moz-border-radius 0 0 5px 5px
@@ -1959,21 +1899,16 @@ ul#landing_nav
       :color $blue
 
       &.login
-        :padding 5px 8px
+        @include border-radius(5px)
+        @include box-shadow(0,1px,1px,#666)
 
-        :-webkit-border-radius 5px
-        :-moz-border-radius 5px
-        :border-radius 5px
+        :padding 5px 8px
 
         :background
           :color #000
 
         :border
           :top 1px solid #000
-
-        :-webkit-box-shadow 0 1px 1px #666
-        :-moz-box-shadow 0 1px 1px #666
-        :box-shadow 0 1px 1px #666
 
         &:hover
           :background
@@ -2070,13 +2005,10 @@ ul#landing_nav
   :text-shadow 0 1px 3px #999
 
   p
+    @include box-shadow(0,1px,3px,#ccc)
     :padding 12px
     :background
       :color #fff
-    :-webkit-box-shadow 0 1px 3px #ccc
-    :-moz-box-shadow 0 1px 3px #ccc
-    :box-shadow 0 1px 3px #ccc
-
 
 #login_field
   :text
@@ -2130,9 +2062,7 @@ h3,h4
     :bottom 5px
 
 #edit_aspect_pane
-  :-webkit-box-shadow 0 4px 8px #333
-  :-moz-box-shadow 0 4px 8px #333
-  :box-shadow 0 4px 8px #333
+  @include box-shadow(0,4px,8px,#333)
 
   :display none
 
@@ -2175,6 +2105,8 @@ h3,h4
       :weight bold
 
 .aspect_badge
+  @include border-radius(3px)
+
   :color #fff
   :line-height auto
   :padding 0 4px
@@ -2186,10 +2118,6 @@ h3,h4
 
   a
     :color #fff
-
-  :-webkit-border-radius 3px
-  :-moz-border-radius 3px
-  :border-radius 3px
 
   :display inline-block
 
@@ -2351,6 +2279,8 @@ div.dislikes
   :width 400px
   .person_tiles
     .tile
+      @include border-radius(2px)
+
       :padding 6px
         :left 65px
       :margin 3px
@@ -2360,7 +2290,6 @@ div.dislikes
       :height 50px
 
       :border 1px solid #eee
-      :border-radius 2px
 
       :position relative
 
@@ -2540,9 +2469,7 @@ div.dislikes
 
 .share_with
   .add_aspect
-    :-webkit-border-radius 5px
-    :-moz-border-radius 5px
-    :border-radius 5px
+    @include border-radius(5px)
 
     :margin
       :top 0.5em
@@ -2621,6 +2548,7 @@ div.dislikes
 
   :-webkit-box-shadow 0 3px 3px -3px #333
   :-moz-box-shadow 0 3px 3px -3px #333
+  :box-shadow 0 3px 3px -3px #333
 
   h3
     :margin 0
@@ -2674,6 +2602,8 @@ div.dislikes
   :min-height 0px
 
   .message_count
+    @include border-radius(5px)
+
     :right 10px
     :background
       :color #999
@@ -2683,9 +2613,6 @@ div.dislikes
     :font
       :size 12px
       :weight normal
-    :-webkit-border-radius 3px
-    :-moz-border-radius 3px
-    :border-radius 3px
 
   .participant_count
     :font
