@@ -22,7 +22,7 @@ class ProfilesController < ApplicationController
       if params[:getting_started]
         redirect_to getting_started_path(:step => params[:getting_started].to_i+1)
       else
-        redirect_to current_user.person
+        redirect_to edit_profile_path
       end
     else
       flash[:error] = I18n.t 'profiles.update.failed'

@@ -10,14 +10,6 @@ describe ApplicationHelper do
     @person = Factory.create(:person)
   end
 
-  it "should provide a correct show path for a given person" do
-    person_url(@person).should == "/people/#{@person.id}"
-  end
-
-  it "should provide a correct show path for a given user" do
-    person_url(@user).should == "/users/#{@user.id}"
-  end
-
   describe "#object_path" do
     it "returns an empty string if object is nil" do
       object_path(nil).should == ""

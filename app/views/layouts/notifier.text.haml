@@ -1,3 +1,3 @@
 != yield
 != t('notifier.manage_your_email_settings')
-!= "www.#{ AppConfig[:pod_uri].host}/users/#{@receiver.id}/edit"
+!= "#{AppConfig[:pod_uri].scheme}://#{AppConfig[:pod_uri].host}#{edit_user_path}"

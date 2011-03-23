@@ -107,7 +107,7 @@ $(document).ready(function(){
 
   function performAspectUpdate(home){
       // update the open aspects in the user
-      updateURL = "/users/me";
+      updateURL = "/user";
       updateURL += '?';
       if(home == 'home'){
         updateURL += 'user[a_ids][]=home';

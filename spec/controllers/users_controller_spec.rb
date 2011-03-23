@@ -50,7 +50,7 @@ describe UsersController do
 
     it 'redirects to the user edit page' do
       put :update, @params
-      response.should redirect_to edit_user_path(@user)
+      response.should redirect_to edit_user_path
     end
 
     it 'responds with a 204 on a js request' do

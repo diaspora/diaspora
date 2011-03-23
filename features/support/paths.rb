@@ -26,7 +26,7 @@ module NavigationHelpers
       when /^"([^\"]*)"'s page$/
         person_path(User.find_by_email($1).person)
       when /^my account settings page$/
-        edit_user_path(@me)
+        edit_user_path
       when /^the photo page for "([^\"]*)"'s post "([^\"]*)"$/
         photo_path(User.find_by_email($1).posts.find_by_text($2))
       when /^"(\/.*)"/

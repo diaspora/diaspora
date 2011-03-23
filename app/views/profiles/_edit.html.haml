@@ -5,7 +5,7 @@
 - content_for :page_title do
   = t('.edit_profile')
 
-= form_tag profile_path(profile), :method => :put, :multipart => true, :id => 'update_profile_form' do
+= form_tag profile_path, :method => :put, :multipart => true, :id => 'update_profile_form' do
   = render 'profiles/edit_public', :profile => profile, :aspect => aspect, :person => person
 
   %hr

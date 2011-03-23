@@ -8,10 +8,7 @@
 #section_header
   %h2
     = t('settings')
-  %ul#settings_nav
-    %li=link_to t('profile'), edit_profile_path
-    %li=link_to t('account'), edit_user_path(current_user)
-    %li=link_to t('_services'), services_path
+  = render 'shared/settings_nav'
 
 .span-12.prepend-5.last
   %h2
@@ -35,7 +32,7 @@
 
   %h3 
     = t('.change_password')
-  = form_for @user do |f|
+  = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
 
     %p
@@ -49,7 +46,7 @@
       = f.password_field :password_confirmation
 
     .submit_block
-      = link_to t('cancel'), edit_user_path(current_user)
+      = link_to t('cancel'), edit_user_path
       = t('or')
       = f.submit t('.change_password')
 
@@ -60,7 +57,7 @@
 
   %h3 
     = t('.change_language')
-  = form_for @user do |f|
+  = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
 
     %p
@@ -74,7 +71,7 @@
 
   %h3 
     = t('.receive_email_notifications')
-  = form_for @user do |f|
+  = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
 
     = f.fields_for :email_preferences do |type|
@@ -127,6 +124,6 @@
   .span-5.last
     %h3 
       = t('.close_account')
-    = link_to t('.close_account'), current_user,
+    = link_to t('.close_account'), user_path,
       :confirm => t('are_you_sure'), :method => :delete,
         :class => "button"

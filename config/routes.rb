@@ -6,8 +6,7 @@ Diaspora::Application.routes.draw do
   resources :status_messages, :only => [:new, :create, :destroy, :show]
   resources :comments,        :only => [:create]
   resources :requests,        :only => [:destroy, :create]
-  match '/likes' => 'likes#create'
-  resources :likes,           :only => [:create]
+  resource :likes,            :only => [:create]
 
   match 'tags/:name' => 'tags#show'
   resources :tags, :only => [:show]
@@ -45,6 +44,12 @@ Diaspora::Application.routes.draw do
   match 'photos/make_profile_photo' => 'photos#make_profile_photo'
   resources :photos, :except => [:index]
 
+  resource :user, :only => [:edit, :update, :destroy]
+
+  # This is a hack to overide a route created by devise.
+  # I couldn't find anything in devise to skip that route, see Bug #961
+  match '/users/edit' => redirect('/user/edit')
+
   devise_for :users, :controllers => {:registrations => "registrations",
                                       :password      => "devise/passwords",
                                       :sessions      => "sessions",
@@ -61,7 +66,6 @@ Diaspora::Application.routes.draw do
   match 'users/export',              :to => 'users#export'
   match 'users/export_photos',       :to => 'users#export_photos'
   match 'login'                      => redirect('/users/sign_in')
-  resources :users,                  :except => [:create, :new, :show]
 
   match 'aspects/move_contact',      :to => 'aspects#move_contact', :as => 'move_contact'
   match 'aspects/add_to_aspect',     :to => 'aspects#add_to_aspect', :as => 'add_to_aspect'

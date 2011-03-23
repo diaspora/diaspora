@@ -8,10 +8,7 @@
 #section_header
   %h2
     = t('settings')
-  %ul#settings_nav
-    %li=link_to t('profile'), edit_profile_path
-    %li=link_to t('account'), edit_user_path(current_user)
-    %li=link_to t('_services'), services_path
+  = render 'shared/settings_nav'
 
 .span-19.prepend-5.last
   %h2

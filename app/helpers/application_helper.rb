@@ -110,17 +110,6 @@ module ApplicationHelper
     timeago(obj.created_at)
   end
 
-  def person_url(person)
-    case person.class.to_s
-      when "User"
-        user_path(person)
-      when "Person"
-        person_path(person)
-      else
-        I18n.t('application.helper.unknown_person')
-    end
-  end
-
   def profile_photo(person)
     person_image_link(person, :size => :thumb_large, :to => :photos)
   end
