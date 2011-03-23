@@ -1,9 +1,8 @@
 %li{:data=>{:guid=>aspect.id}, :class => ("dull" if contacts.size == 0)}
   .right
     %b
-      = link_to t('contacts', :count => contacts.size), edit_aspect_path(aspect), :rel => 'facebox'
+      = link_to t('contacts', :count => contacts.size), edit_aspect_path(aspect), :rel => 'facebox', :class => 'contact-count'
   %b
-    /= link_to aspect.name, aspect_path(aspect), :rel => 'facebox', :class => 'name'
     = link_for_aspect(aspect, :class => 'hard_aspect_link')
   %br
 

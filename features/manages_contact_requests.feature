@@ -7,9 +7,9 @@ Feature: managing contact requests
     
   Scenario: seeing contact request notifications
     When I am on the home page
-    Then I should see "Home" in the header
-    Then I should see "Home" in the header
-    When I follow "Home"
+    Then I should see "All aspects" in the header
+    Then I should see "All aspects" in the header
+    When I follow "All aspects"
     Then I should see "new request!"
     
   @javascript

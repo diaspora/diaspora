@@ -45,7 +45,7 @@ Feature: disconnecting users
 
   Scenario: remove contact from the aspect edit page
    When I go to the home page
-    And I follow "Besties" within "#aspect_listings"
+    And I press the first ".contact-count" within "#aspect_listings"
 
     And I wait for the ajax to finish
     And I preemptively confirm the alert
@@ -57,7 +57,7 @@ Feature: disconnecting users
 
   Scenario: cancel removing contact from the contact show page
    When I go to the home page
-    And I follow "Besties" within "#aspect_listings"
+    And I press the first ".contact-count" within "#aspect_listings"
     And I wait for the ajax to finish
 
     And I preemptively reject the alert

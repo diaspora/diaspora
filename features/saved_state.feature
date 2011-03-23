@@ -28,8 +28,8 @@ Feature: saved state
       But I should have aspect "Closed 1" "not selected"
       But I should have aspect "Closed 2" "not selected"
 
-      And I follow "Home"
-      Then I should have aspect "Home" "selected"
+      And I follow "All aspects"
+      Then I should have aspect "All aspects" "selected"
 
   Scenario: home persists across sessions
     Given I am signed in
@@ -37,9 +37,9 @@ Feature: saved state
       And I have an aspect called "Closed 2"
       And I am on the aspects page
      When I follow "Closed 1"
-     When I follow "Home"
+     When I follow "All aspects"
 
-      Then I should have aspect "Home" "selected"
+      Then I should have aspect "All aspects" "selected"
       Then I should have aspect "Closed 1" "not selected"
       Then I should have aspect "Closed 2" "not selected"
 
@@ -51,6 +51,6 @@ Feature: saved state
       And I am signed in
 
       Then I should be on the aspects page
-      Then I should have aspect "Home" "selected"
+      Then I should have aspect "All aspects" "selected"
       Then I should have aspect "Closed 1" "not selected"
       Then I should have aspect "Closed 2" "not selected"

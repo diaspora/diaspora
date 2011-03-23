@@ -21,18 +21,18 @@ Feature: posting
       Given I expand the publisher
       When I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
-        And I follow "Home"
+        And I follow "All aspects"
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: delete a post
       Given I expand the publisher
       When I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
-        And I follow "Home"
+        And I follow "All aspects"
         And I hover over the post
         And I preemptively confirm the alert
         And I click to delete the first post
-        And I follow "Home"
+        And I follow "All aspects"
         Then I should not see "I am eating a yogurt"
 
     Scenario Outline: post to one aspect
@@ -41,7 +41,7 @@ Feature: posting
         And I expand the publisher
         And I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
-        And I follow "Home"
+        And I follow "All aspects"
         And I follow "<aspect>"
       Then I should <see> "I am eating a yogurt"
 

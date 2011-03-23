@@ -15,7 +15,7 @@ Feature: commenting
     And I fill in "status_message_fake_text" with "Look at this dog"
     And I press "Share"
     And I wait for the ajax to finish
-    And I follow "Home"
+    And I follow "All aspects"
     Then I should see "Look at this dog" within ".stream_element"
     And I should see a "img" within ".stream_element div.photo_attachments"
     Then I log out
