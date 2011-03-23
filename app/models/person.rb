@@ -186,7 +186,21 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    super(:include => [:profile], :except => [:mongo_id, :owner_id, :serialized_public_key])
+    opts ||= {}
+    if(opts[:format] == :twitter)
+      {
+        :id => self.id,
+        :screen_name => self.diaspora_handle,
+        :name => self.name,
+        :created_at => self.created_at,
+        :profile_image_url => self.profile.image_url(:thumb_small)
+      }
+    else
+      super(:include => [:profile], :except => [:mongo_id, :owner_id, :serialized_public_key])
+    end
+  end
+
+  def to_twitter(format=:json)
   end
 
   protected

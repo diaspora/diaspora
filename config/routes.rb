@@ -82,12 +82,16 @@ Diaspora::Application.routes.draw do
   match 'receive/users/:guid',    :to => 'publics#receive'
   match 'hub',                  :to => 'publics#hub'
 
-  scope '/v-1' do
-    match '/posts', :to => 'apis#posts_index'
-    match '/posts/:guid', :to => 'apis#posts'
+  scope '/api' do
+    match '/statuses/public_timeline', :to => 'apis#public_timeline'
+    match '/statuses/show/:guid',      :to => 'apis#statuses'
+
+    match '/statuses/user_timeline', :to => 'apis#user_timeline'
+    match '/users/show',             :to => 'apis#users'
+    match '/users/search',           :to => 'apis#users_search'
+
     match '/tags_posts/:tag', :to => 'apis#tag_posts'
     match '/tags_people/:tag', :to => 'apis#tag_people'
-    match '/people', :to => 'apis#people_index'
     match '/person/:diaspora_handle', :to => 'apis#people'
   end
 

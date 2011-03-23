@@ -122,6 +122,26 @@ class StatusMessage < Post
       XML
   end
 
+  def as_json(opts={})
+    opts ||= {}
+    if(opts[:format] == :twitter)
+      {
+        :id => self.guid,
+        :text => self.formatted_message(:plain_text => true),
+        :entities => {
+            :urls => [],
+            :hashtags => self.tag_list,
+            :user_mentions => self.mentioned_people.map{|p| p.diaspora_handle},
+          },
+        :source => 'diaspora',
+        :created_at => self.created_at,
+        :user => self.author.to_json(opts)
+      }
+    else
+      super(opts)
+    end
+  end
+
   protected
 
   def message_or_photos_present?
