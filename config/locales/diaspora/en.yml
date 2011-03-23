@@ -612,6 +612,7 @@ en:
       finished: "Finished!"
       skip: "skip getting started"
       save_and_continue: "Save and continue"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       step_3:
         finish: "Finish"
         people_already_on_diaspora: "People already on Diaspora"

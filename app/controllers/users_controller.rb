@@ -109,6 +109,7 @@ class UsersController < ApplicationController
 
     if @step == 3 && @requests.length == 0 && @friends.length == 0
       @user.update_attributes(:getting_started => false)
+      flash[:notice] = I18n.t('users.getting_started.could_not_find_anyone')
       redirect_to root_path
     else
       render "users/getting_started"
