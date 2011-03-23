@@ -276,6 +276,7 @@ en:
   notifications:
     request_accepted: "accepted your share request."
     new_request: "offered to share with you."
+    private_message: "sent you a message."
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
     mentioned: "has mentioned you in their"
@@ -513,7 +514,6 @@ en:
 
   shared:
     publisher:
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       posting: "Posting..."
       share: "Share"
       post_a_message_to: "Post a message to %{aspect}"

@@ -284,9 +284,20 @@ describe AspectsController do
   end
 
   describe '#edit' do
+    before do
+      @bob = bob
+      @eve = eve
+    end
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
       response.should be_success
+    end
+
+    it 'assigns the contacts in alphabetical order' do
+      connect_users(@alice, @alices_aspect_1, @eve, @eve.aspects.first)
+      
+      get :edit, :id => @alices_aspect_1.id
+      assigns[:contacts].should  == [@alice.contact_for(@bob.person), @alice.contact_for(@eve.person)]
     end
   end
 

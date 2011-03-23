@@ -32,6 +32,8 @@ ul.as-selections li.as-selection-item {
 	background-image: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ddeefe), to(#bfe0f1));
 	border: 1px solid #acc3ec;
 	padding: 0;
+  padding-top: 3px;
+  padding-bottom: 3px;
   padding-left: 6px;
 	border-radius: 5px;
 	-webkit-border-radius: 5px;
