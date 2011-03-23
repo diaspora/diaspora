@@ -19,26 +19,29 @@ $(document).ready(function(){
 
 
   $("a.hard_aspect_link").live("click", function(e){
-    e.preventDefault();
-    requests++;
+    var link = $(this);
+    if( !link.hasClass('aspect_selector') ){
+      e.preventDefault();
+      requests++;
 
-    var guid = $(this).attr('data-guid');
+      var guid = $(this).attr('data-guid');
 
-    // select correct aspect in filter list & deselect others
-    $("#aspect_nav li").each(function(){
-      var $this = $(this);
-      if( $this.attr('data-guid') == guid){
-        $this.addClass('selected');
-      } else {
-        $this.removeClass('selected');
-      }
-    });
+      // select correct aspect in filter list & deselect others
+      $("#aspect_nav li").each(function(){
+        var $this = $(this);
+        if( $this.attr('data-guid') == guid){
+          $this.addClass('selected');
+        } else {
+          $this.removeClass('selected');
+        }
+      });
 
-    // loading animation
-    $("#aspect_stream_container").fadeTo(100, 0.4);
-    $("#aspect_contact_pictures").fadeTo(100, 0.4);
+      // loading animation
+      $("#aspect_stream_container").fadeTo(100, 0.4);
+      $("#aspect_contact_pictures").fadeTo(100, 0.4);
 
-    performAjax( $(this).attr('href'));
+      performAjax( $(this).attr('href'));
+    }
   });
 
   $("#aspect_nav a.aspect_selector").click(function(e){
