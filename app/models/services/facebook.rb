@@ -25,7 +25,7 @@ class Services::Facebook < Service
 
   def finder(opts = {})
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
-    if self.service_users == []
+    if self.service_users.blank?
       self.save_friends
     else
       Resque.enqueue(Job::UpdateServiceUsers, self.id)
