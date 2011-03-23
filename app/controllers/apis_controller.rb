@@ -38,7 +38,7 @@ class ApisController < ActionController::Metal
   ##people
   def people_index
     set_defaults
-    people = Person.search(params[:q]).paginate(:page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
+    people = Person.search(params[:q], nil).paginate(:page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
     render :json => people.as_json
   end
 

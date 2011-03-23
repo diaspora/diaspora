@@ -39,3 +39,14 @@
   = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token 
   %br
   %br
+= javascript_include_tag 'apiconsole'
+#query
+  %h3 api console
+  = text_field_tag :api
+  = submit_tag 'ping this api', :id => 'api_submit'
+
+  response:
+  %br
+  %br
+  #resp
+
