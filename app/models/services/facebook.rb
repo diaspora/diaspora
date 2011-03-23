@@ -1,6 +1,10 @@
 class Services::Facebook < Service
   MAX_CHARACTERS = 420
 
+  after_create do
+    Resque.enqueue(Job::UpdateServiceUsers, self.id)
+  end
+
   def provider
     "facebook"
   end
@@ -38,7 +42,7 @@ class Services::Facebook < Service
   end
 
   def save_friends
-    url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}" 
+    url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}"
     response = RestClient.get(url)
     data = JSON.parse(response.body)['data']
     data.each{ |p|

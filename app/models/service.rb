@@ -8,7 +8,7 @@ class Service < ActiveRecord::Base
   belongs_to :user
   has_many :service_users
   after_create do
-    Resque.enqueue(Job::UpdateServiceUsers, self.id) if s.respond_to? :save_friends
+    Resque.enqueue(Job::UpdateServiceUsers, self.id) if self.respond_to? :save_friends
   end
 
   def public_message(post, length, url = "")
