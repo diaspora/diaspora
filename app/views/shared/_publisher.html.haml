@@ -28,31 +28,29 @@
         %params
           #publisher_textarea_wrapper
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill])
+            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
       - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
-        .mention_helper
-          - if aspect != :profile
-            %i= t('.mention_helper_text')
-          - else
+        - if aspect == :profile
+          .mention_helper
             .badges
               %i= t('.publishing_to')
               = aspect_badges(aspects_with_person, :link => false)
 
         .public_toggle
           %span#publisher_service_icons
-            = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')#, :style=>"display:none;"
+            = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
             - if aspect == :all || :profile
               = status.hidden_field( :public)
               = image_tag "icons/globe.png", :title => t('.public'), :class => 'public_icon dim', :width => 16, :height => 16
             - if current_user.services
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider, :class => "service_icon dim", :id =>"#{service.provider}"
-          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button'
+          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button', :tabindex => 2
 
           .facebox_content
             #question_mark_pane

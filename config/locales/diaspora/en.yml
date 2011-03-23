@@ -514,7 +514,6 @@ en:
 
   shared:
     publisher:
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       posting: "Posting..."
       share: "Share"
       post_a_message_to: "Post a message to %{aspect}"
