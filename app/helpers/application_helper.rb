@@ -45,7 +45,7 @@ module ApplicationHelper
     if !link
       str << link_to(aspect.name, "#", 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
     else 
-      str << link_for_aspect(aspect, 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
+      str << link_for_aspect(aspect).html_safe
     end
     str << "</span>"
   end

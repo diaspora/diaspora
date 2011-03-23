@@ -30,6 +30,7 @@ en:
   next: "next"
   previous: "previous"
   _comments: "Comments"
+  all_aspects: "All aspects"
 
 
   #for reference translation, the real activerecord english transations are actually

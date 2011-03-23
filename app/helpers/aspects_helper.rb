@@ -7,6 +7,9 @@ module AspectsHelper
     opts[:params] ||= {}
     params ||= {}
     opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
+    opts[:class] ||= ""
+    opts[:class] << " hard_aspect_link"
+    opts['data-guid'] = aspect.id
 
     link_to aspect.name, aspects_path( opts[:params] ), opts
   end

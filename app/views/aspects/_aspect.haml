@@ -3,7 +3,8 @@
     %b
       = link_to t('contacts', :count => contacts.size), edit_aspect_path(aspect), :rel => 'facebox'
   %b
-    = link_to aspect.name, edit_aspect_path(aspect), :rel => 'facebox', :class => 'name'
+    /= link_to aspect.name, aspect_path(aspect), :rel => 'facebox', :class => 'name'
+    = link_for_aspect(aspect, :class => 'hard_aspect_link')
   %br
 
   - if contacts.length > 0
