@@ -1,10 +1,6 @@
 class Services::Facebook < Service
   MAX_CHARACTERS = 420
 
-  after_create do
-    Resque.enqueue(Job::UpdateServiceUsers, self.id)
-  end
-
   def provider
     "facebook"
   end
