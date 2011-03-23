@@ -11,7 +11,7 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
     params[:q] ||= params[:term]
-    
+
     if (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length > 1
       redirect_to "/tags/#{params[:q].gsub("#", "")}"
       return
@@ -71,10 +71,12 @@ class PeopleController < ApplicationController
         if @contact
           @aspects_with_person = @contact.aspects
           @aspect_ids = @aspects_with_person.map(&:id)
-          @contacts_of_contact = @contact.contacts
+          @contacts_of_contact_count = @contact.contacts.count
+          @contacts_of_contact = @contact.contacts.limit(36)
 
         else
           @contact ||= Contact.new
+          @contacts_of_contact_count = 0
           @contacts_of_contact = []
         end
 
