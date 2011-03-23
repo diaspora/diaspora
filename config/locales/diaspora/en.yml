@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#.see_   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -363,7 +363,8 @@ en:
       not_connected: "You are not sharing with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      similar_contacts: "similar contacts"
+      contacts_of_contact: "contacts"
+      see_all: "See all"
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
