@@ -72,7 +72,7 @@ describe ApisController do
     it 'succeeds' do
       get :people_index, :q => 'bobby'
       p = JSON.parse(response.body)
-      p.count.should_be 1
+      p.count.should == 1
       p.first['person']['id'].should == @person.id
 
     end
