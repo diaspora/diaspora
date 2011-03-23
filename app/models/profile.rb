@@ -23,6 +23,7 @@ class Profile < ActiveRecord::Base
   xml_attr :birthday
   xml_attr :gender
   xml_attr :bio
+  xml_attr :location
   xml_attr :searchable
   xml_attr :tag_string
 
@@ -36,7 +37,7 @@ class Profile < ActiveRecord::Base
   validate :max_tags
 
   attr_accessible :first_name, :last_name, :image_url, :image_url_medium,
-    :image_url_small, :birthday, :gender, :bio, :searchable, :date, :tag_string
+    :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string
 
   belongs_to :person
 

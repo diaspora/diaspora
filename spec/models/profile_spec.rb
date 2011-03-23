@@ -102,6 +102,13 @@ describe Profile do
       xml = person.profile.to_diaspora_xml
       xml.should include "#one"
     end
+    
+    it 'includes location' do
+      person.profile.location = 'Dark Side, Moon'
+      person.profile.save
+      xml = person.profile.to_diaspora_xml
+      xml.should include "Dark Side, Moon"
+    end
   end
 
   describe '#image_url' do
