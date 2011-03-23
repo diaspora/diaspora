@@ -276,6 +276,7 @@ en:
   notifications:
     request_accepted: "accepted your share request."
     new_request: "offered to share with you."
+    private_message: "sent you a message."
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
     mentioned: "has mentioned you in their"
