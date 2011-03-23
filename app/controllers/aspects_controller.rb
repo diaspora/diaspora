@@ -104,7 +104,7 @@ class AspectsController < ApplicationController
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-    @contacts = current_user.contacts.includes(:person => :profile).all.sort!{|x, y| x.person.profile.first_name <=> y.person.profile.first_name }.reverse!
+    @contacts = current_user.contacts.includes(:person => :profile).all.sort!{|x, y| x.person.name <=> y.person.name}.reverse!
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else

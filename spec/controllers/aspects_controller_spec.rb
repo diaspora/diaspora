@@ -287,6 +287,9 @@ describe AspectsController do
     before do
       @bob = bob
       @eve = eve
+      @eve.profile.first_name = nil
+      @eve.profile.save
+      @eve.save
     end
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
@@ -297,7 +300,7 @@ describe AspectsController do
       connect_users(@alice, @alices_aspect_1, @eve, @eve.aspects.first)
       
       get :edit, :id => @alices_aspect_1.id
-      assigns[:contacts].should  == [@alice.contact_for(@bob.person), @alice.contact_for(@eve.person)]
+      assigns[:contacts].should == [@alice.contact_for(@eve.person), @alice.contact_for(@bob.person)]
     end
   end
 
