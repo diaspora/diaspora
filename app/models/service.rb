@@ -6,7 +6,7 @@ class Service < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
 
   belongs_to :user
-  has_many :service_users
+  has_many :service_users, :dependent => :destroy
 
   def public_message(post, length, url = "")
     url = "" if post.respond_to?(:photos) && post.photos.count == 0
