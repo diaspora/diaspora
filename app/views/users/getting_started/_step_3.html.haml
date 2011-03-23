@@ -15,9 +15,8 @@
     - person = pending_req.sender
 
     = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
-  - for fb_id in @friends.keys
-    - friend = @friends[fb_id]
-    = render :partial => 'people/person', :locals => {:request => friend[:request], :person => friend[:person], :contact => friend[:contact]}
+  - for friend in @friends
+    = render :partial => 'people/person', :locals => {:request => friend.request, :person => friend.person, :contact => friend.contact}
 
 %br
 %br
