@@ -95,10 +95,20 @@ var WebSocketReceiver = {
 
     if( $(".comment[data-guid='"+commentId+"']").length == 0 ) {
 
-      var post = $("*[data-guid='"+postId+"']'");
-      $('.comment.posted', post).last().after(
-        $(html).fadeIn("fast", function(){})
-      );
+      var post = $("*[data-guid='"+postId+"']'"),
+          prevComments = $('.comment.posted', post);
+
+      
+      if(prevComments.length > 0) {
+        prevComments.last().after(
+          $(html).fadeIn("fast", function(){})
+        );
+      } else {
+        $('.comments li:last', post).before(
+          $(html).fadeIn("fast", function(){})
+        );
+      }
+
       var toggler = $('.show_post_comments', post);
 
       if(toggler.length > 0){
