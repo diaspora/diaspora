@@ -220,7 +220,11 @@ class User < ActiveRecord::Base
   def retract(post)
     aspects = post.aspects
 
-    retraction = Retraction.for(post)
+    if post.relayable
+      retraction = RelayableRetraction.new(self, post)
+    else
+      retraction = Retraction.for(post)
+    end
     post.unsocket_from_user(self, :aspect_ids => aspects.map { |a| a.id.to_s }) if post.respond_to? :unsocket_from_user
     mailman = Postzord::Dispatch.new(self, retraction)
     mailman.post
