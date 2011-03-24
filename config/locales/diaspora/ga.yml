@@ -33,6 +33,7 @@ ga:
             username: 
               taken: "is already taken."
   ago: "%{time} ó shin"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ ga:
     mentioned: "has mentioned you in their"
     new_request: "ofráiladh chun roint leant"
     post: "póst"
+    private_message: "sent you a message."
     request_accepted: "glacadh le do iarratas roinnt"
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ ga:
       edit_my_profile: "Athraigh mo próifíl"
       gender: "inscne"
       in_aspects: "i gnéithe"
+      location: "location"
       remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ ga:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ ga:
       add_photos: "cuir pictiúrí le"
       all: "gach rud"
       all_contacts: "gach teagmháil"
+      click_to_share_with: "Click to share with: "
       make_public: "dean phoiblí"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
       posting: "Póstáil..."
       public: "Public"
@@ -569,6 +573,7 @@ ga:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Ceangailt do seirbhísí eile"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Athraigh do próifíl"
       finished: "Críochnaithe!"
       save_and_continue: "Sáibháil agus leanúint ar aghaidh"

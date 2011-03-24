@@ -33,6 +33,7 @@ nl:
             username: 
               taken: "is al bezet."
   ago: "%{time} geleden"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ nl:
     mentioned: "heeft je genoemd in zijn/haar"
     new_request: "bood aan om met jou te delen."
     post: "post"
+    private_message: "sent you a message."
     request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ nl:
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
     love: "liefs,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "beheer je e-mail instellingen"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"
       sign_in: "Log in om het te bekijken."
@@ -302,7 +304,7 @@ nl:
   password_confirmation: "Wachtwoordbevestiging"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "contact toevoegen van tag"
     aspect_list: 
       edit_membership: "bewerk aspect lidmaatschap"
     few: "%{count} personen"
@@ -329,6 +331,7 @@ nl:
       edit_my_profile: "Bewerk mijn profiel"
       gender: "geslacht"
       in_aspects: "in de aspecten"
+      location: "location"
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ nl:
       your_bio: "Jouw bio"
       your_birthday: "Je verjaardag"
       your_gender: "Je geslacht"
+      your_location: "Your location"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
       your_private_profile: "Je privé-profiel"
@@ -507,11 +511,11 @@ nl:
       add_photos: "+ foto's"
       all: "al"
       all_contacts: "alle contacten"
+      click_to_share_with: "Click to share with: "
       make_public: "maak openbaar"
-      mention_helper_text: "om iemand te noemen, typ '@' gevolgd door zijn of haar naam"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
-      public: "Public"
+      public: "Openbaar"
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
@@ -532,7 +536,7 @@ nl:
       mentioning: "Noem: %{person}"
     show: 
       destroy: "Verwijderen"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Sorry, we konden die post niet vinden."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "verberg reacties"
@@ -569,6 +573,7 @@ nl:
     getting_started: 
       connect_on_diaspora: "Verbind op Diaspora"
       connect_services: "Verbind met je andere services"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Bewerk je profiel"
       finished: "Klaar!"
       save_and_continue: "Sla op en ga verder"

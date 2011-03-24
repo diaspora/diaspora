@@ -33,6 +33,7 @@ ru:
             username: 
               taken: "is already taken."
   ago: "%{time} назад"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ ru:
     mentioned: "has mentioned you in their"
     new_request: "предлагает поделиться с вами."
     post: "сообщение"
+    private_message: "sent you a message."
     request_accepted: "ваш запрос на участие принят."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ ru:
       edit_my_profile: "Редиктировать профиль"
       gender: "пол"
       in_aspects: "в аспектах"
+      location: "location"
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ ru:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ ru:
       add_photos: "добавить фото"
       all: "все"
       all_contacts: "все контакты"
+      click_to_share_with: "Click to share with: "
       make_public: "сделать публичным"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка ..."
       public: "Public"
@@ -569,6 +573,7 @@ ru:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Соедениться с сервисами"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Отредактировать профиль"
       finished: "Готово!"
       save_and_continue: "Сохранить и продолжить"

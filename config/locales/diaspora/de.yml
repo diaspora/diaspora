@@ -33,6 +33,7 @@ de:
             username: 
               taken: "wird schon benutzt."
   ago: "Vor %{time}"
+  all_aspects: "Alle Aspekte"
   application: 
     helper: 
       aspect_badge: 
@@ -74,7 +75,7 @@ de:
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
       update: "Aktualisieren"
-      updating: "updating"
+      updating: "Aktualisiere"
     few: "%{count} Aspekte"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
@@ -260,6 +261,7 @@ de:
     mentioned: "hat dich erwähnt in "
     new_request: "hat angeboten mit dir zu teilen."
     post: "Beitrag"
+    private_message: "hat dir eine Nachricht gesendet."
     request_accepted: "hat deine Teilen-Anfrage angenommen."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ de:
     diaspora: "der Diaspora E-Mail-Roboter"
     hello: "Hallo %{name}!"
     love: "Gruß,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "E-Mail  Einstellungen"
     mentioned: 
       mentioned: "hat dich in einem Beitrag erwähnt:"
       sign_in: "Melde dich an um sie zu sehen."
@@ -302,7 +304,7 @@ de:
   password_confirmation: "Passwort-Bestätigung"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "Fügr Kontakt über Tag hinzu"
     aspect_list: 
       edit_membership: "bearbeite die Aspekt-Zugehörigkeit"
     few: "%{count} Personen"
@@ -321,7 +323,7 @@ de:
       add_contact: "Kontakt hinzufügen"
       already_connected: "Bereits verbunden"
       pending_request: "Ausstehende Anfrage"
-      thats_you: "Das bist Du!"
+      thats_you: "Das bist du!"
     profile_sidebar: 
       bio: "Beschreibung"
       born: "Geburtstag"
@@ -329,6 +331,7 @@ de:
       edit_my_profile: "Mein Profil bearbeiten"
       gender: "Geschlecht"
       in_aspects: "in Aspekten"
+      location: "Ort"
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show: 
@@ -399,12 +402,13 @@ de:
       your_bio: "Deine Biographie"
       your_birthday: "Dein Geburtstag"
       your_gender: "Dein Geschlecht"
+      your_location: "Dein Ort"
       your_name: "Dein Name"
       your_photo: "Dein Profilbild"
       your_private_profile: "Dein privates Profil"
       your_public_profile: "Dein öffentliches Profil"
       your_tags: "Du in fünf #Tags"
-      your_tags_placeholder: "Zum Beispiel: #Diaspora #bügeln #Kätzchen #Musik"
+      your_tags_placeholder: "Zum Beispiel: #Diaspora #lustig #Kätzchen #Musik"
     update: 
       failed: "Fehler beim aktualisieren deines Profils"
       updated: "Profil aktualisiert"
@@ -489,7 +493,7 @@ de:
       cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden. (Wenn du nicht länger verbunden sein willst, lösche den Kontakt.)"
     invitations: 
       by_email: "per E-Mail"
-      dont_have_now: "Du hast im Moment keine, aber es wird bald wieder neue Einladungen geben!"
+      dont_have_now: "Du hast im Moment keine Einladungen zur Verfügung, aber es wird bald wieder neue geben!"
       from_facebook: "Von Facebook"
       invitations_left: "(%{count} übrig)"
       invite_someone: "Jemanden einladen"
@@ -507,11 +511,11 @@ de:
       add_photos: "Fotos hinzufügen"
       all: "alle"
       all_contacts: "Alle Kontakte"
+      click_to_share_with: "Klicke, um mit diesen zu teilen: "
       make_public: "öffentlich machen"
-      mention_helper_text: "um jemanden zu erwähnen, drücke '@' und beginne den Namen zu schreiben"
       post_a_message_to: "Sende eine Nachricht an %{aspect}"
       posting: "Senden …"
-      public: "Public"
+      public: "Öffentlich"
       publishing_to: "Veröffentlichen an: "
       share: "Teilen"
       share_with: "Teile mit"
@@ -532,7 +536,7 @@ de:
       mentioning: "Erwähnt: %{person}"
     show: 
       destroy: "Entfernen"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Es tut und Leid aber wir konnten den Post nicht finden."
       permalink: "Permalink"
   stream_helper: 
     hide_comments: "Kommentare verbergen"
@@ -569,6 +573,7 @@ de:
     getting_started: 
       connect_on_diaspora: "Mit Diaspora* verbinden"
       connect_services: "Mit deinen anderen Diensten verbinden"
+      could_not_find_anyone: "Es konnten keine Freunde auf Diaspora* gefunden werden. Benutze den Freundefinder, um diese einzuladen."
       edit_profile: "Bearbeite dein Profil"
       finished: "Fertig!"
       save_and_continue: "Speichern und weiter"

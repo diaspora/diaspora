@@ -33,6 +33,7 @@ hu:
             username: 
               taken: "már foglalt."
   ago: "ezelőtt"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ hu:
     mentioned: "megemlítettek téged a"
     new_request: "megosztást ajánlott neked."
     post: "bejegyzés"
+    private_message: "sent you a message."
     request_accepted: "elfogadta a megosztási kérésed."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ hu:
       edit_my_profile: "Profilom szerkesztése"
       gender: "nem"
       in_aspects: "csoportokban"
+      location: "location"
       remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show: 
@@ -399,6 +402,7 @@ hu:
       your_bio: "Rólam"
       your_birthday: "Szülinapom"
       your_gender: "Nem"
+      your_location: "Your location"
       your_name: "Nevem"
       your_photo: "Fényképem"
       your_private_profile: "Személyes profilod"
@@ -507,8 +511,8 @@ hu:
       add_photos: "Képek hozzáadása"
       all: "összes"
       all_contacts: "összes kapcsolat"
+      click_to_share_with: "Click to share with: "
       make_public: "nyilvánossá tesz"
-      mention_helper_text: "valaki megemlítéséhez írj '@' jelet, és kezd el írni a nevet"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
       public: "Public"
@@ -569,6 +573,7 @@ hu:
     getting_started: 
       connect_on_diaspora: "Kapcsolat a Diaspora-n"
       connect_services: "Csatold a többi szolgáltatásod is ide"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Profil szerkesztése"
       finished: "Kész!"
       save_and_continue: "Mentés és folytatás"

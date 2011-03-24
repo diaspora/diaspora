@@ -54,7 +54,7 @@ sv:
         change_password: "Ändra mitt lösenord"
       new: 
         forgot_password: "Glömt ditt lösenord?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Det finns inget konto med den här mailadressen. Väntar du på en inbjudan så skickar vi ut dem så snart som möjligt."
         send_password_instructions: "Skicka information om hur jag återställer lösenordet"
       send_instructions: "Du kommer att få ett ebrev med instruktioner för att återställa lösenordet inom några minuter."
       updated: "Ditt lösenord har ändrats och du är inloggad."

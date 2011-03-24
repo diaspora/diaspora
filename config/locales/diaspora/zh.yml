@@ -33,6 +33,7 @@ zh:
             username: 
               taken: "is already taken."
   ago: "%{time}以前"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ zh:
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "发布"
+    private_message: "sent you a message."
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ zh:
       edit_my_profile: "编辑我的个人资料"
       gender: "性别"
       in_aspects: "在分组中"
+      location: "location"
       remove_contact: "删除联系人"
       remove_from: "真的要把%{name}从%{aspect}中删除吗？"
     show: 
@@ -399,6 +402,7 @@ zh:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ zh:
       add_photos: "增加照片"
       all: "所有"
       all_contacts: "所有联系人"
+      click_to_share_with: "Click to share with: "
       make_public: "改为公开"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "发送信息给%{aspect}这个分组的所有人"
       posting: "发布中"
       public: "Public"
@@ -569,6 +573,7 @@ zh:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "关联您的其他服务"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "编辑您的个人资料"
       finished: "结束！"
       save_and_continue: "保存并继续"

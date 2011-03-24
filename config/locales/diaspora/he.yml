@@ -33,6 +33,7 @@ he:
             username: 
               taken: "כבר תפוס."
   ago: "%{time} עברו"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ he:
     mentioned: "הזכיר/ה אותך ב־"
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה"
+    private_message: "sent you a message."
     request_accepted: "קיבל/ה את בקשת השיתוף שלך."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ he:
       edit_my_profile: "עריכת הפרופיל שלי"
       gender: "מגדר"
       in_aspects: "בהיבטים"
+      location: "location"
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ he:
       your_bio: "הביוגרפיה שלך"
       your_birthday: "יום ההולדת שלך"
       your_gender: "המגדר שלך"
+      your_location: "Your location"
       your_name: "שמך"
       your_photo: "התמונה שלך"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ he:
       add_photos: "הוספת תמונות"
       all: "הכול"
       all_contacts: "כל אנשי הקשר"
+      click_to_share_with: "Click to share with: "
       make_public: "הפיכה לציבורי"
-      mention_helper_text: "כדי להזכיר שם של מישהו, יש ללחוץ על '@' ולהתחיל לכתוב את שמו"
       post_a_message_to: "פרסום הודעה אל %{aspect}"
       posting: "פרסום..."
       public: "Public"
@@ -569,6 +573,7 @@ he:
     getting_started: 
       connect_on_diaspora: "יצירת קשר דרך Diaspora"
       connect_services: "התחברות לשירותים הנוספים שלך"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "עריכת הפרופיל שלך"
       finished: "סיימת!"
       save_and_continue: "שמירה והמשך"

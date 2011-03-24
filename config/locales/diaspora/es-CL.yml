@@ -33,6 +33,7 @@ es-CL:
             username: 
               taken: "Ya está siendo ocupado."
   ago: "hace %{time}"
+  all_aspects: "Todos los Aspectos"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ es-CL:
     mentioned: "te mencionó en su"
     new_request: "quiere compartir contigo."
     post: "post"
+    private_message: "te envió un mensaje."
     request_accepted: "aceptó tu solicitud de contacto."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ es-CL:
     diaspora: "correo robot de diaspora"
     hello: "¡Hola %{name}!"
     love: "cariño,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "maneja tus configuraciones de email"
     mentioned: 
       mentioned: "Te mencionó en un post:"
       sign_in: "Conéctate para verlo."
@@ -302,7 +304,7 @@ es-CL:
   password_confirmation: "Confirmar contraseña"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "agrega un contacto desde una etiqueta"
     aspect_list: 
       edit_membership: "Editar el Aspecto donde está el contacto"
     few: "%{count} personas"
@@ -329,6 +331,7 @@ es-CL:
       edit_my_profile: "Editar mi perfil"
       gender: "sexo"
       in_aspects: "en aspectos"
+      location: "Ubicación"
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ es-CL:
       your_bio: "Tu biografía"
       your_birthday: "Tu cumpleaños"
       your_gender: "Tu genero"
+      your_location: "Tú ubicación"
       your_name: "Tu nombre"
       your_photo: "Tu foto"
       your_private_profile: "Tú perfil privado"
@@ -507,11 +511,11 @@ es-CL:
       add_photos: "agregar fotos"
       all: "todo"
       all_contacts: "todos los contactos"
+      click_to_share_with: "Click para compartir con: "
       make_public: "hacer público"
-      mention_helper_text: "para mencionar a alguien, usa '@' antes de su nombre"
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: "Posteando..."
-      public: "Public"
+      public: "Público"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con "
@@ -532,7 +536,7 @@ es-CL:
       mentioning: "Mencionar a: %{person}"
     show: 
       destroy: "Eliminar"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Perdón, no pudimos encontrar ese post."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "ocultar comentarios"
@@ -569,6 +573,7 @@ es-CL:
     getting_started: 
       connect_on_diaspora: "Conectar en Diaspora"
       connect_services: "Conectar tus otros servicios"
+      could_not_find_anyone: "No se pudo encontrar a ningún amigo en Diaspora*. Usa el buscador de amigos para invitarlos."
       edit_profile: "Editar tu perfil"
       finished: "¡Terminaste!"
       save_and_continue: "Guardar y continuar"

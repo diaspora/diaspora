@@ -33,6 +33,7 @@ is:
             username: 
               taken: "er þegar í notkun."
   ago: "%{time} síðan"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ is:
     mentioned: "hefur getið þín í þeirra"
     new_request: "bauð þér samnýtingu."
     post: "setja inn"
+    private_message: "sent you a message."
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ is:
       edit_my_profile: "Breyta síðunni minni"
       gender: "kyn"
       in_aspects: "í ásýnd"
+      location: "location"
       remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ is:
       your_bio: "Ferilskrá þín"
       your_birthday: "Fæðingardagur þinn"
       your_gender: "Kyn þitt"
+      your_location: "Your location"
       your_name: "Nafn þitt"
       your_photo: "Mynd þín"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ is:
       add_photos: "bæta myndum við"
       all: "allt"
       all_contacts: "Allir tengiliðir"
+      click_to_share_with: "Click to share with: "
       make_public: "gera almennt"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: "Senda..."
       public: "Public"
@@ -569,6 +573,7 @@ is:
     getting_started: 
       connect_on_diaspora: "Tengjast á Diaspora"
       connect_services: "Tengjast öðrum þjónustum þínum"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Breyta síðunni þinni"
       finished: "Búið!"
       save_and_continue: "Vista og halda áfram"

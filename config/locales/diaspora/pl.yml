@@ -33,6 +33,7 @@ pl:
             username: 
               taken: "is already taken."
   ago: "%{time} temu"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ pl:
     mentioned: "has mentioned you in their"
     new_request: "wysłał Ci zaproszenie do współdzielenia."
     post: "post"
+    private_message: "sent you a message."
     request_accepted: "zaakceptował Twoje zaproszenie."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ pl:
       edit_my_profile: "Edycja mojego profilu"
       gender: "płeć"
       in_aspects: "w aspektach"
+      location: "location"
       remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ pl:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ pl:
       add_photos: "dodaj zdjęcia"
       all: "wszyscy"
       all_contacts: "wszyscy znajomi"
+      click_to_share_with: "Click to share with: "
       make_public: "upublicznij"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Wysyłanie…"
       public: "Public"
@@ -569,6 +573,7 @@ pl:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Połącz się ze swoimi usługami"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Edytuj swój profil"
       finished: "Gotowe!"
       save_and_continue: "Zapisz i kontynuuj"

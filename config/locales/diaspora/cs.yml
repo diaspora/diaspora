@@ -33,6 +33,7 @@ cs:
             username: 
               taken: "je již obsazeno."
   ago: "před %{time}"
+  all_aspects: "Všechny aspekty"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ cs:
     mentioned: "vás zmínil v jejich"
     new_request: "nabídnul vám sdílení."
     post: "zpráva"
+    private_message: "vám poslal zprávu."
     request_accepted: "akceptoval vaši žádost o sdílení."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ cs:
     diaspora: "diaspora email robot"
     hello: "Vítej %{name}!"
     love: "s láskou,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "spravovat nastavení emailu"
     mentioned: 
       mentioned: "zmínil jste v příspěvku:"
       sign_in: "Přihlaste se pro zobrazení."
@@ -302,7 +304,7 @@ cs:
   password_confirmation: "Potvrzení hesla"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "přidat kontakt ze štítku"
     aspect_list: 
       edit_membership: "upravit člena aspektu"
     few: "%{count} lidi"
@@ -329,6 +331,7 @@ cs:
       edit_my_profile: "Upravit můj profil"
       gender: "pohlaví"
       in_aspects: "v aspektech"
+      location: "poloha"
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ cs:
       your_bio: "Váš životopis"
       your_birthday: "Vaše narozeniny"
       your_gender: "Vaše pohlaví"
+      your_location: "Vaše poloha"
       your_name: "Vaše jméno"
       your_photo: "Vaše fotografie"
       your_private_profile: "Váš soukromý profil"
@@ -507,8 +511,8 @@ cs:
       add_photos: "přidat fotky"
       all: "všechny"
       all_contacts: "všechny kontakty"
+      click_to_share_with: "Klikněte pro sdílení s:"
       make_public: "vytvořit veřejnou"
-      mention_helper_text: "pokud chcete někoho zmínit, stiskněte tlačítko '@' a začněte psát jeho jméno"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
       public: "Veřejné"
@@ -569,6 +573,7 @@ cs:
     getting_started: 
       connect_on_diaspora: "Připojit na Diaspoře"
       connect_services: "Připojit vaše další služby"
+      could_not_find_anyone: "Nelze najít žádné přátele na Diaspoře*. Použijte hledání přátel k jejich pozvání."
       edit_profile: "Upravit váš profil"
       finished: "Dokončeno!"
       save_and_continue: "Uložit a pokračovat"

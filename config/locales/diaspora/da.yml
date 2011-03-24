@@ -33,6 +33,7 @@ da:
             username: 
               taken: "er allerede taget."
   ago: "%{time} siden"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -74,7 +75,7 @@ da:
       remove_aspect: "Slet dette aspekt"
       rename: "omdøb"
       update: "Opdater"
-      updating: "updating"
+      updating: "opdaterer"
     few: "%{count} aspekter"
     helper: 
       are_you_sure: "Er du sikker på at du vil fjerne dette aspekt?"
@@ -227,17 +228,17 @@ da:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} personer kunne ikke lide det"
+        many: "%{count} personer kunne ikke lide det"
+        one: "1 person kunne ikke lide det"
+        other: "%{count} personer kunne ikke lide det"
+        zero: "ingen personer kunne ikke lide det"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} personer kunne lide det"
+        many: "%{count} personer kunne lide det"
+        one: "1 person kunne lide det"
+        other: "%{count} personer kunne lide det"
+        zero: "ingen personer kunne lide det"
   more: "Mere"
   next: "Næste"
   notifications: 
@@ -260,6 +261,7 @@ da:
     mentioned: "har omtalt dig i deres"
     new_request: "tilbød at dele med dig."
     post: "indlæg"
+    private_message: "sent you a message."
     request_accepted: "accepterede din anmodning."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ da:
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     love: "Hilsen,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "rediger dine email indstillinger"
     mentioned: 
       mentioned: "omtalte dig i en post:"
       sign_in: "Log in for at se det."
@@ -302,7 +304,7 @@ da:
   password_confirmation: "Adgangskode bekræftelse"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "tilføj kontakt fra tag"
     aspect_list: 
       edit_membership: "redigér aspektsmedlemsskab"
     few: "%{count} personer"
@@ -329,6 +331,7 @@ da:
       edit_my_profile: "Redigér min profil"
       gender: "køn"
       in_aspects: "i aspekter"
+      location: "location"
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ da:
       your_bio: "Din bio"
       your_birthday: "Din fødselsdag"
       your_gender: "Dit køn"
+      your_location: "Your location"
       your_name: "Dit navn"
       your_photo: "Dit foto"
       your_private_profile: "Din private profil"
@@ -507,11 +511,11 @@ da:
       add_photos: "Tilføj billeder"
       all: "alle"
       all_contacts: "alle kontaktpersoner"
+      click_to_share_with: "Click to share with: "
       make_public: "offentliggør"
-      mention_helper_text: "for at nævne nogen i en post, tryk '@' og begynd at skrive deres navn"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
-      public: "Public"
+      public: "Offentlig"
       publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"
@@ -519,8 +523,8 @@ da:
     reshare: 
       reshare: "Del igen"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Jeg kan ikke lide det"
+      like: "Jeg kan lide det"
   status_messages: 
     create: 
       success: "%{names} nævnet med succes"
@@ -532,7 +536,7 @@ da:
       mentioning: "Nævnt: %{person}"
     show: 
       destroy: "Slet"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Desværre, vi kunne ikke finde den post."
       permalink: "permanentlink"
   stream_helper: 
     hide_comments: "Skjul kommentarer"
@@ -569,6 +573,7 @@ da:
     getting_started: 
       connect_on_diaspora: "Forbind på Diaspora"
       connect_services: "Tilslut dine eksisterende tjenester"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Redigér din profil"
       finished: "Færdig!"
       save_and_continue: "Gem og fortsæt"

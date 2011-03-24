@@ -33,6 +33,7 @@ en_shaw:
             username: 
               taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
   ago: "%{time} ago"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ en_shaw:
     mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑞𐑺"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
+    private_message: "sent you a message."
     request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ en_shaw:
       edit_my_profile: "𐑧𐑛𐑦𐑑 𐑥𐑲 𐑐𐑮𐑴𐑓𐑲𐑤"
       gender: "𐑡𐑧𐑯𐑛𐑼"
       in_aspects: "𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+      location: "location"
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ en_shaw:
       your_bio: "𐑿𐑼 𐑚𐑲𐑴"
       your_birthday: "𐑿𐑼 𐑚𐑻𐑔𐑛𐑱"
       your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
+      your_location: "Your location"
       your_name: "𐑿𐑼 𐑯𐑱𐑥"
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
       your_private_profile: "𐑿𐑼 𐑐𐑮𐑲𐑝𐑩𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -507,8 +511,8 @@ en_shaw:
       add_photos: "𐑨𐑛 𐑓𐑴𐑑𐑴𐑟"
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      click_to_share_with: "Click to share with: "
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
-      mention_helper_text: "𐑑 𐑥𐑧𐑯𐑖𐑩𐑯 𐑕𐑳𐑥𐑢𐑩𐑯, 𐑐𐑮𐑧𐑕 '@' 𐑯 𐑕𐑑𐑸𐑑 𐑑𐑲𐑐𐑦𐑙 𐑞𐑺 𐑯𐑱𐑥"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
       public: "Public"
@@ -569,6 +573,7 @@ en_shaw:
     getting_started: 
       connect_on_diaspora: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
       save_and_continue: "𐑕𐑱𐑝 𐑯 𐑒𐑩𐑯𐑑𐑦𐑯𐑿"

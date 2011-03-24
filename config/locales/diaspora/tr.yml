@@ -33,6 +33,7 @@ tr:
             username: 
               taken: "is already taken."
   ago: "%{time} önce"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ tr:
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"
+    private_message: "sent you a message."
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ tr:
       edit_my_profile: "Edit my profile"
       gender: "gender"
       in_aspects: "in aspects"
+      location: "location"
       remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ tr:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ tr:
       add_photos: "fotoğraf ekle"
       all: "hepsi"
       all_contacts: "bütün kişiler"
+      click_to_share_with: "Click to share with: "
       make_public: "herkese görünür yap"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "mesaj gönder %{aspect}"
       posting: "Posting..."
       public: "Public"
@@ -569,6 +573,7 @@ tr:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Servislerine bağlan"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Profilini düzenle"
       finished: "Finished!"
       save_and_continue: "Kaydet ve devam et"

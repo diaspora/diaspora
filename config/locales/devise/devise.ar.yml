@@ -44,10 +44,10 @@ ar:
         subject: "Reset password instructions"
         wont_change: "Your password won't change until you access the link above and create a new one."
       unlock_instructions: 
-        account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
+        account_locked: "لقد تم غلق حسابك وقتيا بسبب الإفراط في محاولات الدخول الفاشلة."
         click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
+        subject: "تعليمات إعادت فتح الحساب"
+        unlock: "إعادت فتح الحساب"
       welcome: "Welcome"
     passwords: 
       edit: 
@@ -66,7 +66,7 @@ ar:
       new: 
         alpha_software: "You are about to use alpha software."
         bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback_mobile: "لا تندهش،سوف تواجهكم مشكلة. نحن نشجعكم على استخدام زر ردود الفعل على الجانب الأيمن من المتصفح الخاص بك إلى تسجيل أي مشكلة! سوف نعمل بأسرع ما يمكن لحل  المشاكل الواردةفي التقرير."
         login: "Login"
         modern_browsers: "only supports modern browsers."
         password: "Password"

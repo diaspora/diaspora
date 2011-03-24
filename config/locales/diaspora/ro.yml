@@ -33,6 +33,7 @@ ro:
             username: 
               taken: "is already taken."
   ago: "%{time} ago"
+  all_aspects: "All aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -260,6 +261,7 @@ ro:
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"
+    private_message: "sent you a message."
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
@@ -329,6 +331,7 @@ ro:
       edit_my_profile: "Editează profilul meu"
       gender: "gen"
       in_aspects: "în aspecte"
+      location: "location"
       remove_contact: "Elimină contactul"
       remove_from: "Elimini pe %{name} din %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ ro:
       your_bio: "Your bio"
       your_birthday: "Your birthday"
       your_gender: "Your gender"
+      your_location: "Your location"
       your_name: "Your name"
       your_photo: "Your photo"
       your_private_profile: "Your private profile"
@@ -507,8 +511,8 @@ ro:
       add_photos: "adaugă fotografii"
       all: "toate"
       all_contacts: "toate contactele"
+      click_to_share_with: "Click to share with: "
       make_public: "make public"
-      mention_helper_text: "to mention someone, press '@' and start typing their name"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
       public: "Public"
@@ -569,6 +573,7 @@ ro:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Connect your services"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Editează-ţi profilul"
       finished: "Finished!"
       save_and_continue: "Salvează si continuă"

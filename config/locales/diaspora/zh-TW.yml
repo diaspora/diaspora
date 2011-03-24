@@ -33,6 +33,7 @@ zh-TW:
             username: 
               taken: "已被使用."
   ago: "%{time}前"
+  all_aspects: "所有面向"
   application: 
     helper: 
       aspect_badge: 
@@ -196,7 +197,7 @@ zh-TW:
       rejected: "下列電子信箱有問題: "
       sent: "邀請函已經寄給: "
     edit: 
-      sign_up: "sign_up"
+      sign_up: "登記"
     new: 
       already_invited: "已邀請了"
       aspect: "面向"
@@ -260,6 +261,7 @@ zh-TW:
     mentioned: "提到了你, 在他們的"
     new_request: "想要跟你分享."
     post: "貼文"
+    private_message: "寫了一則訊息給你."
     request_accepted: "已同意和你分享."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ zh-TW:
     diaspora: "diaspora 電郵機器人"
     hello: "%{name}你好!"
     love: "衷心祝福,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "管理電郵設定"
     mentioned: 
       mentioned: "在貼文中提到你:"
       sign_in: "登入來看看."
@@ -302,7 +304,7 @@ zh-TW:
   password_confirmation: "密碼確認"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "從標籤新增聯繫"
     aspect_list: 
       edit_membership: "編輯所屬面向"
     few: "%{count}個聯絡人"
@@ -329,6 +331,7 @@ zh-TW:
       edit_my_profile: "編輯我的個人檔案"
       gender: "性別"
       in_aspects: "所屬面向"
+      location: "位置"
       remove_contact: "刪除聯繫"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
@@ -399,6 +402,7 @@ zh-TW:
       your_bio: "你的自我介紹"
       your_birthday: "你的生日"
       your_gender: "你的性別"
+      your_location: "你的位置"
       your_name: "你的名字"
       your_photo: "你的相片"
       your_private_profile: "你的私人檔案"
@@ -507,11 +511,11 @@ zh-TW:
       add_photos: "加入相片"
       all: "全部"
       all_contacts: "全部的聯繫"
+      click_to_share_with: "點一下以一起分享: "
       make_public: "公開"
-      mention_helper_text: "想提到某人的話, 先敲 '@' 再接著打他們的名字"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
-      public: "Public"
+      public: "公開"
       publishing_to: "發表至: "
       share: "分享"
       share_with: "與他/她分享:"
@@ -532,7 +536,7 @@ zh-TW:
       mentioning: "提及發表中: %{person}"
     show: 
       destroy: "刪除"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "抱歉, 找不到該則貼文."
       permalink: "靜態連結"
   stream_helper: 
     hide_comments: "隱藏意見"
@@ -558,17 +562,18 @@ zh-TW:
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
       export_data: "資料匯出"
-      mentioned: "...當貼文中有提到你時?"
+      mentioned: "...當貼文中提到你時?"
       new_password: "新的密碼"
-      private_message: "...當你收到私人訊息時?"
-      receive_email_notifications: "要在以下時機透過電子郵件接收消息..."
-      request_acceptence: "...當你想跟人分享的請求被接受時?"
-      request_received: "...當你收到有人想跟你分享的新請求時?"
+      private_message: "...當收到私人訊息時?"
+      receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
+      request_acceptence: "...當請求跟人分享被接受時?"
+      request_received: "...當收到有人想跟你分享的新請求時?"
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
       connect_on_diaspora: "連上 Diaspora"
       connect_services: "連結至你使用的其他服務"
+      could_not_find_anyone: "在 Diaspora* 上找不到任何朋友. 請使用朋友搜尋器來邀請他/她們."
       edit_profile: "編輯個人檔案"
       finished: "完成!"
       save_and_continue: "儲存並繼續"

@@ -33,6 +33,7 @@ gl:
             username: 
               taken: "xa está collido."
   ago: "hai %{time}"
+  all_aspects: "Todos os aspectos"
   application: 
     helper: 
       aspect_badge: 
@@ -243,7 +244,7 @@ gl:
   notifications: 
     also_commented: "tamén comentou nos de %{post_author}"
     also_commented_deleted: "comentou nunha publicación eliminada"
-    comment_on_post: "comentou no teu"
+    comment_on_post: "comentou na túa"
     deleted: "borrado"
     helper: 
       new_notifications: 
@@ -260,6 +261,7 @@ gl:
     mentioned: "citoute nos seus"
     new_request: "ofreceu compartir contigo."
     post: "publicación"
+    private_message: "enviouche unha mensaxe."
     request_accepted: "aceptou a túa petición para compartir."
   notifier: 
     also_commented: 
@@ -273,7 +275,7 @@ gl:
     diaspora: "robot do correo electrónico de Diaspora"
     hello: "Ola %{name}!"
     love: "bicos,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "opcións de email"
     mentioned: 
       mentioned: "citoute nunha publicación:"
       sign_in: "Entra para velo."
@@ -302,7 +304,7 @@ gl:
   password_confirmation: "Confirmación do contrasinal"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "engadir contacto dende etiqueta"
     aspect_list: 
       edit_membership: "Editar membresía de aspecto"
     few: "%{count} persoas"
@@ -329,6 +331,7 @@ gl:
       edit_my_profile: "Editar o meu perfil"
       gender: "Xénero"
       in_aspects: "en aspectos"
+      location: "localización"
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
     show: 
@@ -399,6 +402,7 @@ gl:
       your_bio: "Biografía"
       your_birthday: "O teu aniversario"
       your_gender: "O teu xénero"
+      your_location: "A túa localización"
       your_name: "O teu nome"
       your_photo: "A túa foto"
       your_private_profile: "O teu perfil privado"
@@ -507,11 +511,11 @@ gl:
       add_photos: "engadir fotos"
       all: "todos"
       all_contacts: "todos os contactos"
+      click_to_share_with: "Click para compartir con:"
       make_public: "facer público"
-      mention_helper_text: "Para citar a alguén, pon \"@\" e teclea o seu nome"
       post_a_message_to: "Deixar un mensaxe en %{aspect}"
       posting: "Publicando..."
-      public: "Public"
+      public: "Público"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
@@ -532,7 +536,7 @@ gl:
       mentioning: "Mencionando: %{person}"
     show: 
       destroy: "Borrar"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Sentímolo, non poidemos encontrar esa publicación."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "esconder comentarios"
@@ -569,6 +573,7 @@ gl:
     getting_started: 
       connect_on_diaspora: "Conectar a Diaspora"
       connect_services: "Conectar a outros servizos"
+      could_not_find_anyone: "Non se atoparon amigos en Diaspora*. Usa o buscador para invitalos."
       edit_profile: "Edita o teu perfil"
       finished: "Xa está!"
       save_and_continue: "Gardar e continuar"
