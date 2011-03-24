@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%li.comment{:data=>{:guid => comment.id}, :class => ("hidden" if(defined? hidden))}
+%li.comment.posted{:data=>{:guid => comment.id}, :class => ("hidden" if(defined? hidden))}
   = person_image_link(comment.author)
   .content
     .from

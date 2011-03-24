@@ -15,14 +15,14 @@ module NotificationsHelper
     elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
       else
         "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
     elsif note.instance_of?(Notifications::AlsoCommented)
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
       else
         t('notifications.also_commented_deleted')
       end

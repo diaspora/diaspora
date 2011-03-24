@@ -61,6 +61,17 @@ var View = {
 
     /* facebox 'done' buttons */
     $("a[rel*=close]").live('click', function(){ $.facebox.close() });
+
+    /* notification routing */
+    $("#notification").delegate('.hard_object_link', 'click', function(evt){
+      var post = $("*[data-guid='"+ $(this).attr('data-ref') +"']"),
+          lastComment = post.find('.comment.posted').last();
+          
+      if(post.length > 0){
+        evt.preventDefault();
+        $('html, body').animate({scrollTop: parseInt(lastComment.offset().top)-80 }, 'fast');
+      }
+    });
   },
 
   addAspectButton: {
