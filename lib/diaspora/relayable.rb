@@ -4,6 +4,7 @@
 
 module Diaspora
   module Relayable
+    include Encryptable
 
     def self.included(model)
       model.class_eval do
@@ -13,7 +14,7 @@ module Diaspora
         xml_attr :author_signature
       end
     end
-    
+
     def relayable
       true
     end
@@ -63,54 +64,6 @@ module Diaspora
       self
     end
 
-    def signable_string
-      raise NotImplementedException("Override this in your encryptable class")
-    end
-
-    def signature_valid?
-      verify_signature(creator_signature, self.author)
-    end
-
-    def verify_signature(signature, person)
-      if person.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_person guid=#{self.guid} model_id=#{self.id}")
-        return false
-      elsif person.public_key.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_key guid=#{self.guid} model_id=#{self.id}")
-        return false
-      elsif signature.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_signature guid=#{self.guid} model_id=#{self.id}")
-        return false
-      end
-      log_string = "event=verify_signature status=complete model_id=#{id}"
-      validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
-      log_string += " validity=#{validity}"
-      Rails.logger.info(log_string)
-      validity
-    end
-
-    def sign_with_key(key)
-      sig = Base64.encode64(key.sign "SHA", signable_string)
-      Rails.logger.info("event=sign_with_key status=complete model_id=#{id}")
-      sig
-    end
-
-    def signable_accessors
-      accessors = self.class.roxml_attrs.collect do |definition|
-        definition.accessor
-      end
-      ['author_signature', 'parent_author_signature'].each do |acc|
-        accessors.delete acc
-      end
-      accessors
-    end
-
-    def signable_string
-      signable_accessors.collect{ |accessor|
-        (self.send accessor.to_sym).to_s
-      }.join(';')
-    end
-
     def verify_parent_author_signature
       verify_signature(self.parent_author_signature, self.parent.author)
     end
@@ -118,7 +71,6 @@ module Diaspora
     def signature_valid?
       verify_signature(self.author_signature, self.author)
     end
-
 
     def parent_class
       raise NotImplementedError.new('you must override parent_class in order to enable relayable on this model')
