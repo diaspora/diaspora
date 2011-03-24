@@ -96,7 +96,7 @@ var WebSocketReceiver = {
     if( $(".comment[data-guid='"+commentId+"']").length == 0 ) {
 
       var post = $("*[data-guid='"+postId+"']'");
-      $('.comments li:last', post ).before(
+      $('.comment.posted', post).last().after(
         $(html).fadeIn("fast", function(){})
       );
       var toggler = $('.show_post_comments', post);
