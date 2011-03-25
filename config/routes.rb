@@ -84,11 +84,13 @@ Diaspora::Application.routes.draw do
 
   scope '/api' do
     match '/statuses/public_timeline', :to => 'apis#public_timeline'
+    match '/statuses/home_timeline',   :to => 'apis#home_timeline'
     match '/statuses/show/:guid',      :to => 'apis#statuses'
+    match '/statuses/user_timeline',   :to => 'apis#user_timeline'
 
-    match '/statuses/user_timeline', :to => 'apis#user_timeline'
     match '/users/show',             :to => 'apis#users'
     match '/users/search',           :to => 'apis#users_search'
+    match '/users/profile_image', :to => 'apis#users_profile_image'
 
     match '/tags_posts/:tag', :to => 'apis#tag_posts'
     match '/tags_people/:tag', :to => 'apis#tag_people'

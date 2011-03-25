@@ -1,7 +1,5 @@
-class ApisController < ApplicationController #ActionController::Metal
-  #include ActionController::Rendering
-  #include ActionController::Renderers::All
-
+class ApisController < ApplicationController
+  before_filter :authenticate_user!, :only => [:home_timeline, :user_timeline]
   respond_to :json
   
   #posts
@@ -15,12 +13,31 @@ class ApisController < ApplicationController #ActionController::Metal
 
   def user_timeline
     set_defaults
-    if params[:user_id]
-      if person = Person.find(params[:user_id])
-        timeline = person.posts.where(:type => "StatusMessage", :public => true).paginate(:page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
-      end
+
+    person_id = params[:user_id] || current_user.person.id
+
+    if person = Person.find(person_id)
+      timeline = current_user.posts_from(person)
+    else
+      timeline = []
     end
-    respond_with timeline
+
+    respond_with timeline do |format|
+      format.json{ render :json => timeline.to_json(:format => :twitter) }
+    end
+  end
+
+  def home_timeline
+    set_defaults
+
+    aspect_ids = current_user.aspects.map{|a| a.id}
+    timeline = StatusMessage.joins(:aspects).where(:pending => false,
+             :aspects => {:id => aspect_ids}).includes(:comments, :photos, :likes, :dislikes).select('DISTINCT `posts`.*').paginate(
+             :page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
+
+    respond_with timeline do |format|
+      format.json{ render :json => timeline.to_json(:format => :twitter) }
+    end
   end
 
   def statuses
@@ -67,6 +84,13 @@ class ApisController < ApplicationController #ActionController::Metal
     end
   end
 
+  def users_profile_image
+    if person = Person.where(:diaspora_handle => params[:screen_name]).first
+      redirect_to person.profile.image_url
+    else
+      render(:nothing => true, :status => 404)
+    end
+  end
 
   #tags
   def tag_posts

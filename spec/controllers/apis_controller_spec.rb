@@ -8,7 +8,7 @@ class ApisController
 end
 
 describe ApisController do
-   before :all do
+   before(:all) do
     @status_message1 = Factory(:status_message, :text => '#bobby #flay #sux', :public => true)
 
     @status_message2 = Factory(:status_message, :public => true)
@@ -18,7 +18,6 @@ describe ApisController do
    end
 
   describe '#public_timeline' do
-
     it 'returns all of the public posts' do
       get :public_timeline, :format => :json
       @posts = JSON.parse(response.body)
@@ -36,6 +35,121 @@ describe ApisController do
     it 'accepts a per_page param' do
       get :public_timeline, :format => :json, :per_page=> 1
       JSON.parse(response.body).count.should == 1
+    end
+  end
+
+  context 'protected timelines' do
+    let(:authenticate){
+      sign_in(:user, @user); 
+      @controller.stub(:current_user).and_return(@user)
+    }
+
+    before do
+      @message1 = alice.post(:status_message, :text=> "hello", :to => alice.aspects.first)
+      @message2 = eve.post(:status_message, :text=> "hello", :to => eve.aspects.first)
+    end
+      
+    describe '#home_timeline' do
+      it 'authenticates' do
+        get :home_timeline, :format => :json
+        response.code.should == '401'
+      end
+
+      it 'shows posts for alice' do
+        @user = alice
+        authenticate
+
+        get :home_timeline, :format => :json
+        p = JSON.parse(response.body)
+
+        p.length.should == 1
+        p[0]['id'].should == @message1.guid
+      end
+
+      it 'shows posts for eve' do
+        @user = eve
+        authenticate
+
+        get :home_timeline, :format => :json
+        p = JSON.parse(response.body)
+
+        p.length.should == 1
+        p[0]['id'].should == @message2.guid
+      end
+
+      it 'shows posts for bob' do
+        @user = bob
+        authenticate
+
+        get :home_timeline, :format => :json
+        p = JSON.parse(response.body)
+
+        p.length.should == 2
+      end
+    end
+
+    describe '#user_timeline' do
+      it 'authenticates' do
+        get :home_timeline, :format => :json
+        response.code.should == '401'
+      end
+
+      context 'with bob logged in' do
+        before do
+          @user = bob
+          authenticate
+        end
+
+        it 'shows alice' do
+          get :user_timeline, :format => :json, :user_id => alice.person.id
+          p = JSON.parse(response.body)
+
+          p.length.should == 1
+          p[0]['id'].should == @message1.guid
+        end
+
+        it 'shows eve' do
+          get :user_timeline, :format => :json, :user_id => eve.person.id
+          p = JSON.parse(response.body)
+
+          p.length.should == 1
+          p[0]['id'].should == @message2.guid
+        end
+
+        it 'shows bob' do
+          get :user_timeline, :format => :json
+          p = JSON.parse(response.body)
+          p.length.should == 0
+        end
+      end
+
+      context 'with alice logged in' do
+        before do
+          @user = alice
+          authenticate
+        end
+
+        it 'shows alice' do
+          get :user_timeline, :format => :json, :user_id => alice.person.id
+          p = JSON.parse(response.body)
+
+          p.length.should == 1
+          p[0]['id'].should == @message1.guid
+        end
+
+        it 'shows eve' do
+          get :user_timeline, :format => :json, :user_id => eve.person.id
+          p = JSON.parse(response.body)
+          p.length.should == 0
+        end
+      end
+    end
+  end
+  
+  describe '#users_profile_image' do
+    it 'redirects on success' do
+      get :users_profile_image, :screen_name => bob.diaspora_handle, :format => :json
+      response.should redirect_to(bob.person.profile.image_url)
     end
   end
 
