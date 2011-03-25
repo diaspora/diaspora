@@ -33,6 +33,7 @@ ca:
   next: "següent"
   previous: "anterior"
   _comments: "Comentaris"
+  all_aspects: "Tots els aspectes"
 
 
   activerecord:
@@ -102,12 +103,6 @@ ca:
       post_time: "data de publicació"
     show:
       edit_aspect: "edita l'aspecte"
-    no_contacts_message:
-      nobody: "Introduïu la gent que us importa al Diàspora!"
-      nobody_in_aspect: "El vostre aspecte '%{aspect_name}' és buit."
-      add_contact: "Afegeix un contacte"
-      add_contact_to: "Afegeix algú a l'aspecte %{aspect_name}"
-      invite: "Convida algú a unir-se al Diàspora!"
     no_posts_message:
       start_talking:  "Ningú no ha dit res encara. Inicieu la conversa!"
     manage:
@@ -291,7 +286,8 @@ ca:
 
   notifications:
     request_accepted: "ha acceptat la vostra petició per a compartir."
-    new_request: "s'ha oferit a compartir amb vosaltres"
+    new_request: "s'ha oferit a compartir amb vosaltres."
+    private_message: "us ha enviat un missatge."
     comment_on_post: "ha comentat la vostra"
     also_commented: "also commented on your contact's"
     mentioned: "us ha mencionat a la seva"
@@ -317,6 +313,7 @@ ca:
     love: "Amb amor,"
     thanks: "Gràcies,"
     diaspora: "el robot del correu del Diàspora"
+    manage_your_email_settings: "gestioneu els paràmetres del correu"
     single_admin:
       subject: "Un missatge sobre el vostre compte de Diàspora:"
       admin: "L'administrador de Diàspora"
@@ -386,6 +383,7 @@ ca:
       remove_contact: "suprimeix el contacte"
       edit_my_profile: "Edita el meu perfil"
       bio: "biografia"
+      location: "Ubicació"
       gender: "gènere"
       born: "aniversari"
       in_aspects: "als aspectes"
@@ -396,6 +394,8 @@ ca:
       people_on_pod_are_aware_of: " persones a la beina són conscients de"
     aspect_list:
       edit_membership: "edita la pertinença de l'aspecte"
+    add_contact_small:
+      add_contact_from_tag: "afegeix un contacte d'una etiqueta"
 
 
   photos:
@@ -451,6 +451,7 @@ ca:
       your_tags: "Vosaltres: en 5 #etiquetes"
       your_tags_placeholder: "P. ex. #música #llibres #esport #amics #cervesa"
       your_bio: "La vostra biografia"
+      your_location: "La vostra ubicació"
       your_photo: "La vostra foto"
       update_profile: "Actualitza el perfil"
       allow_search: "Permet que la gent em cerque dins del Diàspora"
@@ -535,7 +536,6 @@ ca:
 
   shared:
     publisher:
-      mention_helper_text: "per a mencionar algú, premeu «@» i comenceu a escriure el seu nom"
       posting: "S'està publicant…"
       share: "Comparteix"
       post_a_message_to: "Publica un missatge a %{aspect}"
@@ -546,6 +546,8 @@ ca:
       share_with: "comparteix amb"
       whats_on_your_mind: "què teniu al cap?"
       publishing_to: "s'està publicant a: "
+      public: "Públic"
+      click_to_share_with: "Feu clic per compartir amb: "
     add_contact:
       enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
       your_diaspora_username_is: "El vostre nom d'usuari de Diàspora és: %{diaspora_handle}"
@@ -586,6 +588,7 @@ ca:
     show:
       destroy: "Suprimeix"
       permalink: "enllaç permanent"
+      not_found: "No s'ha trobat aquesta publicació."
     helper:
       no_message_to_display: "No hi ha missatges a mostrar."
     destroy:
@@ -635,6 +638,7 @@ ca:
       finished: "Finalitzat!"
       skip: "omet la configuració inicial"
       save_and_continue: "Desa i continua"
+      could_not_find_anyone: "No s'ha trobat cap dels vostres amics al Diàspora*. Empreu el cercador d'amics per convidar-los."
       step_3:
         finish: "Finalitza"
         people_already_on_diaspora: "Gent que ja és al Diàspora"
