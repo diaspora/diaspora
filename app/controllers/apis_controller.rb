@@ -1,5 +1,5 @@
 class ApisController < ApplicationController #We should start with this versioned, V0ApisController  BEES
-  before_filter :authenticate_user!, :only => [:home_timeline, :user_timeline]
+  before_filter :authenticate_user!, :only => [:home_timeline]
   respond_to :json
   
   #posts
@@ -11,13 +11,15 @@ class ApisController < ApplicationController #We should start with this versione
     end
   end
 
-  def user_timeline #No public timeline for a user? - R
+  def user_timeline
     set_defaults
 
-    person_id = params[:user_id] || current_user.person.guid # I wouldn't put implicit params in anything meant to be programatically accessed - R
-
-    if person = Person.where(:guid => person_id).first
-      timeline = current_user.posts_from(person)
+    if person = Person.where(:guid => params[:user_id]).first
+      if user_signed_in?
+        timeline = current_user.posts_from(person)
+      else
+        timeline = StatusMessage.where(:public => true, :author_id => person.id).includes(:photos).paginate(:page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
+      end
       respond_with timeline do |format|
         format.json{ render :json => timeline.to_json(:format => :twitter) }
       end
@@ -58,7 +60,7 @@ class ApisController < ApplicationController #We should start with this versione
       person = Person.where(:diaspora_handle => params[:screen_name]).first
     end
 
-    if person
+    if person && !person.remote?
       respond_with person do |format|
         format.json{ render :json => person.to_json(:format => :twitter) }
       end

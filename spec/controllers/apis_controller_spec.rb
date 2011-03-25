@@ -92,58 +92,68 @@ describe ApisController do
     end
 
     describe '#user_timeline' do
-      it 'authenticates' do
-        get :home_timeline, :format => :json
-        response.code.should == '401'
-      end
-
-      context 'with bob logged in' do
-        before do
-          @user = bob
-          authenticate
+      context 'unauthenticated' do
+        it 'shows public posts' do
+          get :user_timeline, :format => :json, :user_id => @status_message1.author.guid
+          posts = JSON.parse(response.body)
+          posts.first['id'].should == @status_message1.guid
+          posts.length.should == 1
         end
-
-        it 'shows alice' do
+        it 'does not show non-public posts' do
           get :user_timeline, :format => :json, :user_id => alice.person.guid
-          p = JSON.parse(response.body)
-
-          p.length.should == 1
-          p[0]['id'].should == @message1.guid
-        end
-
-        it 'shows eve' do
-          get :user_timeline, :format => :json, :user_id => eve.person.guid
-          p = JSON.parse(response.body)
-
-          p.length.should == 1
-          p[0]['id'].should == @message2.guid
-        end
-
-        it 'shows bob' do
-          get :user_timeline, :format => :json
-          p = JSON.parse(response.body)
-          p.length.should == 0
+          posts = JSON.parse(response.body)
+          posts.should be_empty
         end
       end
+      context 'authenticated' do
+        context 'with bob logged in' do
+          before do
+            @user = bob
+            authenticate
+          end
 
-      context 'with alice logged in' do
-        before do
-          @user = alice
-          authenticate
+          it 'shows alice' do
+            get :user_timeline, :format => :json, :user_id => alice.person.guid
+            p = JSON.parse(response.body)
+
+            p.length.should == 1
+            p[0]['id'].should == @message1.guid
+          end
+
+          it 'shows eve' do
+            get :user_timeline, :format => :json, :user_id => eve.person.guid
+            p = JSON.parse(response.body)
+
+            p.length.should == 1
+            p[0]['id'].should == @message2.guid
+          end
+
+          it 'shows bob' do
+            get :user_timeline, :format => :json, :user_id => bob.person.guid
+            p = JSON.parse(response.body)
+            p.length.should == 0
+          end
         end
 
-        it 'shows alice' do
-          get :user_timeline, :format => :json, :user_id => alice.person.guid
-          p = JSON.parse(response.body)
+        context 'with alice logged in' do
+          before do
+            @user = alice
+            authenticate
+          end
 
-          p.length.should == 1
-          p[0]['id'].should == @message1.guid
-        end
+          it 'shows alice' do
+            get :user_timeline, :format => :json, :user_id => alice.person.guid
+            p = JSON.parse(response.body)
 
-        it 'shows eve' do
-          get :user_timeline, :format => :json, :user_id => eve.person.guid
-          p = JSON.parse(response.body)
-          p.length.should == 0
+            p.length.should == 1
+            p[0]['id'].should == @message1.guid
+          end
+
+          it 'shows eve' do
+            get :user_timeline, :format => :json, :user_id => eve.person.guid
+            p = JSON.parse(response.body)
+            p.length.should == 0
+          end
         end
       end
     end
@@ -176,12 +186,12 @@ describe ApisController do
 
   describe '#users' do
     it 'succeeds' do
-      get :users, :user_id => @person.guid, :format => :json
+      get :users, :user_id => alice.person.guid, :format => :json
       p = JSON.parse(response.body)
-      p['id'].should == @person.guid
-      p['name'].should == @person.name
-      p['screen_name'].should == @person.diaspora_handle
-      p['profile_image_url'].should == @person.profile.image_url(:thumb_small)
+      p['id'].should == alice.person.guid
+      p['name'].should == alice.person.name
+      p['screen_name'].should == alice.person.diaspora_handle
+      p['profile_image_url'].should == alice.person.profile.image_url(:thumb_small)
       p['created_at'].should_not be_nil
     end
   end
@@ -210,5 +220,4 @@ describe ApisController do
       p['id'].should == @person.guid
     end
   end
-  
 end

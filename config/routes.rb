@@ -82,7 +82,7 @@ Diaspora::Application.routes.draw do
   match 'receive/users/:guid',    :to => 'publics#receive'
   match 'hub',                  :to => 'publics#hub'
 
-  scope '/api' do
+  scope '/api/v0' do
     match '/statuses/public_timeline', :to => 'apis#public_timeline'
     match '/statuses/home_timeline',   :to => 'apis#home_timeline'
     match '/statuses/show/:guid',      :to => 'apis#statuses'
@@ -94,7 +94,6 @@ Diaspora::Application.routes.draw do
 
     match '/tags_posts/:tag', :to => 'apis#tag_posts'
     match '/tags_people/:tag', :to => 'apis#tag_people'
-    match '/person/:diaspora_handle', :to => 'apis#people'
   end
 
   match'localize', :to => "localize#show"
