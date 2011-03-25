@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= form_tag( comments_path, :id => "new_comment_on_#{post_id}", :class => 'new_comment', :remote => true) do
+= form_tag( comments_path, :id => "new_comment_on_#{post_id}", :class => 'new_comment') do
   = hidden_field_tag :post_id,  post_id, :id => "post_id_on_#{post_id}"
   = text_area_tag :text, nil, :rows => 2, :class => "comment_box",:id => "comment_text_on_#{post_id}"
 

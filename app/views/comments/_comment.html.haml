@@ -3,6 +3,9 @@
 -#   the COPYRIGHT file.
 
 %li.comment.posted{:data=>{:guid => comment.id}, :class => ("hidden" if(defined? hidden))}
+  - if current_user.owns?(comment) || current_user.owns?(comment.post)
+    .right.controls
+      = link_to image_tag('deletelabel.png'), comment_path(comment), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete comment_delete", :title => t('delete')
   = person_image_link(comment.author)
   .content
     .from

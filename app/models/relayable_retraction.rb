@@ -7,6 +7,7 @@ class RelayableRetraction
   include Diaspora::Webhooks
   include Diaspora::Encryptable
 
+  xml_name :relayable_retraction
   xml_attr :target_guid
   xml_attr :target_type
   xml_attr :sender_handle
@@ -35,6 +36,10 @@ class RelayableRetraction
 
   def sender_handle
     @sender.diaspora_handle
+  end
+
+  def diaspora_handle
+    self.sender_handle
   end
 
   def subscribers(user)

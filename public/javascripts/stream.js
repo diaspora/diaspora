@@ -58,7 +58,7 @@ var Stream = {
       json = $.parseJSON(json);
       WebSocketReceiver.processLike(json.post_id, json.html);
     });
-    
+
     $('.like_it, .dislike_it').live('ajax:failure', function(data, html, xhr) {
       Diaspora.widgets.alert.alert('Failed to like/dislike!');
       $(this).parent().fadeIn('fast');
@@ -106,8 +106,24 @@ var Stream = {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
-    $(".stream").find(".delete").live('ajax:success', function(data, html, xhr) {
-      $(this).parents(".stream_element").hide('blind', { direction: 'vertical' }, 300);
+    $(".stream").find(".stream_element_delete", ".stream_element").live('ajax:success', function(data, html, xhr) {
+      var target = $(this).parents(".stream_element");
+      target.hide('blind', { direction: 'vertical' }, 300, function(){ $(this).remove() });
+    });
+
+    $(".stream").find(".comment_delete", ".comment").live('ajax:success', function(data, html, xhr) {
+      var element = $(this),
+          target = element.parents(".comment"),
+          post = element.closest('.stream_element'),
+          toggler = post.find('.show_post_comments');
+
+      target.hide('blind', { direction: 'vertical' }, 300, function(){
+        $(this).remove();
+        toggler.html(
+          toggler.html().replace(/\d+/,$('.comments', post).find('li').length -1)
+        );
+      });
+
     });
   },
 

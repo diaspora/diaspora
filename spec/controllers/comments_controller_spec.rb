@@ -8,13 +8,11 @@ describe CommentsController do
   render_views
 
   before do
-    @user1 = alice
-    @user2 = bob
+    @aspect1 = alice.aspects.first
+    @aspect2 = bob.aspects.first
 
-    @aspect1 = @user1.aspects.first
-    @aspect2 = @user2.aspects.first
-
-    sign_in :user, @user1
+    @controller.stub(:current_user).and_return(alice)
+    sign_in :user, alice
   end
 
   describe '#create' do
@@ -24,7 +22,7 @@ describe CommentsController do
     }
     context "on my own post" do
       before do
-        @post = @user1.post :status_message, :text => 'GIANTS', :to => @aspect1.id
+        @post = alice.post :status_message, :text => 'GIANTS', :to => @aspect1.id
       end
       it 'responds to format js' do
         post :create, comment_hash.merge(:format => 'js')
@@ -35,7 +33,7 @@ describe CommentsController do
 
     context "on a post from a contact" do
       before do
-        @post = @user2.post :status_message, :text => 'GIANTS', :to => @aspect2.id
+        @post = bob.post :status_message, :text => 'GIANTS', :to => @aspect2.id
       end
       it 'comments' do
         post :create, comment_hash
@@ -45,10 +43,10 @@ describe CommentsController do
         new_user = Factory.create(:user)
         comment_hash[:author_id] = new_user.person.id.to_s
         post :create, comment_hash
-        Comment.find_by_text(comment_hash[:text]).author_id.should == @user1.person.id
+        Comment.find_by_text(comment_hash[:text]).author_id.should == alice.person.id
       end
       it "doesn't overwrite id" do
-        old_comment = @user1.comment("hello", :on => @post)
+        old_comment = alice.comment("hello", :on => @post)
         comment_hash[:id] = old_comment.id
         post :create, comment_hash
         old_comment.reload.text.should == 'hello'
@@ -59,9 +57,52 @@ describe CommentsController do
         @post = eve.post :status_message, :text => 'GIANTS', :to => eve.aspects.first.id
       end
       it 'posts no comment' do
-        @user1.should_not_receive(:comment)
+        alice.should_not_receive(:comment)
         post :create, comment_hash
         response.code.should == '422'
+      end
+    end
+  end
+
+  describe '#destroy' do
+    context 'your post' do
+      before do
+        @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
+        @comment = alice.comment("hey", :on => @message)
+        @comment2 = bob.comment("hey", :on => @message)
+        @comment3 = eve.comment("hey", :on => @message)
+      end
+      it 'lets the user delete his comment' do
+        alice.should_receive(:retract).with(@comment)
+        delete :destroy, :format => "js",  :id => @comment.id
+        response.status.should == 204
+      end
+
+      it "lets the user destroy other people's comments" do
+        alice.should_receive(:retract).with(@comment2)
+        delete :destroy, :format => "js",  :id => @comment2.id
+        response.status.should == 204
+      end
+    end
+
+    context "another user's post" do
+      before do
+        @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
+        @comment = alice.comment("hey", :on => @message)
+        @comment2 = bob.comment("hey", :on => @message)
+        @comment3 = eve.comment("hey", :on => @message)
+      end
+
+      it 'let the user delete his comment' do
+        alice.should_receive(:retract).with(@comment)
+        delete :destroy, :format => "js",  :id => @comment.id
+        response.status.should == 204
+      end
+
+      it 'does not let the user destroy comments he does not own' do
+        alice.should_not_receive(:retract).with(@comment2)
+        delete :destroy, :format => "js",  :id => @comment3.id
+        response.status.should == 401
       end
     end
   end

@@ -249,13 +249,6 @@ header
       :bottom 1px solid #ddd
       :top 1px solid #fff
 
-    &:hover
-      .right
-        :display inline
-      .from
-        a
-          :color $blue
-
     .youtube-player, .vimeo-player
       :border none
       :height 370px
@@ -398,13 +391,33 @@ header
         :margin
           :top -1px
 
-
   .delete
     @include opacity(0.6)
     :padding 5px
 
     &:hover
       @include opacity(1)
+
+  .right
+    :position absolute
+    :right 12px
+
+  .controls
+    :display none
+    :z-index 6
+    :color #999
+    a
+      :color #999
+      :font
+        :weight normal
+
+  &:hover, .comment:hover
+    > .controls
+      :display inline
+
+    .from
+      a
+        :color $blue
 
 .time,
 .timeago
@@ -595,6 +608,9 @@ div.dislikes
         a
           :color #444
 
+    .right
+      :right 4px
+
     form
       :margin
         :top -5px
@@ -635,9 +651,6 @@ div.dislikes
         :min-height 2.4em
 
 .comments 
-  time
-    :margin
-      :right -15px
   .timeago
     :color #999
 
@@ -690,32 +703,6 @@ a.paginate, #infscr-loading
 
 #main_stream .pagination
   :display none
-
-.stream_element
-  .right
-    :position absolute
-    :right 12px
-
-    &.controls
-      :z-index 6
-      :background
-        :color $background
-      :font
-        :size 12px
-      :color #999
-      :padding
-        :left 100px
-      a
-        :color #999
-        :font
-          :weight normal
-  &:hover
-    .controls
-      :display inline
-
-.stream_element:hover
-  .right
-    :display inline
 
 .request_buttons
   :position absolute

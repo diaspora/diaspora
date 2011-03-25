@@ -98,7 +98,6 @@ var WebSocketReceiver = {
       var post = $("*[data-guid='"+postId+"']'"),
           prevComments = $('.comment.posted', post);
 
-      
       if(prevComments.length > 0) {
         prevComments.last().after(
           $(html).fadeIn("fast", function(){})

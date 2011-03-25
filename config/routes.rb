@@ -4,7 +4,7 @@
 
 Diaspora::Application.routes.draw do
   resources :status_messages, :only => [:new, :create, :destroy, :show]
-  resources :comments,        :only => [:create]
+  resources :comments,        :only => [:create, :destroy]
   resources :requests,        :only => [:destroy, :create]
   resource :likes,            :only => [:create]
 

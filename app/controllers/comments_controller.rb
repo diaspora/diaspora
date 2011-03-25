@@ -34,13 +34,32 @@ class CommentsController < ApplicationController
             render(:json => json, :status => 201)
           }
           format.html{ render :nothing => true, :status => 201 }
-          format.mobile{ redirect_to status_message_path(@comment.post_id) }
+          format.mobile{ redirect_to @comment.post }
         end
       else
         render :nothing => true, :status => 422
       end
     else
       render :nothing => true, :status => 422
+    end
+  end
+
+  def destroy
+    if @comment = Comment.where(:id => params[:id]).first
+      if current_user.owns?(@comment) || current_user.owns?(@comment.parent)
+        current_user.retract(@comment)
+        respond_to do |format|
+          format.mobile{ redirect_to @comment.post }
+          format.js {render :nothing => true, :status => 204}
+        end
+      else
+        respond_to do |format|
+          format.mobile {redirect_to :back}
+          format.js {render :nothing => true, :status => 401}
+        end
+      end
+    else
+      render :nothing => true, :status => 404
     end
   end
 

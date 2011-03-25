@@ -47,3 +47,17 @@ Feature: commenting
     And I press "comment"
     Then I should see "hahaha" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
+
+  Scenario: delete a post
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "Look at this dog"
+    When I focus the comment field
+    And I fill in "comment" with "is that a poodle?"
+    And I press "comment"
+    And I wait for the ajax to finish
+    When I hover over the comment
+    And I preemptively confirm the alert
+    And I click to delete the first comment
+    And I wait for the ajax to finish
+    Then I should not see "is that a poodle?"

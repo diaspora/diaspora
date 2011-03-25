@@ -44,14 +44,4 @@ describe Retraction do
       end
     end
   end
-
-  describe 'dispatching' do
-    it 'should dispatch a retraction on delete' do
-      Factory.create(:person)
-      m = mock()
-      m.should_receive(:post)
-      Postzord::Dispatch.should_receive(:new).with(instance_of(User), instance_of(Retraction)).and_return(m)
-      post.destroy
-    end
-  end
 end
