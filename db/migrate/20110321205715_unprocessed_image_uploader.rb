@@ -1,4 +1,4 @@
-require 'db/migrate/20110319005509_add_processed_to_post'
+require File.join(Rails.root, 'db/migrate/20110319005509_add_processed_to_post')
 class UnprocessedImageUploader < ActiveRecord::Migration
   def self.up
     AddProcessedToPost.down
