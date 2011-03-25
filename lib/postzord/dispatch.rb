@@ -22,7 +22,7 @@ class Postzord::Dispatch
     unless @subscribers == nil
       remote_people, local_people = @subscribers.partition{ |person| person.owner_id.nil? }
 
-      if @object.respond_to?(:relayable) && @sender.owns?(@object.parent)
+      if @object.respond_to?(:relayable?) && @sender.owns?(@object.parent)
         user_ids = [*local_people].map{|x| x.owner_id }
         local_users = User.where(:id => user_ids)
         self.notify_users(local_users)

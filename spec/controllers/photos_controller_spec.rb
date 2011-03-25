@@ -8,14 +8,11 @@ describe PhotosController do
   render_views
 
   before do
-    @alice = alice
-    @bob = bob
+    @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id)
+    @bobs_photo = bob.post(:photo, :user_file => uploaded_photo, :to => bob.aspects.first.id, :public => true)
 
-    @alices_photo = @alice.post(:photo, :user_file => uploaded_photo, :to => @alice.aspects.first.id)
-    @bobs_photo = @bob.post(:photo, :user_file => uploaded_photo, :to => @bob.aspects.first.id, :public => true)
-
-    @controller.stub!(:current_user).and_return(@alice)
-    sign_in :user, @alice
+    @controller.stub!(:current_user).and_return(alice)
+    sign_in :user, alice
     request.env["HTTP_REFERER"] = ''
   end
 
@@ -32,23 +29,23 @@ describe PhotosController do
     end
 
     it 'can set the photo as the profile photo' do
-      old_url = @alice.person.profile.image_url
+      old_url = alice.person.profile.image_url
       @params[:photo][:set_profile_photo] = true
       post :create, @params
-      @alice.reload.person.profile.image_url.should_not == old_url
+      alice.reload.person.profile.image_url.should_not == old_url
     end
   end
 
   describe '#index' do
     it "displays the logged in user's pictures" do
-      get :index, :person_id => @alice.person.id.to_s
-      assigns[:person].should == @alice.person
+      get :index, :person_id => alice.person.id.to_s
+      assigns[:person].should == alice.person
       assigns[:posts].should == [@alices_photo]
     end
 
     it "displays another person's pictures" do
-      get :index, :person_id => @bob.person.id.to_s
-      assigns[:person].should == @bob.person
+      get :index, :person_id => bob.person.id.to_s
+      assigns[:person].should == bob.person
       assigns[:posts].should == [@bobs_photo]
     end
   end
@@ -118,20 +115,31 @@ describe PhotosController do
 
     it "redirects when the user does not own the photo" do
       get :edit, :id => @bobs_photo.id
-      response.should redirect_to(:action => :index, :person_id => @alice.person.id.to_s)
+      response.should redirect_to(:action => :index, :person_id => alice.person.id.to_s)
     end
   end
 
 
   describe '#destroy' do
-    it 'allows the user to delete his photos' do
+    it 'let a user delete his message' do
       delete :destroy, :id => @alices_photo.id
       Photo.find_by_id(@alices_photo.id).should be_nil
     end
 
-    it 'will not let you destory posts you do not own' do
+    it 'sends a retraction on delete' do
+      alice.should_receive(:retract).with(@alices_photo)
+      delete :destroy, :id => @alices_photo.id
+    end
+
+    it 'will not let you destroy posts visible to you' do
       delete :destroy, :id => @bobs_photo.id
       Photo.find_by_id(@bobs_photo.id).should be_true
+    end
+
+    it 'will not let you destory posts you do not own' do
+      eves_photo = eve.post(:photo, :user_file => uploaded_photo, :to => eve.aspects.first.id, :public => true)
+      delete :destroy, :id => eves_photo.id
+      Photo.find_by_id(eves_photo.id).should be_true
     end
   end
 
@@ -145,13 +153,13 @@ describe PhotosController do
       new_user = Factory.create(:user)
       params = { :text => "now with lasers!", :author_id => new_user.id }
       put :update, :id => @alices_photo.id, :photo => params
-      @alices_photo.reload.author_id.should == @alice.person.id
+      @alices_photo.reload.author_id.should == alice.person.id
     end
 
     it 'redirects if you do not have access to the post' do
       params = { :text => "now with lasers!" }
       put :update, :id => @bobs_photo.id, :photo => params
-      response.should redirect_to(:action => :index, :person_id => @alice.person.id.to_s)
+      response.should redirect_to(:action => :index, :person_id => alice.person.id.to_s)
     end
   end
 

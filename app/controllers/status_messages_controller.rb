@@ -81,7 +81,7 @@ class StatusMessagesController < ApplicationController
   def destroy
     @status_message = current_user.posts.where(:id => params[:id]).first
     if @status_message
-      @status_message.destroy
+      current_user.retract(@status_message)
       render :nothing => true, :status => 200
     else
       Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"

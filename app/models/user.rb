@@ -218,7 +218,7 @@ class User < ActiveRecord::Base
 
   ######### Posts and Such ###############
   def retract(post)
-    if post.relayable
+    if post.respond_to?(:relayable?) && post.relayable?
       aspects = post.parent.aspects
       retraction = RelayableRetraction.build(self, post)
     else

@@ -8,42 +8,39 @@ describe StatusMessagesController do
   render_views
 
   before do
-    @user1 = alice
-    @user2 = bob
-
-    @aspect1 = @user1.aspects.first
-    @aspect2 = @user2.aspects.first
+    @aspect1 = alice.aspects.first
+    @aspect2 = bob.aspects.first
 
     request.env["HTTP_REFERER"] = ""
-    sign_in :user, @user1
-    @controller.stub!(:current_user).and_return(@user1)
-    @user1.reload
+    sign_in :user, alice
+    @controller.stub!(:current_user).and_return(alice)
+    alice.reload
   end
 
   describe '#new' do
     it 'succeeds' do
       get :new,
-        :person_id => @user2.person.id
+        :person_id => bob.person.id
       response.should be_success
     end
 
       it 'generates a jasmine fixture' do
-        contact = @user1.contact_for(@user2.person)
-        aspect = @user1.aspects.create(:name => 'people')
+        contact = alice.contact_for(bob.person)
+        aspect = alice.aspects.create(:name => 'people')
         contact.aspects << aspect
         contact.save
-        get :new, :person_id => @user2.person.id, :layout => true
+        get :new, :person_id => bob.person.id, :layout => true
         save_fixture(html_for("body"), "status_message_new")
       end
   end
 
   describe '#show' do
     before do
-      @message = @user1.build_post :status_message, :text => "ohai", :to => @aspect1.id
+      @message = alice.build_post :status_message, :text => "ohai", :to => @aspect1.id
       @message.save!
 
-      @user1.add_to_streams(@message, [@aspect1])
-      @user1.dispatch_post @message, :to => @aspect1.id
+      alice.add_to_streams(@message, [@aspect1])
+      alice.dispatch_post @message, :to => @aspect1.id
     end
 
     it 'succeeds' do
@@ -97,30 +94,30 @@ describe StatusMessagesController do
 
     it "dispatches the post to the specified services" do
       s1 = Services::Facebook.new
-      @user1.services << s1
-      @user1.services << Services::Twitter.new
+      alice.services << s1
+      alice.services << Services::Twitter.new
       status_message_hash[:services] = ['facebook']
-      @user1.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
+      alice.should_receive(:dispatch_post).with(anything(), hash_including(:services => [s1]))
       post :create, status_message_hash
     end
 
     it "doesn't overwrite author_id" do
-      status_message_hash[:status_message][:author_id] = @user2.person.id
+      status_message_hash[:status_message][:author_id] = bob.person.id
       post :create, status_message_hash
       new_message = StatusMessage.find_by_text(status_message_hash[:status_message][:text])
-      new_message.author_id.should == @user1.person.id
+      new_message.author_id.should == alice.person.id
     end
 
     it "doesn't overwrite id" do
-      old_status_message = @user1.post(:status_message, :text => "hello", :to => @aspect1.id)
+      old_status_message = alice.post(:status_message, :text => "hello", :to => @aspect1.id)
       status_message_hash[:status_message][:id] = old_status_message.id
       post :create, status_message_hash
       old_status_message.reload.text.should == 'hello'
     end
 
     it 'calls dispatch post once subscribers is set' do
-      @user1.should_receive(:dispatch_post){|post, opts|
-        post.subscribers(@user1).should == [@user2.person]
+      alice.should_receive(:dispatch_post){|post, opts|
+        post.subscribers(alice).should == [bob.person]
       }
       post :create, status_message_hash
     end
@@ -135,8 +132,8 @@ describe StatusMessagesController do
         fixture_filename  = 'button.png'
         fixture_name      = File.join(File.dirname(__FILE__), '..', 'fixtures', fixture_filename)
 
-        @photo1 = @user1.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
-        @photo2 = @user1.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
+        @photo1 = alice.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
+        @photo2 = alice.build_post(:photo, :pending => true, :user_file=> File.open(fixture_name), :to => @aspect1.id)
 
         @photo1.save!
         @photo2.save!
@@ -150,7 +147,7 @@ describe StatusMessagesController do
         response.should be_redirect
       end
       it "dispatches all referenced photos" do
-        @user1.should_receive(:dispatch_post).exactly(3).times
+        alice.should_receive(:dispatch_post).exactly(3).times
         post :create, @hash
       end
       it "sets the pending bit of referenced photos" do
@@ -166,22 +163,30 @@ describe StatusMessagesController do
   end
 
   describe '#destroy' do
-    let!(:message) {@user1.post(:status_message, :text => "hey", :to => @aspect1.id)}
-    let!(:message2) {@user2.post(:status_message, :text => "hey", :to => @aspect2.id)}
+    before do
+      @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
+      @message2 = bob.post(:status_message, :text => "hey", :to => @aspect2.id)
+      @message3 = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
+    end
 
-    it 'let a user delete his photos' do
-      delete :destroy, :id => message.id
-      StatusMessage.find_by_id(message.id).should be_nil
+    it 'let a user delete his message' do
+      delete :destroy, :id => @message.id
+      StatusMessage.find_by_id(@message.id).should be_nil
+    end
+
+    it 'sends a retraction on delete' do
+      alice.should_receive(:retract).with(@message)
+      delete :destroy, :id => @message.id
     end
 
     it 'will not let you destroy posts visible to you' do
-      delete :destroy, :id => message2.id
-      StatusMessage.find_by_id(message2.id).should be_true
+      delete :destroy, :id => @message2.id
+      StatusMessage.find_by_id(@message2.id).should be_true
     end
 
     it 'will not let you destory posts you do not own' do
-      delete :destroy, :id => message2.id
-      StatusMessage.find_by_id(message2.id).should be_true
+      delete :destroy, :id => @message3.id
+      StatusMessage.find_by_id(@message3.id).should be_true
     end
   end
 end

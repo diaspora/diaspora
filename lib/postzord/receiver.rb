@@ -49,7 +49,7 @@ module Postzord
     end
 
     def xml_author
-      if @object.respond_to?(:relayable)
+      if @object.respond_to?(:relayable?)
         #if A and B are friends, and A sends B a comment from C, we delegate the validation to the owner of the post being commented on
         xml_author = @user.owns?(@object.parent) ? @object.diaspora_handle : @object.parent.author.diaspora_handle
         @author = Webfinger.new(@object.diaspora_handle).fetch
@@ -71,7 +71,7 @@ module Postzord
       end
 
       # abort if we haven't received the post to a comment
-      if @object.respond_to?(:relayable) && @object.parent.nil?
+      if @object.respond_to?(:relayable?) && @object.parent.nil?
         Rails.logger.info("event=receive status=abort reason='received a comment but no corresponding post' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle} payload_type=#{@object.class})")
         return false
       end

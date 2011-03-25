@@ -15,7 +15,7 @@ module Diaspora
       end
     end
 
-    def relayable
+    def relayable?
       true
     end
 

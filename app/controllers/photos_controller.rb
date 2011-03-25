@@ -122,7 +122,7 @@ class PhotosController < ApplicationController
     photo = current_user.posts.where(:id => params[:id]).first
 
     if photo
-      photo.destroy
+      current_user.retract(photo)
 
       respond_to do |format|
         format.json{ render :nothing => true, :status => 204 }
