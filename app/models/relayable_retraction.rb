@@ -5,6 +5,7 @@
 class RelayableRetraction
   include ROXML
   include Diaspora::Webhooks
+  include Diaspora::Encryptable
 
   xml_attr :target_guid
   xml_attr :target_type
@@ -18,6 +19,16 @@ class RelayableRetraction
                 :target_author_signature,
                 :sender
 
+  def signable_accessors
+      accessors = self.class.roxml_attrs.collect do |definition|
+        definition.accessor
+      end
+      ['target_author_signature', 'parent_author_signature'].each do |acc|
+        accessors.delete acc
+      end
+      accessors
+  end
+
   def sender_handle= new_sender_handle
     @sender = Person.where(:diaspora_handle => new_sender_handle).first
   end
@@ -27,18 +38,25 @@ class RelayableRetraction
   end
 
   def subscribers(user)
-    @subscribers ||= self.target.subscribers(user)
+    self.target.subscribers(user)
   end
 
-  def self.initialize(sender, target)
-    self.sender = sender
-    self.target = target
+  def self.build(sender, target)
+    retraction = self.new
+    retraction.sender = sender
+    retraction.target = target
+    retraction.target_author_signature = retraction.sign_with_key(sender.encryption_key) if sender.person == target.author
+    retraction.parent_author_signature = retraction.sign_with_key(sender.encryption_key) if sender.person == target.parent.author
+    retraction
   end
 
   def target
     @target ||= self.target_type.constantize.where(:guid => target_guid).first
   end
 
+  def guid
+    target_guid
+  end
   def target= new_target
     @target = new_target
     @target_type = new_target.class.to_s
@@ -49,20 +67,18 @@ class RelayableRetraction
     self.target.parent
   end
 
-  def parent_class
-    self.target.parent_class
-  end
-
   def perform receiving_user
     Rails.logger.debug "Performing retraction for #{target_guid}"
     self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
     self.target.destroy
-    target.post_visibilities.delete_all
-    Rails.logger.info("event=retraction status=complete target_type=#{self.target_type} guid=#{self.target_guid}")
+    Rails.logger.info(:event => :retraction, :status => :complete, :target_type => self.target_type, :guid => self.target_guid)
   end
 
   def receive(recipient, sender)
-    if self.parent.author == recipient.person && self.target_author_signature_valid?
+    if self.target.nil?
+      Rails.logger.info("event=retraction status=abort reason='no post found' sender=#{sender.diaspora_handle} target_guid=#{target_guid}")
+      return
+    elsif self.parent.author == recipient.person && self.target_author_signature_valid?
       #this is a retraction from the downstream object creator, and the recipient is the upstream owner
       self.parent_author_signature = self.sign_with_key(recipient.encryption_key)
       Postzord::Dispatch.new(recipient, self).post
@@ -82,6 +98,6 @@ class RelayableRetraction
   end
 
   def target_author_signature_valid?
-    verify_signature(self.target_author_signature, self.author)
+    verify_signature(self.target_author_signature, self.target.author)
   end
 end

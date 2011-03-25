@@ -2,16 +2,16 @@ module Diaspora
   module Encryptable
     def verify_signature(signature, person)
       if person.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_person guid=#{self.guid} model_id=#{self.id}")
+        Rails.logger.info("event=verify_signature status=abort reason=no_person guid=#{self.guid}")
         return false
       elsif person.public_key.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_key guid=#{self.guid} model_id=#{self.id}")
+        Rails.logger.info("event=verify_signature status=abort reason=no_key guid=#{self.guid}")
         return false
       elsif signature.nil?
-        Rails.logger.info("event=verify_signature status=abort reason=no_signature guid=#{self.guid} model_id=#{self.id}")
+        Rails.logger.info("event=verify_signature status=abort reason=no_signature guid=#{self.guid}")
         return false
       end
-      log_string = "event=verify_signature status=complete model_id=#{id}"
+      log_string = "event=verify_signature status=complete guid=#{self.guid}"
       validity = person.public_key.verify "SHA", Base64.decode64(signature), signable_string
       log_string += " validity=#{validity}"
       Rails.logger.info(log_string)
@@ -20,7 +20,9 @@ module Diaspora
 
     def sign_with_key(key)
       sig = Base64.encode64(key.sign "SHA", signable_string)
-      Rails.logger.info("event=sign_with_key status=complete model_id=#{id}")
+      log_hash = {:event => :sign_with_key, :status => :complete}
+      log_hash.merge(:model_id => self.id) if self.respond_to?(:persisted?)
+      Rails.logger.info(log_hash)
       sig
     end
 

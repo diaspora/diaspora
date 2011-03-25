@@ -24,8 +24,6 @@ class Post < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
-  after_destroy :propogate_retraction
-
   def user_refs
     self.post_visibilities.count
   end
@@ -92,11 +90,6 @@ class Post < ActiveRecord::Base
     else
       Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
     end
-  end
-
-  protected
-  def propogate_retraction
-    self.author.owner.retract(self) if self.author.owner
   end
 end
 
