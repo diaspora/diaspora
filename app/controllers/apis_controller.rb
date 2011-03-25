@@ -111,7 +111,7 @@ class ApisController < ApplicationController #We should start with this versione
 
   protected
   def set_defaults
-    params[:per_page] ||= 20
+    params[:per_page] = 20 if params[:per_page].nil? || params[:per_page] > 100
     params[:order] = 'created_at' unless ['created_at', 'updated_at'].include?(params[:order])
     params[:page] ||= 1
   end
