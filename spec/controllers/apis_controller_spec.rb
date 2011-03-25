@@ -1,18 +1,11 @@
 require 'spec_helper'
 
-class ApisController
-  include ActionController::UrlFor
-  include ActionController::Testing
-  include Rails.application.routes.url_helpers
-  include ActionController::Compatibility
-end
-
 describe ApisController do
    before(:all) do
-    @status_message1 = Factory(:status_message, :text => '#bobby #flay #sux', :public => true)
+    @status_message1 = Factory(:status_message, :text => '#bobby #flay #sux', :public => true, :updated_at => Time.now + 20)
 
-    @status_message2 = Factory(:status_message, :public => true)
-    @status_message3 = Factory(:status_message) 
+    @status_message2 = Factory(:status_message, :text => '#aobby', :public => true, :created_at => Time.now + 10)
+    @status_message3 = Factory(:status_message, :created_at => Time.now + 15) 
     @person = Factory(:person, :profile => Factory.build(:profile,:first_name => 'bobby', :searchable => true, :tag_string => '#zord'))
     @person.profile.save
    end
@@ -21,15 +14,25 @@ describe ApisController do
     it 'returns all of the public posts' do
       get :public_timeline, :format => :json
       @posts = JSON.parse(response.body)
+      @posts.map{|p| p['id']}.should == [@status_message2.guid, @status_message1.guid]
       @posts.count.should == 2
     end
 
     it 'accepts an order paramater' do
-      pending
+      get :public_timeline, :format => :json, :order => 'updated_at'
+      @posts = JSON.parse(response.body)
+      @posts.map{|p| p['id']}.should == [@status_message1.guid, @status_message2.guid]
     end
 
-    it 'accpets a page paramater' do
-      pending
+    it 'does not allow arbitrary orders' do
+      get :public_timeline, :format => :json, :order => 'text'
+      @posts = JSON.parse(response.body)
+      @posts.map{|p| p['id']}.should == [@status_message2.guid, @status_message1.guid]
+    end
+
+    it 'accepts a page paramater' do
+      get :public_timeline, :format => :json, :per_page=> 1, :page => 2
+      JSON.parse(response.body).first['id'].should == @status_message1.guid
     end
 
     it 'accepts a per_page param' do
@@ -101,7 +104,7 @@ describe ApisController do
         end
 
         it 'shows alice' do
-          get :user_timeline, :format => :json, :user_id => alice.person.id
+          get :user_timeline, :format => :json, :user_id => alice.person.guid
           p = JSON.parse(response.body)
 
           p.length.should == 1
@@ -109,7 +112,7 @@ describe ApisController do
         end
 
         it 'shows eve' do
-          get :user_timeline, :format => :json, :user_id => eve.person.id
+          get :user_timeline, :format => :json, :user_id => eve.person.guid
           p = JSON.parse(response.body)
 
           p.length.should == 1
@@ -130,7 +133,7 @@ describe ApisController do
         end
 
         it 'shows alice' do
-          get :user_timeline, :format => :json, :user_id => alice.person.id
+          get :user_timeline, :format => :json, :user_id => alice.person.guid
           p = JSON.parse(response.body)
 
           p.length.should == 1
@@ -138,7 +141,7 @@ describe ApisController do
         end
 
         it 'shows eve' do
-          get :user_timeline, :format => :json, :user_id => eve.person.id
+          get :user_timeline, :format => :json, :user_id => eve.person.guid
           p = JSON.parse(response.body)
           p.length.should == 0
         end
@@ -161,7 +164,7 @@ describe ApisController do
       p['text'].should == @status_message1.formatted_message(:plain_text => true)
       p['entities'].class.should == Hash
       p['source'].should == 'diaspora'
-      p['user'].should == @status_message1.author.to_json(:format => :twitter)
+      p['user'].should == JSON.parse(@status_message1.author.to_json(:format => :twitter))
       p['created_at'].should_not be_nil
     end
 
@@ -173,9 +176,9 @@ describe ApisController do
 
   describe '#users' do
     it 'succeeds' do
-      get :users, :user_id => @person.id, :format => :json
+      get :users, :user_id => @person.guid, :format => :json
       p = JSON.parse(response.body)
-      p['id'].should == @person.id
+      p['id'].should == @person.guid
       p['name'].should == @person.name
       p['screen_name'].should == @person.diaspora_handle
       p['profile_image_url'].should == @person.profile.image_url(:thumb_small)
@@ -193,19 +196,18 @@ describe ApisController do
 
   describe '#tag_posts' do
     it 'succeeds' do
-      pending
       get :tag_posts, :tag => 'flay'
       p = JSON.parse(response.body).first
       p['id'].should == @status_message1.guid
+      p['user']['id'].should == @status_message1.author.guid
     end
   end
 
   describe '#tag_people' do
     it 'succeeds' do
-      pending
       get :tag_people, :tag => 'zord'
       p = JSON.parse(response.body).first
-      p['person']['id'].should == @person.id
+      p['id'].should == @person.guid
     end
   end
   

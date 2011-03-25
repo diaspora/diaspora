@@ -47,7 +47,7 @@ class Post < ActiveRecord::Base
   def as_json(opts={})
     {
         :post => {
-            :id     => self.id,
+            :id     => self.guid,
             :author => self.author.as_json,
         }
     }

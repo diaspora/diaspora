@@ -189,11 +189,12 @@ class Person < ActiveRecord::Base
     opts ||= {}
     if(opts[:format] == :twitter)
       {
-        :id => self.id,
+        :id => self.guid,
         :screen_name => self.diaspora_handle,
         :name => self.name,
         :created_at => self.created_at,
-        :profile_image_url => self.profile.image_url(:thumb_small)
+        :profile_image_url => self.profile.image_url(:thumb_small),
+        :profile => self.profile.as_json(opts)
       }
     else
       super(:include => [:profile], :except => [:mongo_id, :owner_id, :serialized_public_key])
