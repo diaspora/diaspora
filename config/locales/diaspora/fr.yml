@@ -33,7 +33,7 @@ fr:
             username: 
               taken: "est déjà pris."
   ago: "Il y a %{time}"
-  all_aspects: "All aspects"
+  all_aspects: "Tous les aspects"
   application: 
     helper: 
       aspect_badge: 
@@ -75,7 +75,7 @@ fr:
       remove_aspect: "Supprimer cet aspect"
       rename: "renommer"
       update: "mettre à jour"
-      updating: "updating"
+      updating: "mise à jour"
     few: "%{count} aspects"
     helper: 
       are_you_sure: "Voulez-vous vraiment supprimer cet aspect ?"
@@ -228,17 +228,17 @@ fr:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} personnes n'aiment pas"
+        many: "%{count} personnes n'aiment pas"
+        one: "1 personne n'aime pas"
+        other: "%{count} personnes n'aiment pas"
+        zero: "Personne n'aime pas"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} personnes n'aiment pas"
+        many: "%{count} personnes aiment"
+        one: "1 personne aime"
+        other: "%{count} personnes aiment"
+        zero: "Personne n'aime"
   more: "Plus"
   next: "suivant"
   notifications: 
@@ -261,7 +261,7 @@ fr:
     mentioned: "vous a mentionné(e) dans son"
     new_request: "a proposé de partager avec vous."
     post: "message"
-    private_message: "sent you a message."
+    private_message: "vous a envoyé un message."
     request_accepted: "a accepté votre demande de partage."
   notifier: 
     also_commented: 
@@ -275,7 +275,7 @@ fr:
     diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
     love: "affectueusement,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "modifier vos paramètres de courriel"
     mentioned: 
       mentioned: "vous a mentionné(e) dans un message :"
       sign_in: "Connectez-vous pour le/la voir."
@@ -304,7 +304,7 @@ fr:
   password_confirmation: "Confirmation du mot de passe"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "ajouter ce contact à partir de ce tag"
     aspect_list: 
       edit_membership: "modifier l'appartenance à vos aspects"
     few: "%{count} personnes"
@@ -322,8 +322,8 @@ fr:
     person: 
       add_contact: "ajouter un contact"
       already_connected: "Déjà connecté"
-      pending_request: "requête en attente"
-      thats_you: "c'est vous !"
+      pending_request: "Requête en attente"
+      thats_you: "C'est vous !"
     profile_sidebar: 
       bio: "bio"
       born: "anniversaire"
@@ -331,7 +331,7 @@ fr:
       edit_my_profile: "Modifier mon profil"
       gender: "sexe"
       in_aspects: "dans les aspects"
-      location: "location"
+      location: "localisation"
       remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
@@ -402,7 +402,7 @@ fr:
       your_bio: "Votre biographie"
       your_birthday: "Votre anniversaire"
       your_gender: "Votre sexe"
-      your_location: "Your location"
+      your_location: "Votre localisation"
       your_name: "Votre nom"
       your_photo: "Votre photo"
       your_private_profile: "Votre profil privé"
@@ -511,7 +511,7 @@ fr:
       add_photos: "ajouter des photos"
       all: "tous"
       all_contacts: "tous les contacts"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Cliquez pour partager avec : "
       make_public: "rendre public"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
@@ -523,8 +523,8 @@ fr:
     reshare: 
       reshare: "Repartager"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Je n'aime pas"
+      like: "J'aime"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -536,7 +536,7 @@ fr:
       mentioning: "Mentionne : %{person}"
     show: 
       destroy: "Supprimer"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Désolé, nous ne trouvons pas ce message."
       permalink: "permalien"
   stream_helper: 
     hide_comments: "masquer les commentaires"
@@ -573,7 +573,7 @@ fr:
     getting_started: 
       connect_on_diaspora: "Se connecter sur Diaspora"
       connect_services: "Connectez vos autres services"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Impossible de trouver d'amis sur Diaspora *. Utilisez la recherche d'amis pour les inviter."
       edit_profile: "Modifiez votre profil"
       finished: "Terminé !"
       save_and_continue: "Enregistrer et continuer"

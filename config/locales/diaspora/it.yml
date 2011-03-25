@@ -289,7 +289,7 @@ it:
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      subject: "%{name} ti ha inviato un messaggio privato su Diaspora*"
     request_accepted: 
       accepted: "ha accettato la tua richiesta di contatto!"
       sign_in: "Registrati qui"
@@ -558,7 +558,7 @@ it:
       close_account: "Chiudi Account"
       comment_on_post: "...someone comments on your post?"
       current_password: "Password attuale"
-      download_photos: "scarica le mie"
+      download_photos: "scarica le mie foto"
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
       export_data: "Esporta Dati"

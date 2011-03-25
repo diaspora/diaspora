@@ -33,7 +33,7 @@ nl:
             username: 
               taken: "is al bezet."
   ago: "%{time} geleden"
-  all_aspects: "All aspects"
+  all_aspects: "Alle aspecten"
   application: 
     helper: 
       aspect_badge: 
@@ -261,7 +261,7 @@ nl:
     mentioned: "heeft je genoemd in zijn/haar"
     new_request: "bood aan om met jou te delen."
     post: "post"
-    private_message: "sent you a message."
+    private_message: "heeft je een bericht gestuurd."
     request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
     also_commented: 
@@ -331,7 +331,7 @@ nl:
       edit_my_profile: "Bewerk mijn profiel"
       gender: "geslacht"
       in_aspects: "in de aspecten"
-      location: "location"
+      location: "locatie"
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
@@ -402,7 +402,7 @@ nl:
       your_bio: "Jouw bio"
       your_birthday: "Je verjaardag"
       your_gender: "Je geslacht"
-      your_location: "Your location"
+      your_location: "Jou locatie"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
       your_private_profile: "Je privé-profiel"
@@ -511,7 +511,7 @@ nl:
       add_photos: "+ foto's"
       all: "al"
       all_contacts: "alle contacten"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Klik om te delen met: "
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
@@ -573,7 +573,7 @@ nl:
     getting_started: 
       connect_on_diaspora: "Verbind op Diaspora"
       connect_services: "Verbind met je andere services"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Kon geen vrienden vinden op Diaspora*. Gebruik de Friend Finder om ze uit te nodigen."
       edit_profile: "Bewerk je profiel"
       finished: "Klaar!"
       save_and_continue: "Sla op en ga verder"

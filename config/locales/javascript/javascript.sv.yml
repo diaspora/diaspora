@@ -5,13 +5,13 @@
 
 sv: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "Är du säker?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-    search_for: "Search for {{name}}"
+      at_least_one_aspect: "Du måste publicera till minst en aspekt."
+    search_for: "Sök efter {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Kan inte ta bort person från tidigare aspekt. (Om du vill koppla bort från denhär personen måste du ta bort kontakten.)"
     timeago: 
       day: "en dag"
       days: "%d dagar"
@@ -29,5 +29,5 @@ sv:
       year: "ungefär ett år"
       years: "%d år"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Okänd videotyp"
+      watch: "Se denhär videon på {{provider}}"

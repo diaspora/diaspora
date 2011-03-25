@@ -33,7 +33,7 @@ da:
             username: 
               taken: "er allerede taget."
   ago: "%{time} siden"
-  all_aspects: "All aspects"
+  all_aspects: "Alle aspekter"
   application: 
     helper: 
       aspect_badge: 
@@ -261,7 +261,7 @@ da:
     mentioned: "har omtalt dig i deres"
     new_request: "tilbød at dele med dig."
     post: "indlæg"
-    private_message: "sent you a message."
+    private_message: "har sendt dig en besked."
     request_accepted: "accepterede din anmodning."
   notifier: 
     also_commented: 
@@ -331,7 +331,7 @@ da:
       edit_my_profile: "Redigér min profil"
       gender: "køn"
       in_aspects: "i aspekter"
-      location: "location"
+      location: "placering"
       remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
@@ -402,7 +402,7 @@ da:
       your_bio: "Din bio"
       your_birthday: "Din fødselsdag"
       your_gender: "Dit køn"
-      your_location: "Your location"
+      your_location: "Din placering"
       your_name: "Dit navn"
       your_photo: "Dit foto"
       your_private_profile: "Din private profil"
@@ -511,7 +511,7 @@ da:
       add_photos: "Tilføj billeder"
       all: "alle"
       all_contacts: "alle kontaktpersoner"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Klik for at dele med:"
       make_public: "offentliggør"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
@@ -573,7 +573,7 @@ da:
     getting_started: 
       connect_on_diaspora: "Forbind på Diaspora"
       connect_services: "Tilslut dine eksisterende tjenester"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Kunne ikke finde nogle venner på Diaspora*. Brug vennefinderen for at invitere dem."
       edit_profile: "Redigér din profil"
       finished: "Færdig!"
       save_and_continue: "Gem og fortsæt"

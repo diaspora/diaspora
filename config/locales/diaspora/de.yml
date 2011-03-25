@@ -304,7 +304,7 @@ de:
   password_confirmation: "Passwort-Bestätigung"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "Fügr Kontakt über Tag hinzu"
+      add_contact_from_tag: "Füge Kontakt über Tag hinzu"
     aspect_list: 
       edit_membership: "bearbeite die Aspekt-Zugehörigkeit"
     few: "%{count} Personen"
@@ -536,7 +536,7 @@ de:
       mentioning: "Erwähnt: %{person}"
     show: 
       destroy: "Entfernen"
-      not_found: "Es tut und Leid aber wir konnten den Post nicht finden."
+      not_found: "Es tut uns Leid, aber wir konnten den Post nicht finden."
       permalink: "Permalink"
   stream_helper: 
     hide_comments: "Kommentare verbergen"
