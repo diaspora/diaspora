@@ -33,8 +33,10 @@ module Diaspora
 <generator uri="#{AppConfig[:pod_url]}">Diaspora</generator>
 <id>#{@user.public_url}.atom</id>
 <title>#{x(@user.name)}'s Public Feed</title>
-<subtitle>Posts from Diaspora</subtitle>
+<subtitle>Updates from #{x(@user.name)} on Diaspora</subtitle>
+<logo>#{@user.person.profile.image_url(:thumb_small)}</logo>
 <updated>#{Time.now.xmlschema}</updated>
+<link href="#{AppConfig[:pod_url]}/people/#{@user.person.id}" rel="alternative" type="text/html"/>
 <author>
   <name>#{x(@user.name)}</name>
   <uri>#{@user.public_url}</uri>
