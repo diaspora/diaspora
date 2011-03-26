@@ -11,7 +11,7 @@
 
       .conversation_controls
         = link_to (image_tag('reply.png', :height => 14, :width => 14) + ' ' + t('.reply')), '#', :id => 'reply_to_conversation'
-        = link_to (image_tag('deletelabel.png') + ' ' + t('.delete').downcase), conversation_conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
+        = link_to (image_tag('deletelabel.png') + ' ' + t('.delete').downcase), conversation_visibility_path(conversation), :method => 'delete', :confirm => t('are_you_sure')
 
     .span-6.avatars.last
       - for participant in conversation.participants

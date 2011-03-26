@@ -10,7 +10,7 @@ module RequestsHelper
 
   def new_request_link(request_count)
     if request_count > 0
-        link_to t('requests.helper.new_requests', :count => @request_count), aspects_manage_path
+        link_to t('requests.helper.new_requests', :count => @request_count), manage_aspects_path
     end
   end
 end

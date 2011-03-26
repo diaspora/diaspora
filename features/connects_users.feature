@@ -12,19 +12,19 @@ Feature: sending and receiving requests
     
   Scenario: accepting a contact request
     When I sign in as "alice@alice.alice"
-    And I am on the aspects manage page
+    And I am on the manage aspects page
     Then I should see 1 contact request
     When I drag the contact request to the "Besties" aspect
     And I wait for the ajax to finish
     Then I should see 1 contact in "Besties"
 
     When I go to the home page
-    Then I go to the aspects manage page
+    Then I go to the manage aspects page
     Then I should see 1 contact in "Besties"
     Then I go to the destroy user session page
 
     When I sign in as "bob@bob.bob"
-    And I am on the aspects manage page
+    And I am on the manage aspects page
     Then I should see 1 contact in "Besties"
 
   Scenario: accepting a contact request to multiple aspects
@@ -37,14 +37,14 @@ Feature: sending and receiving requests
     And I wait for the ajax to finish
 
    When I go to the home page
-   Then I go to the aspects manage page
+   Then I go to the manage aspects page
 
    Then I should see 1 contact in "Unicorns"
    Then I should see 1 contact in "Besties"
    Then I go to the destroy user session page
 
    When I sign in as "bob@bob.bob"
-   And I am on the aspects manage page
+   And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
 
 
@@ -58,11 +58,11 @@ Feature: sending and receiving requests
     And I wait for the ajax to finish
 
    When I go to the home page
-   Then I go to the aspects manage page
+   Then I go to the manage aspects page
 
    Then I should see 1 contact in "Super People"
    Then I go to the destroy user session page
 
    When I sign in as "bob@bob.bob"
-   And I am on the aspects manage page
+   And I am on the manage aspects page
    Then I should see 1 contact in "Besties"

@@ -44,7 +44,7 @@ Feature: invitation acceptance
       And I wait for the ajax to finish
       
      When I go to the home page
-     Then I go to the aspects manage page
+     Then I go to the manage aspects page
      Then I should see 1 contact in "Family"
 
 

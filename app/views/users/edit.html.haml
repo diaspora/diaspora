@@ -117,9 +117,9 @@
   #account_data.span-5.append-2
     %h3 
       = t('.export_data')
-    = link_to t('.download_xml'), users_export_path, :class => "button"
+    = link_to t('.download_xml'), export_user_path, :class => "button"
     %br
-    = link_to t('.download_photos'), users_export_photos_path, :class => "button"
+    = link_to t('.download_photos'), export_photos_user_path, :class => "button"
 
   .span-5.last
     %h3 

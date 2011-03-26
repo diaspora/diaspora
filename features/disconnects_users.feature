@@ -9,7 +9,7 @@ Feature: disconnecting users
     And a user with email "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
    When I sign in as "bob@bob.bob"
-    And I am on the aspects manage page
+    And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
     
     
@@ -20,7 +20,7 @@ Feature: disconnecting users
     And I follow "remove contact" in the modal window
 
     And I wait for the ajax to finish
-    And I am on the aspects manage page
+    And I am on the manage aspects page
    Then I should see <contacts> in "Besties"
 
     Examples:
@@ -35,7 +35,7 @@ Feature: disconnecting users
     And I press the first ".added" within "#facebox #aspects_list ul > li:first-child"
 
     And I wait for the ajax to finish
-    And I am on the aspects manage page
+    And I am on the manage aspects page
    Then I should see <contacts> in "Besties"
 
     Examples:
@@ -52,7 +52,7 @@ Feature: disconnecting users
     And I press the first ".added" within "#facebox .contact_list ul > li:first-child"
 
     And I wait for the ajax to finish
-    And I am on the aspects manage page
+    And I am on the manage aspects page
    Then I should see no contacts in "Besties"
 
   Scenario: cancel removing contact from the contact show page
@@ -64,6 +64,6 @@ Feature: disconnecting users
     And I press the first ".added" within "#facebox .contact_list ul > li:first-child"
 
     And I wait for the ajax to finish
-    And I am on the aspects manage page
+    And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
 

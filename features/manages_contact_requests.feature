@@ -14,7 +14,7 @@ Feature: managing contact requests
     
   @javascript
   Scenario: viewing a requests profile
-    When I am on the aspects manage page
+    When I am on the manage aspects page
     When I click on the contact request
     And I wait for "the requestors profile" to load
     Then I should be on the requestors profile

@@ -42,21 +42,21 @@ describe ServicesController do
     it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
       lambda{
-        post :create
+        post :create, :provider => 'twitter'
       }.should change(@user.services, :count).by(1)
     end
 
     it 'redirects to getting started if the user is getting started' do
       @user.getting_started = true
       request.env['omniauth.auth'] = omniauth_auth
-      post :create
+      post :create, :provider => 'twitter'
       response.should redirect_to getting_started_path(:step => 3)
     end
 
     it 'redirects to services url' do
       @user.getting_started = false
       request.env['omniauth.auth'] = omniauth_auth
-      post :create
+      post :create, :provider => 'twitter'
       response.should redirect_to services_url
     end
 
@@ -65,7 +65,7 @@ describe ServicesController do
       Service.delete_all
       @user.getting_started = false
       request.env['omniauth.auth'] = omniauth_auth
-      post :create
+      post :create, :provider => 'twitter'
       @user.reload.services.first.class.name.should == "Services::Twitter"
     end
   end
