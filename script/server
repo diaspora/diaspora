@@ -101,14 +101,14 @@ done
 # Is someone listening on the ports already? (ipv4 only test ?)
 services=$( chk_service $THIN_PORT )
 if [ -n "$services" ]; then
-    echo "Error: thin port $THIN_PORT is already in use. Exiting" >&2
+    echo "FATAL: Error: thin port $THIN_PORT is already in use. Exiting" >&2
     echo "     $services"
     exit 64
 fi
 
 services=$( chk_service $SOCKET_PORT )
 if [ -n "$services" ]; then
-    echo "Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
+    echo "FATAL: Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
     echo "     $services"
     exit 64
 fi
@@ -116,7 +116,7 @@ fi
 # See http://bugs.joindiaspora.com/issues/722
 services=$( chk_service 5379 )
 if [ -n "$services" ]; then
-    echo "Error:  Someone (another redis server?) is using redis port 5379" >&2
+    echo "FATAL: Error:  Someone (another redis server?) is using redis port 5379" >&2
     echo "     $services"
     exit 64
 fi
@@ -131,35 +131,42 @@ if [ -w public -a ! -e  public/source.tar.gz ]; then
     tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
 fi
 if [ ! -e public/source.tar.gz ]; then
-    echo "Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+    echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
     exit 65
 fi
 
 
 # Check if config files exists
 if [ ! -e 'config/app_config.yml' ]; then
-    echo "config/app_config.yml is missing! Copy over config/app_config.yml.example to config/app_config.yml and edit it properly!" >&2
+    echo "FATAL: config/app_config.yml is missing! Copy over config/app_config.yml.example to config/app_config.yml and edit it properly!" >&2
     exit 67
 fi
 
 if [ ! -e 'config/database.yml' ]; then
-    echo 'config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
     exit 68
 fi
 
 
 # Precache jammit assets
-if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
-    if [ "$INIT_PUBLIC" != 'no' ]; then
-        echo "Making first-time server initialization."
-        init_public
+#if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
+#    if [ "$INIT_PUBLIC" != 'no' ]; then
+#        echo "Making first-time server initialization."
+#        init_public
+#    fi
+#fi
+
+#if [ ! -e 'public/stylesheets/application.css' ]; then
+#    echo 'WARNING: Jammit precache error (now or at install)' >&2
+#fi
+
+if [ ! -e 'public/assets/default.css']; then
+    if ["$RAILS_ENV" == 'production']; then
+        echo "INFO: If you want further performance improvements," >&2
+        echo "after the first request to the page after each git pull, run:" >&2
+        echo "bundle exec jammit" >&2
     fi
 fi
-
-if [ ! -e 'public/stylesheets/application.css' ]; then
-    echo 'Jammit precache error (now or at install)' >&2
-fi
-
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
