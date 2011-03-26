@@ -6,7 +6,7 @@
   = t('aspects.manage.add_a_new_contact')
   = info_text(t('.enter_a_diaspora_username'))
 
-= form_tag(person_by_handle_path, :id => "new_request_to_#{aspect_id}", :class => "webfinger_form", :remote => true) do
+= form_tag(person_by_handle_people_path, :id => "new_request_to_#{aspect_id}", :class => "webfinger_form", :remote => true) do
   = search_field_tag :diaspora_handle,'', :id => "request_d_handle_to_#{aspect_id}", :results => 5, :placeholder => t('.diaspora_handle')
   = hidden_field_tag :aspect_id, aspect_id
   = submit_tag t('.create_request')

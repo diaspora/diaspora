@@ -258,15 +258,14 @@ describe AspectsController do
       @person = Factory.create(:person)
       @opts = {
         :person_id => @person.id,
-        :from => @alices_aspect_1.id,
-        :to =>
-        {:to => @alices_aspect_2.id}
+        :aspect_id => @alices_aspect_1.id,
+        :to => @alices_aspect_2.id
       }
     end
     it 'calls the move_contact_method' do
       @controller.stub!(:current_user).and_return(@alice)
       @alice.should_receive(:move_contact)
-      post "move_contact", @opts
+      put :move_contact, @opts
     end
   end
 

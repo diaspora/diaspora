@@ -12,11 +12,11 @@
 
       - if @aspect.contacts_visible
         = link_to image_tag('icons/padlock-open.png', :height => 16, :width => 16, :id => "contact_visibility_padlock", :class => 'open', :title => t('.aspect_list_is_visible')),
-          "aspects/#{@aspect.id}/toggle_contact_visibility", :remote => true
+                  aspect_toggle_contact_visibility_path(@aspect), :method => :put, :remote => true
           
       - else
         = link_to image_tag('icons/padlock-closed.png', :height => 16, :width => 16, :id => "contact_visibility_padlock", :title => t('.aspect_list_is_not_visible')),
-          "aspects/#{@aspect.id}/toggle_contact_visibility", :remote => true
+                  aspect_toggle_contact_visibility_path(@aspect), :method => :put, :remote => true
           
     %h3#aspect_name_title
       %span.name= @aspect

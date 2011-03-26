@@ -10,7 +10,7 @@ class AspectMembershipsController < ApplicationController
     #note :id is garbage
 
       @person_id = params[:person_id]
-      @aspect_id = params[:aspect_id]
+      @aspect_id = params[:id]
 
       @contact = current_user.contact_for(Person.where(:id => @person_id).first)
       membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil

@@ -61,14 +61,13 @@ var AspectEdit = {
 
     if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
+        var aspect_id = person.attr('data-aspect_id')
       $.ajax({
-        url: "/aspects/move_contact/",
+        type: "PUT",
+        url: "/aspects/" + aspect_id + "/move_contact",
         data: {
           "person_id": person.attr('data-guid'),
-          "from": person.attr('data-aspect_id'),
-          "to": {
-            "to": dropzone.attr('data-aspect_id')
-          }
+          "to": dropzone.attr('data-aspect_id')
         },
         success: function(data) {
           AspectEdit.onMovePersonSuccess(person, dropzone);
@@ -97,13 +96,12 @@ var AspectEdit = {
       Diaspora.widgets.alert.alert("Error removing contact", "You cannot remove the person from the last aspect");
     } else {
       if (!person.hasClass('request')) {
-
+        var aspect_id = person.attr('data-aspect_id')
         $.ajax({
-          type: "POST",
-          url: "/aspects/remove_from_aspect",
+          type: "DELETE",
+          url: "/aspect_memberships/" + aspect_id,
           data: {
-            'person_id': person_id,
-            'aspect_id': person.attr('data-aspect_id')
+            'person_id': person_id
           }
         });
       }
@@ -115,7 +113,7 @@ var AspectEdit = {
 
   changeName:  function() {
     var $this = $(this),
-      id = $this.closest(".aspect").attr("data-guid"),
+        id = $this.closest(".aspect").attr("data-guid"),
       link = "/aspects/" + id;
 
 

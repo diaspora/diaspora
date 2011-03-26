@@ -29,7 +29,7 @@
 
     - if @ownership
       .photo_options{:data=>{:actor=>"#{@photo.author.owner.id}", :actor_person => "#{@photo.author.id}", :image_url => "#{@photo.url(:thumb_large)}"}}
-        = link_to t('.make_profile_photo'), {:controller => "photos", :action => "make_profile_photo", :photo_id => @photo.id}, :remote => true, :class => 'make_profile_photo'
+        = link_to t('.make_profile_photo'), photo_make_profile_photo_path(@photo), :method => :put, :remote => true, :class => 'make_profile_photo'
         |
         = link_to t('.edit'), '#', :id => "edit_photo_toggle"
       %br

@@ -7,20 +7,17 @@ Diaspora::Application.routes.draw do
   # Posting and Reading
 
   resources :aspects do
-    collection do
-      match 'move_contact'       => :move_contact
-      match 'add_to_aspect'      => :add_to_aspect
-      match 'remove_from_aspect' => :remove_from_aspect
-      match 'manage'             => :manage
-    end
-    match 'toggle_contact_visibility' => :toggle_contact_visibility
+    get 'manage'                    => :manage, :on => :collection
+    put 'move_contact'              => :move_contact
+    put 'toggle_contact_visibility' => :toggle_contact_visibility
   end
 
   resources :status_messages, :only => [:new, :create, :destroy, :show]
   get 'p/:id' => 'posts#show', :as => 'post'
 
-  match 'photos/make_profile_photo' => 'photos#make_profile_photo'
-  resources :photos, :except => [:index]
+  resources :photos, :except => [:index] do
+    put 'make_profile_photo' => :make_profile_photo
+  end
 
   resources :comments, :only => [:create, :destroy]
 
@@ -63,9 +60,9 @@ Diaspora::Application.routes.draw do
   end
   get 'login' => redirect('/users/sign_in')
 
-  scope 'admins' do
-    match 'user_search'   => 'admins#user_search'
-    match 'admin_inviter' => 'admins#admin_inviter'
+  scope 'admins', :controller => :admins do
+    match 'user_search' => :user_search
+    get 'admin_inviter' => :admin_inviter
   end
 
   resource :profile
@@ -78,8 +75,8 @@ Diaspora::Application.routes.draw do
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
+    post 'by_handle' => :retrieve_remote, :on => :collection, :as => 'person_by_handle'
   end
-  match 'people/by_handle' => 'people#retrieve_remote', :as => 'person_by_handle'
 
 
   # Federation
@@ -122,7 +119,7 @@ Diaspora::Application.routes.draw do
 
   # Mobile site
 
-  match 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
+  get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
 
   # Startpage
