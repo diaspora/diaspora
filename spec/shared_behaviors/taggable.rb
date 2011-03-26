@@ -13,13 +13,13 @@ describe Diaspora::Taggable do
 
     describe '#format_tags' do
       before do
-        @str = '#what #hey'
+        @str = '#what #hey #vöglein'
         @object.send(@object.class.field_with_tags_setter, @str)
         @object.build_tags
         @object.save!
       end
       it 'links the tag to /p' do
-        link = link_to('#what', '/tags/what', :class => 'tag')
+        link = link_to('#vöglein', '/tags/vöglein', :class => 'tag')
         @object.format_tags(@str).should include(link)
       end
       it 'responds to plain_text' do
@@ -38,8 +38,8 @@ describe Diaspora::Taggable do
     end
     describe '#tag_strings' do
       it 'returns a string for every #thing' do
-        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #hey#there #135440we #abc/23 ###'
-        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', '135440we', 'abc']
+        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ###'
+        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc']
 
         @object.send(@object.class.field_with_tags_setter, str)
         @object.tag_strings.should =~ arr

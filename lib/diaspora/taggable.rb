@@ -36,7 +36,7 @@ module Diaspora
 
     def format_tags(text, opts={})
       return text if opts[:plain_text]
-      regex = /(^|\s)#([a-zA-Z0-9\-]+)/
+      regex = /(^|\s)#(\w+)/
       form_message = text.gsub(regex) do |matched_string|
         "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
       end
