@@ -7,11 +7,11 @@ fr:
   javascripts: 
     confirm_dialog: "Êtes-vous sûr ?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Vous devez créer au moins un aspect"
     search_for: "Chercher {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Impossible d'enlever la personne de l'aspect sélectionné. (Si vous voulez vous  déconnecter de cette personne vous devez supprimer ce contact.)"
     timeago: 
       day: "environ un jour"
       days: "environ %d jours"

@@ -33,7 +33,7 @@ el:
             username: 
               taken: "είναι ήδη σε χρήση."
   ago: "%{time} πριν"
-  all_aspects: "All aspects"
+  all_aspects: "Όλες οι πτυχές"
   application: 
     helper: 
       aspect_badge: 
@@ -261,7 +261,7 @@ el:
     mentioned: "σας ανέφερε στο"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση"
-    private_message: "sent you a message."
+    private_message: "σας έστειλε ένα μήνυμα"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
   notifier: 
     also_commented: 
@@ -275,7 +275,7 @@ el:
     diaspora: "το ρομποτάκι για τα email του δικτύου Diaspora.."
     hello: "Γειά σου %{name}!"
     love: "Με αγάπη,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "διαχείριση των ρυθμίσεων ηλεκτρονικού ταχυδρομείου"
     mentioned: 
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
       sign_in: "Συνδεθείτε για να το δείτε."
@@ -304,7 +304,7 @@ el:
   password_confirmation: "Επαλήθευση κωδικού"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "προσθήκη επαφής από ετικέτα"
     aspect_list: 
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
     few: "%{count} άτομα"
@@ -331,7 +331,7 @@ el:
       edit_my_profile: "Επεξεργασία του προφίλ μου"
       gender: "φύλο"
       in_aspects: "στις πτυχές"
-      location: "location"
+      location: "τοποθεσία"
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
@@ -402,7 +402,7 @@ el:
       your_bio: "To βιογραφικό σας"
       your_birthday: "Τα γενέθλιά σας"
       your_gender: "Tο φύλο σας"
-      your_location: "Your location"
+      your_location: "Η τοποθεσία σας"
       your_name: "Το όνομά σας"
       your_photo: "Η φωτογραφία σας"
       your_private_profile: "Το ιδιωτικό σας προφίλ"
@@ -511,11 +511,11 @@ el:
       add_photos: "προσθέστε φωτογραφίες"
       all: "όλα"
       all_contacts: "όλες οι επαφές"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Πατήστε για να διαμοιραστείτε με: "
       make_public: "Δημοσιοποίησε το"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
-      public: "Public"
+      public: "Δημόσιο"
       publishing_to: "δημοσίευση στο: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
@@ -536,7 +536,7 @@ el:
       mentioning: "Αναφορά σε: %{person}"
     show: 
       destroy: "Διαγραφή"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Συγνώμη, δεν μπορέσαμε να βρούμε αυτή τη δημοσίευση."
       permalink: "permalink"
   stream_helper: 
     hide_comments: "απόκρυψη σχολίων"
@@ -573,7 +573,7 @@ el:
     getting_started: 
       connect_on_diaspora: "Σύνδεση στο Diaspora"
       connect_services: "Συνδεθείτε με άλλες υπηρεσίες"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Δεν βρέθηκαν φίλοι στο Diaspora*. Χρησιμοποιήστε την πρόσκληση φίλων για να τους καλέσετε. "
       edit_profile: "Επεξεργασία του προφίλ σας"
       finished: "Τέλος!"
       save_and_continue: "Αποθήκευση και συνέχεια"

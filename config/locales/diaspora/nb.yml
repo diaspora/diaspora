@@ -49,8 +49,8 @@ nb:
       success: "Personen er fjernet fra aspektet"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
+      failure: "Kunne ikke legge kontakt til aspektet."
+      success: "Kontakt lagt til aspekt."
     aspect_contacts: 
       done_editing: "ferdig med å redigere"
     aspect_stream: 
@@ -118,7 +118,7 @@ nb:
     few: "%{count} kommentarer"
     many: "%{count} kommentarer"
     new_comment: 
-      comment: "Kommenter"
+      comment: "Kommentér"
       commenting: "Kommenterer..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
@@ -177,14 +177,14 @@ nb:
     show: 
       already_account: "har du allerede en konto?"
       choice: "Valg"
-      choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
-      learn_about_host: "Learn about how to host your own Diaspora server"
+      choice_explanation: "Diaspora lar deg sortere dine kontakter i grupper kalt aspekter. Unikt for Diaspora, sørger aspekter for at dine bilder, historier og vitser kun deles med de du vil."
+      learn_about_host: "Lær hvordan du kan sette opp din egen Diaspora server."
       login_here: "logg inn her"
       ownership: "Eierskap"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      ownership_explanation: "Du eier dine bilder, og skal ikke behøve å gi slipp på dem for å dele dem med andre. Du opprettholder eierskap av alt du deler på Diaspora. Det gir deg full kontroll over hvordan det er fordelt."
+      share_what_you_want: "Del hva du vil, med hvem du vil."
       simplicity: "Enkelhet"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
+      simplicity_explanation: "Diaspora gjør deling rent og enkelt - det gjelder personvern også. Diaspora er iboende privat, og du trenger ikke bla deg gjennom sider av innstillinger og valg bare for å holde profilen sikker."
       tagline_first_half: "Del hva du vil,"
       tagline_second_half: "med hvem du vil."
   invitations: 
@@ -195,7 +195,7 @@ nb:
       already_sent: "Du har allerede invitert denne personen."
       no_more: "Du har ikke flere invitasjoner."
       rejected: "Følgende e-postadresser hadde problemer:"
-      sent: "Your invitation has been sent."
+      sent: "Invitasjoner har blitt sendt til:"
     edit: 
       sign_up: "registrer deg"
     new: 
@@ -511,14 +511,14 @@ nb:
       add_photos: "legg til bilder"
       all: "alle"
       all_contacts: "alle kontakter"
-      click_to_share_with: "Klikk for å dele med:"
+      click_to_share_with: "Klikk for å dele:"
       make_public: "gjør offentlig"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
       public: "Offentlig"
       publishing_to: "publiserer til:"
       share: "Del"
-      share_with: "Share with %{aspect}"
+      share_with: "del med"
       whats_on_your_mind: "Hva tenker du på?"
     reshare: 
       reshare: "Del på nytt"
@@ -540,7 +540,7 @@ nb:
       permalink: "permalink"
   stream_helper: 
     hide_comments: "skjul kommentarer"
-    show_comments: "show comments"
+    show_comments: "vis kommentarer"
   tags: 
     show: 
       nobody_talking: "Ingen snakker om %{tag} ennå."
@@ -551,23 +551,23 @@ nb:
   users: 
     destroy: "Kontoen er stengt."
     edit: 
-      also_commented: "...noen andre også kommenterte på din kontakts innlegg?"
+      also_commented: " noen andre også kommenterte på din kontakts innlegg?"
       change: "Endre"
       change_language: "Endre Språk"
       change_password: "Endre Passord"
       close_account: "Steng Konto"
-      comment_on_post: "...noen kommenterer på dine innlegg?"
+      comment_on_post: " noen kommenterer på dine innlegg?"
       current_password: "Nåverende passord"
       download_photos: "last ned mine bilder"
       download_xml: "last ned min xml"
       edit_account: "Endre konto"
       export_data: "Eksporter Data"
-      mentioned: "...du nevnes i et innlegg?"
+      mentioned: " du nevnes i et innlegg?"
       new_password: "Nytt Passord"
-      private_message: "...du mottar en privat melding?"
+      private_message: " du mottar en privat melding?"
       receive_email_notifications: "Motta varsler på epost når:"
-      request_acceptence: "...din delingsforespørsel blir godkjent?"
-      request_received: "...du mottar en ny forespørsel om å dele?"
+      request_acceptence: " din delingsforespørsel blir godkjent?"
+      request_received: " du mottar en ny forespørsel om å dele?"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora brukernavn"
     getting_started: 

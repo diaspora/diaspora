@@ -33,7 +33,7 @@ es:
             username: 
               taken: "ya está ocupado."
   ago: "hace %{time} "
-  all_aspects: "Todos los Aspectos"
+  all_aspects: "Todos"
   application: 
     helper: 
       aspect_badge: 
@@ -504,18 +504,18 @@ es:
       new: "Nuevo %{type} de %{from}"
     public_explain: 
       logged_in: "Conectar a %{service}"
-      manage: "gestión de los Servicios conectados"
+      manage: "Servicios conectados"
       outside: "Las Publicaciones -Al mundo- también podrán verlas otros usuarios de Diaspora*."
       title: "¡Estás a punto de hacer una Publicación!"
     publisher: 
       add_photos: "Añadir fotos"
       all: "todo"
       all_contacts: "Todos los contactos"
-      click_to_share_with: "Haz click para compartir con: "
+      click_to_share_with: ""
       make_public: "Publicar"
       post_a_message_to: "Enviar un mensaje a %{aspect}"
       posting: "Publicando..."
-      public: "Publico"
+      public: "El mundo"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
