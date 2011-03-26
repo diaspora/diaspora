@@ -4,6 +4,8 @@
 
 module Diaspora
   module Taggable
+    VALID_TAG_BODY = /[^_\s#*\[\]()\:\@\/"']+/
+    
     def self.included(model)
       model.class_eval do
         cattr_accessor :field_with_tags
@@ -23,7 +25,7 @@ module Diaspora
     end
 
     def tag_strings
-      regex = /(?:^|\s)#(\w+)/
+      regex = /(?:^|\s)#(#{VALID_TAG_BODY})/
       matches = self.send(self.class.field_with_tags).scan(regex).map do |match|
         match.last
       end
@@ -36,7 +38,7 @@ module Diaspora
 
     def format_tags(text, opts={})
       return text if opts[:plain_text]
-      regex = /(^|\s)#(\w+)/
+      regex = /(^|\s)#(#{VALID_TAG_BODY})/
       form_message = text.gsub(regex) do |matched_string|
         "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
       end
