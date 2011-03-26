@@ -160,8 +160,8 @@ fi
 #    echo 'WARNING: Jammit precache error (now or at install)' >&2
 #fi
 
-if [ ! -e 'public/assets/default.css']; then
-    if ["$RAILS_ENV" == 'production']; then
+if [ ! -e 'public/assets/default.css' ]; then
+    if [ "$RAILS_ENV" == 'production' ]; then
         echo "INFO: If you want further performance improvements," >&2
         echo "after the first request to the page after each git pull, run:" >&2
         echo "bundle exec jammit" >&2
