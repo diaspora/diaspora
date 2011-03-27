@@ -22,7 +22,7 @@ gl:
       month: "sobre un mes"
       months: "%d meses"
       prefixAgo: "Hai"
-      prefixFromNow: "javascripts:timeago:prefixDendeAgora"
+      prefixFromNow: ""
       seconds: "menos dun minuto"
       suffixAgo: ""
       suffixFromNow: "dende agora"
