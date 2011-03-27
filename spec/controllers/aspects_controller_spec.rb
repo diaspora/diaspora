@@ -117,6 +117,15 @@ describe AspectsController do
           get :index, :sort_order => 'created_at'
           assigns(:posts).should == @posts.reverse
         end
+        
+        it "remembers your sort order and lets you override the memory" do
+          get :index, :sort_order => "created_at"
+          assigns(:posts).should == @posts.reverse
+          get :index
+          assigns(:posts).should == @posts.reverse
+          get :index, :sort_order => "updated_at"
+          assigns(:posts).should == @posts
+        end
       end
 
       it "returns all posts by default" do
