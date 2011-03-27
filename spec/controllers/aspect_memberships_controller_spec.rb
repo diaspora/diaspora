@@ -47,6 +47,16 @@ describe AspectMembershipsController do
       @aspect0.contacts.include?(@contact).should be false
     end
 
+  describe "#update" do
+    it 'calls the move_contact method' do
+      @controller.stub!(:current_user).and_return(@user)
+      @user.should_receive(:move_contact)
+      put :update, :person_id => @user.person.id,
+                   :id => @aspect0.id,
+                   :to => @aspect1.id
+    end
+  end
+
     context 'aspect membership does not exist' do
       it 'person does not exist' do
         delete :destroy,

@@ -253,22 +253,6 @@ describe AspectsController do
     end
   end
 
-  describe "#move_contact" do
-    before do
-      @person = Factory.create(:person)
-      @opts = {
-        :person_id => @person.id,
-        :aspect_id => @alices_aspect_1.id,
-        :to => @alices_aspect_2.id
-      }
-    end
-    it 'calls the move_contact_method' do
-      @controller.stub!(:current_user).and_return(@alice)
-      @alice.should_receive(:move_contact)
-      put :move_contact, @opts
-    end
-  end
-
   describe "#update" do
     before do
       @alices_aspect_1 = @alice.aspects.create(:name => "Bruisers")

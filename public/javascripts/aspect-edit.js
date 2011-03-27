@@ -64,7 +64,7 @@ var AspectEdit = {
         var aspect_id = person.attr('data-aspect_id')
       $.ajax({
         type: "PUT",
-        url: "/aspects/" + aspect_id + "/move_contact",
+        url: "/aspect_memberships/" + aspect_id,
         data: {
           "person_id": person.attr('data-guid'),
           "to": dropzone.attr('data-aspect_id')

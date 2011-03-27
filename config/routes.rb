@@ -8,7 +8,6 @@ Diaspora::Application.routes.draw do
 
   resources :aspects do
     get 'manage'                    => :manage, :on => :collection
-    put 'move_contact'              => :move_contact
     put 'toggle_contact_visibility' => :toggle_contact_visibility
   end
 
@@ -70,7 +69,7 @@ Diaspora::Application.routes.draw do
   resources :requests, :only => [:destroy, :create]
 
   resources :contacts, :except => [:index, :update]
-  resources :aspect_memberships, :only => [:destroy, :create]
+  resources :aspect_memberships, :only => [:destroy, :create, :update]
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages
