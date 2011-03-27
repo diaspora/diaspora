@@ -53,22 +53,45 @@ describe AspectsController do
       get :index
       save_fixture(html_for("body"), "aspects_index")
     end
+
     it "generates a jasmine fixture with a prefill" do
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_prefill")
     end
+
     it 'generates a jasmine fixture with services' do
       @alice.services << Services::Facebook.create(:user_id => @alice.id)
       @alice.services << Services::Twitter.create(:user_id => @alice.id)
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_services")
     end
+
     it 'generates a jasmine fixture with posts' do
       @alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
     end
-    context 'filtering' do
+
+    context 'with getting_started = true' do
+      before do
+        @alice.getting_started = true
+        @alice.save
+      end
+      it 'redirects to getting_started' do
+        get :index
+        response.should redirect_to getting_started_path
+      end
+      it 'does not redirect mobile users to getting_started' do
+        get :index, :format => :mobile
+        response.should_not be_redirect
+      end
+      it 'does not redirect ajax to getting_started' do
+        get :index, :format => :js
+        response.should_not be_redirect
+      end
+    end
+
+    context 'with posts in multiple aspects' do
       before do
         @posts = []
         2.times do |n|
@@ -84,22 +107,6 @@ describe AspectsController do
         @alice.build_comment('lalala', :on => @posts.first ).save
       end
 
-      it "returns all posts by default" do
-        @alice.aspects.reload
-        get :index
-        assigns(:posts).length.should == 2
-      end
-
-      it "returns posts from a single aspect" do
-        get :index, :a_ids => [@alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 1
-      end
-
-      it "returns posts from multiple aspects" do
-        get :index, :a_ids => [@alices_aspect_1.id.to_s, @alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 2
-      end
-
       describe "ordering" do
         it "orders posts by updated_at by default" do
           get :index
@@ -111,26 +118,25 @@ describe AspectsController do
           assigns(:posts).should == @posts.reverse
         end
       end
-      context 'with getting_started = true' do
-        before do
-          @alice.getting_started = true
-          @alice.save
-        end
-        it 'redirects to getting_started' do
-          get :index
-          response.should redirect_to getting_started_path
-        end
-        it 'does not redirect mobile users to getting_started' do
-          get :index, :format => :mobile
-          response.should_not be_redirect
-        end
-        it 'does not redirect ajax to getting_started' do
-          get :index, :format => :js
-          response.should_not be_redirect
-        end
+
+      it "returns all posts by default" do
+        @alice.aspects.reload
+        get :index
+        assigns(:posts).length.should == 2
+      end
+
+      it "can filter to a single aspect" do
+        get :index, :a_ids => [@alices_aspect_2.id.to_s]
+        assigns(:posts).length.should == 1
+      end
+
+      it "can filter to multiple aspects" do
+        get :index, :a_ids => [@alices_aspect_1.id.to_s, @alices_aspect_2.id.to_s]
+        assigns(:posts).length.should == 2
       end
     end
-    context 'performance', :performance => true do
+
+    describe 'performance', :performance => true do
       before do
         require 'benchmark'
         8.times do |n|
