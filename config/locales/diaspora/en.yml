@@ -71,8 +71,6 @@ en:
       unknown_person: "unknown person"
       video_title:
         unknown: "Unknown Video Title"
-      aspect_badge:
-        all_aspects: "All Aspects"
 
   aspects:
     zero: "no aspects"
