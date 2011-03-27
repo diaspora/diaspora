@@ -30,7 +30,7 @@ en:
   next: "next"
   previous: "previous"
   _comments: "Comments"
-  all_aspects: "All aspects"
+  all_aspects: "All Aspects"
 
 
   #for reference translation, the real activerecord english transations are actually
@@ -72,7 +72,7 @@ en:
       video_title:
         unknown: "Unknown Video Title"
       aspect_badge:
-        all_aspects: "All aspects"
+        all_aspects: "All Aspects"
 
   aspects:
     zero: "no aspects"
