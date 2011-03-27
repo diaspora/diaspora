@@ -21,6 +21,14 @@ class Aspect < ActiveRecord::Base
     name.strip!
   end
 
+  def has_post? post
+    post_ids = post_visibilities.each { |pv| pv.post_id }
+    post_ids.each { |id|
+      return true if id == post.id
+    }
+    return false
+  end
+
   def to_s
     name
   end

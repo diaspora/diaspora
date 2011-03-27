@@ -21,13 +21,13 @@ module ApplicationHelper
 
   def aspects_with_post aspects, post
     aspects.select do |aspect|
-      PostVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
+      aspect.has_post?(post)
     end
   end
 
   def aspects_without_post aspects, post
     aspects.reject do |aspect|
-      PostVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
+      aspect.has_post?(post)
     end
   end
 
