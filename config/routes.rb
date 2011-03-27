@@ -84,7 +84,7 @@ Diaspora::Application.routes.draw do
     get 'webfinger'             => :webfinger
     get 'hcard/users/:guid'     => :hcard
     get '.well-known/host-meta' => :host_meta
-    get 'receive/users/:guid'   => :receive
+    post 'receive/users/:guid'  => :receive
     get 'hub'                   => :hub
   end
 
