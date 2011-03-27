@@ -136,8 +136,8 @@ GEM
       ohai (>= 0.5.7)
       rest-client (< 1.7.0, >= 1.0.4)
       uuidtools
-    childprocess (0.1.7)
-      ffi (~> 0.6.3)
+    childprocess (0.1.8)
+      ffi (~> 1.0.6)
     closure-compiler (1.0.0)
     cloudfiles (1.4.10)
       mime-types (>= 1.16)
@@ -176,7 +176,7 @@ GEM
       faraday (~> 0.5.4)
     fastercsv (1.5.4)
     fastthread (1.0.7)
-    ffi (0.6.3)
+    ffi (1.0.7)
       rake (>= 0.8.7)
     fixture_builder (0.2.0)
     fog (0.3.25)
@@ -352,9 +352,9 @@ GEM
     selenium-client (1.2.18)
     selenium-rc (2.3.2)
       selenium-client (>= 1.2.18)
-    selenium-webdriver (0.1.3)
-      childprocess (~> 0.1.5)
-      ffi (~> 0.6.3)
+    selenium-webdriver (0.1.4)
+      childprocess (>= 0.1.7)
+      ffi (>= 1.0.7)
       json_pure
       rubyzip
     simple_oauth (0.1.4)
@@ -436,7 +436,7 @@ DEPENDENCIES
   rspec-instafail (>= 0.1.7)
   rspec-rails (>= 2.0.0)
   ruby-debug
-  selenium-webdriver (= 0.1.3)
+  selenium-webdriver (= 0.1.4)
   thin (= 1.2.8)
   twitter!
   typhoeus
