@@ -340,7 +340,7 @@ class User < ActiveRecord::Base
 
   def disconnect_everyone
     Contact.unscoped.where(:user_id => self.id).each { |contact|
-      if contact.person.owner_id
+      unless contact.person.owner.nil?
         contact.person.owner.disconnected_by self.person
         remove_contact(contact)
       else
