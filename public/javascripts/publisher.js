@@ -272,9 +272,10 @@ var Publisher = {
   determineSubmitAvailability: function(){
     var onlyWhitespaces = (Publisher.input().val().trim() == '');
     var isSubmitDisabled = Publisher.submit().attr('disabled');
-    if (onlyWhitespaces && !isSubmitDisabled) {
+    var isPhotoAttached = ($("#photodropzone").children().length > 0)
+    if ((onlyWhitespaces &&  !isPhotoAttached) && !isSubmitDisabled) {
       Publisher.submit().attr('disabled', true);
-    } else if (!onlyWhitespaces && isSubmitDisabled) {
+    } else if ((!onlyWhitespaces || isPhotoAttached) && isSubmitDisabled) {
       Publisher.submit().removeAttr('disabled');
     }
   },

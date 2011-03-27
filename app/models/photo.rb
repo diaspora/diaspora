@@ -101,7 +101,7 @@ class Photo < Post
   end
 
   def process
-    return false if unprocessed_image.path.include?('.gif') || self.processed?
+    return false if self.processed? || unprocessed_image.path.include?('.gif')
     processed_image.store!(unprocessed_image) #Ultra naive
     save!
   end
