@@ -41,13 +41,19 @@ describe TagsController do
         before do
           @post = @user.post(:status_message, :text => "#what", :public => true, :to => 'all')
           @user.post(:status_message, :text => "#hello", :public => true, :to => 'all')
-          get :show, :name => 'what'
         end
         it "succeeds" do
+          get :show, :name => 'what'
           response.should be_success
         end
         it "assigns the right set of posts" do
+          get :show, :name => 'what'
           assigns[:posts].should == [@post]
+        end
+        it 'succeeds with comments' do
+          @user.comment('what WHAT!', :on => @post)
+          get :show, :name => 'what'
+          response.should be_success
         end
       end
     end
