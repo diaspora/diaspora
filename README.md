@@ -22,7 +22,7 @@ A step-by-step guide to development using git can be found [here](http://github.
 Here are a few good places to start:
 
 - Run "rake spec" to run our [Rspec](http://blog.davidchelimsky.net/2007/05/14/an-introduction-to-rspec-part-i/) 
-unit test suite. [Here](http://github.com/diaspora/diaspora/wiki/Introduction-to-Our-Rspec-Convention) is an introduction to our Rspec convention.  Take a look at the pending specs, make one pass!
+unit test suite.
 
 - Run "rake cucumber" to run our [Cucumber](http://rubylearning.com/blog/2010/10/05/outside-in-development/)
 integration test suite.  As you can see, we need more integration tests.  Pick a feature and write one!
