@@ -126,6 +126,13 @@ describe AspectsController do
           get :index, :sort_order => "updated_at"
           assigns(:posts).should == @posts
         end
+
+        it "doesn't allow SQL injection" do
+          get :index, :sort_order => "\"; DROP TABLE users;"
+          assigns(:posts).should == @posts
+          get :index, :sort_order => "created_at"
+          assigns(:posts).should == @posts.reverse
+        end
       end
 
       it "returns all posts by default" do
