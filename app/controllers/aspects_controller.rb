@@ -12,34 +12,34 @@ class AspectsController < ApplicationController
 
   def index
     if params[:a_ids]
-      @aspects = current_user.aspects.where(:id => params[:a_ids]).includes(:contacts => {:person => :profile})
+      @aspects = current_user.aspects.where(:id => params[:a_ids])
     else
-      @aspects = current_user.aspects.includes(:contacts => {:person => :profile})
+      @aspects = current_user.aspects
     end
-    @selected_contacts = @aspects.inject([]) { |arr, aspect| arr.concat(aspect.contacts) }
-    @selected_contacts.uniq!
+    @aspects = @aspects.includes(:contacts => {:person => :profile})
 
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
       redirect_to getting_started_path
-    else
-      @aspect_ids = @aspects.map { |a| a.id }
-
-      @posts = StatusMessage.joins(:aspects).where(:pending => false,
-                                                   :aspects => {:id => @aspect_ids}).includes(:comments, :photos, :likes, :dislikes).select('DISTINCT `posts`.*').paginate(
-        :page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
-      @fakes = PostsFake.new(@posts)
-
-      @contact_count = current_user.contacts.count
-
-      @aspect = :all unless params[:a_ids]
-      @aspect ||= @aspects.first #used in mobile
+      return
     end
+
+    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
+    @aspect_ids = @aspects.map { |a| a.id }
+    @posts = StatusMessage.joins(:aspects).where(:pending => false,
+                                                 :aspects => {:id => @aspect_ids}).includes(:comments, :photos, :likes, :dislikes).select('DISTINCT `posts`.*').paginate(
+      :page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
+    @fakes = PostsFake.new(@posts)
+
+    @contact_count = current_user.contacts.count
+
+    @aspect = :all unless params[:a_ids]
+    @aspect ||= @aspects.first # used in mobile
   end
 
   def create
     @aspect = current_user.aspects.create(params[:aspect])
-    #hack, we don't know why mass assignment is not working
+    # hack, we don't know why mass assignment is not working
     @aspect.contacts_visible = params[:aspect][:contacts_visible]
     @aspect.save
 
