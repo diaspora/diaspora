@@ -1,6 +1,6 @@
 Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, password|
-  @me ||= Factory(:user, :username       => username, :password => password,
-          :password_confirmation => password, :getting_started => false)
+  @me ||= Factory(:user, :username => username, :password => password,
+                  :password_confirmation => password, :getting_started => false)
   @me.aspects.create(:name => "Besties")
   @me.aspects.create(:name => "Unicorns")
 end
@@ -40,7 +40,7 @@ end
 Given /^I have been invited by a user$/ do
   @inviter = Factory(:user)
   aspect = @inviter.aspects.create(:name => "Rocket Scientists")
-  @me = @inviter.invite_user(aspect.id, 'email', "new_invitee@example.com",  "Hey, tell me about your rockets!")
+  @me = @inviter.invite_user(aspect.id, 'email', "new_invitee@example.com", "Hey, tell me about your rockets!")
 end
 
 When /^I click on my name$/ do
@@ -60,7 +60,7 @@ end
 
 
 Given /^I have one contact request$/ do
-  other_user   = Factory(:user)
+  other_user = Factory(:user)
   other_aspect = other_user.aspects.create!(:name => "meh")
   other_user.send_contact_request_to(@me.person, other_aspect)
 
@@ -112,15 +112,11 @@ end
 Given /^I have no open aspects saved$/ do
   @me.aspects.update_all(:open => false)
 end
-Then /^I should have aspect "([^"]*)" "([^"]*)"$/ do |arg1, arg2|
-  val = evaluate_script("$('a:contains(\"#{arg1}\")').parent('li').hasClass('selected');") #
-  if arg2 == "selected"
-    val.should == true
-  elsif arg2 == "not selected"
-    val.should == false
-  else
-    raise "Aspect state should either be 'selected' or 'not selected'"
-  end
+
+Then /^aspect "([^"]*)" should (not )?be selected$/ do |aspect_name, not_selected|
+  link_is_selected = evaluate_script("$('a:contains(\"#{aspect_name}\")').parent('li').hasClass('selected');")
+  expected_value = !not_selected
+  link_is_selected.should == expected_value
 end
 
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
@@ -138,20 +134,19 @@ end
 Given /^a user with email "([^\"]*)" has posted a status message "([^\"]*)" in all aspects$/ do |arg1, arg2|
   user = User.where(:email => arg1).first
   status_message = user.build_post(:status_message, :text => arg2)
-  def status_message.socket_to_user(a1, a2); end
+
+  def status_message.socket_to_user(a1, a2)
+    ;
+  end
+
   user.add_to_streams(status_message, user.aspects)
   status_message.save!
   bob = User.where(:email => "bob@bob.bob").first
   raise bob.visible_posts.inspect
 end
 
-When /^I log out$/ do
-  When "I click on my name in the header"
-  When "I follow \"logout\""
-end
-
 Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
-  username = full_name.gsub(/\W/,"").underscore
+  username = full_name.gsub(/\W/, "").underscore
   Given "a user named \"#{full_name}\" with email \"#{username}@example.com\""
   user = User.find_by_username(username)
   user.profile.tag_string = tag
