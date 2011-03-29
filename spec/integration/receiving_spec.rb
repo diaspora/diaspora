@@ -66,7 +66,7 @@ describe 'a user receives a post' do
       bob.dispatch_post(sm, :to => bob.aspects.first)
     end
 
-    alice.visible_posts.count.should == 1
+    alice.raw_visible_posts.count.should == 1
   end
 
   context 'mentions' do
@@ -174,9 +174,6 @@ describe 'a user receives a post' do
         @post = Factory.create(:status_message, :author => @person)
         @post.post_visibilities.should be_empty
         receive_with_zord(@user1, @person, @post.to_diaspora_xml)
-        @aspect.post_visibilities.reset
-        @aspect.posts(true).should include(@post)
-        @post.post_visibilities.reset
       end
 
       it 'deletes a post if the noone links to it' do
@@ -197,6 +194,7 @@ describe 'a user receives a post' do
 
       @user1.disconnect(@contact)
       @status_message.reload
+      @status_message.post_visibilities.reset
       @status_message.user_refs.should == 2
     end
 

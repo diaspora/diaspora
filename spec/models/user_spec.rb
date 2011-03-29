@@ -324,18 +324,18 @@ describe User do
     end
   end
 
-  context 'aspects' do
+  describe 'foreign key between aspects and contacts' do
     it 'should delete an empty aspect' do
       empty_aspect = alice.aspects.create(:name => 'decoy')
       alice.aspects(true).include?(empty_aspect).should == true
-      alice.drop_aspect(empty_aspect)
+      empty_aspect.destroy
       alice.aspects(true).include?(empty_aspect).should == false
     end
 
     it 'should not delete an aspect with contacts' do
       aspect = alice.aspects.first
       aspect.contacts.count.should > 0
-      proc { alice.drop_aspect(aspect) }.should raise_error ActiveRecord::StatementInvalid
+      proc { aspect.destroy }.should raise_error ActiveRecord::StatementInvalid
       alice.aspects.include?(aspect).should == true
     end
   end

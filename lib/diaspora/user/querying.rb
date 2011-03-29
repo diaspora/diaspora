@@ -11,8 +11,12 @@ module Diaspora
       end
 
       def raw_visible_posts
-        Post.joins(:aspects).where(:pending => false,
-                                   :aspects => {:user_id => self.id}).select('DISTINCT `posts`.*')
+        post_ids = []
+        post_ids = Post.joins(:contacts).where(:contacts => {:user_id => self.id}).map{|p| p.id}
+
+        post_ids += Post.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id}).select('posts.id').map{|p| p.id}
+
+        Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*')
       end
 
       def visible_photos
@@ -21,24 +25,12 @@ module Diaspora
           ).where(:aspects => {:user_id => self.id}).select('DISTINCT `posts`.*').order("posts.updated_at DESC")
       end
 
-      def visible_posts( opts = {} )
-        order = opts.delete(:order)
-        order ||= 'created_at DESC'
-        opts[:type] ||= ["StatusMessage", "Photo"]
-
-        if (aspect = opts[:by_members_of]) && opts[:by_members_of] != :all
-          raw_visible_posts.where(:aspects => {:id => aspect.id}).order(order)
-        else
-          self.raw_visible_posts.where(opts).order(order)
-        end
-      end
-
       def contact_for(person)
         return nil unless person
         contact_for_person_id(person.id)
       end
       def aspects_with_post(post_id)
-        self.aspects.joins(:post_visibilities).where(:post_visibilities => {:post_id => post_id})
+        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:post_id => post_id})
       end
 
       def contact_for_person_id(person_id)
@@ -78,11 +70,14 @@ module Diaspora
       end
 
       def posts_from(person)
-        asp = Aspect.arel_table
+        con = Contact.arel_table
         p = Post.arel_table
-        person.posts.joins(:aspects).includes(:comments).where(
-          p[:public].eq(true).or(asp[:user_id].eq(self.id))
-        ).select('DISTINCT `posts`.*').order("posts.created_at DESC")
+        post_ids = []
+        if contact = self.contact_for(person)
+          post_ids = contact.post_visibilities.select('post_visibilities.post_id').map{|p| p.post_id}
+        end
+        post_ids += person.posts.where(:public => true, :pending => false).select('posts.id').map{|p| p.id}
+        Post.where(:id => post_ids).select('DISTINCT `posts`.*').order("posts.created_at DESC")
       end
     end
   end

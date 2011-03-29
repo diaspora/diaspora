@@ -49,7 +49,7 @@ describe "attack vectors" do
     zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
     zord.perform
 
-    user3.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
+    user3.reload.raw_visible_posts.should_not include(StatusMessage.find(original_message.id))
   end
 
   context 'malicious contact attack vector' do

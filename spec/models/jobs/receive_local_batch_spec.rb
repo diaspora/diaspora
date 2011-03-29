@@ -25,12 +25,12 @@ describe Job::ReceiveLocalBatch do
   end
   describe '.create_visibilities' do
     it 'creates a visibility for each user' do
-      PostVisibility.exists?(:aspect_id => bob.aspects.first.id, :post_id => @post.id).should be_false
+      PostVisibility.exists?(:contact_id => bob.contact_for(alice.person).id, :post_id => @post.id).should be_false
       Job::ReceiveLocalBatch.create_visibilities(@post, [bob.id])
-      PostVisibility.exists?(:aspect_id => bob.aspects.first.id, :post_id => @post.id).should be_true
+      PostVisibility.exists?(:contact_id => bob.contact_for(alice.person).id, :post_id => @post.id).should be_true
     end
     it 'does not raise if a visibility already exists' do
-      PostVisibility.create!(:aspect_id => bob.aspects.first.id, :post_id => @post.id)
+      PostVisibility.create!(:contact_id => bob.contact_for(alice.person).id, :post_id => @post.id)
       lambda {
         Job::ReceiveLocalBatch.create_visibilities(@post, [bob.id])
       }.should_not raise_error

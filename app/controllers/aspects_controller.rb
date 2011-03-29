@@ -79,7 +79,7 @@ class AspectsController < ApplicationController
     @aspect = current_user.aspects.where(:id => params[:id]).first
 
     begin
-      current_user.drop_aspect @aspect
+      @aspect.destroy
       flash[:notice] = I18n.t 'aspects.destroy.success', :name => @aspect.name
       redirect_to aspects_path
     rescue ActiveRecord::StatementInvalid => e

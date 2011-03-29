@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110323213655) do
+ActiveRecord::Schema.define(:version => 20110328202414) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -22,6 +22,14 @@ ActiveRecord::Schema.define(:version => 20110323213655) do
   add_index "aspect_memberships", ["aspect_id", "contact_id"], :name => "index_aspect_memberships_on_aspect_id_and_contact_id", :unique => true
   add_index "aspect_memberships", ["aspect_id"], :name => "index_aspect_memberships_on_aspect_id"
   add_index "aspect_memberships", ["contact_id"], :name => "index_aspect_memberships_on_contact_id"
+
+  create_table "aspect_visibilities", :force => true do |t|
+    t.integer "post_id",   :null => false
+    t.integer "aspect_id", :null => false
+  end
+
+  add_index "aspect_visibilities", ["aspect_id"], :name => "aspect_visibilities_aspect_id_fk"
+  add_index "aspect_visibilities", ["post_id", "aspect_id"], :name => "index_aspect_visibilities_on_post_id_and_aspect_id", :unique => true
 
   create_table "aspects", :force => true do |t|
     t.string   "name",                                :null => false
@@ -198,14 +206,13 @@ ActiveRecord::Schema.define(:version => 20110323213655) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "post_visibilities", :force => true do |t|
-    t.integer  "aspect_id",  :null => false
     t.integer  "post_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "contact_id", :null => false
   end
 
-  add_index "post_visibilities", ["aspect_id", "post_id"], :name => "index_post_visibilities_on_aspect_id_and_post_id", :unique => true
-  add_index "post_visibilities", ["aspect_id"], :name => "index_post_visibilities_on_aspect_id"
+  add_index "post_visibilities", ["contact_id", "post_id"], :name => "index_post_visibilities_on_contact_id_and_post_id", :unique => true
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
@@ -365,6 +372,9 @@ ActiveRecord::Schema.define(:version => 20110323213655) do
 
   add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk"
   add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
+
+  add_foreign_key "aspect_visibilities", "aspects", :name => "aspect_visibilities_aspect_id_fk", :dependent => :delete
+  add_foreign_key "aspect_visibilities", "posts", :name => "aspect_visibilities_post_id_fk", :dependent => :delete
 
   add_foreign_key "comments", "people", :name => "comments_author_id_fk", :column => "author_id", :dependent => :delete
   add_foreign_key "comments", "posts", :name => "comments_post_id_fk", :dependent => :delete

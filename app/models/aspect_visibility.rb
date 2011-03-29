@@ -2,10 +2,10 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class PostVisibility < ActiveRecord::Base
+class AspectVisibility < ActiveRecord::Base
 
-  belongs_to :contact
-  validates_presence_of :contact
+  belongs_to :aspect
+  validates_presence_of :aspect
 
   belongs_to :post
   validates_presence_of :post

@@ -13,6 +13,10 @@ class Contact < ActiveRecord::Base
 
   has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships
+
+  has_many :post_visibilities
+  has_many :posts, :through => :post_visibilities
+  
   validate :not_contact_for_self
   validates_uniqueness_of :person_id, :scope => :user_id
 

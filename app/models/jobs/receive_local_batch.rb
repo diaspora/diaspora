@@ -15,14 +15,13 @@ module Job
       notify_mentioned_users(post)
     end
     def self.create_visibilities(post, recipient_user_ids)
-      aspects = Aspect.where(:user_id => recipient_user_ids).joins(:contacts).where(:contacts => {:person_id => post.author_id}).select('aspects.id, aspects.user_id')
-      Rails.logger.info(:event => :rlb_aspects, :aspect_ids => aspects.map{|a| a.id}.join(','))
-      aspects.each do |aspect|
+      contacts = Contact.where(:user_id => recipient_user_ids, :person_id => post.author_id)
+      contacts.each do |contact|
         begin
-          PostVisibility.create(:aspect_id => aspect.id, :post_id => post.id)
+          PostVisibility.create(:contact_id => contact.id, :post_id => post.id)
         rescue ActiveRecord::RecordNotUnique => e
-          Rails.logger.info(:event => :unexpected_pv, :aspect_id => aspect.id, :post_id => post.id)
-          #The post was already visible to that aspect
+          Rails.logger.info(:event => :unexpected_pv, :contact_id => contact.id, :post_id => post.id)
+          #The post was already visible to that user
         end
       end
     end
