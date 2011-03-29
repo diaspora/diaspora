@@ -12,14 +12,22 @@
   Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
   $(document).ready(function() 
     {
+      Publisher.open();
       $("#publisher").bind('ajax:success', function(){
         $('h4').text("Your post was successful! Closing!");
+        Publisher.close();
+
         window.setTimeout(window.close, 2000, true);
       });
-      $("#publisher #status_message_fake_text").val("#{params[:url]} - #{params[:notes]}");
-      $("#publisher #status_message_text").val("#{params[:url]}");
-      Publisher.open();
-    });
+
+      var contents = "#{params[:title]} - #{params[:url]}";
+      if ("#{params[:notes]}".length > 0){
+        contents = contents + " - #{params[:notes]}";
+      }
+      
+      $("#publisher #status_message_fake_text").val(contents);
+      $("#publisher #status_message_text").val(contents);
+  });
 
 #new_status_message_pane
   .span-15.last
