@@ -60,7 +60,7 @@
       %span.diaspora_handle
         = @person.diaspora_handle
       .description
-        - if !@person.profile.tag_string.blank?
+        - if !@person.profile.tag_string.blank? && user_signed_in? && ((@contact.persisted? && !@contact.pending?) || @person == current_user.person || @incoming_request)
           = @person.profile.format_tags(@person.profile.tag_string)
           - if user_signed_in? && @person == current_user.person
             %span.hover_edit
