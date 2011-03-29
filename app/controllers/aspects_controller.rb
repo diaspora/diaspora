@@ -151,6 +151,8 @@ class AspectsController < ApplicationController
     @aspect.save
   end
 
+ protected
+
   def save_sort_order
     if params[:sort_order].present?
       params[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
