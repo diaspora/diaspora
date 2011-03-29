@@ -29,8 +29,7 @@
           = new_request_link(@request_count)
   %h4
     = link_to 'Post to Diaspora', bookmarklet
-    from anywhere by bookmarking this link.
-
+    = t('bookmarklet.from_anywhere')
   - if @invites > 0
     .section.invite_friends
       %h4= t('shared.invitations.invite_your_friends')
