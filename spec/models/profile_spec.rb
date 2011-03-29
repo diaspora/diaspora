@@ -188,9 +188,10 @@ describe Profile do
 
       @object.should be_valid
     end
-    it 'allows no more than 5 tags' do
+    it 'strips more than 5 tags' do
       @object.tag_string = '#one #two #three #four #five #six'
-      @object.should_not be_valid
+      @object.save
+      @object.tags.count.should == 5
     end
     it_should_behave_like 'it is taggable'
   end

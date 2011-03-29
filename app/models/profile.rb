@@ -40,7 +40,9 @@ class Profile < ActiveRecord::Base
     :image_url_small, :birthday, :gender, :bio, :location, :searchable, :date, :tag_string
 
   belongs_to :person
-
+  before_validation do
+    self.tag_string = self.tag_string.split[0..4].join(' ')
+  end
   before_save do
     self.build_tags
   end

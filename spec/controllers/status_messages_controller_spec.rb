@@ -17,6 +17,13 @@ describe StatusMessagesController do
     alice.reload
   end
 
+  describe '#bookmarklet' do
+    it 'succeeds' do
+      get :bookmarklet
+      response.should be_success
+    end
+  end
+
   describe '#new' do
     it 'succeeds' do
       get :new,

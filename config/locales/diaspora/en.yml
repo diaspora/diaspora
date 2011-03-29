@@ -144,6 +144,12 @@ en:
       failure: "Failed to remove person from aspect"
       no_membership: "Could not find the selected person in that aspect"
 
+  bookmarklet:
+    post_success: "Posted! Closing!"
+    post_something: "Post something to Diaspora"
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+
   comments:
     zero: "no comments"
     one: "1 comment"

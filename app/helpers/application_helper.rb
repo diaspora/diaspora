@@ -21,13 +21,13 @@ module ApplicationHelper
 
   def aspects_with_post aspects, post
     aspects.select do |aspect|
-      aspect.has_post?(post)
+      PostVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
     end
   end
 
   def aspects_without_post aspects, post
     aspects.reject do |aspect|
-      aspect.has_post?(post)
+      PostVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
     end
   end
 
@@ -37,6 +37,10 @@ module ApplicationHelper
       str << aspect_badge(aspect, opts)
     end
     str.html_safe
+  end
+
+  def bookmarklet
+    "javascript:(function(){f='#{AppConfig[:pod_url]}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=620,height=250'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
   def aspect_badge aspect, opts = {}
