@@ -12,7 +12,7 @@ Feature: invitation acceptance
       And I should see "getting_started_logo"
      When I fill in "profile_first_name" with "O"
       And I fill in "profile_last_name" with "Hai"
-      And I fill in "profile_tag_string" with "#beingawesome"
+      And I fill in "tags" with "#beingawesome"
       And I press "Save and continue"
       Then I should see "Profile updated"
 			And I should see "Would you like to find your Facebook friends on Diaspora?"
@@ -30,7 +30,7 @@ Feature: invitation acceptance
       And I should see "getting_started_logo"
      When I fill in "profile_first_name" with "O"
       And I fill in "profile_last_name" with "Hai"
-      And I fill in "profile_tag_string" with "#tags"
+      And I fill in "tags" with "#tags"
       And I press "Save and continue"
       Then I should see "Profile updated"
       
