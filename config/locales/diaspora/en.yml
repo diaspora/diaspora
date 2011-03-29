@@ -143,7 +143,9 @@ en:
       success: "Successfully removed person from aspect"
       failure: "Failed to remove person from aspect"
       no_membership: "Could not find the selected person in that aspect"
-
+  bookmarklet:
+    post_success: "Posted! Closeing!"
+    post_something: 'Post something to Diaspora'
   comments:
     zero: "no comments"
     one: "1 comment"

@@ -27,11 +27,15 @@
       - if @request_count > 0
         %h4
           = new_request_link(@request_count)
+  %h4
+    = link_to 'Post to Diaspora', bookmarklet
+    from anywhere by bookmarking this link.
 
   - if @invites > 0
     .section.invite_friends
       %h4= t('shared.invitations.invite_your_friends')
       = render "shared/invitations", :invites => @invites
+
 
   #aspect_listings.section
     = render 'aspects/aspect_listings', :aspects => @aspects
