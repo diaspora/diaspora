@@ -24,8 +24,10 @@ ActiveRecord::Schema.define(:version => 20110328202414) do
   add_index "aspect_memberships", ["contact_id"], :name => "index_aspect_memberships_on_contact_id"
 
   create_table "aspect_visibilities", :force => true do |t|
-    t.integer "post_id",   :null => false
-    t.integer "aspect_id", :null => false
+    t.integer  "post_id",    :null => false
+    t.integer  "aspect_id",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   add_index "aspect_visibilities", ["aspect_id"], :name => "aspect_visibilities_aspect_id_fk"
