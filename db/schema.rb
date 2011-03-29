@@ -30,8 +30,9 @@ ActiveRecord::Schema.define(:version => 20110328202414) do
     t.datetime "updated_at"
   end
 
-  add_index "aspect_visibilities", ["aspect_id"], :name => "aspect_visibilities_aspect_id_fk"
+  add_index "aspect_visibilities", ["aspect_id"], :name => "index_aspect_visibilities_on_aspect_id"
   add_index "aspect_visibilities", ["post_id", "aspect_id"], :name => "index_aspect_visibilities_on_post_id_and_aspect_id", :unique => true
+  add_index "aspect_visibilities", ["post_id"], :name => "index_aspect_visibilities_on_post_id"
 
   create_table "aspects", :force => true do |t|
     t.string   "name",                                :null => false
@@ -215,6 +216,7 @@ ActiveRecord::Schema.define(:version => 20110328202414) do
   end
 
   add_index "post_visibilities", ["contact_id", "post_id"], :name => "index_post_visibilities_on_contact_id_and_post_id", :unique => true
+  add_index "post_visibilities", ["contact_id"], :name => "index_post_visibilities_on_contact_id"
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|

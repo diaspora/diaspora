@@ -40,8 +40,8 @@ SQL
       post_id = row.last
 
       execute <<SQL
-        DELETE FROM post_visibilities AS pv
-        WHERE pv.contact_id = #{contact_id} AND pv.post_id = #{post_id}
+        DELETE FROM post_visibilities
+        WHERE post_visibilities.contact_id = #{contact_id} AND post_visibilities.post_id = #{post_id}
         LIMIT #{count-1}
 SQL
     end
@@ -54,6 +54,8 @@ SQL
       t.timestamps
     end
     add_index :aspect_visibilities, [:post_id, :aspect_id], :unique => true
+    add_index :aspect_visibilities, [:aspect_id]
+    add_index :aspect_visibilities, [:post_id]
     add_foreign_key :aspect_visibilities, :aspects, :dependent => :delete
     add_foreign_key :aspect_visibilities, :posts, :dependent => :delete
 
@@ -62,12 +64,13 @@ SQL
     move_author_pvs_to_aspect_pvs
     set_pv_contact_ids
 
-    remove_index :post_visibilities, [:aspect_id, :post_id]
-    remove_column :post_visibilities, :aspect_id
-    
     delete_duplicate_pvs
 
+    remove_index :post_visibilities, [:aspect_id, :post_id]
+    remove_column :post_visibilities, :aspect_id
+
     add_index :post_visibilities, [:contact_id, :post_id], :unique => true
+    add_index :post_visibilities, [:contact_id]
     add_foreign_key :post_visibilities, :contacts, :dependent => :delete
     add_foreign_key :post_visibilities, :posts, :dependent => :delete
   end
