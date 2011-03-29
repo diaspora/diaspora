@@ -12,22 +12,26 @@ class TagsController < ApplicationController
   respond_to :json, :only => [:index]
   
   def index
-    pp params
+    params[:q].gsub!("#", "")
     if params[:q].length > 1
-      @tags = ActsAsTaggableOn::Tag.named_like(params[:q])
-      @hash = @tags.inject([]) do |memo, obj| 
-        memo << { :name => obj.name,
-        :value => ("#"+obj.name)}
+      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] || 10)
+      @array = []
+      @tags.each do |obj| 
+        @array << { :name => ("#"+obj.name),
+          :value => ("#"+obj.name)}
+      end
+
+     if @array.empty?
+        @array << { :name => params[:q],
+          :value => ("#"+params[:q])}
       end
 
       respond_to do |format|
         format.json{
-          json = { :items => @hash}.to_json
-          render(:json => json, :status => 201)
+          render(:json => @array.to_json, :status => 201)
         }
       end
     else
-      pp "not!"
       render :nothing => true
     end
   end

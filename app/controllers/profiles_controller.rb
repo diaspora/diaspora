@@ -8,11 +8,19 @@ class ProfilesController < ApplicationController
     @person = current_user.person
     @aspect  = :person_edit
     @profile = @person.profile
+
+    @tags = @profile.tags
+    @tags_array = []
+    @tags.each do |obj| 
+      @tags_array << { :name => ("#"+obj.name),
+        :value => ("#"+obj.name)}
+      end
   end
 
   def update
-     # upload and set new profile photo
+    # upload and set new profile photo
     params[:profile] ||= {}
+    params[:profile][:tag_string] = (params[:as_values_tags]) ? params[:as_values_tags].gsub(',',' ') : ""
     params[:profile][:searchable] ||= false
     params[:profile][:photo] = Photo.where(:author_id => current_user.person.id,
                                            :id => params[:photo_id]).first if params[:photo_id]
