@@ -22,12 +22,12 @@
       minChars: 2,
       keyDelay: 0,
       startText: "#{t('profiles.edit.your_tags_placeholder')}",
-      emptyText: '#{t('.no_results')}',
+      emptyText: '#{t('no_results')}',
       preFill: data
       });
 
     autocompleteInput.bind('keydown', function(evt){
-      if(evt.keyCode == 13 || evt.keyCode == 32){
+      if(evt.keyCode == 13 || evt.keyCode == 9 || evt.keyCode == 32){
         if( $('li.as-result-item.active').length == 0 ){
           $('li.as-result-item').first().click();
         }

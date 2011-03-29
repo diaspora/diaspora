@@ -46,7 +46,7 @@ describe ConversationsController do
         :conversation => {
           :subject => "secret stuff",
           :text => 'text'},
-        :as_values_contact_ids => [@alice.contacts.first.id]
+        :contact_ids => [@alice.contacts.first.id]
       }
     end
 

@@ -13,18 +13,17 @@ class TagsController < ApplicationController
   
   def index
     params[:q].gsub!("#", "")
+    params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
     if params[:q].length > 1
-      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] || 10)
+      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
       @array = []
       @tags.each do |obj| 
         @array << { :name => ("#"+obj.name),
           :value => ("#"+obj.name)}
       end
 
-     if @array.empty?
-        @array << { :name => params[:q],
-          :value => ("#"+params[:q])}
-      end
+      @array << { :name => ('#' + params[:q]), :value => ("#" + params[:q])}
+      @array.uniq!
 
       respond_to do |format|
         format.json{
