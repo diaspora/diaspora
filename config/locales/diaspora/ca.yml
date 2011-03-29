@@ -72,8 +72,6 @@ ca:
       unknown_person: "persona desconeguda"
       video_title:
         unknown: "Títol del vídeo desconegut"
-      aspect_badge:
-        all_aspects: "Tots els aspectes"
 
 
   aspects:
