@@ -366,6 +366,7 @@ ActiveRecord::Schema.define(:version => 20110328202414) do
     t.string   "mongo_id"
     t.string   "invitation_service",     :limit => 127
     t.string   "invitation_identifier",  :limit => 127
+    t.string   "sort_order",				:default => "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
