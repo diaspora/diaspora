@@ -12,6 +12,7 @@ module Diaspora
 
       def raw_visible_posts(opts = {})
         opts[:type] ||= ['StatusMessage', 'Photo']
+        opts[:limit] ||= 20
 
         posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
         posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
@@ -22,10 +23,10 @@ module Diaspora
           posts_from_self = posts_from_self.where(:aspects => {:id => opts[:by_members_of]})
         end
         
-        post_ids = posts_from_others.select('posts.id').map{|p| p.id}
-        post_ids += posts_from_self.select('posts.id').map{|p| p.id}
+        post_ids = posts_from_others.select('posts.id').limit(opts[:limit]).map{|p| p.id}
+        post_ids += posts_from_self.select('posts.id').limit(opts[:limit]).map{|p| p.id}
 
-        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*')
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*').limit(opts[:limit])
       end
 
       def visible_photos
