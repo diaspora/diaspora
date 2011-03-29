@@ -46,8 +46,7 @@ describe ProfilesController do
 
     it 'sets tags' do
       params = { :id => @user.person.id,
-                  :profile =>
-                   { :tag_string => '#apples #oranges'}}
+                 :as_values_tags => '#apples #oranges'}
 
       put :update, params
       @user.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
