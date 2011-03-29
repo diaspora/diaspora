@@ -64,6 +64,7 @@ Diaspora::Application.routes.draw do
     get 'admin_inviter' => :admin_inviter
   end
 
+  get 'bookmarklet' => 'status_messages#bookmarklet'
   resource :profile
 
   resources :requests, :only => [:destroy, :create]
