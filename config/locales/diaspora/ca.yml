@@ -148,6 +148,13 @@ ca:
       no_membership: "No s'ha trobat a la persona seleccionada a l'aspecte"
 
 
+  bookmarklet:
+    post_success: "S'ha publicat! S'està tancant!"
+    post_something: "Publiqueu alguna cosa al Diàspora"
+    explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
+    explanation_link_text: "Publiqueu al Diàspora"
+
+
   comments:
     zero: "cap comentari"
     one: "1 comentari"
