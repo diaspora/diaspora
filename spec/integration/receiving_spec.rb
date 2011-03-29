@@ -179,7 +179,6 @@ describe 'a user receives a post' do
         @contact.post_visibilities.reset
         @contact.posts(true).should include(@post)
         @post.post_visibilities.reset
-
       end
 
       it 'deletes a post if the noone links to it' do
@@ -197,9 +196,11 @@ describe 'a user receives a post' do
     it 'should keep track of user references for one person ' do
       @status_message.reload
       @status_message.user_refs.should == 3
+      @status_message.contacts(true).should include(@contact)
 
       @user1.disconnect(@contact)
       @status_message.reload
+      @status_message.contacts(true).should_not include(@contact)
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 2
     end

@@ -26,9 +26,8 @@ class AspectsController < ApplicationController
 
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map { |a| a.id }
-    @posts = StatusMessage.joins(:aspects).where(:pending => false,
-                                                 :aspects => {:id => @aspect_ids}).includes(:comments, :photos, :likes, :dislikes).select('DISTINCT `posts`.*').paginate(
-      :page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
+    @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage').includes(
+      :comments, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
     @fakes = PostsFake.new(@posts)
 
     @contact_count = current_user.contacts.count

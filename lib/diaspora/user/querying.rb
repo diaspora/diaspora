@@ -10,17 +10,26 @@ module Diaspora
         self.raw_visible_posts.where(:id => id).includes({:author => :profile}, {:comments => {:author => :profile}}, :photos).first
       end
 
-      def raw_visible_posts
-        post_ids = []
-        post_ids = Post.joins(:contacts).where(:contacts => {:user_id => self.id}).map{|p| p.id}
+      def raw_visible_posts(opts = {})
+        opts[:type] ||= ['StatusMessage', 'Photo']
 
-        post_ids += Post.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id}).select('posts.id').map{|p| p.id}
+        posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
+        posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
 
-        Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*')
+        if opts[:by_members_of]
+          posts_from_others = posts_from_others.joins(:contacts => :aspect_memberships).where(
+            :aspect_memberships => {:aspect_id => opts[:by_members_of]})
+          posts_from_self = posts_from_self.where(:aspects => {:id => opts[:by_members_of]})
+        end
+        
+        post_ids = posts_from_others.select('posts.id').map{|p| p.id}
+        post_ids += posts_from_self.select('posts.id').map{|p| p.id}
+
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*')
       end
 
       def visible_photos
-        raw_visible_posts.where(:type => 'Photo')
+        raw_visible_posts(:type => 'Photo')
       end
 
       def contact_for(person)

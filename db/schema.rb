@@ -389,6 +389,9 @@ ActiveRecord::Schema.define(:version => 20110328202414) do
 
   add_foreign_key "notification_actors", "notifications", :name => "notification_actors_notification_id_fk", :dependent => :delete
 
+  add_foreign_key "post_visibilities", "contacts", :name => "post_visibilities_contact_id_fk", :dependent => :delete
+  add_foreign_key "post_visibilities", "posts", :name => "post_visibilities_post_id_fk", :dependent => :delete
+
   add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete

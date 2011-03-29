@@ -3,11 +3,6 @@
 #   the COPYRIGHT file.
 
 class PostVisibility < ActiveRecord::Base
-
   belongs_to :contact
-  validates_presence_of :contact
-
   belongs_to :post
-  validates_presence_of :post
-
 end

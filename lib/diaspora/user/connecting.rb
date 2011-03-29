@@ -85,13 +85,12 @@ module Diaspora
       def remove_contact(contact)
         bad_person_id = contact.person_id
         posts = contact.posts.all
-        contact.post_visibilities.delete_all
+        contact.destroy
         posts.each do |post|
           if post.user_refs < 1
             post.destroy
           end
         end
-        contact.destroy
       end
 
       def disconnected_by(person)

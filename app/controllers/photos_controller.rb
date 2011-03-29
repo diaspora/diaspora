@@ -141,10 +141,10 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = current_user.visible_photos.where(:id => params[:id]).includes(:author, :status_message => :photos).first
-    @photo ||= Photo.where(:public => true, :id => params[:id]).includes(:author, :status_message => :photos).first
+    @photo = current_user.visible_photos.where(:id => params[:id]).first
+    @photo ||= Photo.where(:public => true, :id => params[:id]).first
     if @photo
-      @parent = @photo.status_message
+      @parent = StatusMessage.where(:id => @photo.status_message_id).includes(:photos).first if @photo.status_message_id
 
       #if photo is not an attachment, fetch comments for self
       if @parent

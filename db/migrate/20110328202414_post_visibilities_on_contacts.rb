@@ -50,6 +50,8 @@ SQL
 
     remove_index :post_visibilities, [:aspect_id, :post_id]
     remove_column :post_visibilities, :aspect_id
+    add_foreign_key :post_visibilities, :contacts, :dependent => :delete
+    add_foreign_key :post_visibilities, :posts, :dependent => :delete
   end
 
   def self.down

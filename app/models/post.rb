@@ -23,6 +23,7 @@ class Post < ActiveRecord::Base
   has_many :post_visibilities
   has_many :contacts, :through => :post_visibilities
   has_many :mentions, :dependent => :destroy
+
   belongs_to :author, :class_name => 'Person'
 
   cattr_reader :per_page
