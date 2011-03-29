@@ -27,7 +27,7 @@
       - if @request_count > 0
         %h4
           = new_request_link(@request_count)
-  %h4
+  %h4.section.invite_friends
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
   - if @invites > 0
     .section.invite_friends
