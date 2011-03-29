@@ -192,7 +192,6 @@ describe Profile do
       @object.tag_string = '#one #two #three #four #five #six'
       @object.save
       @object.tags.count.should == 5
-      puts @object.tag_string
     end
     it_should_behave_like 'it is taggable'
   end
