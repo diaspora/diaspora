@@ -84,16 +84,14 @@ class Post < ActiveRecord::Base
           Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
         end
       else
-        contact = user.contact_for(person)
-        PostVisibility.create(:post_id => self.id, :contact_id => contact.id)
+        user.contact_for(person).receive_post(local_post)
         user.notify_if_mentioned(local_post)
         Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
         return local_post
       end
     elsif !local_post
       self.save
-      contact = user.contact_for(person)
-      PostVisibility.create(:post_id => self.id, :contact_id => contact.id)
+      user.contact_for(person).receive_post(self)
       user.notify_if_mentioned(self)
       Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
       return self

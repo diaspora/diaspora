@@ -154,11 +154,12 @@ describe 'a user receives a post' do
       @status_message = @user2.post :status_message, :text => "hi", :to => @aspect2.id
       @user1.reload
       @aspect.reload
+      @contact = @user1.contact_for(@user2.person)
     end
 
-    it "adds a received post to the aspect and visible_posts array" do
+    it "adds a received post to the the contact" do
       @user1.raw_visible_posts.include?(@status_message).should be_true
-      @aspect.posts.include?(@status_message).should be_true
+      @contact.posts.include?(@status_message).should be_true
     end
 
     it 'removes posts upon disconnecting' do
@@ -174,6 +175,11 @@ describe 'a user receives a post' do
         @post = Factory.create(:status_message, :author => @person)
         @post.post_visibilities.should be_empty
         receive_with_zord(@user1, @person, @post.to_diaspora_xml)
+        @contact = @user1.contact_for(@person)
+        @contact.post_visibilities.reset
+        @contact.posts(true).should include(@post)
+        @post.post_visibilities.reset
+
       end
 
       it 'deletes a post if the noone links to it' do

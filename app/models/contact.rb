@@ -32,6 +32,11 @@ class Contact < ActiveRecord::Base
                 :aspect => aspects.first)
   end
 
+  def receive_post(post)
+    PostVisibility.create!(:post_id => post.id, :contact_id => self.id)
+    post.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if post.respond_to? :socket_to_user
+  end
+
   def contacts
     people = Person.arel_table
     incoming_aspects = Aspect.joins(:contacts).where(

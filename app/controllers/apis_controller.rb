@@ -30,10 +30,7 @@ class ApisController < ApplicationController #We should start with this versione
 
   def home_timeline
     set_defaults
-
-    aspect_ids = current_user.aspects.map{|a| a.id}
-    timeline = StatusMessage.joins(:aspects).where(:pending => false,
-             :aspects => {:id => aspect_ids}).includes(:comments, :photos, :likes, :dislikes).select('DISTINCT `posts`.*').paginate(
+    timeline = current_user.raw_visible_posts.includes(:comments, :photos, :likes, :dislikes).paginate(
              :page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
 
     respond_with timeline do |format|

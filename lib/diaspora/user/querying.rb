@@ -20,9 +20,7 @@ module Diaspora
       end
 
       def visible_photos
-        p = Photo.arel_table
-        Photo.joins(:aspects).where(p[:status_message_id].not_eq(nil).or(p[:pending].eq(false))
-          ).where(:aspects => {:user_id => self.id}).select('DISTINCT `posts`.*').order("posts.updated_at DESC")
+        raw_visible_posts.where(:type => 'Photo')
       end
 
       def contact_for(person)
@@ -70,6 +68,7 @@ module Diaspora
       end
 
       def posts_from(person)
+        return self.person.posts.where(:pending => false) if person == self.person
         con = Contact.arel_table
         p = Post.arel_table
         post_ids = []
