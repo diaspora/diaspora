@@ -36,8 +36,6 @@ eu:
   all_aspects: "Alderdi guztiak"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alderdi guztiak"
       unknown_person: "pertsona ezezaguna"
       video_title: 
         unknown: "Bideo izen ezezaguna"
@@ -113,6 +111,11 @@ eu:
       success: "Zure alderdia, %{name}, eraldatua izan da."
     zero: "alderdirik ez"
   back: "Atzera"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Ezeztatu"
   comments: 
     few: "%{count} iruzkin"

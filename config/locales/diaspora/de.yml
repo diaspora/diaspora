@@ -36,8 +36,6 @@ de:
   all_aspects: "Alle Aspekte"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alle Aspekte"
       unknown_person: "unbekannte Person"
       video_title: 
         unknown: "Unbekannter Video-Titel"
@@ -113,6 +111,11 @@ de:
       success: "Aspekt %{name} erfolgreich bearbeitet."
     zero: "keine Aspekte"
   back: "Zurück"
+  bookmarklet: 
+    explanation: "%{link} von überall in dem du diesen Link als Lesezeichen speicherst."
+    explanation_link_text: "Erstelle einen Beitrag in Diaspora"
+    post_something: "Erstelle einen Beitrag in Diaspora"
+    post_success: "Erstellt! Schließen…"
   cancel: "Abbrechen"
   comments: 
     few: "%{count} Kommentare"

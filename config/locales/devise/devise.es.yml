@@ -9,17 +9,17 @@ es:
       confirmed: "Tu cuenta ha sido confirmada. Ya has accedido a tu cuenta."
       new: 
         resend_confirmation: "Volver a enviar instrucciones de confirmación"
-      send_instructions: "Recibirás un email con instrucciones para confirmar tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en pocos minutos."
     failure: 
       inactive: "Tu cuenta aún no ha sido activada."
-      invalid: "Contraseña o email incorrecto."
+      invalid: "Contraseña o correo incorrecto."
       invalid_token: "Identificador de autenticación incorrecto."
       locked: "Tu cuenta está bloqueada."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."
       unauthenticated: "Necesitas acceder a tu cuenta o registrarte antes de continuar."
       unconfirmed: "Necesitas confirmar tu cuenta antes de continuar."
     invitations: 
-      invitation_token_invalid: "El identificador de la invitación no es valido!"
+      invitation_token_invalid: "¡El identificador de la invitación no es valido!"
       send_instructions: "Tu invitación se ha enviado."
       updated: "Tu contraseña ha sido configurada correctamente. Ahora estás conectado."
     mailer: 
@@ -45,7 +45,7 @@ es:
         wont_change: "Tu contraseña no cambiará hasta que accedas al enlace anterior y crees una nueva."
       unlock_instructions: 
         account_locked: "Tu cuenta ha sido bloqueada debido a una excesiva cantidad de intentos de ingreso fallidos."
-        click_to_unlock: "Haz clic en el enlace de abajo para desbloquear tu cuenta:"
+        click_to_unlock: "Pulsa en el enlace de abajo para desbloquear tu cuenta:"
         subject: "Instrucciones para desbloquear tu cuenta"
         unlock: "Desbloquear mi cuenta"
       welcome: "¡Bienvenido %{email}!"
@@ -54,19 +54,19 @@ es:
         change_password: "Cambiar mi contraseña"
       new: 
         forgot_password: "¿Olvidaste tu contraseña?"
-        no_account: "No existe una cuenta con ese email. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
+        no_account: "No existe una cuenta con ese correo. Si estás esperando una invitación, las haremos llegar tan pronto como nos sea posible."
         send_password_instructions: "Envíame instrucciones para restablecer la contraseña"
-      send_instructions: "Recibirás un email con instrucciones para cambiar tu contraseña en pocos minutos."
+      send_instructions: "Recibirás un correo con instrucciones para cambiar tu contraseña en pocos minutos."
       updated: "Tu contraseña ha sido modificada. Ya has accedido a tu cuenta."
     registrations: 
       destroyed: "!Adiós! Tu cuenta ha sido cancelada. Esperamos volver a verte pronto."
-      signed_up: "Te has registrado correctamente. Ya puedes consultar en tu correo el email de confirmación."
+      signed_up: "Te has registrado correctamente. Consulta el mensaje de confirmación que te hemos enviado a tu correo."
       updated: "Has actualizado tu cuenta correctamente."
     sessions: 
       new: 
         alpha_software: "Estás a punto de utilizar software en versión alpha."
-        bugs_and_feedback: "Ten en cuenta que puedes experimentar errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema del que tú nos informes."
-        bugs_and_feedback_mobile: "Ten en cuenta, experimentarás errores. ¡Te animamos a informar de cualquier fallo! Vamos a trabajar tan rápido como nos sea posible para resolver cualquier problema que informes."
+        bugs_and_feedback: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a que utilices el botón de Feedback situado a la derecha de tu navegador para informar cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
+        bugs_and_feedback_mobile: "Ten en cuenta que puedes sufrir errores. ¡Te animamos a informar de cualquier fallo! Trabajaremos tan rápido como nos sea posible para resolver cualquier problema que nos remitas."
         login: "Iniciar sesión"
         modern_browsers: "Sólo es compatible con navegadores modernos."
         password: "Contraseña"
@@ -78,8 +78,8 @@ es:
     shared: 
       links: 
         forgot_your_password: "¿Olvidaste tu contraseña?"
-        receive_confirmation: "No has recibido instrucciones de confirmación?"
-        receive_unlock: "No has recibido las instrucciones de desbloqueo?"
+        receive_confirmation: "¿No has recibido instrucciones de confirmación?"
+        receive_unlock: "¿No has recibido las instrucciones de desbloqueo?"
         sign_in: "Acceder"
         sign_up: "Regístrate"
         sign_up_closed: "Los registros están cerrados temporalmente."
@@ -88,7 +88,7 @@ es:
     unlocks: 
       new: 
         resend_unlock: "Volver a enviar las instrucciones de desbloqueo."
-      send_instructions: "Recibirás un email con instrucciones para desbloquear tu cuenta en pocos minutos."
+      send_instructions: "Recibirás un correo con instrucciones para desbloquear tu cuenta en pocos minutos."
       unlocked: "Tu cuenta ha sido desbloqueada. Ya has accedido a tu cuenta."
   errors: 
     messages: 

@@ -36,8 +36,6 @@ zh-TW:
   all_aspects: "所有面向"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "全部面向"
       unknown_person: "不明聯絡人"
       video_title: 
         unknown: "影片標題不明"
@@ -113,6 +111,11 @@ zh-TW:
       success: "你的面向 %{name} 已編輯完成."
     zero: "沒有面向"
   back: "後退"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "取消"
   comments: 
     few: "%{count}則回應"

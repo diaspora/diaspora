@@ -36,8 +36,6 @@ ml:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "എല്ലാ പരിചയങ്ങളും"
       unknown_person: "അറിയാത്ത വ്യക്തി"
       video_title: 
         unknown: "ചലചിത്രത്തിന്റെ തലക്കെട്ട് അറിയില്ല"
@@ -113,6 +111,11 @@ ml:
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
     zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "റദ്ദാക്കുക"
   comments: 
     few: "%{count} comments"

@@ -36,8 +36,6 @@ eo:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "All aspects"
       unknown_person: "nekonata persono"
       video_title: 
         unknown: "Unknown Video Title"
@@ -113,6 +111,11 @@ eo:
       success: "Your aspect, %{name}, has been successfully edited."
     zero: "no aspects"
   back: "Antaŭen"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Cancel"
   comments: 
     few: "%{count} comments"

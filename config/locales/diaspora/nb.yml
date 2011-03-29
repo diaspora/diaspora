@@ -36,8 +36,6 @@ nb:
   all_aspects: "Alle aspekter"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alle aspekt"
       unknown_person: "ukjent person"
       video_title: 
         unknown: "Ukjent Videotittel"
@@ -52,7 +50,7 @@ nb:
       failure: "Kunne ikke legge kontakt til aspektet."
       success: "Kontakt lagt til aspekt."
     aspect_contacts: 
-      done_editing: "ferdig med å redigere"
+      done_editing: "fullfør"
     aspect_stream: 
       activity: "aktivitet"
       post_time: "tidspunkt"
@@ -113,6 +111,11 @@ nb:
       success: "Aspektet ditt, %{name}, har blitt endra."
     zero: "ingen aspekter"
   back: "Tilbake"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Avbryt"
   comments: 
     few: "%{count} kommentarer"
@@ -127,8 +130,8 @@ nb:
     create: 
       failure: "Kunne ikke opprette kontakt"
     destroy: 
-      failure: "Kunne ikke koble fra % {name}"
-      success: "Vellykket koblet fra % {name}"
+      failure: "Kunne ikke koble fra %{name}"
+      success: "Vellykket koblet fra %{name}"
     few: "%{count} kontakter"
     many: "%{count} kontakter"
     one: "1 kontakt"
@@ -136,7 +139,7 @@ nb:
     share_with_pane: 
       accepts: "Straks %{name} aksepterer, vil dere se hverandres innlegg på Diaspora"
       add_new_aspect: "legg til i nytt aspekt"
-      share_with: "Begynn å dele med % {name}"
+      share_with: "Begynn å dele med %{name}"
     zero: "ingen kontakter"
   conversations: 
     helper: 
