@@ -36,8 +36,6 @@ sv:
   all_aspects: "Alla aspekter"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alla aspekter"
       unknown_person: "okänd person"
       video_title: 
         unknown: "Okänd videotitel"
@@ -113,6 +111,11 @@ sv:
       success: "Din aspekt %{name} är nu ändrad."
     zero: "inga aspekter"
   back: "Tillbaka"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Avbryt"
   comments: 
     few: "%{count} kommentarer"

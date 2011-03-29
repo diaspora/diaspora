@@ -27,6 +27,7 @@ class StatusMessagesController < ApplicationController
 
   def bookmarklet 
     @aspects = current_user.aspects
+    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map{|x| x.id}
     render :layout => nil
   end

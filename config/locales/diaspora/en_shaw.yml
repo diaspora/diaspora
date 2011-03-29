@@ -36,8 +36,6 @@ en_shaw:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "𐑷𐑤 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
       unknown_person: "𐑩𐑯𐑯𐑴𐑯 𐑐𐑻𐑕𐑩𐑯"
       video_title: 
         unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
@@ -113,6 +111,11 @@ en_shaw:
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   back: "𐑚𐑨𐑒"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
   comments: 
     few: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"

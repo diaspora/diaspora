@@ -36,8 +36,6 @@ lt:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "All aspects"
       unknown_person: "nežinomas asmuo"
       video_title: 
         unknown: "Unknown Video Title"
@@ -113,6 +111,11 @@ lt:
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
     zero: "no aspects"
   back: "Atgal"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Atšaukti"
   comments: 
     few: "%{count} comments"

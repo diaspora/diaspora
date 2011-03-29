@@ -36,8 +36,6 @@ sl:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Vse skupine"
       unknown_person: "neznana oseba"
       video_title: 
         unknown: "Neznani video naslov"
@@ -113,6 +111,11 @@ sl:
       success: "Vaša skupina %{name} je bila uspešno posodobljena."
     zero: "no aspects"
   back: "Nazaj"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Prekliči"
   comments: 
     few: "%{count} comments"

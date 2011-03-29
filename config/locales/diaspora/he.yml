@@ -36,8 +36,6 @@ he:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "כל ההיבטים"
       unknown_person: "אדם לא ידוע"
       video_title: 
         unknown: "כותרת הווידאו אינה ידועה"
@@ -113,6 +111,11 @@ he:
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
     zero: "no aspects"
   back: "חזרה"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "ביטול"
   comments: 
     few: "%{count} comments"

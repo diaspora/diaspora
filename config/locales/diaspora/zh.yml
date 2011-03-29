@@ -36,8 +36,6 @@ zh:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "所有分组"
       unknown_person: "陌生人"
       video_title: 
         unknown: "未知的视频标题"
@@ -113,6 +111,11 @@ zh:
       success: "您的%{name}分组编辑完成。"
     zero: "no aspects"
   back: "后退"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "取消"
   comments: 
     few: "%{count} comments"

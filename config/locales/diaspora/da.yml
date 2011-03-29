@@ -36,8 +36,6 @@ da:
   all_aspects: "Alle aspekter"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alle aspekter"
       unknown_person: "Ukendt person"
       video_title: 
         unknown: "Ukendt videotitel"
@@ -113,6 +111,11 @@ da:
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
     zero: "ingen aspekter"
   back: "Tilbage"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Annullér"
   comments: 
     few: "%{count} kommentarer"

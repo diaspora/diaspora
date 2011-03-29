@@ -36,8 +36,6 @@ ar:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "All aspects"
       unknown_person: "شخص غير معروف"
       video_title: 
         unknown: "Unknown Video Title"
@@ -113,6 +111,11 @@ ar:
       success: ".بنجاح %{name} تم تعديل"
     zero: "no aspects"
   back: "Back"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Cancelar"
   comments: 
     few: "%{count} comments"

@@ -36,8 +36,6 @@ ga:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Gach gné"
       unknown_person: "duine anaithnid"
       video_title: 
         unknown: "Teideal Físeán Anaithnid"
@@ -113,6 +111,11 @@ ga:
       success: "D'eirigh le athrú do gné %{name}."
     zero: "no aspects"
   back: "Ar ais"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Cealaigh"
   comments: 
     few: "%{count} comments"

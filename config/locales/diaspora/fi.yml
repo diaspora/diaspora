@@ -36,8 +36,6 @@ fi:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Kaikki näkymät"
       unknown_person: "tuntematon henkilö"
       video_title: 
         unknown: "Videon Otsikko Tuntematon"
@@ -113,6 +111,11 @@ fi:
       success: "Näkymäsi, %{name}, muokkaus onnistui."
     zero: "ei näkymiä"
   back: "Takaisin"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Peruuta"
   comments: 
     few: "%{count} kommentia"

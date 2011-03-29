@@ -36,8 +36,6 @@ is:
   all_aspects: "All aspects"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Allar ásýndir"
       unknown_person: "óþekkt manneskja"
       video_title: 
         unknown: "Óþekktur vídeótitill"
@@ -113,6 +111,11 @@ is:
       success: "Ásýnd þinni,% {nafn}, hefur verið breytt."
     zero: "no aspects"
   back: "Til baka"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Hætta við"
   comments: 
     few: "%{count} comments"

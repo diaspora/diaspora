@@ -36,8 +36,6 @@ cs:
   all_aspects: "Všechny aspekty"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Všechny aspekty"
       unknown_person: "neznámá osoba"
       video_title: 
         unknown: "Neznámý název videa"
@@ -113,6 +111,11 @@ cs:
       success: "Váš aspekt, %{name}, byl úspěšně upraven."
     zero: "žádné aspekty"
   back: "Zpět"
+  bookmarklet: 
+    explanation: "%{link} odkudkoliv pomocí tohoto odkazu."
+    explanation_link_text: "Příspěvek do Diaspory"
+    post_something: "Poslat něco na Diasporu"
+    post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
   comments: 
     few: "%{count} komentáře"

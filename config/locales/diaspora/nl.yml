@@ -36,8 +36,6 @@ nl:
   all_aspects: "Alle aspecten"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Alle aspecten"
       unknown_person: "onbekend persoon"
       video_title: 
         unknown: "Onbekende Videotitel"
@@ -113,6 +111,11 @@ nl:
       success: "Je aspect, %{name}, is succesvol aangepast."
     zero: "geen aspecten"
   back: "Terug"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
   cancel: "Annuleren"
   comments: 
     few: "%{count} reacties"

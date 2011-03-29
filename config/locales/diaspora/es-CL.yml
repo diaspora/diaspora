@@ -36,8 +36,6 @@ es-CL:
   all_aspects: "Todos los Aspectos"
   application: 
     helper: 
-      aspect_badge: 
-        all_aspects: "Todos los Aspectos"
       unknown_person: "persona desconocida"
       video_title: 
         unknown: "Titulo de vídeo desconocido"
@@ -113,6 +111,11 @@ es-CL:
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
     zero: "ningún aspecto"
   back: "Atrás"
+  bookmarklet: 
+    explanation: "%{link} donde sea agregando a marcadores este link."
+    explanation_link_text: "Postea en Diaspora"
+    post_something: "Postea algo en Diaspora"
+    post_success: "Posteado! Cerrando!"
   cancel: "Cancelar"
   comments: 
     few: "%{count} comentarios"
