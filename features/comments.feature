@@ -48,7 +48,7 @@ Feature: commenting
     Then I should see "hahaha" within "li.comment div.content"
     And I should see "less than a minute ago" within "li.comment time"
 
-  Scenario: delete a post
+  Scenario: delete a comment 
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
     Then I should see "Look at this dog"

@@ -215,6 +215,7 @@ ActiveRecord::Schema.define(:version => 20110330230206) do
     t.integer  "post_id",    :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "hidden",     :null => false
     t.integer  "contact_id", :null => false
   end
 
