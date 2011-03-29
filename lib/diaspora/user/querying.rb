@@ -14,6 +14,7 @@ module Diaspora
         opts[:type] ||= ['StatusMessage', 'Photo']
         opts[:limit] ||= 20
         opts[:order] ||= 'created_at DESC'
+        opts[:order] = '`posts`.' + opts[:order]
 
         posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
         posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
