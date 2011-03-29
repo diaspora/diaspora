@@ -22,6 +22,7 @@ class ConversationsController < ApplicationController
   end
 
   def create
+    params[:contact_ids] = params[:as_values_contact_ids]
     person_ids = Contact.where(:id => params[:contact_ids].split(',')).map! do |contact|
       contact.person_id
     end
