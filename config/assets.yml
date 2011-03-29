@@ -62,6 +62,8 @@ javascripts:
   inbox:
     - public/javascripts/vendor/jquery.autoSuggest.js
     - public/javascripts/inbox.js
+  profile:
+    - public/javascripts/vendor/jquery.autoSuggest.js
 
 stylesheets:
   default:

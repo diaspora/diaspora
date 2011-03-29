@@ -2,6 +2,25 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :head do
+  = include_javascripts :profile
+
+:javascript
+  $(document).ready(function () {
+    var autocompleteInput = $("#profile_tag_string");
+
+    autocompleteInput.autoSuggest("#{tags_path}", {
+      selectedItemProp: "name",
+      searchObjProps: "name",
+      asHtmlID: "tag_ids",
+      keyDelay: 0,
+      startText: '',
+      emptyText: '#{t('.no_results')}',
+      });
+
+    autocompleteInput.focus();
+  });
+
 %h3
   = t('profiles.edit.your_public_profile')
 

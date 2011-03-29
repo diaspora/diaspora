@@ -21,6 +21,7 @@ Diaspora::Application.routes.draw do
   resources :comments, :only => [:create, :destroy]
 
   get 'tags/:name' => 'tags#show', :as => 'tag'
+  resources :tags, :only => [:index]
 
   resource :like, :only => [:create]
 
