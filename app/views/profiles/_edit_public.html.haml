@@ -7,7 +7,7 @@
 
 :javascript
   $(document).ready(function () {
-    var data = $.parseJSON( '#{@tags_array.to_json}' ),
+    var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
         autocompleteInput = $("#profile_tag_string");
 
 
