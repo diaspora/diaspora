@@ -9,6 +9,7 @@ module Diaspora
       def find_visible_post_by_id( id )
         post = Post.where(:id => id).joins(:contacts).where(:contacts => {:user_id => self.id}).first
         post ||= Post.where(:id => id, :author_id => self.person.id).first
+        post ||= Post.where(:id => id, :public => true).first
       end
 
       def raw_visible_posts(opts = {})
@@ -26,7 +27,7 @@ module Diaspora
             :aspect_memberships => {:aspect_id => opts[:by_members_of]})
           posts_from_self = posts_from_self.where(:aspects => {:id => opts[:by_members_of]})
         end
-        
+
         post_ids = Post.connection.execute(posts_from_others.select('posts.id').limit(opts[:limit]).order(opts[:order]).to_sql).map{|r| r.first}
         post_ids += Post.connection.execute(posts_from_self.select('posts.id').limit(opts[:limit]).order(opts[:order]).to_sql).map{|r| r.first}
 

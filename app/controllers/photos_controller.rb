@@ -139,8 +139,7 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = current_user.visible_photos.where(:id => params[:id]).first
-    @photo ||= Photo.where(:public => true, :id => params[:id]).first
+    @photo = current_user.find_visible_post_by_id(params[:id])
     if @photo
       @parent = StatusMessage.where(:id => @photo.status_message_id).includes(:photos).first if @photo.status_message_id
 
