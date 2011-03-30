@@ -32,7 +32,7 @@ class ConversationsController < ApplicationController
     if @conversation = Conversation.create(params[:conversation])
       Postzord::Dispatch.new(current_user, @conversation).post
 
-      flash[:notice] = "Message sent"
+      flash[:notice] = I18n.t('conversations.create.sent')
       if params[:profile]
         redirect_to person_path(params[:profile])
       else

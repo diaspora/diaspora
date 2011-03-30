@@ -11,7 +11,7 @@ class ConversationVisibilitiesController < ApplicationController
                                         :conversation_id => params[:conversation_id]).first
     if @vis
       if @vis.destroy
-        flash[:notice] = "Conversation successfully removed"
+        flash[:notice] = I18n.t('conversations.destroy.success')
       end
     end
     redirect_to conversations_path
