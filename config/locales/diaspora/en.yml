@@ -200,6 +200,10 @@ en:
         few: "%{count} new messages"
         many: "%{count} new messages"
         other: "%{count} new messages"
+    create:
+      sent: "Message sent"
+    destroy:
+      success: "Conversation successfully removed"
 
   date:
     formats:

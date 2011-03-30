@@ -7,7 +7,7 @@
 
 :javascript
   $(document).ready(function () {
-    var data = $.parseJSON( $('#tags_json').val() ),
+    var data = $.parseJSON( '#{@tags_array.to_json}' ),
         autocompleteInput = $("#profile_tag_string");
 
 
@@ -22,7 +22,7 @@
       minChars: 2,
       keyDelay: 0,
       startText: "#{t('profiles.edit.your_tags_placeholder')}",
-      emptyText: '#{t('no_results')}',
+      emptyText: "#{t('no_results')}",
       preFill: data
       });
 
@@ -36,7 +36,6 @@
   });
 
 
-= hidden_field_tag :tags_json, @tags_array.to_json
 %h3
   = t('profiles.edit.your_public_profile')
 

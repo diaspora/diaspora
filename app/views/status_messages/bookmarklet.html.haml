@@ -31,7 +31,6 @@
   });
 
 #new_status_message_pane
-  = hidden_field_tag :contact_json, @selected_contacts.map{|contact| contact.person}.to_json
   .span-15.last
     #facebox_header
       %h4
