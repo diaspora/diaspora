@@ -206,6 +206,10 @@ ca:
         few: "%{count} missatges nous"
         many: "%{count} missatges nous"
         other: "%{count} missatges nous"
+    create:
+      sent: "S'ha enviat el missatge"
+    destroy:
+      success: "S'ha suprimit la conversa amb èxit"
 
 
   date:
