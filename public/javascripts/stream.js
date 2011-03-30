@@ -8,6 +8,8 @@ var Stream = {
     var $stream = $(".stream");
     var $publisher = $("#publisher");
 
+    $(".status_message_delete").tipsy({trigger: 'hover', gravity: 'n'});
+
     Diaspora.widgets.timeago.updateTimeAgo();
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
     //audio linx

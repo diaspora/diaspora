@@ -72,6 +72,7 @@ Diaspora::Application.routes.draw do
 
   resources :contacts, :except => [:index, :update]
   resources :aspect_memberships, :only => [:destroy, :create, :update]
+  resources :post_visibilities, :only => [:destroy]
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages

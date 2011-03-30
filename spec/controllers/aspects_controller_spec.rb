@@ -9,6 +9,7 @@ describe AspectsController do
   render_views
 
   before do
+    @bob   = bob
     @alice = alice
     @alice.getting_started = false
     @alice.save
@@ -105,6 +106,23 @@ describe AspectsController do
           @posts << post
         end
         @alice.build_comment('lalala', :on => @posts.first ).save
+      end
+
+      describe "post visibilities" do
+        before do
+          @status = @bob.post(:status_message, :text=> "hello", :to => @bob.aspects.first)
+          @vis = @status.post_visibilities.first
+        end
+
+        it "pulls back non hidden posts" do
+          get :index
+          assigns[:posts].include?(@status).should be_true
+        end
+        it "does not pull back hidden posts" do
+          @vis.update_attributes( :hidden => true )
+          get :index
+          assigns[:posts].include?(@status).should be_false
+        end
       end
 
       describe "ordering" do

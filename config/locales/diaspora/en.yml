@@ -14,6 +14,7 @@ en:
   ok: "OK"
   cancel: "Cancel"
   delete: "Delete"
+  hide: "Hide"
   or: "or"
   ago: "%{time} ago"
   username: "Username"
@@ -431,6 +432,10 @@ en:
 
   posts:
     doesnt_exist: "that post does not exist!"
+
+  post_visibility:
+    destroy:
+      success: "Post successfully hidden"
 
   profiles:
     edit:

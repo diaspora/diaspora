@@ -9,28 +9,47 @@ describe PostVisibilitiesController do
 
   before do
     @user1 = alice
+    @bob = bob
     sign_in :user, @user1
 
+    a2 = bob.aspects.create(:name => "two")
+    a2.contacts << bob.contact_for(alice.person)
+    a2.save
+
    
-    status = @user1.post(:status_message, :text => "hello", :public => true, :to => 'all')
-    @vis = status.post_visibilities.first
-    pp @vis
+    @status = bob.post(:status_message, :text => "hello", :public => true, :to => a2)
+    @vis = @status.post_visibilities.first
     @vis.reload.hidden.should == false
   end
 
   describe '#destroy' do
-    it 'deletes the visibility' do
-      delete :destroy, :conversation_id => @vis.id
-      @vis.reload.hidden.should == true
+    context "on a post you can see" do
+      it 'succeeds' do
+        delete :destroy,  :id => 42, :post_id => @status.id
+        response.should be_success
+      end
+
+      it 'deletes the visibility' do
+        delete :destroy,  :id => 42, :post_id => @status.id
+        @vis.reload.hidden.should == true
+      end
+
     end
 
-    it 'does not let a user destroy a visibility that is not theirs' do
-      user2 = eve
-      sign_in :user, user2
-
-      lambda {
-        delete :destroy, :conversation_id => @vis.id
-      }.should_not change(@vis.reload, :hidden).to(true)
+    context "post you do not see" do
+      before do
+        user2 = eve
+        sign_in :user, user2
+      end
+      it 'does not let a user destroy a visibility that is not theirs' do
+        lambda {
+          delete :destroy, :id => 42, :post_id => @status.id
+        }.should_not change(@vis.reload, :hidden).to(true)
+      end
+      it 'does not succceed' do
+        delete :destroy,  :id => 42, :post_id => @status.id
+        response.should_not be_success
+      end
     end
   end
 end

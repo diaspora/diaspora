@@ -16,10 +16,11 @@ module Diaspora
         opts[:type] ||= ['StatusMessage', 'Photo']
         opts[:limit] ||= 20
         opts[:order] ||= 'updated_at DESC'
+        opts[:hidden] ||= false
         opts[:order] = '`posts`.' + opts[:order]
         opts[:limit] = opts[:limit].to_i * opts[:page].to_i if opts[:page]
 
-        posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
+        posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
         posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
 
         if opts[:by_members_of]

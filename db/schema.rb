@@ -212,15 +212,16 @@ ActiveRecord::Schema.define(:version => 20110330230206) do
   add_index "people", ["owner_id"], :name => "index_people_on_owner_id", :unique => true
 
   create_table "post_visibilities", :force => true do |t|
-    t.integer  "post_id",    :null => false
+    t.integer  "post_id",                       :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "hidden",     :null => false
-    t.integer  "contact_id", :null => false
+    t.boolean  "hidden",     :default => false, :null => false
+    t.integer  "contact_id",                    :null => false
   end
 
   add_index "post_visibilities", ["contact_id", "post_id"], :name => "index_post_visibilities_on_contact_id_and_post_id", :unique => true
   add_index "post_visibilities", ["contact_id"], :name => "index_post_visibilities_on_contact_id"
+  add_index "post_visibilities", ["hidden"], :name => "index_post_visibilities_on_hidden"
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|

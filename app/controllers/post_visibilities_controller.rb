@@ -7,13 +7,19 @@ class PostVisibilitiesController < ApplicationController
   before_filter :authenticate_user!
 
   def destroy
-    @vis = ConversationVisibility.where(:person_id => current_user.person.id,
-                                        :conversation_id => params[:conversation_id]).first
+    #note :id is garbage
+
+    @post = Post.where(:id => params[:post_id]).select("id, author_id").first
+    @contact = current_user.contact_for( @post.author)
+    @vis = PostVisibility.where(:contact_id => @contact.id,
+                                :post_id => params[:post_id]).first
     if @vis
-      if @vis.destroy
-        flash[:notice] = "Conversation successfully removed"
+      @vis.hidden = true
+      if @vis.save
+        render :nothing => true, :status => 200
+        return
       end
     end
-    redirect_to conversations_path
+    render :nothing => true, :status => 403
   end
 end

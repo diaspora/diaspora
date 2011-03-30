@@ -9,6 +9,9 @@
       - unless reshare_aspects.empty?
         = render 'shared/reshare', :aspects => reshare_aspects, :post => post
       = link_to image_tag('deletelabel.png'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
+  - else
+    .right.controls
+      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
 
   = person_image_link(post.author, :size => :thumb_small)
 

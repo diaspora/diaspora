@@ -49,10 +49,6 @@ When /^I click to delete the first post$/ do
   page.execute_script('$(".stream_element").first().find(".stream_element_delete").click()')
 end
 
-When /^I click to hide the first post$/ do
-  page.execute_script('$(".stream_element").first().find(".stream_element_hide").click()')
-end
-
 When /^I click to delete the first comment$/ do
   page.execute_script('$(".comment.posted").first().find(".comment_delete").click()')
 end
