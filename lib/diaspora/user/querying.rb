@@ -6,10 +6,10 @@ module Diaspora
   module UserModules
     module Querying
 
-      def find_visible_post_by_id( id )
-        post = Post.where(:id => id).joins(:contacts).where(:contacts => {:user_id => self.id}).first
-        post ||= Post.where(:id => id, :author_id => self.person.id).first
-        post ||= Post.where(:id => id, :public => true).first
+      def find_visible_post_by_id( id, opts={} )
+        post = Post.where(:id => id).joins(:contacts).where(:contacts => {:user_id => self.id}).where(opts).first
+        post ||= Post.where(:id => id, :author_id => self.person.id).where(opts).first
+        post ||= Post.where(:id => id, :public => true).where(opts).first
       end
 
       def raw_visible_posts(opts = {})
