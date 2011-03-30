@@ -36,10 +36,19 @@ module Diaspora
 <subtitle>Updates from #{x(@user.name)} on Diaspora</subtitle>
 <logo>#{@user.person.profile.image_url(:thumb_small)}</logo>
 <updated>#{Time.now.xmlschema}</updated>
-<link href="#{AppConfig[:pod_url]}/people/#{@user.person.id}" rel="alternative" type="text/html"/>
+      XML
+    end
+
+    def create_subject
+      <<-XML
 <author>
+  <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
   <name>#{x(@user.name)}</name>
-  <uri>#{@user.public_url}</uri>
+  <uri>"#{AppConfig[:pod_url]}/people/#{@user.person.id}"</uri>
+  <link href="#{@user.public_url}" rel="alternative" type="text/html"/>
+  <poco:preferredUsername>#{x(@user.username)}</poco:preferredUsername>
+  <poco:displayName>#{x(@user.person.name)}</poco:displayName>
+  <link rel="avatar" type="image/jpeg" media:width="100" media:height="100" href="#{@user.profile.image_url}"/>
 </author>
       XML
     end
@@ -48,18 +57,6 @@ module Diaspora
       <<-XML
 <link href="#{AppConfig[:pubsub_server]}" rel="hub"/>
 <link href="#{@user.public_url}.atom" rel="self" type="application/atom+xml"/>
-      XML
-    end
-
-    def create_subject
-      <<-XML
-<activity:subject>
-  <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
-  <id>#{@user.public_url}</id>
-  <title>#{x(@user.name)}</title>
-  <link rel="alternative" type="text/html" href="#{@user.public_url}"/>
-  <link rel="avatar" type="image/jpeg" media:width="100" media:height="100" href="#{@user.profile.image_url}"/>
-</activity:subject>
       XML
     end
 
