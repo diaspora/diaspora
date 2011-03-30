@@ -142,6 +142,10 @@ ml:
       share_with: "%{name} നോട് പങ്കിട്ട് തുടങ്ങുക"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
@@ -157,7 +161,6 @@ ml:
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
     new: 
-      no_results: "ഒരു ഫലവുമില്ല"
       send: "അയക്കു"
       subject: "വിഷയം"
       to: "to"
@@ -244,6 +247,7 @@ ml:
         zero: "no people liked this"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "also commented on your contact's"
     also_commented_deleted: "നീക്കം ചെയ്ത കുറിപ്പില്‍ അഭിപ്രായം രേഖപ്പെടുത്തി"

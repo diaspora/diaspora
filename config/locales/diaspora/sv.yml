@@ -33,7 +33,7 @@ sv:
             username: 
               taken: "är redan taget."
   ago: "%{time} sedan"
-  all_aspects: "Alla aspekter"
+  all_aspects: "Alla Aspekter"
   application: 
     helper: 
       unknown_person: "okänd person"
@@ -142,6 +142,10 @@ sv:
       share_with: "Börja dela med %{name}"
     zero: "inga kontakter"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nya meddelanden"
@@ -157,7 +161,6 @@ sv:
       no_conversation_selected: "ingen konversation vald"
       no_messages: "inga meddelanden"
     new: 
-      no_results: "Inga Resultat Hittades"
       send: "Skicka"
       subject: "ämne"
       to: "till"
@@ -244,6 +247,7 @@ sv:
         zero: "inga personer gillade dethär"
   more: "Mer"
   next: "nästa"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "kommenterade även %{post_author}s"
     also_commented_deleted: "kommenterade ett borttaget inlägg"

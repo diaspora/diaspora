@@ -142,6 +142,10 @@ de:
       share_with: "Beginne Inhalte mit %{name} zu teilen"
     zero: "Keine Kontakte"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} neue Nachrichten"
@@ -157,7 +161,6 @@ de:
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new: 
-      no_results: "Keine Ergebnisse Gefunden"
       send: "Senden"
       subject: "Betreff"
       to: "An"
@@ -244,6 +247,7 @@ de:
         zero: "Keinem gefällt das"
   more: "Mehr"
   next: "Nächste"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "kommentierte auch %{post_author}s"
     also_commented_deleted: "kommentierte einen gelöschten Beitrag"

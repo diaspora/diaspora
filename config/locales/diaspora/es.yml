@@ -33,7 +33,7 @@ es:
             username: 
               taken: "ya está ocupado."
   ago: "hace %{time} "
-  all_aspects: "Todos los contactos"
+  all_aspects: "Todos"
   application: 
     helper: 
       unknown_person: "persona desconocida"
@@ -113,7 +113,7 @@ es:
   back: "Atrás"
   bookmarklet: 
     explanation: "%{link} donde sea agregando a tus marcadores este enlace."
-    explanation_link_text: "Publicar en Diaspora"
+    explanation_link_text: "Publica en Diaspora"
     post_something: "Publica algo en Diaspora"
     post_success: "Publicado! Cerrando!"
   cancel: "Cancelar"
@@ -142,6 +142,10 @@ es:
       share_with: "Empezar a compartir con %{name}"
     zero: "no hay contactos"
   conversations: 
+    create: 
+      sent: "Mensaje enviado"
+    destroy: 
+      success: "Conversación eliminada con éxito"
     helper: 
       new_messages: 
         few: "%{count} nuevos mensajes"
@@ -157,7 +161,6 @@ es:
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "Sin mensajes"
     new: 
-      no_results: "No se encontraron resultados"
       send: "Enviar"
       subject: "Asunto"
       to: "para"
@@ -244,6 +247,7 @@ es:
         zero: "a nadie le gusta esto"
   more: "Más"
   next: "Siguiente"
+  no_results: "No hay resultados"
   notifications: 
     also_commented: "también ha comentado en la publicación de %{post_author}"
     also_commented_deleted: "comentó en una publicación eliminada"

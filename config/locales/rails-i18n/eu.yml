@@ -1,65 +1,74 @@
 # Basque translations for Rails
 # by Esti Alvarez (esti@efaber.net)
 
+
 "eu":
-  # Action View
+  date:
+    formats:
+      default: "%Y/%m/%e"
+      short: "%b %e"
+      long: "%Y(e)ko %Bk %e"
+
+    day_names: [Igandea, Astelehena, Asteartea, Asteazkena, Osteguna, Ostirala, Larunbata]
+    abbr_day_names: [Igan, Astel, Astear, Asteaz, Oste, Osti, Lar]
+
+    month_names: [~, Urtarrila, Otsaila, Martxoa, Apirila, Maiatza, Ekaina, Uztaila, Abuztua, Iraila, Urria, Azaroa, Abendua]
+    abbr_month_names: [~, Urt, Ots, Mar, Api, Mai, Eka, Uzt, Abu, Ira, Urr, Aza, Aben]
+    order:
+      - :year
+      - :month
+      - :day
+
+  time:
+    formats:
+      default: "%A, %Y(e)ko %Bren %e %H:%M:%S %z"
+      short: "%b %e, %H:%M"
+      long: "%Y(e)ko %Bren %e,  %H:%M"
+    am: "am"
+    pm: "pm"
+
+  # Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " eta "
+      last_word_connector: " eta "
+
+    select:
+      prompt: "Aukeratu mesedez"
+
   number:
-    # Used in number_with_delimiter()
-    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
-      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
       separator: ","
-      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
       delimiter: "."
-      # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
       precision: 3
-      # If set to true, precision will mean the number of significant digits instead
-      # of the number of decimal digits (1234 with precision 2 becomes 1200, 1.23543 becomes 1.2)
       significant: false
-      # If set, the zeros after the decimal separator will always be stripped (eg.: 1.200 will be 1.2)
       strip_insignificant_zeros: false
 
-    # Used in number_to_currency()
     currency:
       format:
-        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
         format: "%n %u"
         unit: "€"
-        # These three are to override number.format and are optional
         separator: ","
         delimiter: "."
         precision: 2
         significant: false
         strip_insignificant_zeros: false
 
-    # Used in number_to_percentage()
     percentage:
       format:
-        # These three are to override number.format and are optional
-        # separator:
         delimiter: ""
-        # precision:
 
-    # Used in number_to_precision()
     precision:
       format:
-        # These three are to override number.format and are optional
-        # separator:
         delimiter: ""
-        # precision:
-        # significant: false
-        # strip_insignificant_zeros: false
 
-    # Used in number_to_human_size()
     human:
       format:
-        # These three are to override number.format and are optional
-        # separator:
         delimiter: ""
-        precision: 1
+        precision: 3
         significant: true
         strip_insignificant_zeros: true
-      # Used in number_to_human_size()
       storage_units:
         format: "%n %u"
         units:
@@ -70,33 +79,16 @@
           mb: "MB"
           gb: "GB"
           tb: "TB"
-      # Used in number_to_human()
       decimal_units:
         format: "%n %u"
-        # Decimal units output formatting
-        # By default we will only quantify some of the exponents
-        # but the commented ones might be defined or overridden
-        # by the user.
         units:
-          # femto: Quadrillionth
-          # pico: Trillionth
-          # nano: Billionth
-          # micro: Millionth
-          # mili: Thousandth
-          # centi: Hundredth
-          # deci: Tenth
           unit: ""
-          # ten:
-          #   one: Ten
-          #   other: Tens
-          # hundred: Hundred
           thousand: "Mila"
           million: "Milioi"
           billion: "Mila milioi"
           trillion: "Trilioi"
           quadrillion: "Kuatrilioi"
 
-  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
       half_a_minute: "minutu erdi"
@@ -143,70 +135,17 @@
 
   helpers:
     select:
-      # Default value for :prompt => true in FormOptionsHelper
       prompt: "Mesedez, aukeratu"
 
-    # Default translation keys for submit FormHelper
     submit:
       create: '%{model}a eratu'
       update: '%{model}a eguneratu'
       submit: '%{model}a gorde'
 
-  # Attributes names common to most models
-  #attributes:
-    #created_at: "Sortze data"
-    #updated_at: "Eguneratze data"
-
-  # Active Record models configuration
-  activerecord:
-    errors:
-      messages:
-        taken: "hartuta dago"
-        record_invalid: "Balioztatze arazoa: %{errors}"
-        # Append your own errors here or at the model/attributes scope.
-
-      # You can define own errors for models or model attributes.
-      # The values :model, :attribute and :value are always available for interpolation.
-      #
-      # For example,
-      #   models:
-      #     user:
-      #       blank: "This is a custom blank message for %{model}: %{attribute}"
-      #       attributes:
-      #         login:
-      #           blank: "This is a custom blank message for User login"
-      # Will define custom blank validation message for User model and 
-      # custom blank validation message for login attribute of User model.
-      #models:
-
-    # Translate model names. Used in Model.human_name().
-    #models:
-      # For example,
-      #   user: "Dude"
-      # will translate User model name to "Dude"
-
-    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
-    #attributes:
-      # For example,
-      #   user:
-      #     login: "Handle"
-      # will translate User attribute "login" as "Handle"
-
-  # Active Model
   errors:
-    # The default format to use in full error messages.
     format: "%{attribute} %{message}"
 
-    template:
-      header:
-        one:   "Errore batek ezinezkoa egin du {{model}} hau gordetzea"
-        other:  "{{count}} errorek ezinezkoa egiten dute {{model}} hau gordetzea"
-      # The variable :count is also available
-      body: "Arazoak egon dira ondoko eremuekin:"
-
-    # The values :model, :attribute and :value are always available for interpolation
-    # The value :count is available when applicable. Can be used for pluralization.
-    messages:
+    messages: &errors_messages
       inclusion: "ez da zerrendako aukera bat"
       exclusion: "erreserbatuta dago"
       invalid: "ez da zuzena"
@@ -218,6 +157,7 @@
       too_short: "laburregia da (%{count} karaktere gutxienez)"
       wrong_length: "ez du luzeera zuzena (%{count} karaktere izan behar ditu)"
       not_a_number: "ez da zenbaki bat"
+      not_an_integer: "zenbaki osoa izan behar da"
       greater_than: "%{count} baino handiagoa izan behar da"
       greater_than_or_equal_to: "%{count} baino handiago edo berdin izan behar da"
       equal_to: "%{count} izan behar da"
@@ -226,39 +166,19 @@
       odd: "bakoitia izan behar du"
       even: "bikoitia izan behar du"
 
-  # Active Support
-  date:
-    formats:
-      # Use the strftime parameters for formats.
-      # When no format has been given, it uses default.
-      # You can provide other formats here if you like!
-      default: "%Y/%m/%e"
-      short: "%b %e"
-      long: "%Y(e)ko %Bk %e"
+  activerecord:
+    errors:
+      template:
+        header:
+          one:   "Errore batek ezinezkoa egin du {{model}} hau gordetzea"
+          other:  "{{count}} errorek ezinezkoa egiten dute {{model}} hau gordetzea"
+        body: "Arazoak egon dira ondoko eremuekin:"
 
-    day_names: [Igandea, Astelehena, Asteartea, Asteazkena, Osteguna, Ostirala, Larunbata]
-    abbr_day_names: [Igan, Astel, Astear, Asteaz, Oste, Osti, Lar]
+      messages:
+        taken: "hartuta dago"
+        record_invalid: "Balioztatze arazoa: %{errors}"
+        <<: *errors_messages
 
-    # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, Urtarrila, Otsaila, Martxoa, Apirila, Maiatza, Ekaina, Uztaila, Abuztua, Iraila, Urria, Azaroa, Abendua]
-    abbr_month_names: [~, Urt, Ots, Mar, Api, Mai, Eka, Uzt, Abu, Ira, Urr, Aza, Aben]
-    # Used in date_select and datime_select.
-    order:
-      - :year
-      - :month
-      - :day
+      full_messages:
+        format: "%{attribute}%{message}"
 
-  time:
-    formats:
-      default: "%A, %Y(e)ko %Bren %e %H:%M:%S %z"
-      short: "%b %e, %H:%M"
-      long: "%Y(e)ko %Bren %e,  %H:%M"
-    am: "am"
-    pm: "pm"
-
-  # Used in array.to_sentence.
-  support:
-    array:
-      words_connector: ", "
-      two_words_connector: " eta "
-      last_word_connector: " eta "

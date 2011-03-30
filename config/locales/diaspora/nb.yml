@@ -112,10 +112,10 @@ nb:
     zero: "ingen aspekter"
   back: "Tilbake"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."
+    explanation_link_text: "Post på Diaspora"
+    post_something: "Post noe på Diaspora"
+    post_success: "Postet! Lukker!"
   cancel: "Avbryt"
   comments: 
     few: "%{count} kommentarer"
@@ -142,6 +142,10 @@ nb:
       share_with: "Begynn å dele med %{name}"
     zero: "ingen kontakter"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nye meldinger"
@@ -157,7 +161,6 @@ nb:
       no_conversation_selected: "ingen samtaler valgt"
       no_messages: "ingen meldinger"
     new: 
-      no_results: "Ingen resultater funnet"
       send: "Send"
       subject: "emne"
       to: "til"
@@ -231,19 +234,20 @@ nb:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} folk misliker dette"
-        many: "%{count} folk misliker dette"
+        few: "%{count} personer misliker dette"
+        many: "%{count} personer misliker dette"
         one: "1 person misliker dette"
-        other: "%{count} folk misliker dette"
+        other: "%{count} personer misliker dette"
         zero: "ingen misliker dette"
       people_like_this: 
-        few: "%{count} folk liker dette"
-        many: "%{count} folk liker dette"
+        few: "%{count} personer liker dette"
+        many: "%{count} personer liker dette"
         one: "1 person liker dette"
-        other: "%{count} folk liker dette"
+        other: "%{count} personer liker dette"
         zero: "ingen liker dette"
   more: "Mer"
   next: "neste"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "kommenterte et slettet innlegg"
@@ -295,7 +299,7 @@ nb:
       subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
       accepted: "has accepted your friend request. They are now in your"
-      sign_in: "Sign in here"
+      sign_in: "Logg inn her"
       subject: "%{name} has accepted your friend request on Diaspora*"
     single_admin: 
       admin: "Din Diaspora administrator"
@@ -310,7 +314,7 @@ nb:
       add_contact_from_tag: "legg til kontakt fra tag"
     aspect_list: 
       edit_membership: "endre aspektmedlemskap"
-    few: "%{count} folk"
+    few: "%{count} personer"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " resultater for %{params}"
@@ -319,9 +323,9 @@ nb:
       no_one_found: "...og ingen ble funnet."
       no_results: "Hei! Du må søke etter noe."
       results_for: "søkeresultater for"
-    many: "%{count} folk"
+    many: "%{count} personer"
     one: "1 person"
-    other: "%{count} folk"
+    other: "%{count} personer"
     person: 
       add_contact: "legg til kontakt"
       already_connected: "Allerede tilkoblet"
@@ -351,11 +355,11 @@ nb:
       return_to_aspects: "Tilbake til aspektene"
       similar_contacts: "lignende kontakter"
       start_sharing: "begynn å dele"
-      to_accept_or_ignore: "to accept or ignore it."
+      to_accept_or_ignore: "for å akseptere eller ignorere."
       you_have_no_tags: "du har ingen tagger!"
     webfinger: 
       fail: "Beklager, vi kunne ikke finne %{handle}."
-    zero: "ingen folk"
+    zero: "ingen personer"
   photos: 
     create: 
       integrity_error: "Bildeopplastning mislyktes. Er du sikker på det var et bilde?"
@@ -379,7 +383,7 @@ nb:
     photo: 
       view_all: "se alle bildene til %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "kolleksjon permalink"
       delete_photo: "Slett bilde"
       edit: "rediger"
       edit_delete_photo: "Rediger bildebeskrivelse / slett bilde"
@@ -410,7 +414,7 @@ nb:
       your_photo: "Ditt profilbilde"
       your_private_profile: "Din private profil"
       your_public_profile: "Din offentlige profil"
-      your_tags: "You: in 5 #tags"
+      your_tags: "Deg: i 5 #tagger"
       your_tags_placeholder: "f.eks. #diaspora #matlaging #skiskyting #musikk"
     update: 
       failed: "Kunne ikke oppdatere profil"
@@ -536,7 +540,7 @@ nb:
     helper: 
       no_message_to_display: "Ingen melding å vise."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Nevner: %{person}"
     show: 
       destroy: "Utslett"
       not_found: "Beklager, vi kunne ikke finne innlegget."

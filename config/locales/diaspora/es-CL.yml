@@ -142,6 +142,10 @@ es-CL:
       share_with: "Empezar a compartir con %{name}"
     zero: "no hay contactos"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nuevos mensajes"
@@ -157,7 +161,6 @@ es-CL:
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "Sin mensajes"
     new: 
-      no_results: "Ningún resultado encontrado"
       send: "Enviar"
       subject: "asunto"
       to: "para"
@@ -244,6 +247,7 @@ es-CL:
         zero: "a ninguna persona le gusta esto"
   more: "Más"
   next: "Siguiente"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "también comentó en el post de %{post_author}"
     also_commented_deleted: "Comentó en un post eliminado"

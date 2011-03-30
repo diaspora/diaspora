@@ -142,6 +142,10 @@ en_shaw:
       share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
@@ -157,7 +161,6 @@ en_shaw:
       no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
       no_messages: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     new: 
-      no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
       send: "𐑕𐑧𐑯𐑛"
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
@@ -244,6 +247,7 @@ en_shaw:
         zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "(e)k iruzkindu du %{post_author}(r)en mezuan ere"
     also_commented_deleted: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑"

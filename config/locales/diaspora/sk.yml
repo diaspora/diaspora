@@ -142,6 +142,10 @@ sk:
       share_with: "Start sharing with %{name}"
     zero: "žiadne kontakty"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} new messages"
@@ -157,7 +161,6 @@ sk:
       no_conversation_selected: "no conversation selected"
       no_messages: "žiadne správy"
     new: 
-      no_results: "No Results Found"
       send: "Poslať"
       subject: "predmet"
       to: "komu"
@@ -244,6 +247,7 @@ sk:
         zero: "no people liked this"
   more: "Viac"
   next: "ďalej"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"

@@ -142,6 +142,10 @@ hu:
       share_with: "Megosztás indítása vele: %{name}"
     zero: "nincs ismerős"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} új üzenet"
@@ -157,7 +161,6 @@ hu:
       no_conversation_selected: "nincs beszélgetés kiválasztva"
       no_messages: "nincs üzenet"
     new: 
-      no_results: "Nincs eredmény"
       send: "Küldés"
       subject: "tárgy"
       to: "címzett"
@@ -244,6 +247,7 @@ hu:
         zero: "senki nem kedveli"
   more: "Bővebben"
   next: "következő"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "hozzászólt még az övéhez is:"
     also_commented_deleted: "hozzászólt egy már törölt bejegyzéshez"

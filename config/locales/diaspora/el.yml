@@ -112,10 +112,10 @@ el:
     zero: "καμία πτυχή"
   back: "Πίσω"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο."
+    explanation_link_text: "Δημοσιεύστε στο Diaspora"
+    post_something: "Δημοσιεύστε κάτι στο Diaspora"
+    post_success: "Δημοσιεύτηκε! Κλείνει!"
   cancel: "Ακύρωση"
   comments: 
     few: "%{count} σχόλια"
@@ -142,6 +142,10 @@ el:
       share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     zero: "καμία επαφή"
   conversations: 
+    create: 
+      sent: "Μήνυμα εστάλη"
+    destroy: 
+      success: "Η συζήτηση αφαιρέθηκε επιτυχώς"
     helper: 
       new_messages: 
         few: "%{count} νέα μηνύματα"
@@ -157,7 +161,6 @@ el:
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
       no_messages: "κανένα μήνυμα"
     new: 
-      no_results: "Δεν βρέθηκαν αποτελέσματα"
       send: "Αποστολή"
       subject: "θέμα"
       to: "στον"
@@ -244,6 +247,7 @@ el:
         zero: "σε κανέναν δεν αρέσει"
   more: "Περισσότερα"
   next: "επόμενο"
+  no_results: "Δεν βρέθηκαν αποτελέσματα"
   notifications: 
     also_commented: "επίσης σχολίασε τη %{post_author}"
     also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση"

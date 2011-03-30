@@ -113,7 +113,7 @@ da:
   back: "Tilbage"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
+    explanation_link_text: "Post på Diaspora"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "Annullér"
@@ -142,6 +142,10 @@ da:
       share_with: "Begynd at dele med %{name}"
     zero: "Ingen kontaktpersoner"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nye beskeder"
@@ -157,7 +161,6 @@ da:
       no_conversation_selected: "ingen samtale valgt"
       no_messages: "ingen beskeder"
     new: 
-      no_results: "Fandt ingen resultater."
       send: "Send"
       subject: "emne"
       to: "til"
@@ -244,6 +247,7 @@ da:
         zero: "ingen personer kunne lide det"
   more: "Mere"
   next: "Næste"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "kommenterede også på %{post_author}'s"
     also_commented_deleted: "kommenterede på en slettet post"

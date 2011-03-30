@@ -112,10 +112,10 @@ gl:
     zero: "non hai aspectos"
   back: "Volver"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} dende calquer sitio engadíndoo a bookmarks."
+    explanation_link_text: "Publicar en Diaspora"
+    post_something: "Publicar algo en Diaspora\n"
+    post_success: "Publicado! Pechando!"
   cancel: "Cancelar"
   comments: 
     few: "%{count} comentarios"
@@ -142,6 +142,10 @@ gl:
       share_with: "Comezar a compartir con %{name}"
     zero: "Non hai contactos"
   conversations: 
+    create: 
+      sent: "Mensaxe enviada"
+    destroy: 
+      success: "Conversación borrada"
     helper: 
       new_messages: 
         few: "%{count} novas mensaxes"
@@ -157,7 +161,6 @@ gl:
       no_conversation_selected: "non se seleccionou conversación"
       no_messages: "sen mensaxes"
     new: 
-      no_results: "Sen resultados"
       send: "Enviar"
       subject: "asunto"
       to: "para"
@@ -244,6 +247,7 @@ gl:
         zero: "A ninguén lle gustou"
   more: "Máis"
   next: "seguinte"
+  no_results: "Sen resultados\n"
   notifications: 
     also_commented: "tamén comentou nos de %{post_author}"
     also_commented_deleted: "comentou nunha publicación eliminada"

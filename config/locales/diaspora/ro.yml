@@ -142,6 +142,10 @@ ro:
       share_with: "Start sharing with %{name}"
     zero: "nici un contact"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} new messages"
@@ -157,7 +161,6 @@ ro:
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
     new: 
-      no_results: "No Results Found"
       send: "Send"
       subject: "subject"
       to: "to"
@@ -244,6 +247,7 @@ ro:
         zero: "no people liked this"
   more: "Mai mult"
   next: "următorul"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "also commented on"
     also_commented_deleted: "commented on a deleted post"

@@ -112,10 +112,10 @@ fr:
     zero: "aucun aspect"
   back: "Retour"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} depuis n'importe où en prenant note de ce lien."
+    explanation_link_text: "Publier sur Diaspora"
+    post_something: "Publier quelque chose sur Diaspora"
+    post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
   comments: 
     few: "%{count} commentaires"
@@ -142,6 +142,10 @@ fr:
       share_with: "Commencer à partager avec %{name}"
     zero: "aucun contact"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nouveaux messages"
@@ -157,7 +161,6 @@ fr:
       no_conversation_selected: "aucune conversation sélectionnée"
       no_messages: "aucun message"
     new: 
-      no_results: "Aucun résultat trouvé"
       send: "Envoyer"
       subject: "sujet"
       to: "pour"
@@ -244,6 +247,7 @@ fr:
         zero: "Personne n'aime"
   more: "Plus"
   next: "suivant"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "a/ont également commenté"
     also_commented_deleted: "a commenté un message supprimé"

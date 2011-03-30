@@ -142,6 +142,10 @@ nl:
       share_with: "Start delen met %{name}"
     zero: "geen contacten"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nieuwe berichten"
@@ -157,7 +161,6 @@ nl:
       no_conversation_selected: "geen conversatie geselecteerd"
       no_messages: "geen berichten"
     new: 
-      no_results: "Geen resultaten gevonden"
       send: "Verstuur"
       subject: "onderwerp"
       to: "aan"
@@ -244,6 +247,7 @@ nl:
         zero: "niemand vindt dit leuk"
   more: "Meer"
   next: "volgende"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
     also_commented_deleted: "reageerde op een verwijderde post"

@@ -142,6 +142,10 @@ it:
       share_with: "Inizia a condividere con %{name}"
     zero: "nessun contatto"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} new messages"
@@ -157,7 +161,6 @@ it:
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
     new: 
-      no_results: "No Results Found"
       send: "Send"
       subject: "subject"
       to: "to"
@@ -244,6 +247,7 @@ it:
         zero: "no people liked this"
   more: "Altro"
   next: "successivo"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "ha anche commentato su quello di %{post_author}"
     also_commented_deleted: "hai commentato un post cancellato"

@@ -112,10 +112,10 @@ eu:
     zero: "alderdirik ez"
   back: "Atzera"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} edozein lekutik esteka hau markagailuetarantz herresta eginez."
+    explanation_link_text: "Diasporan partekatu"
+    post_something: "Partekatu zerbait Diasporan"
+    post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"
   comments: 
     few: "%{count} iruzkin"
@@ -142,6 +142,10 @@ eu:
       share_with: "%{name}(r)ekin harremanetan hasi"
     zero: "adiskiderik ez"
   conversations: 
+    create: 
+      sent: "Mezua arrakastaz bidali da"
+    destroy: 
+      success: "Elkarrizketa arrakastaz ezabatua"
     helper: 
       new_messages: 
         few: "%{count} mezu pribatu berri"
@@ -157,7 +161,6 @@ eu:
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
       no_messages: "mezurik ez"
     new: 
-      no_results: "Ez da ezer aurkitu"
       send: "Bidali"
       subject: "gaia"
       to: "nori:"
@@ -244,6 +247,7 @@ eu:
         zero: "hau ez du inork gustoko"
   more: "Gehiago"
   next: "hurrengoa"
+  no_results: "Ez Da Ezer Aurkitu"
   notifications: 
     also_commented: "(e)k iruzkindu du baita zure kontaktuaren"
     also_commented_deleted: "mezu ezabatu bat iruzkindu du"

@@ -113,9 +113,9 @@ zh-TW:
   back: "後退"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation_link_text: "貼到 Diaspora"
+    post_something: "貼些東西到 Diaspora"
+    post_success: "貼好了! 關掉中!"
   cancel: "取消"
   comments: 
     few: "%{count}則回應"
@@ -142,6 +142,10 @@ zh-TW:
       share_with: "開始跟 %{name} 分享"
     zero: "沒有任何聯繫"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count}則新訊息"
@@ -157,7 +161,6 @@ zh-TW:
       no_conversation_selected: "未選取任何對話"
       no_messages: "沒有訊息"
     new: 
-      no_results: "沒有結果"
       send: "傳送"
       subject: "主旨"
       to: "收件人"
@@ -244,6 +247,7 @@ zh-TW:
         zero: "沒有人喜歡"
   more: "更多"
   next: "後面"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "也在別處發表了意見, 在 %{post_author} 的"
     also_commented_deleted: "對已刪除的貼文發表意見"

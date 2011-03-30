@@ -142,6 +142,10 @@ cs:
       share_with: "Začít sdílet s %{name}"
     zero: "žádné kontakty"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} nové zprávy"
@@ -157,7 +161,6 @@ cs:
       no_conversation_selected: "není výbrána žádná konverzace"
       no_messages: "žádné zprávy"
     new: 
-      no_results: "Nebyly nalezeny žádné výsledky"
       send: "Poslat"
       subject: "předmět"
       to: "pro"
@@ -244,6 +247,7 @@ cs:
         zero: "žádná kladná hodnocení"
   more: "Více"
   next: "další"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "také komentoval v %{post_author}"
     also_commented_deleted: "komentován smazaný příspěvek"

@@ -142,6 +142,10 @@ he:
       share_with: "התחלת השיתוף עם %{name}"
     zero: "אין אנשי קשר"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} new messages"
@@ -157,7 +161,6 @@ he:
       no_conversation_selected: "לא נבחר דיון"
       no_messages: "אין הודעות"
     new: 
-      no_results: "לא נמצאו תוצאות"
       send: "שליחה"
       subject: "נושא"
       to: "אל"
@@ -244,6 +247,7 @@ he:
         zero: "no people liked this"
   more: "המשך"
   next: "הבאה"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "גם כן הגיב/ה על הפריט של %{post_author}"
     also_commented_deleted: "הגיב/ה על רשומה שנמחקה"

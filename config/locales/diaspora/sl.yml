@@ -142,6 +142,10 @@ sl:
       share_with: "Start sharing with %{name}"
     zero: "brez stikov"
   conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
     helper: 
       new_messages: 
         few: "%{count} new messages"
@@ -157,7 +161,6 @@ sl:
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
     new: 
-      no_results: "No Results Found"
       send: "Send"
       subject: "subject"
       to: "to"
@@ -244,6 +247,7 @@ sl:
         zero: "no people liked this"
   more: "More"
   next: "naslednja"
+  no_results: "No Results Found"
   notifications: 
     also_commented: "komentirano tudi na vaših stikih"
     also_commented_deleted: "commented on a deleted post"
