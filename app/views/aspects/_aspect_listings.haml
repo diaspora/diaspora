@@ -10,4 +10,4 @@
 
 %ul
   - for aspect in aspects
-    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts.where(:pending => false).limit(16).includes(:person => :profile)
+    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts.reject{|x| x.pending == true}
