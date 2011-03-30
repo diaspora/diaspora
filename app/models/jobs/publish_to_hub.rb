@@ -8,7 +8,8 @@ module Job
 
     def self.perform_delegate(sender_public_url)
       require File.join(Rails.root, 'lib/pubsubhubbub')
-      Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(sender_public_url)
+      atom_url = sender_public_url + '.atom'
+      Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(atom_url)
     end
   end
 end
