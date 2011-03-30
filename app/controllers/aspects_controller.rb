@@ -98,12 +98,21 @@ class AspectsController < ApplicationController
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-    @contacts = current_user.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }.reverse!
+    
+    @contacts_in_aspect = @aspect.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    c = Contact.arel_table
+    @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    
+    pp @contacts_not_in_aspect 
+    pp @contacts_in_aspect 
+
+    @contacts = @contacts_in_aspect + @contacts_not_in_aspect
+
     unless @aspect
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
     else
       @aspect_ids = [@aspect.id]
-      @aspect_contacts_count = @aspect.contacts.length
+      @aspect_contacts_count = @aspect.contacts.size
       render :layout => false
     end
   end

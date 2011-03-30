@@ -295,17 +295,29 @@ describe AspectsController do
       @eve.profile.first_name = nil
       @eve.profile.save
       @eve.save
+
+      @zed   = Factory(:user_with_aspect, :username => "zed")
+      @zed.profile.first_name = "zed"
+      @zed.profile.save
+      @zed.save
+      @katz   = Factory(:user_with_aspect, :username => "katz")
+      @katz.profile.first_name = "katz"
+      @katz.profile.save
+      @katz.save
+
     end
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
       response.should be_success
     end
 
-    it 'assigns the contacts in alphabetical order' do
-      connect_users(@alice, @alices_aspect_1, @eve, @eve.aspects.first)
+    it 'assigns the contacts in alphabetical order with people in aspects first' do
+      connect_users(@alice, @alices_aspect_2, @eve, @eve.aspects.first)
+      connect_users(@alice, @alices_aspect_2, @zed, @zed.aspects.first)
+      connect_users(@alice, @alices_aspect_1, @katz, @katz.aspects.first)
       
-      get :edit, :id => @alices_aspect_1.id
-      assigns[:contacts].should == [@alice.contact_for(@eve.person), @alice.contact_for(@bob.person)]
+      get :edit, :id => @alices_aspect_2.id
+      assigns[:contacts].map(&:id).should == [@alice.contact_for(@eve.person), @alice.contact_for(@zed.person), @alice.contact_for(@bob.person), @alice.contact_for(@katz.person)].map(&:id)
     end
   end
 
