@@ -9,8 +9,7 @@ require File.join(Rails.root, 'lib/postzord/dispatch')
 
 describe Postzord::Dispatch do
   before do
-    @user = alice
-    @sm = Factory(:status_message, :public => true)
+    @sm = Factory(:status_message, :public => true, :author => alice.person)
     @subscribers = []
     5.times{@subscribers << Factory(:person)}
     @sm.stub!(:subscribers)
@@ -19,40 +18,39 @@ describe Postzord::Dispatch do
 
   describe '.initialize' do
     it 'takes an sender(User) and object (responds_to #subscibers) and sets then to @sender and @object' do
-      zord = Postzord::Dispatch.new(@user, @sm)
-      zord.instance_variable_get(:@sender).should == @user
+      zord = Postzord::Dispatch.new(alice, @sm)
+      zord.instance_variable_get(:@sender).should == alice
       zord.instance_variable_get(:@object).should == @sm
     end
 
     it 'sets @subscribers from object' do
       @sm.should_receive(:subscribers).and_return(@subscribers)
-      zord = Postzord::Dispatch.new(@user, @sm)
+      zord = Postzord::Dispatch.new(alice, @sm)
       zord.instance_variable_get(:@subscribers).should == @subscribers
     end
 
     it 'sets the @sender_person object' do
-      zord = Postzord::Dispatch.new(@user, @sm)
-      zord.instance_variable_get(:@sender_person).should == @user.person
+      zord = Postzord::Dispatch.new(alice, @sm)
+      zord.instance_variable_get(:@sender_person).should == alice.person
     end
 
     it 'raises and gives you a helpful message if the object can not federate' do
-      proc{ Postzord::Dispatch.new(@user, [])
+      proc{ Postzord::Dispatch.new(alice, [])
       }.should raise_error /Diaspora::Webhooks/
     end
   end
 
   it 'creates a salmon base object' do
-    zord = Postzord::Dispatch.new(@user, @sm)
+    zord = Postzord::Dispatch.new(alice, @sm)
     zord.salmon.should_not be nil
   end
 
   context 'instance methods' do
     before do
-      @local_user = eve
-      @subscribers << @local_user.person
+      @subscribers << bob.person
       @remote_people, @local_people = @subscribers.partition{ |person| person.owner_id.nil? }
       @sm.stub!(:subscribers).and_return @subscribers
-      @zord =  Postzord::Dispatch.new(@user, @sm)
+      @zord =  Postzord::Dispatch.new(alice, @sm)
     end
 
     describe '#post' do
@@ -210,21 +208,21 @@ describe Postzord::Dispatch do
     describe '#deliver_to_remote' do
       before do
         @remote_people = []
-        @remote_people << @user.person
-        @mailman = Postzord::Dispatch.new(@user, @sm)
+        @remote_people << alice.person
+        @mailman = Postzord::Dispatch.new(alice, @sm)
         @hydra = mock()
         Typhoeus::Hydra.stub!(:new).and_return(@hydra)
       end
 
       it 'should queue an HttpPost job for each remote person' do
-        Resque.should_receive(:enqueue).with(Job::HttpMulti, @user.id, anything, @remote_people.map{|p| p.id}).once
+        Resque.should_receive(:enqueue).with(Job::HttpMulti, alice.id, anything, @remote_people.map{|p| p.id}).once
         @mailman.send(:deliver_to_remote, @remote_people)
       end
 
       it 'calls salmon_for each remote person' do
        salmon = @mailman.salmon
        Salmon::SalmonSlap.stub(:create).and_return(salmon)
-       salmon.should_receive(:xml_for).with(@user.person).and_return('what')
+       salmon.should_receive(:xml_for).with(alice.person).and_return('what')
        @hydra.stub!(:queue)
        @hydra.stub!(:run)
        fantasy_resque do
@@ -235,13 +233,13 @@ describe Postzord::Dispatch do
 
     describe '#deliver_to_local' do
       before do
-        @mailman = Postzord::Dispatch.new(@user, @sm)
+        @mailman = Postzord::Dispatch.new(alice, @sm)
       end
 
       it 'queues a batch receive' do
         local_people = []
-        local_people << @user.person
-        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.id, [@user.id]).once
+        local_people << alice.person
+        Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.id, [alice.id]).once
         @mailman.send(:deliver_to_local, local_people)
       end
 
@@ -259,31 +257,31 @@ describe Postzord::Dispatch do
 
     describe '#deliver_to_services' do
       before do
-        @user.aspects.create(:name => "whatever")
+        alice.aspects.create(:name => "whatever")
         @service = Services::Facebook.new(:access_token => "yeah")
-        @user.services << @service
+        alice.services << @service
       end
 
       it 'queues a job to notify the hub' do
         Resque.stub!(:enqueue).with(Job::PostToService, anything, anything, anything)
-        Resque.should_receive(:enqueue).with(Job::PublishToHub, @user.public_url)
+        Resque.should_receive(:enqueue).with(Job::PublishToHub, alice.public_url)
         @zord.send(:deliver_to_services, nil, [])
       end
 
       it 'does not push to hub for non-public posts' do
        @sm     = Factory(:status_message)
-       mailman = Postzord::Dispatch.new(@user, @sm)
+       mailman = Postzord::Dispatch.new(alice, @sm)
 
        mailman.should_not_receive(:deliver_to_hub)
        mailman.post(:url => "http://joindiaspora.com/p/123")
       end
 
       it 'only pushes to specified services' do
-       @s1 = Factory.create(:service, :user_id => @user.id)
-       @user.services << @s1
-       @s2 = Factory.create(:service, :user_id => @user.id)
-       @user.services << @s2
-       mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
+       @s1 = Factory.create(:service, :user_id => alice.id)
+       alice.services << @s1
+       @s2 = Factory.create(:service, :user_id => alice.id)
+       alice.services << @s2
+       mailman = Postzord::Dispatch.new(alice, Factory(:status_message))
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
        Resque.stub!(:enqueue).with(Job::HttpMulti, anything, anything, anything)
@@ -292,7 +290,7 @@ describe Postzord::Dispatch do
       end
 
       it 'does not push to services if none are specified' do
-       mailman = Postzord::Dispatch.new(@user, Factory(:status_message))
+       mailman = Postzord::Dispatch.new(alice, Factory(:status_message))
 
        Resque.stub!(:enqueue).with(Job::PublishToHub, anything)
        Resque.should_not_receive(:enqueue).with(Job::PostToService, anything, anything, anything)
@@ -302,24 +300,26 @@ describe Postzord::Dispatch do
 
     describe '#socket_and_notify_users' do
       it 'should call object#socket_to_user for each local user' do
-        @zord.instance_variable_get(:@object).should_receive(:socket_to_user)
-        @zord.send(:socket_and_notify_users, [@local_user])
+        sc = mock()
+        SocketsController.should_receive(:new).and_return(sc)
+        sc.should_receive(:outgoing).with(bob, @zord.instance_variable_get(:@object), :aspect_ids => bob.contact_for(alice.person).aspect_memberships.map{|a| a.aspect_id})
+        @zord.send(:socket_and_notify_users, [bob])
       end
 
       it 'only tries to socket when the object responds to #socket_to_user' do
         f = Request.new
         f.stub!(:subscribers)
         f.stub!(:to_diaspora_xml)
-        users = [@user]
-        z = Postzord::Dispatch.new(@user, f)
+        users = [bob]
+        z = Postzord::Dispatch.new(alice, f)
         z.instance_variable_get(:@object).should_receive(:socket_to_user).once
         z.send(:socket_to_users, users)
       end
 
       it 'queues Job::NotifyLocalUsers jobs' do
         @zord.instance_variable_get(:@object).should_receive(:socket_to_user).and_return(false)
-        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [@local_user.id], @sm.class.to_s, @sm.id, @sm.author.id)
-        @zord.send(:socket_and_notify_users, [@local_user])
+        Resque.should_receive(:enqueue).with(Job::NotifyLocalUsers, [bob.id], @sm.class.to_s, @sm.id, @sm.author.id)
+        @zord.send(:socket_and_notify_users, [bob])
       end
     end
   end

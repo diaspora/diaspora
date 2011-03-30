@@ -131,6 +131,17 @@ class StatusMessage < Post
     end
   end
 
+  def socket_to_user(user_or_id, opts={})
+    unless opts[:aspect_ids]
+      user_id = user_or_id.instance_of?(Fixnum) ? user_or_id : user_or_id.id
+      aspect_ids = AspectMembership.connection.execute(
+        AspectMembership.joins(:contact).where(:contacts => {:user_id => user_id, :person_id => self.author_id}).select('aspect_memberships.aspect_id').to_sql
+      ).map{|r| r.first}
+      opts.merge!(:aspect_ids => aspect_ids)
+    end
+    super(user_or_id, opts)
+  end
+
   protected
 
   def message_or_photos_present?
