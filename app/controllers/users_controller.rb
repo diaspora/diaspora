@@ -77,8 +77,14 @@ class UsersController < ApplicationController
       posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC')
       director = Diaspora::Director.new
       ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
-
-      render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
+      respond_to do |format|
+        format.atom{
+          render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
+        }
+        format.html{
+          redirect_to person_path(user.person.id)
+      }
+    end
     else
       redirect_to root_url, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
     end
