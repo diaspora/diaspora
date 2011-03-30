@@ -105,11 +105,11 @@ $(document).ready(function(){
     return baseURL;
   }
 
-  function performAspectUpdate(home){
+  function performAspectUpdate(){
       // update the open aspects in the user
       updateURL = "/user";
       updateURL += '?';
-      if(home == 'home'){
+      if(selectedGUIDS.length == 0){
         updateURL += 'user[a_ids][]=home';
       } else {
         for(i=0; i < selectedGUIDS.length; i++){
@@ -125,7 +125,7 @@ $(document).ready(function(){
   }
 
   if($("a.home_selector").parent().hasClass("selected")){
-    performAspectUpdate("home");
+    performAspectUpdate();
   }
 
   function performAjax(newURL) {
