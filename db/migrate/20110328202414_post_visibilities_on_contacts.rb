@@ -27,6 +27,8 @@ SQL
   end
 
   def self.delete_duplicate_pvs
+    execute('DELETE FROM post_visibilities WHERE post_visibilities.contact_id = 0')
+
     duplicate_rows = execute <<SQL
       SELECT COUNT(pv.contact_id), pv.contact_id, pv.post_id from post_visibilities AS pv
         GROUP BY pv.contact_id, pv.post_id
