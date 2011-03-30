@@ -7,7 +7,8 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.where(:id => id).includes({:author => :profile}, {:comments => {:author => :profile}}, :photos).first
+        post = Post.where(:id => id).joins(:contacts).where(:contacts => {:user_id => self.id}).first
+        post ||= Post.where(:id => id, :author_id => self.person.id).first
       end
 
       def raw_visible_posts(opts = {})
