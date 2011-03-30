@@ -56,14 +56,14 @@ javascripts:
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-edit-pane.js
   people:
-    - public/javascripts/vendor/jquery.autoSuggest.js
+    - public/javascripts/vendor/jquery.autoSuggest.custom.js
   photos:
     - public/javascripts/photo-show.js
   inbox:
-    - public/javascripts/vendor/jquery.autoSuggest.js
+    - public/javascripts/vendor/jquery.autoSuggest.custom.js
     - public/javascripts/inbox.js
   profile:
-    - public/javascripts/vendor/jquery.autoSuggest.js
+    - public/javascripts/vendor/jquery.autoSuggest.custom.js
 
 stylesheets:
   default:
