@@ -44,7 +44,7 @@ class Postzord::Dispatch
   end
 
   def deliver_to_local(people)
-    return if people.blank?
+    return if people.blank? || @object.is_a?(Profile)
     if @object.is_a?(Post)
       batch_deliver_to_local(people)
     else

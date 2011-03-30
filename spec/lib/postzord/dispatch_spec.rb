@@ -234,12 +234,26 @@ describe Postzord::Dispatch do
     end
 
     describe '#deliver_to_local' do
+      before do
+        @mailman = Postzord::Dispatch.new(@user, @sm)
+      end
+
       it 'queues a batch receive' do
         local_people = []
         local_people << @user.person
-        mailman = Postzord::Dispatch.new(@user, @sm)
         Resque.should_receive(:enqueue).with(Job::ReceiveLocalBatch, @sm.id, [@user.id]).once
-        mailman.send(:deliver_to_local, local_people)
+        @mailman.send(:deliver_to_local, local_people)
+      end
+
+      it 'returns if people are empty' do
+        Resque.should_not_receive(:enqueue)
+        @mailman.send(:deliver_to_local, [])
+      end
+
+      it 'returns if the object is a profile' do
+        @mailman.instance_variable_set(:@object, Profile.new)
+        Resque.should_not_receive(:enqueue)
+        @mailman.send(:deliver_to_local, [1])
       end
     end
 
