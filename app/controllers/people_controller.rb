@@ -11,22 +11,30 @@ class PeopleController < ApplicationController
   def index
     @aspect = :search
     params[:q] ||= params[:term]
-    
+
     if (params[:q][0] == 35 || params[:q][0] == '#') && params[:q].length > 1
       redirect_to "/tags/#{params[:q].gsub("#", "")}"
       return
     end
 
-    limit = params[:limit] || 15
+    limit = params[:limit] ? params[:limit].to_i : 15
 
-    @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
-    @hashes = hashes_for_people(@people, @aspects) unless request.format == :json
+    respond_to do |format|
+      format.json do
+        @people = Person.search(params[:q], current_user).limit(limit)
+        render :json => @people
+      end
 
-    #only do it if it is an email address
-    if params[:q].try(:match, Devise.email_regexp)
-      webfinger(params[:q])
+      format.html do
+        @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
+        @hashes = hashes_for_people(@people, @aspects)
+
+        #only do it if it is an email address
+        if params[:q].try(:match, Devise.email_regexp)
+          webfinger(params[:q])
+        end
+      end
     end
-    respond_with @people
   end
 
   def hashes_for_people people, aspects
