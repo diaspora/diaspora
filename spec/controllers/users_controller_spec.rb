@@ -29,10 +29,16 @@ describe UsersController do
   end
 
   describe '#public' do
-    it 'renders xml' do
+    it 'renders xml if atom is requested' do
       sm = Factory(:status_message, :public => true, :author => @user.person)
       get :public, :username => @user.username, :format => :atom
       response.body.should include(sm.text)
+    end
+
+    it 'redirects to a profile page if html is requested' do
+      
+      get :public, :username => @user.username
+      response.should be_redirect
     end
   end
 
