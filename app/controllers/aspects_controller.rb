@@ -26,8 +26,8 @@ class AspectsController < ApplicationController
 
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map { |a| a.id }
-    @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage', :order => session[:sort_order] + ' DESC', :page => params[:page]).includes(
-      :comments, :mentions, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
+    @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage', :order => current_user[:sort_order] + ' DESC', :page => params[:page]).includes(
+      :comments, :mentions, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => current_user[:sort_order] + ' DESC')
     @fakes = PostsFake.new(@posts)
 
     @contact_count = current_user.contacts.count
@@ -154,12 +154,8 @@ class AspectsController < ApplicationController
   protected
 
   def save_sort_order
-    if params[:sort_order].present?
-      session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
-    elsif session[:sort_order].blank?
-      session[:sort_order] = 'updated_at'
-    else
-      session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
+    if params[:sort_order].present? && params[:sort_order] != current_user[:sort_order]
+      current_user.update_attributes(:sort_order => params[:sort_order])
     end
   end
 end
