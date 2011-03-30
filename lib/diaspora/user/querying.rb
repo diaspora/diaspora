@@ -88,8 +88,8 @@ module Diaspora
         if contact = self.contact_for(person)
           post_ids = contact.post_visibilities.select('post_visibilities.post_id').map{|p| p.post_id}
         end
-        post_ids += person.posts.where(:public => true, :pending => false).select('posts.id').map{|p| p.id}
-        Post.where(:id => post_ids).select('DISTINCT `posts`.*').order("posts.created_at DESC")
+        post_ids += person.posts.where(:public => true).select('posts.id').map{|p| p.id}
+        Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*').order("posts.created_at DESC")
       end
     end
   end
