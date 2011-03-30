@@ -2,20 +2,21 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
-  = person_image_tag(authors[conversation.id])
+%a.conversation{:href => conversations_path(:conversation_id => conversation.id)}
+  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
+    = person_image_tag(conversation.author)
 
-  .subject
-    .message_count
-      = conversation.messages.size
+    .subject
+      .message_count
+        = conversation.messages.size
 
-    = conversation.subject[0..30]
+      = conversation.subject[0..30]
 
-  .last_author
-    .timestamp
-      = time_ago_in_words(conversation.updated_at)
-    = authors[conversation.id].name
+    .last_author
+      .timestamp
+        = time_ago_in_words(conversation.updated_at)
+      = authors[conversation.id].name
 
-    - if conversation.participants.size > 2
-      %span.participant_count
-        = "(+#{conversation.participants.size - 1})"
+      - if conversation.participants.size > 2
+        %span.participant_count
+          = "(+#{conversation.participants.size - 1})"

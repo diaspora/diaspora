@@ -320,6 +320,11 @@ header
       :margin 0
       :padding 0
 
+#conversation_inbox a
+  &:hover
+    :text
+      :decoration none
+
 .stream_element
   :position relative
   :word-wrap break-word
@@ -2621,7 +2626,12 @@ div.dislikes
 
   &:hover:not(.selected)
     :background
-      :color #f0f0f0
+      :color #fafafa
+
+  &.selected:hover
+    :background
+      :color lighten($blue,5%)
+
   &:hover
     :cursor pointer
 

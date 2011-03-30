@@ -5,24 +5,15 @@
 
 $(document).ready(function(){
 
-  var bindIt = function(element){
-    var conversationSummary = element,
-        conversationGuid = conversationSummary.attr('data-guid');
-    $.get("conversations/"+conversationGuid, function(data){
+  $('a.conversation').live('click', function(){
+    $.getScript(this.href);
+    history.pushState(null, "", this.href);
+    return false;
+  });
 
-      $('.conversation', '.stream').removeClass('selected');
-      conversationSummary.addClass('selected').removeClass('unread');
-      $('#conversation_show').html(data);
-      Diaspora.widgets.timeago.updateTimeAgo();
-    });
-
-    if (typeof(history.pushState) == 'function') {
-      history.pushState(null, document.title, '?conversation_id='+conversationGuid);
-    }
-  }
-
-  $('.conversation', '.stream').bind('mousedown', function(){
-    bindIt($(this));
+  $(window).bind("popstate", function(){
+    $.getScript(location.href);
+    return false;
   });
 
   resize();
