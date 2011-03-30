@@ -67,7 +67,7 @@ class AspectMembershipsController < ApplicationController
 
   def update
     @person = Person.find(params[:person_id])
-    @from_aspect = current_user.aspects.where(:id => params[:id]).first
+    @from_aspect = current_user.aspects.where(:id => params[:aspect_id]).first
     @to_aspect = current_user.aspects.where(:id => params[:to]).first
 
     response_hash = { }
