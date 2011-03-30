@@ -2,7 +2,7 @@
   = t('notifier.hello', :name => @receiver.email)
 %p
   = "#{@sender.name} (#{@sender.diaspora_handle})"
-  = t('.just_sent_you')
+  = t('notifier.new_request.just_sent_you')
   = t('.try_it_out')
   %br
   = link_to t('.sign_in'), new_user_session_url
