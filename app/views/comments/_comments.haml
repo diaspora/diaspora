@@ -10,14 +10,14 @@
       = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
       %b= comment_toggle(comments.size)
 
-%ul.comments{:id => post_id, :class => ("hidden" if comments.size == 0 && !defined?(force_open) && !is_expanded)}
+%ul.comments{:id => post.id, :class => ("hidden" if comments.size == 0 && !defined?(force_open) && !is_expanded)}
   -if comments.size > 3
     .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}
-      = render :partial => 'comments/comment', :collection => comments[0..-4]
-    = render :partial => 'comments/comment', :collection => comments[-3, 3]
+      = render :partial => 'comments/comment', :collection => comments[0..-4], :locals => {:post => post}
+    = render :partial => 'comments/comment', :collection => comments[-3, 3], :locals => {:post => post}
   -else
-    = render :partial => 'comments/comment', :collection => comments
+    = render :partial => 'comments/comment', :collection => comments, :locals => {:post => post}
 
   - unless @commenting_disabled
     %li.comment.show
-      = new_comment_form(post_id, current_user)
+      = new_comment_form(post.id, current_user)

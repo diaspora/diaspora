@@ -29,4 +29,4 @@
     = t('_comments')
   #status_message_stream.stream.show
     %div{:data=>{:guid=>@status_message.id}}
-      = render "comments/comments", :post_id => @status_message.id, :comments => @status_message.comments, :always_expanded => true
+      = render "comments/comments", :post => @status_message, :comments => @status_message.comments, :always_expanded => true
