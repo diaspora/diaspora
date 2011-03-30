@@ -9,13 +9,13 @@ class AspectMembershipsController < ApplicationController
   def destroy
     #note :id is garbage
 
-      @person_id = params[:person_id]
-      @aspect_id = params[:id]
+    @person_id = params[:person_id]
+    @aspect_id = params[:aspect_id]
 
-      @contact = current_user.contact_for(Person.where(:id => @person_id).first)
-      membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil
+    @contact = current_user.contact_for(Person.where(:id => @person_id).first)
+    membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil
 
-      if membership && membership.destroy
+    if membership && membership.destroy
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
         respond_to do |format|
