@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110330175950) do
+ActiveRecord::Schema.define(:version => 20110329205640) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -329,7 +329,6 @@ ActiveRecord::Schema.define(:version => 20110330175950) do
 
   add_index "taggings", ["tag_id"], :name => "index_taggings_on_tag_id"
   add_index "taggings", ["taggable_id", "taggable_type", "context"], :name => "index_taggings_on_taggable_id_and_taggable_type_and_context"
-  add_index "taggings", ["taggable_id", "taggable_type", "tag_id"], :name => "index_taggings_uniquely", :unique => true
 
   create_table "tags", :force => true do |t|
     t.string "name"
@@ -345,13 +344,13 @@ ActiveRecord::Schema.define(:version => 20110330175950) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.text     "serialized_private_key"
-    t.integer  "invites",                               :default => 0,     :null => false
-    t.boolean  "getting_started",                       :default => true,  :null => false
-    t.boolean  "disable_mail",                          :default => false, :null => false
+    t.integer  "invites",                               :default => 0,            :null => false
+    t.boolean  "getting_started",                       :default => true,         :null => false
+    t.boolean  "disable_mail",                          :default => false,        :null => false
     t.string   "language"
-    t.string   "email",                                 :default => "",    :null => false
-    t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                         :default => "",    :null => false
+    t.string   "email",                                 :default => "",           :null => false
+    t.string   "encrypted_password",     :limit => 128, :default => "",           :null => false
+    t.string   "password_salt",                         :default => "",           :null => false
     t.string   "invitation_token",       :limit => 20
     t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
@@ -367,6 +366,7 @@ ActiveRecord::Schema.define(:version => 20110330175950) do
     t.string   "mongo_id"
     t.string   "invitation_service",     :limit => 127
     t.string   "invitation_identifier",  :limit => 127
+    t.string   "sort_order",                            :default => "updated_at"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email"
