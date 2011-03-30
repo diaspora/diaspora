@@ -27,8 +27,6 @@ SQL
   end
 
   def self.delete_duplicate_pvs
-    execute('DELETE FROM post_visibilities WHERE post_visibilities.contact_id = 0')
-
     duplicate_rows = execute <<SQL
       SELECT COUNT(pv.contact_id), pv.contact_id, pv.post_id from post_visibilities AS pv
         GROUP BY pv.contact_id, pv.post_id
@@ -47,6 +45,15 @@ SQL
     end
   end
 
+  def self.delete_disconnected_pvs
+    execute <<SQL
+    DELETE post_visibilities FROM post_visibilities
+      LEFT OUTER JOIN posts ON post_visibilities.post_id = posts.id
+      LEFT OUTER JOIN aspects ON post_visibilities.aspect_id = aspects.id
+    WHERE aspects.id IS NULL OR posts.id IS NULL
+SQL
+  end
+
   def self.up
     create_table :aspect_visibilities do |t|
       t.integer :post_id, :null => false
@@ -58,6 +65,8 @@ SQL
     add_index :aspect_visibilities, [:post_id]
     add_foreign_key :aspect_visibilities, :aspects, :dependent => :delete
     add_foreign_key :aspect_visibilities, :posts, :dependent => :delete
+
+    delete_disconnected_pvs
 
     add_column :post_visibilities, :contact_id, :integer, :null => false
 
