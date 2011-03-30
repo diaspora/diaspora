@@ -15,6 +15,7 @@ module Diaspora
         opts[:limit] ||= 20
         opts[:order] ||= 'updated_at DESC'
         opts[:order] = '`posts`.' + opts[:order]
+        opts[:limit] = opts[:limit] * opts[:page] if opts[:page]
 
         posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
         posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})

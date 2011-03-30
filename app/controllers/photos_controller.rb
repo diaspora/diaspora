@@ -28,9 +28,7 @@ class PhotosController < ApplicationController
         @contacts_of_contact = []
       end
 
-      @posts = current_user.visible_photos.where(
-        :author_id => @person.id
-      ).paginate(:page => params[:page])
+      @posts = current_user.posts_from(@person).where(:type => 'Photo').paginate(:page => params[:page])
 
       render 'people/show'
 
