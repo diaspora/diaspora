@@ -80,7 +80,7 @@ describe PeopleController do
     it 'takes time' do
       Benchmark.realtime {
         get :show, :id => @user.person.id
-      }.should < 0.8
+      }.should < 1.0
     end
   end
 
