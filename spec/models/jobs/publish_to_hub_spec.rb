@@ -11,7 +11,7 @@ describe Job::PublishToHub do
       url = "http://publiczone.com/"
       m = mock()
 
-      m.should_receive(:publish).with(url)
+      m.should_receive(:publish).with(url+'.atom')
       Pubsubhubbub.should_receive(:new).with(AppConfig[:pubsub_server]).and_return(m)
       Job::PublishToHub.perform(url)
     end
