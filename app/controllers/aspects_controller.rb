@@ -38,9 +38,6 @@ class AspectsController < ApplicationController
 
   def create
     @aspect = current_user.aspects.create(params[:aspect])
-    # hack, we don't know why mass assignment is not working
-    @aspect.contacts_visible = params[:aspect][:contacts_visible]
-    @aspect.save
 
     if @aspect.valid?
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
@@ -98,7 +95,7 @@ class AspectsController < ApplicationController
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-    
+
     @contacts_in_aspect = @aspect.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     c = Contact.arel_table
     if @contacts_in_aspect.empty?
@@ -129,9 +126,6 @@ class AspectsController < ApplicationController
     @aspect = current_user.aspects.where(:id => params[:id]).first
 
     if @aspect.update_attributes!(params[:aspect])
-      #hack, we don't know why mass assignment is not working
-      @aspect.contacts_visible = params[:aspect][:contacts_visible]
-      @aspect.save
       flash[:notice] = I18n.t 'aspects.update.success', :name => @aspect.name
     else
       flash[:error] = I18n.t 'aspects.update.failure', :name => @aspect.name

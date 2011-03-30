@@ -15,7 +15,7 @@ class Aspect < ActiveRecord::Base
   validates_length_of :name, :maximum => 20
   validates_uniqueness_of :name, :scope => :user_id, :case_sensitive => false
 
-  attr_accessible :name
+  attr_accessible :name, :contacts_visible
 
   before_validation do
     name.strip!
