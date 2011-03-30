@@ -91,23 +91,18 @@ class User < ActiveRecord::Base
   end
 
   ######### Aspects ######################
-  def drop_aspect(aspect)
-      aspect.destroy
-  end
-
   def move_contact(person, to_aspect, from_aspect)
     return true if to_aspect == from_aspect
     contact = contact_for(person)
-    if add_contact_to_aspect(contact, to_aspect)
-      membership = contact ? contact.aspect_memberships.where(:aspect_id => from_aspect.id).first : nil
-      return ( membership && membership.destroy )
-    else
-      false
-    end
+
+    add_contact_to_aspect(contact, to_aspect)
+    
+    membership = contact ? AspectMembership.where(:contact_id => contact.id, :aspect_id => from_aspect.id).first : nil
+    return(membership && membership.destroy)
   end
 
   def add_contact_to_aspect(contact, aspect)
-    return true if contact.aspect_memberships.where(:aspect_id => aspect.id).count > 0
+    return true if AspectMembership.exists?(:contact_id => contact.id, :aspect_id => aspect.id)
     contact.aspect_memberships.create!(:aspect => aspect)
   end
 
@@ -136,14 +131,6 @@ class User < ActiveRecord::Base
     return unless self.contact_for(post.author) && post.respond_to?(:mentions?)
 
     post.notify_person(self.person) if post.mentions? self.person
-  end
-
-  def add_post_to_aspects(post)
-    return unless self.contact_for(post.author)
-
-    Rails.logger.debug("event=add_post_to_aspects user_id=#{self.id} post_id=#{post.id}")
-    add_to_streams(post, self.aspects_with_person(post.author))
-    post
   end
 
   def add_to_streams(post, aspects_to_insert)

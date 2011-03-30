@@ -84,19 +84,13 @@ module Diaspora
 
       def remove_contact(contact)
         bad_person_id = contact.person_id
-        posts = raw_visible_posts.where(:author_id => bad_person_id).all
-        visibilities = PostVisibility.joins(:post, :aspect).where(
-          :posts => {:author_id => bad_person_id},
-          :aspects => {:user_id => self.id}
-        )
-        visibility_ids = visibilities.map{|v| v.id}
-        PostVisibility.where(:id => visibility_ids).delete_all
+        posts = contact.posts.all
+        contact.destroy
         posts.each do |post|
-          if post.post_visibilities(true).count < 1
+          if post.user_refs < 1
             post.destroy
           end
         end
-        contact.destroy
       end
 
       def disconnected_by(person)

@@ -120,32 +120,6 @@ describe Aspect do
       aspect.posts.include?(status_message).should be true
     end
 
-    it 'should add post to aspect via receive method' do
-      aspect  = user.aspects.create(:name => 'losers')
-      aspect2 = user2.aspects.create(:name => 'winners')
-      connect_users(user, aspect, user2, aspect2)
-
-      message = user2.post(:status_message, :text => "Hey Dude", :to => aspect2.id)
-
-      aspect.reload
-      aspect.posts.include?(message).should be true
-      user.visible_posts(:by_members_of => aspect).include?(message).should be true
-    end
-
-    it 'should retract the post from the aspects as well' do
-      aspect  = user.aspects.create(:name => 'losers')
-      aspect2 = user2.aspects.create(:name => 'winners')
-      connect_users(user, aspect, user2, aspect2)
-
-      message = user2.post(:status_message, :text => "Hey Dude", :to => aspect2.id)
-
-      aspect.reload.post_ids.include?(message.id).should be true
-
-      fantasy_resque do
-        retraction = user2.retract(message)
-      end
-      aspect.posts(true).include?(message).should be false
-    end
   end
 
   context "aspect management" do
@@ -176,23 +150,7 @@ describe Aspect do
         user.reload
       end
 
-      it 'should keep the contact\'s posts in previous aspect' do
-        aspect.post_ids.count.should == 1
-        user.move_contact(user2.person, user.aspects.create(:name => "Another aspect"), aspect)
-
-
-        aspect.reload
-        aspect.post_ids.count.should == 1
-      end
-
-      it 'should not delete other peoples posts' do
-        connect_users(user, aspect, user3, aspect3)
-        user.move_contact(user3.person, user.aspects.create(:name => "Another aspect"), aspect)
-        aspect.reload
-        aspect.posts.should == [@message]
-      end
-
-      describe '#move_contact' do
+      describe 'User#move_contact' do
         it 'should be able to move a contact from one of users existing aspects to another' do
           user.move_contact(user2.person, aspect1, aspect)
 

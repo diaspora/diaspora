@@ -291,13 +291,6 @@ describe Diaspora::UserModules::Connecting do
           bob.reload.raw_visible_posts.include?(@message).should be_false
         end
 
-        it "deletes the disconnected user's posts from the aspect's posts" do
-          Post.count.should == 1
-          bob.aspects.first.reload.posts.include?(@message).should be_true
-          bob.disconnect bob.contact_for(alice.person)
-          bob.aspects.first.reload.posts.include?(@message).should be_false
-          Post.count.should == 1
-        end
       end
     end
   end

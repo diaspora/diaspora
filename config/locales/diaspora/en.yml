@@ -31,6 +31,7 @@ en:
   previous: "previous"
   _comments: "Comments"
   all_aspects: "All Aspects"
+  no_results: "No Results Found"
 
 
   #for reference translation, the real activerecord english transations are actually
@@ -192,7 +193,6 @@ en:
       to: "to"
       subject: "subject"
       send: "Send"
-      no_results: "No Results Found"
     helper:
       new_messages: 
         zero: "no new messages"

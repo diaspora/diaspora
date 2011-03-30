@@ -8,6 +8,33 @@ class TagsController < ApplicationController
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
 
+  respond_to :html, :only => [:show]
+  respond_to :json, :only => [:index]
+  
+  def index
+    params[:q].gsub!("#", "")
+    params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
+    if params[:q].length > 1
+      @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
+      @array = []
+      @tags.each do |obj| 
+        @array << { :name => ("#"+obj.name),
+          :value => ("#"+obj.name)}
+      end
+
+      @array << { :name => ('#' + params[:q]), :value => ("#" + params[:q])}
+      @array.uniq!
+
+      respond_to do |format|
+        format.json{
+          render(:json => @array.to_json, :status => 201)
+        }
+      end
+    else
+      render :nothing => true
+    end
+  end
+
   def show
     if current_user
       @posts = StatusMessage.joins(:aspects).where(:pending => false

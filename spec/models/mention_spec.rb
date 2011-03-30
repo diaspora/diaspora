@@ -9,23 +9,19 @@ describe Mention do
     before do
       @user = alice
       @aspect1 = @user.aspects.create(:name => 'second_aspect')
-      @mentioned_user = bob
-      @non_friend = eve
 
-      @sm = @user.build_post(:status_message, :text => "hi @{#{@mentioned_user.name}; #{@mentioned_user.diaspora_handle}}", :to => @user.aspects.first)
     end
 
     it 'notifies the person being mentioned' do
-      Notification.should_receive(:notify).with(@mentioned_user, anything(), @sm.author)
-      @sm.receive(@mentioned_user, @mentioned_user.person)
+      sm = @user.build_post(:status_message, :text => "hi @{#{bob.name}; #{bob.diaspora_handle}}", :to => @user.aspects.first)
+      Notification.should_receive(:notify).with(bob, anything(), sm.author)
+      sm.receive(bob, alice.person)
     end
 
     it 'should not notify a user if they do not see the message' do
-      connect_users(@user, @aspect1, @non_friend, @non_friend.aspects.first)
-
-      Notification.should_not_receive(:notify).with(@mentioned_user, anything(), @user.person)
-      sm2 = @user.post(:status_message, :text => "stuff @{#{@non_friend.name}; #{@non_friend.diaspora_handle}}", :to => @user.aspects.first)
-      sm2.receive(@non_friend, @non_friend.person)
+      Notification.should_not_receive(:notify).with(alice, anything(), bob.person)
+      sm2 = bob.build_post(:status_message, :text => "stuff @{#{alice.name}; #{alice.diaspora_handle}}", :to => bob.aspects.first)
+      sm2.receive(eve, bob.person)
     end
   end
 

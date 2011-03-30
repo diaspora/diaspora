@@ -48,7 +48,7 @@ module SocketsHelper
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment
-        v = render_to_string(:partial => 'comments/comment', :locals => {:comment => object, :person => object.author, :current_user => user})
+        v = render_to_string(:partial => 'comments/comment', :locals => {:post => object.post, :comment => object, :person => object.author, :current_user => user})
 
       elsif object.is_a? Like
         v = render_to_string(:partial => 'likes/likes', :locals => {:likes => object.post.likes, :dislikes => object.post.dislikes})

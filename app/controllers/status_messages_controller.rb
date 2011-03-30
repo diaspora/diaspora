@@ -66,7 +66,7 @@ class StatusMessagesController < ApplicationController
       end
 
       if request.env['HTTP_REFERER'].include?("people")
-        flash[:notice] = t('.success', :names => @status_message.mentions.includes(:person => :profile).map{ |mention| mention.person.name }.join(', '))
+        flash[:notice] = t('status_messages.create.success', :names => @status_message.mentions.includes(:person => :profile).map{ |mention| mention.person.name }.join(', '))
       end
 
       respond_to do |format|

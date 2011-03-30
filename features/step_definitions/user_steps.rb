@@ -131,20 +131,6 @@ Given /^a user with username "([^"]*)" is connected with "([^"]*)"$/ do |arg1, a
   connect_users(user1, user1.aspects.first, user2, user2.aspects.first)
 end
 
-Given /^a user with email "([^\"]*)" has posted a status message "([^\"]*)" in all aspects$/ do |arg1, arg2|
-  user = User.where(:email => arg1).first
-  status_message = user.build_post(:status_message, :text => arg2)
-
-  def status_message.socket_to_user(a1, a2)
-    ;
-  end
-
-  user.add_to_streams(status_message, user.aspects)
-  status_message.save!
-  bob = User.where(:email => "bob@bob.bob").first
-  raise bob.visible_posts.inspect
-end
-
 Given /^there is a user "([^\"]*)" who's tagged "([^\"]*)"$/ do |full_name, tag|
   username = full_name.gsub(/\W/, "").underscore
   Given "a user named \"#{full_name}\" with email \"#{username}@example.com\""

@@ -16,16 +16,25 @@ class Post < ActiveRecord::Base
   has_many :comments, :order => 'created_at ASC'
   has_many :likes, :conditions => '`likes`.`positive` = 1', :dependent => :delete_all
   has_many :dislikes, :conditions => '`likes`.`positive` = 0', :class_name => 'Like', :dependent => :delete_all
+
+  has_many :aspect_visibilities
+  has_many :aspects, :through => :aspect_visibilities
+
   has_many :post_visibilities
-  has_many :aspects, :through => :post_visibilities
+  has_many :contacts, :through => :post_visibilities
   has_many :mentions, :dependent => :destroy
+
   belongs_to :author, :class_name => 'Person'
 
   cattr_reader :per_page
   @@per_page = 10
 
   def user_refs
-    self.post_visibilities.count
+    if AspectVisibility.exists?(:post_id => self.id)
+      self.post_visibilities.count + 1
+    else
+      self.post_visibilities.count
+    end
   end
 
   def diaspora_handle= nd
@@ -68,7 +77,7 @@ class Post < ActiveRecord::Base
 
     local_post = Post.where(:guid => self.guid).first
     if local_post && local_post.author_id == self.author_id
-      known_post = user.visible_posts(:guid => self.guid).first
+      known_post = user.raw_visible_posts.where(:guid => self.guid).first
       if known_post
         if known_post.mutable?
           known_post.update_attributes(self.attributes)
@@ -76,14 +85,14 @@ class Post < ActiveRecord::Base
           Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason=immutable existing_post=#{known_post.id}")
         end
       else
-        user.add_post_to_aspects(local_post)
+        user.contact_for(person).receive_post(local_post)
         user.notify_if_mentioned(local_post)
         Rails.logger.info("event=receive payload_type=#{self.class} update=true status=complete sender=#{self.diaspora_handle} existing_post=#{local_post.id}")
         return local_post
       end
     elsif !local_post
       self.save
-      user.add_post_to_aspects(self)
+      user.contact_for(person).receive_post(self)
       user.notify_if_mentioned(self)
       Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
       return self

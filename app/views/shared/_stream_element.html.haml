@@ -44,4 +44,4 @@
     /.likes_container
     /  = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
 
-    = render "comments/comments", :post_id => post.id, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)
+    = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

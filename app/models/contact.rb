@@ -13,6 +13,10 @@ class Contact < ActiveRecord::Base
 
   has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships
+
+  has_many :post_visibilities
+  has_many :posts, :through => :post_visibilities
+  
   validate :not_contact_for_self
   validates_uniqueness_of :person_id, :scope => :user_id
 
@@ -26,6 +30,11 @@ class Contact < ActiveRecord::Base
     Request.new(:sender => self.user.person,
                 :recipient => self.person,
                 :aspect => aspects.first)
+  end
+
+  def receive_post(post)
+    PostVisibility.create!(:post_id => post.id, :contact_id => self.id)
+    post.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if post.respond_to? :socket_to_user
   end
 
   def contacts

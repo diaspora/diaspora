@@ -7,30 +7,34 @@ module Diaspora
     module Querying
 
       def find_visible_post_by_id( id )
-        self.raw_visible_posts.where(:id => id).includes({:author => :profile}, {:comments => {:author => :profile}}, :photos).first
+        post = Post.where(:id => id).joins(:contacts).where(:contacts => {:user_id => self.id}).first
+        post ||= Post.where(:id => id, :author_id => self.person.id).first
       end
 
-      def raw_visible_posts
-        Post.joins(:aspects).where(:pending => false,
-                                   :aspects => {:user_id => self.id}).select('DISTINCT `posts`.*')
+      def raw_visible_posts(opts = {})
+        opts[:type] ||= ['StatusMessage', 'Photo']
+        opts[:limit] ||= 20
+        opts[:order] ||= 'updated_at DESC'
+        opts[:order] = '`posts`.' + opts[:order]
+        opts[:limit] = opts[:limit].to_i * opts[:page].to_i if opts[:page]
+
+        posts_from_others = Post.joins(:contacts).where(:contacts => {:user_id => self.id})
+        posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
+
+        if opts[:by_members_of]
+          posts_from_others = posts_from_others.joins(:contacts => :aspect_memberships).where(
+            :aspect_memberships => {:aspect_id => opts[:by_members_of]})
+          posts_from_self = posts_from_self.where(:aspects => {:id => opts[:by_members_of]})
+        end
+        
+        post_ids = Post.connection.execute(posts_from_others.select('posts.id').limit(opts[:limit]).order(opts[:order]).to_sql).map{|r| r.first}
+        post_ids += Post.connection.execute(posts_from_self.select('posts.id').limit(opts[:limit]).order(opts[:order]).to_sql).map{|r| r.first}
+
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*').limit(opts[:limit])
       end
 
       def visible_photos
-        p = Photo.arel_table
-        Photo.joins(:aspects).where(p[:status_message_id].not_eq(nil).or(p[:pending].eq(false))
-          ).where(:aspects => {:user_id => self.id}).select('DISTINCT `posts`.*').order("posts.updated_at DESC")
-      end
-
-      def visible_posts( opts = {} )
-        order = opts.delete(:order)
-        order ||= 'created_at DESC'
-        opts[:type] ||= ["StatusMessage", "Photo"]
-
-        if (aspect = opts[:by_members_of]) && opts[:by_members_of] != :all
-          raw_visible_posts.where(:aspects => {:id => aspect.id}).order(order)
-        else
-          self.raw_visible_posts.where(opts).order(order)
-        end
+        raw_visible_posts(:type => 'Photo')
       end
 
       def contact_for(person)
@@ -38,7 +42,7 @@ module Diaspora
         contact_for_person_id(person.id)
       end
       def aspects_with_post(post_id)
-        self.aspects.joins(:post_visibilities).where(:post_visibilities => {:post_id => post_id})
+        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:post_id => post_id})
       end
 
       def contact_for_person_id(person_id)
@@ -78,11 +82,16 @@ module Diaspora
       end
 
       def posts_from(person)
-        asp = Aspect.arel_table
+        return self.person.posts.where(:pending => false).order("created_at DESC") if person == self.person
+        con = Contact.arel_table
         p = Post.arel_table
-        person.posts.joins(:aspects).includes(:comments).where(
-          p[:public].eq(true).or(asp[:user_id].eq(self.id))
-        ).select('DISTINCT `posts`.*').order("posts.created_at DESC")
+        post_ids = []
+        if contact = self.contact_for(person)
+          post_ids = Post.connection.execute(contact.post_visibilities.select('post_visibilities.post_id').to_sql).map{|r| r.first}
+        end
+        post_ids += Post.connection.execute(person.posts.where(:public => true).select('posts.id').to_sql).map{|r| r.first}
+
+        Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*').order("posts.created_at DESC")
       end
     end
   end
