@@ -64,24 +64,30 @@ describe Person do
     end
   end
 
-  context '#name' do
-    let!(:user) { Factory(:user) }
-    let!(:person) { user.person }
-    let!(:profile) { person.profile }
+  context '.name_from_attrs' do
+    before do
+      @person = alice.person
+      @profile = @person.profile
+    end
 
     context 'with first name' do
       it 'should return their name for name' do
-        person.name.should match /#{profile.first_name}|#{profile.last_name}/
+        Person.name_from_attrs(@profile.first_name, @profile.last_name, @profile.diaspora_handle).should match /#{@profile.first_name}|#{@profile.last_name}/
       end
     end
 
     context 'without first name' do
       it 'should display their diaspora handle' do
-        person.profile.first_name = nil
-        person.profile.last_name = nil
-        person.save!
-        person.name.should == person.diaspora_handle
+        Person.name_from_attrs(nil, nil, @profile.diaspora_handle).should == @profile.diaspora_handle
       end
+    end
+  end
+
+  context '#name' do
+    it 'calls Person.name_from_attrs' do
+      profile = alice.person.profile
+      Person.should_receive(:name_from_attrs).with(profile.first_name, profile.last_name, profile.person.diaspora_handle)
+      alice.name
     end
   end
 

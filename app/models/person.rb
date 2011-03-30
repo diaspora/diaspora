@@ -84,11 +84,12 @@ class Person < ActiveRecord::Base
   end
 
   def name(opts = {})
-    @name ||= if profile.nil? || profile.first_name.nil? || profile.first_name.blank?
-                self.diaspora_handle
-              else
-                "#{profile.first_name.to_s} #{profile.last_name.to_s}"
-              end
+    @name ||= Person.name_from_attrs(self.profile.first_name, self.profile.last_name, self.diaspora_handle)
+  
+  end
+
+  def self.name_from_attrs(first_name, last_name, diaspora_handle)
+    first_name.blank? ? diaspora_handle : "#{first_name.to_s} #{last_name.to_s}"
   end
 
   def first_name
