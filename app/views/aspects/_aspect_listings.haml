@@ -2,8 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-= hidden_field_tag :contact_json, @selected_contacts.map{|contact| contact.person}.to_json
-
 %h4
   .right
     = link_to t('contacts', :count => @contact_count), manage_aspects_path, :title => t('aspects.manage.manage_aspects')

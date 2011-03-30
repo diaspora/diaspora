@@ -20,6 +20,8 @@
 
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
+      - if @selected_contacts
+        = hidden_field_tag :contact_json, @selected_contacts.map{|contact| contact.person}.to_json
       = status.error_messages
       #file-upload
         = image_tag 'icons/photos.png'
