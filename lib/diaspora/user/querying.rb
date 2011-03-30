@@ -81,7 +81,7 @@ module Diaspora
       end
 
       def posts_from(person)
-        return self.person.posts.where(:pending => false) if person == self.person
+        return self.person.posts.where(:pending => false).order("created_at DESC") if person == self.person
         con = Contact.arel_table
         p = Post.arel_table
         post_ids = []
