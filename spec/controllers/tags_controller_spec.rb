@@ -10,7 +10,7 @@ describe TagsController do
   before do
     @user = alice
   end
-  
+
   describe '#index (search)' do
     before do
       sign_in :user, @user
@@ -30,8 +30,16 @@ describe TagsController do
       get :index, :q => "c", :format => 'json'
       response.body.should_not include("#cats")
     end
+    it 'redirects the aimless to excellent parties' do
+      get :index
+      response.should redirect_to tag_path('partytimeexcellent')
+    end
+    it 'does not allow json requestors to party' do
+      get :index, :format => :json
+      response.status.should == 422
+    end
   end
-  
+
   describe '#show' do
 
 

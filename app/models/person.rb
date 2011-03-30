@@ -63,9 +63,9 @@ class Person < ActiveRecord::Base
       tokens.concat([token, token, token])
       tokens.concat([up_token, up_token])
     end
-    [sql, tokens] 
+    [sql, tokens]
   end
-  
+
   def self.search(query, user)
     return [] if query.to_s.blank? || query.to_s.length < 3
 

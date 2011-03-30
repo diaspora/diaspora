@@ -10,14 +10,14 @@ class TagsController < ApplicationController
 
   respond_to :html, :only => [:show]
   respond_to :json, :only => [:index]
-  
+
   def index
-    params[:q].gsub!("#", "")
-    params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
-    if params[:q].length > 1
+    if params[:q] && params[:q].length > 1
+      params[:q].gsub!("#", "")
+      params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
       @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
       @array = []
-      @tags.each do |obj| 
+      @tags.each do |obj|
         @array << { :name => ("#"+obj.name),
           :value => ("#"+obj.name)}
       end
@@ -31,7 +31,10 @@ class TagsController < ApplicationController
         }
       end
     else
-      render :nothing => true
+      respond_to do |format|
+        format.json{ render :nothing => true, :status => 422 }
+        format.html{ redirect_to tag_path('partytimeexcellent') }
+      end
     end
   end
 
