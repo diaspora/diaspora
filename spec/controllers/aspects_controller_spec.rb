@@ -305,6 +305,9 @@ describe AspectsController do
       @katz.profile.save
       @katz.save
 
+      connect_users(@alice, @alices_aspect_2, @eve, @eve.aspects.first)
+      connect_users(@alice, @alices_aspect_2, @zed, @zed.aspects.first)
+      connect_users(@alice, @alices_aspect_1, @katz, @katz.aspects.first)
     end
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
@@ -312,12 +315,15 @@ describe AspectsController do
     end
 
     it 'assigns the contacts in alphabetical order with people in aspects first' do
-      connect_users(@alice, @alices_aspect_2, @eve, @eve.aspects.first)
-      connect_users(@alice, @alices_aspect_2, @zed, @zed.aspects.first)
-      connect_users(@alice, @alices_aspect_1, @katz, @katz.aspects.first)
-      
       get :edit, :id => @alices_aspect_2.id
       assigns[:contacts].map(&:id).should == [@alice.contact_for(@eve.person), @alice.contact_for(@zed.person), @alice.contact_for(@bob.person), @alice.contact_for(@katz.person)].map(&:id)
+    end
+
+    it 'assigns all the contacts if noone is there' do
+      alices_aspect_3  = @alice.aspects.create(:name => "aspect 3")
+
+      get :edit, :id => alices_aspect_3.id
+      assigns[:contacts].map(&:id).should == [@alice.contact_for(@bob.person), @alice.contact_for(@eve.person), @alice.contact_for(@katz.person), @alice.contact_for(@zed.person)].map(&:id)
     end
   end
 

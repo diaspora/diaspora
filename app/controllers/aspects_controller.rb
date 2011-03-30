@@ -101,10 +101,11 @@ class AspectsController < ApplicationController
     
     @contacts_in_aspect = @aspect.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     c = Contact.arel_table
-    @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
-    
-    pp @contacts_not_in_aspect 
-    pp @contacts_in_aspect 
+    if @contacts_in_aspect.empty?
+      @contacts_not_in_aspect = current_user.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    else
+      @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    end
 
     @contacts = @contacts_in_aspect + @contacts_not_in_aspect
 
