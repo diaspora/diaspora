@@ -31,7 +31,7 @@ describe UsersController do
   describe '#public' do
     it 'renders xml' do
       sm = Factory(:status_message, :public => true, :author => @user.person)
-      get :public, :username => @user.username
+      get :public, :username => @user.username, :format => :atom
       response.body.should include(sm.text)
     end
   end
