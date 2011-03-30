@@ -20,4 +20,4 @@
         = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
 
 .stream.show{:data=>{:guid=>@status_message.id}}
-  = render "comments/comments", :post_id => @status_message.id, :comments => @status_message.comments, :always_expanded => true
+  = render "comments/comments", :post => @status_message, :comments => @status_message.comments, :always_expanded => true
