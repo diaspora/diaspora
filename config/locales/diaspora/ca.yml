@@ -34,6 +34,7 @@ ca:
   previous: "anterior"
   _comments: "Comentaris"
   all_aspects: "Tots els aspectes"
+  no_results: "No s'ha trobat cap resultat"
 
 
   activerecord:
@@ -148,6 +149,13 @@ ca:
       no_membership: "No s'ha trobat a la persona seleccionada a l'aspecte"
 
 
+  bookmarklet:
+    post_success: "S'ha publicat! S'està tancant!"
+    post_something: "Publiqueu alguna cosa al Diàspora"
+    explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
+    explanation_link_text: "Publiqueu al Diàspora"
+
+
   comments:
     zero: "cap comentari"
     one: "1 comentari"
@@ -191,7 +199,6 @@ ca:
       to: "a"
       subject: "assumpte"
       send: "Envia"
-      no_results: "No s'ha trobat cap resultat"
     helper:
       new_messages:
         zero: "cap missatge nou"
@@ -199,6 +206,10 @@ ca:
         few: "%{count} missatges nous"
         many: "%{count} missatges nous"
         other: "%{count} missatges nous"
+    create:
+      sent: "S'ha enviat el missatge"
+    destroy:
+      success: "S'ha suprimit la conversa amb èxit"
 
 
   date:
