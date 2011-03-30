@@ -34,6 +34,7 @@ ca:
   previous: "anterior"
   _comments: "Comentaris"
   all_aspects: "Tots els aspectes"
+  no_results: "No s'ha trobat cap resultat"
 
 
   activerecord:
@@ -198,7 +199,6 @@ ca:
       to: "a"
       subject: "assumpte"
       send: "Envia"
-      no_results: "No s'ha trobat cap resultat"
     helper:
       new_messages:
         zero: "cap missatge nou"
