@@ -63,13 +63,17 @@ class Profile < ActiveRecord::Base
     (self.person) ? self.person.diaspora_handle : self[:diaspora_handle]
   end
 
-  def image_url(size = :thumb_large)
-    result = if size == :thumb_medium && self[:image_url_medium]
-               self[:image_url_medium]
-             elsif size == :thumb_small && self[:image_url_small]
-               self[:image_url_small]
+  def image_url(size_wanted = :thumb_large)
+    self.class.image_url_from_attrs(size_wanted, self[:image_url_small], self[:image_url_medium], self[:image_url])
+  end
+
+  def self.image_url_from_attrs(size_wanted, small, medium, large)
+    result = if size_wanted == :thumb_medium && medium
+               medium
+             elsif size_wanted == :thumb_small && small
+               small
              else
-               self[:image_url]
+               large
              end
     result || '/images/user/default.png'
   end

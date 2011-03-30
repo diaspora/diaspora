@@ -16,7 +16,6 @@ class AspectsController < ApplicationController
     else
       @aspects = current_user.aspects
     end
-    @aspects = @aspects.includes(:contacts => {:person => :profile})
 
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
@@ -24,7 +23,16 @@ class AspectsController < ApplicationController
       return
     end
 
-    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
+    @selected_contacts_hashes = Contact.connection.execute(
+      current_user.contacts.joins(:person => :profile).select("people.id, people.guid, profiles.first_name, profiles.last_name, people.diaspora_handle, profiles.image_url_small, profiles.image_url_medium, profiles.image_url").to_sql
+    ).map do |r|
+      {:id => r[1],
+       :name => Person.name_from_attrs(r[2], r[3], r[4]),
+       :avatar => Profile.image_url_from_attrs(:thumb_small, r[5], r[6], r[7]),
+       :handle => r[4],
+       :url => "/people/#{r[0]}"}
+    end
+
     @aspect_ids = @aspects.map { |a| a.id }
     @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage', :order => session[:sort_order] + ' DESC', :page => params[:page]).includes(
       :comments, :mentions, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
@@ -98,7 +106,7 @@ class AspectsController < ApplicationController
 
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
-    
+
     @contacts_in_aspect = @aspect.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     c = Contact.arel_table
     if @contacts_in_aspect.empty?
