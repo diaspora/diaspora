@@ -86,9 +86,10 @@ module Diaspora
         p = Post.arel_table
         post_ids = []
         if contact = self.contact_for(person)
-          post_ids = contact.post_visibilities.select('post_visibilities.post_id').map{|p| p.post_id}
+          post_ids = Post.connection.execute(contact.post_visibilities.select('post_visibilities.post_id').to_sql).map{|r| r.first}
         end
-        post_ids += person.posts.where(:public => true).select('posts.id').map{|p| p.id}
+        post_ids += Post.connection.execute(person.posts.where(:public => true).select('posts.id').to_sql).map{|r| r.first}
+
         Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*').order("posts.created_at DESC")
       end
     end
