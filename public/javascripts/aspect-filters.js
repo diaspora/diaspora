@@ -7,10 +7,19 @@ $(document).ready(function(){
   var selectedGUIDS = [],
       requests = 0;
 
+  $("#aspect_nav li").each(function(){
+    var button = $(this),
+        guid = button.attr('data-guid');
+
+    if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
+      button.addClass('selected');
+      selectedGUIDS.push(guid);
+    }
+  });
+
   // popstate
   $(window).bind("popstate", function(){
     $.getScript(location.href);
-    setGUIDS();
     return false;
   });
 
@@ -147,7 +156,6 @@ $(document).ready(function(){
     // some browsers (Firefox for example) don't support pushState
     if (typeof(history.pushState) == 'function') {
       history.pushState(null, document.title, newURL);
-      setGUIDS();
     }
 
     $.ajax({
@@ -188,19 +196,6 @@ $(document).ready(function(){
       }
     });
 
-  }
-
-  function setGUIDS(){
-    selectedGUIDS = [];
-    $("li", "#aspect_nav").each(function(){
-      var button = $(this),
-          guid = button.attr('data-guid');
-      if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
-        button.addClass('selected');
-        selectedGUIDS.push(guid);
-      }
-    });
-    console.log(selectedGUIDS);
   }
 
 });
