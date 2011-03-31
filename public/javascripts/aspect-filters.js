@@ -37,11 +37,13 @@ $(document).ready(function(){
       });
 
       // loading animation
-      $("#aspect_stream_container").fadeTo(100, 0.4);
-      $("#aspect_contact_pictures").fadeTo(100, 0.4);
+      $("#aspect_stream_container").fadeTo(200, 0.4);
+      $("#aspect_contact_pictures").fadeTo(200, 0.4);
 
       performAjax( $(this).attr('href'));
     }
+
+    $('html, body').animate({scrollTop:0}, 'fast');
   });
 
   $("#aspect_nav a.aspect_selector").click(function(e){
@@ -170,9 +172,6 @@ $(document).ready(function(){
           $("#publisher textarea").addClass("with_attachments");
           photos_html = photos_html + "<li style='position:relative;'> " + ("<img src='" + photos[key] +"' data-id='" + key + "'>") +  "</li>";
         };
-
-
-        $('html, body').animate({scrollTop:0}, 'fast');
 
         // reinit listeners on stream
         photozone.html(photos_html);
