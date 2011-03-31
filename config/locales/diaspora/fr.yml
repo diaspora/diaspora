@@ -143,9 +143,9 @@ fr:
     zero: "aucun contact"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Message envoyé"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "La conversation a été supprimée."
     helper: 
       new_messages: 
         few: "%{count} nouveaux messages"
@@ -247,7 +247,7 @@ fr:
         zero: "Personne n'aime"
   more: "Plus"
   next: "suivant"
-  no_results: "No Results Found"
+  no_results: "Aucun résultat trouvé"
   notifications: 
     also_commented: "a/ont également commenté"
     also_commented_deleted: "a commenté un message supprimé"

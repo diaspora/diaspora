@@ -44,11 +44,11 @@ es:
     destroy: 
       failure: "No se pudo eliminar a la persona del Aspecto"
       no_membership: "No se pudo encontrar a la persona seleccionada en ese Aspecto"
-      success: "Persona eliminada satisfactoriamente del Aspecto"
+      success: "Persona eliminada con éxito del Aspecto"
   aspects: 
     add_to_aspect: 
       failure: "Error al añadir el contacto a este Aspecto."
-      success: "Se ha agregado correctamente tu contacto a un aspecto."
+      success: "Tu contacto se agregó con éxito al Aspecto."
     aspect_contacts: 
       done_editing: "Aceptar"
     aspect_stream: 
@@ -62,14 +62,14 @@ es:
       success: "Tu nuevo Aspecto %{name} ha sido creado."
     destroy: 
       failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
-      success: "%{name} fue eliminado correctamente."
+      success: "%{name} fue eliminado con éxito."
     edit: 
       add_existing: "Añadir un contacto existente."
       aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "¿hacer visible el aspecto?"
+      make_aspect_list_visible: "Hacer visibles los contactos en este Aspecto."
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
@@ -108,11 +108,11 @@ es:
       edit_aspect: "Editar Aspecto"
     update: 
       failure: "Tu Aspecto, %{name}, tiene un nombre demasiado largo para guardarlo."
-      success: "Tu Aspecto, %{name}, fue editado correctamente."
+      success: "Tu Aspecto, %{name}, fue editado con éxito."
     zero: "no hay aspectos"
   back: "Atrás"
   bookmarklet: 
-    explanation: "%{link} donde sea agregando a tus marcadores este enlace."
+    explanation: "%{link} desde donde sea agregando a tus marcadores este enlace."
     explanation_link_text: "Publica en Diaspora"
     post_something: "Publica algo en Diaspora"
     post_success: "Publicado! Cerrando!"
@@ -229,7 +229,7 @@ es:
       code: "Código"
       login: "Conectarse"
       logout: "Desconectarse"
-      profile: "perfil"
+      profile: "Perfil"
       settings: "Configuración"
   likes: 
     likes: 
@@ -249,8 +249,8 @@ es:
   next: "Siguiente"
   no_results: "No hay resultados"
   notifications: 
-    also_commented: "también ha comentado en la publicación de %{post_author}"
-    also_commented_deleted: "comentó en una publicación eliminada"
+    also_commented: "también participó en la publicación de %{post_author}"
+    also_commented_deleted: "participó en una publicación eliminada"
     comment_on_post: "comentó en tu"
     deleted: "eliminado"
     helper: 
@@ -276,7 +276,7 @@ es:
       sign_in: "Conéctate para verlo."
       subject: "%{name} también participó en la publicación de %{post_author}."
     comment_on_post: 
-      commented: "escribió en tu publicación:"
+      commented: "participó en tu publicación:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} escribió en tu publicación."
     diaspora: "Email robot de Diaspora*"
@@ -336,7 +336,7 @@ es:
       born: "Fecha de Nacimiento"
       cannot_remove: "%{name} no puede eliminarse del último Aspecto. (Si quieres dejar de compartir con él, debes elimínarlo.)"
       edit_my_profile: "Editar mi Perfil"
-      gender: "género / sexo"
+      gender: "Género / Sexo"
       in_aspects: "en Aspectos"
       location: "Ubicación "
       remove_contact: "eliminar contacto"
@@ -378,7 +378,7 @@ es:
       invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "o seleccione uno de los ya existentes"
+      or_select_one: "o selecciona una de las ya subidas"
       upload: "¡Sube una foto nueva de Perfil!"
     photo: 
       view_all: "ver todas las fotos de %{name}"
@@ -394,7 +394,7 @@ es:
       view: "Ver"
     update: 
       error: "Falló la edición de la foto."
-      notice: "Foto actualizada correctamente."
+      notice: "Foto actualizada con éxito."
   posts: 
     doesnt_exist: "esa publicación no existe!"
   previous: "Anterior"
@@ -406,14 +406,14 @@ es:
       first_name: "Nombre"
       last_name: "Apellidos"
       update_profile: "Actualizar Perfil"
-      your_bio: "Tu Biografía"
-      your_birthday: "Tu Cumpleaños"
-      your_gender: "Tu Género / Sexo"
-      your_location: "Tu ubicación"
-      your_name: "Tu Nombre"
-      your_photo: "Tu Foto"
-      your_private_profile: "Tu perfil privado"
-      your_public_profile: "Tu perfil publico"
+      your_bio: "Biografía"
+      your_birthday: "Cumpleaños"
+      your_gender: "Género / Sexo"
+      your_location: "Ubicación"
+      your_name: "Nombre"
+      your_photo: "Foto"
+      your_private_profile: "Perfil privado"
+      your_public_profile: "Perfil público"
       your_tags: "Tú: en 5 #etiquetas"
       your_tags_placeholder: "p.ej. #diaspora #panqueque #gatitos #musica"
     update: 
@@ -519,14 +519,14 @@ es:
       all: "todo"
       all_contacts: "Todos los contactos"
       click_to_share_with: "Pulsa para compartir con:"
-      make_public: "Compartir públicamente"
+      make_public: "hacer público"
       post_a_message_to: "Enviar un mensaje a %{aspect}"
       posting: "Publicando..."
       public: "El mundo"
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
-      whats_on_your_mind: "¿Qué tienes en mente?"
+      whats_on_your_mind: "¿Qué tal?"
     reshare: 
       reshare: "Publicar en..."
     stream_element: 

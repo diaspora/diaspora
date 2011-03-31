@@ -143,9 +143,9 @@ cs:
     zero: "žádné kontakty"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Zpráva byla odeslána"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "Konverzace úspěšně odstraněna"
     helper: 
       new_messages: 
         few: "%{count} nové zprávy"
@@ -247,7 +247,7 @@ cs:
         zero: "žádná kladná hodnocení"
   more: "Více"
   next: "další"
-  no_results: "No Results Found"
+  no_results: "Nebyly nalezeny žádné výsledky"
   notifications: 
     also_commented: "také komentoval v %{post_author}"
     also_commented_deleted: "komentován smazaný příspěvek"

@@ -112,7 +112,7 @@ zh-TW:
     zero: "沒有面向"
   back: "後退"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation: "%{link} 這個連結加入書籤後可對任何網站使用."
     explanation_link_text: "貼到 Diaspora"
     post_something: "貼些東西到 Diaspora"
     post_success: "貼好了! 關掉中!"
@@ -143,9 +143,9 @@ zh-TW:
     zero: "沒有任何聯繫"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "訊息已送出"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "對話移除成功"
     helper: 
       new_messages: 
         few: "%{count}則新訊息"
@@ -247,7 +247,7 @@ zh-TW:
         zero: "沒有人喜歡"
   more: "更多"
   next: "後面"
-  no_results: "No Results Found"
+  no_results: "搜尋沒有結果"
   notifications: 
     also_commented: "也在別處發表了意見, 在 %{post_author} 的"
     also_commented_deleted: "對已刪除的貼文發表意見"
@@ -317,7 +317,7 @@ zh-TW:
     few: "%{count}個聯絡人"
     helper: 
       people_on_pod_are_aware_of: "Pod 上已知的人"
-      results_for: "%{params} 的搜尋結果"
+      results_for: "%{params}的搜尋結果"
     index: 
       couldnt_find_them_send_invite: "找不到他們? 寄一封邀請函吧!"
       no_one_found: "...找不到任何東西."

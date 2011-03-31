@@ -143,9 +143,9 @@ es-CL:
     zero: "no hay contactos"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Mensaje enviado"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "Conversación eliminada exitosamente"
     helper: 
       new_messages: 
         few: "%{count} nuevos mensajes"
@@ -247,7 +247,7 @@ es-CL:
         zero: "a ninguna persona le gusta esto"
   more: "Más"
   next: "Siguiente"
-  no_results: "No Results Found"
+  no_results: "No se encontraron resultados"
   notifications: 
     also_commented: "también comentó en el post de %{post_author}"
     also_commented_deleted: "Comentó en un post eliminado"
