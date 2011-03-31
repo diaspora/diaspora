@@ -21,12 +21,12 @@ module Diaspora
         opts[:limit] = opts[:limit].to_i * opts[:page].to_i if opts[:page]
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
-        posts_from_self = self.person.posts.joins(:aspect_visibilities => :aspect).where(:aspects => {:user_id => self.id})
+        posts_from_self = self.person.posts
 
         if opts[:by_members_of]
           posts_from_others = posts_from_others.joins(:contacts => :aspect_memberships).where(
             :aspect_memberships => {:aspect_id => opts[:by_members_of]})
-          posts_from_self = posts_from_self.where(:aspects => {:id => opts[:by_members_of]})
+          posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
         post_ids = Post.connection.execute(posts_from_others.select('posts.id').limit(opts[:limit]).order(opts[:order]).to_sql).map{|r| r.first}
