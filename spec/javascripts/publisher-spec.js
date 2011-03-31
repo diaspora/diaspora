@@ -197,7 +197,7 @@ describe("Publisher", function() {
       Publisher.toggleServiceField($(".service_icon#facebook").first());
       expect($('#publisher [name="services[]"]').length).toBe(1);
 
-      Publisher.toggleServiceField(($(".service_icon#twitter").first());
+      Publisher.toggleServiceField($(".service_icon#twitter").first());
       expect($('#publisher [name="services[]"]').length).toBe(2);
     });
   });
