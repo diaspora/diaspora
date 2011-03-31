@@ -62,8 +62,13 @@ class AspectsController < ApplicationController
         respond_with @aspect
       end
     else
-      flash[:error] = I18n.t('aspects.create.failure')
-      redirect_to :back
+      respond_to do |format|
+        format.js { render :text => I18n.t('aspects.create.failure'), :status => 422 }
+        format.html do
+          flash[:error] = I18n.t('aspects.create.failure')
+          redirect_to :back
+        end
+      end
     end
   end
 
