@@ -12,7 +12,9 @@ Feature: saved state
     And I go to the aspects page
 
     When I follow "Open 1"
+    And I wait for the ajax to finish
     And I follow "Open 2"
+    And I wait for the ajax to finish
     Then aspect "Open 1" should be selected
     And aspect "Open 2" should be selected
     But aspect "Closed 1" should not be selected

@@ -2,6 +2,28 @@ $('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect
 $('#aspect_listings').html("<%= escape_javascript(render('aspects/aspect_listings', :aspects => @aspects)) %>");
 $('a[rel*=facebox]').facebox();
 
+
+var aspectIds = <%= @aspect_ids.to_json %>,
+    selectors = $("li", "#aspect_nav");
+
+if( selectors.length-2 != aspectIds.length ) {
+  $.each( selectors, function(){
+    var element = $(this);
+
+    if( $.inArray( parseInt(element.attr('data-guid')), aspectIds) != -1 ){
+      element.addClass('selected');
+    } else {
+      element.removeClass('selected');
+    }
+  });
+} else {
+  $.each( selectors, function(){
+    $(this).removeClass('selected');
+  });
+
+  selectors.first().addClass('selected');
+}
+
 $(document).ready(function() {
   $('#main_stream').infinitescroll({
     navSelector  : "#main_stream + div.pagination",
