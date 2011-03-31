@@ -96,7 +96,7 @@ describe ConversationsController do
       sign_in :user, eve
 
       get :show, :id => @conversation.id
-      response.code.should == '302'
+      response.code.should redirect_to conversations_path
     end
   end
 end

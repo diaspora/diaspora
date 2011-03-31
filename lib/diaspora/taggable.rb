@@ -4,8 +4,8 @@
 
 module Diaspora
   module Taggable
-    VALID_TAG_BODY = /[^_\s#*\[\]()\:\@\/"'\.%]+/
-    
+    VALID_TAG_BODY = /[^_,\s#*\[\]()\:\@\/"'\.%]+/
+
     def self.included(model)
       model.class_eval do
         cattr_accessor :field_with_tags

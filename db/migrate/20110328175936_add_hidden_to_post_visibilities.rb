@@ -5,7 +5,7 @@ class AddHiddenToPostVisibilities < ActiveRecord::Migration
   end
 
   def self.down
-    add_index :post_visibilities, :hidden
+    remove_index :post_visibilities, :hidden
     remove_column :post_visibilities, :hidden
   end
 end
