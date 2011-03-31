@@ -42,14 +42,17 @@ class ConversationsController < ApplicationController
   end
 
   def show
-    @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
-                                                                         :conversation_visibilities => {:person_id => current_user.person.id}).first
-    if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
-      @visibility.unread = 0
-      @visibility.save
-    end
+    if @conversation = Conversation.joins(:conversation_visibilities).where(:id => params[:id],
+                                                                            :conversation_visibilities => {:person_id => current_user.person.id}).first
+      if @visibility = ConversationVisibility.where(:conversation_id => params[:id], :person_id => current_user.person.id).first
+        @visibility.unread = 0
+        @visibility.save
+      end
 
-    respond_with @conversation
+      respond_with @conversation
+    else
+      redirect_to conversations_path
+    end
   end
 
   def new
