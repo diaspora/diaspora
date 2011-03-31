@@ -20,6 +20,7 @@ javascripts:
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/Mustache.js
+    - public/javascripts/vendor/charCount.js
     - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/fileuploader-custom.js
     - public/javascripts/keycodes.js

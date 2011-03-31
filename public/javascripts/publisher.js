@@ -287,7 +287,7 @@ var Publisher = {
   bindServiceIcons: function(){
     $(".service_icon").bind("click", function(evt){
       $(this).toggleClass("dim");
-      Publisher.toggleServiceField($(this).attr('id'));
+      Publisher.toggleServiceField($(this));
     });
   },
   bindPublicIcon: function(){
@@ -299,12 +299,14 @@ var Publisher = {
     });
   },
   toggleServiceField: function(service){
-    var hidden_field = $('#publisher [name="services[]"][value="'+service+'"]')
+    Publisher.createCounter(service);
+    var provider = service.attr('id');
+    var hidden_field = $('#publisher [name="services[]"][value="'+provider+'"]')
     if(hidden_field.length > 0){
       hidden_field.remove();
     } else {
       $("#publisher .content_creation form").append(
-      '<input id="services_" name="services[]" type="hidden" value="'+service+'">');
+      '<input id="services_" name="services[]" type="hidden" value="'+provider+'">');
     };
   },
   toggleAspectIds: function(aspectId) {
@@ -316,6 +318,21 @@ var Publisher = {
       '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
     };
   },
+  createCounter: function(service){
+    var counter = $("#publisher .counter");
+    if (counter.length > 0) { counter.remove()};
+    
+    var min = 40000;
+    var a = $('.service_icon:not(.dim)');
+    if(a.length > 0){
+      $.each(a, function(index, value){
+        var num = parseInt($(value).attr('maxchar'));
+        if (min > num) { min = num}
+      });
+      $('#status_message_fake_text').charCount({allowed: min, warning: min/10 });
+    }
+  },
+
   bindAspectToggles: function() {
     $('#publisher .aspect_badge').bind("click", function(){
       var unremovedAspects = $(this).parent().children('.aspect_badge').length - $(this).parent().children(".aspect_badge.removed").length;

@@ -17,6 +17,7 @@ src_files:
   - public/javascripts/vendor/jquery.infieldlabel.js
   - public/javascripts/vendor/jquery.autoresize.min.js
   - public/javascripts/vendor/Mustache.js
+  - public/javascripts/vendor/charCount.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
   - public/javascripts/jquery.autocomplete-custom.js

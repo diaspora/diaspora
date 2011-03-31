@@ -53,7 +53,7 @@
               = image_tag "icons/globe.png", :title => t('.public'), :class => 'public_icon dim', :width => 16, :height => 16
             - if current_user.services
               - for service in current_user.services
-                = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}"
+                = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
           = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button', :tabindex => 2
 
