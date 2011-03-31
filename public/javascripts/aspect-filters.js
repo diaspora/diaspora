@@ -17,11 +17,6 @@ $(document).ready(function(){
     }
   });
 
-  // popstate
-  $(window).bind("popstate", function(){
-    $.getScript(location.href);
-    return false;
-  });
 
   $("a.hard_aspect_link").live("click", function(e){
     var link = $(this);
@@ -93,23 +88,19 @@ $(document).ready(function(){
   function generateURL(){
     var baseURL = location.href.split("?")[0];
 
-    if(selectedGUIDS.length != $('li', '#aspect_nav').length-2) {
-      // generate new url
-      baseURL = baseURL.replace('#','');
-      baseURL += '?';
-      for(i=0; i < selectedGUIDS.length; i++){
-        baseURL += 'a_ids[]='+ selectedGUIDS[i] +'&';
-      }
+    // generate new url
+    baseURL = baseURL.replace('#','');
+    baseURL += '?';
+    for(i=0; i < selectedGUIDS.length; i++){
+      baseURL += 'a_ids[]='+ selectedGUIDS[i] +'&';
+    }
 
-      if(!$("#publisher").hasClass("closed")) {
-        // open publisher
-        baseURL += "op=true";
-      } else {
-        // slice last '&'
-        baseURL = baseURL.slice(0,baseURL.length-1);
-      }
+    if(!$("#publisher").hasClass("closed")) {
+      // open publisher
+      baseURL += "op=true";
     } else {
-      selectedGUIDS = [];
+      // slice last '&'
+      baseURL = baseURL.slice(0,baseURL.length-1);
     }
     return baseURL;
   }
