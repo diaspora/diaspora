@@ -17,6 +17,8 @@ ca:
   ok: "D'acord"
   cancel: "Canceŀla"
   delete: "Suprimeix"
+  hide: "Amaga"
+  undo: "Voleu desfer-ho?"
   or: "o"
   ago: "fa %{time}"
   username: "Nom d'usuari"
@@ -271,10 +273,9 @@ ca:
       powered_by: "FUNCIONA AMB DIÀSPORA*"
       whats_new: "què és nou?"
       have_a_problem: "Teniu un problema? Trobeu aquí una resposta"
-      your_aspects: "els vostres aspectes"
-      logged_in_as: "autenticat com a %{name}"
       toggle: "commuta el lloc per a mòbils"
       public_feed: "Canal públic del Diàspora per a %{name}"
+      your_aspects: "els vostres aspectes"
 
 
   likes:
@@ -448,6 +449,11 @@ ca:
     doesnt_exist: "aquesta publicació no existeix!"
 
 
+  post_visibilites:
+    update:
+      post_hidden: "S'ha amagat la publicació de %{name}."
+
+
   profiles:
     edit:
       your_public_profile: "El vostre perfil públic"
@@ -587,6 +593,9 @@ ca:
     stream_element:
       like: "M'agrada"
       dislike: "No m'agrada"
+    footer:
+      logged_in_as: "autenticat com a %{name}"
+      your_aspects: "els vostres aspectes"
 
 
   status_messages:
