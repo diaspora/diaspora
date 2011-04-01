@@ -25,7 +25,7 @@ class PeopleController < ApplicationController
         render :json => @people
       end
 
-      format.html do
+      format.all do
         @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
         @hashes = hashes_for_people(@people, @aspects)
 
