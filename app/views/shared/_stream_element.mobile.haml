@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  .thumb_small= person_image_link(post.author, :size => :thumb_small)
+  = person_image_link(post.author, :size => :thumb_small)
 
   .content
     .from
