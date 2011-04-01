@@ -74,7 +74,6 @@ en:
       unknown_person: "unknown person"
       video_title:
         unknown: "Unknown Video Title"
-
   aspects:
     zero: "no aspects"
     one: "1 aspect"
@@ -265,7 +264,7 @@ en:
       have_a_problem: "Have a problem? Find an answer here"
       toggle: "toggle mobile site"
       public_feed: "Public Diaspora Feed for %{name}"
-
+      your_aspects: "your aspects"
 
   likes:
     likes:
