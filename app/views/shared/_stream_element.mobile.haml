@@ -3,10 +3,6 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:data=>{:guid=>post.id}}
-  .right
-    %span.time
-      = time_ago_in_words(post.created_at)
-
   .thumb_small= person_image_link(post.author, :size => :thumb_small)
 
   .content
@@ -16,4 +12,6 @@
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
-      = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link'
+      %span.time
+        = t('ago', :time => time_ago_in_words(post.created_at))
+      = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link right'

@@ -19,7 +19,7 @@
       - if current_user.owns? @status_message
         = link_to t('delete'), @status_message, :confirm => t('are_you_sure'), :method => :delete
       - else
-        = link_to t('hide'), post_visibility_path(:id => "42", :post_id => post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
+        = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @status_message.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
 
 .stream.show{:data=>{:guid=>@status_message.id}}
   = render "comments/comments", :post => @status_message, :comments => @status_message.comments, :always_expanded => true

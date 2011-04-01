@@ -7,13 +7,13 @@
 
 $blue: #3F8FBA
 
+
 a:not([role='button'])
   :text
     :decoration none
   :font
     :weight normal !important
-  :color $blue !important
-
+  :-webkit-tap-highlight-color rgba(200, 200, 200, 1) !important
 a.ui-link-inherit
   :font
     :weight bold !important
@@ -24,6 +24,7 @@ a.ui-link-inherit
 
   .info_pane
     :text-align left
+
 
 #diaspora_description
   :background
@@ -106,8 +107,6 @@ a
       :top 0.5em
     :font
       :size smaller
-    :text
-      :align right
 
   .photo_attachments
     :margin
@@ -316,7 +315,9 @@ ul
 #footer
   :background
     :color #ccc
-  :padding 12px
+  .inset
+    :padding 10px
+
 
 .notification_day_header
   :padding 6px
