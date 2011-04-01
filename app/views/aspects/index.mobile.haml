@@ -8,11 +8,12 @@
   - else
     = @aspect
 
-.grey_back
-  = render 'shared/publisher', :aspect_ids => @aspect_ids
-
+%h1
+  = link_to 'post a message >> ', '#publisher_page', :id => 'publisher_button'
 #main_stream.stream
   = render 'shared/stream', :posts => @fakes
   %a.more-link.paginate{:href => '#'}
     %h2= t("more")
 = will_paginate @posts
+- content_for :subpages do
+  = render 'shared/publisher', :aspect_ids => @aspect_ids

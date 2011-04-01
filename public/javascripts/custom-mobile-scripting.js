@@ -7,5 +7,7 @@ $(document).bind("mobileinit", function() {
    $.extend($.mobile, {
      ajaxLinksEnabled: false,
      ajaxFormsEnabled: false
+
    });
+	$.mobile.selectmenu.prototype.options.nativeMenu = false;
 });

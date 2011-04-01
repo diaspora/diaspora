@@ -72,7 +72,7 @@ class StatusMessagesController < ApplicationController
       respond_to do |format|
         format.js { render :create, :status => 201}
         format.html { redirect_to :back}
-        format.mobile{ redirect_to :back}
+        format.mobile{ redirect_to root_url}
       end
     else
       if !photos.empty?

@@ -9,3 +9,5 @@
 #pagination 
   = will_paginate @posts
 
+- content_for :subpages do
+  = render 'shared/publisher', :aspect_ids => @aspect_ids
