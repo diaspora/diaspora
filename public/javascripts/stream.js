@@ -108,11 +108,6 @@ var Stream = {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
-    $(".stream").find(".stream_element_delete", ".stream_element").live('ajax:success', function(data, html, xhr) {
-      var target = $(this).parents(".stream_element");
-      target.hide('blind', { direction: 'vertical' }, 300, function(){ $(this).remove() });
-    });
-
     $(".stream").find(".comment_delete", ".comment").live('ajax:success', function(data, html, xhr) {
       var element = $(this),
           target = element.parents(".comment"),

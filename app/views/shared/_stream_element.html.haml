@@ -11,40 +11,43 @@
       = link_to image_tag('deletelabel.png'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
   - else
     .right.controls
-      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
+      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
+  .undo_text.hidden
+    = t('post_visibilites.update.post_hidden', :name => post.author.name)
+    = link_to t('undo'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete"
+  .sm_body
+    = person_image_link(post.author, :size => :thumb_small)
 
-  = person_image_link(post.author, :size => :thumb_small)
+    .content
+      .from
+        = person_link(post.author, :class => 'author')
+        %time.timeago{:datetime => post.created_at}
+      = render 'status_messages/status_message', :post => post, :photos => post.photos
 
-  .content
-    .from
-      = person_link(post.author, :class => 'author')
-      %time.timeago{:datetime => post.created_at}
-    = render 'status_messages/status_message', :post => post, :photos => post.photos
+      .info
+        - if post.public?
+          %span.aspect_badges
+            %span.aspect_badge.public
+              = t('the_world')
+        - elsif post.author.owner_id == current_user.id
+          %span.aspect_badges
+            = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
 
-    .info
-      - if post.public?
-        %span.aspect_badges
-          %span.aspect_badge.public
-            = t('the_world')
-      - elsif post.author.owner_id == current_user.id
-        %span.aspect_badges
-          = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
+        %span.timeago
+          = link_to(how_long_ago(post), status_message_path(post))
 
-      %span.timeago
-        = link_to(how_long_ago(post), status_message_path(post))
+        - unless (defined?(@commenting_disabled) && @commenting_disabled)
+          = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
-      - unless (defined?(@commenting_disabled) && @commenting_disabled)
-        = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
+          / TODO(likes)
+          /- if (defined?(current_user) && !current_user.liked?(post))
+          /  %span.like_links
+          /    |
+          /    = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
+          /    |
+          /    = link_to t('.dislike'), likes_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
 
-        / TODO(likes)
-        /- if (defined?(current_user) && !current_user.liked?(post))
-        /  %span.like_links
-        /    |
-        /    = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
-        /    |
-        /    = link_to t('.dislike'), likes_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
+      /.likes_container
+      /  = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
 
-    /.likes_container
-    /  = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
-
-    = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)
+      = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

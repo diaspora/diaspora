@@ -300,6 +300,7 @@ var Publisher = {
   },
   toggleServiceField: function(service){
     Publisher.createCounter(service);
+
     var provider = service.attr('id');
     var hidden_field = $('#publisher [name="services[]"][value="'+provider+'"]')
     if(hidden_field.length > 0){
@@ -320,7 +321,7 @@ var Publisher = {
   },
   createCounter: function(service){
     var counter = $("#publisher .counter");
-    if (counter.length > 0) { counter.remove()};
+    counter.remove();
     
     var min = 40000;
     var a = $('.service_icon:not(.dim)');

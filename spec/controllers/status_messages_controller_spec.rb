@@ -177,22 +177,22 @@ describe StatusMessagesController do
     end
 
     it 'let a user delete his message' do
-      delete :destroy, :id => @message.id
+      delete :destroy, :format => :js, :id => @message.id
       StatusMessage.find_by_id(@message.id).should be_nil
     end
 
     it 'sends a retraction on delete' do
       alice.should_receive(:retract).with(@message)
-      delete :destroy, :id => @message.id
+      delete :destroy, :format => :js, :id => @message.id
     end
 
     it 'will not let you destroy posts visible to you' do
-      delete :destroy, :id => @message2.id
+      delete :destroy, :format => :js, :id => @message2.id
       StatusMessage.find_by_id(@message2.id).should be_true
     end
 
     it 'will not let you destory posts you do not own' do
-      delete :destroy, :id => @message3.id
+      delete :destroy, :format => :js, :id => @message3.id
       StatusMessage.find_by_id(@message3.id).should be_true
     end
   end

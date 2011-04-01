@@ -35,7 +35,6 @@ Feature: posting
         And I am on "bob@bob.bob"'s page
 
         And I hover over the post
-        And I preemptively confirm the alert
         And I click to delete the first post
         And I wait for the ajax to finish
         And I go to "bob@bob.bob"'s page

@@ -22,18 +22,24 @@ describe PostVisibilitiesController do
     @vis.reload.hidden.should == false
   end
 
-  describe '#destroy' do
+  describe '#update' do
     context "on a post you can see" do
       it 'succeeds' do
-        delete :destroy,  :id => 42, :post_id => @status.id
+        put :update, :format => :js, :id => 42, :post_id => @status.id
         response.should be_success
       end
 
-      it 'deletes the visibility' do
-        delete :destroy,  :id => 42, :post_id => @status.id
+      it 'marks hidden if visible' do
+        put :update, :format => :js, :id => 42, :post_id => @status.id
         @vis.reload.hidden.should == true
       end
 
+      it 'marks visible if hidden' do
+        @vis.hidden = true
+        @vis.save!
+        put :update, :format => :js, :id => 42, :post_id => @status.id
+        @vis.reload.hidden.should == false
+      end
     end
 
     context "post you do not see" do
@@ -43,11 +49,11 @@ describe PostVisibilitiesController do
       end
       it 'does not let a user destroy a visibility that is not theirs' do
         lambda {
-          delete :destroy, :id => 42, :post_id => @status.id
+          put :update, :format => :js, :id => 42, :post_id => @status.id
         }.should_not change(@vis.reload, :hidden).to(true)
       end
       it 'does not succceed' do
-        delete :destroy,  :id => 42, :post_id => @status.id
+        put :update, :format => :js, :id => 42, :post_id => @status.id
         response.should_not be_success
       end
     end

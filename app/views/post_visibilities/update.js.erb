@@ -1,0 +1,3 @@
+var target = $(".stream_element[data-guid=<%= escape_javascript(@post.id.to_s) %>]")
+target.find(".sm_body").toggleClass("hidden");
+target.find(".undo_text").toggleClass("hidden");

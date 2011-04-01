@@ -28,13 +28,13 @@ describe("Publisher", function() {
 
     it("gets called in when you toggle service icons", function(){
       spyOn(Publisher, 'createCounter');
-      Publisher.toggleServiceField();
+      Publisher.toggleServiceField($(".service_icon").first());
       expect(Publisher.createCounter).toHaveBeenCalled();
     });
 
     it("removes the .counter span", function(){
       spyOn($.fn, "remove");
-      Publisher.createCounter();
+      Publisher.createCounter($(".service_icon").first());
       expect($.fn.remove).toHaveBeenCalled();
     });
   });
@@ -169,7 +169,7 @@ describe("Publisher", function() {
       Publisher.bindServiceIcons();
       $(".service_icon#facebook").click();
 
-      expect(Publisher.toggleServiceField).toHaveBeenCalledWith($(".service_icon#facebook").first());
+      expect(Publisher.toggleServiceField).toHaveBeenCalled();
     });
   });
 

@@ -46,7 +46,7 @@ And /^I hover over the (\w*)$/ do |element|
 end
 
 When /^I click to delete the first post$/ do
-  page.execute_script('$(".stream_element").first().find(".stream_element_delete").click()')
+  page.execute_script('$(".stream_element").first().find(".stream_element_delete").first().click()')
 end
 
 When /^I click to delete the first comment$/ do

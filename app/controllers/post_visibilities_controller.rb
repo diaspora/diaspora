@@ -6,17 +6,16 @@
 class PostVisibilitiesController < ApplicationController
   before_filter :authenticate_user!
 
-  def destroy
+  def update
     #note :id is garbage
 
     @post = Post.where(:id => params[:post_id]).select("id, author_id").first
     @contact = current_user.contact_for( @post.author)
-    @vis = PostVisibility.where(:contact_id => @contact.id,
+    if @vis = PostVisibility.unscoped.where(:contact_id => @contact.id,
                                 :post_id => params[:post_id]).first
-    if @vis
-      @vis.hidden = true
+      @vis.hidden = !@vis.hidden 
       if @vis.save
-        render :nothing => true, :status => 200
+        render 'update'
         return
       end
     end
