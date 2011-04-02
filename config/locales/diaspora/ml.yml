@@ -179,6 +179,7 @@ ml:
       correct_the_following_errors_and_try_again: "ഈ പിഴവുകള്‍ പരിഹരിച്ച ശേഷം വീണ്ടും ശ്രമിക്കുക."
       invalid_fields: "അസാധുവായ കള്ളികള്‍"
   fill_me_out: "എന്നെ പൂരിപ്പിക്കു"
+  hide: "Hide"
   home: 
     show: 
       already_account: "നിലവില്‍ ഒരു അക്കൌണ്ടുണ്ടോ?"
@@ -218,7 +219,6 @@ ml:
   layouts: 
     application: 
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
-      logged_in_as: "%{name}എന്ന പേരില്‍ അകത്ത് പ്രവേശിച്ചിരിക്കുന്നു"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ ml:
     update: 
       error: "ചിത്രം പുതുക്കാന്‍ പറ്റുന്നില്ല.."
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -498,6 +501,9 @@ ml:
     contact_list: 
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "ഇമെയില്‍ വഴി"
       dont_have_now: "താങ്കള്‍ക്ക് ക്ഷണമൊന്നും ബാക്കിയില്ല, പക്ഷേ കൂടുതല്‍ വരുന്നുണ്ട്!"
@@ -554,6 +560,7 @@ ml:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "ലോകം മുഴുവന്‍"
+  undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
   users: 
     destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."

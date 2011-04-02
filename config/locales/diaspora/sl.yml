@@ -179,6 +179,7 @@ sl:
       correct_the_following_errors_and_try_again: "Popravite naslednje napake in poskusite znova."
       invalid_fields: "Neveljavna polja"
   fill_me_out: "Izpolni me"
+  hide: "Hide"
   home: 
     show: 
       already_account: "ali že imate uporabniški račun?"
@@ -218,7 +219,6 @@ sl:
   layouts: 
     application: 
       have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
-      logged_in_as: "logged in as %{name}"
       powered_by: "STRAN POGANJA DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ sl:
     update: 
       error: "Urejanje slike ni uspelo."
       notice: "Slika uspešno posodobljena."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "prejšnja"
@@ -498,6 +501,9 @@ sl:
     contact_list: 
       all_contacts: "Vsi stiki"
       cannot_remove: "Osebe ni mogoče odstraniti iz skupine. (V kolikor želite prekiniti stik z osebo, jo je potrebno odstraniti iz vašega seznama stikov.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
       dont_have_now: "Trenutno nimate povabil, vendar jih lahko v kratkem pričakujete!"
@@ -554,6 +560,7 @@ sl:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "na splet"
+  undo: "Undo?"
   username: "Uporabniško ime"
   users: 
     destroy: "Uporabniški račun je uspešno zaprt."

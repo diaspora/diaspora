@@ -179,6 +179,7 @@ nb:
       correct_the_following_errors_and_try_again: "Rett opp de følgende feilene og prøv igjen."
       invalid_fields: "Ugyldige felter"
   fill_me_out: "Fortell meg"
+  hide: "Hide"
   home: 
     show: 
       already_account: "har du allerede en konto?"
@@ -218,7 +219,6 @@ nb:
   layouts: 
     application: 
       have_a_problem: "Har du et problem? Få svar her"
-      logged_in_as: "logget inn som %{name}"
       powered_by: "DREVET AV DIASPORA*"
       public_feed: "Offentlig Diaspora feed for %{name}"
       toggle: "vis mobilsiden"
@@ -395,6 +395,9 @@ nb:
     update: 
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "det innlegget finnes ikke!"
   previous: "forrige"
@@ -498,6 +501,9 @@ nb:
     contact_list: 
       all_contacts: "Alle kontakter"
       cannot_remove: "Cannot remove person from last aspect."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "via Epost"
       dont_have_now: "Du har ingen akkurat nå, men flere invitasjoner kommer snart!"
@@ -554,6 +560,7 @@ nb:
       people_tagged_with: "Personer tagget med %{tag}"
       posts_tagged_with: "Innlegg tagget med #%{tag}"
   the_world: "verden"
+  undo: "Undo?"
   username: "Brukernavn"
   users: 
     destroy: "Kontoen er stengt."

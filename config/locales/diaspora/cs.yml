@@ -179,6 +179,7 @@ cs:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
   fill_me_out: "Vyplňte"
+  hide: "Hide"
   home: 
     show: 
       already_account: "máte již účet?"
@@ -218,7 +219,6 @@ cs:
   layouts: 
     application: 
       have_a_problem: "Máte problém? Zde najdete odpověď"
-      logged_in_as: "přihlášen jako %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Veřejný Diaspora feed %{name}"
       toggle: "přepnout mobilní stránku"
@@ -395,6 +395,9 @@ cs:
     update: 
       error: "Nepodařilo se upravit fotku."
       notice: "Fotka úspěšně aktualizována."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "tento příspěvek neexistuje!"
   previous: "předchozí"
@@ -498,6 +501,9 @@ cs:
     contact_list: 
       all_contacts: "Všechny kontakty"
       cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby, musíte odstranit její kontakt.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "pomocí emailu"
       dont_have_now: "Již nemáte žádné, ale další brzy přibudou!"
@@ -554,6 +560,7 @@ cs:
       people_tagged_with: "Lidé označeni %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
   the_world: "svět"
+  undo: "Undo?"
   username: "Uživatelské jméno"
   users: 
     destroy: "Účet byl úspěšně uzavřen."

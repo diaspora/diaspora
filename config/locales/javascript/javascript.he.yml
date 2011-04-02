@@ -7,7 +7,7 @@ he:
   javascripts: 
     confirm_dialog: "בבטחה?"
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
     search_for: "חיפוש אחר {{name}}"
     shared: 
       contact_list: 

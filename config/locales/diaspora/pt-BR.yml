@@ -179,6 +179,7 @@ pt-BR:
       correct_the_following_errors_and_try_again: "Corrija os erros a seguir e tente novamente."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Preencha"
+  hide: "Hide"
   home: 
     show: 
       already_account: "Já possui uma conta?"
@@ -218,7 +219,6 @@ pt-BR:
   layouts: 
     application: 
       have_a_problem: "Problemas? Encontre sua resposta aqui."
-      logged_in_as: "Entrou como %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ pt-BR:
     update: 
       error: "Falha ao editar foto."
       notice: "Foto enviada com sucesso."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "Anterior"
@@ -498,6 +501,9 @@ pt-BR:
     contact_list: 
       all_contacts: "Todos os contatos"
       cannot_remove: "Não é possível remover a pessoa do último aspecto."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "por Email"
       dont_have_now: "Você não possui nenhum no momento, mas novos convites chegarão em breve!"
@@ -554,6 +560,7 @@ pt-BR:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "O mundo"
+  undo: "Undo?"
   username: "Usuário"
   users: 
     destroy: "Conta encerrada com sucesso."

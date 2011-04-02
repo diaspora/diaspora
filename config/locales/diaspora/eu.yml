@@ -179,6 +179,7 @@ eu:
       correct_the_following_errors_and_try_again: "Zuzendu honako akatsak eta saiatu berriro."
       invalid_fields: "Eremu akasdunak"
   fill_me_out: "Bete nazazu"
+  hide: "Hide"
   home: 
     show: 
       already_account: "kontua duzu jada?"
@@ -218,7 +219,6 @@ eu:
   layouts: 
     application: 
       have_a_problem: "Arazoren bat? Aurkitu erantzuna hemen"
-      logged_in_as: "%{name} zara."
       powered_by: "DIASPORAK ESKAINIA"
       public_feed: "%{name}(r)en Diaspora Feed publikoa"
       toggle: "aldatu mugikorreko orrialdera"
@@ -395,6 +395,9 @@ eu:
     update: 
       error: "Huts argazkia aldatzean."
       notice: "Argazkia arrakastaz eguneratua."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "mezu hori ez dago!"
   previous: "aurrekoa"
@@ -498,6 +501,9 @@ eu:
     contact_list: 
       all_contacts: "Adiskide Guztiak"
       cannot_remove: "Ezin izan da pertsona azken alderditik ezabatu. (Pertsona honekin harremanak nahi ez badituzu, adiskidea ezabatu behar duzu.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "e-posta bidez"
       dont_have_now: "Bukatu egin zaizkizu, baina gonbidapen gehiago iritsiko dira laister!"
@@ -554,6 +560,7 @@ eu:
       people_tagged_with: "%{tag} etiketadun jendea"
       posts_tagged_with: "#%{tag} etiketadun mezuak"
   the_world: "mundua"
+  undo: "Undo?"
   username: "Erabiltzailea"
   users: 
     destroy: "Kontua arrakastaz ezabatua."

@@ -112,10 +112,10 @@ sv:
     zero: "inga aspekter"
   back: "Tillbaka"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} från var som helst genom att lägga till denhär länken som bokmärke."
+    explanation_link_text: "Posta på Diaspora"
+    post_something: "Posta något till Diaspora"
+    post_success: "Postat! Stänger!"
   cancel: "Avbryt"
   comments: 
     few: "%{count} kommentarer"
@@ -143,9 +143,9 @@ sv:
     zero: "inga kontakter"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Meddelande skickat"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "Konversation borttagen"
     helper: 
       new_messages: 
         few: "%{count} nya meddelanden"
@@ -179,6 +179,7 @@ sv:
       correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
       invalid_fields: "Ogiltiga uppgifter"
   fill_me_out: "Fyll i mig"
+  hide: "Göm"
   home: 
     show: 
       already_account: "har du redan ett konto?"
@@ -218,7 +219,6 @@ sv:
   layouts: 
     application: 
       have_a_problem: "Stött på problem? Hitta lösningen här"
-      logged_in_as: "inloggad som %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Offentligt Diaspora flöde för %{name}"
       toggle: "byt till mobil version"
@@ -247,7 +247,7 @@ sv:
         zero: "inga personer gillade dethär"
   more: "Mer"
   next: "nästa"
-  no_results: "No Results Found"
+  no_results: "Inga Resultat Funna"
   notifications: 
     also_commented: "kommenterade även %{post_author}s"
     also_commented_deleted: "kommenterade ett borttaget inlägg"
@@ -395,6 +395,9 @@ sv:
     update: 
       error: "Misslyckades med att ändra fotot."
       notice: "Fotot är nu uppdaterat."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}s post har gömts."
   posts: 
     doesnt_exist: "den posten finns inte!"
   previous: "föregående"
@@ -498,6 +501,9 @@ sv:
     contact_list: 
       all_contacts: "Alla kontakter"
       cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
+    footer: 
+      logged_in_as: "inloggad som %{name}"
+      your_aspects: "dina aspekter"
     invitations: 
       by_email: "by Emaila"
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
@@ -554,6 +560,7 @@ sv:
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
   the_world: "världen"
+  undo: "Ångra?"
   username: "Användarnamn"
   users: 
     destroy: "Ditt konto är nu stängt."

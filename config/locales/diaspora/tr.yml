@@ -179,6 +179,7 @@ tr:
       correct_the_following_errors_and_try_again: "Alttaki yanlıșları düzeltin ve tekrar deneyin."
       invalid_fields: "Yanlıș Alanlar"
   fill_me_out: "Beni doldur"
+  hide: "Hide"
   home: 
     show: 
       already_account: "already have an account?"
@@ -218,7 +219,6 @@ tr:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ tr:
     update: 
       error: "Fotoyu düzeltme basarısız oldu."
       notice: "Resim başarıyla eklendi."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
@@ -498,6 +501,9 @@ tr:
     contact_list: 
       all_contacts: "Bütün kişiler"
       cannot_remove: "Cannot remove person from last aspect."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
@@ -554,6 +560,7 @@ tr:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "dünya"
+  undo: "Undo?"
   username: "Kullanıcı Adı"
   users: 
     destroy: "Hesap başarıyla kapatıldı"

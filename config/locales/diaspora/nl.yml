@@ -33,7 +33,7 @@ nl:
             username: 
               taken: "is al bezet."
   ago: "%{time} geleden"
-  all_aspects: "Alle aspecten"
+  all_aspects: "Alle Aspecten"
   application: 
     helper: 
       unknown_person: "onbekend persoon"
@@ -112,10 +112,10 @@ nl:
     zero: "geen aspecten"
   back: "Terug"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} vanaf elke locatie door deze link te bookmarken."
+    explanation_link_text: "Post naar Diaspora"
+    post_something: "Post iets naar Diaspora"
+    post_success: "Gepost!"
   cancel: "Annuleren"
   comments: 
     few: "%{count} reacties"
@@ -143,9 +143,9 @@ nl:
     zero: "geen contacten"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Bericht verzonden"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "Conversatie succesvol verwijderd"
     helper: 
       new_messages: 
         few: "%{count} nieuwe berichten"
@@ -179,6 +179,7 @@ nl:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
   fill_me_out: "Vul me in!"
+  hide: "Hide"
   home: 
     show: 
       already_account: "heb je al een account?"
@@ -218,7 +219,6 @@ nl:
   layouts: 
     application: 
       have_a_problem: "Probleem? Vind hier een antwoord"
-      logged_in_as: "ingelogd als %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Publieke Diaspora Feed van %{name}"
       toggle: "switch mobiele versie"
@@ -247,7 +247,7 @@ nl:
         zero: "niemand vindt dit leuk"
   more: "Meer"
   next: "volgende"
-  no_results: "No Results Found"
+  no_results: "Geen resultaten gevonden"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
     also_commented_deleted: "reageerde op een verwijderde post"
@@ -395,6 +395,9 @@ nl:
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "die post bestaat niet!"
   previous: "vorige"
@@ -498,6 +501,9 @@ nl:
     contact_list: 
       all_contacts: "Alle contacten"
       cannot_remove: "Kan persoon niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "via E-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
@@ -554,6 +560,7 @@ nl:
       people_tagged_with: "Personen gemerkt met %{tag}"
       posts_tagged_with: "Berichten gemerkt met #%{tag}"
   the_world: "de wereld"
+  undo: "Undo?"
   username: "Gebruikersnaam"
   users: 
     destroy: "Account succesvol verwijderd."

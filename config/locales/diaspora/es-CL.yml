@@ -179,6 +179,7 @@ es-CL:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Complétame"
+  hide: "Hide"
   home: 
     show: 
       already_account: "¿Ya tienes una cuenta?"
@@ -218,7 +219,6 @@ es-CL:
   layouts: 
     application: 
       have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
-      logged_in_as: "Conectado como %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Canal publico de %{name}"
       toggle: "cambiar sitio móvil"
@@ -395,6 +395,9 @@ es-CL:
     update: 
       error: "Error al editar foto."
       notice: "Foto actualizada correctamente."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "Ese post no existe!"
   previous: "Anterior"
@@ -498,6 +501,9 @@ es-CL:
     contact_list: 
       all_contacts: "Todos los contactos"
       cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectarte de esta persona primero debes eliminar al contacto.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "Por email"
       dont_have_now: "No tienes ninguna ahora, ¡pero pronto vendrán mas invitaciones!"
@@ -554,6 +560,7 @@ es-CL:
       people_tagged_with: "Personas etiquetadas en %{tag}"
       posts_tagged_with: "Posts etiquetados con #%{tag}"
   the_world: "el mundo"
+  undo: "Undo?"
   username: "Nombre de usuario"
   users: 
     destroy: "Cuenta cerrada correctamente."

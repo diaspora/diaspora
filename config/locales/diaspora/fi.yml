@@ -179,6 +179,7 @@ fi:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
   fill_me_out: "Täytä tiedot"
+  hide: "Hide"
   home: 
     show: 
       already_account: "joko sinulla on käyttäjätili?"
@@ -218,7 +219,6 @@ fi:
   layouts: 
     application: 
       have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
-      logged_in_as: "kirjautuneena nimellä %{name}"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "vaihda mobiili sivustoon"
@@ -395,6 +395,9 @@ fi:
     update: 
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "edellinen"
@@ -498,6 +501,9 @@ fi:
     contact_list: 
       all_contacts: "Kaikki kontaktit"
       cannot_remove: "Henkilöä ei voitu poistaa viimeisestä näkymästä. (Jos haluat katkaista yhteyden tähän henkilöön, tulee sinun poistaa kontakti.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "Sähköpostilla"
       dont_have_now: "Sinulla ei ole yhtään kutsua jäljellä, mutta lisää tulee pian!"
@@ -554,6 +560,7 @@ fi:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "maailma"
+  undo: "Undo?"
   username: "Käyttäjätunnus"
   users: 
     destroy: "Käyttäjätilin sulkeminen onnistui."

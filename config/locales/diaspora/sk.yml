@@ -179,6 +179,7 @@ sk:
       correct_the_following_errors_and_try_again: "Opravte nasledujúce chyby a skúste znova."
       invalid_fields: "Chybné polia"
   fill_me_out: "Vyplňte prosím formulár."
+  hide: "Hide"
   home: 
     show: 
       already_account: "Máte už vytvorený účet?"
@@ -218,7 +219,6 @@ sk:
   layouts: 
     application: 
       have_a_problem: "Máte problém? Nájdite odpoveď tu"
-      logged_in_as: "Prihlásený ako %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "Zapnúť mobilné zobrazenie"
@@ -395,6 +395,9 @@ sk:
     update: 
       error: "Úprava fotky zlyhala."
       notice: "Fotka bola úspešne aktualizovaná."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "Predchádzajúce"
@@ -498,6 +501,9 @@ sk:
     contact_list: 
       all_contacts: "Všetky kontakty"
       cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "E-mailom"
       dont_have_now: "Momentálne už nemáte žiadnu pozvánku. Ďalšie pribudnú čoskoro."
@@ -554,6 +560,7 @@ sk:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "svet"
+  undo: "Undo?"
   username: "Užívateľské meno"
   users: 
     destroy: "Účet bol úspešne zrušený."

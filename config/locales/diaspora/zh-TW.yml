@@ -179,6 +179,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
+  hide: "Hide"
   home: 
     show: 
       already_account: "已經有帳號了嗎?"
@@ -218,7 +219,6 @@ zh-TW:
   layouts: 
     application: 
       have_a_problem: "有問題嗎? 這裡有解答"
-      logged_in_as: "以 %{name} 登入"
       powered_by: "強力配置 DIASPORA*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
       toggle: "行動網站切換"
@@ -395,6 +395,9 @@ zh-TW:
     update: 
       error: "相片編輯失敗."
       notice: "相片更新成功."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "貼文不存在!"
   previous: "前面"
@@ -498,6 +501,9 @@ zh-TW:
     contact_list: 
       all_contacts: "全部聯繫"
       cannot_remove: "無法將聯絡人從他/她最後一個面向中移除. (如果你想跟這個人斷絕連結, 你必須刪除他/她的聯繫.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "透過電子郵件"
       dont_have_now: "目前你還不能邀請任何人, 但很快就可以了!"
@@ -554,6 +560,7 @@ zh-TW:
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
   the_world: "全世界"
+  undo: "Undo?"
   username: "用戶名稱"
   users: 
     destroy: "帳號關閉成功."

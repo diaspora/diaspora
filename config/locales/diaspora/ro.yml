@@ -179,6 +179,7 @@ ro:
       correct_the_following_errors_and_try_again: "Corectaţi următoarele erori şi încercaţi din nou."
       invalid_fields: "Câmpuri invalide"
   fill_me_out: "Umple-mă"
+  hide: "Hide"
   home: 
     show: 
       already_account: "already have an account?"
@@ -218,7 +219,6 @@ ro:
   layouts: 
     application: 
       have_a_problem: "Ai o problemă? Găseşte un răspuns aici"
-      logged_in_as: "logat ca %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ ro:
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Fotografia a fost actualizată cu succes."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "anterioare"
@@ -498,6 +501,9 @@ ro:
     contact_list: 
       all_contacts: "Toate contactele"
       cannot_remove: "Cannot remove person from last aspect."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "prin e-mail"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
@@ -554,6 +560,7 @@ ro:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "toată lumea"
+  undo: "Undo?"
   username: "Nume de utilizator"
   users: 
     destroy: "Contul a fost închis cu succes."

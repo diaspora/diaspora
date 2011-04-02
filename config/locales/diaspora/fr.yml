@@ -112,7 +112,7 @@ fr:
     zero: "aucun aspect"
   back: "Retour"
   bookmarklet: 
-    explanation: "%{link} depuis n'importe où en prenant note de ce lien."
+    explanation: "%{link} depuis n'importe où ajoutant ce bookmarklet à vos marque-pages/favoris."
     explanation_link_text: "Publier sur Diaspora"
     post_something: "Publier quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
@@ -179,6 +179,7 @@ fr:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
   fill_me_out: "Remplissez-moi"
+  hide: "Masquer"
   home: 
     show: 
       already_account: "vous avez déjà un compte?"
@@ -218,7 +219,6 @@ fr:
   layouts: 
     application: 
       have_a_problem: "Un problème ? Trouvez une réponse ici"
-      logged_in_as: "connecté comme %{name}"
       powered_by: "PROPULSÉ PAR DIASPORA*"
       public_feed: "Flux Diaspora public pour %{name}"
       toggle: "activer/désactiver le site mobile"
@@ -395,6 +395,9 @@ fr:
     update: 
       error: "La modification de la photo a échoué."
       notice: "La photo a été mise à jour."
+  post_visibilites: 
+    update: 
+      post_hidden: "Le message de % {name} à été masqué."
   posts: 
     doesnt_exist: "cette publication n'existe pas !"
   previous: "précédent"
@@ -498,6 +501,9 @@ fr:
     contact_list: 
       all_contacts: "Tous les contacts"
       cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
+    footer: 
+      logged_in_as: "Connecté en tant que %{name}"
+      your_aspects: "vos aspects"
     invitations: 
       by_email: "par mail"
       dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
@@ -554,6 +560,7 @@ fr:
       people_tagged_with: "Personnes taguées avec %{tag}"
       posts_tagged_with: "Publications taguées avec #%{tag}"
   the_world: "tout le monde"
+  undo: "Annuler ?"
   username: "Nom d'utilisateur"
   users: 
     destroy: "Compte clôturé."

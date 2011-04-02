@@ -179,6 +179,7 @@ el:
       correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
       invalid_fields: "Άκυρα Πεδία"
   fill_me_out: "Ενημέρωσε με"
+  hide: "Hide"
   home: 
     show: 
       already_account: "έχετε ήδη λογαριασμό;"
@@ -218,7 +219,6 @@ el:
   layouts: 
     application: 
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
-      logged_in_as: "σύνδεση ως %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
@@ -395,6 +395,9 @@ el:
     update: 
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "η δημοσίευση δεν υπάρχει!"
   previous: "προηγούμενο"
@@ -498,6 +501,9 @@ el:
     contact_list: 
       all_contacts: "Όλες οι επαφές"
       cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το πρόσωπο αυτό πρέπει να καταργήσετε την αντίστοιχη επαφή.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "με ηλεκτρονικό ταχυδρομείο"
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
@@ -554,6 +560,7 @@ el:
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
       posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
   the_world: "ο κόσμος"
+  undo: "Undo?"
   username: "Όνομα Χρήστη"
   users: 
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."

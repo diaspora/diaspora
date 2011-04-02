@@ -179,6 +179,7 @@ ru:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
       invalid_fields: "Неверные поля"
   fill_me_out: "Заполнить"
+  hide: "Hide"
   home: 
     show: 
       already_account: "уже есть учётная запись?"
@@ -218,7 +219,6 @@ ru:
   layouts: 
     application: 
       have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
-      logged_in_as: "Вошли как %{name}"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ ru:
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография загружена."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "предыдущая"
@@ -498,6 +501,9 @@ ru:
     contact_list: 
       all_contacts: "Все контакты"
       cannot_remove: "Не может удалить человека с последнего аспекта.(Если вы хотите, отключить этого человека необходимо удалить контакт)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "по электронной почте"
       dont_have_now: "Сейчас у вас больше нет приглашений, но новые уже не за горами!"
@@ -554,6 +560,7 @@ ru:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "мир"
+  undo: "Undo?"
   username: "Пользователь"
   users: 
     destroy: "Аккаунт закрыт."

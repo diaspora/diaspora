@@ -179,6 +179,7 @@ lt:
       correct_the_following_errors_and_try_again: "Ištaisyk šias klaidas ir bandyk vėl."
       invalid_fields: "Neteisingi laukai"
   fill_me_out: "Užpildyk"
+  hide: "Hide"
   home: 
     show: 
       already_account: "jau turi paskyrą?"
@@ -218,7 +219,6 @@ lt:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
       powered_by: "TINKLAPĮ LEIDŽIA DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ lt:
     update: 
       error: "Nuotraukos atnaujinti nepavyko."
       notice: "Nuotrauka atnaujinta sėkmingai."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
@@ -498,6 +501,9 @@ lt:
     contact_list: 
       all_contacts: "Visi kontaktai"
       cannot_remove: "Iš paskutinio aspekto asmens pašalinti negalima."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
       dont_have_now: "Tu neturi jokių pakvietimų dabar, tačiau netrukus gausi daugiau!"
@@ -554,6 +560,7 @@ lt:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "pasaulis"
+  undo: "Undo?"
   username: "Vartotojo vardas"
   users: 
     destroy: "Paskyra uždaryta sėkmingai."

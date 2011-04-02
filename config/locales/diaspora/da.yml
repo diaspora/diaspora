@@ -179,6 +179,7 @@ da:
       correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
       invalid_fields: "Ugyldige felter"
   fill_me_out: "Udfyld mig"
+  hide: "Hide"
   home: 
     show: 
       already_account: "har du allerede en konto?"
@@ -218,7 +219,6 @@ da:
   layouts: 
     application: 
       have_a_problem: "Har du et problem? Find svaret her"
-      logged_in_as: "Logget ind som %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Offentligt Diaspora nyheds feed for  %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ da:
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "den post eksisterer ikke!"
   previous: "Forrige"
@@ -498,6 +501,9 @@ da:
     contact_list: 
       all_contacts: "Alle kontaktpersoner"
       cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "vha. Email"
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
@@ -554,6 +560,7 @@ da:
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Poster tagged med #%{tag}"
   the_world: "Verden"
+  undo: "Undo?"
   username: "Brugernavn"
   users: 
     destroy: "Kontoen er nu lukket."

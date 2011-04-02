@@ -179,6 +179,7 @@ zh:
       correct_the_following_errors_and_try_again: "请改正下面显示的错误并重试一遍。"
       invalid_fields: "无效字段"
   fill_me_out: "Fill me out"
+  hide: "Hide"
   home: 
     show: 
       already_account: "您已经有一个账号了吗？"
@@ -218,7 +219,6 @@ zh:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ zh:
     update: 
       error: "照片编辑失败。"
       notice: "头像更新成功。"
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "后退"
@@ -498,6 +501,9 @@ zh:
     contact_list: 
       all_contacts: "所有联系人"
       cannot_remove: "无法把他从上一个分组中移除。（如果你要和这个人断开联系你就必须删除这个联系人。）"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
       dont_have_now: "您现在没有任何邀请，他们正在来的途中，请稍候！"
@@ -554,6 +560,7 @@ zh:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "世界"
+  undo: "Undo?"
   username: "用户名"
   users: 
     destroy: "帐户已成功关闭。"

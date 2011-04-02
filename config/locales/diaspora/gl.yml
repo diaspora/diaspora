@@ -6,7 +6,7 @@
 gl: 
   _comments: "Comentarios"
   _home: "Inicio"
-  _photos: "Fotos"
+  _photos: "Imaxes"
   _services: "Servizos"
   account: "Conta"
   activerecord: 
@@ -53,8 +53,8 @@ gl:
       done_editing: "edición rematada"
     aspect_stream: 
       activity: "actividade"
-      post_time: "tempo de publicación"
-      sort_by: "Ordear por:"
+      post_time: "hora de publicación"
+      sort_by: "Ordenar por:"
     contacts_not_visible: "Os contactos deste aspecto non se poderán ver os uns aos outros."
     contacts_visible: "Os contactos neste aspecto poderanse ver os uns aos outros."
     create: 
@@ -86,8 +86,8 @@ gl:
       add_a_new_aspect: "Engadir un novo aspecto"
       add_a_new_contact: "Engadir un novo contacto"
       drag_to_add: "Arrastre para engadir xente"
-      manage_aspects: "Xestionar aspectos"
-      no_requests: "Non hai solicitudes novas"
+      manage_aspects: "Xestionar os aspectos"
+      no_requests: "Non hai novas solicitudes."
       requests: "Solicitudes"
     many: "%{count} aspectos"
     move_contact: 
@@ -105,14 +105,14 @@ gl:
       family: "Familia"
       work: "Traballo"
     show: 
-      edit_aspect: "editar aspecto"
+      edit_aspect: "modificar o aspecto"
     update: 
-      failure: "O seu aspecto, %{name}, ten un nome demasiado longo para ser gardado."
-      success: "O seu aspecto, %{name}, foi editado con éxito."
+      failure: "O aspecto %{name} ten un nome longo de máis para gardalo."
+      success: "O aspecto %{name} modificouse correctamente."
     zero: "non hai aspectos"
   back: "Volver"
   bookmarklet: 
-    explanation: "%{link} dende calquer sitio engadíndoo a bookmarks."
+    explanation: "Engada a ligazón «%{link}» aos seus marcadores e publique dende calquera páxina."
     explanation_link_text: "Publicar en Diaspora"
     post_something: "Publicar algo en Diaspora\n"
     post_success: "Publicado! Pechando!"
@@ -121,7 +121,7 @@ gl:
     few: "%{count} comentarios"
     many: "%{count} comentarios"
     new_comment: 
-      comment: "Comentar"
+      comment: "Deixar un comentario"
       commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
@@ -152,18 +152,18 @@ gl:
         many: "%{count} novas mensaxes"
         one: "1 nova mensaxe"
         other: "%{count} novas mensaxes"
-        zero: "non hai novas mensaxes"
+        zero: "Non hai mensaxes novas."
     index: 
-      create_a_new_message: "crear mensaxe"
-      inbox: "Caixa de Entrada"
+      create_a_new_message: "Iniciar unha conversa."
+      inbox: "Caixa de entrada"
       message_inbox: "Caixa de entrada"
       new_message: "Nova mensaxe"
-      no_conversation_selected: "non se seleccionou conversación"
-      no_messages: "sen mensaxes"
+      no_conversation_selected: "Non se escolleu ningunha conversa."
+      no_messages: "Non hai mensaxes."
     new: 
       send: "Enviar"
-      subject: "asunto"
-      to: "para"
+      subject: "Asunto"
+      to: "Destinatario"
     show: 
       delete: "borrar e bloquear conversación"
       reply: "responder"
@@ -173,12 +173,13 @@ gl:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Borrar"
-  email: "Correo-e"
+  email: "Correo electrónico"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Corrixa os seguintes erros e ténteo de novo."
       invalid_fields: "Campos incorrectos"
   fill_me_out: "Énchame"
+  hide: "Hide"
   home: 
     show: 
       already_account: "xa tes unha conta?"
@@ -217,12 +218,11 @@ gl:
       to: "a"
   layouts: 
     application: 
-      have_a_problem: "Tes problemas? Atopa aquí a resposta"
-      logged_in_as: "conectado como %{name}"
-      powered_by: "FORNECIDO POR DIASPORA*"
+      have_a_problem: "Ten problemas? Atope a resposta aquí (en inglés)."
+      powered_by: "CONSTRUÍDO CON DIASPORA*"
       public_feed: "Comentarios públicos de %{name}"
       toggle: "cambiar a web móbil"
-      whats_new: "que hai de novo?"
+      whats_new: "Últimos cambios"
       your_aspects: "os teus aspectos"
     header: 
       blog: "Bitácora"
@@ -259,17 +259,17 @@ gl:
         many: "%{count} novas notificacións"
         one: "1 nova notificación"
         other: "%{count} novas notificacións"
-        zero: "non hai novas notificacións"
+        zero: "Non hai notificacións novas."
     index: 
       and: "e"
       and_others: "e outros %{number}"
-      mark_all_as_read: "Marcar todos como lidos"
+      mark_all_as_read: "Marcar todas como lidas"
       notifications: "Notificacións"
     mentioned: "citoute nos seus"
-    new_request: "ofreceu compartir contigo."
+    new_request: "ofreceuse a compartir con vostede."
     post: "publicación"
     private_message: "enviouche unha mensaxe."
-    request_accepted: "aceptou a túa petición para compartir."
+    request_accepted: "aceptou a súa petición de compartir."
   notifier: 
     also_commented: 
       commented: "tamén comentou na publicación de %{post_author}:"
@@ -308,12 +308,12 @@ gl:
   ok: "Aceptar"
   or: "ou"
   password: "Contrasinal"
-  password_confirmation: "Confirmación do contrasinal"
+  password_confirmation: "Novo contrasinal (confirmación)"
   people: 
     add_contact_small: 
       add_contact_from_tag: "engadir contacto dende etiqueta"
     aspect_list: 
-      edit_membership: "Editar membresía de aspecto"
+      edit_membership: "Cambiar os aspectos do contacto"
     few: "%{count} persoas"
     helper: 
       people_on_pod_are_aware_of: "xente nesta vaíña están ao tanto de"
@@ -335,20 +335,20 @@ gl:
       bio: "Biografia"
       born: "Aniversario"
       cannot_remove: "Non se pode eliminar %{name} do último aspecto. (Se te queres desvincular desta persoa tes que eliminar o contacto.)"
-      edit_my_profile: "Editar o meu perfil"
+      edit_my_profile: "Modificar o perfil persoal"
       gender: "Xénero"
       in_aspects: "en aspectos"
       location: "localización"
       remove_contact: "borrar contacto"
       remove_from: "Eliminar %{name} de %{aspect}?"
     show: 
-      add_some: "engade algún"
+      add_some: "Quere engadirse algunha?"
       does_not_exist: "Esa persoa non existe!"
-      edit: "editar"
+      edit: "modificar"
       incoming_request: "%{name} quere compartir contigo"
       mention: "Mencionar"
       message: "Mensaxe"
-      no_posts: "Non hai mensaxes que amosar!"
+      no_posts: "Non hai mensaxes que amosar."
       not_connected: "Non estás compartindo con %{name}"
       recent_posts: "Publicacións recentes"
       recent_public_posts: "Publicacións Públicas Recentes"
@@ -356,7 +356,7 @@ gl:
       similar_contacts: "contactos semellantes"
       start_sharing: "comezar a compartir"
       to_accept_or_ignore: "aceptalo ou ignoralo"
-      you_have_no_tags: "non tes etiquetas!"
+      you_have_no_tags: "Non ten ningunha etiqueta."
     webfinger: 
       fail: "Sentímolo, non poidemos atopar %{handle}."
     zero: "non hai xente"
@@ -378,42 +378,45 @@ gl:
       invalid_ext: "{file} ten unha extensión incorrecta. Só se permiten estas: {extensions}."
       size_error: "{file} é moi grande, o peso máximo de arquivo é {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "ou escolle unha xa existente:"
-      upload: "Sube unha nova foto de perfil!"
+      or_select_one: "ou tamén poder escoller unha das que xa subiu:"
+      upload: "Subir unha nova imaxe de perfil"
     photo: 
       view_all: "ver todas as fotos de %{name}"
     show: 
       collection_permalink: "colección permalink"
       delete_photo: "Eliminar foto"
-      edit: "editar"
-      edit_delete_photo: "Editar descrición da foto / eliminar foto"
+      edit: "modificar"
+      edit_delete_photo: "Modificar a descrición da imaxe ou eliminala"
       make_profile_photo: "facela foto do perfil"
       original_post: "Publicación Orixinal"
       permalink: "permalink"
       update_photo: "Actualizar foto"
       view: "ver"
     update: 
-      error: "Erro ao editar a foto."
+      error: "Non se puido modificar a imaxe."
       notice: "Foto actualizada correctamente."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "esta publicación non existe!"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
     edit: 
-      allow_search: "Permitir á xente buscarte en Diaspora"
-      edit_profile: "Editar perfil"
+      allow_search: "Aparecer nas buscas en Diaspora."
+      edit_profile: "Modificar o perfil"
       first_name: "Nome"
       last_name: "Apelidos"
-      update_profile: "Actualizar Perfil"
+      update_profile: "Gardar os cambios"
       your_bio: "Biografía"
-      your_birthday: "O teu aniversario"
-      your_gender: "O teu xénero"
-      your_location: "A túa localización"
-      your_name: "O teu nome"
-      your_photo: "A túa foto"
-      your_private_profile: "O teu perfil privado"
-      your_public_profile: "O teu perfil público"
+      your_birthday: "Aniversario"
+      your_gender: "Sexo"
+      your_location: "Situación xeográfica"
+      your_name: "Nome"
+      your_photo: "Imaxe"
+      your_private_profile: "Perfil privado"
+      your_public_profile: "Perfil público"
       your_tags: "Defínete en 5 #etiquetas"
       your_tags_placeholder: "por exemplo #diaspora #galego #canciños #música"
     update: 
@@ -422,17 +425,17 @@ gl:
   registrations: 
     closed: "Rexistros pechados nesta vaíña de Diaspora."
     create: 
-      success: "Xa estás en Diaspora!"
+      success: "Xa está en Diaspora!"
     edit: 
-      cancel_my_account: "Cancelar a miña conta"
-      edit: "Editar %{name}"
-      leave_blank: "(deixao baleiro se non queres cambialo)"
-      password_to_confirm: "(precisamos o teu contrasinal actual para confirmar os cambios)"
-      unhappy: "Non estas contento?"
-      update: "Actualizar"
+      cancel_my_account: "Cancelar a conta"
+      edit: "Modificar %{name}"
+      leave_blank: "(déixeo baleiro se non quere cambialo)"
+      password_to_confirm: "(ten que escribir o seu contrasinal actual para confirmar os cambios)"
+      unhappy: "Non está contento?"
+      update: "Gardar"
     new: 
-      enter_email: "Introduce un correo-e"
-      enter_password: "Introduce un contrasinal"
+      enter_email: "Introduza un correo electrónico"
+      enter_password: "Introduza un contrasinal"
       enter_password_again: "Introduce o mesmo contrasinal que antes"
       enter_username: "Escolle un nome de usuario (só letras, números e guions baixos)"
       sign_up: "Rexistrarse"
@@ -444,7 +447,7 @@ gl:
     destroy: 
       error: "Por favor, seleccione un aspecto"
       ignore: "Petición de contacto ignorada."
-      success: "Agora sodes amigos"
+      success: "Agora son contactos"
     helper: 
       new_requests: 
         few: "%{count} novas peticións!"
@@ -457,7 +460,7 @@ gl:
       manage_within: "Administrar contactos"
     new_request_to_person: 
       sent: "enviado!"
-  search: "Procurar"
+  search: "Buscas"
   services: 
     create: 
       success: "Identificado con éxito."
@@ -467,18 +470,18 @@ gl:
       error: "houbo un erro conectando co servizo"
     finder: 
       friends: 
-        few: "%{count} amigos"
-        many: "%{count} amigos"
-        one: "1 amigo"
-        other: "%{count} amigos"
-        zero: "non hai amigos"
-      invite_your_friends_from: "Invita aos teus amigos de %{service}"
+        few: "%{count} contactos"
+        many: "%{count} contactos"
+        one: "1 contacto"
+        other: "%{count} contactos"
+        zero: "non hai contactos"
+      invite_your_friends_from: "Convide aos seus contactos de %{service}"
       not_connected: "sen conexión"
     index: 
       connect_to_facebook: "Conectar ao Facebook"
       connect_to_twitter: "Conectar ao Twitter"
       disconnect: "desconectar"
-      edit_services: "Editar servizos"
+      edit_services: "Modificar os servizos"
       logged_in_as: "conectado como"
       really_disconnect: "desconectar %{service}?"
     inviter: 
@@ -498,13 +501,16 @@ gl:
     contact_list: 
       all_contacts: "Tódolos contactos"
       cannot_remove: "Non se pode borrar esta persoa do último aspecto. (Se te queres desconectar desta persoa debes borrar o contacto)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "por correo"
       dont_have_now: "Non tes ningunha agora mesmo, pero xa terás máis!"
-      from_facebook: "De Facebook"
-      invitations_left: "(quedan %{count} )"
+      from_facebook: "de Facebook"
+      invitations_left: "(restan %{count})"
       invite_someone: "Invitar alguén"
-      invite_your_friends: "Invita os teus amigos"
+      invite_your_friends: "Convide aos seus contactos"
       invites: "Convites"
       invites_closed: "As invitacións están actualmente pechadas nesta vaíña Diaspora"
     notification: 
@@ -526,9 +532,9 @@ gl:
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con %{aspect}"
-      whats_on_your_mind: "Que tes en mente?"
+      whats_on_your_mind: "Que se conta?"
     reshare: 
-      reshare: "Recompartir "
+      reshare: "Repetir"
     stream_element: 
       dislike: "Non me gusta"
       like: "Gústame"
@@ -554,33 +560,34 @@ gl:
       people_tagged_with: "Xente etiquetada con %{tag}"
       posts_tagged_with: "Publicacións etiquetadas con #%{tag}"
   the_world: "o mundo"
+  undo: "Undo?"
   username: "Nome de usuario"
   users: 
     destroy: "Conta pechada satisfactoriamente."
     edit: 
-      also_commented: "...comenta alguén na publicación do teu contacto?"
+      also_commented: "Comentarios nas publicacións dos contactos."
       change: "Cambiar"
-      change_language: "Cambiar lingua"
-      change_password: "Cambiar contrasinal"
-      close_account: "Pechar conta"
-      comment_on_post: "...alguén comenta na túa publicación?"
+      change_language: "Cambiar a lingua"
+      change_password: "Cambiar o contrasinal"
+      close_account: "Pechar a conta"
+      comment_on_post: "Comentarios nas publicacións propias."
       current_password: "Contrasinal actual"
-      download_photos: "Descargar as miñas imaxes"
-      download_xml: "Descargar o meu xml"
-      edit_account: "Editar conta"
-      export_data: "Exportar datos"
-      mentioned: "...estás mencionado nunha publicación?"
+      download_photos: "Descargar as imaxes propias"
+      download_xml: "Descargar o ficheiro XML"
+      edit_account: "Modificar a conta"
+      export_data: "Exportar os datos"
+      mentioned: "Mencións en publicacións."
       new_password: "Novo contrasinal"
-      private_message: "...recibes unha mensaxe privada?"
-      receive_email_notifications: "Recibir notificacións por correo cando..."
-      request_acceptence: "...a túa petición é aceptada?"
-      request_received: "...recibes unha petición?"
-      your_email: "O teu correo"
-      your_handle: "O teu enderezo Diaspora"
+      private_message: "Recepción de mensaxes privadas."
+      receive_email_notifications: "Motivos de notificación por correo electrónico"
+      request_acceptence: "Aceptación de peticións propias."
+      request_received: "Recepción de peticións."
+      your_email: "Correo electrónico"
+      your_handle: "Enderezo Diaspora"
     getting_started: 
       connect_on_diaspora: "Conectar a Diaspora"
       connect_services: "Conectar a outros servizos"
-      could_not_find_anyone: "Non se atoparon amigos en Diaspora*. Usa o buscador para invitalos."
+      could_not_find_anyone: "Non se atoparon contactos en Diaspora*. Usa o buscador para invitalos."
       edit_profile: "Edita o teu perfil"
       finished: "Xa está!"
       save_and_continue: "Gardar e continuar"
@@ -596,11 +603,11 @@ gl:
     public: 
       does_not_exist: "O usuario %{username} non existe!"
     update: 
-      email_notifications_changed: "Notificacións de correo-e cambiadas"
-      language_changed: "Lingua cambiada"
-      language_not_changed: "Fallo ao cambiar de lingua"
-      password_changed: "Contrasinal Cambiado"
-      password_not_changed: "Fallo ao cambiar de contrasinal"
+      email_notifications_changed: "Modificáronse as notificacións por correo electrónico."
+      language_changed: "Cambiouse a lingua."
+      language_not_changed: "Non se puido cambiar a lingua."
+      password_changed: "Cambiouse o contrasinal."
+      password_not_changed: "Non se puido cambiar o contrasinal."
   webfinger: 
     fetch_failed: "fallo ao buscar perfil webfinger para %{profile_url}"
     hcard_fetch_failed: "Houbo un problema na buca da hcard para #{@account}"

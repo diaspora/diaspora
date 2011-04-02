@@ -179,6 +179,7 @@ mk:
       correct_the_following_errors_and_try_again: "Поправете ги следниве грешки и обидете се повторно."
       invalid_fields: "Невалидни полиња"
   fill_me_out: "Пополни ме"
+  hide: "Hide"
   home: 
     show: 
       already_account: "веќе имате корисничка сметка?"
@@ -218,7 +219,6 @@ mk:
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
-      logged_in_as: "logged in as %{name}"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -395,6 +395,9 @@ mk:
     update: 
       error: "Неуспешно уредување на слика."
       notice: "Ажурирањето на сликата е успешно."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
@@ -498,6 +501,9 @@ mk:
     contact_list: 
       all_contacts: "All contacts"
       cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
       dont_have_now: "Моментално немате права, но повеќе покани ќе дојдат наскоро!"
@@ -554,6 +560,7 @@ mk:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "светот"
+  undo: "Undo?"
   username: "Корисничко име"
   users: 
     destroy: "Корисничката сметка е успешно затворена."
