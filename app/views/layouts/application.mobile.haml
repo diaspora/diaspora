@@ -57,7 +57,7 @@
 
       = yield
 
-      = render :partial =>'shared/footer'
+      = render :partial =>'shared/footer' if user_signed_in?
 
     -if current_user
       #menu{:data => {:role => 'page', :theme => 'c'}}
