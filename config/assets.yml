@@ -8,7 +8,7 @@ javascripts:
     - public/javascripts/vendor/swfobject.js
     - public/javascripts/vendor/web_socket.js
   jquery:
-    - public/javascripts/vendor/jquery144.min.js
+    - public/javascripts/vendor/jquery152.min.js
   main:
     - public/javascripts/rails.js
     - public/javascripts/vendor/jquery.infieldlabel.js
@@ -34,7 +34,7 @@ javascripts:
     - public/javascripts/application.js
     - public/javascripts/search.js
   mobile:
-    - public/javascripts/vendor/jquery144.min.js
+    - public/javascripts/vendor/jquery152.min.js
     - public/javascripts/custom-mobile-scripting.js
     - public/javascripts/vendor/jquery.mobile-1.0a4.js
     - public/javascripts/vendor/jquery.infinitescroll.min.js
