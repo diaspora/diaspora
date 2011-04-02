@@ -50,13 +50,10 @@ describe("Diaspora", function() {
       it("has to have a certain DOM structure", function() {
         spec.loadFixture("aspects_index_with_posts");
 
-        var $post = $("#main_stream").children(".stream_element:first");
-        var $contentParagraph = $post.find(".sm_body .content").children("p");
-          console.log($contentParagraph);
-        var $infoDiv = $contentParagraph.prev(".from").siblings(".info");
-
-          console.log($infoDiv);
-        expect($infoDiv.length).toEqual(1);
+        var $post = $("#main_stream").children(".stream_element:first"),
+          $contentParagraph = $post.children(".sm_body").children('.content').children("p");
+        
+        expect($contentParagraph.length).toEqual(1);
       });
     });
   });

@@ -56,10 +56,9 @@
     this.registerServices();
 
     var $post = $("#main_stream").children(".stream_element:first"),
-      $contentParagraph = $post.children(".content").children("p"),
-      $infoDiv = $contentParagraph.prev(".from").siblings(".info");
+      $contentParagraph = $post.children(".sm_body").children('.content').children("p");
 
-    this.canEmbed = $infoDiv.length;
+    this.canEmbed = $contentParagraph.length;
   };
 
   Embedder.prototype.registerServices = function() {
