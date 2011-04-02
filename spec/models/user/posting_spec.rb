@@ -28,8 +28,8 @@ describe User do
     it 'saves post into visible post ids' do
       proc {
         user.add_to_streams(@post, @aspects)
-      }.should change{user.raw_visible_posts.all.length}.by(1)
-      user.reload.raw_visible_posts.should include @post
+      }.should change{user.raw_visible_posts(:by_members_of => @aspects).length}.by(1)
+      user.raw_visible_posts(:by_members_of => @aspects).should include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do
