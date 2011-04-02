@@ -27,7 +27,7 @@ class TagsController < ApplicationController
 
       respond_to do |format|
         format.json{
-          render(:json => @array.to_json, :status => 201)
+          render(:json => @array.to_json, :status => 200)
         }
       end
     else
