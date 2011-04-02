@@ -71,9 +71,9 @@
 
 
     - if @person
-      %link{:rel => "alternate", :href => "#{@person.public_url}", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
+      %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
     - elsif current_user
-      %link{:rel => "alternate", :href => "#{current_user.public_url}", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => current_user.name)}"}
+      %link{:rel => "alternate", :href => "#{current_user.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => current_user.name)}"}
 
   %body{:class => "#{yield(:body_class)}"}
     - unless @landing_page

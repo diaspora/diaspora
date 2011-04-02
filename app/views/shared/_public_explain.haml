@@ -9,7 +9,7 @@
     =t('.outside')
     %br
     %br
-    = link_to "RSS", current_user.public_url
+    = link_to "RSS", "#{current_user.public_url}.atom"
     %br
     - if current_user.services
       - for service in current_user.services
