@@ -91,11 +91,14 @@ class Post < ActiveRecord::Base
         return local_post
       end
     elsif !local_post
-      self.save
-      user.contact_for(person).receive_post(self)
-      user.notify_if_mentioned(self)
-      Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
-      return self
+      if self.save
+        user.contact_for(person).receive_post(self)
+        user.notify_if_mentioned(self)
+        Rails.logger.info("event=receive payload_type=#{self.class} update=false status=complete sender=#{self.diaspora_handle}")
+        return self
+      else
+        Rails.logger.info("event=receive payload_type=#{self.class} update=false status=abort sender=#{self.diaspora_handle} reason=#{self.errors.full_messages}")
+      end
     else
       Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
     end
