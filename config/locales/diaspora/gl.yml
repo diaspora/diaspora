@@ -546,14 +546,14 @@ gl:
       not_found: "Sentímolo, non poidemos encontrar esa publicación."
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "esconder comentarios"
+    hide_comments: "Agochar os comentarios"
     show_comments: "Amosar todos os comentarios"
   tags: 
     show: 
       nobody_talking: "Ninguén falou aínda sobre %{tag} ."
       people_tagged_with: "Xente etiquetada con %{tag}"
       posts_tagged_with: "Publicacións etiquetadas con #%{tag}"
-  the_world: "o mundo"
+  the_world: "Público"
   username: "Nome de usuario"
   users: 
     destroy: "Conta pechada satisfactoriamente."
