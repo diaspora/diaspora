@@ -91,10 +91,10 @@ class PeopleController < ApplicationController
         else
           @commenting_disabled = false
         end
-        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").paginate(:per_page => 15, :page => params[:page])
+        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).paginate(:per_page => 15, :page => params[:page])
       else
         @commenting_disabled = true
-        @posts = @person.posts.where(:type => "StatusMessage", :public => true).paginate(:per_page => 15, :page => params[:page], :order => 'created_at DESC')
+        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).paginate(:per_page => 15, :page => params[:page], :order => 'created_at DESC')
       end
 
       @fakes = PostsFake.new(@posts)
