@@ -29,6 +29,7 @@ javascripts:
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/embedder.js
     - public/javascripts/widgets/timeago.js
+    - public/javascripts/widgets/directionDetector.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/application.js

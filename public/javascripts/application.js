@@ -25,8 +25,8 @@ $(document).ready(function() {
         .css("display", "block");
     }
     Diaspora.widgets.timeago.updateTimeAgo();
+    Diaspora.widgets.directionDetector.updateBinds();
   });
-
 
 
   $("a.paginate").live("click", function() {

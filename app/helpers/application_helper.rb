@@ -280,4 +280,8 @@ module ApplicationHelper
 
     defaults
   end
+
+  def rtl?(string)
+    return (string.cleaned_is_rtl?) ? 'rtl' : ''
+  end
 end

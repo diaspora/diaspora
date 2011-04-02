@@ -6,13 +6,17 @@
 $(document).ready(function(){
 
   $('a.conversation').live('click', function(){
-    $.getScript(this.href);
+    $.getScript(this.href, function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
     history.pushState(null, "", this.href);
     return false;
   });
 
   $(window).bind("popstate", function(){
-    $.getScript(location.href);
+    $.getScript(location.href, function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
     return false;
   });
 
