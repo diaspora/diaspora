@@ -212,9 +212,11 @@ class User < ActiveRecord::Base
       aspects = post.aspects
       retraction = Retraction.for(post)
     end
-    retraction.perform(self)
+
     mailman = Postzord::Dispatch.new(self, retraction)
     mailman.post
+
+    retraction.perform(self)
 
     retraction
   end
