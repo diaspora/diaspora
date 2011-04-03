@@ -8,12 +8,30 @@ $(document).ready(function(){
   $('a.conversation').live('click', function(){
     $.getScript(this.href);
     history.pushState(null, "", this.href);
+
+    var conv = $(this).children('.stream_element'),
+        cBadge = $("#message_inbox_badge").children(".badge_count");
+    if(conv.hasClass('unread') ){
+      conv.removeClass('unread');
+    }
+    if(cBadge.html() != null) {
+      cBadge.html().replace(/\d+/, function(num){
+        num = parseInt(num);
+        cBadge.html(parseInt(num)-1);
+        if(num == 1) {
+          cBadge.addClass("hidden");
+        }
+      });
+    }
+
     return false;
   });
 
   $(window).bind("popstate", function(){
-    $.getScript(location.href);
-    return false;
+    if (location.href.match(/conversations\/\d+/) != null) {
+      $.getScript(location.href);
+      return false;
+    }
   });
 
   resize();

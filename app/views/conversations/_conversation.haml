@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%a.conversation{:href => conversations_path(:conversation_id => conversation.id)}
+%a.conversation{:href => conversation_path(conversation)}
   .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
     = person_image_tag(conversation.author)
 
