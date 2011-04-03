@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-= form_tag profile_path(@profile), :method => :put, :multipart => true, :id => 'update_profile_form' do
+= form_tag profile_path, :method => :put, :multipart => true, :id => 'update_profile_form' do
   %div{:style => "width:360px"}
     = render 'profiles/edit_public', :profile => @profile, :aspect => @aspect, :person => @person
     = hidden_field_tag :getting_started, @step
