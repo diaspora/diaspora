@@ -281,7 +281,7 @@ module ApplicationHelper
     defaults
   end
 
-  def rtl?(string)
+  def direction_for(string)
     return (string.cleaned_is_rtl?) ? 'rtl' : ''
   end
 end

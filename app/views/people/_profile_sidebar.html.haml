@@ -41,13 +41,13 @@
         %li
           %h4
             =t('.bio')
-          %div{ :class => rtl?(person.profile.bio) }
+          %div{ :class => direction_for(person.profile.bio) }
             = markdownify(person.profile.bio, :newlines => true)
       - unless person.profile.location.blank?
         %li
           %h4
             =t('.location')
-          %div{ :class => rtl?(person.profile.location) }
+          %div{ :class => direction_for(person.profile.location) }
             = markdownify(person.profile.location, :newlines => true)
 
       %li.span-8.last

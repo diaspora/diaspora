@@ -49,7 +49,7 @@ Diaspora.widgets.add("directionDetector", function() {
   };
 
   this.bind = function() {
-    $(this).one('keyup', Diaspora.widgets.directionDetector.updateDirection);
+    $(this).bind('keyup', Diaspora.widgets.directionDetector.updateDirection);
     Diaspora.widgets.directionDetector.binds.push($(this));
   };
 
