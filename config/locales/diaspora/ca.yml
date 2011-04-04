@@ -142,6 +142,7 @@ ca:
     index:
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
+      post_a_message: "publica un missatge »"
 
 
   aspect_memberships:
