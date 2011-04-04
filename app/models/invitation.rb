@@ -85,9 +85,9 @@ class Invitation < ActiveRecord::Base
     recipient.invite!
   end
 
-  def to_request!
-    request = sender.send_contact_request_to(recipient.person, aspect)
-    destroy if request
-    request
+  def share_with!
+    contact = sender.share_with(recipient.person, aspect)
+    destroy if contact
+    contact
   end
 end

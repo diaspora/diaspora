@@ -5,10 +5,22 @@
 module Diaspora
   module UserModules
     module Connecting
+
+      def share_with(person, aspect)
+        contact = self.contacts.find_or_initialize_by_person_id(person.id)
+        unless contact.persisted?
+          contact.dispatch_request
+        end
+        contact.aspects << aspect
+        contact.save
+        contact
+      end
+
+#begin
       def send_contact_request_to(desired_contact, aspect)
-        contact = Contact.new(:person => desired_contact,
-                              :user => self,
-                              :pending => true)
+        self.contacts.new(:person => desired_contact,
+                          :pending => true)
+
         contact.aspects << aspect
 
         if contact.save!
@@ -17,6 +29,11 @@ module Diaspora
         else
           nil
         end
+      end
+
+      def dispatch_contact_acceptance(request, requester)
+        Postzord::Dispatch.new(self, request).post
+        request.destroy unless request.sender.owner
       end
 
       def accept_contact_request(request, aspect)
@@ -28,12 +45,6 @@ module Diaspora
 
         request.destroy
         request.reverse_for(self)
-      end
-
-      def dispatch_contact_acceptance(request, requester)
-        Postzord::Dispatch.new(self, request).post
-
-        request.destroy unless request.sender.owner
       end
 
       def accept_and_respond(contact_request_id, aspect_id)
@@ -72,6 +83,14 @@ module Diaspora
         received_request.destroy
         self.save
       end
+      
+      def activate_contact(person, aspect)
+        new_contact = Contact.create!(:user => self,
+          :person => person,
+          :aspects => [aspect],
+          :pending => false)
+      end
+#end
 
       def disconnect(bad_contact)
         person = bad_contact.person
@@ -102,12 +121,6 @@ module Diaspora
         end
       end
 
-      def activate_contact(person, aspect)
-        new_contact = Contact.create!(:user => self,
-          :person => person,
-          :aspects => [aspect],
-          :pending => false)
-      end
     end
   end
 end

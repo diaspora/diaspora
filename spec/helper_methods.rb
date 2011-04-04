@@ -3,15 +3,13 @@ module HelperMethods
     connect_users(u1, u1.aspects.first, u2, u2.aspects.first)
   end
   def connect_users(user1, aspect1, user2, aspect2)
-    Contact.create!(:user => user1,
-                    :person => user2.person,
-                    :aspects => [aspect1],
-                   :pending => false)
+    user1.contacts.create!(:person => user2.person,
+                           :aspects => [aspect1],
+                           :pending => false)
 
-    Contact.create!(:user => user2,
-                    :person => user1.person,
-                    :aspects => [aspect2],
-                   :pending => false)
+    user2.contacts.create!(:person => user1.person,
+                           :aspects => [aspect2],
+                           :pending => false)
     user1.reload
     user2.reload
     aspect1.reload

@@ -45,20 +45,6 @@ var AspectEdit = {
     var dropzone = $(this);
     var person = ui.draggable;
 
-    if (person.hasClass('request')) {
-      $.ajax({
-        type: "DELETE",
-        url: "/requests/" + person.attr('data-guid'),
-        data: {
-          "accept": true,
-          "aspect_id": dropzone.attr('data-aspect_id')
-        },
-        success: function() {
-          AspectEdit.onDeleteRequestSuccess(person, dropzone);
-        }
-      });
-    }
-
     if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
         var aspect_id = person.attr('data-aspect_id')
@@ -95,16 +81,6 @@ var AspectEdit = {
     if( $(".person[data-guid='"+ person_id +"']").length == 1) {
       Diaspora.widgets.alert.alert("Error removing contact", "You cannot remove the person from the last aspect");
     } else {
-      if (!person.hasClass('request')) {
-        var aspect_id = person.attr('data-aspect_id')
-        $.ajax({
-          type: "DELETE",
-          url: "/aspect_memberships/" + aspect_id,
-          data: {
-            'person_id': person_id
-          }
-        });
-      }
       person.fadeOut(400, function() {
         person.remove();
       });

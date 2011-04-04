@@ -182,21 +182,6 @@ describe User do
     end
   end
 
-  describe "#request_from" do
-    let!(:user5) {Factory(:user)}
-
-    it 'should not have a pending request before connecting' do
-      request = alice.request_from(user5.person)
-      request.should be_nil
-    end
-
-    it 'should have a pending request after sending a request' do
-      alice.send_contact_request_to(user5.person, alice.aspects.first)
-      request = user5.request_from(alice.person)
-      request.should_not be_nil
-    end
-  end
-
   describe '#posts_from' do
     before do
       @user3 = Factory(:user)

@@ -73,10 +73,9 @@ describe Request do
   end
 
   describe '#receive' do
-    it 'calls receive_contact_request on user' do
+    it 'creates a contact' do
       request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
-
-      @user2.should_receive(:receive_contact_request).with(request)
+      @user2.contacts.should_receive(:create).with(hash_including(:person_id => @user.person.id))
       request.receive(@user2, @user.person)
     end
   end

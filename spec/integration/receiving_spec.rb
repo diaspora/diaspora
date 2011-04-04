@@ -358,19 +358,6 @@ describe 'a user receives a post' do
       }.should change(StatusMessage, :count).by(-1)
     end
 
-    it "should activate the Person if I initiated a request to that url" do
-      @user1.send_contact_request_to(@user3.person, @aspect)
-      request = @user3.request_from(@user1.person)
-      fantasy_resque do
-        @user3.accept_and_respond(request.id, @aspect3.id)
-      end
-      @user1.reload
-      @aspect.reload
-      new_contact = @user1.contact_for(@user3.person)
-      @aspect.contacts.include?(new_contact).should be true
-      @user1.contacts.include?(new_contact).should be true
-    end
-
     it 'should process retraction for a person' do
       retraction = Retraction.for(@user2)
       retraction_xml = retraction.to_diaspora_xml

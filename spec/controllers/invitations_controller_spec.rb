@@ -89,21 +89,24 @@ describe InvitationsController do
         invited.aspects.count.should == 2
       end
 
-      it 'adds a pending request' do
-        put :update, @accept_params
-        Request.where(:recipient_id => invited.person.id).count.should == 1
+      it 'adds a contact' do
+        lambda { 
+          put :update, @accept_params
+        }.should change(@user.contacts, :count).by(1)
       end
-
     end
+
     context 'failure' do
       before do
         @fail_params = @accept_params
         @fail_params[:user][:username] = @user.username
       end
+
       it 'stays on the invitation accept form' do
         put :update, @fail_params
         response.location.include?(accept_user_invitation_path).should be_true
       end
+
       it 'keeps the invitation token' do
         put :update, @fail_params
         response.location.include?("invitation_token=#{@invited_user.invitation_token}").should be_true

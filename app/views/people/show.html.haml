@@ -26,23 +26,14 @@
   #author_info
     - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
       .right
-        - if @incoming_request
-          = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
-            {:controller => "contacts",
-            :action => "new",
-            :person_id => @person.id},
-            :class => 'share_with button',
-            :rel => 'facebox'
-        -else
-          = link_to t('.start_sharing'),
-            {:controller => "contacts",
-            :action => "new",
-            :person_id => @person.id},
-            :class => 'share_with button',
-            :rel => 'facebox'
-        - if @share_with
-          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
-
+        = link_to t('.start_sharing'),
+          {:controller => "contacts",
+          :action => "new",
+          :person_id => @person.id},
+          :class => 'share_with button',
+          :rel => 'facebox'
+      - if @share_with
+        = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
 
     - else
       - if user_signed_in? && @contact.person && @contact.pending? == false

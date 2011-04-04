@@ -174,11 +174,10 @@ en:
       failure: "Failed to disconnect from %{name}"
     share_with_pane:
       share_with: "Start sharing with %{name}"
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       add_new_aspect: "add to new aspect" 
     create:
       failure: "Failed to create contact"
-
 
   conversations:
     index:

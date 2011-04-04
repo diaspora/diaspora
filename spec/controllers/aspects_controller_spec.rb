@@ -249,10 +249,6 @@ describe AspectsController do
       get :manage
       assigns(:aspect).should == :manage
     end
-    it "assigns remote_requests" do
-      get :manage
-      assigns(:remote_requests).should be_empty
-    end
     it "assigns contacts to only non-pending" do
       contact = @alice.contact_for(bob.person)
       Contact.unscoped.where(:user_id => @alice.id).count.should == 1
@@ -263,33 +259,6 @@ describe AspectsController do
       contacts = assigns(:contacts)
       contacts.count.should == 1
       contacts.first.should == contact
-    end
-    context "when the user has pending requests" do
-      before do
-        requestor        = Factory.create(:user)
-        requestor_aspect = requestor.aspects.create(:name => "Meh")
-        requestor.send_contact_request_to(@alice.person, requestor_aspect)
-
-        requestor.reload
-        requestor_aspect.reload
-        @alice.reload
-      end
-      it "succeeds" do
-        get :manage
-        response.should be_success
-      end
-      it "assigns aspect to manage" do
-        get :manage
-        assigns(:aspect).should == :manage
-      end
-      it "assigns remote_requests" do
-        get :manage
-        assigns(:remote_requests).count.should == 1
-      end
-      it "generates a jasmine fixture" do
-        get :manage
-        save_fixture(html_for("body"), "aspects_manage")
-      end
     end
   end
 
