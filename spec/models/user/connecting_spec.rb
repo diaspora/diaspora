@@ -65,12 +65,6 @@ describe Diaspora::UserModules::Connecting do
           received_req = @r.receive(user, person_one)
         }.should_not change(Contact, :count)
       end
-
-      it 'enqueues a mail job' do
-        Resque.should_receive(:enqueue).with(Job::MailRequestReceived, user.id, person.id, anything)
-        zord = Postzord::Receiver.new(user, :object => @r, :person => person)
-        zord.receive_object
-      end
     end
 
     describe '#receive_request_acceptance' do
@@ -79,17 +73,12 @@ describe Diaspora::UserModules::Connecting do
         @acceptance = @original_request.reverse_for(user2)
       end
       it 'connects to the acceptor' do
-        @acceptance.receive(user, user2.person)
+        user.receive_contact_request(@acceptance)
         user.contact_for(user2.person).should_not be_nil
       end
       it 'deletes the acceptance' do
-        @acceptance.receive(user, user2.person)
+        user.receive_contact_request(@acceptance)
         Request.where(:sender_id => user2.person.id, :recipient_id => user.person.id).should be_empty
-      end
-      it 'enqueues a mail job' do
-        Resque.should_receive(:enqueue).with(Job::MailRequestAcceptance, user.id, user2.person.id, nil).once
-        zord = Postzord::Receiver.new(user, :object => @acceptance, :person => user2.person)
-        zord.receive_object
       end
     end
 

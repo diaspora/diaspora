@@ -6,11 +6,11 @@ require 'spec_helper'
 
 describe Request do
   before do
-    @user    = Factory.create(:user)
-    @user2   = Factory.create(:user)
+    @user    = alice
+    @user2   = eve
     @person  = Factory :person
-    @aspect  = @user.aspects.create(:name => "dudes")
-    @aspect2 = @user2.aspects.create(:name => "Snoozers")
+    @aspect  = @user.aspects.first
+    @aspect2 = @user2.aspects.first
   end
 
   describe 'validations' do
@@ -54,13 +54,14 @@ describe Request do
     before do
       @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
     end
-    it "returns 'request_accepted' if there is a pending contact" do
-      Contact.create(:user_id => @user.id, :person_id => @person.id)
-      @request.notification_type(@user, @person).should  == Notifications::RequestAccepted
+
+    it 'returns request_accepted' do
+      @user.contacts.create(:person_id => @person.id, :pending => true)
+      @request.notification_type(@user, @person).should == Notifications::RequestAccepted
     end
 
-    it 'returns new_request if there is not a pending contact' do
-      @request.notification_type(@user, @person).should  == Notifications::NewRequest
+    it 'returns new_request' do
+      @request.notification_type(@user, @person).should == Notifications::NewRequest
     end
   end
 
@@ -71,56 +72,37 @@ describe Request do
     end
   end
 
-  describe 'xml' do
+  describe '#receive' do
+    it 'calls receive_contact_request on user' do
+      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
+
+      @user2.should_receive(:receive_contact_request).with(request)
+      request.receive(@user2, @user.person)
+    end
+  end
+
+  context 'xml' do
     before do
       @request = Request.new(:sender => @user.person, :recipient => @user2.person, :aspect => @aspect)
       @xml = @request.to_xml.to_s
     end
+
     describe 'serialization' do
-      it 'does not generate xml for the User as a Person' do
+      it 'produces valid xml' do
+        @xml.should include @user.person.diaspora_handle
+        @xml.should include @user2.person.diaspora_handle
+        @xml.should_not include @user.person.exported_key
         @xml.should_not include @user.person.profile.first_name
       end
-
-      it 'serializes the handle and not the sender' do
-        @xml.should include @user.person.diaspora_handle
-      end
-
-      it 'serializes the intended recipient handle' do
-        @xml.should include @user2.person.diaspora_handle
-      end
-
-      it 'does not serialize the exported key' do
-        @xml.should_not include @user.person.exported_key
-      end
     end
 
-    describe 'marshalling' do
-      before do
-        @marshalled = Request.from_xml @xml
-      end
-      it 'marshals the sender' do
-        @marshalled.sender.should == @user.person
-      end
-      it 'marshals the recipient' do
-        @marshalled.recipient.should == @user2.person
-      end
-      it 'knows nothing about the aspect' do
-        @marshalled.aspect.should be_nil
-      end
-    end
-    describe 'marshalling with diaspora wrapper' do
-      before do
-        @d_xml = @request.to_diaspora_xml
-        @marshalled = Diaspora::Parser.from_xml @d_xml
-      end
-      it 'marshals the sender' do
-        @marshalled.sender.should == @user.person
-      end
-      it 'marshals the recipient' do
-        @marshalled.recipient.should == @user2.person
-      end
-      it 'knows nothing about the aspect' do
-        @marshalled.aspect.should be_nil
+    context 'marshalling' do
+      it 'produces a request object' do
+        marshalled = Request.from_xml @xml
+
+        marshalled.sender.should == @user.person
+        marshalled.recipient.should == @user2.person
+        marshalled.aspect.should be_nil
       end
     end
   end

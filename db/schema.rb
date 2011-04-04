@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331004720) do
+ActiveRecord::Schema.define(:version => 20110331222629) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -250,7 +250,6 @@ ActiveRecord::Schema.define(:version => 20110331004720) do
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
-  add_index "posts", ["type"], :name => "index_posts_on_type"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"

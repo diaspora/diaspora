@@ -4,15 +4,15 @@
 
 class Request < ActiveRecord::Base
   require File.join(Rails.root, 'lib/diaspora/webhooks')
-
   require File.join(Rails.root, 'lib/postzord/dispatch')
+
   include Diaspora::Webhooks
   include ROXML
 
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
 
-  belongs_to :sender,   :class_name => 'Person'
+  belongs_to :sender, :class_name => 'Person'
   belongs_to :recipient, :class_name => 'Person'
   belongs_to :aspect
 
@@ -34,10 +34,13 @@ class Request < ActiveRecord::Base
     )
   end
 
+  def diaspora_handle
+    sender_handle
+  end
+
   def sender_handle
     sender.diaspora_handle
   end
-
   def sender_handle= sender_handle
     self.sender = Person.where(:diaspora_handle => sender_handle).first
   end
@@ -45,17 +48,12 @@ class Request < ActiveRecord::Base
   def recipient_handle
     recipient.diaspora_handle
   end
-
   def recipient_handle= recipient_handle
     self.recipient = Person.where(:diaspora_handle => recipient_handle).first
   end
 
-  def diaspora_handle
-    sender_handle
-  end
-
   def notification_type(user, person)
-    if Contact.where(:user_id => user.id, :person_id => person.id).first
+    if Contact.unscoped.where(:user_id => user.id, :person_id => person.id).first
       Notifications::RequestAccepted
     else
       Notifications::NewRequest
