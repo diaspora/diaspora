@@ -82,6 +82,7 @@ es:
     index: 
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
+      post_a_message: "publica un mensaje >>"
     manage: 
       add_a_new_aspect: "Añadir nuevo Aspecto"
       add_a_new_contact: "Añadir nuevo contacto"
@@ -162,7 +163,7 @@ es:
       no_messages: "Sin mensajes"
     new: 
       send: "Enviar"
-      subject: "Asunto"
+      subject: "asunto"
       to: "para"
     show: 
       delete: "Eliminar y bloquear conversación"
@@ -179,7 +180,7 @@ es:
       correct_the_following_errors_and_try_again: "Corrija los siguentes errores e inténtelo de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
-  hide: "Hide"
+  hide: "Ocultar"
   home: 
     show: 
       already_account: "¿Todavía no tienes una cuenta?"
@@ -191,7 +192,7 @@ es:
       ownership_explanation: "Eres dueño de tus imágenes, y nadie debería tener que cederlas solo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora*, dándote control total sobre lo que es distribuido."
       share_what_you_want: "Comparte lo que quieras, con quien quieras."
       simplicity: "Simplicidad"
-      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil - y ésto es acerca de la privacidad también. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu Perfil seguro."
+      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil - y ésto es acerca de la privacidad también. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
   invitations: 
@@ -228,9 +229,9 @@ es:
       blog: "Blog"
       code: "Código"
       login: "Conectarse"
-      logout: "Desconectarse"
-      profile: "Perfil"
-      settings: "Configuración"
+      logout: "salir"
+      profile: "perfil"
+      settings: "configuración"
   likes: 
     likes: 
       people_dislike_this: 
@@ -249,7 +250,7 @@ es:
   next: "Siguiente"
   no_results: "No hay resultados"
   notifications: 
-    also_commented: "también participó en la publicación de %{post_author}"
+    also_commented: "participó en la publicación de %{post_author}"
     also_commented_deleted: "participó en una publicación eliminada"
     comment_on_post: "comentó en tu"
     deleted: "eliminado"
@@ -272,9 +273,9 @@ es:
     request_accepted: "aceptó tu solicitud de contacto."
   notifier: 
     also_commented: 
-      commented: "también participó en la publicación de %{post_author}:"
+      commented: "participó en la publicación de %{post_author}:"
       sign_in: "Conéctate para verlo."
-      subject: "%{name} también participó en la publicación de %{post_author}."
+      subject: "%{name} participó en la publicación de %{post_author}."
     comment_on_post: 
       commented: "participó en tu publicación:"
       sign_in: "Conéctate para verlo."
@@ -282,7 +283,7 @@ es:
     diaspora: "Email robot de Diaspora*"
     hello: "¡Hola %{name}!"
     love: "¡Qué pasa!"
-    manage_your_email_settings: "Gestiona tus configuraciones de correo"
+    manage_your_email_settings: "configura tu correo"
     mentioned: 
       mentioned: "te nombró en una publicación:"
       sign_in: "Conéctate para verlo."
@@ -335,7 +336,7 @@ es:
       bio: "Biografía"
       born: "Fecha de Nacimiento"
       cannot_remove: "%{name} no puede eliminarse del último Aspecto. (Si quieres dejar de compartir con él, debes elimínarlo.)"
-      edit_my_profile: "Editar mi Perfil"
+      edit_my_profile: "Editar mi perfil"
       gender: "Género / Sexo"
       in_aspects: "en Aspectos"
       location: "Ubicación "
@@ -379,7 +380,7 @@ es:
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo: 
       or_select_one: "o selecciona alguna de las ya subidas"
-      upload: "¡Sube una foto nueva de Perfil!"
+      upload: "¡Sube una foto nueva de perfil!"
     photo: 
       view_all: "ver todas las fotos de %{name}"
     show: 
@@ -387,7 +388,7 @@ es:
       delete_photo: "Eliminar Foto"
       edit: "Editar"
       edit_delete_photo: "Editar pie de foto / eliminar foto"
-      make_profile_photo: "Convertir en foto de Perfil"
+      make_profile_photo: "convertir en foto de perfil"
       original_post: "Publicación original"
       permalink: "Enlace permanente"
       update_photo: "Actualizar foto"
@@ -397,7 +398,7 @@ es:
       notice: "Foto actualizada con éxito."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "La publicación de %{name} se ha ocultado."
   posts: 
     doesnt_exist: "esa publicación no existe!"
   previous: "Anterior"
@@ -420,7 +421,7 @@ es:
       your_tags: "Tú: en 5 #etiquetas"
       your_tags_placeholder: "p.ej. #diaspora #panqueque #gatitos #musica"
     update: 
-      failed: "No se pudo actualizar el Perfil"
+      failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
   registrations: 
     closed: "Los registros están cerrados en este servidor Diaspora*"
@@ -502,8 +503,8 @@ es:
       all_contacts: "Todos los contactos"
       cannot_remove: "No puede eliminarse a la persona del último Aspecto. (Si quieres desconectar de esta persona debes elminarla de tus contactos.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "Conectado como %{name}"
+      your_aspects: "Tus Aspectos"
     invitations: 
       by_email: "por Email"
       dont_have_now: "No tienes invitaciones ahora mismo pero, ¡pronto llegarán más!"
@@ -524,7 +525,7 @@ es:
       add_photos: "Añadir fotos"
       all: "todo"
       all_contacts: "todos los contactos"
-      click_to_share_with: "Pulsa para compartir con:"
+      click_to_share_with: ""
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
@@ -542,7 +543,7 @@ es:
     create: 
       success: "Se ha mencionado con éxito a: %{names}"
     destroy: 
-      failure: "Fallo elminando la publicación"
+      failure: "Error elminando la publicación"
     helper: 
       no_message_to_display: "No hay mensajes que mostrar."
     new: 
@@ -560,7 +561,7 @@ es:
       people_tagged_with: "Personas etiquetadas en %{tag}"
       posts_tagged_with: "Publicaciones etiquetadas con #%{tag}"
   the_world: "el mundo"
-  undo: "Undo?"
+  undo: "Deshacer?"
   username: "Nombre de usuario"
   users: 
     destroy: "Cuenta cerrada con éxito."
@@ -609,7 +610,7 @@ es:
       password_changed: "Contraseña cambiada"
       password_not_changed: "Error cambiando la contraseña"
   webfinger: 
-    fetch_failed: "Error al buscar el Perfil webfinger de %{profile_url}"
+    fetch_failed: "Error al buscar el perfil webfinger de %{profile_url}"
     hcard_fetch_failed: "Hubo un problema al buscar el hcard para #{@account}"
     no_person_constructed: "Ninguna persona pudo ser creada a partir de este hcard."
     not_enabled: "El webfinger parece no estar habilitado para el host de %{account}"

@@ -55,7 +55,7 @@ de:
       new: 
         forgot_password: "Passwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse. Falls du auf eine Einladung wartest, dann geben wir dir eine sobald wie möglich"
-        send_password_instructions: "Anleitung zum Zurücksetzen des Passworts anfordern"
+        send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Passwort zurücksetzt."
       updated: "Dein Passwort wurde erfolgreich geändert. Du bist nun angemeldet."
     registrations: 

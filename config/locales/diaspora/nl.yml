@@ -82,6 +82,7 @@ nl:
     index: 
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
       add_a_new_contact: "Voeg contact toe"

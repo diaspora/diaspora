@@ -82,6 +82,7 @@ el:
     index: 
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
+      post_a_message: "δημοσιεύστε ένα μήνυμα >>"
     manage: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_a_new_contact: "Προσθήκη νέας επαφής"
@@ -179,7 +180,7 @@ el:
       correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
       invalid_fields: "Άκυρα Πεδία"
   fill_me_out: "Ενημέρωσε με"
-  hide: "Hide"
+  hide: "Απόκρυψη"
   home: 
     show: 
       already_account: "έχετε ήδη λογαριασμό;"
@@ -397,7 +398,7 @@ el:
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "Στη δημοσίευση του χρήστη %{name} έχει γίνει απόκρυψη."
   posts: 
     doesnt_exist: "η δημοσίευση δεν υπάρχει!"
   previous: "προηγούμενο"
@@ -502,8 +503,8 @@ el:
       all_contacts: "Όλες οι επαφές"
       cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το πρόσωπο αυτό πρέπει να καταργήσετε την αντίστοιχη επαφή.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "συνδεδεμένος/η ως %{name}"
+      your_aspects: "οι πτυχές σας"
     invitations: 
       by_email: "με ηλεκτρονικό ταχυδρομείο"
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
@@ -560,7 +561,7 @@ el:
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
       posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
   the_world: "ο κόσμος"
-  undo: "Undo?"
+  undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"
   users: 
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."

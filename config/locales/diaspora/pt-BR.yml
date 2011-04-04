@@ -82,6 +82,7 @@ pt-BR:
     index: 
       handle_explanation: "Este é o seu endereço na Diaspora*. Como um endereço de e-mail, pode ser usado por outras pessoas para contactar você."
       no_contacts: "Nenhum contato"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Adicionar um novo aspecto"
       add_a_new_contact: "Novo contato"

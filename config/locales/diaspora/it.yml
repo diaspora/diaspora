@@ -82,6 +82,7 @@ it:
     index: 
       handle_explanation: "Questo è il tuo contatto Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       no_contacts: "Nessun contatto"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Aggiungi un nuovo aspetto"
       add_a_new_contact: "Aggiungi un nuovo contatto"

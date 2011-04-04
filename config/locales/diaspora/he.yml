@@ -82,6 +82,7 @@ he:
     index: 
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
       add_a_new_contact: "הוספת איש קשר חדש"

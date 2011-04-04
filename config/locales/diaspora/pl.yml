@@ -82,6 +82,7 @@ pl:
     index: 
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       no_contacts: "Brak kontaktów"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Dodaj nowy aspekt"
       add_a_new_contact: "Dodaj nowy kontakt"

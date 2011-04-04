@@ -82,6 +82,7 @@ mk:
     index: 
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       no_contacts: "No contacts"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Додај нов аспект"
       add_a_new_contact: "Додај нов контакт"

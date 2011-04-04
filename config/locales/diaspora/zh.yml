@@ -82,6 +82,7 @@ zh:
     index: 
       handle_explanation: "这是你在Diaspora的地址，就像电子邮件地址一样，你可以把这个发送给人们以便他们找到你。"
       no_contacts: "没有联系人"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "增加一个新的分组"
       add_a_new_contact: "新增一个联系人"

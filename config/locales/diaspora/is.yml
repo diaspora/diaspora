@@ -82,6 +82,7 @@ is:
     index: 
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       no_contacts: "Engir tengiliðir"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Bæta við nýrri ásýnd"
       add_a_new_contact: "Bæta nýjum tengilið við"

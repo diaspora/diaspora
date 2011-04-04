@@ -82,6 +82,7 @@ ml:
     index: 
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "സമ്പര്‍ക്കങ്ങളില്ല"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കുക"
       add_a_new_contact: "പുതിയ സമ്പര്‍ക്കം ചേര്‍ക്കുക"

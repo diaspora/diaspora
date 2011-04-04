@@ -7,11 +7,11 @@ ru:
   javascripts: 
     confirm_dialog: "Вы уверенны? "
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-    search_for: "Искать для {{name}}"
+      at_least_one_aspect: "Вам надо минимум один аспект постен"
+    search_for: "Искать {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Нельзя удалить персону из последнего аспекта. (Если вы хотите отключить этого человека, удалите контакт.)"
     timeago: 
       day: "день"
       days: "%d дней"
@@ -22,12 +22,12 @@ ru:
       month: "около месяца"
       months: "%d месяцев"
       prefixAgo: "до"
-      prefixFromNow: ""
-      seconds: "меньше минуты"
+      prefixFromNow: "через"
+      seconds: "несколько секунд"
       suffixAgo: "назад"
       suffixFromNow: "с этого момента"
       year: "около года"
       years: "%d лет"
     videos: 
-      unknown: "Неизвестный тип видео"
+      unknown: "Неизвестный видеоформат"
       watch: "Смотреть это видео на {{provider}}"

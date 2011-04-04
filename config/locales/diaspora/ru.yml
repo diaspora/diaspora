@@ -82,6 +82,7 @@ ru:
     index: 
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Добавить аспект"
       add_a_new_contact: "Добавить новый контакт"
@@ -121,7 +122,7 @@ ru:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
-      comment: "Комментарий"
+      comment: "Комментировать"
       commenting: "Комментирование ..."
     one: "1 comment"
     other: "%{count} comments"
@@ -384,9 +385,9 @@ ru:
       view_all: "Посмотреть все фотографии %{name}"
     show: 
       collection_permalink: "постоянная ссылка на коллекцию"
-      delete_photo: "Удалить фото"
+      delete_photo: "Удалить фотографию"
       edit: "редактировать"
-      edit_delete_photo: "Изменить описание фото / удалить фото"
+      edit_delete_photo: "Изменить описание фотографии / удалить фотографию"
       make_profile_photo: "сделать фотографией профиля"
       original_post: "Original Post"
       permalink: "постоянная ссылка"
@@ -542,7 +543,7 @@ ru:
     create: 
       success: "Successfully mentioned: %{names}"
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Не удалось удалить сообщение"
     helper: 
       no_message_to_display: "Новых сообщений нет."
     new: 
@@ -594,10 +595,10 @@ ru:
       signup_steps: "Для заверщения вашей регистрации, выполните:"
       skip: "пропускать при старте"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Хотели бы Вы найти своих Facebook друзей в диаспоре?"
+        skip: "Перепрыгнуть"
       step_3: 
-        finish: "Finish"
+        finish: "Конец"
         people_already_on_diaspora: "People already on Diaspora"
       welcome: "Добро пожаловать в Диаспору!"
     public: 

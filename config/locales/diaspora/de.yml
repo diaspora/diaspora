@@ -82,6 +82,7 @@ de:
     index: 
       handle_explanation: "Das ist deine Diaspora*-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       no_contacts: "Keine Kontakte"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
       add_a_new_contact: "Neuen Kontakt hinzufügen"
@@ -179,7 +180,7 @@ de:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
       invalid_fields: "Ungültige Felder"
   fill_me_out: "Fülle mich aus"
-  hide: "Hide"
+  hide: "Ausblenden"
   home: 
     show: 
       already_account: "bereits registriert?"
@@ -397,7 +398,7 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}'s Beitrag wurde ausgeblendet."
   posts: 
     doesnt_exist: "Dieser Post existiert nicht!"
   previous: "Vorherige"
@@ -502,8 +503,8 @@ de:
       all_contacts: "Alle Kontakte"
       cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden. (Wenn du nicht länger verbunden sein willst, lösche den Kontakt.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "Angemeldet als %{name}"
+      your_aspects: "Deine Aspekte"
     invitations: 
       by_email: "per E-Mail"
       dont_have_now: "Du hast im Moment keine Einladungen zur Verfügung, aber es wird bald wieder neue geben!"
@@ -560,7 +561,7 @@ de:
       people_tagged_with: "Personen die mit %{tag} getagt sind"
       posts_tagged_with: "Beiträge die mit #%{tag} getagt sind"
   the_world: "Die Welt"
-  undo: "Undo?"
+  undo: "Rückgängig machen?"
   username: "Benutzername"
   users: 
     destroy: "Konto erfolgreich geschlossen."

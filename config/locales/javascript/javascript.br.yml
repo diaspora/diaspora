@@ -1,0 +1,33 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+br: 
+  javascripts: 
+    confirm_dialog: "Emaoc'h sur?"
+    publisher: 
+      at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
+    search_for: "Klask war-lerc'h {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Ne c'hell ket skarzhañ an den diwar an arvez diwezhañ. (Ma faot deoc'h digevreañ gant an den-se eo dav deoc'h skarzhañ an darempred.)"
+    timeago: 
+      day: "un devezh"
+      days: "%d a zevezhioù"
+      hour: "war-dro un eurvezh"
+      hours: "war-dro %d eurvezh"
+      minute: "war-dro ur vunutenn"
+      minutes: "%d a vunutennoù"
+      month: "war-dro ur mizvezhiad"
+      months: "%d a vizioù"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "dindan ur vunutenn"
+      suffixAgo: "zo"
+      suffixFromNow: "diwar-vremañ"
+      year: "war-dro ur bloavezh"
+      years: "%d a vloavezhioù"
+    videos: 
+      unknown: "Stumm ar video dianav"
+      watch: "Sellet ouzh ar video gant {{provider}}"

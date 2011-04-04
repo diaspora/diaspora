@@ -82,6 +82,7 @@ da:
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
       add_a_new_contact: "Tilføj en ny kontaktperson"

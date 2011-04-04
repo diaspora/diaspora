@@ -82,6 +82,7 @@ zh-TW:
     index: 
       handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "新增面向"
       add_a_new_contact: "加入新的聯繫"

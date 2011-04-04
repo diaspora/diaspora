@@ -82,6 +82,7 @@ lt:
     index: 
       handle_explanation: "Tai tavo vartotojo vardas Diasporoje. Kaip ir el. pašto adresas, jis leidžia sistemoje rasti pažįstamus."
       no_contacts: "No contacts"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Pridėti naują aspektą"
       add_a_new_contact: "Pridėti naują kontaktą"

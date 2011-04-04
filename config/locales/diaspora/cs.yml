@@ -82,6 +82,7 @@ cs:
     index: 
       handle_explanation: "Toto je váš Diaspora identifikátor. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       no_contacts: "Žádné kontakty"
+      post_a_message: "odeslat příspěvek >>"
     manage: 
       add_a_new_aspect: "Přidat aspekt"
       add_a_new_contact: "Přidat nový kontakt"
@@ -179,7 +180,7 @@ cs:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
   fill_me_out: "Vyplňte"
-  hide: "Hide"
+  hide: "Skrýt"
   home: 
     show: 
       already_account: "máte již účet?"
@@ -397,7 +398,7 @@ cs:
       notice: "Fotka úspěšně aktualizována."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "Příspěvek od uživatele %{name} byl skryt."
   posts: 
     doesnt_exist: "tento příspěvek neexistuje!"
   previous: "předchozí"
@@ -502,8 +503,8 @@ cs:
       all_contacts: "Všechny kontakty"
       cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby, musíte odstranit její kontakt.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "přihlášen jako %{name}"
+      your_aspects: "vaše aspekty"
     invitations: 
       by_email: "pomocí emailu"
       dont_have_now: "Již nemáte žádné, ale další brzy přibudou!"
@@ -560,7 +561,7 @@ cs:
       people_tagged_with: "Lidé označeni %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
   the_world: "svět"
-  undo: "Undo?"
+  undo: "Vrátit?"
   username: "Uživatelské jméno"
   users: 
     destroy: "Účet byl úspěšně uzavřen."

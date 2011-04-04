@@ -82,6 +82,7 @@ sl:
     index: 
       handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
       no_contacts: "Ni kontaktov"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Dodaj novo skupino"
       add_a_new_contact: "Dodaj nov stik"

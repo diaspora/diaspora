@@ -82,6 +82,7 @@ pt-PT:
     index: 
       handle_explanation: "Esta é a tua chave do Diaspora. Tal como um email, podes dar esta chave às pessoas para que te possam contactar."
       no_contacts: "Nenhum contacto"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Adicionar um novo grupo"
       add_a_new_contact: "Adicionar um novo contacto"

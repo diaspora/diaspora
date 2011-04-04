@@ -82,6 +82,7 @@ sk:
     index: 
       handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
       no_contacts: "Žiadne kontakty"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Pridať nový aspekt"
       add_a_new_contact: "Pridať nový kontakt"

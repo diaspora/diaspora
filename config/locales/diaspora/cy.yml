@@ -82,6 +82,7 @@ cy:
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Add a new aspect"
       add_a_new_contact: "Add a new contact"

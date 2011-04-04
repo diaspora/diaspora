@@ -82,6 +82,7 @@ hu:
     index: 
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
       no_contacts: "Nincs ismerős"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Új csoport hozzáadása"
       add_a_new_contact: "Új ismerős hozzáadása"

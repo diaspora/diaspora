@@ -82,6 +82,7 @@ fr:
     index: 
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
+      post_a_message: "publier un message >>"
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       add_a_new_contact: "Ajouter un nouveau contact"
@@ -249,7 +250,7 @@ fr:
   next: "suivant"
   no_results: "Aucun résultat trouvé"
   notifications: 
-    also_commented: "a/ont également commenté"
+    also_commented: "a/ont également commenté le message de %{post_author} :"
     also_commented_deleted: "a commenté un message supprimé"
     comment_on_post: "a/ont commenté votre"
     deleted: "supprimé"

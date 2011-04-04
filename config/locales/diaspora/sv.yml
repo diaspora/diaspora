@@ -82,6 +82,7 @@ sv:
     index: 
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       no_contacts: "Inga kontakter"
+      post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Lägg till en ny aspekt"
       add_a_new_contact: "Lägg till en ny kontakt"
