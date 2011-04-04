@@ -50,5 +50,5 @@
         = text_area_tag "conversation[text]", '', :rows => 5
 
       .text-right
-        = conversation.submit t('.send'), :class => 'button'
+        = conversation.submit t('.send'), :disable_with => t('shared.publisher.posting'), :class => 'button'
         = link_to t('cancel'), conversations_path
