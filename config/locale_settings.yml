@@ -1,5 +1,6 @@
 default: "en"
 available:
+  br: "Brezhoneg"
   ca: "Català"
   cs: "Čeština"
   cy: "Cymraeg"
