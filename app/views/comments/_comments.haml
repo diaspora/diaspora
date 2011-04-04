@@ -5,7 +5,7 @@
 - is_expanded = defined?(always_expanded) && always_expanded
 
 - unless is_expanded
-  %ul.show_comments{:class => ("hidden" if comments.size == 0)}
+  %ul.show_comments{:class => ("hidden" unless comments.size > 3)}
     %li
       = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
       %b= comment_toggle(comments.size)
