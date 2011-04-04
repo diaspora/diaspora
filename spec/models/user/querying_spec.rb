@@ -136,8 +136,8 @@ describe User do
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
-            post.created_at = post.created_at - n*10*u.id
-            post.updated_at = post.updated_at - n*10*u.id
+            post.created_at = post.created_at + n*1000*u.id
+            post.updated_at = post.updated_at + n*1000*u.id
             post.save
           end
         end
