@@ -33,7 +33,7 @@ module Diaspora
         post_ids = Post.connection.execute(posts_from_others.select('posts.id').limit(opts[:limit]).order(order_with_table).to_sql).map{|r| r.first}
         post_ids += Post.connection.execute(posts_from_self.select('posts.id').limit(opts[:limit]).order(order_with_table).to_sql).map{|r| r.first}
 
-        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*').limit(opts[:limit]).order(opts[:order])
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*').limit(opts[:limit]).order(order_with_table)
       end
 
       def visible_photos

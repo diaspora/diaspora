@@ -133,7 +133,7 @@ describe User do
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, bob.aspects.first, bob.aspects.create(:name => 'new aspect'))
-        (1..18).each do |n|
+        (1..25).each do |n|
           [alice, bob, eve].each do |u|
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
             post.created_at = post.created_at - n*10*u.id
