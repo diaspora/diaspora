@@ -22,7 +22,7 @@
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
-    - if RTL_LANGUAGES.include? I18n.locale
+    - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
     <!--[if IE]>
