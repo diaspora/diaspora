@@ -30,7 +30,7 @@ describe RelayableRetraction do
       @retraction= @local_luke.retract(@comment)
 
       @retraction.instance_variable_set(:@target, nil)
-      @retraction.target_guid = 135245
+      @retraction.target_guid = '135245'
       @retraction.should_not_receive(:perform)
       @retraction.receive(@local_luke, @remote_raphael)
     end

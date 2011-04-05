@@ -142,11 +142,11 @@ describe 'a user receives a post' do
      raph.profile.diaspora_handle = "raph@remote.net"
      raph.profile.save!
      p = raph.profile
-     
+
      p.tag_string = "#big #rafi #style"
      p.receive(luke, raph)
      p.tags(true).count.should == 3
-   end 
+   end
   end
 
   describe 'post refs' do
@@ -305,11 +305,11 @@ describe 'a user receives a post' do
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
-      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => '12313123', :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
     end
 
     it 'does not update created_at or updated_at when two people save the same post' do
-      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => '12313123', :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
       sleep(2)
@@ -320,11 +320,11 @@ describe 'a user receives a post' do
     end
 
     it 'does not update the post if a new one is sent with a new created_at' do
-      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 5.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => '12313123', :author => @remote_raphael, :created_at => 5.days.ago)
       old_time = @post.created_at
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author => @remote_raphael, :created_at => 2.days.ago)
+      @post = Factory.build(:status_message, :text => 'hey', :guid => '12313123', :author => @remote_raphael, :created_at => 2.days.ago)
       receive_with_zord(@local_luke, @remote_raphael, xml)
       (Post.find_by_guid @post.guid).created_at.day.should == old_time.day
     end

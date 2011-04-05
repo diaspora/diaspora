@@ -14,8 +14,8 @@ class Post < ActiveRecord::Base
   xml_attr :created_at
 
   has_many :comments, :order => 'created_at ASC'
-  has_many :likes, :conditions => '`likes`.`positive` = 1', :dependent => :delete_all
-  has_many :dislikes, :conditions => '`likes`.`positive` = 0', :class_name => 'Like', :dependent => :delete_all
+  has_many :likes, :conditions => {:positive => true}, :dependent => :delete_all
+  has_many :dislikes, :conditions => {:positive => false}, :class_name => 'Like', :dependent => :delete_all
 
   has_many :aspect_visibilities
   has_many :aspects, :through => :aspect_visibilities

@@ -18,7 +18,7 @@ module Diaspora
         opts[:limit] ||= 20
         opts[:order] ||= 'updated_at DESC'
         opts[:hidden] ||= false
-        order_with_table = '`posts`.' + opts[:order]
+        order_with_table = 'posts.' + opts[:order]
         opts[:limit] = opts[:limit].to_i * opts[:page].to_i if opts[:page]
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
@@ -33,7 +33,7 @@ module Diaspora
         post_ids = Post.connection.execute(posts_from_others.select('posts.id').limit(opts[:limit]).order(order_with_table).to_sql).map{|r| r.first}
         post_ids += Post.connection.execute(posts_from_self.select('posts.id').limit(opts[:limit]).order(order_with_table).to_sql).map{|r| r.first}
 
-        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT `posts`.*').limit(opts[:limit]).order(order_with_table)
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
 
       def visible_photos
@@ -60,7 +60,7 @@ module Diaspora
         if opts[:type] == 'remote'
           people = people.where(:owner_id => nil)
         elsif opts[:type] == 'local'
-          people = people.where('`people`.`owner_id` IS NOT NULL')
+          people = people.where('people.owner_id IS NOT NULL')
         end
         people
       end
@@ -94,7 +94,7 @@ module Diaspora
         end
         post_ids += Post.connection.execute(person.posts.where(:public => true).select('posts.id').to_sql).map{|r| r.first}
 
-        Post.where(:id => post_ids, :pending => false).select('DISTINCT `posts`.*').order("posts.created_at DESC")
+        Post.where(:id => post_ids, :pending => false).select('DISTINCT posts.*').order("posts.created_at DESC")
       end
     end
   end

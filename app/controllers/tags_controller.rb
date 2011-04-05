@@ -42,7 +42,7 @@ class TagsController < ApplicationController
     if current_user
       @posts = StatusMessage.joins(:aspects).where(:pending => false
                ).where(Aspect.arel_table[:user_id].eq(current_user.id).or(StatusMessage.arel_table[:public].eq(true))
-               ).select('DISTINCT `posts`.*')
+               ).select('DISTINCT posts.*')
     else
       @posts = StatusMessage.where(:public => true, :pending => false)
     end

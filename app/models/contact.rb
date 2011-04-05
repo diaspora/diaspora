@@ -16,7 +16,7 @@ class Contact < ActiveRecord::Base
 
   has_many :post_visibilities
   has_many :posts, :through => :post_visibilities
-  
+
   validate :not_contact_for_self
   validates_uniqueness_of :person_id, :scope => :user_id
 
@@ -42,10 +42,10 @@ class Contact < ActiveRecord::Base
     incoming_aspects = Aspect.joins(:contacts).where(
       :user_id => self.person.owner_id,
       :contacts_visible => true,
-      :contacts => {:person_id => self.user.person.id}).select('`aspects`.id')
+      :contacts => {:person_id => self.user.person.id}).select('aspects.id')
     incoming_aspect_ids = incoming_aspects.map{|a| a.id}
     similar_contacts = Person.joins(:contacts => :aspect_memberships).where(
-      :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT `people`.*')
+      :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT people.*')
   end
   private
   def not_contact_for_self
