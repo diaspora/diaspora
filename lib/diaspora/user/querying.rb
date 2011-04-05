@@ -34,7 +34,7 @@ module Diaspora
         posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).offset(opts[:offset]).order(order_with_table)
         posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).offset(opts[:offset]).order(order_with_table)
 
-        all_posts = "(#{posts_from_others.to_sql}) UNION (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
         post_ids = Post.connection.execute(all_posts).map{|r| r.first}
 
         Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
