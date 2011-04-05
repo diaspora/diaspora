@@ -23,7 +23,7 @@ SQL
 SQL
   end
   def self.up
-    if Message.count > 0
+    if execute('SELECT COUNT(*) FROM messages').to_a.first.first > 0
       delete_disconnected_conversations
       delete_disconnected_messages
       delete_disconnected_cvs
