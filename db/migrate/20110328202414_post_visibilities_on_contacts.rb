@@ -56,7 +56,7 @@ SQL
 SQL
   end
 
-  def pv_count
+  def self.pv_count
     @pv_count ||= execute('SELECT count(*) FROM post_visibilities').to_a.first.first
   end
 
