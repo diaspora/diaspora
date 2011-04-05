@@ -481,7 +481,7 @@ en:
       manage_within: "Manage contacts within"
       existing: "Existing contacts"
     destroy:
-      success: "You are now friends."
+      success: "You are now sharing."
       error: "Please select an aspect!"
       ignore: "Ignored contact request."
     create:
