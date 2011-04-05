@@ -12,7 +12,7 @@ hu:
       send_instructions: "Pár percen belül kapsz egy e-mailt, benne a megerősítéshez szükséges utasításokkal."
     failure: 
       inactive: "A fiókod nem aktiváltad még."
-      invalid: "Érvénytelen e-mail vagy jelszó."
+      invalid: "Érvénytelen felhasználónév vagy jelszó."
       invalid_token: "Érvénytelen hitelesítési token."
       locked: "A fiókod le van zárva."
       timeout: "A munkamenet lejárt, kérjük jelentkezz be újra."

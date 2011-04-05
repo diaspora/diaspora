@@ -227,9 +227,9 @@ br:
       your_aspects: "your aspects"
     header: 
       blog: "blog"
-      code: "code"
+      code: "kod"
       login: "login"
-      logout: "logout"
+      logout: "mont kuit"
       profile: "profile"
       settings: "settings"
   likes: 
@@ -262,8 +262,8 @@ br:
         other: "%{count} new notifications"
         zero: "no new notifications"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "ha"
+      and_others: "ha %{number} reoù all"
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
     mentioned: "has mentioned you in their"
@@ -306,8 +306,8 @@ br:
       admin: "Your Diaspora administrator"
       subject: "A message about your Diaspora account:"
     thanks: "Thanks,"
-  ok: "OK"
-  or: "or"
+  ok: "MAT EO"
+  or: "pe"
   password: "Password"
   password_confirmation: "Password confirmation"
   people: 
@@ -337,11 +337,11 @@ br:
       born: "birthday"
       cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
       edit_my_profile: "Edit my profile"
-      gender: "gender"
+      gender: "reizh"
       in_aspects: "in aspects"
       location: "location"
-      remove_contact: "remove contact"
-      remove_from: "Remove %{name} from %{aspect}?"
+      remove_contact: "skarzhañ an darempred"
+      remove_from: "Fellout a ra deoc'h skarzhañ %{name} diwar %{aspect}?"
     show: 
       add_some: "add some"
       does_not_exist: "Person does not exist!"
@@ -360,7 +360,7 @@ br:
       you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we couldn't find %{handle}."
-    zero: "no people"
+    zero: "den ebet"
   photos: 
     create: 
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
@@ -398,7 +398,7 @@ br:
       notice: "Photo successfully updated."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "Embann %{name} zo bet lakaet diwar-wel."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
@@ -460,7 +460,7 @@ br:
       existing: "Existing contacts"
       manage_within: "Manage contacts within"
     new_request_to_person: 
-      sent: "sent!"
+      sent: "kaset!"
   search: "Search"
   services: 
     create: 
@@ -475,7 +475,7 @@ br:
         many: "%{count} friends"
         one: "1 friend"
         other: "%{count} friends"
-        zero: "no friends"
+        zero: "mignon ebet"
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "not connected"
     index: 
@@ -528,17 +528,17 @@ br:
       click_to_share_with: "Click to share with: "
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
-      posting: "Posting..."
+      posting: "Oc'h embann..."
       public: "Public"
       publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "petra zo e-barzh ho penn?"
     reshare: 
       reshare: "Reshare"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Ne blij ket din"
+      like: "Plij' ra din"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

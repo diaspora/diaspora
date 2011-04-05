@@ -511,7 +511,7 @@ eu:
       from_facebook: "Facebooketik"
       invitations_left: "(%{count} geratzen zai(zki)zu)"
       invite_someone: "Norbait gonbidatu"
-      invite_your_friends: "Zure lagunak gonbidatu"
+      invite_your_friends: "Zure lagunak aurkitu"
       invites: "Gonbidapenak"
       invites_closed: "Gonbidapenak itxita daude orain Diaspora zerbitzari hontan"
     notification: 

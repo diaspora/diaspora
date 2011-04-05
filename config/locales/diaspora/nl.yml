@@ -82,7 +82,7 @@ nl:
     index: 
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
-      post_a_message: "post a message >>"
+      post_a_message: "plaats een bericht >>"
     manage: 
       add_a_new_aspect: "Voeg een nieuw aspect toe"
       add_a_new_contact: "Voeg contact toe"
@@ -180,7 +180,7 @@ nl:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
   fill_me_out: "Vul me in!"
-  hide: "Hide"
+  hide: "Verbergen"
   home: 
     show: 
       already_account: "heb je al een account?"
@@ -398,7 +398,7 @@ nl:
       notice: "Foto succesvol veranderd."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}'s post is verborgen."
   posts: 
     doesnt_exist: "die post bestaat niet!"
   previous: "vorige"
@@ -503,8 +503,8 @@ nl:
       all_contacts: "Alle contacten"
       cannot_remove: "Kan persoon niet van laatste aspect verwijderen. (Als je met deze persoon wilt breken moet je dit contact verwijderen)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "ingelogd als %{name}"
+      your_aspects: "jou aspecten"
     invitations: 
       by_email: "via E-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
@@ -561,7 +561,7 @@ nl:
       people_tagged_with: "Personen gemerkt met %{tag}"
       posts_tagged_with: "Berichten gemerkt met #%{tag}"
   the_world: "de wereld"
-  undo: "Undo?"
+  undo: "Ongedaan maken?"
   username: "Gebruikersnaam"
   users: 
     destroy: "Account succesvol verwijderd."
