@@ -2,9 +2,9 @@ $(document).ready(function() {
   var scrolled = 0;
 
   $('#main_stream').infinitescroll({
-    navSelector  : ".pagination",
+    navSelector  : ".paginate",
                    // selector for the paged navigation (it will be hidden)
-    nextSelector : ".pagination a.next_page",
+    nextSelector : ".paginate",
                    // selector for the NEXT link (to page 2)
     itemSelector : "#main_stream .stream_element",
                    // selector for all items you'll retrieve

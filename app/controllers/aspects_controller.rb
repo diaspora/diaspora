@@ -23,11 +23,15 @@ class AspectsController < ApplicationController
       redirect_to getting_started_path
       return
     end
+    params[:page] = params[:page] ? params[:page].to_i : 1
+
+
 
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map { |a| a.id }
     @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage', :order => session[:sort_order] + ' DESC', :page => params[:page]).includes(
-      :comments, :mentions, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => "posts.#{session[:sort_order]} DESC")
+      :comments, :mentions, :likes, :dislikes)
+
     @fakes = PostsFake.new(@posts)
 
     @contact_count = current_user.contacts.count

@@ -15,11 +15,11 @@ module Diaspora
       def raw_visible_posts(opts = {})
         opts = opts.dup
         opts[:type] ||= ['StatusMessage', 'Photo']
-        opts[:limit] ||= 20
+        opts[:limit] ||= 15
         opts[:order] ||= 'updated_at DESC'
         opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
-        opts[:offset] = opts[:page] ? opts[:limit] * opts[:page] - 1 : 0
+        opts[:offset] = opts[:page].nil? || opts[:page] == 1 ? 0 : opts[:limit] * (opts[:page] - 1)
         select_clause ='posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
@@ -37,7 +37,7 @@ module Diaspora
         all_posts = "(#{posts_from_others.to_sql}) UNION (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
         post_ids = Post.connection.execute(all_posts).map{|r| r.first}
 
-        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table).offset(opts[:offset])
+        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
 
       def visible_photos
