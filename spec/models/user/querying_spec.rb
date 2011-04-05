@@ -134,11 +134,12 @@ describe User do
     end
   end
 
-  context 'contact querying' do
+  context 'querying' do
     let(:person_one) { Factory.create :person }
     let(:person_two) { Factory.create :person }
     let(:person_three) { Factory.create :person }
     let(:aspect) { alice.aspects.create(:name => 'heroes') }
+
     describe '#contact_for_person_id' do
       it 'returns a contact' do
         contact = Contact.create(:user => alice, :person => person_one, :aspects => [aspect])
@@ -178,6 +179,24 @@ describe User do
 
       it 'returns nil if the input is nil' do
         alice.contact_for(nil).should be_nil
+      end
+    end
+
+    describe '#aspects_with_person' do
+      before do
+        @connected_person = bob.person
+      end
+
+      it 'should return the aspects with given contact' do
+        alice.aspects_with_person(@connected_person).should == [alice.aspects.first]
+      end
+
+      it 'returns multiple aspects if the person is there' do
+        aspect2 = alice.aspects.create(:name => 'second')
+        contact = alice.contact_for(@connected_person)
+
+        alice.add_contact_to_aspect(contact, aspect2)
+        alice.aspects_with_person(@connected_person).to_set.should == alice.aspects.to_set
       end
     end
   end

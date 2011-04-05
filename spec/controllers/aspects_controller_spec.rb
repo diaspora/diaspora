@@ -238,7 +238,7 @@ describe AspectsController do
           aspect = @alice.aspects.create(:name => "aspect#{n}")
           8.times do |o|
             person = Factory(:person)
-            @alice.activate_contact(person, aspect)
+            @alice.contacts.create(:person => person, :aspects => [aspect])
           end
         end
         Benchmark.realtime{

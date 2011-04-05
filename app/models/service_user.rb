@@ -3,7 +3,6 @@ class ServiceUser < ActiveRecord::Base
   belongs_to :person
   belongs_to :contact
   belongs_to :service
-  belongs_to :request
   belongs_to :invitation
 
   before_save :attach_local_models
@@ -19,8 +18,6 @@ class ServiceUser < ActiveRecord::Base
 
     if self.person
       self.contact = self.service.user.contact_for(self.person)
-      self.request = Request.where(:recipient_id => self.service.user.person.id,
-                                   :sender_id => self.person_id).first
     end
 
     self.invitation = Invitation.joins(:recipient).where(:sender_id => self.service.user_id,

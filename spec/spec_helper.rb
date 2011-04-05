@@ -49,8 +49,9 @@ def set_up_friends
   local_leia = Factory(:user_with_aspect, :username => "leia")
   remote_raphael = Factory(:person, :diaspora_handle => "raphael@remote.net")
   connect_users_with_aspects(local_luke, local_leia)
-  local_leia.activate_contact(remote_raphael, local_leia.aspects.first)
-  local_luke.activate_contact(remote_raphael, local_luke.aspects.first)
+
+  local_leia.contacts.create(:person => remote_raphael, :aspects => [local_leia.aspects.first])
+  local_luke.contacts.create(:person => remote_raphael, :aspects => [local_luke.aspects.first])
 
   [local_luke, local_leia, remote_raphael]
 end

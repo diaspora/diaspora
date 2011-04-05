@@ -13,10 +13,21 @@ module Diaspora
         end
         contact.aspects << aspect
         contact.save
+
+        if notification = Notification.where(:target_id => person.id).first
+          notification.update_attributes(:unread=>false)
+        end
+        
         contact
       end
 
-#begin
+
+      def receive_contact_request(request)
+        self.contacts.find_or_create_by_person_id(request.sender.id)
+        request
+      end
+
+=begin
       def send_contact_request_to(desired_contact, aspect)
         self.contacts.new(:person => desired_contact,
                           :pending => true)
@@ -90,7 +101,7 @@ module Diaspora
           :aspects => [aspect],
           :pending => false)
       end
-#end
+=end
 
       def disconnect(bad_contact)
         person = bad_contact.person
@@ -116,8 +127,6 @@ module Diaspora
         Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
         if contact = self.contact_for(person)
           remove_contact(contact)
-        elsif request = Request.where(:recipient_id => self.person.id, :sender_id => person.id).first
-          request.delete
         end
       end
 

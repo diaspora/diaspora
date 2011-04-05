@@ -97,29 +97,7 @@ describe User do
       end
 
       it 'resolves incoming invitations into contact requests' do
-        Request.where(:recipient_id => invited_user.person.id).count.should == 1
-      end
-
-      context 'after request acceptance' do
-        before do
-          fantasy_resque do
-            invited_user.accept_and_respond(
-              Request.where(:recipient_id => invited_user.person.id).first.id,
-              invited_user.aspects.create(:name => 'first aspect!').id
-            )
-          end
-          invited_user.reload
-          inviter.reload
-        end
-        it 'successfully connects invited_user to inviter' do
-          invited_user.contact_for(inviter.person).should_not be_nil
-          invited_user.contact_for(inviter.person).should_not be_pending
-          Request.where(:recipient_id => invited_user.person.id).count.should == 0
-        end
-
-        it 'successfully connects inviter to invited_user' do
-          inviter.contact_for(invited_user.person).should_not be_pending
-        end
+        inviter.contacts.where(:person_id => invited_user.person.id).count.should == 1
       end
     end
   end

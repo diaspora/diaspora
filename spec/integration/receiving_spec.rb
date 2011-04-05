@@ -12,48 +12,43 @@ describe 'a user receives a post' do
   end
 
   before do
-    @user1  = alice
-    @aspect = @user1.aspects.first
+    @aspect = alice.aspects.first
+    @aspect2 = bob.aspects.first
+    @aspect3 = eve.aspects.first
 
-    @user2   = bob
-    @aspect2 = @user2.aspects.first
-
-    @user3   = eve
-    @aspect3 = @user3.aspects.first
-
-    @contact = @user1.contact_for(@user2.person)
+    @contact = alice.contact_for(bob.person)
   end
 
   it 'streams only one message to the everyone aspect when a multi-aspected contacts posts' do
-    contact = @user1.contact_for(@user2.person)
-    @user1.add_contact_to_aspect(contact, @user1.aspects.create(:name => "villains"))
-    status = @user2.build_post(:status_message, :text => "Users do things", :to => @aspect2.id)
+    contact = alice.contact_for(bob.person)
+    alice.add_contact_to_aspect(contact, alice.aspects.create(:name => "villains"))
+    status = bob.build_post(:status_message, :text => "Users do things", :to => @aspect2.id)
     Diaspora::WebSocket.stub!(:is_connected?).and_return(true)
     Diaspora::WebSocket.should_receive(:queue_to_user).exactly(:once)
-    zord = Postzord::Receiver.new(@user1, :object => status, :person => @user2.person)
+    zord = Postzord::Receiver.new(alice, :object => status, :person => bob.person)
     zord.receive_object
   end
 
   it 'should be able to parse and store a status message from xml' do
-    status_message = @user2.post :status_message, :text => 'store this!', :to => @aspect2.id
+    status_message = bob.post :status_message, :text => 'store this!', :to => @aspect2.id
 
     xml = status_message.to_diaspora_xml
-    @user2.delete
+    bob.delete
     status_message.destroy
 
     lambda {
-      receive_with_zord(@user1, @user2.person, xml)
+      receive_with_zord(alice, bob.person, xml)
     }.should change(Post,:count).by(1)
   end
 
   it 'should not create new aspects on message receive' do
-    num_aspects = @user1.aspects.size
+    num_aspects = alice.aspects.size
 
     2.times do |n|
-      status_message = @user2.post :status_message, :text => "store this #{n}!", :to => @aspect2.id
+      status_message = bob.post :status_message, :text => "store this #{n}!", :to => @aspect2.id
     end
 
-    @user1.aspects.size.should == num_aspects
+    alice.aspects.size.should == num_aspects
   end
 
   it "should show bob's post to alice" do
@@ -71,66 +66,66 @@ describe 'a user receives a post' do
 
   context 'mentions' do
     it 'adds the notifications for the mentioned users regardless of the order they are received' do
-      Notification.should_receive(:notify).with(@user1, anything(), @user2.person)
-      Notification.should_receive(:notify).with(@user3, anything(), @user2.person)
+      Notification.should_receive(:notify).with(alice, anything(), bob.person)
+      Notification.should_receive(:notify).with(eve, anything(), bob.person)
 
-      @sm = @user2.build_post(:status_message, :text => "@{#{@user1.name}; #{@user1.diaspora_handle}} stuff @{#{@user3.name}; #{@user3.diaspora_handle}}")
+      @sm = bob.build_post(:status_message, :text => "@{#{alice.name}; #{alice.diaspora_handle}} stuff @{#{eve.name}; #{eve.diaspora_handle}}")
       @sm.stub!(:socket_to_user)
-      @user2.add_to_streams(@sm, [@user2.aspects.first])
+      bob.add_to_streams(@sm, [bob.aspects.first])
       @sm.save
 
-      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
+      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
 
-      zord = Postzord::Receiver.new(@user3, :object => @sm, :person => @user2.person)
+      zord = Postzord::Receiver.new(eve, :object => @sm, :person => bob.person)
       zord.receive_object
     end
 
     it 'notifies users when receiving a mention in a post from a remote user' do
       @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
-      Contact.create!(:user => @user1, :person => @remote_person, :aspects => [@aspect], :pending => false)
+      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@aspect], :pending => false)
 
-      Notification.should_receive(:notify).with(@user1, anything(), @remote_person)
+      Notification.should_receive(:notify).with(alice, anything(), @remote_person)
 
-      @sm = Factory.build(:status_message, :text => "hello @{#{@user1.name}; #{@user1.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
+      @sm = Factory.build(:status_message, :text => "hello @{#{alice.name}; #{alice.diaspora_handle}}", :diaspora_handle => @remote_person.diaspora_handle, :author => @remote_person)
       @sm.stub!(:socket_to_user)
       @sm.save
 
-      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
+      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
     end
 
     it 'does not notify the mentioned user if the mentioned user is not friends with the post author' do
-      Notification.should_not_receive(:notify).with(@user1, anything(), @user3.person)
+      Notification.should_not_receive(:notify).with(alice, anything(), eve.person)
 
-      @sm = @user3.build_post(:status_message, :text => "should not notify @{#{@user1.name}; #{@user1.diaspora_handle}}")
+      @sm = eve.build_post(:status_message, :text => "should not notify @{#{alice.name}; #{alice.diaspora_handle}}")
       @sm.stub!(:socket_to_user)
-      @user3.add_to_streams(@sm, [@user3.aspects.first])
+      eve.add_to_streams(@sm, [eve.aspects.first])
       @sm.save
 
-      zord = Postzord::Receiver.new(@user1, :object => @sm, :person => @user2.person)
+      zord = Postzord::Receiver.new(alice, :object => @sm, :person => bob.person)
       zord.receive_object
     end
   end
 
   context 'update posts' do
     it 'does not update posts not marked as mutable' do
-      status = @user1.post :status_message, :text => "store this!", :to => @aspect.id
+      status = alice.post :status_message, :text => "store this!", :to => @aspect.id
       status.text = 'foo'
       xml = status.to_diaspora_xml
 
-      receive_with_zord(@user2, @user1.person, xml)
+      receive_with_zord(bob, alice.person, xml)
 
       status.reload.text.should == 'store this!'
     end
 
     it 'updates posts marked as mutable' do
-      photo = @user1.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @aspect.id)
+      photo = alice.post(:photo, :user_file => uploaded_photo, :text => "Original", :to => @aspect.id)
       photo.text = 'foo'
       xml = photo.to_diaspora_xml
-      @user2.reload
+      bob.reload
 
-      receive_with_zord(@user2, @user1.person, xml)
+      receive_with_zord(bob, alice.person, xml)
 
       photo.reload.text.should match(/foo/)
     end
@@ -151,31 +146,32 @@ describe 'a user receives a post' do
 
   describe 'post refs' do
     before do
-      @status_message = @user2.post :status_message, :text => "hi", :to => @aspect2.id
-      @user1.reload
+      @status_message = bob.post(:status_message, :text => "hi", :to => @aspect2.id)
+      alice.reload
       @aspect.reload
-      @contact = @user1.contact_for(@user2.person)
+      @contact = alice.contact_for(bob.person)
     end
 
     it "adds a received post to the the contact" do
-      @user1.raw_visible_posts.include?(@status_message).should be_true
+      alice.raw_visible_posts.include?(@status_message).should be_true
       @contact.posts.include?(@status_message).should be_true
     end
 
     it 'removes posts upon disconnecting' do
-      @user1.disconnect(@contact)
-      @user1.reload
-      @user1.raw_visible_posts.should_not include @status_message
+      alice.disconnect(@contact)
+      alice.reload
+      alice.raw_visible_posts.should_not include @status_message
     end
 
     context 'dependant delete' do
       before do
         @person = Factory(:person)
-        @user1.activate_contact(@person, @aspect)
+        alice.contacts.create(:person => @person, :aspects => [@aspect])
+
         @post = Factory.create(:status_message, :author => @person)
         @post.post_visibilities.should be_empty
-        receive_with_zord(@user1, @person, @post.to_diaspora_xml)
-        @contact = @user1.contact_for(@person)
+        receive_with_zord(alice, @person, @post.to_diaspora_xml)
+        @contact = alice.contact_for(@person)
         @contact.post_visibilities.reset
         @contact.posts(true).should include(@post)
         @post.post_visibilities.reset
@@ -183,13 +179,13 @@ describe 'a user receives a post' do
 
       it 'deletes a post if the noone links to it' do
         lambda {
-          @user1.disconnected_by(@person)
+          alice.disconnected_by(@person)
         }.should change(Post, :count).by(-1)
       end
 
       it 'deletes post_visibilities on disconnected by' do
         lambda {
-          @user1.disconnected_by(@person)
+          alice.disconnected_by(@person)
         }.should change{@post.post_visibilities(true).count}.by(-1)
       end
     end
@@ -198,7 +194,7 @@ describe 'a user receives a post' do
       @status_message.user_refs.should == 3
       @status_message.contacts(true).should include(@contact)
 
-      @user1.disconnect(@contact)
+      alice.disconnect(@contact)
       @status_message.reload
       @status_message.contacts(true).should_not include(@contact)
       @status_message.post_visibilities.reset
@@ -210,15 +206,15 @@ describe 'a user receives a post' do
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 3
 
-      new_user.activate_contact(@user2.person, new_user.aspects.first)
+      new_user.contacts.create(:person => bob.person, :aspects => [new_user.aspects.first])
       xml = @status_message.to_diaspora_xml
 
-      receive_with_zord(new_user, @user2.person, xml)
+      receive_with_zord(new_user, bob.person, xml)
 
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 4
 
-      @user1.disconnect(@contact)
+      alice.disconnect(@contact)
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 3
     end
@@ -228,41 +224,41 @@ describe 'a user receives a post' do
 
     context 'remote' do
       before do
-        connect_users(@user1, @aspect, @user3, @aspect3)
-        @post = @user1.post :status_message, :text => "hello", :to => @aspect.id
+        connect_users(alice, @aspect, eve, @aspect3)
+        @post = alice.post(:status_message, :text => "hello", :to => @aspect.id)
 
         xml = @post.to_diaspora_xml
 
-        receive_with_zord(@user2, @user1.person, xml)
-        receive_with_zord(@user3, @user1.person, xml)
+        receive_with_zord(bob, alice.person, xml)
+        receive_with_zord(eve, alice.person, xml)
 
-        @comment = @user3.comment('tada',:on => @post)
-        @comment.parent_author_signature = @comment.sign_with_key(@user1.encryption_key)
+        @comment = eve.comment('tada',:on => @post)
+        @comment.parent_author_signature = @comment.sign_with_key(alice.encryption_key)
         @xml = @comment.to_diaspora_xml
         @comment.delete
       end
 
       it 'should correctly attach the user already on the pod' do
-        @user2.reload.raw_visible_posts.size.should == 1
+        bob.reload.raw_visible_posts.size.should == 1
         post_in_db = StatusMessage.find(@post.id)
         post_in_db.comments.should == []
-        receive_with_zord(@user2, @user1.person, @xml)
+        receive_with_zord(bob, alice.person, @xml)
 
-        post_in_db.comments(true).first.author.should == @user3.person
+        post_in_db.comments(true).first.author.should == eve.person
       end
 
       it 'should correctly marshal a stranger for the downstream user' do
-        remote_person = @user3.person.dup
-        @user3.person.delete
-        @user3.delete
+        remote_person = eve.person.dup
+        eve.person.delete
+        eve.delete
         Person.where(:id => remote_person.id).delete_all
         Profile.where(:person_id => remote_person.id).delete_all
         remote_person.id = nil
 
         Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
-          if handle == @user1.person.diaspora_handle
-            @user1.person.save
-            @user1.person
+          if handle == alice.person.diaspora_handle
+            alice.person.save
+            alice.person
           else
             remote_person.save(:validate => false)
             remote_person.profile = Factory(:profile, :person => remote_person)
@@ -270,11 +266,11 @@ describe 'a user receives a post' do
           end
         }
 
-        @user2.reload.raw_visible_posts.size.should == 1
+        bob.reload.raw_visible_posts.size.should == 1
         post_in_db = StatusMessage.find(@post.id)
         post_in_db.comments.should == []
 
-        receive_with_zord(@user2, @user1.person, @xml)
+        receive_with_zord(bob, alice.person, @xml)
 
         post_in_db.comments(true).first.author.should == remote_person
       end
@@ -282,20 +278,20 @@ describe 'a user receives a post' do
 
     context 'local' do
       before do
-        @post = @user1.post :status_message, :text => "hello", :to => @aspect.id
+        @post = alice.post :status_message, :text => "hello", :to => @aspect.id
 
         xml = @post.to_diaspora_xml
 
-        receive_with_zord(@user2, @user1.person, xml)
-        receive_with_zord(@user3, @user1.person, xml)
+        receive_with_zord(bob, alice.person, xml)
+        receive_with_zord(eve, alice.person, xml)
       end
 
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
-        @comment = @user2.comment('tada',:on => @post)
+        @comment = bob.comment('tada',:on => @post)
         @xml = @comment.to_diaspora_xml
 
         lambda {
-            receive_with_zord(@user1, @user2.person, @xml)
+            receive_with_zord(alice, bob.person, @xml)
         }.should_not raise_exception
       end
     end
@@ -312,8 +308,7 @@ describe 'a user receives a post' do
       @post = Factory.build(:status_message, :text => 'hey', :guid => 12313123, :author=> @remote_raphael, :created_at => 5.days.ago, :updated_at => 5.days.ago)
       xml = @post.to_diaspora_xml
       receive_with_zord(@local_luke, @remote_raphael, xml)
-      sleep(2)
-      old_time = Time.now
+      old_time = Time.now+1
       receive_with_zord(@local_leia, @remote_raphael, xml)
       (Post.find_by_guid @post.guid).updated_at.should be < old_time
       (Post.find_by_guid @post.guid).created_at.should be < old_time
@@ -332,38 +327,38 @@ describe 'a user receives a post' do
 
 
   describe 'salmon' do
-    let(:post){@user1.post :status_message, :text => "hello", :to => @aspect.id}
-    let(:salmon){@user1.salmon( post )}
+    let(:post){alice.post :status_message, :text => "hello", :to => @aspect.id}
+    let(:salmon){alice.salmon( post )}
 
     it 'processes a salmon for a post' do
-      salmon_xml = salmon.xml_for(@user2.person)
+      salmon_xml = salmon.xml_for(bob.person)
 
-      zord = Postzord::Receiver.new(@user2, :salmon_xml => salmon_xml)
+      zord = Postzord::Receiver.new(bob, :salmon_xml => salmon_xml)
       zord.perform
 
-      @user2.raw_visible_posts.include?(post).should be_true
+      bob.raw_visible_posts.include?(post).should be_true
     end
   end
 
 
   context 'retractions' do
     it 'should accept retractions' do
-      message = @user2.post(:status_message, :text => "cats", :to => @aspect2.id)
+      message = bob.post(:status_message, :text => "cats", :to => @aspect2.id)
       retraction = Retraction.for(message)
       xml = retraction.to_diaspora_xml
 
       lambda {
-        zord = Postzord::Receiver.new(@user1, :person => @user2.person)
+        zord = Postzord::Receiver.new(alice, :person => bob.person)
         zord.parse_and_receive(xml)
       }.should change(StatusMessage, :count).by(-1)
     end
 
     it 'should process retraction for a person' do
-      retraction = Retraction.for(@user2)
+      retraction = Retraction.for(bob)
       retraction_xml = retraction.to_diaspora_xml
 
       lambda {
-        zord = Postzord::Receiver.new(@user1, :person => @user2.person)
+        zord = Postzord::Receiver.new(alice, :person => bob.person)
         zord.parse_and_receive(retraction_xml)
       }.should change {
         @aspect.contacts(true).size }.by(-1)
@@ -373,7 +368,7 @@ describe 'a user receives a post' do
 
   it 'should marshal a profile for a person' do
     #Create person
-    person = @user2.person
+    person = bob.person
     id = person.id
     person.profile.delete
     person.profile = Profile.new(:first_name => 'bob', :last_name => 'billytown', :image_url => "http://clown.com", :person_id => person.id)
@@ -387,7 +382,7 @@ describe 'a user receives a post' do
     xml = new_profile.to_diaspora_xml
 
     #Marshal profile
-    zord = Postzord::Receiver.new(@user1, :person => person)
+    zord = Postzord::Receiver.new(alice, :person => person)
     zord.parse_and_receive(xml)
 
     #Check that marshaled profile is the same as old profile

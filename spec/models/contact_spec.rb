@@ -31,29 +31,20 @@ describe Contact do
     end
 
     it 'ensures user is not making a contact for himself' do
-      user = Factory.create(:user)
-
-      contact.person = user.person
-      contact.user = user
+      contact.person = alice.person
+      contact.user = alice
 
       contact.valid?
       contact.errors.full_messages.should include "Cannot create self-contact"
     end
 
-    it 'has many aspects' do
-      contact.aspects.should be_empty
-    end
-
     it 'validates uniqueness' do
-      user = Factory.create(:user)
       person = Factory(:person)
 
-      contact2 = Contact.create(:user => user,
-                                :person => person)
-
+      contact2 = alice.contacts.create(:person=>person)
       contact2.should be_valid
 
-      contact.user = user
+      contact.user = alice
       contact.person = person
       contact.should_not be_valid
     end
@@ -70,12 +61,12 @@ describe Contact do
 
       1.upto(5) do
         person = Factory(:person)
-        bob.activate_contact(person, bob.aspects.first)
+        bob.contacts.create(:person => person, :aspects => [bob.aspects.first])
         @people1 << person
       end
       1.upto(5) do
         person = Factory(:person)
-        bob.activate_contact(person, bob.aspects.last)
+        bob.contacts.create(:person => person, :aspects => [bob.aspects.last])
         @people2 << person
       end
     #eve <-> bob <-> alice
