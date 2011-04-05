@@ -66,10 +66,7 @@ class Request < ActiveRecord::Base
 
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
-
-    user.contacts.create(:person_id => person.id, :pending => false)
-
-    #user.receive_contact_request(self)
+    user.contacts.create(:person_id => person.id)
     self.save
     self
   end

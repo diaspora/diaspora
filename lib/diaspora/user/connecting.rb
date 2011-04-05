@@ -5,7 +5,6 @@
 module Diaspora
   module UserModules
     module Connecting
-
       def share_with(person, aspect)
         contact = self.contacts.find_or_initialize_by_person_id(person.id)
         unless contact.persisted?
@@ -21,87 +20,32 @@ module Diaspora
         contact
       end
 
-
       def receive_contact_request(request)
-        self.contacts.find_or_create_by_person_id(request.sender.id)
+        contact = self.contacts.find_or_initialize_by_person_id(request.sender.id)
+        if contact.persisted? && !contact.mutual?
+          contact.mutual = true
+        end
+        contact.save
         request
       end
 
-=begin
-      def send_contact_request_to(desired_contact, aspect)
-        self.contacts.new(:person => desired_contact,
-                          :pending => true)
+      def remove_contact(contact, opts={:force => false})
+        posts = contact.posts.all
 
-        contact.aspects << aspect
-
-        if contact.save!
-          request = contact.dispatch_request
-          request
+        if !contact.mutual || opts[:force]
+          contact.destroy
         else
-          nil
-        end
-      end
-
-      def dispatch_contact_acceptance(request, requester)
-        Postzord::Dispatch.new(self, request).post
-        request.destroy unless request.sender.owner
-      end
-
-      def accept_contact_request(request, aspect)
-        activate_contact(request.sender, aspect)
-
-        if notification = Notification.where(:target_id=>request.id).first
-          notification.update_attributes(:unread=>false)
+          contact.update_attributes(:mutual => false)
+          contact.post_visibilities.destroy_all
+          contact.aspect_memberships.destroy_all
         end
 
-        request.destroy
-        request.reverse_for(self)
-      end
-
-      def accept_and_respond(contact_request_id, aspect_id)
-        request          = Request.where(:recipient_id => self.person.id, :id => contact_request_id).first
-        requester        = request.sender
-        reversed_request = accept_contact_request(request, aspects.where(:id => aspect_id).first )
-        dispatch_contact_acceptance reversed_request, requester
-      end
-
-      def ignore_contact_request(contact_request_id)
-        request = Request.where(:recipient_id => self.person.id, :id => contact_request_id).first
-        request.destroy
-      end
-
-      def receive_contact_request(contact_request)
-        #response from a contact request you sent
-        if original_contact = self.contact_for(contact_request.sender)
-          receive_request_acceptance(contact_request, original_contact)
-        #this is a new contact request
-        elsif contact_request.sender != self.person
-          if contact_request.save!
-            Rails.logger.info("event=contact_request status=received_new_request from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle}")
+        posts.each do |p|
+          if p.user_refs < 1
+            p.destroy
           end
-        else
-          Rails.logger.info "event=contact_request status=abort from=#{contact_request.sender.diaspora_handle} to=#{self.diaspora_handle} reason=self-love"
-          return nil
         end
-        contact_request
       end
-
-      def receive_request_acceptance(received_request, contact)
-        contact.pending = false
-        contact.save
-        Rails.logger.info("event=contact_request status=received_acceptance from=#{received_request.sender.diaspora_handle} to=#{self.diaspora_handle}")
-
-        received_request.destroy
-        self.save
-      end
-      
-      def activate_contact(person, aspect)
-        new_contact = Contact.create!(:user => self,
-          :person => person,
-          :aspects => [aspect],
-          :pending => false)
-      end
-=end
 
       def disconnect(bad_contact)
         person = bad_contact.person
@@ -112,24 +56,12 @@ module Diaspora
         remove_contact(bad_contact)
       end
 
-      def remove_contact(contact)
-        bad_person_id = contact.person_id
-        posts = contact.posts.all
-        contact.destroy
-        posts.each do |post|
-          if post.user_refs < 1
-            post.destroy
-          end
-        end
-      end
-
       def disconnected_by(person)
         Rails.logger.info("event=disconnected_by user=#{diaspora_handle} target=#{person.diaspora_handle}")
         if contact = self.contact_for(person)
           remove_contact(contact)
         end
       end
-
     end
   end
 end

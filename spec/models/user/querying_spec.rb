@@ -13,11 +13,10 @@ describe User do
 
   describe "#raw_visible_posts" do
     it "returns all the posts the user can see" do
-      connect_users(eve, @eves_aspect, alice, @alices_aspect)
       self_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
-      visible_post = eve.post(:status_message, :text => "hello", :to => @eves_aspect.id)
-      dogs = eve.aspects.create(:name => "dogs")
-      invisible_post = eve.post(:status_message, :text => "foobar", :to => dogs.id)
+      visible_post = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+      dogs = bob.aspects.create(:name => "dogs")
+      invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
 
       stream = alice.raw_visible_posts
       stream.should include(self_post)
@@ -119,10 +118,6 @@ describe User do
       end
 
       it "only returns non-pending contacts" do
-        alice.send_contact_request_to(Factory(:user).person, @alices_aspect)
-        @alices_aspect.reload
-        alice.reload
-
         alice.people_in_aspects([@alices_aspect]).should == [bob.person]
       end
 

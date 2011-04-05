@@ -48,7 +48,7 @@ module Diaspora
       end
 
       def contact_for_person_id(person_id)
-        Contact.unscoped.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first if person_id
+        Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
       end
 
       def people_in_aspects(requested_aspects, opts={})

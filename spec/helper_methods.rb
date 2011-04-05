@@ -5,15 +5,11 @@ module HelperMethods
   def connect_users(user1, aspect1, user2, aspect2)
     user1.contacts.create!(:person => user2.person,
                            :aspects => [aspect1],
-                           :pending => false)
+                           :mutual => true)
 
     user2.contacts.create!(:person => user1.person,
                            :aspects => [aspect2],
-                           :pending => false)
-    user1.reload
-    user2.reload
-    aspect1.reload
-    aspect2.reload
+                           :mutual => true)
   end
 
   def stub_success(address = 'abc@example.com', opts = {})

@@ -48,13 +48,11 @@ describe User do
       inviter.invite_user(aspect.id, 'email', @email).email.should == @email
     end
 
-
-    it 'throws if you try to add someone you"re connected to' do
+    it "throws if you try to add someone you're connected to" do
       connect_users(inviter, aspect, another_user, wrong_aspect)
-      inviter.reload
       proc{
         inviter.invite_user(aspect.id, 'email', another_user.email)
-      }.should raise_error ActiveRecord::RecordInvalid
+      }.should raise_error ActiveRecord::RecordNotUnique
     end
 
   end

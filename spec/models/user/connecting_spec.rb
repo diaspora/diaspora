@@ -22,23 +22,33 @@ describe Diaspora::UserModules::Connecting do
         @r = Request.diaspora_initialize(:to => alice.person, :from => person)
       end
 
-      it 'creates no contact' do
+      it 'creates a contact' do
         lambda {
           received_req = @r.receive(alice, person_one)
         }.should change(Contact, :count).by(1)
       end
     end
 
-    describe '#receive_request_acceptance' do
+    describe '#receive_contact_request' do
       before do
-        @original_request = alice.send_contact_request_to(eve.person, aspect)
-        @acceptance = @original_request.reverse_for(eve)
+        @request = Request.new(:sender => eve.person, :recipient => alice.person)
       end
-      it 'connects to the acceptor' do
-        alice.receive_contact_request(@acceptance)
-        alice.contact_for(eve.person).should_not be_nil
+      it 'sets mutual on an existing contact' do
+        alice.share_with(eve.person, aspect)
+        lambda{
+          alice.receive_contact_request(@request)
+        }.should change{
+          alice.contacts.find_by_person_id(eve.person.id).mutual
+        }.from(false).to(true)
       end
-      it 'deletes the acceptance' do
+
+      it 'does not set mutual' do
+        alice.receive_contact_request(@request)
+        alice.contacts.find_by_person_id(eve.person.id).should_not be_mutual
+      end
+      
+      it 'doesnt set mutual on a contact' do
+        pending
         alice.receive_contact_request(@acceptance)
         Request.where(:sender_id => eve.person.id, :recipient_id => alice.person.id).should be_empty
       end
@@ -64,46 +74,65 @@ describe Diaspora::UserModules::Connecting do
 
     describe 'disconnecting' do
       describe '#remove_contact' do
+        it 'removed non mutual contacts' do
+          alice.share_with(eve.person, alice.aspects.first)
+          lambda {
+            alice.remove_contact alice.contact_for(eve.person)
+          }.should change {
+            alice.contacts(true).count
+          }.by(-1)
+        end
+
+        it 'removes a contacts mutual flag' do
+          lambda{
+            bob.remove_contact(bob.contact_for(alice.person))
+          }.should change {
+            bob.contacts.find_by_person_id(alice.person.id).mutual
+          }.from(true).to(false)
+        end
+
+
+        it "deletes the disconnected user's posts from visible_posts" do
+          StatusMessage.delete_all
+          message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
+
+          bob.reload.raw_visible_posts.should include(message)
+          bob.disconnect bob.contact_for(alice.person)
+          bob.reload.raw_visible_posts.should_not include(message)
+        end
+
         it 'should remove the contact from all aspects they are in' do
           contact = alice.contact_for(bob.person) 
           new_aspect = alice.aspects.create(:name => 'new')
-          alice.add_contact_to_aspect( contact, new_aspect)
+          alice.add_contact_to_aspect(contact, new_aspect)
 
-          lambda { alice.remove_contact(contact) }.should change(
-          contact.aspects, :count).from(2).to(0)
-        end
-
-        context 'with a post' do
-          it "deletes the disconnected user's posts from visible_posts" do
-            StatusMessage.delete_all
-            message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
-
-            bob.reload.raw_visible_posts.include?(message).should be_true
-            bob.disconnect bob.contact_for(alice.person)
-            bob.reload.raw_visible_posts.include?(message).should be_false
-          end
+          lambda {
+            alice.remove_contact(contact)
+          }.should change(contact.aspects(true), :count).from(2).to(0)
         end
       end
 
       describe '#disconnected_by' do
-        it 'removes a contacts mutual flag' do
-          pending 'needs migration'
-          alice.share_with(eve.person, alice.aspects.first)
-
-          alice.contacts.where(:person_id => eve.person.id).mutual.should be_true
-          eve.disconnected_by(alice.person)
-          alice.contacts.where(:person_id => eve.person.id).mutual.should be_false
-
+        it 'calls remove contact' do
+          bob.should_receive(:remove_contact).with(bob.contact_for(alice.person))
+          bob.disconnected_by(alice.person)
         end
       end
 
       describe '#disconnect' do
-        it 'disconnects a contact on the same seed' do
-          bob.aspects.first.contacts.count.should == 2
-          lambda {
-            bob.disconnect bob.contact_for(alice.person) }.should change {
-            bob.contacts(true).count }.by(-1)
-          bob.aspects.first.contacts(true).count.should == 1
+        it 'calls remove contact' do
+          contact = bob.contact_for(alice.person)
+
+          bob.should_receive(:remove_contact).with(contact)
+          bob.disconnect contact
+        end
+
+        it 'dispatches a retraction' do
+          p = mock()
+          Postzord::Dispatch.should_receive(:new).and_return(p)
+          p.should_receive(:post)
+
+          bob.disconnect bob.contact_for(eve.person)
         end
       end
     end

@@ -7,7 +7,6 @@ require 'spec_helper'
 describe Invitation do
   let(:user) { alice }
   let(:aspect) { user.aspects.first }
-  let(:user2) { eve }
 
   before do
     user.invites = 20
@@ -18,11 +17,11 @@ describe Invitation do
   describe 'validations' do
     before do
       aspect
-      @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
+      @invitation = Invitation.new(:sender => user, :recipient => eve, :aspect => aspect)
     end
     it 'is valid' do
       @invitation.sender.should == user
-      @invitation.recipient.should == user2
+      @invitation.recipient.should == eve 
       @invitation.aspect.should == aspect
       @invitation.should be_valid
     end
@@ -41,7 +40,7 @@ describe Invitation do
   end
 
   it 'has a message' do
-    @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
+    @invitation = Invitation.new(:sender => user, :recipient => eve, :aspect => aspect)
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
@@ -54,7 +53,7 @@ describe Invitation do
       @identifier = "maggie@example.org"
       inv.invitation_identifier.should == @identifier
       inv.invitation_service.should == 'email'
-      inv.persisted?.should be_false
+      inv.should_not be_persisted
       lambda {
         inv.reload
       }.should raise_error ActiveRecord::RecordNotFound
@@ -162,12 +161,8 @@ describe Invitation do
     end
 
     it 'sends a contact request to a user with that email into the aspect' do
-      user2
-      user.should_receive(:send_contact_request_to) { |a, b|
-        a.should == user2.person
-        b.should == aspect
-      }
-      Invitation.invite(:from => user, :service => 'email', :identifier => user2.email, :into => aspect)
+      user.should_receive(:share_with).with(eve.person, aspect)
+      Invitation.invite(:from => user, :service => 'email', :identifier => eve.email, :into => aspect)
     end
 
     it 'decrements the invite count of the from user' do
@@ -322,10 +317,10 @@ describe Invitation do
       }.should change(Invitation, :count).by(-1)
     end
 
-    it 'creates a contact for the inviter' do
+    it 'creates a contact for the inviter and invitee' do
       lambda {
         @invitation.share_with!
-      }.should change(Contact.unscoped, :count).by(1)
+      }.should change(Contact, :count).by(2)
     end
   end
 end

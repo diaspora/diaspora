@@ -19,7 +19,7 @@ class Invitation < ActiveRecord::Base
       if opts[:from].contact_for(opts[:from].person)
         raise "You are already connceted to this person"
       elsif not existing_user.invited?
-        opts[:from].send_contact_request_to(existing_user.person, opts[:into])
+        opts[:from].share_with(existing_user.person, opts[:into])
         return
       elsif Invitation.where(:sender_id => opts[:from].id, :recipient_id => existing_user.id).first
         raise "You already invited this person"

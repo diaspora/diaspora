@@ -328,15 +328,15 @@ class User < ActiveRecord::Base
   end
 
   def disconnect_everyone
-    Contact.unscoped.where(:user_id => self.id).each { |contact|
+    self.contacts.each do |contact|
       unless contact.person.owner.nil?
-        contact.person.owner.disconnected_by self.person
-        remove_contact(contact)
+        contact.person.owner.disconnected_by(self.person)
+        remove_contact(contact, :force => true)
       else
-        self.disconnect contact
+        self.disconnect(contact)
       end
-    }
-    self.aspects.delete_all
+    end
+    self.aspects.destroy_all
   end
 
   def remove_mentions

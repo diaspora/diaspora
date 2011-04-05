@@ -301,7 +301,7 @@ describe Person do
       @casey_grippi.profile.first_name = "AAA"
       @casey_grippi.profile.save
 
-      requestor.send_contact_request_to(@user.person, requestor.aspects.first)
+      requestor.share_with(@user.person, requestor.aspects.first)
       people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [requestor.person, @yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end

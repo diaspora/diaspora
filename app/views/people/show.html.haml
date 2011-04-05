@@ -36,7 +36,7 @@
         = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
 
     - else
-      - if user_signed_in? && @contact.person && @contact.pending? == false
+      - if user_signed_in? && @contact.mutual?
         .right
           = link_to t('.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
           = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'

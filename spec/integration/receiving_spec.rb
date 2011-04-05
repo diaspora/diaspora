@@ -83,7 +83,7 @@ describe 'a user receives a post' do
 
     it 'notifies users when receiving a mention in a post from a remote user' do
       @remote_person = Factory.create(:person, :diaspora_handle => "foobar@foobar.com")
-      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@aspect], :pending => false)
+      Contact.create!(:user => alice, :person => @remote_person, :aspects => [@aspect])
 
       Notification.should_receive(:notify).with(alice, anything(), @remote_person)
 
@@ -153,8 +153,8 @@ describe 'a user receives a post' do
     end
 
     it "adds a received post to the the contact" do
-      alice.raw_visible_posts.include?(@status_message).should be_true
-      @contact.posts.include?(@status_message).should be_true
+      alice.raw_visible_posts.should include(@status_message)
+      @contact.posts.should include(@status_message)
     end
 
     it 'removes posts upon disconnecting' do
@@ -177,7 +177,7 @@ describe 'a user receives a post' do
         @post.post_visibilities.reset
       end
 
-      it 'deletes a post if the noone links to it' do
+      it 'deletes a post if the no one links to it' do
         lambda {
           alice.disconnected_by(@person)
         }.should change(Post, :count).by(-1)

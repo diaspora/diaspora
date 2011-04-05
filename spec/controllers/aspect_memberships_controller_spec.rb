@@ -34,7 +34,6 @@ describe AspectMembershipsController do
     end
   end
 
-
   describe "#destroy" do
     it 'removes contacts from an aspect' do
       @user.add_contact_to_aspect(@contact, @aspect1)
@@ -46,17 +45,6 @@ describe AspectMembershipsController do
       @aspect0.reload
       @aspect0.contacts.include?(@contact).should be false
     end
-
-  describe "#update" do
-    it 'calls the move_contact method' do
-      @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_contact)
-      put :update, :id => 123,
-                   :person_id => @user.person.id,
-                   :aspect_id => @aspect0.id,
-                   :to => @aspect1.id
-    end
-  end
 
     context 'aspect membership does not exist' do
       it 'person does not exist' do
@@ -77,14 +65,16 @@ describe AspectMembershipsController do
         response.body.should include "Could not find the selected person in that aspect"
       end
     end
+  end
 
-    it 'has the error of cannot delete contact from last aspect if its the last aspect' do
-      delete :destroy,
-        :format => 'js', :id => 123,
-        :person_id => @user2.person.id,
-        :aspect_id => @aspect0.id
-      response.should_not be_success
-      response.body.should include "Cannot remove person from last aspect"
+  describe "#update" do
+    it 'calls the move_contact method' do
+      @controller.stub!(:current_user).and_return(@user)
+      @user.should_receive(:move_contact)
+      put :update, :id => 123,
+                   :person_id => @user.person.id,
+                   :aspect_id => @aspect0.id,
+                   :to => @aspect1.id
     end
   end
 end

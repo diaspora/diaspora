@@ -9,13 +9,13 @@ describe AspectsController do
   render_views
 
   before do
-    @bob   = bob
+    @bob = bob
     @alice = alice
     @alice.getting_started = false
     @alice.save
     sign_in :user, @alice
-    @alices_aspect_1  = @alice.aspects.first
-    @alices_aspect_2  = @alice.aspects.create(:name => "another aspect")
+    @alices_aspect_1 = @alice.aspects.first
+    @alices_aspect_2 = @alice.aspects.create(:name => "another aspect")
 
     @controller.stub(:current_user).and_return(@alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
@@ -142,7 +142,7 @@ describe AspectsController do
           get :index
           assigns(:posts).should == @posts.reverse
           get :index, :sort_order => "updated_at"
-          assigns(:posts).should == @posts
+          assigns(:posts).map(&:id).should == @posts.map(&:id)
         end
 
         it "doesn't allow SQL injection" do
@@ -232,6 +232,7 @@ describe AspectsController do
       get :manage
       response.should be_success
     end
+
     it "performs reasonably", :performance => true do
         require 'benchmark'
         8.times do |n|
@@ -245,32 +246,31 @@ describe AspectsController do
           get :manage
         }.should < 4.5
     end
+
     it "assigns aspect to manage" do
       get :manage
       assigns(:aspect).should == :manage
     end
-    it "assigns contacts to only non-pending" do
-      contact = @alice.contact_for(bob.person)
-      Contact.unscoped.where(:user_id => @alice.id).count.should == 1
-      @alice.send_contact_request_to(Factory(:user).person, @alices_aspect_1)
-      Contact.unscoped.where(:user_id => @alice.id).count.should == 2
 
+    it "assigns contacts" do
       get :manage
       contacts = assigns(:contacts)
-      contacts.count.should == 1
-      contacts.first.should == contact
+      contacts.to_set.should == alice.contacts.to_set
     end
   end
 
   describe "#update" do
-    before do
+    it "doesn't overwrite name" do
+
       @alices_aspect_1 = @alice.aspects.create(:name => "Bruisers")
-    end
-    it "doesn't overwrite random attributes" do
-      new_user         = Factory.create :user
-      params           = {"name" => "Bruisers"}
+
+      new_user =  Factory.create :user
+      params = {"name" => "Bruisers"}
+
       params[:user_id] = new_user.id
-      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+
+      put(:update, :id => @alices_aspect_1.id, :aspect => params)
+
       Aspect.find(@alices_aspect_1.id).user_id.should == @alice.id
     end
   end

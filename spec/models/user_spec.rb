@@ -228,7 +228,7 @@ describe User do
     end
     
     it "returns false if the user has already sent a request to that person" do
-      alice.send_contact_request_to(eve.person, alice.aspects.first)
+      alice.share_with(eve.person, alice.aspects.first)
       alice.reload
       eve.reload
       alice.can_add?(eve.person).should be_false
@@ -332,22 +332,6 @@ describe User do
     end
   end
 
-  describe 'foreign key between aspects and contacts' do
-    it 'should delete an empty aspect' do
-      empty_aspect = alice.aspects.create(:name => 'decoy')
-      alice.aspects(true).include?(empty_aspect).should == true
-      empty_aspect.destroy
-      alice.aspects(true).include?(empty_aspect).should == false
-    end
-
-    it 'should not delete an aspect with contacts' do
-      aspect = alice.aspects.first
-      aspect.contacts.count.should > 0
-      proc { aspect.destroy }.should raise_error ActiveRecord::StatementInvalid
-      alice.aspects.include?(aspect).should == true
-    end
-  end
-
   describe '#update_post' do
     it 'sends a notification to aspects' do
       m = mock()
@@ -425,14 +409,18 @@ describe User do
     it 'removes all contacts' do
       lambda {
         alice.destroy
-      }.should change { alice.contacts(true).count }.by(-1)
+      }.should change {
+        alice.contacts.count
+      }.by(-1)
     end
 
     it 'removes all service connections' do
       Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
       lambda {
         alice.destroy
-      }.should change { alice.services(true).count }.by(-1)
+      }.should change {
+        alice.services.count
+      }.by(-1)
     end
 
     describe '#remove_person' do
@@ -471,7 +459,7 @@ describe User do
       end
 
       it 'has no error when the user has sent local requests' do
-        alice.send_contact_request_to(eve.person, alice.aspects.first)
+        alice.share_with(eve.person, alice.aspects.first)
         lambda {
           alice.destroy
         }.should_not raise_error

@@ -1,7 +1,8 @@
 %li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
   .right
-    -if friend.contact && !friend.contact.pending
-      = t('people.person.already_connected')
+    -if friend.contact
+      / TODO(*) add following method in Contact
+      sharing
     - elsif friend.invitation_id
       = t('invitations.new.already_invited')
       %br

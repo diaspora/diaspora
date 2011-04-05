@@ -56,7 +56,8 @@ describe Request do
     end
 
     it 'returns request_accepted' do
-      @user.contacts.create(:person_id => @person.id, :pending => true)
+      pending 'TODO(*) take out request accepted'
+      @user.contacts.create(:person_id => @person.id)
       @request.notification_type(@user, @person).should == Notifications::RequestAccepted
     end
 

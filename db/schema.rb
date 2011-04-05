@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110331222629) do
+ActiveRecord::Schema.define(:version => 20110405171412) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -68,17 +68,16 @@ ActiveRecord::Schema.define(:version => 20110331222629) do
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
-    t.integer  "user_id",                      :null => false
-    t.integer  "person_id",                    :null => false
-    t.boolean  "pending",    :default => true, :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "person_id",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
+    t.boolean  "mutual",     :default => false, :null => false
   end
 
   add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
-  add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
-  add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
+  add_index "contacts", ["person_id"], :name => "index_contacts_on_person_id"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
 
   create_table "conversation_visibilities", :force => true do |t|
@@ -250,6 +249,7 @@ ActiveRecord::Schema.define(:version => 20110331222629) do
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
+  add_index "posts", ["type"], :name => "index_posts_on_type"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"

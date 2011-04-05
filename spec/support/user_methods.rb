@@ -1,16 +1,10 @@
 class User
-  def send_contact_request_to(desired_contact, aspect)
-    fantasy_resque do
-      contact = Contact.new(:person => desired_contact,
-                            :user => self,
-                            :pending => true)
-      contact.aspects << aspect
 
-      if contact.save!
-        contact.dispatch_request
-      else
-        nil
-      end
+  alias_method :share_with_original, :share_with
+
+  def share_with(*args)
+    fantasy_resque do
+      share_with_original(*args)
     end
   end
 
