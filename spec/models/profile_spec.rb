@@ -22,11 +22,13 @@ describe Profile do
         profile = Factory.build(:profile, :first_name => "Hexagooooooooooooooooooooooooooon")
         profile.should_not be_valid
       end
+
       it 'cannot have ;' do
         profile = Factory.build(:profile, :first_name => "Hex;agon")
         profile.should_not be_valid
       end
     end
+
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
         profile = Factory.build(:profile, :last_name => "     Ohba    ")
@@ -61,13 +63,16 @@ describe Profile do
       @profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
       @pod_url = (AppConfig[:pod_url][-1,1] == '/' ? AppConfig[:pod_url].chop : AppConfig[:pod_url])
     end
+
     it 'ignores an empty string' do
       lambda {@profile.image_url = ""}.should_not change(@profile, :image_url)
     end
+
     it 'makes relative urls absolute' do
       @profile.image_url = "/relative/url"
       @profile.image_url.should == "#{@pod_url}/relative/url"
     end
+
     it "doesn't change absolute urls" do
       @profile.image_url = "http://not/a/relative/url"
       @profile.image_url.should == "http://not/a/relative/url"
@@ -76,7 +81,6 @@ describe Profile do
 
   describe '#from_xml' do
     it 'should make a valid profile object' do
-      
       @profile = Factory.build(:profile)
       @profile.tag_string = '#big #rafi #style'
       xml = @profile.to_xml
@@ -115,10 +119,12 @@ describe Profile do
     before do
       @profile = Factory.build(:profile)
     end
+
     it 'returns a default rather than nil' do
       @profile.image_url = nil
       @profile.image_url.should_not be_nil
     end
+
     it 'falls back to the large thumbnail if the small thumbnail is nil' do
       #Backwards compatibility
       @profile[:image_url] = 'large'
@@ -131,15 +137,7 @@ describe Profile do
 
   describe '#subscribers' do
     it 'returns all non-pending contacts for a user' do
-      user = Factory(:user)
-      aspect = user.aspects.create(:name => "zord")
-      person = Factory.create(:person)
-      user.activate_contact(person, Aspect.where(:id => aspect.id).first)
-
-      person2 = Factory.create(:person)
-      user.activate_contact(person2, Aspect.where(:id => aspect.id).first)
-
-      user.profile.subscribers(user).map{|s| s.id}.should =~ [person, person2].map{|s| s.id}
+      bob.profile.subscribers(bob).map{|s| s.id}.should =~ [alice.person, eve.person].map{|s| s.id}
     end
   end
 

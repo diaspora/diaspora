@@ -43,7 +43,7 @@ describe "attack vectors" do
 
     original_message.diaspora_handle = user.diaspora_handle
 
-    user3.activate_contact(user2.person, user3.aspects.first)
+    user3.contacts.create(:person => user2.person, :aspects => [user3.aspects.first])
 
     salmon_xml = user.salmon(original_message).xml_for(user3.person)
     zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
