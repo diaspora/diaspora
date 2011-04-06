@@ -17,11 +17,15 @@ SQL
       tag_ids = execute("SELECT tags.id FROM tags WHERE tags.name = '#{name}'").to_a.flatten!
       id_to_keep = tag_ids.pop
       execute <<SQL
-              UPDATE taggings
+              UPDATE IGNORE taggings
                 SET taggings.tag_id = #{id_to_keep}
                 WHERE taggings.tag_id IN (#{tag_ids.join(',')})
 SQL
-      execute("DELETE tags WHERE tags.id IN (#{tag_ids.join(',')})")
+      execute <<SQL
+        DELETE FROM taggings WHERE taggings.tag_id IN (#{tag_ids.join(',')})
+SQL
+
+      execute("DELETE FROM tags WHERE tags.id IN (#{tag_ids.join(',')})")
     end
   end
 
