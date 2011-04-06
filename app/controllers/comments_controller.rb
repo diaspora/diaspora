@@ -55,7 +55,7 @@ class CommentsController < ApplicationController
       else
         respond_to do |format|
           format.mobile {redirect_to :back}
-          format.js {render :nothing => true, :status => 401}
+          format.js {render :nothing => true, :status => 403}
         end
       end
     else

@@ -13,7 +13,7 @@ class NotificationsController < ApplicationController
       note.update_attributes(:unread => false)
       render :nothing => true
     else
-      render :nothing => true, :code => 404
+      render :nothing => true, :status => 404
     end
   end
 

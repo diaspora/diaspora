@@ -22,10 +22,10 @@ class MessagesController < ApplicationController
 
         redirect_to conversations_path(:conversation_id => cnv.id)
       else
-        render :nothing => true, :status => 406
+        render :nothing => true, :status => 422
       end
     else
-      render :nothing => true, :status => 406
+      render :nothing => true, :status => 422
     end
   end
 

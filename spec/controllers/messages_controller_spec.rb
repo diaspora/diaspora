@@ -69,7 +69,7 @@ describe MessagesController do
       end
       it 'posts no comment' do
         post :create, @message_hash
-        response.code.should == '406'
+        response.code.should == '422'
       end
     end
   end

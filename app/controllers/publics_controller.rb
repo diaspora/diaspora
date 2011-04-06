@@ -58,6 +58,6 @@ class PublicsController < ApplicationController
     @user = person.owner
     Resque.enqueue(Job::ReceiveSalmon, @user.id, CGI::unescape(params[:xml]))
 
-    render :nothing => true, :status => 200
+    render :nothing => true, :status => 202
   end
 end

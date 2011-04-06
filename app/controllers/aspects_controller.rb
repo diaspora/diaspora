@@ -137,7 +137,7 @@ class AspectsController < ApplicationController
     else
       flash[:error] = I18n.t 'aspects.update.failure', :name => @aspect.name
     end
-    render :nothing => true
+    render :nothing => true, :status => 204
   end
 
   def toggle_contact_visibility
