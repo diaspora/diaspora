@@ -20,7 +20,7 @@ module Diaspora
         opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
         opts[:offset] = opts[:page].nil? || opts[:page] == 1 ? 0 : opts[:limit] * (opts[:page] - 1)
-        select_clause ='posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
+        select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
         posts_from_self = self.person.posts
