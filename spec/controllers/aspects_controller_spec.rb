@@ -116,57 +116,66 @@ describe AspectsController do
 
         it "pulls back non hidden posts" do
           get :index
-          assigns[:posts].include?(@status).should be_true
+          assigns[:posts].models.include?(@status).should be_true
         end
         it "does not pull back hidden posts" do
           @vis.update_attributes( :hidden => true )
           get :index
-          assigns[:posts].include?(@status).should be_false
+          assigns[:posts].models.include?(@status).should be_false
         end
+      end
+
+      describe 'infinite scroll' do
+        it 'renders with the infinite scroll param' do
+          get :index, :only_posts => true
+          assigns[:posts].models.include?(@posts.first).should be_true
+          response.should be_success
+        end
+
       end
 
       describe "ordering" do
         it "orders posts by updated_at by default" do
           get :index
-          assigns(:posts).should == @posts
+          assigns(:posts).models.should == @posts
         end
 
         it "orders posts by created_at on request" do
           get :index, :sort_order => 'created_at'
-          assigns(:posts).should == @posts.reverse
+          assigns(:posts).models.should == @posts.reverse
         end
-        
+
         it "remembers your sort order and lets you override the memory" do
           get :index, :sort_order => "created_at"
-          assigns(:posts).should == @posts.reverse
+          assigns(:posts).models.should == @posts.reverse
           get :index
-          assigns(:posts).should == @posts.reverse
+          assigns(:posts).models.should == @posts.reverse
           get :index, :sort_order => "updated_at"
-          assigns(:posts).should == @posts
+          assigns(:posts).models.should == @posts
         end
 
         it "doesn't allow SQL injection" do
           get :index, :sort_order => "\"; DROP TABLE users;"
-          assigns(:posts).should == @posts
+          assigns(:posts).models.should == @posts
           get :index, :sort_order => "created_at"
-          assigns(:posts).should == @posts.reverse
+          assigns(:posts).models.should == @posts.reverse
         end
       end
 
       it "returns all posts by default" do
         @alice.aspects.reload
         get :index
-        assigns(:posts).length.should == 2
+        assigns(:posts).models.length.should == 2
       end
 
       it "can filter to a single aspect" do
         get :index, :a_ids => [@alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 1
+        assigns(:posts).models.length.should == 1
       end
 
       it "can filter to multiple aspects" do
         get :index, :a_ids => [@alices_aspect_1.id.to_s, @alices_aspect_2.id.to_s]
-        assigns(:posts).length.should == 2
+        assigns(:posts).models.length.should == 2
       end
     end
 

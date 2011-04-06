@@ -4,10 +4,11 @@ var InfiniteScroll = {
                    // selector for the paged navigation (it will be hidden)
     nextSelector : ".paginate",
                    // selector for the NEXT link (to page 2)
-    itemSelector : "#main_stream .stream_element",
+    itemSelector : ".stream_element",
                    // selector for all items you'll retrieve
     pathParse    : function( pathStr, nextPage ){
-      return pathStr.replace( "page=2", "page=" + nextPage)
+      var newPath = pathStr.replace("?", "?only_posts=true&");
+      return newPath.replace( "page=2", "page=" + nextPage);
     },
     bufferPx: 300,
     debug: false,
