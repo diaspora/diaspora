@@ -33,6 +33,7 @@ javascripts:
     - public/javascripts/stream.js
     - public/javascripts/application.js
     - public/javascripts/search.js
+    - public/javascripts/infinite_scroll.js
   mobile:
     - public/javascripts/vendor/jquery152.min.js
     - public/javascripts/custom-mobile-scripting.js

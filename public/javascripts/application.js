@@ -1,33 +1,6 @@
 $(document).ready(function() {
-  var scrolled = 0;
 
-  $('#main_stream').infinitescroll({
-    navSelector  : ".paginate",
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : ".paginate",
-                   // selector for the NEXT link (to page 2)
-    itemSelector : "#main_stream .stream_element",
-                   // selector for all items you'll retrieve
-    bufferPx: 300,
-    debug: false,
-    donetext: "no more.",
-    loadingText: "",
-    loadingImg: '/images/ajax-loader.gif'
-  }, function() {
-    scrolled++;
-
-    if(scrolled > 2) {
-       (scrolled === 3) && $(window).unbind('.infscr');
-
-       $("a.paginate")
-        .detach()
-        .appendTo("#main_stream")
-        .css("display", "block");
-    }
-    Diaspora.widgets.timeago.updateTimeAgo();
-  });
-
-
+  InfiniteScroll.initialize();
 
   $("a.paginate").live("click", function() {
     $(this).css("display", "none");
