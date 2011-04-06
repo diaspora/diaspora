@@ -65,7 +65,11 @@ class Post < ActiveRecord::Base
   end
 
   def subscribers(user)
-    user.people_in_aspects(user.aspects_with_post(self.id))
+    if self.public?
+      user.contact_people
+    else
+      user.people_in_aspects(user.aspects_with_post(self.id))
+    end
   end
 
   def receive(user, person)

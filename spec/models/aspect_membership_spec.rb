@@ -6,13 +6,26 @@ require 'spec_helper'
 
 describe AspectMembership do
 
-  describe '#before_delete' do
-    it 'calls disconnect' do
-      pending
-      alice.should_receive(:disconnect).with(alice.contact_for(bob))
+  describe '#before_destroy' do
+    before do
+      @aspect = alice.aspects.create(:name => "two")
+      @contact = alice.contact_for(bob.person)
 
-      alice.aspects.create(:name => "two")
-      alice.aspects.first.destroy
+      @am = alice.aspects.first.aspect_memberships.first
+      @am.stub!(:user).and_return(alice)
+    end
+
+    it 'calls disconnect if its the last aspect for the contact' do
+      alice.should_receive(:disconnect).with(@contact)
+
+      @am.destroy
+    end
+
+    it 'does not call disconnect if its not the last aspect for the contact' do
+      alice.should_not_receive(:disconnect)
+
+      alice.add_contact_to_aspect(@contact, @aspect)
+      @am.destroy     
     end
   end
 

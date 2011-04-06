@@ -9,4 +9,11 @@ class AspectMembership < ActiveRecord::Base
   has_one :user, :through => :contact
   has_one :person, :through => :contact
 
+  before_destroy do
+    unless self.contact.aspects.size > 1
+      self.user.disconnect(self.contact)
+    end
+    true
+  end
+
 end
