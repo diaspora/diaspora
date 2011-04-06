@@ -40,8 +40,8 @@ namespace :deploy do
 
     matches.each_with_index do |thin, index|
       unless index == 0
-        puts "sleeping for 10 seconds"
-        sleep(10)
+        puts "sleeping for 20 seconds"
+        sleep(20)
       end
       run "svc -t /service/#{thin}"
     end
