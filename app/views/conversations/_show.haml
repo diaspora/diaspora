@@ -34,4 +34,4 @@
           = message.text_area :text, :rows => 5
           .right
             = message.submit t('.reply').capitalize, :class => 'button'
-            = link_to t('cancel'), '#'
+            = message.submit t('cancel'), :name => "reset", :id => "reset_button", :type => "reset", :class => "button"
