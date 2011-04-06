@@ -27,12 +27,14 @@ describe User do
     context 'with many posts' do
       before do
         bob.move_contact(eve.person, bob.aspects.first, bob.aspects.create(:name => 'new aspect'))
+        time_interval = 1000
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
-            post.created_at = post.created_at + n*1000*u.id
-            post.updated_at = post.updated_at + n*1000*u.id
+            post.created_at = post.created_at + time_interval
+            post.updated_at = post.updated_at + time_interval
             post.save
+            time_interval += 1000
           end
         end
       end
