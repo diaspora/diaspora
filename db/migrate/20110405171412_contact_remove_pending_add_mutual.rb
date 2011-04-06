@@ -9,6 +9,13 @@ class ContactRemovePendingAddMutual < ActiveRecord::Migration
 SQL
 )
 
+    execute( <<SQL
+      DELETE user_preferences.* FROM user_preferences
+        WHERE user_preferences.email_type = 'request_acceptance'
+          OR user_preferences.email_type = 'request_received'
+SQL
+)
+
     remove_foreign_key "contacts", "people"
     remove_index :contacts, [:person_id, :pending]
     remove_index :contacts, [:user_id, :pending]

@@ -92,18 +92,13 @@
         
         %br
         %p.checkbox_select
-          = type.label t('.request_received') 
-          = type.check_box :request_received, {:checked =>  @email_prefs['request_received']}, false, true 
-
-        %br
-        %p.checkbox_select
           = type.label t('.private_message')
           = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true 
           
         %br
         %p.checkbox_select
-          = type.label t('.request_acceptence') 
-          = type.check_box :request_acceptance, {:checked =>  @email_prefs['request_acceptance']}, false, true 
+          = type.label t('.started_sharing') 
+          = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true 
 
     %br
     = f.submit t('.change')

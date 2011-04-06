@@ -8,9 +8,7 @@ module NotificationsHelper
       else
         "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
-    elsif note.instance_of?(Notifications::RequestAccepted)
-      translation(target_type)
-    elsif note.instance_of?(Notifications::NewRequest)
+    elsif note.instance_of?(Notifications::StartedSharing)
       translation(target_type)
     elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first

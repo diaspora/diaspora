@@ -53,11 +53,7 @@ class Request < ActiveRecord::Base
   end
 
   def notification_type(user, person)
-    if Contact.unscoped.where(:user_id => user.id, :person_id => person.id).first
-      Notifications::RequestAccepted
-    else
-      Notifications::NewRequest
-    end
+    Notifications::StartedSharing
   end
 
   def subscribers(user)

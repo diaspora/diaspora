@@ -78,7 +78,7 @@ describe Notification do
             :actors => [@person],
             :recipient_id => @user.id}
 
-            n = Notifications::NewRequest.new(opts)
+            n = Notifications::StartedSharing.new(opts)
             n.stub!(:recipient).and_return @user
 
             @user.should_receive(:mail)

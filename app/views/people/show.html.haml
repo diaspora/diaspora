@@ -24,7 +24,7 @@
 
 .span-15.last
   #author_info
-    - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
+    - if user_signed_in? && !((@contact.persisted? && @contact.mutual) || current_user.person == @person)
       .right
         = link_to t('.start_sharing'),
           {:controller => "contacts",

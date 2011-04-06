@@ -78,7 +78,7 @@ class PeopleController < ApplicationController
           @contacts_of_contact = []
         end
 
-        if (@person != current_user.person) && (!@contact || @contact.mutual)
+        if (@person != current_user.person) && !@contact
           @commenting_disabled = true
         else
           @commenting_disabled = false

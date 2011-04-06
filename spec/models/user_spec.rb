@@ -236,18 +236,22 @@ describe User do
   end
 
   describe 'update_user_preferences' do
+    before do
+      @pref_count = UserPreference::VALID_EMAIL_TYPES.count
+    end
+
     it 'unsets disable mail and makes the right amount of prefs' do
       alice.disable_mail = true
       proc {
         alice.update_user_preferences({})
-      }.should change(alice.user_preferences, :count).by(6)
+      }.should change(alice.user_preferences, :count).by(@pref_count)
     end
 
     it 'still sets new prefs to false on update' do
       alice.disable_mail = true
       proc {
         alice.update_user_preferences({'mentioned' => false})
-      }.should change(alice.user_preferences, :count).by(5)
+      }.should change(alice.user_preferences, :count).by(@pref_count-1)
       alice.reload.disable_mail.should be_false
     end
   end
@@ -488,14 +492,14 @@ describe User do
       alice.disable_mail = false
       alice.save
 
-      Resque.should_receive(:enqueue).with(Job::MailRequestReceived, alice.id, 'contactrequestid').once
-      alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
+      Resque.should_receive(:enqueue).with(Job::MailStartedSharing, alice.id, 'contactrequestid').once
+      alice.mail(Job::MailStartedSharing, alice.id, 'contactrequestid')
     end
 
     it 'does not enqueue a mail job if the correct corresponding job has a prefrence entry' do
-      alice.user_preferences.create(:email_type => 'request_received')
+      alice.user_preferences.create(:email_type => 'started_sharing')
       Resque.should_not_receive(:enqueue)
-      alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
+      alice.mail(Job::MailStartedSharing, alice.id, 'contactrequestid')
     end
   end
 

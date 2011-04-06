@@ -51,18 +51,11 @@ describe Request do
   end
 
   describe '#notification_type' do
-    before do
-      @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
-    end
-
     it 'returns request_accepted' do
-      pending 'TODO(*) take out request accepted'
+      request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       @user.contacts.create(:person_id => @person.id)
-      @request.notification_type(@user, @person).should == Notifications::RequestAccepted
-    end
 
-    it 'returns new_request' do
-      @request.notification_type(@user, @person).should == Notifications::NewRequest
+      request.notification_type(@user, @person).should == Notifications::StartedSharing
     end
   end
 

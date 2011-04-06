@@ -282,7 +282,7 @@ en:
         other: "%{count} people disliked this"
 
   notifications:
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
     new_request: "offered to share with you."
     private_message: "sent you a message."
     comment_on_post: "commented on your"
@@ -313,14 +313,9 @@ en:
     single_admin:
         subject: "A message about your Diaspora account:"
         admin: "Your Diaspora administrator"
-    new_request:
-        subject: "new Diaspora* contact request from %{from}"
-        just_sent_you: "just sent you a contact request on Diaspora*"
-        try_it_out: "You should really think about checking it out."
-        sign_in: "Sign in here"
-    request_accepted:
-        subject: "%{name} has accepted your contact request on Diaspora*"
-        accepted: "has accepted your contact request!"
+    started_sharing:
+        subject: "%{name} has started sharing with you on Diaspora*"
+        sharing: "has started sharing with you!"
         sign_in: "Sign in here"
     comment_on_post:
         subject: "%{name} has commented on your post."
@@ -614,8 +609,7 @@ en:
       also_commented: "...someone also comments on your contact's post?"
       comment_on_post: "...someone comments on your post?"
       mentioned: "...you are mentioned in a post?"
-      request_received: "...you receive a new share request?"
-      request_acceptence: "...your share request is accepted?"
+      started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
       change: "Change"
     destroy: "Account successfully closed."

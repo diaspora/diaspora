@@ -59,10 +59,10 @@ When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |u
 end
 
 
-Given /^I have one contact request$/ do
+Given /^I have one follower$/ do
   other_user = Factory(:user)
   other_aspect = other_user.aspects.create!(:name => "meh")
-  other_user.send_contact_request_to(@me.person, other_aspect)
+  other_user.share_with(@me.person, other_aspect)
 
   other_user.reload
   other_aspect.reload

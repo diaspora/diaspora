@@ -3,7 +3,7 @@ Feature: managing contact requests
   Background: 
     Given I am signed in
     And I have an aspect called "Family"
-    And I have one contact request
+    And I have one follower
     
   Scenario: seeing contact request notifications
     When I am on the home page
