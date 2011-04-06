@@ -225,12 +225,12 @@ ActiveRecord::Schema.define(:version => 20110405170101) do
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "author_id",                            :null => false
-    t.boolean  "public",            :default => false, :null => false
+    t.integer  "author_id",                                          :null => false
+    t.boolean  "public",                          :default => false, :null => false
     t.string   "diaspora_handle"
-    t.string   "guid",                                 :null => false
-    t.boolean  "pending",           :default => false, :null => false
-    t.string   "type",                                 :null => false
+    t.string   "guid",                                               :null => false
+    t.boolean  "pending",                         :default => false, :null => false
+    t.string   "type",              :limit => 40,                    :null => false
     t.text     "text"
     t.integer  "status_message_id"
     t.text     "remote_photo_path"
@@ -245,13 +245,11 @@ ActiveRecord::Schema.define(:version => 20110405170101) do
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
-  add_index "posts", ["created_at"], :name => "index_posts_on_created_at"
   add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
   add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
-  add_index "posts", ["type"], :name => "index_posts_on_type"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"
