@@ -511,7 +511,7 @@ cs:
       from_facebook: "z Facebooku"
       invitations_left: "(%{count} zbývá)"
       invite_someone: "Pozvěte někoho"
-      invite_your_friends: "Pozvěte vaše přátele"
+      invite_your_friends: "Najděte vaše přátele"
       invites: "Pozvánky"
       invites_closed: "Pozvánky jsou aktuálně uzavřeny na tomto Diaspora podu"
     notification: 

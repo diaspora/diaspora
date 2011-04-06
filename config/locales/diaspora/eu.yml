@@ -113,7 +113,7 @@ eu:
     zero: "alderdirik ez"
   back: "Atzera"
   bookmarklet: 
-    explanation: "%{link} edozein lekutik esteka hau markagailuetarantz herresta eginez."
+    explanation: "%{link} edozein lekutik esteka hau laster-marketarantz herresta eginez."
     explanation_link_text: "Diasporan partekatu"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"

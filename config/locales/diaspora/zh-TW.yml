@@ -235,17 +235,17 @@ zh-TW:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "有%{count}個人不喜歡"
-        many: "有%{count}個人不喜歡"
-        one: "有1個人不喜歡"
-        other: "有%{count}個人不喜歡"
-        zero: "沒有人不喜歡"
+        few: "有%{count}個人說遜"
+        many: "有%{count}個人說遜"
+        one: "有1個人說遜"
+        other: "有%{count}個人說遜"
+        zero: "沒有人說遜"
       people_like_this: 
-        few: "有%{count}個人喜歡"
-        many: "有%{count}個人喜歡"
-        one: "有1個人喜歡"
-        other: "有%{count}個人喜歡"
-        zero: "沒有人喜歡"
+        few: "有%{count}個人說讚"
+        many: "有%{count}個人說讚"
+        one: "有1個人說讚"
+        other: "有%{count}個人說讚"
+        zero: "沒有人說讚"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -405,7 +405,7 @@ zh-TW:
   profile: "個人檔案"
   profiles: 
     edit: 
-      allow_search: "讓別人在 Diaspora 可以搜尋到你"
+      allow_search: "讓別人可以在 Diaspora 搜尋到你"
       edit_profile: "編輯個人檔案"
       first_name: "First name"
       last_name: "Last name"
@@ -448,7 +448,7 @@ zh-TW:
     destroy: 
       error: "請選一個面向!"
       ignore: "忽略建立聯繫的請求."
-      success: "你們現在是朋友了."
+      success: "你們現在互相分享了."
     helper: 
       new_requests: 
         few: "%{count}個新請求!"
@@ -511,7 +511,7 @@ zh-TW:
       from_facebook: "從 Facebook"
       invitations_left: "(剩餘%{count}張)"
       invite_someone: "邀請某人來"
-      invite_your_friends: "邀請你的朋友來"
+      invite_your_friends: "找到你的朋友"
       invites: "邀請"
       invites_closed: "目前本 Diaspora pod 不開放邀請功能"
     notification: 
@@ -537,8 +537,8 @@ zh-TW:
     reshare: 
       reshare: "重新分享"
     stream_element: 
-      dislike: "不喜歡"
-      like: "喜歡"
+      dislike: "遜"
+      like: "讚"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"

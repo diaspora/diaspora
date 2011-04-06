@@ -12,7 +12,7 @@ zh-TW:
       send_instructions: "幾分鐘內你會收到一封說明如何確認帳號的信件."
     failure: 
       inactive: "你的帳號尚未開通."
-      invalid: "電子信箱或密碼有誤."
+      invalid: "用戶名稱或密碼有誤."
       invalid_token: "認證信物無效."
       locked: "你的帳號已鎖定."
       timeout: "工作階段已逾時, 若要繼續請重新登入."

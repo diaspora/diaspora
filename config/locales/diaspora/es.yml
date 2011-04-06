@@ -69,7 +69,7 @@ es:
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "Hacer visibles los contactos en este Aspecto."
+      make_aspect_list_visible: "Hacer visible la lista de contactos en el Aspecto."
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
@@ -448,7 +448,7 @@ es:
     destroy: 
       error: "¡Selecciona un Aspecto!"
       ignore: "Solicitud de contacto ignorada."
-      success: "Ahora sois amigos."
+      success: "Ahora están compartiendo."
     helper: 
       new_requests: 
         few: "¡%{count} nuevas solicitudes!"
