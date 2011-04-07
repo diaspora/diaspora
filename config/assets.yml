@@ -41,6 +41,7 @@ javascripts:
     - public/javascripts/vendor/jquery.infinitescroll.min.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
+    - public/javascripts/infinite_scroll.js
     - public/javascripts/application.js
     - public/javascripts/rails.js
   mailchimp:
