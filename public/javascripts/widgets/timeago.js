@@ -12,7 +12,7 @@ Diaspora.widgets.add("timeago", function() {
       if(Diaspora.widgets.i18n.language === "en") {
         return;
       }
-    
+
       jQuery.timeago.settings.strings = {
         prefixAgo: Diaspora.widgets.i18n.t("timeago.prefixAgo"),
         prefixFromNow: Diaspora.widgets.i18n.t("timeago.prefixFromNow"),
@@ -30,7 +30,7 @@ Diaspora.widgets.add("timeago", function() {
         year: Diaspora.widgets.i18n.t("timeago.year"),
         years: Diaspora.widgets.i18n.t("timeago.years")
       };
-      
+
       Diaspora.widgets.timeago.updateTimeAgo("abbr");
   };
 
@@ -38,3 +38,7 @@ Diaspora.widgets.add("timeago", function() {
     $(selector || this.selector).timeago();
   };
 });
+
+InfiniteScroll.postScrollCallback = function(){
+      Diaspora.widgets.timeago.updateTimeAgo();
+}
