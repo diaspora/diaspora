@@ -504,6 +504,14 @@ describe User do
       Resque.should_not_receive(:enqueue)
       alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
     end
+
+    it 'does not send a mail if disable_mail is set to true' do
+       alice.disable_mail = true
+       alice.save
+       alice.reload
+       Resque.should_not_receive(:enqueue)
+      alice.mail(Job::MailRequestReceived, alice.id, 'contactrequestid')
+    end
   end
 
 end
