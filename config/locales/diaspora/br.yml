@@ -19,7 +19,7 @@ br:
         person: 
           attributes: 
             diaspora_handle: 
-              taken: "is already taken."
+              taken: "zo bet dibabet dija."
         request: 
           attributes: 
             from_id: 
@@ -27,7 +27,7 @@ br:
         user: 
           attributes: 
             email: 
-              taken: "is already taken."
+              taken: "zo bet dibabet dija."
             person: 
               invalid: "is invalid."
             username: 
@@ -39,7 +39,7 @@ br:
       unknown_person: "den dianav"
       video_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Sur emaoc'h?"
   aspect_memberships: 
     destroy: 
       failure: "Failed to remove person from aspect"
@@ -72,8 +72,8 @@ br:
       make_aspect_list_visible: "lakaat an holl arvezioù war-wel?"
       remove_aspect: "Dilemel an arvez-mañ"
       rename: "cheñch an anv"
-      update: "update"
-      updating: "updating"
+      update: "nevesaat"
+      updating: "o nevesaat"
     few: "%{count} arvez"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
@@ -117,16 +117,16 @@ br:
     explanation_link_text: "Embann e-barzh Diaspora"
     post_something: "Embann un dra bennak e-barzh Diaspora"
     post_success: "Embannet! O serriñ!"
-  cancel: "Cancel"
+  cancel: "Nullañ"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} embann"
+    many: "%{count} embann"
     new_comment: 
-      comment: "comment"
-      commenting: "Commenting..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+      comment: "embann"
+      commenting: "Oc'h embann..."
+    one: "1 embann"
+    other: "%{count} embann"
+    zero: "embann ebet"
   contacts: 
     create: 
       failure: "Failed to create contact"
@@ -156,14 +156,14 @@ br:
         zero: "kemenadenn nevez ebet"
     index: 
       create_a_new_message: "sevel ur gemennadenn nevez"
-      inbox: "Inbox"
+      inbox: "Boest-lizhiri"
       message_inbox: "Message Inbox"
       new_message: "Kemennadenn Nevez"
       no_conversation_selected: "no conversation selected"
       no_messages: "kemennadenn ebet"
     new: 
       send: "Kaset"
-      subject: "subject"
+      subject: "sujed"
       to: "to"
     show: 
       delete: "delete and block conversation"
@@ -173,14 +173,14 @@ br:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Delete"
+  delete: "Skarzhañ"
   email: "Email"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
       invalid_fields: "Invalid Fields"
   fill_me_out: "Fill me out"
-  hide: "Hide"
+  hide: "Kuzhaat"
   home: 
     show: 
       already_account: "already have an account?"
@@ -230,8 +230,8 @@ br:
       code: "kod"
       login: "login"
       logout: "mont kuit"
-      profile: "profile"
-      settings: "settings"
+      profile: "patrom"
+      settings: "dibaboù"
   likes: 
     likes: 
       people_dislike_this: 
@@ -248,7 +248,7 @@ br:
         zero: "no people liked this"
   more: "More"
   next: "next"
-  no_results: "No Results Found"
+  no_results: "Disoc'h Ebet"
   notifications: 
     also_commented: "also commented on %{post_author}'s"
     also_commented_deleted: "commented on a deleted post"
@@ -309,7 +309,7 @@ br:
   ok: "MAT EO"
   or: "pe"
   password: "Password"
-  password_confirmation: "Password confirmation"
+  password_confirmation: "Kadarnaat ar ger-kuzh"
   people: 
     add_contact_small: 
       add_contact_from_tag: "add contact from tag"
@@ -367,58 +367,58 @@ br:
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
-      notice: "Photo deleted."
+      notice: "Foto bet skarzhet."
     edit: 
       editing: "Editing"
     new: 
-      back_to_list: "Back to List"
-      new_photo: "New Photo"
-      post_it: "post it!"
+      back_to_list: "Distreiñ da'r rollad"
+      new_photo: "Foto Nevez"
+      post_it: "postit!"
     new_photo: 
       empty: "{file} is empty, please select files again without it."
       invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
       size_error: "{file} is too large, maximum file size is {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      upload: "Kas ur poltred nevez!"
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "sellet ouzh an holl fotoioù gant %{name}"
     show: 
       collection_permalink: "collection permalink"
-      delete_photo: "Delete Photo"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
-      original_post: "Original Post"
-      permalink: "permalink"
-      update_photo: "Update Photo"
+      delete_photo: "Skarzhañ ar Foto"
+      edit: "kemmañ"
+      edit_delete_photo: "Kemmañ deskrivadenn ar foto / skarzhañ ar foto"
+      make_profile_photo: "lakaat e-giz poltred"
+      original_post: "Skrid Orin"
+      permalink: "liammpad"
+      update_photo: "Nevesaat ar Foto"
       view: "view"
     update: 
       error: "Failed to edit photo."
-      notice: "Photo successfully updated."
+      notice: "Foto bet kaset mat."
   post_visibilites: 
     update: 
       post_hidden: "Embann %{name} zo bet lakaet diwar-wel."
   posts: 
     doesnt_exist: "that post does not exist!"
-  previous: "previous"
-  profile: "Profile"
+  previous: "war-raok"
+  profile: "Patrom"
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
+      edit_profile: "Kempenn ar patrom"
       first_name: "First name"
-      last_name: "Last name"
+      last_name: "Anv-familh"
       update_profile: "Update Profile"
       your_bio: "Your bio"
       your_birthday: "Your birthday"
-      your_gender: "Your gender"
-      your_location: "Your location"
-      your_name: "Your name"
-      your_photo: "Your photo"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
+      your_gender: "Ho reizh"
+      your_location: "Ho kêr"
+      your_name: "Hoc'h anv"
+      your_photo: "Ho poltred"
+      your_private_profile: "Ho patrom prevez"
+      your_public_profile: "Ho patrom foran"
+      your_tags: "C'hwi: gant 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
@@ -443,12 +443,12 @@ br:
       sign_up_for_diaspora: "Sign up for Diaspora"
   requests: 
     create: 
-      sending: "Sending"
+      sending: "O kas"
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "Please select an aspect!"
       ignore: "Ignored contact request."
-      success: "You are now friends."
+      success: "Emaoc'h mignoned bremañ."
     helper: 
       new_requests: 
         few: "%{count} new requests!"
@@ -498,21 +498,21 @@ br:
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "Setu hoc'h anv-implijer war Diaspora: %{diaspora_handle}"
     contact_list: 
-      all_contacts: "All contacts"
+      all_contacts: "An holl zarempredoù"
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
     invitations: 
-      by_email: "by Email"
+      by_email: "dre Bostel"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
-      from_facebook: "From Facebook"
+      from_facebook: "Diwar Facebook"
       invitations_left: "(%{count} left)"
       invite_someone: "Invite someone"
-      invite_your_friends: "Invite your friends"
-      invites: "Invites"
+      invite_your_friends: "Klaskit mignoned"
+      invites: "Pedadennoù"
       invites_closed: "Invites are currently closed on this Diaspora pod"
     notification: 
       new: "New %{type} from %{from}"
@@ -522,14 +522,14 @@ br:
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "You are about to post a public message!"
     publisher: 
-      add_photos: "add photos"
+      add_photos: "ouzhpennañ fotoioù"
       all: "all"
-      all_contacts: "all contacts"
+      all_contacts: "an holl darempredoù"
       click_to_share_with: "Click to share with: "
-      make_public: "make public"
-      post_a_message_to: "Post a message to %{aspect}"
+      make_public: "diskouez da'n holl"
+      post_a_message_to: "Skrivañ ur c'hemennad da %{aspect}"
       posting: "Oc'h embann..."
-      public: "Public"
+      public: "Foran"
       publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"
@@ -545,24 +545,24 @@ br:
     destroy: 
       failure: "Failed to delete post"
     helper: 
-      no_message_to_display: "No message to display."
+      no_message_to_display: "Kemennadenn ebet da ziskouez."
     new: 
       mentioning: "Mentioning: %{person}"
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "Skarzhañ"
+      not_found: "Digarezit, n'eus ket moaien kavout ar skrid."
+      permalink: "liammpad"
   stream_helper: 
-    hide_comments: "hide comments"
-    show_comments: "show all comments"
+    hide_comments: "kuzhaat an embannoù"
+    show_comments: "diskouez an holl embannoù"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
-  the_world: "the world"
-  undo: "Undo?"
-  username: "Username"
+      nobody_talking: "Den ebet zo o kaozeal diwar-benn %{tag} c'hoazh."
+      people_tagged_with: "Tud bet merket gant %{tag}"
+      posts_tagged_with: "Skridoù bet merket gant #%{tag}"
+  the_world: "ar bed"
+  undo: "Mont war-gil?"
+  username: "Anv-implijer"
   users: 
     destroy: "Account successfully closed."
     edit: 

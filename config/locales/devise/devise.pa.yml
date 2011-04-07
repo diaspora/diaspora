@@ -17,7 +17,7 @@ pa:
       locked: "ਤੁਹਾਡਾ ਅਕਾਊਂਟ ਲਾਕ ਹੈ।"
       timeout: "ਤੁਹਾਡੇ ਸ਼ੈਸ਼ਨ ਦੀ ਮਿਆਦ ਪੁੱਗ ਗਈ ਹੈ, ਜਾਰੀ ਰੱਖਣ ਲਈ ਫੇਰ ਲਾਗਇਨ ਕਰੋ ਜੀ।"
       unauthenticated: "ਤੁਹਾਨੂੰ ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਲਾਗਇਨ ਕਰਨਾ ਪਵੇਗਾ ਜਾਂ ਸਾਇਨ ਅੱਪ"
-      unconfirmed: "You have to confirm your account before continuing."
+      unconfirmed: "ਜਾਰੀ ਰੱਖਣ ਤੋਂ ਪਹਿਲਾਂ ਤੁਹਾਨੂੰ ਆਪਣੇ ਅਕਾਊਂਟ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨੀ ਪੈਣੀ ਹੈ।"
     invitations: 
       invitation_token_invalid: "The invitation token provided is not valid!"
       send_instructions: "Your invitation has been sent."
@@ -35,7 +35,7 @@ pa:
         subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
+        has_invited_you: "%{name} ਨੇ ਤੁਹਾਨੂੰ ਡਿਸਪੋਰਾ (Diaspora) ਲਈ ਸੱਦਾ ਭੇਜਿਆ"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Change my password"
@@ -45,10 +45,10 @@ pa:
         wont_change: "Your password won't change until you access the link above and create a new one."
       unlock_instructions: 
         account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
+        click_to_unlock: "ਆਪਣਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰਨ ਲਈ ਹੇਠਲੇ ਲਿੰਕ ਉੱਤੇ ਕਲਿੱਕ ਕਰੋ:"
+        subject: "ਅਣ-ਲਾਕ ਹਦਾਇਤਾਂ"
         unlock: "ਮੇਰਾ ਅਕਾਊਂਟ ਅਣ-ਲਾਕ ਕਰੋ"
-      welcome: "Welcome %{email}!"
+      welcome: "%{email} ਜੀ ਆਇਆਂ ਨੂੰ!"
     passwords: 
       edit: 
         change_password: "ਮੇਰਾ ਪਾਸਵਰਡ ਬਦਲੋ"
@@ -57,7 +57,7 @@ pa:
         no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
-      updated: "Your password was changed successfully. You are now signed in."
+      updated: "ਤੁਹਾਡਾ ਪਾਸਵਰਡ ਠੀਕ ਤਹ੍ਹਾਂ ਬਦਲਿਆ ਗਿਆ ਹੈ। ਹੁਣ ਤੁਸੀਂ ਸਾਈਨ ਇਨ ਕਰ ਸਕਦੇ ਹੋ।"
     registrations: 
       destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
       signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
@@ -94,4 +94,4 @@ pa:
     messages: 
       already_confirmed: "ਪਹਿਲਾਂ ਹੀ ਪੁਸ਼ਟੀ ਹੋ ਚੁੱਕੀ ਸੀ"
       not_found: "ਨਹੀਂ ਲੱਭਿਆ"
-      not_locked: "was not locked"
+      not_locked: "ਲਾਕ ਨਹੀਂ ਹੈ"
