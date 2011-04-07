@@ -2,29 +2,26 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Request < ActiveRecord::Base
-  require File.join(Rails.root, 'lib/diaspora/webhooks')
-  require File.join(Rails.root, 'lib/postzord/dispatch')
-
-  include Diaspora::Webhooks
+class Request
   include ROXML
+  include Diaspora::Webhooks
+  include ActiveModel::Validations
+
+  attr_accessor :sender, :recipient, :aspect
 
   xml_accessor :sender_handle
   xml_accessor :recipient_handle
 
-  belongs_to :sender, :class_name => 'Person'
-  belongs_to :recipient, :class_name => 'Person'
-  belongs_to :aspect
-
-  validates_uniqueness_of :sender_id, :scope => :recipient_id
   validates_presence_of :sender, :recipient
   validate :not_already_connected
   validate :not_friending_yourself
 
   def self.diaspora_initialize(opts = {})
-    self.new(:sender => opts[:from],
-             :recipient   => opts[:to],
-             :aspect => opts[:into])
+    req = self.new
+    req.sender = opts[:from]
+    req.recipient = opts[:to]
+    req.aspect = opts[:into]
+    req
   end
 
   def reverse_for accepting_user
@@ -63,7 +60,6 @@ class Request < ActiveRecord::Base
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
     user.contacts.create(:person_id => person.id)
-    self.save
     self
   end
 

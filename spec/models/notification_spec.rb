@@ -49,6 +49,7 @@ describe Notification do
       before do
         @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       end
+
       it 'calls Notification.create if the object has a notification_type' do
         Notification.should_receive(:make_notification).once
         Notification.notify(@user, @request, @person)
@@ -56,7 +57,7 @@ describe Notification do
 
       it 'creates the notification already read' do
         n = Notification.notify(@user, @request, @person)
-        n.unread?.should be_false
+        n.should_not be_unread
       end
 
       it 'sockets to the recipient' do

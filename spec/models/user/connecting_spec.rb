@@ -18,13 +18,11 @@ describe Diaspora::UserModules::Connecting do
 
   context 'contact requesting' do
     describe  '#receive_contact_request' do
-      before do
-        @r = Request.diaspora_initialize(:to => alice.person, :from => person)
-      end
-
       it 'creates a contact' do
+        r = Request.diaspora_initialize(:to => alice.person, :from => person)
+
         lambda {
-          received_req = @r.receive(alice, person_one)
+          received_req = r.receive(alice, person_one)
         }.should change(Contact, :count).by(1)
       end
     end
@@ -55,14 +53,6 @@ describe Diaspora::UserModules::Connecting do
     end
 
     context 'received a contact request' do
-      before do
-        Request.diaspora_initialize(:from => person, :to => alice.person).save
-        Request.diaspora_initialize(:from => person_one, :to => alice.person).save
-
-        @received_request = Request.where(:sender_id => person.id, :recipient_id => alice.person.id).first
-        @received_request2 = Request.where(:sender_id => person_one.id, :recipient_id => alice.person.id).first
-      end
-
       it 'should ignore a contact request from yourself' do
         request_from_myself = Request.diaspora_initialize(:to => alice.person, :from => alice.person)
         reversed_request = request_from_myself.reverse_for(alice)

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405171412) do
+ActiveRecord::Schema.define(:version => 20110406202932) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -275,20 +275,6 @@ ActiveRecord::Schema.define(:version => 20110405171412) do
   add_index "profiles", ["mongo_id"], :name => "index_profiles_on_mongo_id"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
 
-  create_table "requests", :force => true do |t|
-    t.integer  "sender_id",    :null => false
-    t.integer  "recipient_id", :null => false
-    t.integer  "aspect_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "mongo_id"
-  end
-
-  add_index "requests", ["mongo_id"], :name => "index_requests_on_mongo_id"
-  add_index "requests", ["recipient_id"], :name => "index_requests_on_recipient_id"
-  add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
-  add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
-
   create_table "service_users", :force => true do |t|
     t.string   "uid",           :null => false
     t.string   "name",          :null => false
@@ -412,9 +398,6 @@ ActiveRecord::Schema.define(:version => 20110405171412) do
   add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
-
-  add_foreign_key "requests", "people", :name => "requests_recipient_id_fk", :column => "recipient_id", :dependent => :delete
-  add_foreign_key "requests", "people", :name => "requests_sender_id_fk", :column => "sender_id", :dependent => :delete
 
   add_foreign_key "services", "users", :name => "services_user_id_fk", :dependent => :delete
 

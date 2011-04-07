@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
 
   before_filter :ensure_http_referer_is_set
   before_filter :set_header_data, :except => [:create, :update]
-  before_filter :count_requests
   before_filter :set_invites
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
@@ -32,10 +31,6 @@ class ApplicationController < ActionController::Base
       end
       @all_aspects = current_user.aspects
     end
-  end
-
-  def count_requests
-    @request_count = Request.where(:recipient_id => current_user.person.id).count if current_user
   end
 
   def set_invites

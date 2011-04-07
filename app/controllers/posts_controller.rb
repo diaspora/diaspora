@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender

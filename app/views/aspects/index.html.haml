@@ -22,11 +22,6 @@
       .description
         = link_to current_user.diaspora_handle, person_path(current_user.person)
 
-  - if @notification_count > 0 || @request_count > 0
-    #new_requests
-      - if @request_count > 0
-        %h4
-          = new_request_link(@request_count)
   %h4.section.invite_friends
     != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
   - if @invites > 0

@@ -25,9 +25,9 @@ class Contact < ActiveRecord::Base
   end
 
   def generate_request
-    Request.new(:sender => self.user.person,
-                :recipient => self.person,
-                :aspect => aspects.first)
+    Request.diaspora_initialize(:from => self.user.person,
+                :to => self.person,
+                :into => aspects.first)
   end
 
   def receive_post(post)

@@ -131,10 +131,6 @@ describe Contact do
         Postzord::Dispatch.should_receive(:new).and_return(m)
         @contact.dispatch_request
       end
-      it 'persists no request' do
-        @contact.dispatch_request
-        Request.where(:sender_id => @user.person.id, :recipient_id => @person.id).should be_empty
-      end
     end
   end
 end

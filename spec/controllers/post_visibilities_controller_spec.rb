@@ -11,7 +11,7 @@ describe PostVisibilitiesController do
     a2 = bob.aspects.create(:name => "two")
     bob.contacts.create(:person => alice.person, :aspects => [a2])
    
-    @status = bob.post(:status_message, :text => "hello", :public => true, :to => a2)
+    @status = bob.post(:status_message, :text => "hello", :to => a2)
     @vis = @status.post_visibilities.first
   end
 

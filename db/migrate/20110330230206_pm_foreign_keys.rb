@@ -41,8 +41,8 @@ SQL
     remove_foreign_key :conversation_visibilities, :people
 
     remove_foreign_key :messages, :conversations
-    remove_foreign_key :messages, :people, :column => :author_id
+    remove_foreign_key :messages, :column => :author_id
 
-    remove_foreign_key :conversations, :people, :column => :author_id
+    remove_foreign_key :conversations, :column => :author_id
   end
 end
