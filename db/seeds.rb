@@ -12,7 +12,7 @@
 
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require 'factory_girl_rails'
-require 'spec/helper_methods'
+require File.join(File.dirname(__FILE__), "..", "spec", "helper_methods")
 include HelperMethods
 
 alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth', :invites => 10)
