@@ -123,7 +123,7 @@ describe PeopleController do
         @user.post(:status_message, :text => "public", :to => 'all', :public => true)
         @user.reload.posts.length.should == 3
         get :show, :id => @user.person.to_param
-        assigns(:posts).should =~ @user.posts
+        assigns(:posts).models.should =~ @user.posts
       end
 
       it "renders the comments on the user's posts" do
@@ -152,7 +152,7 @@ describe PeopleController do
 
         get :show, :id => @person.id
 
-        assigns[:posts].should =~ public_posts
+        assigns[:posts].models.should =~ public_posts
       end
 
       it 'throws 404 if the person is remote' do
@@ -182,7 +182,7 @@ describe PeopleController do
         bob.reload.posts.length.should == 4
 
         get :show, :id => @person.id
-        assigns(:posts).should =~ posts_user_can_see
+        assigns(:posts).models.should =~ posts_user_can_see
       end
     end
 
@@ -204,7 +204,7 @@ describe PeopleController do
         eve.reload.posts.length.should == 3
 
         get :show, :id => @person.id
-        assigns[:posts].should =~ [public_post]
+        assigns[:posts].models.should =~ [public_post]
       end
     end
   end

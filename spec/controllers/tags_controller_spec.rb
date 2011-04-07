@@ -46,19 +46,19 @@ describe TagsController do
       it 'displays your own post' do
         my_post = alice.post(:status_message, :text => "#what", :to => 'all')
         get :show, :name => 'what'
-        assigns(:posts).should == [my_post]
+        assigns(:posts).models.should == [my_post]
         response.status.should == 200
       end
       it "displays a friend's post" do
         other_post = bob.post(:status_message, :text => "#hello", :to => 'all')
         get :show, :name => 'hello'
-        assigns(:posts).should == [other_post]
+        assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
       it 'displays a public post' do
         other_post = eve.post(:status_message, :text => "#hello", :public => true, :to => 'all')
         get :show, :name => 'hello'
-        assigns(:posts).should == [other_post]
+        assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
     end
@@ -89,7 +89,7 @@ describe TagsController do
         end
         it "assigns the right set of posts" do
           get :show, :name => 'what'
-          assigns[:posts].should == [@post]
+          assigns[:posts].models.should == [@post]
         end
         it 'succeeds with comments' do
           alice.comment('what WHAT!', :on => @post)

@@ -5,6 +5,7 @@
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
+  before_filter :ensure_page, :only => :index
 
   respond_to :html
   respond_to :json, :only => [:show, :create]
@@ -25,8 +26,6 @@ class AspectsController < ApplicationController
       redirect_to getting_started_path
       return
     end
-    params[:page] = params[:page] ? params[:page].to_i : 1
-
 
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq unless params[:only_posts]
 

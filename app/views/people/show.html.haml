@@ -74,15 +74,14 @@
 
   %hr
 
-  - if @posts.count > 0
+  - if @posts.length > 0
     -if @post_type == :photos
       = render 'photos/index', :photos => @posts
     - else
       #main_stream.stream
-        = render 'shared/stream', :posts => @fakes, :commenting_disabled => @commenting_disabled
-        %a.paginate
-          = t("more")
-    = will_paginate @posts
+        = render 'shared/stream', :posts => @posts, :commenting_disabled => @commenting_disabled
+        #pagination
+          =link_to(t('more'), person_path(@person, :page => next_page), :class => 'paginate')
 
   - else
     #stream

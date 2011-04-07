@@ -5,6 +5,9 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
+  def next_page
+    params[:page] ? (params[:page].to_i + 1) : 2
+  end
   def timeago(time, options = {})
     options[:class] ||= "timeago"
     content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time
@@ -48,7 +51,7 @@ module ApplicationHelper
     link = opts.delete(:link)
     if !link
       str << link_to(aspect.name, "#", 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
-    else 
+    else
       str << link_for_aspect(aspect).html_safe
     end
     str << "</span>"
@@ -167,7 +170,7 @@ module ApplicationHelper
     message = process_emphasis(message)
     message = process_youtube(message, options[:youtube_maps])
     message = process_vimeo(message, options[:vimeo_maps])
-    
+
     message.gsub!(/&lt;3/, "&hearts;")
 
     if options[:newlines]

@@ -20,13 +20,12 @@
 
 .span-15
   #main_stream.stream
-    - if @fakes.length > 0
-      = render 'shared/stream', :posts => @fakes
-      %a.paginate
-        = t("more")
+    - if @posts.length > 0
+      = render 'shared/stream', :posts => @posts
+      #pagination
+        =link_to(t('more'), tag_path(params[:name], :page => next_page), :class => 'paginate')
     - else
       = t('.nobody_talking', :tag => "##{params[:name]}")
-  = will_paginate @posts
 
 .prepend-2.span-7.last
   %h3
