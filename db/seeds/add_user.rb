@@ -5,7 +5,7 @@
 # Add a parameterized user to database.
 
 require 'yaml'
-require File.join(File.basename(__FILE__), '..', '..', 'config/environment')
+require File.join(File.dirname(__FILE__), '..', '..', 'config/environment')
 
 def read_password
   begin
