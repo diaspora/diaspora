@@ -100,9 +100,10 @@ var AspectEdit = {
         var aspect_id = person.attr('data-aspect_id')
         $.ajax({
           type: "DELETE",
-          url: "/aspect_memberships/" + aspect_id,
+          url: "/aspect_memberships/garbage",
           data: {
-            'person_id': person_id
+            'person_id': person_id,
+            'aspect_id': aspect_id
           }
         });
       }
