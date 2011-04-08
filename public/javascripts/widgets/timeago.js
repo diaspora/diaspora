@@ -9,9 +9,9 @@ Diaspora.widgets.add("timeago", function() {
   this.selector = "abbr.timeago";
 
   this.start = function() {
-      InfiniteScroll.postScrollCallback = function(){
+      InfiniteScroll.postScroll(function(){
             Diaspora.widgets.timeago.updateTimeAgo();
-      }
+      });
       if(Diaspora.widgets.i18n.language === "en") {
         return;
       }

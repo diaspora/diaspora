@@ -18,6 +18,9 @@ var View = {
     $(document).bind('afterReveal.facebox', function() {
       jQuery("#facebox label").inFieldLabels();
     });
+    InfiniteScroll.postScroll(function(){
+      $('#main_stream .comments label').inFieldLabels();
+    });
 
 
     /* Showing debug messages  */

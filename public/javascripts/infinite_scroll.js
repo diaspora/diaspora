@@ -16,8 +16,16 @@ var InfiniteScroll = {
     loadingText: "",
     loadingImg: '/images/ajax-loader.gif'
   },
-  postScrollCallback: function(){},
+  postScrollCallback: function(){
+    for (var callback in InfiniteScroll.postScrollCallbacks){
+      InfiniteScroll.postScrollCallbacks[callback]();
+    }
+  },
+  postScrollCallbacks: [],
   initialize: function(){
     $('#main_stream').infinitescroll(InfiniteScroll.options, InfiniteScroll.postScrollCallback);
+  },
+  postScroll: function( callback ){
+    InfiniteScroll.postScrollCallbacks.push(callback);
   }
 }

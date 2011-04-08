@@ -12,9 +12,6 @@ Diaspora.widgetCollection = function() {
 
 Diaspora.widgetCollection.prototype.add = function(widgetId, widget) {
     this[widgetId] = this.collection[widgetId] = new widget();
-    if(this.ready) {
-      this.collection[widgetId].start();
-    }
   };
 
 Diaspora.widgetCollection.prototype.remove = function(widgetId) {
