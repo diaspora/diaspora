@@ -7,15 +7,6 @@
     DIASPORA*
 
 #author_info.profile
-  - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
-    .right
-      = link_to "start sharing",
-        {:controller => "contacts",
-        :action => "new",
-        :id => @person.id},
-        :class => 'share_with button',
-        :rel => 'facebox'
-
   = person_image_tag @person, :thumb_medium
 
   .content
