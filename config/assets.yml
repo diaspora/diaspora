@@ -31,7 +31,6 @@ javascripts:
     - public/javascripts/widgets/timeago.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
-    - public/javascripts/application.js
     - public/javascripts/search.js
     - public/javascripts/infinite-scroll.js
   mobile:
@@ -42,7 +41,6 @@ javascripts:
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/infinite-scroll.js
-    - public/javascripts/application.js
     - public/javascripts/rails.js
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js

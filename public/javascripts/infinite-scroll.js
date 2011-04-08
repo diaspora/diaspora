@@ -29,3 +29,8 @@ var InfiniteScroll = {
     InfiniteScroll.postScrollCallbacks.push(callback);
   }
 }
+
+$(document).ready(function() {
+  InfiniteScroll.initialize();
+});
+
