@@ -60,6 +60,12 @@ module Postzord
     end
 
     def validate_object
+      #begin similar
+      unless @object.is_a?(Request) || @user.contact_for(@sender)
+        Rails.logger.info("event=receive status=abort reason='sender not connected to recipient' recipient=#{@user_person.diaspora_handle} sender=#{@sender.diaspora_handle}")
+        return false
+      end
+
       #special casey
       if @object.is_a?(Request)
         @object.sender_handle = @sender.diaspora_handle

@@ -47,19 +47,23 @@ class AspectMembershipsController < ApplicationController
     @person = Person.find(params[:person_id])
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
-    current_user.share_with(@person, @aspect)
+    if current_user.share_with(@person, @aspect)
 
-    flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
+      flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
-    respond_to do |format|
-      format.js { render :json => {
-        :button_html => render_to_string(:partial => 'aspect_memberships/add_to_aspect',
-                         :locals => {:aspect_id => @aspect.id,
-                                     :person_id => @person.id}),
-        :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
-                            :locals => {:aspect => @aspect})
-        }}
-      format.html{ redirect_to aspect_path(@aspect.id)}
+      respond_to do |format|
+        format.js { render :json => {
+          :button_html => render_to_string(:partial => 'aspect_memberships/add_to_aspect',
+                           :locals => {:aspect_id => @aspect.id,
+                                       :person_id => @person.id}),
+          :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
+                              :locals => {:aspect => @aspect})
+          }}
+        format.html{ redirect_to aspect_path(@aspect.id)}
+      end
+    else
+      flash[:error] = I18n.t 'contacts.create.failure'
+      redirect_to :back
     end
   end
 

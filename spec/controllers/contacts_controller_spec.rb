@@ -28,29 +28,6 @@ describe ContactsController do
     end
   end
 
-  describe '#create' do
-    before do
-      @person = eve.person
-    end
-
-    it 'calls share_in_aspect' do
-      @controller.should_receive(:share_with).with(@aspect, @person)
-      post :create,
-        :format => 'js',
-        :person_id => @person.id,
-        :aspect_id => @aspect.id
-    end
-
-    it 'failure flashes error' do
-      @controller.should_receive(:share_with).and_return(nil)
-      post :create,
-        :format => 'js',
-        :person_id => @person.id,
-        :aspect_id => @aspect.id
-      flash[:error].should_not be_empty
-    end
-  end
-
   describe '#edit' do
     it 'assigns a contact' do
       get :edit, :id => @contact.id

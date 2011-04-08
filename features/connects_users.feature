@@ -7,7 +7,6 @@ Feature: sending and receiving requests
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-
     And I press the first ".share_with.button"
     And I wait for the ajax to finish
     And I add the person to my first aspect

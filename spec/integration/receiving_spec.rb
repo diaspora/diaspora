@@ -283,6 +283,8 @@ describe 'a user receives a post' do
 
         xml = @post.to_diaspora_xml
 
+        alice.share_with(eve.person, alice.aspects.first)
+
         receive_with_zord(bob, alice.person, xml)
         receive_with_zord(eve, alice.person, xml)
       end
@@ -292,7 +294,7 @@ describe 'a user receives a post' do
         @xml = @comment.to_diaspora_xml
 
         lambda {
-            receive_with_zord(alice, bob.person, @xml)
+          receive_with_zord(alice, bob.person, @xml)
         }.should_not raise_exception
       end
     end
