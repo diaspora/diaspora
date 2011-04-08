@@ -288,7 +288,7 @@ en:
     private_message: "sent you a message."
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
-    mentioned: "has mentioned you in their"
+    mentioned: "has mentioned you in a post"
     post: "post"
     deleted: "deleted"
     also_commented_deleted: "commented on a deleted post"

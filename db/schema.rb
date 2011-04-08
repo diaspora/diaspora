@@ -339,6 +339,8 @@ ActiveRecord::Schema.define(:version => 20110406203720) do
     t.string "name"
   end
 
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
+
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
     t.integer  "user_id"
