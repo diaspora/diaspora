@@ -15,6 +15,10 @@ var View = {
 
     /* In field labels */
     $("label").inFieldLabels();
+    $(document).bind('afterReveal.facebox', function() {
+      jQuery("#facebox label").inFieldLabels();
+    });
+
 
     /* Showing debug messages  */
     $(this.debug.selector)
@@ -66,7 +70,7 @@ var View = {
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
       var post = $("*[data-guid='"+ $(this).attr('data-ref') +"']"),
           lastComment = post.find('.comment.posted').last();
-          
+
       if(post.length > 0){
         evt.preventDefault();
         $('html, body').animate({scrollTop: parseInt(lastComment.offset().top)-80 }, 'fast');

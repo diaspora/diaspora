@@ -15,7 +15,7 @@
     // To avoid scope issues, use 'base' instead of 'this'
     // to reference this class from internal events and functions.
     var base = this;
-  
+
     // Access to jQuery and DOM versions of each element
     base.$label = $(label);
     base.label  = label;
@@ -98,7 +98,7 @@
           (e.keyCode === 16) || // Skip Shift
           (e.keyCode === 9) // Skip Tab
         ) {
-        return; 
+        return;
       }
 
       if (base.showing) {
@@ -134,19 +134,19 @@
       // This fucking for_attr thing is some seriously dumb shit.
       //
       // It must be dealt with
-      $field = $(
-        "input#" + for_attr + "[type='text']," + 
-        "input#" + for_attr + "[type='search']," + 
-        "input#" + for_attr + "[type='tel']," + 
-        "input#" + for_attr + "[type='url']," + 
-        "input#" + for_attr + "[type='email']," + 
-        "input#" + for_attr + "[type='password']," + 
+      $field = $(this).siblings(
+        "input#" + for_attr + "[type='text']," +
+        "input#" + for_attr + "[type='search']," +
+        "input#" + for_attr + "[type='tel']," +
+        "input#" + for_attr + "[type='url']," +
+        "input#" + for_attr + "[type='email']," +
+        "input#" + for_attr + "[type='password']," +
         "textarea#" + for_attr
       );
 
       if ($field.length === 0) {
         return; // Again, nothing to attach
-      } 
+      }
 
       // Only create object for input[text], input[password], or textarea
       (new $.InFieldLabels(this, $field[0], options));
