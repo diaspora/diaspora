@@ -44,9 +44,9 @@ describe("Diaspora", function() {
           expect(window.widgets.collection["nameOfWidget"].start).toHaveBeenCalled();
         });
         it("changes the ready property to true", function() {
-          expect(window.widgets.ready).toBeFalsy();
+          expect(window.widgets.initialized).toBeFalsy();
           window.widgets.init();
-          expect(window.widgets.ready).toBeTruthy();
+          expect(window.widgets.initialized).toBeTruthy();
         });
       });
     });
