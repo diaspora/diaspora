@@ -157,8 +157,8 @@ describe 'a user receives a post' do
       @contact.posts.should include(@status_message)
     end
 
-    it 'removes posts upon disconnecting' do
-      alice.disconnect(@contact)
+    it 'removes posts upon forceful removal' do
+      alice.remove_contact(@contact, :force => true)
       alice.reload
       alice.raw_visible_posts.should_not include @status_message
     end
@@ -189,12 +189,13 @@ describe 'a user receives a post' do
         }.should change{@post.post_visibilities(true).count}.by(-1)
       end
     end
+
     it 'should keep track of user references for one person ' do
       @status_message.reload
       @status_message.user_refs.should == 3
       @status_message.contacts(true).should include(@contact)
 
-      alice.disconnect(@contact)
+      alice.remove_contact(@contact, :force => true)
       @status_message.reload
       @status_message.contacts(true).should_not include(@contact)
       @status_message.post_visibilities.reset
@@ -214,7 +215,7 @@ describe 'a user receives a post' do
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 4
 
-      alice.disconnect(@contact)
+      alice.remove_contact(@contact, :force => true)
       @status_message.post_visibilities.reset
       @status_message.user_refs.should == 3
     end

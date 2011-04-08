@@ -55,13 +55,8 @@ describe Notification do
         Notification.notify(@user, @request, @person)
       end
 
-      it 'creates the notification already read' do
-        n = Notification.notify(@user, @request, @person)
-        n.should_not be_unread
-      end
-
       it 'sockets to the recipient' do
-        opts = {:target_id => @request.id,
+        opts = {:target_id => @request.sender.id,
           :target_type => "Request",
           :actors => [@person],
           :recipient_id => @user.id}

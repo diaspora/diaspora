@@ -24,6 +24,9 @@ SQL
     add_foreign_key "contacts", "people", :name => "contacts_person_id_fk", :dependent => :delete
 
     remove_column :contacts, :pending
+
+    remove_foreign_key :aspect_memberships, :aspects
+    add_foreign_key :aspect_memberships, :aspects, :dependent => :delete
   end
 
   def self.down
@@ -45,5 +48,8 @@ SQL
 )
 
     remove_column :contacts, :mutual
+
+    remove_foreign_key :aspect_memberships, :aspects
+    add_foreign_key :aspect_memberships, :aspects
   end
 end

@@ -25,7 +25,7 @@
     %hr{:style=>"width:300px;"}
 
   %ul
-    - if user_signed_in? && person != current_user.person
+    - if user_signed_in? && contact.receiving?
       %li
         = render :partial => 'people/aspect_list',
           :locals => {:person => person,

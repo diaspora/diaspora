@@ -34,7 +34,7 @@ describe ContactsController do
     end
 
     it 'calls share_in_aspect' do
-      @controller.should_receive(:share_in_aspect).with(@aspect, @person)
+      @controller.should_receive(:share_with).with(@aspect, @person)
       post :create,
         :format => 'js',
         :person_id => @person.id,
@@ -42,7 +42,7 @@ describe ContactsController do
     end
 
     it 'failure flashes error' do
-      @controller.should_receive(:share_in_aspect).and_return(nil)
+      @controller.should_receive(:share_with).and_return(nil)
       post :create,
         :format => 'js',
         :person_id => @person.id,
@@ -86,15 +86,4 @@ describe ContactsController do
       response.should redirect_to(@contact.person)
     end
   end
-
-  describe '#share_in_aspect' do
-    it 'calls share_with' do
-      aspect = alice.aspects.first
-      person = eve.person
-
-      @controller.current_user.should_receive(:share_with).with(person, aspect)
-      @controller.send(:share_in_aspect, aspect, person)
-    end
-  end
-
 end

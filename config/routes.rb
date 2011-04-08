@@ -68,7 +68,7 @@ Diaspora::Application.routes.draw do
   get 'bookmarklet' => 'status_messages#bookmarklet'
   resource :profile
 
-  resources :contacts, :except => [:index, :update]
+  resources :contacts, :except => [:index, :update, :create]
   resources :aspect_memberships, :only => [:destroy, :create, :update]
   resources :post_visibilities, :only => [:update]
 

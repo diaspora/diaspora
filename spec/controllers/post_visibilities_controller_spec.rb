@@ -8,16 +8,13 @@ describe PostVisibilitiesController do
   render_views
 
   before do
-    a2 = bob.aspects.create(:name => "two")
-    bob.contacts.create(:person => alice.person, :aspects => [a2])
-   
-    @status = bob.post(:status_message, :text => "hello", :to => a2)
+    @status = alice.post(:status_message, :text => "hello", :to => alice.aspects.first)
     @vis = @status.post_visibilities.first
   end
 
   describe '#update' do
     before do
-      sign_in :user, alice
+      sign_in :user, bob
     end
 
     context "on a post you can see" do

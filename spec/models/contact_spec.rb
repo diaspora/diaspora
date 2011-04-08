@@ -6,13 +6,9 @@ require 'spec_helper'
 
 describe Contact do
   describe 'aspect_memberships' do
-    before do
-      @user = alice
-      @user2 = bob
-    end
     it 'deletes dependent aspect memberships' do
       lambda{
-        @user.contact_for(@user2.person).destroy
+        alice.contact_for(bob.person).destroy
       }.should change(AspectMembership, :count).by(-1)
     end
   end
@@ -71,19 +67,23 @@ describe Contact do
       end
     #eve <-> bob <-> alice
     end
+
     context 'on a contact for a local user' do
       before do
         @contact = @alice.contact_for(@bob.person)
       end
+
       it "returns the target local user's contacts that are in the same aspect" do
         @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
       end
+
       it 'returns nothing if contacts_visible is false in that aspect' do
         asp = @bob.aspects.first
         asp.contacts_visible = false
         asp.save
         @contact.contacts.should == []
       end
+
       it 'returns no duplicate contacts' do
         [@alice, @eve].each {|c| @bob.add_contact_to_aspect(@bob.contact_for(c.person), @bob.aspects.last)}
         contact_ids = @contact.contacts.map{|p| p.id}
@@ -101,7 +101,6 @@ describe Contact do
     end
 
   end
-
 
   context 'requesting' do
     before do
@@ -133,4 +132,38 @@ describe Contact do
       end
     end
   end
+
+  context 'sharing/receiving status' do
+    before do
+      alice.share_with(eve.person, alice.aspects.first)
+
+      @follower = eve.contact_for(alice.person)
+      @following = alice.contact_for(eve.person)
+    end
+
+    describe '#sharing?' do
+      it 'returns true if contact has no aspect visibilities' do
+        @follower.should be_sharing
+      end
+
+      it 'returns false if contact has aspect visibilities' do
+        @following.should_not be_sharing
+      end
+
+      it 'returns false if contact is not persisted' do
+        Contact.new.should_not be_sharing
+      end
+    end
+
+    describe '#receiving?' do
+      it 'returns false if contact has no aspect visibilities' do
+        @follower.should_not be_receiving
+      end
+
+      it 'returns true if contact has aspect visibilities' do
+        @following.should be_receiving
+      end
+    end
+  end
+
 end

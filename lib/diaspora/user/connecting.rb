@@ -7,8 +7,12 @@ module Diaspora
     module Connecting
       def share_with(person, aspect)
         contact = self.contacts.find_or_initialize_by_person_id(person.id)
-        unless contact.persisted?
+        unless contact.receiving?
           contact.dispatch_request
+
+          if contact.sharing?
+            contact.mutual = true
+          end
         end
         contact.aspects << aspect
         contact.save
@@ -20,15 +24,6 @@ module Diaspora
         contact
       end
 
-      def receive_contact_request(request)
-        contact = self.contacts.find_or_initialize_by_person_id(request.sender.id)
-        if contact.persisted? && !contact.mutual?
-          contact.mutual = true
-        end
-        contact.save
-        request
-      end
-
       def remove_contact(contact, opts={:force => false})
         posts = contact.posts.all
 
@@ -36,8 +31,7 @@ module Diaspora
           contact.destroy
         else
           contact.update_attributes(:mutual => false)
-          contact.post_visibilities.destroy_all
-          contact.aspect_memberships.destroy_all
+          AspectMembership.where(:contact_id => contact.id).delete_all
         end
 
         posts.each do |p|

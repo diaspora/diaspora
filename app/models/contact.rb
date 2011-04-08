@@ -45,6 +45,15 @@ class Contact < ActiveRecord::Base
     similar_contacts = Person.joins(:contacts => :aspect_memberships).where(
       :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT `people`.*')
   end
+
+  def sharing?
+    self.persisted? && (self.mutual? || self.aspect_memberships.size == 0)
+  end
+
+  def receiving?
+    self.aspect_memberships.size > 0
+  end
+
   private
   def not_contact_for_self
     if person_id && person.owner == user

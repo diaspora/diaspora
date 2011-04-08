@@ -68,8 +68,23 @@ describe Request do
   describe '#receive' do
     it 'creates a contact' do
       request = Request.diaspora_initialize(:from => alice.person, :to => eve.person, :into => @aspect)
-      eve.contacts.should_receive(:create).with(hash_including(:person_id => alice.person.id))
-      request.receive(eve, alice.person)
+      lambda{
+        request.receive(eve, alice.person)
+      }.should change{
+        eve.contacts(true).size
+      }.by(1)
+    end
+
+    it 'sets mutual if a contact already exists' do
+      alice.share_with(eve.person, alice.aspects.first)
+
+      lambda {
+        Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                    :into => eve.aspects.first).receive(alice, eve.person)
+      }.should change {
+        alice.contacts.find_by_person_id(eve.person.id).mutual?
+      }.from(false).to(true)
+
     end
   end
 

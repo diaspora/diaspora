@@ -25,9 +25,9 @@ class Request
   end
 
   def reverse_for accepting_user
-    Request.new(
-      :sender => accepting_user.person,
-      :recipient => self.sender
+    Request.diaspora_initialize(
+      :from => accepting_user.person,
+      :to => self.sender
     )
   end
 
@@ -59,7 +59,15 @@ class Request
 
   def receive(user, person)
     Rails.logger.info("event=receive payload_type=request sender=#{self.sender} to=#{self.recipient}")
-    user.contacts.create(:person_id => person.id)
+
+    contact = user.contacts.find_or_initialize_by_person_id(self.sender.id)
+
+    if contact.receiving?
+      contact.update_attributes(:mutual => true)
+    else
+      contact.save
+    end
+
     self
   end
 
