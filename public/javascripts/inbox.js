@@ -5,7 +5,7 @@
 
 $(document).ready(function(){
 
-  $('a.conversation').live('click', function(){
+  $('a.conversation').click(function(){
     $.getScript(this.href);
     history.pushState(null, "", this.href);
 
@@ -59,13 +59,13 @@ $(document).ready(function(){
 
   // kill scroll binding
   $(window).unbind('.infscr');
-  
+
   // hook up the manual click guy.
   $('a.next_page').click(function(){
     $(document).trigger('retrieve.infscr');
     return false;
   });
-  
+
   // remove the paginator when we're done.
   $(document).ajaxError(function(e,xhr,opt){
     if (xhr.status == 404) $('a.next_page').remove();

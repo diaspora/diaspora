@@ -18,9 +18,9 @@ var AspectEdit = {
       drop: AspectEdit.onDropMove
     });
 
-    $("#manage_aspect_zones").find(".delete").live("click", AspectEdit.deletePerson);
-    $(".aspect h3").live('focus', AspectEdit.changeName);
-    
+    $("#manage_aspect_zones").find(".delete").click(AspectEdit.deletePerson);
+    $(".aspect h3").focus(AspectEdit.changeName);
+
   },
 
   startDrag: function() {
@@ -127,7 +127,7 @@ var AspectEdit = {
         e.preventDefault();
         $this.blur();
       }
-      
+
       //length limit
       if ($this.text().length >= 20) {
         e.preventDefault();
