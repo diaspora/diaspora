@@ -111,6 +111,11 @@ describe PeopleController do
         response.should be_success
       end
 
+      it 'succeeds on the mobile site' do
+        get :show, :id => @user.person.to_param, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns the right person" do
         get :show, :id => @user.person.to_param
         assigns(:person).should == @user.person
@@ -143,6 +148,12 @@ describe PeopleController do
         get :show, :id => @person.id
         response.status.should == 200
       end
+
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns only public posts" do
         public_posts = []
         public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
@@ -172,6 +183,11 @@ describe PeopleController do
         response.should be_success
       end
 
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns only the posts the current user can see" do
         bob.posts.should be_empty
         posts_user_can_see = []
@@ -193,6 +209,11 @@ describe PeopleController do
 
       it "succeeds" do
         get :show, :id => @person.id
+        response.should be_success
+      end
+
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
         response.should be_success
       end
 
