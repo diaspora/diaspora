@@ -63,6 +63,7 @@ Diaspora::Application.routes.draw do
   scope 'admins', :controller => :admins do
     match 'user_search' => :user_search
     get 'admin_inviter' => :admin_inviter
+    get 'add_invites' => :add_invites, :as => 'add_invites'
   end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
