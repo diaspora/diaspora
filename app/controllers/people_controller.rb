@@ -87,7 +87,7 @@ class PeopleController < ApplicationController
           @contacts_of_contact = []
         end
 
-        if (@person != current_user.person) && (!@contact || @contact.pending)
+        if (@person != current_user.person) && (!@contact || !@contact.persisted? || @contact.pending)
           @commenting_disabled = true
         else
           @commenting_disabled = false

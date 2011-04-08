@@ -200,6 +200,11 @@ describe PeopleController do
         get :show, :id => @person.id
         assigns(:posts).models.should =~ posts_user_can_see
       end
+
+      it 'sets @commenting_disabled to true' do
+        get :show, :id => @person.id
+        assigns(:commenting_disabled).should == false
+      end
     end
 
     context "when the person is not a contact of the current user" do
@@ -226,6 +231,11 @@ describe PeopleController do
 
         get :show, :id => @person.id
         assigns[:posts].models.should =~ [public_post]
+      end
+
+      it 'sets @commenting_disabled to true' do
+        get :show, :id => @person.id
+        assigns(:commenting_disabled).should == true
       end
     end
   end

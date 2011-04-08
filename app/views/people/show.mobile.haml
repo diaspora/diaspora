@@ -10,7 +10,7 @@
   - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
     .right
       = link_to "start sharing",
-        {:controller => "contact",
+        {:controller => "contacts",
         :action => "new",
         :id => @person.id},
         :class => 'share_with button',
