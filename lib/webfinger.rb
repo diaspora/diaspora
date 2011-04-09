@@ -80,10 +80,10 @@ class Webfinger
   def get_hcard(webfinger_profile)
     unless webfinger_profile.strip == ""
 
-      wf_profile = WebfingerProfile.new(@account, webfinger_profile)
+      @wf_profile = WebfingerProfile.new(@account, webfinger_profile)
 
       begin
-        hcard = RestClient.get(wf_profile.hcard, OPTS)
+        hcard = RestClient.get(@wf_profile.hcard, OPTS)
       rescue
         return I18n.t('webfinger.hcard_fetch_failed', :account => @account)
       end
@@ -96,8 +96,8 @@ class Webfinger
 
   def make_person_from_webfinger(webfinger_profile)
     card = get_hcard(webfinger_profile)
-    if card
-      p = Person.create_from_webfinger(wf_profile, card)
+    if card && @wf_profile
+      p = Person.create_from_webfinger(@wf_profile, card)
     end
   end
 
