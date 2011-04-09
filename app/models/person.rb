@@ -85,8 +85,10 @@ class Person < ActiveRecord::Base
   end
 
   def name(opts = {})
+    if self.profile.nil?
+      fix_profile
+    end
     @name ||= Person.name_from_attrs(self.profile.first_name, self.profile.last_name, self.diaspora_handle)
-
   end
 
   def self.name_from_attrs(first_name, last_name, diaspora_handle)
@@ -169,15 +171,19 @@ class Person < ActiveRecord::Base
     #hcard_profile = HCard.find profile.hcard.first[:href]
     Rails.logger.info("event=webfinger_marshal valid=#{new_person.valid?} target=#{new_person.diaspora_handle}")
     new_person.url = hcard[:url]
-    new_person.profile = Profile.new(:first_name => hcard[:given_name],
+    new_person.assign_new_profile_from_hcard(hcard)
+    new_person.save!
+    new_person.profile.save!
+    new_person
+  end
+
+  def assign_new_profile_from_hcard(hcard)
+    self.profile = Profile.new(:first_name => hcard[:given_name],
                               :last_name  => hcard[:family_name],
                               :image_url  => hcard[:photo],
                               :image_url_medium  => hcard[:photo_medium],
                               :image_url_small  => hcard[:photo_small],
                               :searchable => hcard[:searchable])
-    new_person.save!
-    new_person.profile.save!
-    new_person
   end
 
   def remote?
@@ -223,5 +229,10 @@ class Person < ActiveRecord::Base
   private
   def remove_all_traces
     Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
+  end
+  
+  def fix_profile
+    Webfinger.new(self.diaspora_handle).fetch
+    self.reload
   end
 end
