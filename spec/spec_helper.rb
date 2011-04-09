@@ -45,28 +45,29 @@ end
 ProcessedImage.enable_processing = false
 
 def set_up_friends
-  local_luke = Factory(:user_with_aspect, :username => "luke")
-  local_leia = Factory(:user_with_aspect, :username => "leia")
-  remote_raphael = Factory(:person, :diaspora_handle => "raphael@remote.net")
-  connect_users_with_aspects(local_luke, local_leia)
-  local_leia.activate_contact(remote_raphael, local_leia.aspects.first)
-  local_luke.activate_contact(remote_raphael, local_luke.aspects.first)
-
   [local_luke, local_leia, remote_raphael]
 end
 
 def alice
-  #users(:alice)
   @alice ||= User.where(:username => 'alice').first
 end
 
 def bob
-  #users(:bob)
   @bob ||= User.where(:username => 'bob').first
 end
 
 def eve
-  #users(:eve)
   @eve ||= User.where(:username => 'eve').first
 end
 
+def local_luke
+  @local_luke ||= User.where(:username => 'luke').first
+end
+
+def local_leia
+  @local_leia ||= User.where(:username => 'leia').first
+end
+
+def remote_raphael
+  @remote_raphael ||= Person.where(:diaspora_handle => 'raphael@remote.net').first
+end
