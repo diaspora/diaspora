@@ -22,7 +22,6 @@ javascripts:
     - public/javascripts/vendor/Mustache.js
     - public/javascripts/vendor/charCount.js
     - public/javascripts/jquery.autocomplete-custom.js
-    - public/javascripts/fileuploader-custom.js
     - public/javascripts/keycodes.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
@@ -57,6 +56,7 @@ javascripts:
     - public/javascripts/aspect-filters.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-edit-pane.js
+    - public/javascripts/fileuploader-custom.js
   people:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
   photos:

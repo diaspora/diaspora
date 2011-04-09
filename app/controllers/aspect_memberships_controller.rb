@@ -16,21 +16,10 @@ class AspectMembershipsController < ApplicationController
     membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil
 
     if membership && membership.destroy 
+        @aspect = membership.aspect
+
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
-        respond_to do |format|
-          format.js do
-            render :json => {:button_html =>
-                              render_to_string(:partial => 'aspect_memberships/remove_from_aspect',
-                                               :locals => {:aspect => membership.aspect,
-                                                           :person => @contact.person,
-                                                           :contact => @contact }),
-                              :aspect_id => @aspect_id}
-          end
-          format.html{
-            redirect_to :back
-          }
-        end
       else
         flash.now[:error] = I18n.t 'aspect_memberships.destroy.failure'
         errors = membership ? membership.errors.full_messages : t('aspect_memberships.destroy.no_membership')
@@ -47,20 +36,10 @@ class AspectMembershipsController < ApplicationController
     @person = Person.find(params[:person_id])
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
-    if current_user.share_with(@person, @aspect)
+    if @contact = current_user.share_with(@person, @aspect)
 
       flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
 
-      respond_to do |format|
-        format.js { render :json => {
-          :button_html => render_to_string(:partial => 'aspect_memberships/add_to_aspect',
-                           :locals => {:aspect_id => @aspect.id,
-                                       :person_id => @person.id}),
-          :badge_html =>  render_to_string(:partial => 'aspects/aspect_badge',
-                              :locals => {:aspect => @aspect})
-          }}
-        format.html{ redirect_to aspect_path(@aspect.id)}
-      end
     else
       flash[:error] = I18n.t 'contacts.create.failure'
       redirect_to :back

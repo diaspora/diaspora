@@ -49,15 +49,6 @@ class AspectsController < ApplicationController
         @contact = Contact.where(:id => params[:aspect][:contact_id]).first
         @person = Person.where(:id => params[:aspect][:person_id]).first
         @contact = current_user.contact_for(@person) || Contact.new
-
-        respond_to do |format|
-          format.js { render :json => {:html => render_to_string(
-            :partial => 'aspects/aspect_list_item',
-            :locals => {:aspect => @aspect,
-                        :person => @person,
-                        :contact => @contact}
-          ), :aspect_id => @aspect.id}, :status => 201 }
-        end
       else
         respond_with @aspect
       end
