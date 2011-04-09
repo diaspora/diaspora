@@ -448,7 +448,7 @@ de:
     destroy: 
       error: "Bitte wähle einen Aspekt!"
       ignore: "Kontaktanfrage ignoriert."
-      success: "Ihr seid jetzt verbunden."
+      success: "Du bist jetzt verbunden."
     helper: 
       new_requests: 
         few: "%{count} neue Anfragen!"

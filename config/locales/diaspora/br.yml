@@ -31,8 +31,8 @@ br:
             person: 
               invalid: "is invalid."
             username: 
-              taken: "is already taken."
-  ago: "%{time} ago"
+              taken: "zo bet dibabet dija."
+  ago: "%{time} zo"
   all_aspects: "An Holl Arvezioù"
   application: 
     helper: 
@@ -164,7 +164,7 @@ br:
     new: 
       send: "Kaset"
       subject: "sujed"
-      to: "to"
+      to: "da"
     show: 
       delete: "delete and block conversation"
       reply: "respont"
@@ -174,7 +174,7 @@ br:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Skarzhañ"
-  email: "Email"
+  email: "Postel"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
@@ -213,10 +213,10 @@ br:
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Invite someone to join Diaspora!"
       personal_message: "Personal message"
-      resend: "Resend"
-      send_an_invitation: "Send an invitation"
+      resend: "Kas en dro"
+      send_an_invitation: "Kas ur bedadenn"
       send_invitation: "Send invitation"
-      to: "To"
+      to: "Da"
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
@@ -235,18 +235,18 @@ br:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
+        few: "%{count} den n'int ket bet plijet ganti"
+        many: "%{count} den n'int ket bet plijet ganti"
+        one: "1 den n'eo ket bet plijet ganti"
+        other: "%{count} den n'int ket bet plijet ganti"
         zero: "no people disliked this"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
-  more: "More"
+        few: "%{count} den zo bet plijet ganti"
+        many: "%{count} den zo bet plijet ganti"
+        one: "1 den zo bet plijet ganti"
+        other: "%{count} den zo bet plijet ganti"
+        zero: "den ebet zo bet plijet ganti"
+  more: "Muioc'h"
   next: "next"
   no_results: "Disoc'h Ebet"
   notifications: 
@@ -308,7 +308,7 @@ br:
     thanks: "Thanks,"
   ok: "MAT EO"
   or: "pe"
-  password: "Password"
+  password: "Ger-kuzh"
   password_confirmation: "Kadarnaat ar ger-kuzh"
   people: 
     add_contact_small: 
@@ -461,7 +461,7 @@ br:
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "kaset!"
-  search: "Search"
+  search: "Klask"
   services: 
     create: 
       success: "Authentication successful."
@@ -473,10 +473,10 @@ br:
       friends: 
         few: "%{count} friends"
         many: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
+        one: "1 mignon"
+        other: "%{count} mignon"
         zero: "mignon ebet"
-      invite_your_friends_from: "Invite your friends from %{service}"
+      invite_your_friends_from: "Kasit pedadennoù d'ho mignoned diwar %{service}"
       not_connected: "not connected"
     index: 
       connect_to_facebook: "Connect to facebook"

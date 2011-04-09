@@ -448,7 +448,7 @@ nl:
     destroy: 
       error: "Selecteer een aspect!"
       ignore: "Contactverzoek genegeerd."
-      success: "Jullie zijn nu contacten."
+      success: "Jullie delen nu."
     helper: 
       new_requests: 
         few: "%{count} nieuwe verzoeken!"
@@ -511,7 +511,7 @@ nl:
       from_facebook: "Via Facebook"
       invitations_left: "(%{count} over)"
       invite_someone: "Nodig iemand uit"
-      invite_your_friends: "Nodig je vrienden uit"
+      invite_your_friends: "Vind je vrienden"
       invites: "Uitnodigingen"
       invites_closed: "Uitnodigingen zijn momenteel gesloten voor deze Diaspora pod"
     notification: 

@@ -52,8 +52,8 @@ ru:
     aspect_contacts: 
       done_editing: "редактирование завершено"
     aspect_stream: 
-      activity: "активность"
-      post_time: "время сообщения"
+      activity: "активности"
+      post_time: "актуальности"
       sort_by: "сортировать по:"
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
     contacts_visible: "Контакты в этом аспекте могут видеть друг друга"
@@ -74,7 +74,7 @@ ru:
       rename: "переименовать"
       update: "изменение"
       updating: "обновление"
-    few: "%{count} аспектов"
+    few: "%{count} аспект[-а, -ов]"
     helper: 
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
@@ -90,7 +90,7 @@ ru:
       manage_aspects: "Настройка аспектов"
       no_requests: "Новых запросов нет"
       requests: "Запросы"
-    many: "%{count} аспектов"
+    many: "%{count} аспект[-а, -ов]"
     move_contact: 
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
@@ -101,7 +101,7 @@ ru:
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал.  Начните разговор!"
     one: "1 аспект"
-    other: "%{count} аспектов"
+    other: "%{count} аспект[-а, -ов]"
     seed: 
       family: "Семья"
       work: "Работа"
@@ -133,10 +133,10 @@ ru:
     destroy: 
       failure: "Не удалось отсоединить от %{name}"
       success: "Успешно отключены от %{name}"
-    few: "%{count} контактов"
-    many: "%{count} контактов"
+    few: "%{count} контакт[-а, -ов]"
+    many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
-    other: "%{count} контактов"
+    other: "%{count} контакт[-а, -ов]"
     share_with_pane: 
       accepts: "После того как %{name} принял, вы сможите видеть сообщения друг друга в диаспоре"
       add_new_aspect: "добавить в новый аспект"
@@ -149,13 +149,13 @@ ru:
       success: "Разговор успешно удален"
     helper: 
       new_messages: 
-        few: "%{count} новых сообщений"
-        many: "%{count} новых сообщений"
+        few: "%{count} новoe[-ых] сообщениe[-ий]"
+        many: "%{count} новoe[-ых] сообщениe[-ий]"
         one: "1 новое сообщение"
-        other: "%{count} новых сообщений"
+        other: "%{count} новoe[-ых] сообщениe[-ий]"
         zero: "нет новых сообщений"
     index: 
-      create_a_new_message: "создать новое сообщение"
+      create_a_new_message: "написать новое сообщение"
       inbox: "Входящие"
       message_inbox: "Входящие сообщение"
       new_message: "Новое сообщение"
@@ -242,7 +242,7 @@ ru:
         zero: "это никому не понравилось "
       people_like_this: 
         few: "%{count} персонам это понравилось"
-        many: "%{count} персонам это понравилось "
+        many: "%{count} персонам это понравилось"
         one: "1 человеку это понравилось"
         other: "%{count} персонам это понравилось"
         zero: "это никому не понравилось"
@@ -256,10 +256,10 @@ ru:
     deleted: "удален"
     helper: 
       new_notifications: 
-        few: "%{count} новых извещений"
-        many: "%{count} новых извещений"
+        few: "%{count} новое[-ых] извещение[-ий]"
+        many: "%{count} новое[-ых] извещение[-ий]"
         one: "1 новое извещение"
-        other: "%{count} новых извещений"
+        other: "%{count} новое[-ых] извещение[-ий]"
         zero: "никаких новых извещений"
     index: 
       and: "и"
@@ -270,7 +270,7 @@ ru:
     new_request: "предлагает поделиться с вами."
     post: "сообщение"
     private_message: "послал Вам сообщение."
-    request_accepted: "ваш запрос на участие принят."
+    request_accepted: "ваше приглашение принял[-а]"
   notifier: 
     also_commented: 
       commented: "также прокомментировал %{post_author} сообщение:\n"
@@ -279,10 +279,10 @@ ru:
     comment_on_post: 
       commented: "прокомментировал ваше сообщение:"
       sign_in: "Войдите в систему, для дальнейшего просмотра."
-      subject: "%{name} прокомментировал ваш пост."
+      subject: "%{name} прокомментировал ваше сообщение."
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
-    love: "С любовью,"
+    love: "С уважением,"
     manage_your_email_settings: "администрировать настройки электронной почты"
     mentioned: 
       mentioned: "упомянул вас в сообщении:"
@@ -291,7 +291,7 @@ ru:
     new_request: 
       just_sent_you: "отправил вам запрос для Диаспоры*"
       sign_in: "Войдите в систему здесь"
-      subject: "новый запрос Диаспоры от %{from}"
+      subject: "новый контакт-запрос в Диаспоре от %{from}"
       try_it_out: "Вы должны подумать о его проверке.\n"
     private_message: 
       message_subject: "Тема: %{subject}"
@@ -304,7 +304,7 @@ ru:
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
-      subject: "Сообщение о вашей учётной записи Диаспоры:"
+      subject: "Сообщение о вашем аккаунте Диаспоры:"
     thanks: "Спасибо,"
   ok: "Ок"
   or: "или"
@@ -315,18 +315,18 @@ ru:
       add_contact_from_tag: "добавить контакт из метки"
     aspect_list: 
       edit_membership: "редактировать участников аспекта"
-    few: "%{count} человек"
+    few: "%{count} человек[-a]"
     helper: 
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
     index: 
       couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
       no_one_found: "...и не удалось кого либо найти."
-      no_results: "Эй! Вам надо что то найти."
+      no_results: "Ой! Вам надо что то найти."
       results_for: "результат поиска для"
-    many: "%{count} человек"
+    many: "%{count} человек[-a]"
     one: "1 человек"
-    other: "%{count} человек"
+    other: "%{count} человек[-a]"
     person: 
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
@@ -344,7 +344,7 @@ ru:
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
       add_some: "добавить"
-      does_not_exist: "Персоны не существует !"
+      does_not_exist: "Персоны не существует!"
       edit: "редактировать"
       incoming_request: "%{name} хочет поделиться с вами"
       mention: "Упоминание"
@@ -363,9 +363,9 @@ ru:
     zero: "нет никого"
   photos: 
     create: 
-      integrity_error: "Сбой при загрузке фото. Вы уверены, что это изображение?"
-      runtime_error: "Сбой при загрузке фото."
-      type_error: "Сбой при загрузке фото. Вы уверены, что добавили фото?"
+      integrity_error: "Сбой при загрузке фотографии. Вы уверены, что это правильный файл?"
+      runtime_error: "Сбой при загрузке фотографии."
+      type_error: "Сбой при загрузке фототрафии. Вы уверены, что добавили фотографию?"
     destroy: 
       notice: "Фотография удалена."
     edit: 
@@ -428,7 +428,7 @@ ru:
     create: 
       success: "Добро пожаловать в Диаспору!"
     edit: 
-      cancel_my_account: "Отменить мой аккаунт"
+      cancel_my_account: "Закрыть мой аккаунт"
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
@@ -451,10 +451,10 @@ ru:
       success: "Теперь вы друзья."
     helper: 
       new_requests: 
-        few: "%{count} новых заявок!"
-        many: "%{count} новых заявок!"
+        few: "%{count} новые[-х] заявки[-ок]!"
+        many: "%{count} новые[-х] заявки[-ок]!"
         one: "новый запрос!"
-        other: "%{count} новых заявок!"
+        other: "%{count} новые[-х] заявки[-ок]!"
         zero: "нет новых запросов"
     manage_aspect_contacts: 
       existing: "Существующие контакты"
@@ -471,13 +471,13 @@ ru:
       error: "Произошла ошибка при подключении этого сервиса"
     finder: 
       friends: 
-        few: "%{count} друзей"
-        many: "%{count} друзей"
+        few: "%{count} друг[-а, -зей]"
+        many: "%{count} друга[-зей]"
         one: "1 друг"
-        other: "%{count} друзей"
+        other: "%{count} друг[-а, -зей]"
         zero: "нет друзей"
       invite_your_friends_from: "Пригласить своих друзей из %{service}"
-      not_connected: "нет соединений"
+      not_connected: "не соединён"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
@@ -487,7 +487,7 @@ ru:
       really_disconnect: "отключить %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Перейдите по этой ссылке для принятия вашего приглашения"
-      join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORA*"
+      join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORЕ*"
     remote_friend: 
       invite: "приглашение"
       resend: "отправить повторно"
@@ -508,10 +508,10 @@ ru:
     invitations: 
       by_email: "по электронной почте"
       dont_have_now: "У вас больше нет приглашений, но новые будут уже скоро!"
-      from_facebook: "с Facebook"
+      from_facebook: "из Facebook"
       invitations_left: "(осталось %{count})"
       invite_someone: "Пригласить кого-нибудь"
-      invite_your_friends: "Найдите своих друзей"
+      invite_your_friends: "Пригласить своих друзей"
       invites: "Приглашения"
       invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
     notification: 
@@ -568,7 +568,7 @@ ru:
     edit: 
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: "Изменение"
-      change_language: "Сменить язык"
+      change_language: "Изменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть аккаунт"
       comment_on_post: "... кто-то комментарии на ваше сообщение?"

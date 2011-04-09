@@ -7,21 +7,21 @@ ru:
   javascripts: 
     confirm_dialog: "Вы уверенны? "
     publisher: 
-      at_least_one_aspect: "Вам надо минимум один аспект постен"
+      at_least_one_aspect: "Вам надо минимум один аспект создать"
     search_for: "Искать {{name}}"
     shared: 
       contact_list: 
         cannot_remove: "Нельзя удалить персону из последнего аспекта. (Если вы хотите отключить этого человека, удалите контакт.)"
     timeago: 
       day: "день"
-      days: "%d дней"
+      days: "%d дней[-я]"
       hour: "около часа"
       hours: "около %d часов"
       minute: "около минуты"
-      minutes: "%d минут"
+      minutes: "%d минут[-ы]"
       month: "около месяца"
-      months: "%d месяцев"
-      prefixAgo: "до"
+      months: "%d месяца[-ев]"
+      prefixAgo: "около"
       prefixFromNow: "через"
       seconds: "несколько секунд"
       suffixAgo: "назад"
