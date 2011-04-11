@@ -27,6 +27,7 @@ src_files:
   - public/javascripts/widgets/embedder.js
   - public/javascripts/widgets/i18n.js
   - public/javascripts/widgets/timeago.js
+  - public/javascripts/widgets/directionDetector.js
   - public/javascripts/mobile.js
   - public/javascripts/infinite-scroll.js
   - public/javascripts/contact-list.js
