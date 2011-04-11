@@ -1,6 +1,6 @@
 :javascript
   $(function() {
-    $('#new_user [title]').tipsy({trigger: 'focus', gravity: 'w'});
+    $('#new_user [title]').tipsy({trigger: 'focus', gravity: ($('html').attr('dir') == 'rtl') ? 'e' : 'w'});
     $("#user_email").focus();
   });
 

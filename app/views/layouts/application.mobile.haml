@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s}
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
   %head
     %title
       DIASPORA*
@@ -17,6 +17,9 @@
 
     = stylesheet_link_tag 'vendor/jquery.mobile-1.0a4.min', 'mobile'
     = csrf_meta_tag
+    
+    - if rtl?
+      = include_stylesheets :rtl, :media => 'all'
 
     = yield(:head)
 

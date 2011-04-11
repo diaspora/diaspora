@@ -65,6 +65,9 @@ var View = {
     $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
     $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
     $('a[rel*=facebox]').facebox();
+    $(document).bind('reveal.facebox', function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
 
     /* facebox 'done' buttons */
     $("a[rel*=close]").live('click', function(){ $.facebox.close() });
@@ -156,7 +159,7 @@ var View = {
     addAspect: {
       bind: function() {
         $(".add_aspect_button", "#aspect_nav").tipsy({
-          gravity:"w"
+          gravity: ($('html').attr('dir') == 'rtl')? "e" : "w"
         });
       }
     },

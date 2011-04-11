@@ -29,6 +29,7 @@ javascripts:
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/embedder.js
     - public/javascripts/widgets/timeago.js
+    - public/javascripts/widgets/directionDetector.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/search.js
@@ -76,4 +77,6 @@ stylesheets:
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css
     - public/stylesheets/vendor/autoSuggest.css
+  rtl:
+    - public/stylesheets/rtl.css
  

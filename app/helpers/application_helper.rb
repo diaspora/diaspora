@@ -283,4 +283,12 @@ module ApplicationHelper
 
     defaults
   end
+
+  def direction_for(string)
+    return (string.cleaned_is_rtl?) ? 'rtl' : ''
+  end
+
+  def rtl?
+    @rtl ||= RTL_LANGUAGES.include? I18n.locale
+  end
 end

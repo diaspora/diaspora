@@ -14,5 +14,5 @@
         - for photo in photos[1..photos.size]
           = link_to (image_tag photo.url(:thumb_small), :class => 'thumb_small'), photo_path(photo)
 
-%p
+%p{ :class => direction_for(post.text) }
   = markdownify(post.text, :youtube_maps => post[:youtube_titles])

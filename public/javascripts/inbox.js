@@ -5,8 +5,10 @@
 
 $(document).ready(function(){
 
-  $('a.conversation').click(function(){
-    $.getScript(this.href);
+  $('a.conversation').live('click', function(){
+    $.getScript(this.href, function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
     history.pushState(null, "", this.href);
 
     var conv = $(this).children('.stream_element'),
@@ -29,7 +31,9 @@ $(document).ready(function(){
 
   $(window).bind("popstate", function(){
     if (location.href.match(/conversations\/\d+/) != null) {
-      $.getScript(location.href);
+	  $.getScript(location.href, function() {
+        Diaspora.widgets.directionDetector.updateBinds();
+      });
       return false;
     }
   });

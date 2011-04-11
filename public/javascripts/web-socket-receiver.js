@@ -126,6 +126,7 @@ var WebSocketReceiver = {
     }
 
     Diaspora.widgets.timeago.updateTimeAgo();
+    Diaspora.widgets.directionDetector.updateBinds();
   },
 
   processLike: function(postId, html) {
@@ -157,6 +158,7 @@ var WebSocketReceiver = {
         showMessage();
       }
       Diaspora.widgets.timeago.updateTimeAgo();
+      Diaspora.widgets.directionDetector.updateBinds();
     }
   },
 

@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s}
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
   %head
     %meta{:charset => 'utf-8'}
 
@@ -22,6 +22,8 @@
     = stylesheet_link_tag "blueprint/screen", :media => 'screen'
     = stylesheet_link_tag "blueprint/print", :media => 'print'
     = include_stylesheets :default, :media => 'all'
+    - if rtl?
+      = include_stylesheets :rtl, :media => 'all'
 
     <!--[if IE]>
     = javascript_include_tag "/javascripts/ie.js"

@@ -6,7 +6,7 @@
 .span-16.last
   .conversation_participants
     .span-9
-      %h3
+      %h3{ :class => direction_for(conversation.subject) }
         = conversation.subject
 
       .conversation_controls
