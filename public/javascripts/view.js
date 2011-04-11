@@ -152,7 +152,7 @@ var View = {
     addAspect: {
       bind: function() {
         $(".add_aspect_button", "#aspect_nav").tipsy({
-          gravity:"w"
+          gravity: ($('html').attr('dir') == 'rtl')? "e" : "w"
         });
       }
     },

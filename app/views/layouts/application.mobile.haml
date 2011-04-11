@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 !!!
-%html{:lang => I18n.locale.to_s}
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
   %head
     %title
       DIASPORA*

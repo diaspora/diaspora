@@ -2,7 +2,7 @@
 
 :javascript
   $(function() {
-    $('#user_new [title]').tipsy({trigger: 'focus', gravity: 'w'});
+    $('#user_new [title]').tipsy({trigger: 'focus', gravity: ($('html').attr('dir') == 'rtl')? 'e' : 'w'});
     $("#user_username").focus();
   });
 
