@@ -355,18 +355,6 @@ describe 'a user receives a post' do
         zord.parse_and_receive(xml)
       }.should change(StatusMessage, :count).by(-1)
     end
-
-    it 'should process retraction for a person' do
-      retraction = Retraction.for(bob)
-      retraction_xml = retraction.to_diaspora_xml
-
-      lambda {
-        zord = Postzord::Receiver.new(alice, :person => bob.person)
-        zord.parse_and_receive(retraction_xml)
-      }.should change {
-        @aspect.contacts(true).size }.by(-1)
-    end
-
   end
 
   it 'should marshal a profile for a person' do

@@ -32,16 +32,6 @@ describe Diaspora::UserModules::Connecting do
         bob.remove_contact(bob.contact_for(alice.person))
         bob.contacts(true).find_by_person_id(alice.person.id).mutual.should be_false
       end
-
-      it 'should remove the contact from all aspects they are in' do
-        contact = alice.contact_for(bob.person) 
-        new_aspect = alice.aspects.create(:name => 'new')
-        alice.add_contact_to_aspect(contact, new_aspect)
-
-        lambda {
-          alice.remove_contact(contact)
-        }.should change(contact.aspects(true), :count).from(2).to(0)
-      end
     end
 
     describe '#disconnected_by' do
@@ -65,6 +55,16 @@ describe Diaspora::UserModules::Connecting do
         p.should_receive(:post)
 
         bob.disconnect bob.contact_for(eve.person)
+      end
+
+      it 'should remove the contact from all aspects they are in' do
+        contact = alice.contact_for(bob.person) 
+        new_aspect = alice.aspects.create(:name => 'new')
+        alice.add_contact_to_aspect(contact, new_aspect)
+
+        lambda {
+          alice.disconnect(contact)
+        }.should change(contact.aspects(true), :count).from(2).to(0)
       end
     end
   end

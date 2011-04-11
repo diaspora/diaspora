@@ -96,6 +96,8 @@ Feature: sending and receiving requests
     Then I should see "Mention"
     Then I should not see "Message"
 
+    Then I should not see "is sharing with you."
+
   Scenario: should see start sharing and not see mention if on a follower's page
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
@@ -104,6 +106,8 @@ Feature: sending and receiving requests
     Then I should not see "edit aspect membership"
     Then I should not see "Mention"
     Then I should not see "Message"
+
+    Then I should see "is sharing with you."
 
   Scenario: should see start sharing & mention & message on mutual contacts
     When I sign in as "alice@alice.alice"
@@ -119,3 +123,5 @@ Feature: sending and receiving requests
     Then I should see "edit aspect membership"
     Then I should see "Mention"
     Then I should see "Message"
+
+    Then I should see "is sharing with you."

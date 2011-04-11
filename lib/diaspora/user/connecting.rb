@@ -31,7 +31,6 @@ module Diaspora
           contact.destroy
         else
           contact.update_attributes(:mutual => false)
-          AspectMembership.where(:contact_id => contact.id).delete_all
         end
 
         posts.each do |p|
@@ -47,6 +46,8 @@ module Diaspora
         retraction = Retraction.for(self)
         retraction.subscribers = [person]#HAX
         Postzord::Dispatch.new(self, retraction).post
+        
+        AspectMembership.where(:contact_id => bad_contact.id).delete_all
         remove_contact(bad_contact)
       end
 
