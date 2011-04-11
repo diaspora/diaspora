@@ -166,7 +166,7 @@ describe("View", function() {
     describe("removeFocus", function() {
       it("removes the class 'active' if the user clicks anywhere that isnt the userMenu", function() {
         View.initialize();
-        $(View.userMenu.selector).parent().click();
+        $(View.userMenu.selector).click();
         expect($(View.userMenu.selector).parent()).toHaveClass("active");
         var event = $.Event("click");
         event.target = document.body;
