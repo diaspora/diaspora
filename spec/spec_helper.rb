@@ -42,6 +42,7 @@ RSpec.configure do |config|
   end
 end
 
+disable_typhoeus
 ProcessedImage.enable_processing = false
 
 def set_up_friends

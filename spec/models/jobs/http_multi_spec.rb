@@ -1,6 +1,12 @@
 require 'spec_helper'
 
 describe Job::HttpMulti do
+  before :all do
+    enable_typhoeus
+  end
+  after :all do
+    disable_typhoeus
+  end
 
   before do
     @people = [Factory(:person), Factory(:person)]

@@ -8,6 +8,8 @@ module Job
   class HttpMulti < Base
     @queue = :http
 
+    Hydra = Typhoeus::Hydra
+    Request = Typhoeus::Request
     MAX_RETRIES = 3
     OPTS = {:max_redirects => 3, :timeout => 5000, :method => :post}
 
@@ -19,13 +21,13 @@ module Job
 
       failed_request_people = []
 
-      hydra = Typhoeus::Hydra.new
+      hydra = Hydra.new
       people.each do |person|
 
         url = person.receive_url
         xml = salmon.xml_for(person)
 
-        request = Typhoeus::Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
+        request = Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
 
         request.on_complete do |response|
           if response.code >= 300 && response.code < 400
