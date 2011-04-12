@@ -17,14 +17,14 @@
     - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
       .right
         - if @incoming_request
-          = link_to t('.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
+          = link_to t('people.show.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
             {:controller => "contacts",
             :action => "new",
             :person_id => @person.id},
             :class => 'share_with button',
             :rel => 'facebox'
         -else
-          = link_to t('.start_sharing'),
+          = link_to t('people.show.start_sharing'),
             {:controller => "contacts",
             :action => "new",
             :person_id => @person.id},
@@ -49,7 +49,7 @@
           = @person.profile.format_tags(@person.profile.tag_string)
           - if user_signed_in? && @person == current_user.person
             %span.hover_edit
-              = link_to t('.edit'), edit_profile_path
+              = link_to t('people.show.edit'), edit_profile_path
 
   %hr
 

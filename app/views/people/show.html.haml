@@ -17,8 +17,7 @@
       %hr{:style=>"width:300px;"}
       .section.contact_pictures
         %h4
-          = @contacts_of_contact_count
-          = t('.contacts_of_contact')
+          = t('contacts', :count => @contacts_of_contact_count)
         - for person in @contacts_of_contact
           = person_image_link person
       - if @contacts_of_contact.count > 25
