@@ -34,11 +34,12 @@
           = @unread_message_count
 
     %ul#user_menu
-      .right
-        &#9660;
-      .avatar
-        = owner_image_tag(:thumb_small)
-      = link_to current_user.name, '#'
+      %li
+        .right
+          &#9660;
+        .avatar
+          = owner_image_tag(:thumb_small)
+        = link_to current_user.name, '#'
       %li= link_to t('.profile'), current_user.person
       %li= link_to t('.settings'), edit_user_path
       %li= link_to t('.logout'), destroy_user_session_path

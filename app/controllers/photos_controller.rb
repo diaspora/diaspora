@@ -214,6 +214,7 @@ class PhotosController < ApplicationController
       rescue RuntimeError => e
         raise e unless e.message.include?('cannot generate tempfile')
         file = Tempfile.new(file_name) # Ruby 1.8 compatibility
+        file.binmode
         file.print request.raw_post
       end
       # put data into this file from raw post request

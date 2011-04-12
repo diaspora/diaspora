@@ -511,7 +511,7 @@ fr:
       from_facebook: "depuis Facebook"
       invitations_left: "(il vous en reste %{count})"
       invite_someone: "Inviter quelqu'un"
-      invite_your_friends: "Inviter vos amis"
+      invite_your_friends: "Chercher vos amis"
       invites: "Invitations"
       invites_closed: "Les invitations sont actuellement fermées sur ce pod Diaspora"
     notification: 

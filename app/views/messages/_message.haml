@@ -11,6 +11,6 @@
       %time.timeago{:datetime => message.created_at}
         = how_long_ago(message)
 
-    %p
+    %p{ :class => direction_for(message.text) }
       = markdownify(message.text)
 

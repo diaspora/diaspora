@@ -448,7 +448,7 @@ el:
     destroy: 
       error: "Παρακαλώ επιλέξτε μια πτυχή!"
       ignore: "Αγνοήθηκε αίτηση επαφής."
-      success: "Είστε πλέον φίλοι."
+      success: "Τώρα πλέον διαμοιράζεστε."
     helper: 
       new_requests: 
         few: "%{count} νέα αιτήματα!"
@@ -511,7 +511,7 @@ el:
       from_facebook: "Από το Facebook"
       invitations_left: "(απομένουν %{count})"
       invite_someone: "Προσκαλέστε κάποιον/α"
-      invite_your_friends: "Προσκαλέστε τους φίλους σας"
+      invite_your_friends: "Βρείτε τους φίλους σας"
       invites: "Προσκλήσεις"
       invites_closed: "Οι προσκλήσεις είναι κλειστές αυτή την περίοδο στο Diaspora pod"
     notification: 

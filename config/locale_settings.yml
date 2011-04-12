@@ -57,3 +57,6 @@ fallbacks:
   zh:
     - :zh-CN
     - :zh-TW
+rtl:
+  - :ar
+  - :he

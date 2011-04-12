@@ -39,7 +39,7 @@ pa:
       unknown_person: "unknown person"
       video_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "ਕੀ ਤੁਸੀਂ ਚਾਹੁੰਦੇ ਹੋ?"
   aspect_memberships: 
     destroy: 
       failure: "Failed to remove person from aspect"
@@ -117,13 +117,13 @@ pa:
     explanation_link_text: "Post to Diaspora"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
-  cancel: "Cancel"
+  cancel: "ਰੱਦ ਕਰੋ"
   comments: 
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
       comment: "ਟਿੱਪਣੀ"
-      commenting: "Commenting..."
+      commenting: "ਟਿੱਪਣੀ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ..."
     one: "1 comment"
     other: "%{count} comments"
     zero: "no comments"
@@ -173,7 +173,7 @@ pa:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Delete"
+  delete: "ਹਟਾਓ"
   email: "ਈਮੇਲ"
   error_messages: 
     helper: 

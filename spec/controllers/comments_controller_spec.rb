@@ -102,7 +102,7 @@ describe CommentsController do
       it 'does not let the user destroy comments he does not own' do
         alice.should_not_receive(:retract).with(@comment2)
         delete :destroy, :format => "js",  :id => @comment3.id
-        response.status.should == 401
+        response.status.should == 403
       end
     end
   end

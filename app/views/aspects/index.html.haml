@@ -5,14 +5,12 @@
 
 - content_for :head do
   = include_javascripts :home
-
 .span-15.append-2
   #aspect_stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
       :aspect_ids => @aspect_ids,
-      :posts => @posts,
-      :fakes => @fakes
+      :posts => @posts
 
 .span-7.last
   #home_user_badge

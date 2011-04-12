@@ -37,6 +37,7 @@
       = user.person.profile.inspect
     %br
   = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token 
+  = link_to "add 10 invites for this user", add_invites_path(:user_id => user.id)
   %br
   %br
 = javascript_include_tag 'apiconsole'

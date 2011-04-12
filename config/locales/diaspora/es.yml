@@ -69,7 +69,7 @@ es:
       aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "Hacer visibles los contactos en este Aspecto."
+      make_aspect_list_visible: "Hacer visible la lista de contactos en el Aspecto."
       remove_aspect: "Eliminar este Aspecto"
       rename: "renombrar"
       update: "Actualizar"
@@ -156,9 +156,9 @@ es:
         zero: "Ver mensajes anteriores"
     index: 
       create_a_new_message: "Crear un nuevo mensaje"
-      inbox: "Bandeja de Entrada"
+      inbox: "Mensajes"
       message_inbox: "Bandeja de entrada"
-      new_message: "Nuevo Mensaje"
+      new_message: "Nuevo"
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "Sin mensajes"
     new: 
@@ -411,7 +411,7 @@ es:
       last_name: "Apellidos"
       update_profile: "Actualizar Perfil"
       your_bio: "Biografía"
-      your_birthday: "Cumpleaños"
+      your_birthday: "Fecha de nacimiento"
       your_gender: "Género / Sexo"
       your_location: "Ubicación"
       your_name: "Nombre"
@@ -448,7 +448,7 @@ es:
     destroy: 
       error: "¡Selecciona un Aspecto!"
       ignore: "Solicitud de contacto ignorada."
-      success: "Ahora sois amigos."
+      success: "Ahora están compartiendo."
     helper: 
       new_requests: 
         few: "¡%{count} nuevas solicitudes!"
@@ -525,7 +525,7 @@ es:
       add_photos: "Añadir fotos"
       all: "todo"
       all_contacts: "todos los contactos"
-      click_to_share_with: ""
+      click_to_share_with: "Selecciona para compartir con:"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."

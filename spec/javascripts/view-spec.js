@@ -144,13 +144,15 @@ describe("View", function() {
     beforeEach(function() {
       $("#jasmine_content").html(
         '<ul id="user_menu">' +
-          '<div class="right">' +
-            '.' +
-          '</div>' +
-          '<div class="avatar">' +
-            '<img alt="Jasmine Specson" class="avatar" title="Jasmine Specson">' +
-         '</div>' +
-         '<a href="#">Jasmine Specson</a>' +
+          '<li>' +
+            '<div class="right">' +
+              '.' +
+            '</div>' +
+            '<div class="avatar">' +
+              '<img alt="Jasmine Specson" class="avatar" title="Jasmine Specson">' +
+            '</div>' +
+            '<a href="#">Jasmine Specson</a>' +
+          '</li>'+
         '</ul>'
       );
     });
@@ -158,18 +160,18 @@ describe("View", function() {
       it("adds the class 'active' when the user clicks the ul", function() {
         View.initialize();
         $(View.userMenu.selector).click();
-        expect($(View.userMenu.selector)).toHaveClass("active");
+        expect($(View.userMenu.selector).parent()).toHaveClass("active");
       });
     });
     describe("removeFocus", function() {
       it("removes the class 'active' if the user clicks anywhere that isnt the userMenu", function() {
         View.initialize();
         $(View.userMenu.selector).click();
-        expect($(View.userMenu.selector)).toHaveClass("active");
+        expect($(View.userMenu.selector).parent()).toHaveClass("active");
         var event = $.Event("click");
         event.target = document.body;
         $(document.body).trigger(event);
-        expect($(View.userMenu.selector)).not.toHaveClass("active");
+        expect($(View.userMenu.selector).parent()).not.toHaveClass("active");
       });
     });
   });

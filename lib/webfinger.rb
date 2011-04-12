@@ -16,13 +16,21 @@ class Webfinger
     begin
       person = Person.by_account_identifier(@account)
       if person
-        Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
-        return person
+        if person.profile
+          Rails.logger.info("event=webfinger status=success route=local target=#{@account}")
+          return person
+        end
       end
 
       profile_url = get_xrd
       webfinger_profile = get_webfinger_profile(profile_url)
-      fingered_person = make_person_from_webfinger(webfinger_profile)
+      if person
+        person.assign_new_profile_from_hcard(get_hcard(webfinger_profile))
+        fingered_person = person
+      else
+        fingered_person = make_person_from_webfinger(webfinger_profile)
+      end
+
       if fingered_person
         Rails.logger.info("event=webfinger status=success route=remote target=#{@account}")
         fingered_person
@@ -69,19 +77,27 @@ class Webfinger
     return http.body
   end
 
-  def make_person_from_webfinger(webfinger_profile)
+  def get_hcard(webfinger_profile)
     unless webfinger_profile.strip == ""
 
-      wf_profile = WebfingerProfile.new(@account, webfinger_profile)
+      @wf_profile = WebfingerProfile.new(@account, webfinger_profile)
 
       begin
-        hcard = RestClient.get(wf_profile.hcard, OPTS)
+        hcard = RestClient.get(@wf_profile.hcard, OPTS)
       rescue
         return I18n.t('webfinger.hcard_fetch_failed', :account => @account)
       end
 
-      card = HCard.build hcard.body
-      p = Person.create_from_webfinger(wf_profile, card)
+      HCard.build hcard.body
+    else
+      nil
+    end
+  end
+
+  def make_person_from_webfinger(webfinger_profile)
+    card = get_hcard(webfinger_profile)
+    if card && @wf_profile
+      p = Person.create_from_webfinger(@wf_profile, card)
     end
   end
 

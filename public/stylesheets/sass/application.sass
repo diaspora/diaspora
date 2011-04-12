@@ -47,6 +47,10 @@ form
     :font
       :size auto
 
+.rtl
+  :direction rtl
+  :text-align right
+
 .hidden
   :display none
 
@@ -178,16 +182,6 @@ header
     :top 5px
     :right 0
 
-    a
-      :padding
-        :right 15px
-      :color #CCC
-      &:hover
-        :text
-          :decoration none
-    .right
-      :right 5px
-
     &:hover
       :background
         :color #222
@@ -199,10 +193,26 @@ header
         :display block
         :padding 4px
         :height 100%
-      &:hover
-        :background
-          :color $blue
-        :color #fff
+        &:hover
+          :background
+            :color $blue
+          :color #fff
+
+      &:first-child
+        :display inline
+        a
+          :height auto
+          :display inline
+          :padding
+            :right 15px
+          :color #CCC
+          &:hover
+            :background
+              :color #222
+            :text
+              :decoration none
+        .right
+          :right 5px
 
     &.active
       @include box-shadow(0,1px,2px,#333)
@@ -755,7 +765,7 @@ a.paginate, #infscr-loading
   h5
     :color #ccc
 
-input:not([type='submit']),
+input:not([type='submit']):not([type='reset']),
 textarea
   @include border-radius(3px)
 

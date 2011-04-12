@@ -13,7 +13,7 @@ eo:
     failure: 
       inactive: "Via konto ne jam estas konfirmita."
       invalid: "Nevalida retpoŝtadreso aŭ pasvorto."
-      invalid_token: "Invalid authentication token."
+      invalid_token: "Ungültiger Authentifizierungs-Token"
       locked: "Via konto estas ŝlosita."
       timeout: "Via sesio finis. Bonvolu reensaluti por daŭri."
       unauthenticated: "Vi devas ensaluti aŭ fari konton antaŭ ol daŭri."
@@ -36,7 +36,7 @@ eo:
       inviters: 
         accept_at: ", ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name} invitis vin aliĝi al Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} haben dich eingeladen Diaspora beizutreten"
       reset_password_instructions: 
         change: "Ŝanĝi mian pasvorton"
         ignore: "If you didn't request this, please ignore this email."

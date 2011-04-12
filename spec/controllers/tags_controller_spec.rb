@@ -7,13 +7,9 @@ require 'spec_helper'
 describe TagsController do
   render_views
 
-  before do
-    @user = alice
-  end
-
   describe '#index (search)' do
     before do
-      sign_in :user, @user
+      sign_in :user, alice
       bob.profile.tag_string = "#cats #diaspora #rad"
       bob.profile.build_tags
       bob.profile.save!
@@ -45,10 +41,24 @@ describe TagsController do
 
     context 'signed in' do
       before do
-        sign_in :user, @user
+        sign_in :user, alice
       end
-      it 'works' do
-        get :show, :name => 'testing'
+      it 'displays your own post' do
+        my_post = alice.post(:status_message, :text => "#what", :to => 'all')
+        get :show, :name => 'what'
+        assigns(:posts).models.should == [my_post]
+        response.status.should == 200
+      end
+      it "displays a friend's post" do
+        other_post = bob.post(:status_message, :text => "#hello", :to => 'all')
+        get :show, :name => 'hello'
+        assigns(:posts).models.should == [other_post]
+        response.status.should == 200
+      end
+      it 'displays a public post' do
+        other_post = eve.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+        get :show, :name => 'hello'
+        assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
     end
@@ -56,22 +66,22 @@ describe TagsController do
     context "not signed in" do
       context "when there are people to display" do
         before do
-          @user.profile.tag_string = "#whatevs"
-          @user.profile.build_tags
-          @user.profile.save!
+          alice.profile.tag_string = "#whatevs"
+          alice.profile.build_tags
+          alice.profile.save!
           get :show, :name => "whatevs"
         end
         it "succeeds" do
           response.should be_success
         end
         it "assigns the right set of people" do
-          assigns(:people).should == [@user.person]
+          assigns(:people).should == [alice.person]
         end
       end
       context "when there are posts to display" do
         before do
-          @post = @user.post(:status_message, :text => "#what", :public => true, :to => 'all')
-          @user.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+          @post = alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
+          alice.post(:status_message, :text => "#hello", :public => true, :to => 'all')
         end
         it "succeeds" do
           get :show, :name => 'what'
@@ -79,10 +89,10 @@ describe TagsController do
         end
         it "assigns the right set of posts" do
           get :show, :name => 'what'
-          assigns[:posts].should == [@post]
+          assigns[:posts].models.should == [@post]
         end
         it 'succeeds with comments' do
-          @user.comment('what WHAT!', :on => @post)
+          alice.comment('what WHAT!', :on => @post)
           get :show, :name => 'what'
           response.should be_success
         end

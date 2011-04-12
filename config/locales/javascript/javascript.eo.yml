@@ -1,0 +1,33 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+eo: 
+  javascripts: 
+    confirm_dialog: "Are you sure?"
+    publisher: 
+      at_least_one_aspect: "You must publish to at least one aspect"
+    search_for: "Search for {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    timeago: 
+      day: "unu tago"
+      days: "%d tagoj"
+      hour: "ĉirkaŭ unu horo"
+      hours: "about %d hours"
+      minute: "ĉirkaŭ unu minuto"
+      minutes: "%d minutoj"
+      month: "ĉirkaŭ unu monato"
+      months: "%d months"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "malpli ol unu minuto"
+      suffixAgo: "ago"
+      suffixFromNow: "from now"
+      year: "ĉirkaŭ unu jaro"
+      years: "%d jaroj"
+    videos: 
+      unknown: "nekonata tipo de videaĵo"
+      watch: "Watch this video on {{provider}}"

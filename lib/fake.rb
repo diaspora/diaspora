@@ -24,8 +24,13 @@ class PostsFake
     end
   end
 
+  def models
+    self.post_fakes.map{|a| a.model }
+  end
+
   class Fake
     attr_accessor :comments
+    attr_reader :model
     def initialize(model, fakes_collection)
       @fakes_collection = fakes_collection
       @model = model

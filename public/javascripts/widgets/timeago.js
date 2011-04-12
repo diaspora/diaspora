@@ -9,10 +9,13 @@ Diaspora.widgets.add("timeago", function() {
   this.selector = "abbr.timeago";
 
   this.start = function() {
+      InfiniteScroll.postScroll(function(){
+            Diaspora.widgets.timeago.updateTimeAgo();
+      });
       if(Diaspora.widgets.i18n.language === "en") {
         return;
       }
-    
+
       jQuery.timeago.settings.strings = {
         prefixAgo: Diaspora.widgets.i18n.t("timeago.prefixAgo"),
         prefixFromNow: Diaspora.widgets.i18n.t("timeago.prefixFromNow"),
@@ -30,8 +33,9 @@ Diaspora.widgets.add("timeago", function() {
         year: Diaspora.widgets.i18n.t("timeago.year"),
         years: Diaspora.widgets.i18n.t("timeago.years")
       };
-      
+
       Diaspora.widgets.timeago.updateTimeAgo("abbr");
+
   };
 
   this.updateTimeAgo = function(selector) {

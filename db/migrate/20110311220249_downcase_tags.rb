@@ -11,7 +11,7 @@ class DowncaseTags < ActiveRecord::Migration
   end
   def self.up
     execute('UPDATE tags
-            SET tags.name = LOWER(tags.name);')
+            SET name = LOWER(tags.name);')
 
     names_with_duplicates = execute('SELECT name FROM tags
                      GROUP BY name

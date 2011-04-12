@@ -12,7 +12,7 @@ nl:
       send_instructions: "Je ontvangt een e-mail met instructies om je account te activeren."
     failure: 
       inactive: "Je account is nog niet geactiveerd."
-      invalid: "Ongeldig emailadres of wachtwoord."
+      invalid: "De gebruikersnaam of het wachtwoord is ongeldig"
       invalid_token: "Ongeldige authenticatietoken."
       locked: "Je account is geblokkeerd."
       timeout: "Je sessie is verlopen, log opnieuw in om verder te gaan."

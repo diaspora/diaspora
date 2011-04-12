@@ -82,7 +82,7 @@ zh-TW:
     index: 
       handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
-      post_a_message: "post a message >>"
+      post_a_message: "發表訊息 >>"
     manage: 
       add_a_new_aspect: "新增面向"
       add_a_new_contact: "加入新的聯繫"
@@ -180,7 +180,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
-  hide: "Hide"
+  hide: "隱藏"
   home: 
     show: 
       already_account: "已經有帳號了嗎?"
@@ -235,17 +235,17 @@ zh-TW:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "有%{count}個人不喜歡"
-        many: "有%{count}個人不喜歡"
-        one: "有1個人不喜歡"
-        other: "有%{count}個人不喜歡"
-        zero: "沒有人不喜歡"
+        few: "有%{count}個人說遜"
+        many: "有%{count}個人說遜"
+        one: "有1個人說遜"
+        other: "有%{count}個人說遜"
+        zero: "沒有人說遜"
       people_like_this: 
-        few: "有%{count}個人喜歡"
-        many: "有%{count}個人喜歡"
-        one: "有1個人喜歡"
-        other: "有%{count}個人喜歡"
-        zero: "沒有人喜歡"
+        few: "有%{count}個人說讚"
+        many: "有%{count}個人說讚"
+        one: "有1個人說讚"
+        other: "有%{count}個人說讚"
+        zero: "沒有人說讚"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -398,14 +398,14 @@ zh-TW:
       notice: "相片更新成功."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "已隱藏 %{name} 的貼文"
   posts: 
     doesnt_exist: "貼文不存在!"
   previous: "前面"
   profile: "個人檔案"
   profiles: 
     edit: 
-      allow_search: "讓別人在 Diaspora 可以搜尋到你"
+      allow_search: "讓別人可以在 Diaspora 搜尋到你"
       edit_profile: "編輯個人檔案"
       first_name: "First name"
       last_name: "Last name"
@@ -448,7 +448,7 @@ zh-TW:
     destroy: 
       error: "請選一個面向!"
       ignore: "忽略建立聯繫的請求."
-      success: "你們現在是朋友了."
+      success: "你們現在互相分享了."
     helper: 
       new_requests: 
         few: "%{count}個新請求!"
@@ -503,15 +503,15 @@ zh-TW:
       all_contacts: "全部聯繫"
       cannot_remove: "無法將聯絡人從他/她最後一個面向中移除. (如果你想跟這個人斷絕連結, 你必須刪除他/她的聯繫.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "已用 %{name} 登入"
+      your_aspects: "你的面向"
     invitations: 
       by_email: "透過電子郵件"
       dont_have_now: "目前你還不能邀請任何人, 但很快就可以了!"
       from_facebook: "從 Facebook"
       invitations_left: "(剩餘%{count}張)"
       invite_someone: "邀請某人來"
-      invite_your_friends: "邀請你的朋友來"
+      invite_your_friends: "找到你的朋友"
       invites: "邀請"
       invites_closed: "目前本 Diaspora pod 不開放邀請功能"
     notification: 
@@ -537,8 +537,8 @@ zh-TW:
     reshare: 
       reshare: "重新分享"
     stream_element: 
-      dislike: "不喜歡"
-      like: "喜歡"
+      dislike: "遜"
+      like: "讚"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"
@@ -561,7 +561,7 @@ zh-TW:
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
   the_world: "全世界"
-  undo: "Undo?"
+  undo: "復原?"
   username: "用戶名稱"
   users: 
     destroy: "帳號關閉成功."

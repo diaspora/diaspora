@@ -33,7 +33,7 @@ en_shaw:
             username: 
               taken: "𐑦𐑟 𐑷𐑤𐑮𐑧𐑛𐑦 𐑑𐑱𐑒𐑩𐑯."
   ago: "%{time} ago"
-  all_aspects: "All aspects"
+  all_aspects: "𐑷𐑤 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   application: 
     helper: 
       unknown_person: "𐑩𐑯𐑯𐑴𐑯 𐑐𐑻𐑕𐑩𐑯"
@@ -82,7 +82,7 @@ en_shaw:
     index: 
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      post_a_message: "post a message >>"
+      post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
     manage: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       add_a_new_contact: "𐑨𐑛 𐑩 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
@@ -113,10 +113,10 @@ en_shaw:
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
   back: "𐑚𐑨𐑒"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} 𐑓𐑮𐑪𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒."
+    explanation_link_text: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+    post_something: "𐑐𐑴𐑕𐑑 𐑕𐑳𐑥𐑔𐑦𐑙 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+    post_success: "𐑐𐑴𐑕𐑑𐑩𐑛! 𐑒𐑤𐑴𐑟𐑦𐑙!"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
   comments: 
     few: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
@@ -144,9 +144,9 @@ en_shaw:
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "𐑥𐑧𐑕𐑩𐑡 𐑕𐑧𐑯𐑑"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛"
     helper: 
       new_messages: 
         few: "%{count} 𐑯𐑿 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
@@ -180,7 +180,7 @@ en_shaw:
       correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
       invalid_fields: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑓𐑰𐑤𐑛𐑟"
   fill_me_out: "𐑓𐑦𐑤 𐑥𐑰 𐑬𐑑"
-  hide: "Hide"
+  hide: "𐑣𐑲𐑛"
   home: 
     show: 
       already_account: "already have an account?"
@@ -248,7 +248,7 @@ en_shaw:
         zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
-  no_results: "No Results Found"
+  no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
   notifications: 
     also_commented: "(e)k iruzkindu du %{post_author}(r)en mezuan ere"
     also_commented_deleted: "𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑩 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑐𐑴𐑕𐑑"
@@ -269,7 +269,7 @@ en_shaw:
     mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑞𐑺"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
-    private_message: "sent you a message."
+    private_message: "𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
     request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
   notifier: 
     also_commented: 
@@ -283,7 +283,7 @@ en_shaw:
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     love: "𐑤𐑳𐑝,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑦-𐑥𐑱𐑤 𐑕𐑧𐑑𐑦𐑙𐑟"
     mentioned: 
       mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
@@ -312,7 +312,7 @@ en_shaw:
   password_confirmation: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑒𐑪𐑯𐑓𐑼𐑥𐑱𐑖𐑩𐑯"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "𐑨𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑓𐑮𐑪𐑥 𐑑𐑨𐑜"
     aspect_list: 
       edit_membership: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑 𐑥𐑧𐑥𐑚𐑼𐑖𐑦𐑐"
     few: "%{count} 𐑐𐑰𐑐𐑩𐑤"
@@ -339,7 +339,7 @@ en_shaw:
       edit_my_profile: "𐑧𐑛𐑦𐑑 𐑥𐑲 𐑐𐑮𐑴𐑓𐑲𐑤"
       gender: "𐑡𐑧𐑯𐑛𐑼"
       in_aspects: "𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-      location: "location"
+      location: "𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
@@ -398,7 +398,7 @@ en_shaw:
       notice: "𐑓𐑴𐑑𐑴 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑳𐑐𐑛𐑱𐑑𐑩𐑛."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}𐑟 𐑐𐑴𐑕𐑑 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑣𐑦𐑛𐑩𐑯."
   posts: 
     doesnt_exist: "𐑞𐑨𐑑 𐑐𐑴𐑕𐑑 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
   previous: "𐑐𐑮𐑰𐑝𐑾𐑕"
@@ -413,7 +413,7 @@ en_shaw:
       your_bio: "𐑿𐑼 𐑚𐑲𐑴"
       your_birthday: "𐑿𐑼 𐑚𐑻𐑔𐑛𐑱"
       your_gender: "𐑿𐑼 𐑡𐑧𐑯𐑛𐑼"
-      your_location: "Your location"
+      your_location: "𐑿𐑼 𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
       your_name: "𐑿𐑼 𐑯𐑱𐑥"
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
       your_private_profile: "𐑿𐑼 𐑐𐑮𐑲𐑝𐑩𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
@@ -448,7 +448,7 @@ en_shaw:
     destroy: 
       error: "𐑐𐑤𐑰𐑟 𐑕𐑩𐑤𐑧𐑒𐑑 𐑩𐑯 𐑨𐑕𐑐𐑧𐑒𐑑!"
       ignore: "𐑦𐑜𐑯𐑹𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
-      success: "𐑿 𐑸 𐑯𐑬 𐑓𐑮𐑧𐑯𐑛𐑟."
+      success: "𐑿 𐑸 𐑯𐑬 𐑖𐑺𐑦𐑙."
     helper: 
       new_requests: 
         few: "%{count} 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕!"
@@ -503,15 +503,15 @@ en_shaw:
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
+      your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     invitations: 
       by_email: "𐑚𐑲 𐑦-𐑥𐑱𐑤"
       dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
       from_facebook: "𐑓𐑮𐑪𐑥 ·𐑓𐑱𐑕𐑚𐑫𐑒"
       invitations_left: "(%{count} 𐑤𐑧𐑓𐑑)"
       invite_someone: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯"
-      invite_your_friends: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
+      invite_your_friends: "𐑓𐑲𐑯𐑛 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
       invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
       invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
     notification: 
@@ -525,11 +525,11 @@ en_shaw:
       add_photos: "𐑨𐑛 𐑓𐑴𐑑𐑴𐑟"
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "𐑒𐑤𐑦𐑒 𐑑 𐑖𐑺 𐑢𐑦𐑞:"
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
-      public: "Public"
+      public: "𐑐𐑳𐑚𐑤𐑦𐑒"
       publishing_to: "𐑐𐑳𐑚𐑤𐑦𐑖𐑦𐑙 𐑑: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
@@ -550,7 +550,7 @@ en_shaw:
       mentioning: "𐑥𐑧𐑯𐑖𐑩𐑯𐑦𐑙: %{person}"
     show: 
       destroy: "𐑛𐑦𐑤𐑰𐑑"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑩𐑯𐑑 𐑓𐑲𐑯𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑."
       permalink: "𐑐𐑻𐑥𐑩𐑤𐑦𐑙𐑒"
   stream_helper: 
     hide_comments: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
@@ -561,7 +561,7 @@ en_shaw:
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
   the_world: "𐑞 𐑢𐑻𐑤𐑛"
-  undo: "Undo?"
+  undo: "𐑩𐑯𐑛𐑵?"
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 
     destroy: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑤𐑴𐑟𐑛."
@@ -588,7 +588,7 @@ en_shaw:
     getting_started: 
       connect_on_diaspora: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑨𐑯𐑦 𐑓𐑮𐑧𐑯𐑛𐑟 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*. 𐑿𐑟 𐑞 𐑓𐑮𐑧𐑯𐑛 𐑓𐑲𐑯𐑛𐑼 𐑑 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥."
       edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
       save_and_continue: "𐑕𐑱𐑝 𐑯 𐑒𐑩𐑯𐑑𐑦𐑯𐑿"

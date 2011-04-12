@@ -23,9 +23,11 @@ SQL
 SQL
   end
   def self.up
-    delete_disconnected_conversations
-    delete_disconnected_messages
-    delete_disconnected_cvs
+    if execute('SELECT COUNT(*) FROM messages').to_a.first.first > 0
+      delete_disconnected_conversations
+      delete_disconnected_messages
+      delete_disconnected_cvs
+    end
 
     add_foreign_key :conversation_visibilities, :conversations, :dependent => :delete
     add_foreign_key :conversation_visibilities, :people, :dependent => :delete

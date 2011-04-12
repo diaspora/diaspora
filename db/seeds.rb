@@ -12,7 +12,7 @@
 
 require File.join(File.dirname(__FILE__), "..", "config", "environment")
 require 'factory_girl_rails'
-require 'spec/helper_methods'
+require File.join(File.dirname(__FILE__), "..", "spec", "helper_methods")
 include HelperMethods
 
 alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth', :invites => 10)
@@ -25,3 +25,18 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe")
 
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
+
+
+require 'spec/support/fake_resque'
+require 'spec/support/fake_redis'
+require 'spec/support/user_methods'
+time_interval = 1000
+(1..25).each do |n|
+  [alice, bob, eve].each do |u|
+    post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
+    post.created_at = post.created_at + time_interval
+    post.updated_at = post.updated_at + time_interval
+    post.save
+    time_interval += 1000
+  end
+end

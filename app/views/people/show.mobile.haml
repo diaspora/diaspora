@@ -7,15 +7,6 @@
     DIASPORA*
 
 #author_info.profile
-  - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
-    .right
-      = link_to "start sharing",
-        {:controller => "contact",
-        :action => "new",
-        :id => @person.id},
-        :class => 'share_with button',
-        :rel => 'facebox'
-
   = person_image_tag @person, :thumb_medium
 
   .content
@@ -33,16 +24,14 @@
         = link_to t('.return_to_aspects'), aspects_manage_path
         = t('.to_accept_or_ignore')
 
-- if @posts.count > 0
+- if @posts.length > 0
   -if @post_type == :photos
     = render 'photos/index', :photos => @posts
   - else
     #main_stream.stream
       = render 'shared/stream', :posts => @posts
-      %a.paginate
-        = t("more")
-  = will_paginate @posts
-
+      #pagination
+        =link_to(t('more'), person_path(@person, :page => next_page), :class => 'paginate')
 - else
   #stream
     %li{:style=>"text-align:center;"}

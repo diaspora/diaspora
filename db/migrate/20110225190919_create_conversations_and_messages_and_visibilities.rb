@@ -27,7 +27,11 @@ class CreateConversationsAndMessagesAndVisibilities < ActiveRecord::Migration
 
     add_index :conversation_visibilities, :person_id
     add_index :conversation_visibilities, :conversation_id
-    add_index :conversation_visibilities, [:conversation_id, :person_id], :unique => true
+    if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      add_index :conversation_visibilities, [:conversation_id, :person_id], :unique => true, :name => 'index_conversation_visibilities_on_everything'
+    else
+      add_index :conversation_visibilities, [:conversation_id, :person_id], :unique => true
+    end
     add_index :messages, :author_id
   end
 

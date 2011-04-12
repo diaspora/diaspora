@@ -14,7 +14,7 @@ src_files:
   - public/javascripts/vendor/jquery152.min.js
   - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
   - public/javascripts/vendor/jquery.tipsy.js
-  - public/javascripts/vendor/jquery.infieldlabel.js
+  - public/javascripts/jquery.infieldlabel-custom.js
   - public/javascripts/vendor/jquery.autoresize.min.js
   - public/javascripts/vendor/Mustache.js
   - public/javascripts/vendor/charCount.js
@@ -27,8 +27,9 @@ src_files:
   - public/javascripts/widgets/embedder.js
   - public/javascripts/widgets/i18n.js
   - public/javascripts/widgets/timeago.js
+  - public/javascripts/widgets/directionDetector.js
   - public/javascripts/mobile.js
-  - public/javascripts/aspect-contacts.js
+  - public/javascripts/infinite-scroll.js
   - public/javascripts/contact-list.js
   - public/javascripts/web-socket-receiver.js
   - public/javascripts/view.js

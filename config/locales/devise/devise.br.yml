@@ -54,7 +54,7 @@ br:
         change_password: "Cheñch ma ger-kuzh"
       new: 
         forgot_password: "Disoñjet ho ker-kuzh ganeoc'h?"
-        no_account: "N'eus kont ebet gant ar postel-mañ. M'emaoc'h o c'hortoz da vezañ pedet, deoc'h da c'hoût e klaskomp astennañ anezhe da'n abretañ ar gwellañ"
+        no_account: "N'eus kont ebet gant ar postel-mañ. M'emaoc'h o c'hortoz da vezañ pedet, deoc'h da c'hoût e klaskomp astennañ ar pedadennoù da'n abretañ ar gwellañ"
         send_password_instructions: "Kasit din titouroù evit nulañ ar ger-kuzh"
       send_instructions: "Emaoc'h o vont da reseviñ ur postel gant titouroù evit goût penaos nulañ ho ker-kuzh a-benn nebeut."
       updated: "Cheñchet mat ho ker-kuzh. Emaoc'h luget."

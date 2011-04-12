@@ -5,7 +5,7 @@ describe ApisController do
     @status_message1 = Factory(:status_message, :text => '#bobby #flay #sux', :public => true, :updated_at => Time.now + 20)
 
     @status_message2 = Factory(:status_message, :text => '#aobby', :public => true, :created_at => Time.now + 10)
-    @status_message3 = Factory(:status_message, :created_at => Time.now + 15) 
+    @status_message3 = Factory(:status_message, :created_at => Time.now + 15)
     @person = Factory(:person, :profile => Factory.build(:profile,:first_name => 'bobby', :searchable => true, :tag_string => '#zord'))
     @person.profile.save
    end
@@ -43,7 +43,7 @@ describe ApisController do
 
   context 'protected timelines' do
     let(:authenticate){
-      sign_in(:user, @user); 
+      sign_in(:user, @user);
       @controller.stub(:current_user).and_return(@user)
     }
 
@@ -51,7 +51,7 @@ describe ApisController do
       @message1 = alice.post(:status_message, :text=> "hello", :to => alice.aspects.first)
       @message2 = eve.post(:status_message, :text=> "hello", :to => eve.aspects.first)
     end
-      
+
     describe '#home_timeline' do
       it 'authenticates' do
         get :home_timeline, :format => :json
@@ -158,7 +158,7 @@ describe ApisController do
       end
     end
   end
-  
+
   describe '#users_profile_image' do
     it 'redirects on success' do
       get :users_profile_image, :screen_name => bob.diaspora_handle, :format => :json
@@ -179,7 +179,7 @@ describe ApisController do
     end
 
     it 'returns a 404 if does not exsist' do
-      get :statuses, :guid => 999
+      get :statuses, :guid => '999'
       response.code.should == '404'
     end
   end

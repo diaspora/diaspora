@@ -23,6 +23,36 @@ describe User do
       stream.should include(visible_post)
       stream.should_not include(invisible_post)
     end
+    context 'with many posts' do
+      before do
+        bob.move_contact(eve.person, bob.aspects.first, bob.aspects.create(:name => 'new aspect'))
+        time_interval = 1000
+        (1..25).each do |n|
+          [alice, bob, eve].each do |u|
+            post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
+            post.created_at = post.created_at + time_interval
+            post.updated_at = post.updated_at + time_interval
+            post.save
+            time_interval += 1000
+          end
+        end
+      end
+      it 'works' do #This is in one spec to save time
+        bob.raw_visible_posts.length.should == 15
+        bob.raw_visible_posts.should == bob.raw_visible_posts(:by_members_of => bob.aspects.map{|a| a.id})
+        bob.raw_visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts.map{|p| p.id}.reverse
+
+        opts = {:limit => 40}
+        bob.raw_visible_posts(opts).length.should == 40
+        bob.raw_visible_posts(opts).should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id}))
+        bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
+
+        opts = {:page => 2}
+        bob.raw_visible_posts(opts).length.should == 15
+        bob.raw_visible_posts(opts).map{|p| p.id}.should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
+        bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
+      end
+    end
   end
 
   context 'with two posts' do
@@ -122,14 +152,12 @@ describe User do
       end
 
       it "returns an empty array when passed an aspect the user doesn't own" do
-        other_user = Factory(:user_with_aspect)
-        connect_users(eve, eve.aspects.first, other_user, other_user.aspects.first)
-        alice.people_in_aspects([other_user.aspects.first]).should == []
+        alice.people_in_aspects([eve.aspects.first]).should == []
       end
     end
   end
 
-  context 'querying' do
+  context 'contact querying' do
     let(:person_one) { Factory.create :person }
     let(:person_two) { Factory.create :person }
     let(:person_three) { Factory.create :person }

@@ -13,5 +13,5 @@
       %time.timeago{:datetime => comment.created_at}
         = comment.created_at ? timeago(comment.created_at) : timeago(Time.now)
 
-    %p
+    %p{ :class => direction_for(comment.text) }
       = markdownify(comment.text, :youtube_maps => comment.youtube_titles)

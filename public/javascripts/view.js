@@ -15,6 +15,13 @@ var View = {
 
     /* In field labels */
     $("label").inFieldLabels();
+    $(document).bind('afterReveal.facebox', function() {
+      jQuery("#facebox label").inFieldLabels();
+    });
+    InfiniteScroll.postScroll(function(){
+      $('#main_stream .comments label').inFieldLabels();
+    });
+
 
     /* Showing debug messages  */
     $(this.debug.selector)
@@ -58,6 +65,9 @@ var View = {
     $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
     $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
     $('a[rel*=facebox]').facebox();
+    $(document).bind('reveal.facebox', function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
 
     /* facebox 'done' buttons */
     $("a[rel*=close]").live('click', function(){ $.facebox.close() });
@@ -66,7 +76,7 @@ var View = {
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
       var post = $("*[data-guid='"+ $(this).attr('data-ref') +"']"),
           lastComment = post.find('.comment.posted').last();
-          
+
       if(post.length > 0){
         evt.preventDefault();
         $('html, body').animate({scrollTop: parseInt(lastComment.offset().top)-80 }, 'fast');
@@ -149,7 +159,7 @@ var View = {
     addAspect: {
       bind: function() {
         $(".add_aspect_button", "#aspect_nav").tipsy({
-          gravity:"w"
+          gravity: ($('html').attr('dir') == 'rtl')? "e" : "w"
         });
       }
     },
@@ -216,18 +226,16 @@ var View = {
 
   userMenu: {
     click: function(evt) {
-      if(!$(View.userMenu.selector).hasClass("active")) {
-        evt.preventDefault();
-      }
-      $(this).toggleClass("active");
+      $(this).parent().toggleClass("active");
+      evt.preventDefault();
     },
     removeFocus: function(evt) {
       var $target = $(evt.target);
-      if(!$target.closest("#user_menu").length) {
-        $(View.userMenu.selector).removeClass("active");
+      if(!$target.closest("#user_menu").length || ($target.attr('href') != undefined && $target.attr('href') != '#')) {
+        $(View.userMenu.selector).parent().removeClass("active");
       }
     },
-    selector: "#user_menu"
+    selector: "#user_menu li:first-child"
   },
 
   webFingerForm: {

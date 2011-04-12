@@ -5,6 +5,7 @@
 class AspectsController < ApplicationController
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
+  before_filter :ensure_page, :only => :index
 
   respond_to :html
   respond_to :json, :only => [:show, :create]
@@ -16,7 +17,9 @@ class AspectsController < ApplicationController
     else
       @aspects = current_user.aspects
     end
-    @aspects = @aspects.includes(:contacts => {:person => :profile})
+
+    #No aspect_listings on infinite scroll
+    @aspects = @aspects.includes(:contacts => {:person => :profile}) unless params[:only_posts]
 
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
@@ -24,16 +27,24 @@ class AspectsController < ApplicationController
       return
     end
 
-    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
+    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq unless params[:only_posts]
+
     @aspect_ids = @aspects.map { |a| a.id }
-    @posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids, :type => 'StatusMessage', :order => session[:sort_order] + ' DESC', :page => params[:page]).includes(
-      :comments, :mentions, :likes, :dislikes).paginate(:page => params[:page], :per_page => 15, :order => session[:sort_order] + ' DESC')
-    @fakes = PostsFake.new(@posts)
+    posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids,
+                                           :type => 'StatusMessage',
+                                           :order => session[:sort_order] + ' DESC',
+                                           :page => params[:page]
+                          ).includes(:comments, :mentions, :likes, :dislikes)
 
-    @contact_count = current_user.contacts.count
+    @posts = PostsFake.new(posts)
+    if params[:only_posts]
+      render :partial => 'shared/stream', :locals => {:posts => @posts}
+    else
+      @contact_count = current_user.contacts.count
 
-    @aspect = :all unless params[:a_ids]
-    @aspect ||= @aspects.first # used in mobile
+      @aspect = :all unless params[:a_ids]
+      @aspect ||= @aspects.first # used in mobile
+    end
   end
 
   def create
@@ -125,8 +136,7 @@ class AspectsController < ApplicationController
     else
       flash[:error] = I18n.t 'aspects.update.failure', :name => @aspect.name
     end
-
-    respond_with @aspect
+    render :nothing => true, :status => 204
   end
 
   def toggle_contact_visibility

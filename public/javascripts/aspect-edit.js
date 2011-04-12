@@ -18,8 +18,9 @@ var AspectEdit = {
       drop: AspectEdit.onDropMove
     });
 
-    $("#manage_aspect_zones").find(".delete").live("click", AspectEdit.deletePerson);
-    $(".aspect h3").live('focus', AspectEdit.changeName);
+    $("#manage_aspect_zones").find(".delete").click(AspectEdit.deletePerson);
+    $(".aspect h3").focus(AspectEdit.changeName);
+
   },
 
   startDrag: function() {
@@ -50,10 +51,11 @@ var AspectEdit = {
         var aspect_id = person.attr('data-aspect_id')
       $.ajax({
         type: "PUT",
-        url: "/aspect_memberships/" + aspect_id,
+        url: "/aspect_memberships/garbage",
         data: {
           "person_id": person.attr('data-guid'),
-          "to": dropzone.attr('data-aspect_id')
+          "to": dropzone.attr('data-aspect_id'),
+          "aspect_id": aspect_id
         },
         success: function(data) {
           AspectEdit.onMovePersonSuccess(person, dropzone);
@@ -92,26 +94,34 @@ var AspectEdit = {
         id = $this.closest(".aspect").attr("data-guid"),
       link = "/aspects/" + id;
 
+    //cleanup
+    $this.text($.trim($this.text()));
 
-    $this.keyup(function() {
+    $this.keypress(function(e) {
       if (e.which == 13) {
         e.preventDefault();
         $this.blur();
-
-        //save changes
-        $.ajax({
-          type: "PUT",
-          url: link,
-          data: {
-            "aspect": {
-              "name" : $this.text()
-            }
-          }
-        });
       }
 
+      //length limit
+      if ($this.text().length >= 20) {
+        e.preventDefault();
+      }
       //update all other aspect links
       $("#aspect_nav li[data-guid='" + id + "'] a").text($this.text());
+    });
+
+    $this.blur(function() {
+      //save changes
+      $.ajax({
+        type: "PUT",
+        url: link,
+        data: {
+          "aspect": {
+            "name" : $this.text()
+          }
+        }
+      });
     });
   },
 

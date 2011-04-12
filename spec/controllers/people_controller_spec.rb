@@ -111,6 +111,11 @@ describe PeopleController do
         response.should be_success
       end
 
+      it 'succeeds on the mobile site' do
+        get :show, :id => @user.person.to_param, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns the right person" do
         get :show, :id => @user.person.to_param
         assigns(:person).should == @user.person
@@ -123,7 +128,7 @@ describe PeopleController do
         @user.post(:status_message, :text => "public", :to => 'all', :public => true)
         @user.reload.posts.length.should == 3
         get :show, :id => @user.person.to_param
-        assigns(:posts).should =~ @user.posts
+        assigns(:posts).models.should =~ @user.posts
       end
 
       it "renders the comments on the user's posts" do
@@ -143,6 +148,12 @@ describe PeopleController do
         get :show, :id => @person.id
         response.status.should == 200
       end
+
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns only public posts" do
         public_posts = []
         public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
@@ -152,7 +163,7 @@ describe PeopleController do
 
         get :show, :id => @person.id
 
-        assigns[:posts].should =~ public_posts
+        assigns[:posts].models.should =~ public_posts
       end
 
       it 'throws 404 if the person is remote' do
@@ -172,6 +183,11 @@ describe PeopleController do
         response.should be_success
       end
 
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns only the posts the current user can see" do
         bob.posts.should be_empty
         posts_user_can_see = []
@@ -182,7 +198,12 @@ describe PeopleController do
         bob.reload.posts.length.should == 4
 
         get :show, :id => @person.id
-        assigns(:posts).should =~ posts_user_can_see
+        assigns(:posts).models.should =~ posts_user_can_see
+      end
+
+      it 'sets @commenting_disabled to true' do
+        get :show, :id => @person.id
+        assigns(:commenting_disabled).should == false
       end
     end
 
@@ -196,6 +217,11 @@ describe PeopleController do
         response.should be_success
       end
 
+      it 'succeeds on the mobile site' do
+        get :show, :id => @person.id, :format => :mobile
+        response.should be_success
+      end
+
       it "assigns only public posts" do
         eve.posts.should be_empty
         eve.post(:status_message, :text => "to an aspect @user is not in", :to => eve.aspects.first.id)
@@ -204,7 +230,12 @@ describe PeopleController do
         eve.reload.posts.length.should == 3
 
         get :show, :id => @person.id
-        assigns[:posts].should =~ [public_post]
+        assigns[:posts].models.should =~ [public_post]
+      end
+
+      it 'sets @commenting_disabled to true' do
+        get :show, :id => @person.id
+        assigns(:commenting_disabled).should == true
       end
     end
   end

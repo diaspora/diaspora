@@ -1,7 +1,7 @@
 class PostVisibilitiesOnContacts < ActiveRecord::Migration
   def self.move_author_pvs_to_aspect_pvs
     where_clause = <<SQL
-      FROM post_visibilities as pv 
+      FROM post_visibilities as pv
         INNER JOIN aspects ON aspects.id = pv.aspect_id
         INNER JOIN posts ON posts.id = pv.post_id
           INNER JOIN people ON posts.author_id = people.id
@@ -56,6 +56,10 @@ SQL
 SQL
   end
 
+  def self.pv_count
+    @pv_count ||= execute('SELECT count(*) FROM post_visibilities').to_a.first.first
+  end
+
   def self.up
     create_table :aspect_visibilities do |t|
       t.integer :post_id, :null => false
@@ -68,14 +72,14 @@ SQL
     add_foreign_key :aspect_visibilities, :aspects, :dependent => :delete
     add_foreign_key :aspect_visibilities, :posts, :dependent => :delete
 
-    delete_disconnected_pvs
+    delete_disconnected_pvs if pv_count > 0
 
     add_column :post_visibilities, :contact_id, :integer, :null => false
 
-    move_author_pvs_to_aspect_pvs
-    set_pv_contact_ids
+    move_author_pvs_to_aspect_pvs if pv_count > 0
+    set_pv_contact_ids if pv_count > 0
 
-    delete_duplicate_pvs
+    delete_duplicate_pvs if pv_count > 0
 
     remove_index :post_visibilities, [:aspect_id, :post_id]
     remove_column :post_visibilities, :aspect_id

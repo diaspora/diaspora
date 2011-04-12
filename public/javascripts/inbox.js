@@ -6,7 +6,9 @@
 $(document).ready(function(){
 
   $('a.conversation').live('click', function(){
-    $.getScript(this.href);
+    $.getScript(this.href, function() {
+      Diaspora.widgets.directionDetector.updateBinds();
+    });
     history.pushState(null, "", this.href);
 
     var conv = $(this).children('.stream_element'),
@@ -29,7 +31,9 @@ $(document).ready(function(){
 
   $(window).bind("popstate", function(){
     if (location.href.match(/conversations\/\d+/) != null) {
-      $.getScript(location.href);
+	  $.getScript(location.href, function() {
+        Diaspora.widgets.directionDetector.updateBinds();
+      });
       return false;
     }
   });
@@ -59,13 +63,13 @@ $(document).ready(function(){
 
   // kill scroll binding
   $(window).unbind('.infscr');
-  
+
   // hook up the manual click guy.
   $('a.next_page').click(function(){
     $(document).trigger('retrieve.infscr');
     return false;
   });
-  
+
   // remove the paginator when we're done.
   $(document).ajaxError(function(e,xhr,opt){
     if (xhr.status == 404) $('a.next_page').remove();

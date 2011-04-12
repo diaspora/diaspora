@@ -6,13 +6,13 @@
 var Diaspora = Diaspora || {};
 
 Diaspora.widgetCollection = function() {
-  this.ready = false;
+  this.initialized = false;
   this.collection = {};
 };
 
 Diaspora.widgetCollection.prototype.add = function(widgetId, widget) {
     this[widgetId] = this.collection[widgetId] = new widget();
-    if(this.ready) {
+    if(this.initialized) {
       this.collection[widgetId].start();
     }
   };
@@ -22,7 +22,7 @@ Diaspora.widgetCollection.prototype.remove = function(widgetId) {
 };
 
 Diaspora.widgetCollection.prototype.init = function() {
-  this.ready = true;
+  this.initialized = true;
   for(var widgetId in this.collection) {
     this.collection[widgetId].start();
   }

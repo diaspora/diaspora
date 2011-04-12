@@ -176,6 +176,9 @@ $(document).ready(function(){
         // reinit listeners on stream
         photozone.html(photos_html);
         Stream.initialize();
+        InfiniteScroll.initialize();
+
+        Publisher.initialize();
 
         // fade contents back in
         if(requests == 0){

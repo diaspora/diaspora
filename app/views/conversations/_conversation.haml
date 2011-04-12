@@ -10,7 +10,8 @@
       .message_count
         = conversation.messages.size
 
-      = conversation.subject[0..30]
+      %div{ :class => direction_for(conversation.subject) }
+        = conversation.subject[0..30]
 
     .last_author
       .timestamp

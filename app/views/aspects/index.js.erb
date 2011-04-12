@@ -1,21 +1,3 @@
-$('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :aspect => @aspect, :aspect_ids => @aspect_ids, :posts => @posts, :fakes => @fakes)) %>");
+$('#aspect_stream_container').html("<%= escape_javascript(render('aspects/aspect_stream', :aspect => @aspect, :aspect_ids => @aspect_ids, :posts => @posts)) %>");
 $('#aspect_listings').html("<%= escape_javascript(render('aspects/aspect_listings', :aspects => @aspects)) %>");
 $('a[rel*=facebox]').facebox();
-
-$(document).ready(function() {
-  $('#main_stream').infinitescroll({
-    navSelector  : "#main_stream + div.pagination",
-                   // selector for the paged navigation (it will be hidden)
-    nextSelector : ".pagination a.next_page",
-                   // selector for the NEXT link (to page 2)
-    itemSelector : "#main_stream .stream_element",
-                   // selector for all items you'll retrieve
-    bufferPx: 300,
-    donetext: "no more.",
-    loadingText: "",
-    loadingImg: '/images/ajax-loader.gif'
-  });
-  
-  Diaspora.widgets.timeago.updateTimeAgo();
-  Publisher.initialize();
-});

@@ -113,7 +113,7 @@ eu:
     zero: "alderdirik ez"
   back: "Atzera"
   bookmarklet: 
-    explanation: "%{link} edozein lekutik esteka hau markagailuetarantz herresta eginez."
+    explanation: "%{link} edozein lekutik esteka hau laster-marketarantz herresta eginez."
     explanation_link_text: "Diasporan partekatu"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
@@ -511,7 +511,7 @@ eu:
       from_facebook: "Facebooketik"
       invitations_left: "(%{count} geratzen zai(zki)zu)"
       invite_someone: "Norbait gonbidatu"
-      invite_your_friends: "Zure lagunak gonbidatu"
+      invite_your_friends: "Zure lagunak aurkitu"
       invites: "Gonbidapenak"
       invites_closed: "Gonbidapenak itxita daude orain Diaspora zerbitzari hontan"
     notification: 

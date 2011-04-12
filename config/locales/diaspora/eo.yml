@@ -6,7 +6,7 @@
 eo: 
   _comments: "Komentoj"
   _home: "Hejmo"
-  _photos: "bildoj"
+  _photos: "Bildoj"
   _services: "Servoj"
   account: "Konto"
   activerecord: 
@@ -39,10 +39,10 @@ eo:
       unknown_person: "nekonata persono"
       video_title: 
         unknown: "Unknown Video Title"
-  are_you_sure: "Are you sure?"
+  are_you_sure: "Ĉu vi certas?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
+      failure: "Malsukceso forigi el aspekto"
       no_membership: "Could not find the selected person in that aspect"
       success: "Successfully removed person from aspect"
   aspects: 
@@ -55,7 +55,7 @@ eo:
       activity: "activity"
       post_time: "post time"
       sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Aspect creation failed."

@@ -12,7 +12,7 @@ fr:
       send_instructions: "Vous allez recevoir dans quelques minutes un e-mail contenant les instructions pour confirmer votre compte."
     failure: 
       inactive: "Votre compte n’a pas encore été activé."
-      invalid: "Adresse e-mail ou mot de passe invalide."
+      invalid: "Pseudo ou mot de passe invalide."
       invalid_token: "Jeton d’authentification invalide."
       locked: "Votre compte est verrouillé."
       timeout: "Votre session a expiré, veuillez vous connecter de nouveau afin de continuer."

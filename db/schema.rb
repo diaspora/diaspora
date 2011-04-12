@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110406202932) do
+ActiveRecord::Schema.define(:version => 20110406203720) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -224,12 +224,12 @@ ActiveRecord::Schema.define(:version => 20110406202932) do
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "author_id",                            :null => false
-    t.boolean  "public",            :default => false, :null => false
+    t.integer  "author_id",                                          :null => false
+    t.boolean  "public",                          :default => false, :null => false
     t.string   "diaspora_handle"
-    t.string   "guid",                                 :null => false
-    t.boolean  "pending",           :default => false, :null => false
-    t.string   "type",                                 :null => false
+    t.string   "guid",                                               :null => false
+    t.boolean  "pending",                         :default => false, :null => false
+    t.string   "type",              :limit => 40,                    :null => false
     t.text     "text"
     t.integer  "status_message_id"
     t.text     "remote_photo_path"
@@ -249,7 +249,6 @@ ActiveRecord::Schema.define(:version => 20110406202932) do
   add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
   add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
-  add_index "posts", ["type"], :name => "index_posts_on_type"
 
   create_table "profiles", :force => true do |t|
     t.string   "diaspora_handle"
@@ -324,6 +323,8 @@ ActiveRecord::Schema.define(:version => 20110406202932) do
   create_table "tags", :force => true do |t|
     t.string "name"
   end
+
+  add_index "tags", ["name"], :name => "index_tags_on_name", :unique => true
 
   create_table "user_preferences", :force => true do |t|
     t.string   "email_type"
