@@ -66,7 +66,7 @@
     
     this.register("youtube.com",
         '<a href="//www.youtube.com/watch?v={{video-id}}" target="_blank">' + $.mustache(watchVideoOn, { provider: "YouTube" }) + '</a><br />' +
-        '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}"></iframe>');
+        '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}?wmode=opaque"></iframe>');
 
     this.register("vimeo.com",
       '<a href="http://vimeo.com/{{video-id}}">' + $.mustache(watchVideoOn, { provider: "Vimeo" }) + '</a><br />' +
