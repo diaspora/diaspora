@@ -81,11 +81,11 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "þúsund"
-          million: "milljón"
-          billion: "billjón"
-          trillion: "trilljón"
-          quadrillion: "grasilljón"
+          thousand: þúsund
+          million: milljón
+          billion: billjón
+          trillion: trilljón
+          quadrillion: grasilljón
 
   datetime:
     distance_in_words:

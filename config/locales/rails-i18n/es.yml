@@ -181,4 +181,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

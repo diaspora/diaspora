@@ -85,11 +85,11 @@ fi:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tuhatta"
-          million: "Euroa"
-          billion: "Miljardia"
-          trillion: "Biljoona"
-          quadrillion: "Kvadriljoona"
+          thousand: Tuhatta
+          million: Euroa
+          billion: Miljardia
+          trillion: Biljoona
+          quadrillion: Kvadriljoona
 
   datetime:
     distance_in_words:

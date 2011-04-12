@@ -80,11 +80,11 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Thousand"
-          million: "Million"
-          billion: "Billion"
-          trillion: "Trillion"
-          quadrillion: "Quadrillion"
+          thousand: Thousand
+          million: Million
+          billion: Billion
+          trillion: Trillion
+          quadrillion: Quadrillion
 
   datetime:
     distance_in_words:
@@ -177,4 +177,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

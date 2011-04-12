@@ -86,17 +86,17 @@
           unit: ""     
           thousand: "mil"
           million:
-            one: "milhão"
-            other: "milhões"
+            one: milhão
+            other: milhões
           billion:
-            one: "bilhão"
-            other: "bilhões"
+            one: bilhão
+            other: bilhões
           trillion:
-            one: "trilhão"
-            other: "trilhões"
+            one: trilhão
+            other: trilhões
           quadrillion:
-            one: "quatrilhão"
-            other: "quatrilhões"
+            one: quatrilhão
+            other: quatrilhões
 
   # distancia do tempo em palavras
   datetime:
@@ -196,4 +196,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

@@ -85,11 +85,11 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "אלף"
-          million: "מיליון"
-          billion: "מיליארד"
-          trillion: "טריליון"
-          quadrillion: "קודריליון"
+          thousand: אלף
+          million: מיליון
+          billion: מיליארד
+          trillion: טריליון
+          quadrillion: קודריליון
 
   datetime:
     distance_in_words:

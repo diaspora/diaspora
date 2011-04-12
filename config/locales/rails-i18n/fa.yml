@@ -82,11 +82,11 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "هزار"
-          million: "میلیون"
-          billion: "بیلیون"
-          trillion: "تریلیون"
-          quadrillion: "کادریلیون"
+          thousand: هزار
+          million: میلیون
+          billion: بیلیون
+          trillion: تریلیون
+          quadrillion: کادریلیون
 
   datetime:
     distance_in_words:

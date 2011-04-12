@@ -113,10 +113,10 @@ da:
     zero: "ingen aspekter"
   back: "Tilbage"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation: "%{link} alle steder fra ved at bogmærke dette link."
     explanation_link_text: "Post på Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    post_something: "Post noget til Diaspora"
+    post_success: "Posted! Lukker!"
   cancel: "Annullér"
   comments: 
     few: "%{count} kommentarer"
@@ -146,7 +146,7 @@ da:
     create: 
       sent: "Message sent"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "Samtale slettet med succes"
     helper: 
       new_messages: 
         few: "%{count} nye beskeder"
@@ -222,7 +222,7 @@ da:
       have_a_problem: "Har du et problem? Find svaret her"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Offentligt Diaspora nyheds feed for  %{name}"
-      toggle: "toggle mobile site"
+      toggle: "skift mobil side"
       whats_new: "Hvad er nyt?"
       your_aspects: "dine aspekter"
     header: 
@@ -248,7 +248,7 @@ da:
         zero: "ingen personer kunne lide det"
   more: "Mere"
   next: "Næste"
-  no_results: "No Results Found"
+  no_results: "Ingen resultater fundet"
   notifications: 
     also_commented: "kommenterede også på %{post_author}'s"
     also_commented_deleted: "kommenterede på en slettet post"

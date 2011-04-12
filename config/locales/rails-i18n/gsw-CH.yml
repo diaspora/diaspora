@@ -118,11 +118,11 @@ gsw-CH:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tuusig"
-          million: "Milioon"
-          billion: "Bilioon"
-          trillion: "Trilioon"
-          quadrillion: "Quadrilioon"
+          thousand: Tuusig
+          million: Milioon
+          billion: Bilioon
+          trillion: Trilioon
+          quadrillion: Quadrilioon
 
   support:
     array:
@@ -179,4 +179,4 @@ gsw-CH:
         <<: *errors_messages
         
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

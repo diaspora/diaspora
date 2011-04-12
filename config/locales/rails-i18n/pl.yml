@@ -82,11 +82,11 @@ pl:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tysiąc"
-          million: "Milion"
-          billion: "Miliard"
-          trillion: "Trylion"
-          quadrillion: "Kwadrylion"
+          thousand: Tysiąc
+          million: Milion
+          billion: Miliard
+          trillion: Trylion
+          quadrillion: Kwadrylion
 
   datetime:
     distance_in_words:
@@ -190,4 +190,4 @@ pl:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

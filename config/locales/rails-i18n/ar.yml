@@ -86,10 +86,10 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "ألف"
-          million: "مليون"
-          billion: "مليار"
-          trillion: "تريليون"
+          thousand: ألف
+          million: مليون
+          billion: مليار
+          trillion: تريليون
           quadrillion: الكدريليون رقم
 
   datetime:

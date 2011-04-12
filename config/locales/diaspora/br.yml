@@ -52,7 +52,7 @@ br:
     aspect_contacts: 
       done_editing: "done editing"
     aspect_stream: 
-      activity: "activity"
+      activity: "oberiantiz"
       post_time: "post time"
       sort_by: "diskouezh hervez:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
@@ -80,7 +80,7 @@ br:
       aspect_not_empty: "Aspect not empty"
       remove: "skarzhañ"
     index: 
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      handle_explanation: "Ar postel-mañ zo ho skor diaspora. E-giz ur chomlec'h-postel e c'hellit skignat anezhañ a-benn bezañ kavet gant an dud."
       no_contacts: "Darempred ebet"
       post_a_message: "post a message >>"
     manage: 
@@ -359,7 +359,7 @@ br:
       to_accept_or_ignore: "to accept or ignore it."
       you_have_no_tags: "you have no tags!"
     webfinger: 
-      fail: "Sorry, we couldn't find %{handle}."
+      fail: "Siwazh, n'eus ket moaien kavout %{handle}."
     zero: "den ebet"
   photos: 
     create: 
@@ -494,7 +494,7 @@ br:
   settings: "Settings"
   shared: 
     add_contact: 
-      create_request: "Find by Diaspora handle"
+      create_request: "Klask diwar ar skor Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
@@ -584,7 +584,7 @@ br:
       request_acceptence: "...your share request is accepted?"
       request_received: "...you receive a new share request?"
       your_email: "Ho postel"
-      your_handle: "Your diaspora handle"
+      your_handle: "Ho skor diaspora"
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Connect your other services"

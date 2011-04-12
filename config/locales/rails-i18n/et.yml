@@ -88,11 +88,11 @@ et:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "tuhat"
-          million: "miljon"
-          billion: "miljard"
-          trillion: "triljon"
-          quadrillion: "kvadriljon"
+          thousand: tuhat
+          million: miljon
+          billion: miljard
+          trillion: triljon
+          quadrillion: kvadriljon
 
   datetime:
     distance_in_words:

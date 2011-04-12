@@ -118,15 +118,15 @@ de:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tausend"
-          million: "Millionen"
+          thousand: Tausend
+          million: Millionen
           billion: 
-            one: "Milliarde"
-            others: "Milliarden"
-          trillion: "Billionen"
+            one: Milliarde
+            others: Milliarden
+          trillion: Billionen
           quadrillion: 
-            one: "Billiarde"
-            others: "Billiarden"
+            one: Billiarde
+            others: Billiarden
 
   support:
     array:
@@ -190,4 +190,4 @@ de:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

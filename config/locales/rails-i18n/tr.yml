@@ -3,7 +3,7 @@
 
 tr:
   locale:
-    native_name: "Türkçe"
+    native_name: Türkçe
     address_separator: " "
   date:
     formats:

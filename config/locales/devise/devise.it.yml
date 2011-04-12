@@ -12,7 +12,7 @@ it:
       send_instructions: "Tra pochi minuti riceverai una email per confermare il tuo account."
     failure: 
       inactive: "Il tuo account non è ancora stato attivato."
-      invalid: "Email o password errati."
+      invalid: "Nome utente o password errati."
       invalid_token: "Token di autenticazione errato."
       locked: "Il tuo account è bloccato."
       timeout: "La tua sessione è scaduta, effettua di nuovo l'accesso per continuare."

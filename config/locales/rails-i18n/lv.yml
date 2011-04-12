@@ -116,11 +116,11 @@ lv:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tūkstotis"
-          million: "Miljons"
-          billion: "Biljons"
-          trillion: "Triljons"
-          quadrillion: "Kvadriljons"
+          thousand: Tūkstotis
+          million: Miljons
+          billion: Biljons
+          trillion: Triljons
+          quadrillion: Kvadriljons
 
   support:
     array:

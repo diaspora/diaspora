@@ -85,11 +85,11 @@
                 format: "%n %u"
                 units:
                    unit: ""
-                   thousand: "Tisíc"
-                   million: "Milión"
-                   billion: "Miliarda"
-                   trillion: "Trilión"
-                   quadrillion: "Quadrilión"
+                   thousand: Tisíc
+                   million: Milión
+                   billion: Miliarda
+                   trillion: Trilión
+                   quadrillion: Quadrilión
 
     # Distance of time ... helper
     datetime:
