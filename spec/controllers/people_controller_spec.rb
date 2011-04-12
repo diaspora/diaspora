@@ -239,6 +239,14 @@ describe PeopleController do
       end
     end
   end
+  describe '#contacts' do
+    it 'assigns the contacts of a person' do
+      contact = alice.contact_for(bob.person)
+      contacts = contact.contacts
+      get :contacts, :id => bob.person.id
+      assigns(:contacts_of_contact).should == contacts
+    end
+  end
 
   describe '#webfinger' do
     it 'enqueues a webfinger job' do

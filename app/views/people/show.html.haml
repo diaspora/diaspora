@@ -13,14 +13,16 @@
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
   - if user_signed_in? && @contact.persisted? && @contacts_of_contact.count > 0
-    .span-8.last
+    .span-8.last#contacts_of_contact
       %hr{:style=>"width:300px;"}
       .section.contact_pictures
         %h4
-          = @contacts_of_contact.length
-          = t('.similar_contacts')
+          = @contacts_of_contact_count
+          = t('.contacts_of_contact')
         - for person in @contacts_of_contact
           = person_image_link person
+      - if @contacts_of_contact.count > 25
+        %p.see_all= link_to t('.see_all'), person_path(@person)
 
 .span-15.last
   #author_info
