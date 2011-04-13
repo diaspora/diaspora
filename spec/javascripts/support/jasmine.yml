@@ -37,6 +37,7 @@ src_files:
   - public/javascripts/stream.js
   - public/javascripts/validation.js
   - public/javascripts/rails.js
+  - public/javascripts/aspect-filters.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.
