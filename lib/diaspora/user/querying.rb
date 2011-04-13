@@ -19,7 +19,8 @@ module Diaspora
         opts[:order] ||= 'updated_at DESC'
         opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
-        opts[:offset] = opts[:page].nil? || opts[:page] == 1 ? 0 : opts[:limit] * (opts[:page] - 1)
+        opts[:page] ||= 1
+        opts[:offset] = opts[:page] == 1 ? 0 : opts[:limit] * (opts[:page] - 1)
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
@@ -31,10 +32,10 @@ module Diaspora
           posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).offset(opts[:offset]).order(order_with_table)
-        posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).offset(opts[:offset]).order(order_with_table)
+        posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]*opts[:page]).order(order_with_table)
+        posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]*opts[:page]).order(order_with_table)
 
-        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]} OFFSET #{opts[:offset]}"
         post_ids = Post.connection.execute(all_posts).map{|r| r.first}
 
         Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
