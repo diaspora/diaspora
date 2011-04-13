@@ -31,7 +31,7 @@ class ApisController < ApplicationController #We should start with this versione
   def home_timeline
     set_defaults
     timeline = current_user.visible_posts(:max_time => params[:max_time],
-                                          :per_page => params[:per_page],
+                                          :limit => params[:per_page],
                                           :order => "#{params[:order]} DESC").includes(:comments, :photos, :likes, :dislikes)
     respond_with timeline do |format|
       format.json{ render :json => timeline.to_json(:format => :twitter) }
