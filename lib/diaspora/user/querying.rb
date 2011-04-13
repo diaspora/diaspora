@@ -12,15 +12,16 @@ module Diaspora
         post ||= Post.where(:id => id, :public => true).where(opts).first
       end
 
-      def raw_visible_posts(opts = {})
+      def visible_posts(opts = {})
         opts = opts.dup
         opts[:type] ||= ['StatusMessage', 'Photo']
         opts[:limit] ||= 15
         opts[:order] ||= 'updated_at DESC'
+        order_field = opts[:order].split.first.to_sym
         opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
-        opts[:page] ||= 1
-        opts[:offset] = opts[:page] == 1 ? 0 : opts[:limit] * (opts[:page] - 1)
+        opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].instance_of?(Fixnum)
+        opts[:max_time] ||= Time.now + 1
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
@@ -32,17 +33,17 @@ module Diaspora
           posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]*opts[:page]).order(order_with_table)
-        posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]*opts[:page]).order(order_with_table)
+        posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+        posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
 
-        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]} OFFSET #{opts[:offset]}"
+        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
         post_ids = Post.connection.execute(all_posts).map{|r| r.first}
 
         Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
 
-      def visible_photos
-        raw_visible_posts(:type => 'Photo')
+      def visible_photos(opts = {})
+        visible_posts(opts.merge(:type => 'Photo'))
       end
 
       def contact_for(person)

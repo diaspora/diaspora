@@ -11,7 +11,7 @@ describe User do
     @eves_aspect = eve.aspects.first
   end
 
-  describe "#raw_visible_posts" do
+  describe "#visible_posts" do
     it "returns all the posts the user can see" do
       connect_users(eve, @eves_aspect, alice, @alices_aspect)
       self_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
@@ -19,7 +19,7 @@ describe User do
       dogs = eve.aspects.create(:name => "dogs")
       invisible_post = eve.post(:status_message, :text => "foobar", :to => dogs.id)
 
-      stream = alice.raw_visible_posts
+      stream = alice.visible_posts
       stream.should include(self_post)
       stream.should include(visible_post)
       stream.should_not include(invisible_post)
@@ -31,28 +31,35 @@ describe User do
         (1..25).each do |n|
           [alice, bob, eve].each do |u|
             post = u.post :status_message, :text => "#{u.username} - #{n}", :to => u.aspects.first.id
-            post.created_at = post.created_at + time_interval
-            post.updated_at = post.updated_at + time_interval
+            post.created_at = post.created_at - time_interval
+            post.updated_at = post.updated_at - time_interval
             post.save
             time_interval += 1000
           end
         end
       end
       it 'works' do #This is in one spec to save time
-        bob.raw_visible_posts.length.should == 15 #it returns 15 by default
-        bob.raw_visible_posts.should == bob.raw_visible_posts(:by_members_of => bob.aspects.map{|a| a.id}) # it is the same when joining through aspects
-        bob.raw_visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts.map{|p| p.id}.reverse #it is sorted updated_at desc by default
+        bob.visible_posts.length.should == 15 #it returns 15 by default
+        bob.visible_posts.should == bob.visible_posts(:by_members_of => bob.aspects.map{|a| a.id}) # it is the same when joining through aspects
+        bob.visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts.map{|p| p.id}.reverse #it is sorted updated_at desc by default
 
         opts = {:limit => 40}
-        bob.raw_visible_posts(opts).length.should == 40 #it takes a limit
-        bob.raw_visible_posts(opts).should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id}))
-        bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
+        bob.visible_posts(opts).length.should == 40 #it takes a limit
+        bob.visible_posts(opts).should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id}))
+        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
 
-        opts = {:page => 2}
-        bob.raw_visible_posts(opts).length.should == 15
-        bob.raw_visible_posts(opts).map{|p| p.id}.should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
-        bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
-        bob.raw_visible_posts(opts).map{|p|p.id}.should == bob.raw_visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
+        last_time_of_last_page =  bob.visible_posts.last.updated_at
+        opts = {:max_time => last_time_of_last_page}
+        bob.visible_posts(opts).length.should == 15
+        bob.visible_posts(opts).map{|p| p.id}.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
+        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
+        bob.visible_posts(opts).map{|p|p.id}.should == bob.visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
+
+        opts = {:max_time => last_time_of_last_page.to_i}
+        bob.visible_posts(opts).length.should == 15
+        bob.visible_posts(opts).map{|p| p.id}.should == bob.visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
+        bob.visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.visible_posts(opts).map{|p| p.id}.reverse
+        bob.visible_posts(opts).map{|p|p.id}.should == bob.visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
       end
     end
   end
@@ -72,7 +79,7 @@ describe User do
 
     describe "#visible_posts" do
       it "queries by person id" do
-        query = eve.raw_visible_posts.where(:author_id => eve.person.id)
+        query = eve.visible_posts.where(:author_id => eve.person.id)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == false
@@ -81,7 +88,7 @@ describe User do
       end
 
       it "selects public posts" do
-        query = eve.raw_visible_posts.where(:public => true)
+        query = eve.visible_posts.where(:public => true)
         query.include?(@status_message1).should == false
         query.include?(@status_message2).should == true
         query.include?(@status_message3).should == true
@@ -90,7 +97,7 @@ describe User do
       end
 
       it "selects non public posts" do
-        query = eve.raw_visible_posts.where(:public => false)
+        query = eve.visible_posts.where(:public => false)
         query.include?(@status_message1).should == true
         query.include?(@status_message2).should == false
         query.include?(@status_message3).should == false
@@ -99,13 +106,13 @@ describe User do
       end
 
       it "selects by message contents" do
-        query = eve.raw_visible_posts.where(:text=> "hi")
+        query = eve.visible_posts.where(:text=> "hi")
         query.should == [@status_message1]
       end
 
       it "does not return pending posts" do
         @pending_status_message.pending.should be_true
-        eve.raw_visible_posts.should_not include @pending_status_message
+        eve.visible_posts.should_not include @pending_status_message
       end
 
       it '#find_visible_post_by_id' do

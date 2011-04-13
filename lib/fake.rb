@@ -1,6 +1,6 @@
 class PostsFake
   attr_reader :people_hash, :post_fakes
-  delegate :length, :each, :to_ary, :to => :post_fakes
+  delegate :length, :each, :to_ary, :last, :to => :post_fakes
 
   def initialize(posts)
     author_ids = []

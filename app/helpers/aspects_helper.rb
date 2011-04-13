@@ -3,6 +3,9 @@
 #   the COPYRIGHT file.
 
 module AspectsHelper
+  def next_page_path
+    aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
+  end
   def link_for_aspect(aspect, opts={})
     opts[:params] ||= {}
     params ||= {}

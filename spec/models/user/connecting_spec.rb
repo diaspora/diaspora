@@ -275,9 +275,9 @@ describe Diaspora::UserModules::Connecting do
         end
 
         it "deletes the disconnected user's posts from visible_posts" do
-          bob.reload.raw_visible_posts.include?(@message).should be_true
+          bob.reload.visible_posts.include?(@message).should be_true
           bob.disconnect bob.contact_for(alice.person)
-          bob.reload.raw_visible_posts.include?(@message).should be_false
+          bob.reload.visible_posts.include?(@message).should be_false
         end
 
       end

@@ -30,7 +30,7 @@ describe "attack vectors" do
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
-      user.raw_visible_posts.include?(post_from_non_contact).should be_false
+      user.visible_posts.include?(post_from_non_contact).should be_false
       Post.count.should == post_count
     end
 
@@ -49,7 +49,7 @@ describe "attack vectors" do
     zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
     zord.perform
 
-    user3.reload.raw_visible_posts.should_not include(StatusMessage.find(original_message.id))
+    user3.reload.visible_posts.should_not include(StatusMessage.find(original_message.id))
   end
 
   context 'malicious contact attack vector' do
@@ -89,10 +89,10 @@ describe "attack vectors" do
           zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
           zord.perform
 
-        }.should_not change{user.reload.raw_visible_posts.count}
+        }.should_not change{user.reload.visible_posts.count}
 
         original_message.reload.text.should == "store this!"
-        user.raw_visible_posts.first.text.should == "store this!"
+        user.visible_posts.first.text.should == "store this!"
       end
     end
     it 'should not overwrite another persons profile profile' do
@@ -119,7 +119,7 @@ describe "attack vectors" do
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
-      user.raw_visible_posts.count.should == 1
+      user.visible_posts.count.should == 1
       StatusMessage.count.should == 1
 
       ret = Retraction.new
@@ -132,7 +132,7 @@ describe "attack vectors" do
       zord.perform
 
       StatusMessage.count.should == 1
-      user.raw_visible_posts.count.should == 1
+      user.visible_posts.count.should == 1
     end
 
     it "disregards retractions for non-existent posts that are from someone other than the post's author" do
@@ -163,7 +163,7 @@ describe "attack vectors" do
       zord.perform
 
 
-      user.raw_visible_posts.count.should == 1
+      user.visible_posts.count.should == 1
 
       ret = Retraction.new
       ret.post_guid = original_message.guid
@@ -177,7 +177,7 @@ describe "attack vectors" do
         zord.perform
 
       }.should_not change(StatusMessage, :count)
-      user.reload.raw_visible_posts.count.should == 1
+      user.reload.visible_posts.count.should == 1
     end
 
     it 'it should not allow you to send retractions for other people' do

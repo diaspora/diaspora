@@ -64,7 +64,7 @@ module Diaspora
             }
 
             xml.posts {
-              user.raw_visible_posts.find_all_by_author_id(user_person_id).each do |post|
+              user.visible_posts.find_all_by_author_id(user_person_id).each do |post|
                 #post.comments.each do |comment|
                 #  post_doc << comment.to_xml
                 #end

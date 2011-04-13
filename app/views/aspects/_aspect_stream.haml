@@ -13,6 +13,6 @@
   - if posts.length > 0
     = render 'shared/stream', :posts => posts
     #pagination
-      =link_to(t('more'), aspects_path(:page => next_page, :a_ids => params[:a_ids]), :class => 'paginate')
+      =link_to(t('more'), next_page_path, :class => 'paginate')
   - else
     = render 'aspects/no_posts_message', :post_count => posts.length

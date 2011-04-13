@@ -8,9 +8,9 @@ Diaspora.widgets.add("directionDetector", function() {
 
   this.start = function() {
     Diaspora.widgets.directionDetector.updateBinds();
-    InfiniteScroll.postScrollCallback = function() {
+    InfiniteScroll.postScroll(function() {
       Diaspora.widgets.directionDetector.updateBinds();
-    }
+    });
   };
 
   this.isRTL = function(str) {
@@ -41,7 +41,7 @@ Diaspora.widgets.add("directionDetector", function() {
   this.cleaner = new RegExp('@[^ ]+|^RT[: ]{1}| RT | RT: |[♺♻:]+', 'g');
 
   this.binds = [];
-  
+
   this.updateBinds = function() {
     $.each(Diaspora.widgets.directionDetector.binds, function(i, v) {v.unbind('keyup', Diaspora.widgets.directionDetector.updateDirection);});
     Diaspora.widgets.directionDetector.binds = [];

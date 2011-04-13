@@ -66,7 +66,7 @@ describe 'a user receives a post' do
       bob.dispatch_post(sm, :to => bob.aspects.first)
     end
 
-    alice.raw_visible_posts.count.should == 1
+    alice.visible_posts.count.should == 1
   end
 
   context 'mentions' do
@@ -158,14 +158,14 @@ describe 'a user receives a post' do
     end
 
     it "adds a received post to the the contact" do
-      @user1.raw_visible_posts.include?(@status_message).should be_true
+      @user1.visible_posts.include?(@status_message).should be_true
       @contact.posts.include?(@status_message).should be_true
     end
 
     it 'removes posts upon disconnecting' do
       @user1.disconnect(@contact)
       @user1.reload
-      @user1.raw_visible_posts.should_not include @status_message
+      @user1.visible_posts.should_not include @status_message
     end
 
     context 'dependant delete' do
@@ -243,7 +243,7 @@ describe 'a user receives a post' do
       end
 
       it 'should correctly attach the user already on the pod' do
-        @user2.reload.raw_visible_posts.size.should == 1
+        @user2.reload.visible_posts.size.should == 1
         post_in_db = StatusMessage.find(@post.id)
         post_in_db.comments.should == []
         receive_with_zord(@user2, @user1.person, @xml)
@@ -270,7 +270,7 @@ describe 'a user receives a post' do
           end
         }
 
-        @user2.reload.raw_visible_posts.size.should == 1
+        @user2.reload.visible_posts.size.should == 1
         post_in_db = StatusMessage.find(@post.id)
         post_in_db.comments.should == []
 
@@ -341,7 +341,7 @@ describe 'a user receives a post' do
       zord = Postzord::Receiver.new(@user2, :salmon_xml => salmon_xml)
       zord.perform
 
-      @user2.raw_visible_posts.include?(post).should be_true
+      @user2.visible_posts.include?(post).should be_true
     end
   end
 

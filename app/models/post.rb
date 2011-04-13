@@ -77,7 +77,7 @@ class Post < ActiveRecord::Base
 
     local_post = Post.where(:guid => self.guid).first
     if local_post && local_post.author_id == self.author_id
-      known_post = user.raw_visible_posts.where(:guid => self.guid).first
+      known_post = user.visible_posts.where(:guid => self.guid).first
       if known_post
         if known_post.mutable?
           known_post.update_attributes(self.attributes)
