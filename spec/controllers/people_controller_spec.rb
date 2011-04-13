@@ -154,16 +154,26 @@ describe PeopleController do
         response.should be_success
       end
 
-      it "assigns only public posts" do
-        public_posts = []
-        public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
-        bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
-        bob.post(:status_message, :text => "to all aspects", :to => 'all')
-        public_posts << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
+      context 'with posts' do
+        before do
+          @public_posts = []
+          @public_posts << bob.post(:status_message, :text => "first public ", :to => bob.aspects[0].id, :public => true)
+          bob.post(:status_message, :text => "to an aspect @user is not in", :to => bob.aspects[1].id)
+          bob.post(:status_message, :text => "to all aspects", :to => 'all')
+          @public_posts << bob.post(:status_message, :text => "public", :to => 'all', :public => true)
+          @public_posts.first.created_at -= 1000
+          @public_posts.first.save
+        end
 
-        get :show, :id => @person.id
+        it "assigns only public posts" do
+          get :show, :id => @person.id
+          assigns[:posts].models.should =~ @public_posts
+        end
 
-        assigns[:posts].models.should =~ public_posts
+        it 'is sorted by created_at desc' do
+          get :show, :id => @person.id
+          assigns[:posts].models.should == @public_posts.sort_by{|p| p.created_at}.reverse
+        end
       end
 
       it 'throws 404 if the person is remote' do

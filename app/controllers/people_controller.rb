@@ -97,10 +97,11 @@ class PeopleController < ApplicationController
         @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).limit(15).offset(15*(params[:page]-1))
       else
         @commenting_disabled = true
-        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).offset(15*(params[:page]-1))
+        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).offset(15*(params[:page]-1)).order('posts.created_at DESC')
       end
 
       @posts = PostsFake.new(@posts)
+
       if params[:only_posts]
         render :partial => 'shared/stream', :locals => {:posts => @posts}
       else
