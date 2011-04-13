@@ -39,12 +39,12 @@ describe User do
         end
       end
       it 'works' do #This is in one spec to save time
-        bob.raw_visible_posts.length.should == 15
-        bob.raw_visible_posts.should == bob.raw_visible_posts(:by_members_of => bob.aspects.map{|a| a.id})
-        bob.raw_visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts.map{|p| p.id}.reverse
+        bob.raw_visible_posts.length.should == 15 #it returns 15 by default
+        bob.raw_visible_posts.should == bob.raw_visible_posts(:by_members_of => bob.aspects.map{|a| a.id}) # it is the same when joining through aspects
+        bob.raw_visible_posts.sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts.map{|p| p.id}.reverse #it is sorted updated_at desc by default
 
         opts = {:limit => 40}
-        bob.raw_visible_posts(opts).length.should == 40
+        bob.raw_visible_posts(opts).length.should == 40 #it takes a limit
         bob.raw_visible_posts(opts).should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id}))
         bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
 
@@ -52,6 +52,7 @@ describe User do
         bob.raw_visible_posts(opts).length.should == 15
         bob.raw_visible_posts(opts).map{|p| p.id}.should == bob.raw_visible_posts(opts.merge(:by_members_of => bob.aspects.map{|a| a.id})).map{|p| p.id}
         bob.raw_visible_posts(opts).sort_by{|p| p.updated_at}.map{|p| p.id}.should == bob.raw_visible_posts(opts).map{|p| p.id}.reverse
+        bob.raw_visible_posts(opts).map{|p|p.id}.should == bob.raw_visible_posts(:limit => 40)[15...30].map{|p|p.id} #pagination should return the right posts
       end
     end
   end
