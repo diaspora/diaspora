@@ -1,33 +1,5 @@
-:javascript
-  $('.stream_element').live('mousedown', function(evt){
-    var note = $(this).closest('.stream_element'),
-        note_id = note.attr('data-guid'),
-        nBadge = $("#notification_badge_number");
-
-    if(note.hasClass('unread') ){
-      note.removeClass('unread');
-      $.ajax({
-        url: 'notifications/' + note_id,
-        type: 'PUT'
-      });
-    }
-      if(nBadge.html() != null) {
-      nBadge.html().replace(/\d+/, function(num){
-        num = parseInt(num);
-        nBadge.html(parseInt(num)-1);
-        if(num == 1) {
-          nBadge.addClass("hidden");
-        }
-    });
-
-    }
-  });
-
-  $('a.more').live('click', function(){
-    $(this).hide();
-    $(this).next('span').removeClass('hidden');
-  });
-
+- content_for :head do
+  = include_javascripts :notifications
 .span-1
   = image_tag 'icons/mail_big.png', :height => 30, :width => 30, :style=>"margin-top:3px;"
 .span-10

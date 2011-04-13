@@ -66,6 +66,8 @@ javascripts:
     - public/javascripts/inbox.js
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
+  notifications:
+    - public/javascripts/notifications.js
 
 stylesheets:
   default:
