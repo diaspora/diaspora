@@ -27,33 +27,29 @@ var AspectFilters = {
     });
   },
   interceptAspectLinks: function(){
-    $("a.hard_aspect_link").live("click", function(e){
-      var link = $(this);
-      if( !link.hasClass('aspect_selector') ){
-        e.preventDefault();
-        AspectFilters.requests++;
+    $("a.hard_aspect_link").live("click", AspectFilters.aspectLinkClicked);
+  },
+  aspectLinkClicked: function(e){
+    var link = $(this);
+    e.preventDefault();
+    if( !link.hasClass('aspect_selector') ){
+      AspectFilters.switchToAspect(link);
+    }
 
-        var guid = $(this).attr('data-guid');
+    $('html, body').animate({scrollTop:0}, 'fast');
+  },
+  switchToAspect: function(aspectLi){
+    AspectFilters.requests++;
 
-        // select correct aspect in filter list & deselect others
-        $("#aspect_nav li").each(function(){
-          var $this = $(this);
-          if( $this.attr('data-guid') == guid){
-            $this.addClass('selected');
-          } else {
-            $this.removeClass('selected');
-          }
-        });
+    var guid = aspectLi.attr('data-guid');
 
-        // loading animation
-        $("#aspect_stream_container").fadeTo(200, 0.4);
-        $("#aspect_contact_pictures").fadeTo(200, 0.4);
+    // select correct aspect in filter list & deselect others
+    $("#aspect_nav li").removeClass('selected');
+    link.addClass('selected');
 
-        AspectFilters.performAjax( $(this).attr('href'));
-      }
+    AspectFilters.fadeOut();
 
-      $('html, body').animate({scrollTop:0}, 'fast');
-    });
+    AspectFilters.performAjax( aspectLi.attr('href'));
   },
   interceptAspectNavLinks: function(){
     $("#aspect_nav a.aspect_selector").click(function(e){
@@ -62,8 +58,7 @@ var AspectFilters = {
       AspectFilters.requests++;
 
       // loading animation
-      $("#aspect_stream_container").fadeTo(100, 0.4);
-      $("#aspect_contact_pictures").fadeTo(100, 0.4);
+      AspectFilters.fadeOut();
 
       // filtering //////////////////////
       var $this = $(this),
@@ -139,8 +134,8 @@ var AspectFilters = {
     //pass photos
     $('#photodropzone img').each(function(){
       var img = $(this);
-      guid = img.attr('data-id');
-      url = img.attr('src');
+      var guid = img.attr('data-id');
+      var url = img.attr('src');
       photos[guid] = url;
     });
 
@@ -181,12 +176,19 @@ var AspectFilters = {
 
         // fade contents back in
         if(AspectFilters.requests == 0){
-          $("#aspect_stream_container").fadeTo(100, 1);
-          $("#aspect_contact_pictures").fadeTo(100, 1);
+          AspectFilters.fadeIn();
           AspectFilters.performAspectUpdate();
         }
       }
     });
+  },
+  fadeIn: function(){
+    $("#aspect_stream_container").fadeTo(100, 1);
+    $("#aspect_contact_pictures").fadeTo(100, 1);
+  },
+  fadeOut: function(){
+    $("#aspect_stream_container").fadeTo(100, 0.4);
+    $("#aspect_contact_pictures").fadeTo(100, 0.4);
   }
 }
 $(document).ready(function(){
