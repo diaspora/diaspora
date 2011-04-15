@@ -6,12 +6,14 @@
 var Stream = {
   initialize: function() {
     var $stream = $(".stream");
-    var $publisher = $("#publisher");
 
     $(".status_message_delete").tipsy({trigger: 'hover', gravity: 'n'});
 
+    Diaspora.widgets.subscribe("stream/reloaded", Stream.initialized);
     Diaspora.widgets.timeago.updateTimeAgo();
     Diaspora.widgets.directionDetector.updateBinds();
+
+
     $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
     //audio linx
     Stream.setUpAudioLinks();

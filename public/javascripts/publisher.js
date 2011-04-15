@@ -346,10 +346,7 @@ var Publisher = {
     });
   },
   initialize: function() {
-    Publisher.cachedForm = false;
-    Publisher.cachedInput = false;
-    Publisher.cachedHiddenInput = false;
-    Publisher.cachedSubmit = false;
+    Diaspora.widgets.subscribe("stream/reloaded", Publisher.initialize);
 
     Publisher.bindServiceIcons();
     Publisher.bindPublicIcon();
@@ -357,7 +354,7 @@ var Publisher = {
 
     if ($("#status_message_fake_text").val() == "") {
       Publisher.close();
-    };
+    }
 
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());

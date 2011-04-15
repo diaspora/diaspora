@@ -24,12 +24,13 @@ var InfiniteScroll = {
   },
   postScrollCallbacks: [],
   initialize: function(){
+    Diaspora.widgets.subscribe("stream/reloaded", InfiniteScroll.initialize);
     $('#main_stream').infinitescroll(InfiniteScroll.options, InfiniteScroll.postScrollCallback);
   },
   postScroll: function( callback ){
     InfiniteScroll.postScrollCallbacks.push(callback);
   }
-}
+};
 
 $(document).ready(function() {
   InfiniteScroll.initialize();

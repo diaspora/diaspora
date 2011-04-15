@@ -48,7 +48,7 @@ var AspectFilters = {
 
     // select correct aspect in filter list & deselect others
     $("#aspect_nav li").removeClass('selected');
-    link.addClass('selected');
+    aspectLi.addClass('selected');
 
     AspectFilters.fadeOut();
 
@@ -168,14 +168,11 @@ var AspectFilters = {
         for(var key in photos){
           $("#publisher textarea").addClass("with_attachments");
           photos_html = photos_html + "<li style='position:relative;'> " + ("<img src='" + photos[key] +"' data-id='" + key + "'>") +  "</li>";
-        };
+        }
 
         // reinit listeners on stream
         photozone.html(photos_html);
-        Stream.initialize();
-        InfiniteScroll.initialize();
-
-        Publisher.initialize();
+        Diaspora.widgets.publish("stream/reloaded");
 
         // fade contents back in
         if(AspectFilters.requests == 0){
