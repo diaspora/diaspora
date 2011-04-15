@@ -28,8 +28,11 @@
 
   Diaspora.WidgetCollection.prototype.init = function() {
     this.initialized = true;
+    
     for(var widgetId in this.collection) {
-      this.collection[widgetId].start();
+      if(this.collection[widgetId].hasOwnProperty("start")) {
+        this.collection[widgetId].start();
+      }
     }
   };
 
