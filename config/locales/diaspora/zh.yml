@@ -179,7 +179,7 @@ zh:
     helper: 
       correct_the_following_errors_and_try_again: "请改正下面显示的错误并重试一遍。"
       invalid_fields: "无效字段"
-  fill_me_out: "Fill me out"
+  fill_me_out: "填满"
   hide: "Hide"
   home: 
     show: 
@@ -219,12 +219,12 @@ zh:
       to: "给"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "有问题吗，在这找答案吧"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
-      whats_new: "what's new?"
-      your_aspects: "your aspects"
+      whats_new: "最新的是什么"
+      your_aspects: "方方面面"
     header: 
       blog: "博客"
       code: "代码"
@@ -354,7 +354,7 @@ zh:
       recent_posts: "最近的帖子"
       recent_public_posts: "重新发布一遍公开贴"
       return_to_aspects: "返回分组页面"
-      similar_contacts: "相似联系人"
+      see_all: "See all"
       start_sharing: "start sharing"
       to_accept_or_ignore: "接受或者忽略。"
       you_have_no_tags: "you have no tags!"
@@ -364,7 +364,7 @@ zh:
   photos: 
     create: 
       integrity_error: "图片上传失败，你肯定你上传的是图片吗？"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
+      runtime_error: "图片上传失败，你确定安全带已经系好了"
       type_error: "图片上传失败，你确定你上传的是一张图片吗？"
     destroy: 
       notice: "照片已被删除。"
@@ -388,7 +388,7 @@ zh:
       delete_photo: "删除照片"
       edit: "编辑"
       edit_delete_photo: "编辑照片说明 / 删除照片"
-      make_profile_photo: "make profile photo"
+      make_profile_photo: "制作文件图片"
       original_post: "Original Post"
       permalink: "永久链接"
       update_photo: "更新照片"
@@ -486,11 +486,11 @@ zh:
       logged_in_as: "登入为"
       really_disconnect: "断开%{service}吗？"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      click_link_to_accept_invitation: "点击这个链接接受你的邀请"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "邀请"
+      resend: "重发"
   settings: "设置"
   shared: 
     add_contact: 

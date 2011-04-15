@@ -354,7 +354,7 @@ fi:
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
       return_to_aspects: "Palaa näkymiin"
-      similar_contacts: "Yhteiset kontaktit"
+      see_all: "See all"
       start_sharing: "aloita jakamaan"
       to_accept_or_ignore: "hyväksyäksesi, tai hylätäksesi sen."
       you_have_no_tags: "Sinulla ei ole tageja!"

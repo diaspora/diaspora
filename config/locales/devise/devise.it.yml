@@ -71,7 +71,7 @@ it:
         modern_browsers: "supporta soltano i browser recenti."
         password: "Password"
         remember_me: "Ricordami"
-        sign_in: "Registrati"
+        sign_in: "Accedi"
         username: "Nome utente"
       signed_in: "Accesso effettuato con successo."
       signed_out: "Disconnessione effettuata con successo."

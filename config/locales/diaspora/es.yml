@@ -42,59 +42,59 @@ es:
   are_you_sure: "¿Estás seguro?"
   aspect_memberships: 
     destroy: 
-      failure: "No se pudo eliminar a la persona del Aspecto"
-      no_membership: "No se pudo encontrar a la persona seleccionada en ese Aspecto"
-      success: "Persona eliminada con éxito del Aspecto"
+      failure: "No se pudo eliminar a la persona del aspecto"
+      no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto"
+      success: "Persona eliminada con éxito del aspecto"
   aspects: 
     add_to_aspect: 
-      failure: "Error añadiendo el contacto al Aspecto."
-      success: "Contacto añadido con éxito al Aspecto."
+      failure: "Error añadiendo el contacto al aspecto."
+      success: "Contacto añadido con éxito al aspecto."
     aspect_contacts: 
       done_editing: "Aceptar"
     aspect_stream: 
       activity: "actividad"
       post_time: "fecha de publicación"
       sort_by: "ordenar por:"
-    contacts_not_visible: "Los contactos de este Aspecto no podrán verse."
-    contacts_visible: "Los contactos de este Aspecto podrán verse."
+    contacts_not_visible: "Los contactos de este aspecto no podrán verse."
+    contacts_visible: "Los contactos de este aspecto podrán verse."
     create: 
-      failure: "Error creando el Aspecto."
-      success: "Tu nuevo Aspecto %{name} fue creado."
+      failure: "Error creando el aspecto."
+      success: "Tu nuevo aspecto %{name} fue creado."
     destroy: 
       failure: "El aspecto %{name} no está vacío y no pudo ser borrado."
       success: "%{name} fue eliminado con éxito."
     edit: 
       add_existing: "Añadir un contacto existente."
-      aspect_list_is_not_visible: "Lista de contactos oculta para los demás en el Aspecto"
-      aspect_list_is_visible: "Lista de contactos visible para los demás en el Aspecto"
-      confirm_remove_aspect: "¿Seguro que quieres eliminar este Aspecto?"
+      aspect_list_is_not_visible: "la lista de contactos del aspecto está ocultada"
+      aspect_list_is_visible: "la lista de contactos del aspecto es visible"
+      confirm_remove_aspect: "¿Seguro que quieres eliminar este aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "Hacer visible la lista de contactos en el Aspecto."
-      remove_aspect: "Eliminar este Aspecto"
+      make_aspect_list_visible: "Lista de contactos del aspecto visible."
+      remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "Actualizar"
       updating: "actualizando"
     few: "%{count} aspectos"
     helper: 
-      are_you_sure: "¿Seguro que quieres eliminar este Aspecto?"
-      aspect_not_empty: "El Aspecto no está vacío"
+      are_you_sure: "¿Seguro que quieres eliminar este aspecto?"
+      aspect_not_empty: "El aspecto no está vacío"
       remove: "eliminar"
     index: 
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       post_a_message: "publica un mensaje >>"
     manage: 
-      add_a_new_aspect: "Añadir nuevo Aspecto"
+      add_a_new_aspect: "Añadir nuevo aspecto"
       add_a_new_contact: "Añadir nuevo contacto"
       drag_to_add: "Arrastrar para añadir"
-      manage_aspects: "Gestionar Aspectos"
+      manage_aspects: "Gestión de aspectos"
       no_requests: "No hay nuevas solicitudes"
       requests: "Solicitudes"
     many: "%{count} aspectos"
     move_contact: 
       error: "Error moviendo el contacto: %{inspect}"
       failure: "%{inspect} no funcionó"
-      success: "Contacto movido al nuevo Aspecto"
+      success: "El contacto fue movido al nuevo aspecto"
     new_aspect: 
       create: "Crear"
       name: "Nombre"
@@ -106,10 +106,10 @@ es:
       family: "Familia"
       work: "Trabajo"
     show: 
-      edit_aspect: "editar Aspecto"
+      edit_aspect: "editar aspecto"
     update: 
-      failure: "Tu Aspecto, %{name}, tenía un nombre demasiado largo para guardarlo."
-      success: "Tu Aspecto, %{name}, fue editado con éxito."
+      failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
+      success: "Tu aspecto, %{name}, fue editado con éxito."
     zero: "no hay aspectos"
   back: "Atrás"
   bookmarklet: 
@@ -139,7 +139,7 @@ es:
     other: "%{count} contactos"
     share_with_pane: 
       accepts: "Una vez que %{name} acepte, veras sus demás publicaciones en Diaspora*"
-      add_new_aspect: "añadir nuevo Aspecto"
+      add_new_aspect: "añadir nuevo aspecto"
       share_with: "Empezar a compartir con %{name}"
     zero: "no hay contactos"
   conversations: 
@@ -185,7 +185,7 @@ es:
     show: 
       already_account: "¿Todavía no tienes una cuenta?"
       choice: "Elección"
-      choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados Aspectos. En Diaspora*, los Aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
+      choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados aspectos. En Diaspora*, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende acerca de cómo hostear tu propio servidor Diaspora*."
       login_here: "conectar aquí"
       ownership: "propiedad"
@@ -210,7 +210,7 @@ es:
       already_invited: "Ya invitado"
       aspect: "Aspecto"
       comma_seperated_plz: "Puedes escribir múltiples direcciones de correo separadas por comas."
-      if_they_accept_info: "Si aceptan, serán añadidos al Aspecto que selecciones."
+      if_they_accept_info: "Si aceptan, serán añadidos al aspecto que selecciones."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
       personal_message: "Mensaje Personal"
       resend: "Reenviado"
@@ -224,7 +224,7 @@ es:
       public_feed: "Canal público de %{name} "
       toggle: "cambiar sitio movil"
       whats_new: "Novedades en Diaspora*"
-      your_aspects: "Tus Aspectos"
+      your_aspects: "tus aspectos"
     header: 
       blog: "Blog"
       code: "Código"
@@ -266,7 +266,7 @@ es:
       and_others: "y otros %{number}"
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
-    mentioned: "te nombró en su"
+    mentioned: "te mencionó en una publicación"
     new_request: "quisiera compartir contigo."
     post: "publicación"
     private_message: "te envió un mensaje."
@@ -285,9 +285,9 @@ es:
     love: "¡Qué pasa!"
     manage_your_email_settings: "configura tu correo"
     mentioned: 
-      mentioned: "te nombró en una publicación:"
+      mentioned: "te mencionó en una publicación:"
       sign_in: "Conéctate para verlo."
-      subject: "%{name} te ha nombrado en Diaspora*"
+      subject: "%{name} te mencionó en Diaspora*"
     new_request: 
       just_sent_you: "acaban de enviarte una solicitud de contacto Diaspora*"
       sign_in: "Conéctate aquí"
@@ -314,7 +314,7 @@ es:
     add_contact_small: 
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list: 
-      edit_membership: "editar el Aspecto donde está el contacto"
+      edit_membership: "cambiar aspecto asociado"
     few: "%{count} personas"
     helper: 
       people_on_pod_are_aware_of: "La gente que está en POD son conscientes de"
@@ -335,10 +335,10 @@ es:
     profile_sidebar: 
       bio: "Biografía"
       born: "Fecha de Nacimiento"
-      cannot_remove: "%{name} no puede eliminarse del último Aspecto. (Si quieres dejar de compartir con él, debes elimínarlo.)"
+      cannot_remove: "%{name} no puede eliminarse del último aspecto. (Si quieres dejar de compartir, deberas eliminarlo.)"
       edit_my_profile: "Editar mi perfil"
       gender: "Género / Sexo"
-      in_aspects: "en Aspectos"
+      in_aspects: "en aspectos"
       location: "Ubicación "
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
@@ -353,8 +353,8 @@ es:
       not_connected: "No estás conectado con esta persona."
       recent_posts: "Últimas Publicaciones"
       recent_public_posts: "Últimas Publicaciones (El mundo)"
-      return_to_aspects: "Volver a tu página de Aspectos."
-      similar_contacts: "Contactos similares"
+      return_to_aspects: "Volver a tu página de aspectos"
+      see_all: "Ver todos"
       start_sharing: "Empezar a compartir"
       to_accept_or_ignore: "Aceptar o ignorar"
       you_have_no_tags: "¡No tienes etiquetas!"
@@ -446,7 +446,7 @@ es:
       sending: "Enviando"
       sent: "Quisieras compartir con %{name}. Lo verá la próxima vez que entre en Diaspora*."
     destroy: 
-      error: "¡Selecciona un Aspecto!"
+      error: "¡Selecciona un aspecto!"
       ignore: "Solicitud de contacto ignorada."
       success: "Ahora están compartiendo."
     helper: 
@@ -501,10 +501,10 @@ es:
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Todos los contactos"
-      cannot_remove: "No puede eliminarse a la persona del último Aspecto. (Si quieres desconectar de esta persona debes elminarla de tus contactos.)"
+      cannot_remove: "No puede eliminarse a la persona del último aspecto. (Si quieres dejar de compartir deberas elminarla.)"
     footer: 
       logged_in_as: "Conectado como %{name}"
-      your_aspects: "Tus Aspectos"
+      your_aspects: "tus aspectos"
     invitations: 
       by_email: "por Email"
       dont_have_now: "No tienes invitaciones ahora mismo pero, ¡pronto llegarán más!"

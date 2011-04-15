@@ -266,7 +266,7 @@ br:
       and_others: "ha %{number} reoù all"
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
-    mentioned: "has mentioned you in their"
+    mentioned: "en deus meneget ac'hanoc'h e-barzh ur skrid"
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
@@ -354,7 +354,7 @@ br:
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
       return_to_aspects: "Return to your aspects page"
-      similar_contacts: "similar contacts"
+      see_all: "See all"
       start_sharing: "start sharing"
       to_accept_or_ignore: "to accept or ignore it."
       you_have_no_tags: "you have no tags!"
@@ -596,7 +596,7 @@ br:
       skip: "skip getting started"
       step_2: 
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        skip: "Tremen e-biou"
       step_3: 
         finish: "Echuiñ"
         people_already_on_diaspora: "People already on Diaspora"

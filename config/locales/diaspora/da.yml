@@ -82,7 +82,7 @@ da:
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
-      post_a_message: "post a message >>"
+      post_a_message: "post en besked >>"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
       add_a_new_contact: "Tilføj en ny kontaktperson"
@@ -144,7 +144,7 @@ da:
     zero: "Ingen kontaktpersoner"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "Meddelelse sendt"
     destroy: 
       success: "Samtale slettet med succes"
     helper: 
@@ -180,7 +180,7 @@ da:
       correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
       invalid_fields: "Ugyldige felter"
   fill_me_out: "Udfyld mig"
-  hide: "Hide"
+  hide: "Skjul"
   home: 
     show: 
       already_account: "har du allerede en konto?"
@@ -354,7 +354,7 @@ da:
       recent_posts: "Nylige indlæg"
       recent_public_posts: "Seneste offentlige indlæg"
       return_to_aspects: "Tilbage til aspektsoversigt"
-      similar_contacts: "lignende kontakter"
+      see_all: "Se alle"
       start_sharing: "begynd at dele"
       to_accept_or_ignore: "at godkende eller ignorere det."
       you_have_no_tags: "du har ingen tags!"
@@ -398,7 +398,7 @@ da:
       notice: "Billedet blev opdateret."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}'s post er blevet skjult."
   posts: 
     doesnt_exist: "den post eksisterer ikke!"
   previous: "Forrige"
@@ -503,8 +503,8 @@ da:
       all_contacts: "Alle kontaktpersoner"
       cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "logget ind som %{name}"
+      your_aspects: "Dine aspekter"
     invitations: 
       by_email: "vha. Email"
       dont_have_now: "Du har ikke nogen lige nu, men der kommer snart flere invitationer!"
@@ -561,7 +561,7 @@ da:
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Poster tagged med #%{tag}"
   the_world: "Verden"
-  undo: "Undo?"
+  undo: "Fortryd?"
   username: "Brugernavn"
   users: 
     destroy: "Kontoen er nu lukket."

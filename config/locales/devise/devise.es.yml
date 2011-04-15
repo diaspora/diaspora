@@ -12,7 +12,7 @@ es:
       send_instructions: "Recibirás un correo con instrucciones para confirmar tu cuenta en pocos minutos."
     failure: 
       inactive: "Tu cuenta aún no ha sido activada."
-      invalid: "Contraseña o correo incorrecto."
+      invalid: "Nombre de usuario o contraseña incorrectos."
       invalid_token: "Identificador de autenticación incorrecto."
       locked: "Tu cuenta está bloqueada."
       timeout: "Tu sesión ha expirado, por favor accede de nuevo para continuar."

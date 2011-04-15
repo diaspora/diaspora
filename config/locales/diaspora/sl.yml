@@ -33,7 +33,7 @@ sl:
             username: 
               taken: "is already taken."
   ago: "%{time} nazaj"
-  all_aspects: "All aspects"
+  all_aspects: "Vse skupine"
   application: 
     helper: 
       unknown_person: "neznana oseba"
@@ -122,7 +122,7 @@ sl:
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
-      comment: "komentar"
+      comment: "komentiraj"
       commenting: "komentiraj..."
     one: "1 comment"
     other: "%{count} comments"
@@ -250,7 +250,7 @@ sl:
   next: "naslednja"
   no_results: "No Results Found"
   notifications: 
-    also_commented: "komentirano tudi na vaših stikih"
+    also_commented: "komentirano tudi na %{post_author}"
     also_commented_deleted: "commented on a deleted post"
     comment_on_post: "komentar na vaš"
     deleted: "izbrisano"
@@ -266,7 +266,7 @@ sl:
       and_others: "and %{number} others"
       mark_all_as_read: "Mark All as Read"
       notifications: "Sporočila"
-    mentioned: "has mentioned you in their"
+    mentioned: "bili ste omenjeni v objavi"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
     private_message: "sent you a message."
@@ -275,9 +275,9 @@ sl:
     also_commented: 
       commented: "prav tako komentirano na objavo osebe %{post_author}:"
       sign_in: "Za ogled se prijavite."
-      subject: "oseba %{name} je prav tako komentirala."
+      subject: "oseba %{name} je prav tako komentirala %{post_author}."
     comment_on_post: 
-      commented: "komentar na vašo objavo!"
+      commented: "oseba je komentirala na vašo objavo:"
       sign_in: "Za ogled se prijavite."
       subject: "Oseba %{name} je komentirala vašo objavo."
     diaspora: "diaspora email robot"
@@ -290,14 +290,14 @@ sl:
       subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
       just_sent_you: "poslana vam je bila prošnja za stik v Diaspori*"
-      sign_in: "prijavite se tukaj"
+      sign_in: "Prijavite se tukaj"
       subject: "nova Diaspora* prošnja za stik od %{from}"
       try_it_out: "Preverite in se prepričajte."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      subject: "oseba %{name} vam je poslala privatno sporočilo v Diaspori*"
     request_accepted: 
       accepted: "vaše povabilo je bilo sprejeto!"
       sign_in: "Sign in here"
@@ -330,8 +330,8 @@ sl:
     person: 
       add_contact: "dodaj stik"
       already_connected: "Ste že povezani"
-      pending_request: "čakajoče prošnje"
-      thats_you: "to ste vi!"
+      pending_request: "Čakajoče zahteve"
+      thats_you: "To ste vi!"
     profile_sidebar: 
       bio: "življenjepis"
       born: "datum rojstva"
@@ -346,15 +346,15 @@ sl:
       add_some: "add some"
       does_not_exist: "Oseba ne obstaja!"
       edit: "edit"
-      incoming_request: "Od te osebe ste prejeli novo prošnjo."
+      incoming_request: "%{name} želi deliti z vami."
       mention: "Mention"
       message: "Message"
       no_posts: "ni prispevkov na ogled!"
-      not_connected: "Niste povezani s/z %{name}"
+      not_connected: "S to osebo ne delite"
       recent_posts: "Zadnje objave"
       recent_public_posts: "Zadnje javne objave"
       return_to_aspects: "Vrnite se na vašo stran s skupinami"
-      similar_contacts: "podobni stiki"
+      see_all: "See all"
       start_sharing: "začni deliti"
       to_accept_or_ignore: "sprejmite ali zavrnite."
       you_have_no_tags: "you have no tags!"
@@ -511,7 +511,7 @@ sl:
       from_facebook: "From Facebook"
       invitations_left: "(še %{count})"
       invite_someone: "Povabi osebo"
-      invite_your_friends: "Invite your friends"
+      invite_your_friends: "Poišči prijatelje"
       invites: "Povabila"
       invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
     notification: 
@@ -580,7 +580,7 @@ sl:
       mentioned: "...you are mentioned in a post?"
       new_password: "Novo geslo"
       private_message: "...you receive a private message?"
-      receive_email_notifications: "Želite prejemati obvestila po e-pošti?"
+      receive_email_notifications: "Želite prejemati obvestila po e-pošti, ko..."
       request_acceptence: "...your share request is accepted?"
       request_received: "...you receive a new share request?"
       your_email: "Vaš e-naslov"

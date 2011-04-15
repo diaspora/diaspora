@@ -266,7 +266,7 @@ it:
       and_others: "e altri %{number}"
       mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
-    mentioned: "ti ha menzionato nel suo"
+    mentioned: "ti ha menzionato in un post"
     new_request: "vuole condividere con te."
     post: "post"
     private_message: "ti ha inviato un messaggio."
@@ -354,7 +354,7 @@ it:
       recent_posts: "Post Recenti"
       recent_public_posts: "Post pubblici recenti"
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
-      similar_contacts: "contatti simili"
+      see_all: "Visualizza tutti"
       start_sharing: "inizia a condividere"
       to_accept_or_ignore: "per accettarla o ignorarla."
       you_have_no_tags: "non hai etichette!"
@@ -494,7 +494,7 @@ it:
   settings: "Impostazioni"
   shared: 
     add_contact: 
-      create_request: "Cerca tramite contatto Diaspora"
+      create_request: "Cerca fra i nomi utente Diaspora"
       diaspora_handle: "Contatto Diaspora"
       enter_a_diaspora_username: "Inserisci un nome utente Diaspora"
       know_email: "Conosci i loro indirizzi email? Dovresti invitarli"
