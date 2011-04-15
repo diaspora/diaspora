@@ -13,6 +13,7 @@
   Diaspora.WidgetCollection = function() {
     this.initialized = false;
     this.collection = { };
+    this.eventsContainer = $({});
   };
 
   Diaspora.WidgetCollection.prototype.add = function(widgetId, widget) {
@@ -36,8 +37,16 @@
     }
   };
 
-  Diaspora.widgets = new Diaspora.WidgetCollection();
+  Diaspora.WidgetCollection.prototype.subscribe = function(id, callback) {
+    this.eventsContainer.bind(id, callback);
+  };
 
+  Diaspora.WidgetCollection.prototype.publish = function(id) {
+    this.eventsContainer.trigger(id);
+  };
+
+  Diaspora.widgets = new Diaspora.WidgetCollection();
+  
   window.Diaspora = Diaspora;
 })();
 

@@ -51,6 +51,28 @@ describe("Diaspora", function() {
           expect(widgets.initialized).toBeTruthy();
         });
       });
+
+      describe("subscribe", function() {
+        it("subscribes to an event specified by an id", function() {
+          expect(widgets.eventsContainer.data("events")).not.toBeDefined();
+          widgets.subscribe("testing/event", function() { });
+          expect(widgets.eventsContainer.data("events")["testing/event"]).toBeDefined();
+        });
+      });
+
+      describe("publish", function() {
+        it("triggers events that are related to the specified id", function() {
+          var called = false;
+
+          widgets.subscribe("testing/event", function() {
+            called = true;
+          });
+
+          widgets.publish("testing/event");
+
+          expect(called).toBeTruthy();
+        });
+      });
     });
   });
 });
