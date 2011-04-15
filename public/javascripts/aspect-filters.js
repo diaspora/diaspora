@@ -35,7 +35,10 @@ var AspectFilters = {
     if( !link.hasClass('aspect_selector') ){
       AspectFilters.switchToAspect(link);
     }
-
+    
+    // remove focus
+    this.blur();
+    
     $('html, body').animate({scrollTop:0}, 'fast');
   },
   switchToAspect: function(aspectLi){
