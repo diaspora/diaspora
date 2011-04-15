@@ -236,7 +236,10 @@ header
       :display block
 
 .unread
-  :background-color #eee
+  :font-weight bold
+  :color #333 !important
+  time
+    :color #333 !important
 
 .diaspora_header_logo
   :position relative
@@ -267,8 +270,6 @@ header
       :font
         :weight normal
         :size smaller
-      :position absolute
-      :right 20px
 
 .from
   a
@@ -2821,3 +2822,41 @@ h1.tag
       :bottom 4px
   .see_all
     :text-align center
+
+.date
+  :background
+    :color #e6e6e6
+  :border-radius 8px
+  :padding 5px
+  :color #999
+
+  :text-align center
+  .day
+    :font-size 50px
+    :font-weight 200
+    :margin-bottom -15px
+    :margin-top -10px
+
+  .month
+    :font-size 14px
+
+.notification_count
+  :background
+    :color #f0f0f0
+  :color #999
+  :font
+    :weight normal
+
+  :padding 0 5px
+    :left 11px
+  :margin
+    :right 5px
+  :border
+    :radius 5px
+
+  &.unread
+    :background
+      :color lighten(#A40802, 5%)
+    :color #eee !important
+    :font
+      :weight bold
