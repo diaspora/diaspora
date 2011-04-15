@@ -6,6 +6,7 @@ gem 'foreigner', '0.9.1'
 
 gem 'bundler', '>= 1.0.0'
 gem 'chef', '0.9.12', :require => false
+gem 'ohai', '0.5.8', :require => false #Chef dependency
 
 gem 'nokogiri', '1.4.3.1'
 
