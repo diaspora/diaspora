@@ -1,28 +1,24 @@
 - content_for :head do
   = include_javascripts :notifications
-.span-13
+.span-1
+  = image_tag 'icons/mail_big.png', :height => 30, :width => 30, :style=>"margin-top:3px;"
+.span-10
   %h2
-    %span.notification_count{:class => ('unread' if @notification_count > 0)}
-      = @notification_count
     = t('.notifications')
-.span-8.last.left
+.span-13.last.left
   = link_to t('.mark_all_as_read'), read_all_notifications_path, :class => 'button'
 
 .span-24.last
-  .stream.notifications
+  %ul.stream.notifications
     - @group_days.each do |day, notes|
-      .span-3
-        .date
-          .day= day.split(' ').last
-          .month= day.split(' ').first
+      %li
+        %h4= day
+        %ul.notifications_for_day
+          - notes.each do |note|
+            .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
+              %span.from
+                = notification_people_link(note)
+                = object_link(note)
 
-      .span-8.notifications_for_day
-        - notes.each do |note|
-          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
-            %span.from
-              = notification_people_link(note)
-              = object_link(note)
-
-            %br
-            %time= timeago(note.created_at)
+              %span.time= timeago(note.created_at)
     = will_paginate @notifications
