@@ -1,15 +1,11 @@
-/**
- * Created by .
- * User: dan
- * Date: Jan 25, 2011
- * Time: 5:18:32 PM
- * To change this template use File | Settings | File Templates.
+/*   Copyright (c) 2010, Diaspora Inc.  This file is
+ *   licensed under the Affero General Public License version 3 or later.  See
+ *   the COPYRIGHT file.
  */
-Diaspora.widgets.add("i18n", function() {
-  this.start = $.noop;
 
+Diaspora.widgets.add("i18n", function() {
   this.language = "en";
-  this.locale = {};
+  this.locale = { };
 
   this.loadLocale = function(locale, language) {
     this.language = language;
