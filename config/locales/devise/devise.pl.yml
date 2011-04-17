@@ -54,7 +54,7 @@ pl:
         change_password: "Zmień hasło"
       new: 
         forgot_password: "Nie pamiętasz hasła?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Konto o takim emailu nie istnieje. Jeżeli czekasz na nowe zaproszenia, wydajemy je tak szybko, jak to tylko możliwe."
         send_password_instructions: "Wyślij mi instrukcje resetowania hasła"
       send_instructions: "W ciągu kilku minut otrzymasz e-maila zawierającego instrukcjie dotyczące zresetowania hasła."
       updated: "Twoje hasło zostało zmienione. Zalogowano pomyślnie."

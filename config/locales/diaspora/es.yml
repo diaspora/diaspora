@@ -69,7 +69,7 @@ es:
       aspect_list_is_visible: "la lista de contactos del aspecto es visible"
       confirm_remove_aspect: "¿Seguro que quieres eliminar este aspecto?"
       done: "Listo"
-      make_aspect_list_visible: "Lista de contactos del aspecto visible."
+      make_aspect_list_visible: "Lista de contactos visible."
       remove_aspect: "Eliminar este aspecto"
       rename: "renombrar"
       update: "Actualizar"
@@ -314,7 +314,7 @@ es:
     add_contact_small: 
       add_contact_from_tag: "añadir contacto desde una etiqueta"
     aspect_list: 
-      edit_membership: "cambiar aspecto asociado"
+      edit_membership: "editar aspectos asociados"
     few: "%{count} personas"
     helper: 
       people_on_pod_are_aware_of: "La gente que está en POD son conscientes de"
@@ -561,7 +561,7 @@ es:
       people_tagged_with: "Personas etiquetadas en %{tag}"
       posts_tagged_with: "Publicaciones etiquetadas con #%{tag}"
   the_world: "el mundo"
-  undo: "Deshacer?"
+  undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users: 
     destroy: "Cuenta cerrada con éxito."
