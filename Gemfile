@@ -1,12 +1,13 @@
-source "http://rubygems.org"
-source "http://gems.github.com"
+source :rubygems
 
-gem 'activesupport', "2.3.5"
-gem 'henrik-jekyll'
-gem 'compass'
-gem 'compass-colors'
+gem 'jekyll'
 gem 'rdiscount'
-gem 'fssm'
+gem 'RedCloth'
+gem "haml", "3.1.0.alpha.147"
+gem 'compass', '0.11.beta.5'
+gem 'rubypants'
+gem 'rb-fsevent'
+gem 'guard-shell'
+gem 'guard-livereload'
 gem 'serve'
-gem 'mongrel'
 gem 'rake'

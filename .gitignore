@@ -1,7 +1,8 @@
 site
 .bundle
 .DS_Store
-.rvmrc
 .sass-cache
 test
 source/_stash
+vendor/ruby
+vendor/ruby

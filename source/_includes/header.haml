@@ -1,9 +1,0 @@
-.content
-  %h1
-    %a.title(href="/")=page.blog_title
-  - if page.respond_to?(:google_custom_search_id) && page.google_custom_search_id
-    #search
-      %form(action="http://www.google.com/cse" id="cse-search-box")
-        %input(type="hidden" name="cx" value="#{page.google_custom_search_id}")
-        %input(type="hidden" name="ie" value="UTF-8")
-        %input#q(type="text" name="q")

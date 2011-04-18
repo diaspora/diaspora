@@ -1,0 +1,11 @@
+<p>
+  Copyright &copy; {{ site.time | date: "%Y" }} - {{ site.author }} -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+{% if site.pinboard_user %}
+  <script language="javascript">
+    var pinboard_user = "{{ site.pinboard_user }}";
+    var pinboard_count = "{{ site.pinboard_count }}";
+  </script>
+  <script language="javascript" src="/javascripts/pinboard.js"></script>
+{% endif %}

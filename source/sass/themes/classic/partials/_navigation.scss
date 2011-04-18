@@ -1,0 +1,30 @@
+#nav {
+  @extend .group;
+  position: relative;
+  z-index: 1;
+  background-color: $nav-bg;
+  @include background-image(linear-gradient(#fcfcfc, #f4f4f4 0.3, #dddddd));
+  border: {
+    top: 1px solid $nav-border-top;
+    bottom: 1px solid $nav-border-bottom; };
+  ul {
+    position: relative;
+    @include horizontal-list;
+    margin: 0 auto;
+    padding: 6px 0;
+    li {
+      padding: 0 15px;
+      border-left: 1px solid $nav-border-left;
+      border-right: 1px solid $nav-border-right;
+      &:first-child {
+        border-left: none;
+        padding-left: 0; }
+      &:last-child {
+        border-right: 0; }
+      a {
+        display: inline-block;
+        color: $nav-color;
+        line-height: 150%;
+        text-decoration: none;
+        &:hover {
+          color: $nav-color-hover; } } } } }

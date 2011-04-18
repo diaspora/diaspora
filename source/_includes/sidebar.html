@@ -1,0 +1,24 @@
+<h4>About Me</h4>
+<p> Yo everybody! </p>
+{% if site.recent_posts %}
+<section>
+  <h4>Recent Posts</h4>
+  <ul id="recent_posts">
+    {% for post in site.posts limit: site.recent_posts %}
+      <li class="post">
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <time>{{ post.date | date: "%B %d, %Y" }}</time>
+      </li>
+    {% endfor %}
+  </ul>
+  </section>
+{% endif %}
+{% if site.twitter_user %}
+  <section>{% include twitter.html %}</section>
+{% endif %}
+{% if site.delicious_user %}
+  <section>{% include delicious.html %}</section>
+{% endif %}
+{% if site.pinboard_user %}
+  <section>{% include pinboard.html %}</section>
+{% endif %}

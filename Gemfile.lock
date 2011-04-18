@@ -1,0 +1,74 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    RedCloth (4.2.3)
+    activesupport (3.0.5)
+    addressable (2.2.4)
+    chunky_png (1.1.0)
+    classifier (1.3.3)
+      fast-stemmer (>= 1.0.0)
+    compass (0.11.beta.5)
+      chunky_png (~> 1.1.0)
+      sass (>= 3.1.0.alpha.249)
+    configuration (1.2.0)
+    directory_watcher (1.3.2)
+    em-websocket (0.2.1)
+      addressable (>= 2.1.1)
+      eventmachine (>= 0.12.9)
+    eventmachine (0.12.10)
+    fast-stemmer (1.0.0)
+    guard (0.3.0)
+      open_gem (~> 1.4.2)
+      thor (~> 0.14.6)
+    guard-livereload (0.1.9)
+      em-websocket (~> 0.2.0)
+      guard (>= 0.2.2)
+      json (~> 1.4.6)
+    guard-shell (0.1.1)
+      guard (>= 0.2.0)
+    haml (3.1.0.alpha.147)
+    i18n (0.4.2)
+    jekyll (0.10.0)
+      classifier (>= 1.3.1)
+      directory_watcher (>= 1.1.1)
+      liquid (>= 1.9.0)
+      maruku (>= 0.5.9)
+    json (1.4.6)
+    launchy (0.3.7)
+      configuration (>= 0.0.5)
+      rake (>= 0.8.1)
+    liquid (2.2.2)
+    maruku (0.6.0)
+      syntax (>= 1.0.0)
+    open_gem (1.4.2)
+      launchy (~> 0.3.5)
+    rack (1.2.1)
+    rake (0.8.7)
+    rb-fsevent (0.4.0)
+    rdiscount (1.6.8)
+    rubypants (0.2.0)
+    sass (3.1.0.alpha.252)
+    serve (1.0.0)
+      activesupport (~> 3.0.1)
+      i18n (~> 0.4.1)
+      rack (~> 1.2.1)
+      tzinfo (~> 0.3.23)
+    syntax (1.0.0)
+    thor (0.14.6)
+    tzinfo (0.3.24)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  RedCloth
+  compass (= 0.11.beta.5)
+  guard-livereload
+  guard-shell
+  haml (= 3.1.0.alpha.147)
+  jekyll
+  rake
+  rb-fsevent
+  rdiscount
+  rubypants
+  serve

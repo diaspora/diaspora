@@ -2,11 +2,8 @@ require "rubygems"
 require "bundler"
 Bundler.setup
 
-require 'source/_helpers'
-
-site_url    = "http://yoursite.com"   # deployed site url for sitemap.xml generator
 port        = "4000"      # preview project port eg. http://localhost:4000
-site        = "site"      # compiled site directory
+site        = "public"    # compiled site directory
 source      = "source"    # source file directory
 stash       = "_stash"    # directory to stash posts for speedy generation
 posts       = "_posts"    # directory for blog files
@@ -19,6 +16,7 @@ document_root = "~/document_root/" # for rsync deployment
 
 ## -- Github Pages deploy config -- ##
 # Read http://pages.github.com for guidance
+# You can deploy to github pages with `rake push_github` or change the default push task below to :push_github
 # If you're not using this, you can remove it
 source_branch = "source" # this compiles to your deploy branch
 deploy_branch = "master" # For user pages, use "master" for project pages use "gh-pages"
@@ -32,13 +30,13 @@ def ok_failed(condition)
   end
 end
 
-## if you're deploying with github, change the default deploy to deploy_github
-desc "default deploy task"
-task :deploy => [:deploy_rsync] do
+## if you're deploying with github, change the default deploy to push_github
+desc "default push task"
+task :push => [:push_rsync] do
 end
 
 desc "Generate and deploy task"
-task :generate_deploy => [:integrate, :generate, :clean_debug, :deploy] do
+task :deploy => [:integrate, :generate, :clean_debug, :push] do
 end
 
 desc "generate website in output directory"
@@ -49,10 +47,13 @@ end
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
 desc "Begin a new post in #{source}/_posts"
 task :post, :filename do |t, args|
+  require './_plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-post')
-  open("#{source}/_posts/#{Time.now.strftime('%Y-%m-%d_%H-%M')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
+  open("#{source}/_posts/#{Time.now.strftime('%Y-%m-%d')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
     post.puts "---"
     post.puts "title: \"#{args.filename.gsub(/[-_]/, ' ').titlecase}\""
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "layout: post"
     post.puts "---"
   end
 end
@@ -98,124 +99,64 @@ end
 desc "Generate site files only"
 task :generate_site => [:clean, :generate_style] do
   puts "\n\n>>> Generating site files <<<"
-  system "jekyll --pygments"
-  system "mv #{site}/atom.html #{site}/atom.xml"
-end
-
-def rebuild_site(relative)
-  puts "\n\n>>> Change Detected to: #{relative} <<<"
-  IO.popen('rake generate_site'){|io| print(io.readpartial(512)) until io.eof?}
-  puts '>>> Update Complete <<<'
-end
-
-def rebuild_style(relative)
-  puts "\n\n>>> Change Detected to: #{relative} <<<"
-  IO.popen('rake generate_style'){|io| print(io.readpartial(512)) until io.eof?}
-  puts '>>> Update Complete <<<'
+  system "jekyll"
 end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-  require 'fssm'
-  puts ">>> Watching for Changes <<<"
-  FSSM.monitor do
-    path "#{File.dirname(__FILE__)}/#{source}" do
-      update {|base, relative| rebuild_site(relative)}
-      delete {|base, relative| rebuild_site(relative)}
-      create {|base, relative| rebuild_site(relative)}
-    end
-    path "#{File.dirname(__FILE__)}/stylesheets" do
-      glob '**/*.sass'
-      update {|base, relative| rebuild_style(relative)}
-      delete {|base, relative| rebuild_style(relative)}
-      create {|base, relative| rebuild_style(relative)}
-    end
-  end
+  system "trap 'kill $jekyllPid $guardPid' Exit; guard & guardPid=$!; jekyll --auto & jekyllPid=$!; wait"
 end
 
 desc "generate and deploy website via rsync"
-multitask :deploy_rsync do
-  puts ">>> Deploying website to #{site_url} <<<"
+multitask :push_rsync do
+  puts ">>> Deploying website via Rsync <<<"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
-desc "generate and deploy website to github user pages"
-multitask :deploy_github do
+desc "deploy website to github user pages"
+multitask :push_github do
   puts ">>> Deploying #{deploy_branch} branch to Github Pages <<<"
   require 'git'
   repo = Git.open('.')
   puts "\n>>> Checking out #{deploy_branch} branch <<<\n"
   repo.branch("#{deploy_branch}").checkout
-  (Dir["*"] - [site]).each { |f| rm_rf(f) }
+  (Dir["*"] - ["#{site}"]).each { |f| rm_rf(f) }
   Dir["#{site}/*"].each {|f| mv(f, ".")}
-  rm_rf(site)
-  puts "\n>>> Moving generated site files <<<\n"
+  rm_rf("#{site}")
+  puts "\n>>> Moving generated /#{site} files <<<\n"
   Dir["**/*"].each {|f| repo.add(f) }
   repo.status.deleted.each {|f, s| repo.remove(f)}
   puts "\n>>> Commiting: Site updated at #{Time.now.utc} <<<\n"
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
-  puts "\n>>> Pushing generated site to #{deploy_branch} branch <<<\n"
+  puts "\n>>> Pushing generated /#{site} files to #{deploy_branch} branch <<<\n"
   repo.push
   puts "\n>>> Github Pages deploy complete <<<\n"
   repo.branch("#{source_branch}").checkout
 end
 
-desc "start up an instance of serve on the output files"
-task :start_serve => :stop_serve do
-  cd "#{site}" do
-    print "Starting serve..."
-    system("serve #{port} > /dev/null 2>&1 &")
-    sleep 1
-    pid = `ps auxw | awk '/bin\\/serve\\ #{port}/ { print $2 }'`.strip
-    ok_failed !pid.empty?
-    system "open http://localhost:#{port}" unless pid.empty?
-  end
+desc "start up a web server on the output files"
+task :start_server => :stop_server do
+  print "Starting serve..."
+  system("serve #{site} #{port} > /dev/null 2>&1 &")
+  sleep 1
+  pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
+  ok_failed !pid.empty?
+  system "open http://localhost:#{port}" unless pid.empty?
 end
 
-desc "stop all instances of serve"
-task :stop_serve do
-  pid = `ps auxw | awk '/bin\\/serve\\ #{port}/ { print $2 }'`.strip
+desc "stop the web server"
+task :stop_server do
+  pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
   if pid.empty?
-    puts "Serve is not running"
+    puts "Adsf is not running"
   else
-    print "Stoping serve..."
+    print "Stoping adsf..."
     ok_failed system("kill -9 #{pid}")
   end
 end
 
 desc "preview the site in a web browser"
-task :preview => [:generate, :start_serve, :watch]
-
-desc "Build an XML sitemap of all html files."
-task :sitemap do
-  html_files = FileList.new("#{site}/**/*.html").map{|f| f[("#{site}".size)..-1]}.map do |f|
-    if f.ends_with?("index.html")
-      f[0..(-("index.html".size + 1))]
-    else
-      f
-    end
-  end.sort_by{|f| f.size}
-  open("#{site}/sitemap.xml", 'w') do |sitemap|
-    sitemap.puts %Q{<?xml version="1.0" encoding="UTF-8"?>}
-    sitemap.puts %Q{<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">}
-    html_files.each do |f|
-      priority = case f
-      when %r{^/$}
-        1.0
-      when %r{^/articles}
-        0.9
-      else
-        0.8
-      end
-      sitemap.puts %Q{  <url>}
-      sitemap.puts %Q{    <loc>#{site_url}#{f}</loc>}
-      sitemap.puts %Q{    <lastmod>#{Time.now.strftime('%Y-%m-%d')}</lastmod>}
-      sitemap.puts %Q{    <changefreq>weekly</changefreq>}
-      sitemap.puts %Q{    <priority>#{priority}</priority>}
-      sitemap.puts %Q{  </url>}
-    end
-    sitemap.puts %Q{</urlset>}
-    puts "Created #{site}/sitemap.xml"
-  end
+task :preview do
+  system "trap 'kill $servePid $jekyllPid $guardPid' Exit; serve #{site} #{port} > /dev/null 2>&1 & servePid=$!; jekyll --auto & jekyllPid=$!; guard & guardPid=$!; compass compile; open http://localhost:#{port}; wait"
 end

@@ -1,7 +1,0 @@
-#footer
-  .content
-    Copyright &copy; #{Time.now.strftime('%Y')} - #{page.blog_title} -
-    %span.credit Powered by <a href="http://octopress.org">Octopress</a>
-
-= include "disqus_hook.haml" if page.respond_to?(:disqus_short_name) && page.disqus_short_name
-= include "google_analytics.haml" if page.respond_to?(:google_analytics_tracking_id) && page.google_analytics_tracking_id

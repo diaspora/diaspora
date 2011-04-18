@@ -1,0 +1,12 @@
+---
+layout: default
+title: Octopress
+---
+{% for page in site.posts limit:3 %}
+{% assign content = page.content %}
+{% assign index = true %}
+  <article>
+    {% include article.html %}
+  </article>
+{% endfor %}
+
