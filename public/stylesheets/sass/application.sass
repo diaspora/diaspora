@@ -2252,7 +2252,14 @@ h3,h4
       :bottom 0.3em
     :padding 0.2em 0.5em
     :width 500px
-    :min-height 100px
+
+.day_group
+  :min-height 100px
+  :margin
+    :bottom 10px
+  .stream_element
+    &:last-child
+      :border none
 
 .stream.notifications
   > li:hover
