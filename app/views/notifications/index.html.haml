@@ -11,18 +11,20 @@
 .span-24.last
   .stream.notifications
     - @group_days.each do |day, notes|
-      .span-3
-        .date
-          .day= day.split(' ').last
-          .month= day.split(' ').first
+      .day.span-24.last
+        .span-3
+          .date
+            .day= day.split(' ').last
+            .month= day.split(' ').first
 
-      .span-8.notifications_for_day
-        - notes.each do |note|
-          .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
-            %span.from
-              = notification_people_link(note)
-              = object_link(note)
+        .span-8.notifications_for_day
+          - notes.each do |note|
+            .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
+              %span.from
+                = notification_people_link(note)
+                = object_link(note)
 
-            %br
-            %time= timeago(note.created_at)
+              %br
+              %time= timeago(note.created_at)
+        .span-13.last
     = will_paginate @notifications

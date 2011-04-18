@@ -131,14 +131,14 @@ GEM
       erubis
       extlib
       highline
-      json (>= 1.4.4, <= 1.4.6)
+      json (<= 1.4.6, >= 1.4.4)
       mixlib-authentication (>= 1.1.0)
       mixlib-cli (>= 1.1.0)
       mixlib-config (>= 1.1.2)
       mixlib-log (>= 1.2.0)
       moneta
       ohai (>= 0.5.7)
-      rest-client (>= 1.0.4, < 1.7.0)
+      rest-client (< 1.7.0, >= 1.0.4)
       uuidtools
     childprocess (0.1.7)
       ffi (~> 0.6.3)
@@ -175,7 +175,7 @@ GEM
     faraday (0.5.4)
       addressable (~> 2.2.2)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
     fastercsv (1.5.4)
@@ -282,7 +282,7 @@ GEM
       multi_json (~> 0.0.4)
     ohai (0.5.8)
       extlib
-      json (>= 1.4.4, <= 1.4.6)
+      json (<= 1.4.6, >= 1.4.4)
       mixlib-cli
       mixlib-config
       mixlib-log
@@ -365,7 +365,7 @@ GEM
     simple_oauth (0.1.4)
     sinatra (1.2.3)
       rack (~> 1.1)
-      tilt (>= 1.2.2, < 2.0)
+      tilt (< 2.0, >= 1.2.2)
     subexec (0.0.4)
     systemu (2.2.0)
     term-ansicolor (1.0.5)
