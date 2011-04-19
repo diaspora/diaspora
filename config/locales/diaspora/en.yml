@@ -559,7 +559,7 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-      title: "You are about to post a public message!"
+      title: "Set up connected services"
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
       manage: "manage connected services"
