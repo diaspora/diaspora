@@ -520,7 +520,7 @@ de:
       logged_in: "Eingeloggt in %{service}"
       manage: "verbundene Dienste verwalten"
       outside: "Öffentliche Nachrichten sind für andere außerhalb von Diaspora sichtbar."
-      title: "Du bist dabei, eine öffentliche Nachricht zu posten!"
+      title: "Verbundene Dienste verwalten"
     publisher: 
       add_photos: "Fotos hinzufügen"
       all: "alle"

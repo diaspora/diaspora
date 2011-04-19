@@ -343,7 +343,7 @@ el:
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
-      add_some: "προσθέστε κάποιον"
+      add_some: "προσθέστε κάποιες"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       edit: "επεξεργασία"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
