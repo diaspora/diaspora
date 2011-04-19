@@ -14,8 +14,8 @@
       .day_group.span-24.last
         .span-3
           .date
-            .day= day.split(' ').first.chop
-            .month= day.split(' ').last
+            .day= the_day(day.split(' ')).gsub('.', '')
+            .month= the_month(day.split(' '))
 
         .span-8.notifications_for_day
           - notes.each do |note|
