@@ -20,7 +20,7 @@ module Diaspora
         order_field = opts[:order].split.first.to_sym
         opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
-        opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].instance_of?(Fixnum)
+        opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
         opts[:max_time] ||= Time.now + 1
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 

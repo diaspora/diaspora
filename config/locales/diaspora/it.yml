@@ -520,7 +520,7 @@ it:
       logged_in: "accesso effettuato a %{service}"
       manage: "gestisci i servizi collegati"
       outside: "I messaggi pubblici saranno visibili a persone al di fuori di Diaspora."
-      title: "Stai per inviare un messaggio pubblico!"
+      title: "Configura i servizi collegati"
     publisher: 
       add_photos: "aggiungi foto"
       all: "tutti"

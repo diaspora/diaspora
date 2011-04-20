@@ -1,0 +1,33 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+bg: 
+  javascripts: 
+    confirm_dialog: "Сигурни ли сте?"
+    publisher: 
+      at_least_one_aspect: "Трябва да публикувате в поне един аспект"
+    search_for: "Търсене за {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    timeago: 
+      day: "ден"
+      days: "%d дни"
+      hour: "около час"
+      hours: "около %d часа"
+      minute: "около минута"
+      minutes: "%d минути"
+      month: "около месец"
+      months: "%d месеца"
+      prefixAgo: "преди"
+      prefixFromNow: ""
+      seconds: "по-малко от минута"
+      suffixAgo: "преди"
+      suffixFromNow: "от сега"
+      year: "около година"
+      years: "%d години"
+    videos: 
+      unknown: "Неизвестен вид видео"
+      watch: "Гледайте видеото в {{provider}}"

@@ -346,8 +346,9 @@ var Publisher = {
     });
   },
   initialize: function() {
-    Diaspora.widgets.subscribe("stream/reloaded", Publisher.initialize);
-
+    Publisher.cachedForm = Publisher.cachedSubmit = 
+      Publisher.cachedInput = Publisher.cachedHiddenInput = false;
+    
     Publisher.bindServiceIcons();
     Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
@@ -368,4 +369,5 @@ var Publisher = {
 
 $(document).ready(function() {
   Publisher.initialize();
+  Diaspora.widgets.subscribe("stream/reloaded", Publisher.initialize);
 });
