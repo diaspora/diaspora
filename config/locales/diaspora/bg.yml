@@ -32,7 +32,7 @@ bg:
               invalid: "is invalid."
             username: 
               taken: "is already taken."
-  ago: "%{time} ago"
+  ago: "преди %{time}"
   all_aspects: "Всички аспекти"
   application: 
     helper: 
@@ -183,14 +183,14 @@ bg:
   hide: "Скриване"
   home: 
     show: 
-      already_account: "already have an account?"
+      already_account: "вече имате акаунт?"
       choice: "Choice"
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
       learn_about_host: "Learn about how to host your own Diaspora server."
       login_here: "log in here"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: "Споделяйте каквото желаете, с когото пожелаете."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       tagline_first_half: "Споделете каквото желаете,"
@@ -205,7 +205,7 @@ bg:
       rejected: "The following email addresses had problems: "
       sent: "Покани са изпратени до: "
     edit: 
-      sign_up: "sign_up"
+      sign_up: "регистриране"
     new: 
       already_invited: "Вече е поканен"
       aspect: "Аспект"
@@ -246,7 +246,7 @@ bg:
         one: "1 person liked this"
         other: "%{count} people liked this"
         zero: "no people liked this"
-  more: "More"
+  more: "Още"
   next: "next"
   no_results: "Няма намерени резултати"
   notifications: 
@@ -303,9 +303,9 @@ bg:
       sign_in: "Впишете се тук"
       subject: "%{name} has accepted your contact request on Diaspora*"
     single_admin: 
-      admin: "Your Diaspora administrator"
+      admin: "Вашият администратор на Diaspora"
       subject: "Съобщение относно акаунта ви в Diaspora:"
-    thanks: "Thanks,"
+    thanks: "Благодаря,"
   ok: "Добре"
   or: "или"
   password: "Парола"
@@ -346,14 +346,14 @@ bg:
       add_some: "add some"
       does_not_exist: "Person does not exist!"
       edit: "edit"
-      incoming_request: "%{name} wants to share with you"
+      incoming_request: "%{name} желае да споделя с вас"
       mention: "Mention"
       message: "Съобщение"
       no_posts: "няма публикации за изобразяване!"
       not_connected: "You are not sharing with this person"
       recent_posts: "Скорошни публикации"
       recent_public_posts: "Скорошни публични публикации"
-      return_to_aspects: "Return to your aspects page"
+      return_to_aspects: "Назад към страницата с аспекти"
       see_all: "Вижте всички"
       start_sharing: "започнете да споделяте"
       to_accept_or_ignore: "to accept or ignore it."
@@ -373,7 +373,7 @@ bg:
     new: 
       back_to_list: "Назад към списъка"
       new_photo: "Нова снимка"
-      post_it: "post it!"
+      post_it: "публикуване!"
     new_photo: 
       empty: "{file} е празен. Моля, изберете наново файловете без празния."
       invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
@@ -474,7 +474,7 @@ bg:
         few: "%{count} приятеля"
         many: "%{count} приятеля"
         one: "1 приятел"
-        other: "%{count} friends"
+        other: "%{count} приятеля"
         zero: "няма приятели"
       invite_your_friends_from: "Поканете приятелите си от %{service}"
       not_connected: "not connected"
@@ -522,8 +522,8 @@ bg:
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "Настройте свързване с услуга"
     publisher: 
-      add_photos: "add photos"
-      all: "all"
+      add_photos: "добавете снимки"
+      all: "всички"
       all_contacts: "всички контакти"
       click_to_share_with: "Кликнете, за да споделите с: "
       make_public: "направете публично"
@@ -531,11 +531,11 @@ bg:
       posting: "Публикуване..."
       public: "Public"
       publishing_to: "publishing to: "
-      share: "Share"
+      share: "Споделете"
       share_with: "share with"
       whats_on_your_mind: "какво мислите?"
     reshare: 
-      reshare: "Reshare"
+      reshare: "споделяне с"
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"

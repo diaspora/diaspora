@@ -520,7 +520,7 @@ zh-TW:
       logged_in: "已登入至 %{service}"
       manage: "管理已連線的服務"
       outside: "不使用 Diaspora 的人也能看到公開訊息."
-      title: "你將要發表公開訊息!"
+      title: "設定連線服務"
     publisher: 
       add_photos: "加入相片"
       all: "全部"

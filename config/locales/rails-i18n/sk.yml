@@ -88,8 +88,8 @@
                    thousand: Tisíc
                    million: Milión
                    billion: Miliarda
-                   trillion: Trilión
-                   quadrillion: Quadrilión
+                   trillion: Bilión
+                   quadrillion: Biliarda
 
     # Distance of time ... helper
     datetime:
