@@ -61,6 +61,7 @@ gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9' || RUBY_PLATFORM =
 group :development do
   gem 'capistrano', '2.5.19', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
+  gem 'sod', :git => "git://github.com/MikeSofaer/sod.git"
 end
 
 group :test, :development do

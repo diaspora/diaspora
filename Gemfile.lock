@@ -8,6 +8,13 @@ GIT
       nokogiri (>= 1.3.3)
 
 GIT
+  remote: git://github.com/MikeSofaer/sod.git
+  revision: f1084f181c9ae469f03e9217d8ed1c7800ccb971
+  specs:
+    sod (0.0.1)
+      net-scp
+
+GIT
   remote: git://github.com/diaspora/acts-as-taggable-on.git
   revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
   specs:
@@ -444,6 +451,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   selenium-webdriver (= 0.1.3)
+  sod!
   thin (= 1.2.8)
   twitter!
   typhoeus
