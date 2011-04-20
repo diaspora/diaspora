@@ -6,3 +6,12 @@
 #show_content.photo
   = image_tag @photo.url(:scaled_full)
 
+  -if @additional_photos && @additional_photos.length > 1
+    #photo_controls
+    %table
+      %tr
+        %td
+          =link_to "←", @prev_photo, :rel => 'prefetch', :class => 'arrow'
+        %td{:width => '100%'}
+        %td
+          =link_to "→", @next_photo, :rel => 'prefetch', :class => 'arrow'
