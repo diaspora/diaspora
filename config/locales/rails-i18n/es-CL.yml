@@ -137,7 +137,7 @@ es-CL:
       prompt: "Por favor seleccione"
 
     submit:
-      create: 'Guardar %{model}'
+      create: 'Crear %{model}'
       update: 'Actualizar %{model}'
       submit: 'Guardar %{model}'
 
