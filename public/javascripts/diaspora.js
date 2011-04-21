@@ -9,7 +9,6 @@
   }
 
   var Diaspora = { };
-  vara = 5;
 
   Diaspora.WidgetCollection = function() {
     this.initialized = false;
@@ -32,7 +31,7 @@
     this.initialized = true;
 
     for(var widgetId in this.collection) {
-      if(this.collection[widgetId].hasOwnProperty("start") 
+      if(this.collection[widgetId].hasOwnProperty("start")
           || this.collection[widgetId].__proto__.hasOwnProperty("start")) {
         this.collection[widgetId].start();
       }
