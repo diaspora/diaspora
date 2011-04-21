@@ -32,7 +32,8 @@
     this.initialized = true;
 
     for(var widgetId in this.collection) {
-      if(this.collection[widgetId].hasOwnProperty("start")) {
+      if(this.collection[widgetId].hasOwnProperty("start") 
+          || this.collection[widgetId].__proto__.hasOwnProperty("start")) {
         this.collection[widgetId].start();
       }
     }
@@ -52,5 +53,5 @@
 })();
 
 
-$(document).ready(Diaspora.widgets.init);
+$(document).ready(function() { Diaspora.widgets.init(); });
 
