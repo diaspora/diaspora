@@ -112,5 +112,5 @@ isInsertion : function(keyCode){
   }else {
     return true;
   }
-},
 }
+};

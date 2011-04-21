@@ -1,7 +1,7 @@
 $('.stream_element').live('mousedown', function(evt){
   var note = $(this).closest('.stream_element'),
       note_id = note.attr('data-guid'),
-      nBadge = $("#notification_badge .badge_count")
+      nBadge = $("#notification_badge .badge_count");
 
   if(note.hasClass('unread') ){
     note.removeClass('unread');
@@ -10,7 +10,7 @@ $('.stream_element').live('mousedown', function(evt){
       type: 'PUT'
     });
   }
-    if(nBadge.html() != null) {
+    if(nBadge.html() !== null) {
     nBadge.html().replace(/\d+/, function(num){
       num = parseInt(num);
       nBadge.html(parseInt(num)-1);

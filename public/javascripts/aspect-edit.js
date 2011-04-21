@@ -60,9 +60,9 @@ var AspectEdit = {
       });
     }
 
-    if (person.attr('data-aspect_id') != undefined && // a request doesn't have a data-aspect_id, but an existing contact does
+    if (person.attr('data-aspect_id') !== undefined && // a request doesn't have a data-aspect_id, but an existing contact does
         dropzone.attr('data-aspect_id') != person.attr('data-aspect_id')) {
-        var aspect_id = person.attr('data-aspect_id')
+        var aspect_id = person.attr('data-aspect_id');
       $.ajax({
         type: "PUT",
         url: "/aspect_memberships/garbage",

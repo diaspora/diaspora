@@ -22,8 +22,8 @@ javascripts:
     - public/javascripts/vendor/charCount.js
     - public/javascripts/jquery.autocomplete-custom.js
     - public/javascripts/jquery.infieldlabel-custom.js
-    - public/javascripts/fileuploader-custom.js
     - public/javascripts/keycodes.js
+    - public/javascripts/fileuploader-custom.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/alert.js

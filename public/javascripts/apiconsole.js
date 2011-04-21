@@ -3,13 +3,13 @@ var ApiConsole = {
   prettyPrint: function(obj, indent)
   {
     var result = "";
-    if (indent == null) indent = "";
+    if (indent === null) { indent = ""; }
 
     for (var property in obj)
       {
         var value = obj[property];
         if (typeof value == 'string')
-          value = "'" + value + "'";
+          { value = "'" + value + "'"; }
         else if (typeof value == 'object')
           {
             if (value instanceof Array)
@@ -46,7 +46,7 @@ var ApiConsole = {
       });
     });
   }
-}
+};
 
 $(document).ready(function(){
 

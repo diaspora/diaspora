@@ -43,12 +43,12 @@ $(document).ready(function() {
     $(this).fadeTo(200,0.4);
   });
 
-  $('.added').live('ajax:success', function(data, json, xhr) {
-    var json = $.parseJSON(json);
+  $('.added').live('ajax:success', function(data, jsonString, xhr) {
+    var json = $.parseJSON(jsonString);
     var contactPictures = $(".contact_pictures");
 
     if( contactPictures.length > 0 ) {
-      if( contactPictures[0].childElementCount == 0 ) {
+      if( contactPictures[0].childElementCount === 0 ) {
         $("#no_contacts").fadeIn(200);
       }
     }
@@ -79,8 +79,8 @@ $(document).ready(function() {
     $(this).fadeTo(200,0.4);
   });
 
-  $('.add').live('ajax:success', function(data, json, xhr) {
-    var json = $.parseJSON(json);
+  $('.add').live('ajax:success', function(data, jsonString, xhr) {
+    var json = $.parseJSON(jsonString);
     if( $("#no_contacts").is(':visible') ) {
       $("#no_contacts").fadeOut(200);
     }
@@ -90,8 +90,10 @@ $(document).ready(function() {
 
     if($('#aspects_list').length == 1) {
       $('.aspect_list').attr('data-contact_id', json.contact_id);
-      $('.aspect_list ul').find('.add').each(function(a,b){$(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));})
-    };
+      $('.aspect_list ul').find('.add').each(function(a,b){
+        $(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));
+      });
+    }
 
     $(this).fadeTo(200,1);
   });
@@ -104,8 +106,8 @@ $(document).ready(function() {
     $(this).children("img").attr("src","/images/icons/monotone_check_yes.png");
   });
 
-  $('.new_aspect').live('ajax:success', function(data, json, xhr){
-      var json = JSON.parse(json);
+  $('.new_aspect').live('ajax:success', function(data, jsonString, xhr){
+      var json = JSON.parse(jsonString);
       $('#aspects_list ul').append(json.html);
       $("#aspects_list ul li[data-guid='" + json.aspect_id + "'] .add.button").click();
       });

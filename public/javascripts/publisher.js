@@ -28,13 +28,6 @@ var Publisher = {
     }
     return Publisher.cachedInput;
   },
-  cachedSubmit : false,
-  submit: function(){
-    if(!Publisher.cachedSubmit){
-      Publisher.cachedSubmit = Publisher.form().find('#status_message_submit');
-    }
-    return Publisher.cachedSubmit;
-  },
 
   cachedHiddenInput : false,
   hiddenInput: function(){
@@ -107,7 +100,7 @@ var Publisher = {
       },
       generateHiddenInput : function(visibleString){
         var resultString = visibleString;
-        for(i in this.sortedMentions()){
+        for(var i in this.sortedMentions()){
           var mention = this.mentions[i];
           var start = resultString.slice(0, mention.visibleStart);
           var insertion = mention.mentionString;
@@ -165,14 +158,14 @@ var Publisher = {
       },
       updateMentionLocations : function(effectiveCursorIndex, offset){
         var changedMentions = this.mentionsAfter(effectiveCursorIndex);
-        for(i in changedMentions){
+        for(var i in changedMentions){
           var mention = changedMentions[i];
           mention.visibleStart += offset;
           mention.visibleEnd += offset;
         }
       },
       mentionAt : function(visibleCursorIndex){
-        for(i in this.mentions){
+        for(var i in this.mentions){
           var mention = this.mentions[i];
           if(visibleCursorIndex > mention.visibleStart && visibleCursorIndex < mention.visibleEnd){
             return i;
@@ -182,14 +175,14 @@ var Publisher = {
       },
       mentionsAfter : function(visibleCursorIndex){
         var resultMentions = [];
-        for(i in this.mentions){
+        for(var i in this.mentions){
           var mention = this.mentions[i];
           if(visibleCursorIndex <= mention.visibleStart){
             resultMentions.push(mention);
           }
         }
         return resultMentions;
-      },
+      }
     },
     repopulateHiddenInput: function(){
       var newHiddenVal = Publisher.autocompletion.mentionList.generateHiddenInput(Publisher.input().val());
@@ -207,8 +200,8 @@ var Publisher = {
       var input = Publisher.input();
       var selectionStart = input[0].selectionStart;
       var selectionEnd = input[0].selectionEnd;
-      var isDeletion = (event.keyCode == KEYCODES.DEL && selectionStart < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && (selectionStart > 0 || selectionStart != selectionEnd))
-      var isInsertion = (KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN )
+      var isDeletion = (event.keyCode == KEYCODES.DEL && selectionStart < input.val().length) || (event.keyCode == KEYCODES.BACKSPACE && (selectionStart > 0 || selectionStart != selectionEnd));
+      var isInsertion = (KEYCODES.isInsertion(event.keyCode) && event.keyCode != KEYCODES.RETURN );
 
       if(isDeletion){
         Publisher.autocompletion.mentionList.deletionAt(selectionStart, selectionEnd, event.keyCode);
@@ -226,15 +219,15 @@ var Publisher = {
       var stringEnd = inputContent.slice(stringLoc[1]);
 
       input.val(stringStart + formatted + stringEnd);
-      var offset = formatted.length - (stringLoc[1] - stringLoc[0])
+      var offset = formatted.length - (stringLoc[1] - stringLoc[0]);
       Publisher.autocompletion.mentionList.updateMentionLocations(stringStart.length, offset);
-      return [stringStart.length, stringStart.length + formatted.length]
+      return [stringStart.length, stringStart.length + formatted.length];
     },
 
     findStringToReplace: function(value, cursorIndex){
       var atLocation = value.lastIndexOf('@', cursorIndex);
       if(atLocation == -1){return [0,0];}
-      var nextAt = cursorIndex
+      var nextAt = cursorIndex;
 
       if(nextAt == -1){nextAt = value.length;}
       return [atLocation, nextAt];
@@ -247,7 +240,7 @@ var Publisher = {
       if(stringLoc[0] <= 2){
         stringLoc[0] = 0;
       }else{
-        stringLoc[0] -= 2
+        stringLoc[0] -= 2;
       }
 
       var relevantString = value.slice(stringLoc[0], stringLoc[1]).replace(/\s+$/,"");
@@ -270,9 +263,9 @@ var Publisher = {
     }
   },
   determineSubmitAvailability: function(){
-    var onlyWhitespaces = (Publisher.input().val().trim() == '');
+    var onlyWhitespaces = (Publisher.input().val().trim() === '');
     var isSubmitDisabled = Publisher.submit().attr('disabled');
-    var isPhotoAttached = ($("#photodropzone").children().length > 0)
+    var isPhotoAttached = ($("#photodropzone").children().length > 0);
     if ((onlyWhitespaces &&  !isPhotoAttached) && !isSubmitDisabled) {
       Publisher.submit().attr('disabled', true);
     } else if ((!onlyWhitespaces || isPhotoAttached) && isSubmitDisabled) {
@@ -295,40 +288,40 @@ var Publisher = {
       $(this).toggleClass("dim");
       var public_field= $("#publisher #status_message_public");
 
-      (public_field.val() == 'false')?(public_field.val('true')):(public_field.val('false'));
+      (public_field.val() == 'false') ? (public_field.val('true')) : (public_field.val('false'));
     });
   },
   toggleServiceField: function(service){
     Publisher.createCounter(service);
 
     var provider = service.attr('id');
-    var hidden_field = $('#publisher [name="services[]"][value="'+provider+'"]')
+    var hidden_field = $('#publisher [name="services[]"][value="'+provider+'"]');
     if(hidden_field.length > 0){
       hidden_field.remove();
     } else {
       $("#publisher .content_creation form").append(
       '<input id="services_" name="services[]" type="hidden" value="'+provider+'">');
-    };
+    }
   },
   toggleAspectIds: function(aspectId) {
-    var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]')
+    var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
     if(hidden_field.length > 0){
       hidden_field.remove();
     } else {
       $("#publisher .content_creation form").append(
       '<input id="aspect_ids_" name="aspect_ids[]" type="hidden" value="'+aspectId+'">');
-    };
+    }
   },
   createCounter: function(service){
     var counter = $("#publisher .counter");
     counter.remove();
-    
+
     var min = 40000;
     var a = $('.service_icon:not(.dim)');
     if(a.length > 0){
       $.each(a, function(index, value){
         var num = parseInt($(value).attr('maxchar'));
-        if (min > num) { min = num}
+        if (min > num) { min = num; }
       });
       $('#status_message_fake_text').charCount({allowed: min, warning: min/10 });
     }
@@ -338,22 +331,22 @@ var Publisher = {
     $('#publisher .aspect_badge').bind("click", function(){
       var unremovedAspects = $(this).parent().children('.aspect_badge').length - $(this).parent().children(".aspect_badge.removed").length;
       if(!$(this).hasClass('removed') && ( unremovedAspects == 1 )){
-        alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'))
+        alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'));
       }else{
         Publisher.toggleAspectIds($(this).children('a').attr('data-guid'));
         $(this).toggleClass("removed");
-      };
+      }
     });
   },
   initialize: function() {
-    Publisher.cachedForm = Publisher.cachedSubmit = 
+    Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
-    
+
     Publisher.bindServiceIcons();
     Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
 
-    if ($("#status_message_fake_text").val() == "") {
+    if ($("#status_message_fake_text").val() === "") {
       Publisher.close();
     }
 
