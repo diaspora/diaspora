@@ -9,7 +9,7 @@ GIT
 
 GIT
   remote: git://github.com/MikeSofaer/sod.git
-  revision: f1084f181c9ae469f03e9217d8ed1c7800ccb971
+  revision: 08e990601bfa6ffd3224a2e4c792df9eae712693
   specs:
     sod (0.0.1)
       net-scp
