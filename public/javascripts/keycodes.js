@@ -113,4 +113,4 @@ isInsertion : function(keyCode){
     return true;
   }
 },
-}
+};
