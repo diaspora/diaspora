@@ -520,7 +520,7 @@ cs:
       logged_in: "přihlášen do %{service}"
       manage: "upravit připojené služby"
       outside: "Veřejné příspěvky budou dostupné pro ostatní mimo Diasporu."
-      title: "Chystáte se poslat veřejnou zprávu!"
+      title: "Nastavit související služby"
     publisher: 
       add_photos: "přidat fotky"
       all: "všechny"

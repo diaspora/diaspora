@@ -520,7 +520,7 @@ es-CL:
       logged_in: "entrar a %{service}"
       manage: "manejar los servicios conectados"
       outside: "Los mensajes públicos estarán disponibles para que otros fuera de Diaspora los puedan ver."
-      title: "¡Estás a punto de postear un mensaje público!"
+      title: "Configurar los servicios conectados"
     publisher: 
       add_photos: "agregar fotos"
       all: "todo"

@@ -520,7 +520,7 @@ es:
       logged_in: "Conectado a %{service}"
       manage: "Servicios conectados"
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diaspora*."
-      title: "¡Estás a punto de hacer una publicación!"
+      title: "Configurar los servicios conectados"
     publisher: 
       add_photos: "Añadir fotos"
       all: "todo"

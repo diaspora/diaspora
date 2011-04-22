@@ -520,7 +520,7 @@ hu:
       logged_in: "bejelentkezve ide: %{service}"
       manage: "kapcsolódó szolgáltatások kezelése"
       outside: "A publikus üzeneteket a Diaspora-n kívüli személyek is láthatják."
-      title: "Publikus üzenetet fogsz megjelentetni!"
+      title: "Kapcsolódó szolgáltatások beállítása"
     publisher: 
       add_photos: "képek hozzáadása"
       all: "összes"

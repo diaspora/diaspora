@@ -55,8 +55,8 @@ sl:
       activity: "activity"
       post_time: "post time"
       sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "Stiki v tej skupini drug drugega ne bodo videli."
+    contacts_visible: "Stiki v tej skupini drug drugega lahko vidijo."
     create: 
       failure: "Ustvarjanje skupine ni uspelo."
       success: "Skupina %{name} je ustvarjena"
@@ -224,7 +224,7 @@ sl:
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "kaj je novega?"
-      your_aspects: "your aspects"
+      your_aspects: "vaše skupine"
     header: 
       blog: "blog"
       code: "koda"
@@ -246,7 +246,7 @@ sl:
         one: "1 person liked this"
         other: "%{count} people liked this"
         zero: "no people liked this"
-  more: "More"
+  more: "Več"
   next: "naslednja"
   no_results: "No Results Found"
   notifications: 
@@ -264,7 +264,7 @@ sl:
     index: 
       and: "and"
       and_others: "and %{number} others"
-      mark_all_as_read: "Mark All as Read"
+      mark_all_as_read: "Označi vse kot prebrano"
       notifications: "Sporočila"
     mentioned: "bili ste omenjeni v objavi"
     new_request: "nekdo želi deliti z vami."
@@ -300,7 +300,7 @@ sl:
       subject: "oseba %{name} vam je poslala privatno sporočilo v Diaspori*"
     request_accepted: 
       accepted: "vaše povabilo je bilo sprejeto!"
-      sign_in: "Sign in here"
+      sign_in: "Tukaj se registrirajte"
       subject: "Oseba %{name} je sprejela vaše povabilo za stik v Diaspori*"
     single_admin: 
       admin: "Vaš administrator Diaspore"
@@ -471,13 +471,13 @@ sl:
       error: "pri povezovanju s servisom je prišlo do napake"
     finder: 
       friends: 
-        few: "%{count} friends"
+        few: "%{count} prijateljev"
         many: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
+        one: "1 prijatelj"
+        other: "%{count} prijateljev"
+        zero: "brez prijateljev"
+      invite_your_friends_from: "Povabi prijatelje iz %{service}"
+      not_connected: "ni povezano"
     index: 
       connect_to_facebook: "Poveži se s facebook"
       connect_to_twitter: "Poveži se s twitter"
@@ -486,11 +486,11 @@ sl:
       logged_in_as: "prijavljeni ste kot"
       really_disconnect: "prekinem povezavo s servisom %{service}?"
     inviter: 
-      click_link_to_accept_invitation: "Click this link to accept your invitation"
-      join_me_on_diaspora: "Join me on DIASPORA*"
+      click_link_to_accept_invitation: "Kliknite na povezavo za potrditev vašega povabila"
+      join_me_on_diaspora: "Pridruži se mi na DIASPORI*"
     remote_friend: 
-      invite: "invite"
-      resend: "resend"
+      invite: "povabi"
+      resend: "pošlji ponovno"
   settings: "Nastavitve"
   shared: 
     add_contact: 
@@ -506,12 +506,12 @@ sl:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
     invitations: 
-      by_email: "by Email"
+      by_email: "po e-pošti"
       dont_have_now: "Trenutno nimate povabil, vendar jih lahko v kratkem pričakujete!"
-      from_facebook: "From Facebook"
+      from_facebook: "iz Facebook-a"
       invitations_left: "(še %{count})"
       invite_someone: "Povabi osebo"
-      invite_your_friends: "Poišči prijatelje"
+      invite_your_friends: "Povabi prijatelje"
       invites: "Povabila"
       invites_closed: "Za ta 'Diaspora pod' so povabila trenutno onemogočena."
     notification: 
@@ -531,11 +531,11 @@ sl:
       posting: "Objavljam..."
       public: "Public"
       publishing_to: "publishing to: "
-      share: "Deli"
+      share: "Objavi"
       share_with: "deli s/z"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "bi kaj želeli sporočiti?"
     reshare: 
-      reshare: "Deli znova"
+      reshare: "Objavi še v"
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
@@ -572,7 +572,7 @@ sl:
       change_password: "Spremeni geslo"
       close_account: "Zapri uporabniški račun"
       comment_on_post: "...someone comments on your post?"
-      current_password: "Current password"
+      current_password: "Trenutno geslo"
       download_photos: "prenesi slike"
       download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
