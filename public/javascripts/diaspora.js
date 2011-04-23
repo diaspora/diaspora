@@ -31,8 +31,7 @@
     this.initialized = true;
 
     for(var widgetId in this.collection) {
-      if(this.collection[widgetId].hasOwnProperty("start")
-          || this.collection[widgetId].__proto__.hasOwnProperty("start")) {
+      if(typeof this.collection[widgetId].start !== "undefined") {
         this.collection[widgetId].start();
       }
     }
