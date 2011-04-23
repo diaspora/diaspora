@@ -1,0 +1,617 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+zh-CN: 
+  _comments: "评论"
+  _home: "首页"
+  _photos: "照片"
+  _services: "服务"
+  account: "帐号"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "在好友中必须是唯一的。"
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "已被注册。"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "与已存在的请求重复。"
+        user: 
+          attributes: 
+            email: 
+              taken: "已被注册。"
+            person: 
+              invalid: "不合法。"
+            username: 
+              taken: "已被注册。"
+  ago: "%{time}前"
+  all_aspects: "所有情景"
+  application: 
+    helper: 
+      unknown_person: "未知用户"
+      video_title: 
+        unknown: "未知影片标题"
+  are_you_sure: "你确定吗？"
+  aspect_memberships: 
+    destroy: 
+      failure: "从情景中移除好友失败"
+      no_membership: "在情景中找不到选择的好友"
+      success: "从情景中移除好友成功"
+  aspects: 
+    add_to_aspect: 
+      failure: "将好友添加到情景失败。"
+      success: "将好友添加到情景成功。"
+    aspect_contacts: 
+      done_editing: "编辑完成"
+    aspect_stream: 
+      activity: "最近活动"
+      post_time: "发布时间"
+      sort_by: "排序方式："
+    contacts_not_visible: "此情景中的好友相互不可见。"
+    contacts_visible: "此情景中的好友相互可见。"
+    create: 
+      failure: "添加情景失败。"
+      success: "添加新情景 %{name} 成功"
+    destroy: 
+      failure: "无法删除 %{name} ，它不是空的。"
+      success: "删除 %{name} 成功。"
+    edit: 
+      add_existing: "添加好友"
+      aspect_list_is_not_visible: "情景中的好友不能看见本情景的好友列表"
+      aspect_list_is_visible: "情景中的好友能够看见本情景的好友列表"
+      confirm_remove_aspect: "你确定要删除这个情景？"
+      done: "完成"
+      make_aspect_list_visible: "是否让其他人可以看见本情景的好友列表？"
+      remove_aspect: "删除这个情景"
+      rename: "重命名"
+      update: "更新"
+      updating: "更新中"
+    few: "%{count}个情景"
+    helper: 
+      are_you_sure: "您确定要删除这个情景？"
+      aspect_not_empty: "此情景不是空的"
+      remove: "删除"
+    index: 
+      handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
+      no_contacts: "没有任何好友"
+      post_a_message: "发布站内信>>"
+    manage: 
+      add_a_new_aspect: "添加情景"
+      add_a_new_contact: "添加新的好友"
+      drag_to_add: "拖动以添加好友"
+      manage_aspects: "情景管理"
+      no_requests: "没有新请求"
+      requests: "请求"
+    many: "%{count}个情景"
+    move_contact: 
+      error: "好友移动错误：%{inspect}"
+      failure: "%{inspect}没有成功"
+      success: "好友成功添加到新情景"
+    new_aspect: 
+      create: "添加"
+      name: "名称"
+    no_posts_message: 
+      start_talking: "还没人发布过内容。你发布第一条吧！"
+    one: "1个情景"
+    other: "%{count}个情景"
+    seed: 
+      family: "家人"
+      work: "同事"
+    show: 
+      edit_aspect: "编辑情景"
+    update: 
+      failure: "情景 %{name} 名称太长了，不能保存"
+      success: "情景 %{name} 编辑成功。"
+    zero: "没有情景"
+  back: "后退"
+  bookmarklet: 
+    explanation: "%{link} 收藏这个链接，即可随时发布新内容"
+    explanation_link_text: "发布到Diaspora"
+    post_something: "发布些新内容到Diaspora"
+    post_success: "发布完成！关闭中！"
+  cancel: "取消"
+  comments: 
+    few: "%{count}条回复"
+    many: "%{count}条回复"
+    new_comment: 
+      comment: "发布回复"
+      commenting: "回复发布中……"
+    one: "1条回复"
+    other: "%{count}条回应"
+    zero: "没有回复"
+  contacts: 
+    create: 
+      failure: "添加好友失败"
+    destroy: 
+      failure: "与 %{name} 取消好友关系失败"
+      success: "与 %{name} 取消好友关系成功"
+    few: "%{count}个好友"
+    many: "%{count}个好友"
+    one: "1个好友"
+    other: "%{count}个好友"
+    share_with_pane: 
+      accepts: "当 %{name} 同意请求后，你们就开始看到彼此在Diaspora上发布的内容"
+      add_new_aspect: "添加到新的情景"
+      share_with: "与 %{name} 分享"
+    zero: "没有好友"
+  conversations: 
+    create: 
+      sent: "消息发送成功"
+    destroy: 
+      success: "消息移除成功"
+    helper: 
+      new_messages: 
+        few: "%{count}条新消息"
+        many: "%{count}条新消息"
+        one: "1条新消息"
+        other: "%{count}条新消息"
+        zero: "没有新消息"
+    index: 
+      create_a_new_message: "发送一条新消息"
+      inbox: "收件箱"
+      message_inbox: "消息收件箱"
+      new_message: "新消息"
+      no_conversation_selected: "未选择任何对话"
+      no_messages: "没消息"
+    new: 
+      send: "发送"
+      subject: "主题"
+      to: "收件人"
+    show: 
+      delete: "删除并中止对话"
+      reply: "回复"
+  date: 
+    formats: 
+      birthday: "%m-%d"
+      birthday_with_year: "%Y-%B-%d"
+      fullmonth_day: "%B月%d日"
+  delete: "删除"
+  email: "电子邮件"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "修正以下错误后重试。"
+      invalid_fields: "无效栏目"
+  fill_me_out: "填写我"
+  hide: "隐藏"
+  home: 
+    show: 
+      already_account: "已经有帐号了吗？"
+      choice: "选择"
+      choice_explanation: "Diaspora 让你将您的关系以\"情景\"分类。情景是Diaspora首创，用来确保您的照片，经历和笑话，只与您所希望的人分享。"
+      learn_about_host: "学习如何架设您自己的Diaspora服务器。"
+      login_here: "从这里登录"
+      ownership: "所有权"
+      ownership_explanation: "你拥有您的图片，且不因为分享而失去该权利。在Diaspora，所有你分享的内容，你都持有所有权，你可以控制它们的发布。"
+      share_what_you_want: "分享您想分享的内容，给您想分享给的人。"
+      simplicity: "简单"
+      simplicity_explanation: "Diaspora让分享变得干净而简单，对隐私设置也是这样。以隐私为出发点，Diaspora 让你不必千辛万苦的调整设置，就能保护您的个人信息安全。"
+      tagline_first_half: "分享您想分享的内容，"
+      tagline_second_half: "给您想分享给的人。"
+  invitations: 
+    check_token: 
+      not_found: "找不到该邀请码"
+    create: 
+      already_contacts: "你已经将他加为好友了"
+      already_sent: "你邀请过这个人了。"
+      no_more: "你没有邀请函了。"
+      rejected: "下列电子信箱有问题: "
+      sent: "邀请函已经寄给: "
+    edit: 
+      sign_up: "注册"
+    new: 
+      already_invited: "已邀请过"
+      aspect: "情景"
+      comma_seperated_plz: "你可以输入多个邮箱，输入多个时以逗号分隔。"
+      if_they_accept_info: "如果他们接受，就会自动被加入到您所邀请的情景中。"
+      invite_someone_to_join: "邀请好友来加入到Diaspora！"
+      personal_message: "个人信息"
+      resend: "重寄"
+      send_an_invitation: "发送邀请函"
+      send_invitation: "发送邀请函"
+      to: "收件人"
+  layouts: 
+    application: 
+      have_a_problem: "遇到问题？在这里可以找到解决方案"
+      powered_by: "Powered by DIASPORA*"
+      public_feed: "%{name} 的 Diaspora RSS Feed"
+      toggle: "切换为手机网页"
+      whats_new: "有什么新内容？"
+      your_aspects: "您的情景"
+    header: 
+      blog: "博客"
+      code: "源码"
+      login: "登录"
+      logout: "登出"
+      profile: "个人档案"
+      settings: "设置"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "有%{count}人觉得不好"
+        many: "有%{count}人觉得不好"
+        one: "有1个人觉得不好"
+        other: "有%{count}个人觉得不好"
+        zero: "没有人觉得不好"
+      people_like_this: 
+        few: "有%{count}个人觉得好"
+        many: "有%{count}个人觉得好"
+        one: "有1个人觉得好"
+        other: "有%{count}个人觉得好"
+        zero: "没有人觉得好"
+  more: "更多"
+  next: "下一步"
+  no_results: "没有找到符合条件的内容"
+  notifications: 
+    also_commented: "也在 %{post_author} 处发布了评论"
+    also_commented_deleted: "对已删除的内容发布了评论"
+    comment_on_post: "发布了评论，在您的"
+    deleted: "删除成功"
+    helper: 
+      new_notifications: 
+        few: "%{count}个新消息"
+        many: "%{count}个新消息"
+        one: "1个新消息"
+        other: "%{count}个新消息"
+        zero: "没有新消息"
+    index: 
+      and: "和"
+      and_others: "和其他%{number}个人"
+      mark_all_as_read: "全部标示为已读"
+      notifications: "消息"
+    mentioned: "在他发布的内容中提到了你"
+    new_request: "想要与您分享。"
+    post: "日志"
+    private_message: "写了一则消息给您。"
+    request_accepted: "已同意和您分享。"
+  notifier: 
+    also_commented: 
+      commented: "也对 %{post_author} 的贴文发布了意见:"
+      sign_in: "登录后可以查看。"
+      subject: "%{name} 也评论了 %{post_author} 发布的内容。"
+    comment_on_post: 
+      commented: "对评论了您发布的内容："
+      sign_in: "登录后可以查看。"
+      subject: "%{name} 评论了您发布的内容。"
+    diaspora: "diaspora邮件机器人"
+    hello: "您好 %{name}！"
+    love: "衷心祝福，"
+    manage_your_email_settings: "管理邮件设置"
+    mentioned: 
+      mentioned: "在 Diaspora* 发布的内容中提到了您："
+      sign_in: "登录后可以查看。"
+      subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
+    new_request: 
+      just_sent_you: "刚刚在 Diaspora* 上与向您发送了好友请求"
+      sign_in: "由此登录"
+      subject: "%{from} 想与您在 Diaspora* 上建立好友请求"
+      try_it_out: "您赶紧来查看一下吧。"
+    private_message: 
+      message_subject: "主题: %{subject}"
+      private_message: "已发送了私人信息给您："
+      sign_in: "登录进来看看。"
+      subject: "%{name} 在 Diaspora* 给您发送了私人信息"
+    request_accepted: 
+      accepted: "已接受了您的好友请求！"
+      sign_in: "由此登录"
+      subject: "%{name} 已在 Diaspora* 接收了您的好友请求"
+    single_admin: 
+      admin: "为您服务的 Diaspora 管理员"
+      subject: "关于您 Diaspora 帐号的信息:"
+    thanks: "谢谢，"
+  ok: "确定"
+  or: "或"
+  password: "密码"
+  password_confirmation: "密码确认"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "从标签添加好友"
+    aspect_list: 
+      edit_membership: "编辑所属情景"
+    few: "%{count}个好友"
+    helper: 
+      people_on_pod_are_aware_of: " Pod上已知的人"
+      results_for: " %{params}的搜寻结果"
+    index: 
+      couldnt_find_them_send_invite: "找不到他们？邀请他们加入Diaspora吧！"
+      no_one_found: "……找不到任何内容。"
+      no_results: "嘿！ 搜索必须要有目标呀。"
+      results_for: "搜索结果："
+    many: "%{count}个好友"
+    one: "1个好友"
+    other: "%{count}个好友"
+    person: 
+      add_contact: "加为好友"
+      already_connected: "已加为好友"
+      pending_request: "请求等候中"
+      thats_you: "这是你自己！"
+    profile_sidebar: 
+      bio: "自我介绍"
+      born: "生日"
+      cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连接，你可以解除与他的好友关系。)"
+      edit_my_profile: "编辑我的个人档案"
+      gender: "性别"
+      in_aspects: "所属情景"
+      location: "位置"
+      remove_contact: "解除好友关系"
+      remove_from: "要从 %{aspect} 删除 %{name} 吗？"
+    show: 
+      add_some: "添加一些"
+      does_not_exist: "好友不存在！"
+      edit: "编辑"
+      incoming_request: "%{name} 希望能与您分享"
+      mention: "提及"
+      message: "消息"
+      no_posts: "没有内容可以显示！"
+      not_connected: "你没有与他分享"
+      recent_posts: "最近的内容"
+      recent_public_posts: "最近的公开内容"
+      return_to_aspects: "回到您的情景主页"
+      see_all: "查看全部"
+      start_sharing: "开始分享"
+      to_accept_or_ignore: "接受或忽略它。"
+      you_have_no_tags: "您没有标签！"
+    webfinger: 
+      fail: "抱歉，找不到 %{handle}。"
+    zero: "没有联络人"
+  photos: 
+    create: 
+      integrity_error: "照片上传失败。你确定它是图片吗？"
+      runtime_error: "照片上传失败。你确定有扣安全带吗？"
+      type_error: "照片上传失败。你确定有选择任何图片吗？"
+    destroy: 
+      notice: "照片删除成功。"
+    edit: 
+      editing: "编辑中"
+    new: 
+      back_to_list: "回列表"
+      new_photo: "新照片"
+      post_it: "发布！"
+    new_photo: 
+      empty: "文件 {file} 是空的，请重新选择文件，并且不要选中它。"
+      invalid_ext: "不支持文件 {file} 的格式。只接受{extensions}。"
+      size_error: "文件 {file} 太大了，上限是 {sizeLimit}。"
+    new_profile_photo: 
+      or_select_one: "或从既有照片中挑选一张"
+      upload: "上传新的头像！"
+    photo: 
+      view_all: "查看 %{name} 所有的照片"
+    show: 
+      collection_permalink: "相册的永久链接"
+      delete_photo: "删除照片"
+      edit: "编辑"
+      edit_delete_photo: "编辑照片描述或删除照片"
+      make_profile_photo: "选为个人头像"
+      original_post: "原式内容"
+      permalink: "永久链接"
+      update_photo: "更新照片"
+      view: "查看"
+    update: 
+      error: "照片更新失败。"
+      notice: "照片更新成功。"
+  post_visibilites: 
+    update: 
+      post_hidden: "隐藏 %{name} 的内容成功"
+  posts: 
+    doesnt_exist: "内容不存在！"
+  previous: "上一步"
+  profile: "个人档案"
+  profiles: 
+    edit: 
+      allow_search: "允许别人在 Diaspora* 中搜寻到你"
+      edit_profile: "编辑个人档案"
+      first_name: "名"
+      last_name: "姓"
+      update_profile: "更新个人档案"
+      your_bio: "您的自我介绍"
+      your_birthday: "您的生日"
+      your_gender: "您的性别"
+      your_location: "您的位置"
+      your_name: "您的名字"
+      your_photo: "您的照片"
+      your_private_profile: "您的私人档案"
+      your_public_profile: "您的公开档案"
+      your_tags: "你: 可以有5个“#标签”"
+      your_tags_placeholder: "比如 #diaspora #烫发 #猫咪 #音乐"
+    update: 
+      failed: "个人档案更新失败"
+      updated: "个人档案更新成功"
+  registrations: 
+    closed: "本 Diaspora pod 不开放注册。"
+    create: 
+      success: "你已成功加入 Diaspora 了！"
+    edit: 
+      cancel_my_account: "取消我的帐号"
+      edit: "编辑 %{name}"
+      leave_blank: "(不想变更时请留空)"
+      password_to_confirm: "(我们需要您现在的密码以确认您要变更)"
+      unhappy: "不满意？"
+      update: "更新"
+    new: 
+      enter_email: "输入电子邮箱"
+      enter_password: "输入密码"
+      enter_password_again: "再输入一遍密码"
+      enter_username: "选个帐号称(名称只能包含字母,数字和下划线“_”)"
+      sign_up: "注册"
+      sign_up_for_diaspora: "注册使用 Diaspora"
+  requests: 
+    create: 
+      sending: "发送中"
+      sent: "您已经请求与 %{name} 分享。他们下次登入 Diaspora 时就会看见您的请求。"
+    destroy: 
+      error: "请选择一个情景！"
+      ignore: "忽略建立好友的请求。"
+      success: "你们现在互相分享了。"
+    helper: 
+      new_requests: 
+        few: "%{count}个新请求！"
+        many: "%{count}个新请求！"
+        one: "新的请求！"
+        other: "%{count}个新请求！"
+        zero: "没有新请求"
+    manage_aspect_contacts: 
+      existing: "好友编辑"
+      manage_within: "管理好友："
+    new_request_to_person: 
+      sent: "发送成功！"
+  search: "搜寻"
+  services: 
+    create: 
+      success: "验证成功。"
+    destroy: 
+      success: "验证删除成功。"
+    failure: 
+      error: "与该服务连接时有错误"
+    finder: 
+      friends: 
+        few: "%{count}个朋友"
+        many: "%{count}个朋友"
+        one: "1个朋友"
+        other: "%{count}个朋友"
+        zero: "没有朋友"
+      invite_your_friends_from: "邀请您在 %{service} 的朋友"
+      not_connected: "未连接"
+    index: 
+      connect_to_facebook: "与 facebook 连接"
+      connect_to_twitter: "与 twitter 连接"
+      disconnect: "断开连接"
+      edit_services: "编辑服务"
+      logged_in_as: "登录为"
+      really_disconnect: "切断与 %{service} 的连接？"
+    inviter: 
+      click_link_to_accept_invitation: "点击这个链接以接受邀请"
+      join_me_on_diaspora: "跟我一起加入 DIASPORA*"
+    remote_friend: 
+      invite: "邀请"
+      resend: "重新发送"
+  settings: "设置"
+  shared: 
+    add_contact: 
+      create_request: "用 Diaspora 帐号搜寻"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "输入 Diaspora 帐号："
+      know_email: "知道他们的电子信箱吗？ 你可以邀请他们加入。"
+      your_diaspora_username_is: "您的 Diaspora 帐号是: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "全部好友"
+      cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
+    footer: 
+      logged_in_as: "已用 %{name} 登录"
+      your_aspects: "您的情景"
+    invitations: 
+      by_email: "通过电子邮件"
+      dont_have_now: "目前你还不能邀请任何人，但很快就可以了！"
+      from_facebook: "从 Facebook"
+      invitations_left: "(剩余%{count}张)"
+      invite_someone: "邀请别人"
+      invite_your_friends: "邀请您的好友"
+      invites: "邀请"
+      invites_closed: "目前本 Diaspora pod 不开放邀请功能"
+    notification: 
+      new: "%{from} 有新的 %{type}"
+    public_explain: 
+      logged_in: "成功登录到 %{service}"
+      manage: "管理已连线的服务"
+      outside: "不使用 Diaspora 的人也能看到公开讯息。"
+      title: "设定连线服务"
+    publisher: 
+      add_photos: "添加照片"
+      all: "全部"
+      all_contacts: "全部的好友"
+      click_to_share_with: "点击后就可以分享: "
+      make_public: "公开"
+      post_a_message_to: "在 %{aspect} 发布讯息"
+      posting: "发布中……"
+      public: "公开"
+      publishing_to: "发布至："
+      share: "分享"
+      share_with: "与他分享："
+      whats_on_your_mind: "你想到了什么？"
+    reshare: 
+      reshare: "重新分享"
+    stream_element: 
+      dislike: "不喜欢"
+      like: "喜欢"
+  status_messages: 
+    create: 
+      success: "成功推荐了: %{names}"
+    destroy: 
+      failure: "删除内容失败"
+    helper: 
+      no_message_to_display: "没有信息可显示。"
+    new: 
+      mentioning: "提及发布中: %{person}"
+    show: 
+      destroy: "删除"
+      not_found: "抱歉，找不到该内容。"
+      permalink: "静态连接"
+  stream_helper: 
+    hide_comments: "隐藏评论"
+    show_comments: "显示所有评论"
+  tags: 
+    show: 
+      nobody_talking: "尚还没有人在讨论 %{tag}。"
+      people_tagged_with: "标记为 %{tag} 的人"
+      posts_tagged_with: "标记为 #%{tag} 的内容"
+  the_world: "全世界"
+  undo: "撤消？"
+  username: "帐号"
+  users: 
+    destroy: "帐号关闭成功。"
+    edit: 
+      also_commented: "……当有人也对您的好友的内容发表评论时？"
+      change: "更改"
+      change_language: "更改语言"
+      change_password: "更改密码"
+      close_account: "关闭帐号"
+      comment_on_post: "……当有人对您的内容发表评论时？"
+      current_password: "当前密码"
+      download_photos: "下载我的照片"
+      download_xml: "下载我的 xml"
+      edit_account: "编辑帐号"
+      export_data: "资料导出"
+      mentioned: "……当贴文中提到您时？"
+      new_password: "新密码"
+      private_message: "……当收到私人信息时？"
+      receive_email_notifications: "是否要在以下情况收到电子邮件通知……"
+      request_acceptence: "……当请求跟人分享被接受时？"
+      request_received: "……当收到有人想与您分享的新请求时？"
+      your_email: "您的电子邮箱"
+      your_handle: "您的 diaspora 帐号"
+    getting_started: 
+      connect_on_diaspora: "连接 Diaspora"
+      connect_services: "连接至你使用的其他服务"
+      could_not_find_anyone: "在 Diaspora* 上找不到任何朋友？请使用朋友搜索器来邀请他们。"
+      edit_profile: "编辑个人档案"
+      finished: "完成！"
+      save_and_continue: "保存并继续"
+      signup_steps: "完全下面三个步骤以完成注册:"
+      skip: "跳过使用入门"
+      step_2: 
+        find_your_friends_on_diaspora: "你想在 Diaspora 上联系 Facebook 上的朋友吗？"
+        skip: "跳过"
+      step_3: 
+        finish: "完成"
+        people_already_on_diaspora: "已使用 Diaspora 的人"
+      welcome: "欢迎来到 Diaspora！"
+    public: 
+      does_not_exist: "不存在 %{username} 这个用户！"
+    update: 
+      email_notifications_changed: "邮件通知更改成功"
+      language_changed: "语言更改成功"
+      language_not_changed: "语言更改失败"
+      password_changed: "密码更改成功"
+      password_not_changed: "密码更改失败"
+  webfinger: 
+    fetch_failed: "获取 %{profile_url} 的 webfinger 个人档案失败"
+    hcard_fetch_failed: "获取 %{account} 的 hcard 资料时发生错误"
+    no_person_constructed: "从这份 hcard 资料无法组建出联络人。"
+    not_enabled: "%{account} 的主机似乎没有启用 webfinger"
+    xrd_fetch_failed: "从 %{account} 这个帐号取得 xrd 时发生错误"

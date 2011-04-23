@@ -1,0 +1,33 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+zh-CN: 
+  javascripts: 
+    confirm_dialog: "你确定吗？"
+    publisher: 
+      at_least_one_aspect: "发布时请选择至少一个情景"
+    search_for: "搜索 {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
+    timeago: 
+      day: "1天"
+      days: "%d天"
+      hour: "约1小时"
+      hours: "约%d小时"
+      minute: "约1分钟"
+      minutes: "%d分钟"
+      month: "约1个月"
+      months: "%d个月"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "少于1分钟"
+      suffixAgo: "前"
+      suffixFromNow: "后"
+      year: "约1年"
+      years: "%d年"
+    videos: 
+      unknown: "未知视频格式"
+      watch: "在 {{provider}} 上看观看视频"
