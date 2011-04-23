@@ -31,4 +31,5 @@ en:
           cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
       publisher:
         at_least_one_aspect: "You must publish to at least one aspect"
-          
+      infinite_scroll:
+        no_more: "No more posts."

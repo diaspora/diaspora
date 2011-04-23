@@ -8,7 +8,8 @@ Diaspora.widgets.add("directionDetector", function() {
 
   this.start = function() {
     Diaspora.widgets.directionDetector.updateBinds();
-    InfiniteScroll.postScroll(function() {
+    
+    Diaspora.widgets.subscribe("stream/scrolled", function() {
       Diaspora.widgets.directionDetector.updateBinds();
     });
   };
