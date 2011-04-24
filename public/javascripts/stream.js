@@ -80,7 +80,7 @@ var Stream = {
     });
 
     $(".new_status_message").bind('ajax:failure', function(data, html , xhr) {
-      json = $.parseJSON(html.response);
+      json = $.parseJSON(html.responseText);
       if(json.errors.length != 0){
         Diaspora.widgets.alert.alert(json.errors);
       }else{
