@@ -6,6 +6,8 @@
 fr: 
   javascripts: 
     confirm_dialog: "Êtes-vous sûr ?"
+    infinite_scroll: 
+      no_more: "Pas d'autre messages."
     publisher: 
       at_least_one_aspect: "Vous devez créer au moins un aspect"
     search_for: "Chercher {{name}}"

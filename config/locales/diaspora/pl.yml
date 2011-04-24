@@ -235,10 +235,10 @@ pl:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
+        few: "%{count} osoby nie lubią tego"
+        many: "%{count} osób nie lubi tego"
+        one: "1 osoba tego nie lubi"
+        other: "%{count} osób nie lubi tego"
         zero: "no people disliked this"
       people_like_this: 
         few: "%{count} osoby polubiły to"
@@ -343,7 +343,7 @@ pl:
       remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "dodaj kogoś"
       does_not_exist: "Osoba nie istnieje!"
       edit: "edytuj"
       incoming_request: "%{name} chce być twoim znajomym"
@@ -357,7 +357,7 @@ pl:
       see_all: "Zobacz wszystkich"
       start_sharing: "współdziel"
       to_accept_or_ignore: "by je przyjąć lub zignorować."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "nie masz tagów!"
     webfinger: 
       fail: "Wybacz, nie można było znaleźć %{handle}."
     zero: "nikt"
@@ -530,7 +530,7 @@ pl:
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Wysyłanie…"
       public: "Public"
-      publishing_to: "publishing to: "
+      publishing_to: "publikuj na:"
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
       whats_on_your_mind: "co Ci chodzi po głowie?"
@@ -551,7 +551,7 @@ pl:
     show: 
       destroy: "Usuń"
       not_found: "Niestety, nie udało się nam znaleźć tego wpisu."
-      permalink: "permalink"
+      permalink: "odnośnik bezpośredni"
   stream_helper: 
     hide_comments: "ukryj komentarze"
     show_comments: "pokaż komentarze"

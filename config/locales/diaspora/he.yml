@@ -82,7 +82,7 @@ he:
     index: 
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
-      post_a_message: "post a message >>"
+      post_a_message: "פרסום הודעה >>"
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
       add_a_new_contact: "הוספת איש קשר חדש"
@@ -266,7 +266,7 @@ he:
       and_others: "ו־%{number} אחרים"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
-    mentioned: "הזכיר/ה אותך ב־"
+    mentioned: "הזכיר/ה אותך ברשומה"
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה"
     private_message: "שלח/ה לך הודעה."
@@ -354,7 +354,7 @@ he:
       recent_posts: "רשומות אחרונות"
       recent_public_posts: "הרשומות הציבוריות האחרונות"
       return_to_aspects: "באפשרותך לחזור לעמוד ההיבטים שלך"
-      see_all: "See all"
+      see_all: "צפייה בהכול"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
       you_have_no_tags: "אין לך תגיות!"
@@ -448,7 +448,7 @@ he:
     destroy: 
       error: "נא לבחור בהיבט!"
       ignore: "התעלמת מבקשת החברות."
-      success: "אתם חברים כעת."
+      success: "את/ה משתף/ת כעת."
     helper: 
       new_requests: 
         few: "%{count} בקשות חדשות!"
@@ -511,7 +511,7 @@ he:
       from_facebook: "מ־Facebook"
       invitations_left: "(%{count} נותרו)"
       invite_someone: "שליחת הזמנה"
-      invite_your_friends: "הזמנת החברים שלך"
+      invite_your_friends: "חיפוש החברים שלך"
       invites: "הזמנות"
       invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
     notification: 
@@ -520,7 +520,7 @@ he:
       logged_in: "נכנסת אל %{service}"
       manage: "ניהול השירותים המקושרים"
       outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה."
-      title: "ההודעה מיועדת לפרסום ציבורי!"
+      title: "הגדרת שירותים מקושרים"
     publisher: 
       add_photos: "הוספת תמונות"
       all: "הכול"

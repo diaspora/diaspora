@@ -6,6 +6,8 @@
 zh-TW: 
   javascripts: 
     confirm_dialog: "你確定嗎?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"

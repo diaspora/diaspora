@@ -6,6 +6,8 @@
 he: 
   javascripts: 
     confirm_dialog: "בבטחה?"
+    infinite_scroll: 
+      no_more: "אין רשומות נוספות."
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
     search_for: "חיפוש אחר {{name}}"

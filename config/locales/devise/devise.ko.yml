@@ -1,0 +1,97 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ko: 
+  devise: 
+    confirmations: 
+      confirmed: "Your account was successfully confirmed. You are now signed in."
+      new: 
+        resend_confirmation: "Resend confirmation instructions"
+      send_instructions: "You will receive an email with instructions about how to confirm your account in a few minutes."
+    failure: 
+      inactive: "당신의 계정은 아직 활성화 되지 않았습니다."
+      invalid: "이메일 또는 비밀번호가 잘 못되었습니다. "
+      invalid_token: "잘못된 인증권."
+      locked: "당신의 계정은 잠겨져 있습니다."
+      timeout: "당신의 세션이 만료되었습니다.계속 진행하기 위해서 로그인을 해주십시요."
+      unauthenticated: "계속 진행하기 위해선 로그인을 하거나 회원가입을 해야합니다."
+      unconfirmed: "계속 진행하기 전에 당신의 계정을을 확인해야합니다."
+    invitations: 
+      invitation_token_invalid: "The invitation token provided is not valid!"
+      send_instructions: "Your invitation has been sent."
+      updated: "Your password was set successfully. You are now signed in."
+    mailer: 
+      confirmation_instructions: 
+        confirm: "내 계정 확인하기"
+        subject: "확인 방법"
+        you_can_confirm: "아래의 링크를 통해 본인 계정을 확인할 수 있습니다."
+      hello: "안녕하세요 %{email}!"
+      invitation: 
+        accept: "초대 승인"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
+      inviters: 
+        accept_at: ",%{url}의, 아래의 링크를 통해서 승인할수 있습니다."
+        has_invited_you: "%{name} 은 Diaspora에 가입하기위해 초대되었습니다."
+        have_invited_you: "%{names}은 Diaspora에 가입하기 위해 초대되었습니다."
+      reset_password_instructions: 
+        change: "비밀번호 변경"
+        ignore: "If you didn't request this, please ignore this email."
+        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        subject: "비밀번호 재설정 설명서"
+        wont_change: "Your password won't change until you access the link above and create a new one."
+      unlock_instructions: 
+        account_locked: "많은 수의 실패한 로그인 시도 때문에 당신의 계정은 잠겨져있습니다."
+        click_to_unlock: "당신의 계정을 해제하기 위해서 아래의 링크를 클릭하세요:"
+        subject: "잠금해제 설명서"
+        unlock: "나의 계정 잠금해제"
+      welcome: "%{email}을 환영합니다!"
+    passwords: 
+      edit: 
+        change_password: "나의 비밀번호 변경"
+      new: 
+        forgot_password: "비밀번호를 잃어버렸습니까?"
+        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        send_password_instructions: "나에게 비밀번호 재설정 설명서를 보내주십시요."
+      send_instructions: "어떻게 비밀번호를 초기화하는지에 대한 설명서를 몇분내에 이메일로 받을것입니다."
+      updated: "당신의 비밀번호가 성공적으로 변경되었습니다.현재 로그인 상태입니다."
+    registrations: 
+      destroyed: "Bye! Your account was successfully cancelled. We hope to see you again soon."
+      signed_up: "You have signed up successfully. If enabled, a confirmation was sent to your e-mail."
+      updated: "You updated your account successfully."
+    sessions: 
+      new: 
+        alpha_software: "You are about to use alpha software."
+        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        login: "로그인"
+        modern_browsers: "only supports modern browsers."
+        password: "비밀번호"
+        remember_me: "Remember me"
+        sign_in: "Sign in"
+        username: "Username"
+      signed_in: "성공적으로 로그인했습니다."
+      signed_out: "성공적으로 로그아웃했습니다."
+    shared: 
+      links: 
+        forgot_your_password: "Forgot your password?"
+        receive_confirmation: "Didn't receive confirmation instructions?"
+        receive_unlock: "Didn't receive unlock instructions?"
+        sign_in: "Sign in"
+        sign_up: "Sign up"
+        sign_up_closed: "Open signups are closed at this time."
+      mail_signup_form: 
+        sign_up_for_an_invite: "Sign up for an invite!"
+    unlocks: 
+      new: 
+        resend_unlock: "해제 설명을 다시 보내기"
+      send_instructions: "계정을 푸는 법에 대한 설명을 이메일로 몇 분 안에 받게 됩니다."
+      unlocked: "계정이 성공적으로 풀렸습니다. 이제 로그인되었습니다."
+  errors: 
+    messages: 
+      already_confirmed: "이미 승인되었습니다."
+      not_found: "찾지 못했습니다."
+      not_locked: "잠기지 않았습니다."

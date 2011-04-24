@@ -6,6 +6,8 @@
 cs: 
   javascripts: 
     confirm_dialog: "Jste si jisti?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
     search_for: "Hledat {{name}}"

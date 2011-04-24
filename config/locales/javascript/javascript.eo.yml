@@ -6,6 +6,8 @@
 eo: 
   javascripts: 
     confirm_dialog: "Are you sure?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Search for {{name}}"

@@ -6,6 +6,8 @@
 zh-CN: 
   javascripts: 
     confirm_dialog: "你确定吗？"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
     search_for: "搜索 {{name}}"

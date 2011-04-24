@@ -6,6 +6,8 @@
 br: 
   javascripts: 
     confirm_dialog: "Emaoc'h sur?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     search_for: "Klask war-lerc'h {{name}}"

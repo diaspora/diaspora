@@ -6,6 +6,8 @@
 eu: 
   javascripts: 
     confirm_dialog: "Ziur al zaude?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"

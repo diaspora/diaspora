@@ -6,6 +6,8 @@
 sv: 
   javascripts: 
     confirm_dialog: "Är du säker?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
     search_for: "Sök efter {{name}}"

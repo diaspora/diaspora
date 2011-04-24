@@ -6,6 +6,8 @@
 es: 
   javascripts: 
     confirm_dialog: "¿Estás seguro?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
     search_for: "Buscar a {{name}}"

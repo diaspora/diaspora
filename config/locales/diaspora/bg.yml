@@ -36,15 +36,15 @@ bg:
   all_aspects: "Всички аспекти"
   application: 
     helper: 
-      unknown_person: "unknown person"
+      unknown_person: "непознато лице"
       video_title: 
         unknown: "Unknown Video Title"
   are_you_sure: "Сигурни ли сте?"
   aspect_memberships: 
     destroy: 
-      failure: "Failed to remove person from aspect"
-      no_membership: "Could not find the selected person in that aspect"
-      success: "Successfully removed person from aspect"
+      failure: "Лицето не бе премахнато от аспекта"
+      no_membership: "Избраното лице не може да бъде намерено в този апект"
+      success: "Лицето е премахнато от аспекта"
   aspects: 
     add_to_aspect: 
       failure: "Контактът не бе добавен към аспекта."
@@ -65,8 +65,8 @@ bg:
       success: "%{name} бе изтрит."
     edit: 
       add_existing: "Добавяне на съществуващ контакт"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      aspect_list_is_not_visible: "списъкът на аспекта е скрит за останалите в аспекта"
+      aspect_list_is_visible: "списъкът на аспекта е открит за останалите в аспекта"
       confirm_remove_aspect: "Наистина ли желаете да бъде премахнат аспектът?"
       done: "Готово"
       make_aspect_list_visible: "нека аспектът бъде видим"
@@ -88,13 +88,13 @@ bg:
       add_a_new_contact: "Добавяне на контакт"
       drag_to_add: "Влачете за да добавите хора"
       manage_aspects: "Управление на аспектите"
-      no_requests: "No new requests"
-      requests: "Requests"
+      no_requests: "Няма нови покани"
+      requests: "Покани"
     many: "%{count} аспекта"
     move_contact: 
       error: "Грешка при преместване на контакт: %{inspect}"
       failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      success: "Лицето е преместено в нов аспект"
     new_aspect: 
       create: "Създаване"
       name: "Име"
@@ -129,7 +129,7 @@ bg:
     zero: "няма коментари"
   contacts: 
     create: 
-      failure: "Failed to create contact"
+      failure: "Контактът не бе създаден"
     destroy: 
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
@@ -188,19 +188,19 @@ bg:
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
       learn_about_host: "Learn about how to host your own Diaspora server."
       login_here: "log in here"
-      ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      ownership: "Собственост"
+      ownership_explanation: "Вие притежавате снимките си и не е необходимо да се отказвате от това си право само за да ги споделите. Вие запазвате собствеността си върху всичко споделено в Diaspora - това ви осигурява контрол над разпространението."
       share_what_you_want: "Споделяйте каквото желаете, с когото пожелаете."
-      simplicity: "Simplicity"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      simplicity: "Леснота"
+      simplicity_explanation: "Споделянето чрез Diaspora е просто и лесно. Характерно за Diaspora е че запазва личния ви живот поверителен без нужда от настройване различни страници с безброй опции."
       tagline_first_half: "Споделете каквото желаете,"
       tagline_second_half: "с когото пожелаете."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Данните за поканата не са намерени"
     create: 
-      already_contacts: "You are already connected with this person"
-      already_sent: "You already invited this person."
+      already_contacts: "Вече сте свързани с тава лице"
+      already_sent: "Вече сте свързани с тава лице."
       no_more: "Не разполагате с повече покани."
       rejected: "The following email addresses had problems: "
       sent: "Покани са изпратени до: "
@@ -235,14 +235,14 @@ bg:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "не е харесана от %{count} човека"
+        many: "не е харесана е от %{count} човека"
+        one: "не е харесана от 1 човек"
+        other: "не е харесана от %{count} човека"
+        zero: "всички са я харесали"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
+        few: "харесана от %{count} човека"
+        many: "харесана от %{count} човека"
         one: "1 person liked this"
         other: "%{count} people liked this"
         zero: "no people liked this"
@@ -285,9 +285,9 @@ bg:
     love: "love,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
-      mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
+      mentioned: "ви спомена в публикация:"
+      sign_in: "Впишете се, за да я прегледате."
+      subject: "%{name} ви спомена в Diaspora*"
     new_request: 
       just_sent_you: "just sent you a contact request on Diaspora*"
       sign_in: "Впишете се тук"
@@ -296,7 +296,7 @@ bg:
     private_message: 
       message_subject: "Тема: %{subject}"
       private_message: "ви изпрати лично съобщение:"
-      sign_in: "Sign in to view it."
+      sign_in: "Впишете се, за да го прегледате."
       subject: "%{name} ви изпрати лично съобщени в Diaspora*"
     request_accepted: 
       accepted: "has accepted your contact request!"
@@ -314,8 +314,8 @@ bg:
     add_contact_small: 
       add_contact_from_tag: "add contact from tag"
     aspect_list: 
-      edit_membership: "edit aspect membership"
-    few: "%{count} people"
+      edit_membership: "редактирайте членството в аспекти"
+    few: "%{count} човека"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " резултата за %{params}"
@@ -324,12 +324,12 @@ bg:
       no_one_found: "...и никой не е намерен."
       no_results: "Hey! You need to search for something."
       results_for: "резултат от търсенето за"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} човека"
+    one: "1 човек"
+    other: "%{count} човека"
     person: 
       add_contact: "добавяне на контакт"
-      already_connected: "Already connected"
+      already_connected: "Вече е свързан"
       pending_request: "Pending request"
       thats_you: "Това сте вие!"
     profile_sidebar: 
@@ -360,12 +360,12 @@ bg:
       you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "За съжаление %{handle} не може да бъде намерен."
-    zero: "no people"
+    zero: "няма хора"
   photos: 
     create: 
-      integrity_error: "Photo upload failed.  Are you sure that was an image?"
-      runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
-      type_error: "Photo upload failed.  Are you sure an image was added?"
+      integrity_error: "Снимката не бе качена. Сигурни ли сте, че сте избрали изображение?"
+      runtime_error: "Снимката не бе качена. Сигурни ли сте, че сте закопчали колана си?"
+      type_error: "Снимката не бе качена. Сигурни ли сте, че е добавено изображение?"
     destroy: 
       notice: "Снимката е изтрита."
     edit: 
@@ -385,9 +385,9 @@ bg:
       view_all: "всички снимки на %{name}"
     show: 
       collection_permalink: "collection permalink"
-      delete_photo: "Delete Photo"
+      delete_photo: "Изтриване на изображение"
       edit: "редактиране"
-      edit_delete_photo: "Edit photo description / delete photo"
+      edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "make profile photo"
       original_post: "Оригинална публикация"
       permalink: "permalink"
@@ -431,7 +431,7 @@ bg:
       cancel_my_account: "Cancel my account"
       edit: "Edit %{name}"
       leave_blank: "(оставете празно ако не желаете да го променяте)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
+      password_to_confirm: "(за да бъдат потвърдени промените е необходима текущата ви парола)"
       unhappy: "Unhappy?"
       update: "Update"
     new: 
@@ -454,8 +454,8 @@ bg:
         few: "%{count} new requests!"
         many: "%{count} new requests!"
         one: "new request!"
-        other: "%{count} new requests!"
-        zero: "no new requests"
+        other: "%{count} нови покани!"
+        zero: "няма нови покани"
     manage_aspect_contacts: 
       existing: "Съществуващи контакти"
       manage_within: "Manage contacts within"
@@ -497,11 +497,11 @@ bg:
       create_request: "Търси по Diaspora адрес"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Въведете потребителско име от Diaspora:"
-      know_email: "Know their email address? You should invite them"
+      know_email: "Знаете адресите на ел. им поща? Трябва да ги поканите"
       your_diaspora_username_is: "Вашето потребителско име в Diaspora е %{diaspora_handle}"
     contact_list: 
       all_contacts: "Всички контакти"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      cannot_remove: "Лицето не може да бъде премахнато от последния аспект. (Ако желаете да бъде прекратена връзката с лицето е необходимо да премахнете контакта.)"
     footer: 
       logged_in_as: "вписани сте като %{name}"
       your_aspects: "вашите аспекти"
@@ -519,7 +519,7 @@ bg:
     public_explain: 
       logged_in: "вписани сте в %{service}"
       manage: "управление на свързаните услуги"
-      outside: "Public messages will be available for others outside of Diaspora to see."
+      outside: "Публичните съобщения ще са видими и за хора извън Diaspora."
       title: "Настройте свързване с услуга"
     publisher: 
       add_photos: "добавете снимки"
@@ -529,16 +529,16 @@ bg:
       make_public: "направете публично"
       post_a_message_to: "Публикувайте публично съобяение в %{aspect}"
       posting: "Публикуване..."
-      public: "Public"
-      publishing_to: "publishing to: "
+      public: "Публично"
+      publishing_to: "публикуване в: "
       share: "Споделете"
-      share_with: "share with"
+      share_with: "споделяне с"
       whats_on_your_mind: "какво мислите?"
     reshare: 
       reshare: "споделяне с"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "Не ми харесва"
+      like: "Харесва ми"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -598,7 +598,7 @@ bg:
         find_your_friends_on_diaspora: "Желаете ли да намерите приятелите си от Facebook в Diaspora?"
         skip: "Skip"
       step_3: 
-        finish: "Finish"
+        finish: "Готово"
         people_already_on_diaspora: "Хора, които вече са в Diaspora"
       welcome: "Добре дошли в Diaspora!"
     public: 

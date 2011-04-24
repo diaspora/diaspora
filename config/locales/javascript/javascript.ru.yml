@@ -6,6 +6,8 @@
 ru: 
   javascripts: 
     confirm_dialog: "Вы уверенны? "
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
     search_for: "Искать {{name}}"

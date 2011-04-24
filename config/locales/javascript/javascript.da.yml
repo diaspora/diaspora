@@ -6,6 +6,8 @@
 da: 
   javascripts: 
     confirm_dialog: "Er du sikker?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
     search_for: "Søg efter {{name}}"

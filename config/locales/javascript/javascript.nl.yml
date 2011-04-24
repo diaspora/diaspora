@@ -6,6 +6,8 @@
 nl: 
   javascripts: 
     confirm_dialog: "Weet je het zeker?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"

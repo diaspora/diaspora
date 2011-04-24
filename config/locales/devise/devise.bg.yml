@@ -13,13 +13,13 @@ bg:
     failure: 
       inactive: "Акаунтът все още не е активиран."
       invalid: "Невалидно потребителско име или парола."
-      invalid_token: "Invalid authentication token."
+      invalid_token: "Данните за удостоверяване не са валидни."
       locked: "Акаунтът ви е заключен."
       timeout: "Сесията ви изтече, моля впишете се отново, за да продължите."
       unauthenticated: "Впишете се или се регистрирайте, за да продължите."
       unconfirmed: "Потвърдете акаунта, за да продължите."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
+      invitation_token_invalid: "Предоставените данни за поканата не са валидни!"
       send_instructions: "Поканата ви е изпратена."
       updated: "Паролата е зададена. Сега сте вписани."
     mailer: 

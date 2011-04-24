@@ -6,6 +6,8 @@
 el: 
   javascripts: 
     confirm_dialog: "Είστε σίγουρος/η;"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
     search_for: "Αναζήτηση για {{name}}"

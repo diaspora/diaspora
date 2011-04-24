@@ -6,12 +6,14 @@
 bg: 
   javascripts: 
     confirm_dialog: "Сигурни ли сте?"
+    infinite_scroll: 
+      no_more: "Няма повече публикации."
     publisher: 
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
     search_for: "Търсене за {{name}}"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "Лицето не може да бъде премахнато от последния аспект. (Ако желаете да бъде прекратена връзката с лицето е необходимо да премахнете контакта.)"
     timeago: 
       day: "ден"
       days: "%d дни"
@@ -22,9 +24,9 @@ bg:
       month: "около месец"
       months: "%d месеца"
       prefixAgo: "преди"
-      prefixFromNow: ""
+      prefixFromNow: "след"
       seconds: "по-малко от минута"
-      suffixAgo: "преди"
+      suffixAgo: ""
       suffixFromNow: "от сега"
       year: "около година"
       years: "%d години"

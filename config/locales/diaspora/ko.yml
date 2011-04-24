@@ -1,0 +1,617 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ko: 
+  _comments: "댓글"
+  _home: "처음"
+  _photos: "사진"
+  _services: "서비스"
+  account: "계정"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "이 사용자의 컨택 가운데 유일해야합니다."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "이미 쓰이고 있습니다."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "는 이미 존재하는 요청과 중복입니다."
+        user: 
+          attributes: 
+            email: 
+              taken: "는 이미 쓰이고 있습니다."
+            person: 
+              invalid: "는 유효하지 않습니다."
+            username: 
+              taken: "는 이미 쓰이고 있습니다."
+  ago: "%{time} 전"
+  all_aspects: "모든 애스펙"
+  application: 
+    helper: 
+      unknown_person: "알 수 없는 사람"
+      video_title: 
+        unknown: "알 수 없는 비디오 제목"
+  are_you_sure: "확실합니까?"
+  aspect_memberships: 
+    destroy: 
+      failure: "애스펙에서 사람을 지우는데 실패했습니다."
+      no_membership: "고른 사람을 이 애스펙에서 찾을 수 없습니다."
+      success: "애스펙에서 사람을 성공적으로 지웠습니다."
+  aspects: 
+    add_to_aspect: 
+      failure: "애스펙에 컨택을 넣는데 실패했습니다."
+      success: "컨택을 애스펙에 성공적으로 넣었습니다."
+    aspect_contacts: 
+      done_editing: "편집 완료"
+    aspect_stream: 
+      activity: "활동"
+      post_time: "올린 시각"
+      sort_by: "정렬 기준:"
+    contacts_not_visible: "이 애스펙의 컨택은 서로 볼 수 없게 됩니다."
+    contacts_visible: "이 애스펙의 컨택은 서로 볼 수 없게 됩니다."
+    create: 
+      failure: "애스펙 만들기 실패."
+      success: "새 %{name} 애스펙이 만들어졌습니다."
+    destroy: 
+      failure: "%{name}가 비어있지 않아 지울 수 없습니다."
+      success: "%{name}를 성공적으로 지웠습니다."
+    edit: 
+      add_existing: "이미 있는 컨택 넣기"
+      aspect_list_is_not_visible: "애스펙 목록이 애스펙 안의 다른 이들에게 감춰집니다."
+      aspect_list_is_visible: "애스펙 목록이 애스펙 안의 다른 이들에게 보여집니다"
+      confirm_remove_aspect: "이 애스펙을 지우려는게 확실합니까?"
+      done: "완료"
+      make_aspect_list_visible: "애스펙 목록이 보이게 합니까?"
+      remove_aspect: "애스펙 지우기"
+      rename: "이름 바꾸기"
+      update: "갱신"
+      updating: "갱신중"
+    few: "애스펙 %{count}개"
+    helper: 
+      are_you_sure: "이 애스펙을 지우려는게 확실합니까?"
+      aspect_not_empty: "애스펙이 비어있지 않습니다"
+      remove: "지우기"
+    index: 
+      handle_explanation: "당신의 디아스포라 핸들입니다. 사람들에게 이메일 주소처럼 건넬 수 있습니다."
+      no_contacts: "컨택 없음"
+      post_a_message: "새 메시지 >>"
+    manage: 
+      add_a_new_aspect: "애스펙 추가"
+      add_a_new_contact: "컨택 추가"
+      drag_to_add: "새 사람들을 끌어놓으십시오."
+      manage_aspects: "애스펙 관리"
+      no_requests: "새 요청이 없음"
+      requests: "요청"
+    many: "애스펙 %{count}개"
+    move_contact: 
+      error: "컨택 옮기기 에러: %{inspect}"
+      failure: "작동하지 않았습니다 %{inspect}"
+      success: "사람이 새 아스펙으로 옮겨졌습니다"
+    new_aspect: 
+      create: "만들기"
+      name: "이름"
+    no_posts_message: 
+      start_talking: "아직 아무 이야기가 없습니다. 대화를 시작하십시오!"
+    one: "애스펙 한 개"
+    other: "애스펙 %{count}개"
+    seed: 
+      family: "가족"
+      work: "직장"
+    show: 
+      edit_aspect: "애스펙 고치기"
+    update: 
+      failure: "이름이 너무 깁니다. ${name} 애스펙."
+      success: "%{name} 애스펙을 성공적으로 고쳤습니다."
+    zero: "애스펙 없음."
+  back: "뒤로"
+  bookmarklet: 
+    explanation: "%{link} 링크를 북마크로 등록하십시오."
+    explanation_link_text: "디아스포라에 올리기"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
+  cancel: "취소"
+  comments: 
+    few: "댓글 %{count}개"
+    many: "댓글 %{count}개"
+    new_comment: 
+      comment: "댓글"
+      commenting: "댓글 등록중..."
+    one: "댓글 한 개"
+    other: "댓글 %{count}개"
+    zero: "댓글 없음"
+  contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
+    few: "컨택 %{count}명"
+    many: "컨택 %{count}명"
+    one: "1 contact"
+    other: "컨택 %{count}명"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "새 애스펙에 추가"
+      share_with: "Start sharing with %{name}"
+    zero: "no contacts"
+  conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
+    helper: 
+      new_messages: 
+        few: "새 메시지 %{count}개"
+        many: "새 메시지 %{count}개"
+        one: "1 new messages"
+        other: "새 메시지 %{count}개"
+        zero: "no new messages"
+    index: 
+      create_a_new_message: "create a new message"
+      inbox: "Inbox"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      delete: "delete and block conversation"
+      reply: "reply"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "삭제"
+  email: "Email"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "다음의 에러들을 수정하고 다시 시도하십시오."
+      invalid_fields: "잘못된 필드들"
+  fill_me_out: "나를 채워주세요."
+  hide: "Hide"
+  home: 
+    show: 
+      already_account: "already have an account?"
+      choice: "Choice"
+      choice_explanation: "디아스포라에서는 당신의 여러 관계를 애스펙이라 불리우는 모둠으로 관리할 수 있습니다. 애스펙은 당신의 사진, 이야기, 농담을 당신이 의도한 사람들과만 공유할 수 있도록 보장합니다."
+      learn_about_host: "Learn about how to host your own Diaspora server."
+      login_here: "log in here"
+      ownership: "Ownership"
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      share_what_you_want: "Share what you want, with whom you want."
+      simplicity: "Simplicity"
+      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "본인이 원하는 상대와. "
+  invitations: 
+    check_token: 
+      not_found: "Invitation token not found"
+    create: 
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
+      no_more: "You have no more invitations."
+      rejected: "The following email addresses had problems: "
+      sent: "Invitations have been sent to: "
+    edit: 
+      sign_up: "sign_up"
+    new: 
+      already_invited: "Already invited"
+      aspect: "애스펙"
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      if_they_accept_info: "상대방이 수락하면 초대한 애스펙에 추가됩니다."
+      invite_someone_to_join: "Invite someone to join Diaspora!"
+      personal_message: "Personal message"
+      resend: "Resend"
+      send_an_invitation: "Send an invitation"
+      send_invitation: "Send invitation"
+      to: "To"
+  layouts: 
+    application: 
+      have_a_problem: "문제가 있습니까? 여기서 답을 찾으세요."
+      powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Public Diaspora Feed for %{name}"
+      toggle: "모바일 사이트 전환"
+      whats_new: "새로운 점"
+      your_aspects: "나의 애스펙"
+    header: 
+      blog: "블로그"
+      code: "코드"
+      login: "로그인"
+      logout: "로그아웃"
+      profile: "프로필"
+      settings: "설정"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count}명이 싫어합니다"
+        many: "%{count}명이 싫어합니다"
+        one: "1 person disliked this"
+        other: "%{count}명이 싫어합니다"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count}명이 좋아합니다"
+        many: "%{count}명이 좋아합니다"
+        one: "1 person liked this"
+        other: "%{count}명이 좋아합니다"
+        zero: "no people liked this"
+  more: "More"
+  next: "next"
+  no_results: "No Results Found"
+  notifications: 
+    also_commented: "also commented on your contact's"
+    also_commented_deleted: "commented on a deleted post"
+    comment_on_post: "답글이 당신의 "
+    deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "새 알림 %{count}개"
+        many: "새 알림 %{count}개"
+        one: "1 new notifications"
+        other: "새 알림 %{count}개"
+        zero: "no new notifications"
+    index: 
+      and: "and"
+      and_others: "and %{number} others"
+      mark_all_as_read: "Mark All as Read"
+      notifications: "Notifications"
+    mentioned: "has mentioned you in their"
+    new_request: "offered to share with you."
+    post: "글"
+    private_message: "sent you a message."
+    request_accepted: "accepted your share request."
+  notifier: 
+    also_commented: 
+      commented: "도 %{post_author} 의 글에 댓글을 달았습니다."
+      sign_in: "글을 보려면 로그인하십시오."
+      subject: "%{name}도 %{post_author}의 글에 댓글을 달았습니다."
+    comment_on_post: 
+      commented: "당신의 글에 댓글을 달았습니다."
+      sign_in: "글을 보려면 로그인하십시오."
+      subject: "%{name} 이(가) 당신의 글에 댓글을 달았습니다."
+    diaspora: "the diaspora email robot"
+    hello: "Hello %{name}!"
+    love: "love,"
+    manage_your_email_settings: "manage your email settings"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
+    new_request: 
+      just_sent_you: "just sent you a contact request on Diaspora*"
+      sign_in: "Sign in here"
+      subject: "new Diaspora* contact request from %{from}"
+      try_it_out: "You should really think about checking it out."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message yon Diaspora*"
+    request_accepted: 
+      accepted: "has accepted your contact request!"
+      sign_in: "Sign in here"
+      subject: "%{name} has accepted your contact request on Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message about your Diaspora account:"
+    thanks: "Thanks,"
+  ok: "OK"
+  or: "또는"
+  password: "Password"
+  password_confirmation: "비밀번호 확인"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
+    aspect_list: 
+      edit_membership: "edit aspect membership"
+    few: "%{count}명"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: " results for %{params}"
+    index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hey! You need to search for something."
+      results_for: "search results for"
+    many: "%{count}명"
+    one: "1 person"
+    other: "%{count}명"
+    person: 
+      add_contact: "add contact"
+      already_connected: "Already connected"
+      pending_request: "pending request"
+      thats_you: "thats you!"
+    profile_sidebar: 
+      bio: "bio"
+      born: "birthday"
+      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      edit_my_profile: "Edit my profile"
+      gender: "gender"
+      in_aspects: "애스펙 안에"
+      location: "location"
+      remove_contact: "remove contact"
+      remove_from: "%{aspect}에서 %{name}을 지웁니까?"
+    show: 
+      add_some: "add some"
+      does_not_exist: "Person does not exist!"
+      edit: "edit"
+      incoming_request: "%{name} wants to share with you"
+      mention: "Mention"
+      message: "Message"
+      no_posts: "보여줄 글이 없습니다!"
+      not_connected: "You are not sharing with %{name}"
+      recent_posts: "최근 글"
+      recent_public_posts: "최근의 공개 글"
+      return_to_aspects: "애스펙 페이지로 돌아가기"
+      see_all: "See all"
+      start_sharing: "start sharing"
+      to_accept_or_ignore: "동의하거나 혹은 거부하기 "
+      you_have_no_tags: "you have no tags!"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
+  photos: 
+    create: 
+      integrity_error: "사진 올리기가 실패. 이미지가 확실합니까?"
+      runtime_error: "사진 올리기 실패. 안전벨트가 매어져 있습니까?"
+      type_error: "사진 올리기 실패. 이미지가 추가된게 확실합니까?"
+    destroy: 
+      notice: "사진이 삭제되었습니다."
+    edit: 
+      editing: "수정중"
+    new: 
+      back_to_list: "목록으로 돌아가기"
+      new_photo: "새 사진"
+      post_it: "글 올리기!"
+    new_photo: 
+      empty: "{file} 이 비어있습니다. 다른 파일을 다시 선택해주십시오."
+      invalid_ext: "{파일} 은 사용이 불가능한 확장 목록을 포함하고 있습니다. 오직 {확장}된 버전의 파일만이 허용됩니다."
+      size_error: "{파일} 의 용량이 너무 큽니다. 최대 파일 용량은 {sizeLimit}입니다. "
+    new_profile_photo: 
+      or_select_one: "또는 이미 있는 것 가운데 하나를 고르십시오."
+      upload: "새로운 프로필 사진을 업로드하세요!"
+    photo: 
+      view_all: "%{name}의 모든 사진 보기 "
+    show: 
+      collection_permalink: "영구링크 모음"
+      delete_photo: "사진 삭제"
+      edit: "수정"
+      edit_delete_photo: "사진 설명 수정 / 사진 삭제"
+      make_profile_photo: "프로필 사진 생성"
+      original_post: "원본 글"
+      permalink: "영구링크"
+      update_photo: "사진 갱신"
+      view: "보기"
+    update: 
+      error: "사진 수정을 실패했습니다."
+      notice: "사진이 성공적으로 수정되었습니다."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
+  posts: 
+    doesnt_exist: "that post does not exist!"
+  previous: "이전"
+  profile: "프로필"
+  profiles: 
+    edit: 
+      allow_search: "Allow for people to search for you within Diaspora"
+      edit_profile: "Edit profile"
+      first_name: "First name"
+      last_name: "Last name"
+      update_profile: "Update Profile"
+      your_bio: "Your bio"
+      your_birthday: "Your birthday"
+      your_gender: "Your gender"
+      your_location: "Your location"
+      your_name: "Your name"
+      your_photo: "Your photo"
+      your_private_profile: "Your private profile"
+      your_public_profile: "Your public profile"
+      your_tags: "You: in 5 #tags"
+      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+    update: 
+      failed: "Failed to update profile"
+      updated: "Profile updated"
+  registrations: 
+    closed: "Signups are closed on this Diaspora pod."
+    create: 
+      success: "You've joined Diaspora!"
+    edit: 
+      cancel_my_account: "Cancel my account"
+      edit: "Edit %{name}"
+      leave_blank: "(leave blank if you don't want to change it)"
+      password_to_confirm: "(we need your current password to confirm your changes)"
+      unhappy: "Unhappy?"
+      update: "Update"
+    new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      sign_up: "Sign up"
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: "Sending"
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+    destroy: 
+      error: "애스펙을 고르십시오!"
+      ignore: "Ignored contact request."
+      success: "You are now friends."
+    helper: 
+      new_requests: 
+        few: "새 요청 %{count}개!"
+        many: "새 요청 %{count}개!"
+        one: "new request!"
+        other: "새 요청 %{count}개!"
+        zero: "no new requests"
+    manage_aspect_contacts: 
+      existing: "이미 있는 컨택"
+      manage_within: "컨택 관리"
+    new_request_to_person: 
+      sent: "보냈습니다!"
+  search: "Search"
+  services: 
+    create: 
+      success: "Authentication successful."
+    destroy: 
+      success: "Successfully deleted authentication."
+    failure: 
+      error: "이 서비스에 연결하는 데 에러가 있었습니다. "
+    finder: 
+      friends: 
+        few: "%{count}명의 친구들"
+        many: "%{count}명의 친구들"
+        one: "1 명의 친구"
+        other: "%{count} 명의 친구들"
+        zero: "친구 없음"
+      invite_your_friends_from: "%{service} 에서 친구를 초대하십시오"
+      not_connected: "not connected"
+    index: 
+      connect_to_facebook: "페이스북에 연결하기"
+      connect_to_twitter: "트위터에 연결하기"
+      disconnect: "disconnect"
+      edit_services: "Edit services"
+      logged_in_as: "logged in as"
+      really_disconnect: "disconnect %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "초대하기"
+      resend: "다시 보내기"
+  settings: "설정"
+  shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "Enter a Diaspora username:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "All contacts"
+      cannot_remove: "사람은 적어도 한 애스펙에 있어야 합니다. (이 사람과 관계를 끊으려면 컨택을 지워야합니다.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "내 애스펙"
+    invitations: 
+      by_email: "이메일로"
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      from_facebook: "From Facebook"
+      invitations_left: "(%{count} 남음)"
+      invite_someone: "Invite someone"
+      invite_your_friends: "친구 초대하기"
+      invites: "Invites"
+      invites_closed: "Invites are currently closed on this Diaspora pod"
+    notification: 
+      new: "New %{type} from %{from}"
+    public_explain: 
+      logged_in: "logged in to %{service}"
+      manage: "manage connected services"
+      outside: "Public messages will be available for others outside of Diaspora to see."
+      title: "공개 메시지로 올려집니다."
+    publisher: 
+      add_photos: "add photos"
+      all: "all"
+      all_contacts: "all contacts"
+      click_to_share_with: "Click to share with: "
+      make_public: "make public"
+      post_a_message_to: "%{aspect} 에 메시지 올리기"
+      posting: "글을 등록 중입니다."
+      public: "Public"
+      publishing_to: "publishing to: "
+      share: "Share"
+      share_with: "share with"
+      whats_on_your_mind: "무슨 생각해요?"
+    reshare: 
+      reshare: "Reshare"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
+  status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
+    destroy: 
+      failure: "글 삭제가 실패했습니다."
+    helper: 
+      no_message_to_display: "보여줄 메시지가 없습니다."
+    new: 
+      mentioning: "Mentioning: %{person}"
+    show: 
+      destroy: "삭제"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "영구링크"
+  stream_helper: 
+    hide_comments: "댓글 숨기기"
+    show_comments: "모든 댓글 보기"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
+  the_world: "the world"
+  undo: "Undo?"
+  username: "사용자이름"
+  users: 
+    destroy: "Account successfully closed."
+    edit: 
+      also_commented: "...someone also comments on your contact's post?"
+      change: "Change"
+      change_language: "Change Language"
+      change_password: "Change Password"
+      close_account: "Close Account"
+      comment_on_post: "...someone comments on your post?"
+      current_password: "Current password"
+      download_photos: "download my photos"
+      download_xml: "download my xml"
+      edit_account: "Edit account"
+      export_data: "Export Data"
+      mentioned: "...you are mentioned in a post?"
+      new_password: "New Password"
+      private_message: "...you receive a private message?"
+      receive_email_notifications: "Receive email notificaions?"
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
+    getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
+      connect_services: "Connect your other services"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      edit_profile: "Edit your profile"
+      finished: "Finished!"
+      save_and_continue: "Save and continue"
+      signup_steps: "Finish your sign up by completing these three steps:"
+      skip: "skip getting started"
+      step_2: 
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
+      step_3: 
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
+      welcome: "Welcome to Diaspora!"
+    public: 
+      does_not_exist: "User %{username} does not exist!"
+    update: 
+      email_notifications_changed: "Email notifications changed"
+      language_changed: "Language Changed"
+      language_not_changed: "Language Change Failed"
+      password_changed: "Password Changed"
+      password_not_changed: "Password Change Failed"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger가 %{account}'의 호스트를 위해 활성화되지 못한듯 합니다."
+    xrd_fetch_failed: "xrd를 %{account} 계정에서 가져오는 데 에러가 발생했습니다."
