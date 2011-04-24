@@ -206,7 +206,7 @@ GEM
       rspec (~> 2.0)
       rspec-instafail (~> 0.1.4)
     gem_plugin (0.2.3)
-    gherkin (2.3.5)
+    gherkin (2.3.6)
       json (>= 1.4.6)
     haml (3.0.25)
     hashie (0.4.0)
