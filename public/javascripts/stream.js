@@ -9,7 +9,7 @@ var Stream = {
 
     $(".status_message_delete").tipsy({trigger: 'hover', gravity: 'n'});
 
-    Diaspora.widgets.subscribe("stream/reloaded", Stream.initialized);
+    Diaspora.widgets.subscribe("stream/reloaded", Stream.initialize);
     Diaspora.widgets.timeago.updateTimeAgo();
     Diaspora.widgets.directionDetector.updateBinds();
 
@@ -96,7 +96,7 @@ var Stream = {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
-    $(".stream").find(".comment_delete", ".comment").live('ajax:success', function(data, html, xhr) {
+    $stream.find(".comment_delete", ".comment").live('ajax:success', function(data, html, xhr) {
       var element = $(this),
           target = element.parents(".comment"),
           post = element.closest('.stream_element'),

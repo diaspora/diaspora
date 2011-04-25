@@ -17,3 +17,9 @@ Feature: embedding
       When I follow "Youtube: Leekspin"
       And I wait for the ajax to finish
       Then I should see "Watch this video on YouTube" within ".video-container"
+
+      #After ajax aspect switch
+      When I follow "Besties" 
+      And I wait for the ajax to finish
+      And I follow "Youtube: Leekspin"
+      Then I should see "Watch this video on YouTube" within ".video-container"

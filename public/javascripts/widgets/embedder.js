@@ -52,7 +52,7 @@
   };
 
   Embedder.prototype.start = function() {
-    $(".stream").delegate("a.video-link", "click", this.onVideoLinkClicked);
+    $("#main_stream a.video-link").live("click", this.onVideoLinkClicked);
     this.registerServices();
 
     var $post = $("#main_stream").children(".stream_element:first"),
@@ -63,7 +63,7 @@
 
   Embedder.prototype.registerServices = function() {
     var watchVideoOn = Diaspora.widgets.i18n.t("videos.watch");
-    
+
     this.register("youtube.com",
         '<a href="//www.youtube.com/watch?v={{video-id}}" target="_blank">' + $.mustache(watchVideoOn, { provider: "YouTube" }) + '</a><br />' +
         '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}?wmode=opaque"></iframe>');
