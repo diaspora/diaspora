@@ -5,26 +5,27 @@
 
 var Stream = {
   initialize: function() {
-    var $stream = $(".stream");
+    var stream_string = '#main_stream';
+    var $stream = $(stream_string);
 
     $(".status_message_delete").tipsy({trigger: 'hover', gravity: 'n'});
 
-    Diaspora.widgets.subscribe("stream/reloaded", Stream.initialize);
+    Diaspora.widgets.subscribe("stream/reloaded", Stream.initialized);
     Diaspora.widgets.timeago.updateTimeAgo();
     Diaspora.widgets.directionDetector.updateBinds();
 
 
-    $stream.not(".show").delegate("a.show_post_comments", "click", Stream.toggleComments);
+    $(stream_string + " a.show_post_comments:not(.show)").live("click", Stream.toggleComments);
     //audio linx
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
 
     // comment link form focus
-    $stream.delegate(".focus_comment_textarea", "click", function(e){
+    $(stream_string + " .focus_comment_textarea").live("click", function(e){
       Stream.focusNewComment($(this), e);
     });
 
-    $stream.delegate("textarea.comment_box", "focus", function(evt) {
+    $(stream_string + " textarea.comment_box").live("focus", function(evt) {
       var commentBox = $(this);
       commentBox
         .attr('rows',2)
@@ -32,7 +33,7 @@ var Stream = {
           .addClass('open');
     });
 
-    $stream.delegate("textarea.comment_box", "blur", function(evt) {
+    $(stream_string + " textarea.comment_box").live("blur", function(evt) {
       var commentBox = $(this);
       if (!commentBox.val()) {
         commentBox
@@ -44,18 +45,18 @@ var Stream = {
     });
 
     // like/dislike
-    $stream.delegate("a.expand_likes", "click", function(evt) {
+    $(stream_string + " a.expand_likes").live("click", function(evt) {
       evt.preventDefault();
       $(this).siblings('.likes_list').fadeToggle('fast');
     });
 
-    $stream.delegate("a.expand_dislikes", "click", function(evt) {
+    $(stream_string + " a.expand_dislikes").live("click", function(evt) {
       evt.preventDefault();
       $(this).siblings('.dislikes_list').fadeToggle('fast');
     });
 
     // reshare button action
-    $stream.delegate(".reshare_button", "click", function(evt) {
+    $(stream_string + ' .reshare_button').live("click", function(evt) {
       evt.preventDefault();
       var button = $(this);
       var box = button.siblings(".reshare_box");
@@ -79,20 +80,20 @@ var Stream = {
       Stream.setUpAudioLinks();
     });
 
-    $(".new_status_message").bind('ajax:failure', function(data, html , xhr) {
+    $(".new_status_message").live('ajax:failure', function(data, html , xhr) {
       json = $.parseJSON(html.responseText);
-      if(json.errors.length != 0){
+      if(json.errors.length !== 0){
         Diaspora.widgets.alert.alert(json.errors);
       }else{
         Diaspora.widgets.alert.alert('Failed to post message!');
       }
     });
 
-    $(".new_comment").live('ajax:success', function(data, json, xhr) {
+    $(stream_string + " .new_comment").live('ajax:success', function(data, json, xhr) {
       json = $.parseJSON(json);
       WebSocketReceiver.processComment(json.post_id, json.comment_id, json.html, false);
     });
-    $(".new_comment").live('ajax:failure', function(data, html, xhr) {
+    $(stream_string + ".new_comment").live('ajax:failure', function(data, html, xhr) {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });
 
@@ -151,6 +152,7 @@ var Stream = {
   },
 
   toggleComments: function(evt) {
+                    console.log("toggling");
     evt.preventDefault();
     var $this = $(this),
       text = $this.html(),
@@ -185,7 +187,7 @@ var Stream = {
       commentBlock.removeClass('hidden');
       commentBlock.find('textarea').focus();
     } else {
-      if(!(commentBlock.children().length > 1)){
+      if(commentBlock.children().length <= 1){
         commentBlock.addClass('hidden');
       } else {
         commentBlock.find('textarea').focus();
