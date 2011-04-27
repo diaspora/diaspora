@@ -64,22 +64,7 @@ var WebSocketReceiver = {
 
 
   processNotification: function(notification){
-    var nBadge = $("#notification_badge div.badge_count");
-
-    nBadge.html().replace(/\d+/, function(num){
-      nBadge.html(parseInt(num)+1);
-    });
-
-    if(nBadge.hasClass("hidden")){
-      nBadge.removeClass("hidden");
-    }
-
-    $('#notification').html(notification['html'])
-      .fadeIn(200)
-      .delay(8000)
-      .fadeOut(200, function(){
-        $(this).html("");
-      });
+    Diaspora.widgets.notifications.showNotification(notification);
   },
 
   processRetraction: function(post_id){

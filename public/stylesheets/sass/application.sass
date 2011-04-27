@@ -1607,35 +1607,38 @@ ul.aspects
 h3 span.current_gs_step
   :color #22C910
 
-#notification
-  @include border-radius(5px)
-  @include box-shadow(0,2px,3px,#333)
-
+#notifications
   :z-index 10
-  :display none
   :position fixed
   :bottom 21px
   :right 12px
 
-  :background
-    :color rgb(30,30,30)
-    :color rgba(30,30,30,0.9)
+  .notification
+    @include border-radius(5px)
+    @include box-shadow(0,2px,3px,#333)
 
-  :min-width 200px
-  :padding 12px
-  :color #fff
-
-  :vertical
-    :align middle
-
-  .avatar
-    :display inline-block
-    :height 20px
-    :width 20px
     :margin
-      :right 5px
+      :bottom 10px
+
+    :background
+      :color rgb(30,30,30)
+      :color rgba(30,30,30,0.9)
+
+    :min-width 200px
+    :padding 12px
+    :color #fff
+
     :vertical
       :align middle
+
+    .avatar
+      :display inline-block
+      :height 20px
+      :width 20px
+      :margin
+        :right 5px
+      :vertical
+        :align middle
 
 .bottom_notification
   :position fixed

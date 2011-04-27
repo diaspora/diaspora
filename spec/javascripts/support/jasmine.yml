@@ -29,6 +29,7 @@ src_files:
   - public/javascripts/widgets/timeago.js
   - public/javascripts/widgets/directionDetector.js
   - public/javascripts/widgets/infinite-scroll.js
+  - public/javascripts/widgets/notifications.js
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
   - public/javascripts/web-socket-receiver.js

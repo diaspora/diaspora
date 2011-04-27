@@ -31,6 +31,7 @@ javascripts:
     - public/javascripts/widgets/timeago.js
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/widgets/directionDetector.js
+    - public/javascripts/widgets/notifications.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/search.js
@@ -66,8 +67,6 @@ javascripts:
     - public/javascripts/inbox.js
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
-  notifications:
-    - public/javascripts/notifications.js
 
 stylesheets:
   default:
