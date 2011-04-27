@@ -37,8 +37,8 @@
     }
   };
 
-  Diaspora.WidgetCollection.prototype.subscribe = function(id, callback) {
-    this.eventsContainer.bind(id, callback);
+  Diaspora.WidgetCollection.prototype.subscribe = function(id, callback, context) {
+    this.eventsContainer.bind(id, $.proxy(callback, context));
   };
 
   Diaspora.WidgetCollection.prototype.publish = function(id) {

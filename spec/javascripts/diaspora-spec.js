@@ -58,6 +58,17 @@ describe("Diaspora", function() {
           widgets.subscribe("testing/event", function() { });
           expect(widgets.eventsContainer.data("events")["testing/event"]).toBeDefined();
         });
+
+        it("accepts a context in which the function will always be called", function() {
+           var foo = "bar";
+           widgets.subscribe("testing/context", function() { foo = this.foo; });
+           widgets.publish("testing/context");
+           expect(foo).toEqual(undefined);
+
+           widgets.subscribe("testing/context_", function() { foo = this.foo;  }, { foo: "hello" });
+           widgets.publish("testing/context_");
+           expect(foo).toEqual("hello");
+        });
       });
 
       describe("publish", function() {
