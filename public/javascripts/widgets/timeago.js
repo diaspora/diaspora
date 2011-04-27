@@ -7,6 +7,7 @@ Diaspora.widgets.add("timeago", function() {
   this.selector = "abbr.timeago";
   this.start = function() {
     Diaspora.widgets.subscribe("stream/scrolled", this.updateTimeAgo);
+    Diaspora.widgets.subscribe("stream/reloaded", this.updateTimeAgo);
 
     if(Diaspora.widgets.i18n.language !== "en") {
       $.each($.timeago.settings.strings, function(index, element) {

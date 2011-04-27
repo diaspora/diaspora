@@ -43,6 +43,7 @@ require File.join(File.dirname(__FILE__), "database_cleaner_patches")
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_redis")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
 include HelperMethods
 
 Before do
@@ -52,6 +53,8 @@ end
 silence_warnings do
   SERVICES['facebook'] = {'app_id' => :fake}
 end
+
+require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
 module Resque
   def enqueue(klass, *args)
     klass.send(:perform, *args)
