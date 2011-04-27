@@ -271,17 +271,17 @@ en:
   likes:
     likes:
       people_like_this:
-        zero: "no people liked this"
-        one: "1 person liked this"
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        other: "%{count} people liked this"
+        zero: "no likes"
+        one: "%{count} like"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        other: "%{count} likes"
       people_dislike_this:
-        zero: "no people disliked this"
-        one: "1 person disliked this"
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        other: "%{count} people disliked this"
+        zero: "no dislikes"
+        one: "%{count} dislike"
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        other: "%{count} dislikes"
 
   notifications:
     request_accepted: "accepted your share request."
@@ -570,8 +570,9 @@ en:
       all_contacts: "All contacts"
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     stream_element:
-      like: "I like this"
-      dislike: "I dislike this"
+      like: "Like"
+      unlike: "Unlike"
+      dislike: "Dislike"
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"

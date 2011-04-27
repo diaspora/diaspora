@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -41,4 +41,20 @@ class LikesController < ApplicationController
       render :nothing => true, :status => 422
     end
   end
+
+  def destroy
+    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
+      current_user.retract(@like)
+      respond_to do |format|
+        format.mobile{ redirect_to @like.post }
+        format.js {render :nothing => true, :status => 204}
+      end
+    else
+      respond_to do |format|
+        format.mobile {redirect_to :back}
+        format.js {render :nothing => true, :status => 403}
+      end
+    end
+  end
+
 end

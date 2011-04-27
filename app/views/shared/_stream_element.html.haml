@@ -39,15 +39,18 @@
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
-          / TODO(likes)
-          /- if (defined?(current_user) && !current_user.liked?(post))
-          /  %span.like_links
-          /    |
-          /    = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
-          /    |
-          /    = link_to t('.dislike'), likes_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
+          - if defined?(current_user)
+            %span.like_links
+              |
+              - if !current_user.liked?(post)
+                = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
+              - else
+                = link_to t('.unlike'), likes_path(:post_id => post.id ), :method => :delete, :class => "like_it", :remote => true
 
-      /.likes_container
-      /  = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
+              /|
+              /= link_to t('.dislike'), like_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
+
+      .likes_container
+        = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
 
       = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)
