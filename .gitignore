@@ -22,7 +22,7 @@ spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/*
 
-# Uploded files and local files
+# Uploaded files and local files
 public/uploads/*
 public/assets/*
 public/source.tar*
