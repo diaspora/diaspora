@@ -1,16 +1,16 @@
 Feature: managing contact requests
 
-  Background: 
+  Background:
     Given I am signed in
     And I have an aspect called "Family"
     And I have one contact request
-    
+
   Scenario: seeing contact request notifications
     When I am on the home page
     Then I should see "All Aspects" in the header
     When I follow "All Aspects"
     Then I should see "new request!"
-    
+
   @javascript
   Scenario: viewing a requests profile
     When I am on the manage aspects page

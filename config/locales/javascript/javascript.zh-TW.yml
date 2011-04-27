@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-zh-TW: 
-  javascripts: 
+zh-TW:
+  javascripts:
     confirm_dialog: "你確定嗎?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "無法將人從它最後一個面向移除. (如果你想和這個人切斷連結, 你必須刪除和它的聯繫.)"
-    timeago: 
+    timeago:
       day: "一天"
       days: "%d天"
       hour: "約一小時"
@@ -30,6 +29,6 @@ zh-TW:
       suffixFromNow: "前"
       year: "約一年"
       years: "%d年"
-    videos: 
+    videos:
       unknown: "不明的影片類別"
       watch: "從 {{provider}} 看這部影片"

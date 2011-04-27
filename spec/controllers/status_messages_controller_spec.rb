@@ -65,7 +65,6 @@ describe StatusMessagesController do
       }.should change(note, :unread).from(true).to(false)
     end
 
-
     it 'redirects to back if there is no status message' do
       get :show, :id => 2345
       response.status.should == 302
@@ -132,7 +131,6 @@ describe StatusMessagesController do
       post :create, status_message_hash.merge!(:format => 'js', :status_message => {:text => ''})
       response.body.should include('Status message requires a message or at least one photo')
     end
-
 
     context 'with photos' do
       before do

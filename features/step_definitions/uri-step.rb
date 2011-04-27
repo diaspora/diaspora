@@ -27,7 +27,3 @@ Then /^a page\-asset should be ([^ ]+)$/ do |asset_path|
     page.has_content?(asset_path)
 end
 
-
-
-
-

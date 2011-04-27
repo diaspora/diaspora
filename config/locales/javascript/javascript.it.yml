@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-it: 
-  javascripts: 
+it:
+  javascripts:
     confirm_dialog: "Sei sicuro?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Devi condividere almeno con un aspetto"
     search_for: "Ricerca per {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto. (Se vuoi disconnetterti da questa persona devi rimuovere il contatto.)"
-    timeago: 
+    timeago:
       day: "un giorno"
       days: "%d giorni"
       hour: "circa un'ora"
@@ -30,6 +29,6 @@ it:
       suffixFromNow: ""
       year: "circa un anno"
       years: "%d anni"
-    videos: 
+    videos:
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"

@@ -38,4 +38,4 @@ describe Notifications::PrivateMessage do
       end
     end
 end
- 
+

@@ -92,7 +92,7 @@ describe Message do
       it 'increments the conversation visiblity for the conversation' do
        ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 0
-  
+
         @object_by_recipient.receive(@local_luke, @local_leia.person)
         ConversationVisibility.where(:conversation_id => @object_by_recipient.reload.conversation.id,
                                                      :person_id => @local_luke.person.id).first.unread.should == 1

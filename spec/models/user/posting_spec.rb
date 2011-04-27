@@ -76,7 +76,6 @@ describe User do
 
   end
 
-
   describe '#update_post' do
     it 'should update fields' do
       photo = user.post(:photo, :user_file => uploaded_photo, :text => "Old caption", :to => aspect.id)

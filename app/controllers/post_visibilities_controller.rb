@@ -13,7 +13,7 @@ class PostVisibilitiesController < ApplicationController
     @contact = current_user.contact_for( @post.author)
     if @vis = PostVisibility.unscoped.where(:contact_id => @contact.id,
                                 :post_id => params[:post_id]).first
-      @vis.hidden = !@vis.hidden 
+      @vis.hidden = !@vis.hidden
       if @vis.save
         render 'update'
         return

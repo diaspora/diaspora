@@ -162,7 +162,6 @@ describe "attack vectors" do
       zord = Postzord::Receiver.new(user, :salmon_xml => salmon_xml)
       zord.perform
 
-
       user.visible_posts.count.should == 1
 
       ret = Retraction.new

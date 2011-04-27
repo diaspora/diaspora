@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-el: 
-  javascripts: 
+el:
+  javascripts:
     confirm_dialog: "Είστε σίγουρος/η;"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
     search_for: "Αναζήτηση για {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το άτομο αυτό πρέπει να αφαιρέσετε την επαφή.)"
-    timeago: 
+    timeago:
       day: "μία μέρα"
       days: "%d μέρες"
       hour: "περίπου μία ώρα"
@@ -30,6 +29,6 @@ el:
       suffixFromNow: "από τώρα"
       year: "περίπου ένα χρόνο"
       years: "%d χρόνια"
-    videos: 
+    videos:
       unknown: "Άγνωστος τύπος βίντεο"
       watch: "Δείτε το βίντεο στο {{provider}}"

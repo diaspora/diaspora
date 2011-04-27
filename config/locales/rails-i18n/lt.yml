@@ -7,7 +7,7 @@ lt:
       separator: ","
       delimiter: " "
       precision: 3
-      
+
     currency:
       format:
         format: "%n %u"
@@ -15,15 +15,15 @@ lt:
         separator: ","
         delimiter: " "
         precision: 2
-        
+
     percentage:
       format:
         delimiter: ""
-        
+
     precision:
       format:
         delimiter: ""
-        
+
     human:
       format:
         delimiter: ""
@@ -110,7 +110,7 @@ lt:
         less_than_or_equal_to: "turi būti mažesnis arba lygus %{count}"
         odd: "turi būti nelyginis"
         even: "turi būti lyginis"
-    
+
       models:
 
   date:
@@ -118,10 +118,10 @@ lt:
       default: "%Y-%m-%d"
       short: "%b %d"
       long: "%B %d, %Y"
-      
+
     day_names: [sekmadienis, pirmadienis, antradienis, trečiadienis, ketvirtadienis, penktadienis, šeštadienis]
     abbr_day_names: [Sek, Pir, Ant, Tre, Ket, Pen, Šeš]
-      
+
     month_names: [~, sausio, vasario, kovo, balandžio, gegužės, birželio, liepos, rugpjūčio, rugsėjo, spalio, lapkričio, gruodžio]
     abbr_month_names: [~, Sau, Vas, Kov, Bal, Geg, Bir, Lie, Rgp, Rgs, Spa, Lap, Grd]
     order:
@@ -136,7 +136,7 @@ lt:
       long: "%B %d, %Y %H:%M"
     am: "am"
     pm: "pm"
-      
+
   support:
     array:
       words_connector: ", "

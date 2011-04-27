@@ -2,15 +2,14 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-de: 
-  devise: 
-    confirmations: 
+de:
+  devise:
+    confirmations:
       confirmed: "Dein Konto wurde erfolgreich bestätigt. Du bist nun angemeldet."
-      new: 
+      new:
         resend_confirmation: "Anweisungen zum Bestätigen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst."
-    failure: 
+    failure:
       inactive: "Dein Konto wurde noch nicht aktiviert."
       invalid: "Ungültige E-Mail-Adresse oder Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
@@ -18,52 +17,52 @@ de:
       timeout: "Deine Sitzung ist abgelaufen! Um fortzufahren, melde dich bitte erneut an."
       unauthenticated: "Du musst dich anmelden oder registrieren um fortzufahren."
       unconfirmed: "Du musst dein Konto bestätigen um fortzufahren."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Das Einladungstoken ist ungültig!"
       send_instructions: "Deine Einladung wurde versandt."
       updated: "Dein Kennwort wurde akzeptiert. Du bist nun angemeldet."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Mein Konto bestätigen"
         subject: "Bestätigung deines Diaspora-Kontos"
         you_can_confirm: "Du kannst dein Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
-      invitation: 
+      invitation:
         accept: "Einladung annehmen"
         ignore: "Wenn du die Einladung nicht annehmen willst, dann ignoriere diese E-Mail."
         no_account_till: "Dein Konto wird erst erstellt, wenn du dich über den Link registrierst."
         subject: "Du wurdest zu Diaspora eingeladen!"
-      inviters: 
+      inviters:
         accept_at: "%{url} teilzunehmen. Du kannst die Einladung durch den Link unten annehmen."
         has_invited_you: "%{name} hat dich dazu eingeladen, bei Diaspora auf"
         have_invited_you: "%{names} haben dich dazu eingeladen, bei Diaspora auf"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Mein Kennwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."
         someone_requested: "Jemand hat einen Link angefordert, um dein Kennwort zu ändern und du kannst das durch den Link unten tun."
         subject: "Zurücksetzen deines Kennworts"
         wont_change: "Dein Kennwort bleibt unverändert, bis du es über den Link änderst."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "Dein Konto wurde aufgrund zu vieler fehlgeschlagener Anmeldeversuche gesperrt."
         click_to_unlock: "Folge dem unten aufgeführten Link, um dein Konto zu entsperren:"
         subject: "Konto entsperren"
         unlock: "Mein Konto entsperren"
       welcome: "Willkommen %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Mein Kennwort ändern"
-      new: 
+      new:
         forgot_password: "Kennwort vergessen?"
         no_account: "Es existiert kein Benutzerkonto mit dieser E-Mail-Adresse. Falls du auf eine Einladung wartest, dann geben wir dir eine sobald wie möglich"
         send_password_instructions: "Anleitung zum Zurücksetzen des Кennworts anfordern"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Kennwort zurücksetzt."
       updated: "Dein Kennwort wurde erfolgreich geändert. Du bist nun angemeldet."
-    registrations: 
+    registrations:
       destroyed: "Tschüss! Dein Konto wurde erfolgreich geschlossen. Wir hoffen, dich bald wiederzusehen."
       signed_up: "Du hast dich erfolgreich registriert. Sofern aktiviert, wurde dir eine Bestätigung per E-Mail zugesandt."
       updated: "Dein Konto wurde aktualisiert."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Diese Software befindet sich im Alpha-Stadium."
         bugs_and_feedback: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, den Feedback-Knopf am rechten Browserrand zu nutzen, um alle Störungen zu berichten. Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
         bugs_and_feedback_mobile: "Sei gewarnt, Fehler werden auftreten. Wir empfehlen dir, alle Störungen zu melden! Wir werden so schnell wir können arbeiten, um alle Probleme, die du meldest, zu lösen."
@@ -75,23 +74,23 @@ de:
         username: "Benutzername"
       signed_in: "Angemeldet."
       signed_out: "Abgemeldet."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Kennwort vergessen?"
         receive_confirmation: "Keine Bestätigungsanleitung erhalten?"
         receive_unlock: "Keine Entsperr-Anweisungen erhalten?"
         sign_in: "Anmelden"
         sign_up: "Registrieren"
         sign_up_closed: "Öffentliche Registrierungen sind momentan nicht möglich."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Registriere dich für eine Einladung!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Entsperr-Anweisungen erneut senden"
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto entsperren kannst."
       unlocked: "Dein Konto wurde erfolgreich entsperrt. Du bist nun angemeldet."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "wurde bereits bestätigt"
       not_found: "nicht gefunden"
       not_locked: "war nicht gesperrt"

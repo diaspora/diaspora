@@ -119,7 +119,6 @@ describe PhotosController do
     end
   end
 
-
   describe '#destroy' do
     it 'let a user delete his message' do
       delete :destroy, :id => @alices_photo.id

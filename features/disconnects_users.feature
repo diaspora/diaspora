@@ -4,15 +4,14 @@ Feature: disconnecting users
   As a User
   I want to be able to disconnect from others
 
-  Background: 
-    Given a user with email "bob@bob.bob" 
+  Background:
+    Given a user with email "bob@bob.bob"
     And a user with email "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
    When I sign in as "bob@bob.bob"
     And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
-    
-    
+
   Scenario Outline: remove contact from the contact show page
    When I am on "alice@alice.alice"'s page
     And I follow "edit aspect membership"

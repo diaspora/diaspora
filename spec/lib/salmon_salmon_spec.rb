@@ -72,7 +72,6 @@ describe Salmon do
       it 'should fail if no author is found' do
         parsed_salmon.author_email = 'tom@tom.joindiaspora.com'
 
-
         proc {parsed_salmon.author.public_key}.should raise_error "did you remember to async webfinger?"
 
       end
@@ -88,7 +87,5 @@ describe Salmon do
     end
 
   end
-
-
 
 end

@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-cs: 
-  javascripts: 
+cs:
+  javascripts:
     confirm_dialog: "Jste si jisti?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
     search_for: "Hledat {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby je třeba odebrat kontakt.)"
-    timeago: 
+    timeago:
       day: "1 dnem"
       days: "%d dny"
       hour: "hodinou"
@@ -30,6 +29,6 @@ cs:
       suffixFromNow: ""
       year: "1 rokem"
       years: "%d roky"
-    videos: 
+    videos:
       unknown: "Neznámý typ videa"
       watch: "Podívejte se na tohle video na {{provider}}"

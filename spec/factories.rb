@@ -16,7 +16,6 @@ Factory.define :profile do |p|
   p.sequence(:last_name)  { |n| "Grimm#{n}#{r_str}" }
 end
 
-
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
   p.sequence(:url)  { |n| "http://google-#{n}#{r_str}.com/" }

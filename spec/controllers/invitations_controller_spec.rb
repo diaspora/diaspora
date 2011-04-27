@@ -71,7 +71,7 @@ describe InvitationsController do
       @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com")
       @accept_params = {:user=>
         {:password_confirmation =>"password",
-         :email => "a@a.com", 
+         :email => "a@a.com",
          :username=>"josh",
          :password=>"password",
          :invitation_token => @invited_user.invitation_token}}
@@ -142,7 +142,7 @@ describe InvitationsController do
       @user2.invite_user(@aspect2.id, 'email', "b@b.com", "")
       invitation2 = @user2.reload.invitations_from_me.first
       Resque.should_not_receive(:enqueue)
-      put :resend, :id => invitation2.id 
+      put :resend, :id => invitation2.id
     end
   end
 end

@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-he: 
-  javascripts: 
+he:
+  javascripts:
     confirm_dialog: "בבטחה?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "אין רשומות נוספות."
-    publisher: 
+    publisher:
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
     search_for: "חיפוש אחר {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "לא ניתן להסיר את איש הקשר מההיבט החארון. (אם ברצונך להינתק מאדם זה עליך להסיר את איש הקשר.)"
-    timeago: 
+    timeago:
       day: "יום"
       days: "%d ימים"
       hour: "בערך שעה"
@@ -30,6 +29,6 @@ he:
       suffixFromNow: "מעכשיו"
       year: "בערך שנה"
       years: "%d שנים"
-    videos: 
+    videos:
       unknown: "סוג הווידאו אינו ידוע"
       watch: "צפייה בסרטון וידאו זה באתר {{provider}}"

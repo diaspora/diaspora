@@ -17,7 +17,6 @@ module Diaspora
     end
   end
 
-
   class OstatusBuilder
     include Diaspora::Webhooks
 

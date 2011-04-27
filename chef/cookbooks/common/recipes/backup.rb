@@ -1,5 +1,5 @@
 execute "Remove Any Pervious Cronjob" do
-  command "crontab -r || true" 
+  command "crontab -r || true"
 end
 
 execute "Add the current cronjob" do

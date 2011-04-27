@@ -15,7 +15,6 @@ FixtureBuilder.configure do |fbuilder|
     connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
     connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 
-
     # Set up friends
     local_luke = Factory(:user_with_aspect, :username => "luke")
     local_leia = Factory(:user_with_aspect, :username => "leia")

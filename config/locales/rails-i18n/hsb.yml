@@ -12,8 +12,6 @@ hsb:
       sentence_connector: "a"
       skip_last_comma: true
 
-
-
   # Date
   date:
     formats:
@@ -39,7 +37,6 @@ hsb:
 
     am: "dopołdnja"
     pm: "popołdnju"
-
 
   # Numbers
   number:
@@ -81,7 +78,6 @@ hsb:
     precision:
       format:
         delimiter: ""
-
 
   # Distance of time ... helper
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
@@ -157,12 +153,12 @@ hsb:
         accepted:     "dyrbi so wobkrućić"
         empty:        "njesmě prózdny być"
         blank:        "je trěbny"
-        too_long:     
+        too_long:
           one:        "je předołhi (maks. 1 znamješko)"
           two:        "je předołhi (maks. %{count} znamješce)"
           few:        "je předołhi (maks. %{count} znamješka)"
           other:      "je předołhi (maks. %{count} znamješkow)"
-        too_short:    
+        too_short:
           one:        "je překrótki (min. 1 znamješko)"
           two:        "je překrótki (min. %{count} znamješće)"
           few:        "je překrótki (min. %{count} znamješka)"

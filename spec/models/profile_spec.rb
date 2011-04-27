@@ -76,7 +76,7 @@ describe Profile do
 
   describe '#from_xml' do
     it 'should make a valid profile object' do
-      
+
       @profile = Factory.build(:profile)
       @profile.tag_string = '#big #rafi #style'
       xml = @profile.to_xml
@@ -86,7 +86,7 @@ describe Profile do
       new_profile.tag_string.should include('#rafi')
     end
   end
-  
+
   describe 'serialization' do
     let(:person) {Factory.create(:person,:diaspora_handle => "foobar" )}
 
@@ -102,7 +102,7 @@ describe Profile do
       xml = person.profile.to_diaspora_xml
       xml.should include "#one"
     end
-    
+
     it 'includes location' do
       person.profile.location = 'Dark Side, Moon'
       person.profile.save
@@ -197,7 +197,7 @@ describe Profile do
   end
 
   describe '#receive' do
-    
+
     it 'updates the profile in place' do
       local_luke, local_leia, remote_raphael = set_up_friends
       new_profile = Factory.build :profile

@@ -1,8 +1,8 @@
-describe("Validation", function() { 
+describe("Validation", function() {
   describe("rules", function() {
     describe("username", function() {
       describe("characters", function() {
-        it("is the regex for checking if we allow what the user typed", function() { 
+        it("is the regex for checking if we allow what the user typed", function() {
           expect((typeof Validation.rules.username.characters.test === "function")).toBeTruthy();
         });
       });
@@ -13,7 +13,7 @@ describe("Validation", function() {
            expect((typeof Validation.rules.email.characters.test === "function")).toBeTruthy();
          });
       });
-    });  
+    });
   });
   describe("whiteListed", function() {
      it("returns true if the keyCode is whitelisted", function() {
@@ -24,13 +24,13 @@ describe("Validation", function() {
        expect(Validation.whiteListed(9001)).toBeFalsy();
      });
   });
-  describe("events", function() { 
-    describe("usernameKeypress", function() { 
-      it("doesn't allow the user to type anything but letters, numbers and underscores", function() { 
+  describe("events", function() {
+    describe("usernameKeypress", function() {
+      it("doesn't allow the user to type anything but letters, numbers and underscores", function() {
         expect(Validation.rules.username.characters.test("*")).toBeFalsy();
         expect(Validation.rules.username.characters.test("Aa_")).toBeTruthy();
         expect(Validation.rules.username.characters.test("ffffffffffffffffffffffffffffffffff")).toBeFalsy();
-      }); 
+      });
     });
     describe("emailKeypress", function() {
       it("colors the border red if the input seems to be a invalid list", function() {

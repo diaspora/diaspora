@@ -29,7 +29,6 @@ http {
  gzip_types        text/plain text/css application/x-javascript text/xml application/xml application/xml+rss text/javascript;
  gzip_disable      "MSIE [1-6]\.(?!.*SV1)";
 
-
   upstream thin_cluster {
   <% @ports.each do |port| %>
     server <%="localhost:#{port}"%>;

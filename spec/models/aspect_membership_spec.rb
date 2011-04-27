@@ -19,7 +19,7 @@ describe AspectMembership do
 
   it 'has a contact' do
     am = AspectMembership.new(:contact => @contact)
-    am.contact.should == @contact 
+    am.contact.should == @contact
   end
 
   context 'validations' do

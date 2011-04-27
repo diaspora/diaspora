@@ -28,7 +28,6 @@ describe Conversation do
     end
   end
 
-
   context 'transport' do
     before do
       @cnv = Conversation.create(@create_hash)

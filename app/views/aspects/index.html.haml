@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :head do
   = include_javascripts :home
 .span-15.append-2
@@ -31,7 +30,6 @@
     .section.invite_friends
       %h4= t('shared.invitations.invite_your_friends')
       = render "shared/invitations", :invites => @invites
-
 
   #aspect_listings.section
     = render 'aspects/aspect_listings', :aspects => @aspects

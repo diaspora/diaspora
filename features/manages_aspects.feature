@@ -12,7 +12,7 @@ Feature: User manages aspects
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
     Then I should see "Dorm Mates" in the header
-    
+
   Scenario: creating an aspect from homepage
     Given I am signed in
     When I follow "All Aspects" in the header

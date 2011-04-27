@@ -32,7 +32,6 @@ jasmine.Spec.prototype.getFullName = function() {
   return this.suite.getFullName() + ' ' + this.description + '.';
 };
 
-
 jasmine.Spec.prototype.results = function() {
   return this.results_;
 };

@@ -35,7 +35,6 @@ en:
   all_aspects: "All Aspects"
   no_results: "No Results Found"
 
-
   #for reference translation, the real activerecord english transations are actually
   #in en-US, en-GB, and en-AU yml files
   activerecord:
@@ -62,12 +61,10 @@ en:
             from_id:
               taken: "is a duplicate of a pre-existing request."
 
-
   error_messages:
     helper:
       invalid_fields: "Invalid Fields"
       correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-
 
   application:
     helper:
@@ -175,10 +172,9 @@ en:
     share_with_pane:
       share_with: "Start sharing with %{name}"
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect" 
+      add_new_aspect: "add to new aspect"
     create:
       failure: "Failed to create contact"
-
 
   conversations:
     index:
@@ -196,7 +192,7 @@ en:
       subject: "subject"
       send: "Send"
     helper:
-      new_messages: 
+      new_messages:
         zero: "no new messages"
         one: "1 new messages"
         few: "%{count} new messages"
@@ -234,7 +230,7 @@ en:
       rejected: "The following email addresses had problems: "
       no_more: "You have no more invitations."
       already_sent: "You already invited this person."
-      already_contacts: "You are already connected with this person" 
+      already_contacts: "You are already connected with this person"
     new:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."

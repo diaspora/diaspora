@@ -59,7 +59,6 @@ class NotificationMultiplePeople < ActiveRecord::Migration
                        "notifications.action = keep_delete.action"
     end
 
-
     remove_column :notifications, :actor_id
     remove_column :notifications, :mongo_id
   end

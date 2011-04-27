@@ -61,7 +61,6 @@ class AppConfig
     end
   end
 
-
   def self.downcase_admins
     self.config_vars[:admins] ||= []
     self.config_vars[:admins].collect! {|admin| admin.downcase}

@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-br: 
-  javascripts: 
+br:
+  javascripts:
     confirm_dialog: "Emaoc'h sur?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     search_for: "Klask war-lerc'h {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Ne c'hell ket skarzhañ an den diwar an arvez diwezhañ. (Ma faot deoc'h digevreañ gant an den-se eo dav deoc'h skarzhañ an darempred.)"
-    timeago: 
+    timeago:
       day: "un devezh"
       days: "%d a zevezhioù"
       hour: "war-dro un eurvezh"
@@ -30,6 +29,6 @@ br:
       suffixFromNow: "diwar-vremañ"
       year: "war-dro ur bloavezh"
       years: "%d a vloavezhioù"
-    videos: 
+    videos:
       unknown: "Stumm ar video dianav"
       watch: "Sellet ouzh ar video gant {{provider}}"

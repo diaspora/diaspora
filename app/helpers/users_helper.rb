@@ -5,6 +5,6 @@
 module UsersHelper
   def first_name_or_username (user)
     set_name = user.person.profile.first_name
-    (set_name.nil? || set_name.empty?) ? user.username : user.person.profile.first_name 
+    (set_name.nil? || set_name.empty?) ? user.username : user.person.profile.first_name
   end
 end

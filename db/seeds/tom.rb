@@ -42,7 +42,7 @@ user2.save!
 user2.seed_aspects
 user2.person.save!
 # connecting users
-aspect = user.aspects.create(:name => "other dudes") 
+aspect = user.aspects.create(:name => "other dudes")
 aspect2 = user2.aspects.create(:name => "presidents")
 
 connect_users(user, aspect, user2, aspect2)

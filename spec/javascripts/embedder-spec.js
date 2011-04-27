@@ -50,7 +50,6 @@ describe("Diaspora", function() {
         });
       });
 
-
       it("has to have a certain DOM structure", function() {
         spec.loadFixture("aspects_index_with_posts");
 

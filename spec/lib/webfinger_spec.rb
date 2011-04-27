@@ -20,7 +20,6 @@ describe Webfinger do
   let(:diaspora_finger) {File.open(File.join(Rails.root, 'spec/fixtures/webfinger.fixture.html')).read}
   let(:hcard_xml) {File.open(File.join(Rails.root, 'spec/fixtures/hcard.fixture.html')).read}
 
-
   let(:non_diaspora_xrd) {File.open(File.join(Rails.root, 'spec/fixtures/nonseed_finger_xrd')).read}
   let(:non_diaspora_hcard) {File.open(File.join(Rails.root, 'spec/fixtures/evan_hcard')).read}
 
@@ -66,7 +65,6 @@ describe Webfinger do
         end
       end
     end
-
 
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do

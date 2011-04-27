@@ -7,4 +7,4 @@
   $(document).ready(function(){
     WSR.initialize("#{(AppConfig[:socket_secure])?'wss':'ws'}://#{request.host}:#{AppConfig[:socket_port]}/");
   });
- 
+

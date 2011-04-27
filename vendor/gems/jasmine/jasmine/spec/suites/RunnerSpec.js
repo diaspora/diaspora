@@ -45,7 +45,6 @@ describe('RunnerTest', function() {
       expect(runnerResults.passedCount).toEqual(3);
     });
 
-
     it('should provide all specs', function () {
       var foo;
       env.beforeEach(function () {
@@ -71,7 +70,6 @@ describe('RunnerTest', function() {
       });
 
       env.currentRunner().execute();
-
 
       expect(env.currentRunner().specs().length).toEqual(3);
     });
@@ -107,7 +105,6 @@ describe('RunnerTest', function() {
     });
   });
 
-
   it('should run child suites and specs and generate results when execute is called', function() {
     env.describe('one suite description', function () {
       env.it('should be a test', function() {
@@ -132,7 +129,6 @@ describe('RunnerTest', function() {
     expect(runnerResults.passedCount).toEqual(1);
     expect(runnerResults.failedCount).toEqual(1);
   });
-
 
   it('should ignore suites that have been x\'d', function() {
     env.xdescribe('one suite description', function () {
@@ -222,7 +218,6 @@ describe('RunnerTest', function() {
   it("should report when the tests start running", function() {
     var fakeReporter = jasmine.createSpyObj("fakeReporter", ["log", "reportRunnerStarting"]);
     env.addReporter(fakeReporter);
-
 
     var runner = new jasmine.Runner(env);
     runner.arbitraryVariable = 'foo';

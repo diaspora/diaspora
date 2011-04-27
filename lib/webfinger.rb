@@ -66,7 +66,6 @@ class Webfinger
     end
   end
 
-
   def get_webfinger_profile(profile_url)
     begin
       http = RestClient.get(profile_url, OPTS)
@@ -100,7 +99,6 @@ class Webfinger
       p = Person.create_from_webfinger(@wf_profile, card)
     end
   end
-
 
   ##helpers
   private

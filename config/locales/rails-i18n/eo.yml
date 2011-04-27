@@ -8,7 +8,7 @@ eo:
       default: "%Y/%m/%d"
       short: "%e %b"
       long: "%e %B %Y"
- 
+
     day_names: [dimanĉo, lundo, mardo, merkredo, ĵaŭdo, vendredo, sabato]
     abbr_day_names: [dim, lun, mar, mer, ĵaŭ, ven, sam]
     month_names: [~, januaro, februaro, marto, aprilo, majo, junio, julio, aŭgusto, septembro, oktobro, novembro, decembro]
@@ -17,7 +17,7 @@ eo:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%d %B %Y %H:%M:%S"
@@ -25,7 +25,7 @@ eo:
       long: "%A %d %B %Y %H:%M"
     am: 'am'
     pm: 'pm'
- 
+
   datetime:
     distance_in_words:
       half_a_minute: "duona minuto"
@@ -71,7 +71,7 @@ eo:
       hour: "Horo"
       minute: "Minuto"
       second: "Sekundo"
-  
+
   number:
     format:
       separator: ","

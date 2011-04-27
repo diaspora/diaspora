@@ -1,4 +1,3 @@
-
 execute "refresh yum" do
   command "yum update -y"
 end

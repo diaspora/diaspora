@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-sk: 
-  javascripts: 
+sk:
+  javascripts:
     confirm_dialog: "Ste si istý?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Hľadať {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
-    timeago: 
+    timeago:
       day: "včera"
       days: "%d dni"
       hour: "hodinou"
@@ -30,6 +29,6 @@ sk:
       suffixFromNow: ""
       year: "rokom"
       years: "%d roky"
-    videos: 
+    videos:
       unknown: "Neznámy typ videa"
       watch: "Pozrite sa na toto video na {{provider}}"

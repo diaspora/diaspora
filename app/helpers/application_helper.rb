@@ -180,7 +180,6 @@ module ApplicationHelper
     return message
   end
 
-
   def process_links(message)
     message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
       escape = "\\"

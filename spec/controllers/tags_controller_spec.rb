@@ -38,7 +38,6 @@ describe TagsController do
 
   describe '#show' do
 
-
     context 'signed in' do
       before do
         sign_in :user, alice

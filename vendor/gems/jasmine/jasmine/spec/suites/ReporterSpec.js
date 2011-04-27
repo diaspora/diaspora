@@ -1,7 +1,6 @@
 describe('jasmine.Reporter', function() {
   var env;
 
-
   beforeEach(function() {
     env = new jasmine.Env();
     env.updateInterval = 0;

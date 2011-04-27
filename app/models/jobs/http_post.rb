@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 module Job
-  class HttpPost < Base 
+  class HttpPost < Base
     @queue = :http
     NUM_TRIES = 3
 

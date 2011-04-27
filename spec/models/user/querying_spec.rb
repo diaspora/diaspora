@@ -170,7 +170,6 @@ describe User do
     end
   end
 
-
   context 'contact querying' do
     let(:person_one) { Factory.create :person }
     let(:person_two) { Factory.create :person }

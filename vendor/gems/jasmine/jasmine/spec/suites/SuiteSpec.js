@@ -42,7 +42,7 @@ describe('Suite', function() {
         });
       });
     });
-    
+
     it('#specs should return all immediate children that are specs.', function () {
       var suiteSpecs = suite.specs();
       expect(suiteSpecs.length).toEqual(3);

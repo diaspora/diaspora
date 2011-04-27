@@ -77,7 +77,7 @@
       :errors => {
         :template => {
           :header => {
-            :one => "Couldn't save this %{model}: 1 error", 
+            :one => "Couldn't save this %{model}: 1 error",
             :other => "Couldn't save this %{model}: %{count} errors."
           },
           :body => "Please check the following fields, dude:"

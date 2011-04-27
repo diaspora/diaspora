@@ -131,7 +131,6 @@ class CreateImportTables < ActiveRecord::Migration
     add_index :mongo_profiles, [:first_name, :last_name, :searchable]
     add_index :mongo_profiles, :person_mongo_id, :unique => true
 
-
     create_table :mongo_requests do |t|
       t.string :mongo_id
       t.string :sender_mongo_id, :limit => 127

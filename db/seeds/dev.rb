@@ -49,7 +49,6 @@ user2 = User.build( :email => "korth@tom.joindiaspora.com",
                     :person => {:profile => { :first_name => "Evan", :last_name => "Korth",
                       :image_url => "/images/user/korth.jpg"}})
 
-
 user2.save!
 user2.person.save!
 user2.seed_aspects

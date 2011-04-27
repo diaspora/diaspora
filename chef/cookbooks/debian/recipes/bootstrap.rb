@@ -21,7 +21,6 @@ execute "ffi" do
   command "apt-get install -y libffi-ruby"
 end
 
-
 execute "htop" do
   command "apt-get install -y htop psmisc screen"
 end

@@ -72,8 +72,6 @@ describe ApplicationHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
-
-
       describe "video links" do
         it "recognizes vimeo links" do
           video_id = "17449557"

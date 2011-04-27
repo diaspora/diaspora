@@ -1,7 +1,7 @@
 describe("MockClock", function () {
 
   beforeEach(function() {
-    jasmine.Clock.useMock();    
+    jasmine.Clock.useMock();
   });
 
   describe("setTimeout", function () {

@@ -1,4 +1,4 @@
-# Swiss German (Switzerland) translations for Ruby on Rails 
+# Swiss German (Switzerland) translations for Ruby on Rails
 # by Florian Hanke (florian.hanke@gmail.com).
 #
 # Adapted from de-CH by Clemens Kofler (clemens@railway.at).
@@ -19,7 +19,7 @@ gsw-CH:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M"
@@ -29,7 +29,7 @@ gsw-CH:
 
     am: "am Vormittaag"
     pm: "am Namitaag"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'ä halbi Minuutä'
@@ -131,19 +131,19 @@ gsw-CH:
       last_word_connector: " und "
     select:
       prompt: "Bitte wääle:"
-      
+
   helpers:
     select:
       prompt: "Bitte wääle"
-      
+
     submit:
       create: '%{model} erschtele'
       update: '%{model} ändere'
       submit: '%{model} schpeichere'
-      
+
   errors:
     format: "%{attribute} %{message}"
-    
+
     messages: &errors_messages
       inclusion: "isch kän gültige Wert"
       exclusion: "isch nöd ume"
@@ -164,7 +164,7 @@ gsw-CH:
       less_than_or_equal_to: "mues chliiner oder gliich %{count} sii"
       odd: "mues ungraad sii"
       even: "mues graad sii"
-      
+
   activerecord:
     errors:
       template:
@@ -172,11 +172,11 @@ gsw-CH:
           one:    "Han's %{model} nöd schpeichere chönne: än Fehler."
           other:  "Han's %{model} näd schpeichere chönne: %{count} Fehler."
         body: "Bitte überprüefed Si die Felder:"
-        
+
       messages:
         taken: "isch bereits vergää"
         record_invalid: "Gültigkeitsprüefig hät fehlgschlage: %{errors}"
         <<: *errors_messages
-        
+
       full_messages:
         format: "%{attribute} %{message}"

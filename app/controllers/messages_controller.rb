@@ -15,7 +15,7 @@ class MessagesController < ApplicationController
 
     if cnv
       message = Message.new(:conversation_id => cnv.id, :text => params[:message][:text], :author => current_user.person)
-      
+
       if message.save
         Rails.logger.info("event=create type=comment user=#{current_user.diaspora_handle} status=success message=#{message.id} chars=#{params[:message][:text].length}")
         Postzord::Dispatch.new(current_user, message).post

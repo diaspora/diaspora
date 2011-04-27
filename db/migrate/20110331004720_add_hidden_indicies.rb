@@ -4,7 +4,6 @@ class AddHiddenIndicies < ActiveRecord::Migration
     add_index :post_visibilities, [:post_id, :hidden, :contact_id], :unique => true
   end
 
-
   def self.down
     remove_index :post_visibilities, :column => [:post_id, :hidden, :contact_id]
     add_index :post_visibilities, :hidden

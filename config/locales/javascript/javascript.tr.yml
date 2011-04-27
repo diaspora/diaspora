@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-tr: 
-  javascripts: 
+tr:
+  javascripts:
     confirm_dialog: "Emin misiniz?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "{{name}}'i ara"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
-    timeago: 
+    timeago:
       day: "1 gün"
       days: "%d günler"
       hour: "yaklaşık 1 saat"
@@ -30,6 +29,6 @@ tr:
       suffixFromNow: "şimdiden itibaren"
       year: "yaklaşık 1 yıl"
       years: "%d yıllar"
-    videos: 
+    videos:
       unknown: "Bilinmeyen video tipi"
       watch: "Bu videoyu {{provider}}'da izle"

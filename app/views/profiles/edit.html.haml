@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 #section_header
   %h2
     = t('settings')
@@ -13,6 +12,6 @@
     = link_to t('cancel'), person_path(current_user.person)
     = t('or')
     = submit_tag t('.update_profile')
-  = render :partial => 'edit', :locals => {:person => @person, 
+  = render :partial => 'edit', :locals => {:person => @person,
     :profile => @profile, :aspect => @aspect, :step => @step}
 

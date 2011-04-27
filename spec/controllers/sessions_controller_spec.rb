@@ -12,7 +12,7 @@ end
 
 describe SessionsController do
   include Devise::TestHelpers
-  
+
   render_views
 
   let(:mock_access_token) { Object.new }

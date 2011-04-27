@@ -28,7 +28,7 @@ Feature: new user registration
     When I follow "skip getting started"
     And I go to the getting started page
     Then I should not see "skip getting started"
-  
+
   Scenario: new user skips the setup wizard
     When I follow "skip getting started"
     And I wait for "the aspects page" to load

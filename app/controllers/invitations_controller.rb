@@ -64,7 +64,7 @@ class InvitationsController < Devise::InvitationsController
     invitation = current_user.invitations_from_me.where(:id => params[:id]).first
     if invitation
       Resque.enqueue(Job::ResendInvitation, invitation.id)
-      flash[:notice] = I18n.t('invitations.create.sent') + invitation.recipient.email 
+      flash[:notice] = I18n.t('invitations.create.sent') + invitation.recipient.email
     end
     redirect_to :back
   end

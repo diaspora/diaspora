@@ -42,7 +42,6 @@ describe Comment do
     end
   end
 
-
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
       alice.comment("Yeah, it was great", :on => @status)

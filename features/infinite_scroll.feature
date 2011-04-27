@@ -3,7 +3,7 @@ Feature: infinite scroll
     In order to browse without disruption
     As medium-sized internet grazing animal
     I want the stream to infinite scroll
-    
+
     Background:
       Given many posts from bob and alice
 

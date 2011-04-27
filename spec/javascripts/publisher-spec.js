@@ -45,11 +45,11 @@ describe("Publisher", function() {
     });
 
     it('gets called on initialize', function(){
-      spyOn(Publisher, 'bindAspectToggles'); 
+      spyOn(Publisher, 'bindAspectToggles');
       Publisher.initialize();
       expect(Publisher.bindAspectToggles).toHaveBeenCalled();
     });
-   
+
     it('toggles removed only on the clicked icon', function(){
       expect($("#publisher .aspect_badge").first().hasClass("removed")).toBeFalsy();
       expect($("#publihser .aspect_badge").last().hasClass("removed")).toBeFalsy();
@@ -138,7 +138,6 @@ describe("Publisher", function() {
 
       $(".public_icon").click();
       expect($('#publisher #status_message_public').val()).toBe('true');
-
 
     });
   });

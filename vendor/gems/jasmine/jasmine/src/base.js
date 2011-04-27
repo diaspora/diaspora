@@ -116,7 +116,7 @@ jasmine.getEnv = function() {
  * @returns {Boolean}
  */
 jasmine.isArray_ = function(value) {
-  return jasmine.isA_("Array", value);  
+  return jasmine.isA_("Array", value);
 };
 
 /**
@@ -565,7 +565,6 @@ var describe = function(description, specDefinitions) {
 var xdescribe = function(description, specDefinitions) {
   return jasmine.getEnv().xdescribe(description, specDefinitions);
 };
-
 
 // Provide the XMLHttpRequest class for IE 5.x-6.x:
 jasmine.XmlHttpRequest = (typeof XMLHttpRequest == "undefined") ? function() {

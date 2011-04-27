@@ -2,10 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
-  
+
   #file-upload.button
     =t('.upload')
   %br
@@ -13,7 +12,7 @@
   %p
     #fileInfo
 
-  -if !aspect.nil? && aspect != :getting_started 
+  -if !aspect.nil? && aspect != :getting_started
     %br
     %br
     %p
@@ -32,12 +31,11 @@
              button: document.getElementById('file-upload'),
              sizeLimit: 4194304,
 
-            
              onProgress: function(id, fileName, loaded, total){
               var progress = Math.round(loaded / total * 100 );
                $('#fileInfo').text(fileName + ' ' + progress + '%');
              },
-             
+
              messages: {
                  typeError: "#{t('photos.new_photo.invalid_ext')}",
                  sizeError: "#{t('photos.new_photo.size_error')}",
@@ -48,7 +46,7 @@
               $('#file-upload').addClass("loading");
               $("#profile_photo_upload").find(".avatar").fadeTo(200,0.5);
              },
-             
+
              onComplete: function(id, fileName, responseJSON){
               $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
               $('#file-upload').removeClass("loading");
@@ -65,7 +63,7 @@
               $("#profile_photo_upload").find(".avatar").fadeTo(200,1);
               $("#profile_photo_upload").find(".avatar").attr("src",url);
              }
-             
+
          });
        }
        window.onload = createUploader;

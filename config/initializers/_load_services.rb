@@ -8,7 +8,6 @@ end
 
 oauth_keys_file = "#{Rails.root}/config/oauth_keys.yml"
 
-
 SERVICES = nil
 silence_warnings do
   if File.exist? oauth_keys_file

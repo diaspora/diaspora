@@ -36,7 +36,6 @@ describe Person do
     end
   end
 
-
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
@@ -369,7 +368,6 @@ describe Person do
         f = Person.by_account_identifier("tom@tom.joindiaspora.com")
         f.should be nil
       end
-
 
     end
 

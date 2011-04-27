@@ -34,7 +34,6 @@ Diaspora::Application.routes.draw do
     get 'read_all' => :read_all, :on => :collection
   end
 
-
   # Users and people
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do
@@ -82,7 +81,6 @@ Diaspora::Application.routes.draw do
     post 'by_handle' => :retrieve_remote, :on => :collection, :as => 'person_by_handle'
   end
 
-
   # Federation
 
   controller :publics do
@@ -92,7 +90,6 @@ Diaspora::Application.routes.draw do
     post 'receive/users/:guid'  => :receive
     get 'hub'                   => :hub
   end
-
 
   # External
 
@@ -120,11 +117,9 @@ Diaspora::Application.routes.draw do
     match 'tags_people/:tag'         => :tag_people
   end
 
-
   # Mobile site
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
-
 
   # Startpage
 

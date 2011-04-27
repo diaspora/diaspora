@@ -23,8 +23,6 @@ module Diaspora
               xml.parent << user.person.to_xml
             }
 
-
-
             xml.aspects {
               user.aspects.each do |aspect|
                 xml.aspect {

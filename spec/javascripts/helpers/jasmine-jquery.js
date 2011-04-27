@@ -87,7 +87,6 @@ jasmine.Fixtures.prototype.proxyCallTo_ = function(methodName, passedArguments) 
   return this[methodName].apply(this, passedArguments);
 };
 
-
 jasmine.JQuery = function() {};
 
 jasmine.JQuery.browserTagCaseIndependentHtml = function(html) {
@@ -99,7 +98,6 @@ jasmine.JQuery.elementToString = function(element) {
 };
 
 jasmine.JQuery.matchersClass = {};
-
 
 (function(){
   var jQueryMatchers = {

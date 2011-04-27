@@ -194,7 +194,6 @@ describe("jasmine spec running", function () {
       });
     });
 
-
     another_spec.execute();
 
     fakeTimer.tick(1000);
@@ -218,12 +217,10 @@ describe("jasmine spec running", function () {
       });
     });
 
-
     yet_another_spec.execute();
     //tick twice so that second runs gets eval'd first: mockClock bug?
     fakeTimer.tick(100);
     fakeTimer.tick(150);
-
 
     expect(yet_another_spec.results().getItems().length).toEqual(1);
     expect(yet_another_spec.results().getItems()[0].passed()).toEqual(false);
@@ -488,7 +485,6 @@ describe("jasmine spec running", function () {
     expect(suite.results().getItems()[0].passed()).toEqual(true); // "testBeforeAndAfterCallbacks: the first spec's foo should have been 2");
     expect(suite.results().getItems()[1].passed()).toEqual(true); // "testBeforeAndAfterCallbacks: the second spec's this.foo should have been 2");
 
-
     var foo = 1;
     var suiteWithAfter = env.describe('one suite with an after_each', function () {
 
@@ -729,7 +725,6 @@ describe("jasmine spec running", function () {
     expect(foo).toEqual(0);
 
     suiteWithAfter.execute();
-
 
     expect(firstSpecHasRun).toEqual(true);
     expect(secondSpecHasRun).toEqual(false);
@@ -977,7 +972,6 @@ describe("jasmine spec running", function () {
     });
 
     env.execute();
-
 
     var expected = [
       "runner beforeEach",

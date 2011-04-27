@@ -17,7 +17,7 @@
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d de %B de %Y, %H:%M h"
@@ -83,7 +83,7 @@
       decimal_units:
         format: "%n %u"
         units:
-          unit: ""     
+          unit: ""
           thousand: "mil"
           million:
             one: milhão

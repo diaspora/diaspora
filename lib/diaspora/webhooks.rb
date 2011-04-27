@@ -11,7 +11,7 @@ module Diaspora
       xml += "<post>#{to_xml.to_s}</post>"
       xml += "</XML>"
     end
-  
+
     def x(input)
       input.to_s.to_xs
     end

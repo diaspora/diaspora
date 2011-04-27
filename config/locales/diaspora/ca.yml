@@ -7,7 +7,6 @@
 #   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
 #   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
 
-
 ca:
   settings: "Paràmetres"
   profile: "Perfil"
@@ -38,7 +37,6 @@ ca:
   all_aspects: "Tots els aspectes"
   no_results: "No s'ha trobat cap resultat"
 
-
   activerecord:
     errors:
       models:
@@ -63,19 +61,16 @@ ca:
             from_id:
               taken: "és un duplicat d'una petició ja existent."
 
-
   error_messages:
     helper:
       invalid_fields: "Camps invàlids"
       correct_the_following_errors_and_try_again: "Corregiu els errors següents i torneu-ho a provar."
-
 
   application:
     helper:
       unknown_person: "persona desconeguda"
       video_title:
         unknown: "Títol del vídeo desconegut"
-
 
   aspects:
     zero: "cap aspecte"
@@ -144,20 +139,17 @@ ca:
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
 
-
   aspect_memberships:
     destroy:
       success: "S'ha suprimit a la persona de l'aspecte amb èxit"
       failure: "No s'ha pogut suprimir a la persona de l'aspecte"
       no_membership: "No s'ha trobat a la persona seleccionada a l'aspecte"
 
-
   bookmarklet:
     post_success: "S'ha publicat! S'està tancant!"
     post_something: "Publiqueu alguna cosa al Diàspora"
     explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
     explanation_link_text: "Publiqueu al Diàspora"
-
 
   comments:
     zero: "cap comentari"
@@ -168,7 +160,6 @@ ca:
     new_comment:
       comment: "comenta"
       commenting: "S'està comentant…"
-
 
   contacts:
     zero: "cap contacte"
@@ -182,10 +173,9 @@ ca:
     share_with_pane:
       share_with: "Comença a compartir amb %{name}"
       accepts: "Una vegada ho accepte %{name}, començareu a veure els apunts respectius al Diàspora"
-      add_new_aspect: "afegeix a un aspecte nou" 
+      add_new_aspect: "afegeix a un aspecte nou"
     create:
       failure: "No s'ha pogut crear el contacte"
-
 
   conversations:
     index:
@@ -214,13 +204,11 @@ ca:
     destroy:
       success: "S'ha suprimit la conversa amb èxit"
 
-
   date:
     formats:
       fullmonth_day: "%B %d"
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
-
 
   home:
     show:
@@ -237,14 +225,13 @@ ca:
       simplicity_explanation: "El Diàspora fa que compartir siga net i fàcil – i això també s'aplica a la privacitat. Inherentment privat, el Diàspora no fa que us hagueu de perdre entre pàgines de paràmetres i opcions només per mantenir el vostre perfil segur."
       learn_about_host: "Aprengueu com hostatjar el vostre servidor de Diàspora propi."
 
-
   invitations:
     create:
       sent: "S'ha enviat invitacions a: "
       rejected: "Les adreces següents han tingut problemes: "
       no_more: "No teniu més invitacions."
       already_sent: "Ja heu convidat aquesta persona."
-      already_contacts: "Ja esteu connectat a aquesta persona" 
+      already_contacts: "Ja esteu connectat a aquesta persona"
     new:
       invite_someone_to_join: "Convideu algú a unir-se al Diàspora!"
       if_they_accept_info: "si accepten, seran afegits a l'aspecte al qual l'heu convidat."
@@ -260,7 +247,6 @@ ca:
       not_found: "No s'ha trobat el testimoni de la invitació"
     edit:
       sign_up: "registreu-vos"
-
 
   layouts:
     header:
@@ -278,7 +264,6 @@ ca:
       public_feed: "Canal públic del Diàspora per a %{name}"
       your_aspects: "els vostres aspectes"
 
-
   likes:
     likes:
       people_like_this:
@@ -293,7 +278,6 @@ ca:
         few: "Això li desagrada a %{count} persones"
         many: "Això li desagrada a %{count} persones"
         other: "Això li desagrada a %{count} persones"
-
 
   notifications:
     request_accepted: "ha acceptat la vostra petició per a compartir."
@@ -317,7 +301,6 @@ ca:
         few: "%{count} notificacions noves"
         many: "%{count} notificacions noves"
         other: "%{count} notificacions noves"
-
 
   notifier:
     hello: "Hola %{name}!"
@@ -354,7 +337,6 @@ ca:
       private_message: "us ha enviat un missatge privat:"
       message_subject: "Assumpte: %{subject}"
       sign_in: "Identifiqueu-vos per a mostrar-ho."
-
 
   people:
     zero: "cap persona"
@@ -407,7 +389,6 @@ ca:
     add_contact_small:
       add_contact_from_tag: "afegeix un contacte d'una etiqueta"
 
-
   photos:
     show:
       delete_photo: "Suprimeix la foto"
@@ -444,15 +425,12 @@ ca:
       upload: "Pugeu una foto de perfil nova!"
       or_select_one: "o seleccioneu una de les ja existents"
 
-
   posts:
     doesnt_exist: "aquesta publicació no existeix!"
-
 
   post_visibilites:
     update:
       post_hidden: "S'ha amagat la publicació de %{name}."
-
 
   profiles:
     edit:
@@ -475,7 +453,6 @@ ca:
       updated: "S'ha actualitzat el perfil"
       failed: "No s'ha pogut actualitzar el perfil"
 
-
   registrations:
     new:
       sign_up: "Registreu-vos"
@@ -494,7 +471,6 @@ ca:
       update: "Actualitza"
       cancel_my_account: "Canceŀla el meu compte"
     closed: "Els registres són tancats en aquesta beina del Diàspora."
-
 
   requests:
     manage_aspect_contacts:
@@ -516,7 +492,6 @@ ca:
         few: "%{count} peticions noves!"
         many: "%{count} peticions noves!"
         other: "%{count} peticions noves!"
-
 
   services:
     index:
@@ -547,7 +522,6 @@ ca:
     remote_friend:
       resend: "torna a enviar"
       invite: "convida"
-
 
   shared:
     publisher:
@@ -597,7 +571,6 @@ ca:
       logged_in_as: "autenticat com a %{name}"
       your_aspects: "els vostres aspectes"
 
-
   status_messages:
     new:
       mentioning: "S'està mencionant: %{person}"
@@ -612,18 +585,15 @@ ca:
     destroy:
       failure: "No s'ha pogut suprimir la publicació"
 
-
   stream_helper:
     show_comments: "mostra tots els comentaris"
     hide_comments: "amaga els comentaris"
-
 
   tags:
     show:
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
       nobody_talking: "Ningú ha parlat de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
-
 
   users:
     edit:
@@ -671,7 +641,6 @@ ca:
       email_notifications_changed: "S'han canviat les notificacions per correu"
     public:
       does_not_exist: "L'usuari %{username} no existeix!"
-
 
   webfinger:
     fetch_failed: "no s'ha pogut obtenir el perfil webfinger per a %{profile_url}"

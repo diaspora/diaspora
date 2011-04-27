@@ -85,7 +85,6 @@ class Notifier < ActionMailer::Base
     @comment  = Comment.find_by_id(comment_id)
     @post_author_name = @comment.post.author.name
 
-
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
@@ -102,7 +101,6 @@ class Notifier < ActionMailer::Base
     @message  = Message.find_by_id(message_id)
     @conversation = @message.conversation
     @participants = @conversation.participants
-
 
     log_mail(recipient_id, sender_id, 'private_message')
 

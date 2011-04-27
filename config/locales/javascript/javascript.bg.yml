@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-bg: 
-  javascripts: 
+bg:
+  javascripts:
     confirm_dialog: "Сигурни ли сте?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "Няма повече публикации."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
     search_for: "Търсене за {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Лицето не може да бъде премахнато от последния аспект. (Ако желаете да бъде прекратена връзката с лицето е необходимо да премахнете контакта.)"
-    timeago: 
+    timeago:
       day: "ден"
       days: "%d дни"
       hour: "около час"
@@ -30,6 +29,6 @@ bg:
       suffixFromNow: "от сега"
       year: "около година"
       years: "%d години"
-    videos: 
+    videos:
       unknown: "Неизвестен вид видео"
       watch: "Гледайте видеото в {{provider}}"

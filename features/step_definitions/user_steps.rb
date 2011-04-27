@@ -58,7 +58,6 @@ When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |u
   contact.aspects << @me.aspects.find_by_name(aspect)
 end
 
-
 Given /^I have one contact request$/ do
   other_user = Factory(:user)
   other_aspect = other_user.aspects.create!(:name => "meh")

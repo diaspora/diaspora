@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 require 'spec_helper'
 
 describe ContactsController do
@@ -95,7 +94,7 @@ describe ContactsController do
       get :edit, :id => @contact.id
       assigns[:contact].should == @contact
     end
-    
+
     it 'assigns a person' do
       get :edit, :id => @contact.id
       assigns[:person].should == @contact.person
@@ -107,7 +106,7 @@ describe ContactsController do
       @user.should_receive(:disconnect).with(@contact)
       delete :destroy, :id => @contact.id
     end
-    
+
     it 'flases success if the contact is not destroyed' do
       @user.stub!(:disconnect).and_return(true)
       delete :destroy, :id => @contact.id

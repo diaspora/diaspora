@@ -1,17 +1,16 @@
-
 <!-- Begin MailChimp Signup Form -->
 <%= javascript_include_tag 'vendor/mailchimp/jquery126.min.js', 'vendor/mailchimp/jquery.validate.js', 'vendor/mailchimp/jquery.form.js' %>
 <div id="mc_embed_signup">
 <form action="http://joindiaspora.us1.list-manage.com/subscribe/post?u=d759919b94f9cdcf39d204f3f&amp;id=7b5ceb2f8b" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank">
-	
+
 <div class="mc-field-group">
 <input type="text" value="" name="EMAIL" class="required email" placeholder="Email" id="mce-EMAIL">
 </div>
-		<div><input type="submit" value="<%= t('devise.shared.mail_signup_form.sign_up_for_an_invite') %>" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
-		<div id="mce-responses">
-			<div class="response" id="mce-error-response" style="display:none"></div>
-			<div class="response" id="mce-success-response" style="display:none"></div>
-		</div>
+    <div><input type="submit" value="<%= t('devise.shared.mail_signup_form.sign_up_for_an_invite') %>" name="subscribe" id="mc-embedded-subscribe" class="btn"></div>
+    <div id="mce-responses">
+      <div class="response" id="mce-error-response" style="display:none"></div>
+      <div class="response" id="mce-success-response" style="display:none"></div>
+    </div>
 </form>
 </div>
 
@@ -41,17 +40,17 @@ mce_jQuery(document).ready( function($) {
                                 });
                             mce_jQuery(':hidden', this).each(
                                 function(){
-                                	if ( fields[0].value=='MM' && fields[1].value=='DD' && fields[2].value=='YYYY' ){
-                                		this.value = '';
-									} else if ( fields[0].value=='' && fields[1].value=='' && fields[2].value=='' ){
-                                		this.value = '';
-									} else {
-	                                    this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
-	                                }
+                                  if ( fields[0].value=='MM' && fields[1].value=='DD' && fields[2].value=='YYYY' ){
+                                    this.value = '';
+                  } else if ( fields[0].value=='' && fields[1].value=='' && fields[2].value=='' ){
+                                    this.value = '';
+                  } else {
+                                      this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+                                  }
                                 });
                         });
                     return mce_validator.form();
-                }, 
+                },
                 success: mce_success_cb
             };
   mce_jQuery('#mc-embedded-subscribe-form').ajaxForm(options);
@@ -65,7 +64,7 @@ function mce_success_cb(resp){
         mce_jQuery('#mce-'+resp.result+'-response').html(resp.msg);
         mce_jQuery('#mc-embedded-subscribe-form').each(function(){
             this.reset();
-    	});
+      });
     } else {
         var index = -1;
         var msg;
@@ -90,11 +89,11 @@ function mce_success_cb(resp){
         try{
             if (index== -1){
                 mce_jQuery('#mce-'+resp.result+'-response').show();
-                mce_jQuery('#mce-'+resp.result+'-response').html(msg);            
+                mce_jQuery('#mce-'+resp.result+'-response').html(msg);
             } else {
                 err_id = 'mce_tmp_error_msg';
                 html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
-                
+
                 var input_id = '#mc_embed_signup';
                 var f = mce_jQuery(input_id);
                 if (ftypes[index]=='address'){

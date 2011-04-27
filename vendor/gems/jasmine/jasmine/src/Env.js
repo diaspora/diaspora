@@ -30,7 +30,6 @@ jasmine.Env = function() {
   jasmine.Matchers.wrapInto_(jasmine.Matchers.prototype, this.matchersClass);
 };
 
-
 jasmine.Env.prototype.setTimeout = jasmine.setTimeout;
 jasmine.Env.prototype.clearTimeout = jasmine.clearTimeout;
 jasmine.Env.prototype.setInterval = jasmine.setInterval;

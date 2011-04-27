@@ -28,7 +28,6 @@
       - for aspect_id in @aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
-
       %fieldset
         - unless params[:a_ids]
           %input{:type => 'checkbox', :name => 'status_message[public]', :id => 'public', :class => 'custom', :value => 'true'}

@@ -1,4 +1,3 @@
-
 require 'spec_helper'
 
 describe Notifier do
@@ -45,7 +44,7 @@ describe Notifier do
     end
 
     it 'has the layout' do
-      
+
       mail = Notifier.single_admin("Welcome to bureaucracy!", user)
       mail.body.encoded.should match /manage your email settings/
     end
@@ -60,7 +59,6 @@ describe Notifier do
     it 'has the receivers name in the body' do
       request_mail.body.encoded.include?(user.person.profile.first_name).should be true
     end
-
 
     it 'has the name of person sending the request' do
       request_mail.body.encoded.include?(person.name).should be true
@@ -85,7 +83,6 @@ describe Notifier do
       request_accepted_mail.body.encoded.include?(person.name).should be true
     end
   end
-
 
   describe ".mentioned" do
     before do

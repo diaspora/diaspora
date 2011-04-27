@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-fi: 
-  javascripts: 
+fi:
+  javascripts:
     confirm_dialog: "Oletko varma?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Etsi nimellä {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Et voi poistaa henkilöä viimeisestä näkymästä. (Jos haluat katkaista yhteytesi tähän henkilöön, sinun täytyy poistaa kontakti.)"
-    timeago: 
+    timeago:
       day: "päivä"
       days: "%d päivää"
       hour: "noin tunti"
@@ -30,6 +29,6 @@ fi:
       suffixFromNow: "tästä alkaen"
       year: "noin vuosi"
       years: "%d vuotta"
-    videos: 
+    videos:
       unknown: "Tuntematon videomuoto"
       watch: "Katso video {{provider}} :ssa"
