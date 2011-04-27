@@ -7,8 +7,8 @@ var WebSocketReceiver = {
     ws.onmessage = WSR.onMessage;
     ws.onclose = function() {
       Diaspora.widgets.alert.alert(
-        Diaspora.widgets.i18n.t("web_socket.disconnected.title"),
-        Diaspora.widgets.i18n.t("web_socket.disconnected.body")
+        Diaspora.widgets.i18n.t("web_sockets.disconnected.title"),
+        Diaspora.widgets.i18n.t("web_sockets.disconnected.body")
       );
       
       WSR.debug("socket closed");
