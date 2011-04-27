@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-eu: 
-  javascripts: 
+eu:
+  javascripts:
     confirm_dialog: "Ziur al zaude?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Ezin izan da adiskidea azken alderditik ezabatu. (Pertsona honekin harremanak bukatu nahi badituzu, hura ezabatu behar duzu.)"
-    timeago: 
+    timeago:
       day: "egun bat"
       days: "%d egun"
       hour: "ordu bat"
@@ -30,6 +29,6 @@ eu:
       suffixFromNow: "barru"
       year: "urte bat"
       years: "%d urte"
-    videos: 
+    videos:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau {{provider}}(e)n"

@@ -34,7 +34,6 @@ describe AspectMembershipsController do
     end
   end
 
-
   describe "#destroy" do
     it 'removes contacts from an aspect' do
       @user.add_contact_to_aspect(@contact, @aspect1)

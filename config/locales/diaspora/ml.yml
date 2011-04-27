@@ -2,68 +2,67 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-ml: 
+ml:
   _comments: "അഭിപ്രായങ്ങള്‍"
   _home: "പൂമുഖം"
   _photos: "ചിത്രങ്ങള്‍"
   _services: "സേവനങ്ങള്‍"
   account: "അക്കൌണ്ട്"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "must be unique among this user's contacts."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "is a duplicate of a pre-existing request."
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
-            person: 
+            person:
               invalid: "സാധുവല്ല."
-            username: 
+            username:
               taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
   ago: "%{time} മുന്‍പ്"
   all_aspects: "All aspects"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "അറിയാത്ത വ്യക്തി"
-      video_title: 
+      video_title:
         unknown: "ചലചിത്രത്തിന്റെ തലക്കെട്ട് അറിയില്ല"
   are_you_sure: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "ഈ വ്യക്തിയെ പരിചയത്തില്‍ നിന്ന് മാറ്റാന്‍ കഴിഞ്ഞില്ല"
       no_membership: "തെരഞ്ഞെടുത്ത വ്യക്തി ഈ പരിചയത്തില്‍ ഇല്ല"
       success: "വ്യക്തിയെ വിജയകരമായി പരിചയത്തില്‍ നിന്നും നീക്കം ചെയ്തു"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ക്കുന്നതില്‍ പരാജയപ്പെട്ടു."
       success: "വിജയകരമായി സമ്പര്‍ക്കം പരിചയത്തിലേക്ക് കൂട്ടിചേര്‍ത്തു."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
-    aspect_stream: 
+    aspect_stream:
       activity: "activity"
       post_time: "post time"
       sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
-    create: 
+    create:
       failure: "പരിചയം സൃഷ്ടിക്കല്‍ പരാജയപ്പെട്ടു."
       success: "നിങ്ങളുടെ പുതിയ പരിചയം %{name} സൃഷ്ടിക്കപ്പെട്ടു."
-    destroy: 
+    destroy:
       failure: "%{name} ശുന്യമല്ലാത്തതിനാല്‍ നീക്കാനാകുന്നില്ല."
       success: "%{name} വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
-    edit: 
+    edit:
       add_existing: "നിലവിലുള്ള സമ്പര്‍ക്കം ചേര്‍കുക"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
       aspect_list_is_visible: "aspect list is visible to others in aspect"
@@ -75,15 +74,15 @@ ml:
       update: "പുതുക്കു"
       updating: "updating"
     few: "%{count} പരിചയങ്ങള്‍"
-    helper: 
+    helper:
       are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
       aspect_not_empty: "പരിചയം ശൂന്യമല്ല "
       remove: "നീക്കം ചെയ്യു"
-    index: 
+    index:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "സമ്പര്‍ക്കങ്ങളില്ല"
       post_a_message: "post a message >>"
-    manage: 
+    manage:
       add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കുക"
       add_a_new_contact: "പുതിയ സമ്പര്‍ക്കം ചേര്‍ക്കുക"
       drag_to_add: "ആളുകളെ ചേര്‍ക്കാന്‍ വലിച്ചിടുക"
@@ -91,98 +90,98 @@ ml:
       no_requests: "പുതിയ അഭ്യര്‍ത്ഥനകള്‍ ഇല്ല"
       requests: "അഭ്യര്‍ത്ഥനകള്‍"
     many: "%{count} പരിചയങ്ങള്‍"
-    move_contact: 
+    move_contact:
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
-    new_aspect: 
+    new_aspect:
       create: "ഉണ്ടാക്കു"
       name: "പേര്"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "ആരും ഒന്നും പറയുന്നില്ല. സംഭാഷണം തുടങ്ങിവെയ്ക്കു!"
     one: "ഒരു പരിചയം"
     other: "%{count} പരിചയങ്ങള്‍"
-    seed: 
+    seed:
       family: "കുടുംബം"
       work: "ജോലി"
-    show: 
+    show:
       edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
-    update: 
+    update:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
     zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "റദ്ദാക്കുക"
-  comments: 
+  comments:
     few: "%{count} comments"
     many: "%{count} comments"
-    new_comment: 
+    new_comment:
       comment: "അഭിപ്രായം"
       commenting: "അഭിപ്രായം രേഖപ്പെടുത്തുന്നു..."
     one: "1 comment"
     other: "%{count} comments"
     zero: "no comments"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "സമ്പര്‍ക്കം ഉണ്ടാക്കാനാകുന്നില്ല"
-    destroy: 
+    destroy:
       failure: "Failed to disconnect from %{name}"
       success: "Successfully disconnected from %{name}"
     few: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     many: "%{count} സമ്പര്‍ക്കങ്ങള്‍"
     one: "ഒരു സമ്പര്‍ക്കം"
     other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
-    share_with_pane: 
+    share_with_pane:
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "പുതിയ പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കുക"
       share_with: "%{name} നോട് പങ്കിട്ട് തുടങ്ങുക"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
-  conversations: 
-    create: 
+  conversations:
+    create:
       sent: "Message sent"
-    destroy: 
+    destroy:
       success: "Conversation successfully removed"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
         many: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
         one: "ഒരു പുതിയ സന്ദേശം"
         other: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
         zero: "പുതിയ സന്ദേശങ്ങളില്ല"
-    index: 
+    index:
       create_a_new_message: "പുതിയ സന്ദേശം ഉണ്ടാക്കുക"
       inbox: "Inbox"
       message_inbox: "Message Inbox"
       new_message: "പുതിയ സന്ദേശം"
       no_conversation_selected: "no conversation selected"
       no_messages: "no messages"
-    new: 
+    new:
       send: "അയക്കു"
       subject: "വിഷയം"
       to: "to"
-    show: 
+    show:
       delete: "delete and block conversation"
       reply: "മറുപടി"
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "നീക്കം ചെയ്യുക"
   email: "ഇമെയില്‍"
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "ഈ പിഴവുകള്‍ പരിഹരിച്ച ശേഷം വീണ്ടും ശ്രമിക്കുക."
       invalid_fields: "അസാധുവായ കള്ളികള്‍"
   fill_me_out: "എന്നെ പൂരിപ്പിക്കു"
   hide: "Hide"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "നിലവില്‍ ഒരു അക്കൌണ്ടുണ്ടോ?"
       choice: "Choice"
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
@@ -195,18 +194,18 @@ ml:
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       tagline_first_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു,"
       tagline_second_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി."
-  invitations: 
-    check_token: 
+  invitations:
+    check_token:
       not_found: "Invitation token not found"
-    create: 
+    create:
       already_contacts: "താങ്കള്‍ ഇതിനകം തന്നെ ഈ വ്യക്തിയുമായി ബന്ധിപ്പിച്ചിരിക്കുകയാണ്"
       already_sent: "താങ്കള്‍ ഇതിനകം തന്നെ ഈ വ്യക്തിയെ ക്ഷണിച്ചു."
       no_more: "താങ്കള്‍ക്ക് ഇനി ക്ഷണങ്ങളൊന്നും ബാക്കിയില്ല."
       rejected: "ഈ ഇമെയില്‍ വിലാസങ്ങള്‍ക്ക് പ്രശ്നങ്ങളുണ്ട്: "
       sent: "Invitations have been sent to: "
-    edit: 
+    edit:
       sign_up: "ചേരുക"
-    new: 
+    new:
       already_invited: "ഇതിനകം തന്നെ ക്ഷണിച്ചു"
       aspect: "Aspect"
       comma_seperated_plz: "താങ്കള്‍ക്ക് കോമാ ഉപയോഗിച്ച് ഒന്നില്‍ കൂടൂതല്‍ ഇമെയില്‍ വിലാസങ്ങള്‍ ചേര്‍ക്കാം."
@@ -217,30 +216,30 @@ ml:
       send_an_invitation: "ഒരു ക്ഷണം അയയ്ക്കു"
       send_invitation: "ക്ഷണം അയയ്ക്കു"
       to: "To"
-  layouts: 
-    application: 
+  layouts:
+    application:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
-    header: 
+    header:
       blog: "ബ്ലോഗ്"
       code: "കോഡ്"
       login: "അകത്ത് കടക്കുക"
       logout: "പുറത്ത് കടക്കു"
       profile: "profile"
       settings: "ക്രമീകരണങ്ങള്‍"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} people disliked this"
         many: "%{count} people disliked this"
         one: "1 person disliked this"
         other: "%{count} people disliked this"
         zero: "no people disliked this"
-      people_like_this: 
+      people_like_this:
         few: "%{count} people liked this"
         many: "%{count} people liked this"
         one: "1 person liked this"
@@ -249,19 +248,19 @@ ml:
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
   no_results: "No Results Found"
-  notifications: 
+  notifications:
     also_commented: "also commented on your contact's"
     also_commented_deleted: "നീക്കം ചെയ്ത കുറിപ്പില്‍ അഭിപ്രായം രേഖപ്പെടുത്തി"
     comment_on_post: "commented on your"
     deleted: "നീക്കം ചെയ്തു"
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count} പുതിയ അറിയിപ്പുകള്‍"
         many: "%{count} പുതിയ അറിയിപ്പുകള്‍"
         one: "ഒരു പുതിയ അറിയിപ്പ്"
         other: "%{count} പുതിയ അറിയിപ്പുകള്‍"
         zero: "പുതിയ അറിയിപ്പൊന്നുമില്ല"
-    index: 
+    index:
       and: "and"
       and_others: "ഉം %{number} മറ്റുള്ളവരും"
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
@@ -271,12 +270,12 @@ ml:
     post: "കുറിപ്പ്"
     private_message: "sent you a message."
     request_accepted: "താങ്കളുടെ പങ്കിടല്‍ അഭ്യര്‍ത്ഥന അംഗീകരിച്ചു."
-  notifier: 
-    also_commented: 
+  notifier:
+    also_commented:
       commented: "കൂടി %{post_author} ന്റെ പോസ്റ്റില്‍ അഭിപ്രായം രേഖപ്പെടുത്തിയിട്ടുണ്ട്."
       sign_in: "അത് കാണുവാന്‍ അകത്തുകയറുക."
       subject: "%{name} കൂടി അഭിപ്രായം രേഖപ്പെടുത്തിയിട്ടുണ്ട്."
-    comment_on_post: 
+    comment_on_post:
       commented: "നിങ്ങളുടെ പോസ്റ്റില്‍ അഭിപ്രായം രേഖപ്പെടുത്തിയിട്ടുണ്ട്!"
       sign_in: "അത് കാണുവാന്‍ അകത്തുകയറുക."
       subject: "നിങ്ങളുടെ കുറിപ്പില്‍ %{name} അഭിപ്രായം രേഖപ്പെടുത്തിയിട്ടുണ്ട്."
@@ -284,25 +283,25 @@ ml:
     hello: "നമസ്‌കാരം %{name}!"
     love: "സ്നേഹപൂര്‍വ്വം,"
     manage_your_email_settings: "manage your email settings"
-    mentioned: 
+    mentioned:
       mentioned: "mentioned you in a post:"
       sign_in: "കാണാനായി അകത്ത് കയറുക."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
+    new_request:
       just_sent_you: "just sent you a contact request on Diaspora*"
       sign_in: "ഇതു വഴി അകത്ത് കയറുക"
       subject: "%{from} ല്‍ നിന്നും പുതിയ ഡയസ്പോറ* സമ്പര്‍ക്ക അഭ്യര്‍ത്ഥന"
       try_it_out: "You should really think about checking it out."
-    private_message: 
+    private_message:
       message_subject: "വിഷയം: %{subject}"
       private_message: "ഒരു സ്വകാര്യ സന്ദേശം അയച്ചു:"
       sign_in: "ഇതു വഴി അകത്ത് കയറുക."
       subject: "%{name} ഡയസ്പോറയില്‍* നിങ്ങള്‍ക്ക് ഒരു സ്വകാര്യ സന്ദേശം അയച്ചു"
-    request_accepted: 
+    request_accepted:
       accepted: "നിങ്ങളുടെ സമ്പര്‍ക്ക അഭ്യര്‍ത്ഥന സ്വീകരിച്ചിട്ടുണ്ട്!"
       sign_in: "ഇതു വഴി അകത്ത് കയറുക"
       subject: "%{name} ഡയസ്പോറയിലെ* നിങ്ങളുടെ സമ്പര്‍ക്ക അപേക്ഷ അംഗീകരിച്ചു"
-    single_admin: 
+    single_admin:
       admin: "നിങ്ങളുടെ ഡയസ്പോറ മേല്‍നോട്ടക്കാരന്‍"
       subject: "നിങ്ങളുടെ ഡയസ്പോറ അക്കൌണ്ടിനെ സംബന്ധിച്ച് ഒരു സന്ദേശം:"
     thanks: "നന്ദിയോടെ,"
@@ -310,16 +309,16 @@ ml:
   or: "അല്ലെങ്കില്‍"
   password: "അടയാളവാക്ക്"
   password_confirmation: "അടയാളവാക്ക് തിര്‍ച്ചപ്പെടുത്തുക"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "add contact from tag"
-    aspect_list: 
+    aspect_list:
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
     few: "%{count} ആളുകള്‍"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: " people on pod are aware of"
       results_for: " %{params} ന്റെ ഫലങ്ങള്‍"
-    index: 
+    index:
       couldnt_find_them_send_invite: "കണ്ടുപിടിയ്ക്കാനാകുന്നില്ലേ? ഒരു ക്ഷണം അയക്കു!"
       no_one_found: "...പക്ഷേ, ഒരാളെയും കണ്ടുപിടിച്ചില്ല."
       no_results: "താങ്കള്‍ എന്തിനെങ്കിലും വേണ്ടി തിരയേണ്ടതുണ്ട്."
@@ -327,12 +326,12 @@ ml:
     many: "%{count} ആളുകള്‍"
     one: "ഒരാള്‍"
     other: "%{count} ആളുകള്‍"
-    person: 
+    person:
       add_contact: "സമ്പര്‍ക്കം ചേര്‍ക്കുക"
       already_connected: "ഇപ്പോള്‍ തന്നെ ബന്ധിപ്പിച്ചിട്ടുണ്ട്"
       pending_request: "അപേക്ഷ ബാക്കി നില്‍കുന്നു"
       thats_you: "ഇത് താങ്കളാണ്!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "സ്വയം വിവരണം"
       born: "ജന്മദിനം"
       cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
@@ -342,7 +341,7 @@ ml:
       location: "location"
       remove_contact: "സമ്പര്‍ക്കം മാറ്റുക"
       remove_from: "%{name} നെ %{aspect} നിന്ന് മാറ്റട്ടേ?"
-    show: 
+    show:
       add_some: "add some"
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       edit: "തിരുത്തു"
@@ -358,32 +357,32 @@ ml:
       start_sharing: "പങ്കുവച്ച് തുടങ്ങുക"
       to_accept_or_ignore: "to accept or ignore it."
       you_have_no_tags: "you have no tags!"
-    webfinger: 
+    webfinger:
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
     zero: "ആളുകളില്ല"
-  photos: 
-    create: 
+  photos:
+    create:
       integrity_error: "Photo upload failed.  Are you sure that was an image?"
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
-    destroy: 
+    destroy:
       notice: "ചിത്രം നീക്കം ചെയ്തു."
-    edit: 
+    edit:
       editing: "തിരുത്തുന്നു"
-    new: 
+    new:
       back_to_list: "തിരിച്ച് പട്ടികയിലേയ്ക്ക്"
       new_photo: "പുതിയ ചിത്രം"
       post_it: "കുറിക്കു!"
-    new_photo: 
+    new_photo:
       empty: "{file} ശൂന്യമാണ്, അതല്ലാത്ത ഫയലുകള്‍ ദയവായി വീണ്ടും തെരഞ്ഞെടുക്കുക."
       invalid_ext: "{file} ന് തെറ്റായ extension ആണ്.  {extensions} മാത്രം അനുവദിച്ചിരിക്കുന്നു."
       size_error: "{file} വളരെ വലുതാണ്, കൂടിയ ഫയല്‍ വലിപ്പം {sizeLimit} ആകുന്നു."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one: "അല്ലെങ്കില്‍ ഇപ്പോഴുള്ളതില്‍ നിന്ന് തിരഞ്ഞെടുക്കുക"
       upload: "പുതിയ പ്രൊഫൈല്‍ ചിത്രം ചേര്‍ക്കുക!"
-    photo: 
+    photo:
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
-    show: 
+    show:
       collection_permalink: "collection permalink"
       delete_photo: "ചിത്രം നീക്കുക"
       edit: "തിരുത്തുക"
@@ -393,18 +392,18 @@ ml:
       permalink: "സ്ഥിരം കണ്ണി"
       update_photo: "ചിത്രം പുതുക്കുക"
       view: "കാണു"
-    update: 
+    update:
       error: "ചിത്രം പുതുക്കാന്‍ പറ്റുന്നില്ല.."
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
-  post_visibilites: 
-    update: 
+  post_visibilites:
+    update:
       post_hidden: "%{name}'s post has been hidden."
-  posts: 
+  posts:
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
   profile: "പ്രൊഫൈല്‍"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "ഡയസ്പോറയ്ക്കകത്ത് മറ്റുള്ളവര്‍ എന്നെ കണ്ടെത്താന്‍ അനുവദിക്കുക"
       edit_profile: "Edit profile"
       first_name: "First name"
@@ -420,57 +419,57 @@ ml:
       your_public_profile: "Your public profile"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-    update: 
+    update:
       failed: "Failed to update profile"
       updated: "Profile updated"
-  registrations: 
+  registrations:
     closed: "Signups are closed on this Diaspora pod."
-    create: 
+    create:
       success: "താങ്കള്‍ ഡയസ്പോറയില്‍ ചേര്‍ന്നിരിക്കുന്നു!"
-    edit: 
+    edit:
       cancel_my_account: "എന്റെ അക്കൌണ്ട് റദ്ദാക്കു"
       edit: "%{name} തിരുത്തു"
       leave_blank: "(മാറ്റേണ്ടെങ്കില്‍ ഒഴിച്ച് തന്നെ ഇടുക)"
       password_to_confirm: "(മാറ്റങ്ങള്‍ സ്ഥിരികരിക്കാന്‍ വേണ്ടി താങ്കളുടെ നിലവിലുള്ള രഹസ്യവാക്ക് ആവശ്യമുണ്ട്)"
       unhappy: "സന്തോഷമായില്ല?"
       update: "പുതുക്കു"
-    new: 
+    new:
       enter_email: "ഒരു ഇമെയില്‍ നല്‍കുക"
       enter_password: "അടയാളവാക്ക് നല്‍കുക"
       enter_password_again: "അടയാളവാക്ക് വീണ്ടും നല്‍കുക"
       enter_username: "ഉപഭാക്തൃ നാമം തിരഞ്ഞെടുക്കുക (അക്ഷരങ്ങളും സംഖ്യകളും അണ്ടര്‍ സ്കോറും മാത്രം)"
       sign_up: "അംഗത്വം എടുക്കുക"
       sign_up_for_diaspora: "ഡയസ്പോറയ്ക്കു വേണ്ടി അംഗത്വം എടുക്കുക"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "അയയ്ക്കുന്നു"
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
-    destroy: 
+    destroy:
       error: "ദയവായി ഒരു പരിചയം തിരഞ്ഞെടുക്കുക!"
       ignore: "സമ്പര്‍ക്ക അഭ്യര്‍ത്ഥന അവഗണിച്ചു."
       success: "നിങ്ങള്‍ ഇപ്പോള്‍ സുഹൃത്തുക്കളാണ്."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count} പുതിയ അപേക്ഷകള്‍!"
         many: "%{count} പുതിയ അപേക്ഷകള്‍!"
         one: "ഒരു പുതിയ അപേക്ഷ!"
         other: "%{count} പുതിയ അപേക്ഷകള്‍!"
         zero: "പുതിയ അപേക്ഷയൊന്നുമില്ല"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "നിലവിലുള്ള സമ്പര്‍ക്കങ്ങള്‍"
       manage_within: "Manage contacts within"
-    new_request_to_person: 
+    new_request_to_person:
       sent: "അയച്ചു!"
   search: "തിരയുക"
-  services: 
-    create: 
+  services:
+    create:
       success: "തിരിച്ചറിയല്‍ വിജയകരം."
-    destroy: 
+    destroy:
       success: "തിരിച്ചറിയല്‍ വിജയകരമായി നീക്കം ചെയ്തു."
-    failure: 
+    failure:
       error: "അ സേവനവുമായി ബന്ധിപ്പിക്കുന്നതില്‍ അവിടെ ഒരു തെറ്റുണ്ട്"
-    finder: 
-      friends: 
+    finder:
+      friends:
         few: "%{count} സുഹൃത്തുക്കള്‍"
         many: "%{count} സുഹൃത്തുക്കള്‍"
         one: "ഒരു സുഹൃത്ത്"
@@ -478,34 +477,34 @@ ml:
         zero: "സുഹൃത്തുക്കളില്ല"
       invite_your_friends_from: "%{service} ല്‍ നിന്ന് നിങ്ങളുടെ സുഹൃത്തുക്കളെ ക്ഷണിക്കുക."
       not_connected: "ബന്ധിപ്പിച്ചിട്ടില്ല"
-    index: 
+    index:
       connect_to_facebook: "ഫേസ്ബുക്കുമായി ബന്ധിപ്പിക്കു"
       connect_to_twitter: "ട്വിറ്ററുമായി ബന്ധിപ്പിക്കു"
       disconnect: "വിച്ഛേദിക്കു"
       edit_services: "സേവനങ്ങളില്‍ മാറ്റം വരുത്തുക"
       logged_in_as: "logged in as"
       really_disconnect: "%{service} വിച്ഛേദിക്കണോ?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "ക്ഷണം സ്വീകരിക്കുന്നതിനായി കണ്ണിയില്‍ അമര്‍ത്തുക"
       join_me_on_diaspora: "എന്നെ ഡയസ്പോറ*യില്‍ ചേര്‍ക്കൂ*"
-    remote_friend: 
+    remote_friend:
       invite: "ക്ഷണിക്കു"
       resend: "വീണ്ടും അയയ്ക്കു"
   settings: "ക്രമീകരണങ്ങള്‍"
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       create_request: "Find by Diaspora handle"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "ഒരു ഡയസ്പോറ ഉപയോക്തനാമം നല്‍കുക :"
       know_email: "ആളിന്റെ ഇമെയില്‍ വിലാസം അറിയാമോ? നിങ്ങള്‍ക്ക് ആ വ്യക്തിയെ ക്ഷണിക്കാം."
       your_diaspora_username_is: "താങ്കളുടെ ഡയസ്പോറ ഉപയോക്തൃ നാമം: %{diaspora_handle}"
-    contact_list: 
+    contact_list:
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
-    footer: 
+    footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
-    invitations: 
+    invitations:
       by_email: "ഇമെയില്‍ വഴി"
       dont_have_now: "താങ്കള്‍ക്ക് ക്ഷണമൊന്നും ബാക്കിയില്ല, പക്ഷേ കൂടുതല്‍ വരുന്നുണ്ട്!"
       from_facebook: "ഫേസ്ബുക്കില്‍ നിന്ന്"
@@ -514,14 +513,14 @@ ml:
       invite_your_friends: "നിങ്ങളുടെ കൂട്ടുകാരെ ക്ഷണിക്കു."
       invites: "ക്ഷണങ്ങള്‍"
       invites_closed: "ഈ ഡയസ്പോറ പോഡിലെ ക്ഷണങ്ങള്‍ നിര്‍ത്തിവെച്ചിരിക്കുന്നു"
-    notification: 
+    notification:
       new: "പുതിയ %{type} %{from} ല്‍ നിന്ന്"
-    public_explain: 
+    public_explain:
       logged_in: "%{service} ലേയ്ക്ക് പ്രവേശിച്ചിരിക്കുന്നു."
       manage: "ബന്ധിപ്പിച്ചിരിക്കുന്ന സേവനങ്ങളെ കൈകാര്യം ചെയ്യുക"
       outside: "പൊതു സന്ദേശങ്ങള്‍ ഡയസ്പോറയ്ക്ക് വെളിയിലുള്ളവര്‍ക്കും കാണാനാകും."
       title: "നിങ്ങള്‍ ഒരു പൊതു സന്ദേശം കുറിക്കുവാന്‍ പോകുന്നു!"
-    publisher: 
+    publisher:
       add_photos: "ചിത്രങ്ങള്‍ ചേര്‍ക്കുക"
       all: "എല്ലാം"
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
@@ -534,38 +533,38 @@ ml:
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"
       whats_on_your_mind: "എന്താണ് നിങ്ങളുടെ മനസ്സില്‍?"
-    reshare: 
+    reshare:
       reshare: "വീണ്ടും പങ്കിടുക"
-    stream_element: 
+    stream_element:
       dislike: "I dislike this"
       like: "I like this"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "Successfully mentioned: %{names}"
-    destroy: 
+    destroy:
       failure: "കുറിപ്പ് നീക്കം ചെയ്യാന്‍ സാധിക്കുന്നില്ല"
-    helper: 
+    helper:
       no_message_to_display: "സന്ദേശമൊന്നും കാണിക്കാനില്ല."
-    new: 
+    new:
       mentioning: "Mentioning: %{person}"
-    show: 
+    show:
       destroy: "നീക്കം ചെയ്യുക"
       not_found: "Sorry, we couldn't find that post."
       permalink: "സ്ഥിരം കണ്ണി"
-  stream_helper: 
+  stream_helper:
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
     show_comments: "എല്ലാ അഭിപ്രായവും കാണിക്കുക"
-  tags: 
-    show: 
+  tags:
+    show:
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "ലോകം മുഴുവന്‍"
   undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
-  users: 
+  users:
     destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
-    edit: 
+    edit:
       also_commented: "...someone also comments on your contact's post?"
       change: "മാറ്റുക"
       change_language: "ഭാഷ മാറ്റു"
@@ -585,7 +584,7 @@ ml:
       request_received: "...you receive a new share request?"
       your_email: "താങ്കളുടെ ഈമെയില്‍"
       your_handle: "Your diaspora handle"
-    getting_started: 
+    getting_started:
       connect_on_diaspora: "ഡയസ്പോറയില്‍ ബന്ധിപ്പിക്കു"
       connect_services: "താങ്കളുടെ മറ്റുള്ള സേവനങ്ങള്‍ ബന്ധിപ്പിക്കു"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
@@ -594,22 +593,22 @@ ml:
       save_and_continue: "സൂക്ഷിച്ച ശേഷം തുടരു"
       signup_steps: "ഈ മൂന്ന് കാര്യങ്ങള്‍ കൂടി ചെയ്ത് താങ്കള്‍ ഡയസ്പോറയില്‍ കയറുന്നത് പൂര്‍ത്തിയാക്കു:"
       skip: "തുടക്കമിടല്‍ മറികടക്കുക"
-      step_2: 
+      step_2:
         find_your_friends_on_diaspora: "നിങ്ങളുടെ ഫേസ്ബുക്ക് സുഹൃത്തുക്കളെ ഡയസ്പോറയില്‍ കാണാന്‍ താല്പര്യം ഉണ്ടോ?"
         skip: "മറികടക്കു"
-      step_3: 
+      step_3:
         finish: "പൂര്‍ത്തിയാക്കു"
         people_already_on_diaspora: "ഡയസ്പോറയില്‍ നേരത്തേയുള്ള ആളുകള്‍"
       welcome: "ഡയസ്പോറയിലേയ്ക്ക് സ്വാഗതം!"
-    public: 
+    public:
       does_not_exist: "%{username} ഉപയോക്താവ് നിലവിലില്ല!"
-    update: 
+    update:
       email_notifications_changed: "ഇമെയില്‍ അറിയിപ്പുകള്‍ മാറ്റി"
       language_changed: "ഭാഷ മാറ്റി"
       language_not_changed: "ഭാഷ മാറ്റാനാകുന്നില്ല"
       password_changed: "അടയാളവാക്ക് മാറ്റി"
       password_not_changed: "അടയാളവാക്ക് മാറ്റാനാകുന്നില്ല"
-  webfinger: 
+  webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
     no_person_constructed: "ഒരു വ്യക്തിയ്ക്കും ഈ hcard ല്‍ നിന്ന്  നിര്‍മ്മിക്കാന്‍ കഴിയില്ല."

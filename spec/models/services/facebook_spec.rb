@@ -28,7 +28,7 @@ describe Services::Facebook do
   end
 
   context 'finder' do
-    before do 
+    before do
       @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'

@@ -111,7 +111,6 @@ describe Contact do
 
   end
 
-
   context 'requesting' do
     before do
       @contact = Contact.new

@@ -1,7 +1,7 @@
 @javascript
 Feature: sending and receiving requests
 
-  Background: 
+  Background:
     Given a user with email "bob@bob.bob"
     And a user with email "alice@alice.alice"
     When I sign in as "bob@bob.bob"
@@ -9,7 +9,7 @@ Feature: sending and receiving requests
     And I press the first ".share_with.button" within "#author_info"
     And I add the person to my first aspect
     Then I go to the destroy user session page
-    
+
   Scenario: accepting a contact request
     When I sign in as "alice@alice.alice"
     And I am on the manage aspects page
@@ -47,8 +47,6 @@ Feature: sending and receiving requests
    And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
 
-
-  
   Scenario: accepting a contact request into a new aspect
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page

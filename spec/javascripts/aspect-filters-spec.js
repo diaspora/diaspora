@@ -1,4 +1,3 @@
-
 describe('AspectFilters', function(){
   it('initializes selectedGUIDS', function(){
     expect(AspectFilters.selectedGUIDS).toEqual([]);

@@ -2,15 +2,14 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-gl: 
-  devise: 
-    confirmations: 
+gl:
+  devise:
+    confirmations:
       confirmed: "A túa conta foi confirmada. Xa estás en Diaspora"
-      new: 
+      new:
         resend_confirmation: "Volver a enviar instruccións de confirmación."
       send_instructions: "Recibiraás un correo con instrucción para confirmar a túa conta nuns minutos."
-    failure: 
+    failure:
       inactive: "A túa conta aínda non foi activada."
       invalid: "Correo ou contrasinal incorrecta."
       invalid_token: "Invitación inválida."
@@ -18,52 +17,52 @@ gl:
       timeout: "A túa sesión rematou, entra de novo para continuar."
       unauthenticated: "Tes que entrar ou rexistrarte antes de seguir."
       unconfirmed: "Tes que confirmar a túa conta antes de seguir."
-    invitations: 
+    invitations:
       invitation_token_invalid: "Está invitación non é valida!"
       send_instructions: "A túa invitación foi enviada."
       updated: "O teu contrasinal estableceuse correctamente."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "Confirmar conta"
         subject: "Instruccións de confirmación"
         you_can_confirm: "Podes confirmar a túa conta a través do enlace de abaixo:"
       hello: "Ola %{email}!"
-      invitation: 
+      invitation:
         accept: "Aceptar convite"
         ignore: "Se non queres aceptar a invitación, por favor ignora este correo."
         no_account_till: "A túa conta non se creará ata que premas o link de arriba e te rexistres."
         subject: "Fuches invitado a formar parte de Diaspora!"
-      inviters: 
+      inviters:
         accept_at: ", %{url}, podes aceptar mediante o link de abaixo."
         has_invited_you: "%{name} invitoute a Diaspora"
         have_invited_you: "%{names} invitáronte a Diaspora"
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "Cambiar contrasinal"
         ignore: "Se non pediches isto, por favor ignora este correo."
         someone_requested: "Alguén pediu un enlace para cambiar o teu contrasinal, podes facelo no enlace de abaixo."
         subject: "Instruccións para reestablecer contrasinal"
         wont_change: "O teu contrasinal non cambiará ata que premas o enlace de arriba e crees unha nova."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "A túa conta foi bloqueada debido ás excesivas tentativas de entrar."
         click_to_unlock: "Preme no link de abaixo para desbloquear a conta"
         subject: "Instrucción de desbloqueo"
         unlock: "Desbloquear conta"
       welcome: "Benvido %{email}!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "Cambiar contrasinal"
-      new: 
+      new:
         forgot_password: "Olvidaches o contrasinal?"
         no_account: "Non existe ningunha conta con esta dirección. Se estás esperando unha invitación temos que dicirche que as estamos tratando de repartir o máis cedo posible."
         send_password_instructions: "Envíame instruccións para restablecer contrasinal"
       send_instructions: "Nuns minutos recibirás un correo con instruccións de como reestablecer o teu contrasinal"
       updated: "O teu contrasinal foi cambiado."
-    registrations: 
+    registrations:
       destroyed: "Adeus! A túa conta foi cancelada satisfactoriamente. Esperamos que nos volvamos ver."
       signed_up: "Rexistrouse satisfactoriamente. Envióuseche unha confirmación."
       updated: "Actualizou a súa conta satisfactoriamente."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "Estás apunto de usar software en fase Alfa."
         bugs_and_feedback: "Avisámosche de que experimentarás erros. Animámosche a usar o botón de Feedback na parte dereita para reportar calquera fallo. Trataremos de resolver o máis cedo posible os erros que reportes."
         bugs_and_feedback_mobile: "Avisámoste de que percibirás erros. Animámoste a que os reportes para que podamos traballar para resolvelos o máis cedo posible."
@@ -75,23 +74,23 @@ gl:
         username: "Nome de usuario"
       signed_in: "Entrou satisfactoriamente."
       signed_out: "Saiu satisfactoriamente."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "Esqueceu o contrasinal?"
         receive_confirmation: "Non recibiches instruccións de confirmación?"
         receive_unlock: "Non recibiches instrucción de desbloqueo?"
         sign_in: "Entrar"
         sign_up: "Rexistrarse"
         sign_up_closed: "Os rexistros están pechados neste intre."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "Rexístrate para unha invitación!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "Reenviar instruccións de desbloqueo"
       send_instructions: "Nuns minutos recibirás un correo con instruccións sobre como desbloquear a túa conta."
       unlocked: "A túa conta foi desbloqueada."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: "xa foi confirmado"
       not_found: "non se atopou"
       not_locked: "non foi bloqueado"

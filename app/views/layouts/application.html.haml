@@ -71,7 +71,6 @@
         piwikTracker.enableLinkTracking();
         } catch( err ) {}
 
-
     - if @person
       %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
     - elsif current_user

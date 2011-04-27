@@ -1,5 +1,5 @@
-describe("View", function() { 
-  it("is the object that helps the UI", function() { 
+describe("View", function() {
+  it("is the object that helps the UI", function() {
     expect(typeof View === "object").toBeTruthy();
   });
 
@@ -10,7 +10,6 @@ describe("View", function() {
       expect(View.initialize).toHaveBeenCalled();
     });
   });
-
 
   describe("debug", function() {
     describe("click", function() {

@@ -77,7 +77,6 @@ class Person < ActiveRecord::Base
     ).order("contacts.user_id DESC", "requests.recipient_id DESC", "profiles.last_name ASC", "profiles.first_name ASC")
   end
 
-
   def self.public_search(query, opts={})
     return [] if query.to_s.blank? || query.to_s.length < 3
     sql, tokens = self.search_query_string(query)
@@ -230,7 +229,7 @@ class Person < ActiveRecord::Base
   def remove_all_traces
     Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
   end
-  
+
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
     self.reload

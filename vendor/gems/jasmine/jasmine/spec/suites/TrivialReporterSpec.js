@@ -96,7 +96,6 @@ describe("TrivialReporter", function() {
     });
   });
 
-
   describe("failure messages (integration)", function () {
     var spec, results, expectationResult;
 

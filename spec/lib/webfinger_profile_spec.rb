@@ -6,9 +6,9 @@ describe WebfingerProfile do
 
   let(:account){"tom@tom.joindiaspora.com"}
   let(:profile){ WebfingerProfile.new(account, webfinger_profile) }
-  
+
   context "parsing a diaspora profile" do
-    
+
     describe '#valid_diaspora_profile?' do
       it 'should check all of the required fields' do
         manual_nil_check(profile).should == profile.valid_diaspora_profile?
@@ -17,11 +17,11 @@ describe WebfingerProfile do
 
     describe '#set_fields' do
       it 'should check to make sure it has a the right webfinger profile' do
-        proc{ WebfingerProfile.new("nottom@tom.joindiaspora.com", webfinger_profile)}.should raise_error 
+        proc{ WebfingerProfile.new("nottom@tom.joindiaspora.com", webfinger_profile)}.should raise_error
       end
 
       it 'should handle a non-diaspora profile without blowing up' do
-        proc{ WebfingerProfile.new("evan@status.net", not_diaspora_webfinger)}.should_not raise_error 
+        proc{ WebfingerProfile.new("evan@status.net", not_diaspora_webfinger)}.should_not raise_error
       end
     end
   end

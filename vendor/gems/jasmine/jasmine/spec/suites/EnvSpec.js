@@ -113,7 +113,6 @@ describe("jasmine.Env", function() {
         });
       });
 
-
       describe("when the custom equality tester returns true", function() {
         beforeEach(function() {
           isEqual = true;

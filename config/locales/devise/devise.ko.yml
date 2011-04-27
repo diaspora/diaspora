@@ -2,15 +2,14 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-ko: 
-  devise: 
-    confirmations: 
+ko:
+  devise:
+    confirmations:
       confirmed: "계정을 성공적으로 확인한 뒤 로그인하였습니다."
-      new: 
+      new:
         resend_confirmation: "확인 메일 다시 보내기"
       send_instructions: "몇 분 안으로 계정을 확인하기 위한 메일이 도착합니다."
-    failure: 
+    failure:
       inactive: "아직 계정이 활성화되지 않았습니다."
       invalid: "유효하지 않은 사용자명과 암호"
       invalid_token: "유효하지 않은 인증 토큰"
@@ -18,52 +17,52 @@ ko:
       timeout: "세션이 만료되었습니다. 다시 로그인하십시오."
       unauthenticated: "더 나아가려면 로그인하거나 가입해야 합니다."
       unconfirmed: "더 나아가기 전에 계정을 확인해야 합니다."
-    invitations: 
+    invitations:
       invitation_token_invalid: "초대장 토큰이 유효하지 않습니다!"
       send_instructions: "초대장을 보냈습니다"
       updated: "암호를 성공적으로 바꾼 뒤 로그인하였습니다."
-    mailer: 
-      confirmation_instructions: 
+    mailer:
+      confirmation_instructions:
         confirm: "계정 확인하기"
         subject: "확인 안내"
         you_can_confirm: "아래 링크로 계정을 확인할 수 있습니다:"
       hello: "%{email} 님 환영합니다!"
-      invitation: 
+      invitation:
         accept: "초대 수락하기"
         ignore: "초대를 수락하지 않으려면 이 메일을 무시하십시오."
         no_account_till: "계정은 가입하지 않는 한 만들어지지 않습니다."
         subject: "디아스포라로 초대합니다!"
-      inviters: 
+      inviters:
         accept_at: "이 링크로 수락할 수 있습니다: %{url}"
         has_invited_you: "%{name} 님이 귀하를 디아스포라에 초대하였습니다."
         have_invited_you: "%{name} 님이 귀하를 디아스포라에 초대하였습니다."
-      reset_password_instructions: 
+      reset_password_instructions:
         change: "암호 바꾸기"
         ignore: "암호 초기화를 요청하지 않았다면 이 메일을 무시하십시오."
         someone_requested: "아래 링크로 암호를 다시 정할 수 었습니다:"
         subject: "암호 초기화 안내"
         wont_change: "암호는 링크를 클릭해서 새 암호를 만들기 전까지 바뀌지 않습니다."
-      unlock_instructions: 
+      unlock_instructions:
         account_locked: "귀하의 계정은 로그인을 여러번 실패해 잠겼습니다."
         click_to_unlock: "아래 링크로 계정을 풀을 수 있습니다."
         subject: "계정 풀기 안내"
         unlock: "계정 풀기"
       welcome: "%{email} 님 환영합니다!"
-    passwords: 
-      edit: 
+    passwords:
+      edit:
         change_password: "암호 바꾸기"
-      new: 
+      new:
         forgot_password: "암호를 잊었습니까?"
         no_account: "등록되지 않은 이메일 주소입니다."
         send_password_instructions: "암호 초기화 메일 보내기"
       send_instructions: "몇 분 안으로 암호를 초기화하기 위한 메일이 도착합니다."
       updated: "암호가 성공적으로 바꾼 뒤 로그인하였습니다."
-    registrations: 
+    registrations:
       destroyed: "계정을 성공적어로 취소하였습니다."
       signed_up: "성공적으로 가입하였습니다."
       updated: "계정을 성공적으로 갱신하였습니다."
-    sessions: 
-      new: 
+    sessions:
+      new:
         alpha_software: "이 소프트웨어는 알파 실험 단계입니다."
         bugs_and_feedback: "여러 버그를 경험하실 수 있습니다. 오른쪽의 피드백 단추로 문제점을 보고해주십시오! 보고하신 문제점 빠르게 해결하기 위해 최선을 다하겠습니다."
         bugs_and_feedback_mobile: "여러 버그를 경험하실 수 있습니다. 문제점을 보고해주십시오! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
@@ -75,23 +74,23 @@ ko:
         username: "사용자명"
       signed_in: "성공적으로 로그인하였습니다."
       signed_out: "성공적으로 로그아웃하였습니다."
-    shared: 
-      links: 
+    shared:
+      links:
         forgot_your_password: "암호를 잊었습니까?"
         receive_confirmation: "확인 안내를 받지 못했습니까?"
         receive_unlock: "풀기 안내를 받지 못했슸니까?"
         sign_in: "로그인"
         sign_up: "가입하기"
         sign_up_closed: "공개 가입이 닫혀있습니다."
-      mail_signup_form: 
+      mail_signup_form:
         sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두십시오!"
-    unlocks: 
-      new: 
+    unlocks:
+      new:
         resend_unlock: "풀기 메일 다시 보내기"
       send_instructions: "몇 분 안으로 계정을 풀기 위한 메일이 도착합니다."
       unlocked: "계정을 성공적으로 풀은 뒤 로그인하였습니다."
-  errors: 
-    messages: 
+  errors:
+    messages:
       already_confirmed: ": 이미 확인되었습니다"
       not_found: ": 찾을 수 없습니다"
       not_locked: ": 잠겨있지 읺습니다"

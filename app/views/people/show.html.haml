@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :head do
   = include_javascripts :people
 
@@ -43,7 +42,6 @@
             :rel => 'facebox'
         - if @share_with
           = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
-
 
     - else
       - if user_signed_in? && @contact.person && @contact.pending? == false

@@ -4,7 +4,6 @@
 # instead of editing this one. Cucumber will automatically load all features/**/*.rb
 # files.
 
-
 require 'uri'
 require 'cgi'
 require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
@@ -26,7 +25,7 @@ end
 
 When /^(?:|I )press "([^"]*)"(?: within "([^"]*)")?$/ do |button, selector|
   with_scope(selector) do
-    silence_warnings { 
+    silence_warnings {
       sleep 1 if button == "Share"
       click_button(button) } # ruby 1.9 produces a warning about UTF8 from rack-util
   end

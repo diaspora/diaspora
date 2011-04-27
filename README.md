@@ -16,12 +16,12 @@ Please report any bugs you see at [bugs.joindiaspora.com](http://bugs.joindiaspo
 ## Contributing to Diaspora
 
 You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).
-Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com). 
+Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com).
 A step-by-step guide to development using git can be found [here](http://github.com/diaspora/diaspora/wiki/Git-Workflow).
 
 Here are a few good places to start:
 
-- Run "rake spec" to run our [Rspec](http://blog.davidchelimsky.net/2007/05/14/an-introduction-to-rspec-part-i/) 
+- Run "rake spec" to run our [Rspec](http://blog.davidchelimsky.net/2007/05/14/an-introduction-to-rspec-part-i/)
 unit test suite.
 
 - Run "rake cucumber" to run our [Cucumber](http://rubylearning.com/blog/2010/10/05/outside-in-development/)
@@ -30,11 +30,11 @@ integration test suite.  As you can see, we need more integration tests.  Pick a
 - Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
 
-Patches must be tested, and all your tests should be green, 
+Patches must be tested, and all your tests should be green,
 unless you're marking an existing bug, before a pull request is sent.
 Unit tests should be in Rspec, and integration tests should be in Cucumber.
 
-Please make your changes in a branch to ensure that new commits to your master are 
+Please make your changes in a branch to ensure that new commits to your master are
 not included in the pull request, and to make it easier for us to merge your commits.
 
 Please do not rebase our tree into yours.
@@ -53,7 +53,6 @@ We're currently working on revising it more details on what we're going for can 
 Here is our [bug tracker](http://bugs.joindiaspora.com) and our
 [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap). Also, you can
 find see what the core team is up to [here](http://www.pivotaltracker.com/projects/61641).
-
 
 Ongoing discussion:
 

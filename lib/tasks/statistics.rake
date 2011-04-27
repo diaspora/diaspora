@@ -65,7 +65,6 @@ namespace :statistics do
              "notification_off_%=#{@notification_off_per}, "+
              "no_invites=#{@no_invites}"
 
-
       puts "event=statistic, type=invitations, count=#{@invitations}"
       puts "event=statistic, type=contacts, active_count=#{@contacts_active}"
       puts "event=statistic, type=contacts, pending_count=#{@contacts_pending}"

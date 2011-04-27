@@ -201,7 +201,6 @@ class PhotosController < ApplicationController
     end
   end
 
-
   private
 
   def file_handler(params)

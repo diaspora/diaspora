@@ -2,17 +2,16 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-gl: 
-  javascripts: 
+gl:
+  javascripts:
     confirm_dialog: "Seguro?"
-    publisher: 
+    publisher:
       at_least_one_aspect: "Tes que publicalo polo menos nun aspecto"
     search_for: "Buscar a {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Non podes quitar esta persoa do aspecto. Se te queres desconectar dela tes que borrar o contacto."
-    timeago: 
+    timeago:
       day: "un día"
       days: "%d días"
       hour: "sobre unha hora"
@@ -28,6 +27,6 @@ gl:
       suffixFromNow: "dende agora"
       year: "sobre un ano"
       years: "%d anos"
-    videos: 
+    videos:
       unknown: "Tipo de video descoñecido"
       watch: "Ver video en {{provider}}"

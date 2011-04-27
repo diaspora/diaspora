@@ -3,7 +3,7 @@ Feature: posting
     In order to enlighten humanity for the good of society
     As a rock star
     I want to tell the world I am eating a yogurt
-    
+
     Background:
       Given a user with username "bob"
       And a user with username "alice"
@@ -69,7 +69,7 @@ Feature: posting
         | aspect      | see     |
         | PostTo      | see     |
         | DidntPostTo | not see |
-    
+
     Scenario Outline: posting to all aspects from the profile page
       Given I am on "alice@alice.alice"'s page
         And I have turned off jQuery effects

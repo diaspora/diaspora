@@ -7,7 +7,7 @@ require File.join(Rails.root, 'lib/hcard')
 
 describe HCard do
   it 'should parse an hcard' do
-    raw_hcard = hcard_response 
+    raw_hcard = hcard_response
     hcard = HCard.build raw_hcard
     hcard[:family_name].include?("Hamiltom").should be true
     hcard[:given_name].include?("Alex").should be true

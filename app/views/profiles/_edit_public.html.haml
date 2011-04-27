@@ -10,8 +10,6 @@
     var data = $.parseJSON( '#{@tags_array.to_json.gsub("'", "\\\\'")}' ),
         autocompleteInput = $("#profile_tag_string");
 
-
-    
     autocompleteInput.autoSuggest("#{tags_path}", {
       selectedItemProp: "name",
       searchObjProps: "name",
@@ -34,7 +32,6 @@
       }
     });
   });
-
 
 %h3
   = t('profiles.edit.your_public_profile')

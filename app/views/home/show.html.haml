@@ -5,7 +5,7 @@
 - content_for :page_title do
   DIASPORA* ALPHA
 - begin
-  = render :partial => 'home/show' 
+  = render :partial => 'home/show'
 - rescue
   :erb
     <%= File.open(File.join(Rails.root, 'public/default.html')).read %>

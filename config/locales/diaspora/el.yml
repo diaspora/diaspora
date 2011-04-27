@@ -2,68 +2,67 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-el: 
+el:
   _comments: "Σχόλια"
   _home: "Αρχική"
   _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"
   account: "Λογαριασμός"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "πρέπει να είναι μοναδικό μεταξύ των επαφών του χρήστη."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "είναι ήδη σε χρήση"
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "είναι αντίγραφο ενός προϋπάρχοντος αιτήματος."
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "είναι ήδη σε χρήση."
-            person: 
+            person:
               invalid: "είναι άκυρη."
-            username: 
+            username:
               taken: "είναι ήδη σε χρήση."
   ago: "%{time} πριν"
   all_aspects: "Όλες οι πτυχές"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "άγνωστο άτομο"
-      video_title: 
+      video_title:
         unknown: "Άγνωστος τίτλος video"
   are_you_sure: "Είστε σίγουρος/η;"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
       no_membership: "Δεν βρέθηκε το επιλεγμένο άτομο σε αυτή την πτυχή"
       success: "Αφαιρέθει επιτυχώς το πρόσωπο από την πτυχή"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Αποτυχία προσθήκης επαφής στην πτυχή."
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "ολοκλήρωση επεξεργασίας"
-    aspect_stream: 
+    aspect_stream:
       activity: "δραστηριότητα"
       post_time: "χρόνο δημοσίευσης"
       sort_by: "ταξινόμηση κατά:"
     contacts_not_visible: "Οι επαφές σ' αυτήν την πτυχή δεν θα μπορούν να δουν ο ένας τον άλλον."
     contacts_visible: "Οι επαφές σ' αυτήν την πτυχή θα μπορούν να δουν ο ένας τον άλλον."
-    create: 
+    create:
       failure: "Η δημιουργία της πτυχής απέτυχε."
       success: "Η νέα σας πτυχή %{name} δημιουργήθηκε"
-    destroy: 
+    destroy:
       failure: "Το όνομα %{name} δεν είναι άδειο και δεν μπορεί να αφαιρεθεί."
       success: "Ο χρήστης %{name} αφαιρέθηκε επιτυχώς."
-    edit: 
+    edit:
       add_existing: "Προσθέστε μια υπάρχουσα επαφή"
       aspect_list_is_not_visible: "η λίστα σας είναι κρυφή στους άλλους στην πτυχή"
       aspect_list_is_visible: "η λίστα σας είναι ορατή στους άλλους στην πτυχή"
@@ -75,15 +74,15 @@ el:
       update: "ενημέρωση"
       updating: "ενημέρωση"
     few: "%{count} πτυχές"
-    helper: 
+    helper:
       are_you_sure: "Είστε σίγουρος/η πως θέλετε να διαγράψετε αυτή την πτυχή;"
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
-    index: 
+    index:
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
-    manage: 
+    manage:
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       add_a_new_contact: "Προσθήκη νέας επαφής"
       drag_to_add: "Σείρε για να προσθέσεις άτομα"
@@ -91,98 +90,98 @@ el:
       no_requests: "Κανένα νέο αίτημα"
       requests: "Αιτήματα"
     many: "%{count} πτυχές"
-    move_contact: 
+    move_contact:
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
       failure: "δεν λειτούργησε %{inspect}"
       success: "Το άτομο μετακινήθηκε σε νέα πτυχή"
-    new_aspect: 
+    new_aspect:
       create: "Δημιουργία"
       name: "Όνομα"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
     one: "1 πτυχή"
     other: "%{count} πτυχές"
-    seed: 
+    seed:
       family: "Οικογένεια"
       work: "Εργασία"
-    show: 
+    show:
       edit_aspect: "επεξεργασία πτυχής"
-    update: 
+    update:
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
     zero: "καμία πτυχή"
   back: "Πίσω"
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο."
     explanation_link_text: "Δημοσιεύστε στο Diaspora"
     post_something: "Δημοσιεύστε κάτι στο Diaspora"
     post_success: "Δημοσιεύτηκε! Κλείνει!"
   cancel: "Ακύρωση"
-  comments: 
+  comments:
     few: "%{count} σχόλια"
     many: "%{count} σχόλια"
-    new_comment: 
+    new_comment:
       comment: "Σχολιάστε"
       commenting: "Σχολιάζει..."
     one: "1 σχόλιο"
     other: "%{count} σχόλια"
     zero: "κανένα σχόλιο"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "Αποτυχία δημιουργίας επαφής"
-    destroy: 
+    destroy:
       failure: "Αποτυχία αποσύνδεσης από τον/την %{name}"
       success: "Επιτυχία αποσύνδεσης από τον/την %{name}"
     few: "%{count} επαφές"
     many: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
-    share_with_pane: 
+    share_with_pane:
       accepts: "Όταν ο/η %{name} σας αποδεχτεί, θα ξεκινήσετε να βλέπετε μεταξύ σας τις δημοσιεύεσεις σας στο Diaspora"
       add_new_aspect: "προσθήκη σε νεα πτυχή"
       share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     zero: "καμία επαφή"
-  conversations: 
-    create: 
+  conversations:
+    create:
       sent: "Μήνυμα εστάλη"
-    destroy: 
+    destroy:
       success: "Η συζήτηση αφαιρέθηκε επιτυχώς"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count} νέα μηνύματα"
         many: "%{count} νέα μηνύματα"
         one: "1 νέο μήνυμα"
         other: "%{count} νέα μηνύματα"
         zero: "κανένα νέο μήνυμα"
-    index: 
+    index:
       create_a_new_message: "δημιουργία νέου μηνύματος"
       inbox: "Εισερχόμενα"
       message_inbox: "Εισερχόμενα"
       new_message: "Νέο Μήνυμα"
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
       no_messages: "κανένα μήνυμα"
-    new: 
+    new:
       send: "Αποστολή"
       subject: "θέμα"
       to: "στον"
-    show: 
+    show:
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Διαγραφή"
   email: "Email"
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
       invalid_fields: "Άκυρα Πεδία"
   fill_me_out: "Ενημέρωσε με"
   hide: "Απόκρυψη"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "έχετε ήδη λογαριασμό;"
       choice: "Επιλογή"
       choice_explanation: "Το Diaspora σας επιτρέπει να ταξινομήσετε τις συνδέσεις σας σε ομάδες που καλούνται πτυχές. Μοναδικές στο Diaspora, οι πτυχές εξασφαλίζουν ότι οι φωτογραφίες, οι ιστορίες και τα αστεία σας μοιράζονται μόνο με τους ανθρώπους που εσείς θέλετε."
@@ -195,18 +194,18 @@ el:
       simplicity_explanation: "Το Diaspora σας επιτρέπει να μοιράζεστε εύκολα και διάφανα – και αυτό ισχύει και για την ιδιωτικότητα σας. Από τη φύση του ιδιωτικό, το Diaspora δεν έχει σελίδες επί σελίδων με ρυθμίσεις και επιλογές ώστε να διατηρείτε το προφίλ σας ασφαλές."
       tagline_first_half: "Μοιραστείτε ό,τι θέλετε,"
       tagline_second_half: "με όποιον θέλετε."
-  invitations: 
-    check_token: 
+  invitations:
+    check_token:
       not_found: "Το σύμβολο της πρόσκλησης δεν βρέθηκε"
-    create: 
+    create:
       already_contacts: "Είστε ήδη συνδεδεμένος με αυτό το άτομο"
       already_sent: "Έχετε ήδη προσκαλέσει αυτό το άτομο."
       no_more: "Δεν έχετε άλλες προσκλήσεις."
       rejected: "Οι παρακάτω διευθύνσεις ηλεκτρονικού ταχυδρομείου είχαν προβλήματα:"
       sent: "Η πρόσκλησή σας έχει σταλεί στο:"
-    edit: 
+    edit:
       sign_up: "εγγραφή"
-    new: 
+    new:
       already_invited: "Έχει ήδη προσκληθεί"
       aspect: "Πτυχή"
       comma_seperated_plz: "Μπορείτε να εισάγετε πολλαπλές διευθύνσεις ηλεκτρονικού ταχυδρομείου διαχωρισμένες με κόμμα."
@@ -217,30 +216,30 @@ el:
       send_an_invitation: "Στείλτε μια πρόσκληση"
       send_invitation: "Στείλτε πρόσκληση"
       to: "Στον"
-  layouts: 
-    application: 
+  layouts:
+    application:
       have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
-    header: 
+    header:
       blog: "blog"
       code: "κώδικας"
       login: "Είσοδος"
       logout: "αποσύνδεση"
       profile: "προφίλ"
       settings: "ρυθμίσεις"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "Δεν αρέσει σε %{count} άτομα"
         many: "Δεν αρέσει σε %{count} άτομα"
         one: "Δεν αρέσει σε 1 άτομο"
         other: "Δεν αρέσει σε %{count} άτομα"
         zero: "κανένας δεν ανέφερε ότι δεν του αρέσει"
-      people_like_this: 
+      people_like_this:
         few: "Αρέσει σε %{count} άτομα"
         many: "Αρέσει σε %{count} άτομα"
         one: "Αρέσει σε 1 άτομο"
@@ -249,19 +248,19 @@ el:
   more: "Περισσότερα"
   next: "επόμενο"
   no_results: "Δεν βρέθηκαν αποτελέσματα"
-  notifications: 
+  notifications:
     also_commented: "επίσης σχολίασε τη %{post_author}"
     also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση"
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count} νέες ειδοποιήσεις"
         many: "%{count} νέες ειδοποιήσεις"
         one: "1 νέα ειδοποίηση"
         other: "%{count} νέες ειδοποιήσεις"
         zero: "καμία νέα ειδοποίηση"
-    index: 
+    index:
       and: "και"
       and_others: "και %{number} άλλοι"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
@@ -271,12 +270,12 @@ el:
     post: "δημοσίευση"
     private_message: "σας έστειλε ένα μήνυμα"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
-  notifier: 
-    also_commented: 
+  notifier:
+    also_commented:
       commented: "σχολίασε επίσης τη %{post_author} :"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο/Η %{name} επίσης σχολίασε τη %{post_author}"
-    comment_on_post: 
+    comment_on_post:
       commented: "έχει σχολιάσει σε δημοσίευση σας:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
@@ -284,25 +283,25 @@ el:
     hello: "Γειά σου %{name}!"
     love: "Με αγάπη,"
     manage_your_email_settings: "διαχείριση των ρυθμίσεων ηλεκτρονικού ταχυδρομείου"
-    mentioned: 
+    mentioned:
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο/Η %{name} σας αναφέρει στο Diaspora*"
-    new_request: 
+    new_request:
       just_sent_you: "έχετε ένα νέο αίτημα φίλου στο Diaspora*"
       sign_in: "Είσοδος εδώ"
       subject: "έχετε νέο αίτημα επαφής Diaspora από τον χρήστη %{from}"
       try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
-    private_message: 
+    private_message:
       message_subject: "Θέμα: %{subject}"
       private_message: "σας έστειλε ένα ιδιωτικό μήνυμα:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο χρήστης %{name} σας έστειλε ένα ιδιωτικό μήνυμα στο Diaspora*"
-    request_accepted: 
+    request_accepted:
       accepted: "έχει αποδεχθεί το αίτημα φιλίας σας!"
       sign_in: "Συνδεθείτε εδώ"
       subject: "%{name} έχει αποδεχθεί το αίτημα φιλίας σας στο Diaspora*"
-    single_admin: 
+    single_admin:
       admin: "Ο διαχειριστής Diaspora σας"
       subject: "Μήνυμα για τον Diaspora λογαριασμό σας:"
     thanks: "Ευχαριστώ,"
@@ -310,16 +309,16 @@ el:
   or: "ή"
   password: "Κωδικός"
   password_confirmation: "Επαλήθευση κωδικού"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "προσθήκη επαφής από ετικέτα"
-    aspect_list: 
+    aspect_list:
       edit_membership: "επεξεργασία ιδιοτήτων πτυχής"
     few: "%{count} άτομα"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: "άνθρωποι στο pod γνωρίζουν ότι"
       results_for: "αποτελέσματα για %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "Δεν τους βρήκατε; Στείλτε μια πρόσκληση!"
       no_one_found: "...κανένας δεν βρέθηκε. "
       no_results: "Επ! Χρειάζεται να ψάξετε για κάτι."
@@ -327,12 +326,12 @@ el:
     many: "%{count} άτομα"
     one: "1 άτομο"
     other: "%{count} άτομα"
-    person: 
+    person:
       add_contact: "προσθήκη επαφής"
       already_connected: "Είναι ήδη συνδεδεμένο"
       pending_request: "Αίτημα σε αναμονή"
       thats_you: "Εσύ είσαι αυτός!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "βιογραφικό"
       born: "γεννήθηκε"
       cannot_remove: "Δεν μπορεί να αφαιρεθεί ο/η %{name} από την τελευταία πτυχή. (Εάν θέλετε να αποσυνδεθείτε από αυτό το άτομο θα πρέπει να αφαιρέσετε πρώτα την επαφή.)"
@@ -342,7 +341,7 @@ el:
       location: "τοποθεσία"
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
-    show: 
+    show:
       add_some: "προσθέστε κάποιες"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       edit: "επεξεργασία"
@@ -358,32 +357,32 @@ el:
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
       you_have_no_tags: "δεν έχετε ετικέτες!"
-    webfinger: 
+    webfinger:
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
-  photos: 
-    create: 
+  photos:
+    create:
       integrity_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η ότι ήταν φωτογραφία;"
       runtime_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η πως φορέσατε ζώνη ασφαλείας πριν ξεκινήσετε;"
       type_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε.  Είστε σίγουρος/η πως προστέθηκε μια εικόνα;"
-    destroy: 
+    destroy:
       notice: "Η φωτογραφία διαγράφηκε."
-    edit: 
+    edit:
       editing: "Επεξεργασία"
-    new: 
+    new:
       back_to_list: "Επιστροφή στη Λίστα"
       new_photo: "Νέα φωτογραφία"
       post_it: "δημοσίευσε το!"
-    new_photo: 
+    new_photo:
       empty: "{file} είναι κενό, επιλέξτε και πάλι τα αρχεία χωρίς αυτό."
       invalid_ext: "{φιλε} δεν έχει έγκυρη επέκταση. Μόνο επεκτάσεις {extensions} επιτρέπονται."
       size_error: "{file} είναι πολύ μεγάλο, το μέγιστο μέγεθος αρχείου είναι {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one: "ή επιλέξτε κάποια από τις υπάρχουσες"
       upload: "Μεταφορτώστε μια νέα φωτογραφία προφίλ!"
-    photo: 
+    photo:
       view_all: "δες όλες τις φωτογραφίες του χρήστη %{name}"
-    show: 
+    show:
       collection_permalink: "permalink συλλογής"
       delete_photo: "Διαγραφή Φωτογραφίας"
       edit: "Επεξεργασία"
@@ -393,18 +392,18 @@ el:
       permalink: "permalink"
       update_photo: "Ενημέρωση Φωτογραφίας"
       view: "προβολή"
-    update: 
+    update:
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
-  post_visibilites: 
-    update: 
+  post_visibilites:
+    update:
       post_hidden: "Στη δημοσίευση του χρήστη %{name} έχει γίνει απόκρυψη."
-  posts: 
+  posts:
     doesnt_exist: "η δημοσίευση δεν υπάρχει!"
   previous: "προηγούμενο"
   profile: "Προφίλ"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "Επιτρέψτε σε άλλους ανθρώπους να σας αναζητούν στο Diaspora"
       edit_profile: "Επεξεργασία προφίλ"
       first_name: "Όνομα"
@@ -420,57 +419,57 @@ el:
       your_public_profile: "Το δημόσιο προφίλ σας"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
-    update: 
+    update:
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε"
-  registrations: 
+  registrations:
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του Diaspora."
-    create: 
+    create:
       success: "Γίνατε μέλος στο Diaspora!"
-    edit: 
+    edit:
       cancel_my_account: "Ακύρωση του λογαριασμού μου"
       edit: "Επεξεργασία %{name}"
       leave_blank: "(αφήστε το κενό αν δεν θέλετε να το αλλάξετε)"
       password_to_confirm: "(χρειαζόμαστε τον τρέχοντα κωδικό σας για να επιβεβαιώσετε τις αλλαγές σας)"
       unhappy: "Δεν είσαι ικανοποιημένος/η;"
       update: "Ενημέρωση"
-    new: 
+    new:
       enter_email: "Εισάγετε διεύθυνση ηλεκτρονικού ταχυδρομείου"
       enter_password: "Εισάγετε έναν κωδικό"
       enter_password_again: "Εισάγετε τον ίδιο κωδικό πάλι"
       enter_username: "Επιλέξτε ένα όνομα χρήστη (μόνο γράμματα, νούμερα και κάτω-παύλα)"
       sign_up: "Εγγραφείτε"
       sign_up_for_diaspora: "Εγγραφείτε στο Diaspora"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "Αποστολή"
       sent: "Σας ζητήθηκε να μοιράζεστε με τον χρήστη %{name}. Θα είναι ορατό την επόμενη φορά που θα συνδεθεί στο Diaspora."
-    destroy: 
+    destroy:
       error: "Παρακαλώ επιλέξτε μια πτυχή!"
       ignore: "Αγνοήθηκε αίτηση επαφής."
       success: "Τώρα πλέον διαμοιράζεστε."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count} νέα αιτήματα!"
         many: "%{count} νέα αιτήματα!"
         one: "νέο αίτημα!"
         other: "%{count} νέα αιτήματα!"
         zero: "κανένα νέο αίτημα"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "Υφιστάμενες επαφές"
       manage_within: "Διαχειριστείτε τις επαφές της πτυχής"
-    new_request_to_person: 
+    new_request_to_person:
       sent: "εστάλη!"
   search: "Αναζήτηση"
-  services: 
-    create: 
+  services:
+    create:
       success: "Επιτυχής έλεγχος ταυτότητας."
-    destroy: 
+    destroy:
       success: "Επιτυχής καταστροφή ταυτότητας."
-    failure: 
+    failure:
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
-    finder: 
-      friends: 
+    finder:
+      friends:
         few: "%{count} φίλοι"
         many: "%{count} φίλοι"
         one: "1 φίλος"
@@ -478,34 +477,34 @@ el:
         zero: "κανένας φίλος"
       invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
       not_connected: "δεν είναι συνδεδεμένο"
-    index: 
+    index:
       connect_to_facebook: "Σύνδεση με το facebook"
       connect_to_twitter: "Σύνδεση με το twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
       logged_in_as: "συνδεδεμένο ως"
       really_disconnect: "αποσύνδεση %{service};"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "Κάντε κλικ σ' αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
-    remote_friend: 
+    remote_friend:
       invite: "πρόσκληση"
       resend: "αποστολή ξανά"
   settings: "Ρυθμίσεις"
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       create_request: "Εύρεση βάσει αναγνωριστικού Diaspora"
       diaspora_handle: "Αναγνωριστικό Diaspora"
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
-    contact_list: 
+    contact_list:
       all_contacts: "Όλες οι επαφές"
       cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το πρόσωπο αυτό πρέπει να καταργήσετε την αντίστοιχη επαφή.)"
-    footer: 
+    footer:
       logged_in_as: "συνδεδεμένος/η ως %{name}"
       your_aspects: "οι πτυχές σας"
-    invitations: 
+    invitations:
       by_email: "με ηλεκτρονικό ταχυδρομείο"
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
       from_facebook: "Από το Facebook"
@@ -514,14 +513,14 @@ el:
       invite_your_friends: "Βρείτε τους φίλους σας"
       invites: "Προσκλήσεις"
       invites_closed: "Οι προσκλήσεις είναι κλειστές αυτή την περίοδο στο Diaspora pod"
-    notification: 
+    notification:
       new: "Νέο %{type} από τον χρήστη %{from}"
-    public_explain: 
+    public_explain:
       logged_in: "συνδεδεμένος/η στο %{service}"
       manage: "διαχείριση συναφών υπηρεσιών"
       outside: "Τα δημόσια μηνύματα θα είναι διαθέσιμα και σε χρήστες εκτός του δικτύου Diaspora"
       title: "Θα αναρτήσετε ένα δημόσιο μήνυμα!"
-    publisher: 
+    publisher:
       add_photos: "προσθέστε φωτογραφίες"
       all: "όλα"
       all_contacts: "όλες οι επαφές"
@@ -534,38 +533,38 @@ el:
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
       whats_on_your_mind: "Τι σκέφτεστε;"
-    reshare: 
+    reshare:
       reshare: "Μοιράσου και πάλι"
-    stream_element: 
+    stream_element:
       dislike: "Δεν μ' αρέσει"
       like: "Μου αρέσει"
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "Αναφέρθηκαν επιτυχώς: %{names}"
-    destroy: 
+    destroy:
       failure: "Αποτυχία διαγραφής δημοσίευσης"
-    helper: 
+    helper:
       no_message_to_display: "Κανένα μήνυμα"
-    new: 
+    new:
       mentioning: "Αναφορά σε: %{person}"
-    show: 
+    show:
       destroy: "Διαγραφή"
       not_found: "Συγνώμη, δεν μπορέσαμε να βρούμε αυτή τη δημοσίευση."
       permalink: "permalink"
-  stream_helper: 
+  stream_helper:
     hide_comments: "απόκρυψη σχολίων"
     show_comments: "προβολή όλων των σχολίων"
-  tags: 
-    show: 
+  tags:
+    show:
       nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."
       people_tagged_with: "Άτομα με την ετικέτα %{tag}"
       posts_tagged_with: "Δημοσιεύσεις με την ετικέτα #%{tag}"
   the_world: "ο κόσμος"
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"
-  users: 
+  users:
     destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
-    edit: 
+    edit:
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
       change: "Αλλαγή"
       change_language: "Αλλαγή Γλώσσας"
@@ -585,7 +584,7 @@ el:
       request_received: "...μόλις λάβατε ένα καινούριο αίτημα για διαμοιρασμό?"
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
-    getting_started: 
+    getting_started:
       connect_on_diaspora: "Σύνδεση στο Diaspora"
       connect_services: "Συνδεθείτε με άλλες υπηρεσίες"
       could_not_find_anyone: "Δεν βρέθηκαν φίλοι στο Diaspora*. Χρησιμοποιήστε την πρόσκληση φίλων για να τους καλέσετε. "
@@ -594,22 +593,22 @@ el:
       save_and_continue: "Αποθήκευση και συνέχεια"
       signup_steps: "Ολοκληρώστε την εγγραφή σας συμπληρώνοντας τα παρακάτω τρία βήματα:"
       skip: "παράλειψη της εισαγωγής"
-      step_2: 
+      step_2:
         find_your_friends_on_diaspora: "Θα θέλατε να βρείτε τους φίλους σας από το Facebook στο Diaspora;"
         skip: "Παράλειψη"
-      step_3: 
+      step_3:
         finish: "Τέλος"
         people_already_on_diaspora: "Άνθρωποι ήδη στο Diaspora"
       welcome: "Καλώς ήλθατε στο Diaspora!"
-    public: 
+    public:
       does_not_exist: "Ο χρήστης %{username} δεν υπάρχει!"
-    update: 
+    update:
       email_notifications_changed: "Αποτυχία αλλαγής γλώσσας"
       language_changed: "Αλλαγή Γλώσσας επιτυχής"
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Αλλαγή Κωδικού επιτυχής"
       password_not_changed: "Η αλλαγή κωδικού απέτυχε"
-  webfinger: 
+  webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"
     no_person_constructed: "No person could be constructed from this hcard."

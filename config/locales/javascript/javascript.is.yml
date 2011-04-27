@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-is: 
-  javascripts: 
+is:
+  javascripts:
     confirm_dialog: "Ertu viss?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Search for {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
-    timeago: 
+    timeago:
       day: "á dag"
       days: "%d dagar"
       hour: "um klukkustund"
@@ -30,6 +29,6 @@ is:
       suffixFromNow: "from now"
       year: "um það bil ár"
       years: "%d ára"
-    videos: 
+    videos:
       unknown: "Óþekkt vídeó tegund"
       watch: "Horfa á þetta vídeó á {{provider}}"

@@ -1,4 +1,3 @@
-
 pl:
   i18n:
     inflections:
@@ -58,7 +57,4 @@ pl:
         impersonal: :@n
         nijaki:     :@n
         default:    :n
-      
-    
-  
 

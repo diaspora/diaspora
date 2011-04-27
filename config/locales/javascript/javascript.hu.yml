@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-hu: 
-  javascripts: 
+hu:
+  javascripts:
     confirm_dialog: "Biztos vagy benne?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
     search_for: "{{name}} keresése."
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Nem tudod eltávolítani a személyt az utolsó csoportból. (előbb törölnöd kell a kapcsolatot)."
-    timeago: 
+    timeago:
       day: "egy nappal"
       days: "%d nappal"
       hour: "körülbelül egy órával"
@@ -30,6 +29,6 @@ hu:
       suffixFromNow: "mostantól"
       year: "körülbelül egy évvel"
       years: "%d évvel"
-    videos: 
+    videos:
       unknown: "Ismeretlen videó tipus"
       watch: "Videó megtekintése itt: {{provider}}"

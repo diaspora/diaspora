@@ -19,7 +19,7 @@ class AdminsController < ApplicationController
   def add_invites
     u = User.find(params[:user_id])
 
-    if u 
+    if u
       notice = "Great Job!"
       u.update_attributes(:invites => (u.invites += 10))
     else

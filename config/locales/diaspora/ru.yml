@@ -2,68 +2,67 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-ru: 
+ru:
   _comments: "Коментарии"
   _home: "Домашний"
   _photos: "фотографии"
   _services: "Сервисы"
   account: "Аккаунт"
-  activerecord: 
-    errors: 
-      models: 
-        contact: 
-          attributes: 
-            person_id: 
+  activerecord:
+    errors:
+      models:
+        contact:
+          attributes:
+            person_id:
               taken: "должно быть уникальным среди контактов этого пользователя."
-        person: 
-          attributes: 
-            diaspora_handle: 
+        person:
+          attributes:
+            diaspora_handle:
               taken: "уже занято."
-        request: 
-          attributes: 
-            from_id: 
+        request:
+          attributes:
+            from_id:
               taken: "дубликат ранних запросов."
-        user: 
-          attributes: 
-            email: 
+        user:
+          attributes:
+            email:
               taken: "уже занято."
-            person: 
+            person:
               invalid: "недействительно."
-            username: 
+            username:
               taken: "уже занято."
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
-  application: 
-    helper: 
+  application:
+    helper:
       unknown_person: "неизвестная персона"
-      video_title: 
+      video_title:
         unknown: "Неизвестное название видеозаписи"
   are_you_sure: "Вы уверены?"
-  aspect_memberships: 
-    destroy: 
+  aspect_memberships:
+    destroy:
       failure: "Не удалось удалить человека из аспектов"
       no_membership: "Не удалось найти этого человека в этом аспекте"
       success: "Человек успешно удалён из аспектов"
-  aspects: 
-    add_to_aspect: 
+  aspects:
+    add_to_aspect:
       failure: "Не удалось добавить друга в аспект."
       success: "Друг добавлен в аспект."
-    aspect_contacts: 
+    aspect_contacts:
       done_editing: "редактирование завершено"
-    aspect_stream: 
+    aspect_stream:
       activity: "активности"
       post_time: "актуальности"
       sort_by: "сортировать по:"
     contacts_not_visible: "Контакты в этом аспекте не смогут видеть друг друга."
     contacts_visible: "Контакты в этом аспекте могут видеть друг друга"
-    create: 
+    create:
       failure: "Не удалось создать аспект."
       success: "Ваш новый аспект %{name} создан"
-    destroy: 
+    destroy:
       failure: "%{name} не пуст и не может быть удалён."
       success: "%{name} успешно удалён."
-    edit: 
+    edit:
       add_existing: "Добавить существующий контакт"
       aspect_list_is_not_visible: "список аспектов скрыт для других пользователей"
       aspect_list_is_visible: "список аспект виден другим пользователям"
@@ -75,15 +74,15 @@ ru:
       update: "изменение"
       updating: "обновление"
     few: "%{count} аспект[-а, -ов]"
-    helper: 
+    helper:
       are_you_sure: "Вы уверены в том, что хотите удалить этот аспект?"
       aspect_not_empty: "Аспект не пуст"
       remove: "удалить"
-    index: 
+    index:
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
       post_a_message: "опубликовать сообщение>>"
-    manage: 
+    manage:
       add_a_new_aspect: "Добавить новый аспект"
       add_a_new_contact: "Добавить новый контакт"
       drag_to_add: "Потяните для добавления в аспект"
@@ -91,98 +90,98 @@ ru:
       no_requests: "Новых запросов нет"
       requests: "Запросы"
     many: "%{count} аспект[-а, -ов]"
-    move_contact: 
+    move_contact:
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
       success: "Персона перемещена в новый аспект"
-    new_aspect: 
+    new_aspect:
       create: "Создать"
       name: "Имя"
-    no_posts_message: 
+    no_posts_message:
       start_talking: "Здесь ещё никто ничего не сказал.  Начните разговор!"
     one: "1 аспект"
     other: "%{count} аспект[-а, -ов]"
-    seed: 
+    seed:
       family: "Семья"
       work: "Работа"
-    show: 
+    show:
       edit_aspect: "редактировать аспект"
-    update: 
+    update:
       failure: "ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Ваш аспект %{name} успешно отредактирован."
     zero: "нет аспектов"
   back: "Назад"
-  bookmarklet: 
+  bookmarklet:
     explanation: "%{link} из любого места на закладок ссылку."
     explanation_link_text: "Написать диаспоре"
     post_something: "Сообщите что-нибудь диаспоре"
     post_success: "Опубликовано! Закрытие!"
   cancel: "Отмена"
-  comments: 
+  comments:
     few: "%{count} комментариев"
     many: "%{count} комментариев"
-    new_comment: 
+    new_comment:
       comment: "комментировать"
       commenting: "Комментирование ..."
     one: "1 комментарий"
     other: "%{count} комментариев"
     zero: "нет комментариев"
-  contacts: 
-    create: 
+  contacts:
+    create:
       failure: "Не удалось создать контакт"
-    destroy: 
+    destroy:
       failure: "Не удалось отсоединить от %{name}"
       success: "Успешно отключены от %{name}"
     few: "%{count} контакт[-а, -ов]"
     many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
-    share_with_pane: 
+    share_with_pane:
       accepts: "После того как %{name} принял, вы сможите видеть сообщения друг друга в диаспоре"
       add_new_aspect: "добавить в новый аспект"
       share_with: "Начать обмен с %{name}"
     zero: "ни одного контакта"
-  conversations: 
-    create: 
+  conversations:
+    create:
       sent: "Сообщение отправлено"
-    destroy: 
+    destroy:
       success: "Разговор успешно удален"
-    helper: 
-      new_messages: 
+    helper:
+      new_messages:
         few: "%{count} новoe[-ых] сообщениe[-ий]"
         many: "%{count} новoe[-ых] сообщениe[-ий]"
         one: "1 новое сообщение"
         other: "%{count} новoe[-ых] сообщениe[-ий]"
         zero: "нет новых сообщений"
-    index: 
+    index:
       create_a_new_message: "написать новое сообщение"
       inbox: "Входящие"
       message_inbox: "Входящие сообщение"
       new_message: "Новое сообщение"
       no_conversation_selected: "разговор не выбран"
       no_messages: "нет сообщений"
-    new: 
+    new:
       send: "Отправить"
       subject: "предмет"
       to: "к"
-    show: 
+    show:
       delete: "удалить и заблокировать разговор"
       reply: "ответить"
-  date: 
-    formats: 
+  date:
+    formats:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Удаление"
   email: "Email"
-  error_messages: 
-    helper: 
+  error_messages:
+    helper:
       correct_the_following_errors_and_try_again: "Исправьте ошибки и попробуйте снова."
       invalid_fields: "Недействительные поля"
   fill_me_out: "Заполнить"
   hide: "Скрыть"
-  home: 
-    show: 
+  home:
+    show:
       already_account: "уже есть учётная запись?"
       choice: "Выбор"
       choice_explanation: "Диаспора позволяет сортировать группы контактов, называемые аспектами. Аспекты - уникальная особенность диаспоры. Они позволяют обеспечить приватность ваших фотографий, историй и т.д. Последние будут доступны только для тех людей, которые принадлежат соответствующему аспекту."
@@ -195,18 +194,18 @@ ru:
       simplicity_explanation: "Диаспора делает обмен прозрачным и простым - это распространяется и на частную жизнь. По существу, диаспора не заставляет вас пробираться через страницы настроек и опций для того, чтобы держать ваш профиль в безопасности."
       tagline_first_half: "Поделитесь чем хотите,"
       tagline_second_half: "с кем вы хотите."
-  invitations: 
-    check_token: 
+  invitations:
+    check_token:
       not_found: "Код приглашения не найден"
-    create: 
+    create:
       already_contacts: "Вы уже связаны с этим человеком"
       already_sent: "Вы уже пригласили этого человека."
       no_more: "У вас закончились приглашения."
       rejected: "Следующие адреса электронной почты имеют проблемы:"
       sent: "Ваши приглашения отправлены:"
-    edit: 
+    edit:
       sign_up: "регистрация"
-    new: 
+    new:
       already_invited: "Уже приглашён(а)"
       aspect: "Аспект"
       comma_seperated_plz: "Вы можете ввести несколько адресов электронной почты через запятую."
@@ -217,30 +216,30 @@ ru:
       send_an_invitation: "Отправить приглашение"
       send_invitation: "Отправить приглашение"
       to: "Для"
-  layouts: 
-    application: 
+  layouts:
+    application:
       have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
       toggle: "переключить на мобильный сайт"
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
-    header: 
+    header:
       blog: "блог"
       code: "код"
       login: "логин"
       logout: "выйти"
       profile: "профиль"
       settings: "настройки"
-  likes: 
-    likes: 
-      people_dislike_this: 
+  likes:
+    likes:
+      people_dislike_this:
         few: "%{count} персонам не понравилось"
         many: "%{count} персонам не понравилось"
         one: "1 пользователю это не понравилось"
         other: "%{count} пользователям это не понравилось "
         zero: "это никому не понравилось "
-      people_like_this: 
+      people_like_this:
         few: "%{count} персонам это понравилось"
         many: "%{count} персонам это понравилось"
         one: "1 человеку это понравилось"
@@ -249,19 +248,19 @@ ru:
   more: "Подробнее"
   next: "далее"
   no_results: "Результатов не найдено"
-  notifications: 
+  notifications:
     also_commented: "прокомментировал %{post_author}"
     also_commented_deleted: "прокомментировать удаленое сообщение"
     comment_on_post: "комментариев на "
     deleted: "удален"
-    helper: 
-      new_notifications: 
+    helper:
+      new_notifications:
         few: "%{count} новое[-ых] извещение[-ий]"
         many: "%{count} новое[-ых] извещение[-ий]"
         one: "1 новое извещение"
         other: "%{count} новое[-ых] извещение[-ий]"
         zero: "никаких новых извещений"
-    index: 
+    index:
       and: "и"
       and_others: "и %{number} других"
       mark_all_as_read: "Отметить все как прочитанные"
@@ -271,12 +270,12 @@ ru:
     post: "сообщение"
     private_message: "послал Вам сообщение."
     request_accepted: "ваше приглашение принял[-а]"
-  notifier: 
-    also_commented: 
+  notifier:
+    also_commented:
       commented: "также прокомментировал %{post_author} сообщение:\n"
       sign_in: "Войдите в систему, для дальнейшего просмотра."
       subject: "%{name} прокомментировал сообщение от %{post_author}."
-    comment_on_post: 
+    comment_on_post:
       commented: "прокомментировал ваше сообщение:"
       sign_in: "Войдите в систему, для дальнейшего просмотра."
       subject: "%{name} прокомментировал ваше сообщение."
@@ -284,25 +283,25 @@ ru:
     hello: "Привет %{name}!"
     love: "С уважением,"
     manage_your_email_settings: "администрировать настройки электронной почты"
-    mentioned: 
+    mentioned:
       mentioned: "упомянул вас в сообщении:"
       sign_in: "Войти в систему, чтобы посмотреть."
       subject: "% {name} упомянул вас в диаспоре*"
-    new_request: 
+    new_request:
       just_sent_you: "отправил вам запрос для Диаспоры*"
       sign_in: "Войдите в систему здесь"
       subject: "новый контакт-запрос в Диаспоре от %{from}"
       try_it_out: "Вы должны подумать о его проверке.\n"
-    private_message: 
+    private_message:
       message_subject: "Тема: %{subject}"
       private_message: "отправил вам личное сообщение:"
       sign_in: "Войдите в систему, чтобы посмотреть."
       subject: "%{name} прислал вам личное сообщение в диаспоре*"
-    request_accepted: 
+    request_accepted:
       accepted: "принял Ваш запрос!"
       sign_in: "Войти здесь"
       subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
-    single_admin: 
+    single_admin:
       admin: "Ваш администратор Диаспоры"
       subject: "Сообщение о вашем аккаунте Диаспоры:"
     thanks: "Спасибо,"
@@ -310,16 +309,16 @@ ru:
   or: "или"
   password: "Пароль"
   password_confirmation: "Подтверждение пароля"
-  people: 
-    add_contact_small: 
+  people:
+    add_contact_small:
       add_contact_from_tag: "добавить контакт из метки"
-    aspect_list: 
+    aspect_list:
       edit_membership: "редактировать участников аспекта"
     few: "%{count} человек[-a]"
-    helper: 
+    helper:
       people_on_pod_are_aware_of: "люди на сервере знают о"
       results_for: "результаты для %{params}"
-    index: 
+    index:
       couldnt_find_them_send_invite: "Не можете их найти? Отправьте им приглашение!"
       no_one_found: "...и не удалось кого либо найти."
       no_results: "Ой! Вам надо что то найти."
@@ -327,12 +326,12 @@ ru:
     many: "%{count} человек[-a]"
     one: "1 человек"
     other: "%{count} человек[-a]"
-    person: 
+    person:
       add_contact: "добавить контакт"
       already_connected: "Уже подключен"
       pending_request: "В ожидании запроса"
       thats_you: "Это вы!"
-    profile_sidebar: 
+    profile_sidebar:
       bio: "О себе"
       born: "день рождения"
       cannot_remove: "Не удалось удалить %{name} c последнего аспекта.(Если вы хотите отключиться от этого человека необходимо удалить контакт)"
@@ -342,7 +341,7 @@ ru:
       location: "местоположение"
       remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
-    show: 
+    show:
       add_some: "добавить"
       does_not_exist: "Персоны не существует!"
       edit: "редактировать"
@@ -358,32 +357,32 @@ ru:
       start_sharing: "поделиться"
       to_accept_or_ignore: "принять или игнорировать."
       you_have_no_tags: "у вас нет меток!"
-    webfinger: 
+    webfinger:
       fail: "К сожалению, мы не смогли найти %{handle}."
     zero: "нет никого"
-  photos: 
-    create: 
+  photos:
+    create:
       integrity_error: "Сбой при загрузке фотографии. Вы уверены, что это правильный файл?"
       runtime_error: "Сбой при загрузке фотографии."
       type_error: "Сбой при загрузке фототрафии. Вы уверены, что добавили фотографию?"
-    destroy: 
+    destroy:
       notice: "Фотография удалена."
-    edit: 
+    edit:
       editing: "Редактирование"
-    new: 
+    new:
       back_to_list: "Вернуться к списку"
       new_photo: "Новая фотография"
       post_it: "Опубликовать!"
-    new_photo: 
+    new_photo:
       empty: "{file} пуст, выберите пожалуйста файл повторно."
       invalid_ext: "{file} имеет не допустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
-    new_profile_photo: 
+    new_profile_photo:
       or_select_one: "или выбрать один из существующих"
       upload: "Загрузить новое фото для профиля!"
-    photo: 
+    photo:
       view_all: "Посмотреть все фотографии %{name}"
-    show: 
+    show:
       collection_permalink: "постоянная ссылка на коллекцию"
       delete_photo: "Удалить фотографию"
       edit: "редактировать"
@@ -393,18 +392,18 @@ ru:
       permalink: "постоянная ссылка"
       update_photo: "Обновить фотографию"
       view: "смотреть"
-    update: 
+    update:
       error: "Не удалось изменить фотографию."
       notice: "Фотография успешно загружена."
-  post_visibilites: 
-    update: 
+  post_visibilites:
+    update:
       post_hidden: "сообщения %{name} скрыты."
-  posts: 
+  posts:
     doesnt_exist: "этого сообщения не существует!"
   previous: "предыдущая"
   profile: "Профиль"
-  profiles: 
-    edit: 
+  profiles:
+    edit:
       allow_search: "Разрешить всем искать для вас в диаспоре"
       edit_profile: "Редактировать профиль"
       first_name: "Имя"
@@ -420,57 +419,57 @@ ru:
       your_public_profile: "Ваш публичный профиль"
       your_tags: "Вы: в 5 #меток (tags)"
       your_tags_placeholder: "например #диаспора #diaspora #music #музыка"
-    update: 
+    update:
       failed: "Не удалось обновить профиль"
       updated: "Профиль обновлен"
-  registrations: 
+  registrations:
     closed: "В этой части Диаспоры регистрация закрыта"
-    create: 
+    create:
       success: "Добро пожаловать в Диаспору!"
-    edit: 
+    edit:
       cancel_my_account: "Закрыть мой аккаунт"
       edit: "Редактировать %{name}"
       leave_blank: "(Оставьте пустым, если не хотите менять)"
       password_to_confirm: "(введите ваш текущий пароль для подтверждения изменений)"
       unhappy: "Несчастны?"
       update: "Обновить"
-    new: 
+    new:
       enter_email: "Введите email"
       enter_password: "Введите пароль"
       enter_password_again: "Повторите пароль"
       enter_username: "Выберите имя пользователя (разрешены только латинские буквы, цифры и подчеркивание)"
       sign_up: "Регистрация"
       sign_up_for_diaspora: "Зарегистрируйтесь в Диаспоре"
-  requests: 
-    create: 
+  requests:
+    create:
       sending: "Отправка"
       sent: "Вы просили поделиться с %{name}. Они должны увидеть это при следующем входе в Диаспору."
-    destroy: 
+    destroy:
       error: "Выберите пожалуйста один аспект!"
       ignore: "Игнорированые запросы на дружбу."
       success: "Теперь вы друзья."
-    helper: 
-      new_requests: 
+    helper:
+      new_requests:
         few: "%{count} новые[-х] заявки[-ок]!"
         many: "%{count} новые[-х] заявки[-ок]!"
         one: "новый запрос!"
         other: "%{count} новые[-х] заявки[-ок]!"
         zero: "нет новых запросов"
-    manage_aspect_contacts: 
+    manage_aspect_contacts:
       existing: "Существующие контакты"
       manage_within: "Управление контактами в"
-    new_request_to_person: 
+    new_request_to_person:
       sent: "отправлено!"
   search: "Поиск"
-  services: 
-    create: 
+  services:
+    create:
       success: "Проверка подлинности прошла успешно."
-    destroy: 
+    destroy:
       success: "Идентификация успешно удалена."
-    failure: 
+    failure:
       error: "Произошла ошибка при подключении этого сервиса"
-    finder: 
-      friends: 
+    finder:
+      friends:
         few: "%{count} друг[-а, -зей]"
         many: "%{count} друга[-зей]"
         one: "1 друг"
@@ -478,34 +477,34 @@ ru:
         zero: "нет друзей"
       invite_your_friends_from: "Пригласить своих друзей из %{service}"
       not_connected: "не соединён"
-    index: 
+    index:
       connect_to_facebook: "Подключение к Facebook"
       connect_to_twitter: "Подключение к Twitter"
       disconnect: "разъединить"
       edit_services: "Редактировать сервисы"
       logged_in_as: "Вы вошли как"
       really_disconnect: "отключить %{service}?"
-    inviter: 
+    inviter:
       click_link_to_accept_invitation: "Перейдите по этой ссылке для принятия вашего приглашения"
       join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORЕ*"
-    remote_friend: 
+    remote_friend:
       invite: "приглашение"
       resend: "отправить повторно"
   settings: "Настройки"
-  shared: 
-    add_contact: 
+  shared:
+    add_contact:
       create_request: "Поиск по Диаспоре"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
       know_email: "Знаете из email адреса? Вы должны предложить им присоединится к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
-    contact_list: 
+    contact_list:
       all_contacts: "Все контакты"
       cannot_remove: "Нельзя удалить человека из последнего аспекта. (Если вы хотите отключить этого человека, необходимо удалить контакт)"
-    footer: 
+    footer:
       logged_in_as: "вошли как %{name}"
       your_aspects: "ваши аспекты"
-    invitations: 
+    invitations:
       by_email: "по электронной почте"
       dont_have_now: "У вас больше нет приглашений, но новые будут уже скоро!"
       from_facebook: "из Facebook"
@@ -514,14 +513,14 @@ ru:
       invite_your_friends: "Пригласить своих друзей"
       invites: "Приглашения"
       invites_closed: "В данный момент возможность приглашений закрыта в этой части Диаспоры"
-    notification: 
+    notification:
       new: "Новый %{type} из %{from}"
-    public_explain: 
+    public_explain:
       logged_in: "вошли в %{service}"
       manage: "управление подключенными сервисами"
       outside: "Публичные сообщения доступны для чтения всем, даже за пределами вашей Диаспоры."
       title: "Настройка подключенных услуг"
-    publisher: 
+    publisher:
       add_photos: "добавить фотографии"
       all: "все"
       all_contacts: "все контакты"
@@ -534,38 +533,38 @@ ru:
       share: "Поделиться"
       share_with: "поделиться с"
       whats_on_your_mind: "о чём вы думаете?"
-    reshare: 
+    reshare:
       reshare: "Поделиться повторно"
-    stream_element: 
+    stream_element:
       dislike: "Мне это не нравится"
       like: "Мне это нравится "
-  status_messages: 
-    create: 
+  status_messages:
+    create:
       success: "Успешно упомянут: %{names}"
-    destroy: 
+    destroy:
       failure: "Не удалось удалить сообщение"
-    helper: 
+    helper:
       no_message_to_display: "Новых сообщений нет."
-    new: 
+    new:
       mentioning: "Упоминание: %{person}"
-    show: 
+    show:
       destroy: "Удалить"
       not_found: "К сожалению мы не смогли найти это сообщение."
       permalink: "постоянная ссылка"
-  stream_helper: 
+  stream_helper:
     hide_comments: "скрыть комментарии"
     show_comments: "комментарии"
-  tags: 
-    show: 
+  tags:
+    show:
       nobody_talking: "Никто пока не говорил о %{tag}."
       people_tagged_with: "Люди с меткой %{tag}"
       posts_tagged_with: "Сообщения с меткой #%{tag}"
   the_world: "мир"
   undo: "Отменить?"
   username: "Имя пользователя"
-  users: 
+  users:
     destroy: "Аккаунт успешно закрыт."
-    edit: 
+    edit:
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: "Изменение"
       change_language: "Изменить язык"
@@ -585,7 +584,7 @@ ru:
       request_received: "... Вы получили новый обменный запрос?"
       your_email: "Ваш адрес электронной почты (email)"
       your_handle: "Ваше управление Диаспорой"
-    getting_started: 
+    getting_started:
       connect_on_diaspora: "Подключиться к диаспоре"
       connect_services: "Подключите другие услуги"
       could_not_find_anyone: "Не удалось найти друзей в диаспоре*. Используйте поиск друзей, чтобы их пригласить."
@@ -594,22 +593,22 @@ ru:
       save_and_continue: "Сохранить и продолжить"
       signup_steps: "Для заверщения вашей регистрации выполните эти три шага:"
       skip: "пропускать при старте"
-      step_2: 
+      step_2:
         find_your_friends_on_diaspora: "Хотели бы Вы найти своих Facebook друзей в диаспоре?"
         skip: "Перепрыгнуть"
-      step_3: 
+      step_3:
         finish: "Конец"
         people_already_on_diaspora: "Персона уже в диаспоре"
       welcome: "Добро пожаловать в Диаспору!"
-    public: 
+    public:
       does_not_exist: "Пользователя %{username} не существует!"
-    update: 
+    update:
       email_notifications_changed: "Уведомления по электронной почте изменены"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён"
       password_not_changed: "Изменить пароль не удалось"
-  webfinger: 
+  webfinger:
     fetch_failed: "Не удалось получить профиль для %{profile_url}"
     hcard_fetch_failed: "Возникла проблема при получении hcard для %{account}"
     no_person_constructed: "Ни одно лицо не может быть собрано из этой hcard."

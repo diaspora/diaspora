@@ -3,7 +3,7 @@
 Feature: Download Photos
 
   Scenario: Download my photos
-  	Given I am signed in
+    Given I am signed in
     And I click on my name in the header
     And I follow "settings"
     Then I should be on my account settings page

@@ -89,7 +89,6 @@ module Jasmine
       config || {}
     end
 
-
     def spec_path
       "/__spec__"
     end

@@ -38,7 +38,7 @@ describe('Exceptions:', function() {
     env.clearTimeout = fakeTimer.clearTimeout;
     env.setInterval = fakeTimer.setInterval;
     env.clearInterval = fakeTimer.clearInterval;
-    
+
     //we run two exception tests to make sure we continue after throwing an exception
     var suite = env.describe('Suite for handles exceptions', function () {
       env.it('should be a test that fails because it throws an exception', function() {

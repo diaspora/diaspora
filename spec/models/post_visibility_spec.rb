@@ -16,7 +16,7 @@ describe PostVisibility do
   end
 
   it 'is default scoped to not-hidden' do
-    PostVisibility.where(:id => @vis.id).should == [] 
-    PostVisibility.unscoped.where(:id => @vis.id).should == [@vis] 
+    PostVisibility.where(:id => @vis.id).should == []
+    PostVisibility.unscoped.where(:id => @vis.id).should == [@vis]
   end
 end

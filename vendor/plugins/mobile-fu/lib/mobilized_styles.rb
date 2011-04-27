@@ -1,5 +1,5 @@
 # Copyright (c) 2008 Brendan G. Lim (brendan@intridea.com)
-# 
+#
 # Permission is hereby granted, free of charge, to any person obtaining
 # a copy of this software and associated documentation files (the
 # "Software"), to deal in the Software without restriction, including
@@ -7,10 +7,10 @@
 # distribute, sublicense, and/or sell copies of the Software, and to
 # permit persons to whom the Software is furnished to do so, subject to
 # the following conditions:
-# 
+#
 # The above copyright notice and this permission notice shall be
 # included in all copies or substantial portions of the Software.
-# 
+#
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 # EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 # MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
@@ -20,10 +20,10 @@
 # WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 module MobilizedStyles
-  
+
   # This logic was taken from Michael Bleigh's browserized styles
   # with modification to work for mobile browsers.
-  
+
   def user_agent_device_name
     @user_agent_device_name ||= begin
 
@@ -33,7 +33,7 @@ module MobilizedStyles
 
       if ua.index('mobileexplorer') || ua.index('windows ce')
         'mobileexplorer'
-      elsif ua.index('blackberry') 
+      elsif ua.index('blackberry')
         'blackberry'
       elsif ua.index('iphone') || ua.index('ipod')
         'iphone'
@@ -41,9 +41,9 @@ module MobilizedStyles
         'ipad'
       elsif ua.index('android')
         'android'
-      elsif ua.index('nokia') 
+      elsif ua.index('nokia')
         'nokia'
-      elsif ua.index('palm') 
+      elsif ua.index('palm')
         'palm'
       end
     end

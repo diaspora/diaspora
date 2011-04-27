@@ -10,8 +10,7 @@
       .description
         = t('.accepts', :name => person.first_name)
 
-
-  = render :partial => 'contacts/share_with_list', 
-           :locals => {:person => person, :contact => contact, 
+  = render :partial => 'contacts/share_with_list',
+           :locals => {:person => person, :contact => contact,
                    :aspects_with_person => aspects_with_person,
                    :aspects_without_person => aspects_without_person}

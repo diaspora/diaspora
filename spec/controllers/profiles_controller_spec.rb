@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 require 'spec_helper'
 
 describe ProfilesController do
@@ -12,7 +11,7 @@ describe ProfilesController do
     sign_in :user, @user
   end
 
-  describe '#edit' do 
+  describe '#edit' do
     it 'succeeds' do
       get :edit
       response.should be_success

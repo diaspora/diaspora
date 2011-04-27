@@ -216,7 +216,6 @@ STR
       end
     end
 
-
     describe '#to_activity' do
       it 'should render a string' do
         @message.to_activity.should_not be_blank

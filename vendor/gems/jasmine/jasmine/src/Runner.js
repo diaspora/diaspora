@@ -33,7 +33,6 @@ jasmine.Runner.prototype.afterEach = function(afterEachFunction) {
   this.after_.splice(0,0,afterEachFunction);
 };
 
-
 jasmine.Runner.prototype.finishCallback = function() {
   this.env.reporter.reportRunnerResults(this);
 };

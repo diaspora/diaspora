@@ -60,7 +60,6 @@ describe ServicesController do
       response.should redirect_to services_url
     end
 
-
     it 'creates a twitter service' do
       Service.delete_all
       @user.getting_started = false

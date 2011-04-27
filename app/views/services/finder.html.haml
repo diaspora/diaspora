@@ -17,7 +17,6 @@
         - else
           %i= t('.not_connected')
 
-
   .contact_list
     - if @friends.size > 0
       = render :partial => 'services/finder', :locals => {:friends => @friends}

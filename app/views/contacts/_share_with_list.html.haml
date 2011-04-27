@@ -4,12 +4,12 @@
 .aspect_list#aspects_list{:data=> {:contact_id=> (contact ? contact.id : nil)}}
   %ul
     - for aspect in aspects_with_person
-      = render :partial => 'aspects/aspect_list_item', 
+      = render :partial => 'aspects/aspect_list_item',
                :locals => {:aspect => aspect, :person => person,
                            :contact => contact}
 
     - for aspect in aspects_without_person
-      = render :partial => 'aspects/aspect_list_item', 
+      = render :partial => 'aspects/aspect_list_item',
                :locals => {:aspect => aspect, :person => person,
                            :contact => contact}
 .add_aspect

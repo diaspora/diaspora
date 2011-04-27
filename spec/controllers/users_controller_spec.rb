@@ -36,7 +36,7 @@ describe UsersController do
     end
 
     it 'redirects to a profile page if html is requested' do
-      
+
       get :public, :username => @user.username
       response.should be_redirect
     end

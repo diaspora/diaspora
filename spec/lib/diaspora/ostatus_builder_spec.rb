@@ -5,7 +5,6 @@
 require 'spec_helper'
 require File.join(Rails.root,  'lib/diaspora/ostatus_builder')
 
-
 describe Diaspora::OstatusBuilder do
 
   let!(:user) { alice }

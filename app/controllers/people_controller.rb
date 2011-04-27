@@ -64,7 +64,6 @@ class PeopleController < ApplicationController
       return
     end
 
-
     @post_type = :all
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')

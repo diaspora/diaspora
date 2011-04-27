@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-zh-CN: 
-  javascripts: 
+zh-CN:
+  javascripts:
     confirm_dialog: "你确定吗？"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "发布时请选择至少一个情景"
     search_for: "搜索 {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
-    timeago: 
+    timeago:
       day: "1天"
       days: "%d天"
       hour: "约1小时"
@@ -30,6 +29,6 @@ zh-CN:
       suffixFromNow: "后"
       year: "约1年"
       years: "%d年"
-    videos: 
+    videos:
       unknown: "未知视频格式"
       watch: "在 {{provider}} 上看观看视频"

@@ -81,7 +81,6 @@
             text = JSON.stringify(['e', {pluribus: 'unum'}]);
             // text is '["e",{"pluribus":"unum"}]'
 
-
             text = JSON.stringify(['e', {pluribus: 'unum'}], null, '\t');
             // text is '[\n\t"e",\n\t{\n\t\t"pluribus": "unum"\n\t}\n]'
 
@@ -90,7 +89,6 @@
                     'Date(' + this[key] + ')' : value;
             });
             // text is '["Date(---current time---)"]'
-
 
         JSON.parse(text, reviver)
             This method parses a JSON text to produce an object or array.
@@ -132,7 +130,6 @@
                 }
                 return value;
             });
-
 
     This is a reference implementation. You are free to copy, modify, or
     redistribute.
@@ -204,7 +201,6 @@ if (!this.JSON) {
         },
         rep;
 
-
     function quote(string) {
 
 // If the string contains no control characters, no quote characters, and no
@@ -221,7 +217,6 @@ if (!this.JSON) {
             }) + '"' :
             '"' + string + '"';
     }
-
 
     function str(key, holder) {
 // Produce a string from holder[key].
@@ -393,7 +388,6 @@ if (!this.JSON) {
         };
     }
 
-
 // If the JSON object does not yet have a parse method, give it one.
 
     if (typeof JSON.parse !== 'function') {
@@ -424,7 +418,6 @@ if (!this.JSON) {
                 }
                 return reviver.call(holder, key, value);
             }
-
 
 // Parsing happens in four stages. In the first stage, we replace certain
 // Unicode characters with escape sequences. JavaScript handles many characters

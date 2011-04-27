@@ -45,7 +45,6 @@ describe Jasmine::Config do
 
     end
 
-
     describe "simple_config" do
       before(:each) do
         @config.stub!(:src_dir).and_return(File.join(@rails_dir, "."))
@@ -82,7 +81,6 @@ describe Jasmine::Config do
           'file2.js',
           ]
       end
-
 
       describe "if sources.yaml not found" do
         before(:each) do
@@ -159,7 +157,6 @@ describe Jasmine::Config do
         end
         @config.stylesheets.should == ['foo.css', 'bar.css']
       end
-
 
       it "using rails jasmine.yml" do
         @config.stub!(:simple_config_file).and_return(File.join(@template_dir, 'spec/javascripts/support/jasmine-rails.yml'))

@@ -26,7 +26,6 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe")
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 
-
 require 'spec/support/fake_resque'
 require 'spec/support/fake_redis'
 require 'spec/support/user_methods'

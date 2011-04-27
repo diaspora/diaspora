@@ -16,7 +16,6 @@ describe PostVisibilitiesController do
     a2.contacts << bob.contact_for(alice.person)
     a2.save
 
-   
     @status = bob.post(:status_message, :text => "hello", :public => true, :to => a2)
     @vis = @status.post_visibilities.first
     @vis.reload.hidden.should == false

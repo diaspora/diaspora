@@ -130,7 +130,6 @@ describe Aspect do
       @contact = user.contact_for(user2.person)
     end
 
-
     describe "#add_contact_to_aspect" do
       it 'adds the contact to the aspect' do
         aspect1.contacts.include?(@contact).should be_false

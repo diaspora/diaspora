@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-nl: 
-  javascripts: 
+nl:
+  javascripts:
     confirm_dialog: "Weet je het zeker?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Kan persoon niet uit laatste aspect verwijderen. (Als je de verbinding met deze persoon wilt verbreken moet je het contact verwijderen.)"
-    timeago: 
+    timeago:
       day: "een dag"
       days: "%d dagen"
       hour: "ongeveer een uur"
@@ -30,6 +29,6 @@ nl:
       suffixFromNow: "vanaf nu"
       year: "ongeveer een jaar"
       years: "%d jaar"
-    videos: 
+    videos:
       unknown: "Onbekend video type"
       watch: "Bekijk deze video op {{provider}}"

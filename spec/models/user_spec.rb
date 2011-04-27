@@ -228,7 +228,7 @@ describe User do
     it "returns false if the users are already connected" do
       alice.can_add?(bob.person).should be_false
     end
-    
+
     it "returns false if the user has already sent a request to that person" do
       alice.send_contact_request_to(eve.person, alice.aspects.first)
       alice.reload

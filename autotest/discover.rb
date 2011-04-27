@@ -4,12 +4,12 @@
 require 'autotest/growl'
 Autotest.add_discovery { "rails" }
 Autotest.add_discovery { "rspec2" }
-Autotest.add_hook :initialize do |at| 
-  at.add_mapping(%r%^spec/(intergration|mailers|config)/.*rb$%) { |filename, _| 
-    filename 
+Autotest.add_hook :initialize do |at|
+  at.add_mapping(%r%^spec/(intergration|mailers|config)/.*rb$%) { |filename, _|
+    filename
   }
 
-  at.add_mapping(%r%^spec/misc_spec.rb$%) { |filename, _| 
-    filename 
+  at.add_mapping(%r%^spec/misc_spec.rb$%) { |filename, _|
+    filename
   }
 end

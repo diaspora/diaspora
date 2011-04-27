@@ -17,7 +17,7 @@
 
     = stylesheet_link_tag 'vendor/jquery.mobile-1.0a4.min', 'mobile'
     = csrf_meta_tag
-    
+
     - if rtl?
       = include_stylesheets :rtl, :media => 'all'
 
@@ -45,7 +45,6 @@
         piwikTracker.trackPageView();
         piwikTracker.enableLinkTracking();
         } catch( err ) {}
-
 
   %body
     #content{:data => {:role => 'page', :theme => 'c'}}
@@ -89,7 +88,6 @@
             - for aspect in @all_aspects
               %li
                 = link_to aspect, aspects_path('a_ids[]' => aspect.id)
-
 
         = render :partial =>'shared/footer'
 

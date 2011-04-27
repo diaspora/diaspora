@@ -61,7 +61,6 @@ describe("jasmine.Matchers", function() {
     expect((match(new Date(2008, 1, 3, 15, 17, 19, 1234)).toEqual(new Date(2009, 1, 3, 15, 17, 19, 1234)))).toFail();
     expect((match(new Date(2008, 1, 3, 15, 17, 19, 1234)).toEqual(new Date(2008, 1, 3, 15, 17, 19, 1234)))).toPass();
 
-
     expect(match(true).toNotEqual(false)).toPass();
     expect((match(true).toNotEqual(true))).toFail();
 
@@ -537,7 +536,6 @@ describe("jasmine.Matchers", function() {
       });
     });
 
-
     describe("when code block does not throw an exception", function() {
       it("should fail (or pass when inverted with .not)", function() {
         expect(match(function() {
@@ -640,7 +638,6 @@ describe("jasmine.Matchers", function() {
         expect(TestClass.normalFunction).wasCalled();
       });
     });
-
 
     describe("wasNotCalled", function() {
       it("should pass iff the spy was not called", function() {

@@ -2,7 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 git_cmd = `git log -1 --format="%H %ci"`
 if git_cmd =~ /^([\d\w]+?)\s(.+)$/
   AppConfig[:git_revision] = $1

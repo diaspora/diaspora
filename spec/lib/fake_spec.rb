@@ -50,7 +50,6 @@ describe PostsFake do
       @fake.text
     end
 
-
     it 'works with url helpers' do
       sm = Factory(:status_message)
       fake = PostsFake::Fake.new(sm, @fakes)

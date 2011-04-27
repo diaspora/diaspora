@@ -1,4 +1,3 @@
-
 all:
   i18n:
     inflections:
@@ -37,8 +36,4 @@ all:
         they:       :@n
         impersonal: :@n
         default:    :n
-      
-    
-  
-
 

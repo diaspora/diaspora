@@ -187,7 +187,6 @@ describe Diaspora::UserModules::Connecting do
           end
         end
 
-
         it 'should keep the person around if the users ignores them' do
           user.ignore_contact_request Request.where(:recipient_id => user.person.id).first.id
           user.contact_for(person_one).should be_nil
@@ -196,7 +195,6 @@ describe Diaspora::UserModules::Connecting do
           user2.contact_for(person_one).should be_nil
         end
       end
-
 
     end
 

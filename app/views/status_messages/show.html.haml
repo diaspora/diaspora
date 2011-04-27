@@ -2,7 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 .span-16.append-4.prepend-4.last
   #original_post_info
     = render 'shared/author_info', :person => @status_message.author, :post => @status_message
@@ -23,7 +22,6 @@
   %br
   - if current_user.owns? @status_message
     = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
-
 
   %h5
     = t('_comments')

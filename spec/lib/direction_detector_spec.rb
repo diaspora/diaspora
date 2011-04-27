@@ -23,7 +23,6 @@ describe String do
   let(:hebrew_chinese) { "#{hebrew} #{chinese}" }
   let(:hebrew_arabic) { "#{hebrew} #{arabic}" }
 
-
   describe "#stats_with_rtl_char?" do
     it 'returns true or false correctly' do
       english.starts_with_rtl_char?.should be_false
@@ -40,7 +39,7 @@ describe String do
       hebrew_english.starts_with_rtl_char?.should be_true
       arabic_chinese.starts_with_rtl_char?.should be_true
     end
-    
+
     it 'ignores whitespaces' do
       " \n \r \t".starts_with_rtl_char?.should be_false
       " #{arabic} ".starts_with_rtl_char?.should be_true
@@ -82,9 +81,9 @@ describe String do
     it 'should clean the string' do
       "RT: #{arabic}".cleaned_is_rtl?.should be_true
       "#{hebrew} RT: #{arabic}".cleaned_is_rtl?.should be_true
-      "@foo #{arabic}".cleaned_is_rtl?.should be_true 
-      "#{hebrew} #example".cleaned_is_rtl?.should be_true 
-      "♺: #{arabic} ♻: #{hebrew}".cleaned_is_rtl?.should be_true 
+      "@foo #{arabic}".cleaned_is_rtl?.should be_true
+      "#{hebrew} #example".cleaned_is_rtl?.should be_true
+      "♺: #{arabic} ♻: #{hebrew}".cleaned_is_rtl?.should be_true
     end
   end
 end

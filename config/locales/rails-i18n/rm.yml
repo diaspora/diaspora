@@ -1,4 +1,4 @@
-# Romansh translations for Ruby on Rails 
+# Romansh translations for Ruby on Rails
 # by Flurina Andriuet and Sebastian de Castelberg (rails-i18n@kpricorn.org)
 
 rm:
@@ -16,7 +16,7 @@ rm:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -24,7 +24,7 @@ rm:
       long: "%A, %d. %B %Y, %H:%M Uhr"
     am: "avantmezdi"
     pm: "suentermezdi"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: "ina mesa minuta"

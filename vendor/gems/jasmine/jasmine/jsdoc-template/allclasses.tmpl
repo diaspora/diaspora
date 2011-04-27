@@ -3,15 +3,15 @@
 <hr />
 <h2>Classes</h2>
 <ul class="classList">
-	<for each="thisClass" in="data">
-	<li>{!
-		if (thisClass.alias == "_global_") {
-			output += "<i>"+new Link().toClass(thisClass.alias)+"</i>";
-		}
-		else {
-			output += new Link().toClass(thisClass.alias);
-		}
-	!}</li>
-	</for>
+  <for each="thisClass" in="data">
+  <li>{!
+    if (thisClass.alias == "_global_") {
+      output += "<i>"+new Link().toClass(thisClass.alias)+"</i>";
+    }
+    else {
+      output += new Link().toClass(thisClass.alias);
+    }
+  !}</li>
+  </for>
 </ul>
 <hr />

@@ -71,12 +71,11 @@ default:
 
   #google analytics key, if false, it won't include the javascript
   google_a_site: false
-  
+
   #piwik integration if not set, no javascript included
-  piwik_id: 
+  piwik_id:
   # the site url in raw format (e.g. pikwik.examplehost.com)
-  piwik_url: 
-  
+  piwik_url:
 
   #cloudfiles username and api-key, used for backups
   cloudfiles_username: 'example'
@@ -92,7 +91,6 @@ default:
   #s3_secret: 'secret'
   #s3_bucket: 'my_photos'
 
-  
 development:
 
 test:

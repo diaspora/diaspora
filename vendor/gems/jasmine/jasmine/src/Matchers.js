@@ -72,9 +72,6 @@ jasmine.Matchers.matcherFn_ = function(matcherName, matcherFunction) {
   };
 };
 
-
-
-
 /**
  * toBe: compares the actual to the expected using ===
  * @param expected
@@ -157,14 +154,12 @@ jasmine.Matchers.prototype.toBeTruthy = function() {
   return !!this.actual;
 };
 
-
 /**
  * Matcher that boolean nots the actual.
  */
 jasmine.Matchers.prototype.toBeFalsy = function() {
   return !this.actual;
 };
-
 
 /**
  * Matcher that checks to see if the actual, a Jasmine spy, was called.

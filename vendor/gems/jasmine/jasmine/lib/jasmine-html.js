@@ -136,7 +136,6 @@ jasmine.TrivialReporter.prototype.reportSpecResults = function(spec) {
         title: spec.getFullName()
       }, spec.description));
 
-
   var resultItems = results.getItems();
   var messagesDiv = this.createDom('div', { className: 'messages' });
   for (var i = 0; i < resultItems.length; i++) {

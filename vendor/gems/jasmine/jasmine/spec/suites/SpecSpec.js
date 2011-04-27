@@ -53,7 +53,6 @@ describe('Spec', function () {
       });
     });
 
-
     it('results shows the total number of expectations for each spec after execution', function () {
       expect(results.totalCount).toEqual(0);
       spec.execute();

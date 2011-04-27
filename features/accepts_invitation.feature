@@ -15,7 +15,7 @@ Feature: invitation acceptance
       And I fill in "tags" with "#beingawesome"
       And I press "Save and continue"
       Then I should see "Profile updated"
-			And I should see "Would you like to find your Facebook friends on Diaspora?"
+      And I should see "Would you like to find your Facebook friends on Diaspora?"
       And I should not see "Here are the people who are waiting for you:"
 
     Scenario: accept invitation from user
@@ -33,18 +33,17 @@ Feature: invitation acceptance
       And I fill in "tags" with "#tags"
       And I press "Save and continue"
       Then I should see "Profile updated"
-      
-			And I should see "Would you like to find your Facebook friends on Diaspora?"
 
-		When I follow "Skip"
-		  Then I should see "People already on Diaspora"
+      And I should see "Would you like to find your Facebook friends on Diaspora?"
+
+    When I follow "Skip"
+      Then I should see "People already on Diaspora"
 
       And I press the first ".share_with.button"
       And I press the first ".add.button" within "#facebox #aspects_list ul > li:first-child"
       And I wait for the ajax to finish
-      
+
      When I go to the home page
      Then I go to the manage aspects page
      Then I should see 1 contact in "Family"
-
 

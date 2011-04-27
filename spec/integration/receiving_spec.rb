@@ -301,7 +301,6 @@ describe 'a user receives a post' do
     end
   end
 
-
   describe 'receiving mulitple versions of the same post from a remote pod' do
     before do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
@@ -330,7 +329,6 @@ describe 'a user receives a post' do
     end
   end
 
-
   describe 'salmon' do
     let(:post){@user1.post :status_message, :text => "hello", :to => @aspect.id}
     let(:salmon){@user1.salmon( post )}
@@ -344,7 +342,6 @@ describe 'a user receives a post' do
       @user2.visible_posts.include?(post).should be_true
     end
   end
-
 
   context 'retractions' do
     it 'should accept retractions' do

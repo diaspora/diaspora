@@ -30,7 +30,7 @@
   %hr
   %br
 
-  %h3 
+  %h3
     = t('.change_password')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
@@ -55,7 +55,7 @@
   %hr
   %br
 
-  %h3 
+  %h3
     = t('.change_language')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
@@ -69,7 +69,7 @@
   %hr
   %br
 
-  %h3 
+  %h3
     = t('.receive_email_notifications')
   = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
     = f.error_messages
@@ -78,32 +78,31 @@
       #email_prefs
         %p.checkbox_select
           = type.label t('.also_commented')
-          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true 
+          = type.check_box :also_commented, {:checked =>  @email_prefs['also_commented']}, false, true
         %br
         %p.checkbox_select
-          = type.label t('.mentioned') 
-          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true 
+          = type.label t('.mentioned')
+          = type.check_box :mentioned, {:checked =>  @email_prefs['mentioned']}, false, true
 
+        %br
+        %p.checkbox_select
+          = type.label t('.comment_on_post')
+          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true
 
         %br
         %p.checkbox_select
-          = type.label t('.comment_on_post') 
-          = type.check_box :comment_on_post, {:checked =>  @email_prefs['comment_on_post']}, false, true 
-        
-        %br
-        %p.checkbox_select
-          = type.label t('.request_received') 
-          = type.check_box :request_received, {:checked =>  @email_prefs['request_received']}, false, true 
+          = type.label t('.request_received')
+          = type.check_box :request_received, {:checked =>  @email_prefs['request_received']}, false, true
 
         %br
         %p.checkbox_select
           = type.label t('.private_message')
-          = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true 
-          
+          = type.check_box :private_message, {:checked =>  @email_prefs['private_message']}, false, true
+
         %br
         %p.checkbox_select
-          = type.label t('.request_acceptence') 
-          = type.check_box :request_acceptance, {:checked =>  @email_prefs['request_acceptance']}, false, true 
+          = type.label t('.request_acceptence')
+          = type.check_box :request_acceptance, {:checked =>  @email_prefs['request_acceptance']}, false, true
 
     %br
     = f.submit t('.change')
@@ -113,16 +112,15 @@
   %hr
   %br
 
-
   #account_data.span-5.append-2
-    %h3 
+    %h3
       = t('.export_data')
     = link_to t('.download_xml'), export_user_path, :class => "button"
     %br
     = link_to t('.download_photos'), export_photos_user_path, :class => "button"
 
   .span-5.last
-    %h3 
+    %h3
       = t('.close_account')
     = link_to t('.close_account'), user_path,
       :confirm => t('are_you_sure'), :method => :delete,

@@ -2,13 +2,12 @@ body {
   font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
 }
 
-
 .jasmine_reporter a:visited, .jasmine_reporter a {
-  color: #303; 
+  color: #303;
 }
 
 .jasmine_reporter a:hover, .jasmine_reporter a:active {
-  color: blue; 
+  color: blue;
 }
 
 .run_spec {
@@ -43,14 +42,10 @@ body {
   background-color: yellow;
 }
 
-
 .options {
   text-align: right;
   font-size: .8em;
 }
-
-
-
 
 .suite {
   border: 1px outset gray;
@@ -59,7 +54,7 @@ body {
 }
 
 .suite .suite {
-  margin: 5px; 
+  margin: 5px;
 }
 
 .suite.passed {
@@ -116,7 +111,6 @@ body {
   display: none;
 }
 
-
 /*.resultMessage {*/
   /*white-space: pre;*/
 /*}*/
@@ -151,7 +145,6 @@ body {
 .show-skipped .skipped {
   display: block;
 }
-
 
 #jasmine_content {
   position:fixed;

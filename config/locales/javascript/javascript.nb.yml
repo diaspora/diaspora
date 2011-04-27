@@ -2,19 +2,18 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
-nb: 
-  javascripts: 
+nb:
+  javascripts:
     confirm_dialog: "Er du sikker?"
-    infinite_scroll: 
+    infinite_scroll:
       no_more: "No more posts."
-    publisher: 
+    publisher:
       at_least_one_aspect: "Du må poste til minst ett aspekt"
     search_for: "Søk etter {{name}}"
-    shared: 
-      contact_list: 
+    shared:
+      contact_list:
         cannot_remove: "Kan ikke fjerne person fra siste aspekt. (Hvis du vil koble fra denne personen må du fjerne kontakten.)"
-    timeago: 
+    timeago:
       day: "en dag"
       days: "%d dager"
       hour: "ca. en time"
@@ -30,6 +29,6 @@ nb:
       suffixFromNow: ""
       year: "ca. et år"
       years: "%d år"
-    videos: 
+    videos:
       unknown: "Ukjent videotype"
       watch: "Se denne videoen på {{provider}}"

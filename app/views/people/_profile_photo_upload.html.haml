@@ -2,12 +2,11 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 #profile_photo_upload
   = owner_image_tag(:thumb_medium)
   = file_field_tag 'profile[image]'
 
-  -if !@aspect.nil? && @aspect != :getting_started 
+  -if !@aspect.nil? && @aspect != :getting_started
     %p
       \...#{t('photos.new_profile_photo.or_select_one')}
       = link_to t('_photos'), person_photos_path(@person)

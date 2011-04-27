@@ -59,15 +59,15 @@ et:
         precision: 2
         significant: false
         strip_insignificant_zeros: false
-        
+
     percentage:
       format:
         delimiter: ""
-        
+
     precision:
       format:
         delimiter: ""
-        
+
     human:
       format:
         delimiter: ""

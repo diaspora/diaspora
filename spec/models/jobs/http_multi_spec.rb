@@ -12,7 +12,6 @@ describe Job::HttpMulti do
     @people = [Factory(:person), Factory(:person)]
     @post_xml = Base64.encode64("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAH")
 
-
     @hydra = Typhoeus::Hydra.new
     @response = Typhoeus::Response.new(:code => 200, :headers => "", :body => "", :time => 0.2)
     @failed_response = Typhoeus::Response.new(:code => 504, :headers => "", :body => "", :time => 0.2)

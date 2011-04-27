@@ -2,9 +2,8 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 module Job
-  class UpdateServiceUsers < Base 
+  class UpdateServiceUsers < Base
     @queue = :http_service
     def self.perform_delegate(service_id)
       service = Service.find(service_id)

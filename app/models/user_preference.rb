@@ -2,7 +2,6 @@ class UserPreference < ActiveRecord::Base
   belongs_to :user
 
   validate :must_be_valid_email_type
-  
 
   VALID_EMAIL_TYPES =
     ["mentioned",

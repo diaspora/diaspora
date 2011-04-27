@@ -22,11 +22,11 @@ describe User do
         inviter.invite_user(wrong_aspect.id, "email", "maggie@example.com")
       }.should raise_error ActiveRecord::RecordNotFound
     end
-    
+
     it 'takes a service parameter' do
       @invite_params = {:service => 'email'}
       Invitation.should_receive(:invite).with(hash_including(@invite_params))
-      inviter.invite_user(aspect.id, 'email', @email) 
+      inviter.invite_user(aspect.id, 'email', @email)
     end
 
     it 'takes an indentifier parameter' do
@@ -48,7 +48,6 @@ describe User do
       inviter.invite_user(aspect.id, 'email', @email).email.should == @email
     end
 
-
     it 'throws if you try to add someone you"re connected to' do
       connect_users(inviter, aspect, another_user, wrong_aspect)
       inviter.reload
@@ -68,7 +67,6 @@ describe User do
       }.should raise_error /You already invited this person/
     end
   end
-
 
   describe "#accept_invitation!" do
     let(:invited_user) {@invited_user_pre.accept_invitation!(:invitation_token => "abc",
