@@ -5,8 +5,12 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
-  def next_page
-    params[:page] ? (params[:page].to_i + 1) : 2
+  def next_page_path
+    if @controller.instance_of?(TagsController)
+      tag_path(@tag, :max_time => @posts.last.send(session[:sort_order].to_sym).to_i)
+    else
+      aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
+    end
   end
   def timeago(time, options = {})
     options[:class] ||= "timeago"
