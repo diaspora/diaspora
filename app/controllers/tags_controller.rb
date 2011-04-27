@@ -52,7 +52,11 @@ class TagsController < ApplicationController
     end
 
     @posts = @posts.tagged_with(params[:name])
-    @posts = @posts.includes(:comments, :photos).order('created_at DESC').limit(15).offset(15*(params[:page]-1))
+
+    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+    @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
+
+    @posts = @posts.includes(:comments, :photos).order('posts.created_at DESC').limit(15)
 
     @posts = PostsFake.new(@posts)
     @commenting_disabled = true

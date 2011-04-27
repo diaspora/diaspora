@@ -96,7 +96,7 @@ class User < ActiveRecord::Base
     contact = contact_for(person)
 
     add_contact_to_aspect(contact, to_aspect)
-    
+
     membership = contact ? AspectMembership.where(:contact_id => contact.id, :aspect_id => from_aspect.id).first : nil
     return(membership && membership.destroy)
   end
@@ -344,5 +344,4 @@ class User < ActiveRecord::Base
       mentioned_person.delete
     end
   end
-
 end

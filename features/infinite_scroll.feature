@@ -25,3 +25,13 @@ Feature: infinite scroll
       And I wait for the ajax to finish
       And I wait for the ajax to finish
       Then I should see 30 posts
+
+    Scenario: On a tag page
+      When I sign in as "bob@bob.bob"
+      And I am on the tag page for "seeded"
+      Then I should see 15 posts
+
+      When I scroll down
+      And I wait for the ajax to finish
+      And I wait for the ajax to finish
+      Then I should see 30 posts
