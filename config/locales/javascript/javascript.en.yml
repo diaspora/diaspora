@@ -5,6 +5,7 @@
 
 en:
   javascripts:
+
       confirm_dialog: "Are you sure?"
       timeago:
         prefixAgo: ""
@@ -33,3 +34,7 @@ en:
         at_least_one_aspect: "You must publish to at least one aspect"
       infinite_scroll:
         no_more: "No more posts."
+      web_sockets:
+        disconnected:
+          title: "You have been disconnected."
+          body: "Posts will no longer be streamed live."

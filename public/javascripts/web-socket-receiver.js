@@ -6,6 +6,11 @@ var WebSocketReceiver = {
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
     ws.onclose = function() {
+      Diaspora.widgets.alert.alert(
+        Diaspora.widgets.i18n.t("web_socket.disconnected.title"),
+        Diaspora.widgets.i18n.t("web_socket.disconnected.body")
+      );
+      
       WSR.debug("socket closed");
     };
     ws.onopen = function() {
