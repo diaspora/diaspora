@@ -19,6 +19,13 @@
           type: "PUT"
         });
       });
+
+      $("a.more").live("click", function(evt) {
+        evt.preventDefault();
+        $(this).hide()
+          .next(".hidden")
+          .removeClass("hidden");
+      });
     };
   };
 
