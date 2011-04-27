@@ -28,7 +28,7 @@
   };
 
   InfiniteScroll.prototype.start = function() {
-    Diaspora.widgets.subscribe("stream/reloaded", this.initialize);
+    Diaspora.widgets.subscribe("stream/reloaded", this.initialize, this);
     this.initialize();
   };
 
