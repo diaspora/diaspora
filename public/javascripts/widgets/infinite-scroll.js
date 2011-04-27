@@ -28,7 +28,12 @@
   };
 
   InfiniteScroll.prototype.start = function() {
-    Diaspora.widgets.subscribe("stream/reloaded", this.initialize);
+    var __bind = function(fn, me){
+      return function(){
+        return fn.apply(me, arguments);
+      };
+    };
+    Diaspora.widgets.subscribe("stream/reloaded", __bind(this.initialize, this));
     this.initialize();
   };
 

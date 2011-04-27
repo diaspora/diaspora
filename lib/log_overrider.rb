@@ -9,7 +9,7 @@ class ActionView::LogSubscriber
 
     hash.merge(:layout => event.payload[:layout]) if event.payload[:layout]
 
-    Rails.logger.info(hash)
+    #Rails.logger.info(hash)
   end
   alias :render_partial :render_template
   alias :render_collection :render_template
@@ -81,6 +81,7 @@ end
 module ActiveRecord
   class LogSubscriber
     def sql(event)
+      return
       self.class.runtime += event.duration
       return unless logger.info?
 

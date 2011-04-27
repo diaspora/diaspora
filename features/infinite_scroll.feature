@@ -13,6 +13,8 @@ Feature: infinite scroll
 
       When I scroll down
       And I wait for the ajax to finish
+      #FIXME
+      And I wait for the ajax to finish
       Then I should see 30 posts
 
       When I follow "generic"
@@ -20,5 +22,6 @@ Feature: infinite scroll
       Then I should see 15 posts
 
       When I scroll down
+      And I wait for the ajax to finish
       And I wait for the ajax to finish
       Then I should see 30 posts
