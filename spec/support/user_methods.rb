@@ -23,6 +23,10 @@ class User
         add_to_streams(p, aspects)
         dispatch_post(p, :to => opts[:to])
       end
+      if opts[:created_at]
+        p.created_at = opts[:created_at]
+        p.save
+      end
       p
     end
   end

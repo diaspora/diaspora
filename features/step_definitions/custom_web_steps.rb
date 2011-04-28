@@ -194,5 +194,6 @@ Then /^I should see (\d+) posts$/ do |n_posts|
 end
 
 And /^I scroll down$/ do
-  visit('#footer_nav')
+  evaluate_script("window.scrollBy(0,3000000)")
+  wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
 end

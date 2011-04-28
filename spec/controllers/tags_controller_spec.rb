@@ -44,19 +44,19 @@ describe TagsController do
         sign_in :user, alice
       end
       it 'displays your own post' do
-        my_post = alice.post(:status_message, :text => "#what", :to => 'all')
+        my_post = alice.post(:status_message, :text => "#what", :to => 'all', :created_at => Time.now - 1)
         get :show, :name => 'what'
         assigns(:posts).models.should == [my_post]
         response.status.should == 200
       end
       it "displays a friend's post" do
-        other_post = bob.post(:status_message, :text => "#hello", :to => 'all')
+        other_post = bob.post(:status_message, :text => "#hello", :to => 'all', :created_at => Time.now - 1)
         get :show, :name => 'hello'
         assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
       it 'displays a public post' do
-        other_post = eve.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+        other_post = eve.post(:status_message, :text => "#hello", :public => true, :to => 'all', :created_at => Time.now - 1)
         get :show, :name => 'hello'
         assigns(:posts).models.should == [other_post]
         response.status.should == 200
@@ -80,8 +80,8 @@ describe TagsController do
       end
       context "when there are posts to display" do
         before do
-          @post = alice.post(:status_message, :text => "#what", :public => true, :to => 'all')
-          alice.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+          @post = alice.post(:status_message, :text => "#what", :public => true, :to => 'all', :created_at => Time.now - 1)
+          alice.post(:status_message, :text => "#hello", :public => true, :to => 'all', :created_at => Time.now - 1)
         end
         it "succeeds" do
           get :show, :name => 'what'

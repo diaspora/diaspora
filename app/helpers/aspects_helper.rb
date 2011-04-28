@@ -4,7 +4,7 @@
 
 module AspectsHelper
   def next_page_path
-    aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids], :class => 'paginate')
+    aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
   end
 
   def remove_link(aspect)

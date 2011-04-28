@@ -5,7 +5,6 @@
 class PeopleController < ApplicationController
   helper :comments
   before_filter :authenticate_user!, :except => [:show]
-  before_filter :ensure_page, :only => :show
 
   respond_to :html
   respond_to :json, :only => [:index, :show]
@@ -70,6 +69,7 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
+    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     if @person
 
       @profile = @person.profile
@@ -95,10 +95,10 @@ class PeopleController < ApplicationController
         else
           @commenting_disabled = false
         end
-        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).limit(15).offset(15*(params[:page]-1))
+        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
       else
         @commenting_disabled = true
-        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).offset(15*(params[:page]-1)).order('posts.created_at DESC')
+        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
       end
 
       @posts = PostsFake.new(@posts)

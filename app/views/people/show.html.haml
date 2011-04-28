@@ -82,7 +82,7 @@
       #main_stream.stream
         = render 'shared/stream', :posts => @posts, :commenting_disabled => @commenting_disabled
         #pagination
-          =link_to(t('more'), next_page_path)
+          =link_to(t('more'), next_page_path, :class => 'paginate')
 
   - else
     #stream
