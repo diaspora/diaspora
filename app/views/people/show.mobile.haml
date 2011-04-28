@@ -31,7 +31,7 @@
     #main_stream.stream
       = render 'shared/stream', :posts => @posts
       #pagination
-        =link_to(t('more'), person_path(@person, :page => next_page), :class => 'paginate')
+        =link_to(t('more'), next_page_path, :class => 'paginate')
 - else
   #stream
     %li{:style=>"text-align:center;"}
