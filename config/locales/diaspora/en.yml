@@ -257,7 +257,7 @@ en:
       settings: "settings"
       logout: "logout"
       blog: "blog"
-      login: "login"
+      login: "log in"
       code: "code"
     application:
       powered_by: "POWERED BY DIASPORA*"
