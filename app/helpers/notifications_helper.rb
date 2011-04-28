@@ -33,9 +33,6 @@ module NotificationsHelper
     t("notifications.#{target_type}", :post_author => post_author)
   end
 
-  def new_notification_text(count)
-      t('notifications.helper.new_notifications', :count => count)
-  end
 
   def new_notification_link(count)
     if count > 0

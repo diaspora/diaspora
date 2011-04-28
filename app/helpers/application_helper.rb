@@ -5,13 +5,6 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
-  def next_page_path
-    if @controller.instance_of?(TagsController)
-      tag_path(@tag, :max_time => @posts.last.send(session[:sort_order].to_sym).to_i)
-    else
-      aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
-    end
-  end
   def timeago(time, options = {})
     options[:class] ||= "timeago"
     content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time
@@ -86,8 +79,19 @@ module ApplicationHelper
 </li>".html_safe
   end
 
+  def link_for_aspect(aspect, opts={})
+    opts[:params] ||= {}
+    params ||= {}
+    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
+    opts[:class] ||= ""
+    opts[:class] << " hard_aspect_link"
+    opts['data-guid'] = aspect.id
+
+    link_to aspect.name, aspects_path( opts[:params] ), opts
+  end
+
   def current_aspect?(aspect)
-    !@aspect.nil? && !@aspect.is_a?(Symbol) && @aspect.id == aspect.id
+    !@aspect.nil? && !@aspect.instance_of?(Symbol) && @aspect.id == aspect.id
   end
 
   def aspect_or_all_path aspect

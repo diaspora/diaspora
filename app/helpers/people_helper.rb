@@ -27,4 +27,8 @@ module PeopleHelper
       I18n.l bday, :format => I18n.t('date.formats.birthday_with_year')
     end
   end
+
+  def next_page_path
+    person_path(@person, :max_time => @posts.last.created_at.to_i, :class => 'paginate')
+  end
 end

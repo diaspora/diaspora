@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
+  helper :comments
   before_filter :authenticate_user!, :except => [:show]
   before_filter :ensure_page, :only => :show
 

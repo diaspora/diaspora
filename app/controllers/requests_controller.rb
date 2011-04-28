@@ -6,8 +6,6 @@ require File.join(Rails.root, 'lib/webfinger')
 
 class RequestsController < ApplicationController
   before_filter :authenticate_user!
-  include RequestsHelper
-
   respond_to :html
 
   def destroy

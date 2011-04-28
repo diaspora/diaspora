@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-module StreamHelper
+module CommentsHelper
   GSUB_THIS = "FIUSDHVIUSHDVIUBAIUHAPOIUXJM"
   def comment_toggle(count, commenting_disabled=false)
     if count <= 3

@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe StreamHelper do
+describe CommentsHelper do
   before do
     @user = alice
     @aspect = @user.aspects.first

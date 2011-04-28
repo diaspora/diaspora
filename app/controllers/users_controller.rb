@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 class UsersController < ApplicationController
+  helper :language
   require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
   require File.join(Rails.root, 'lib/collect_user_photos')

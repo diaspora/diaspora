@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class AspectsController < ApplicationController
+  helper :comments, :aspect_memberships
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
   before_filter :ensure_page, :only => :index
