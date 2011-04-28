@@ -7,7 +7,7 @@ it:
   javascripts: 
     confirm_dialog: "Sei sicuro?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Non ci sono altri post."
     publisher: 
       at_least_one_aspect: "Devi condividere almeno con un aspetto"
     search_for: "Ricerca per {{name}}"

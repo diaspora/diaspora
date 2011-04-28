@@ -52,7 +52,7 @@ zh-CN:
     aspect_contacts: 
       done_editing: "编辑完成"
     aspect_stream: 
-      activity: "最近活动"
+      activity: "活跃程度"
       post_time: "发布时间"
       sort_by: "排序方式："
     contacts_not_visible: "此情景中的好友相互不可见。"
@@ -318,7 +318,7 @@ zh-CN:
     few: "%{count}个好友"
     helper: 
       people_on_pod_are_aware_of: " Pod上已知的人"
-      results_for: " %{params}的搜寻结果"
+      results_for: " %{params}的搜索结果"
     index: 
       couldnt_find_them_send_invite: "找不到他们？邀请他们加入Diaspora吧！"
       no_one_found: "……找不到任何内容。"
@@ -405,7 +405,7 @@ zh-CN:
   profile: "个人档案"
   profiles: 
     edit: 
-      allow_search: "允许别人在 Diaspora* 中搜寻到你"
+      allow_search: "允许别人在 Diaspora* 中搜索到你"
       edit_profile: "编辑个人档案"
       first_name: "名"
       last_name: "姓"
@@ -461,7 +461,7 @@ zh-CN:
       manage_within: "管理好友："
     new_request_to_person: 
       sent: "发送成功！"
-  search: "搜寻"
+  search: "搜索"
   services: 
     create: 
       success: "验证成功。"
@@ -494,7 +494,7 @@ zh-CN:
   settings: "设置"
   shared: 
     add_contact: 
-      create_request: "用 Diaspora 帐号搜寻"
+      create_request: "用 Diaspora 帐号搜索"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "输入 Diaspora 帐号："
       know_email: "知道他们的电子信箱吗？ 你可以邀请他们加入。"

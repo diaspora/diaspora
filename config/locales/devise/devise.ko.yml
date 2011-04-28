@@ -57,15 +57,15 @@ ko:
         no_account: "등록되지 않은 이메일 주소입니다."
         send_password_instructions: "암호 초기화 메일 보내기"
       send_instructions: "몇 분 안으로 암호를 초기화하기 위한 메일이 도착합니다."
-      updated: "암호가 성공적으로 바꾼 뒤 로그인하였습니다."
+      updated: "암호를 성공적으로 바꾼 뒤 로그인하였습니다."
     registrations: 
-      destroyed: "계정을 성공적어로 취소하였습니다."
+      destroyed: "계정을 성공적으로 취소하였습니다."
       signed_up: "성공적으로 가입하였습니다."
       updated: "계정을 성공적으로 갱신하였습니다."
     sessions: 
       new: 
         alpha_software: "이 소프트웨어는 알파 실험 단계입니다."
-        bugs_and_feedback: "여러 버그를 경험하실 수 있습니다. 오른쪽의 피드백 단추로 문제점을 보고해주십시오! 보고하신 문제점 빠르게 해결하기 위해 최선을 다하겠습니다."
+        bugs_and_feedback: "여러 버그를 경험하실 수 있습니다. 오른쪽의 피드백 단추로 문제점을 보고해주십시오! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
         bugs_and_feedback_mobile: "여러 버그를 경험하실 수 있습니다. 문제점을 보고해주십시오! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
         login: "로그인"
         modern_browsers: "최신 브라우저만 지원합니다."

@@ -7,7 +7,7 @@ hu:
   javascripts: 
     confirm_dialog: "Biztos vagy benne?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Nincs több bejegyzés."
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
     search_for: "{{name}} keresése."

@@ -38,7 +38,7 @@ pl:
     helper: 
       unknown_person: "nieznana osoba"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "Wideo bez nazwy"
   are_you_sure: "Na pewno?"
   aspect_memberships: 
     destroy: 
@@ -248,7 +248,7 @@ pl:
         zero: "nikt tego nie polubił"
   more: "Więcej"
   next: "następny"
-  no_results: "No Results Found"
+  no_results: "Nie znaleziono niczego"
   notifications: 
     also_commented: "skomentował również użytkownika %{post_author}"
     also_commented_deleted: "commented on a deleted post"
@@ -321,8 +321,8 @@ pl:
       results_for: " wyniki dla %{params}"
     index: 
       couldnt_find_them_send_invite: "Nie znalazłeś ich? Wyślij im zaproszenie!"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
+      no_one_found: "...i nikogo nie udało się znaleźć."
+      no_results: "Hej! Musisz coś wpisać w pole wyszukiwarki!"
       results_for: "wyniki wyszukiwania dla"
     many: "%{count} osób"
     one: "1 osoba"
@@ -388,7 +388,7 @@ pl:
       delete_photo: "Usuń zdjęcie"
       edit: "edytuj"
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
-      make_profile_photo: "zrób zdjęcie profilowe"
+      make_profile_photo: "ustaw jako zdjęcie profilowe"
       original_post: "Pierwotny wpis"
       permalink: "permalink"
       update_photo: "Aktualizuj zdjęcie"
@@ -477,7 +477,7 @@ pl:
         other: "%{count} znajomych"
         zero: "żadnych znajomych"
       invite_your_friends_from: "Zaproś swoich znajomych z serwisu %{service}"
-      not_connected: "not connected"
+      not_connected: "nie połączono"
     index: 
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_twitter: "Połącz z Twitterem"
@@ -506,7 +506,7 @@ pl:
       logged_in_as: "zalogowany jako %{name}"
       your_aspects: "twoje aspekty"
     invitations: 
-      by_email: "by Email"
+      by_email: "przez e-mail"
       dont_have_now: "Nie masz wolnych zaproszeń, ale niebawem się pojawią!"
       from_facebook: "z serwisu Facebook"
       invitations_left: "(pozostało %{count} zaproszeń)"

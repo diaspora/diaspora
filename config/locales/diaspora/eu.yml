@@ -520,7 +520,7 @@ eu:
       logged_in: "%{service}(e)n sartuta"
       manage: "kudeatu lotutako zerbitzuak"
       outside: "Mezu publikoak edozeinek irakurtzeko ahalmena izango ditu, Diaspora kontua ez badu ere."
-      title: "Mezu publiko bat partekatzear zaude!"
+      title: "Zerbitzu konektatuak kudeatu"
     publisher: 
       add_photos: "argazkiak gehitu"
       all: "guztiak"
