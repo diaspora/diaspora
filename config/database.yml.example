@@ -1,21 +1,22 @@
-test:
+common: &common
   adapter: mysql2
-  database: diaspora_test
-  username: root
-  password: password
+  host: "localhost" 
+  port: 3306
+#  socket: /tmp/mysql.sock
+  username: "root"
+  password: "password"
   charset: utf8
   collation: utf8_bin
+
+
 development:
-  adapter: mysql2
+  <<: *common
   database: diaspora_development
-  username: root
-  password: password
-  charset: utf8
-  collation: utf8_bin
+
 production:
-  adapter: mysql2
+  <<: *common
   database: diaspora_production
-  username: root
-  password: password
-  charset: utf8
-  collation: utf8_bin
+
+test:
+  <<: *common
+  database: "diaspora_test"
