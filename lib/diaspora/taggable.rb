@@ -4,7 +4,7 @@
 
 module Diaspora
   module Taggable
-    VALID_TAG_BODY = /[^_,\s#*\[\]()\:\@\/"'\.%]+/
+    VALID_TAG_BODY = /[^_,\s#*\[\]()\@\/"'\.%]+\b/
 
     def self.included(model)
       model.class_eval do

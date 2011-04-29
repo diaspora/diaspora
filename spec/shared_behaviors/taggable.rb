@@ -39,8 +39,8 @@ describe Diaspora::Taggable do
     end
     describe '#tag_strings' do
       it 'returns a string for every #thing' do
-        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ###'
-        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc']
+        str = '#what #hey #that"smybike. #@hey ##boo # #THATWASMYBIKE #vöglein #hey#there #135440we #abc/23 ### #h!gh #ok? #see: #re:publica'
+        arr = ['what', 'hey', 'that', 'THATWASMYBIKE', 'vöglein', '135440we', 'abc', 'h!gh', 'ok', 'see', 're:publica']
 
         @object.send(@object.class.field_with_tags_setter, str)
         @object.tag_strings.should =~ arr
