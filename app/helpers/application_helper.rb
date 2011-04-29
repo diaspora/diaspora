@@ -216,16 +216,18 @@ module ApplicationHelper
   end
 
   def process_youtube(message, youtube_maps)
-    regex = /( |^)(https?:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_\-]+)(&[^ ]*|)/
+    regex = /( |^)(https?:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_\-]+)(&[^ ]*)?(#[^ ]+)?/
     processed_message = message.gsub(regex) do |matched_string|
       match_data = matched_string.match(regex)
       video_id = match_data[3]
+      anchor = match_data[5]
+      anchor ||= ''
       if youtube_maps && youtube_maps[video_id]
         title = h(CGI::unescape(youtube_maps[video_id]))
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      ' <a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" href="'+ match_data[0].strip + '" target="_blank">Youtube: ' + title + '</a>'
+      ' <a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" data-anchor="' + anchor + '" href="'+ match_data[0].strip + '" target="_blank">Youtube: ' + title + '</a>'
     end
     return processed_message
   end

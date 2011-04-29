@@ -101,6 +101,27 @@ describe ApplicationHelper do
           res.should =~ /data-video-id="#{video_id}"/
         end
 
+        it "keeps anchors" do
+          anchor = "#t=11m34"
+          video_id = "DHRoHuv3I8E"
+          url = "http://www.youtube.com/watch?v=" + video_id + anchor
+          res = markdownify(url)
+          res.should =~ /Youtube:/
+          res.should =~ /data-host="youtube.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+          res.should =~ /data-anchor="#{anchor}"/
+        end
+        
+        it "has an empty data-anchor attribute if there is no anchor" do
+          video_id = "DHRoHuv3I8E"
+          url = "http://www.youtube.com/watch?v=" + video_id
+          res = markdownify(url)
+          res.should =~ /Youtube:/
+          res.should =~ /data-host="youtube.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+          res.should =~ /data-anchor=""/
+        end
+
         it "leaves the links in the href of the #a tag" do
           video_id = "ABYnqp-bxvg"
           start_url ="http://www.youtube.com/watch?v=" + video_id
