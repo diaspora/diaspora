@@ -13,6 +13,7 @@ Diaspora::Application.routes.draw do
 
   resources :status_messages, :only => [:new, :create, :destroy, :show]
   get 'p/:id' => 'posts#show', :as => 'post'
+  get 'bookmarklet' => 'status_messages#bookmarklet'
 
   resources :photos, :except => [:index] do
     put 'make_profile_photo' => :make_profile_photo
@@ -67,7 +68,6 @@ Diaspora::Application.routes.draw do
     get 'add_invites' => :add_invites, :as => 'add_invites'
   end
 
-  get 'bookmarklet' => 'status_messages#bookmarklet'
   resource :profile
 
   resources :requests, :only => [:destroy, :create]
