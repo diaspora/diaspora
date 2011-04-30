@@ -12,19 +12,16 @@ Diaspora::Application.routes.draw do
   end
 
   resources :status_messages, :only => [:new, :create, :destroy, :show]
-  get 'p/:id' => 'posts#show', :as => 'post'
   get 'bookmarklet' => 'status_messages#bookmarklet'
+  get 'p/:id'       => 'posts#show', :as => 'post'
 
   resources :photos, :except => [:index] do
     put 'make_profile_photo' => :make_profile_photo
   end
 
   resources :comments, :only => [:create, :destroy]
+  resource :like,      :only => [:create]
 
-  get 'tags/:name' => 'tags#show', :as => 'tag'
-  resources :tags, :only => [:index]
-
-  resource :like, :only => [:create]
 
   resources :conversations do
     resources :messages, :only => [:create, :show]
@@ -35,6 +32,8 @@ Diaspora::Application.routes.draw do
     get 'read_all' => :read_all, :on => :collection
   end
 
+  resources :tags, :only => [:index]
+  get 'tags/:name' => 'tags#show', :as => 'tag'
 
   # Users and people
 
@@ -42,7 +41,7 @@ Diaspora::Application.routes.draw do
     get :export
     get :export_photos
   end
-  match '/people/:id/contacts' => 'people#contacts'
+
 
   controller :users do
     get 'public/:username'          => :public,          :as => 'users_public'
@@ -63,22 +62,23 @@ Diaspora::Application.routes.draw do
   get 'login' => redirect('/users/sign_in')
 
   scope 'admins', :controller => :admins do
-    match 'user_search' => :user_search
-    get 'admin_inviter' => :admin_inviter
-    get 'add_invites' => :add_invites, :as => 'add_invites'
+    match 'user_search'   => :user_search
+    get   'admin_inviter' => :admin_inviter
+    get   'add_invites'   => :add_invites, :as => 'add_invites'
   end
 
   resource :profile
 
   resources :requests, :only => [:destroy, :create]
 
-  resources :contacts, :except => [:index, :update]
-  resources :aspect_memberships, :only => [:destroy, :create, :update]
-  resources :post_visibilities, :only => [:update]
+  resources :contacts,           :except => [:index, :update]
+  resources :aspect_memberships, :only   => [:destroy, :create, :update]
+  resources :post_visibilities,  :only   => [:update]
 
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
+    get  :contacts
     post 'by_handle' => :retrieve_remote, :on => :collection, :as => 'person_by_handle'
   end
 
