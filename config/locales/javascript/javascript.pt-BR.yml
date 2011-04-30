@@ -33,3 +33,7 @@ pt-BR:
     videos: 
       unknown: "Tipo de vídeo desconhecido"
       watch: "Assista este vídeo no {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

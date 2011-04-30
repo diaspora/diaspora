@@ -171,8 +171,8 @@ zh-CN:
   date: 
     formats: 
       birthday: "%m-%d"
-      birthday_with_year: "%Y-%B-%d"
-      fullmonth_day: "%B月%d日"
+      birthday_with_year: "%Y-%m-%d"
+      fullmonth_day: "%B%d日"
   delete: "删除"
   email: "电子邮件"
   error_messages: 

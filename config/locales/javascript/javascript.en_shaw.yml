@@ -33,3 +33,7 @@ en_shaw:
     videos: 
       unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
       watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

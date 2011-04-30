@@ -33,3 +33,7 @@ it:
     videos: 
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "I post non saranno più ricevuti in tempo reale."
+        title: "Sei stato disconnesso."

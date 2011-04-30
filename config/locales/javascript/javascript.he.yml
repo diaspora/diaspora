@@ -33,3 +33,7 @@ he:
     videos: 
       unknown: "סוג הווידאו אינו ידוע"
       watch: "צפייה בסרטון וידאו זה באתר {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

@@ -33,3 +33,7 @@ bg:
     videos: 
       unknown: "Неизвестен вид видео"
       watch: "Гледайте видеото в {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

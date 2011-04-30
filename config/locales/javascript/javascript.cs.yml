@@ -33,3 +33,7 @@ cs:
     videos: 
       unknown: "Neznámý typ videa"
       watch: "Podívejte se na tohle video na {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

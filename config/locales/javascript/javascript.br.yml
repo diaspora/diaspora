@@ -33,3 +33,7 @@ br:
     videos: 
       unknown: "Stumm ar video dianav"
       watch: "Sellet ouzh ar video gant {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

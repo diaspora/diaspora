@@ -33,3 +33,7 @@ da:
     videos: 
       unknown: "Ukendt video type"
       watch: "Se denne video på {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."

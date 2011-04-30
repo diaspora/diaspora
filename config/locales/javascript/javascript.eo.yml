@@ -33,3 +33,7 @@ eo:
     videos: 
       unknown: "nekonata tipo de videaĵo"
       watch: "Watch this video on {{provider}}"
+    web_sockets: 
+      disconnected: 
+        body: "Posts will no longer be streamed live."
+        title: "You have been disconnected."
