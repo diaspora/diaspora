@@ -152,7 +152,6 @@ var Stream = {
   },
 
   toggleComments: function(evt) {
-                    console.log("toggling");
     evt.preventDefault();
     var $this = $(this),
       text = $this.html(),

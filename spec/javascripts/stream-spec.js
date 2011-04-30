@@ -49,9 +49,7 @@ describe("Stream", function() {
     });
     it("toggles class hidden on the comment block", function () {
       expect(jQuery('ul.comments')).toHaveClass("hidden");
-      console.log("AAAAAH");
       $("a.show_post_comments").click();
-      console.log("done");
       jasmine.Clock.tick(200);
       expect(jQuery('ul.comments')).not.toHaveClass("hidden");
     });
