@@ -228,7 +228,7 @@ cs:
     header: 
       blog: "blog"
       code: "kód"
-      login: "přihlášení"
+      login: "přihlásit"
       logout: "odhlásit"
       profile: "profil"
       settings: "nastavení"

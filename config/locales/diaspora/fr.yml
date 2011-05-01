@@ -229,7 +229,7 @@ fr:
       blog: "blog"
       code: "code"
       login: "connexion"
-      logout: "se déconnecter"
+      logout: "déconnexion"
       profile: "profil"
       settings: "paramètres"
   likes: 

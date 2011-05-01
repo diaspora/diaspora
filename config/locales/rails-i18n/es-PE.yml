@@ -83,7 +83,7 @@ es-PE:
     prompts:
       hour: 'Hora'
       minute: 'Minuto'
-      second: 'Segundo'        
+      second: 'Segundo'
 
   # Active Record
 

@@ -27,7 +27,7 @@ it:
     percentage:
       format:
         delimiter: ""
-        # precision: 
+        # precision:
 
     precision:
       format:
@@ -37,7 +37,7 @@ it:
 
     human:
       format:
-        # separator: 
+        # separator:
         delimiter: ""
         precision: 1
         significant: true
@@ -159,13 +159,13 @@ it:
         accepted: "deve essere accettata"
         empty: "non può essere vuoto"
         blank: "non può essere lasciato in bianco"
-        too_long: 
+        too_long:
           one: "è troppo lungo (il massimo è 1 carattere)"
           other: "è troppo lungo (il massimo è %{count} caratteri)"
-        too_short: 
+        too_short:
           one:  "è troppo corto (il minimo è 1 carattere)"
           other:  "è troppo corto (il minimo è %{count} caratteri)"
-        wrong_length: 
+        wrong_length:
           one: "è della lunghezza sbagliata (deve essere di 1 carattere)"
           other: "è della lunghezza sbagliata (deve essere di %{count} caratteri)"
         not_a_number: "non è un numero"
@@ -181,7 +181,7 @@ it:
   activerecord:
     errors:
       template:
-        header: 
+        header:
           one: "Non posso salvare questo %{model}: 1 errore"
           other: "Non posso salvare questo %{model}: %{count} errori."
         body: "Per favore ricontrolla i seguenti campi:"

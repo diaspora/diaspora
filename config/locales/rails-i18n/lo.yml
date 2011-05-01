@@ -1,6 +1,6 @@
 # Lao translation for Ruby on Rails
 # By justin maccarthy justin.maccarthy@gmail.com with help from Lao language experts...
-# 
+#
 
 lo:
   number:
@@ -13,7 +13,7 @@ lo:
       delimiter: ","
       # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
       precision: 3
-      
+
     # Used in number_to_currency()
     currency:
       format:
@@ -24,15 +24,15 @@ lo:
         separator: "."
         delimiter: ","
         precision: 2
-        
+
     # Used in number_to_percentage()
     percentage:
       format:
         # These three are to override number.format and are optional
-        # separator: 
+        # separator:
         delimiter: ""
-        # precision: 
-        
+        # precision:
+
     # Used in number_to_precision()
     precision:
       format:
@@ -40,12 +40,12 @@ lo:
         # separator:
         delimiter: ""
         # precision:
-        
+
     # Used in number_to_human_size()
     human:
       format:
         # These three are to override number.format and are optional
-        # separator: 
+        # separator:
         delimiter: ""
         precision: 1
       storage_units:
@@ -111,7 +111,7 @@ lo:
           other:  "ບໍ່ສາມາດບັນທຶກ %{model} ໄດ້ເນື່ອງຈາກ ເກີດ %{count} ຂໍ້ຜິດພາດ"
         # The variable :count is also available
         body: "ກະລຸນາກວດສອບຂໍ້ມູນໃນຫ້ອງຕໍ່ໄປນີ້ :"
-        
+
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
       messages:
@@ -147,16 +147,16 @@ lo:
       #       attributes:
       #         login:
       #           blank: "This is a custom blank message for User login"
-      # Will define custom blank validation message for User model and 
+      # Will define custom blank validation message for User model and
       # custom blank validation message for login attribute of User model.
       #models:
-        
+
     # Translate model names. Used in Model.human_name().
     #models:
       # For example,
       #   user: "Dude"
       # will translate User model name to "Dude"
-    
+
     # Translate model attribute names. Used in Model.human_attribute_name(attribute).
     #attributes:
       # For example,
@@ -172,10 +172,10 @@ lo:
       default: "%d-%m-%Y"
       short: "%e %b"
       long: "%e %B %Y"
-      
+
     day_names: ["ອາທິດ", "ຈັນ", "ອັງຄານ", "ພຸດ", "ພະຫັດ", "ສຸກ", "ເສົາ"]
     abbr_day_names: ["", "", "", "", "", "", ""]
-      
+
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [~, "ມັງກອນ", "ກຸມພາ", "ມີນາ", "ເມສາ", "ພຶດສະພາ", "ມິຖຸນາ", "ກໍລະກົດ", "ສິງຫາ", "ກັນຍາ", "ຕຸລາ", "ພະຈິກ", "ທັນວາ"]
     abbr_month_names: [~,"", "", "", "", "", "", "", "", "", "", "", ""]
@@ -192,7 +192,7 @@ lo:
       long: "%d %B %Y %H:%M น."
     am: ""
     pm: ""
-      
+
 # Used in array.to_sentence.
   support:
     array:

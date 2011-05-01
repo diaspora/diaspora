@@ -1,4 +1,4 @@
-# Hebrew translations for Ruby on Rails 
+# Hebrew translations for Ruby on Rails
 # by Dotan Nahum (dipidi@gmail.com)
 # Rails 3 update by rbjarnason
 
@@ -169,7 +169,7 @@
       less_than_or_equal_to: "חייב להיות קטן או שווה ל- %{count}"
       odd: "חייב להיות אי זוגי"
       even: "חייב להיות זוגי"
-      
+
   activerecord:
     errors:
       template:
@@ -184,4 +184,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

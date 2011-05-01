@@ -1,4 +1,4 @@
-# Persian translations for Ruby on Rails 
+# Persian translations for Ruby on Rails
 # by Reza (reza@balatarin.com)
 # Rails 3 update by rbjarnason
 
@@ -145,11 +145,11 @@
     format: "%{attribute} %{message}"
 
     messages: &errors_messages
-      inclusion: "در لیست موجود نیست" 
-      exclusion: "رزرو است" 
-      invalid: "نامعتبر است" 
+      inclusion: "در لیست موجود نیست"
+      exclusion: "رزرو است"
+      invalid: "نامعتبر است"
       confirmation: "با تایید نمی‌خواند"
-      accepted: "باید پذیرفته شود" 
+      accepted: "باید پذیرفته شود"
       empty: "نمی‌تواند خالی باشد"
       blank: "نباید خالی باشد"
       too_long: "بلند است (حداکثر %{count} کاراکتر)"
@@ -179,4 +179,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

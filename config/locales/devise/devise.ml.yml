@@ -31,30 +31,30 @@ ml:
       invitation: 
         accept: "ക്ഷണം സ്വീകരിക്കു"
         ignore: "താങ്കള്‍ക്ക് ഈ ക്ഷണം സ്വീകരിക്കേണ്ടെങ്കില്‍ ദയവായി ഈ കത്ത് അവഗണിക്കുക."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
+        no_account_till: "മുകളിലുള്ള കണ്ണി ഉപയോഗിച്ച് ഇതില്‍ ചേരാതെ താങ്കളുടെ അക്കൌണ്ട് നിര്‍മ്മിക്കില്ല."
         subject: "ഡയസ്പോറയില്‍ ചേരാന്‍ താങ്കളെ ക്ഷണിച്ചിരിക്കുന്നു!"
       inviters: 
         accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} has invited you to join Diaspora"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        has_invited_you: "%{name} താങ്കളെ ഡയസ്പോറയില്‍ ചേരുന്നതിനായി ക്ഷണിച്ചിരിക്കുന്നു"
+        have_invited_you: "%{names} താങ്കളെ ഡയസ്പോറയില്‍ ചേരുന്നതിനായി ക്ഷണിച്ചിരിക്കുന്നു"
       reset_password_instructions: 
         change: "എന്റെ രഹസ്യവാക്ക് മാറ്റുക"
         ignore: "താങ്കള്‍ ഇത് ആവശ്യപ്പെട്ടിലെങ്കില്‍ ദയവായി അവഗണിക്കുക."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
+        someone_requested: "താങ്കളുടെ രഹസ്യവാക്ക് മാറ്റുന്നതിന് ആരോ അപേക്ഷ നല്‍കിയിരിക്കുന്നു. മാറ്റുന്നതിനായി താഴെയുള്ള കണ്ണി തിരഞ്ഞെടുക്കാവുന്നതാണ്."
         subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        wont_change: "മുകളിലുള്ള കണ്ണിയിലൂടെ പൂതിയ ഒരു രഹസ്യവാക്ക് നിര്‍മ്മിക്കാതെ അത് മാറ്റപ്പെടില്ല."
       unlock_instructions: 
         account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
-        click_to_unlock: "Click the link below to unlock your account:"
-        subject: "Unlock Instructions"
-        unlock: "Unlock my account"
+        click_to_unlock: "നിങ്ങളുടെ അക്കൌണ്ട് തുറക്കുന്നതിനായി താഴെയുള്ള കണ്ണി തെരഞ്ഞെടുക്കുക:"
+        subject: "അക്കൌണ്ട് തുറക്കുന്നതിനുള്ള വിവരങ്ങള്‍"
+        unlock: "എന്റെ ആക്കൌണ്ട് തുറക്കുക"
       welcome: "സ്വാഗതം %{email}!"
     passwords: 
       edit: 
         change_password: "എന്റെ രഹസ്യവാക്ക് മാറ്റുക"
       new: 
         forgot_password: "താങ്കളുടെ രഹസ്യവാക്ക് മറന്നോ?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "No account with this email exists.  If you are waiting for an invite, we are rolling them out as soon as possible"
         send_password_instructions: "Send me reset password instructions"
       send_instructions: "You will receive an email with instructions about how to reset your password in a few minutes."
       updated: "Your password was changed successfully. You are now signed in."

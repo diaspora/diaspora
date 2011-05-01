@@ -144,7 +144,7 @@ ml:
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "സന്ദേശം അയച്ചിരിക്കുന്നു"
     destroy: 
       success: "Conversation successfully removed"
     helper: 
@@ -160,7 +160,7 @@ ml:
       message_inbox: "Message Inbox"
       new_message: "പുതിയ സന്ദേശം"
       no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      no_messages: "സന്ദേശങ്ങളൊന്നും ഇല്ല"
     new: 
       send: "അയക്കു"
       subject: "വിഷയം"
@@ -222,7 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "toggle mobile site"
+      toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -241,10 +241,10 @@ ml:
         other: "%{count} people disliked this"
         zero: "no people disliked this"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
+        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         zero: "no people liked this"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
@@ -384,7 +384,7 @@ ml:
     photo: 
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "ശേഖരണത്തിന്റെ സ്ഥിരംകണ്ണി"
       delete_photo: "ചിത്രം നീക്കുക"
       edit: "തിരുത്തുക"
       edit_delete_photo: "ചിത്രത്തിന്റെ വിവരണം തിരുത്തുക / ചിത്രം നീക്കം ചെയ്യുക"
@@ -398,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}ന്റെ പോസ്റ്റ് മറച്ചിരിക്കുന്നു."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -550,7 +550,7 @@ ml:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "നീക്കം ചെയ്യുക"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "ക്ഷമിക്കണം, പോസ്റ്റ് കണ്ടെത്താനായില്ല."
       permalink: "സ്ഥിരം കണ്ണി"
   stream_helper: 
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
@@ -564,7 +564,7 @@ ml:
   undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
   users: 
-    destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
+    destroy: "Account successfully closed."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "മാറ്റുക"

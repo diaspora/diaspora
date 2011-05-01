@@ -1,4 +1,4 @@
-# German translations for Ruby on Rails 
+# German translations for Ruby on Rails
 # by Clemens Kofler (clemens@railway.at)
 # contributors:
 #  - Alexander Dreher - http://github.com/alexdreher - Rails 3 update
@@ -19,7 +19,7 @@ de:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -29,7 +29,7 @@ de:
 
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -120,11 +120,11 @@ de:
           unit: ""
           thousand: Tausend
           million: Millionen
-          billion: 
+          billion:
             one: Milliarde
             others: Milliarden
           trillion: Billionen
-          quadrillion: 
+          quadrillion:
             one: Billiarde
             others: Billiarden
 
@@ -175,7 +175,7 @@ de:
       odd: "muss ungerade sein"
       even: "muss gerade sein"
       not_an_integer: "muss ganzzahlig sein"
-      
+
   activerecord:
     errors:
       template:
@@ -184,7 +184,7 @@ de:
           other:  "Konnte %{model} nicht speichern: %{count} Fehler."
         body: "Bitte überprüfen Sie die folgenden Felder:"
 
-      messages:        
+      messages:
         taken: "ist bereits vergeben"
         record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: %{errors}"
         <<: *errors_messages

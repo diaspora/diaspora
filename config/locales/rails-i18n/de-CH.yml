@@ -1,4 +1,4 @@
-# German (Switzerland) translations for Ruby on Rails 
+# German (Switzerland) translations for Ruby on Rails
 # by Clemens Kofler (clemens@railway.at)
 
 de-CH:
@@ -17,7 +17,7 @@ de-CH:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -27,7 +27,7 @@ de-CH:
 
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -81,9 +81,9 @@ de-CH:
       format:
         unit: 'CHF'
         format: '%u %n'
-        separator: 
-        delimiter: 
-        precision: 
+        separator:
+        delimiter:
+        precision:
     percentage:
       format:
         delimiter: ""

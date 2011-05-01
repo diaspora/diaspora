@@ -1,6 +1,6 @@
 # Slovak translations for Ruby on Rails (inspired by the Czech localization - thanx to Karel Minařík)
 # by Jozef Fulop (jofi-rails@silake.com)
- 
+
 "sk":
     # Date
     date:
@@ -35,8 +35,8 @@
             two_words_connector: " a "
             last_word_connector: " a "
         select:
-            prompt: "Prosím vyberte si." 
-                
+            prompt: "Prosím vyberte si."
+
     # Numbers
     number:
         format:
@@ -100,7 +100,7 @@
             day: "Deň"
             month: "Mesiac"
             year: "Rok"
-        distance_in_words:    
+        distance_in_words:
             half_a_minute: 'pol minutou'
             less_than_x_seconds:
                 one: 'asi pred sekundou'
@@ -170,7 +170,7 @@
             even: "musí byť párne číslo"
 
     # ActiveRecord validation messages
-    activerecord:                  
+    activerecord:
         errors:
             template:
                header:
@@ -184,7 +184,7 @@
                <<: *errors_messages
 
             full_messages:
-               format: "%{attribute}%{message}"
+               format: "%{attribute} %{message}"
 
     activemodel:
         errors:

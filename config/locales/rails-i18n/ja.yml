@@ -148,7 +148,7 @@ ja:
       submit: "保存する"
 
   errors:
-    format: "%{attribute}%{message}"
+    format: "%{attribute} %{message}"
 
     messages: &errors_messages
       inclusion: "は一覧にありません。"
@@ -185,4 +185,4 @@ ja:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

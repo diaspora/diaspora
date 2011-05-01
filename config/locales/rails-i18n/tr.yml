@@ -1,4 +1,4 @@
-# Turkish translations for Ruby on Rails 
+# Turkish translations for Ruby on Rails
 # by Ozgun Ataman (ozataman@gmail.com)
 
 tr:
@@ -21,7 +21,7 @@ tr:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%a %d.%b.%y %H:%M"
@@ -32,7 +32,7 @@ tr:
 
     am: "öğleden önce"
     pm: "öğleden sonra"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'yarım dakika'
@@ -71,7 +71,7 @@ tr:
       almost_x_years:
         one:   "neredeyse 1 yıl"
         other: "neredeyse %{count} yıl"
-      
+
   number:
     format:
       precision: 2
@@ -109,7 +109,7 @@ tr:
       words_connector: ", "
       two_words_connector: " ve "
       last_word_connector: " ve "
-        
+
   activerecord:
     errors:
       template:

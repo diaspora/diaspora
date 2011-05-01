@@ -1,4 +1,4 @@
-# Arabic translations for Ruby on Rails 
+# Arabic translations for Ruby on Rails
 # by Rida Al Barazi (me@rida.me)
 # updated by Ahmed Hazem (nardgo@gmail.com)
 # Rails 3 edit by rbjarnason
@@ -183,4 +183,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

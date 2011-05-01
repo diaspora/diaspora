@@ -6,40 +6,40 @@ gl-ES:
   number:
     # Usado en number_with_delimiter()
     format:
-      separator: "," 
-      delimiter: "." 
+      separator: ","
+      delimiter: "."
       precision: 2
-    
+
     # Usado en number_to_currency()
     currency:
       format:
         # %u é a unidade monetaria, %n o número
         # 1 euro sería 1.00 €
-        format: "%n %u" 
-        unit: "€" 
-        separator: "," 
-        delimiter: "." 
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: "."
         precision: 2
-    
+
     # Usado en number_to_percentage()
     percentage:
       format:
-        # separator: 
-        delimiter: "" 
-        # precision: 
-    
+        # separator:
+        delimiter: ""
+        # precision:
+
     # Usado en number_to_precision()
     precision:
       format:
         # separator:
-        delimiter: "" 
+        delimiter: ""
         # precision:
-    
+
     # Usado en number_to_human_size()
     human:
       format:
-        # separator: 
-        delimiter: "" 
+        # separator:
+        delimiter: ""
         precision: 1
       # Se estás a usar Rails <= 2.2.2
       # storage_units: [Bytes, KB, MB, GB, TB]
@@ -57,7 +57,7 @@ gl-ES:
           mb: "MB"
           gb: "GB"
           tb: "TB"
-  
+
   # active_support
   date:
     formats:
@@ -83,7 +83,7 @@ gl-ES:
       # Podes engadir máis formatos nesta lista ou cambiar os aquí definidos
     am: ''
     pm: ''
-  
+
   # Usados en distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
@@ -128,7 +128,7 @@ gl-ES:
       today: 'hoxe'
       tomorrow: 'mañá'
       in: 'dentro de'
-  
+
   support:
     array:
       # Se estás a usar Rails <= 2.2.2
@@ -154,7 +154,7 @@ gl-ES:
     #   user:
     #     login: "Aceso"
     #     traducirá o atribute login do modelo User como "Aceso"
-    
+
     errors:
       template:
         header:
@@ -183,7 +183,7 @@ gl-ES:
         odd: "debe ser par"
         even: "debe ser impar"
         # Engade aquí os teus propios mensaxes de erro ou no ámbito modelo/atributo
-        
+
         # Podes definir os teus propios erros para modelos ou para os atributos dun modelo
         # Os valores :model, :attribute e :value están sempre dispoñibles para a interpolación
         #

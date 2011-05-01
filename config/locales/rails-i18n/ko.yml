@@ -146,7 +146,7 @@ ko:
       submit: "제출"
 
   errors:
-    format: "%{attribute}%{message}"
+    format: "%{attribute} %{message}"
 
     messages: &errors_messages
       inclusion: "은(는) 목록에 포함되어 있습니다"
@@ -183,4 +183,4 @@ ko:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

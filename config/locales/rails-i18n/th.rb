@@ -174,7 +174,7 @@ end
 },
 
 :errors => {
-  :format => "%{attribute}%{message}",
+  :format => "%{attribute} %{message}",
   :messages => ThaiLocaleI18n::ERROR_MESSAGES
 },
 
@@ -191,7 +191,7 @@ end
     }.merge(ThaiLocaleI18n::ERROR_MESSAGES),
 
     :full_messages => {
-      :format => "%{attribute}%{message}"
+      :format => "%{attribute} %{message}"
     },
   }
 }
