@@ -195,5 +195,6 @@ end
 
 And /^I scroll down$/ do
   evaluate_script("window.scrollBy(0,3000000)")
+  sleep 1
   wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
 end
