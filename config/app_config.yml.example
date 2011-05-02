@@ -31,8 +31,8 @@ default:
   # Secure websocket confguration (wss://)
   # requires SSL cert and key
   socket_secure: false
-  socket_private_key_location: '/full/path/to/file.key'
   socket_cert_chain_location: '/full/path/to/cert_chain.crt'
+  socket_private_key_location: '/full/path/to/file.key'
 
   # Diaspora is only tested against this default pubsub server.
   pubsub_server: 'https://pubsubhubbub.appspot.com/'
