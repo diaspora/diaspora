@@ -23,6 +23,11 @@
     };
   };
 
+  InfiniteScroll.prototype.reInitialize = function(){
+    this.clear();
+    this.initialize();
+  };
+
   InfiniteScroll.prototype.initialize = function(){
     $('#main_stream').infinitescroll(this.options(), function() {
       Diaspora.widgets.publish("stream/scrolled");
@@ -30,8 +35,12 @@
   };
 
   InfiniteScroll.prototype.start = function() {
-    Diaspora.widgets.subscribe("stream/reloaded", this.initialize, this);
+    Diaspora.widgets.subscribe("stream/reloaded", this.reInitialize, this);
     this.initialize();
+  };
+
+  InfiniteScroll.prototype.clear = function() {
+    $('#main_stream').infinitescroll('destroy');
   };
 
   Diaspora.widgets.add("infinitescroll", InfiniteScroll);
