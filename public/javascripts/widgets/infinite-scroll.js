@@ -29,9 +29,11 @@
   };
 
   InfiniteScroll.prototype.initialize = function(){
-    $('#main_stream').infinitescroll(this.options(), function() {
-      Diaspora.widgets.publish("stream/scrolled");
-    });
+    if($('#main_stream').length !== 0){
+      $('#main_stream').infinitescroll(this.options(), function() {
+        Diaspora.widgets.publish("stream/scrolled");
+      });
+    }
   };
 
   InfiniteScroll.prototype.start = function() {
