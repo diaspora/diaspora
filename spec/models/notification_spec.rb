@@ -12,11 +12,12 @@ describe Notification do
     @user2 = eve
     @aspect  = @user.aspects.create(:name => "dudes")
     @opts = {:target_id => @sm.id,
-      :target_type => @sm.class.name,
+      :target_type => @sm.class.base_class.to_s,
       :type => 'Notifications::CommentOnPost',
       :actors => [@person],
       :recipient_id => @user.id}
     @note = Notification.new(@opts)
+    @note.type = 'Notifications::CommentOnPost'
     @note.actors =[ @person]
   end
 
@@ -39,6 +40,15 @@ describe Notification do
     end
   end
 
+  describe '.concatenate_or_create' do
+    it 'creates a new notificiation if the notification does not exist, or if it is unread' do
+      @note.unread = false
+      @note.save
+      Notification.count.should == 1
+      Notification.concatenate_or_create(@note.recipient, @note.target, @note.actors.first, Notifications::CommentOnPost)
+      Notification.count.should == 2
+    end
+  end
   describe '.notify' do
     it 'does not call Notification.create if the object does not have a notification_type' do
       Notification.should_not_receive(:make_notificatin)
@@ -104,15 +114,6 @@ describe Notification do
           Notification.where(:recipient_id => @user3.id, :target_type => @sm.class.base_class, :target_id => @sm.id).first.actors.count.should == 2
         end
 
-        it 'marks the notification as unread' do
-          note = Notification.where(:recipient_id => @user3.id,:target_type => @sm.class.base_class, :target_id => @sm.id).first
-          note.unread = false
-          note.save
-          lambda {
-            Postzord::Receiver.new(@user3, :person => @user2.person, :object => @user2.comment("hey", :on => @sm)).receive_object
-            note.reload
-          }.should change(note, :unread).from(false).to(true)
-        end
       end
     end
   end
