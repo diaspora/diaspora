@@ -288,10 +288,10 @@ en:
     private_message: "sent you a message."
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
-    mentioned: "has mentioned you in a post"
-    post: "post"
+    mentioned: "has mentioned you in a "
+    post: "post."
     deleted: "deleted"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "commented on a deleted post."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
