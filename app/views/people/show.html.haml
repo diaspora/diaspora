@@ -21,7 +21,7 @@
         - for person in @contacts_of_contact
           = person_image_link person
       - if @contacts_of_contact.count > 25
-        %p.see_all= link_to t('.see_all'), person_path(@person)
+        %p.see_all= link_to t('.see_all'), person_contacts_path(@person)
 
 .span-15.last
   #author_info
