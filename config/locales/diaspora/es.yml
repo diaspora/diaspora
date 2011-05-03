@@ -252,7 +252,7 @@ es:
   notifications: 
     also_commented: "participó en la publicación de %{post_author}"
     also_commented_deleted: "participó en una publicación eliminada"
-    comment_on_post: "comentó en tu"
+    comment_on_post: "comentó tu"
     deleted: "eliminado"
     helper: 
       new_notifications: 
@@ -266,7 +266,7 @@ es:
       and_others: "y otros %{number}"
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
-    mentioned: "te mencionó en una publicación"
+    mentioned: "te mencionó en una"
     new_request: "quisiera compartir contigo."
     post: "publicación"
     private_message: "te envió un mensaje."

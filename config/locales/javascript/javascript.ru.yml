@@ -34,6 +34,4 @@ ru:
       unknown: "Неизвестный видеоформат"
       watch: "Смотреть это видео на {{provider}}"
     web_sockets: 
-      disconnected: 
-        body: "Сообщения больше не будут транслироваться в прямом эфире."
-        title: "Вы были отключены."
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

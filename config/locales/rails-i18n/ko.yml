@@ -16,6 +16,7 @@ ko:
 
     month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
     abbr_month_names: [~, 1월, 2월, 3월, 4월, 5월, 6월, 7월, 8월, 9월, 10월, 11월, 12월]
+    
     order:
       - :year
       - :month
@@ -32,6 +33,7 @@ ko:
   support:
     array:
       sentence_connector: ", "
+      skip_last_comma: true
       words_connector: ", "
       two_words_connector: "와(과) "
       last_word_connector: ", "
@@ -149,25 +151,25 @@ ko:
     format: "%{attribute} %{message}"
 
     messages: &errors_messages
-      inclusion: "은(는) 목록에 포함되어 있습니다"
-      exclusion: "은(는) 목록에 포함되어 있습니다"
-      invalid: "은(는) 무효입니다"
-      confirmation: "은(는) 확인되었습니다"
-      accepted: "은(는) 확인되었습니다"
-      empty: "은(는) 비어두면 안 됩니다"
-      blank: "은(는) 비어두면 안 됩니다"
-      too_long: "은(는) 너무 깁니다 (최대 %{count}자 까지)"
-      too_short: "은(는) 너무 짧습니다 (최소 %{count}자 까지)"
-      wrong_length: "은(는) 길이가 틀렸습니다 (%{count}자를 필요합니다)"
-      not_a_number: "은(는) 숫자가 아닙니다"
-      not_an_integer: "은(는) 정수가 아닙니다"
-      greater_than: "은(는) %{count}이상을 요구합니다"
-      greater_than_or_equal_to: "은(는) %{count}과 같거나 이상을 요구합니다"
+      inclusion: "은(는) 목록에 포함되어 있는 값이 아닙니다"
+      exclusion: "은(는) 이미 예약되어 있는 값입니다"
+      invalid: "은(는) 올바르지 않은 값입니다"
+      confirmation: "은(는) 서로 일치해야 합니다"
+      accepted: "을(를) 반드시 확인해야 합니다"
+      empty: "에 내용을 입력해 주세요"
+      blank: "에 내용을 입력해 주세요"
+      too_long: "은(는) %{count}자를 넘을 수 없습니다"
+      too_short: "은(는) 적어도 %{count}자를 넘어야 합니다"
+      wrong_length: "은(는) %{count}자여야 합니다"
+      not_a_number: "에 숫자를 입력해 주세요"
+      not_an_integer: "에 정수를 입력해 주세요"
+      greater_than: "은(는) %{count}보다 커야 합니다"
+      greater_than_or_equal_to: "은(는) %{count}보다 크거야 같아야 합니다"
       equal_to: "은(는) %{count}과 같아야 합니다"
-      less_than: "은(는) %{count}이하를 요구합니다"
-      less_than_or_equal_to: "은(는) %{count}과 같거나 이하을 요구합니다"
-      odd: "은(는) 홀수를 요구합니다"
-      even: "은(는) 짝수를 요구합니다"
+      less_than: "은(는) %{count}보다 작아야 합니다"
+      less_than_or_equal_to: "은(는) %{count}과 작거나 같아야 합니다"
+      odd: "에 홀수를 입력해 주세요"
+      even: "에 짝수를 입력해 주세요"
 
   activerecord:
     errors:

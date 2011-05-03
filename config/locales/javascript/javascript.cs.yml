@@ -34,6 +34,4 @@ cs:
       unknown: "Neznámý typ videa"
       watch: "Podívejte se na tohle video na {{provider}}"
     web_sockets: 
-      disconnected: 
-        body: "Příspěvky nebude možno sledovat živě."
-        title: "Byli jste odpojeni."
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

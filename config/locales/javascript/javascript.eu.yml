@@ -7,7 +7,7 @@ eu:
   javascripts: 
     confirm_dialog: "Ziur al zaude?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
@@ -34,6 +34,4 @@ eu:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau {{provider}}(e)n"
     web_sockets: 
-      disconnected: 
-        body: "Posts will no longer be streamed live."
-        title: "You have been disconnected."
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

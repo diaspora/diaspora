@@ -143,6 +143,7 @@
       odd: "måste vara udda"
       even: "måste vara jämnt"
       record_invalid: "Ett fel uppstod: %{errors}"
+      not_saved: "Kunde inte sparas"
 
   activerecord:
     errors:

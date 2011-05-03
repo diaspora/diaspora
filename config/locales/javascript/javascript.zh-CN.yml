@@ -34,6 +34,4 @@ zh-CN:
       unknown: "未知视频格式"
       watch: "在 {{provider}} 上看观看视频"
     web_sockets: 
-      disconnected: 
-        body: "Posts will no longer be streamed live."
-        title: "You have been disconnected."
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

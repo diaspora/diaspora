@@ -1,6 +1,7 @@
 # Slovak translations for Ruby on Rails (inspired by the Czech localization - thanx to Karel Minařík)
 # by Jozef Fulop (jofi-rails@silake.com)
-
+# edit by Ivan Stana (stiipa@centrum.sk)
+ 
 "sk":
     # Date
     date:
@@ -35,14 +36,14 @@
             two_words_connector: " a "
             last_word_connector: " a "
         select:
-            prompt: "Prosím vyberte si."
-
+            prompt: "Prosím vyberte si"
+                
     # Numbers
     number:
         format:
             precision: 3
-            separator: "."
-            delimiter: ","
+            separator: ","
+            delimiter: " "
             significant: false
             strip_insignificant_zeros: false
 
@@ -58,7 +59,7 @@
 
         percentage:
             format:
-                delimiter: ""
+                delimiter: " "
 
         precision:
             format:
@@ -100,8 +101,8 @@
             day: "Deň"
             month: "Mesiac"
             year: "Rok"
-        distance_in_words:
-            half_a_minute: 'pol minutou'
+        distance_in_words:    
+            half_a_minute: 'pol minútou'
             less_than_x_seconds:
                 one: 'asi pred sekundou'
                 other: 'asi pred %{count} sekundami'
@@ -133,8 +134,8 @@
                 one: 'pred viac ako rokom'
                 other: 'viac ako %{count} rokmi'
             almost_x_years:
-                one:   "takmer rokom"
-                other: "takmer %{count} rokmi"
+                one:   "takmer pred rokom"
+                other: "takmer pred %{count} rokmi"
 
     helpers:
        select:
@@ -153,19 +154,19 @@
             invalid: "nie je platná hodnota"
             confirmation: "nebolo potvrdené"
             accepted: "musí byť potvrdené"
-            empty: "nesmie byť prázdný/é"
+            empty: "nesmie byť prázdny/e"
             blank: "je povinná položka"
             too_long: "je príliš dlhá/ý (max. %{count} znakov)"
-            too_short: "je príliš krátký/á (min. %{count} znakov)"
+            too_short: "je príliš krátky/a (min. %{count} znakov)"
             wrong_length: "nemá správnu dĺžku (očakáva sa %{count} znakov)"
             taken: "sa už nachádza v databáze"
             not_a_number: "nie je číslo"
-            not_an_integer: "nie je celé číslo"
-            greater_than: "musí byť väčšíe ako %{count}"
-            greater_than_or_equal_to: "musí byť väčšie alebo rovnaké ako %{count}"
+            not_an_integer: "musí byť celé číslo"
+            greater_than: "musí byť väčšie ako %{count}"
+            greater_than_or_equal_to: "musí byť väčšie alebo rovné %{count}"
             equal_to: "sa musí rovnať %{count}"
             less_than: "musí byť menšie ako %{count}"
-            less_than_or_equal_to: "musí byť menšie ako %{count}"
+            less_than_or_equal_to: "musí byť menšie alebo rovné %{count}"
             odd: "musí byť nepárne číslo"
             even: "musí byť párne číslo"
 
@@ -174,13 +175,13 @@
         errors:
             template:
                header:
-                  one:    "Zmeny na %{model} neboli uložené. Vyskytla sa 1 chyba"
-                  other:  "Zmeny na %{model} neboli uložené. Vyskytlo sa %{count} chýb"
-               body: "There were problems with the following fields:"
+                  one:    "Objekt %{model} nebol uložený. Vyskytla sa 1 chyba"
+                  other:  "Objekt %{model} nebol uložený. Vyskytlo sa %{count} chýb"
+               body: "Nasledujúce polia obsahujú chybne vyplnené údaje:"
 
             messages:
                taken: "ste už použili"
-               record_invalid: "Validácia neuspešná: %{errors}"
+               record_invalid: "Validácia neúspešná: %{errors}"
                <<: *errors_messages
 
             full_messages:
@@ -190,6 +191,6 @@
         errors:
             template:
                 header:
-                    one: "Pri ukladaní objektu %{model} došlo k chybám a nebolo možné objekt uložiť"
-                    other: "Pri ukladaní objektu %{model} došlo ku %{count} chybe/ám a nebolo možné objekt uložiť"
+                    one: "Pri ukladaní objektu %{model} došlo k chybám a nebolo ho možné uložiť"
+                    other: "Pri ukladaní objektu %{model} došlo k %{count} chybám a nebolo ho možné uložiť"
                 body: "Nasledujúce polia obsahujú chybne vyplnené údaje:"
