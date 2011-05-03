@@ -161,10 +161,20 @@ describe ApplicationHelper do
       end
     end
 
-    describe "hearts" do
+    describe "emoticons" do
       it "replaces &lt;3 with &hearts;" do
         message = "i <3 you"
         markdownify(message).should == "i &hearts; you"
+      end
+      
+      it "replaces various things with (their) HTML entities" do
+        message = ":) :-) :( :-( ... -> <-"
+        markdownify(message).should == "&#9786; &#9786; &#9785; &#9785; &hellip; &rarr; &larr;"
+      end
+      
+      it "skips doing it if you say so" do
+        message = ":) :-) :( :-( ... -> <-"
+        markdownify(message, :emoticons => false).should == ":) :-) :( :-( ... -&gt; &lt;-"
       end
     end
 
