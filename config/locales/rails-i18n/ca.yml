@@ -1,51 +1,51 @@
 # Catalan translations for Rails
 # by Emili Parreño (emili@eparreno.com - www.eparreno.com)
- 
+
 ca:
   number:
     # Used in number_with_delimiter()
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
       # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: "," 
+      separator: ","
       # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: "." 
+      delimiter: "."
       # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
       precision: 3
- 
+
     # Used in number_to_currency()
     currency:
       format:
         # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%n %u" 
-        unit: "€" 
+        format: "%n %u"
+        unit: "€"
         # These three are to override number.format and are optional
-        separator: "," 
-        delimiter: "." 
+        separator: ","
+        delimiter: "."
         precision: 2
- 
+
     # Used in number_to_percentage()
     percentage:
       format:
         # These three are to override number.format and are optional
-        # separator: 
-        delimiter: "" 
-        # precision: 
- 
+        # separator:
+        delimiter: ""
+        # precision:
+
     # Used in number_to_precision()
     precision:
       format:
         # These three are to override number.format and are optional
         # separator:
-        delimiter: "" 
+        delimiter: ""
         # precision:
- 
+
     # Used in number_to_human_size()
     human:
       format:
         # These three are to override number.format and are optional
-        # separator: 
-        delimiter: "" 
+        # separator:
+        delimiter: ""
         precision: 1
       storage_units:
         # Storage units output formatting.
@@ -59,57 +59,57 @@ ca:
           mb: "MB"
           gb: "GB"
           tb: "TB"
- 
+
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "mig minut" 
+      half_a_minute: "mig minut"
       less_than_x_seconds:
-        one:  "menys d'1 segon" 
+        one:  "menys d'1 segon"
         other: "menys de %{count} segons"
       x_seconds:
-        one:  "1 segon" 
-        other: "%{count} segons" 
+        one:  "1 segon"
+        other: "%{count} segons"
       less_than_x_minutes:
-        one:  "menys d'1 minut" 
-        other: "menys de %{count} minuts" 
+        one:  "menys d'1 minut"
+        other: "menys de %{count} minuts"
       x_minutes:
-        one:  "1 minut" 
-        other: "%{count} minuts" 
+        one:  "1 minut"
+        other: "%{count} minuts"
       about_x_hours:
-        one:  "aproximadament 1 hora" 
-        other: "aproximadament %{count} hores" 
+        one:  "aproximadament 1 hora"
+        other: "aproximadament %{count} hores"
       x_days:
-        one:  "1 dia" 
-        other: "%{count} dies" 
+        one:  "1 dia"
+        other: "%{count} dies"
       about_x_months:
-        one:  "aproximadament 1 mes" 
-        other: "aproximadament %{count} mesos" 
+        one:  "aproximadament 1 mes"
+        other: "aproximadament %{count} mesos"
       x_months:
-        one:  "1 mes" 
-        other: "%{count} mesos" 
+        one:  "1 mes"
+        other: "%{count} mesos"
       about_x_years:
-        one:  "aproximadament 1 any" 
-        other: "aproximadament %{count} anys" 
+        one:  "aproximadament 1 any"
+        other: "aproximadament %{count} anys"
       over_x_years:
-        one:  "més d'1 any" 
-        other: "més de %{count} anys" 
- 
+        one:  "més d'1 any"
+        other: "més de %{count} anys"
+
   activerecord:
     errors:
       template:
         header:
-          one:   "No s'ha pogut desar aquest/a %{model} perquè hi ha 1 error" 
-          other:  "No s'ha pogut desar aquest/a %{model} perquè hi ha hagut %{count} errors" 
+          one:   "No s'ha pogut desar aquest/a %{model} perquè hi ha 1 error"
+          other:  "No s'ha pogut desar aquest/a %{model} perquè hi ha hagut %{count} errors"
         # The variable :count is also available
-        body: "Hi ha hagut problemes amb els següents camps:" 
- 
+        body: "Hi ha hagut problemes amb els següents camps:"
+
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
       messages:
-        inclusion: "no està incluós a la llista" 
-        exclusion: "està reservat" 
-        invalid: "no és vàlid" 
+        inclusion: "no està incluós a la llista"
+        exclusion: "està reservat"
+        invalid: "no és vàlid"
         confirmation: "no coincideix"
         accepted: "ha de ser acceptat"
         empty: "no pot estar buit"
@@ -126,27 +126,27 @@ ca:
         less_than_or_equal_to: "ha de ser menor o igual a %{count}"
         odd: "ha de ser imparell"
         even: "ha de ser parell"
- 
+
         # Append your own errors here or at the model/attributes scope.
- 
+
       models:
         # Overrides default messages
- 
+
       attributes:
         # Overrides model and default messages.
- 
+
   date:
     formats:
       # Use the strftime parameters for formats.
       # When no format has been given, it uses default.
       # You can provide other formats here if you like!
-      default: "%Y-%m-%d" 
-      short: "%d de %b" 
-      long: "%d de %B de %Y" 
- 
+      default: "%Y-%m-%d"
+      short: "%d de %b"
+      long: "%d de %B de %Y"
+
     day_names: [diumenge, dilluns, dimarts, dimecres, dijous, divendres, dissabte]
     abbr_day_names: [dg, dl, dm, dc, dj, dv, ds]
- 
+
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [~, gener, febrer, març, abril, maig, juny, juliol, agost, setembre, octubre, novembre, desembre]
     abbr_month_names: [~, Gen, Feb, Mar, Abr, Mai, Jun, Jul, Ago, Set, Oct, Nov, Des]
@@ -155,15 +155,15 @@ ca:
       - :day
       - :month
       - :year
- 
+
   time:
     formats:
       default: "%A, %d de %B de %Y %H:%M:%S %z"
-      short: "%d de %b %H:%M" 
-      long: "%d de %B de %Y %H:%M" 
-    am: "am" 
-    pm: "pm" 
- 
+      short: "%d de %b %H:%M"
+      long: "%d de %B de %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
 # Used in array.to_sentence.
   support:
     array:

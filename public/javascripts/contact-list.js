@@ -47,7 +47,6 @@ $(document).ready(function() {
     $(this).fadeTo(200,0.4);
   });
 
-
   $('.added').live('ajax:failure', function(data, html, xhr) {
     if(confirm(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'))){
       var contact_id;
@@ -63,7 +62,6 @@ $(document).ready(function() {
     };
     $(this).fadeTo(200,1);
   });
-
 
   $('.added').live('mouseover', function() {
     $(this).addClass("remove");

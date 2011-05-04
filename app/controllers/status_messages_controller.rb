@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
+  helper :comments
   before_filter :authenticate_user!
 
   respond_to :html
@@ -25,7 +26,7 @@ class StatusMessagesController < ApplicationController
     end
   end
 
-  def bookmarklet 
+  def bookmarklet
     @aspects = current_user.aspects
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq
     @aspect_ids = @aspects.map{|x| x.id}

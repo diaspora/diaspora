@@ -2,6 +2,7 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
+
 describe("Diaspora", function() {
   describe("widgets", function() {
     describe("embedder", function() {
@@ -18,6 +19,9 @@ describe("Diaspora", function() {
         });
       });
       describe("render", function() {
+        beforeEach(function(){
+          Diaspora.widgets.embedder.registerServices();
+        });
         it("renders the specified mustache template", function() {
           var template = Diaspora.widgets.embedder.render("youtube.com", {"video-id": "asdf"});
           expect(template.length > 0).toBeTruthy();
@@ -31,7 +35,7 @@ describe("Diaspora", function() {
       describe("embed", function() {
         beforeEach(function() {
           $("#jasmine_content").html(
-              '<div class="stream">' +
+              '<div class="stream" id="main_stream">' +
                   '<a href="#video" class="video-link" data-host="youtube.com" data-video-id="asdf">' +
                   'spec video' +
                   '</a>' +
@@ -39,10 +43,11 @@ describe("Diaspora", function() {
               );
         });
 
-        it("delegates '.stream a.video-link'", function() {
-          spyOn($.fn, "delegate");
+        it("attackes onVideoLinkClicked to a.video-link'", function() {
+          spyOn(Diaspora.widgets.embedder, "onVideoLinkClicked");
           Diaspora.widgets.embedder.start();
-          expect($.fn.delegate).toHaveBeenCalledWith("a.video-link", "click", Diaspora.widgets.embedder.onVideoLinkClicked);
+          $("a.video-link:first").click();
+          expect(Diaspora.widgets.embedder.onVideoLinkClicked).toHaveBeenCalled();
         });
       });
 
@@ -52,7 +57,7 @@ describe("Diaspora", function() {
 
         var $post = $("#main_stream").children(".stream_element:first"),
           $contentParagraph = $post.children(".sm_body").children('.content').children("p");
-        
+
         expect($contentParagraph.length).toEqual(1);
       });
     });

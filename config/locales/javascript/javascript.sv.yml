@@ -6,6 +6,8 @@
 sv: 
   javascripts: 
     confirm_dialog: "Är du säker?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
     search_for: "Sök efter {{name}}"
@@ -31,3 +33,5 @@ sv:
     videos: 
       unknown: "Okänd videotyp"
       watch: "Se denhär videon på {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

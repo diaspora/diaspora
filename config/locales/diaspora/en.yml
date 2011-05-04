@@ -254,9 +254,9 @@ en:
     header:
       profile: "profile"
       settings: "settings"
-      logout: "logout"
+      logout: "log out"
       blog: "blog"
-      login: "login"
+      login: "log in"
       code: "code"
     application:
       powered_by: "POWERED BY DIASPORA*"
@@ -287,10 +287,10 @@ en:
     private_message: "sent you a message."
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
-    mentioned: "has mentioned you in a post"
-    post: "post"
+    mentioned: "has mentioned you in a "
+    post: "post."
     deleted: "deleted"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "commented on a deleted post."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
@@ -365,7 +365,7 @@ en:
       not_connected: "You are not sharing with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
-      similar_contacts: "similar contacts"
+      see_all: "See all"
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
@@ -553,7 +553,7 @@ en:
     reshare:
       reshare: "Reshare"
     public_explain:
-      title: "You are about to post a public message!"
+      title: "Set up connected services"
       outside: "Public messages will be available for others outside of Diaspora to see."
       logged_in: "logged in to %{service}"
       manage: "manage connected services"

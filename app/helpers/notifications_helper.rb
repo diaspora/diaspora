@@ -31,9 +31,6 @@ module NotificationsHelper
     t("notifications.#{target_type}", :post_author => post_author)
   end
 
-  def new_notification_text(count)
-      t('notifications.helper.new_notifications', :count => count)
-  end
 
   def new_notification_link(count)
     if count > 0
@@ -55,5 +52,13 @@ module NotificationsHelper
 
   def peoples_names(note)
     note.actors.map{|p| p.name}.join(", ")
+  end
+
+  def the_day(i18n)
+    i18n[0].match(/\d/) ? i18n[0].gsub('.', '') : i18n[1].gsub('.', '')
+  end
+
+  def the_month(i18n)
+    i18n[0].match(/\d/) ? i18n[1] : i18n[0]
   end
 end

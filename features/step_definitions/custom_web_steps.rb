@@ -188,3 +188,13 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
     end
   end
 end
+
+Then /^I should see (\d+) posts$/ do |n_posts|
+  evaluate_script("$('#main_stream .stream_element').length").should == n_posts.to_i
+end
+
+And /^I scroll down$/ do
+  evaluate_script("window.scrollBy(0,3000000)")
+  sleep 1
+  wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
+end

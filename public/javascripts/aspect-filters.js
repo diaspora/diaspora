@@ -3,98 +3,105 @@
  *   the COPYRIGHT file.
  */
 
-$(document).ready(function(){
-  var selectedGUIDS = [],
-      requests = 0;
+var AspectFilters = {
+  selectedGUIDS: [],
+  requests: 0,
+  initialize: function(){
+    AspectFilters.initializeSelectedGUIDS();
+    AspectFilters.interceptAspectLinks();
+    AspectFilters.interceptAspectNavLinks();
 
-  $("#aspect_nav li").each(function(){
-    var button = $(this),
-        guid = button.attr('data-guid');
-
-    if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
-      button.addClass('selected');
-      selectedGUIDS.push(guid);
+    if($("a.home_selector").parent().hasClass("selected")){
+      AspectFilters.performAspectUpdate();
     }
-  });
+  },
+  initializeSelectedGUIDS: function(){
+    $("#aspect_nav li").each(function(){
+      var button = $(this),
+          guid = button.attr('data-guid');
 
-
-  $("a.hard_aspect_link").live("click", function(e){
+      if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
+        button.addClass('selected');
+        AspectFilters.selectedGUIDS.push(guid);
+      }
+    });
+  },
+  interceptAspectLinks: function(){
+    $("a.hard_aspect_link").live("click", AspectFilters.aspectLinkClicked);
+  },
+  aspectLinkClicked: function(e){
     var link = $(this);
+    e.preventDefault();
     if( !link.hasClass('aspect_selector') ){
-      e.preventDefault();
-      requests++;
-
-      var guid = $(this).attr('data-guid');
-
-      // select correct aspect in filter list & deselect others
-      $("#aspect_nav li").each(function(){
-        var $this = $(this);
-        if( $this.attr('data-guid') == guid){
-          $this.addClass('selected');
-        } else {
-          $this.removeClass('selected');
-        }
-      });
-
-      // loading animation
-      $("#aspect_stream_container").fadeTo(200, 0.4);
-      $("#aspect_contact_pictures").fadeTo(200, 0.4);
-
-      performAjax( $(this).attr('href'));
+      AspectFilters.switchToAspect(link);
     }
+
+    // remove focus
+    this.blur();
 
     $('html, body').animate({scrollTop:0}, 'fast');
-  });
+  },
+  switchToAspect: function(aspectLi){
+    AspectFilters.requests++;
 
-  $("#aspect_nav a.aspect_selector").click(function(e){
-    e.preventDefault();
+    var guid = aspectLi.attr('data-guid');
 
-    requests++;
+    // select correct aspect in filter list & deselect others
+    $("#aspect_nav li").removeClass('selected');
+    aspectLi.addClass('selected');
 
-    // loading animation
-    $("#aspect_stream_container").fadeTo(100, 0.4);
-    $("#aspect_contact_pictures").fadeTo(100, 0.4);
+    AspectFilters.fadeOut();
 
-    // filtering //////////////////////
-    var $this = $(this),
-        listElement = $this.parent(),
-        guid = listElement.attr('data-guid'),
-        homeListElement = $("#aspect_nav a.home_selector").parent();
+    AspectFilters.performAjax( aspectLi.attr('href'));
+  },
+  interceptAspectNavLinks: function(){
+    $("#aspect_nav a.aspect_selector").click(function(e){
+      e.preventDefault();
 
-    if( listElement.hasClass('selected') ){
-      // remove filter
-      var idx = selectedGUIDS.indexOf( guid );
-      if( idx != -1 ){
-        selectedGUIDS.splice(idx,1);
+      AspectFilters.requests++;
+
+      // loading animation
+      AspectFilters.fadeOut();
+
+      // filtering //////////////////////
+      var $this = $(this),
+          listElement = $this.parent(),
+          guid = listElement.attr('data-guid'),
+          homeListElement = $("#aspect_nav a.home_selector").parent();
+
+      if( listElement.hasClass('selected') ){
+        // remove filter
+        var idx = AspectFilters.selectedGUIDS.indexOf( guid );
+        if( idx != -1 ){
+          AspectFilters.selectedGUIDS.splice(idx,1);
+        }
+        listElement.removeClass('selected');
+
+        if(AspectFilters.selectedGUIDS.length === 0){
+          homeListElement.addClass('selected');
+        }
+
+      } else {
+        // append filter
+        if(AspectFilters.selectedGUIDS.indexOf( guid == 1)){
+          AspectFilters.selectedGUIDS.push( guid );
+        }
+        listElement.addClass('selected');
+
+        homeListElement.removeClass('selected');
       }
-      listElement.removeClass('selected');
 
-      if(selectedGUIDS.length == 0){
-        homeListElement.addClass('selected');
-      }
-
-    } else {
-      // append filter
-      if(selectedGUIDS.indexOf( guid == 1)){
-        selectedGUIDS.push( guid );
-      }
-      listElement.addClass('selected');
-
-      homeListElement.removeClass('selected');
-    }
-
-     performAjax(generateURL());
-  });
-
-
-  function generateURL(){
+       AspectFilters.performAjax(AspectFilters.generateURL());
+    });
+  },
+  generateURL: function(){
     var baseURL = location.href.split("?")[0];
 
     // generate new url
     baseURL = baseURL.replace('#','');
     baseURL += '?';
-    for(i=0; i < selectedGUIDS.length; i++){
-      baseURL += 'a_ids[]='+ selectedGUIDS[i] +'&';
+    for(i=0; i < AspectFilters.selectedGUIDS.length; i++){
+      baseURL += 'a_ids[]='+ AspectFilters.selectedGUIDS[i] +'&';
     }
 
     if(!$("#publisher").hasClass("closed")) {
@@ -105,45 +112,35 @@ $(document).ready(function(){
       baseURL = baseURL.slice(0,baseURL.length-1);
     }
     return baseURL;
-  }
-
-  function performAspectUpdate(){
-      // update the open aspects in the user
-      updateURL = "/user";
-      updateURL += '?';
-      if(selectedGUIDS.length == 0){
-        updateURL += 'user[a_ids][]=home';
-      } else {
-        for(i=0; i < selectedGUIDS.length; i++){
-          updateURL += 'user[a_ids][]='+ selectedGUIDS[i] +'&';
-        }
+  },
+  performAspectUpdate: function(){
+    // update the open aspects in the user
+    updateURL = "/user";
+    updateURL += '?';
+    if(AspectFilters.selectedGUIDS.length === 0){
+      updateURL += 'user[a_ids][]=home';
+    } else {
+      for(i=0; i < AspectFilters.selectedGUIDS.length; i++){
+        updateURL += 'user[a_ids][]='+ AspectFilters.selectedGUIDS[i] +'&';
       }
+    }
 
-      $.ajax({
-        url : updateURL,
-        type: "PUT",
-        });
-
-  }
-
-  if($("a.home_selector").parent().hasClass("selected")){
-    performAspectUpdate();
-  }
-
-  function performAjax(newURL) {
+    $.ajax({
+      url : updateURL,
+      type: "PUT"
+      });
+  },
+  performAjax: function(newURL) {
     var post = $("#publisher textarea").val(),
         photos = {};
-
 
     //pass photos
     $('#photodropzone img').each(function(){
       var img = $(this);
-      guid = img.attr('data-id');
-      url = img.attr('src');
+      var guid = img.attr('data-id');
+      var url = img.attr('src');
       photos[guid] = url;
     });
-
-
 
     // set url
     // some browsers (Firefox for example) don't support pushState
@@ -155,14 +152,14 @@ $(document).ready(function(){
       url : newURL,
       dataType : 'script',
       success  : function(data){
-        requests--;
+        AspectFilters.requests--;
         // fill in publisher
         // (not cached because this element changes)
 
         var textarea = $("#publisher textarea");
-        var photozone = $('#photodropzone')
+        var photozone = $('#photodropzone');
 
-        if( post != "" ) {
+        if( post !== "" ) {
           textarea.val(post);
           textarea.focus();
         }
@@ -171,24 +168,29 @@ $(document).ready(function(){
         for(var key in photos){
           $("#publisher textarea").addClass("with_attachments");
           photos_html = photos_html + "<li style='position:relative;'> " + ("<img src='" + photos[key] +"' data-id='" + key + "'>") +  "</li>";
-        };
+        }
 
         // reinit listeners on stream
         photozone.html(photos_html);
-        Stream.initialize();
-        InfiniteScroll.initialize();
-
-        Publisher.initialize();
+        Diaspora.widgets.publish("stream/reloaded");
 
         // fade contents back in
-        if(requests == 0){
-          $("#aspect_stream_container").fadeTo(100, 1);
-          $("#aspect_contact_pictures").fadeTo(100, 1);
-          performAspectUpdate();
+        if(AspectFilters.requests === 0){
+          AspectFilters.fadeIn();
+          AspectFilters.performAspectUpdate();
         }
       }
     });
-
+  },
+  fadeIn: function(){
+    $("#aspect_stream_container").fadeTo(100, 1);
+    $("#aspect_contact_pictures").fadeTo(100, 1);
+  },
+  fadeOut: function(){
+    $("#aspect_stream_container").fadeTo(100, 0.4);
+    $("#aspect_contact_pictures").fadeTo(100, 0.4);
   }
-
+}
+$(document).ready(function(){
+  AspectFilters.initialize();
 });

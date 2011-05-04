@@ -1,7 +1,7 @@
 class ApisController < ApplicationController #We should start with this versioned, V0ApisController  BEES
   before_filter :authenticate_user!, :only => [:home_timeline]
   respond_to :json
-  
+
   #posts
   def public_timeline
     set_defaults
@@ -30,9 +30,9 @@ class ApisController < ApplicationController #We should start with this versione
 
   def home_timeline
     set_defaults
-    timeline = current_user.raw_visible_posts.includes(:comments, :photos, :likes, :dislikes).paginate(
-             :page => params[:page], :per_page => params[:per_page], :order => "#{params[:order]} DESC")
-
+    timeline = current_user.visible_posts(:max_time => params[:max_time],
+                                          :limit => params[:per_page],
+                                          :order => "#{params[:order]} DESC").includes(:comments, :photos, :likes, :dislikes)
     respond_with timeline do |format|
       format.json{ render :json => timeline.to_json(:format => :twitter) }
     end
@@ -45,7 +45,7 @@ class ApisController < ApplicationController #We should start with this versione
         format.json{ render :json => status.to_json(:format => :twitter) }
       end
     else
-      render(:nothing => true, :status => 404) 
+      render(:nothing => true, :status => 404)
     end
   end
 
@@ -62,7 +62,7 @@ class ApisController < ApplicationController #We should start with this versione
         format.json{ render :json => person.to_json(:format => :twitter) }
       end
     else
-      render(:nothing => true, :status => 404) 
+      render(:nothing => true, :status => 404)
     end
   end
 
@@ -78,7 +78,7 @@ class ApisController < ApplicationController #We should start with this versione
         format.json{ render :json => people.to_json(:format => :twitter) }
       end
     else
-      render(:nothing => true, :status => 404) 
+      render(:nothing => true, :status => 404)
     end
   end
 

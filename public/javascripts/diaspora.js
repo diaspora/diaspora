@@ -3,33 +3,53 @@
 *   the COPYRIGHT file.
 */
 
-var Diaspora = Diaspora || {};
+(function() {
+  if(typeof window.Diaspora !== "undefined") {
+    return;
+  }
 
-Diaspora.widgetCollection = function() {
-  this.initialized = false;
-  this.collection = {};
-};
+  var Diaspora = { };
 
-Diaspora.widgetCollection.prototype.add = function(widgetId, widget) {
+  Diaspora.WidgetCollection = function() {
+    this.initialized = false;
+    this.collection = { };
+    this.eventsContainer = $({});
+  };
+
+  Diaspora.WidgetCollection.prototype.add = function(widgetId, widget) {
     this[widgetId] = this.collection[widgetId] = new widget();
     if(this.initialized) {
       this.collection[widgetId].start();
     }
   };
 
-Diaspora.widgetCollection.prototype.remove = function(widgetId) {
+  Diaspora.WidgetCollection.prototype.remove = function(widgetId) {
     delete this.collection[widgetId];
-};
+  };
 
-Diaspora.widgetCollection.prototype.init = function() {
-  this.initialized = true;
-  for(var widgetId in this.collection) {
-    this.collection[widgetId].start();
-  }
-}
+  Diaspora.WidgetCollection.prototype.init = function() {
+    this.initialized = true;
 
-Diaspora.widgets = Diaspora.widgets || new Diaspora.widgetCollection();
+    for(var widgetId in this.collection) {
+      if(typeof this.collection[widgetId].start !== "undefined") {
+        this.collection[widgetId].start();
+      }
+    }
+  };
 
-$(document).ready(function() {
-  Diaspora.widgets.init();
-});
+  Diaspora.WidgetCollection.prototype.subscribe = function(id, callback, context) {
+    this.eventsContainer.bind(id, $.proxy(callback, context));
+  };
+
+  Diaspora.WidgetCollection.prototype.publish = function(id) {
+    this.eventsContainer.trigger(id);
+  };
+
+  Diaspora.widgets = new Diaspora.WidgetCollection();
+
+  window.Diaspora = Diaspora;
+})();
+
+
+$(document).ready(function() { Diaspora.widgets.init(); });
+

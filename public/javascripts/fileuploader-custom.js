@@ -28,12 +28,12 @@ qq.extend = function(first, second){
  * @param {Number} [from] The index at which to begin the search
  */
 qq.indexOf = function(arr, elt, from){
-    if (arr.indexOf) return arr.indexOf(elt, from);
+    if (arr.indexOf) { return arr.indexOf(elt, from); }
 
     from = from || 0;
     var len = arr.length;
 
-    if (from < 0) from += len;
+    if (from < 0) { from += len; }
 
     for (; from < len; from++){
         if (from in arr && arr[from] === elt){
@@ -89,7 +89,7 @@ qq.remove = function(element){
 
 qq.contains = function(parent, descendant){
     // compareposition returns false in this case
-    if (parent == descendant) return true;
+    if (parent == descendant) { return true; }
 
     if (parent.contains){
         return parent.contains(descendant);
@@ -120,7 +120,7 @@ qq.toElement = (function(){
  * Fixes opacity in IE6-8.
  */
 qq.css = function(element, styles){
-    if (styles.opacity != null){
+    if (styles.opacity !== null){
         if (typeof element.style.opacity != 'string' && typeof(element.filters) != 'undefined'){
             styles.filter = 'alpha(opacity=' + Math.round(100 * styles.opacity) + ')';
         }

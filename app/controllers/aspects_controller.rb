@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 class AspectsController < ApplicationController
+  helper :comments
   before_filter :authenticate_user!
   before_filter :save_sort_order, :only => :index
   before_filter :ensure_page, :only => :index
@@ -30,10 +31,10 @@ class AspectsController < ApplicationController
     @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq unless params[:only_posts]
 
     @aspect_ids = @aspects.map { |a| a.id }
-    posts = current_user.raw_visible_posts(:by_members_of => @aspect_ids,
+    posts = current_user.visible_posts(:by_members_of => @aspect_ids,
                                            :type => 'StatusMessage',
                                            :order => session[:sort_order] + ' DESC',
-                                           :page => params[:page]
+                                           :max_time => params[:max_time].to_i
                           ).includes(:comments, :mentions, :likes, :dislikes)
 
     @posts = PostsFake.new(posts)
@@ -148,6 +149,10 @@ class AspectsController < ApplicationController
       @aspect.contacts_visible = true
     end
     @aspect.save
+  end
+
+  def ensure_page
+    params[:max_time] ||= Time.now + 1
   end
 
   protected

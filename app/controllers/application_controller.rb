@@ -3,6 +3,8 @@
 #   the COPYRIGHT file.
 
 class ApplicationController < ActionController::Base
+  clear_helpers
+  helper :layout, :error_messages
   has_mobile_fu
   protect_from_forgery :except => :receive
 

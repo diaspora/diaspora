@@ -1,18 +1,37 @@
-ja:
-  javascripts:
-    timeago:
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ja: 
+  javascripts: 
+    confirm_dialog: "本当にいいですか。"
+    infinite_scroll: 
+      no_more: "投稿は以上です。"
+    publisher: 
+      at_least_one_aspect: "少なくても一つのアスペクトへ投稿しなければなりません"
+    search_for: "{{name}}を検索する"
+    shared: 
+      contact_list: 
+        cannot_remove: "残り最後のアスペクトから人を除外することができません。（人とのつながりを解除したい場合は連絡先を削除してください。）"
+    timeago: 
+      day: "1日"
+      days: "%d日"
+      hour: "大体1時間"
+      hours: "大体%d時間"
+      minute: "約1分"
+      minutes: "%d分"
+      month: "大体1ヶ月"
+      months: "%dヶ月"
       prefixAgo: ""
       prefixFromNow: "今から"
+      seconds: "1分未満"
       suffixAgo: "前"
       suffixFromNow: "後"
-      seconds: "ほんの数秒"
-      minute: "約一分"
-      minutes: "%d 分"
-      hour: "大体一時間"
-      hours: "大体 %d 時間位"
-      day: "一日"
-      days: "%d 日ほど"
-      month: "大体一ヶ月"
-      months: "%d ヶ月ほど"
-      year: "丁度一年（虎舞流ｗ）"
-      years: "%d 年"
+      year: "大体1年"
+      years: "%d年"
+    videos: 
+      unknown: "動画の種類が不明です"
+      watch: "{{provider}}で動画を視聴する"
+    web_sockets: 
+      disconnected: "接続が解除されました。投稿のリアルタイム更新を中断します。"

@@ -16,7 +16,7 @@ uk:
       precision: 3
       significant: false
       strip_insignificant_zeros: false
-      
+
     # Used in number_to_currency()
     currency:
       format:
@@ -29,15 +29,15 @@ uk:
         precision: 2
         significant: false
         strip_insignificant_zeros: false
-        
+
     # Used in number_to_percentage()
     percentage:
       format:
         # These three are to override number.format and are optional
-        # separator: 
+        # separator:
         delimiter: ""
-        # precision: 
-        
+        # precision:
+
     # Used in number_to_precision()
     precision:
       format:
@@ -45,17 +45,17 @@ uk:
         # separator:
         delimiter: ""
         # precision:
-        
+
     # Used in number_to_human_size()
     human:
       format:
         # These three are to override number.format and are optional
-        # separator: 
+        # separator:
         delimiter: ""
         precision: 1
         significant: false
         strip_insignificant_zeros: false
-        
+
       storage_units:
         # Storage units output formatting.
         # %u is the storage unit, %n is the number (default: 2 MB)
@@ -79,8 +79,8 @@ uk:
             one: "Тисяча"
             few: "Тисяч"
             many: "Тисяч"
-            other: "Тисяч"              
-          million: 
+            other: "Тисяч"
+          million:
             one: "Мільйон"
             few: "Мільйонів"
             many: "Мільйонів"
@@ -112,7 +112,7 @@ uk:
         other: "менше %{count} секунди"
       x_seconds:
         one:   "%{count} секунда"
-        few:   "%{count} секунди" 
+        few:   "%{count} секунди"
         many:  "%{count} секунд"
         other: "%{count} секунди"
       less_than_x_minutes:
@@ -160,7 +160,7 @@ uk:
         few:   "майже %{count} років"
         many:  "майже %{count} років"
         other: "майже %{count} років"
-        
+
     prompts:
       year:   "Рік"
       month:  "Місяць"
@@ -168,7 +168,7 @@ uk:
       hour:   "Година"
       minute: "Хвилина"
       second: "Секунда"
-  
+
   helpers:
     select:
       # Default value for :prompt => true in FormOptionsHelper
@@ -180,7 +180,7 @@ uk:
       update: 'Зберегти %{model}'
       submit: 'Зберегти %{model}'
 
-      
+
   errors:
     format: "%{attribute} %{message}"
     # The values :model, :attribute and :value are always available for interpolation
@@ -193,7 +193,7 @@ uk:
       accepted: "має бути прийнятий"
       empty: "не може бути порожнім"
       blank: "не може бути пустим"
-      too_long: 
+      too_long:
         one:    "занадто довгий (максимум %{count} знак)"
         few:    "занадто довгий (максимум %{count} знаки)"
         many:   "занадто довгий (максимум %{count} знаків)"
@@ -243,7 +243,7 @@ uk:
         accepted: "має бути прийнятий"
         empty: "не може бути порожнім"
         blank: "не може бути пустим"
-        too_long: 
+        too_long:
           one:    "занадто довгий (максимум %{count} знак)"
           few:    "занадто довгий (максимум %{count} знаки)"
           many:   "занадто довгий (максимум %{count} знаків)"
@@ -268,7 +268,7 @@ uk:
         odd: "має бути непарним"
         even: "має бути парним"
         record_invalid: "Виникли помилки: %{errors}"
-      
+
   date:
     formats:
       # Use the strftime parameters for formats.
@@ -277,10 +277,10 @@ uk:
       default: "%d.%m.%Y"
       short: "%d %b"
       long: "%d %B %Y"
-      
+
     day_names: [неділя, понеділок, вівторок, середа, четвер, "п'ятниця", субота]
     abbr_day_names: [нд., пн., вт., ср., чт., пт., сб.]
-      
+
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
     month_names: [~, Січень, Лютий, Березень, Квітень, Травень, Червень, Липень, Серпень, Вересень, Жовтень, Листопад, Грудень]
     abbr_month_names: [~, січ., лют., бер., квіт., трав., черв., лип., серп., вер., жовт., лист., груд.]
@@ -297,7 +297,7 @@ uk:
       long: "%d %B %Y, %H:%M"
     am: "до полудня"
     pm: "по полудні"
-      
+
   # Used in array.to_sentence.
   support:
     select:
@@ -308,4 +308,4 @@ uk:
       words_connector: ", "
       two_words_connector: " і "
       last_word_connector: " та "
-      
+

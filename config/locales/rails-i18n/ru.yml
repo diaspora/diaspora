@@ -2,11 +2,11 @@
 # by Yaroslav Markin <yaroslav@markin.net>
 #
 # Be sure to check out "russian" gem (http://github.com/yaroslav/russian) for
-# full Russian language support in Rails (month names, pluralization, etc). 
+# full Russian language support in Rails (month names, pluralization, etc).
 # The following is an excerpt from that gem.
 #
-# Для полноценной поддержки русского языка (варианты названий месяцев, 
-# плюрализация и так далее) в Rails 2.2 нужно использовать gem "russian" 
+# Для полноценной поддержки русского языка (варианты названий месяцев,
+# плюрализация и так далее) в Rails 2.2 нужно использовать gem "russian"
 # (http://github.com/yaroslav/russian). Следующие данные -- выдержка их него, чтобы
 # была возможность минимальной локализации приложения на русский язык.
 
@@ -48,7 +48,7 @@ ru:
       precision: 3
       significant: false
       strip_insignificant_zeros: false
-      
+
     currency:
       format:
         format: "%n %u"
@@ -58,22 +58,22 @@ ru:
         precision: 2
         significant: false
         strip_insignificant_zeros: false
-        
+
     percentage:
       format:
         delimiter: ""
-        
+
     precision:
       format:
         delimiter: ""
-        
+
     human:
       format:
         delimiter: ""
         precision: 1
         significant: false
         strip_insignificant_zeros: false
-        
+
       # Rails 2.2
       # storage_units: [байт, КБ, МБ, ГБ, ТБ]
 
@@ -92,7 +92,7 @@ ru:
           mb: "МБ"
           gb: "ГБ"
           tb: "ТБ"
-      
+
       # Rails 3
       decimal_units:
         format: "%n %u"
@@ -102,8 +102,8 @@ ru:
             one: "Тысяча"
             few: "Тысяч"
             many: "Тысяч"
-            other: "Тысяч"              
-          million: 
+            other: "Тысяч"
+          million:
             one: "Миллион"
             few: "Миллионов"
             many: "Миллионов"
@@ -283,10 +283,10 @@ ru:
         odd: "может иметь лишь четное значение"
         even: "может иметь лишь нечетное значение"
         record_invalid: "Возникли ошибки: %{errors}"
-        
+
       full_messages:
         format: "%{attribute} %{message}"
-        
+
 
   support:
     select:
@@ -296,7 +296,7 @@ ru:
       # Rails 2.2
       sentence_connector: "и"
       skip_last_comma: true
-      
+
       # Rails 2.3
       words_connector: ", "
       two_words_connector: " и "

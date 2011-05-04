@@ -34,8 +34,8 @@ time_interval = 1000
 (1..25).each do |n|
   [alice, bob, eve].each do |u|
     post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
-    post.created_at = post.created_at + time_interval
-    post.updated_at = post.updated_at + time_interval
+    post.created_at = post.created_at - time_interval
+    post.updated_at = post.updated_at - time_interval
     post.save
     time_interval += 1000
   end

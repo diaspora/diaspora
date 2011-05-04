@@ -7,9 +7,9 @@ bn-IN:
     # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
     format:
       # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
-      separator: "." 
+      separator: "."
       # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
-      delimiter: "," 
+      delimiter: ","
       # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
       precision: 2
 
@@ -17,35 +17,35 @@ bn-IN:
     currency:
       format:
         # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
-        format: "%u %n" 
-        unit: "Rs." 
+        format: "%u %n"
+        unit: "Rs."
         # These three are to override number.format and are optional
-        separator: "." 
-        delimiter: "," 
+        separator: "."
+        delimiter: ","
         precision: 2
 
     # Used in number_to_percentage()
     percentage:
       format:
         # These three are to override number.format and are optional
-        # separator: 
-        delimiter: "" 
-        # precision: 
+        # separator:
+        delimiter: ""
+        # precision:
 
     # Used in number_to_precision()
     precision:
       format:
         # These three are to override number.format and are optional
         # separator:
-        delimiter: "" 
+        delimiter: ""
         # precision:
 
     # Used in number_to_human_size()
     human:
       format:
         # These three are to override number.format and are optional
-        # separator: 
-        delimiter: "" 
+        # separator:
+        delimiter: ""
         precision: 1
       # Rails <= v2.2.2
       # storage_units: [Bytes, KB, MB, GB, TB]
@@ -64,36 +64,36 @@ bn-IN:
   # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
   datetime:
     distance_in_words:
-      half_a_minute: "অার্ধেক মিনিট" 
+      half_a_minute: "অার্ধেক মিনিট"
       less_than_x_seconds:
-        one:  "১ সেকেন্ডর কম " 
+        one:  "১ সেকেন্ডর কম "
         other: "%{count} সেকেন্ডের কম"
       x_seconds:
-        one:  "১ সেকেন্ড" 
-        other: "%{count} সেকেন্ড" 
+        one:  "১ সেকেন্ড"
+        other: "%{count} সেকেন্ড"
       less_than_x_minutes:
-        one:  "১ মিনিটের কম" 
-        other: "%{count} মিনিটের কম" 
+        one:  "১ মিনিটের কম"
+        other: "%{count} মিনিটের কম"
       x_minutes:
-        one:  "১ মিনিট" 
-        other: "%{count} মিনিট" 
+        one:  "১ মিনিট"
+        other: "%{count} মিনিট"
       about_x_hours:
-        one:  "প্রায় ১ ঘন্টা" 
-        other: "প্রায় %{count} ঘন্টা" 
+        one:  "প্রায় ১ ঘন্টা"
+        other: "প্রায় %{count} ঘন্টা"
       x_days:
-        one:  "১ দিন" 
-        other: "%{count} দিন" 
+        one:  "১ দিন"
+        other: "%{count} দিন"
       about_x_months:
-        one:  "প্রায় ১ মাস" 
-        other: "প্রায় %{count} মাস" 
+        one:  "প্রায় ১ মাস"
+        other: "প্রায় %{count} মাস"
       x_months:
-        one:  "১ মাস" 
-        other: "%{count} মাস" 
+        one:  "১ মাস"
+        other: "%{count} মাস"
       about_x_years:
-        one:  "প্রায় ১ বছর" 
-        other: "প্রায় %{count} বছর" 
+        one:  "প্রায় ১ বছর"
+        other: "প্রায় %{count} বছর"
       over_x_years:
-        one:  "১ বছরের বেশি" 
+        one:  "১ বছরের বেশি"
         other: "%{count} বছরের বেশি"
     prompts:
       year:   "বছর"
@@ -101,23 +101,23 @@ bn-IN:
       day:    "দিন"
       hour:   "ঘন্টা"
       minute: "মিনিট"
-      second: "সেকেন্ড" 
+      second: "সেকেন্ড"
 
   activerecord:
     errors:
       template:
         header:
-          one:   "১ টি ত্রুটির কারনে %{model} সংরক্ষন করা সম্ভব হয়নি" 
-          other:  "%{count} টি ত্রুটির কারনে %{model} সংরক্ষন করা সম্ভব হয়নি" 
+          one:   "১ টি ত্রুটির কারনে %{model} সংরক্ষন করা সম্ভব হয়নি"
+          other:  "%{count} টি ত্রুটির কারনে %{model} সংরক্ষন করা সম্ভব হয়নি"
         # The variable :count is also available
-        body: "এই ফিল্ডগুলোতে কিছু সমস্যা দেখা দিয়েছে:" 
+        body: "এই ফিল্ডগুলোতে কিছু সমস্যা দেখা দিয়েছে:"
 
       # The values :model, :attribute and :value are always available for interpolation
       # The value :count is available when applicable. Can be used for pluralization.
       messages:
-        inclusion: "লিস্টে অন্তর্ভুক্ত নয়" 
-        exclusion: "রিসার্ভ করা অাছে" 
-        invalid: "সঠিক নয়" 
+        inclusion: "লিস্টে অন্তর্ভুক্ত নয়"
+        exclusion: "রিসার্ভ করা অাছে"
+        invalid: "সঠিক নয়"
         confirmation: "অনুমোদনের সঙ্গে মিলছে না"
         accepted: "গ্রাহ্য করতে হবে"
         empty: "খালি রাখা যাবে না"
@@ -149,8 +149,8 @@ bn-IN:
       # When no format has been given, it uses default.
       # You can provide other formats here if you like!
       default: "%e/%m/%Y"
-      short: "%e de %b" 
-      long: "%e de %B de %Y" 
+      short: "%e de %b"
+      long: "%e de %B de %Y"
 
     day_names: [রবিবার, সোমবার, মঙ্গলবার, বুধবার, বৃহস্পতিবার, শুক্রবার, শনিবার]
     abbr_day_names: [রবিবার, সোমবার, মঙ্গলবার, বুধবার, বৃহস্পতিবার, শুক্রবার, শনিবার]
@@ -167,10 +167,10 @@ bn-IN:
   time:
     formats:
       default: "%A, %e de %B de %Y %H:%M:%S %z"
-      short: "%e de %b %H:%M" 
-      long: "%e de %B de %Y %H:%M" 
-    am: "am" 
-    pm: "pm" 
+      short: "%e de %b %H:%M"
+      long: "%e de %B de %Y %H:%M"
+    am: "am"
+    pm: "pm"
 
 # Used in array.to_sentence.
   support:

@@ -236,7 +236,10 @@ header
       :display block
 
 .unread
-  :background-color #eee
+  :font-weight bold
+  :color #333 !important
+  time
+    :color #333 !important
 
 .diaspora_header_logo
   :position relative
@@ -267,8 +270,6 @@ header
       :font
         :weight normal
         :size smaller
-      :position absolute
-      :right 20px
 
 .from
   a
@@ -779,7 +780,7 @@ textarea
   :height auto
 
 input[type='checkbox']
-  :width auto
+  :width auto !important
 
 input[type='hidden']
   :display none
@@ -1606,35 +1607,38 @@ ul.aspects
 h3 span.current_gs_step
   :color #22C910
 
-#notification
-  @include border-radius(5px)
-  @include box-shadow(0,2px,3px,#333)
-
+#notifications
   :z-index 10
-  :display none
   :position fixed
   :bottom 21px
   :right 12px
 
-  :background
-    :color rgb(30,30,30)
-    :color rgba(30,30,30,0.9)
+  .notification
+    @include border-radius(5px)
+    @include box-shadow(0,2px,3px,#333)
 
-  :min-width 200px
-  :padding 12px
-  :color #fff
-
-  :vertical
-    :align middle
-
-  .avatar
-    :display inline-block
-    :height 20px
-    :width 20px
     :margin
-      :right 5px
+      :bottom 10px
+
+    :background
+      :color rgb(30,30,30)
+      :color rgba(30,30,30,0.9)
+
+    :min-width 200px
+    :padding 12px
+    :color #fff
+
     :vertical
       :align middle
+
+    .avatar
+      :display inline-block
+      :height 20px
+      :width 20px
+      :margin
+        :right 5px
+      :vertical
+        :align middle
 
 .bottom_notification
   :position fixed
@@ -1774,6 +1778,12 @@ ul#request_result
       :bottom 25px
     input.add
       :color green
+  .stream_element
+    .content
+      :display inline
+      :position relative
+      :bottom 2.5em
+      :padding 0
 
 .contact_list,
 .aspect_list
@@ -2252,6 +2262,14 @@ h3,h4
     :padding 0.2em 0.5em
     :width 500px
 
+.day_group
+  :min-height 100px
+  :margin
+    :bottom 10px
+  .stream_element
+    &:last-child
+      :border none
+
 .stream.notifications
   > li:hover
     :background none
@@ -2363,6 +2381,8 @@ div.dislikes
 #facebox
   .close
     :display none
+  .diaspora_alert~.close
+    :display block
 
 #aspect_edit_controls
   :margin
@@ -2814,3 +2834,48 @@ h1.tag
       :width 12px
       :height 12px
       :margin-left 0.5em
+
+#contacts_of_contact 
+  .section
+    :margin
+      :bottom 4px
+  .see_all
+    :text-align center
+
+.date
+  :background
+    :color #e6e6e6
+  :border-radius 8px
+  :padding 5px
+  :color #999
+
+  :text-align center
+  .day
+    :font-size 50px
+    :font-weight 200
+    :margin-bottom -15px
+    :margin-top -10px
+
+  .month
+    :font-size 14px
+
+.notification_count
+  :background
+    :color #f0f0f0
+  :color #999
+  :font
+    :weight normal
+
+  :padding 0 5px
+    :left 11px
+  :margin
+    :right 5px
+  :border
+    :radius 5px
+
+  &.unread
+    :background
+      :color lighten(#A40802, 5%)
+    :color #eee !important
+    :font
+      :weight bold

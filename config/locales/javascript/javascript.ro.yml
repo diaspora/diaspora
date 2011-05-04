@@ -6,6 +6,8 @@
 ro: 
   javascripts: 
     confirm_dialog: "Eşti sigur?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Search for {{name}}"
@@ -31,3 +33,5 @@ ro:
     videos: 
       unknown: "Format de video necunoscut"
       watch: "Vizualizează acest video pe {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

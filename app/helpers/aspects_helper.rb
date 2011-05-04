@@ -1,17 +1,10 @@
-#/   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 module AspectsHelper
-  def link_for_aspect(aspect, opts={})
-    opts[:params] ||= {}
-    params ||= {}
-    opts[:params] = opts[:params].merge("a_ids[]" => aspect.id, :created_at => params[:created_at])
-    opts[:class] ||= ""
-    opts[:class] << " hard_aspect_link"
-    opts['data-guid'] = aspect.id
-
-    link_to aspect.name, aspects_path( opts[:params] ), opts
+  def next_page_path
+    aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
   end
 
   def remove_link(aspect)

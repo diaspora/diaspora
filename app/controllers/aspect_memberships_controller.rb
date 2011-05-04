@@ -4,6 +4,7 @@
 #
 
 class AspectMembershipsController < ApplicationController
+  helper :aspects
   before_filter :authenticate_user!
 
   def destroy

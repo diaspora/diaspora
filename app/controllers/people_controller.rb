@@ -3,8 +3,8 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
+  helper :comments
   before_filter :authenticate_user!, :except => [:show]
-  before_filter :ensure_page, :only => :show
 
   respond_to :html
   respond_to :json, :only => [:index, :show]
@@ -63,6 +63,7 @@ class PeopleController < ApplicationController
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
+    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     if @person
       @profile = @person.profile
 
@@ -72,10 +73,12 @@ class PeopleController < ApplicationController
         if @contact && !params[:only_posts]
           @aspects_with_person = @contact.aspects
           @aspect_ids = @aspects_with_person.map(&:id)
-          @contacts_of_contact = @contact.contacts
+          @contacts_of_contact_count = @contact.contacts.count
+          @contacts_of_contact = @contact.contacts.limit(36)
 
         else
           @contact ||= Contact.new
+          @contacts_of_contact_count = 0
           @contacts_of_contact = []
         end
 
@@ -84,13 +87,14 @@ class PeopleController < ApplicationController
         else
           @commenting_disabled = false
         end
-        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).limit(15).offset(15*(params[:page]-1))
+        @posts = current_user.posts_from(@person).where(:type => "StatusMessage").includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
       else
         @commenting_disabled = true
-        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).offset(15*(params[:page]-1))
+        @posts = @person.posts.where(:type => "StatusMessage", :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
       end
 
       @posts = PostsFake.new(@posts)
+
       if params[:only_posts]
         render :partial => 'shared/stream', :locals => {:posts => @posts}
       else
@@ -112,6 +116,21 @@ class PeopleController < ApplicationController
     end
   end
 
+  def contacts
+    @person = Person.find(params[:person_id])
+    if @person
+      @contact = current_user.contact_for(@person)
+      @aspect = :profile
+      @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
+      @hashes = hashes_for_people @contacts_of_contact, @aspects
+      @contact = current_user.contact_for(@person)
+      @aspects_with_person = @contact.aspects
+      @aspect_ids = @aspects_with_person.map(&:id)
+    else
+      flash[:error] = I18n.t 'people.show.does_not_exist'
+      redirect_to people_path
+    end
+  end
   private
   def webfinger(account, opts = {})
     Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)

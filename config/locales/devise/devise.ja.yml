@@ -1,0 +1,97 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ja: 
+  devise: 
+    confirmations: 
+      confirmed: "アカウントの認証に成功しました。既にログイン済みです。"
+      new: 
+        resend_confirmation: "認証メールを再送する"
+      send_instructions: "数分後にアカウント認証の手続きメールが届きます。"
+    failure: 
+      inactive: "アカウントはまだ承認されていません。"
+      invalid: "ユーザ名またはパスワードが不正です。"
+      invalid_token: "無効な認証トークンです。"
+      locked: "アカウントがロックされています。"
+      timeout: "セッション切れになりました。続くにはもう一度ログインしてください。"
+      unauthenticated: "進むにはログインまたは新規登録する必要があります。"
+      unconfirmed: "進にはアカウントを確認する必要があります。"
+    invitations: 
+      invitation_token_invalid: "ご使用の招待トークンは無効です！"
+      send_instructions: "招待メールを送信しました。"
+      updated: "パスワードの設定に成功しました。既にログイン済みです。"
+    mailer: 
+      confirmation_instructions: 
+        confirm: "アカウントを認証する"
+        subject: "認証手続き"
+        you_can_confirm: "次のリンクからアカウントが認証できます。"
+      hello: "%{email}さん、こんにちは！"
+      invitation: 
+        accept: "招待を承諾する"
+        ignore: "招待にご興味がない場合は、このメールを無視してください。"
+        no_account_till: "上のリンクへアクセスして新規登録するまではアカウントが作成されません。"
+        subject: "ダイアスポラへ参加しませんか！"
+      inviters: 
+        accept_at: "、%{url}。下のリンクから承諾できます。"
+        has_invited_you: "%{name}さんはダイアスポラへの参加を招待しています。"
+        have_invited_you: "%{names}さん等はダイアスポラへの参加を招待しています。"
+      reset_password_instructions: 
+        change: "パスワードを変更する"
+        ignore: "再設定を申請した覚えがない場合はこのメールを無視してください。"
+        someone_requested: "パスワード変更リンクの申請を預かりました。下のリンクから変更可能です。"
+        subject: "パスワード再設定手続き"
+        wont_change: "上のリンクをアクセスして新しいパスワードを登録するまではパスワードが変更されません。"
+      unlock_instructions: 
+        account_locked: "ログイン失敗が多すぎたため、アカウントがロックされました。"
+        click_to_unlock: "アカウントのロックを解除するのに下記のリンクにクリックしてください。"
+        subject: "ロック解除説明"
+        unlock: "アカウントのロックを解除する"
+      welcome: "%{email}さん、ようこそ！"
+    passwords: 
+      edit: 
+        change_password: "パスワードを変更する"
+      new: 
+        forgot_password: "パスワードを忘れましたか。"
+        no_account: "このメールアドレスに一致するアカウントは存在しません。招待待ちの方は、なるべく早く出せるように努力していますので、もう少々お待ちください。"
+        send_password_instructions: "パスワード再発行の手続きメールを送ってください。"
+      send_instructions: "数分後にパスワード再発行の手続きメールが届きます。"
+      updated: "パスワードの変更に成功しました。既にログイン済みです。"
+    registrations: 
+      destroyed: "さようなら！アカウントの取消しに成功しました。またのご参加をお待ちしています。"
+      signed_up: "新規登録に成功しました。設定が有効な場合、確認メールも送信されました。"
+      updated: "アカウントの更新に成功しました。"
+    sessions: 
+      new: 
+        alpha_software: "これから使うソフトはアルファ版です。"
+        bugs_and_feedback: "バク発生に覚悟してください。小さな支障でもページ右側の「フィードバック」ボタンからご報告願います！頂いた問題報告はなるべく早く解決できるよう努力します。"
+        bugs_and_feedback_mobile: "バク発生に覚悟してください。小さな支障でもご報告願います！頂いた問題報告はなるべく早く解決できるよう努力します。"
+        login: "ログイン"
+        modern_browsers: "最新型のブラウザにしか対応していません。"
+        password: "パスワード"
+        remember_me: "ログインしたままにする"
+        sign_in: "ログイン"
+        username: "ユーザ名"
+      signed_in: "ログインに成功しました。"
+      signed_out: "ログアウトに成功しました。"
+    shared: 
+      links: 
+        forgot_your_password: "パスワードを忘れましたか。"
+        receive_confirmation: "認証手続きメールが届きませんでしたか。"
+        receive_unlock: "ロック解除の説明が届きませんでしたか。"
+        sign_in: "ログイン"
+        sign_up: "新規登録"
+        sign_up_closed: "一般の新規登録は現在受け付けていません。"
+      mail_signup_form: 
+        sign_up_for_an_invite: "参加招待の希望者として登録したい！"
+    unlocks: 
+      new: 
+        resend_unlock: "ロック解除手続きメールを再送する"
+      send_instructions: "数分後にアカウントロック解除の手続きメールが届きます。"
+      unlocked: "アカウントのロック解除に成功しました。既にログイン済みです。"
+  errors: 
+    messages: 
+      already_confirmed: "既に認証済みです。"
+      not_found: "見つかりませんでした。"
+      not_locked: "ロックされませんでした。"

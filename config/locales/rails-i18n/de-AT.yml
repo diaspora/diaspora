@@ -1,4 +1,4 @@
-# German translations for Ruby on Rails 
+# German translations for Ruby on Rails
 # by Clemens Kofler (clemens@railway.at)
 
 de-AT:
@@ -17,7 +17,7 @@ de-AT:
       - :day
       - :month
       - :year
-  
+
   time:
     formats:
       default: "%A, %d. %B %Y, %H:%M Uhr"
@@ -27,7 +27,7 @@ de-AT:
 
     am: "vormittags"
     pm: "nachmittags"
-      
+
   datetime:
     distance_in_words:
       half_a_minute: 'eine halbe Minute'
@@ -81,9 +81,9 @@ de-AT:
       format:
         unit: '€'
         format: '%n%u'
-        separator: 
-        delimiter: 
-        precision: 
+        separator:
+        delimiter:
+        precision:
     percentage:
       format:
         delimiter: ""

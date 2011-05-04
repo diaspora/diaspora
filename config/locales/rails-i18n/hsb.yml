@@ -157,12 +157,12 @@ hsb:
         accepted:     "dyrbi so wobkrućić"
         empty:        "njesmě prózdny być"
         blank:        "je trěbny"
-        too_long:     
+        too_long:
           one:        "je předołhi (maks. 1 znamješko)"
           two:        "je předołhi (maks. %{count} znamješce)"
           few:        "je předołhi (maks. %{count} znamješka)"
           other:      "je předołhi (maks. %{count} znamješkow)"
-        too_short:    
+        too_short:
           one:        "je překrótki (min. 1 znamješko)"
           two:        "je překrótki (min. %{count} znamješće)"
           few:        "je překrótki (min. %{count} znamješka)"

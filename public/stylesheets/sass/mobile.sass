@@ -7,8 +7,7 @@
 
 $blue: #3F8FBA
 
-
-a:not([role='button'])
+a:not([role='button']):not(.arrow)
   :text
     :decoration none
   :font
@@ -173,6 +172,19 @@ a
   &.photo
     :background
       :color #000
+
+#photo_controls
+  :margin
+    :bottom -42px
+
+.arrow
+  :color white !important
+  :font
+    :size 26pt
+  :text
+    :shadow 0 1px 2px #333
+    :decoration none
+  :padding 0
 
 ul
   :margin 0
@@ -346,4 +358,3 @@ ul
   :background
     :color #333
   :color #ccc
-

@@ -1,4 +1,4 @@
-# Hebrew translations for Ruby on Rails 
+# Hebrew translations for Ruby on Rails
 # by Dotan Nahum (dipidi@gmail.com)
 # Rails 3 update by rbjarnason
 
@@ -85,11 +85,11 @@
         format: "%n %u"
         units:
           unit: ""
-          thousand: "אלף"
-          million: "מיליון"
-          billion: "מיליארד"
-          trillion: "טריליון"
-          quadrillion: "קודריליון"
+          thousand: אלף
+          million: מיליון
+          billion: מיליארד
+          trillion: טריליון
+          quadrillion: קודריליון
 
   datetime:
     distance_in_words:
@@ -169,7 +169,7 @@
       less_than_or_equal_to: "חייב להיות קטן או שווה ל- %{count}"
       odd: "חייב להיות אי זוגי"
       even: "חייב להיות זוגי"
-      
+
   activerecord:
     errors:
       template:
@@ -184,4 +184,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

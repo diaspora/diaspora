@@ -12,5 +12,5 @@ Feature: user authentication
   Scenario: user logs out
     Given I am signed in
     And I click on my name in the header
-    And I follow "logout"
+    And I follow "log out"
     Then I should be on the home page

@@ -6,6 +6,8 @@
 ru: 
   javascripts: 
     confirm_dialog: "Вы уверенны? "
+    infinite_scroll: 
+      no_more: "Сообщений больше нет."
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
     search_for: "Искать {{name}}"
@@ -31,3 +33,5 @@ ru:
     videos: 
       unknown: "Неизвестный видеоформат"
       watch: "Смотреть это видео на {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

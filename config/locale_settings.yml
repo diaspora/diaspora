@@ -1,5 +1,6 @@
 default: "en"
 available:
+  bg: "български език"
   br: "Brezhoneg"
   ca: "Català"
   cs: "Čeština"
@@ -21,6 +22,8 @@ available:
   id: "Bahasa Indonesia"
   is: "íslenska"  
   it: "Italiano"
+  ja: "日本語"
+  ko: "한국어"
   lt: "Lietuviškai"
   mk: "македонски"
   ml: "മലയാളം"
@@ -35,7 +38,7 @@ available:
   sk: "Slovenčina"
   sv: "Svenska"
   tr: "Türk"
-  zh: "中文"
+  zh-CN: "中文"
   zh-TW: "台灣中文"
 fallbacks:
   en-GB:

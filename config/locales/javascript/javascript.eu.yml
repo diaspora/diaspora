@@ -6,6 +6,8 @@
 eu: 
   javascripts: 
     confirm_dialog: "Ziur al zaude?"
+    infinite_scroll: 
+      no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
@@ -31,3 +33,5 @@ eu:
     videos: 
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau {{provider}}(e)n"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

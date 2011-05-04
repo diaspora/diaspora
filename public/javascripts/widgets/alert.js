@@ -29,6 +29,6 @@ Diaspora.widgets.add("alert", function() {
 
     $.facebox({
       div: "#diaspora_alert"
-    });
+    }, 'diaspora_alert');
   }
 });

@@ -1,6 +1,7 @@
 # Polish translations for Ruby on Rails
 # by Jacek Becela (jacek.becela@gmail.com, http://github.com/ncr)
 # Minor changes and adjustments for Rails 3 by Piotrek Okoński (http://github.com/pokonski)
+# Minor changes and adjustments by Paweł Chojnacki (https://github.com/chojnacki)
 
 pl:
   date:
@@ -82,11 +83,11 @@ pl:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tysiąc"
-          million: "Milion"
-          billion: "Miliard"
-          trillion: "Trylion"
-          quadrillion: "Kwadrylion"
+          thousand: Tysiąc
+          million: Milion
+          billion: Miliard
+          trillion: Bilion
+          quadrillion: Biliard
 
   datetime:
     distance_in_words:
@@ -190,4 +191,4 @@ pl:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

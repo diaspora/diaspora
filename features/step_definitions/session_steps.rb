@@ -39,5 +39,5 @@ end
 
 When /^I (?:log|sign) out$/ do
   When 'I click on my name in the header'
-  And 'I follow "logout"'
+  And 'I follow "log out"'
 end

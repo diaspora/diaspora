@@ -12,7 +12,7 @@ da:
       send_instructions: "Du vil modtage en e-mail med instruktioner om hvordan du bekræfter din konto om et par minutter."
     failure: 
       inactive: "Din konto er endnu ikke aktiveret."
-      invalid: "Forkert e-mail eller adgangskode."
+      invalid: "Forkert brugernavn eller adgangskode."
       invalid_token: "Ugyldig token."
       locked: "Din konto er låst."
       timeout: "Du har været inaktiv for længe. Log ind for at fortsætte."

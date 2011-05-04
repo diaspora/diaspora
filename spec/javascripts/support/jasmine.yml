@@ -28,8 +28,9 @@ src_files:
   - public/javascripts/widgets/i18n.js
   - public/javascripts/widgets/timeago.js
   - public/javascripts/widgets/directionDetector.js
+  - public/javascripts/widgets/infinite-scroll.js
+  - public/javascripts/widgets/notifications.js
   - public/javascripts/mobile.js
-  - public/javascripts/infinite-scroll.js
   - public/javascripts/contact-list.js
   - public/javascripts/web-socket-receiver.js
   - public/javascripts/view.js
@@ -37,6 +38,7 @@ src_files:
   - public/javascripts/stream.js
   - public/javascripts/validation.js
   - public/javascripts/rails.js
+  - public/javascripts/aspect-filters.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

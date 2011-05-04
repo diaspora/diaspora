@@ -4,14 +4,14 @@
 
 "pt-PT":
   date:
-    formats:      
+    formats:
       default: "%d/%m/%Y"
       short: "%d de %B"
       long: "%d de %B de %Y"
 
     day_names: [Domingo, Segunda, Terça, Quarta, Quinta, Sexta, Sábado]
     abbr_day_names: [Dom, Seg, Ter, Qua, Qui, Sex, Sáb]
-    
+
     month_names: [~, Janeiro, Fevereiro, Março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro]
     abbr_month_names: [~, Jan, Fev, Mar, Abr, Mai, Jun, Jul, Ago, Set, Out, Nov, Dez]
     order:
@@ -31,11 +31,11 @@
     array:
       words_connector: ", "
       two_words_connector: " e "
-      last_word_connector: ", e"  
-    
-    select:    
+      last_word_connector: ", e"
+
+    select:
       prompt: "Por favor seleccione"
-      
+
   number:
     format:
       separator: ","
@@ -77,25 +77,25 @@
           kb: "KB"
           mb: "MB"
           gb: "GB"
-          tb: "TB"      
+          tb: "TB"
       decimal_units:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "mil"
+          thousand: mil
           million:
-            one: "milhão"
-            other: "milhões"
+            one: milhão
+            other: milhões
           billion:
             one: mil milhões
             other: mil milhões
           trillion:
-            one: "bilião"
-            other: "biliões"
+            one: bilião
+            other: biliões
           quadrillion:
             one: mil biliões
             other:  mil biliões
-      
+
   datetime:
     distance_in_words:
       half_a_minute: "meio minuto"
@@ -187,4 +187,4 @@
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

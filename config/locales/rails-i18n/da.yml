@@ -95,11 +95,11 @@ da:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Tusind"
-          million: "Million"
-          billion: "Milliard"
-          trillion: "Billion"
-          quadrillion: "Billiard"
+          thousand: Tusind
+          million: Million
+          billion: Milliard
+          trillion: Billion
+          quadrillion: Billiard
 
   datetime:
     distance_in_words:
@@ -192,4 +192,4 @@ da:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

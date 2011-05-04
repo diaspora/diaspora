@@ -6,6 +6,8 @@
 es: 
   javascripts: 
     confirm_dialog: "¿Estás seguro?"
+    infinite_scroll: 
+      no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
     search_for: "Buscar a {{name}}"
@@ -31,3 +33,5 @@ es:
     videos: 
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

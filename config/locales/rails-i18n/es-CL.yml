@@ -137,7 +137,7 @@ es-CL:
       prompt: "Por favor seleccione"
 
     submit:
-      create: 'Guardar %{model}'
+      create: 'Crear %{model}'
       update: 'Actualizar %{model}'
       submit: 'Guardar %{model}'
 
@@ -180,4 +180,4 @@ es-CL:
         <<: *errors_messages
 
       full_messages:
-        format: "%{attribute}%{message}"
+        format: "%{attribute} %{message}"

@@ -44,8 +44,8 @@ module Diaspora
 <author>
   <activity:object-type>http://activitystrea.ms/schema/1.0/person</activity:object-type>
   <name>#{x(@user.name)}</name>
-  <uri>"#{AppConfig[:pod_url]}/people/#{@user.person.id}"</uri>
-  <link href="#{@user.public_url}" rel="alternative" type="text/html"/>
+  <uri>#{AppConfig[:pod_url]}people/#{@user.person.id}</uri>
+  <link rel="alternate" type="text/html" href="#{@user.public_url}" />
   <poco:preferredUsername>#{x(@user.username)}</poco:preferredUsername>
   <poco:displayName>#{x(@user.person.name)}</poco:displayName>
   <link rel="avatar" type="image/jpeg" media:width="100" media:height="100" href="#{@user.profile.image_url}"/>

@@ -4,7 +4,7 @@
 
 :javascript
   $(document).ready(function () {
-    var data = $.parseJSON( '#{@all_contacts_and_ids.to_json.gsub("'", "\\\\'")}' ),
+    var data = $.parseJSON( "#{@contacts_json}" ),
         autocompleteInput = $("#contact_autocomplete");
 
     autocompleteInput.autoSuggest(data, {

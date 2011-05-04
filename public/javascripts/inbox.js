@@ -16,7 +16,7 @@ $(document).ready(function(){
     if(conv.hasClass('unread') ){
       conv.removeClass('unread');
     }
-    if(cBadge.html() != null) {
+    if(cBadge.html() !== null) {
       cBadge.html().replace(/\d+/, function(num){
         num = parseInt(num);
         cBadge.html(parseInt(num)-1);
@@ -30,7 +30,7 @@ $(document).ready(function(){
   });
 
   $(window).bind("popstate", function(){
-    if (location.href.match(/conversations\/\d+/) != null) {
+    if (location.href.match(/conversations\/\d+/) !== null) {
 	  $.getScript(location.href, function() {
         Diaspora.widgets.directionDetector.updateBinds();
       });
@@ -72,7 +72,7 @@ $(document).ready(function(){
 
   // remove the paginator when we're done.
   $(document).ajaxError(function(e,xhr,opt){
-    if (xhr.status == 404) $('a.next_page').remove();
+    if (xhr.status == 404) { $('a.next_page').remove(); }
   });
 
   $('#reply_to_conversation').live('click', function(evt) {
@@ -84,7 +84,7 @@ $(document).ready(function(){
 });
 
 var resize = function(){
-  var inboxSidebar = $('#conversation_inbox');
+  var inboxSidebar = $('#conversation_inbox'),
       inboxSidebarOffset = inboxSidebar.offset().top,
       windowHeight = $(window).height();
 

@@ -12,7 +12,7 @@ eu:
       send_instructions: "Minutu batzuetan kontua baieztatzeko argibideak jasoko dituzu e-postan."
     failure: 
       inactive: "Zure kontua ez da aktibatu oraindik."
-      invalid: "E-posta edo pasahitza okerra."
+      invalid: "Erabiltzaile edo pasahitz okerra."
       invalid_token: "Autentikazio datu akasduna."
       locked: "Zure kontua ez dago erabilgarri."
       timeout: "Zure sesioa bukatu da, autentikatu berriz jarraitzeko."

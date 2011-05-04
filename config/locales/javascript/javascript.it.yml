@@ -6,8 +6,10 @@
 it: 
   javascripts: 
     confirm_dialog: "Sei sicuro?"
+    infinite_scroll: 
+      no_more: "Non ci sono altri post."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Devi condividere almeno con un aspetto"
     search_for: "Ricerca per {{name}}"
     shared: 
       contact_list: 
@@ -31,3 +33,5 @@ it:
     videos: 
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

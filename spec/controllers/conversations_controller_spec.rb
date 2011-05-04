@@ -14,8 +14,8 @@ describe ConversationsController do
     it 'succeeds' do
       response.should be_success
     end
-    it "assigns a list of the user's contacts" do
-      assigns(:all_contacts_and_ids).should == alice.contacts.collect{|c| {"value" => c.id, "name" => c.person.name}}
+    it "assigns a json list of contacts" do
+      assigns(:contacts_json).should include(alice.contacts.first.person.name)
     end
     it "assigns a contact if passed a contact id" do
       get :new, :contact_id => alice.contacts.first.id

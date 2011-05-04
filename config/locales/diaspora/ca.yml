@@ -301,7 +301,7 @@ ca:
     private_message: "us ha enviat un missatge."
     comment_on_post: "ha comentat la vostra"
     also_commented: "also commented on your contact's"
-    mentioned: "us ha mencionat a la seva"
+    mentioned: "us ha mencionat a una publicació"
     post: "publicació"
     deleted: "suprimida"
     also_commented_deleted: "ha comentat una publicació suprimida"
@@ -386,8 +386,7 @@ ca:
       not_connected: "No esteu compartint amb aquesta persona"
       recent_posts: "Publicacions recents"
       recent_public_posts: "Publicacions públiques recents"
-      similar_contacts: "contactes similars"
-      start_sharing: "comença a compartir"
+      see_all: "Visualitza'ls tots"
       message: "Envia-li un missatge"
       mention: "Menciona'l"
     profile_sidebar:
@@ -582,7 +581,7 @@ ca:
     reshare:
       reshare: "Torna a compartir"
     public_explain:
-      title: "Esteu a punt de publicar un missatge públic!"
+      title: "Configureu els serveis connectats"
       outside: "Els missatges públics seran visibles per qualsevol des de fora del Diàspora."
       logged_in: "s'ha entrat en %{service}"
       manage: "gestiona els serveis connectats"

@@ -18,7 +18,8 @@ var View = {
     $(document).bind('afterReveal.facebox', function() {
       jQuery("#facebox label").inFieldLabels();
     });
-    InfiniteScroll.postScroll(function(){
+
+    Diaspora.widgets.subscribe("stream/scrolled", function() {
       $('#main_stream .comments label').inFieldLabels();
     });
 

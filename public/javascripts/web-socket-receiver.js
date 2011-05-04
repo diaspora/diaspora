@@ -6,6 +6,12 @@ var WebSocketReceiver = {
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
     ws.onclose = function() {
+      Diaspora.widgets.notifications.showNotification({
+        html: '<div class="notification">' +
+          Diaspora.widgets.i18n.t("web_sockets.disconnected") +
+          '</div>'
+      });
+
       WSR.debug("socket closed");
     };
     ws.onopen = function() {
@@ -37,7 +43,7 @@ var WebSocketReceiver = {
           });
 
         } else if (obj['class']=="likes") {
-          WebSocketReceiver.processLike(obj.post_id, obj.html)
+          WebSocketReceiver.processLike(obj.post_id, obj.html);
 
         } else {
           WebSocketReceiver.processPost(obj['class'], obj.post_id, obj.html, obj.aspect_ids);
@@ -55,7 +61,7 @@ var WebSocketReceiver = {
     } else {
       $('#people_stream').prepend(response.html).slideDown('slow', function(){});
       var first_li = result_ul.find('li:first');
-      first_li.hide()
+      first_li.hide();
       first_li.after(response.html);
       result_ul.find("[name='request[into]']").val(result_ul.attr('aspect_id'));
       result_ul.children(':nth-child(2)').slideDown('fast', function(){});
@@ -64,36 +70,21 @@ var WebSocketReceiver = {
 
 
   processNotification: function(notification){
-    var nBadge = $("#notification_badge div.badge_count");
-
-    nBadge.html().replace(/\d+/, function(num){
-      nBadge.html(parseInt(num)+1);
-    });
-
-    if(nBadge.hasClass("hidden")){
-      nBadge.removeClass("hidden");
-    }
-
-    $('#notification').html(notification['html'])
-      .fadeIn(200)
-      .delay(8000)
-      .fadeOut(200, function(){
-        $(this).html("");
-      });
+    Diaspora.widgets.notifications.showNotification(notification);
   },
 
   processRetraction: function(post_id){
     $("*[data-guid='" + post_id + "']").fadeOut(400, function() {
       $(this).remove();
     });
-    if($("#main_stream")[0].childElementCount == 0) {
+    if($("#main_stream")[0].childElementCount === 0) {
       $("#no_posts").fadeIn(200);
     }
   },
 
   processComment: function(postId, commentId, html, opts) {
 
-    if( $(".comment[data-guid='"+commentId+"']").length == 0 ) {
+    if( $(".comment[data-guid='"+commentId+"']").length === 0 ) {
 
       var post = $("*[data-guid='"+postId+"']'"),
           prevComments = $('.comment.posted', post);
@@ -141,7 +132,7 @@ var WebSocketReceiver = {
   },
 
   addPostToStream: function(postId, html) {
-    if( $(".stream_element[data-guid='" + postId + "']").length == 0 ) {
+    if( $(".stream_element[data-guid='" + postId + "']").length === 0 ) {
       var streamElement = $(html);
 
       var showMessage = function() {
@@ -174,7 +165,7 @@ var WebSocketReceiver = {
       if(WebSocketReceiver.onStreamForAspect(value, streamIds)) {
         found = true;
         return false;
-      };
+      }
     });
     return found;
   },
@@ -185,7 +176,7 @@ var WebSocketReceiver = {
 
   onPageOne: function() {
       var c = document.location.search.charAt(document.location.search.length-1);
-      return ((c =='') || (c== '1'));
+      return ((c === '') || (c === '1'));
   },
   debug: function(str) {
     $("#debug").append("<p>" +  str);

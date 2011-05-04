@@ -6,6 +6,8 @@
 id: 
   javascripts: 
     confirm_dialog: "Are you sure?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "You must publish to at least one aspect"
     search_for: "Search for {{name}}"
@@ -31,3 +33,5 @@ id:
     videos: 
       unknown: "Unknown video type"
       watch: "Watch this video on {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

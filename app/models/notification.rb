@@ -41,7 +41,8 @@ private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
     if n = notification_type.where(:target_id => target.id,
                               :target_type => target.class.base_class,
-                               :recipient_id => recipient.id).first
+                               :recipient_id => recipient.id,
+                               :unread => true).first
       unless n.actors.include?(actor)
         n.actors << actor
       end

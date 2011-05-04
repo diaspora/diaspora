@@ -6,32 +6,32 @@
 gl: 
   devise: 
     confirmations: 
-      confirmed: "A túa conta foi confirmada. Xa estás en Diaspora"
+      confirmed: "Confirmouse a súa conta. Xa está en Diaspora."
       new: 
-        resend_confirmation: "Volver a enviar instruccións de confirmación."
-      send_instructions: "Recibiraás un correo con instrucción para confirmar a túa conta nuns minutos."
+        resend_confirmation: "Volver enviar as instrucións de confirmación."
+      send_instructions: "En cuestión de minutos recibirá un correo electrónico con instrucións para confirmar a súa conta."
     failure: 
-      inactive: "A túa conta aínda non foi activada."
-      invalid: "Correo ou contrasinal incorrecta."
-      invalid_token: "Invitación inválida."
-      locked: "A túa conta está bloqueada."
-      timeout: "A túa sesión rematou, entra de novo para continuar."
-      unauthenticated: "Tes que entrar ou rexistrarte antes de seguir."
-      unconfirmed: "Tes que confirmar a túa conta antes de seguir."
+      inactive: "Aínda non se activou a súa conta."
+      invalid: "O correo electrónico ou contrasinal son incorrectos."
+      invalid_token: "A invitación non é válida."
+      locked: "A súa conta está bloqueada."
+      timeout: "A súa sesión rematou, volva identificarse para continuar."
+      unauthenticated: "Ten que identificarse ou rexistrarte para continuar."
+      unconfirmed: "Ten que confirmar a súa conta para continuar."
     invitations: 
-      invitation_token_invalid: "Está invitación non é valida!"
-      send_instructions: "A túa invitación foi enviada."
-      updated: "O teu contrasinal estableceuse correctamente."
+      invitation_token_invalid: "A invitación non é valida!"
+      send_instructions: "Enviouse a invitación."
+      updated: "O novo contrasinal gardouse correctamente."
     mailer: 
       confirmation_instructions: 
-        confirm: "Confirmar conta"
-        subject: "Instruccións de confirmación"
-        you_can_confirm: "Podes confirmar a túa conta a través do enlace de abaixo:"
+        confirm: "Confirmar a conta"
+        subject: "Instrucións de confirmación"
+        you_can_confirm: "Pode confirmar a súa conta mediante a ligazón que hai máis abaixo:"
       hello: "Ola %{email}!"
       invitation: 
-        accept: "Aceptar convite"
-        ignore: "Se non queres aceptar a invitación, por favor ignora este correo."
-        no_account_till: "A túa conta non se creará ata que premas o link de arriba e te rexistres."
+        accept: "Aceptar a invitación"
+        ignore: "Se non quere aceptar a invitación, non ten máis que ignorar esta mensaxe."
+        no_account_till: "A súa conta non se creará ata que premas a ligazón que hai máis arriba e se rexistre."
         subject: "Fuches invitado a formar parte de Diaspora!"
       inviters: 
         accept_at: ", %{url}, podes aceptar mediante o link de abaixo."
@@ -70,7 +70,7 @@ gl:
         login: "Nome de usuario"
         modern_browsers: "só acepta navegadores actuais."
         password: "Contrasinal"
-        remember_me: "Lémbrame"
+        remember_me: "Lembrar os datos."
         sign_in: "Entrar"
         username: "Nome de usuario"
       signed_in: "Entrou satisfactoriamente."

@@ -12,6 +12,6 @@
     = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
-      %span.time
+      %span.time{:integer => post.created_at.to_i}
         = t('ago', :time => time_ago_in_words(post.created_at))
       = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link right'

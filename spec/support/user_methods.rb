@@ -17,6 +17,10 @@ class User
         add_to_streams(p, aspects)
         dispatch_post(p, :to => opts[:to])
       end
+      unless opts[:created_at]
+        p.created_at = Time.now - 1
+        p.save
+      end
       p
     end
   end

@@ -6,8 +6,10 @@
 pl: 
   javascripts: 
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    infinite_scroll: 
+      no_more: "No more posts."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
+      at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
     search_for: "Szukaj: {{name}}"
     shared: 
       contact_list: 
@@ -31,3 +33,5 @@ pl:
     videos: 
       unknown: "Nieznany typ wideo"
       watch: "Oglądaj to wideo na {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

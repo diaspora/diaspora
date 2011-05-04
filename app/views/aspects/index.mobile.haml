@@ -12,8 +12,9 @@
   = link_to t('.post_a_message'), '#publisher_page', :id => 'publisher_button'
 #main_stream.stream
   = render 'shared/stream', :posts => @posts
-  #pagination
-    %a.more-link.paginate{:href => aspects_path(:a_ids => params[:a_ids], :page => params[:page] + 1)}
-      %h2= t("more")
+  -if @posts.length > 0
+    #pagination
+      %a.more-link.paginate{:href => next_page_path}
+        %h2= t("more")
 - content_for :subpages do
   = render 'shared/publisher', :aspect_ids => @aspect_ids

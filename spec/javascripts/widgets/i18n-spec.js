@@ -1,10 +1,8 @@
-/**
- * Created by .
- * User: dan
- * Date: Jan 27, 2011
- * Time: 3:20:57 PM
- * To change this template use File | Settings | File Templates.
- */
+/*   Copyright (c) 2010, Diaspora Inc.  This file is
+*   licensed under the Affero General Public License version 3 or later.  See
+*   the COPYRIGHT file.
+*/
+
 describe("Diaspora", function() {
   describe("widgets", function() {
     describe("i18n", function() {

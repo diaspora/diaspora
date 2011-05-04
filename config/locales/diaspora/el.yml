@@ -343,7 +343,7 @@ el:
       remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
-      add_some: "προσθέστε κάποιον"
+      add_some: "προσθέστε κάποιες"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
       edit: "επεξεργασία"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
@@ -354,7 +354,7 @@ el:
       recent_posts: "Πρόσφατες δημοσιεύσεις"
       recent_public_posts: "Πρόσφατες Δημόσιες Δημοσιεύσεις"
       return_to_aspects: "Επιστροφή στη σελίδα με τις πτυχές σας"
-      similar_contacts: "παρόμοιες επαφές"
+      see_all: "Εμφάνιση όλων"
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
       you_have_no_tags: "δεν έχετε ετικέτες!"
