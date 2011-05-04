@@ -1,0 +1,617 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ja: 
+  _comments: "Comments"
+  _home: "Home"
+  _photos: "写真"
+  _services: "Services"
+  account: "Account"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "このユーザの他の連絡先と重複してはいけません。"
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "既に使われています。"
+        request: 
+          attributes: 
+            from_id: 
+              taken: "既存のリクエストと重複しています。"
+        user: 
+          attributes: 
+            email: 
+              taken: "既に使われています。"
+            person: 
+              invalid: "無効です。"
+            username: 
+              taken: "既に使われています。"
+  ago: "%{time} ago"
+  all_aspects: "All Aspects"
+  application: 
+    helper: 
+      unknown_person: "unknown person"
+      video_title: 
+        unknown: "Unknown Video Title"
+  are_you_sure: "本当にいいですか。"
+  aspect_memberships: 
+    destroy: 
+      failure: "人をアスペクトから除外するのに失敗しました"
+      no_membership: "選択した人はそのアスペクト内に見つかりませんでした"
+      success: "人をアスペクトから除外するのに成功しました"
+  aspects: 
+    add_to_aspect: 
+      failure: "Failed to add contact to aspect."
+      success: "Successfully added contact to aspect."
+    aspect_contacts: 
+      done_editing: "done editing"
+    aspect_stream: 
+      activity: "activity"
+      post_time: "post time"
+      sort_by: "sort by:"
+    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
+    contacts_visible: "Contacts in this aspect will be able to see each other."
+    create: 
+      failure: "Aspect creation failed."
+      success: "Your new aspect %{name} was created"
+    destroy: 
+      failure: "%{name} is not empty and could not be removed."
+      success: "%{name} was successfully removed."
+    edit: 
+      add_existing: "Add an existing contact"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspect list is visible to others in aspect"
+      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
+      done: "Done"
+      make_aspect_list_visible: "make aspect list visible?"
+      remove_aspect: "Delete this aspect"
+      rename: "rename"
+      update: "update"
+      updating: "updating"
+    few: "%{count} aspects"
+    helper: 
+      are_you_sure: "Are you sure you want to delete this aspect?"
+      aspect_not_empty: "Aspect not empty"
+      remove: "remove"
+    index: 
+      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      no_contacts: "No contacts"
+      post_a_message: "post a message >>"
+    manage: 
+      add_a_new_aspect: "Add a new aspect"
+      add_a_new_contact: "Add a new contact"
+      drag_to_add: "Drag to add people"
+      manage_aspects: "Manage aspects"
+      no_requests: "No new requests"
+      requests: "Requests"
+    many: "%{count} aspects"
+    move_contact: 
+      error: "Error moving contact: %{inspect}"
+      failure: "didn't work %{inspect}"
+      success: "Person moved to new aspect"
+    new_aspect: 
+      create: "Create"
+      name: "Name"
+    no_posts_message: 
+      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+    one: "1 aspect"
+    other: "%{count} aspects"
+    seed: 
+      family: "Family"
+      work: "Work"
+    show: 
+      edit_aspect: "edit aspect"
+    update: 
+      failure: "Your aspect, %{name}, had too long name to be saved."
+      success: "Your aspect, %{name}, has been successfully edited."
+    zero: "no aspects"
+  back: "前へ"
+  bookmarklet: 
+    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation_link_text: "Post to Diaspora"
+    post_something: "Post something to Diaspora"
+    post_success: "Posted! Closing!"
+  cancel: "取り消す"
+  comments: 
+    few: "コメント%{count}件"
+    many: "コメント%{count}件"
+    new_comment: 
+      comment: "コメント"
+      commenting: "コメント投稿中…"
+    one: "コメント1件"
+    other: "コメント%{count}件"
+    zero: "コメントがありません"
+  contacts: 
+    create: 
+      failure: "Failed to create contact"
+    destroy: 
+      failure: "Failed to disconnect from %{name}"
+      success: "Successfully disconnected from %{name}"
+    few: "%{count} contacts"
+    many: "%{count} contacts"
+    one: "1 contact"
+    other: "%{count} contacts"
+    share_with_pane: 
+      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      add_new_aspect: "add to new aspect"
+      share_with: "Start sharing with %{name}"
+    zero: "no contacts"
+  conversations: 
+    create: 
+      sent: "Message sent"
+    destroy: 
+      success: "Conversation successfully removed"
+    helper: 
+      new_messages: 
+        few: "%{count} new messages"
+        many: "%{count} new messages"
+        one: "1 new messages"
+        other: "%{count} new messages"
+        zero: "no new messages"
+    index: 
+      create_a_new_message: "create a new message"
+      inbox: "Inbox"
+      message_inbox: "Message Inbox"
+      new_message: "New Message"
+      no_conversation_selected: "no conversation selected"
+      no_messages: "no messages"
+    new: 
+      send: "Send"
+      subject: "subject"
+      to: "to"
+    show: 
+      delete: "delete and block conversation"
+      reply: "reply"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "削除"
+  email: "Email"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+      invalid_fields: "Invalid Fields"
+  fill_me_out: "Fill me out"
+  hide: "隠す"
+  home: 
+    show: 
+      already_account: "already have an account?"
+      choice: "Choice"
+      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
+      learn_about_host: "Learn about how to host your own Diaspora server."
+      login_here: "log in here"
+      ownership: "Ownership"
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      share_what_you_want: "Share what you want, with whom you want."
+      simplicity: "Simplicity"
+      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      tagline_first_half: "Share what you want,"
+      tagline_second_half: "with whom you want."
+  invitations: 
+    check_token: 
+      not_found: "Invitation token not found"
+    create: 
+      already_contacts: "You are already connected with this person"
+      already_sent: "You already invited this person."
+      no_more: "You have no more invitations."
+      rejected: "The following email addresses had problems: "
+      sent: "Invitations have been sent to: "
+    edit: 
+      sign_up: "sign_up"
+    new: 
+      already_invited: "Already invited"
+      aspect: "Aspect"
+      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
+      invite_someone_to_join: "Invite someone to join Diaspora!"
+      personal_message: "Personal message"
+      resend: "Resend"
+      send_an_invitation: "Send an invitation"
+      send_invitation: "Send invitation"
+      to: "To"
+  layouts: 
+    application: 
+      have_a_problem: "Have a problem? Find an answer here"
+      powered_by: "POWERED BY DIASPORA*"
+      public_feed: "%{name}さんの公開ダイアスポラフィード"
+      toggle: "携帯サイトの切替え"
+      whats_new: "最新情報"
+      your_aspects: "アスペクト"
+    header: 
+      blog: "ブログ"
+      code: "code"
+      login: "ログイン"
+      logout: "ログアウト"
+      profile: "プロフィール"
+      settings: "設定"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} people disliked this"
+        many: "%{count} people disliked this"
+        one: "1 person disliked this"
+        other: "%{count} people disliked this"
+        zero: "no people disliked this"
+      people_like_this: 
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
+        zero: "no people liked this"
+  more: "More"
+  next: "next"
+  no_results: "No Results Found"
+  notifications: 
+    also_commented: "also commented on %{post_author}'s"
+    also_commented_deleted: "commented on a deleted post."
+    comment_on_post: "commented on your"
+    deleted: "deleted"
+    helper: 
+      new_notifications: 
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        one: "1 new notifications"
+        other: "%{count} new notifications"
+        zero: "no new notifications"
+    index: 
+      and: "and"
+      and_others: "and %{number} others"
+      mark_all_as_read: "Mark All as Read"
+      notifications: "Notifications"
+    mentioned: "has mentioned you in a "
+    new_request: "offered to share with you."
+    post: "post."
+    private_message: "sent you a message."
+    request_accepted: "accepted your share request."
+  notifier: 
+    also_commented: 
+      commented: "has also commented on %{post_author}'s post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has also commented on %{post_author}'s post."
+    comment_on_post: 
+      commented: "has commented on your post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has commented on your post."
+    diaspora: "the diaspora email robot"
+    hello: "Hello %{name}!"
+    love: "love,"
+    manage_your_email_settings: "manage your email settings"
+    mentioned: 
+      mentioned: "mentioned you in a post:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has mentioned you on Diaspora*"
+    new_request: 
+      just_sent_you: "just sent you a contact request on Diaspora*"
+      sign_in: "Sign in here"
+      subject: "new Diaspora* contact request from %{from}"
+      try_it_out: "You should really think about checking it out."
+    private_message: 
+      message_subject: "Subject: %{subject}"
+      private_message: "has sent you a private message:"
+      sign_in: "Sign in to view it."
+      subject: "%{name} has sent you a private message on Diaspora*"
+    request_accepted: 
+      accepted: "has accepted your contact request!"
+      sign_in: "Sign in here"
+      subject: "%{name} has accepted your contact request on Diaspora*"
+    single_admin: 
+      admin: "Your Diaspora administrator"
+      subject: "A message about your Diaspora account:"
+    thanks: "Thanks,"
+  ok: "OK"
+  or: "or"
+  password: "Password"
+  password_confirmation: "Password confirmation"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "add contact from tag"
+    aspect_list: 
+      edit_membership: "edit aspect membership"
+    few: "%{count} people"
+    helper: 
+      people_on_pod_are_aware_of: " people on pod are aware of"
+      results_for: " results for %{params}"
+    index: 
+      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      no_one_found: "...and no one was found."
+      no_results: "Hey! You need to search for something."
+      results_for: "search results for"
+    many: "%{count} people"
+    one: "1 person"
+    other: "%{count} people"
+    person: 
+      add_contact: "add contact"
+      already_connected: "Already connected"
+      pending_request: "Pending request"
+      thats_you: "That's you!"
+    profile_sidebar: 
+      bio: "bio"
+      born: "birthday"
+      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      edit_my_profile: "Edit my profile"
+      gender: "gender"
+      in_aspects: "in aspects"
+      location: "location"
+      remove_contact: "remove contact"
+      remove_from: "Remove %{name} from %{aspect}?"
+    show: 
+      add_some: "add some"
+      does_not_exist: "Person does not exist!"
+      edit: "edit"
+      incoming_request: "%{name} wants to share with you"
+      mention: "Mention"
+      message: "Message"
+      no_posts: "no posts to display!"
+      not_connected: "You are not sharing with this person"
+      recent_posts: "Recent Posts"
+      recent_public_posts: "Recent Public Posts"
+      return_to_aspects: "Return to your aspects page"
+      see_all: "See all"
+      start_sharing: "start sharing"
+      to_accept_or_ignore: "to accept or ignore it."
+      you_have_no_tags: "you have no tags!"
+    webfinger: 
+      fail: "Sorry, we couldn't find %{handle}."
+    zero: "no people"
+  photos: 
+    create: 
+      integrity_error: "写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。"
+      runtime_error: "写真のアップロードに失敗しました。シートベルトはしっかりとお締めでしょうか。"
+      type_error: "写真のアップロードに失敗しました。確かに画像ファイルを添付しましたか。"
+    destroy: 
+      notice: "写真を削除しました。"
+    edit: 
+      editing: "編集中"
+    new: 
+      back_to_list: "一覧に戻る"
+      new_photo: "新しい写真"
+      post_it: "投稿する！"
+    new_photo: 
+      empty: "{file} is empty, please select files again without it."
+      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
+      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "or select one from your already existing"
+      upload: "Upload a new profile photo!"
+    photo: 
+      view_all: "%{name}の写真をすべてみる"
+    show: 
+      collection_permalink: "コレクションのパーマリンク"
+      delete_photo: "写真を削除する"
+      edit: "編集"
+      edit_delete_photo: "写真の説明を編集する／写真を削除する"
+      make_profile_photo: "プロフィール写真にする"
+      original_post: "元の投稿"
+      permalink: "パーマリンク"
+      update_photo: "写真を更新する"
+      view: "表示"
+    update: 
+      error: "Failed to edit photo."
+      notice: "Photo successfully updated."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}'s post has been hidden."
+  posts: 
+    doesnt_exist: "that post does not exist!"
+  previous: "前へ"
+  profile: "プロフィール"
+  profiles: 
+    edit: 
+      allow_search: "ダイアスポラ内の検索を許可します"
+      edit_profile: "プロフィールの編集"
+      first_name: "名"
+      last_name: "姓"
+      update_profile: "プロフィール更新"
+      your_bio: "略歴"
+      your_birthday: "誕生日"
+      your_gender: "性別"
+      your_location: "所在地"
+      your_name: "姓名"
+      your_photo: "写真"
+      your_private_profile: "非公開プロフィール"
+      your_public_profile: "公開プロフィール"
+      your_tags: "自分を表す５つの#タグ"
+      your_tags_placeholder: "例：#ダイアスポラ #家事 #子猫 #音楽"
+    update: 
+      failed: "プロフィール更新に失敗しました"
+      updated: "プロフィールを更新しました"
+  registrations: 
+    closed: "Signups are closed on this Diaspora pod."
+    create: 
+      success: "You've joined Diaspora!"
+    edit: 
+      cancel_my_account: "Cancel my account"
+      edit: "Edit %{name}"
+      leave_blank: "(leave blank if you don't want to change it)"
+      password_to_confirm: "(we need your current password to confirm your changes)"
+      unhappy: "Unhappy?"
+      update: "Update"
+    new: 
+      enter_email: "Enter an e-mail"
+      enter_password: "Enter a password"
+      enter_password_again: "Enter the same password as before"
+      enter_username: "Pick a username (only letters, numbers, and underscores)"
+      sign_up: "Sign up"
+      sign_up_for_diaspora: "Sign up for Diaspora"
+  requests: 
+    create: 
+      sending: "Sending"
+      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+    destroy: 
+      error: "Please select an aspect!"
+      ignore: "Ignored contact request."
+      success: "You are now sharing."
+    helper: 
+      new_requests: 
+        few: "%{count} new requests!"
+        many: "%{count} new requests!"
+        one: "new request!"
+        other: "%{count} new requests!"
+        zero: "no new requests"
+    manage_aspect_contacts: 
+      existing: "Existing contacts"
+      manage_within: "Manage contacts within"
+    new_request_to_person: 
+      sent: "sent!"
+  search: "Search"
+  services: 
+    create: 
+      success: "Authentication successful."
+    destroy: 
+      success: "Successfully deleted authentication."
+    failure: 
+      error: "there was an error connecting that service"
+    finder: 
+      friends: 
+        few: "%{count} friends"
+        many: "%{count} friends"
+        one: "1 friend"
+        other: "%{count} friends"
+        zero: "no friends"
+      invite_your_friends_from: "Invite your friends from %{service}"
+      not_connected: "not connected"
+    index: 
+      connect_to_facebook: "Connect to facebook"
+      connect_to_twitter: "Connect to twitter"
+      disconnect: "disconnect"
+      edit_services: "Edit services"
+      logged_in_as: "logged in as"
+      really_disconnect: "disconnect %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Click this link to accept your invitation"
+      join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "invite"
+      resend: "resend"
+  settings: "Settings"
+  shared: 
+    add_contact: 
+      create_request: "Find by Diaspora handle"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "Enter a Diaspora username:"
+      know_email: "Know their email address? You should invite them"
+      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "All contacts"
+      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+    footer: 
+      logged_in_as: "logged in as %{name}"
+      your_aspects: "your aspects"
+    invitations: 
+      by_email: "by Email"
+      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      from_facebook: "From Facebook"
+      invitations_left: "(%{count} left)"
+      invite_someone: "Invite someone"
+      invite_your_friends: "Find your friends"
+      invites: "Invites"
+      invites_closed: "Invites are currently closed on this Diaspora pod"
+    notification: 
+      new: "New %{type} from %{from}"
+    public_explain: 
+      logged_in: "logged in to %{service}"
+      manage: "manage connected services"
+      outside: "Public messages will be available for others outside of Diaspora to see."
+      title: "Set up connected services"
+    publisher: 
+      add_photos: "add photos"
+      all: "all"
+      all_contacts: "all contacts"
+      click_to_share_with: "Click to share with: "
+      make_public: "make public"
+      post_a_message_to: "Post a message to %{aspect}"
+      posting: "Posting..."
+      public: "Public"
+      publishing_to: "publishing to: "
+      share: "Share"
+      share_with: "share with"
+      whats_on_your_mind: "what's on your mind?"
+    reshare: 
+      reshare: "Reshare"
+    stream_element: 
+      dislike: "I dislike this"
+      like: "I like this"
+  status_messages: 
+    create: 
+      success: "Successfully mentioned: %{names}"
+    destroy: 
+      failure: "Failed to delete post"
+    helper: 
+      no_message_to_display: "No message to display."
+    new: 
+      mentioning: "Mentioning: %{person}"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
+  stream_helper: 
+    hide_comments: "コメント非表示"
+    show_comments: "すべてのコメント表示"
+  tags: 
+    show: 
+      nobody_talking: "Nobody is talking about %{tag} yet."
+      people_tagged_with: "People tagged with %{tag}"
+      posts_tagged_with: "Posts tagged with #%{tag}"
+  the_world: "the world"
+  undo: "Undo?"
+  username: "Username"
+  users: 
+    destroy: "Account successfully closed."
+    edit: 
+      also_commented: "...someone also comments on your contact's post?"
+      change: "Change"
+      change_language: "Change Language"
+      change_password: "Change Password"
+      close_account: "Close Account"
+      comment_on_post: "...someone comments on your post?"
+      current_password: "Current password"
+      download_photos: "download my photos"
+      download_xml: "download my xml"
+      edit_account: "Edit account"
+      export_data: "Export Data"
+      mentioned: "...you are mentioned in a post?"
+      new_password: "New Password"
+      private_message: "...you receive a private message?"
+      receive_email_notifications: "Receive email notifications when..."
+      request_acceptence: "...your share request is accepted?"
+      request_received: "...you receive a new share request?"
+      your_email: "Your email"
+      your_handle: "Your diaspora handle"
+    getting_started: 
+      connect_on_diaspora: "Connect on Diaspora"
+      connect_services: "Connect your other services"
+      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      edit_profile: "Edit your profile"
+      finished: "Finished!"
+      save_and_continue: "Save and continue"
+      signup_steps: "Finish your sign up by completing these three steps:"
+      skip: "skip getting started"
+      step_2: 
+        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
+        skip: "Skip"
+      step_3: 
+        finish: "Finish"
+        people_already_on_diaspora: "People already on Diaspora"
+      welcome: "Welcome to Diaspora!"
+    public: 
+      does_not_exist: "User %{username} does not exist!"
+    update: 
+      email_notifications_changed: "Email notifications changed"
+      language_changed: "Language Changed"
+      language_not_changed: "Language Change Failed"
+      password_changed: "Password Changed"
+      password_not_changed: "Password Change Failed"
+  webfinger: 
+    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
+    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    no_person_constructed: "No person could be constructed from this hcard."
+    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    xrd_fetch_failed: "there was an error getting the xrd from account %{account}"

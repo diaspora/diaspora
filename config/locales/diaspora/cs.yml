@@ -251,7 +251,7 @@ cs:
   no_results: "Nebyly nalezeny žádné výsledky"
   notifications: 
     also_commented: "také komentoval v %{post_author}"
-    also_commented_deleted: "komentován smazaný příspěvek"
+    also_commented_deleted: "komentoval ve smazaném příspěvku"
     comment_on_post: "komentoval váš"
     deleted: "smazáno"
     helper: 
