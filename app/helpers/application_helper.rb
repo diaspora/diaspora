@@ -284,7 +284,10 @@ module ApplicationHelper
       ":-)"   => "&#9786;",
       "-&gt;" => "&rarr;",
       "&lt;-" => "&larr;",
-      "..."   => "&hellip;"
+      "..."   => "&hellip;",
+      "(tm)"  => "&trade;",
+      "(r)"   => "&reg;",
+      "(c)"   => "&copy;"
     }
     
     map.each do |search, replace|
