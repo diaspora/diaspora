@@ -212,11 +212,10 @@ module ApplicationHelper
   end
 
   def process_youtube(message, youtube_maps)
-    regex = /( |^)(https?:\/\/)?www\.youtube\.com\/watch[^ ]*v=([A-Za-z0-9_\-]+)(&[^ ]*)?(#[^ ]+)?/
-    processed_message = message.gsub(regex) do |matched_string|
-      match_data = matched_string.match(regex)
-      video_id = match_data[3]
-      anchor = match_data[5]
+    processed_message = message.gsub(YoutubeTitles::YOUTUBE_ID_REGEX) do |matched_string|
+      match_data = matched_string.match(YoutubeTitles::YOUTUBE_ID_REGEX)
+      video_id = match_data[1]
+      anchor = match_data[2]
       anchor ||= ''
       if youtube_maps && youtube_maps[video_id]
         title = h(CGI::unescape(youtube_maps[video_id]))
