@@ -144,7 +144,7 @@ ml:
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations: 
     create: 
-      sent: "സന്ദേശം അയച്ചു"
+      sent: "സന്ദേശം അയച്ചു."
     destroy: 
       success: "സംഭാഷണം വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     helper: 
@@ -222,11 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-<<<<<<< HEAD
-      toggle: "toggle mobile site"
-=======
       toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
->>>>>>> Translations of jerrinphilip
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -402,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}ന്റെ പോസ്റ്റ് മറച്ചിരിക്കുന്നു."
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -568,7 +564,7 @@ ml:
   undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "മാറ്റുക"
