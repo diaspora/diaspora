@@ -139,13 +139,13 @@ describe ApplicationHelper do
       end
 
       it "recognizes multiple links of different types" do
-        message = "http:// Hello World, this is for www.joindiaspora.com and not for http://www.google.com though their Youtube service is neat, take http://www.youtube.com/watch?v=foobar or www.youtube.com/watch?foo=bar&v=BARFOO&whatever=related It is a good idea we finally have youtube, so enjoy this video http://www.youtube.com/watch?v=rickrolld"
+        message = "http:// Hello World, this is for www.joindiaspora.com and not for http://www.google.com though their Youtube service is neat, take http://www.youtube.com/watch?v=foobar----- or www.youtube.com/watch?foo=bar&v=BARFOO-----&whatever=related It is a good idea we finally have youtube, so enjoy this video http://www.youtube.com/watch?v=rickrolld--"
         res = markdownify(message)
         res.should =~ /a target=\"_blank\" href=\"http:\/\/www.joindiaspora.com\"/
         res.should =~ /a target=\"_blank\" href=\"http:\/\/www.google.com\"/
-        res.should =~ /data-video-id="foobar"/
-        res.should =~ /data-video-id="BARFOO"/
-        res.should =~ /data-video-id="rickrolld"/
+        res.should =~ /data-video-id="foobar-----"/
+        res.should =~ /data-video-id="BARFOO-----"/
+        res.should =~ /data-video-id="rickrolld--"/
       end
 
       it "should recognize basic ftp links" do

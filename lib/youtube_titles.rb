@@ -9,14 +9,16 @@ module YoutubeTitles
     end
     title || I18n.t('application.helper.video_title.unknown')
   end
+
   def get_youtube_title text
+    youtube_match = text.enum_for(:scan, YOUTUBE_ID_REGEX).map { Regexp.last_match }
+    return if youtube_match.empty?
+
     self.youtube_titles ||= {}
-    youtube_match = text.match(YOUTUBE_ID_REGEX)
-    return unless youtube_match
-    video_id = youtube_match[1]
-    unless self.youtube_titles[video_id]
-      self.youtube_titles[video_id] = CGI::escape(youtube_title_for(video_id))
+    youtube_match.each do |match_data|
+      self.youtube_titles[match_data[1]] = CGI::escape(youtube_title_for(match_data[1]))
     end
   end
-  YOUTUBE_ID_REGEX = /youtube\.com.*?v=([A-Za-z0-9_\\\-]+)/ unless defined? YOUTUBE_ID_REGEX
+
+  YOUTUBE_ID_REGEX = /(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#!|.+&|.+&amp;)v=)([\w-]{11})(?:\S*(#[^ ]+))?/im unless defined? YOUTUBE_ID_REGEX
 end
