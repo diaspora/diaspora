@@ -222,7 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "മൊബൈല്‍ കവാടത്തിലേക്ക് മാറുക"
+      toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -398,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}ന്റെ കുറിപ്പ് മറച്ചിരിക്കുന്നു."
+      post_hidden: "%{name}ന്റെ പോസ്റ്റ് മറച്ചിരിക്കുന്നു."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -550,7 +550,7 @@ ml:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "നീക്കം ചെയ്യുക"
-      not_found: "ക്ഷമിക്കണം, താങ്കള്‍ അന്വേഷിച്ച കുറിപ്പ് കണ്ടെത്താനായില്ല"
+      not_found: "ക്ഷമിക്കണം, പോസ്റ്റ് കണ്ടെത്താനായില്ല."
       permalink: "സ്ഥിരം കണ്ണി"
   stream_helper: 
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
@@ -564,7 +564,7 @@ ml:
   undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
   users: 
-    destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
+    destroy: "Account successfully closed."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "മാറ്റുക"
