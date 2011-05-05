@@ -35,12 +35,16 @@
       %br
       %hr{:style=>"width:300px;"}
       
-    - if user_signed_in? && contact.sharing?
+    - if user_signed_in?
       %br
-      %h4
-        #{person.name} is sharing with you.
+      - if contact.sharing?
+        %h4
+          #{person.name} is sharing with you.
+      - elsif contact.receiving?
+        %h4
+          You are sharing with #{person.name}
 
-  -if user_signed_in? && ((contact.persisted? && contact.mutual?) || person == current_user.person || @incoming_request)
+  -if user_signed_in? && (contact.sharing? || person == current_user.person)
     %ul#profile_information
       - unless person.profile.bio.blank?
         %li

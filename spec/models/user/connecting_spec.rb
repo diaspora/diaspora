@@ -27,10 +27,10 @@ describe Diaspora::UserModules::Connecting do
         }.by(-1)
       end
 
-      it 'removes a contacts mutual flag' do
-        bob.contacts.find_by_person_id(alice.person.id).should be_mutual
+      it 'removes a contacts receiving flag' do
+        bob.contacts.find_by_person_id(alice.person.id).should be_receiving
         bob.remove_contact(bob.contact_for(alice.person))
-        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_mutual
+        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_receiving
       end
     end
 

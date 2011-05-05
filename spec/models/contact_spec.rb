@@ -44,19 +44,18 @@ describe Contact do
       contact.person = person
       contact.should_not be_valid
     end
+  end
 
-    it 'validates that sharing and aspect membership count are consistant' do
-      pending
-      person = Factory(:person)
-
-      contact2 = alice.contacts.create(:person=>person)
-      contact2.should be_valid
-
-      contact2.aspect_memberships.create(:aspect => alice.aspects.first)
-      contact2.should_not be_sharing
-      contact2.should_not be_valid
-
-
+  context 'scope' do
+    describe 'sharing' do
+      it 'returns contacts with sharing true' do
+        lambda {
+          alice.contacts.create!(:sharing => true, :person => Factory(:person))
+          alice.contacts.create!(:sharing => false, :person => Factory(:person))
+        }.should change{
+          Contact.sharing.count
+        }.by(1)
+      end
     end
   end
 

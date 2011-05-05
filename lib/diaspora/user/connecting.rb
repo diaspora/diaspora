@@ -28,7 +28,7 @@ module Diaspora
         if !contact.mutual? || opts[:force]
           contact.destroy
         else
-          contact.update_attributes(:sharing => false)
+          contact.update_attributes(:receiving => false)
         end
 
         posts.each do |p|

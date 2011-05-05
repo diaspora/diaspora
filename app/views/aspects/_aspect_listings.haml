@@ -12,3 +12,16 @@
   - for aspect in aspects
     = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
 
+  - if @contacts_sharing_with
+    %li{:class => ("dull" if @contacts_sharing_with.size == 0)}
+      .right
+        %b
+          = link_to t('contacts', :count => @contacts_sharing_with.size), edit_aspect_path(aspect), :rel => 'facebox', :class => 'contact-count'
+      %b
+        People sharing with you
+      %br
+
+      - if @contacts_sharing_with.size > 0
+        .contacts
+          - for contact in @contacts_sharing_with[0..15]
+            = person_image_link(contact.person)

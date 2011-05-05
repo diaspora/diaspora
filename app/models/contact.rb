@@ -19,6 +19,10 @@ class Contact < ActiveRecord::Base
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
+  scope :sharing, lambda {
+    where(:sharing => true)
+  }
+
   def dispatch_request
     request = self.generate_request
     Postzord::Dispatch.new(self.user, request).post

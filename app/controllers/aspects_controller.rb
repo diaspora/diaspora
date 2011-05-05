@@ -17,6 +17,7 @@ class AspectsController < ApplicationController
       @aspects = current_user.aspects.where(:id => params[:a_ids])
     else
       @aspects = current_user.aspects
+      @contacts_sharing_with = current_user.contacts.sharing
     end
 
     #No aspect_listings on infinite scroll
