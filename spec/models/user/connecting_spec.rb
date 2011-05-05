@@ -28,9 +28,9 @@ describe Diaspora::UserModules::Connecting do
       end
 
       it 'removes a contacts mutual flag' do
-        bob.contacts.find_by_person_id(alice.person.id).mutual.should be_true
+        bob.contacts.find_by_person_id(alice.person.id).should be_mutual
         bob.remove_contact(bob.contact_for(alice.person))
-        bob.contacts(true).find_by_person_id(alice.person.id).mutual.should be_false
+        bob.contacts(true).find_by_person_id(alice.person.id).should_not be_mutual
       end
     end
 
@@ -83,8 +83,8 @@ describe Diaspora::UserModules::Connecting do
 
     it 'does set mutual on share-back request' do
       eve.share_with(alice.person, eve.aspects.first)
-
       alice.share_with(eve.person, alice.aspects.first)
+
       alice.contacts.find_by_person_id(eve.person.id).should be_mutual
     end
     
@@ -116,15 +116,20 @@ describe Diaspora::UserModules::Connecting do
         alice.share_with(eve.person, alice.aspects.first)
       end
 
-      it 'does not dispatch a request on adding to aspect aspect' do
+      it 'does not dispatch a request if contact already marked as receiving' do
         a2 = alice.aspects.create(:name => "two")
 
-        contact = alice.contacts.create(:person => eve.person, :aspects => [eve.aspects.first])
+        contact = alice.contacts.create(:person => eve.person, :receiving => true)
         alice.contacts.stub!(:find_or_initialize_by_person_id).and_return(contact)
 
         contact.should_not_receive(:dispatch_request)
         alice.share_with(eve.person, a2)
       end
+    end
+    
+    it 'sets receiving' do
+      alice.share_with(eve.person, alice.aspects.first)
+      alice.contact_for(eve.person).should be_receiving
     end
 
     it "should mark the corresponding notification as 'read'" do

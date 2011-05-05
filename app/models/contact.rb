@@ -16,6 +16,7 @@ class Contact < ActiveRecord::Base
   has_many :posts, :through => :post_visibilities
 
   validate :not_contact_for_self
+
   validates_uniqueness_of :person_id, :scope => :user_id
 
   def dispatch_request
@@ -46,12 +47,8 @@ class Contact < ActiveRecord::Base
       :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT people.*')
   end
 
-  def sharing?
-    self.persisted? && (self.mutual? || self.aspect_memberships.size == 0)
-  end
-
-  def receiving?
-    self.aspect_memberships.size > 0
+  def mutual?
+    self.sharing && self.receiving
   end
 
   private

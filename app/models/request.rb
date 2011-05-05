@@ -62,11 +62,8 @@ class Request
 
     contact = user.contacts.find_or_initialize_by_person_id(self.sender.id)
 
-    if contact.receiving?
-      contact.update_attributes(:mutual => true)
-    else
-      contact.save
-    end
+    contact.sharing = true
+    contact.save
 
     self
   end

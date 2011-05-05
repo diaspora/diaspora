@@ -86,6 +86,12 @@ describe Request do
       }.from(false).to(true)
 
     end
+
+    it 'sets sharing' do
+      Request.diaspora_initialize(:from => eve.person, :to => alice.person,
+                                  :into => eve.aspects.first).receive(alice, eve.person)
+      alice.contact_for(eve.person).should be_sharing
+    end
   end
 
   context 'xml' do

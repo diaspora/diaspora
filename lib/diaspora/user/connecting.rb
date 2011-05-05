@@ -9,11 +9,9 @@ module Diaspora
         contact = self.contacts.find_or_initialize_by_person_id(person.id)
         unless contact.receiving?
           contact.dispatch_request
-
-          if contact.sharing?
-            contact.mutual = true
-          end
+          contact.receiving = true
         end
+
         contact.aspects << aspect
         contact.save
 
@@ -27,10 +25,10 @@ module Diaspora
       def remove_contact(contact, opts={:force => false})
         posts = contact.posts.all
 
-        if !contact.mutual || opts[:force]
+        if !contact.mutual? || opts[:force]
           contact.destroy
         else
-          contact.update_attributes(:mutual => false)
+          contact.update_attributes(:sharing => false)
         end
 
         posts.each do |p|

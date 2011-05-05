@@ -1,10 +1,11 @@
-class ContactRemovePendingAddMutual < ActiveRecord::Migration
+class ContactRemovePendingAddSharingAndReceiving < ActiveRecord::Migration
   def self.up
-    add_column :contacts, :mutual, :boolean, :default => false, :null => false
+    add_column :contacts, :sharing, :boolean, :default => false, :null => false
+    add_column :contacts, :receiving, :boolean, :default => false, :null => false
 
     execute( <<SQL
       UPDATE contacts
-        SET contacts.mutual = true
+        SET contacts.sharing = true, contacts.receiving = true
           WHERE contacts.pending = false
 SQL
 )
@@ -43,11 +44,12 @@ SQL
     execute( <<SQL
       UPDATE contacts
         SET contacts.pending = false
-          WHERE contacts.mutual = true
+          WHERE contacts.receiving = true AND contacts.sharing = true
 SQL
 )
 
-    remove_column :contacts, :mutual
+    remove_column :contacts, :sharing
+    remove_column :contacts, :receiving
 
     remove_foreign_key :aspect_memberships, :aspects
     add_foreign_key :aspect_memberships, :aspects

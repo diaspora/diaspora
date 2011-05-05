@@ -13,7 +13,7 @@ describe Contact do
     end
   end
 
-  describe 'validations' do
+  context 'validations' do
     let(:contact){Contact.new}
 
     it 'requires a user' do
@@ -43,6 +43,20 @@ describe Contact do
       contact.user = alice
       contact.person = person
       contact.should_not be_valid
+    end
+
+    it 'validates that sharing and aspect membership count are consistant' do
+      pending
+      person = Factory(:person)
+
+      contact2 = alice.contacts.create(:person=>person)
+      contact2.should be_valid
+
+      contact2.aspect_memberships.create(:aspect => alice.aspects.first)
+      contact2.should_not be_sharing
+      contact2.should_not be_valid
+
+
     end
   end
 
@@ -99,7 +113,6 @@ describe Contact do
         @contact.contacts.should == []
       end
     end
-
   end
 
   context 'requesting' do
@@ -132,38 +145,4 @@ describe Contact do
       end
     end
   end
-
-  context 'sharing/receiving status' do
-    before do
-      alice.share_with(eve.person, alice.aspects.first)
-
-      @follower = eve.contact_for(alice.person)
-      @following = alice.contact_for(eve.person)
-    end
-
-    describe '#sharing?' do
-      it 'returns true if contact has no aspect visibilities' do
-        @follower.should be_sharing
-      end
-
-      it 'returns false if contact has aspect visibilities' do
-        @following.should_not be_sharing
-      end
-
-      it 'returns false if contact is not persisted' do
-        Contact.new.should_not be_sharing
-      end
-    end
-
-    describe '#receiving?' do
-      it 'returns false if contact has no aspect visibilities' do
-        @follower.should_not be_receiving
-      end
-
-      it 'returns true if contact has aspect visibilities' do
-        @following.should be_receiving
-      end
-    end
-  end
-
 end

@@ -73,7 +73,8 @@ ActiveRecord::Schema.define(:version => 20110421120744) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
-    t.boolean  "mutual",     :default => false, :null => false
+    t.boolean  "sharing",    :default => false, :null => false
+    t.boolean  "receiving",  :default => false, :null => false
   end
 
   add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
