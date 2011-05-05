@@ -5,33 +5,35 @@
 
 ml: 
   javascripts: 
-    confirm_dialog: "Are you sure?"
+    confirm_dialog: "താങ്കള്‍ക്ക് ഉറപ്പാണോ?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "കൂടുതല്‍ പോസ്റ്റുകളൊന്നുമില്ല."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-    search_for: "Search for {{name}}"
+      at_least_one_aspect: "താങ്കള്‍ ഒരു പരിചയത്തിമെങ്കിലും തിരഞ്ഞെടുക്കേണ്ടതാണ്."
+    search_for: "{{name}}നായി തിരയുക"
     shared: 
       contact_list: 
-        cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+        cannot_remove: "ക്ഷമിക്കണം, വ്യക്തിയെ പരിചയത്തില്‍ നിന്ന് നീക്കം ചെയ്യാന്‍ സാധിക്കില്ല. (താങ്കള്‍ക്ക് ഈ വ്യക്തിയുമായുള്ള ബന്ധം വിച്ഛേദിക്കണമെങ്കില്‍ സമ്പര്‍ക്കം നീക്കം ചെയ്യേണ്ടതാണ്"
     timeago: 
-      day: "a day"
-      days: "%d days"
-      hour: "about an hour"
-      hours: "about %d hours"
-      minute: "about a minute"
-      minutes: "%d minutes"
-      month: "about a month"
-      months: "%d months"
+      day: "ഒരു ദിവസം"
+      days: "%d ദിവസങ്ങള്‍"
+      hour: "ഉദ്ദേശം ഒരു മണീക്കൂര്‍"
+      hours: "ഉദ്ദേശം %d മണിക്കൂറുകള്‍"
+      minute: "ഉദ്ദേശം ഒരു മിനിട്ട്"
+      minutes: "%d മിനിട്ടുകള്‍"
+      month: "ഉദ്ദേശം ഒരു മാസം"
+      months: "%d മാസങ്ങള്‍"
       prefixAgo: ""
-      prefixFromNow: ""
-      seconds: "less than a minute"
-      suffixAgo: "ago"
-      suffixFromNow: "from now"
-      year: "about a year"
-      years: "%d years"
+      prefixFromNow: "ഇപ്പോള്‍ മുതല്‍"
+      seconds: "ഏതാനും നിമിഷങ്ങള്‍"
+      suffixAgo: "മുന്‍പ്"
+      suffixFromNow: "വരെ"
+      year: "ഉദ്ദേശം ഒരു വര്‍ഷം"
+      years: "%d വര്‍ഷങ്ങള്‍ക്ക്"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "അജ്ഞാതമായ തരം വീഡിയോ"
+      watch: "ഈ വീഡിയോ {{provider}}ല്‍ കാണുക"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: 
+        body: "പോസ്റ്റൂകള്‍ തത്സമയമായി കാണിക്കുന്നതല്ല."
+        title: "You have been disconnected."
