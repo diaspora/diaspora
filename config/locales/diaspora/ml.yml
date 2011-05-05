@@ -8,7 +8,7 @@ ml:
   _home: "പൂമുഖം"
   _photos: "ചിത്രങ്ങള്‍"
   _services: "സേവനങ്ങള്‍"
-  account: "അക്കൌണ്ട്"
+  account: "അക്കൗണ്ട്"
   activerecord: 
     errors: 
       models: 
@@ -23,7 +23,7 @@ ml:
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "നിലവിലുള്ള ഒരു അപേക്ഷയുടെ പകര്‍പ്പാണ്."
         user: 
           attributes: 
             email: 
@@ -33,7 +33,7 @@ ml:
             username: 
               taken: "നേരത്തേ എടുത്തിട്ടുണ്ട്."
   ago: "%{time} മുന്‍പ്"
-  all_aspects: "All aspects"
+  all_aspects: "എല്ലാ "
   application: 
     helper: 
       unknown_person: "അറിയാത്ത വ്യക്തി"
@@ -53,10 +53,10 @@ ml:
       done_editing: "മാറ്റം വരുത്തി കഴിഞ്ഞു"
     aspect_stream: 
       activity: "activity"
-      post_time: "post time"
+      post_time: "കുറിപ്പ് ചേര്‍ത്ത സമയം"
       sort_by: "sort by:"
-    contacts_not_visible: "Contacts in this aspect will not be able to see each other."
-    contacts_visible: "Contacts in this aspect will be able to see each other."
+    contacts_not_visible: "ഈ പരിചയത്തില്‍പ്പെട്ട സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുകയില്ല "
+    contacts_visible: "ഈ പരിചയത്തിലുള്ള സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുന്നതാണ്."
     create: 
       failure: "പരിചയം സൃഷ്ടിക്കല്‍ പരാജയപ്പെട്ടു."
       success: "നിങ്ങളുടെ പുതിയ പരിചയം %{name} സൃഷ്ടിക്കപ്പെട്ടു."
@@ -69,11 +69,11 @@ ml:
       aspect_list_is_visible: "aspect list is visible to others in aspect"
       confirm_remove_aspect: "Are you sure you want to delete this aspect?"
       done: "Done"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Delete this aspect"
+      make_aspect_list_visible: "പരിചയം ദൃശ്യമാക്കുക"
+      remove_aspect: "ഈ പരിചയം നീക്കം ചെയ്യുക"
       rename: "പേര് മാറ്റുക"
       update: "പുതുക്കു"
-      updating: "updating"
+      updating: "പുതുക്കുന്നു"
     few: "%{count} പരിചയങ്ങള്‍"
     helper: 
       are_you_sure: "നിങ്ങള്‍ ഈ പരിചയം നീക്കം ചെയ്യുവാന്‍ ആഗ്രഹിക്കുന്നു, നിങ്ങള്‍ക്ക് തീര്‍ച്ചയാണോ?"
@@ -93,8 +93,8 @@ ml:
     many: "%{count} പരിചയങ്ങള്‍"
     move_contact: 
       error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      failure: "ശരിയായില്ല. %{inspect}"
+      success: "വ്യക്തിയെ പുതിയ പരിചയത്തിലേക്ക് മാറ്റിയിരിക്കുന്നു"
     new_aspect: 
       create: "ഉണ്ടാക്കു"
       name: "പേര്"
@@ -108,25 +108,25 @@ ml:
     show: 
       edit_aspect: "പരിചയം ചിട്ടപെടുത്തുക"
     update: 
-      failure: "Your aspect, %{name}, had too long name to be saved."
+      failure: "താങ്കള്‍ നല്കിയ %{name} എന്ന പരിചയത്തിന്റെ പേര് അനുവദിനീയമായതിലും വലുതാണ്."
       success: "നിങ്ങളുടെ പരിചയം, %{name}, വിജയകരമായി ചിട്ടപ്പെടുത്തി."
     zero: "പരിചയങ്ങള്‍ ഇല്ല"
   back: "പിന്നോട്ട്"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
+    explanation: "%{link} ഡയാസ്പോറയില്‍ എവിടെനിന്നും കുറിക്കാന്‍ ഈ കണ്ണി ബുക്ക്മാര്‍ക്ക് ചെയ്യുക"
     explanation_link_text: "Post to Diaspora"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "റദ്ദാക്കുക"
   comments: 
-    few: "%{count} comments"
-    many: "%{count} comments"
+    few: "%{count} അഭിപ്രായങ്ങള്‍"
+    many: "%{count} അഭിപ്രായങ്ങള്‍"
     new_comment: 
       comment: "അഭിപ്രായം"
       commenting: "അഭിപ്രായം രേഖപ്പെടുത്തുന്നു..."
-    one: "1 comment"
-    other: "%{count} comments"
-    zero: "no comments"
+    one: "1 അഭിപ്രായം"
+    other: "%{count} അഭിപ്രായങ്ങള്‍"
+    zero: "അഭിപ്രായങ്ങളൊന്നുമില്ല."
   contacts: 
     create: 
       failure: "സമ്പര്‍ക്കം ഉണ്ടാക്കാനാകുന്നില്ല"
@@ -138,15 +138,15 @@ ml:
     one: "ഒരു സമ്പര്‍ക്കം"
     other: "%{count} മറ്റു സമ്പര്‍ക്കങ്ങള്‍"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      accepts: "%{name} താങ്കളുടെ ക്ഷണം സ്വീകരിച്ചതിനു ശേഷം ഡയാസ്പോറയില്‍ ചേര്‍ക്കുന്ന കുറിപ്പുകള്‍ ദൃശ്യമാവുന്നതാണ്."
       add_new_aspect: "പുതിയ പരിചയത്തിലേയ്ക്ക് ചേര്‍ക്കുക"
       share_with: "%{name} നോട് പങ്കിട്ട് തുടങ്ങുക"
     zero: "സമ്പര്‍ക്കമൊന്നുമില്ല"
   conversations: 
     create: 
-      sent: "സന്ദേശം അയച്ചിരിക്കുന്നു"
+      sent: "സന്ദേശം അയച്ചു."
     destroy: 
-      success: "Conversation successfully removed"
+      success: "സംഭാഷണം വിജയകരമായി നീക്കം ചെയ്തിരിക്കുന്നു."
     helper: 
       new_messages: 
         few: "%{count} പുതിയ സന്ദേശങ്ങള്‍"
@@ -160,7 +160,7 @@ ml:
       message_inbox: "Message Inbox"
       new_message: "പുതിയ സന്ദേശം"
       no_conversation_selected: "no conversation selected"
-      no_messages: "സന്ദേശങ്ങളൊന്നും ഇല്ല"
+      no_messages: "സന്ദേശങ്ങളൊന്നുമില്ല"
     new: 
       send: "അയക്കു"
       subject: "വിഷയം"
@@ -222,7 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
+      toggle: "toggle mobile site"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -241,10 +241,10 @@ ml:
         other: "%{count} people disliked this"
         zero: "no people disliked this"
       people_like_this: 
-        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
-        other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        few: "%{count} people liked this"
+        many: "%{count} people liked this"
+        one: "1 person liked this"
+        other: "%{count} people liked this"
         zero: "no people liked this"
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
@@ -384,7 +384,7 @@ ml:
     photo: 
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
     show: 
-      collection_permalink: "ശേഖരണത്തിന്റെ സ്ഥിരംകണ്ണി"
+      collection_permalink: "collection permalink"
       delete_photo: "ചിത്രം നീക്കുക"
       edit: "തിരുത്തുക"
       edit_delete_photo: "ചിത്രത്തിന്റെ വിവരണം തിരുത്തുക / ചിത്രം നീക്കം ചെയ്യുക"
@@ -398,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}ന്റെ പോസ്റ്റ് മറച്ചിരിക്കുന്നു."
+      post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -537,8 +537,8 @@ ml:
     reshare: 
       reshare: "വീണ്ടും പങ്കിടുക"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "ഞാനിതിഷ്ടപ്പെടുന്നില്ല"
+      like: "ഞാനിതിഷ്ടപ്പെടുന്നു"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -550,21 +550,21 @@ ml:
       mentioning: "Mentioning: %{person}"
     show: 
       destroy: "നീക്കം ചെയ്യുക"
-      not_found: "ക്ഷമിക്കണം, പോസ്റ്റ് കണ്ടെത്താനായില്ല."
+      not_found: "ക്ഷമിക്കണം, താങ്കള്‍ അന്വേഷിച്ച കുറിപ്പ് കണ്ടെത്താനായില്ല"
       permalink: "സ്ഥിരം കണ്ണി"
   stream_helper: 
     hide_comments: "അഭിപ്രായങ്ങള്‍ മറയ്ക്കുക"
     show_comments: "എല്ലാ അഭിപ്രായവും കാണിക്കുക"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "നിലവില്‍ ആരും %{tag}-നെ കുറിച്ച് സംസാരിക്കുന്നില്ല."
+      people_tagged_with: "%{tag} ചേര്‍ത്തിട്ടുള്ള ആളുകള്‍"
+      posts_tagged_with: "#%{tag} ചേര്‍ത്തിട്ടുള്ള കുറിപ്പുകള്‍"
   the_world: "ലോകം മുഴുവന്‍"
   undo: "Undo?"
   username: "ഉപയോക്തൃനാമം"
   users: 
-    destroy: "Account successfully closed."
+    destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "മാറ്റുക"
