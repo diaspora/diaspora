@@ -57,6 +57,17 @@ describe Contact do
         }.by(1)
       end
     end
+
+    describe 'receiving' do
+      it 'returns contacts with sharing true' do
+        lambda {
+          alice.contacts.create!(:receiving => true, :person => Factory(:person))
+          alice.contacts.create!(:receiving => false, :person => Factory(:person))
+        }.should change{
+          Contact.receiving.count
+        }.by(1)
+      end
+    end
   end
 
   describe '#contacts' do

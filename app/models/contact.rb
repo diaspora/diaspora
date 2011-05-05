@@ -23,6 +23,10 @@ class Contact < ActiveRecord::Base
     where(:sharing => true)
   }
 
+  scope :receiving, lambda {
+    where(:receiving => true)
+  }
+
   def dispatch_request
     request = self.generate_request
     Postzord::Dispatch.new(self.user, request).post
