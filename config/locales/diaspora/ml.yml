@@ -241,11 +241,11 @@ ml:
         other: "%{count} people disliked this"
         zero: "no people disliked this"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
+        one: "ഒരാള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        other: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
+        zero: "ആരും ഇതു ഇഷ്ടപ്പെടുന്നില്ല."
   more: "കൂടുതല്‍"
   next: "അടുത്തത്"
   no_results: "No Results Found"
@@ -398,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}ന്റെ കുറിപ്പ് മറച്ചിരിക്കുന്നു."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
@@ -418,7 +418,7 @@ ml:
       your_photo: "താങ്കളുടെ ചിത്രം"
       your_private_profile: "Your private profile"
       your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
+      your_tags: "താങ്കളെക്കുറിച്ച്: 5 #ടാഗുകളില്‍"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
