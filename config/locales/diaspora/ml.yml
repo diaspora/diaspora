@@ -398,7 +398,7 @@ ml:
       notice: "ചിത്രം വിജയകരമായി പുതുക്കി."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}ന്റെ കുറിപ്പ് മറച്ചിരിക്കുന്നു."
   posts: 
     doesnt_exist: "ഈ കുറിപ്പ് നിലവിലില്ല!"
   previous: "മുന്‍‌പത്തെ"
