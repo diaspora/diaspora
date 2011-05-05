@@ -5,7 +5,7 @@
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
 
-  def timeago(time, options = {})
+  def timeago(time, options={})
     options[:class] ||= "timeago"
     content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time
   end
@@ -15,19 +15,19 @@ module ApplicationHelper
     current_user ? current_user.name : t("application.helper.diaspora_alpha")
   end
 
-  def aspects_with_post aspects, post
+  def aspects_with_post(aspects, post)
     aspects.select do |aspect|
       AspectVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
     end
   end
 
-  def aspects_without_post aspects, post
+  def aspects_without_post(aspects, post)
     aspects.reject do |aspect|
       AspectVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
     end
   end
 
-  def aspect_badges aspects, opts = {}
+  def aspect_badges(aspects, opts={})
     str = ''
     aspects.each do |aspect|
       str << aspect_badge(aspect, opts)
@@ -39,7 +39,7 @@ module ApplicationHelper
     "javascript:(function(){f='#{AppConfig[:pod_url]}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=620,height=250'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
-  def aspect_badge aspect, opts = {}
+  def aspect_badge(aspect, opts={})
     str = "<span class='aspect_badge single'>"
     link = opts.delete(:link)
     if !link
@@ -50,7 +50,7 @@ module ApplicationHelper
     str << "</span>"
   end
 
-  def aspect_links aspects, opts={}
+  def aspect_links(aspects, opts={})
     str = ""
     aspects.each do |aspect|
       str << '<li>'
@@ -60,7 +60,7 @@ module ApplicationHelper
     str.html_safe
   end
 
-  def aspect_li aspect, opts= {}
+  def aspect_li(aspect, opts={})
     param_string = ""
     if opts.size > 0
       param_string << '?'
@@ -90,7 +90,7 @@ module ApplicationHelper
     !@aspect.nil? && !@aspect.instance_of?(Symbol) && @aspect.id == aspect.id
   end
 
-  def aspect_or_all_path aspect
+  def aspect_or_all_path(aspect)
     if @aspect.is_a? Aspect
       aspect_path @aspect
     else
@@ -98,7 +98,7 @@ module ApplicationHelper
     end
   end
 
-  def object_path(object, opts = {})
+  def object_path(object, opts={})
     return "" if object.nil?
     object = object.person if object.is_a? User
     eval("#{object.class.name.underscore}_path(object, opts)")
@@ -147,7 +147,7 @@ module ApplicationHelper
     link_to string, path, :rel => 'external'
   end
 
-  def person_image_link(person, opts = {})
+  def person_image_link(person, opts={})
     return "" if person.nil? || person.profile.nil?
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
@@ -162,7 +162,7 @@ module ApplicationHelper
     (':' + post.id.to_s).to_sym
   end
 
-  def markdownify(message, options = {})
+  def markdownify(message, options={})
     message = h(message).html_safe
 
     options[:newlines] = true if !options.has_key?(:newlines)
@@ -177,7 +177,7 @@ module ApplicationHelper
 
     message.gsub!(/\n+/, '<br />') if options[:newlines]
 
-    return message
+    message
   end
 
 
@@ -193,6 +193,7 @@ module ApplicationHelper
       res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
       res
     end
+
     message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
       escape = "\\"
       link = $1
@@ -204,7 +205,7 @@ module ApplicationHelper
       res
     end
 
-    return message
+    message
   end
 
   def process_youtube(message, youtube_maps)
@@ -220,7 +221,7 @@ module ApplicationHelper
       end
       ' <a class="video-link" data-host="youtube.com" data-video-id="' + video_id + '" data-anchor="' + anchor + '" href="'+ match_data[0].strip + '" target="_blank">Youtube: ' + title + '</a>'
     end
-    return processed_message
+    processed_message
   end
 
   def process_autolinks(message)
@@ -237,7 +238,7 @@ module ApplicationHelper
         res
       end
     end
-    return message
+    message
   end
 
   def process_emphasis(message)
@@ -252,7 +253,7 @@ module ApplicationHelper
     message.gsub!("-^doublescore^-", "__")
     message.gsub!("-^star^-", "*")
     message.gsub!("-^score^-", "_")
-    return message
+    message
   end
 
   def process_vimeo(message, vimeo_maps)
@@ -267,7 +268,7 @@ module ApplicationHelper
       end
       ' <a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '" target="_blank">Vimeo: ' + title + '</a>'
     end
-    return processed_message
+    processed_message
   end
 
   def process_emoticons(message)
@@ -307,7 +308,7 @@ module ApplicationHelper
   end
 
   def direction_for(string)
-    return (string.cleaned_is_rtl?) ? 'rtl' : ''
+    string.cleaned_is_rtl? ? 'rtl' : ''
   end
 
   def rtl?
