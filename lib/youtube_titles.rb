@@ -20,5 +20,5 @@ module YoutubeTitles
     end
   end
 
-  YOUTUBE_ID_REGEX = /(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#!|.+&|.+&amp;)v=)([\w-]{11})(?:\S*(#[^ ]+))?/im unless defined? YOUTUBE_ID_REGEX
+  YOUTUBE_ID_REGEX = /(?:https?:\/\/)(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#!|.+&|.+&amp;)v=)([\w-]{11})(?:\S*(#[^ ]+)|\S+)?/im unless defined? YOUTUBE_ID_REGEX
 end
