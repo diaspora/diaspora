@@ -10,13 +10,9 @@ module ApplicationHelper
     content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time
   end
 
-  def page_title text=nil
-    title = ""
-    if text.blank?
-      title = "#{current_user.name}" if current_user
-    else
-      title = "#{text}"
-    end
+  def page_title(text=nil)
+    return text unless text.blank?
+    current_user ? current_user.name : t("application.helper.diaspora_alpha")
   end
 
   def aspects_with_post aspects, post

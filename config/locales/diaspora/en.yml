@@ -74,6 +74,7 @@ en:
       unknown_person: "unknown person"
       video_title:
         unknown: "Unknown Video Title"
+      diaspora_alpha: "DIASPORA* ALPHA"
   aspects:
     zero: "no aspects"
     one: "1 aspect"

@@ -42,7 +42,7 @@ describe ApplicationHelper do
     end
   end
 
-  describe "markdownify" do
+  describe "#markdownify" do
     describe "autolinks" do
       it "should not allow basic XSS/HTML" do
         markdownify("<script>alert('XSS is evil')</script>").should == "&lt;script&gt;alert('XSS is evil')&lt;/script&gt;"
@@ -298,6 +298,33 @@ describe ApplicationHelper do
         Benchmark.realtime{
           markdownify(@message)
         }.should < 0.001
+      end
+    end
+  end
+
+  describe "#page_title" do
+    before do
+      def current_user
+        @current_user
+      end
+    end
+
+    context "passed blank text" do
+      it "returns current_user.name if logged in" do
+        @current_user = @user
+        page_title.should == @user.name
+      end
+
+      it "returns default title if not logged in" do
+        @current_user = nil
+        page_title.should == I18n.t("application.helper.diaspora_alpha")
+      end
+    end
+
+    context "passed text" do
+      it "returns the text" do
+        text = "This is the title"
+        page_title(text).should == text
       end
     end
   end
