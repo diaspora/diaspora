@@ -1,9 +1,10 @@
-
+#   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
 class LikesController < ApplicationController
   include ApplicationHelper
+  helper :likes
   before_filter :authenticate_user!
   
   respond_to :html, :mobile, :json
@@ -19,18 +20,7 @@ class LikesController < ApplicationController
         Postzord::Dispatch.new(current_user, @like).post
 
         respond_to do |format|
-          format.js {
-            json = { :post_id => @like.post_id,
-                     :html => render_to_string(
-                       :partial => 'likes/likes',
-                       :locals => {
-                         :likes => @like.post.likes,
-                         :dislikes => @like.post.dislikes
-                       }
-                     )
-                   }
-            render(:json => json, :status => 201)
-          }
+          format.js { render :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to status_message_path(@like.post_id) }
         end
@@ -45,10 +35,6 @@ class LikesController < ApplicationController
   def destroy
     if @like = Like.where(:post_id => params[:post_id], :author_id => current_user.person.id).first
       current_user.retract(@like)
-      respond_to do |format|
-        format.mobile{ redirect_to @like.post }
-        format.js {render :nothing => true, :status => 204}
-      end
     else
       respond_to do |format|
         format.mobile {redirect_to :back}
@@ -56,5 +42,4 @@ class LikesController < ApplicationController
       end
     end
   end
-
 end

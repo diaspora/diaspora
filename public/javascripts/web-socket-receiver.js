@@ -123,7 +123,7 @@ var WebSocketReceiver = {
 
   processLike: function(postId, html) {
     var post = $("*[data-guid='"+postId+"']");
-    $(".likes_container", post).fadeOut('fast').html(html).fadeIn('fast');
+    $('.likes', post).html(html);
   },
 
   processPost: function(className, postId, html, aspectIds) {

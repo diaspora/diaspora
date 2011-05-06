@@ -571,8 +571,7 @@ header
 
 ul.comments,
 ul.show_comments,
-div.likes,
-div.dislikes
+.likes_container
   :margin 0
     :top 0.5em
   :padding 0
@@ -2280,22 +2279,31 @@ h3,h4
   :position relative
   :z-index 10
 
-ul.show_comments,
-div.likes,
-div.dislikes
+
+ul.show_comments
   :margin
     :bottom -0.5em
-  > li
+
+.likes_container
+  :margin
+    :bottom -4px
+  :padding 4px
+
+
+ul.show_comments,
+.likes_container
+  > *
     :font
       :size smaller
-    img
-      :position relative
-      :top 3px
-      :height 12px
-      :width 12px
-      :margin
-        :left 0.5em
-        :right 0.5em
+      :weight bold
+
+  img
+    :position relative
+    :top 3px
+    :height 12px
+    :width 12px
+    :margin
+      :left 0.5em
 
 .mark_all_read
   :position relative
@@ -2820,22 +2828,6 @@ h1.tag
   .share_with
     :background
       :color rgb(245,245,245)
-
-.likes_container
-  .likes,
-  .dislikes
-    :border-bottom 1px solid white
-    a
-      :padding 1px
-      :vertical-align middle
-      :font-size 11px
-    img
-      :position relative
-      :width 14px
-      :height 14px
-      :margin-left 5px
-      :top 2px
-
 
 #contacts_of_contact 
   .section

@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class StatusMessagesController < ApplicationController
-  helper :comments
+  helper :comments, :likes
   before_filter :authenticate_user!
 
   respond_to :html

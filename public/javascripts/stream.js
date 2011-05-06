@@ -92,12 +92,6 @@ var Stream = {
       $(this).parent().fadeOut('fast');
     });
 
-    likes.live('ajax:success', function(data, json, xhr) {
-      $(this).parent().detach();
-      json = $.parseJSON(json);
-      WebSocketReceiver.processLike(json.post_id, json.html);
-    });
-
     likes.live('ajax:failure', function(data, html, xhr) {
       Diaspora.widgets.alert.alert('Failed to like/dislike!');
       $(this).parent().fadeIn('fast');

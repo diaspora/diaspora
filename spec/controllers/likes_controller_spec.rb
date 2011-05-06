@@ -83,7 +83,7 @@ describe LikesController do
       it 'lets a user destroy their like' do
         alice.should_receive(:retract).with(@like)
         delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
-        response.status.should == 204
+        response.should be_success
       end
 
       it 'does not let a user destroy other likes' do

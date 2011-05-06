@@ -161,7 +161,7 @@ en:
     many: "%{count} comments"
     other: "%{count} comments"
     new_comment:
-      comment: "comment"
+      comment: "Comment"
       commenting: "Commenting..."
 
   contacts:
