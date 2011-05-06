@@ -75,3 +75,17 @@ Feature: commenting
     Then the first comment field should be closed
     When I focus the comment field
     Then the first comment field should be open
+    
+  Scenario: comment on a status show page
+    When I sign in as "bob@bob.bob"
+    And I am on "alice@alice.alice"'s page
+    Then I should see "Look at this dog"
+    When I follow "less than a minute ago"
+    Then I should see "Look at this dog"
+    And I fill in "text" with "I think thats a cat"
+    And I press "comment"
+    And I wait for the ajax to finish
+    When I am on "alice@alice.alice"'s page
+    Then I should see "I think thats a cat"
+
+
