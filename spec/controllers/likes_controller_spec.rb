@@ -82,16 +82,17 @@ describe LikesController do
 
       it 'lets a user destroy their like' do
         alice.should_receive(:retract).with(@like)
-        delete :destroy, :format => "js", :id => @like.id
+        delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
         response.status.should == 204
       end
 
       it 'does not let a user destroy other likes' do
+        pending "not really relevant to how we're using the destory method.  not totally RESTful right now"
         like2 = eve.build_like(true, :on => @message)
         like2.save
 
         alice.should_not_receive(:retract)
-        delete :destroy, :format => "js", :id => like2.id
+        delete :destroy, :format => "js", :post_id => like2.post_id, :id => like2.id
         response.status.should == 403
       end
     end

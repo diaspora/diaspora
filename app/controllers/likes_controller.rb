@@ -43,7 +43,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
+    if @like = Like.where(:post_id => params[:post_id], :author_id => current_user.person.id).first
       current_user.retract(@like)
       respond_to do |format|
         format.mobile{ redirect_to @like.post }

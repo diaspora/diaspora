@@ -45,7 +45,7 @@
               - if !current_user.liked?(post)
                 = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
               - else
-                = link_to t('.unlike'), likes_path(:post_id => post.id ), :method => :delete, :class => "like_it", :remote => true
+                = link_to t('.unlike'), like_path(:post_id => post.id, :id => 'xxx'), :method => :delete, :class => "like_it", :remote => true
 
               /|
               /= link_to t('.dislike'), like_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
