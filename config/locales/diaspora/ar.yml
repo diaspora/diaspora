@@ -6,9 +6,9 @@
 ar: 
   _comments: "Comments"
   _home: "Home"
-  _photos: "fotos"
-  _services: "Servicios"
-  account: "Cuenta"
+  _photos: "صِور"
+  _services: "الخدمات"
+  account: "الحساب"
   activerecord: 
     errors: 
       models: 
@@ -32,7 +32,7 @@ ar:
               invalid: "is invalid."
             username: 
               taken: "is already taken."
-  ago: "%{time} ago"
+  ago: "%{time} منذ"
   all_aspects: "All aspects"
   application: 
     helper: 
@@ -47,8 +47,8 @@ ar:
       success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add friend to aspect."
-      success: "Successfully added friend to aspect."
+      failure: ".فَشل في إضافة متصل الى الجانب"
+      success: ".تم إضافة المتصل للجانب بنجاح"
     aspect_contacts: 
       done_editing: "done editing"
     aspect_stream: 
@@ -59,7 +59,7 @@ ar:
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: ".فشل إنشاء الجانب"
-      success: ".من الذي يمكنه مشاهدة مظهرك الجديد Diaspora انقر على علامة الزائد على الجانب الأيسر لتقول ل"
+      success: ".تم إنشائه %{name}جانبك الجديد"
     destroy: 
       failure: "%{name} is not empty and could not be removed."
       success: ".بنجاح %{name} تم إزالة"
@@ -78,28 +78,28 @@ ar:
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "الجانب ليس فارغ"
-      remove: "حذف"
+      remove: "إزالة"
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
     manage: 
-      add_a_new_aspect: "أضف جانبا جديدا"
-      add_a_new_contact: "Add a new contact"
-      drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
-      no_requests: "No hay nuevas solicitudes"
+      add_a_new_aspect: "أضف جانباً جديداً"
+      add_a_new_contact: "إضافة جهة إتصال جديدة"
+      drag_to_add: "اسحب لإضافة أشخاص"
+      manage_aspects: "إدارة الجوانب"
+      no_requests: "لا يوجد طلبات جديدة"
       requests: "طلبات"
     many: "%{count} aspects"
     move_contact: 
-      error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      error: "%{inspect} :خطأ في نقل الاتصال "
+      failure: "%{inspect} لم تعمل"
+      success: "انتقل الشخص الى جانب جديد"
     new_aspect: 
-      create: "جديد"
-      name: "Nombre"
+      create: "إنشيء"
+      name: "الإسم"
     no_posts_message: 
-      start_talking: "Nadie ha dicho nada todavía. ¡Empezá la conversación!"
+      start_talking: "!لم يقل أحداُ شيء بعد. إبدأ المحادثة "
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
@@ -109,21 +109,21 @@ ar:
       edit_aspect: "edit aspect"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
-      success: ".بنجاح %{name} تم تعديل"
+      success: ".بنجاح %{name} تم تعديل جانبك"
     zero: "no aspects"
-  back: "Back"
+  back: "رجوع"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
-  cancel: "Cancelar"
+  cancel: "إلغاء"
   comments: 
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
       comment: "تعليق"
-      commenting: "Commenting..."
+      commenting: "...جاري التعليق"
     one: "1 comment"
     other: "%{count} comments"
     zero: "no comments"
@@ -173,37 +173,37 @@ ar:
       birthday: "%B %d"
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
-  delete: "Eliminar"
-  email: "Email"
+  delete: "مسح"
+  email: "البريد الإلكتروني"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: ".صحح الأخطاء التالية وحاول مرة أخرى"
-      invalid_fields: "مدخلات غير صحيحة"
-  fill_me_out: "Fill me out"
+      invalid_fields: "مُدخلات غير صحيحة"
+  fill_me_out: "إسمح لي بالخروج"
   hide: "Hide"
   home: 
     show: 
-      already_account: "already have an account?"
+      already_account: "لديه حساب بالفعل؟"
       choice: "Choice"
       choice_explanation: "Diaspora allows you to sort your connections into groups called Aspects. Unique to Diaspora, Aspects ensure your photos, stories and jokes are shared with only the people you want them to be."
       learn_about_host: "Learn about how to host your own Diaspora server"
-      login_here: "log in here"
+      login_here: "سجل الدخول هنا"
       ownership: "Ownership"
       ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just in order to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it is distributed."
-      share_what_you_want: "Share what you want, with whom you want."
+      share_what_you_want: ".شارك ما تريد, مع من تريد"
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – this goes doubly so for privacy. Innherently private, Diaspora doesn’t have pages of settings and options to wade through to keep your profile secure and to your liking."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "لا يوجد دعوة"
     create: 
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
-      no_more: "No tenés más invitaciones."
+      no_more: ".ليس لديك المزيد من الدعوات"
       rejected: "The following email addresses had problems: "
-      sent: "Your invitation has been sent."
+      sent: ":الدعوة قد تم إرسالها الى"
     edit: 
       sign_up: "sign_up"
     new: 
@@ -211,12 +211,12 @@ ar:
       aspect: "Aspect"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      invite_someone_to_join: "¡Invitá a alguien a unirse a Diaspora!"
+      invite_someone_to_join: "!Diaspora دعوة شخص للانضمام الى"
       personal_message: "Personal message"
       resend: "Resend"
-      send_an_invitation: "Send an invitation"
-      send_invitation: "Send invitation"
-      to: "To"
+      send_an_invitation: "إرسل دعوة"
+      send_invitation: "إرسل دعوة"
+      to: "الى"
   layouts: 
     application: 
       have_a_problem: "Have a problem? Find an answer here"
@@ -226,10 +226,10 @@ ar:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
-      blog: "blog"
+      blog: "مدونة"
       code: "code"
-      login: "login"
-      logout: "logout"
+      login: "دُخول"
+      logout: "خروج"
       profile: "profile"
       settings: "settings"
   likes: 
@@ -281,35 +281,35 @@ ar:
       sign_in: "Sign in to view it."
       subject: "%{name} has commented on your post."
     diaspora: "the diaspora email robot"
-    hello: "Hello %{name}!"
-    love: "love,"
+    hello: " %{name}!أهلاً"
+    love: ",حُب"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
     new_request: 
-      just_sent_you: "just sent you a friend request on Diaspora*"
-      sign_in: "sign in here"
-      subject: "new Diaspora* friend request from %{from}"
-      try_it_out: "You should really think about checking it out."
+      just_sent_you: "Diaspora* أُرسل لك طلب إتصال على"
+      sign_in: "تسجيل الدخول هنا"
+      subject: "جديد Diaspora* طلب صداقة  من %{from}"
+      try_it_out: ".يجب عليك التفكير في التحقق من ذلك"
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
     request_accepted: 
-      accepted: "has accepted your friend request. They are now in your"
+      accepted: "!قد تم قبول طلب اتصالك"
       sign_in: "Sign in here"
-      subject: "%{name} has accepted your friend request on Diaspora*"
+      subject: "%{name} تم قبوله كصديق على Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
     thanks: "Thanks,"
-  ok: "OK"
-  or: "or"
-  password: "Password"
-  password_confirmation: "Password confirmation"
+  ok: "حسناً"
+  or: "أو"
+  password: "كلمة السر"
+  password_confirmation: "تأكيد كلمة السر"
   people: 
     add_contact_small: 
       add_contact_from_tag: "add contact from tag"
@@ -317,39 +317,39 @@ ar:
       edit_membership: "edit aspect membership"
     few: "%{count} people"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: "على عِلم ب pod الاشخاص على "
+      results_for: "%{params} النتائج ل"
     index: 
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
       no_one_found: "...and no one was found."
       no_results: "Hey! You need to search for something."
-      results_for: "buscar resultados para"
+      results_for: "نتائج البحث ل"
     many: "%{count} people"
     one: "1 person"
     other: "%{count} people"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
-      pending_request: "طلبات معلقة"
-      thats_you: "¡Ese sos vos!"
+      add_contact: "إضافة جهة اتصال"
+      already_connected: "مُتصل بالفعل"
+      pending_request: "طلبات مُعلقة"
+      thats_you: "!شُكراً لك"
     profile_sidebar: 
-      bio: "bio"
-      born: "born"
+      bio: "السيرة الذاتية"
+      born: "يوم الميلاد"
       cannot_remove: "Cannot remove %{name} from last aspect."
-      edit_my_profile: "Editar mi perfil"
-      gender: "gender"
-      in_aspects: "in aspects"
+      edit_my_profile: "حرر ملفي الشخصي"
+      gender: "النوع"
+      in_aspects: "في جانب"
       location: "location"
-      remove_contact: "remove contact"
+      remove_contact: "إزالة جهة اتصال"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
       add_some: "add some"
-      does_not_exist: "¡Esa persona no existe!"
+      does_not_exist: "!الشخص غير موجود"
       edit: "edit"
       incoming_request: "You have an incoming request from this person."
       mention: "Mention"
       message: "Message"
-      no_posts: "¡No hay mensajes que mostrar!"
+      no_posts: "!لا توجد مشاركات للعرض"
       not_connected: "You are not connected with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
@@ -367,7 +367,7 @@ ar:
       runtime_error: "Photo upload failed.  Are you sure that your seatbelt is fastened?"
       type_error: "Photo upload failed.  Are you sure an image was added?"
     destroy: 
-      notice: "تم حذف الصورة"
+      notice: ".تم حذف الصورة"
     edit: 
       editing: "تحرير"
     new: 
@@ -375,34 +375,34 @@ ar:
       new_photo: "صورة جديدة"
       post_it: "!ألصقها"
     new_photo: 
-      empty: "{file} is empty, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+      empty: "{file} فارغ, من فضلك أعد اختيار الملفات بدونه."
+      invalid_ext: "{file} الامتداد غير صالح. فقط {extensions} مسموح به."
+      size_error: "{file} كبير الحجم, حد الملف الاقصي هو {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
       upload: "Upload a new profile photo!"
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "%{name} إعرض كل صور"
     show: 
       collection_permalink: "collection permalink"
       delete_photo: "حذف الصورة"
-      edit: "edit"
+      edit: "حرر"
       edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
+      make_profile_photo: "إنشيء صورة للملف الشخصي"
       original_post: "Original Post"
       permalink: "permalink"
-      update_photo: "Update Photo"
-      view: "view"
+      update_photo: "حَدِث الصورة"
+      view: "عرض"
     update: 
-      error: "فشل تحرير الصورة."
-      notice: "تم تحديث الصورة بنجاح"
+      error: ".فشل في تحرير الصورة"
+      notice: ".تم تحديث الصورة بنجاح"
   post_visibilites: 
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
-  profile: "Perfil"
+  profile: "الملف الشخصي"
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
@@ -424,30 +424,30 @@ ar:
       failed: "Failed to update profile"
       updated: "Profile updated"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: ".Diaspora pod التسجيل مغلق على هذا "
     create: 
-      success: "!Diaspora سجل في"
+      success: "!Diaspora لقد إنضممت الى"
     edit: 
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
-      password_to_confirm: "(we need your current password to confirm your changes)"
-      unhappy: "Unhappy?"
-      update: "Update"
+      cancel_my_account: "إلغاء حسابي"
+      edit: "%{name} حرر"
+      leave_blank: "(اترك فراغاً إذا كنت لا تريد تغييره)"
+      password_to_confirm: "(نحن بحاجة إلى كلمة المرور الحالية لتأكيد التغييرات)"
+      unhappy: "حزين؟"
+      update: "تحديث"
     new: 
       enter_email: "Enter an e-mail"
       enter_password: "Enter a password"
       enter_password_again: "Enter the same password as before"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       sign_up: "التسجيل"
-      sign_up_for_diaspora: "Registrate en Diapora"
+      sign_up_for_diaspora: "Diaspora قُم بالتسجيل في "
   requests: 
     create: 
-      sending: "Sending..."
+      sending: "....إرسال"
       sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
     destroy: 
       error: "!الرجاء اختيار جانب"
-      ignore: ". تجاهل طلب الصداقة"
+      ignore: ".تجاهل طلب الصداقة"
       success: ".أنتم الآن أصدقاء"
     helper: 
       new_requests: 
@@ -457,16 +457,16 @@ ar:
         other: "%{count} new requests!"
         zero: "no new requests"
     manage_aspect_contacts: 
-      existing: "Existing contacts"
-      manage_within: "Manage contacts within"
+      existing: "جهة اتصال موجودة"
+      manage_within: "إدارة جهات الاتصال بدون"
     new_request_to_person: 
       sent: "sent!"
-  search: "Search"
+  search: "بحث"
   services: 
     create: 
-      success: "Authentication successful."
+      success: ".نجاح المُصادقة"
     destroy: 
-      success: "Successfully destroyed authentication."
+      success: ".تم إزالة المُصادقة بنجاح"
     failure: 
       error: "there was an error connecting that service"
     finder: 
@@ -479,26 +479,26 @@ ar:
       invite_your_friends_from: "Invite your friends from %{service}"
       not_connected: "not connected"
     index: 
-      connect_to_facebook: "Connect to facebook"
-      connect_to_twitter: "Connect to twitter"
-      disconnect: "disconnect"
+      connect_to_facebook: "facebook الاتصال ب "
+      connect_to_twitter: "twitter الاتصال ب "
+      disconnect: "تخفيض"
       edit_services: "Edit services"
-      logged_in_as: "logged in as"
-      really_disconnect: "disconnect %{service}?"
+      logged_in_as: "سجل الدخول ك"
+      really_disconnect: " %{service}? تخفيض"
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "invite"
       resend: "resend"
-  settings: "Settings"
+  settings: "إعدادات"
   shared: 
     add_contact: 
       create_request: "Find by Diaspora handle"
       diaspora_handle: "Diaspora handle"
-      enter_a_diaspora_username: "Enter a Diaspora username:"
+      enter_a_diaspora_username: ":Diaspora أدخل اسم المستخدم ل "
       know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "اسم Diaspora الخاص بك: %{diaspora_handle}"
     contact_list: 
       all_contacts: "All contacts"
       cannot_remove: "Cannot remove person from last aspect."
@@ -510,32 +510,32 @@ ar:
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       from_facebook: "From Facebook"
       invitations_left: "(%{count} left)"
-      invite_someone: "Invite someone"
+      invite_someone: "إدعي شخصاً"
       invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "%{from} من %{type} جديد"
     public_explain: 
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
-      outside: "Public messages will be available for others outside of Diaspora to see."
-      title: "You are about to post a public message!"
+      logged_in: "%{service} تسجيل الدخول إلى"
+      manage: "إدارة خدمات المتصلين"
+      outside: "!Diaspora الرسائل العامة سوف يكون متاح رؤيتها من خارج "
+      title: "إعداد خدمات المُتصلين"
     publisher: 
       add_photos: "add photos"
-      all: "all"
+      all: "كل"
       all_contacts: "all contacts"
       click_to_share_with: "Click to share with: "
-      make_public: "make public"
-      post_a_message_to: "Post a message to %{aspect}"
-      posting: "Posting..."
+      make_public: "إجعلها عامة"
+      post_a_message_to: "%{aspect}انشر رسالة في"
+      posting: "...جاري الارسال"
       public: "Public"
       publishing_to: "publishing to: "
       share: "مشاركة"
-      share_with: "Share with %{aspect}"
+      share_with: "%{aspect} شارك مع"
       whats_on_your_mind: "what's on your mind?"
     reshare: 
-      reshare: "Reshare"
+      reshare: "اعد المشاركة"
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
@@ -545,11 +545,11 @@ ar:
     destroy: 
       failure: "Failed to delete post"
     helper: 
-      no_message_to_display: "لا يوجد رسالة لعرضها"
+      no_message_to_display: ".لا يوجد رسالة لعرضها"
     new: 
       mentioning: "Mentioning: %{person}"
     show: 
-      destroy: "إزالة"
+      destroy: "حذف"
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
@@ -560,25 +560,25 @@ ar:
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
-  the_world: "the world"
+  the_world: "العالم"
   undo: "Undo?"
-  username: "Username"
+  username: "إسم المستخدم"
   users: 
-    destroy: "Account successfully closed."
+    destroy: ".تم إغلاق الحساب بنجاح"
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Change"
-      change_language: "Change Language"
-      change_password: "Cambiar Contraseña"
-      close_account: "Cerrar Cuenta"
+      change_language: "تغيير اللغة"
+      change_password: "تغيير كلمة السر"
+      close_account: "أغلق الحساب"
       comment_on_post: "...someone comments on your post?"
       current_password: "Current password"
-      download_photos: "descargar mis fotos"
-      download_xml: "download my xml"
+      download_photos: "حَمِل صورتي"
+      download_xml: "خاصتي xml حَمِل"
       edit_account: "Edit account"
-      export_data: "Exportar datos"
+      export_data: "تصدير البيانات"
       mentioned: "...you are mentioned in a post?"
-      new_password: "Nueva Contraseña"
+      new_password: "كلمة سر جديدة"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
       request_acceptence: "...your share request is accepted?"
@@ -587,28 +587,28 @@ ar:
       your_handle: "Your diaspora handle"
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Connect your services"
+      connect_services: "تواصل مع الخدمات الاخرى الخاصة بك"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Editar tu perfil"
-      finished: "Finished!"
-      save_and_continue: "Save and continue"
-      signup_steps: "Complete your sign-up by doing these things:"
-      skip: "skip getting started"
+      edit_profile: "حرر ملفي الشخصي"
+      finished: "!انتهى"
+      save_and_continue: "إحفظ وأكمل"
+      signup_steps: ":أنهي تسجيلك من خلال استكمال هذه الخطوات الثلاث"
+      skip: "تخطي وإبدأ"
       step_2: 
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
         skip: "Skip"
       step_3: 
         finish: "Finish"
         people_already_on_diaspora: "People already on Diaspora"
-      welcome: "Welcome to Diaspora!"
+      welcome: "Diaspora! مرحباَ بك في"
     public: 
-      does_not_exist: "¡El usuario %{username} no existe!"
+      does_not_exist: "!غير موجود %{username} المستخدم"
     update: 
       email_notifications_changed: "Language Change Failed"
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
+      language_changed: "تم تغيير اللغة"
+      language_not_changed: "فشل في تغيير اللغة"
+      password_changed: "تم تغيير كلمة السر"
+      password_not_changed: "فشل في تغيير كلمة السر"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

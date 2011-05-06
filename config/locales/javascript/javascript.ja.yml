@@ -13,7 +13,7 @@ ja:
     search_for: "{{name}}を検索する"
     shared: 
       contact_list: 
-        cannot_remove: "残り最後のアスペクトから人を除外することができません。（人とのつながりを解除したい場合は連絡先を削除してください。）"
+        cannot_remove: "人を最後のアスペクトから除外することができません。（つながりを断絶したい場合は連絡先を削除してください。）"
     timeago: 
       day: "1日"
       days: "%d日"

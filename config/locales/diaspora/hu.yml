@@ -228,8 +228,8 @@ hu:
     header: 
       blog: "blog"
       code: "kód"
-      login: "belépés"
-      logout: "kilépés"
+      login: "bejelentkezés"
+      logout: "kijelentkezés"
       profile: "profil"
       settings: "beállítások"
   likes: 
@@ -251,7 +251,7 @@ hu:
   no_results: "Nincs eredmény"
   notifications: 
     also_commented: "hozzászólt még az övéhez is:"
-    also_commented_deleted: "hozzászólt egy már törölt bejegyzéshez"
+    also_commented_deleted: "hozzászólt egy már törölt bejegyzéshez."
     comment_on_post: "hozzászólt a"
     deleted: "törölve"
     helper: 
@@ -266,9 +266,9 @@ hu:
       and_others: "és %{number} másik"
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
-    mentioned: "megemlített téged egy bejegyzésben"
+    mentioned: "megemlített téged egy"
     new_request: "megosztást ajánlott neked."
-    post: "bejegyzés"
+    post: "bejegyzésben."
     private_message: "üzenetet küldött neked."
     request_accepted: "elfogadta a megosztási kérésed."
   notifier: 

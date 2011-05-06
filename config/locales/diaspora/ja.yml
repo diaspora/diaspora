@@ -8,7 +8,7 @@ ja:
   _home: "Home"
   _photos: "写真"
   _services: "Services"
-  account: "Account"
+  account: "アカウント"
   activerecord: 
     errors: 
       models: 
@@ -33,84 +33,84 @@ ja:
             username: 
               taken: "既に使われています。"
   ago: "%{time} ago"
-  all_aspects: "All Aspects"
+  all_aspects: "全てのアスペクト"
   application: 
     helper: 
-      unknown_person: "unknown person"
+      unknown_person: "不明な連絡先"
       video_title: 
-        unknown: "Unknown Video Title"
+        unknown: "不明な動画タイトル"
   are_you_sure: "本当にいいですか。"
   aspect_memberships: 
     destroy: 
-      failure: "人をアスペクトから除外するのに失敗しました"
-      no_membership: "選択した人はそのアスペクト内に見つかりませんでした"
-      success: "人をアスペクトから除外するのに成功しました"
+      failure: "連絡先をアスペクトから除外するのに失敗しました"
+      no_membership: "選択した連絡先はそのアスペクト内に見つかりませんでした"
+      success: "連絡先をアスペクトから除外するのに成功しました"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add contact to aspect."
-      success: "Successfully added contact to aspect."
+      failure: "連絡先をアスペクトに追加するのに失敗しました。"
+      success: "連絡先をアスペクトに追加するのに成功しました。"
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "編集完了"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      activity: "更新時"
+      post_time: "投稿時"
+      sort_by: "並び順"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
       failure: "Aspect creation failed."
-      success: "Your new aspect %{name} was created"
+      success: "新しいアスペクト「%{name}」を作成しました"
     destroy: 
-      failure: "%{name} is not empty and could not be removed."
-      success: "%{name} was successfully removed."
+      failure: "%{name}に連絡先が残っているので削除できません。"
+      success: "%{name}の削除に成功しました"
     edit: 
-      add_existing: "Add an existing contact"
-      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
-      aspect_list_is_visible: "aspect list is visible to others in aspect"
-      confirm_remove_aspect: "Are you sure you want to delete this aspect?"
-      done: "Done"
-      make_aspect_list_visible: "make aspect list visible?"
-      remove_aspect: "Delete this aspect"
-      rename: "rename"
-      update: "update"
-      updating: "updating"
-    few: "%{count} aspects"
+      add_existing: "既存の連絡先を追加する"
+      aspect_list_is_not_visible: "このアスペクトのメンバー一覧はメンバーへ公開されていません"
+      aspect_list_is_visible: "このアスペクトのメンバー一覧はメンバーに公開されています"
+      confirm_remove_aspect: "このアスペクトを本当に削除していいですか。"
+      done: "完了"
+      make_aspect_list_visible: "アスペクトのメンバー一覧を公開しますか。"
+      remove_aspect: "このアスペクトを削除する"
+      rename: "名前の変更"
+      update: "更新"
+      updating: "更新中"
+    few: "%{count}つのアスペクト"
     helper: 
       are_you_sure: "Are you sure you want to delete this aspect?"
       aspect_not_empty: "Aspect not empty"
       remove: "remove"
     index: 
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
-      no_contacts: "No contacts"
+      handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
+      no_contacts: "連絡先無し"
       post_a_message: "post a message >>"
     manage: 
-      add_a_new_aspect: "Add a new aspect"
-      add_a_new_contact: "Add a new contact"
-      drag_to_add: "Drag to add people"
+      add_a_new_aspect: "新しいアスペクトを追加する"
+      add_a_new_contact: "新しい連絡先を追加する"
+      drag_to_add: "追加したい連絡先をドラッグしてください"
       manage_aspects: "Manage aspects"
       no_requests: "No new requests"
-      requests: "Requests"
-    many: "%{count} aspects"
+      requests: "リクエスト"
+    many: "%{count}アスペクト"
     move_contact: 
-      error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      error: "連絡先の移動にエラーが発生しました： %{inspect}"
+      failure: "連絡先の移動に失敗しました：%{inspect}"
+      success: "連絡先を新しいアスペクトに移しました"
     new_aspect: 
-      create: "Create"
-      name: "Name"
+      create: "作成する"
+      name: "アスペクト名"
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    one: "1 aspect"
-    other: "%{count} aspects"
+      start_talking: "投稿がまだありません。会話を始めましょう！"
+    one: "1つのアスペクト"
+    other: "%{count}アスペクト"
     seed: 
-      family: "Family"
-      work: "Work"
+      family: "家族"
+      work: "仕事"
     show: 
-      edit_aspect: "edit aspect"
+      edit_aspect: "アスペクトを編集する"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
-      success: "Your aspect, %{name}, has been successfully edited."
-    zero: "no aspects"
+      success: "アスペクト「%{name}」の編集に成功しました。"
+    zero: "アスペクト無し"
   back: "前へ"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
@@ -139,12 +139,12 @@ ja:
     other: "%{count} contacts"
     share_with_pane: 
       accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
-      add_new_aspect: "add to new aspect"
+      add_new_aspect: "新しいアスペクトに追加する"
       share_with: "Start sharing with %{name}"
     zero: "no contacts"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "メッセージを送信しました"
     destroy: 
       success: "Conversation successfully removed"
     helper: 
@@ -152,34 +152,34 @@ ja:
         few: "%{count} new messages"
         many: "%{count} new messages"
         one: "1 new messages"
-        other: "%{count} new messages"
-        zero: "no new messages"
+        other: "新着メッセージ %{count}件"
+        zero: "新着メッセージはありません"
     index: 
-      create_a_new_message: "create a new message"
-      inbox: "Inbox"
-      message_inbox: "Message Inbox"
-      new_message: "New Message"
-      no_conversation_selected: "no conversation selected"
-      no_messages: "no messages"
+      create_a_new_message: "新しいメッセージを作成する"
+      inbox: "受信トレイ"
+      message_inbox: "メッセージ受信トレイ"
+      new_message: "新しいメッセージ"
+      no_conversation_selected: "選択中の会話がありません"
+      no_messages: "メッセージがありません"
     new: 
       send: "Send"
       subject: "subject"
       to: "to"
     show: 
-      delete: "delete and block conversation"
-      reply: "reply"
+      delete: "会話を削除して、ブロックする"
+      reply: "返信"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%m月%d日"
+      birthday_with_year: "%Y年%m月%d日"
+      fullmonth_day: "%m月%d日"
   delete: "削除"
   email: "Email"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
+      correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
       invalid_fields: "Invalid Fields"
-  fill_me_out: "Fill me out"
+  fill_me_out: "記入して"
   hide: "隠す"
   home: 
     show: 
@@ -208,7 +208,7 @@ ja:
       sign_up: "sign_up"
     new: 
       already_invited: "Already invited"
-      aspect: "Aspect"
+      aspect: "アスペクト"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
       invite_someone_to_join: "Invite someone to join Diaspora!"
@@ -219,15 +219,15 @@ ja:
       to: "To"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
+      have_a_problem: "質問がありましたら、ここでアンサーを。"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "%{name}さんの公開ダイアスポラフィード"
-      toggle: "携帯サイトの切替え"
-      whats_new: "最新情報"
+      toggle: "携帯サイトを切替える"
+      whats_new: "更新履歴"
       your_aspects: "アスペクト"
     header: 
       blog: "ブログ"
-      code: "code"
+      code: "ソース"
       login: "ログイン"
       logout: "ログアウト"
       profile: "プロフィール"
@@ -248,11 +248,11 @@ ja:
         zero: "no people liked this"
   more: "More"
   next: "next"
-  no_results: "No Results Found"
+  no_results: "詮索結果はありません"
   notifications: 
-    also_commented: "also commented on %{post_author}'s"
-    also_commented_deleted: "commented on a deleted post."
-    comment_on_post: "commented on your"
+    also_commented: "さんも%{post_author}さんの投稿にコメントしました："
+    also_commented_deleted: "さんは削除された投稿にコメントしました。"
+    comment_on_post: "さんは次の投稿にコメントしました："
     deleted: "deleted"
     helper: 
       new_notifications: 
@@ -265,21 +265,21 @@ ja:
       and: "and"
       and_others: "and %{number} others"
       mark_all_as_read: "Mark All as Read"
-      notifications: "Notifications"
+      notifications: "お知らせ"
     mentioned: "has mentioned you in a "
-    new_request: "offered to share with you."
+    new_request: "さんは共有の許可を求めました。"
     post: "post."
     private_message: "sent you a message."
     request_accepted: "accepted your share request."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented on %{post_author}'s post."
+      commented: "も%{post_author}さんの投稿にコメントしました："
+      sign_in: "コメントを見るにはログインしてください。"
+      subject: "%{name}も%{post_author}さんの投稿にコメントしました。"
     comment_on_post: 
-      commented: "has commented on your post:"
+      commented: "は次の投稿にコメントしました："
       sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
+      subject: "%{name}は投稿にコメントしました。"
     diaspora: "the diaspora email robot"
     hello: "Hello %{name}!"
     love: "love,"
@@ -307,60 +307,60 @@ ja:
       subject: "A message about your Diaspora account:"
     thanks: "Thanks,"
   ok: "OK"
-  or: "or"
+  or: "或いは"
   password: "Password"
-  password_confirmation: "Password confirmation"
+  password_confirmation: "パスワード確認"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "タグより連絡先を追加する"
     aspect_list: 
-      edit_membership: "edit aspect membership"
-    few: "%{count} people"
+      edit_membership: "アスペクト所属を編集する"
+    few: "%{count}人の連絡先"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      people_on_pod_are_aware_of: "人のポッドメンバーが知っています"
+      results_for: "%{params}の検索結果"
     index: 
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
-      no_results: "Hey! You need to search for something."
-      results_for: "search results for"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+      couldnt_find_them_send_invite: "見つかりませんでしたか。招待メールを送信しましょう！"
+      no_one_found: "…1人も見つかりませんでした。"
+      no_results: "何かを検索しないといけません。"
+      results_for: "検索結果："
+    many: "%{count}人の連絡先"
+    one: "1人の連絡先"
+    other: "%{count}人の連絡先"
     person: 
-      add_contact: "add contact"
-      already_connected: "Already connected"
-      pending_request: "Pending request"
-      thats_you: "That's you!"
+      add_contact: "連絡先を追加する"
+      already_connected: "既につながっています"
+      pending_request: "共有の承認待ち"
+      thats_you: "あなた自身です！"
     profile_sidebar: 
-      bio: "bio"
-      born: "birthday"
-      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
-      edit_my_profile: "Edit my profile"
-      gender: "gender"
-      in_aspects: "in aspects"
-      location: "location"
-      remove_contact: "remove contact"
-      remove_from: "Remove %{name} from %{aspect}?"
+      bio: "略歴"
+      born: "誕生日"
+      cannot_remove: "連絡先を最後のアスペクから除外することができません。（断絶したい場合は連絡先を削除してください。）"
+      edit_my_profile: "プロフィールを編集する"
+      gender: "性別"
+      in_aspects: "アスペクトで"
+      location: "所在地"
+      remove_contact: "連絡先を削除する"
+      remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show: 
-      add_some: "add some"
-      does_not_exist: "Person does not exist!"
-      edit: "edit"
-      incoming_request: "%{name} wants to share with you"
-      mention: "Mention"
-      message: "Message"
-      no_posts: "no posts to display!"
-      not_connected: "You are not sharing with this person"
-      recent_posts: "Recent Posts"
-      recent_public_posts: "Recent Public Posts"
-      return_to_aspects: "Return to your aspects page"
-      see_all: "See all"
-      start_sharing: "start sharing"
-      to_accept_or_ignore: "to accept or ignore it."
-      you_have_no_tags: "you have no tags!"
+      add_some: "追加する"
+      does_not_exist: "存在しない連絡先です！"
+      edit: "編集"
+      incoming_request: "%{name}さんは共有の許可を求めています"
+      mention: "参照"
+      message: "メッセージ"
+      no_posts: "表示する投稿はありません！"
+      not_connected: "この連絡先と共有していません"
+      recent_posts: "最近の投稿"
+      recent_public_posts: "最近の公開投稿"
+      return_to_aspects: "アスペクトページに戻る"
+      see_all: "全て表示"
+      start_sharing: "共有を開始する"
+      to_accept_or_ignore: "承諾するか無視するか決めて下さい。"
+      you_have_no_tags: "タグを設定していません！"
     webfinger: 
-      fail: "Sorry, we couldn't find %{handle}."
-    zero: "no people"
+      fail: "%{handle}が見つかりませんでした。"
+    zero: "連絡先無し"
   photos: 
     create: 
       integrity_error: "写真のアップロードに失敗しました。確かに画像ファイルだったのでしょうか。"
@@ -375,12 +375,12 @@ ja:
       new_photo: "新しい写真"
       post_it: "投稿する！"
     new_photo: 
-      empty: "{file} is empty, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+      empty: "{file}は空です。取り除いてファイルを選択しなおしてください。"
+      invalid_ext: "{file}のファイル名は不正です。{extensions}以外の拡張子は使えません。"
+      size_error: "{file}は大きすぎます。ファイルサイズの上限は{sizeLimit}です。"
     new_profile_photo: 
-      or_select_one: "or select one from your already existing"
-      upload: "Upload a new profile photo!"
+      or_select_one: "或いは既存のから選択する"
+      upload: "新しいプロフィール写真をアップロードする！"
     photo: 
       view_all: "%{name}の写真をすべてみる"
     show: 
@@ -394,11 +394,11 @@ ja:
       update_photo: "写真を更新する"
       view: "表示"
     update: 
-      error: "Failed to edit photo."
-      notice: "Photo successfully updated."
+      error: "写真の編集に失敗しました。"
+      notice: "写真の更新に成功しました。"
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}さんの投稿を非表示にしました。"
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "前へ"
@@ -406,7 +406,7 @@ ja:
   profiles: 
     edit: 
       allow_search: "ダイアスポラ内の検索を許可します"
-      edit_profile: "プロフィールの編集"
+      edit_profile: "プロフィールを編集する"
       first_name: "名"
       last_name: "姓"
       update_profile: "プロフィール更新"
@@ -419,7 +419,7 @@ ja:
       your_private_profile: "非公開プロフィール"
       your_public_profile: "公開プロフィール"
       your_tags: "自分を表す５つの#タグ"
-      your_tags_placeholder: "例：#ダイアスポラ #家事 #子猫 #音楽"
+      your_tags_placeholder: "例：#diaspora #kaji #nyanko #ongaku"
     update: 
       failed: "プロフィール更新に失敗しました"
       updated: "プロフィールを更新しました"
@@ -433,7 +433,7 @@ ja:
       leave_blank: "(leave blank if you don't want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
       unhappy: "Unhappy?"
-      update: "Update"
+      update: "更新"
     new: 
       enter_email: "Enter an e-mail"
       enter_password: "Enter a password"
@@ -457,11 +457,11 @@ ja:
         other: "%{count} new requests!"
         zero: "no new requests"
     manage_aspect_contacts: 
-      existing: "Existing contacts"
-      manage_within: "Manage contacts within"
+      existing: "現在の連絡先"
+      manage_within: "次のアスペクトの連絡先を管理："
     new_request_to_person: 
-      sent: "sent!"
-  search: "Search"
+      sent: "送信しました！"
+  search: "検索"
   services: 
     create: 
       success: "Authentication successful."
@@ -471,13 +471,13 @@ ja:
       error: "there was an error connecting that service"
     finder: 
       friends: 
-        few: "%{count} friends"
-        many: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
+        few: "%{count}人の連絡先"
+        many: "%{count}人の連絡先"
+        one: "1人の連絡先"
+        other: "%{count}人の連絡先"
+        zero: "連絡先無し"
+      invite_your_friends_from: "%{service}の連絡先を招待する"
+      not_connected: "未接続"
     index: 
       connect_to_facebook: "Connect to facebook"
       connect_to_twitter: "Connect to twitter"
@@ -494,17 +494,17 @@ ja:
   settings: "Settings"
   shared: 
     add_contact: 
-      create_request: "Find by Diaspora handle"
+      create_request: "ダイアスポラのハンドル名で検索"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "あなたのハンドル名は%{diaspora_handle}です。"
     contact_list: 
-      all_contacts: "All contacts"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      all_contacts: "全ての連絡先"
+      cannot_remove: "連絡先を最後のアスペクトから除外することができません。（断絶したい場合は連絡先を削除してください。）"
     footer: 
       logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      your_aspects: "アスペクト"
     invitations: 
       by_email: "by Email"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
@@ -524,7 +524,7 @@ ja:
     publisher: 
       add_photos: "add photos"
       all: "all"
-      all_contacts: "all contacts"
+      all_contacts: "全ての連絡先"
       click_to_share_with: "Click to share with: "
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
@@ -553,16 +553,16 @@ ja:
       not_found: "Sorry, we couldn't find that post."
       permalink: "permalink"
   stream_helper: 
-    hide_comments: "コメント非表示"
-    show_comments: "すべてのコメント表示"
+    hide_comments: "コメントを非表示にする"
+    show_comments: "すべてのコメントを表示する"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "%{tag}についての投稿はまだありません。"
+      people_tagged_with: "%{tag}とタグ付けられている人々"
+      posts_tagged_with: "#%{tag}とタグ付けられている投稿"
   the_world: "the world"
-  undo: "Undo?"
-  username: "Username"
+  undo: "元に戻す"
+  username: "ユーザ名"
   users: 
     destroy: "Account successfully closed."
     edit: 
@@ -584,31 +584,31 @@ ja:
       request_acceptence: "...your share request is accepted?"
       request_received: "...you receive a new share request?"
       your_email: "Your email"
-      your_handle: "Your diaspora handle"
+      your_handle: "ハンドル名"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Connect your other services"
+      connect_on_diaspora: "ダイアスポラでつながる"
+      connect_services: "他のサービスへ接続する"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Edit your profile"
-      finished: "Finished!"
-      save_and_continue: "Save and continue"
-      signup_steps: "Finish your sign up by completing these three steps:"
-      skip: "skip getting started"
+      edit_profile: "プロフィールを編集する"
+      finished: "完了！"
+      save_and_continue: "保存して次へ"
+      signup_steps: "次の3ステップで登録を完成しましょう"
+      skip: "初期設定をスキップする"
       step_2: 
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        skip: "スキップ"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
-      welcome: "Welcome to Diaspora!"
+        finish: "終了"
+        people_already_on_diaspora: "ダイアスポラを既に使っている連絡先"
+      welcome: "ダイアスポラへようこそ！"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 
-      email_notifications_changed: "Email notifications changed"
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
-      password_changed: "Password Changed"
-      password_not_changed: "Password Change Failed"
+      email_notifications_changed: "メール配信の設定を変更しました"
+      language_changed: "言語の設定を変更しました"
+      language_not_changed: "言語の選択に失敗しました"
+      password_changed: "パスワードを変更しました"
+      password_not_changed: "パスワードの変更に失敗しました"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
