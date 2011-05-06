@@ -89,10 +89,6 @@ var Stream = {
       }
     });
 
-    $(stream_string + " .new_comment").live('ajax:success', function(data, json, xhr) {
-      json = $.parseJSON(json);
-      WebSocketReceiver.processComment(json.post_id, json.comment_id, json.html, false);
-    });
     $(stream_string + ".new_comment").live('ajax:failure', function(data, html, xhr) {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });
