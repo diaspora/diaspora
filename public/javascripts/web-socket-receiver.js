@@ -8,8 +8,9 @@ var WebSocketReceiver = {
     ws.onclose = function() {
       Diaspora.widgets.notifications.showNotification({
         html: '<div class="notification">' +
-          Diaspora.widgets.i18n.t("web_sockets.disconnected") +
-          '</div>'
+            Diaspora.widgets.i18n.t("web_sockets.disconnected") +
+          '</div>',
+        incrementCount: false
       });
 
       WSR.debug("socket closed");
