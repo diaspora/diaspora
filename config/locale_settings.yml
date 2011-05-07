@@ -1,5 +1,6 @@
 default: "en"
 available:
+  ar: "العربية"
   bg: "български език"
   br: "Brezhoneg"
   ca: "Català"
