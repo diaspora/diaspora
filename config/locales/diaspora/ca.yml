@@ -75,6 +75,7 @@ ca:
       unknown_person: "persona desconeguda"
       video_title:
         unknown: "Títol del vídeo desconegut"
+      diaspora_alpha: "DIÀSPORA* ALFA"
 
 
   aspects:
@@ -300,11 +301,11 @@ ca:
     new_request: "s'ha oferit a compartir amb vosaltres."
     private_message: "us ha enviat un missatge."
     comment_on_post: "ha comentat la vostra"
-    also_commented: "also commented on your contact's"
-    mentioned: "us ha mencionat a una publicació"
-    post: "publicació"
+    also_commented: "also commented on %{post_author}'s"
+    mentioned: "us ha mencionat a una "
+    post: "publicació."
     deleted: "suprimida"
-    also_commented_deleted: "ha comentat una publicació suprimida"
+    also_commented_deleted: "ha comentat una publicació suprimida."
     index:
       notifications: "Notificacions"
       mark_all_as_read: "Marca-les totes com a llegides"
