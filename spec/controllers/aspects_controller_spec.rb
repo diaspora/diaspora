@@ -48,24 +48,24 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it "generates a jasmine fixture" do
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
       get :index
       save_fixture(html_for("body"), "aspects_index")
     end
 
-    it "generates a jasmine fixture with a prefill" do
+    it "generates a jasmine fixture with a prefill", :fixture => 'jasmine' do
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_prefill")
     end
 
-    it 'generates a jasmine fixture with services' do
+    it 'generates a jasmine fixture with services', :fixture => 'jasmine' do
       @alice.services << Services::Facebook.create(:user_id => @alice.id)
       @alice.services << Services::Twitter.create(:user_id => @alice.id)
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_services")
     end
 
-    it 'generates a jasmine fixture with posts' do
+    it 'generates a jasmine fixture with posts', :fixture => 'jasmine' do
       @alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
@@ -302,7 +302,7 @@ describe AspectsController do
         assigns(:remote_requests).count.should == 1
       end
 
-      it "generates a jasmine fixture" do
+      it "generates a jasmine fixture", :fixture => 'jasmine' do
         get :manage
         save_fixture(html_for("body"), "aspects_manage")
       end
