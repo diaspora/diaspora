@@ -144,11 +144,12 @@ Given /^many posts from alice for bob$/ do
   alice = Factory(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
   bob = Factory(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
   connect_users_with_aspects(alice, bob)
+  time_fulcrum = Time.now - 40000
   time_interval = 1000
   (1..40).each do |n|
     post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.first.id
-    post.created_at = post.created_at - time_interval
-    post.updated_at = post.updated_at - time_interval
+    post.created_at = time_fulcrum - time_interval
+    post.updated_at = time_fulcrum + time_interval
     post.save
     time_interval += 1000
   end

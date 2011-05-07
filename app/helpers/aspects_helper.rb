@@ -7,6 +7,10 @@ module AspectsHelper
     aspects_path(:max_time => @posts.last.send(session[:sort_order].to_sym).to_i, :a_ids => params[:a_ids])
   end
 
+  def time_for_sort post
+    post.send(session[:sort_order].to_sym)
+  end
+
   def remove_link(aspect)
     if aspect.contacts.size == 0
       link_to I18n.t('aspects.helper.remove'), aspect, :method => :delete, :confirm => I18n.t('aspects.helper.are_you_sure')

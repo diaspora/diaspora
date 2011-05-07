@@ -4,6 +4,9 @@
 
 module ApplicationHelper
   @@youtube_title_cache = Hash.new("no-title")
+  def time_for_sort post
+    post.created_at
+  end
 
   def timeago(time, options={})
     options[:class] ||= "timeago"
@@ -285,7 +288,7 @@ module ApplicationHelper
       "(r)"   => "&reg;",
       "(c)"   => "&copy;"
     }
-    
+
     map.each do |search, replace|
       message.gsub!(search, replace)
     end
