@@ -2,11 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 require 'spec_helper'
 
 describe ProfilesController do
-  render_views
   before do
     @user = eve
     sign_in :user, @user
@@ -63,6 +61,7 @@ describe ProfilesController do
         @user.person.profile.image_url = "http://tom.joindiaspora.com/images/user/tom.jpg"
         @user.person.profile.save
       end
+
       it "doesn't overwrite the profile photo when an empty string is passed in" do
         image_url = @user.person.profile.image_url
         put :update, @params
@@ -77,6 +76,7 @@ describe ProfilesController do
         @profile_params = {:profile =>{ :person_id => new_person.id,
                                     :diaspora_handle => 'abc@a.com'}}
       end
+
       it 'person_id' do
         person = @user.person
         profile = person.profile

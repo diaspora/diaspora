@@ -2,12 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 require 'spec_helper'
 
 describe ContactsController do
-  render_views
-
   before do
     @user  = alice
     @user2 = bob
@@ -37,12 +34,12 @@ describe ContactsController do
   end
 
   describe '#create' do
-
     context 'with an incoming request' do
       before do
         @user3 = Factory.create(:user)
         @user3.send_contact_request_to(@user.person, @user3.aspects.create(:name => "Walruses"))
       end
+
       it 'deletes the request' do
         post :create,
           :format => 'js',
@@ -50,6 +47,7 @@ describe ContactsController do
           :aspect_id => @aspect1.id
         Request.where(:sender_id => @user3.person.id, :recipient_id => @user.person.id).first.should be_nil
       end
+
       it 'does not leave the contact pending' do
         post :create,
           :format => 'js',
@@ -58,6 +56,7 @@ describe ContactsController do
         @user.contact_for(@user3.person).should_not be_pending
       end
     end
+
     context 'with a non-contact' do
       before do
         @person = Factory(:person)

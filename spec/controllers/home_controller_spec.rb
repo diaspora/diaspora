@@ -6,8 +6,6 @@ require 'spec_helper'
 require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe HomeController do
-  render_views
-
   before do
     @user = alice
     sign_in @user
@@ -36,22 +34,24 @@ describe HomeController do
       get :show
       response.should redirect_to( :controller => 'aspects', :action => 'index', :a_ids => @index_params[:a_ids] )
     end
-  end
 
-  describe "custom logging on success" do
-    before do
-      @action = :show
-      @action_params = {"lasers" => "green"}
-    end
-    it_should_behave_like "it overrides the logs on success"
-  end
+    describe "custom logging on success" do
+      before do
+        @action = :show
+        @action_params = {"lasers" => "green"}
+      end
 
-  describe "custom logging on redirect" do
-    before do
-      sign_in :user, bob
-      @action = :show
-      @action_params = {"lasers" => "green"}
+      it_should_behave_like "it overrides the logs on success"
     end
-    it_should_behave_like "it overrides the logs on redirect"
+
+    describe "custom logging on redirect" do
+      before do
+        sign_in :user, bob
+        @action = :show
+        @action_params = {"lasers" => "green"}
+      end
+
+      it_should_behave_like "it overrides the logs on redirect"
+    end
   end
 end

@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe RequestsController do
-  render_views
   before do
     @user = alice
     @other_user = eve
@@ -20,6 +19,7 @@ describe RequestsController do
       @other_user.send_contact_request_to(@user.person, @other_user.aspects.first)
       @friend_request = Request.where(:recipient_id => @user.person.id).first
     end
+
     describe 'when accepting a contact request' do
       it "succeeds" do
         xhr :delete, :destroy,
@@ -28,6 +28,7 @@ describe RequestsController do
           :id        => @friend_request.id.to_s
         response.should redirect_to(requests_path)
       end
+
       it "marks the notification as read" do
         notification = Notification.where(:recipient_id => @user.id, :target_id=> @friend_request.id).first
         notification.unread = true
@@ -39,12 +40,14 @@ describe RequestsController do
         notification.reload.unread.should == false
       end
     end
+
     describe 'when ignoring a contact request' do
       it "succeeds" do
         xhr :delete, :destroy,
           :id => @friend_request.id.to_s
         response.should be_success
       end
+
       it "removes the request object" do
         lambda {
           xhr :delete, :destroy,
@@ -71,6 +74,7 @@ describe RequestsController do
           :into => @user.aspects[0].id
         }}
       end
+
       it 'creates a contact' do
         @user.contact_for(@other_user).should be_nil
         lambda {
@@ -80,12 +84,14 @@ describe RequestsController do
         new_contact.should_not be_nil
         new_contact.should be_pending
       end
+
       it 'does not persist a Request' do
         lambda {
           post :create, @params
         }.should_not change(Request, :count)
       end
     end
+
     it 'autoaccepts and when sending a request to someone who sent me a request' do
       @other_user.send_contact_request_to(@user.person, @other_user.aspects[0])
 

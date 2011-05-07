@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe NotificationsController do
-
-
   before do
     @user   = alice
     @aspect = @user.aspects.first

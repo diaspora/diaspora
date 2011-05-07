@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe PublicsController do
-  render_views
   let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
   before do
     @user = alice
@@ -20,6 +19,7 @@ describe PublicsController do
       save_fixture(response.body, "host-meta", fixture_path)
     end
   end
+
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 

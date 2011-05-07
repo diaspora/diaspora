@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe PhotosController do
-  render_views
-
   before do
     @alices_photo = alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id)
     @bobs_photo = bob.post(:photo, :user_file => uploaded_photo, :to => bob.aspects.first.id, :public => true)
@@ -55,51 +53,62 @@ describe PhotosController do
       before do
         get :show, :id => @alices_photo.id
       end
+
       it "succeeds" do
         response.should be_success
       end
+
       it "assigns the photo" do
         assigns[:photo].should == @alices_photo
         assigns[:ownership].should be_true
       end
     end
+
     context "private photo user can see" do
       before do
         get :show, :id => @bobs_photo.id
       end
+
       it "succeeds" do
         response.should be_success
       end
+
       it "assigns the photo" do
         assigns[:photo].should == @bobs_photo
         assigns[:ownership].should be_false
       end
     end
+
     context "private photo user cannot see" do
       before do
         user3 = Factory(:user_with_aspect)
         @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id)
       end
+
       it "redirects to the referrer" do
         request.env["HTTP_REFERER"] = "http://google.com"
         get :show, :id => @photo.to_param
         response.should redirect_to("http://google.com")
       end
+
       it "redirects to the aspects page if there's no referrer" do
         request.env.delete("HTTP_REFERER")
         get :show, :id => @photo.to_param
         response.should redirect_to(aspects_path)
       end
     end
+
     context "public photo" do
       before do
         user3 = Factory(:user_with_aspect)
         @photo = user3.post(:photo, :user_file => uploaded_photo, :to => user3.aspects.first.id, :public => true)
         get :show, :id => @photo.to_param
       end
+
       it "succeeds" do
         response.should be_success
       end
+
       it "assigns the photo" do
         assigns[:photo].should == @photo
         assigns[:ownership].should be_false
@@ -164,7 +173,6 @@ describe PhotosController do
   end
 
   describe "#make_profile_photo" do
-
     it 'should return a 201 on a js success' do
       get :make_profile_photo, :photo_id => @alices_photo.id, :format => 'js'
       response.code.should == "201"
@@ -174,7 +182,5 @@ describe PhotosController do
       get :make_profile_photo, :photo_id => @bobs_photo.id
       response.code.should == "422"
     end
-
   end
-
 end

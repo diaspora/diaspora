@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe ServicesController do
-  render_views
   let(:mock_access_token) { Object.new }
 
   let(:omniauth_auth) {
@@ -60,7 +59,6 @@ describe ServicesController do
       response.should redirect_to services_url
     end
 
-
     it 'creates a twitter service' do
       Service.delete_all
       @user.getting_started = false
@@ -74,6 +72,7 @@ describe ServicesController do
     before do
       @service1 = Factory.create(:service, :user => @user)
     end
+
     it 'destroys a service selected by id' do
       lambda{
         delete :destroy, :id => @service1.id
@@ -97,6 +96,7 @@ describe ServicesController do
       get :finder, :provider => @service1.provider
       response.should be_success
     end
+
     it 'has no translations missing' do
       get :finder, :provider => @service1.provider
       response.body.match(/translation/).should be_nil
@@ -104,7 +104,6 @@ describe ServicesController do
   end
 
   describe '#invite' do
-
     before do
       @uid = "abc"
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
@@ -141,4 +140,3 @@ describe ServicesController do
     end
   end
 end
-

@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe AspectMembershipsController do
-  render_views
-
   before do
     @user  = alice
     @user2 = bob

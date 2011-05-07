@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe ConversationVisibilitiesController do
-  render_views
-
   before do
     @user1 = alice
     sign_in :user, @user1

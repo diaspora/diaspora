@@ -1,29 +1,34 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 require 'spec_helper'
 
 describe AdminsController do
-  render_views
   before do
     @user = Factory :user
     sign_in :user, @user
   end
 
-    it 'is behind redirect_unless_admin' do
-      get :user_search
-      response.should redirect_to root_url
+  describe '#user_search' do
+    context 'admin not signed in' do
+      it 'is behind redirect_unless_admin' do
+        get :user_search
+        response.should redirect_to root_url
+      end
     end
 
-  context 'admin signed in' do
-    before do
-      AppConfig[:admins] = [@user.username]
-    end
+    context 'admin signed in' do
+      before do
+        AppConfig[:admins] = [@user.username]
+      end
 
-    describe '#user_search' do
       it 'succeeds' do
         get :user_search
         response.should be_success
       end
 
-      it 'assings users to an empty array if nothing is searched for' do
+      it 'assigns users to an empty array if nothing is searched for' do
         get :user_search
         assigns[:users].should == []
       end
@@ -52,13 +57,20 @@ describe AdminsController do
         assigns[:users].should == [@user]
       end
     end
+  end
 
-    describe '#admin_inviter' do
+  describe '#admin_inviter' do
+    context 'admin signed in' do
+      before do
+        AppConfig[:admins] = [@user.username]
+      end
+
       it 'invites a new user' do
         Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com')
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should be_redirect
       end
+
       it 'passes an existing user to create_invitee' do
         Factory.create(:user, :email => 'bob@moms.com')
         bob = User.where(:email => 'bob@moms.com').first

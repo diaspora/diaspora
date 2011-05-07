@@ -40,6 +40,10 @@ RSpec.configure do |config|
 
     $process_queue = false
   end
+
+  config.before(:each, :type => :controller) do
+    self.class.render_views
+  end
 end
 
 disable_typhoeus

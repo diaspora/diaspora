@@ -6,8 +6,6 @@ require 'spec_helper'
 require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe AspectsController do
-  render_views
-
   before do
     @bob   = bob
     @alice = alice
@@ -241,27 +239,31 @@ describe AspectsController do
       get :manage
       response.should be_success
     end
+
     it "performs reasonably", :performance => true do
-        require 'benchmark'
-        8.times do |n|
-          aspect = @alice.aspects.create(:name => "aspect#{n}")
-          8.times do |o|
-            person = Factory(:person)
-            @alice.activate_contact(person, aspect)
-          end
+      require 'benchmark'
+      8.times do |n|
+        aspect = @alice.aspects.create(:name => "aspect#{n}")
+        8.times do |o|
+          person = Factory(:person)
+          @alice.activate_contact(person, aspect)
         end
-        Benchmark.realtime{
-          get :manage
-        }.should < 4.5
+      end
+      Benchmark.realtime{
+        get :manage
+      }.should < 4.5
     end
+
     it "assigns aspect to manage" do
       get :manage
       assigns(:aspect).should == :manage
     end
+
     it "assigns remote_requests" do
       get :manage
       assigns(:remote_requests).should be_empty
     end
+
     it "assigns contacts to only non-pending" do
       contact = @alice.contact_for(bob.person)
       Contact.unscoped.where(:user_id => @alice.id).count.should == 1
@@ -273,6 +275,7 @@ describe AspectsController do
       contacts.count.should == 1
       contacts.first.should == contact
     end
+
     context "when the user has pending requests" do
       before do
         requestor        = Factory.create(:user)
@@ -283,18 +286,22 @@ describe AspectsController do
         requestor_aspect.reload
         @alice.reload
       end
+
       it "succeeds" do
         get :manage
         response.should be_success
       end
+
       it "assigns aspect to manage" do
         get :manage
         assigns(:aspect).should == :manage
       end
+
       it "assigns remote_requests" do
         get :manage
         assigns(:remote_requests).count.should == 1
       end
+
       it "generates a jasmine fixture" do
         get :manage
         save_fixture(html_for("body"), "aspects_manage")
@@ -306,6 +313,7 @@ describe AspectsController do
     before do
       @alices_aspect_1 = @alice.aspects.create(:name => "Bruisers")
     end
+
     it "doesn't overwrite random attributes" do
       new_user         = Factory.create :user
       params           = {"name" => "Bruisers"}
@@ -336,6 +344,7 @@ describe AspectsController do
       connect_users(@alice, @alices_aspect_2, @zed, @zed.aspects.first)
       connect_users(@alice, @alices_aspect_1, @katz, @katz.aspects.first)
     end
+
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
       response.should be_success

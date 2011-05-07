@@ -1,8 +1,10 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 require 'spec_helper'
 
 describe ConversationsController do
-  render_views
-
   before do
     sign_in :user, alice
   end
@@ -11,12 +13,15 @@ describe ConversationsController do
     before do
       get :new
     end
+
     it 'succeeds' do
       response.should be_success
     end
+
     it "assigns a json list of contacts" do
       assigns(:contacts_json).should include(alice.contacts.first.person.name)
     end
+
     it "assigns a contact if passed a contact id" do
       get :new, :contact_id => alice.contacts.first.id
       assigns(:contact).should == alice.contacts.first

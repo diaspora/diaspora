@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe PostVisibilitiesController do
-  render_views
-
   before do
     @user1 = alice
     @bob = bob
@@ -16,7 +14,6 @@ describe PostVisibilitiesController do
     a2.contacts << bob.contact_for(alice.person)
     a2.save
 
-   
     @status = bob.post(:status_message, :text => "hello", :public => true, :to => a2)
     @vis = @status.post_visibilities.first
     @vis.reload.hidden.should == false
@@ -47,12 +44,14 @@ describe PostVisibilitiesController do
         user2 = eve
         sign_in :user, user2
       end
+
       it 'does not let a user destroy a visibility that is not theirs' do
         lambda {
           put :update, :format => :js, :id => 42, :post_id => @status.id
         }.should_not change(@vis.reload, :hidden).to(true)
       end
-      it 'does not succceed' do
+
+      it 'does not succeed' do
         put :update, :format => :js, :id => 42, :post_id => @status.id
         response.should_not be_success
       end
