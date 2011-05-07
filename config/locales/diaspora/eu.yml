@@ -250,8 +250,8 @@ eu:
   next: "hurrengoa"
   no_results: "Ez Da Ezer Aurkitu"
   notifications: 
-    also_commented: "(e)k iruzkindu du baita zure kontaktuaren"
-    also_commented_deleted: "mezu ezabatu bat iruzkindu du"
+    also_commented: "(e)k ere iruzkindu du zure kontaktuaren"
+    also_commented_deleted: "mezu ezabatu bat iruzkindu du."
     comment_on_post: "(e)k iruzkindu du zure"
     deleted: "ezabatuta"
     helper: 
@@ -266,9 +266,9 @@ eu:
       and_others: "eta beste %{number}(e)k"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
-    mentioned: "(e)k zu aipatu zaitu mezu batean"
+    mentioned: "(e)k zu aipatu zaitu hemen:"
     new_request: "(e)k zurekin partekatu nahi du."
-    post: "mezua"
+    post: "mezua."
     private_message: "(e)k mezu bat bidali dizu."
     request_accepted: "(e)k zure partekatze eskaera onartu du."
   notifier: 

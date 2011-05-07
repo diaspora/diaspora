@@ -34,4 +34,4 @@ eu:
       unknown: "Bideo mota ezezaguna"
       watch: "Ikusi bideo hau {{provider}}(e)n"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Websocketa itxita dago; mezuak ez dira denbora errealean azalduko."

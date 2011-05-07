@@ -219,7 +219,7 @@ ja:
       to: "To"
   layouts: 
     application: 
-      have_a_problem: "質問がありましたら、ここでアンサーを。"
+      have_a_problem: "質問がありましたら、ここからアンサーを"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "%{name}さんの公開ダイアスポラフィード"
       toggle: "携帯サイトを切替える"

@@ -33,7 +33,7 @@ fi:
             username: 
               taken: "on jo varattu."
   ago: "%{time} sitten"
-  all_aspects: "All aspects"
+  all_aspects: "Kaikki näkymät"
   application: 
     helper: 
       unknown_person: "tuntematon henkilö"
@@ -180,7 +180,7 @@ fi:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
   fill_me_out: "Täytä tiedot"
-  hide: "Hide"
+  hide: "Piilota"
   home: 
     show: 
       already_account: "joko sinulla on käyttäjätili?"
@@ -242,7 +242,7 @@ fi:
         zero: "no people disliked this"
       people_like_this: 
         few: "%{count} people liked this"
-        many: "%{count} people liked this"
+        many: "%{count} ihmistä tykkää tästä"
         one: "1 person liked this"
         other: "%{count} people liked this"
         zero: "no people liked this"
@@ -251,7 +251,7 @@ fi:
   no_results: "No Results Found"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
-    also_commented_deleted: "kommentoi poistettuun viestiin"
+    also_commented_deleted: "kommentoi poistettuun viestiin."
     comment_on_post: "kommentoi sinun"
     deleted: "poistetut"
     helper: 
@@ -266,9 +266,9 @@ fi:
       and_others: "and %{number} others"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
-    mentioned: "on maininnut sinut heidän"
+    mentioned: "on maininnut sinut "
     new_request: "haluaa jakaa kanssasi."
-    post: "viesti"
+    post: "viesti."
     private_message: "sent you a message."
     request_accepted: "hyväksyi jakopyyntösi."
   notifier: 
@@ -398,7 +398,7 @@ fi:
       notice: "Kuva päivitettiin onnistuneesti."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "Viesti käyttäjältä %{name} on piilotettu."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "edellinen"
@@ -448,7 +448,7 @@ fi:
     destroy: 
       error: "Ole hyvä, valitse näkymä!"
       ignore: "Hylätty kontaktipyyntö."
-      success: "Olette nyt ystäviä."
+      success: "Olet nyt jakamassa."
     helper: 
       new_requests: 
         few: "%{count} uutta pyyntöä!"
@@ -503,15 +503,15 @@ fi:
       all_contacts: "Kaikki kontaktit"
       cannot_remove: "Henkilöä ei voitu poistaa viimeisestä näkymästä. (Jos haluat katkaista yhteyden tähän henkilöön, tulee sinun poistaa kontakti.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "kirjauduttu sisään käyttäjällä %{name}"
+      your_aspects: "näkymäsi"
     invitations: 
       by_email: "Sähköpostilla"
       dont_have_now: "Sinulla ei ole yhtään kutsua jäljellä, mutta lisää tulee pian!"
       from_facebook: "Facebookista"
       invitations_left: "(%{count} jäljellä)"
       invite_someone: "Kutsu joku"
-      invite_your_friends: "Kutsu kavereitasi"
+      invite_your_friends: "Etsi kavereitasi"
       invites: "Kutsut"
       invites_closed: "Kutsut on toistaiseksi suljettu tällä Diaspora-palvelimella"
     notification: 
@@ -537,8 +537,8 @@ fi:
     reshare: 
       reshare: "Jaa uudelleen"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
+      dislike: "En tykkää"
+      like: "Tykkään"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -561,7 +561,7 @@ fi:
       people_tagged_with: "People tagged with %{tag}"
       posts_tagged_with: "Posts tagged with #%{tag}"
   the_world: "maailma"
-  undo: "Undo?"
+  undo: "Peruuta?"
   username: "Käyttäjätunnus"
   users: 
     destroy: "Käyttäjätilin sulkeminen onnistui."
