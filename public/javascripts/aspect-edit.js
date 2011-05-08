@@ -73,7 +73,7 @@ var AspectEdit = {
         },
         success: function(data) {
           AspectEdit.onMovePersonSuccess(person, dropzone);
-          View.flashes.render($.parseJSON(data));
+          Diaspora.widgets.flashes.render($.parseJSON(data));
         }
       });
     }

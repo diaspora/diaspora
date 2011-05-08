@@ -32,6 +32,7 @@ javascripts:
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/widgets/directionDetector.js
     - public/javascripts/widgets/notifications.js
+    - public/javascripts/widgets/flashes.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/search.js

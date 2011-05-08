@@ -10,9 +10,6 @@ var View = {
     /* Tooltips */
     this.tooltips.bindAll();
 
-    /* Animate flashes */
-    this.flashes.animate();
-
     /* In field labels */
     $("label").inFieldLabels();
     $(document).bind('afterReveal.facebox', function() {
@@ -97,26 +94,6 @@ var View = {
       $("#debug_more").toggle("fast");
     },
     selector: "#debug_info"
-  },
-
-  flashes: {
-    animate: function() {
-      var $this = $(View.flashes.selector);
-      $this.animate({
-        top: 0
-      }).delay(2000).animate({
-        top: -100
-      }, $this.remove)
-    },
-    render: function(result) {
-      $("<div/>")
-        .attr("id", (result.success) ? "flash_notice" : "flash_error")
-        .prependTo(document.body)
-        .html(result.notice);
-      View.flashes.animate();
-    },
-    selector: "#flash_notice, #flash_error, #flash_alert"
-
   },
 
   gettingStarted: {
@@ -212,7 +189,7 @@ var View = {
         if(element !== "bindAll") {
           this[element].bind();
         }
-      };
+      }
     }
   },
 

@@ -42,33 +42,6 @@ describe("View", function() {
     });
   });
 
-  describe("flashes", function() {
-    describe("animate", function() {
-      beforeEach(function() {
-        $("#jasmine_content").html(
-          '<div id="flash_notice">' +
-            'flash! flash! flash!' +
-          '</div>'
-        );
-      });
-
-      it("is called when the DOM is ready", function() {
-        spyOn(View.flashes, "animate").andCallThrough();
-        View.initialize();
-        expect(View.flashes.animate).toHaveBeenCalled();
-      });
-    });
-    describe("render", function() {
-      it("creates a new div and calls flashes.animate", function() {
-        spyOn(View.flashes, "animate");
-        View.flashes.render({
-          success: true,
-          message: "success!"
-        });
-        expect(View.flashes.animate).toHaveBeenCalled();
-      });
-    });
-  });
 
   describe("newRequest", function() {
     beforeEach(function() {
