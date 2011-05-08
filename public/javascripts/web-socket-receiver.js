@@ -133,25 +133,7 @@ var WebSocketReceiver = {
   },
 
   addPostToStream: function(postId, html) {
-    if( $(".stream_element[data-guid='" + postId + "']").length === 0 ) {
-      var streamElement = $(html);
-
-      var showMessage = function() {
-        $("#main_stream:not('.show')").prepend(
-          streamElement.fadeIn("fast", function() {
-            streamElement.find("label").inFieldLabels();
-          })
-        );
-      };
-
-      if( $("#no_posts").is(":visible") ) {
-        $("#no_posts").fadeOut(400, showMessage()).hide();
-      } else {
-        showMessage();
-      }
-      Diaspora.widgets.timeago.updateTimeAgo();
-      Diaspora.widgets.directionDetector.updateBinds();
-    }
+    
   },
 
   onPageForClass: function(className) {
