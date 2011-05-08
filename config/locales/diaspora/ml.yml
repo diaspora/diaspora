@@ -222,7 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "toggle mobile site"
+      toggle: "മൊബൈല്‍ കവാടത്തിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -384,7 +384,7 @@ ml:
     photo: 
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "ശേഖരണത്തിന്റെ സ്ഥിരംകണ്ണി"
       delete_photo: "ചിത്രം നീക്കുക"
       edit: "തിരുത്തുക"
       edit_delete_photo: "ചിത്രത്തിന്റെ വിവരണം തിരുത്തുക / ചിത്രം നീക്കം ചെയ്യുക"
