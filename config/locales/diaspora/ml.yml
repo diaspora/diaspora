@@ -92,7 +92,7 @@ ml:
       requests: "അഭ്യര്‍ത്ഥനകള്‍"
     many: "%{count} പരിചയങ്ങള്‍"
     move_contact: 
-      error: "Error moving contact: %{inspect}"
+      error: "സമ്പര്‍ക്കം മാറ്റാന്‍ സാധിക് : %{inspect}"
       failure: "ശരിയായില്ല. %{inspect}"
       success: "വ്യക്തിയെ പുതിയ പരിചയത്തിലേക്ക് മാറ്റിയിരിക്കുന്നു"
     new_aspect: 
@@ -222,7 +222,7 @@ ml:
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
       public_feed: "Public Diaspora Feed for %{name}"
-      toggle: "toggle mobile site"
+      toggle: "മൊബൈല്‍ കവാടത്തിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     header: 
@@ -235,11 +235,11 @@ ml:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
+        many: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല."
+        one: "ഒരാള്‍ ഇതിഷ്ടപ്പെടുന്നില്ല."
+        other: "%{count} പേര്‍ ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
+        zero: "ആരും ഇത് ഇഷ്ടപ്പെടുന്നില്ല"
       people_like_this: 
         few: "%{count} ആളുകള്‍ ഇത് ഇഷ്ടപ്പെടുന്നു"
         many: "%{count} ആളുകള്‍ ഇത് ഇഷ്ട്പ്പെടുന്നു"
@@ -267,9 +267,9 @@ ml:
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
       notifications: "അറിയിപ്പുകള്‍"
     mentioned: "has mentioned you in their"
-    new_request: "offered to share with you."
+    new_request: "താങ്കളുമായി പങ്കുവയ്ക്കാന്‍ തയ്യാറായിരിക്കുന്നു."
     post: "കുറിപ്പ്"
-    private_message: "sent you a message."
+    private_message: "താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചിരിക്കുന്നു."
     request_accepted: "താങ്കളുടെ പങ്കിടല്‍ അഭ്യര്‍ത്ഥന അംഗീകരിച്ചു."
   notifier: 
     also_commented: 
@@ -384,7 +384,7 @@ ml:
     photo: 
       view_all: "%{name}യുടെ എല്ലാ ചിത്രങ്ങളും കാണുക"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "ശേഖരണത്തിന്റെ സ്ഥിരംകണ്ണി"
       delete_photo: "ചിത്രം നീക്കുക"
       edit: "തിരുത്തുക"
       edit_delete_photo: "ചിത്രത്തിന്റെ വിവരണം തിരുത്തുക / ചിത്രം നീക്കം ചെയ്യുക"
@@ -419,7 +419,7 @@ ml:
       your_private_profile: "Your private profile"
       your_public_profile: "Your public profile"
       your_tags: "താങ്കളെക്കുറിച്ച്: 5 #ടാഗുകളില്‍"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_tags_placeholder: "i.e. #ഡയസ്പോറ #സംഗീതം #മലയാളം #പൂച്ചകള്‍"
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
@@ -444,7 +444,7 @@ ml:
   requests: 
     create: 
       sending: "അയയ്ക്കുന്നു"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: " %{name}-മായി പങ്കുവയ്ക്കാന്‍ താങ്കള്‍ അപേക്ഷിച്ചിരിക്കുന്നു. അടുത്ത തവണ ഡയസ്പോറയില്‍ %{name} പ്രവേശിക്കുമ്പോള്‍ താങ്കളുടെ അഭ്യര്‍ത്ഥന കാണുന്നതാണ്."
     destroy: 
       error: "ദയവായി ഒരു പരിചയം തിരഞ്ഞെടുക്കുക!"
       ignore: "സമ്പര്‍ക്ക അഭ്യര്‍ത്ഥന അവഗണിച്ചു."
@@ -503,8 +503,8 @@ ml:
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
       cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "%{name} ആയി പ്രവേശിച്ചിരിക്കുന്നു."
+      your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
     invitations: 
       by_email: "ഇമെയില്‍ വഴി"
       dont_have_now: "താങ്കള്‍ക്ക് ക്ഷണമൊന്നും ബാക്കിയില്ല, പക്ഷേ കൂടുതല്‍ വരുന്നുണ്ട്!"
