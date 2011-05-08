@@ -68,6 +68,8 @@ describe AspectsController do
       bob.comment("what", :on => message)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
+      
+      save_fixture(html_for(".stream_element:first"), "status_message_in_stream")
     end
 
     context 'with getting_started = true' do
