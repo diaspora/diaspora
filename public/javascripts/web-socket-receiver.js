@@ -128,12 +128,8 @@ var WebSocketReceiver = {
 
   processPost: function(className, postId, html, aspectIds) {
     if(WebSocketReceiver.onPageForAspects(aspectIds)) {
-      WebSocketReceiver.addPostToStream(postId, html);
+      ContentUpdater.addPostToStream(postId, html);
     }
-  },
-
-  addPostToStream: function(postId, html) {
-    
   },
 
   onPageForClass: function(className) {

@@ -3,11 +3,12 @@
 *   the COPYRIGHT file.
 */
 
-var ContentUpdates = {
-  addPostToStream: function(postId, html) {
-    if( $(".stream_element[data-guid='" + postId + "']").length === 0 ) {
-      var streamElement = $(html);
+var ContentUpdater = {
+  addPostToStream: function(html) {
+    var streamElement = $(html);
+    var postId = streamElement.attr("data-guid");
 
+    if($(".stream_element[data-guid='" + postId + "']").length === 0) {
       if($("#no_posts").length) {
         $("#no_posts").detach();
       }
@@ -16,9 +17,7 @@ var ContentUpdates = {
         streamElement.find("label").inFieldLabels();
       });
 
-
       Diaspora.widgets.publish("stream/postAdded", [postId]);
-      
       Diaspora.widgets.timeago.updateTimeAgo();
       Diaspora.widgets.directionDetector.updateBinds();
     }
