@@ -79,6 +79,10 @@
         margin-top: 15px;
       }
 
+      .helpful {
+        cursor: help;
+      }
+
     </style>
   </head>
 
@@ -106,9 +110,9 @@
 
           <ol id="steps">
             <li>
-              <h2>Configure your <abbr title="A Diaspora installation">pod</abbr></h2>
+              <h2>Configure your <abbr class="helpful" title="A Diaspora installation">pod</abbr></h2>
               <img src='images/icons/cog.png'/>
-              <p>Look at <code title='General application configuration (photo uploads, SSL certs, etc.)'>config/app_config.yml.example</code> and <code title="mySQL username/password">config/database.yml.example</code> for help.</p>
+              <p>Look at <code class="helpful" title='General pod configuration (location to upload photos, SSL certs, etc.)'>config/app_config.yml.example</code> and <code class="helpful" title="mySQL username/password">config/database.yml.example</code> for help.</p>
             </li>
 
             <li>
