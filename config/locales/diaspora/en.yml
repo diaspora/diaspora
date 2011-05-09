@@ -341,6 +341,10 @@ en:
         private_message: "has sent you a private message:"
         message_subject: "Subject: %{subject}"
         sign_in: "Sign in to view it."
+    liked:
+        subject: "%{name} has just liked your post"
+        liked: "%{name} has just liked your post"
+        sign_in: "Sign to view it"
 
   people:
     zero: "no people"
@@ -620,6 +624,7 @@ en:
       request_received: "...you receive a new share request?"
       request_acceptence: "...your share request is accepted?"
       private_message: "...you receive a private message?"
+      liked: "...someone likes your post?"
       change: "Change"
     destroy: "Account successfully closed."
     getting_started:

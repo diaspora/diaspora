@@ -49,6 +49,21 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def liked(recipient_id, sender_id, like_id)
+    @receiver = User.find_by_id(recipient_id)
+    @sender = Person.find_by_id(sender_id)
+    @like = Like.find(like_id)
+
+    log_mail(recipient_id, sender_id, 'liked')
+
+    attachments.inline['logo_caps.png'] = ATTACHMENT
+
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => I18n.t('notifier.liked.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+    end
+  end
+
   def mentioned(recipient_id, sender_id, target_id)
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)

@@ -1,0 +1,7 @@
+!= t('notifier.hello', :name => @receiver.profile.first_name)
+!= t('.liked', :name => "#{@sender.name} (#{@sender.diaspora_handle})")
+
+!= link_to t('.sign_in'), status_message_url(@like.post)
+
+!= t('notifier.love') 
+!= t('notifier.diaspora')

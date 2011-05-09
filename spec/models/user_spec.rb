@@ -242,13 +242,13 @@ describe User do
       alice.disable_mail = true
       proc {
         alice.update_user_preferences({})
-      }.should change(alice.user_preferences, :count).by(6)
+      }.should change(alice.user_preferences, :count).by(7)
     end
     it 'still sets new prefs to false on update' do
       alice.disable_mail = true
       proc {
         alice.update_user_preferences({'mentioned' => false})
-      }.should change(alice.user_preferences, :count).by(5)
+      }.should change(alice.user_preferences, :count).by(6)
       alice.reload.disable_mail.should be_false
     end
   end

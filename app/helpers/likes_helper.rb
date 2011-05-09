@@ -8,7 +8,7 @@ module LikesHelper
     links.join(", ").html_safe
   end
 
-  def like_action(post)
+  def like_action(post, current_user=current_user)
     if current_user.liked?(post)
       link_to t('shared.stream_element.unlike'), like_path(:post_id => post.id, :id => 'xxx'), :method => :delete, :class => 'unlike', :remote => true
     else

@@ -39,4 +39,8 @@ class Like < ActiveRecord::Base
   def parent= parent
     self.post = parent
   end
+
+  def notification_type(user, person)
+    Notifications::Liked unless user.person == person
+  end
 end

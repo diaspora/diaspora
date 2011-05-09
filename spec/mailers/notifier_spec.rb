@@ -86,7 +86,6 @@ describe Notifier do
     end
   end
 
-
   describe ".mentioned" do
     before do
       @user = alice
@@ -100,15 +99,39 @@ describe Notifier do
     end
 
     it 'has the receivers name in the body' do
-      @mail.body.encoded.include?(@user.person.profile.first_name).should be true
+      @mail.body.encoded.include?(@user.person.profile.first_name).should be_true
     end
 
     it 'has the name of person mentioning in the body' do
-      @mail.body.encoded.include?(@sm.author.name).should be true
+      @mail.body.encoded.include?(@sm.author.name).should be_true
     end
 
     it 'has the post text in the body' do
       @mail.body.encoded.should include(@sm.text)
+    end
+
+    it 'should not include translation missing' do
+      @mail.body.encoded.should_not include("missing")
+    end
+  end
+
+  describe ".liked" do
+    before do
+      @sm = Factory(:status_message, :author => alice.person)
+      @like = @sm.likes.create(:author => bob.person)
+      @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
+    end
+
+    it 'goes to the right person' do
+      @mail.to.should == [alice.email]
+    end
+
+    it 'has the receivers name in the body' do
+      @mail.body.encoded.include?(alice.person.profile.first_name).should be true
+    end
+
+    it 'has the name of person liking in the body' do
+      @mail.body.encoded.include?(@like.author.name).should be_true
     end
 
     it 'should not include translation missing' do
@@ -152,6 +175,7 @@ describe Notifier do
       @mail.body.encoded.should_not include("missing")
     end
   end
+
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :text => "Sunny outside", :to => :all)}

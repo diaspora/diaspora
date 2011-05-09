@@ -39,7 +39,7 @@
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
           |
           %span.like_action
-            = like_action(post)
+            = like_action(post, current_user)
           |
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 

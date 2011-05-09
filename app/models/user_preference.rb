@@ -10,7 +10,8 @@ class UserPreference < ActiveRecord::Base
    "private_message",
    "request_acceptance",
    "request_received",
-   "also_commented"]
+   "also_commented",
+   "liked"]
 
   def must_be_valid_email_type
     unless VALID_EMAIL_TYPES.include?(self.email_type)
