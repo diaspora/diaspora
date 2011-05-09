@@ -66,29 +66,6 @@ var Stream = {
       }
     });
 
-    $(".new_status_message").live('ajax:loading', function(data, json, xhr) {
-      $("#photodropzone").find('li').remove();
-      $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
-    });
-
-    $(".new_status_message").live('ajax:success', function(data, json, xhr) {
-      ContentUpdater.addPostToStream(json.html);
-      //collapse publisher
-      Publisher.close();
-      Publisher.clear();
-      //Stream.setUpImageLinks();
-      Stream.setUpAudioLinks();
-    });
-
-    $(".new_status_message").live('ajax:failure', function(data, html , xhr) {
-      json = $.parseJSON(html.responseText);
-      if(json.errors.length !== 0){
-        Diaspora.widgets.alert.alert(json.errors);
-      }else{
-        Diaspora.widgets.alert.alert('Failed to post message!');
-      }
-    });
-
     $(stream_string + ".new_comment").live('ajax:failure', function(data, html, xhr) {
       Diaspora.widgets.alert.alert('Failed to post message!');
     });

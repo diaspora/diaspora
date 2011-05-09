@@ -338,6 +338,31 @@ var Publisher = {
       }
     });
   },
+  onSubmit: function(data, json, xhr){
+    $("#photodropzone").find('li').remove();
+    $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
+  },
+  onFailure: function(data, json, xhr){
+    json = $.parseJSON(html.responseText);
+    if(json.errors.length !== 0){
+      Diaspora.widgets.alert.alert(json.errors);
+    }else{
+      Diaspora.widgets.alert.alert('Failed to post message!');
+    }
+  },
+  onSuccess: function(data, json, xhr){
+    ContentUpdater.addPostToStream(json.html);
+    //collapse publisher
+    Publisher.close();
+    Publisher.clear();
+    //Stream.setUpImageLinks();
+    Stream.setUpAudioLinks();
+  },
+  bindAjax: function(){
+    Publisher.form().bind('ajax:loading', Publisher.onSubmit);
+    Publisher.form().bind('ajax:failure', Publisher.onFailure);
+    Publisher.form().bind('ajax:success', Publisher.onSuccess);
+  },
   initialize: function() {
     Publisher.cachedForm = Publisher.cachedSubmit =
       Publisher.cachedInput = Publisher.cachedHiddenInput = false;
@@ -354,6 +379,7 @@ var Publisher = {
     Publisher.hiddenInput().val(Publisher.input().val());
     Publisher.input().keydown(Publisher.autocompletion.keyDownHandler);
     Publisher.input().keyup(Publisher.autocompletion.keyUpHandler);
+    Publisher.bindAjax();
     Publisher.form().find("textarea").bind("focus", function(evt) {
       Publisher.open();
     });
