@@ -72,7 +72,7 @@ var Stream = {
     });
 
     $(".new_status_message").live('ajax:success', function(data, json, xhr) {
-      WebSocketReceiver.addPostToStream(json.post_id, json.html);
+      ContentUpdater.addPostToStream(json.html);
       //collapse publisher
       Publisher.close();
       Publisher.clear();
