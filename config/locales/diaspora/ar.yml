@@ -36,6 +36,7 @@ ar:
   all_aspects: "كل الفئات"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "شخص غير معروف"
       video_title: 
         unknown: "عنوان فيديو غير محدد"

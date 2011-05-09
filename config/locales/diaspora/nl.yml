@@ -36,6 +36,7 @@ nl:
   all_aspects: "Alle Aspecten"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "onbekend persoon"
       video_title: 
         unknown: "Onbekende Videotitel"

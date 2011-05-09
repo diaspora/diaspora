@@ -36,6 +36,7 @@ zh-CN:
   all_aspects: "所有情景"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "未知用户"
       video_title: 
         unknown: "未知影片标题"

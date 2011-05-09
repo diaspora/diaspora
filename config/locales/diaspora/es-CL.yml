@@ -36,6 +36,7 @@ es-CL:
   all_aspects: "Todos los Aspectos"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title: 
         unknown: "Titulo de vídeo desconocido"
@@ -251,7 +252,7 @@ es-CL:
   no_results: "No se encontraron resultados"
   notifications: 
     also_commented: "también comentó en el post de %{post_author}"
-    also_commented_deleted: "Comentó en un post eliminado"
+    also_commented_deleted: "Comentó en un post eliminado."
     comment_on_post: "comentó en tu"
     deleted: "Eliminado"
     helper: 
@@ -266,9 +267,9 @@ es-CL:
       and_others: "y otros %{number}"
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
-    mentioned: "te mencionó en un post"
+    mentioned: "te mencionó en un"
     new_request: "quiere compartir contigo."
-    post: "post"
+    post: "post."
     private_message: "te envió un mensaje."
     request_accepted: "aceptó tu solicitud de contacto."
   notifier: 

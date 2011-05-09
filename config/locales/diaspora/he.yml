@@ -36,6 +36,7 @@ he:
   all_aspects: "כל ההיבטים"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "אדם לא ידוע"
       video_title: 
         unknown: "כותרת הווידאו אינה ידועה"

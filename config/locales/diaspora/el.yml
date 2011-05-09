@@ -36,6 +36,7 @@ el:
   all_aspects: "Όλες οι πτυχές"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "άγνωστο άτομο"
       video_title: 
         unknown: "Άγνωστος τίτλος video"
@@ -251,7 +252,7 @@ el:
   no_results: "Δεν βρέθηκαν αποτελέσματα"
   notifications: 
     also_commented: "επίσης σχολίασε τη %{post_author}"
-    also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση"
+    also_commented_deleted: "σχολιάστηκε σε διαγεγραμμένη δημοσίευση."
     comment_on_post: "σχολίασε τη"
     deleted: "διαγράφηκε"
     helper: 
@@ -266,9 +267,9 @@ el:
       and_others: "και %{number} άλλοι"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
-    mentioned: "σας ανέφερε στο"
+    mentioned: "σας ανέφερε σε"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
-    post: "δημοσίευση"
+    post: "δημοσίευση."
     private_message: "σας έστειλε ένα μήνυμα"
     request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
   notifier: 

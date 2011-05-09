@@ -36,6 +36,7 @@ is:
   all_aspects: "All aspects"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "óþekkt manneskja"
       video_title: 
         unknown: "Óþekktur vídeótitill"

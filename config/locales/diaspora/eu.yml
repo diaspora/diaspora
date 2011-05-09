@@ -36,6 +36,7 @@ eu:
   all_aspects: "Alderdi guztiak"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "pertsona ezezaguna"
       video_title: 
         unknown: "Bideo izen ezezaguna"

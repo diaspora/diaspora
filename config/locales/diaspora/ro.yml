@@ -36,6 +36,7 @@ ro:
   all_aspects: "All aspects"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persoană necunoscută"
       video_title: 
         unknown: "Unknown Video Title"

@@ -36,6 +36,7 @@ hu:
   all_aspects: "Összes csoport"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "ismeretlen személy"
       video_title: 
         unknown: "Ismeretlen videó cím"

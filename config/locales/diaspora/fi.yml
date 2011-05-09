@@ -36,6 +36,7 @@ fi:
   all_aspects: "Kaikki näkymät"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "tuntematon henkilö"
       video_title: 
         unknown: "Videon Otsikko Tuntematon"

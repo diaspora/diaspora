@@ -36,6 +36,7 @@ ga:
   all_aspects: "All aspects"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "duine anaithnid"
       video_title: 
         unknown: "Teideal Físeán Anaithnid"

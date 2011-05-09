@@ -36,6 +36,7 @@ bg:
   all_aspects: "Всички аспекти"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "непознато лице"
       video_title: 
         unknown: "Unknown Video Title"

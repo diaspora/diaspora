@@ -36,6 +36,7 @@ nb:
   all_aspects: "Alle aspekter"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "ukjent person"
       video_title: 
         unknown: "Ukjent Videotittel"
