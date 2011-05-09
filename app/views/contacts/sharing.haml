@@ -1,0 +1,28 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%h4
+  .right
+    = link_to t('contacts', :count => @contact_count), manage_aspects_path, :title => t('aspects.manage.manage_aspects')
+
+  = t('aspects', :count => aspects.count)
+
+%ul
+
+/ - for aspect in aspects
+/   = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
+
+/ - if @contacts_sharing_with
+/   %li{:class => ("dull" if @contacts_sharing_with.size == 0)}
+/     .right
+/       %b
+/         = link_to t('contacts', :count => @contacts_sharing_with.size), edit_aspect_path("followers"), :rel => 'facebox', :class => 'contact-count'
+/     %b
+/       = t('aspects.index.people_sharing_with_you')
+/     %br
+
+/     - if @contacts_sharing_with.size > 0
+/       .contacts
+/         - for contact in @contacts_sharing_with[0..15]
+/           = person_image_link(contact.person)

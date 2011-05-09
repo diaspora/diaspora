@@ -140,6 +140,7 @@ en:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
+      people_sharing_with_you: "People sharing with you"
 
   aspect_memberships:
     destroy:
@@ -547,9 +548,9 @@ en:
       invitations_left: "(%{count} left)"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invites_closed: "Invites are currently closed on this Diaspora pod"
-      invite_your_friends: "Find your friends"
+      invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
-      by_email: "by Email"
+      by_email: "via Email"
     reshare:
       reshare: "Reshare"
     public_explain:

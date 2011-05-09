@@ -37,4 +37,8 @@ class ContactsController < ApplicationController
     redirect_to contact.person
   end
 
+  def sharing
+    @contacts = current_user.contacts.sharing
+    #render :nothing => true
+  end
 end

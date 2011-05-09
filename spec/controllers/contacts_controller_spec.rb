@@ -63,4 +63,16 @@ describe ContactsController do
       response.should redirect_to(@contact.person)
     end
   end
+
+  describe '#sharing' do
+    it "succeeds" do
+      get :sharing
+      response.should be_success
+    end
+
+    it "assigns only the people sharing with you with 'share_with' flag" do
+      get :sharing, :id => 'share_with'
+      assigns[:contacts].to_set.should == alice.contacts.sharing.to_set
+    end
+  end
 end
