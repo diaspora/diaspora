@@ -2,212 +2,99 @@
 <html>
   <head>
     <title>Diaspora: Getting Started</title>
-    <style type="text/css" media="screen">
-      body {
-        margin: 0;
-        margin-bottom: 25px;
-        margin-top: 2em;
+    <style type="text/css">
+      ol {
         padding: 0;
-        background-color: #fff;
-        font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
-        font-size: 13px;
-        color: #333;
       }
-
+      h1, h2, h3 {
+        letter-spacing: -1px;
+      }
       h1 {
-        font-size: 28px;
-        color: #000;
-        text-shadow: #999 0px 1px 3px;
+        color: #111;
+        text-shadow: 2px 0 0 white;
       }
 
-      a {
-        color: #3F8FBA;
+      h2 {
+        color: #444;
       }
 
-      #page {
-        background-color: #f0f0f0;
-        width: 950px;
-        margin: 0 auto;
+      h3 {
+        color: #777;
       }
 
-      #content {
-        float: left;
-        background-color: white;
-        border: 1px solid #ddd;
-        border-top: none;
-        padding: 25px;
-        width: 700px;
+      #steps li{
+        display: inline-block;
+        width: 30%;
+        padding: 1%;
+        text-align: center;
+        vertical-align: top;
       }
 
-      #sidebar {
-        float: right;
-        width: 175px;
-      }
-
-      #footer {
-        clear: both;
-        height: 0;
-      }
-
-      #header, #about, #getting-started {
-        padding-left: 25px;
-        padding-right: 30px;
-      }
-
-      #about h3 {
-        margin: 0;
-        margin-bottom: 10px;
-        font-size: 14px;
-      }
-
-      #about-content {
-        background-color: #ffd;
-        border: 1px solid #fc0;
-      }
-
-      #about-content table {
-        margin-top: 10px;
-        margin-bottom: 10px;
-        font-size: 11px;
-        border-collapse: collapse;
-      }
-
-      #about-content ul {
-        padding: 0;
-        list-style-type: none;
-      }
-
-      #about-content.failure p {
-        margin: 0;
-        padding: 10px;
-      }
-
-
-      #getting-started {
-        border-top: 1px solid #ccc;
-        margin-top: 25px;
-        padding-top: 15px;
-      }
-      
-      #getting-started h1 {
-        margin-bottom: 10px;
-        font-size: 20px;
-      }
-      #getting-started h2 {
-        margin: 0;
-        font-size: 14px;
-        font-weight: normal;
-        color: #333;
-      }
-
-      #getting-started ol {
-        margin-left: 0;
-        padding-left: 0;
-      }
-
-      #getting-started li {
-        margin-bottom: 5px;
-      }
-
-      #getting-started li h2 {
-        margin: 0;
-        font-weight: bold;
-        font-size: 18px;
-        color: #333;
-      }
-      #getting-started li p {
-        color: #555;
-        font-size: 13px;
-      }
-
-
-      #sidebar ul {
-        margin-left: 0;
-        padding-left: 0;
-      }
-      #sidebar ul h3 {
-        margin-top: 25px;
-        font-size: 16px;
-        padding-bottom: 10px;
-        border-bottom: 1px solid #ccc;
-      }
-      #sidebar li {
-        list-style-type: none;
-      }
-      #sidebar ul.links li {
-        margin-bottom: 5px;
+      p{
+        font-family: 'helvetica';
       }
 
     </style>
-    <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
-    </script>
   </head>
+
   <body>
     <div id="page">
-      <div id="content">
-        <div id="header">
-          <h1>Looking Good!</h1>
-          <h2>Welcome to Diaspora!</h2>
+      <div id="contentr">
+        <div id="header" style="margin-bottom:24px;">
+          <img src='images/logo_caps.png'/>
         </div>
 
-        <div id="about">
+        <div id="about" style='display:none;'>
           <h3><a href="rails/info/properties" onclick="about(); return false;">About your pod&rsquo;s environment</a></h3>
           <div id="about-content" style="display: none"></div>
         </div>
 
+        <hr>
         <div id="getting-started">
-          <h1>Getting started</h1>
-          <h2>Here&rsquo;s how to get rolling:</h2>
+          <h1>Welcome, friend.</h1>
+          <h3>You're about to change the Internet.  Let's get you set up, shall we?</h3>
 
-          <ol>
+          <hr>
+          <br>
+          <br>
+
+          <ol id="steps">
             <li>
-              <h2>check all of your settings!</h2>
-              <p>look at config/app_config.yml.example for help</p>
+              <h2>Configure your <abbr title="Diaspora installation">pod</abbr></h2>
+              <img src='images/icons/cog.png'/>
+              <p>Look at <strong>config/app_config.yml.example</strong> for help.</p>
             </li>
 
             <li>
-              <h2>Make a new user!</h2>
-              <p>click on the login link to make it happen</p>
+              <h2>Try it out</h2>
+              <img src='images/icons/smiley_laughing.png'/>
+              <p>login form ??</p>
             </li>
 
             <li>
-              <h2>Tell us what you think!</h2>
-              <p>make bug reports, feature requests at: <a href="http://bugs.joindiaspora.com">our bug tracker </a></p>
+              <h2>Make a contribution</h2>
+              <img src='images/icons/pen_write.png'/>
+              <p>It's people like you who are going to make Diaspora great.  a link to <a href="http://github.com/diaspora/diaspora/" title="github">github</a>.</p>
             </li>
           </ol>
         </div>
       </div>
 
-      <div id="sidebar">
-        <ul id="sidebar-items">
-          <li>
-            <h3>Browse the documentation</h3>
-            <ul class="links">
-              <li><a href="http://github.com/diaspora/diaspora/">Diaspora Github</a></li>
-              <li><a href="http://github.com/diaspora/diaspora/wiki">Diaspora Wiki</a></li>
-              <li><a href="http://webchat.freenode.net/?channels=diaspora">Diaspora IRC</a></li>
-              <li><a href="http://bugs.joindiaspora.com/">Diaspora Bug Tracker</a></li>
-              <li><a href="http://groups.google.com/group/diaspora-discuss">User Mailing List</a></li>
-              <li><a href="http://groups.google.com/group/diaspora-dev">Dev Mailing List</a></li>
-              <li><a href="http://getsatisfaction.com/diaspora/">Get Satisfaction</a></li>
-              <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
-            </ul>
-          </li>
-        </ul>
-      </div>
+      <br>
+      <br>
 
-      <div id="footer">&nbsp;</div>
+      <hr>
+      <h3>Useful Resources</h3>
+      <ul class="links">
+        <li><a href="http://github.com/diaspora/diaspora/" title="github">Codebase</a></li>
+        <li><a href="http://github.com/diaspora/diaspora/wiki" title="wiki">Documentation</a></li>
+        <li><a href="http://webchat.freenode.net/?channels=diaspora" title="IRC">IRC</a></li>
+        <li><a href="http://bugs.joindiaspora.com/" title="bug tracker">Find/Report bugs</a></li>
+        <li><a href="http://groups.google.com/group/diaspora-discuss" title="mailing list">General Discussion</a></li>
+        <li><a href="http://groups.google.com/group/diaspora-dev" title="mailing list">Development Discussion</a></li>
+        <li><a href="http://getsatisfaction.com/diaspora/" title="get satisfaction">User Feedback</a></li>
+        <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
+      </ul>
     </div>
   </body>
 </html>
