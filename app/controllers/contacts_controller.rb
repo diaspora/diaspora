@@ -39,6 +39,6 @@ class ContactsController < ApplicationController
 
   def sharing
     @contacts = current_user.contacts.sharing
-    #render :nothing => true
+    render :layout => false
   end
 end

@@ -1,28 +1,39 @@
--#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   Copyright (c) 2011, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h4
-  .right
-    = link_to t('contacts', :count => @contact_count), manage_aspects_path, :title => t('aspects.manage.manage_aspects')
+/- content_for :head do
+/  = include_javascripts :aspects
 
-  = t('aspects', :count => aspects.count)
+#aspect_edit_pane
+  #facebox_header
+    .right
+      = t('contacts', :count =>@contacts.count)
 
-%ul
+    %h3#aspect_name_title
+      %span.name= "People sharing with you:"
 
-/ - for aspect in aspects
-/   = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
+  - if @contacts.count > 0
+    .contact_list
+      = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => "People sharing with you"
+      %ul
+        - for contact in @contacts
+          %li{:data=>{:contact_id=>contact.id}}
+            = person_image_tag contact.person
+            %h4.name
+              = link_to contact.person.name, contact.person
+              .description
+                = contact.person.diaspora_handle
+            .right
+              %ul.dropdown
+                %li
+                  .right
+                    &#9660;
+                  = link_to "Sharing", '#', :class => 'button'
+                %li= "People"
+                %li= "Cats"
+                %li= "Cat-People"
 
-/ - if @contacts_sharing_with
-/   %li{:class => ("dull" if @contacts_sharing_with.size == 0)}
-/     .right
-/       %b
-/         = link_to t('contacts', :count => @contacts_sharing_with.size), edit_aspect_path("followers"), :rel => 'facebox', :class => 'contact-count'
-/     %b
-/       = t('aspects.index.people_sharing_with_you')
-/     %br
-
-/     - if @contacts_sharing_with.size > 0
-/       .contacts
-/         - for contact in @contacts_sharing_with[0..15]
-/           = person_image_link(contact.person)
+  %br
+  %div{:style => "text-align:right;"}
+    = link_to t('aspects.edit.done'), '#', :class => 'button', :rel => 'close'

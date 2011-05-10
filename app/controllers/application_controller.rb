@@ -27,10 +27,10 @@ class ApplicationController < ActionController::Base
     if user_signed_in?
       if request.format.html? && !params[:only_posts]
         @aspect = nil
-        @object_aspect_ids = []
         @notification_count = Notification.for(current_user, :unread =>true).count
         @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
+      @object_aspect_ids = []
       @all_aspects = current_user.aspects
     end
   end

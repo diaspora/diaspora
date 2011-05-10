@@ -187,10 +187,7 @@ header
         :color #222
 
     li
-      :display none
-
       a
-        :display block
         :padding 4px
         :height 100%
         &:hover
@@ -199,10 +196,7 @@ header
           :color #fff
 
       &:first-child
-        :display inline
         a
-          :height auto
-          :display inline
           :padding
             :right 15px
           :color #CCC
@@ -224,15 +218,28 @@ header
         :color #000
       :border 1px solid #999
 
-      li
-        :display block
-
     .avatar
       :height 20px
       :width 20px
       :position absolute
       :left 2px
       :top 2px
+      :display block
+
+ul.dropdown
+  li
+    :display none
+    a
+      :display block
+    &:first-child
+      :display inline
+      a
+        :height auto
+        :display inline
+
+  &.active
+    li
+      :z-index 30
       :display block
 
 .unread
@@ -1818,7 +1825,14 @@ ul#request_result
     :margin
       :top 0
 
-  ul
+  .button.share
+    :padding
+      :right 20px
+    .right
+      :right 8px
+      :top 3px
+
+  > ul
     :margin 0
     :padding 0
 
@@ -1837,7 +1851,7 @@ ul#request_result
         :background
           :color rgb(245,245,245)
 
-      .right
+      > .right
         :right 8px
         :top 12px
 

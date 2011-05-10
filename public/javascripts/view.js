@@ -40,8 +40,8 @@ var View = {
       .live("click", this.gettingStarted.click);
 
     /* User menu */
-    $(this.userMenu.selector)
-      .click(this.userMenu.click);
+    $(this.dropdowns.selector)
+      .live('click', this.dropdowns.click);
 
     /* Sending a request message */
     $(this.newRequest.selector)
@@ -59,19 +59,19 @@ var View = {
       .submit(this.webFingerForm.submit);
 
     $(document.body)
-      .click(this.userMenu.removeFocus)
+      .click(this.dropdowns.removeFocus)
       .click(this.reshareButton.removeFocus);
 
     /* facebox */
-    $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
-    $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
+    $.facebox.settings.closeImage = '/images/facebox/closelabel.png';
+    $.facebox.settings.loadingImage = '/images/facebox/loading.gif';
     $('a[rel*=facebox]').facebox();
     $(document).bind('reveal.facebox', function() {
       Diaspora.widgets.directionDetector.updateBinds();
     });
 
     /* facebox 'done' buttons */
-    $("a[rel*=close]").live('click', function(){ $.facebox.close() });
+    $("a[rel*=close]").live('click', function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
@@ -106,7 +106,7 @@ var View = {
         top: 0
       }).delay(2000).animate({
         top: -100
-      }, $this.remove)
+      }, $this.remove);
     },
     render: function(result) {
       $("<div/>")
@@ -212,7 +212,7 @@ var View = {
         if(element !== "bindAll") {
           this[element].bind();
         }
-      };
+      }
     }
   },
 
@@ -225,18 +225,19 @@ var View = {
     }
   },
 
-  userMenu: {
+  dropdowns: {
     click: function(evt) {
       $(this).parent().toggleClass("active");
       evt.preventDefault();
     },
     removeFocus: function(evt) {
       var $target = $(evt.target);
-      if(!$target.closest("#user_menu").length || ($target.attr('href') != undefined && $target.attr('href') != '#')) {
-        $(View.userMenu.selector).parent().removeClass("active");
+      if(!$target.closest(View.dropdowns.parentSelector).length || ($target.attr('href') !== undefined && $target.attr('href') != '#')) {
+        $(View.dropdowns.selector).parent().removeClass("active");
       }
     },
-    selector: "#user_menu li:first-child"
+    selector: "ul.dropdown li:first-child",
+    parentSelector: "ul.dropdown"
   },
 
   webFingerForm: {
