@@ -86,10 +86,12 @@ describe ServicesController do
       @user.services << @service1
       @person = Factory(:person)
       @user.services.stub!(:where).and_return([@service1])
-      @hash = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :person => bob.person,
-                                  :service => @service1, :uid => "321" ),
+      @service_users = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg",
+                                  :service => @service1, :uid => "321" ).tap{|su| su.stub!(:person).and_return(bob.person)},
+                ServiceUser.create(:name => "Eve Doe", :photo_url => "cdn1.fb.com/pic1.jpg", :person => eve.person, :service => @service1,
+                                   :uid => 'sdfae').tap{|su| su.stub!(:person).and_return(eve.person)},
                 ServiceUser.create(:name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :service => @service1, :uid => "dsfasdfas")]
-      @service1.should_receive(:finder).and_return(@hash)
+      @service1.should_receive(:finder).and_return(@service_users)
     end
 
     it 'calls the finder method for the service for that user' do

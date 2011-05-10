@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See #   the COPYRIGHT file.
 
 class ServicesController < ApplicationController
+  helper :aspect_memberships
   before_filter :authenticate_user!
 
   def index
