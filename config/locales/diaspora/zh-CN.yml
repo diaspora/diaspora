@@ -33,7 +33,7 @@ zh-CN:
             username: 
               taken: "已被注册。"
   ago: "%{time}前"
-  all_aspects: "所有情景"
+  all_aspects: "所有分类"
   application: 
     helper: 
       diaspora_alpha: "DIASPORA* ALPHA"
@@ -43,75 +43,75 @@ zh-CN:
   are_you_sure: "你确定吗？"
   aspect_memberships: 
     destroy: 
-      failure: "从情景中移除好友失败"
-      no_membership: "在情景中找不到选择的好友"
-      success: "从情景中移除好友成功"
+      failure: "从分类中移除好友失败"
+      no_membership: "在分类中找不到选择的好友"
+      success: "从分类中移除好友成功"
   aspects: 
     add_to_aspect: 
-      failure: "将好友添加到情景失败。"
-      success: "将好友添加到情景成功。"
+      failure: "将好友添加到分类失败。"
+      success: "将好友添加到分类成功。"
     aspect_contacts: 
       done_editing: "编辑完成"
     aspect_stream: 
       activity: "活跃程度"
       post_time: "发布时间"
       sort_by: "排序方式："
-    contacts_not_visible: "此情景中的好友相互不可见。"
-    contacts_visible: "此情景中的好友相互可见。"
+    contacts_not_visible: "此分类中的好友相互不可见。"
+    contacts_visible: "此分类中的好友相互可见。"
     create: 
-      failure: "添加情景失败。"
-      success: "添加新情景 %{name} 成功"
+      failure: "添加分类失败。"
+      success: "添加新分类 %{name} 成功"
     destroy: 
       failure: "无法删除 %{name} ，它不是空的。"
       success: "删除 %{name} 成功。"
     edit: 
       add_existing: "添加好友"
-      aspect_list_is_not_visible: "情景中的好友不能看见本情景的好友列表"
-      aspect_list_is_visible: "情景中的好友能够看见本情景的好友列表"
-      confirm_remove_aspect: "你确定要删除这个情景？"
+      aspect_list_is_not_visible: "分类中的好友不能看见本分类的好友列表"
+      aspect_list_is_visible: "分类中的好友能够看见本分类的好友列表"
+      confirm_remove_aspect: "你确定要删除这个分类？"
       done: "完成"
-      make_aspect_list_visible: "是否让其他人可以看见本情景的好友列表？"
-      remove_aspect: "删除这个情景"
+      make_aspect_list_visible: "是否让其他人可以看见本分类的好友列表？"
+      remove_aspect: "删除这个分类"
       rename: "重命名"
       update: "更新"
       updating: "更新中"
-    few: "%{count}个情景"
+    few: "%{count}个分类"
     helper: 
-      are_you_sure: "您确定要删除这个情景？"
-      aspect_not_empty: "此情景不是空的"
+      are_you_sure: "您确定要删除这个分类？"
+      aspect_not_empty: "此分类不是空的"
       remove: "删除"
     index: 
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       no_contacts: "没有任何好友"
       post_a_message: "发布站内信>>"
     manage: 
-      add_a_new_aspect: "添加情景"
+      add_a_new_aspect: "添加分类"
       add_a_new_contact: "添加新的好友"
       drag_to_add: "拖动以添加好友"
-      manage_aspects: "情景管理"
+      manage_aspects: "分类管理"
       no_requests: "没有新请求"
       requests: "请求"
-    many: "%{count}个情景"
+    many: "%{count}个分类"
     move_contact: 
       error: "好友移动错误：%{inspect}"
       failure: "%{inspect}没有成功"
-      success: "好友成功添加到新情景"
+      success: "好友成功添加到新分类"
     new_aspect: 
       create: "添加"
       name: "名称"
     no_posts_message: 
       start_talking: "还没人发布过内容。你发布第一条吧！"
-    one: "1个情景"
-    other: "%{count}个情景"
+    one: "1个分类"
+    other: "%{count}个分类"
     seed: 
       family: "家人"
       work: "同事"
     show: 
-      edit_aspect: "编辑情景"
+      edit_aspect: "编辑分类"
     update: 
-      failure: "情景 %{name} 名称太长了，不能保存"
-      success: "情景 %{name} 编辑成功。"
-    zero: "没有情景"
+      failure: "分类 %{name} 名称太长了，不能保存"
+      success: "分类 %{name} 编辑成功。"
+    zero: "没有分类"
   back: "后退"
   bookmarklet: 
     explanation: "%{link} 收藏这个链接，即可随时发布新内容"
@@ -140,7 +140,7 @@ zh-CN:
     other: "%{count}个好友"
     share_with_pane: 
       accepts: "当 %{name} 同意请求后，你们就开始看到彼此在Diaspora上发布的内容"
-      add_new_aspect: "添加到新的情景"
+      add_new_aspect: "添加到新的分类"
       share_with: "与 %{name} 分享"
     zero: "没有好友"
   conversations: 
@@ -186,7 +186,7 @@ zh-CN:
     show: 
       already_account: "已经有帐号了吗？"
       choice: "选择"
-      choice_explanation: "Diaspora 让你将您的关系以\"情景\"分类。情景是Diaspora首创，用来确保您的照片，经历和笑话，只与您所希望的人分享。"
+      choice_explanation: "Diaspora 让你将您的关系分成多个部分，每个部分是您生活的不同部分。这是Diaspora首创，用来确保您的照片，经历和笑话，只与您所希望的人分享。"
       learn_about_host: "学习如何架设您自己的Diaspora服务器。"
       login_here: "从这里登录"
       ownership: "所有权"
@@ -209,9 +209,9 @@ zh-CN:
       sign_up: "注册"
     new: 
       already_invited: "已邀请过"
-      aspect: "情景"
+      aspect: "分类"
       comma_seperated_plz: "你可以输入多个邮箱，输入多个时以逗号分隔。"
-      if_they_accept_info: "如果他们接受，就会自动被加入到您所邀请的情景中。"
+      if_they_accept_info: "如果他们接受，就会自动被加入到您所邀请的分类中。"
       invite_someone_to_join: "邀请好友来加入到Diaspora！"
       personal_message: "个人信息"
       resend: "重寄"
@@ -225,7 +225,7 @@ zh-CN:
       public_feed: "%{name} 的 Diaspora RSS Feed"
       toggle: "切换为手机网页"
       whats_new: "有什么新内容？"
-      your_aspects: "您的情景"
+      your_aspects: "您的分类"
     header: 
       blog: "博客"
       code: "源码"
@@ -252,7 +252,7 @@ zh-CN:
   no_results: "没有找到符合条件的内容"
   notifications: 
     also_commented: "也在 %{post_author} 处发布了评论"
-    also_commented_deleted: "对已删除的内容发布了评论"
+    also_commented_deleted: "对已删除的内容发布了评论。"
     comment_on_post: "发布了评论，在您的"
     deleted: "删除成功"
     helper: 
@@ -269,7 +269,7 @@ zh-CN:
       notifications: "消息"
     mentioned: "在他发布的内容中提到了你"
     new_request: "想要与您分享。"
-    post: "日志"
+    post: "日志。"
     private_message: "写了一则消息给您。"
     request_accepted: "已同意和您分享。"
   notifier: 
@@ -315,7 +315,7 @@ zh-CN:
     add_contact_small: 
       add_contact_from_tag: "从标签添加好友"
     aspect_list: 
-      edit_membership: "编辑所属情景"
+      edit_membership: "编辑所属分类"
     few: "%{count}个好友"
     helper: 
       people_on_pod_are_aware_of: " Pod上已知的人"
@@ -336,10 +336,10 @@ zh-CN:
     profile_sidebar: 
       bio: "自我介绍"
       born: "生日"
-      cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连接，你可以解除与他的好友关系。)"
+      cannot_remove: "无法将好友从他所在的最后一个分类中移除。(如果你想与这个人断绝连接，你可以解除与他的好友关系。)"
       edit_my_profile: "编辑我的个人档案"
       gender: "性别"
-      in_aspects: "所属情景"
+      in_aspects: "所属分类"
       location: "位置"
       remove_contact: "解除好友关系"
       remove_from: "要从 %{aspect} 删除 %{name} 吗？"
@@ -354,7 +354,7 @@ zh-CN:
       not_connected: "你没有与他分享"
       recent_posts: "最近的内容"
       recent_public_posts: "最近的公开内容"
-      return_to_aspects: "回到您的情景主页"
+      return_to_aspects: "回到您的分类主页"
       see_all: "查看全部"
       start_sharing: "开始分享"
       to_accept_or_ignore: "接受或忽略它。"
@@ -447,7 +447,7 @@ zh-CN:
       sending: "发送中"
       sent: "您已经请求与 %{name} 分享。他们下次登入 Diaspora 时就会看见您的请求。"
     destroy: 
-      error: "请选择一个情景！"
+      error: "请选择一个分类！"
       ignore: "忽略建立好友的请求。"
       success: "你们现在互相分享了。"
     helper: 
@@ -502,10 +502,10 @@ zh-CN:
       your_diaspora_username_is: "您的 Diaspora 帐号是: %{diaspora_handle}"
     contact_list: 
       all_contacts: "全部好友"
-      cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
+      cannot_remove: "无法将好友从他所在的最后一个分类中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
     footer: 
       logged_in_as: "已用 %{name} 登录"
-      your_aspects: "您的情景"
+      your_aspects: "您的分类"
     invitations: 
       by_email: "通过电子邮件"
       dont_have_now: "目前你还不能邀请任何人，但很快就可以了！"

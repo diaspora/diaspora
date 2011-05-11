@@ -185,15 +185,15 @@ bg:
   home: 
     show: 
       already_account: "вече имате акаунт?"
-      choice: "Choice"
+      choice: "Избор"
       choice_explanation: "Diaspora предоставя възможност за сортиране на контактите в групи наречени аспекти. Те са уникална функция, която позволява споделянето на снимки, истории и шеги само с хората, за които са предвидени."
       learn_about_host: "Научете как да стартирате Diaspora на собствен сървър."
-      login_here: "се впишете"
+      login_here: "впишете се от тук"
       ownership: "Собственост"
       ownership_explanation: "Вие притежавате снимките си и не е необходимо да се отказвате от това си право само за да ги споделите. Вие запазвате собствеността си върху всичко споделено в Diaspora - това ви осигурява контрол над разпространението."
       share_what_you_want: "Споделяйте каквото желаете, с когото пожелаете."
       simplicity: "Леснота"
-      simplicity_explanation: "Споделянето чрез Diaspora е просто и лесно. Характерно за Diaspora е че запазва личния ви живот поверителен без нужда от настройване различни страници с безброй опции."
+      simplicity_explanation: "Споделянето чрез Diaspora е просто и лесно. Характерно за Diaspora е, че запазва личния ви живот поверителен без нужда от настройване на различни страници с безброй опции."
       tagline_first_half: "Споделете каквото желаете,"
       tagline_second_half: "с когото пожелаете."
   invitations: 
@@ -229,7 +229,7 @@ bg:
     header: 
       blog: "блог"
       code: "код"
-      login: "Вписване"
+      login: "вписване"
       logout: "отписване"
       profile: "профил"
       settings: "настройки"
@@ -252,7 +252,7 @@ bg:
   no_results: "Няма намерени резултати"
   notifications: 
     also_commented: "also commented on %{post_author}'s"
-    also_commented_deleted: "добави коментар на вече изтрита публикация"
+    also_commented_deleted: "добави коментар на вече изтрита публикация."
     comment_on_post: "коментира ваша"
     deleted: "deleted"
     helper: 
@@ -269,7 +269,7 @@ bg:
       notifications: "Известия"
     mentioned: "ви спомена в"
     new_request: "ви предложи да споделяте."
-    post: "публикация"
+    post: "публикация."
     private_message: "ви изпрати съобщение."
     request_accepted: "прие поканата ви за споделяне."
   notifier: 

@@ -249,7 +249,7 @@ fi:
         zero: "no people liked this"
   more: "Lisää"
   next: "seuraava"
-  no_results: "No Results Found"
+  no_results: "Tuloksia ei löytynyt"
   notifications: 
     also_commented: "kommentoi myös %{post_author}:n"
     also_commented_deleted: "kommentoi poistettuun viestiin."

@@ -34,4 +34,4 @@ it:
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Il websocket è chiuso; i post non saranno più ricevuti in tempo reale."
