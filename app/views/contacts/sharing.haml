@@ -35,8 +35,12 @@
                   %ul.dropdown_list
                     - for aspect in @all_aspects
                       %li{:data => {:aspect_id => aspect.id}}
-                        = check_box_tag "yo"
+                        = check_box_tag "yo", "hey", aspect.contacts.include?(contact)
                         = aspect.name
+
+                        .hidden
+                          = aspect_membership_button(aspect, contact, contact.person)
+
 
   %br
   %div{:style => "text-align:right;"}

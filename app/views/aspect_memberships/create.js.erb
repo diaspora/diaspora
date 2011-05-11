@@ -1,4 +1,4 @@
-var element = $(".add", "li[data-guid=<%= @aspect.id %>]");
+var element = $(".add[data-aspect_id=<%= @aspect.id %>][data-person_id=<%= @contact.person_id%>]");
 
 if( $("#no_contacts").is(':visible') ) {
   $("#no_contacts").fadeOut(200);

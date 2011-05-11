@@ -16,6 +16,7 @@
     var checkbox = li.find('input[type=checkbox]');
     toggleCheckbox(checkbox);
 
+    $.fn.callRemote.apply(li.find(".button"));
   };
 
   $(document).ready(function(){

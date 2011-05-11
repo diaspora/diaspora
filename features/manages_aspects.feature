@@ -33,3 +33,7 @@ Feature: User manages aspects
     And I wait for the ajax to finish
     Then I should have 1 contact in "Cat People"
 
+    When I press the 2nd "li" within ".dropdown.active .dropdown_list"
+    And I wait for the ajax to finish
+    Then I should have 0 contacts in "Cat People"
+

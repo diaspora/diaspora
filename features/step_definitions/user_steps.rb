@@ -155,7 +155,7 @@ Given /^many posts from alice for bob$/ do
 end
 
 Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
-  @me.aspects.where(:name => aspect_name).first.contacts.size.should == n_contacts.to_i
+  @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
 Given /^I have (\d) contacts?$/ do |count|

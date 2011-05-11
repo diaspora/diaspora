@@ -1,13 +1,4 @@
-var element = $(".added", "li[data-guid=<%= @aspect.id %>]"),
-    contactPictures = $(".contact_pictures");
-
-if( contactPictures.length > 0 ) {
-  if( contactPictures[0].childElementCount == 0 ) {
-    $("#no_contacts").fadeIn(200);
-  }
-}
-
-$("a[data-guid=<%= @aspect_id %>]", ".aspects").parent().remove();
+var element = $(".added[data-aspect_id=<%= @aspect.id %>][data-person_id=<%= @contact.person_id%>]");
 element.parent().html("<%= escape_javascript(render('aspect_memberships/remove_from_aspect', :aspect => @aspect, :person => @contact.person, :contact => @contact)) %>");
 element.fadeTo(200,1);
 
