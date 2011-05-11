@@ -34,6 +34,24 @@ describe Like do
     end
   end
 
+  describe '#notification_type' do
+    before do
+      @like = @bob.like(1, :on => @status)
+    end
+
+    it 'should be notifications liked if you are the post owner' do
+      @like.notification_type(@alice, @bob.person).should be Notifications::Liked
+    end
+
+    it 'should not notify you if you are the like-r owner' do
+      @like.notification_type(@bob, @alice.person).should be_nil
+    end
+
+    it 'should not notify you if you did not create the post' do
+      @like.notification_type(@bob, @alice.person).should be_nil
+    end
+  end
+
   describe 'xml' do
     before do
       @liker = Factory.create(:user)
@@ -67,11 +85,11 @@ describe Like do
       @local_luke, @local_leia, @remote_raphael = set_up_friends
       @remote_parent = Factory.create(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "foobar", :to => @local_luke.aspects.first
-    
+
       @object_by_parent_author = @local_luke.like(1, :on => @local_parent)
       @object_by_recipient = @local_leia.build_like(1, :on => @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
-    
+
       @object_on_remote_parent = @local_luke.like(0, :on => @remote_parent)
     end
     it_should_behave_like 'it is relayable'
