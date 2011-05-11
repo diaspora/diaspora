@@ -1,11 +1,11 @@
 var WebSocketReceiver = {
   initialize: function(url) {
-    this.debuggable = true;
-    this.url = url;
-    this.socket = new WebSocket(url);
+    var ws = new WebSocket(url);
+    WSR.socket = ws;
 
-    this.socket.onmessage = WSR.onMessage;
-    this.socket.onclose = function() {
+    //Attach onmessage to websocket
+    ws.onmessage = WSR.onMessage;
+    ws.onclose = function() {
       Diaspora.widgets.notifications.showNotification({
         html: '<div class="notification">' +
             Diaspora.widgets.i18n.t("web_sockets.disconnected") +
@@ -13,38 +13,43 @@ var WebSocketReceiver = {
         incrementCount: false
       });
 
-      WSR.debug("Socket closed");
+      WSR.debug("socket closed");
     };
-
-    this.socket.onopen = $.proxy(function() {
-      this.socket.send(location.pathname);
-      WSR.debug("Connected to " + this.url + "...");
-    }, this);
+    ws.onopen = function() {
+      ws.send(location.pathname);
+      WSR.debug("connected...");
+    };
   },
 
   onMessage: function(evt) {
-    var message = jQuery.parseJSON(evt.data);WSR.debug("WebSocket received " + message.class, message)
+      var obj = jQuery.parseJSON(evt.data);
 
-    if(message.class.match(/^notifications/)) {
-      WebSocketReceiver.processNotification(message);
-    }
-    else if(message.class === "people") {
-      WebSocketReceiver.processPerson(message);
-    }
-    else {
-      if(message.class === "retractions") {
-        WebSocketReceiver.processRetraction(message.post_id);
+      if(obj['class'].match(/^notifications/)) {
+        WebSocketReceiver.processNotification(obj);
+      } else if (obj['class'] == 'people') {
+        WSR.debug("got a " + obj['class']);
+        WebSocketReceiver.processPerson(obj);
+
+      } else {
+        WSR.debug("got a " + obj['class'] + " for aspects " + obj.aspect_ids);
+
+        if (obj['class']=="retractions") {
+          WebSocketReceiver.processRetraction(obj.post_id);
+
+        } else if (obj['class']=="comments") {
+          WebSocketReceiver.processComment(obj.post_id, obj.comment_id, obj.html, {
+            'notification': obj.notification,
+            'mine?': obj['mine?'],
+            'my_post?': obj['my_post?']
+          });
+
+        } else if (obj['class']=="likes") {
+          WebSocketReceiver.processLike(obj.post_id, obj.html);
+
+        } else {
+          WebSocketReceiver.processPost(obj['class'], obj.post_id, obj.html, obj.aspect_ids);
+        }
       }
-      else if(message.class === "comments") {
-        WebSocketReceiver.processComment(message);
-      }
-      else if(message.class === "likes") {
-        WebSocketReceiver.processLike(message.post_id, message.html);
-      }
-      else {
-        WebSocketReceiver.processPost(message.post_id, message.html, message.aspect_ids);
-      }
-    }
   },
 
   processPerson: function(response) {
@@ -69,8 +74,8 @@ var WebSocketReceiver = {
     Diaspora.widgets.notifications.showNotification(notification);
   },
 
-  processRetraction: function(postId){
-    $("*[data-guid='" + postId + "']").fadeOut(400, function() {
+  processRetraction: function(post_id){
+    $("*[data-guid='" + post_id + "']").fadeOut(400, function() {
       $(this).remove();
     });
     if($("#main_stream")[0].childElementCount === 0) {
@@ -78,8 +83,42 @@ var WebSocketReceiver = {
     }
   },
 
-  processComment: function(comment) {
-    ContentUpdater.addCommentToPost(comment.comment_id, comment.post_id, comment.html);
+  processComment: function(postId, commentId, html, opts) {
+
+    if( $(".comment[data-guid='"+commentId+"']").length === 0 ) {
+
+      var post = $("*[data-guid='"+postId+"']'"),
+          prevComments = $('.comment.posted', post);
+
+      if(prevComments.length > 0) {
+        prevComments.last().after(
+          $(html).fadeIn("fast", function(){})
+        );
+      } else {
+        $('.comments li:last', post).before(
+          $(html).fadeIn("fast", function(){})
+        );
+      }
+
+      var toggler = $('.show_post_comments', post);
+
+      if(toggler.length > 0){
+        toggler.html(
+          toggler.html().replace(/\d+/,$('.comments', post).find('li').length -1)
+        );
+
+        if( !$(".comments", post).is(':visible') ) {
+          toggler.click();
+        }
+
+        if( $(".show_comments", post).hasClass('hidden') ){
+          $(".show_comments", post).removeClass('hidden');
+        }
+      }
+    }
+
+    Diaspora.widgets.timeago.updateTimeAgo();
+    Diaspora.widgets.directionDetector.updateBinds();
   },
 
   processLike: function(postId, html) {
@@ -87,7 +126,7 @@ var WebSocketReceiver = {
     $(".likes_container", post).fadeOut('fast').html(html).fadeIn('fast');
   },
 
-  processPost: function(postId, html, aspectIds) {
+  processPost: function(className, postId, html, aspectIds) {
     if(WebSocketReceiver.onPageForAspects(aspectIds)) {
       ContentUpdater.addPostToStream(postId, html);
     }
@@ -99,14 +138,14 @@ var WebSocketReceiver = {
 
   onPageForAspects: function(aspectIds) {
     var streamIds = $('#main_stream').attr('data-guids'),
-      found = false;
+        found = false;
 
     $.each(aspectIds, function(index, value) {
       if(WebSocketReceiver.onStreamForAspect(value, streamIds)) {
         found = true;
+        return false;
       }
     });
-    
     return found;
   },
 
@@ -114,10 +153,12 @@ var WebSocketReceiver = {
     return (streamIds.search(aspectId) != -1);
   },
 
-  debug: function() {
-    if(this.debuggable && typeof console !== "undefined") {
-      console.log.apply(console, arguments);
-    }
+  onPageOne: function() {
+      var c = document.location.search.charAt(document.location.search.length-1);
+      return ((c === '') || (c === '1'));
+  },
+  debug: function(str) {
+    $("#debug").append("<p>" +  str);
   }
 };
 var WSR = WebSocketReceiver;
