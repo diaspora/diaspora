@@ -1,5 +1,7 @@
-WebSocketReceiver.processComment(<%= @comment.post_id %>, 
-                                 <%= @comment.id %>,
-                                 "<%= escape_javascript(render(:partial => 'comments/comment', :locals => { :comment => @comment, :person => current_user.person}))%>",
-                                 false);
+WebSocketReceiver.processComment({
+  post_id: <%= @comment.post_id %>,
+  comment_id: <%= @comment.id %>,
+  html: "<%= escape_javascript(render(:partial => 'comments/comment', :locals => { :comment => @comment, :person => current_user.person}))%>",
+  options: false
+});
 

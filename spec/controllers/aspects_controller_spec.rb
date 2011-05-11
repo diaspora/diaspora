@@ -70,6 +70,7 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_with_posts")
       
       save_fixture(html_for(".stream_element:first"), "status_message_in_stream")
+      save_fixture(html_for(".comment.posted:first"), "comment_on_status_message")
     end
 
     context 'with getting_started = true' do
