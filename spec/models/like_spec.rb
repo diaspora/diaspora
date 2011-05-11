@@ -12,7 +12,7 @@ describe Like do
 
     @bob = bob
     @eve = eve
-    @status = alice.post(:status_message, :text => "hello", :to => @alices_aspect.id)
+    @status = bob.post(:status_message, :text => "hello", :to => @alices_aspect.id)
   end
 
   describe 'User#like' do
@@ -36,19 +36,19 @@ describe Like do
 
   describe '#notification_type' do
     before do
-      @like = @bob.like(1, :on => @status)
+      @like = @alice.like(1, :on => @status)
     end
 
     it 'should be notifications liked if you are the post owner' do
-      @like.notification_type(@alice, @bob.person).should be Notifications::Liked
+      @like.notification_type(@bob, @alice.person).should be Notifications::Liked
     end
 
-    it 'should not notify you if you are the like-r owner' do
-      @like.notification_type(@bob, @alice.person).should be_nil
+    it 'should not notify you if you are the like-r' do
+      @like.notification_type(@alice, @alice.person).should be_nil
     end
 
     it 'should not notify you if you did not create the post' do
-      @like.notification_type(@bob, @alice.person).should be_nil
+      @like.notification_type(@eve, @alice.person).should be_nil
     end
   end
 
