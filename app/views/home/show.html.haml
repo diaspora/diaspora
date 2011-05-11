@@ -2,18 +2,19 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-:css
-  header{
-    display:none;
-  }
-  body{
-    margin-top: 20px;
-  }
+
 
 - content_for :page_title do
   DIASPORA* ALPHA
 - begin
-  = render :partial => 'home/show' 
+  = render :partial => 'home/show'
 - rescue
+  :css
+    header{
+      display:none;
+    }
+    body{
+      margin-top: 20px;
+    }
   :erb
     <%= File.open(File.join(Rails.root, 'public/default.html')).read %>
