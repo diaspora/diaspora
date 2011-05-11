@@ -35,6 +35,7 @@ javascripts:
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/search.js
+    - public/javascripts/contact-edit.js
   mobile:
     - public/javascripts/vendor/jquery152.min.js
     - public/javascripts/custom-mobile-scripting.js

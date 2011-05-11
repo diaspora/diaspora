@@ -226,21 +226,78 @@ header
       :top 2px
       :display block
 
+//////////////////////////////////
 ul.dropdown
+  :padding 0
+
   li
     :display none
     a
       :display block
+
     &:first-child
-      :display inline
+      :display block
       a
         :height auto
         :display inline
 
   &.active
+    :z-index 30
     li
-      :z-index 30
       :display block
+
+  &.share.active
+    li:first-child
+      :padding-bottom 6px
+
+    :background
+      :color #ccc
+//////////////////////////////////
+
+.dropdown
+  .button
+    :width 240px
+
+  .wrapper
+    :position absolute
+    :right 4px
+    :display none
+    :width 140px
+    :padding 2px 0
+    :margin-top 3px
+    :background
+      :color #eee
+    :border 1px solid #AAA
+
+    ul
+      :padding 0
+
+      > li
+        :padding 1px 6px
+
+        input
+          :position relative
+          :display inline
+          :top 1px
+
+  &.active
+    .wrapper
+      :display block
+
+    .button
+      @include border-radius(3px, 3px, 0, 0)
+
+    .button,
+    .wrapper ul > li:hover
+      :background desaturate($blue,10%)
+      :color #fff
+      :text-shadow none
+
+    .wrapper ul > li,
+    .wrapper ul > li *
+      :cursor pointer
+
+
 
 .unread
   :font-weight bold

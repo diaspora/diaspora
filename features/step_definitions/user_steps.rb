@@ -153,3 +153,15 @@ Given /^many posts from alice for bob$/ do
     time_interval += 1000
   end
 end
+
+Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
+  @me.aspects.where(:name => aspect_name).first.contacts.size.should == n_contacts.to_i
+end
+
+Given /^I have (\d) contacts?$/ do |count|
+  count.to_i.times do
+    u = Factory(:user_with_aspect)
+    u.share_with(@me.person, u.aspects.first)
+  end
+end
+

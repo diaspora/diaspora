@@ -25,14 +25,18 @@
               .description
                 = contact.person.diaspora_handle
             .right
-              %ul.dropdown
-                %li
-                  .right
-                    &#9660;
-                  = link_to "Sharing", '#', :class => 'button'
-                %li= "People"
-                %li= "Cats"
-                %li= "Cat-People"
+              
+              .dropdown
+                .button.toggle
+                  Add to aspect
+                  &#9660;
+
+                .wrapper
+                  %ul.dropdown_list
+                    - for aspect in @all_aspects
+                      %li{:data => {:aspect_id => aspect.id}}
+                        = check_box_tag "yo"
+                        = aspect.name
 
   %br
   %div{:style => "text-align:right;"}

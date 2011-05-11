@@ -227,17 +227,17 @@ var View = {
 
   dropdowns: {
     click: function(evt) {
-      $(this).parent().toggleClass("active");
+      $(this).parent('.dropdown').toggleClass("active");
       evt.preventDefault();
     },
     removeFocus: function(evt) {
       var $target = $(evt.target);
-      if(!$target.closest(View.dropdowns.parentSelector).length || ($target.attr('href') !== undefined && $target.attr('href') != '#')) {
+      if(!$target.is('.dropdown_list *') && !$target.is('.dropdown.active > .toggle')) {
         $(View.dropdowns.selector).parent().removeClass("active");
       }
     },
-    selector: "ul.dropdown li:first-child",
-    parentSelector: "ul.dropdown"
+    selector: ".dropdown > .toggle",
+    parentSelector: ".dropdown > .wrapper"
   },
 
   webFingerForm: {

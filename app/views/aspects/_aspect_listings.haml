@@ -13,7 +13,7 @@
     = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
 
   - if @contacts_sharing_with
-    %li{:class => ("dull" if @contacts_sharing_with.size == 0)}
+    %li#sharers{:class => ("dull" if @contacts_sharing_with.size == 0)}
       .right
         %b
           = link_to t('contacts', :count => @contacts_sharing_with.size), contacts_sharing_path, :rel => 'facebox', :class => 'contact-count'
