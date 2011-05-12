@@ -311,6 +311,7 @@ module ApplicationHelper
   end
 
   def direction_for(string)
+    return '' unless string.respond_to?(:cleaned_is_rtl?)
     string.cleaned_is_rtl? ? 'rtl' : ''
   end
 
