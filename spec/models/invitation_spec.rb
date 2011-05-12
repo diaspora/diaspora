@@ -225,10 +225,10 @@ describe Invitation do
         }.should_not change { @invitee.reload.serialized_private_key }
       end
 
-      it "changes the invitation token" do
+      it "does not change the invitation token" do
         old_token = @invitee.invitation_token
         Invitation.create_invitee(@valid_params)
-        @invitee.reload.invitation_token.should_not == old_token
+        @invitee.reload.invitation_token.should == old_token
       end
     end
     context 'with an inviter' do
