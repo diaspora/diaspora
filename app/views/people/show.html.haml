@@ -25,28 +25,11 @@
 
 .span-15.last
   #author_info
-    - if user_signed_in?
-      - if !@contact.receiving?
-        .right
-          = link_to t('.start_sharing'),
-            {:controller => "contacts",
-            :action => "new",
-            :person_id => @person.id},
-            :class => 'share_with button',
-            :rel => 'facebox'
-        - if @share_with
-          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
-
-      - elsif @contact
-        .right
-          = link_to t('.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
-          - if @contact.mutual?
-            = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
-
-        /- if @post_type == :photos
-        /  = link_to t('layouts.header.view_profile'), person_path(@person)
-        /- else
-        /  = link_to t('_photos'), person_photos_path(@person)
+    - if user_signed_in? && @contact && @contact.receiving?
+      .right
+        = link_to t('.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
+        - if @contact.mutual?
+          = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
 
     %h3
       = @person.name

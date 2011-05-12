@@ -179,6 +179,14 @@ en:
       add_new_aspect: "add to new aspect" 
     create:
       failure: "Failed to create contact"
+    aspect_dropdown:
+      add_to_aspect: "Add to aspect"
+      toggle:
+        zero: "Add to aspect"
+        one: "In %{count} aspect"
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        other: "In %{count} aspects"
 
   conversations:
     index:
@@ -371,7 +379,6 @@ en:
       message: "Message"
       mention: "Mention"
     profile_sidebar:
-      remove_contact: "remove contact"
       edit_my_profile: "Edit my profile"
       bio: "bio"
       location: "location"

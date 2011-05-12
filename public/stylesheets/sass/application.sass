@@ -249,12 +249,15 @@ ul.dropdown
 //////////////////////////////////
 
 .dropdown
+  :position relative
+  :display inline-block
+
   .button
     :width 240px
 
   .wrapper
+    :z-index 20
     :position absolute
-    :right 4px
     :display none
     :width 140px
     :padding 2px 0
@@ -274,6 +277,14 @@ ul.dropdown
           :position relative
           :display inline
           :top 1px
+
+  &.hang_right
+    .wrapper
+      :right 4px
+
+  &.hang_left
+    .wrapper
+      :left 0px
 
   &.active
     .wrapper
@@ -814,8 +825,6 @@ a.paginate, #infscr-loading
     :padding 0 10px
     :font
       :size 16px
-    :font
-      :family 'MARKER FELT', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
     :color #333
 
 #debug_info

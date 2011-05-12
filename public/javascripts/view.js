@@ -35,11 +35,11 @@ var View = {
     /* Submit the form when the user hits enter */
       .keypress(this.search.keyPress);
 
-    /* Getting started animation */
-    $(this.gettingStarted.selector)
-      .live("click", this.gettingStarted.click);
-
     /* User menu */
+    $(this.userMenu.selector)
+      .click(this.userMenu.click);
+      
+    /* Dropdowns */
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
 
@@ -117,18 +117,6 @@ var View = {
     },
     selector: "#flash_notice, #flash_error, #flash_alert"
 
-  },
-
-  gettingStarted: {
-    click: function() {
-      var $this = $(this);
-      $this.animate({
-        left: parseInt($this.css("left"), 30) === 0 ? -$this.outerWidth() : 0
-      }, function() {
-        $this.css("left", "1000px");
-      });
-    },
-    selector: ".getting_started_box"
   },
 
   newRequest: {
@@ -238,6 +226,20 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
+  },
+
+  userMenu: {
+    click: function(evt) {
+      $(this).parent().toggleClass("active");
+      evt.preventDefault();
+    },
+    removeFocus: function(evt) {
+      var $target = $(evt.target);
+      if(!$target.closest("#user_menu").length || ($target.attr('href') != undefined && $target.attr('href') != '#')) {
+        $(View.userMenu.selector).parent().removeClass("active");
+      }
+    },
+    selector: "#user_menu li:first-child"
   },
 
   webFingerForm: {

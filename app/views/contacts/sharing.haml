@@ -24,23 +24,9 @@
               = link_to contact.person.name, contact.person
               .description
                 = contact.person.diaspora_handle
+
             .right
-              
-              .dropdown
-                .button.toggle
-                  Add to aspect
-                  &#9660;
-
-                .wrapper
-                  %ul.dropdown_list{:unSelectable => 'on'}
-                    - for aspect in @all_aspects
-                      %li{:data => {:aspect_id => aspect.id}}
-                        = check_box_tag "yo", "hey", aspect.contacts.include?(contact)
-                        = aspect.name
-
-                        .hidden
-                          = aspect_membership_button(aspect, contact, contact.person)
-
+              = render 'aspect_dropdown', :contact => contact, :hang => 'right'
 
   %br
   %div{:style => "text-align:right;"}
