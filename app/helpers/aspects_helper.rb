@@ -25,7 +25,7 @@ module AspectsHelper
       :method => 'post',
       :class => 'add button',
       'data-aspect_id' => aspect_id,
-      'data-person_id' => person_id 
+      'data-person_id' => person_id
   end
 
   def remove_from_aspect_button(aspect_id, person_id)
@@ -39,7 +39,7 @@ module AspectsHelper
       :method => 'delete',
       :class => 'added button',
       'data-aspect_id' => aspect_id,
-      'data-person_id' => person_id 
+      'data-person_id' => person_id
   end
 
   def aspect_membership_button(aspect, contact, person)

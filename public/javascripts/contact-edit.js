@@ -12,6 +12,7 @@
   };
   var processClick = function(li, evt){
     evt.preventDefault();
+    if(li.find('.button').hasClass('disabled')){ return; }
 
     var checkbox = li.find('input[type=checkbox]');
     toggleCheckbox(checkbox);

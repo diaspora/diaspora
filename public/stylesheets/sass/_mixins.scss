@@ -34,3 +34,8 @@
   -khtml-opacity: $val;
   opacity: $val;
 }
+
+@mixin user-select($val){
+  -webkit-user-select: $val;
+  -moz-user-select: $val;
+}

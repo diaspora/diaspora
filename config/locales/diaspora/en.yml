@@ -378,7 +378,6 @@ en:
       gender: "gender"
       born: "birthday"
       in_aspects: "in aspects"
-      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
       results_for: " results for %{params}"
@@ -562,7 +561,6 @@ en:
       new: "New %{type} from %{from}"
     contact_list:
       all_contacts: "All contacts"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     stream_element:
       like: "I like this"
       dislike: "I dislike this"

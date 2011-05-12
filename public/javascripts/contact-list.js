@@ -40,27 +40,13 @@ var List = {
 $(document).ready(function() {
 
   $('.added').live('ajax:loading', function() {
+    $(this).addClass('disabled');
     $(this).fadeTo(200,0.4);
   });
 
   $('.add').live('ajax:loading', function() {
+    $(this).addClass('disabled');
     $(this).fadeTo(200,0.4);
-  });
-
-  $('.added').live('ajax:failure', function(data, html, xhr) {
-    if(confirm(Diaspora.widgets.i18n.t('shared.contact_list.cannot_remove'))){
-      var contact_id;
-
-      if( $('.contact_list').length == 1){
-        contact_id = $(this).parents('li').attr("data-contact_id");
-        $('.contact_list li[data-contact_id='+contact_id+']').fadeOut(200);
-      } else if($('#aspects_list').length == 1) {
-        contact_id = $(this).parents('#aspects_list').attr("data-contact_id");
-      };
-
-      List.disconnectUser(contact_id);
-    };
-    $(this).fadeTo(200,1);
   });
 
   $('.added').live('mouseover', function() {

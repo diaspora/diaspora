@@ -32,7 +32,7 @@
                   &#9660;
 
                 .wrapper
-                  %ul.dropdown_list
+                  %ul.dropdown_list{:unSelectable => 'on'}
                     - for aspect in @all_aspects
                       %li{:data => {:aspect_id => aspect.id}}
                         = check_box_tag "yo", "hey", aspect.contacts.include?(contact)

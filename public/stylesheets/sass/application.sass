@@ -246,12 +246,6 @@ ul.dropdown
     li
       :display block
 
-  &.share.active
-    li:first-child
-      :padding-bottom 6px
-
-    :background
-      :color #ccc
 //////////////////////////////////
 
 .dropdown
@@ -270,6 +264,7 @@ ul.dropdown
     :border 1px solid #AAA
 
     ul
+      @include user-select(none)
       :padding 0
 
       > li
