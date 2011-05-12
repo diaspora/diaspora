@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 class TagsController < ApplicationController
-  helper :comments
+  helper :comments, :aspects
   skip_before_filter :set_invites
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender

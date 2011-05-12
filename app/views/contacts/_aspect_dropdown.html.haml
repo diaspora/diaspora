@@ -11,9 +11,9 @@
     %ul.dropdown_list{:unSelectable => 'on'}
       - for aspect in @all_aspects
         %li{:data => {:aspect_id => aspect.id}}
-          = check_box_tag "in_aspect", "in_aspect", aspect.contacts.include?(contact)
+          = check_box_tag "in_aspect", "in_aspect", (contact.persisted? && aspect.contacts.include?(contact))
           = aspect.name
 
           .hidden
-            = aspect_membership_button(aspect, contact, contact.person)
+            = aspect_membership_button(aspect, contact, person)
 

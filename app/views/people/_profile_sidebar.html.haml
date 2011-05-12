@@ -26,7 +26,7 @@
       %hr{:style=>"width:300px;"}
 
     %br
-    = render 'contacts/aspect_dropdown', :contact => @contact, :hang => 'left'
+    = render 'contacts/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
       
     -if contact.sharing? || person == current_user.person
       %br

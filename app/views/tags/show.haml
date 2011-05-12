@@ -36,8 +36,10 @@
       .stream_element{:id => person.id}
         = person_image_link(person)
         - if current_user
-          = render :partial => 'people/add_contact_small',
-                   :locals => { :person => person }
+          - contact = current_user.contacts.find_by_person_id(person.id)
+          - contact ||= Contact.new(:person => person)
+          = render 'contacts/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
+
         .content
           %span.from
             =person_link(person)

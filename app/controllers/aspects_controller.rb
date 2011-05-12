@@ -156,8 +156,7 @@ class AspectsController < ApplicationController
     params[:max_time] ||= Time.now + 1
   end
 
-  protected
-
+  private
   def save_sort_order
     if params[:sort_order].present?
       session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
@@ -167,4 +166,5 @@ class AspectsController < ApplicationController
       session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
     end
   end
+
 end

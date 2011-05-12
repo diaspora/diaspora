@@ -10,9 +10,7 @@ Feature: disconnecting users
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    And I press the first ".share_with.button"
-    And I wait for the ajax to finish
-    And I add the person to my first aspect
+    And I add the person to my 1st aspect
 
   Scenario Outline: remove non-mutual contact from the contact show page
    When I am on "alice@alice.alice"'s page

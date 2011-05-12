@@ -26,7 +26,7 @@
                 = contact.person.diaspora_handle
 
             .right
-              = render 'aspect_dropdown', :contact => contact, :hang => 'right'
+              = render 'aspect_dropdown', :contact => contact, :person => contact.person, :hang => 'right'
 
   %br
   %div{:style => "text-align:right;"}

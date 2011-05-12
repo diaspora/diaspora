@@ -7,9 +7,7 @@ Feature: sending and receiving requests
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    And I press the first ".share_with.button"
-    And I wait for the ajax to finish
-    And I add the person to my first aspect
+    And I add the person to my 1st aspect
 
     And I am on the home page
     Given I expand the publisher
@@ -45,11 +43,9 @@ Feature: sending and receiving requests
   Scenario: mutual following the original follower should see private posts on their stream
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    And I press the 1st ".share_with.button" within "#author_info"
-    And I press the 1st ".add.button" within "#facebox #aspects_list ul > li:first-child"
-    And I wait for the ajax to finish
-    And I press the 1st ".add.button" within "#facebox #aspects_list ul > li:nth-child(2)"
-    And I wait for the ajax to finish
+
+    And I add the person to my 1st aspect
+    And I add the person to my 2nd aspect
 
     When I go to the home page
     Then I go to the manage aspects page
@@ -73,7 +69,9 @@ Feature: sending and receiving requests
   Scenario: following a contact request into a new aspect
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
+
     And I press the first ".share_with.button" within "#author_info"
+    
     And I fill in "Name" with "Super People" in the modal window
     And I press "aspect_submit" in the modal window
     And I wait for the ajax to finish
@@ -87,41 +85,32 @@ Feature: sending and receiving requests
    And I am on the manage aspects page
    Then I should see 1 contact in "Besties"
 
-  Scenario: should not see start sharing and see mention if already a follower
+  Scenario: should not see "Add to aspect" and see mention if already a follower
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    Then I should not see "start sharing"
-    Then I should see "edit aspect membership"
+    Then I should see "In 1 aspect"
     Then I should see "Mention"
     Then I should not see "Message"
 
-    Then I should not see "is sharing with you."
-
-  Scenario: should see start sharing and not see mention if on a follower's page
+  Scenario: should see "Add to aspect" and not see mention if on a follower's page
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should see "start sharing"
-    Then I should not see "edit aspect membership"
+    Then I should not see /^In \d aspects?$/
     Then I should not see "Mention"
     Then I should not see "Message"
 
-    Then I should see "is sharing with you."
-
-  Scenario: should see start sharing & mention & message on mutual contacts
+  Scenario: should see "Add to aspect" & mention & message on mutual contacts
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
-    And I press the 1st ".share_with.button" within "#author_info"
-    And I press the 1st ".add.button" within "#facebox #aspects_list ul > li:first-child"
-    And I wait for the ajax to finish
-    And I press the 1st ".add.button" within "#facebox #aspects_list ul > li:nth-child(2)"
-    And I wait for the ajax to finish
+
+    And I add the person to my 1st aspect
+    And I add the person to my 2nd aspect
+
     And I am on "bob@bob.bob"'s page
 
-    Then I should not see "start sharing"
-    Then I should see "edit aspect membership"
+    Then I should not see "Add to aspect"
+    Then I should see "In 2 aspects"
     Then I should see "Mention"
     Then I should see "Message"
-
-    Then I should see "is sharing with you."
