@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class PeopleController < ApplicationController
-  helper :comments, :likes
   before_filter :authenticate_user!, :except => [:show]
 
   respond_to :html

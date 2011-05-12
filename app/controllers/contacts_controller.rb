@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class ContactsController < ApplicationController
-  helper :aspect_memberships
   before_filter :authenticate_user!
 
   def new

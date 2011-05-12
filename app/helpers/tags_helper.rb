@@ -3,7 +3,4 @@
 #   the COPYRIGHT file.
 
 module TagsHelper
-  def next_page_path
-    tag_path(@tag, :max_time => @posts.last.created_at.to_i)
-  end
 end

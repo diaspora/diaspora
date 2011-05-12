@@ -7,10 +7,6 @@ module ApplicationHelper
     timeago(obj.created_at)
   end
 
-  def time_for_sort(post)
-    post.created_at
-  end
-
   def timeago(time, options={})
     options[:class] ||= "timeago"
     content_tag(:abbr, time.to_s, options.merge(:title => time.iso8601)) if time

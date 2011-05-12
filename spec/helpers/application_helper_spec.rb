@@ -71,11 +71,4 @@ describe ApplicationHelper do
       person_link(@person).should_not include("<h1>")
     end
   end
-
-  describe "#time_for_sort" do
-    it "returns created_at" do
-      post = @user.post(:status_message, :text => "hello", :public => true, :to => 'all')
-      time_for_sort(post).should == post.created_at
-    end
-  end
 end

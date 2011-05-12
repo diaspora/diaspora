@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class TagsController < ApplicationController
-  helper :comments, :likes
   skip_before_filter :count_requests
   skip_before_filter :set_invites
   skip_before_filter :which_action_and_user
@@ -41,6 +40,7 @@ class TagsController < ApplicationController
   end
 
   def show
+    @aspect = :tag
     if current_user
       @posts = StatusMessage.joins(:contacts).where(:pending => false).where(
         Contact.arel_table[:user_id].eq(current_user.id).or(

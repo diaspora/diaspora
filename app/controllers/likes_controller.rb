@@ -4,11 +4,10 @@
 
 class LikesController < ApplicationController
   include ApplicationHelper
-  helper :likes
   before_filter :authenticate_user!
-  
+
   respond_to :html, :mobile, :json
-  
+
   def create
     target = current_user.find_visible_post_by_id params[:post_id]
     positive = (params[:positive] == 'true') ? true : false
