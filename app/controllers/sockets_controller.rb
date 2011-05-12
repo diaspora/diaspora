@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class SocketsController < ApplicationController
-  helper :comments
   include ApplicationHelper
   include SocketsHelper
   include Rails.application.routes.url_helpers

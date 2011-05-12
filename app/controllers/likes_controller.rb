@@ -5,9 +5,9 @@
 class LikesController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
-  
+
   respond_to :html, :mobile, :json
-  
+
   def create
     target = current_user.find_visible_post_by_id params[:post_id]
     positive = (params[:positive] == 'true') ? true : false
@@ -19,18 +19,7 @@ class LikesController < ApplicationController
         Postzord::Dispatch.new(current_user, @like).post
 
         respond_to do |format|
-          format.js {
-            json = { :post_id => @like.post_id,
-                     :html => render_to_string(
-                       :partial => 'likes/likes',
-                       :locals => {
-                         :likes => @like.post.likes,
-                         :dislikes => @like.post.dislikes
-                       }
-                     )
-                   }
-            render(:json => json, :status => 201)
-          }
+          format.js { render :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to status_message_path(@like.post_id) }
         end
@@ -39,6 +28,17 @@ class LikesController < ApplicationController
       end
     else
       render :nothing => true, :status => 422
+    end
+  end
+
+  def destroy
+    if @like = Like.where(:post_id => params[:post_id], :author_id => current_user.person.id).first
+      current_user.retract(@like)
+    else
+      respond_to do |format|
+        format.mobile {redirect_to :back}
+        format.js {render :nothing => true, :status => 403}
+      end
     end
   end
 end

@@ -36,6 +36,7 @@ br:
   all_aspects: "An Holl Arvezioù"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "den dianav"
       video_title: 
         unknown: "Unknown Video Title"

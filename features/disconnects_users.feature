@@ -12,33 +12,25 @@ Feature: disconnecting users
 
     And I add the person to my 1st aspect
 
-  Scenario Outline: remove non-mutual contact from the contact show page
+  Scenario: remove non-mutual contact from the contact show page
    When I am on "alice@alice.alice"'s page
-    And I follow "edit aspect membership"
-    And I preemptively <accept> the alert
-    And I follow "remove contact" in the modal window
 
-    And I wait for the ajax to finish
-    And I am on the manage aspects page
-   Then I should see <contacts> in "Besties"
+    And I remove the person from my 1st aspect
+    And I am on the home page
+
+   Then I should see "no contacts" within "#sharers"
 
     Then I go to the destroy user session page
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should <see> "is sharing with you."
-
-    Examples:
-      | accept  | contacts    | see |
-      | confirm | no contacts | not see |
-      | reject  | 1 contact   | see |
+    Then I should not see "is sharing with you."
 
    Scenario Outline: remove a non-mutual contact from the last aspect on the contact show page
     When I am on "alice@alice.alice"'s page
-    And I follow "edit aspect membership"
-    And I press the first ".added" within "#facebox #aspects_list ul > li:first-child"
 
-    And I wait for the ajax to finish
+    And I remove the person from my 1st aspect
+
     And I am on the manage aspects page
    Then I should see no contacts in "Besties"
    

@@ -21,18 +21,7 @@ class CommentsController < ApplicationController
         Postzord::Dispatch.new(current_user, @comment).post
 
         respond_to do |format|
-          format.js{
-            json = { :post_id => @comment.post_id,
-                                       :comment_id => @comment.id,
-                                       :html => render_to_string(
-                                         :partial => 'comments/comment',
-                                         :locals => { :comment => @comment,
-                                           :person => current_user.person,
-                                          }
-                                        )
-                                      }
-            render(:json => json, :status => 201)
-          }
+          format.js{ render(:create, :status => 201)}
           format.html{ render :nothing => true, :status => 201 }
           format.mobile{ redirect_to @comment.post }
         end

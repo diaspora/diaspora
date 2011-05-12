@@ -8,7 +8,8 @@ class UserPreference < ActiveRecord::Base
    "comment_on_post",
    "private_message",
    "started_sharing",
-   "also_commented"]
+   "also_commented",
+   "liked"]
 
   def must_be_valid_email_type
     unless VALID_EMAIL_TYPES.include?(self.email_type)

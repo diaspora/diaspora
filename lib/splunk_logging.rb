@@ -6,7 +6,7 @@ module SplunkLogging
   end
   def add_with_splunk(arg1, log_hash = nil, arg3 = nil, &block)
     string = format_hash(log_hash).dup
-    string << "pid=#{Process.pid} "
+    string << " pid=#{Process.pid} "
     add_without_splunk(arg1, string, arg3, &block)
   end
   def format_hash(hash)

@@ -1,0 +1,37 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ar: 
+  javascripts: 
+    confirm_dialog: "هل أنت متأكد؟"
+    infinite_scroll: 
+      no_more: "لا توجد أية رسائل أخرى"
+    publisher: 
+      at_least_one_aspect: "عليك تحديد فئة واحدة على الأقل"
+    search_for: "إبحث عن {{name}}"
+    shared: 
+      contact_list: 
+        cannot_remove: "استحالة إخراج العضو من الفئة المحددة. (تريد قطع الاتصال مع هذا العضو، يجب عليك حذفه تماما)"
+    timeago: 
+      day: "منذ يوم"
+      days: "منذ %d أيام"
+      hour: "منذ ساعة"
+      hours: "منذ %d ساعات"
+      minute: "منذ دقيقة"
+      minutes: "منذ %d دقائق"
+      month: "منذ شهر"
+      months: "منذ %d شهور"
+      prefixAgo: "منذ"
+      prefixFromNow: "منذ الآن"
+      seconds: "منذ أقل من دقيقة"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "منذ عام"
+      years: "منذ %d أعوام"
+    videos: 
+      unknown: "نوع فيديو غير معروف"
+      watch: "مشاهدة هذا الفيديو عبر {{provider}}"
+    web_sockets: 
+      disconnected: "The websocket is closed; posts will no longer be streamed live."

@@ -34,4 +34,4 @@ en_shaw:
       unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑐"
       watch: "𐑢𐑷𐑗 𐑞𐑦𐑕 𐑝𐑦𐑛𐑦𐑴 𐑪𐑯 {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "𐑞 𐑢𐑧𐑚𐑕𐑪𐑒𐑩𐑑 𐑦𐑟 𐑒𐑤𐑴𐑟𐑛; 𐑐𐑴𐑕𐑑𐑕 𐑢𐑦𐑤 𐑯𐑴 𐑤𐑪𐑙𐑜𐑼 𐑚𐑰 𐑕𐑑𐑮𐑰𐑥𐑛 𐑤𐑲𐑝."

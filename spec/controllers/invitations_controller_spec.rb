@@ -7,8 +7,6 @@ require 'spec_helper'
 describe InvitationsController do
   include Devise::TestHelpers
 
-  render_views
-
   before do
     @user   = alice
     @aspect = @user.aspects.first
@@ -77,8 +75,10 @@ describe InvitationsController do
          :invitation_token => @invited_user.invitation_token}}
 
     end
+
     context 'success' do
       let(:invited) {User.find_by_username(@accept_params[:user][:username])}
+
       it 'creates a user' do
         put :update, @accept_params
         invited.should_not be_nil
@@ -149,4 +149,3 @@ describe InvitationsController do
     end
   end
 end
-

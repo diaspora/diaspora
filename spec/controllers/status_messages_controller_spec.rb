@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe StatusMessagesController do
-  render_views
-
   before do
     @aspect1 = alice.aspects.first
     @aspect2 = bob.aspects.first
@@ -31,14 +29,14 @@ describe StatusMessagesController do
       response.should be_success
     end
 
-      it 'generates a jasmine fixture' do
-        contact = alice.contact_for(bob.person)
-        aspect = alice.aspects.create(:name => 'people')
-        contact.aspects << aspect
-        contact.save
-        get :new, :person_id => bob.person.id, :layout => true
-        save_fixture(html_for("body"), "status_message_new")
-      end
+    it 'generates a jasmine fixture', :fixture => 'jasmine' do
+      contact = alice.contact_for(bob.person)
+      aspect = alice.aspects.create(:name => 'people')
+      contact.aspects << aspect
+      contact.save
+      get :new, :person_id => bob.person.id, :layout => true
+      save_fixture(html_for("body"), "status_message_new")
+    end
   end
 
   describe '#show' do
@@ -65,7 +63,6 @@ describe StatusMessagesController do
       }.should change(note, :unread).from(true).to(false)
     end
 
-
     it 'redirects to back if there is no status message' do
       get :show, :id => 2345
       response.status.should == 302
@@ -80,17 +77,20 @@ describe StatusMessagesController do
         },
       :aspect_ids => [@aspect1.id.to_s] }
     }
+
     context 'js requests' do
       it 'responds' do
         post :create, status_message_hash.merge(:format => 'js')
         response.status.should == 201
       end
+
       it 'responds with json' do
         post :create, status_message_hash.merge(:format => 'js')
         json = JSON.parse(response.body)
         json['post_id'].should_not be_nil
         json['html'].should_not be_nil
       end
+
       it 'escapes XSS' do
         xss = "<script> alert('hi browser') </script>"
         post :create, status_message_hash.merge(:format => 'js', :text => xss)
@@ -128,11 +128,11 @@ describe StatusMessagesController do
       }
       post :create, status_message_hash
     end
+
     it 'sends the errors in the body on js' do
       post :create, status_message_hash.merge!(:format => 'js', :status_message => {:text => ''})
       response.body.should include('Status message requires a message or at least one photo')
     end
-
 
     context 'with photos' do
       before do

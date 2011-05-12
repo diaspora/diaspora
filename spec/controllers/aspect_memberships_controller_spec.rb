@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe AspectMembershipsController do
-  render_views
-
   before do
     @aspect0  = alice.aspects.first
     @aspect1  = alice.aspects.create(:name => "another aspect")

@@ -21,7 +21,7 @@
     .content
       .from
         = person_link(post.author, :class => 'author')
-        %time.time.timeago{:datetime => post.created_at, :integer => post.created_at.to_i}
+        %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
       = render 'status_messages/status_message', :post => post, :photos => post.photos
 
       .info
@@ -37,17 +37,14 @@
           = link_to(how_long_ago(post), status_message_path(post))
 
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
+          |
+          %span.like_action
+            = like_action(post, current_user)
+          |
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
-          / TODO(likes)
-          /- if (defined?(current_user) && !current_user.liked?(post))
-          /  %span.like_links
-          /    |
-          /    = link_to t('.like'), likes_path(:positive => 'true', :post_id => post.id ), :method => :post, :class => "like_it", :remote => true
-          /    |
-          /    = link_to t('.dislike'), likes_path(:positive => 'false', :post_id => post.id), :method => :post, :class => "dislike_it", :remote => true
-
-      /.likes_container
-      /  = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
+      .likes
+        - if post.likes.count > 0
+          = render "likes/likes", :post_id => post.id, :likes => post.likes, :dislikes => post.dislikes, :current_user => current_user
 
       = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

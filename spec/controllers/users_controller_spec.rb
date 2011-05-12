@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe UsersController do
-  render_views
-
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -48,6 +46,7 @@ describe UsersController do
                   :user => { :diaspora_handle => "notreal@stuff.com" } }
 
     end
+
     it "doesn't overwrite random attributes" do
       lambda {
         put :update, @params
@@ -123,7 +122,6 @@ describe UsersController do
         proc{
           put :update, par
         }.should change(@user.user_preferences, :count).by(-1)
-
       end
     end
   end

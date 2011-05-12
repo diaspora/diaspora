@@ -36,6 +36,7 @@ cy:
   all_aspects: "All aspects"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "unknown person"
       video_title: 
         unknown: "Unknown Video Title"

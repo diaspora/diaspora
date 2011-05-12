@@ -2,8 +2,9 @@ class Notifications::StartedSharing < Notification
   def mail_job
     Job::MailStartedSharing
   end
-  def translation_key
-    'started_sharing'
+
+  def popup_translation_key
+    'notifications.started_sharing'
   end
 
   def email_the_user(target, actor)

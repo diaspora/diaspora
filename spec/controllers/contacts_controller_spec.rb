@@ -2,12 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 require 'spec_helper'
 
 describe ContactsController do
-  render_views
-
   before do
     @aspect = alice.aspects.first
     @contact = alice.contact_for(bob.person)

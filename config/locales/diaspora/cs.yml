@@ -36,6 +36,7 @@ cs:
   all_aspects: "Všechny aspekty"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznámá osoba"
       video_title: 
         unknown: "Neznámý název videa"

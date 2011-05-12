@@ -24,6 +24,34 @@ Feature: posting
         And I follow "All Aspects"
       Then I should see "I am eating a yogurt" within ".stream_element"
 
+    Scenario: post a photo without text
+      Given I expand the publisher
+      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I press "Share"
+      And I wait for the ajax to finish
+      And I follow "All Aspects"
+      Then I should see a "img" within ".stream_element:first div.photo_attachments"
+      Then I log out
+      And I sign in as "alice@alice.alice"
+      And I go to "bob@bob.bob"'s page
+      Then I should see a "img" within ".stream_element:first div.photo_attachments"
+
+
+    Scenario: post a photo with text
+      Given I expand the publisher
+      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I fill in "status_message_fake_text" with "Look at this dog"
+      And I press "Share"
+      And I wait for the ajax to finish
+      And I follow "All Aspects"
+      Then I should see a "img" within ".stream_element:first div.photo_attachments"
+      And I should see "Look at this dog" within ".stream_element:first"
+      Then I log out
+      And I sign in as "alice@alice.alice"
+      And I go to "bob@bob.bob"'s page
+      Then I should see a "img" within ".stream_element:first div.photo_attachments"
+      And I should see "Look at this dog" within ".stream_element:first"
+
     Scenario: hide a post
       Given I expand the publisher
       When I fill in "status_message_fake_text" with "Here is a post for you to hide"

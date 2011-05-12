@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe PeopleController do
-  render_views
-
   before do
     @user = alice
     @aspect = @user.aspects.first
@@ -25,14 +23,17 @@ describe PeopleController do
       get :index, :q => "Korth", :format => 'json'
       response.body.should == [@korth].to_json
     end
+
     it 'does not set @hashes in a json request' do
       get :index, :q => "Korth", :format => 'json'
       assigns[:hashes].should be_nil
     end
+
     it 'sets @hashes in an html request' do
       get :index, :q => "Korth"
       assigns[:hashes].should_not be_nil
     end
+
     it "assigns people" do
       eugene2 = Factory.create(:person,
                                :profile => Factory.build(:profile, :first_name => "Eugene",
@@ -144,6 +145,7 @@ describe PeopleController do
         sign_out :user
         @person = bob.person
       end
+
       it "succeeds" do
         get :show, :id => @person.id
         response.status.should == 200
@@ -183,6 +185,7 @@ describe PeopleController do
         response.status.should == 404
       end
     end
+
     context "when the person is a contact of the current user" do
       before do
         @person = bob.person
@@ -249,6 +252,7 @@ describe PeopleController do
       end
     end
   end
+
   describe '#contacts' do
     it 'assigns the contacts of a person' do
       contact = alice.contact_for(bob.person)

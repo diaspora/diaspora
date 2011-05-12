@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe PostVisibilitiesController do
-  render_views
-
   before do
     @status = alice.post(:status_message, :text => "hello", :to => alice.aspects.first)
     @vis = @status.post_visibilities.first
@@ -47,7 +45,7 @@ describe PostVisibilitiesController do
         }.should_not change(@vis.reload, :hidden).to(true)
       end
 
-      it 'does not succceed' do
+      it 'does not succeed' do
         put :update, :format => :js, :id => 42, :post_id => @status.id
         response.should_not be_success
       end

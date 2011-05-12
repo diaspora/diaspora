@@ -36,6 +36,7 @@ zh-TW:
   all_aspects: "所有面向"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "不明聯絡人"
       video_title: 
         unknown: "影片標題不明"

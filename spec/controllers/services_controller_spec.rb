@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe ServicesController do
-  render_views
   let(:mock_access_token) { Object.new }
 
   let(:omniauth_auth) {
@@ -60,7 +59,6 @@ describe ServicesController do
       response.should redirect_to services_url
     end
 
-
     it 'creates a twitter service' do
       Service.delete_all
       @user.getting_started = false
@@ -74,6 +72,7 @@ describe ServicesController do
     before do
       @service1 = Factory.create(:service, :user => @user)
     end
+
     it 'destroys a service selected by id' do
       lambda{
         delete :destroy, :id => @service1.id
@@ -87,16 +86,19 @@ describe ServicesController do
       @user.services << @service1
       @person = Factory(:person)
       @user.services.stub!(:where).and_return([@service1])
-      @hash = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :person => bob.person,
-                                  :service => @service1, :uid => "321" ),
+      @service_users = [ ServiceUser.create(:contact => @user.contact_for(bob.person), :name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg",
+                                  :service => @service1, :uid => "321" ).tap{|su| su.stub!(:person).and_return(bob.person)},
+                ServiceUser.create(:name => "Eve Doe", :photo_url => "cdn1.fb.com/pic1.jpg", :person => eve.person, :service => @service1,
+                                   :uid => 'sdfae').tap{|su| su.stub!(:person).and_return(eve.person)},
                 ServiceUser.create(:name => "Robert Bobson", :photo_url => "cdn1.fb.com/pic1.jpg", :service => @service1, :uid => "dsfasdfas")]
-      @service1.should_receive(:finder).and_return(@hash)
+      @service1.should_receive(:finder).and_return(@service_users)
     end
 
     it 'calls the finder method for the service for that user' do
       get :finder, :provider => @service1.provider
       response.should be_success
     end
+
     it 'has no translations missing' do
       get :finder, :provider => @service1.provider
       response.body.match(/translation/).should be_nil
@@ -104,7 +106,6 @@ describe ServicesController do
   end
 
   describe '#invite' do
-
     before do
       @uid = "abc"
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
@@ -141,4 +142,3 @@ describe ServicesController do
     end
   end
 end
-

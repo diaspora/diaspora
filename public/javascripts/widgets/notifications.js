@@ -32,14 +32,17 @@
     };
   };
 
-  Notifications.prototype.showNotification = function(notification) {    $(notification.html).prependTo(this.notificationArea)
+  Notifications.prototype.showNotification = function(notification) {
+    $(notification.html).prependTo(this.notificationArea)
       .fadeIn(200)
       .delay(8000)
       .fadeOut(200, function() {
         $(this).detach();
       });
 
-    this.incrementCount();
+    if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
+      this.incrementCount();
+    }
   };
 
   Notifications.prototype.changeNotificationCount = function(change) {

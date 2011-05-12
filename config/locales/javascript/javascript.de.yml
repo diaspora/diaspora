@@ -7,7 +7,7 @@ de:
   javascripts: 
     confirm_dialog: "Bist du dir sicher?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Keine weiteren Beiträge."
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
     search_for: "Nach {{name}} suchen"
@@ -34,4 +34,4 @@ de:
       unknown: "Unbekanntes Videoformat"
       watch: "Dieses Video auf {{provider}} ansehen"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Der Websocket ist geschlossen. Beiträge werden nicht länger in Echtzeit aktualisiert."

@@ -74,6 +74,7 @@ en:
       unknown_person: "unknown person"
       video_title:
         unknown: "Unknown Video Title"
+      diaspora_alpha: "DIASPORA* ALPHA"
   aspects:
     zero: "no aspects"
     one: "1 aspect"
@@ -161,7 +162,7 @@ en:
     many: "%{count} comments"
     other: "%{count} comments"
     new_comment:
-      comment: "comment"
+      comment: "Comment"
       commenting: "Commenting..."
 
   contacts:
@@ -278,17 +279,17 @@ en:
   likes:
     likes:
       people_like_this:
-        zero: "no people liked this"
-        one: "1 person liked this"
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        other: "%{count} people liked this"
+        zero: "no likes"
+        one: "%{count} like"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        other: "%{count} likes"
       people_dislike_this:
-        zero: "no people disliked this"
-        one: "1 person disliked this"
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        other: "%{count} people disliked this"
+        zero: "no dislikes"
+        one: "%{count} dislike"
+        few: "%{count} dislikes"
+        many: "%{count} dislikes"
+        other: "%{count} dislikes"
 
   notifications:
     started_sharing: "started sharing with you."
@@ -297,6 +298,7 @@ en:
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
     mentioned: "has mentioned you in a "
+    liked: "has just liked your post"
     post: "post."
     deleted: "deleted"
     also_commented_deleted: "commented on a deleted post."
@@ -343,6 +345,10 @@ en:
         private_message: "has sent you a private message:"
         message_subject: "Subject: %{subject}"
         sign_in: "Sign in to view it."
+    liked:
+        subject: "%{name} has just liked your post"
+        liked: "%{name} has just liked your post: "
+        sign_in: "Sign in to view it"
 
   people:
     zero: "no people"
@@ -569,8 +575,9 @@ en:
     contact_list:
       all_contacts: "All contacts"
     stream_element:
-      like: "I like this"
-      dislike: "I dislike this"
+      like: "Like"
+      unlike: "Unlike"
+      dislike: "Dislike"
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -617,6 +624,7 @@ en:
       mentioned: "...you are mentioned in a post?"
       started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
+      liked: "...someone likes your post?"
       change: "Change"
     destroy: "Account successfully closed."
     getting_started:

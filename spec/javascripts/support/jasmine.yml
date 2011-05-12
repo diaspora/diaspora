@@ -30,6 +30,7 @@ src_files:
   - public/javascripts/widgets/directionDetector.js
   - public/javascripts/widgets/infinite-scroll.js
   - public/javascripts/widgets/notifications.js
+  - public/javascripts/widgets/flashes.js
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
   - public/javascripts/web-socket-receiver.js
@@ -39,6 +40,7 @@ src_files:
   - public/javascripts/validation.js
   - public/javascripts/rails.js
   - public/javascripts/aspect-filters.js
+  - public/javascripts/content-updater.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

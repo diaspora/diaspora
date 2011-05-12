@@ -15,7 +15,7 @@ ko:
       invalid: "유효하지 않은 사용자명과 암호"
       invalid_token: "유효하지 않은 인증 토큰"
       locked: "계정이 잠겼습니다."
-      timeout: "세션이 만료되었습니다. 다시 로그인하십시오."
+      timeout: "세션이 만료되었습니다. 다시 로그인하세요."
       unauthenticated: "더 나아가려면 로그인하거나 가입해야 합니다."
       unconfirmed: "더 나아가기 전에 계정을 확인해야 합니다."
     invitations: 
@@ -30,7 +30,7 @@ ko:
       hello: "%{email} 님 환영합니다!"
       invitation: 
         accept: "초대 수락하기"
-        ignore: "초대를 수락하지 않으려면 이 메일을 무시하십시오."
+        ignore: "초대를 수락하지 않으려면 이 메일을 무시하세요."
         no_account_till: "계정은 가입하지 않는 한 만들어지지 않습니다."
         subject: "디아스포라로 초대합니다!"
       inviters: 
@@ -39,7 +39,7 @@ ko:
         have_invited_you: "%{name} 님이 귀하를 디아스포라에 초대하였습니다."
       reset_password_instructions: 
         change: "암호 바꾸기"
-        ignore: "암호 초기화를 요청하지 않았다면 이 메일을 무시하십시오."
+        ignore: "암호 초기화를 요청하지 않았다면 이 메일을 무시하세요."
         someone_requested: "아래 링크로 암호를 다시 정할 수 었습니다:"
         subject: "암호 초기화 안내"
         wont_change: "암호는 링크를 클릭해서 새 암호를 만들기 전까지 바뀌지 않습니다."
@@ -65,8 +65,8 @@ ko:
     sessions: 
       new: 
         alpha_software: "이 소프트웨어는 알파 실험 단계입니다."
-        bugs_and_feedback: "여러 버그를 경험하실 수 있습니다. 오른쪽의 피드백 단추로 문제점을 보고해주십시오! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
-        bugs_and_feedback_mobile: "여러 버그를 경험하실 수 있습니다. 문제점을 보고해주십시오! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
+        bugs_and_feedback: "여러 버그를 경험하실 수 있습니다. 오른쪽의 피드백 단추로 문제점을 보고해주세요! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
+        bugs_and_feedback_mobile: "여러 버그를 경험하실 수 있습니다. 문제점을 보고해주세요! 보고하신 문제점을 빠르게 해결하기 위해 최선을 다하겠습니다."
         login: "로그인"
         modern_browsers: "최신 브라우저만 지원합니다."
         password: "암호"
@@ -84,7 +84,7 @@ ko:
         sign_up: "가입하기"
         sign_up_closed: "공개 가입이 닫혀있습니다."
       mail_signup_form: 
-        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두십시오!"
+        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두세오!"
     unlocks: 
       new: 
         resend_unlock: "풀기 메일 다시 보내기"

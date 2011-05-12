@@ -20,8 +20,8 @@ Diaspora::Application.routes.draw do
   end
 
   resources :comments, :only => [:create, :destroy]
-  resource :like,      :only => [:create]
 
+  resources :likes, :only => [:create, :destroy]
 
   resources :conversations do
     resources :messages, :only => [:create, :show]

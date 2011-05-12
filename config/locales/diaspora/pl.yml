@@ -36,6 +36,7 @@ pl:
   all_aspects: "Wszystkie aspekty"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "nieznana osoba"
       video_title: 
         unknown: "Wideo bez nazwy"

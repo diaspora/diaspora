@@ -4,14 +4,21 @@
 */
 var View = {
   initialize: function() {
+
+    $(window).scroll(function(){
+      var header = $('header');
+      if( $(this).scrollTop() > 30){
+        header.addClass('fixit');
+      } else {
+        header.removeClass('fixit');
+      }
+    });
+
     /* Buttons */
     $("input:submit").addClass("button");
 
     /* Tooltips */
     this.tooltips.bindAll();
-
-    /* Animate flashes */
-    this.flashes.animate();
 
     /* In field labels */
     $("label").inFieldLabels();
@@ -60,6 +67,7 @@ var View = {
 
     $(document.body)
       .click(this.dropdowns.removeFocus)
+      .click(this.userMenu.removeFocus)
       .click(this.reshareButton.removeFocus);
 
     /* facebox */
@@ -97,26 +105,6 @@ var View = {
       $("#debug_more").toggle("fast");
     },
     selector: "#debug_info"
-  },
-
-  flashes: {
-    animate: function() {
-      var $this = $(View.flashes.selector);
-      $this.animate({
-        top: 0
-      }).delay(2000).animate({
-        top: -100
-      }, $this.remove);
-    },
-    render: function(result) {
-      $("<div/>")
-        .attr("id", (result.success) ? "flash_notice" : "flash_error")
-        .prependTo(document.body)
-        .html(result.notice);
-      View.flashes.animate();
-    },
-    selector: "#flash_notice, #flash_error, #flash_alert"
-
   },
 
   newRequest: {

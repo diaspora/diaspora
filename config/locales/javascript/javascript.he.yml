@@ -34,4 +34,4 @@ he:
       unknown: "סוג הווידאו אינו ידוע"
       watch: "צפייה בסרטון וידאו זה באתר {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "שקע הרשת סגור; ההודעות לא יישלחו עוד בזמן אמת."

@@ -5,11 +5,10 @@
 require 'spec_helper'
 
 describe PostsController do
-  render_views
-
   before do
     @user = alice
   end
+
   describe '#show' do
     it 'shows a public post' do
       status = @user.post(:status_message, :text => "hello", :public => true, :to => 'all')

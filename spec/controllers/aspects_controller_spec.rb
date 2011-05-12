@@ -6,18 +6,14 @@ require 'spec_helper'
 require File.join(Rails.root, "spec", "shared_behaviors", "log_override")
 
 describe AspectsController do
-  render_views
-
   before do
-    @bob = bob
-    @alice = alice
-    @alice.getting_started = false
-    @alice.save
-    sign_in :user, @alice
-    @alices_aspect_1 = @alice.aspects.first
-    @alices_aspect_2 = @alice.aspects.create(:name => "another aspect")
+    alice.getting_started = false
+    alice.save
+    sign_in :user, alice
+    @alices_aspect_1  = alice.aspects.first
+    @alices_aspect_2  = alice.aspects.create(:name => "another aspect")
 
-    @controller.stub(:current_user).and_return(@alice)
+    @controller.stub(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
@@ -50,33 +46,36 @@ describe AspectsController do
   end
 
   describe "#index" do
-    it "generates a jasmine fixture" do
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
       get :index
       save_fixture(html_for("body"), "aspects_index")
     end
 
-    it "generates a jasmine fixture with a prefill" do
+    it "generates a jasmine fixture with a prefill", :fixture => 'jasmine' do
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_prefill")
     end
 
-    it 'generates a jasmine fixture with services' do
-      @alice.services << Services::Facebook.create(:user_id => @alice.id)
-      @alice.services << Services::Twitter.create(:user_id => @alice.id)
+    it 'generates a jasmine fixture with services', :fixture => 'jasmine' do
+      alice.services << Services::Facebook.create(:user_id => alice.id)
+      alice.services << Services::Twitter.create(:user_id => alice.id)
       get :index, :prefill => "reshare things"
       save_fixture(html_for("body"), "aspects_index_services")
     end
 
-    it 'generates a jasmine fixture with posts' do
-      @alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
+    it 'generates a jasmine fixture with posts', :fixture => 'jasmine' do
+      message = alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
+      bob.comment("what", :on => message)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
+      
+      save_fixture(html_for(".stream_element:first"), "status_message_in_stream")
     end
 
     context 'with getting_started = true' do
       before do
-        @alice.getting_started = true
-        @alice.save
+        alice.getting_started = true
+        alice.save
       end
       it 'redirects to getting_started' do
         get :index
@@ -98,19 +97,19 @@ describe AspectsController do
         2.times do |n|
           user = Factory(:user)
           aspect = user.aspects.create(:name => 'people')
-          connect_users(@alice, @alices_aspect_1, user, aspect)
+          connect_users(alice, @alices_aspect_1, user, aspect)
           target_aspect = n.even? ? @alices_aspect_1 : @alices_aspect_2
-          post = @alice.post(:status_message, :text=> "hello#{n}", :to => target_aspect)
+          post = alice.post(:status_message, :text=> "hello#{n}", :to => target_aspect)
           post.created_at = Time.now - (2 - n).seconds
           post.save!
           @posts << post
         end
-        @alice.build_comment('lalala', :on => @posts.first ).save
+        alice.build_comment('lalala', :on => @posts.first ).save
       end
 
       describe "post visibilities" do
         before do
-          @status = @bob.post(:status_message, :text=> "hello", :to => @bob.aspects.first)
+          @status = bob.post(:status_message, :text=> "hello", :to => bob.aspects.first)
           @vis = @status.post_visibilities.first
         end
 
@@ -163,7 +162,7 @@ describe AspectsController do
       end
 
       it "returns all posts by default" do
-        @alice.aspects.reload
+        alice.aspects.reload
         get :index
         assigns(:posts).models.length.should == 2
       end
@@ -185,8 +184,8 @@ describe AspectsController do
         8.times do |n|
           user = Factory.create(:user)
           aspect = user.aspects.create(:name => 'people')
-          connect_users(@alice, @alices_aspect_1, user, aspect)
-          post =  @alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
+          connect_users(alice, @alices_aspect_1, user, aspect)
+          post =  alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
             user.comment "yo#{post.text}", :on => post
           end
@@ -214,9 +213,9 @@ describe AspectsController do
   describe "#create" do
     context "with valid params" do
       it "creates an aspect" do
-        @alice.aspects.count.should == 2
+        alice.aspects.count.should == 2
         post :create, "aspect" => {"name" => "new aspect"}
-        @alice.reload.aspects.count.should == 3
+        alice.reload.aspects.count.should == 3
       end
       it "redirects to the aspect page" do
         post :create, "aspect" => {"name" => "new aspect"}
@@ -225,9 +224,9 @@ describe AspectsController do
     end
     context "with invalid params" do
       it "does not create an aspect" do
-        @alice.aspects.count.should == 2
+        alice.aspects.count.should == 2
         post :create, "aspect" => {"name" => ""}
-        @alice.reload.aspects.count.should == 2
+        alice.reload.aspects.count.should == 2
       end
       it "goes back to the page you came from" do
         post :create, "aspect" => {"name" => ""}
@@ -243,17 +242,17 @@ describe AspectsController do
     end
 
     it "performs reasonably", :performance => true do
-        require 'benchmark'
-        8.times do |n|
-          aspect = @alice.aspects.create(:name => "aspect#{n}")
-          8.times do |o|
-            person = Factory(:person)
-            @alice.contacts.create(:person => person, :aspects => [aspect])
-          end
+      require 'benchmark'
+      8.times do |n|
+        aspect = alice.aspects.create(:name => "aspect#{n}")
+        8.times do |o|
+          person = Factory(:person)
+          alice.contacts.create(:person => person, :aspects => [aspect])
         end
-        Benchmark.realtime{
-          get :manage
-        }.should < 4.5
+      end
+      Benchmark.realtime{
+        get :manage
+      }.should < 4.5
     end
 
     it "assigns aspect to manage" do
@@ -266,45 +265,57 @@ describe AspectsController do
       contacts = assigns(:contacts)
       contacts.to_set.should == alice.contacts.to_set
     end
+
+    it "succeeds" do
+      get :manage
+      response.should be_success
+    end
+
+    it "assigns aspect to manage" do
+      get :manage
+      assigns(:aspect).should == :manage
+    end
+
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
+      get :manage
+      save_fixture(html_for("body"), "aspects_manage")
+    end
   end
 
   describe "#update" do
-    it "doesn't overwrite name" do
+    before do
+      @alices_aspect_1 = alice.aspects.create(:name => "Bruisers")
+    end
 
-      @alices_aspect_1 = @alice.aspects.create(:name => "Bruisers")
-
-      new_user =  Factory.create :user
-      params = {"name" => "Bruisers"}
-
+    it "doesn't overwrite random attributes" do
+      new_user         = Factory.create :user
+      params           = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
-
-      put(:update, :id => @alices_aspect_1.id, :aspect => params)
-
-      Aspect.find(@alices_aspect_1.id).user_id.should == @alice.id
+      put('update', :id => @alices_aspect_1.id, "aspect" => params)
+      Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
     end
   end
 
   describe '#edit' do
     before do
-      @bob = bob
-      @eve = eve
-      @eve.profile.first_name = nil
-      @eve.profile.save
-      @eve.save
+      eve.profile.first_name = nil
+      eve.profile.save
+      eve.save
 
-      @zed   = Factory(:user_with_aspect, :username => "zed")
+      @zed = Factory(:user_with_aspect, :username => "zed")
       @zed.profile.first_name = "zed"
       @zed.profile.save
       @zed.save
-      @katz   = Factory(:user_with_aspect, :username => "katz")
+      @katz = Factory(:user_with_aspect, :username => "katz")
       @katz.profile.first_name = "katz"
       @katz.profile.save
       @katz.save
 
-      connect_users(@alice, @alices_aspect_2, @eve, @eve.aspects.first)
-      connect_users(@alice, @alices_aspect_2, @zed, @zed.aspects.first)
-      connect_users(@alice, @alices_aspect_1, @katz, @katz.aspects.first)
+      connect_users(alice, @alices_aspect_2, eve, eve.aspects.first)
+      connect_users(alice, @alices_aspect_2, @zed, @zed.aspects.first)
+      connect_users(alice, @alices_aspect_1, @katz, @katz.aspects.first)
     end
+
     it 'renders' do
       get :edit, :id => @alices_aspect_1.id
       response.should be_success
@@ -312,14 +323,14 @@ describe AspectsController do
 
     it 'assigns the contacts in alphabetical order with people in aspects first' do
       get :edit, :id => @alices_aspect_2.id
-      assigns[:contacts].map(&:id).should == [@alice.contact_for(@eve.person), @alice.contact_for(@zed.person), @alice.contact_for(@bob.person), @alice.contact_for(@katz.person)].map(&:id)
+      assigns[:contacts].map(&:id).should == [alice.contact_for(eve.person), alice.contact_for(@zed.person), alice.contact_for(bob.person), alice.contact_for(@katz.person)].map(&:id)
     end
 
     it 'assigns all the contacts if noone is there' do
-      alices_aspect_3  = @alice.aspects.create(:name => "aspect 3")
+      alices_aspect_3  = alice.aspects.create(:name => "aspect 3")
 
       get :edit, :id => alices_aspect_3.id
-      assigns[:contacts].map(&:id).should == [@alice.contact_for(@bob.person), @alice.contact_for(@eve.person), @alice.contact_for(@katz.person), @alice.contact_for(@zed.person)].map(&:id)
+      assigns[:contacts].map(&:id).should == [alice.contact_for(bob.person), alice.contact_for(eve.person), alice.contact_for(@katz.person), alice.contact_for(@zed.person)].map(&:id)
     end
   end
 

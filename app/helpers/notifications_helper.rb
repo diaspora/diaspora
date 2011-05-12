@@ -1,6 +1,6 @@
 module NotificationsHelper
   def object_link(note)
-    target_type = note.translation_key
+    target_type = note.popup_translation_key
     if note.instance_of?(Notifications::Mentioned)
       post = Mention.find(note.target_id).post
       if post
@@ -8,8 +8,6 @@ module NotificationsHelper
       else
         "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
       end
-    elsif note.instance_of?(Notifications::StartedSharing)
-      translation(target_type)
     elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first
       if post
@@ -24,11 +22,13 @@ module NotificationsHelper
       else
         t('notifications.also_commented_deleted')
       end
+    else #Notifications:StartedSharing, Notifications::Liked, etc.
+      translation(target_type)
     end
   end
 
   def translation(target_type, post_author = nil)
-    t("notifications.#{target_type}", :post_author => post_author)
+    t("#{target_type}", :post_author => post_author)
   end
 
 

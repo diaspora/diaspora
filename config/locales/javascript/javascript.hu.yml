@@ -34,4 +34,4 @@ hu:
       unknown: "Ismeretlen videó tipus"
       watch: "Videó megtekintése itt: {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "A websocket zárolva van. A bejegyzések nem lesznek előben stream-elve."

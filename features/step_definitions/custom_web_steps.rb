@@ -159,28 +159,6 @@ Then /^I should( not)? see the contact dialog$/ do |not_see|
   end
 end
 
-When /^I add the person to my ([\d])(nd|rd|st|th) aspect$/ do |aspect_number, nd|
-  steps %Q{
-    And I press the first ".toggle.button"
-    And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
-    And I wait for the ajax to finish
-    And I press the first ".toggle.button"
-  }
-end
-
-When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
-  steps %Q{
-    And I press the first ".toggle.button"
-
-    And I press click ".new_aspect" within ".dropdown.active"
-    And I fill in "#aspect_name" with "#{aspect_name}"
-    And I submit the form
-
-    And I wait for the ajax to finish
-    And I press the first ".toggle.button"
-  }
-end
-
 Then /^I should( not)? see an add contact button$/ do |not_see|
   expected_length = not_see ? 0 : 1
   evaluate_script("$('.add_contact a').length == #{expected_length};")

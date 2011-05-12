@@ -29,7 +29,9 @@
     - else
       = friend.name
 
-- unless friend.person.nil? || (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
+- unless friend.person.nil?
+  / should be dropdown
+
   %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
     - contact = friend.contact
     - contact ||= Contact.new

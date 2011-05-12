@@ -5,8 +5,6 @@
 require 'spec_helper'
 
 describe CommentsController do
-  render_views
-
   before do
     @aspect1 = alice.aspects.first
     @aspect2 = bob.aspects.first
@@ -20,10 +18,12 @@ describe CommentsController do
       {:text    =>"facebook, is that you?",
        :post_id =>"#{@post.id}"}
     }
+
     context "on my own post" do
       before do
         @post = alice.post :status_message, :text => 'GIANTS', :to => @aspect1.id
       end
+
       it 'responds to format js' do
         post :create, comment_hash.merge(:format => 'js')
         response.code.should == '201'
@@ -35,16 +35,19 @@ describe CommentsController do
       before do
         @post = bob.post :status_message, :text => 'GIANTS', :to => @aspect2.id
       end
+
       it 'comments' do
         post :create, comment_hash
         response.code.should == '201'
       end
+
       it "doesn't overwrite author_id" do
         new_user = Factory.create(:user)
         comment_hash[:author_id] = new_user.person.id.to_s
         post :create, comment_hash
         Comment.find_by_text(comment_hash[:text]).author_id.should == alice.person.id
       end
+
       it "doesn't overwrite id" do
         old_comment = alice.comment("hello", :on => @post)
         comment_hash[:id] = old_comment.id
@@ -52,10 +55,12 @@ describe CommentsController do
         old_comment.reload.text.should == 'hello'
       end
     end
+
     context 'on a post from a stranger' do
       before do
         @post = eve.post :status_message, :text => 'GIANTS', :to => eve.aspects.first.id
       end
+
       it 'posts no comment' do
         alice.should_not_receive(:comment)
         post :create, comment_hash
@@ -72,6 +77,7 @@ describe CommentsController do
         @comment2 = bob.comment("hey", :on => @message)
         @comment3 = eve.comment("hey", :on => @message)
       end
+
       it 'lets the user delete his comment' do
         alice.should_receive(:retract).with(@comment)
         delete :destroy, :format => "js",  :id => @comment.id

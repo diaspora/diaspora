@@ -12,7 +12,7 @@ fi:
       send_instructions: "Saat hetken päästä sähköpostiisi ohjeet siitä, miten vahvistat käyttäjätilisi."
     failure: 
       inactive: "Käyttätiliäsi ei ole vielä aktivoitu."
-      invalid: "Väärä sähköpostiosoite tai salasana."
+      invalid: "Virheellinen käyttäjätunnus tai salasana."
       invalid_token: "Virheellinen todennustunnus."
       locked: "Käyttäjätilisi on lukittu."
       timeout: "Istunto on vanhentunut, kirjaudu uudelleen jatkaaksesi."

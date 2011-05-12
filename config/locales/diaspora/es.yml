@@ -36,6 +36,7 @@ es:
   all_aspects: "Todos"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "persona desconocida"
       video_title: 
         unknown: "Título de vídeo desconocido"
@@ -268,7 +269,7 @@ es:
       notifications: "Notificaciones"
     mentioned: "te mencionó en una"
     new_request: "quisiera compartir contigo."
-    post: "publicación"
+    post: "publicación."
     private_message: "te envió un mensaje."
     request_accepted: "aceptó tu solicitud de contacto."
   notifier: 

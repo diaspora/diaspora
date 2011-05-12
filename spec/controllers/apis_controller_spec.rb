@@ -1,7 +1,11 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
 require 'spec_helper'
 
 describe ApisController do
-   before(:all) do
+   before do
     @status_message1 = Factory(:status_message, :text => '#bobby #flay #sux', :public => true, :updated_at => Time.now + 20)
 
     @status_message2 = Factory(:status_message, :text => '#aobby', :public => true, :created_at => Time.now + 10)

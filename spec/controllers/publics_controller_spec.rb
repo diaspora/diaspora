@@ -5,7 +5,6 @@
 require 'spec_helper'
 
 describe PublicsController do
-  render_views
   let(:fixture_path) { File.join(Rails.root, 'spec', 'fixtures')}
   before do
     @user = alice
@@ -13,13 +12,14 @@ describe PublicsController do
   end
 
   describe '#host_meta' do
-    it 'succeeds' do
+    it 'succeeds', :fixture => :rspec do
       get :host_meta
       response.should be_success
       response.body.should =~ /webfinger/
       save_fixture(response.body, "host-meta", fixture_path)
     end
   end
+
   describe '#receive' do
     let(:xml) { "<walruses></walruses>" }
 
@@ -62,7 +62,7 @@ describe PublicsController do
   end
 
   describe '#hcard' do
-    it "succeeds" do
+    it "succeeds", :fixture => :rspec do
       post :hcard, "guid" => @user.person.guid.to_s
       response.should be_success
       save_fixture(response.body, "hcard", fixture_path)
@@ -81,7 +81,7 @@ describe PublicsController do
   end
 
   describe '#webfinger' do
-    it "succeeds when the person and user exist locally" do
+    it "succeeds when the person and user exist locally", :fixture => :rspec do
       post :webfinger, 'q' => @user.person.diaspora_handle
       response.should be_success
       save_fixture(response.body, "webfinger", fixture_path)

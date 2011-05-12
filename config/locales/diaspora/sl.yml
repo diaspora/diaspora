@@ -36,6 +36,7 @@ sl:
   all_aspects: "Vse skupine"
   application: 
     helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
       unknown_person: "neznana oseba"
       video_title: 
         unknown: "Neznani video naslov"

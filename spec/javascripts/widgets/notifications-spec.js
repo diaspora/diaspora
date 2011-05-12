@@ -50,6 +50,18 @@ describe("Diaspora", function() {
 
           expect($("#notifications div").length).toEqual(1);
         });
+
+        it("only increments the notification count if specified to do so", function() {
+          var originalCount = Diaspora.widgets.notifications.count;
+
+          Diaspora.widgets.notifications.showNotification({
+            html: '<div class="notification"></div>',
+            incrementCount: false
+          });
+
+          expect(Diaspora.widgets.notifications.count).toEqual(originalCount);
+
+        });
       });
     });
   });

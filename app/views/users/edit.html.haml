@@ -100,6 +100,11 @@
           = type.label t('.started_sharing') 
           = type.check_box :started_sharing, {:checked =>  @email_prefs['started_sharing']}, false, true 
 
+        %br
+        %p.checkbox_select
+          = type.label t('.liked') 
+          = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true 
+
     %br
     = f.submit t('.change')
 

@@ -1,0 +1,4 @@
+$(".like_action", ".stream_element[data-guid=<%=@like.post_id%>]").html("<%= escape_javascript(like_action(@like.post))%>");
+
+WebSocketReceiver.processLike("<%=@like.post_id%>", "<%= escape_javascript(render("likes/likes", :post_id => @like.post_id, :likes => @like.post.likes, :dislikes => @like.post.dislikes)) %>");
+

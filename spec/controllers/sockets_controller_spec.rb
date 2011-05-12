@@ -11,7 +11,6 @@ SocketsController.class_eval <<-EOT
 EOT
 
 describe SocketsController do
-  render_views
   before do
     @user = alice
     @controller = SocketsController.new
@@ -33,6 +32,7 @@ describe SocketsController do
       json.include?("html\":null").should be_true
     end
   end
+
   describe '#outgoing' do
     it 'calls queue_to_user' do
       Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(true)
@@ -45,6 +45,7 @@ describe SocketsController do
       Diaspora::WebSocket.should_not_receive(:queue_to_user)
       @controller.outgoing(@user.id, @message)
     end
+
     it 'takes a user or an id' do
       Diaspora::WebSocket.should_receive(:is_connected?).with(@user.id).and_return(false)
       Diaspora::WebSocket.should_not_receive(:queue_to_user)

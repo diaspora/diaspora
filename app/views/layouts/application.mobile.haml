@@ -79,7 +79,11 @@
               = link_to t('notifications.index.notifications'), notifications_path
               .ui-li-count
                 = @notification_count
-
+            %li
+              = link_to t('conversations.index.message_inbox'), conversations_path
+              .ui-li-count
+                = @unread_message_count
+                
           %h4
             = t('.your_aspects')
 

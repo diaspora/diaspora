@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class PhotosController < ApplicationController
-  helper :comments, :aspects
   before_filter :authenticate_user!
 
   respond_to :html, :json

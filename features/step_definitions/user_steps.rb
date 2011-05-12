@@ -144,11 +144,12 @@ Given /^many posts from alice for bob$/ do
   alice = Factory(:user_with_aspect, :username => 'alice', :email => 'alice@alice.alice', :password => 'password', :getting_started => false)
   bob = Factory(:user_with_aspect, :username => 'bob', :email => 'bob@bob.bob', :password => 'password', :getting_started => false)
   connect_users_with_aspects(alice, bob)
+  time_fulcrum = Time.now - 40000
   time_interval = 1000
   (1..40).each do |n|
     post = alice.post :status_message, :text => "#{alice.username} - #{n} - #seeded", :to => alice.aspects.first.id
-    post.created_at = post.created_at - time_interval
-    post.updated_at = post.updated_at - time_interval
+    post.created_at = time_fulcrum - time_interval
+    post.updated_at = time_fulcrum + time_interval
     post.save
     time_interval += 1000
   end
@@ -165,3 +166,24 @@ Given /^I have (\d) contacts?$/ do |count|
   end
 end
 
+When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$/ do |word1, word2, aspect_number, nd|
+  steps %Q{
+    And I press the first ".toggle.button"
+    And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
+    And I wait for the ajax to finish
+    And I press the first ".toggle.button"
+  }
+end
+
+When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
+  steps %Q{
+    And I press the first ".toggle.button"
+
+    And I press click ".new_aspect" within ".dropdown.active"
+    And I fill in "#aspect_name" with "#{aspect_name}"
+    And I submit the form
+
+    And I wait for the ajax to finish
+    And I press the first ".toggle.button"
+  }
+end
