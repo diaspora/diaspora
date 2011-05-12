@@ -345,7 +345,7 @@ en:
     liked:
         subject: "%{name} has just liked your post"
         liked: "%{name} has just liked your post: "
-        sign_in: "Sign to view it"
+        sign_in: "Sign in to view it"
 
   people:
     zero: "no people"

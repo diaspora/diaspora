@@ -1,6 +1,8 @@
 != t('notifier.hello', :name => @receiver.profile.first_name)
+
 != t('notifier.liked.liked', :name => "#{@sender.name} (#{@sender.diaspora_handle})")
-!= @like.post.text
+
+!= @like.post.formatted_message(:plain_text => true)
 
 != t('notifier.love')
 != t('notifier.diaspora')
