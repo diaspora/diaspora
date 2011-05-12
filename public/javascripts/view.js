@@ -4,6 +4,16 @@
 */
 var View = {
   initialize: function() {
+
+    $(window).scroll(function(){
+      var header = $('header');
+      if( $(this).scrollTop() > 30){
+        header.addClass('fixit');
+      } else {
+        header.removeClass('fixit');
+      }
+    });
+
     /* Buttons */
     $("input:submit").addClass("button");
 
