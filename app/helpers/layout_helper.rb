@@ -12,6 +12,11 @@ module LayoutHelper
     @show_title = show_title
   end
 
+  def page_title(text=nil)
+    return text unless text.blank?
+    current_user ? current_user.name : t("application.helper.diaspora_alpha")
+  end
+
   def show_title?
     @show_title
   end
