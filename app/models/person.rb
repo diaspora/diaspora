@@ -20,7 +20,7 @@ class Person < ActiveRecord::Base
   has_one :profile
   delegate :last_name, :to => :profile
 
-  before_save :downcase_diaspora_handle
+  before_validation :downcase_diaspora_handle
   def downcase_diaspora_handle
     diaspora_handle.downcase!
   end
@@ -39,7 +39,7 @@ class Person < ActiveRecord::Base
   before_validation :clean_url
 
   validates_presence_of :url, :profile, :serialized_public_key
-  validates_uniqueness_of :diaspora_handle, :case_sensitive => false
+  validates_uniqueness_of :diaspora_handle
 
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
@@ -230,7 +230,7 @@ class Person < ActiveRecord::Base
   def remove_all_traces
     Notification.joins(:notification_actors).where(:notification_actors => {:person_id => self.id}).all.each{ |n| n.destroy}
   end
-  
+
   def fix_profile
     Webfinger.new(self.diaspora_handle).fetch
     self.reload
