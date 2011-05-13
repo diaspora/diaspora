@@ -44,6 +44,10 @@ RSpec.configure do |config|
   config.before(:each, :type => :controller) do
     self.class.render_views
   end
+
+  config.after(:all) do
+    `rm -rf #{Rails.root}/tmp/uploads/*`
+  end
 end
 
 disable_typhoeus
