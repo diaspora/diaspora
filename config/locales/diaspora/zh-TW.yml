@@ -36,7 +36,7 @@ zh-TW:
   all_aspects: "所有面向"
   application: 
     helper: 
-      diaspora_alpha: "DIASPORA* ALPHA"
+      diaspora_alpha: "DIASPORA* 預覽版"
       unknown_person: "不明聯絡人"
       video_title: 
         unknown: "影片標題不明"
@@ -236,23 +236,23 @@ zh-TW:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "有%{count}個人說遜"
-        many: "有%{count}個人說遜"
-        one: "有1個人說遜"
-        other: "有%{count}個人說遜"
-        zero: "沒有人說遜"
+        few: "有%{count}個遜"
+        many: "有%{count}個遜"
+        one: "有%{count}個遜"
+        other: "有%{count}個遜"
+        zero: "沒有遜"
       people_like_this: 
-        few: "有%{count}個人說讚"
-        many: "有%{count}個人說讚"
-        one: "有1個人說讚"
-        other: "有%{count}個人說讚"
-        zero: "沒有人說讚"
+        few: "有%{count}個讚"
+        many: "有%{count}個讚"
+        one: "有%{count}個讚"
+        other: "有%{count}個讚"
+        zero: "沒有讚"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
   notifications: 
     also_commented: "也在別處發表了意見, 在 %{post_author} 的"
-    also_commented_deleted: "對已刪除的貼文發表意見"
+    also_commented_deleted: "對已刪除的貼文發表意見."
     comment_on_post: "發表了意見, 在你的"
     deleted: "已刪除"
     helper: 
@@ -267,9 +267,10 @@ zh-TW:
       and_others: "和其他%{number}個人"
       mark_all_as_read: "全部標示為已讀"
       notifications: "消息"
+    liked: "剛剛對你的貼文說讚"
     mentioned: "在貼文中提到了你"
     new_request: "想要跟你分享."
-    post: "貼文"
+    post: "貼文."
     private_message: "寫了一則訊息給你."
     request_accepted: "已同意和你分享."
   notifier: 
@@ -283,6 +284,10 @@ zh-TW:
       subject: "%{name} 對你的貼文發表意見."
     diaspora: "diaspora 電郵機器人"
     hello: "%{name}你好!"
+    liked: 
+      liked: "%{name}剛剛說你的貼文讚: "
+      sign_in: "登入來看看"
+      subject: "%{name}剛剛說你的貼文讚"
     love: "衷心祝福,"
     manage_your_email_settings: "管理電郵設定"
     mentioned: 
@@ -540,6 +545,7 @@ zh-TW:
     stream_element: 
       dislike: "遜"
       like: "讚"
+      unlike: "收回讚"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"
@@ -578,6 +584,7 @@ zh-TW:
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
       export_data: "資料匯出"
+      liked: "...有人對你的貼文說讚時?"
       mentioned: "...當貼文中提到你時?"
       new_password: "新的密碼"
       private_message: "...當收到私人訊息時?"

@@ -34,4 +34,4 @@ zh-TW:
       unknown: "不明的影片類別"
       watch: "從 {{provider}} 看這部影片"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Websocket 已斷線; 貼文不會再即時更新了."

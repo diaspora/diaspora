@@ -267,6 +267,7 @@ pt-BR:
       and_others: "and %{number} others"
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
+    liked: "has just liked your post"
     mentioned: "has mentioned you in their"
     new_request: "deseja partilhar com você."
     post: "post"
@@ -283,6 +284,10 @@ pt-BR:
       subject: "%{name} comentou sua postagem."
     diaspora: "o robô de email da Diaspora*"
     hello: "Olá, %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "Com carinho,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ pt-BR:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ pt-BR:
       download_xml: "Baixar meu XML"
       edit_account: "Alterar conta"
       export_data: "Exportar dados"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Nova Senha"
       private_message: "...you receive a private message?"

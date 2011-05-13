@@ -267,6 +267,7 @@ br:
       and_others: "ha %{number} reoù all"
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
+    liked: "has just liked your post"
     mentioned: "en deus meneget ac'hanoc'h e-barzh ur skrid"
     new_request: "offered to share with you."
     post: "post"
@@ -283,6 +284,10 @@ br:
       subject: "%{name} has commented on your post."
     diaspora: "the diaspora email robot"
     hello: "Hello %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "love,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ br:
     stream_element: 
       dislike: "Ne blij ket din"
       like: "Plij' ra din"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ br:
       download_xml: "download my xml"
       edit_account: "Edit account"
       export_data: "Export Data"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Ger-Kuzh Nevez"
       private_message: "...you receive a private message?"

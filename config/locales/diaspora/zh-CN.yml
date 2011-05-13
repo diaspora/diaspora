@@ -267,6 +267,7 @@ zh-CN:
       and_others: "和其他%{number}个人"
       mark_all_as_read: "全部标示为已读"
       notifications: "消息"
+    liked: "has just liked your post"
     mentioned: "在他发布的内容中提到了你"
     new_request: "想要与您分享。"
     post: "日志。"
@@ -283,6 +284,10 @@ zh-CN:
       subject: "%{name} 评论了您发布的内容。"
     diaspora: "diaspora邮件机器人"
     hello: "您好 %{name}！"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "衷心祝福，"
     manage_your_email_settings: "管理邮件设置"
     mentioned: 
@@ -540,6 +545,7 @@ zh-CN:
     stream_element: 
       dislike: "不喜欢"
       like: "喜欢"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "成功推荐了: %{names}"
@@ -578,6 +584,7 @@ zh-CN:
       download_xml: "下载我的 xml"
       edit_account: "编辑帐号"
       export_data: "资料导出"
+      liked: "...someone likes your post?"
       mentioned: "……当贴文中提到您时？"
       new_password: "新密码"
       private_message: "……当收到私人信息时？"

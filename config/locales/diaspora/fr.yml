@@ -267,6 +267,7 @@ fr:
       and_others: "et %{number} autres"
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
+    liked: "has just liked your post"
     mentioned: "vous a mentionné(e) dans un"
     new_request: "a proposé de partager avec vous."
     post: "message."
@@ -283,6 +284,10 @@ fr:
       subject: "%{name} a commenté votre message."
     diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "affectueusement,"
     manage_your_email_settings: "modifier vos paramètres de courriel"
     mentioned: 
@@ -540,6 +545,7 @@ fr:
     stream_element: 
       dislike: "Je n'aime pas"
       like: "J'aime"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -578,6 +584,7 @@ fr:
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"
       export_data: "Exporter des données"
+      liked: "...someone likes your post?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé ?"

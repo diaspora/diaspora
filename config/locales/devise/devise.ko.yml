@@ -84,7 +84,7 @@ ko:
         sign_up: "가입하기"
         sign_up_closed: "공개 가입이 닫혀있습니다."
       mail_signup_form: 
-        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두세오!"
+        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두세요!"
     unlocks: 
       new: 
         resend_unlock: "풀기 메일 다시 보내기"

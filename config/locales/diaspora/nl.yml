@@ -123,7 +123,7 @@ nl:
     few: "%{count} reacties"
     many: "%{count} reacties"
     new_comment: 
-      comment: "reactie"
+      comment: "Reactie"
       commenting: "Reageren..."
     one: "1 reactie"
     other: "%{count} reacties"
@@ -236,23 +236,23 @@ nl:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} personen vinden dit niet leuk"
-        many: "%{count} personen vinden dit niet leuk"
-        one: "1 persoon vindt dit niet leuk"
-        other: "%{count} personen vinden dit niet leuk"
+        few: "%{count} mensen vinden dit niet leuk"
+        many: "%{count} mensen vinden dit niet leuk"
+        one: "%{count} persoon vindt dit niet leuk"
+        other: "%{count} mensen vinden dit niet leuk"
         zero: "niemand vindt dit niet leuk"
       people_like_this: 
-        few: "%{count} personen vinden dit leuk"
-        many: "%{count} personen vinden dit leuk"
-        one: "1 persoon vindt dit leuk"
-        other: "%{count} personen vinden dit leuk"
+        few: "%{count} mensen vinden dit leuk"
+        many: "%{count} mensen vinden dit leuk"
+        one: "%{count} persoon vindt dit leuk"
+        other: "%{count} mensen vinden dit leuk"
         zero: "niemand vindt dit leuk"
   more: "Meer"
   next: "volgende"
   no_results: "Geen resultaten gevonden"
   notifications: 
     also_commented: "heeft ook gereageerd %{post_author}'s"
-    also_commented_deleted: "reageerde op een verwijderde post"
+    also_commented_deleted: "reageerde op een verwijderde post."
     comment_on_post: "reageerde op jouw"
     deleted: "verwijderde"
     helper: 
@@ -267,9 +267,10 @@ nl:
       and_others: "en %{number} anderen"
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
-    mentioned: "heeft je genoemd in een post"
+    liked: "vind je post leuk"
+    mentioned: "heeft je genoemd in een"
     new_request: "bood aan om met jou te delen."
-    post: "post"
+    post: "post."
     private_message: "heeft je een bericht gestuurd."
     request_accepted: "heeft je verzoek geaccepteerd."
   notifier: 
@@ -283,6 +284,10 @@ nl:
       subject: "%{name} heeft op jouw post gereageerd."
     diaspora: "de diaspora email robot"
     hello: "Hoi %{name}!"
+    liked: 
+      liked: "%{name} vind je post leuk: "
+      sign_in: "Sign to view it"
+      subject: "%{name} vind jou post leuk"
     love: "liefs,"
     manage_your_email_settings: "beheer je e-mail instellingen"
     mentioned: 
@@ -538,8 +543,9 @@ nl:
     reshare: 
       reshare: "Herdeel"
     stream_element: 
-      dislike: "Ik vind dit niet leuk"
-      like: "Ik vind dit leuk"
+      dislike: "Vind ik niet meer leuk"
+      like: "Vind ik leuk"
+      unlike: "vind ik niet meer leuk"
   status_messages: 
     create: 
       success: "Succesvol genoemd: %{names}"
@@ -578,6 +584,7 @@ nl:
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
       export_data: "Exporteer data"
+      liked: "... iemand je post leuk vind?"
       mentioned: "...je genoemd word in een post?"
       new_password: "Nieuw wachtwoord"
       private_message: "...je een privébericht ontvangt?"

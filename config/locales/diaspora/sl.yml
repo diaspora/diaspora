@@ -267,6 +267,7 @@ sl:
       and_others: "and %{number} others"
       mark_all_as_read: "Označi vse kot prebrano"
       notifications: "Sporočila"
+    liked: "has just liked your post"
     mentioned: "bili ste omenjeni v objavi"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"
@@ -283,6 +284,10 @@ sl:
       subject: "Oseba %{name} je komentirala vašo objavo."
     diaspora: "diaspora email robot"
     hello: "Pozdravljeni %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "vas pozdravlja,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ sl:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ sl:
       download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
       export_data: "Izvozi podatke"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Novo geslo"
       private_message: "...you receive a private message?"

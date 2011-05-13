@@ -267,6 +267,7 @@ da:
       and_others: "og %{number} andre"
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
+    liked: "has just liked your post"
     mentioned: "har omtalt dig i deres"
     new_request: "tilbød at dele med dig."
     post: "indlæg"
@@ -283,6 +284,10 @@ da:
       subject: "%{name} har kommenteret på din post!"
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "Hilsen,"
     manage_your_email_settings: "rediger dine email indstillinger"
     mentioned: 
@@ -540,6 +545,7 @@ da:
     stream_element: 
       dislike: "Jeg kan ikke lide det"
       like: "Jeg kan lide det"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "%{names} nævnet med succes"
@@ -578,6 +584,7 @@ da:
       download_xml: "Download min XML"
       edit_account: "Rediger konto"
       export_data: "Exportér data"
+      liked: "...someone likes your post?"
       mentioned: "...du er nævnt i en post?"
       new_password: "Ny adgangskode"
       private_message: "...du har modtaget en besked?"

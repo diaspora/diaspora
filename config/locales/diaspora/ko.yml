@@ -186,7 +186,7 @@ ko:
     show: 
       already_account: "이미 계정을 가지고 있습니까?"
       choice: "선택"
-      choice_explanation: "디아스포라에서는 애스펙이라는 모둠으로 관계를 관리합니다. 디아스포라만의 독특함인 애스펙은 나의 사진, 이야기, 농담이 내가 의도한 사람들과만 공유되도록 보장합니다."
+      choice_explanation: "디아스포라에서는 애스펙이라는 그룹으로 관계를 관리합니다. 디아스포라만의 독특함인 애스펙은 나의 사진, 이야기, 농담이 내가 의도한 사람들과만 공유되도록 보장합니다."
       learn_about_host: "디아스포라 서버를 직접 운영하는 방법"
       login_here: "로그인"
       ownership: "소유권"
@@ -267,6 +267,7 @@ ko:
       and_others: "나머지 %{number}개"
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
+    liked: "님이 내 공유물을 좋아합니다"
     mentioned: " 님이 귀하를 멘션하였습니다."
     new_request: " 님이 공유를 요청하였습니다."
     post: "공유물"
@@ -283,6 +284,10 @@ ko:
       subject: "%{name} 님이 귀하의 공유물에 댓글을 달았습니다."
     diaspora: "디아스포라 자동 이메일"
     hello: "%{name} 님!"
+    liked: 
+      liked: "%{name} 님이 내 공유물을 좋아합니다:"
+      sign_in: "Sign to view it"
+      subject: "%{name} 님이 내 공유물을 좋아합니다."
     love: ""
     manage_your_email_settings: "이메일 설정 관리"
     mentioned: 
@@ -540,6 +545,7 @@ ko:
     stream_element: 
       dislike: "싪어요"
       like: "좋아요"
+      unlike: "좋아요 취소"
   status_messages: 
     create: 
       success: "%{names} 님을 성공적으로 멘션했습니다."
@@ -578,6 +584,7 @@ ko:
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"
       export_data: "자료 뽑아내기"
+      liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
       new_password: "새 암호"
       private_message: "쪽지를 받았을 때"

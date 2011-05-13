@@ -267,6 +267,7 @@ sv:
       and_others: "och %{number} andra"
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
+    liked: "has just liked your post"
     mentioned: "har nämnt dig i deras"
     new_request: "erbjöd sig att dela med dig."
     post: "meddelande"
@@ -283,6 +284,10 @@ sv:
       subject: "%{name} har kommenterat ditt inlägg."
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "hälsningar,"
     manage_your_email_settings: "administrera dina epost-inställningar"
     mentioned: 
@@ -540,6 +545,7 @@ sv:
     stream_element: 
       dislike: "Jag ogillar dethär"
       like: "Jag gillar dethär"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Lyckades omnämna: %{names}"
@@ -578,6 +584,7 @@ sv:
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"
       export_data: "Exportera data"
+      liked: "...someone likes your post?"
       mentioned: "...du är omnämnd i en post?"
       new_password: "Nytt lösenord"
       private_message: "...du mottar ett privat meddelande?"

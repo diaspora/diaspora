@@ -267,6 +267,7 @@ pa:
       and_others: "and %{number} others"
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
+    liked: "has just liked your post"
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "ਪੋਸਟ"
@@ -283,6 +284,10 @@ pa:
       subject: "%{name} has commented on your post."
     diaspora: "the diaspora email robot"
     hello: "ਹੈਲੋ %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "love,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ pa:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ pa:
       download_xml: "download my xml"
       edit_account: "Edit account"
       export_data: "Export Data"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "New Password"
       private_message: "...you receive a private message?"

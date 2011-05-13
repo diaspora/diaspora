@@ -267,6 +267,7 @@ bg:
       and_others: "и %{number} други"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
+    liked: "has just liked your post"
     mentioned: "ви спомена в"
     new_request: "ви предложи да споделяте."
     post: "публикация."
@@ -283,6 +284,10 @@ bg:
       subject: "%{name} коментира ваша публикация."
     diaspora: "the diaspora email robot"
     hello: "Здравейте %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "love,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ bg:
     stream_element: 
       dislike: "Не ми харесва"
       like: "Харесва ми"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ bg:
       download_xml: "данните ви (XML формат)"
       edit_account: "Редактиране на акаунта"
       export_data: "Сваляне на..."
+      liked: "...someone likes your post?"
       mentioned: "...бъдете споменат в публикация?"
       new_password: "Нова парола"
       private_message: "...получите лично съобщение?"

@@ -267,6 +267,7 @@ sk:
       and_others: "and %{number} others"
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
+    liked: "has just liked your post"
     mentioned: "ťa spomenuli v ich"
     new_request: "offered to share with you."
     post: "príspevok"
@@ -283,6 +284,10 @@ sk:
       subject: "Užívateľ %{name} komentoval Váš príspevok."
     diaspora: "e-mail robot Diaspory"
     hello: "Ahoj %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "miluje,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ sk:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ sk:
       download_xml: "stiahnuť moje xml"
       edit_account: "Upraviť účet"
       export_data: "Exportovať dáta"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Nové heslo"
       private_message: "...you receive a private message?"
