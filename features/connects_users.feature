@@ -112,7 +112,6 @@ Feature: sending and receiving requests
 
     And I am on "bob@bob.bob"'s page
 
-    Then I should not see "Add to aspect"
     Then I should see "In 2 aspects"
     Then I should see "Mention"
     Then I should see "Message"

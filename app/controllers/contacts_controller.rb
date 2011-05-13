@@ -37,7 +37,7 @@ class ContactsController < ApplicationController
   end
 
   def sharing
-    @contacts = current_user.contacts.sharing
+    @contacts = current_user.contacts.sharing.includes(:aspects)
     render :layout => false
   end
 end

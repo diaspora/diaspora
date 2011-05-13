@@ -67,6 +67,11 @@ describe ContactsController do
       response.should be_success
     end
 
+    it 'eager loads the aspects' do
+      get :sharing
+      assigns[:contacts].first.aspects.loaded?.should be_true
+    end
+
     it "assigns only the people sharing with you with 'share_with' flag" do
       get :sharing, :id => 'share_with'
       assigns[:contacts].to_set.should == alice.contacts.sharing.to_set
