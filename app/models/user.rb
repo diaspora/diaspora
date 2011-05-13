@@ -15,11 +15,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable
 
-  before_validation :strip_and_downcase_username, :on => :create
+  before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
 
   validates_presence_of :username
-  validates_uniqueness_of :username, :case_sensitive => false
+  validates_uniqueness_of :username
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
@@ -76,12 +76,13 @@ class User < ActiveRecord::Base
     self.language = I18n.locale.to_s if self.language.blank?
   end
 
-  def self.find_for_authentication(conditions={})
+  def self.find_for_database_authentication(conditions={})
+    conditions = conditions.dup
     conditions[:username] = conditions[:username].downcase
     if conditions[:username] =~ /^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i # email regex
       conditions[:email] = conditions.delete(:username)
     end
-    super(conditions)
+    where(conditions).first
   end
 
   def can_add?(person)

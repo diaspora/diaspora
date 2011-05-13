@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 
   def update
 
+    password_changed = false
     u = params[:user]
     @user = current_user
 
@@ -32,9 +33,10 @@ class UsersController < ApplicationController
     if u[:email_preferences]
       @user.update_user_preferences(u[:email_preferences])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
-    # change passowrd
+    # change password
     elsif u[:current_password] && u[:password] && u[:password_confirmation]
       if @user.update_with_password(u)
+        password_changed = true
         flash[:notice] = I18n.t 'users.update.password_changed'
       else
         flash[:error] = I18n.t 'users.update.password_not_changed'
@@ -58,7 +60,11 @@ class UsersController < ApplicationController
         render :nothing => true, :status => 204
       }
       format.all{
-        redirect_to edit_user_path
+        if password_changed
+          redirect_to new_user_session_path
+        else
+          redirect_to edit_user_path
+        end
       }
     end
   end

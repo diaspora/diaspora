@@ -11,8 +11,8 @@ gem 'ohai', '0.5.8', :require => false #Chef dependency
 gem 'nokogiri', '1.4.3.1'
 
 #Security
-gem 'devise', '1.1.3'
-gem 'devise_invitable', :git => 'git://github.com/zhitomirskiyi/devise_invitable.git', :branch => '0.3.5'
+gem 'devise', '1.3.1'
+gem 'devise_invitable', '0.5.0'
 
 #Authentication
 gem 'omniauth', '0.1.6'

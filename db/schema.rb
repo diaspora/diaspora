@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110507212759) do
+ActiveRecord::Schema.define(:version => 20110513175000) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -357,9 +357,11 @@ ActiveRecord::Schema.define(:version => 20110507212759) do
     t.string   "language"
     t.string   "email",                                 :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
-    t.string   "password_salt",                         :default => "",    :null => false
-    t.string   "invitation_token",       :limit => 20
+    t.string   "invitation_token",       :limit => 60
     t.datetime "invitation_sent_at"
+    t.integer  "invitation_limit"
+    t.integer  "invited_by_id"
+    t.string   "invited_by_type"
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"
