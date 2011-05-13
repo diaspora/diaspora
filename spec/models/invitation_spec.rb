@@ -102,7 +102,7 @@ describe Invitation do
         end
       end
 
-      context 'invitated user' do
+      context 'invited user' do
         it 'by email' do
           @identifier = @users[3].email
           @type = 'email'

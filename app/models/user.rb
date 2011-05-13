@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable,
          :timeoutable
 
-  before_validation :strip_and_downcase_username, :on => :create
+  before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
 
   validates_presence_of :username

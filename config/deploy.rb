@@ -17,6 +17,7 @@ set :use_sudo, false
 set :scm_verbose, true
 set :repository_cache, "remote_cache"
 set :deploy_via, :checkout
+set :branch, 'devise_invitable-update'
 
 namespace :deploy do
   task :symlink_config_files do

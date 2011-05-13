@@ -32,7 +32,7 @@ class UsersController < ApplicationController
     if u[:email_preferences]
       @user.update_user_preferences(u[:email_preferences])
       flash[:notice] = I18n.t 'users.update.email_notifications_changed'
-    # change passowrd
+    # change password
     elsif u[:current_password] && u[:password] && u[:password_confirmation]
       if @user.update_with_password(u)
         flash[:notice] = I18n.t 'users.update.password_changed'
