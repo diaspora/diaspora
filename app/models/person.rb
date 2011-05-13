@@ -22,7 +22,7 @@ class Person < ActiveRecord::Base
 
   before_validation :downcase_diaspora_handle
   def downcase_diaspora_handle
-    diaspora_handle.downcase!
+    diaspora_handle.downcase! unless diaspora_handle.blank?
   end
 
   has_many :contacts #Other people's contacts for this person

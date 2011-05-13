@@ -11,7 +11,7 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :sender, :recipient, :aspect
 
   def self.invite(opts = {})
-    opts[:identifier].downcase!
+    opts[:identifier].downcase! if opts[:identifier]
     return false if opts[:identifier] == opts[:from].email
 
     existing_user = self.find_existing_user(opts[:service], opts[:identifier])
