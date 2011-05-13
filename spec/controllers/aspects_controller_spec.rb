@@ -221,6 +221,26 @@ describe AspectsController do
         post :create, "aspect" => {"name" => "new aspect"}
         response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
       end
+
+      context "with person_id param" do
+        it "creates a contact if one does not already exist" do
+          lambda {
+            post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+          }.should change{
+            alice.contacts.count
+          }.by(1)
+        end
+
+        it "adds a new contact to the new aspect" do
+          post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+          alice.aspects.find_by_name("new").contacts.count.should == 1
+        end
+
+        it "adds an existing contact to the new aspect" do
+          post :create, :format => 'js', :aspect => {:name => "new", :person_id => bob.person.id}
+          alice.aspects.find_by_name("new").contacts.count.should == 1
+        end
+      end
     end
     context "with invalid params" do
       it "does not create an aspect" do

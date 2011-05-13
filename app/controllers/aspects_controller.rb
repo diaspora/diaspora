@@ -57,10 +57,17 @@ class AspectsController < ApplicationController
         redirect_to :back
       elsif request.env['HTTP_REFERER'].include?("aspects/manage")
         redirect_to :back
-      elsif params[:aspect][:share_with]
-        @contact = Contact.where(:id => params[:aspect][:contact_id]).first
+      elsif params[:aspect][:person_id]
         @person = Person.where(:id => params[:aspect][:person_id]).first
-        @contact = current_user.contact_for(@person) || Contact.new
+
+        if @contact = current_user.contact_for(@person)
+          @contact.aspects << @aspect
+        else
+          @contact = current_user.share_with(@person, @aspect)
+        end
+
+
+
       else
         respond_with @aspect
       end

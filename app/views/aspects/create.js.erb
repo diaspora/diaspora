@@ -1,3 +1,2 @@
-$('#aspects_list ul').append("<%= escape_javascript( render('aspects/aspect_list_item', :aspect => @aspect, :person => @person, :contact => @contact)) %>");
-$("#aspects_list ul li[data-guid='<%= @aspect.id %>'] .add.button").click();
+$('ul.dropdown_list[data-person_id=<%= @person.id %>] .newItem').before("<%= escape_javascript( render('contacts/aspect_dropdown_list_item', :aspect => @aspect, :person => @person, :contact => @contact)) %>");
 
