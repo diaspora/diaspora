@@ -7,9 +7,8 @@ class AspectsController < ApplicationController
   before_filter :save_sort_order, :only => :index
   before_filter :ensure_page, :only => :index
 
-  respond_to :html
+  respond_to :html, :js
   respond_to :json, :only => [:show, :create]
-  respond_to :js
 
   def index
     if params[:a_ids]
@@ -84,6 +83,8 @@ class AspectsController < ApplicationController
 
   def new
     @aspect = Aspect.new
+    @person_id = params[:person_id]
+    render :layout => false
   end
 
   def destroy

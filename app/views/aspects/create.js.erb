@@ -1,2 +1,4 @@
 $('ul.dropdown_list[data-person_id=<%= @person.id %>] .newItem').before("<%= escape_javascript( render('contacts/aspect_dropdown_list_item', :aspect => @aspect, :person => @person, :contact => @contact)) %>");
+$.facebox.close();
+$('#profile .dropdown').toggleClass("active");
 

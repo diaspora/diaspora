@@ -70,7 +70,9 @@ Feature: sending and receiving requests
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    And I press the first ".share_with.button" within "#author_info"
+    And I press the first ".toggle.button"
+    And I press the first "a" within ".add_aspect"
+    And I wait for the ajax to finish
     
     And I fill in "Name" with "Super People" in the modal window
     And I press "aspect_submit" in the modal window

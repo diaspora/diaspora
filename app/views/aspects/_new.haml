@@ -7,8 +7,10 @@
     %h4
       = t('aspects.manage.add_a_new_aspect')
 
-  = form_for Aspect.new do |aspect|
+  = form_for(Aspect.new, :remote => (defined?(remote) && remote) ) do |aspect|
     = aspect.error_messages
+    - if defined?(person_id)
+      = aspect.hidden_field :person_id, :value => person_id
     %p
       = aspect.label :name , t('.name')
       = aspect.text_field :name, :maxlength => 20

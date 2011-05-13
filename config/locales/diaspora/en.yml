@@ -111,7 +111,7 @@ en:
       no_requests: "No new requests"
       manage_aspects: "Manage aspects"
       drag_to_add: "Drag to add people"
-    new_aspect:
+    new:
       name: "Name"
       create: "Create"
     create:
