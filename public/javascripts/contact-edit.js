@@ -2,31 +2,56 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
-(function(){
-  var toggleCheckbox = function(checkbox){
-    if(checkbox.attr('checked')){
-      checkbox.removeAttr('checked');
-    } else {
-      checkbox.attr('checked', true);
+var ContactEdit = {
+  init: function(){
+    $('.dropdown .dropdown_list > li').live('click', function(evt){
+      ContactEdit.processClick($(this), evt);
+    });
+  },
+  updateNumber: function(){
+    var number =  $(".dropdown_list input[type=checkbox]:checked").length
+    var element = $('.button.toggle');
+
+    var replacement;
+
+    if (number == 0) {
+      replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero") ;
+    }else if (number == 1) { 
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.one', { count: number.toString()})
+    }else if (number < 3) {
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
+    }else if (number > 3) {
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
+    }else {
+      //the above one are a totalogy, but I want to have them here once for once we figure out a neat way i18n them
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
-  };
-  var processClick = function(li, evt){
+
+    element.html(replacement);
+  },
+  
+  toggleCheckbox: 
+    function(checkbox){
+      if(checkbox.attr('checked')){
+        checkbox.removeAttr('checked');
+      } else {
+        checkbox.attr('checked', true);
+      }
+    },
+
+  processClick:  function(li, evt){
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
-    evt.preventDefault();
 
-    var checkbox = li.find('input[type=checkbox]');
-    toggleCheckbox(checkbox);
+    if( evt.target.type != "checkbox" ) {
+      var checkbox = li.find('input[type=checkbox]');
+      ContactEdit.toggleCheckbox(checkbox);
+    }
 
     $.fn.callRemote.apply(button);
-  };
+  },
+};
 
   $(document).ready(function(){
-    $('.dropdown .dropdown_list > li').live('click', function(evt){
-      processClick($(this), evt);
-    });
-    $('.dropdown .dropdown_list > li *').live('click', function(evt){
-      toggleCheckbox($(evt.target));
-    })
+    ContactEdit.init();
   });
-}())

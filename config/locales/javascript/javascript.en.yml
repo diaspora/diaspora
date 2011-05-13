@@ -33,3 +33,11 @@ en:
         no_more: "No more posts."
       web_sockets:
         disconnected: "The websocket is closed; posts will no longer be streamed live."
+      aspect_dropdown:
+        add_to_aspect: "Add to aspect"
+        toggle:
+          zero: "Add to aspect"
+          one: "In {{count}} aspect"
+          few: "In {{count}} aspects"
+          many: "In {{count}} aspects"
+          other: "In {{count}} aspects"
