@@ -83,7 +83,7 @@ module AspectGlobalHelper
   end
 
   def aspect_dropdown_list_item(aspect, contact, person)
-    checked = contact.persisted? && contact.aspects.include?(aspect) ? "checked=\"checked\"" : ""
+    checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id}) ? "checked=\"checked\"" : ""
     str = "<li data-aspect_id=#{aspect.id}>"
     str << "<input #{checked} id=\"in_aspect\" name=\"in_aspect\" type=\"checkbox\" value=\"in_aspect\" />"
     str << aspect.name

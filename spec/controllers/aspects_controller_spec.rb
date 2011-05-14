@@ -352,6 +352,12 @@ describe AspectsController do
       get :edit, :id => alices_aspect_3.id
       assigns[:contacts].map(&:id).should == [alice.contact_for(bob.person), alice.contact_for(eve.person), alice.contact_for(@katz.person), alice.contact_for(@zed.person)].map(&:id)
     end
+
+    it 'eager loads the aspect memberships for all the contacts' do
+      get :edit, :id => @alices_aspect_2.id
+      pp assigns[:contacts].count
+      assigns[:contacts].each{ |c| pp @alices_aspect_2.contacts.include?(c); c.aspect_memberships.loaded?.should be_true}
+    end
   end
 
   describe "#toggle_contact_visibility" do
