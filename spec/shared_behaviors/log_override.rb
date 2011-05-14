@@ -1,3 +1,5 @@
+require File.expand_path('../../../lib/log_overrider', __FILE__)
+
 class FakeLogger
   attr_accessor :infos
   attr_accessor :lines
