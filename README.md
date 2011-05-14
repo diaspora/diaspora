@@ -73,47 +73,4 @@ Also, be sure to join the official [mailing list](http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may
 find, you can email
-[exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
-
-Here is the PGP key for exploits@joindiaspora.com:
------BEGIN PGP PUBLIC KEY BLOCK-----
-Version: GnuPG v1.4.11 (Darwin)
-
-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
-mnv9hQc6McLTP15uISdt5hIXBLs=
-=6qWa
------END PGP PUBLIC KEY BLOCK-----
-
+[exploits@joindiaspora.com](mailto:exploits@joindiaspora.com), [corresponding public key](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0xCC6CAED977485064).
