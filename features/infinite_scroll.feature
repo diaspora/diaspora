@@ -72,7 +72,7 @@ Feature: infinite scroll
       Then I should see "No more"
 
     Scenario: On a tag page
-      And I am on the tag page for "seeded"
+      When I go to the tag page for "seeded"
       Then I should see 15 posts
       And I should see "alice - 15 - #seeded"
 
