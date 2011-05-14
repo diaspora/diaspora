@@ -27,7 +27,7 @@ $(document).ready( function(){
     controls.addClass('hidden');
   });
 
-  $(document).keydown(function(){
+  $(document).keyup(function(){
     if(contentFilled()){
       controls.removeClass('hidden');
     }else{

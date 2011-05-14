@@ -39,7 +39,7 @@
           - if devise_mapping.rememberable?
             = f.check_box :remember_me, :tabindex => 3
             = f.label :remember_me, t('devise.sessions.new.remember_me')
-        = f.submit 'Log in', :tabindex => 4
+        = f.submit t('devise.sessions.new.sign_in'), :tabindex => 4
 
 
       - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
