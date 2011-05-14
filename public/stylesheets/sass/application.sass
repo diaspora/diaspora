@@ -4,10 +4,6 @@
 
 @import 'mixins'
 
-$blue: #3F8FBA
-$red: #FF0000 
-$background: rgb(252,252,252)
-
 body
   :padding 2em
   :margin 0
@@ -2441,66 +2437,7 @@ ul.show_comments,
       :right 4px
     :top 5px
 
-#login
-  :width 600px
-  :padding
-    :top 10%
-    :bottom 20%
-  :text
-    :align center
-  :display inline-block
 
-  form
-    input,
-    label
-      :font
-        :size 21px
-      :display inline
-
-    label
-      :top 13px
-      :text-shadow 0 1px 1px #ccc
-
-    input[type='text'],
-    input[type='password']
-      :-webkit-box-shadow 0 1px 0px #fff, 0 -1px 0px #888
-      :-moz-box-shadow 0 1px 0px #fff, 0 -1px 0px #888
-      :box-shadow 0 1px 0px #fff, 0 -1px 0px #888
-      :width 180px
-      :max-width 180px
-
-    p
-      :display inline-block
-      :position relative
-      :width 200px
-
-      &:last-child
-        :margin
-          :left 3px
-
-      span
-        :display block
-        :color #fff
-        &.pod_location
-          :color #888
-
-      &.submit
-        :width auto
-        :bottom 15px
-
-        input
-          :width auto
-          :position relative
-          :height 40px
-          :top 0px
-          :color #666
-          :margin
-            :bottom 10px
-          &:hover
-            :color #444
-
-#logo
-  :position relative
 
 #email_invitation
   input

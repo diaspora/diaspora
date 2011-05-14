@@ -5,63 +5,90 @@
 = content_for :head do
   :css
     header{ display:none; }
-    footer{ position: absolute; bottom: 12px; }
+    footer{ position: absolute; bottom: 6px; }
 
   :javascript
+    jQuery.fn.center = function () {
+      this.css("position","absolute");
+      this.css("top", ( $(window).height() - this.height() ) / 2+$(window).scrollTop() + "px");
+      this.css("left", ( $(window).width() - this.width() ) / 2+$(window).scrollLeft() + "px");
+      return this;
+    }
+
     $(document).ready( function(){
-      $("#user_username").focus();
-      $("form").submit(function(){
-        $(this).fadeOut(200, function(){
-          $('#logo').animate({
-            'margin-top': '+=80'
-          }, 250, function(){
-            $("#spinner").fadeIn(300);
-          });
-        });
-        $(".login_error").remove();
+
+      var username = $("#user_username"),
+          password = $("#user_password"),
+          forgotPass = $("#forgot_password_link"),
+          controls = $("#controls");
+
+      $("#login").center();
+      $(window).resize(function(){
+        $("#login").center();
       });
+
+      username.focus();
+      $("form").submit(function(){
+        $('#asterisk').addClass('rideSpinners');
+        forgotPass.addClass('hidden');
+        controls.addClass('hidden');
+      });
+
+      $(document).keydown(function(){
+        if($('#user_username').val() != "" && $('#user_password').val() != ""){
+          controls.removeClass('hidden');
+        }else{
+          controls.addClass('hidden');
+        }
+      });
+
+      password
+        .focus(function(){
+          forgotPass.removeClass('hidden');
+        })
+        .blur(function(){
+          forgotPass.addClass('hidden');
+        });
     });
 
 .container{:style => 'text-align:center;'}
   #login
-    = image_tag('logo_caps.png', :id => 'logo', :width => 143, :height => 21)
-    %br
-    %br
+    %p
+      = image_tag('asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
+    %p
+      = image_tag('logo_caps.png', :id => 'logo', :width => 98, :height => 14)
 
     - flash.each do |name, msg|
       = content_tag :p, msg, :class => "login_error"
 
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
       %p
         = f.label :username , t('username')
-        = f.text_field :username
-        %span.pod_location
-          ="@#{AppConfig[:pod_uri].host}"
-          %br
-          %br
+        = f.text_field :username, :tabindex => 1
+      %br
 
       %p
         = f.label :password , t('password')
-        = f.password_field :password
-        %span
-          - if devise_mapping.recoverable? && controller_name != 'passwords'
-            = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name)
-          - else
-            \.
-          %br
-          - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
-            = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
-          - else
-            \.
+        = f.password_field :password, :tabindex => 2
 
-      %p.submit
-        = f.submit t('devise.sessions.new.sign_in')
+        - if devise_mapping.recoverable? && controller_name != 'passwords'
+          = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), :id => "forgot_password_link", :class => 'hidden', :tabindex => 5
+
+      %br
+      %p#controls.hidden
         %span#remember_me
           - if devise_mapping.rememberable?
-            = f.check_box :remember_me
+            = f.check_box :remember_me, :tabindex => 3
             = f.label :remember_me, t('devise.sessions.new.remember_me')
-          - else
-            \.
+        = f.submit 'Log in', :tabindex => 4
 
-    = image_tag 'ajax-loader.gif', :id => "spinner", :class => "hidden"
+
+      - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+        %br
+        %br
+        %br
+        %br
+        = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+      
 
