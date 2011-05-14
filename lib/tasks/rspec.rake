@@ -16,7 +16,7 @@ begin
   RSpec::Core::RakeTask.new(:spec => spec_prereq)
 
   desc "Run the specs with rcov"
-  Rspec::Core::RakeTask.new(:rcov => spec_prereq) do |t|
+  RSpec::Core::RakeTask.new(:rcov => spec_prereq) do |t|
     t.rcov = true
     t.rcov_opts = ['-Ispec', '--exclude', 'spec', '--exclude', 'gems']
   end

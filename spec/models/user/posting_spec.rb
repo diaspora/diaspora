@@ -48,7 +48,7 @@ describe User do
     it 'returns a list of all valid aspects a user can post to' do
       aspect_ids = Aspect.all.map(&:id)
       user.aspects_from_ids(aspect_ids).map{|a| a}.should ==
-        user.aspects.map{|a| a} #Rspec matchers ftw
+        user.aspects.map{|a| a} #RSpec matchers ftw
     end
     it "lets you post to your own aspects" do
       user.aspects_from_ids([aspect.id]).should == [aspect]

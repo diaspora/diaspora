@@ -24,10 +24,6 @@ support_files = Dir["#{File.dirname(__FILE__)}/support/**/*.rb"] - [fixture_buil
 support_files.each {|f| require f }
 require fixture_builder_file
 
-Dir["#{File.dirname(__FILE__)}/shared_behaviors/**/*.rb"].each do |f|
-  require f
-end
-
 RSpec.configure do |config|
   config.include Devise::TestHelpers, :type => :controller
   config.mock_with :rspec
@@ -48,6 +44,10 @@ RSpec.configure do |config|
   config.after(:all) do
     `rm -rf #{Rails.root}/tmp/uploads/*`
   end
+end
+
+Dir["#{File.dirname(__FILE__)}/shared_behaviors/**/*.rb"].each do |f|
+  require f
 end
 
 disable_typhoeus
