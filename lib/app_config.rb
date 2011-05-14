@@ -27,7 +27,9 @@ class AppConfig
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml"
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example" unless all_envs
     else
-      $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
+      unless Rails.env == "development" || Rails.env == "test"
+        $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
+      end
       all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
     end
 
@@ -64,7 +66,7 @@ class AppConfig
 
   def self.downcase_admins
     self.config_vars[:admins] ||= []
-    self.config_vars[:admins].collect! {|admin| admin.downcase}
+    self.config_vars[:admins].collect! { |admin| admin.downcase }
   end
 
   def self.load_config_yaml filename
