@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -36,7 +36,7 @@ pl:
   all_aspects: "Wszystkie aspekty"
   application: 
     helper: 
-      diaspora_alpha: "DIASPORA* ALPHA"
+      diaspora_alpha: "DIASPORA* ALFA"
       unknown_person: "nieznana osoba"
       video_title: 
         unknown: "Wideo bez nazwy"
@@ -123,7 +123,7 @@ pl:
     few: "%{count} komentarze"
     many: "%{count} komentarzy"
     new_comment: 
-      comment: "Skomentuj…"
+      comment: "Skomentuj"
       commenting: "Komentowanie…"
     one: "1 komentarz"
     other: "%{count} komentarzy"
@@ -252,7 +252,7 @@ pl:
   no_results: "Nie znaleziono niczego"
   notifications: 
     also_commented: "skomentował również użytkownika %{post_author}"
-    also_commented_deleted: "commented on a deleted post"
+    also_commented_deleted: "skomentował usunięty wpis"
     comment_on_post: "komentuje twój"
     deleted: "usunięte"
     helper: 
@@ -267,10 +267,10 @@ pl:
       and_others: "i %{number} innych"
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: "Powiadomienia"
-    liked: "has just liked your post"
+    liked: "polubił twój wpis"
     mentioned: "wspomniał o tobie we wpisie"
     new_request: "chce zostać twoim znajomym."
-    post: "wpis"
+    post: "wpis."
     private_message: "wysłał(a) ci wiadomość."
     request_accepted: "zaakceptował Twoje zaproszenie."
   notifier: 
@@ -285,9 +285,9 @@ pl:
     diaspora: "robot e-mailowy diaspory"
     hello: "Cześć %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      liked: "użytkownik %{name} polubił twój post: "
+      sign_in: "Zaloguj się, aby zobaczyć"
+      subject: "użytkownik %{name} polubił twój wpis"
     love: "uściski,"
     manage_your_email_settings: "zarządzaj ustawieniami emaila"
     mentioned: 
@@ -545,7 +545,7 @@ pl:
     stream_element: 
       dislike: "Nie lubię tego"
       like: "Lubię to"
-      unlike: "Unlike"
+      unlike: "Odwołaj \"Lubię to\""
   status_messages: 
     create: 
       success: "Pomyślnie wspomniano o: %{names}"
@@ -584,7 +584,7 @@ pl:
       download_xml: "pobierz mój xml"
       edit_account: "Edytuj konto"
       export_data: "Eksportowanie danych"
-      liked: "...someone likes your post?"
+      liked: "...ktoś polubił twój wpis?"
       mentioned: "...zostałeś wspomniany(a) we wpisie?"
       new_password: "Nowe hasło"
       private_message: "...otrzymasz prywatną wiadomość?"

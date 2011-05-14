@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -584,7 +584,7 @@ de:
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
       export_data: "Daten exportieren"
-      liked: "...wenn jemandem dein Beitrag gefällt?"
+      liked: "... wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
       new_password: "Neues Passwort"
       private_message: "… du eine private Nachricht erhältst?"
