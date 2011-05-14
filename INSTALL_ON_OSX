@@ -1,0 +1,76 @@
+#to make this work, run
+#rake install --rakefile INSTALL_ON_OSX
+
+require 'rake'
+
+task :install_on_osx do
+  puts "this currently is untested, prepare for tragedy"
+  BREW_INSTALLED = installed?('brew')
+  CURL_INSTALLED = installed?('curl')
+  MYSQL_INSTALLED = installed?('mysql')
+  REDIS_INSTALLED = installed?('redis-server')
+  IMAGEMAGICK_INSTALLED = installed?('mogrify')
+
+  unless BREW_INSTALLED
+    open 'https://github.com/mxcl/homebrew'
+    puts "you need homebrew for easy setup. checkout out https://github.com/mxcl/homebrew for more info"
+    puts 'or copy and paste this one liner'
+    puts 'ruby -e "$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)'
+    puts "(afterwords, install xcode)"
+    Process.exit
+  end
+
+  puts "updating brew. please wait."
+  puts `brew update`
+  
+  unless CURL_INSTALLED
+    puts 'you need curl, so we are installing that. please wait...'
+    puts `brew install curl`
+  end
+  
+  puts 'curl is installed, Great Job!'
+
+  unless IMAGEMAGICK_INSTALLED
+    puts 'you need imagemagick.  please wait'
+    puts `brew install imagemagick`
+  end
+
+  puts 'imagemagick is installed, Great Job!'
+
+  unless MYSQL_INSTALLED
+    puts 'you need mysql, so we are installing that. please wait...'
+    puts `brew install mysql`
+    puts 'configuring for first time use. you need to type in your password'
+    puts `unset TMPDIR`
+    puts `sudo mysql_install_db --verbose --user=\`whoami\` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp`
+  end
+
+  puts 'mysql is installed, Great Job!'
+
+  unless REDIS_INSTALLED
+    puts 'you need redis, so we are installing that. please wait...'
+    puts `brew install redis`
+  end
+
+  puts 'redis is installed, Great Job!'
+
+  unless REDIS_INSTALLED
+    puts 'you need redis, so we are installing that. please wait...'
+    puts `brew install redis`
+  end
+
+    puts 'you need bundler, so we are installing that. please wait...'
+    puts `gem install bundler`
+
+  puts 'bundler is installed, Great Job!'
+
+  puts 'bundling... please wait...'
+  puts `bundle`
+
+  puts 'assuming there was no errors run script/server and you should be good to go!'
+
+end
+
+def installed?(program)
+  `which #{program}`=='' ? false : true
+end
