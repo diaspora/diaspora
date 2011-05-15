@@ -7,6 +7,7 @@ $blockquote: $type-border !default; //darken($type-border, 20) !default;
 // Fonts
 @include font-face("Adelle", font-files("adellebasic_bold-webfont.woff", woff, "adellebasic_bold-webfont.ttf", truetype, "adellebasic_bold-webfont.svg#webfontKykxqSyz", svg), $eot: "adellebasic_bold-webfont.eot" );
 .heading-font { font-family: Adelle, "Helvetica Neue", Helvetica, Arial, sans; }
+.sans-font { font-family: "Helvetica Neue", Helvetica, Arial, sans; }
 
 body > header h1 {
   font-size: 3em;
@@ -24,17 +25,17 @@ body {
 }
 
 article {
-  margin-bottom: 1.5em;
-  padding-bottom: 1.5em;
-  padding-top: 1em;
-  + article { border-top: 3px solid $type-color-light; }
   &:last-child { border-bottom: none; }
   h2 {
     padding-top: 0.8em;
     border-top: 3px double $type-border;
   }
-  .author, time { text-transform: uppercase; }
-  .updated { font-size: .8em; color: $type-color-light; }
+  .byline + time:before, .byline + time +time:before {
+    content: "\2022 ";
+    padding: 0 .3em 0 .2em;
+    display: inline-block;
+    @include opacity(.5);
+  }
   time span {
     font-size: .7em;
     line-height: 0;
@@ -47,13 +48,7 @@ article {
       font-size: .8em;
       color: $type-color-light;
       font-family: Palatino, Times, "Times New Roman";
-      //margin-top: -1.2em;
-      //border: {
-        top-width: 1px;
-        //bottom-width: 1px;
-        //style: dashed;
-        //color: $type-border;
-      //}
+      margin-top: -1.4em;
     }
   }
 }

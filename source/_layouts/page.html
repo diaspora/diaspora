@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+<article>
+  {% include article.html %}
+  {% if site.disqus_short_name %}
+    <div id="disqus_thread">{% include disqus_thread.html %}</div>
+  {% endif %}
+</article>

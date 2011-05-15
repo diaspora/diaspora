@@ -4,7 +4,7 @@
   <title></title>
   <link href="http://yoursite.com/atom.xml" rel="self"/>
   <link href="http://yoursite.com/"/>
-  <updated>2011-04-11T16:23:20-05:00</updated>
+  <updated>2011-05-15T18:13:17-04:00</updated>
   <id>http://yoursite.com/</id>
   <author>
     <name>Your Name</name>
@@ -17,7 +17,7 @@
   <entry>
     <title>Test of Typography</title>
     <link href="http://yoursite.com/2011/04/07/test-of-typography/"/>
-    <updated>2011-04-07T19:17:00-05:00</updated>
+    <updated>2011-04-07T19:17:00-04:00</updated>
     <id>http://yoursite.com/2011/04/07/test-of-typography</id>
     <content type="html">&lt;p&gt;In the past I've always designed my own business cards, printed them on expensive card stock, and hand-cut them with an X-Acto knife. My cards were way nicer than those my clients had gotten &lt;em&gt;professionally&lt;/em&gt; printed with bubbly ink, no-bleed designs, and cheap paper. Though I put tremendous care into my cards, I never was happy with the design.&lt;/p&gt;
 
@@ -76,7 +76,7 @@ people I work for I've never met in-person.&lt;/p&gt;
   <entry>
     <title>Test Post</title>
     <link href="http://yoursite.com/2011/03/14/test-post/"/>
-    <updated>2011-03-14T00:00:00-05:00</updated>
+    <updated>2011-03-14T00:00:00-04:00</updated>
     <id>http://yoursite.com/2011/03/14/test-post</id>
     <content type="html">&lt;p&gt;This is a test!&lt;/p&gt;
 </content>
@@ -85,7 +85,7 @@ people I work for I've never met in-person.&lt;/p&gt;
   <entry>
     <title>Hello World! I'm Octopress!</title>
     <link href="http://yoursite.com/2009/11/13/hello-world/"/>
-    <updated>2009-11-13T00:00:00-06:00</updated>
+    <updated>2009-11-13T00:00:00-05:00</updated>
     <id>http://yoursite.com/2009/11/13/hello-world</id>
     <content type="html">&lt;p&gt;&lt;strong&gt;Octopress is a blogging framework designed for hackers&lt;/strong&gt;, based on &lt;a href=&quot;http://github.com/mojombo/jekyll&quot;&gt;Jekyll&lt;/a&gt; the blog aware static site generator powering &lt;a href=&quot;http://pages.github.com/&quot;&gt;Github pages&lt;/a&gt;.
 If you don't know what Jekyll is, &lt;a href=&quot;http://metajack.im/2009/01/23/blogging-with-git-emacs-and-jekyll/&quot;&gt;Jack Moffitt&lt;/a&gt; wrote a good summary:&lt;/p&gt;

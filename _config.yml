@@ -1,14 +1,14 @@
 source: source
 destination: public
-exclude: sass, *.scss
 markdown: rdiscount
-pygments: true
+pygments: false
 permalink: pretty
 
 url: http://yoursite.com
 title: My Octopress Blog
 author: Your Name
 email: you@domain.com #Add your email (optional) for the atom feed
+simple_search: http://google.com/search
 
 recent_posts: 10
 
@@ -19,10 +19,9 @@ show_replies: false
 delicious_user:
 delicious_count: 3
 
-pinboard_user: imathis
+pinboard_user: designenthusiast
 pinboard_count: 3
 
-disqus_short_name:
+disqus_short_name: imathis
 
-google_custom_search_id:
 google_analytics_tracking_id:

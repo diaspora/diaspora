@@ -104,7 +104,7 @@ end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-  system "trap 'kill $jekyllPid $guardPid' Exit; guard & guardPid=$!; jekyll --auto & jekyllPid=$!; wait"
+  system "trap 'kill $jekyllPid $guardPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; sleep 0.5; compass watch & compassPid=$!; guard & guardPid=$!; wait"
 end
 
 desc "generate and deploy website via rsync"

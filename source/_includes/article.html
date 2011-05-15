@@ -1,18 +1,21 @@
 <header>
+  <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
   <p>
-    <time>{{ page.date | ordinalize }}</time>
     {% if site.author or site.author == page.author %}
-      <span class="byline"><em>by</em> <span class="author">{{ site.author }}</span></span>
+      <span class="byline author vcard">By <span class="fn">{{ site.author }}</span></span>
     {% elsif page.author %}
-      <span class="byline"><em>by</em> <span class="author">{{ page.author }}</span></span>
+      <span class="byline author vcard">By <span class="fn">{{ page.author }}</span></span>
+    {% endif %}
+    {% if page.date %}
+      <time datetime="{{ page.date | datetime }}" pubdate>{{ page.date | ordinalize }}</time>
+    {% endif %}
+    {% if page.updated %}
+      <time class="updated" datetime="{{ page.updated | datetime }}" pubdate>Updated {{ page.updated | ordinalize }}</time>
     {% endif %}
   </p>
-  <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
 </header>
 {% if index %}
 <div class="entry">{{ content | exerpt(content, page.url, 'Continue reading &raquo;') | smart_quotes }}</div>
 {% else %}
 <div class="entry">{{ content | smart_quotes }}</div>
 {% endif %}
-
-{% if page.updated %}<p class="updated"><em>updated</em> <time>{{ page.updated | ordinalize }}</time></p>{% endif %}

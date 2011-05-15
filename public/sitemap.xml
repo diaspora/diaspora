@@ -1,35 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-      <loc>http://recursive-design.com/about.haml</loc>
-      <lastmod>2009-11-24</lastmod>
+      <loc>http://yoursite.com/about.haml</loc>
+      <lastmod>2011-05-14</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/atom.xml</loc>
-      <lastmod>2011-03-13</lastmod>
+      <loc>http://yoursite.com/atom.xml</loc>
+      <lastmod>2011-05-12</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/</loc>
-      <lastmod>2011-04-08</lastmod>
+      <loc>http://yoursite.com/</loc>
+      <lastmod>2011-05-12</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/test/syntax.html</loc>
+      <loc>http://yoursite.com/test/syntax.html</loc>
       <lastmod>2010-04-10</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/test/typography.haml</loc>
-      <lastmod>2009-11-24</lastmod>
+      <loc>http://yoursite.com/test/typography.haml</loc>
+      <lastmod>2011-05-14</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/2011/04/07/test-of-typography</loc>
+      <loc>http://yoursite.com/2011/04/07/test-of-typography</loc>
       <lastmod>2011-04-07</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/2011/03/14/test-post</loc>
+      <loc>http://yoursite.com/2011/03/14/test-post</loc>
       <lastmod>2011-03-14</lastmod>
   </url>
   <url>
-      <loc>http://recursive-design.com/2009/11/13/hello-world</loc>
+      <loc>http://yoursite.com/2009/11/13/hello-world</loc>
       <lastmod>2009-11-13</lastmod>
   </url>
 </urlset>

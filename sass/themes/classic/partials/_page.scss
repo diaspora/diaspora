@@ -2,7 +2,7 @@ body {
   background-color: $sidebar_bg;
 }
 
-#page > div {
+body > div > div {
   background-color: $main_bg; border-right: 1px solid $sidebar_border;
-  @include box-shadow(rgba(#000, .1) 0 0 18px);
+  //@include box-shadow(rgba(#000, .1) 0 0 18px);
 }

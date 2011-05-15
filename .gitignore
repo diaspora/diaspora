@@ -4,5 +4,7 @@ site
 .sass-cache
 test
 source/_stash
+source/stylesheets
+vendor/ruby
 vendor/ruby
 vendor/ruby

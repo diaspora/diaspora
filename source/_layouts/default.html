@@ -1,15 +1,26 @@
 <!DOCTYPE html>
-<html>
+<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" manifest="default.appcache?v=1" lang="en"><!--<![endif]-->
 {% include head.html %}
-<body id="{{ page.body_id }}">
+<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.no_sidebar %} class="no-sidebar" {% endif %}>
   <header><div>{% include header.html %}</div></header>
-  <nav id="nav"><div>{% include navigation.html %}</div></nav>
-  <div id="page">
+  <nav><div>{% include navigation.html %}</div></nav>
+  <div>
     <div>
-      <div id="main"><article>{{ content }}</article></div>
-      <aside>{% include sidebar.html %}</aside>
+      <div id="articles">{{ content }}</div>
+      {% unless page.no_sidebar %}
+        <aside>{% include sidebar.html %}</aside>
+      {% endunless %}
     </div>
   </div>
   <footer><div>{% include footer.html %}</div></footer>
+  <!--[if (lt IE 9) & (!IEMobile)]>
+  <script src="javascripts/libs/DOMAssistantCompressed-2.8.js"></script>
+  <script src="javascripts/libs/selectivizr-1.0.1.js"></script>
+  <script src="javascripts/libs/respond.min.js"></script>
+  <![endif]-->
 </body>
 </html>

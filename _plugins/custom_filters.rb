@@ -15,6 +15,11 @@ module OctopressFilters
       $1+url+$3
     end
   end
+  def search_url(input)
+    input.gsub /(http:\/\/)(\S+)/ do
+      $2
+    end
+  end
   def smart_quotes(input)
     require 'rubypants'
     RubyPants.new(input).to_html
@@ -23,10 +28,14 @@ module OctopressFilters
     require 'titlecase'
     input.titlecase
   end
-  def ordinalize(date)
+  def datetime(date)
     if date.class == String
       date = Time.parse(date)
     end
+    date
+  end
+  def ordinalize(date)
+    date = datetime(date)
     "#{date.strftime('%B')} #{ordinal(date.strftime('%e').to_i)}, #{date.strftime('%Y')}"
   end
   def ordinal(number)

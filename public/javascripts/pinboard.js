@@ -26,7 +26,7 @@ function Pinboard_Linkroll() {
       var str = this.format_item(item);
       lines.push(str);
     }
-    $(linkroll).set('html', lines.join("\n"));
+    document.getElementById(linkroll).innerHTML = lines.join("\n");
   }
   this.cook = function(v) {
     return v.replace('<', '&lt;').replace('>', '&gt>');

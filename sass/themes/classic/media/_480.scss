@@ -1,0 +1,16 @@
+body {
+  > header, > nav, > footer {
+    > div {
+      padding-left: .5em;
+      padding-right: .5em;
+    }
+  }
+  > header { font-size: .7em; padding: .5em 0; }
+}
+#articles { font-size: .9em; line-height: 1.5em;
+  > article { padding: .5em; }
+  + aside { display: none; }
+}
+body > nav > div > div { width: 180px;
+  .search { width: 110px; }
+}
