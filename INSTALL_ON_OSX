@@ -22,19 +22,19 @@ task :install do
   REDIS_INSTALLED = installed?('redis-server')
   IMAGEMAGICK_INSTALLED = installed?('mogrify')
   XCODE_INSTALLED = installed?('gcc')
-  # TODO: check for xcode install
 
   unless XCODE_INSTALLED
-    puts "you need to install XCode before running this script"
-    puts "you can get it from your OSX install cd, or from Apple's developer page"
+    puts "You need to install XCode before running this script. :("
+    puts "You can get it from your OSX install DVD, or from Apple's developer page."
     Process.exit
   end
+  puts "Hooray! You have XCode already!"
 
   unless BREW_INSTALLED
     puts "Installing homebrew..."
     system("ruby -e \"$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)\"")
-    system("brew update")
   end
+  system("brew update")
   puts "homebrew is installed. Great job!"
 
   unless RVM_INSTALLED
@@ -43,7 +43,7 @@ task :install do
     system("echo '[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\" # Load RVM function' >> ~/.bash_profile")
     system("rm rvm-installer")
     if `. ~/.bash_profile; type rvm | head -1` != "rvm is a function\n"
-      puts "meh, rvm install failed."
+      puts "Meh, rvm install failed. Come talk to us in irc, at http://webchat.freenode.net/?channels=diaspora"
       Process.exit
     end
   end
