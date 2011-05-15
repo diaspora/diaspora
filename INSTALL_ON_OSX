@@ -3,72 +3,76 @@
 
 require 'rake'
 
-task :install_on_osx do
+task :install do
   puts "this currently is untested, prepare for tragedy"
+
   BREW_INSTALLED = installed?('brew')
-  CURL_INSTALLED = installed?('curl')
+  RVM_INSTALLED = installed?('rvm')
   MYSQL_INSTALLED = installed?('mysql')
   REDIS_INSTALLED = installed?('redis-server')
   IMAGEMAGICK_INSTALLED = installed?('mogrify')
 
   unless BREW_INSTALLED
-    open 'https://github.com/mxcl/homebrew'
-    puts "you need homebrew for easy setup. checkout out https://github.com/mxcl/homebrew for more info"
-    puts 'or copy and paste this one liner'
-    puts 'ruby -e "$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)'
-    puts "(afterwords, install xcode)"
-    Process.exit
+    puts "Installing homebrew..."
+    `ruby -e "$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)`
+    `brew update`
   end
 
-  puts "updating brew. please wait."
-  puts `brew update`
-  
-  unless CURL_INSTALLED
-    puts 'you need curl, so we are installing that. please wait...'
-    puts `brew install curl`
+  puts "homebrew is installed. Great job!"
+
+  unless RVM_INSTALLED
+    puts "Installing rvm..."
+    system("bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)")
+    system("echo '[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\" # Load RVM function' >> ~/.bash_profile")
+    system("source ~/.bash_profile")
+    if `type rvm | head -1` != "rvm is a function"
+      puts "meh, rvm install failed."
+      Process.exit
+    end
   end
-  
-  puts 'curl is installed, Great Job!'
+
+  puts "rvm is installed. Great job!"
+
+  puts "Installing ruby enterprise edition (ree)..."
+  system("rvm install ree")
+  $stdout.flush
+
+  puts "Setting up your gemset and .rvmrc..."
+  system("rvm use ree")
+  system("rvm gemset create diaspora")
+  system("echo 'rvm use ree@diaspora' >> .rvmrc")
+  system("cd config && cd ..")
+  puts "Done installing ree, creating gemset, and setting up .rvmrc!"
 
   unless IMAGEMAGICK_INSTALLED
-    puts 'you need imagemagick.  please wait'
-    puts `brew install imagemagick`
+    puts 'Installing imagemagick...'
+    system("brew install imagemagick")
   end
-
-  puts 'imagemagick is installed, Great Job!'
+  puts 'imagemagick is installed. Great job!'
 
   unless MYSQL_INSTALLED
-    puts 'you need mysql, so we are installing that. please wait...'
-    puts `brew install mysql`
-    puts 'configuring for first time use. you need to type in your password'
-    puts `unset TMPDIR`
-    puts `sudo mysql_install_db --verbose --user=\`whoami\` --basedir="$(brew --prefix mysql)" --datadir=/usr/local/var/mysql --tmpdir=/tmp`
+    puts 'Installing mysql...'
+    system("brew install mysql")
+    puts 'Configuring for first time use. Type in your Mac password when it asks.'
+    system("unset TMPDIR")
+    system("sudo mysql_install_db --verbose --user=`whoami` --basedir=\"$(brew --prefix mysql)\" --datadir=/usr/local/var/mysql --tmpdir=/tmp")
   end
-
-  puts 'mysql is installed, Great Job!'
+  puts 'mysql is installed. Great job!'
 
   unless REDIS_INSTALLED
-    puts 'you need redis, so we are installing that. please wait...'
-    puts `brew install redis`
+    puts 'Installing redis...'
+    system("brew install redis")
   end
+  puts 'redis is installed. Great job!'
 
-  puts 'redis is installed, Great Job!'
+  puts 'Installing bundler...'
+  system("gem install bundler")
+  puts 'bundler is installed. Great Job!'
 
-  unless REDIS_INSTALLED
-    puts 'you need redis, so we are installing that. please wait...'
-    puts `brew install redis`
-  end
+  puts 'Installing diaspora gems...'
+  system("bundle install")
 
-    puts 'you need bundler, so we are installing that. please wait...'
-    puts `gem install bundler`
-
-  puts 'bundler is installed, Great Job!'
-
-  puts 'bundling... please wait...'
-  puts `bundle`
-
-  puts 'assuming there was no errors run script/server and you should be good to go!'
-
+  puts 'Assuming there were no errors, run script/server and you should be good to go!'
 end
 
 def installed?(program)
