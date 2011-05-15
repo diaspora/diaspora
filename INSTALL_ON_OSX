@@ -96,6 +96,9 @@ task :install do
   puts "Setting up your default app configuration..."
   system("cp config/app_config.yml.example config/app_config.yml")
 
+  puts "Setting up your default database configuration..."
+  system("cp config/database.yml.example config/database.yml")
+
   puts "****************************************************************************"
   puts "*****************************  CONGRATS! ***********************************"
   puts "****************************************************************************"
