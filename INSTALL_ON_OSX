@@ -12,36 +12,35 @@ task :install do
   REDIS_INSTALLED = installed?('redis-server')
   IMAGEMAGICK_INSTALLED = installed?('mogrify')
 
+  # TODO: check for xcode install
+
   unless BREW_INSTALLED
     puts "Installing homebrew..."
-    `ruby -e "$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)`
-    `brew update`
+    system("ruby -e \"$(curl -fsSL https://gist.github.com/raw/323731/install_homebrew.rb)\"")
+    system("brew update")
   end
-
   puts "homebrew is installed. Great job!"
 
   unless RVM_INSTALLED
     puts "Installing rvm..."
-    system("bash < <(curl -s https://rvm.beginrescueend.com/install/rvm)")
+    system("curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer")
     system("echo '[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\" # Load RVM function' >> ~/.bash_profile")
-    system("source ~/.bash_profile")
-    if `type rvm | head -1` != "rvm is a function"
+    if `. ~/.bash_profile; type rvm | head -1` != "rvm is a function\n"
       puts "meh, rvm install failed."
       Process.exit
+    else
+      system("rm rvm-installer")
     end
   end
-
   puts "rvm is installed. Great job!"
 
   puts "Installing ruby enterprise edition (ree)..."
-  system("rvm install ree")
+  system(". ~/.bash_profile; rvm install ree")
   $stdout.flush
 
   puts "Setting up your gemset and .rvmrc..."
-  system("rvm use ree")
-  system("rvm gemset create diaspora")
+  system(". ~/.bash_profile; rvm use ree; rvm gemset create diaspora")
   system("echo 'rvm use ree@diaspora' >> .rvmrc")
-  system("cd config && cd ..")
   puts "Done installing ree, creating gemset, and setting up .rvmrc!"
 
   unless IMAGEMAGICK_INSTALLED
@@ -56,6 +55,9 @@ task :install do
     puts 'Configuring for first time use. Type in your Mac password when it asks.'
     system("unset TMPDIR")
     system("sudo mysql_install_db --verbose --user=`whoami` --basedir=\"$(brew --prefix mysql)\" --datadir=/usr/local/var/mysql --tmpdir=/tmp")
+    system("mkdir -p ~/Library/LaunchAgents")
+    system("cp /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist ~/Library/LaunchAgents/")
+    system("launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist")
   end
   puts 'mysql is installed. Great job!'
 
@@ -66,13 +68,19 @@ task :install do
   puts 'redis is installed. Great job!'
 
   puts 'Installing bundler...'
-  system("gem install bundler")
+  system(". ~/.bash_profile; rvm use ree@diaspora; gem install bundler")
   puts 'bundler is installed. Great Job!'
 
   puts 'Installing diaspora gems...'
-  system("bundle install")
+  system(". ~/.bash_profile; rvm use ree@diaspora; bundle install")
 
-  puts 'Assuming there were no errors, run script/server and you should be good to go!'
+  puts "Creating and migrating your database..."
+  system(". ~/.bash_profile; rvm use ree@diaspora; rake db:create; rake db:migrate")
+
+  puts "Setting up your default app configuration..."
+  system("cp config/app_config.yml.example config/app_config.yml")
+
+  puts 'Run script/server to start it up! Then visit it in your browser at http://localhost:3000'
 end
 
 def installed?(program)
