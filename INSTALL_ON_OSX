@@ -14,14 +14,21 @@ task :install do
   puts "Grab a beer and let's get started."
   print "Hit enter to continue! "
   input = STDIN.gets
+  
 
   BREW_INSTALLED = installed?('brew')
   RVM_INSTALLED = installed?('rvm')
   MYSQL_INSTALLED = installed?('mysql')
   REDIS_INSTALLED = installed?('redis-server')
   IMAGEMAGICK_INSTALLED = installed?('mogrify')
-
+  XCODE_INSTALLED = installed?('gcc')
   # TODO: check for xcode install
+
+  unless XCODE_INSTALLED
+    puts "you need to install XCode before running this script"
+    puts "you can get it from your OSX install cd, or from Apple's developer page"
+    Process.exit
+  end
 
   unless BREW_INSTALLED
     puts "Installing homebrew..."
