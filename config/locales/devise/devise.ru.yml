@@ -28,11 +28,11 @@ ru:
         subject: "Инструкции по подтверждению"
         you_can_confirm: "Вы можете подтвердить ваш аккаунт перейдя по ссылке:"
       hello: "Привет %{email}!"
-      invitation: 
-        accept: "Принять приглашение"
-        ignore: "Если вы не хотите принимать приглашение, проигнорируйте это письмо."
-        no_account_till: "Ваш аккаунт будет создан только тогда, если вы подтвердите линк и зарегистрируетесь."
-        subject: "Вас пригласили присоединиться к Диаспоре!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: "вы можете принять его, нажaв на ссылку %{url}"
         has_invited_you: "%{name} приглашает вас присоединиться к Диаспоре"

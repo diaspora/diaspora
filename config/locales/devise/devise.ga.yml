@@ -28,11 +28,11 @@ ga:
         subject: "Treoiracha deimhniú"
         you_can_confirm: "Tá tú ábalta do cúntas a deimhniú tríd an nasc faoi:"
       hello: "Haileo %{email}!"
-      invitation: 
-        accept: "Ghlacadh leis an cuireadh"
+      invitation_instructions: 
+        accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Ní bheidh do cúntas déanta roimh a rochtain tú an nasc thar agus síníonn tú suas."
-        subject: "Tá cuireadh seolta chugat chun páirt a ghlacadh i Diaspora!"
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", ag %{url}, is féidir leat ghlacadh leis an cuireadh tríd an nasc faoi."
         has_invited_you: "Tá %{name} tar éis cuireadh a sheoladh chugat chun páirt a ghlacadh i Diaspora"

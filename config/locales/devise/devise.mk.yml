@@ -28,11 +28,11 @@ mk:
         subject: "Инструкции за потврдување"
         you_can_confirm: "Можете да ја потврдите вашата корисничка сметка на долниот линк:"
       hello: "Здраво %{email}!"
-      invitation: 
-        accept: "Прифати покана"
-        ignore: "Ако не сакате да ја прифатите поканата, ве молиме игнорирајте го овој е-маил."
-        no_account_till: "Вашата корисничка сметка нема да биде креирана пред да се регистрирате на горниот линк."
-        subject: "Поканети сте за приклучување кон Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", на %{url}, можете да ја прифатите преку линкот подолу."
         has_invited_you: "%{name} ве покани да се приклучите кон Diaspora"

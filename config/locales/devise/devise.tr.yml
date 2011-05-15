@@ -28,11 +28,11 @@ tr:
         subject: "Doğrulama talimatları"
         you_can_confirm: "Hesabınızı aşağıdaki bağlantı ile doğrulayabilirsiniz:"
       hello: "Merhaba %{email}!"
-      invitation: 
-        accept: "Daveti kabul et"
-        ignore: "Eğer daveti kabul etmek istemiyorsanız, bu e-postayı yoksayın."
-        no_account_till: "Hesabınız siz yukarıdaki bağlantıya tıklayıp üye olmadan oluşturulmayacaktır."
-        subject: "Bir arkadaşınız sizin Diaspora'ya katılmanızı istiyor!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ",  %{url}, aşağıdaki linke tıklayarak bunu kabul edebilirsiniz."
         has_invited_you: "%{name} sizi Diaspora'ya katılmanız için davet etti"

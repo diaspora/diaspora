@@ -28,11 +28,11 @@ pl:
         subject: "Instrukcje aktywacji"
         you_can_confirm: "Możesz aktywować swoje konto klikając poniższy odnośnik:"
       hello: "Cześć %{email}!"
-      invitation: 
-        accept: "Zaakceptuj zaproszenie"
-        ignore: "Jeśli nie chcesz zaakceptować zaproszenia, zignoruj ten e-mail."
-        no_account_till: "Twoje konto nie zostanie założone dopóki nie klikniesz odnośnika powyżej i nie zarejestrujesz się."
-        subject: "Masz zaproszenie do Diaspory!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", pod adresem %{url}, możesz przyjąć zaproszenie używając poniższego odnośnika."
         has_invited_you: "Użytkownik %{name} zaprosił Cię do Diaspory"

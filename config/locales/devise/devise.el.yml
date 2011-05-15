@@ -28,11 +28,11 @@ el:
         subject: "Οδηγίες επιβεβαίωσης"
         you_can_confirm: "Μπορείτε να επιβεβαιώσετε τον λογαριασμό σας μέσω του παρακάτω συνδέσμου:"
       hello: "Γειά σου %{email}!"
-      invitation: 
-        accept: "Αποδοχή πρόσκλησης"
-        ignore: "Εάν δεν θέλετε να αποδεχθείτε την πρόσκληση, αγνοήστε αυτό το μήνυμα."
-        no_account_till: "Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να επισκεφθείτε τον παραπάνω σύνδεσμο και να εγγραφείτε."
-        subject: "Έχετε λάβει πρόσκληση για να γίνετε μέλος του Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", στο %{url}, μπορείτε να το αποδεχτείτε, μέσω του επόμενου συνδέσμου."
         has_invited_you: "Ο χρήστης %{name} σας προσκάλεσε να γίνετε μέλος του Diaspora"

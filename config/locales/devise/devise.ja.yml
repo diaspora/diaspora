@@ -28,11 +28,11 @@ ja:
         subject: "認証手続き"
         you_can_confirm: "次のリンクからアカウントが認証できます。"
       hello: "%{email}さん、こんにちは！"
-      invitation: 
-        accept: "招待を承諾する"
-        ignore: "招待にご興味がない場合は、このメールを無視してください。"
-        no_account_till: "上のリンクへアクセスして新規登録するまではアカウントが作成されません。"
-        subject: "ダイアスポラへ参加しませんか！"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: "、%{url}。下のリンクから承諾できます。"
         has_invited_you: "%{name}さんはダイアスポラへの参加を招待しています。"

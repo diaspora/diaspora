@@ -28,11 +28,11 @@ de:
         subject: "Bestätigung deines Diaspora-Kontos"
         you_can_confirm: "Du kannst dein Konto über den nachfolgenden Link bestätigen:"
       hello: "Hallo %{email}!"
-      invitation: 
-        accept: "Einladung annehmen"
-        ignore: "Wenn du die Einladung nicht annehmen willst, dann ignoriere diese E-Mail."
-        no_account_till: "Dein Konto wird erst erstellt, wenn du dich über den Link registrierst."
-        subject: "Du wurdest zu Diaspora eingeladen!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: "%{url} teilzunehmen. Du kannst die Einladung durch den Link unten annehmen."
         has_invited_you: "%{name} hat dich dazu eingeladen, bei Diaspora auf"

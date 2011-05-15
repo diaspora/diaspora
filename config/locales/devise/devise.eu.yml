@@ -28,11 +28,11 @@ eu:
         subject: "Baieztapen argibideak"
         you_can_confirm: "Zure kontua baieztatu dezakezu esteka hau jarraituz:"
       hello: "Kaixo %{email}!"
-      invitation: 
-        accept: "Gonbidapena onartu"
-        ignore: "Ez baduzu gonbidapena onartu nahi, gutxietsi mezu hau."
-        no_account_till: "Zure kontua ez da sortua izango goiko esteka jarraitzen duzun arte."
-        subject: "Diasporara gonbidatua izan zara!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ",%{url}(e)n, onartu dezakezu honako estekaren bidez."
         has_invited_you: "%{name} Diasporara gonbidatu zaitu"

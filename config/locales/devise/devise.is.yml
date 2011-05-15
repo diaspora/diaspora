@@ -28,11 +28,11 @@ is:
         subject: "Staðfestingarleiðbeiningar"
         you_can_confirm: "Þú getur staðfest aðgang þinn með því að elta hlekkinn hér fyrir neðan:"
       hello: "Halló %{email}!"
-      invitation: 
-        accept: "Taka boðinu"
-        ignore: "Ef þú vilt ekki taka boðinu, vinsamlegast gefðu þá þessum tölvupósti engan gaum."
-        no_account_till: "Aðgangur þinn mun ekki verða búinn til fyrr en þú eltir hlekkinn hér fyrir ofan og skráir þig."
-        subject: "Þér hefur verið boðið að taka þátt í Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", Á% {url}, getur þú samþykkt það í gegnum hlekkinn hér fyrir neðan."
         has_invited_you: "%{name} hefur boðið þér að taka þátt í Díaspora"

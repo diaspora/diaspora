@@ -123,7 +123,7 @@ it:
     few: "%{count} commenti"
     many: "%{count} commenti"
     new_comment: 
-      comment: "commento"
+      comment: "Commento"
       commenting: "Invio commento in corso..."
     one: "1 commento"
     other: "%{count} commenti"
@@ -236,16 +236,16 @@ it:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "non piace a %{count} persone"
-        many: "non piace a %{count} persone "
-        one: "non piace ad una persona "
-        other: "non piace a %{count} persone"
+        few: "non piace a %{count}"
+        many: "non piace a %{count}"
+        one: "Non piace a %{count}"
+        other: "non piace a %{count}"
         zero: "non piace a zero persone"
       people_like_this: 
-        few: "piace a %{count} persone"
-        many: "piace a %{count} persone"
-        one: "piace ad una persona"
-        other: "piace a %{count} persone"
+        few: "piace a %{count}"
+        many: "Piace a %{count}"
+        one: "piace a %{count}"
+        other: "piace a %{count}"
         zero: "piace a nessuno"
   more: "Altro"
   next: "successivo"
@@ -267,7 +267,7 @@ it:
       and_others: "e altri %{number}"
       mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
-    liked: "has just liked your post"
+    liked: "ha appena apprezzato il tuo post"
     mentioned: "ti ha menzionato in un "
     new_request: "vuole condividere con te."
     post: "post."
@@ -285,9 +285,9 @@ it:
     diaspora: "l'email robot di diaspora"
     hello: "Ciao %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      liked: "%{name} ha appena apprezzato il tuo post: "
+      sign_in: "Accedi per vedere l'elemento"
+      subject: "%{name} ha appena apprezzato il tuo post"
     love: "amore,"
     manage_your_email_settings: "gestisci le tue impostazioni email"
     mentioned: 
@@ -545,7 +545,7 @@ it:
     stream_element: 
       dislike: "Non mi piace"
       like: "Mi piace"
-      unlike: "Unlike"
+      unlike: "Non come"
   status_messages: 
     create: 
       success: "Menzionati con successo: %{names}"
@@ -584,7 +584,7 @@ it:
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
       export_data: "Esporta Dati"
-      liked: "...someone likes your post?"
+      liked: "...a qualcuno piace il tuo post?"
       mentioned: "...sei menzionato in un post?"
       new_password: "Nuova Password"
       private_message: "...hai ricevuto un messaggio privato?"
@@ -615,7 +615,7 @@ it:
       email_notifications_changed: "Notifiche email modificate con successo"
       language_changed: "Lingua Cambiata"
       language_not_changed: "Cambio di lingua fallito"
-      password_changed: "Password Cambiata"
+      password_changed: "Password Cambiata. Ora puoi effettuare l'accesso con la tua nuova password."
       password_not_changed: "Cambio di password fallito"
   webfinger: 
     fetch_failed: "impossibile recuperare il profilo webfinger da %{profile_url}"

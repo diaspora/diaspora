@@ -615,7 +615,7 @@ eu:
       email_notifications_changed: "E-posta janirazpenak aldatu dituzu"
       language_changed: "Hizkuntza Aldatua"
       language_not_changed: "Hizkuntza aldaketak huts egin du"
-      password_changed: "Pasahitza aldatu duzu"
+      password_changed: "Pasahitza aldatu duzu. Orain zure pasahitz berria erabiliz sar zaitezke."
       password_not_changed: "Pasahitz Aldaketak Huts egin du"
   webfinger: 
     fetch_failed: "ezin izan da webfinger profila hartu %{profile_url} webgunetik"

@@ -28,11 +28,11 @@ sl:
         subject: "Navodila za potrditev uporabniškega računa"
         you_can_confirm: "Vaš uporabniški račun lahko potrdite s pomočjo spodnje povezave:"
       hello: "Pozdravljeni %{email}!"
-      invitation: 
-        accept: "Sprejmi povabilo"
-        ignore: "V kolikor ne želite sprejeti povabila, to e-sporočilo vzamite kot brezpredmetno."
-        no_account_till: "S pomočjo zgornje povezave ter vašo prijavo boste ustvarili nov uporabniški račun."
-        subject: "Bili ste povabljeni, da se pridružite v Diasporo!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", na %{url}, lahko potrdite s pomočjo spodnje povezave."
         has_invited_you: "%{name} vas je povabil, da se pridružite v Diasporo"

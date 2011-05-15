@@ -615,7 +615,7 @@ cs:
       email_notifications_changed: "Oznámení emailem změněno"
       language_changed: "Jazyk změněn"
       language_not_changed: "Změna jazyka selhala"
-      password_changed: "Heslo změněno"
+      password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s novým heslem."
       password_not_changed: "Změna hesla selhala"
   webfinger: 
     fetch_failed: "Selhalo načtení webfinger profilu pro %{profile_url}"

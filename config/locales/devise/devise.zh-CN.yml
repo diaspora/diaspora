@@ -28,11 +28,11 @@ zh-CN:
         subject: "帐号确认步骤"
         you_can_confirm: "你可以点击下面的链接确认帐号："
       hello: "您好, %{email}!"
-      invitation: 
-        accept: "接受邀请"
-        ignore: "如果您不想接受邀请, 请忽略这封邮件。"
-        no_account_till: "点击以上链接并注册后, 你才能创建帐号。"
-        subject: "您被邀请加入Diaspora！"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: " （%{url}）, 你可以点击下面的链接接收邀请。"
         has_invited_you: "%{name} 邀请您加入Diaspora"

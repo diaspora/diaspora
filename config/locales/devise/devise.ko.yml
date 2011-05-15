@@ -28,7 +28,7 @@ ko:
         subject: "확인 안내"
         you_can_confirm: "아래 링크로 계정을 확인할 수 있습니다:"
       hello: "%{email} 님 환영합니다!"
-      invitation: 
+      invitation_instructions: 
         accept: "초대 수락하기"
         ignore: "초대를 수락하지 않으려면 이 메일을 무시하세요."
         no_account_till: "계정은 가입하지 않는 한 만들어지지 않습니다."
