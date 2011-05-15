@@ -11,11 +11,10 @@ task :install do
   puts "****************************************************************************"
   puts ""
   puts "We're going to install a ton of stuff to get Diaspora running on your box."
-  puts "Grab a beer and let's get started."
-  print "Hit enter to continue! "
+  puts "Grab a tasty beverage - this might take a while. Then let's get started!"
+  print "Hit enter once you have a drink! "
   input = STDIN.gets
   
-
   BREW_INSTALLED = installed?('brew')
   RVM_INSTALLED = installed?('rvm')
   MYSQL_INSTALLED = installed?('mysql')
@@ -24,8 +23,8 @@ task :install do
   XCODE_INSTALLED = installed?('gcc')
 
   unless XCODE_INSTALLED
-    puts "You need to install XCode before running this script. :("
-    puts "You can get it from your OSX install DVD, or from Apple's developer page."
+    puts "Sadly, you need to install XCode before running this script. :("
+    puts "You can get it from your OSX install DVD, or download it from Apple's developer page."
     Process.exit
   end
   puts "Hooray! You have XCode already!"
