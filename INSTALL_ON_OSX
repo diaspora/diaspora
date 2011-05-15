@@ -6,6 +6,15 @@ require 'rake'
 task :install do
   puts "this currently is untested, prepare for tragedy"
 
+  puts "****************************************************************************"
+  puts "******************************  HELLO! *************************************"
+  puts "****************************************************************************"
+  puts ""
+  puts "We're going to install a ton of stuff to get Diaspora running on your box."
+  puts "Grab a beer and let's get started."
+  print "Hit enter to continue! "
+  input = STDIN.gets
+
   BREW_INSTALLED = installed?('brew')
   RVM_INSTALLED = installed?('rvm')
   MYSQL_INSTALLED = installed?('mysql')
