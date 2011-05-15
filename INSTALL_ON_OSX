@@ -55,7 +55,8 @@ task :install do
     system("unset TMPDIR")
     system("sudo mysql_install_db --verbose --user=`whoami` --basedir=\"$(brew --prefix mysql)\" --datadir=/usr/local/var/mysql --tmpdir=/tmp")
     system("mkdir -p ~/Library/LaunchAgents")
-    system("cp /usr/local/Cellar/mysql/5.5.10/com.mysql.mysqld.plist ~/Library/LaunchAgents/")
+    plist_file = `brew list mysql | grep plist`.strip
+    system("cp #{plist_file} ~/Library/LaunchAgents/com.mysql.mysqld.plist")
     system("launchctl load -w ~/Library/LaunchAgents/com.mysql.mysqld.plist")
   end
   puts 'mysql is installed. Great job!'
