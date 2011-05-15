@@ -25,11 +25,10 @@ task :install do
     puts "Installing rvm..."
     system("curl -s https://rvm.beginrescueend.com/install/rvm -o rvm-installer ; chmod +x rvm-installer ; ./rvm-installer")
     system("echo '[[ -s \"$HOME/.rvm/scripts/rvm\" ]] && . \"$HOME/.rvm/scripts/rvm\" # Load RVM function' >> ~/.bash_profile")
+    system("rm rvm-installer")
     if `. ~/.bash_profile; type rvm | head -1` != "rvm is a function\n"
       puts "meh, rvm install failed."
       Process.exit
-    else
-      system("rm rvm-installer")
     end
   end
   puts "rvm is installed. Great job!"
@@ -80,7 +79,20 @@ task :install do
   puts "Setting up your default app configuration..."
   system("cp config/app_config.yml.example config/app_config.yml")
 
-  puts 'Run script/server to start it up! Then visit it in your browser at http://localhost:3000'
+  puts "****************************************************************************"
+  puts "*****************************  CONGRATS! ***********************************"
+  puts "****************************************************************************"
+  puts ""
+  puts "Everything is installed! How was that beer?"
+  puts "Run the following commands to start up the Diaspora server:"
+  puts ""
+  puts "source ~/.bash_profile"
+  puts "cd .."
+  puts "cd diaspora"
+  puts "script/server"
+  puts ""
+  puts "Next time, all you'll need to do is script/server."
+  puts "Once you've started script/server, visit your local Diaspora in your browser at http://localhost:3000"
 end
 
 def installed?(program)
