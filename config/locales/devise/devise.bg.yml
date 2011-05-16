@@ -30,9 +30,9 @@ bg:
       hello: "Здравейте %{email}!"
       invitation_instructions: 
         accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        ignore: "Ако не желаете да приемете поканата, моля игнорирайте писмото."
+        no_account_till: "Акаунтът няма да бъде създаден докато не посетите горната връзката и се регистрирате."
+        subject: "Поканени сте да се присъедините към Diaspora!"
       inviters: 
         accept_at: ", на адрес %{url}. Можете да приемете поканата чрез линка по-долу."
         has_invited_you: "%{name} ви кани да се присъедините към Diaspora"

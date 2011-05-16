@@ -23,7 +23,7 @@ sv:
       minutes: "%d minuter"
       month: "ungefär en månad"
       months: "%d månader"
-      prefixAgo: "för"
+      prefixAgo: "För"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"

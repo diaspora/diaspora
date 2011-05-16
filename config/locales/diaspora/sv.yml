@@ -227,7 +227,7 @@ sv:
       whats_new: "några nyheter?"
       your_aspects: "dina aspekter"
     header: 
-      blog: "blogg"
+      blog: "Blogg"
       code: "källkod"
       login: "Logga in"
       logout: "Logga ut"
@@ -236,17 +236,17 @@ sv:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} personer ogillade dethär"
-        many: "%{count} personer ogillade dethär"
-        one: "1 person ogillade dethär"
-        other: "%{count} person ogillade det här"
-        zero: "inga personer ogillade det här"
+        few: "%{count} personer ogillar"
+        many: "%{count} personer ogillar det här"
+        one: "1 person ogillar det här"
+        other: "%{count} personer ogillar det här"
+        zero: "inga personer ogillar det här"
       people_like_this: 
-        few: "%{count} personer gillade det här"
-        many: "%{count} personer gillade det här"
-        one: "1 person gillade det här"
-        other: "%{count} personer gillade det här"
-        zero: "inga personer gillade det här"
+        few: "%{count} personer gillar det här"
+        many: "%{count} personer gillar det här"
+        one: "1 person gillar det här"
+        other: "%{count} personer gillar det här"
+        zero: "inga personer gillar det här"
   more: "Mer"
   next: "nästa"
   no_results: "Inga Resultat Funna"
@@ -268,9 +268,9 @@ sv:
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
     liked: "har precis gillat ditt inlägg"
-    mentioned: "har nämnt dig i deras"
+    mentioned: "har nämnt dig i sitt"
     new_request: "erbjöd sig att dela med dig."
-    post: "meddelande"
+    post: "inlägg."
     private_message: "skickade dig ett meddelande."
     request_accepted: "accepterade din förfrågan om att dela."
   notifier: 
@@ -286,7 +286,7 @@ sv:
     hello: "Hej %{name}!"
     liked: 
       liked: "%{name} har precis gillat ditt inlägg: "
-      sign_in: "Sign to view it"
+      sign_in: "Logga in för att se"
       subject: "%{name} har precis gillat ditt inlägg"
     love: "hälsningar,"
     manage_your_email_settings: "administrera dina epost-inställningar"
@@ -539,7 +539,7 @@ sv:
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"
-      whats_on_your_mind: "vad har du på hjärtat?"
+      whats_on_your_mind: "Vad har du på hjärtat?"
     reshare: 
       reshare: "Återdela"
     stream_element: 
@@ -561,7 +561,7 @@ sv:
       permalink: "permalänk"
   stream_helper: 
     hide_comments: "dölj kommentarer"
-    show_comments: "visa alla kommentarer"
+    show_comments: "Visa alla kommentarer"
   tags: 
     show: 
       nobody_talking: "Ingen talar om %{tag} än."
@@ -615,7 +615,7 @@ sv:
       email_notifications_changed: "E-post-notifieringar har ändrats"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
-      password_changed: "Lösenordet är nu ändrat"
+      password_changed: "Lösenordet är nu ändrat."
       password_not_changed: "Lösenordet kunde inte ändras"
   webfinger: 
     fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"

@@ -236,17 +236,17 @@ it:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "non piace a %{count}"
-        many: "non piace a %{count}"
-        one: "Non piace a %{count}"
-        other: "non piace a %{count}"
-        zero: "non piace a zero persone"
+        few: "%{count} Non mi piace"
+        many: "%{count} Non mi piace"
+        one: "%{count} Non mi piace"
+        other: "%{count} Non mi piace"
+        zero: "0 Non mi piace"
       people_like_this: 
-        few: "piace a %{count}"
+        few: "%{count} Mi piace"
         many: "Piace a %{count}"
-        one: "piace a %{count}"
-        other: "piace a %{count}"
-        zero: "piace a nessuno"
+        one: "%{count} Mi piace"
+        other: "%{count} Mi piace"
+        zero: "0 Mi piace"
   more: "Altro"
   next: "successivo"
   no_results: "Nessun Risultato Trovato"
