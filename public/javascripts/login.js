@@ -14,6 +14,14 @@ $(document).ready( function(){
   var contentFilled = function(){
     return($('#user_username').val() != "" && $('#user_password').val() != "");
   }
+  
+  var checkSubmitAvailability = function() {
+    if(contentFilled()){
+      controls.removeClass('hidden');
+    }else{
+      controls.addClass('hidden');
+    }
+  }
 
   $("#login").center();
   $(window).resize(function(){
@@ -27,17 +35,13 @@ $(document).ready( function(){
     controls.addClass('hidden');
   });
 
-  $(document).keyup(function(){
-    if(contentFilled()){
-      controls.removeClass('hidden');
-    }else{
-      controls.addClass('hidden');
-    }
-  });
+  $(document).keyup(checkSubmitAvailability);
 
-  if(contentFilled()){
-    controls.removeClass('hidden');
-  }
+  // Check if the browser has pre-filled the form
+  checkSubmitAvailability();
+
+  // Check it again
+  setTimeout(checkSubmitAvailability, 1000);
 
   password
     .focus(function(){
