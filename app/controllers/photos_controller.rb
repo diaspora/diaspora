@@ -23,9 +23,11 @@ class PhotosController < ApplicationController
       if @contact
         @aspects_with_person = @contact.aspects
         @contacts_of_contact = @contact.contacts
+        @contacts_of_contact_count = @contact.contacts.count
       else
         @contact = Contact.new
         @contacts_of_contact = []
+        @contacts_of_contact_count = 0
       end
 
       @posts = current_user.posts_from(@person).where(:type => 'Photo').paginate(:page => params[:page])
