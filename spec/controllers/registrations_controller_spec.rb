@@ -65,7 +65,8 @@ describe RegistrationsController do
 
       it "redirects to the home path" do
         get :create, @valid_params
-        response.should redirect_to aspects_path
+        response.should be_redirect
+        response.location.should match /^#{aspects_url}\??$/
       end
     end
 
