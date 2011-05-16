@@ -154,3 +154,11 @@ Given /^many posts from alice for bob$/ do
     time_interval += 1000
   end
 end
+
+And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|
+  doc = Nokogiri(Devise.mailer.deliveries.first.body.to_s)
+  links = doc.css('a')
+  link = links.detect{ |link| link.text == link_text }
+  path = link.attributes["href"].value
+  visit URI::parse(path).request_uri
+end

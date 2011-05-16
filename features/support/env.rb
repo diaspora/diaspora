@@ -48,6 +48,7 @@ include HelperMethods
 
 Before do
   DatabaseCleaner.clean
+  Devise.mailer.deliveries = []
 end
 
 silence_warnings do

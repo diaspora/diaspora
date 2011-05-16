@@ -11,7 +11,7 @@ gem 'ohai', '0.5.8', :require => false #Chef dependency
 gem 'nokogiri', '1.4.3.1'
 
 #Security
-gem 'devise', '1.3.1'
+gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
 
 #Authentication

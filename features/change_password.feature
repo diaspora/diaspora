@@ -14,3 +14,16 @@ Feature: Change password
     Then I should be on the new user session page
     When I sign in with password "newsecret"
     Then I should be on the aspects page
+
+  Scenario: Reset my password
+    Given a user with email "forgetful@users.net"
+    Given I am on the new user password page
+    And I fill in "Email" with "forgetful@users.net"
+    And I press "Send me reset password instructions"
+    Then I should see "You will receive an email with instructions"
+    And I follow the "Change my password" link from the Devise.mailer
+    Then I should see "Change your password"
+    And I fill in "Password" with "supersecret"
+    And I fill in "Password confirmation" with "supersecret"
+    And I press "Change my password"
+    Then I should see "Your password was changed successfully"
