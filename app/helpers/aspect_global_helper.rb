@@ -17,16 +17,18 @@ module AspectGlobalHelper
 
  #aspect_badges takes an array of aspects, and a hash containing  a key called :link which hashes to either true or false, depending on whether the resulting badge should serve as a working link.
   #aspect_badges returns the the HTML code for an 'All Aspects' badge if the post is associated with all of a user's aspects, and returns HTML code for a collection of individual aspect badges if the post is associated with only some of a user's aspects
-  	def aspect_badges(aspects, opts={})
+  def aspect_badges(aspects, opts={})
     str = ''
-		if (aspects & @all_aspects).count == @all_aspects.count
-		str << "<span class='aspect_badge single'>"
-		str << link_to(I18n.t('all_aspects'), aspects_path, :class => 'hard_aspect_link').html_safe
-		str << "</span>"
+	if (!aspects.nil? && !@all_aspects.nil?)
+		if aspects.count == @all_aspects.count
+			str << "<span class='aspect_badge single'>"
+			str << link_to(I18n.t('all_aspects'), aspects_path, :class => 'hard_aspect_link').html_safe
+			str << "</span>"
 		else
      		aspects.each do |aspect| 
        		str << aspect_badge(aspect, opts)
-     	end
+     		end
+		end
 	end
     str.html_safe
   end
