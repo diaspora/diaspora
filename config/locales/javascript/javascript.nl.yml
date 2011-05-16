@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,7 @@ nl:
   javascripts: 
     confirm_dialog: "Weet je het zeker?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Geen posts meer."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"
@@ -34,4 +34,4 @@ nl:
       unknown: "Onbekend video type"
       watch: "Bekijk deze video op {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "De websocket is gesloten; posts worden niet langer live gestreamd."

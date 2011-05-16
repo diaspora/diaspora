@@ -69,7 +69,7 @@ describe ContactsController do
 
     it 'eager loads the aspects' do
       get :sharing
-      assigns[:contacts].first.aspects.loaded?.should be_true
+      assigns[:contacts].first.aspect_memberships.loaded?.should be_true
     end
 
     it "assigns only the people sharing with you with 'share_with' flag" do

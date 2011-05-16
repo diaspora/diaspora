@@ -51,12 +51,10 @@
     #content{:data => {:role => 'page', :theme => 'c'}}
       #header
         - if current_user
-          .left
-            = link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
-
           .right
+            = link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
             = link_to(image_tag('icons/search_white.png'), people_path)
-        = link_to(image_tag('white@2x.png', :height => 22, :width => 136), aspects_path)
+        = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
 
       = yield
 

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ cs:
         subject: "Informace o potvrzení"
         you_can_confirm: "Váš účet můžete potvrdit kliknutím na tento odkaz:"
       hello: "Zdravím %{email}!"
-      invitation: 
-        accept: "Potvrdit pozvánku"
-        ignore: "Pokud nechcete potvrdit pozvání, tento e-mail prosím ignorujte."
-        no_account_till: "Pro dokončení registrace klikněte prosím na odkaz uvedený níže."
-        subject: "Byl jste pozván na Diasporu!"
+      invitation_instructions: 
+        accept: "Přijmout pozvání"
+        ignore: "Pokud nechcete přijmout pozvání, prosím ignorujte tento e-mail."
+        no_account_till: "Váš účet nebude vytvořen dokud nepřistoupíte na uvedený odkaz a zaregistrujete se."
+        subject: "Byli jste pozváni na Diasporu!"
       inviters: 
         accept_at: ", na %{url}, akceptujte kliknutím na odkaz."
         has_invited_you: "%{name} Vás pozval na Diasporu"

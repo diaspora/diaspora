@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -53,9 +53,9 @@ sv:
     aspect_contacts: 
       done_editing: "dölj"
     aspect_stream: 
-      activity: "aktivitet"
-      post_time: "skickat "
-      sort_by: "sortera efter:"
+      activity: "Aktivitet"
+      post_time: "Skickat "
+      sort_by: "Sortera efter:"
     contacts_not_visible: "Kontakterna på den här aspekten kommer inte kunna se varandra."
     contacts_visible: "Kontakterna på den här aspekten kommer kunna se varandra."
     create: 
@@ -83,7 +83,7 @@ sv:
     index: 
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       no_contacts: "Inga kontakter"
-      post_a_message: "post a message >>"
+      post_a_message: "skriv ett inlägg >>"
     manage: 
       add_a_new_aspect: "Lägg till en ny aspekt"
       add_a_new_contact: "Lägg till en ny kontakt"
@@ -114,7 +114,7 @@ sv:
     zero: "inga aspekter"
   back: "Tillbaka"
   bookmarklet: 
-    explanation: "%{link} från var som helst genom att lägga till denhär länken som bokmärke."
+    explanation: "%{link} från var som helst genom att lägga till den här länken som bokmärke."
     explanation_link_text: "Posta på Diaspora"
     post_something: "Posta något till Diaspora"
     post_success: "Postat! Stänger!"
@@ -123,7 +123,7 @@ sv:
     few: "%{count} kommentarer"
     many: "%{count} kommentarer"
     new_comment: 
-      comment: "kommentar"
+      comment: "Kommentera"
       commenting: "Kommenterar..."
     one: "1 kommentar"
     other: "%{count} kommentarer"
@@ -227,26 +227,26 @@ sv:
       whats_new: "några nyheter?"
       your_aspects: "dina aspekter"
     header: 
-      blog: "blogg"
+      blog: "Blogg"
       code: "källkod"
-      login: "logga in"
-      logout: "logga ut"
+      login: "Logga in"
+      logout: "Logga ut"
       profile: "profil"
-      settings: "inställningar"
+      settings: "Inställningar"
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} personer ogillade dethär"
-        many: "%{count} personer ogillade dethär"
-        one: "1 person ogillade dethär"
-        other: "%{count} person ogillade dethär"
-        zero: "inga personer ogillade dethär"
+        few: "%{count} personer ogillar"
+        many: "%{count} personer ogillar det här"
+        one: "1 person ogillar det här"
+        other: "%{count} personer ogillar det här"
+        zero: "inga personer ogillar det här"
       people_like_this: 
-        few: "%{count} personer gillade dethär"
-        many: "%{count} personer gillade dethär"
-        one: "1 person gillade dethär"
-        other: "%{count} personer gillade dethär"
-        zero: "inga personer gillade dethär"
+        few: "%{count} personer gillar det här"
+        many: "%{count} personer gillar det här"
+        one: "1 person gillar det här"
+        other: "%{count} personer gillar det här"
+        zero: "inga personer gillar det här"
   more: "Mer"
   next: "nästa"
   no_results: "Inga Resultat Funna"
@@ -267,9 +267,10 @@ sv:
       and_others: "och %{number} andra"
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
-    mentioned: "har nämnt dig i deras"
+    liked: "har precis gillat ditt inlägg"
+    mentioned: "har nämnt dig i sitt"
     new_request: "erbjöd sig att dela med dig."
-    post: "meddelande"
+    post: "inlägg."
     private_message: "skickade dig ett meddelande."
     request_accepted: "accepterade din förfrågan om att dela."
   notifier: 
@@ -283,6 +284,10 @@ sv:
       subject: "%{name} har kommenterat ditt inlägg."
     diaspora: "Diasporas mailrobot"
     hello: "Hej %{name}!"
+    liked: 
+      liked: "%{name} har precis gillat ditt inlägg: "
+      sign_in: "Logga in för att se"
+      subject: "%{name} har precis gillat ditt inlägg"
     love: "hälsningar,"
     manage_your_email_settings: "administrera dina epost-inställningar"
     mentioned: 
@@ -355,7 +360,7 @@ sv:
       recent_posts: "Postat nyligen"
       recent_public_posts: "Senaste publika inlägg"
       return_to_aspects: "Återgå till översikten"
-      see_all: "See all"
+      see_all: "Visa alla"
       start_sharing: "börja dela"
       to_accept_or_ignore: "for att acceptera eller ignorera."
       you_have_no_tags: "du har inga taggar!"
@@ -509,7 +514,7 @@ sv:
     invitations: 
       by_email: "by Emaila"
       dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
-      from_facebook: "Från Facebook"
+      from_facebook: "från Facebook"
       invitations_left: "(%{count} kvar)"
       invite_someone: "Bjud in en kontakt"
       invite_your_friends: "Bjud in dina vänner"
@@ -534,12 +539,13 @@ sv:
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"
-      whats_on_your_mind: "vad har du på hjärtat?"
+      whats_on_your_mind: "Vad har du på hjärtat?"
     reshare: 
       reshare: "Återdela"
     stream_element: 
-      dislike: "Jag ogillar dethär"
-      like: "Jag gillar dethär"
+      dislike: "Jag ogillar det här"
+      like: "Jag gillar det här"
+      unlike: "Sluta gilla"
   status_messages: 
     create: 
       success: "Lyckades omnämna: %{names}"
@@ -555,7 +561,7 @@ sv:
       permalink: "permalänk"
   stream_helper: 
     hide_comments: "dölj kommentarer"
-    show_comments: "visa alla kommentarer"
+    show_comments: "Visa alla kommentarer"
   tags: 
     show: 
       nobody_talking: "Ingen talar om %{tag} än."
@@ -578,6 +584,7 @@ sv:
       download_xml: "Ladda ner min xml"
       edit_account: "Ändra konto"
       export_data: "Exportera data"
+      liked: "...någon gillar ditt inlägg?"
       mentioned: "...du är omnämnd i en post?"
       new_password: "Nytt lösenord"
       private_message: "...du mottar ett privat meddelande?"
@@ -608,7 +615,7 @@ sv:
       email_notifications_changed: "E-post-notifieringar har ändrats"
       language_changed: "Språk är nu ändrat"
       language_not_changed: "Språket kunde inte ändras"
-      password_changed: "Lösenordet är nu ändrat"
+      password_changed: "Lösenordet är nu ändrat."
       password_not_changed: "Lösenordet kunde inte ändras"
   webfinger: 
     fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"

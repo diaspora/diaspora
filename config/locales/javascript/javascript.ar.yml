@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -23,9 +23,9 @@ ar:
       minutes: "منذ %d دقائق"
       month: "منذ شهر"
       months: "منذ %d شهور"
-      prefixAgo: "منذ"
-      prefixFromNow: "منذ الآن"
-      seconds: "منذ أقل من دقيقة"
+      prefixAgo: ""
+      prefixFromNow: "من الآن"
+      seconds: "منذ ثواني"
       suffixAgo: ""
       suffixFromNow: ""
       year: "منذ عام"
@@ -34,4 +34,4 @@ ar:
       unknown: "نوع فيديو غير معروف"
       watch: "مشاهدة هذا الفيديو عبر {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "الـ websocket مغلق; الرسائل لن تنشر بعد الآن"

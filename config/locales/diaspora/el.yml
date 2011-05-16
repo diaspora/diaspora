@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -246,7 +246,7 @@ el:
         many: "Αρέσει σε %{count} άτομα"
         one: "Αρέσει σε 1 άτομο"
         other: "Αρέσει σε %{count} άτομα"
-        zero: "σε κανέναν δεν αρέσει"
+        zero: "δεν αρέσει σε κανέναν"
   more: "Περισσότερα"
   next: "επόμενο"
   no_results: "Δεν βρέθηκαν αποτελέσματα"
@@ -267,6 +267,7 @@ el:
       and_others: "και %{number} άλλοι"
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
+    liked: "μόλις του/της άρεσε η δημοσίευση σας"
     mentioned: "σας ανέφερε σε"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση."
@@ -283,6 +284,10 @@ el:
       subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
     diaspora: "το ρομποτάκι για τα email του δικτύου Diaspora.."
     hello: "Γειά σου %{name}!"
+    liked: 
+      liked: "στον %{name} αρέσει η δημοσίευση σας: "
+      sign_in: "Sign to view it"
+      subject: "στον %{name} αρέσει η δημοσίευση σας"
     love: "Με αγάπη,"
     manage_your_email_settings: "διαχείριση των ρυθμίσεων ηλεκτρονικού ταχυδρομείου"
     mentioned: 
@@ -540,6 +545,7 @@ el:
     stream_element: 
       dislike: "Δεν μ' αρέσει"
       like: "Μου αρέσει"
+      unlike: "Δεν μου αρέσει"
   status_messages: 
     create: 
       success: "Αναφέρθηκαν επιτυχώς: %{names}"
@@ -578,6 +584,7 @@ el:
       download_xml: "κατέβασε το xml μου"
       edit_account: "Επεξεργασία λογαριασμού"
       export_data: "Εξαγωγή Δεδομένων"
+      liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία?"
       new_password: "Νέος κωδικός πρόσβασης"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση?"

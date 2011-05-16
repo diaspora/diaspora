@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -77,7 +77,7 @@ bg:
       updating: "updating"
     few: "%{count} аспекта"
     helper: 
-      are_you_sure: "Наистина ли желаете да бъде изтриете аспектът?"
+      are_you_sure: "Наистина ли желаете да бъде изтрит аспектът?"
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
@@ -116,14 +116,14 @@ bg:
   bookmarklet: 
     explanation: "%{link} от където и да е, запаметявайки връзката като отметка."
     explanation_link_text: "Публикувайте в Diaspora"
-    post_something: "Публикувайте нещо в Diaspora"
+    post_something: "Публикуване в Diaspora"
     post_success: "Публикувано!"
   cancel: "Отказ"
   comments: 
     few: "%{count} коментара"
     many: "%{count} коментара"
     new_comment: 
-      comment: "коментар"
+      comment: "Kоментар"
       commenting: "Коментиране..."
     one: "1 коментар"
     other: "%{count} коментара"
@@ -139,7 +139,7 @@ bg:
     one: "1 контакт"
     other: "%{count} контакта"
     share_with_pane: 
-      accepts: "Щом %{name} приеме ще можете да следите публикациите си в Diaspora"
+      accepts: "Щом %{name} приеме поканата ще можете да следите публикациите си в Diaspora"
       add_new_aspect: "добавяне на нов аспект"
       share_with: "Започнете да споделяте с %{name}"
     zero: "няма контакти"
@@ -211,12 +211,12 @@ bg:
       already_invited: "Вече е поканен"
       aspect: "Аспект"
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
-      if_they_accept_info: "ако приемат ще бъдат добавени към аспекта в който сте ги поканили."
+      if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
       invite_someone_to_join: "Поканете някой в Diaspora!"
       personal_message: "Лично съобщение"
       resend: "Повторно изпращане"
       send_an_invitation: "Изпращане на поканата"
-      send_invitation: "Send invitation"
+      send_invitation: "Изпрати покана"
       to: "До"
   layouts: 
     application: 
@@ -236,17 +236,17 @@ bg:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "не е харесана от %{count} човека"
-        many: "не е харесана е от %{count} човека"
-        one: "не е харесана от 1 човек"
-        other: "не е харесана от %{count} човека"
+        few: "не е харесана %{count} пъти"
+        many: "не е харесана %{count} пъти"
+        one: "не е харесана %{count} път"
+        other: "не е харесана %{count} пъти"
         zero: "всички са я харесали"
       people_like_this: 
-        few: "харесана от %{count} човека"
-        many: "харесана от %{count} човека"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "харесана %{count} пъти"
+        many: "харесана %{count} пъти"
+        one: "харесана %{count} път"
+        other: "харесана %{count} пъти"
+        zero: "не е харесана"
   more: "Още"
   next: "next"
   no_results: "Няма намерени резултати"
@@ -254,7 +254,7 @@ bg:
     also_commented: "also commented on %{post_author}'s"
     also_commented_deleted: "добави коментар на вече изтрита публикация."
     comment_on_post: "коментира ваша"
-    deleted: "deleted"
+    deleted: "изтрито"
     helper: 
       new_notifications: 
         few: "%{count} нови известия"
@@ -267,6 +267,7 @@ bg:
       and_others: "и %{number} други"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
+    liked: "току-що хареса ваша публикация"
     mentioned: "ви спомена в"
     new_request: "ви предложи да споделяте."
     post: "публикация."
@@ -283,6 +284,10 @@ bg:
       subject: "%{name} коментира ваша публикация."
     diaspora: "the diaspora email robot"
     hello: "Здравейте %{name}!"
+    liked: 
+      liked: "току-що %{name} хареса вашата публикация:"
+      sign_in: "Sign to view it"
+      subject: "току-що %{name} хареса ваша публикация"
     love: "love,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -341,12 +346,12 @@ bg:
       gender: "пол"
       in_aspects: "in aspects"
       location: "местоположние"
-      remove_contact: "премахване на контакт"
+      remove_contact: "премахване на контакта"
       remove_from: "Премахване на %{name} от %{aspect}?"
     show: 
       add_some: "add some"
-      does_not_exist: "Person does not exist!"
-      edit: "edit"
+      does_not_exist: "Лицето не съществува!"
+      edit: "редактиране"
       incoming_request: "%{name} желае да споделя с вас"
       mention: "Mention"
       message: "Съобщение"
@@ -452,9 +457,9 @@ bg:
       success: "Сега споделяте."
     helper: 
       new_requests: 
-        few: "%{count} new requests!"
-        many: "%{count} new requests!"
-        one: "new request!"
+        few: "%{count} нови покани!"
+        many: "%{count} нови покани!"
+        one: "нова покана!"
         other: "%{count} нови покани!"
         zero: "няма нови покани"
     manage_aspect_contacts: 
@@ -478,19 +483,19 @@ bg:
         other: "%{count} приятеля"
         zero: "няма приятели"
       invite_your_friends_from: "Поканете приятелите си от %{service}"
-      not_connected: "not connected"
+      not_connected: "не съществува връзка"
     index: 
       connect_to_facebook: "Свързване с facebook"
       connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
       edit_services: "Редактиране на услугите"
       logged_in_as: "вписани сте като"
-      really_disconnect: "изключване на свързаността с %{service}?"
+      really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
-      invite: "invite"
+      invite: "покани"
       resend: "resend"
   settings: "Настройки"
   shared: 
@@ -509,8 +514,8 @@ bg:
     invitations: 
       by_email: "по ел. поща"
       dont_have_now: "За момента не разполагате с покани, но скоро ще имате!"
-      from_facebook: "От Facebook"
-      invitations_left: "(остават още %{count})"
+      from_facebook: "от Facebook"
+      invitations_left: "(остават още %{count} покани)"
       invite_someone: "Поканете някого"
       invite_your_friends: "Намерете приятелите си"
       invites: "Покани"
@@ -540,6 +545,7 @@ bg:
     stream_element: 
       dislike: "Не ми харесва"
       like: "Харесва ми"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ bg:
       download_xml: "данните ви (XML формат)"
       edit_account: "Редактиране на акаунта"
       export_data: "Сваляне на..."
+      liked: "...някой хареса ваша публикация?"
       mentioned: "...бъдете споменат в публикация?"
       new_password: "Нова парола"
       private_message: "...получите лично съобщение?"
@@ -590,10 +597,10 @@ bg:
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Свързване към други услуги"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Edit your profile"
+      edit_profile: "Редактирайте профилът си"
       finished: "Готово!"
       save_and_continue: "Запиши и продължи"
-      signup_steps: "Finish your sign up by completing these three steps:"
+      signup_steps: "Приключете регистрирането като извършите следните 3 стъпки:"
       skip: "прескачане на страницата"
       step_2: 
         find_your_friends_on_diaspora: "Желаете ли да намерите приятелите си от Facebook в Diaspora?"
@@ -608,7 +615,7 @@ bg:
       email_notifications_changed: "Адресът за известяване е променен"
       language_changed: "Езикът е сменен"
       language_not_changed: "Езикът не бе променен"
-      password_changed: "Паролата е променена"
+      password_changed: "Паролата е променена. Можете да се впишете с новата парола."
       password_not_changed: "Паролата не бе променена"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -123,7 +123,7 @@ es-CL:
     few: "%{count} comentarios"
     many: "%{count} comentarios"
     new_comment: 
-      comment: "Comentario"
+      comment: "Comentar"
       commenting: "Comentando..."
     one: "1 comentario"
     other: "%{count} comentarios"
@@ -267,6 +267,7 @@ es-CL:
       and_others: "y otros %{number}"
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
+    liked: "le gustó tu post"
     mentioned: "te mencionó en un"
     new_request: "quiere compartir contigo."
     post: "post."
@@ -283,6 +284,10 @@ es-CL:
       subject: "%{name} comentó en tu post."
     diaspora: "correo robot de diaspora"
     hello: "¡Hola %{name}!"
+    liked: 
+      liked: "a %{name} le gustó tu post: "
+      sign_in: "Entra para verlo"
+      subject: "a %{name} le gustó tu post"
     love: "cariño,"
     manage_your_email_settings: "maneja tus configuraciones de email"
     mentioned: 
@@ -540,6 +545,7 @@ es-CL:
     stream_element: 
       dislike: "No me gusta esto"
       like: "Me gusta esto"
+      unlike: "No me gusta"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"
@@ -578,6 +584,7 @@ es-CL:
       download_xml: "descargar mi xml"
       edit_account: "Editar cuenta"
       export_data: "Exportar Datos"
+      liked: "...a alguien le gusta tu post?"
       mentioned: "...te mencionan en un post?"
       new_password: "Nueva Contraseña"
       private_message: "...recibes un mensaje privado?"

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ da:
         subject: "Bekræftelsesinstruktioner"
         you_can_confirm: "Du kan bekræfte din konto via nedenstående link:"
       hello: "Hej %{email}!"
-      invitation: 
-        accept: "Acceptér invitation"
-        ignore: "Hvis du ikke ønsker at acceptere invitationen, bedes du ignorere denne e-mail."
-        no_account_till: "Din konto vil ikke blive oprettet før du klikker på linket ovenfor og logger ind."
-        subject: "Du er blevet inviteret til Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", på %{url}, kan du acceptere via linket nedenfor."
         has_invited_you: "%{name} har inviteret dig til Diaspora"

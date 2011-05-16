@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ en_shaw:
       and_others: "𐑯 %{number} 𐑳𐑞𐑼𐑟"
       mark_all_as_read: "𐑥𐑸𐑒 𐑷𐑤 𐑨𐑟 𐑮𐑧𐑛"
       notifications: "𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
+    liked: "has just liked your post"
     mentioned: "𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩"
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
@@ -283,6 +284,10 @@ en_shaw:
       subject: "%{name} 𐑣𐑨𐑟 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 𐑿𐑼 𐑐𐑴𐑕𐑑."
     diaspora: "𐑞 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑦-𐑥𐑱𐑤 𐑮𐑴𐑚𐑪𐑑"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "𐑤𐑳𐑝,"
     manage_your_email_settings: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑦-𐑥𐑱𐑤 𐑕𐑧𐑑𐑦𐑙𐑟"
     mentioned: 
@@ -540,6 +545,7 @@ en_shaw:
     stream_element: 
       dislike: "𐑲 𐑛𐑦𐑕𐑤𐑲𐑒 𐑞𐑦𐑕"
       like: "𐑲 𐑤𐑲𐑒 𐑞𐑦𐑕"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑥𐑧𐑯𐑖𐑩𐑯𐑛: %{names}"
@@ -578,6 +584,7 @@ en_shaw:
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"
       export_data: "𐑧𐑒𐑕𐑐𐑹𐑑 𐑛𐑱𐑑𐑩"
+      liked: "...someone likes your post?"
       mentioned: "...𐑿 𐑸 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑?"
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
       private_message: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡?"

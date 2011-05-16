@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ ar:
         subject: "تعليمات التأكيد"
         you_can_confirm: "يمكنك تأكيد حسابك عبر الرابط التالي"
       hello: "مرحبا %{email}!"
-      invitation: 
-        accept: "قبول الدعوة"
-        ignore: "إذا كنت لا تريد قبول الدعوة, رجاء تجاهل هذه الرسالة"
-        no_account_till: "لن يتم إنشاء حسابك حتى تنقر على الرابط أعلاه وتسجل دخولك"
-        subject: "دعوة من صديق للإنضمام إلى دياسبرا"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", at %{url}, يمكنك قبولها عبر الرابط التالي."
         has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"

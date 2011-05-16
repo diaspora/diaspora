@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,10 +28,10 @@ it:
         subject: "Istruzioni di conferma"
         you_can_confirm: "Puoi confermare il tuo account attraverso il link sottostante:"
       hello: "Ciao %{email}!"
-      invitation: 
+      invitation_instructions: 
         accept: "Accetta l'invito"
-        ignore: "se non vuoi accettare l' invito, perfavore ignora questa email."
-        no_account_till: "Il tuo account non sarà creato finchè non cliccherai sul link qui sopra e ti registrerai."
+        ignore: "Se non vuoi accettare l'invito, perfavore ignora questa email."
+        no_account_till: "Il tuo account non sarà creato finché non cliccherai sul link qui sopra e ti registrerai."
         subject: "Hai un invito per iscriverti a Diaspora!"
       inviters: 
         accept_at: ", a %{url}, lo puoi accettare tramite il link sottostante."

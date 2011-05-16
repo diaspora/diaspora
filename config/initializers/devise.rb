@@ -4,6 +4,15 @@
 
 # Use this hook to configure devise mailer, warden hooks and so forth. The first
 # four configuration values can also be set straight in your models.
+
+class ActionController::Responder
+  def to_mobile
+    default_render
+  rescue ActionView::MissingTemplate => e
+    navigation_behavior(e)
+  end
+end
+
 Devise.setup do |config|
   # Configure the e-mail address which will be shown in DeviseMailer.
   if AppConfig[:smtp_sender_address]
@@ -11,9 +20,9 @@ Devise.setup do |config|
   else
     unless Rails.env == 'test'
       Rails.logger.warn("No smtp sender address set, mail may fail.")
-      puts "WARNING: No smtp sender address set, mail may fail." 
+      puts "WARNING: No smtp sender address set, mail may fail."
     end
-    config.mailer_sender = "please-change-me@config-initializers-devise.com" 
+    config.mailer_sender = "please-change-me@config-initializers-devise.com"
   end
 
   # ==> ORM configuration
@@ -27,7 +36,7 @@ Devise.setup do |config|
   # authenticating an user, both parameters are required. Remember that those
   # parameters are used only when authenticating and not when retrieving from
   # session. If you need permissions, you should implement that in a before filter.
-   config.authentication_keys = [ :username ]
+  config.authentication_keys = [:username]
 
   # Tell if authentication through request.params is enabled. True by default.
   # config.params_authenticatable = true
@@ -56,7 +65,7 @@ Devise.setup do |config|
   # Time interval where the invitation token is valid (default: 0).
   # If invite_for is 0 or nil, the invitation will never expire.
   # config.invite_for = 2.weeks
-  
+
   # ==> Configuration for :confirmable
   # The time you want to give your user to confirm his account. During this time
   # he will be able to access your application without confirming. Default is nil.
@@ -130,6 +139,7 @@ Devise.setup do |config|
   # If you have any extra navigational formats, like :iphone or :mobile, you
   # should add them to the navigational formats lists. Default is [:html]
   # config.navigational_formats = [:html, :iphone]
+  config.navigational_formats = [:"*/*", "*/*", :html, :mobile]
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not (yet) supported by Devise,

@@ -190,3 +190,7 @@ And /^I scroll down$/ do
   sleep 1
   wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
 end
+
+When /^I wait for (\d+) seconds$/ do |seconds|
+  sleep seconds.to_i
+end

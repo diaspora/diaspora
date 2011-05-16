@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ nb:
       and_others: "og %{number} andre"
       mark_all_as_read: "Merk alle som leste"
       notifications: "Varsler"
+    liked: "has just liked your post"
     mentioned: "har nevnt deg i sin"
     new_request: "spør om å få dele med deg."
     post: "innlegg"
@@ -283,6 +284,10 @@ nb:
       subject: "%{name} har kommentert på ditt innlegg."
     diaspora: "diasporas epostrobot"
     hello: "Hei %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "vennlig hilsen,"
     manage_your_email_settings: "administrer e-postinnstillingene"
     mentioned: 
@@ -538,8 +543,9 @@ nb:
     reshare: 
       reshare: "Del på nytt"
     stream_element: 
-      dislike: "Jeg misliker dette"
-      like: "Jeg liker dette"
+      dislike: "Liker ikke"
+      like: "Liker"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Nevnte :%{navn}"
@@ -578,6 +584,7 @@ nb:
       download_xml: "last ned min xml"
       edit_account: "Endre konto"
       export_data: "Eksporter Data"
+      liked: "...someone likes your post?"
       mentioned: " du nevnes i et innlegg?"
       new_password: "Nytt Passord"
       private_message: " du mottar en privat melding?"

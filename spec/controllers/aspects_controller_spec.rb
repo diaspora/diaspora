@@ -355,8 +355,9 @@ describe AspectsController do
 
     it 'eager loads the aspect memberships for all the contacts' do
       get :edit, :id => @alices_aspect_2.id
-      pp assigns[:contacts].count
-      assigns[:contacts].each{ |c| pp @alices_aspect_2.contacts.include?(c); c.aspect_memberships.loaded?.should be_true}
+      assigns[:contacts].each do |c|
+        c.aspect_memberships.loaded?.should be_true
+      end
     end
   end
 

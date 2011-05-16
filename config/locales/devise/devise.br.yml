@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ br:
         subject: "Titouroù-kadarnaat"
         you_can_confirm: "Moaien zo deoc'h kadarnaat ho kont gant al liamm dindan:"
       hello: "Demat, %{email}!"
-      invitation: 
-        accept: "Roit ho asant da'r bedadenn"
-        ignore: "M'ho peus ket c'hoant bezañ pedet n'ho peus ket nemet leuskel ar postel-mañ a-gostez."
-        no_account_till: "Ne vo ket krouet ho hont keit ma n'ho po ket kliket war al liamm dindan ha lakaet hoc'h anv."
-        subject: "Pedet oc'h bet da vont davet Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", e %{url}, moaien zo deoc'h asantiñ dre al liamm a zo dindan."
         has_invited_you: "%{name} en deus pedet ac'hanoc'h da vont davet Diaspora"

@@ -1,3 +1,10 @@
+$blue: #3f8fba;
+$red: red;
+$background: rgb(252, 252, 252);
+
+$speed: 0.1s;
+$easing: linear;
+
 @mixin mobile-box {
   margin: 10px;
   padding: 0 15px;
@@ -38,4 +45,11 @@
 @mixin user-select($val){
   -webkit-user-select: $val;
   -moz-user-select: $val;
+}
+
+@mixin transition($type, $speed:$speed, $easing:$easing){
+  -webkit-transition: $type $speed $easing;
+  -moz-transition: $type $speed $easing;
+  -o-transition: $type $speed $easing;
+  transition: $type $speed $easing;
 }

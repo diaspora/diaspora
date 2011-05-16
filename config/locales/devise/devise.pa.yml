@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,7 +28,7 @@ pa:
         subject: "ਪੁਸ਼ਟੀ ਹਦਾਇਤਾਂ"
         you_can_confirm: "You can confirm your account through the link below:"
       hello: "Hello %{email}!"
-      invitation: 
+      invitation_instructions: 
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."

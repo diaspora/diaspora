@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ is:
       and_others: "and %{number} others"
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: "Tilkynningar"
+    liked: "has just liked your post"
     mentioned: "hefur getið þín í þeirra"
     new_request: "bauð þér samnýtingu."
     post: "setja inn"
@@ -283,6 +284,10 @@ is:
       subject: "%{name} hefur gert atugasemd við þína færslu."
     diaspora: "the diaspora email robot"
     hello: "Halló %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "ást,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ is:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ is:
       download_xml: "download my xml"
       edit_account: "Breyta notandastillingum"
       export_data: "Export Data"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Nýtt lykilorð"
       private_message: "...you receive a private message?"

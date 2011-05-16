@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ he:
       and_others: "ו־%{number} אחרים"
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
+    liked: "has just liked your post"
     mentioned: "הזכיר/ה אותך ב"
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה."
@@ -283,6 +284,10 @@ he:
       subject: "%{name} הגיב/ה על הרשומה שלך."
     diaspora: "רובוט הדוא״ל של דיאספורה"
     hello: "שלום %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "באהבה,"
     manage_your_email_settings: "ניהול הגדרות הדוא״ל שלך"
     mentioned: 
@@ -540,6 +545,7 @@ he:
     stream_element: 
       dislike: "לא אהבתי את זה"
       like: "אהבתי"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "אוזכרו בהצלחה: %{names}"
@@ -578,6 +584,7 @@ he:
       download_xml: "הורדת ה־xml שלי"
       edit_account: "עריכת החשבון"
       export_data: "יצוא הנתונים"
+      liked: "...someone likes your post?"
       mentioned: "...מישהו הזכיר אותך ברשומה?"
       new_password: "ססמה חדשה"
       private_message: "...קיבלת הודעה פרטית?"

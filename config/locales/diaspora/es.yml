@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -236,17 +236,17 @@ es:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} personas no les gusta esto"
-        many: "%{count} personas no les gusta esto"
-        one: "1 persona no le gusta esto"
-        other: "%{count} personas no les gusta esto"
-        zero: "a nadie le disgusta esto"
+        few: "A %{count} no les gusta"
+        many: "A %{count} no les gusta"
+        one: "A 1 no le gusta"
+        other: "A %{count} no les gusta"
+        zero: "A nadie le disgusta"
       people_like_this: 
-        few: "%{count} personas les gusta eso"
-        many: "%{count} personas les gusta esto"
-        one: "1 persona le gusta esto"
-        other: "%{count} personas les gusta esto"
-        zero: "a nadie le gusta esto"
+        few: "A %{count} les gusta"
+        many: "A %{count} les gusta"
+        one: "A 1 le gusta"
+        other: "A %{count} les gusta"
+        zero: "A nadie le gusta"
   more: "Más"
   next: "Siguiente"
   no_results: "No hay resultados"
@@ -267,6 +267,7 @@ es:
       and_others: "y otros %{number}"
       mark_all_as_read: "Marcar todo como leído"
       notifications: "Notificaciones"
+    liked: "le gustó tu publicación"
     mentioned: "te mencionó en una"
     new_request: "quisiera compartir contigo."
     post: "publicación."
@@ -283,6 +284,10 @@ es:
       subject: "%{name} escribió en tu publicación."
     diaspora: "Email robot de Diaspora*"
     hello: "¡Hola %{name}!"
+    liked: 
+      liked: "a %{name} le gustó tu publicación:"
+      sign_in: "Conéctate para poder verlo"
+      subject: "a %{name} le gustó tu publicación"
     love: "¡Qué pasa!"
     manage_your_email_settings: "configura tu correo"
     mentioned: 
@@ -538,8 +543,9 @@ es:
     reshare: 
       reshare: "Publicar en..."
     stream_element: 
-      dislike: "No me gusta esto"
-      like: "Me gusta esto"
+      dislike: "No me gusta"
+      like: "Me gusta"
+      unlike: "No me gusta"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"
@@ -578,6 +584,7 @@ es:
       download_xml: "descargar mi xml"
       edit_account: "Editar cuenta"
       export_data: "Exportar datos"
+      liked: "...a alguien le gusta tu publicación?"
       mentioned: "...eres mencionado en una publicación?"
       new_password: "Nueva contraseña"
       private_message: "...recibes un mensaje privado?"

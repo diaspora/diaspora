@@ -85,24 +85,27 @@ a
 
   .avatar
     :float left
-    :height 40px
-    :width 40px
+    :height 48px
+    :width 48px
 
   .from
     a
+      :margin
+        :left -2px
       :color #000 !important
       :font
         :weight bold !important
 
+    :margin-bottom 2px
+
   .content
     :padding
-      :left 45px
+      :left 58px
 
   :border
     :bottom 1px solid #eee
 
-  :padding 4px 4px
-    :right 8px
+  :padding 10px
 
   .info
     :margin
@@ -118,7 +121,8 @@ a
     :font
       :weight normal
   p
-    :margin 0
+    :margin 0 auto
+    :line-height 1.4em
 
 .comment
   :padding
@@ -301,40 +305,25 @@ ul
     :align left
 
 #header
-  :background
-    :color #111
-  :text
-    :align center
-  :padding 12px 0
-  :border
-    :bottom 1px solid #000
+  @include linear-gradient(#222, #000)
 
-  img
-    :padding
-      :top 2px
-    :margin
-      :bottom -2px
+  :padding 11px 5px
+    :bottom 7px
+  :border
+    :bottom 1px solid #444
 
   .right
     :position absolute
-    :top 0
+    :top 0px
     :padding 6px
-      :top 5px
+      :top 4px
     :right 0
-
-.left
-  :position absolute
-  :top 0
-  :padding 6px
-  :left 0
-
 
 #footer
   :background
     :color #ccc
   .inset
     :padding 10px
-
 
 .notification_day_header
   :padding 6px
@@ -348,13 +337,12 @@ ul
   :color #666
 
 #aspect_header
-  :text
-    :align center
-  :padding 4px
+  :padding 4px 7px 
+    :bottom 7px
   :font
     :weight bold
   :text
     :shadow none
   :background
-    :color #333
-  :color #ccc
+    :color #eee
+  :color #999

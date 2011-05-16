@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -34,4 +34,4 @@ it:
       unknown: "Tipo di video sconosciuto"
       watch: "Guarda questo video su {{provider}}"
     web_sockets: 
-      disconnected: "Il websocket è chiuso; i post non saranno più ricevuti in tempo reale."
+      disconnected: "Il websocket è chiuso; i post non saranno più aggiornati in tempo reale."

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ ga:
       and_others: "and %{number} others"
       mark_all_as_read: "Mark All as Read"
       notifications: "Fograí"
+    liked: "has just liked your post"
     mentioned: "has mentioned you in their"
     new_request: "ofráiladh chun roint leant"
     post: "póst"
@@ -283,6 +284,10 @@ ga:
       subject: "%{name} has commented on your post."
     diaspora: "an róbat ríomhpost diaspora"
     hello: "Haileo %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "le meas,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -540,6 +545,7 @@ ga:
     stream_element: 
       dislike: "I dislike this"
       like: "I like this"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ ga:
       download_xml: "íoslódáil mo xml"
       edit_account: "Athraigh cúntas"
       export_data: "Easpórtáil Sonraí"
+      liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Pasfhocal nua"
       private_message: "...you receive a private message?"

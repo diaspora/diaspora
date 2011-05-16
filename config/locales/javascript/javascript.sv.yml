@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -7,7 +7,7 @@ sv:
   javascripts: 
     confirm_dialog: "Är du säker?"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Inga fler inlägg."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
     search_for: "Sök efter {{name}}"
@@ -23,7 +23,7 @@ sv:
       minutes: "%d minuter"
       month: "ungefär en månad"
       months: "%d månader"
-      prefixAgo: "för"
+      prefixAgo: "För"
       prefixFromNow: "om"
       seconds: "mindre än en minut"
       suffixAgo: "sedan"
@@ -34,4 +34,4 @@ sv:
       unknown: "Okänd videotyp"
       watch: "Se denhär videon på {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "Webbsockeln är stängd; inlägg kommer inte längre att bli direktstreamade."

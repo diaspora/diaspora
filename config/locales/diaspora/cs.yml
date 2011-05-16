@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -123,7 +123,7 @@ cs:
     few: "%{count} komentáře"
     many: "%{count} komentářů"
     new_comment: 
-      comment: "komentář"
+      comment: "Komentář"
       commenting: "Komentování..."
     one: "1 komentář"
     other: "%{count} komentářů"
@@ -267,6 +267,7 @@ cs:
       and_others: "a %{number} dalších"
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
+    liked: "si právě oblíbil váš příspěvek"
     mentioned: "vás zmínil v příspěvku"
     new_request: "nabídnul vám sdílení."
     post: "zpráva"
@@ -283,6 +284,10 @@ cs:
       subject: "%{name} komentoval váš příspěvek."
     diaspora: "diaspora email robot"
     hello: "Vítej %{name}!"
+    liked: 
+      liked: "%{name} si právě oblíbil váš příspěvek: "
+      sign_in: "Přihlaste se pro zobrazení"
+      subject: "%{name} si právě oblíbil váš příspěvek"
     love: "s láskou,"
     manage_your_email_settings: "spravovat nastavení emailu"
     mentioned: 
@@ -540,6 +545,7 @@ cs:
     stream_element: 
       dislike: "to se mi nelíbí"
       like: "to se mi líbí"
+      unlike: "to se mi už nelíbí"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"
@@ -578,6 +584,7 @@ cs:
       download_xml: "stáhnout moje xml"
       edit_account: "Upravit účet"
       export_data: "Exportovat data"
+      liked: "...někomu se líbí váš příspěvek?"
       mentioned: "...jste zmíněn v příspěvku?"
       new_password: "Nové heslo"
       private_message: "...obdržíte soukromou zprávu?"
@@ -608,7 +615,7 @@ cs:
       email_notifications_changed: "Oznámení emailem změněno"
       language_changed: "Jazyk změněn"
       language_not_changed: "Změna jazyka selhala"
-      password_changed: "Heslo změněno"
+      password_changed: "Heslo bylo změněno. Nyní se můžete přihlásit s novým heslem."
       password_not_changed: "Změna hesla selhala"
   webfinger: 
     fetch_failed: "Selhalo načtení webfinger profilu pro %{profile_url}"

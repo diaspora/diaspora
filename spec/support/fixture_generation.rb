@@ -1,4 +1,4 @@
-Rspec::Rails::ControllerExampleGroup.class_eval do
+RSpec::Rails::ControllerExampleGroup.class_eval do
 
   # Saves the markup to a fixture file using the given name
   def save_fixture(markup, name, fixture_path=nil )

@@ -7,9 +7,9 @@
     = t('all_aspects')
   - else
     = @aspect
-
-%h1
   = link_to t('.post_a_message'), '#publisher_page', :id => 'publisher_button'
+
+
 #main_stream.stream
   = render 'shared/stream', :posts => @posts
   -if @posts.length > 0

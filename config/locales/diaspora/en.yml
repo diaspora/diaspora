@@ -644,7 +644,7 @@ en:
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
         skip: "Skip"
     update:
-      password_changed: "Password Changed"
+      password_changed: "Password Changed.  You can now log in with your new password."
       password_not_changed: "Password Change Failed"
       language_changed: "Language Changed"
       language_not_changed: "Language Change Failed"

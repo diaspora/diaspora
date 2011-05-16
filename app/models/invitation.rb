@@ -11,6 +11,7 @@ class Invitation < ActiveRecord::Base
   validates_presence_of :sender, :recipient, :aspect
 
   def self.invite(opts = {})
+    opts[:identifier].downcase! if opts[:identifier]
     return false if opts[:identifier] == opts[:from].email
 
     existing_user = self.find_existing_user(opts[:service], opts[:identifier])
@@ -74,7 +75,8 @@ class Invitation < ActiveRecord::Base
       opts[:from].save!
       invitee.reload
     end
-    invitee.invite!(:email => (opts[:service] == 'email'))
+    invitee.skip_invitation = (opts[:service] != 'email')
+    invitee.invite!
     log_string = "event=invitation_sent to=#{opts[:identifier]} service=#{opts[:service]} "
     log_string << "inviter=#{opts[:from].diaspora_handle} inviter_uid=#{opts[:from].id} inviter_created_at_unix=#{opts[:from].created_at.to_i}" if opts[:from]
     Rails.logger.info(log_string)

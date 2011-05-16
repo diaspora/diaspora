@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -123,7 +123,7 @@ ru:
     few: "%{count} комментариев"
     many: "%{count} комментариев"
     new_comment: 
-      comment: "комментировать"
+      comment: "комментарий"
       commenting: "Комментирование ..."
     one: "1 комментарий"
     other: "%{count} комментариев"
@@ -236,17 +236,17 @@ ru:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} персонам не понравилось"
-        many: "%{count} персонам не понравилось"
-        one: "1 пользователю это не понравилось"
-        other: "%{count} пользователям это не понравилось "
-        zero: "это никому не понравилось "
+        few: "%{count} не понравилось"
+        many: "%{count} не понравилось"
+        one: "%{count} не понравилось"
+        other: "%{count} не понравилось "
+        zero: "никому не понравилось"
       people_like_this: 
-        few: "%{count} персонам это понравилось"
-        many: "%{count} персонам это понравилось"
-        one: "1 человеку это понравилось"
-        other: "%{count} персонам это понравилось"
-        zero: "это никому не понравилось"
+        few: "%{count} понравилось"
+        many: "%{count} понравилось"
+        one: "%{count} понравилось"
+        other: "%{count} понравилось"
+        zero: "никому не понравилось"
   more: "Подробнее"
   next: "далее"
   no_results: "Результатов не найдено"
@@ -267,6 +267,7 @@ ru:
       and_others: "и %{number} других"
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
+    liked: "понравилось Ваше сообщение"
     mentioned: "упомянул вас в"
     new_request: "предлагает поделиться с вами."
     post: "сообщение."
@@ -283,6 +284,10 @@ ru:
       subject: "%{name} прокомментировал ваше сообщение."
     diaspora: "почтовый робот Диаспоры"
     hello: "Привет %{name}!"
+    liked: 
+      liked: "%{name} понравилось Ваше сообщение:"
+      sign_in: "Войдите в систему, чтобы увидеть это"
+      subject: "%{name} понравилось Ваше сообщение"
     love: "С уважением,"
     manage_your_email_settings: "администрировать настройки электронной почты"
     mentioned: 
@@ -538,8 +543,9 @@ ru:
     reshare: 
       reshare: "Поделиться повторно"
     stream_element: 
-      dislike: "Мне это не нравится"
-      like: "Мне это нравится "
+      dislike: "Не нравится"
+      like: "Нравится"
+      unlike: "В отличие от"
   status_messages: 
     create: 
       success: "Успешно упомянут: %{names}"
@@ -578,6 +584,7 @@ ru:
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"
       export_data: "Экспорт информации"
+      liked: "... кому-нибудь нравится ваше сообщение?"
       mentioned: "... Вы упомянуты в сообщении?"
       new_password: "Новый пароль"
       private_message: "... Вы получаете личное сообщение?"

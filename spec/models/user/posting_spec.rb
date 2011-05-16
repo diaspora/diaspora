@@ -41,7 +41,8 @@ describe User do
   describe '#aspects_from_ids' do
     it 'returns a list of all valid aspects a alice can post to' do
       aspect_ids = Aspect.all.map(&:id)
-      alice.aspects_from_ids(aspect_ids).to_set.should == alice.aspects.to_set
+      alice.aspects_from_ids(aspect_ids).map{|a| a}.should ==
+        alice.aspects.map{|a| a} #RSpec matchers ftw
     end
     it "lets you post to your own aspects" do
       alice.aspects_from_ids([@aspect.id]).should == [@aspect]

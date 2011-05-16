@@ -92,11 +92,16 @@ default:
   #s3_secret: 'secret'
   #s3_bucket: 'my_photos'
 
-  
+  # If you want normal Rails logs, set this to false in the appropriate environment.
+  # It is false by default in development and test.
+  enable_splunk_logging: true
+
 development:
+  enable_splunk_logging: false
 
 test:
   pod_url: "http://example.org/"
   socket_port: 8081
+  enable_splunk_logging: false
 
 production:

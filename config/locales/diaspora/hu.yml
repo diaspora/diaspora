@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ hu:
       and_others: "és %{number} másik"
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
+    liked: "has just liked your post"
     mentioned: "megemlített téged egy"
     new_request: "megosztást ajánlott neked."
     post: "bejegyzésben."
@@ -283,6 +284,10 @@ hu:
       subject: "%{name} hozzászólt a bejegyzésedhez."
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "Szeretettel,"
     manage_your_email_settings: "Kezeld az email beállításaidat"
     mentioned: 
@@ -540,6 +545,7 @@ hu:
     stream_element: 
       dislike: "Nem tetszik"
       like: "Tetszik"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Megemlítetted: %{names}"
@@ -578,6 +584,7 @@ hu:
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
       export_data: "Adatok exportálása"
+      liked: "...someone likes your post?"
       mentioned: "...meg vagy említve egy bejegyzésben?"
       new_password: "Új jelszó"
       private_message: "...privát üzenetet kaptál?"

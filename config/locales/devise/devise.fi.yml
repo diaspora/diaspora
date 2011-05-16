@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ fi:
         subject: "Vahvistamisohjeet"
         you_can_confirm: "Voit vahvistaa käyttäjätilisi alla olevan linkin kautta:"
       hello: "Hei, %{email}!"
-      invitation: 
-        accept: "Hyväksy kutsu"
-        ignore: "Jos et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
-        no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
-        subject: "Sinut on kutsuttu käyttämään Diasporaa!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", osoitteessa %{url}, voit hyväksyä sen alla olevan linkin kautta."
         has_invited_you: "%{name} on kutsunut sinut liittymään Diasporaan"

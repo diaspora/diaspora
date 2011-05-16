@@ -50,14 +50,6 @@ GIT
       multi_xml (~> 0.2.0)
       simple_oauth (~> 0.1.2)
 
-GIT
-  remote: git://github.com/zhitomirskiyi/devise_invitable.git
-  revision: 85abb5fef4ab4f74db818ed3d8104c2f7d24b94e
-  branch: 0.3.5
-  specs:
-    devise_invitable (0.3.5)
-      devise (~> 1.1.0)
-
 PATH
   remote: vendor/gems/jasmine
   specs:
@@ -166,9 +158,13 @@ GEM
     culerity (0.2.15)
     daemons (1.1.2)
     database_cleaner (0.6.0)
-    devise (1.1.3)
+    devise (1.3.1)
       bcrypt-ruby (~> 2.1.2)
-      warden (~> 0.10.7)
+      orm_adapter (~> 0.0.3)
+      warden (~> 1.0.3)
+    devise_invitable (0.5.0)
+      devise (~> 1.3.1)
+      rails (<= 3.2, >= 3.0.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -301,6 +297,7 @@ GEM
       oa-oauth (= 0.1.6)
       oa-openid (= 0.1.6)
     open4 (1.0.1)
+    orm_adapter (0.0.5)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
     rack (1.2.2)
@@ -336,20 +333,20 @@ GEM
       vegas (~> 0.1.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
-    rspec (2.5.0)
-      rspec-core (~> 2.5.0)
-      rspec-expectations (~> 2.5.0)
-      rspec-mocks (~> 2.5.0)
-    rspec-core (2.5.1)
-    rspec-expectations (2.5.0)
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+    rspec-core (2.6.0)
+    rspec-expectations (2.6.0)
       diff-lcs (~> 1.1.2)
     rspec-instafail (0.1.7)
-    rspec-mocks (2.5.0)
-    rspec-rails (2.5.0)
+    rspec-mocks (2.6.0)
+    rspec-rails (2.6.0)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
-      rspec (~> 2.5.0)
+      rspec (~> 2.6.0)
     ruby-debug (0.10.4)
       columnize (>= 0.1)
       ruby-debug-base (~> 0.10.4.0)
@@ -387,12 +384,12 @@ GEM
     typhoeus (0.2.4)
       mime-types
       mime-types
-    tzinfo (0.3.26)
+    tzinfo (0.3.27)
     uuidtools (2.1.2)
     vegas (0.1.8)
       rack (>= 1.0.0)
-    warden (0.10.7)
-      rack (>= 1.0.0)
+    warden (1.0.4)
+      rack (>= 1.0)
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
@@ -418,8 +415,8 @@ DEPENDENCIES
   cloudfiles (= 1.4.10)
   cucumber-rails (= 0.3.2)
   database_cleaner (= 0.6.0)
-  devise (= 1.1.3)
-  devise_invitable!
+  devise (= 1.3.1)
+  devise_invitable (= 0.5.0)
   em-websocket!
   excon (= 0.2.4)
   factory_girl_rails

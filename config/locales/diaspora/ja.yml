@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ ja:
       and_others: "他%{number}件"
       mark_all_as_read: "全件を既読にする"
       notifications: "通知"
+    liked: "has just liked your post"
     mentioned: "さんはあなたをメンションしました。"
     new_request: "さんは共有の許可を求めました。"
     post: "（投稿で）"
@@ -283,6 +284,10 @@ ja:
       subject: "%{name}は投稿にコメントしました。"
     diaspora: "ダイアスポラ＊メールロボット"
     hello: "%{name}さん、こんにちは！"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "それでは、"
     manage_your_email_settings: "メール設定を管理する"
     mentioned: 
@@ -540,6 +545,7 @@ ja:
     stream_element: 
       dislike: "これ嫌い！"
       like: "これ好き！"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "%{names}を参照するのに成功しました。"
@@ -578,6 +584,7 @@ ja:
       download_xml: "XMLをダウンロードする"
       edit_account: "アカウント編集"
       export_data: "データ出力"
+      liked: "...someone likes your post?"
       mentioned: "投稿に自分がメンションされたとき"
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"

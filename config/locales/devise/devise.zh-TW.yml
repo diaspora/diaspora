@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ zh-TW:
         subject: "確認步驟"
         you_can_confirm: "你可以使用以下連結確認帳號:"
       hello: "你好, %{email}!"
-      invitation: 
-        accept: "接受邀請"
-        ignore: "如果你不想接受邀請, 請忽略這封信件."
-        no_account_till: "在使用以上連結並登記後, 你的帳號才會建立."
-        subject: "有人邀請你加入 Diaspora!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", 在 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name} 邀請你加入 Diaspora"

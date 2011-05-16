@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ lt:
         subject: "Patvirtinimo nurodymai"
         you_can_confirm: "Paskyrą galima patvirtinti žemiau pateikta nuoroda:"
       hello: "Labas, %{email}!"
-      invitation: 
-        accept: "Priimti pakvietimą"
-        ignore: "Jei nenori priimti pakvietimo, ignoruok šį laišką."
-        no_account_till: "Paskyra nebus sukurta, kol nebus pasinaudota aukščiau esančia nuoroda ir užregistruotas naujas vartotojas."
-        subject: "Draugas nori prisijungti prie Diasporos!"
+      invitation_instructions: 
+        accept: "Accept invitation"
+        ignore: "If you don't want to accept the invitation, please ignore this email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", adresu %{url} kurį galima priimti naudojantis žemiau pateikta nuoroda."
         has_invited_you: "%{name} kviečia prisijungti prie Diasporos"

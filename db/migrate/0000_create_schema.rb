@@ -154,7 +154,10 @@ class CreateSchema < ActiveRecord::Migration
       t.string :email
 
       t.database_authenticatable
-      t.invitable
+
+      t.string   :invitation_token, :limit => 60
+      t.datetime :invitation_sent_at
+
       t.recoverable
       t.rememberable
       t.trackable

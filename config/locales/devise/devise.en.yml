@@ -72,7 +72,7 @@ en:
         account_locked: "Your account has been locked due to an excessive amount of unsuccessful sign in attempts."
         click_to_unlock: "Click the link below to unlock your account:"
         unlock: "Unlock my account"
-      invitation:
+      invitation_instructions:
         subject: "You've been invited to join Diaspora!"
         accept: "Accept invitation"
         ignore: "If you don't want to accept the invitation, please ignore this email."

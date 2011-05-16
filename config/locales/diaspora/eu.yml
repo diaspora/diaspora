@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -123,7 +123,7 @@ eu:
     few: "%{count} iruzkin"
     many: "%{count} iruzkin"
     new_comment: 
-      comment: "iruzkindu"
+      comment: "Iruzkindu"
       commenting: "Iruzkintzen..."
     one: "iruzkin 1"
     other: "%{count} iruzkin"
@@ -231,22 +231,22 @@ eu:
       code: "kodea"
       login: "sartu"
       logout: "irten"
-      profile: "Profila"
-      settings: "Lehentasunak"
+      profile: "profila"
+      settings: "lehentasunak"
   likes: 
     likes: 
       people_dislike_this: 
         few: "%{count} pertsonek ez dute hau gustuko"
         many: "%{count} pertsonek ez dute hau gustuko"
-        one: "pertsona batek ez du hau gustuko"
+        one: "%{count}ek ez du hau gustuko"
         other: "%{count} pertsonek ez dute hau gustuko"
-        zero: "gusoko ez duen pertsonarik ez dago"
+        zero: "gustoko ez duen pertsonarik ez"
       people_like_this: 
         few: "%{count} pertsonek gustoko dute hau"
         many: "%{count} pertsonek gustoko dute hau"
-        one: "pertsona batek gustoko du hau"
+        one: "%{count}ek du gustoko"
         other: "%{count} pertsonek gustoko dute hau"
-        zero: "hau ez du inork gustoko"
+        zero: "oraindik ez du inork gustoko"
   more: "Gehiago"
   next: "hurrengoa"
   no_results: "Ez Da Ezer Aurkitu"
@@ -267,6 +267,7 @@ eu:
       and_others: "eta beste %{number}(e)k"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
+    liked: "(e)k zure mezua gustoko du"
     mentioned: "(e)k zu aipatu zaitu hemen:"
     new_request: "(e)k zurekin partekatu nahi du."
     post: "mezua."
@@ -283,6 +284,10 @@ eu:
       subject: "%{name}(e)k zure mezua iruzkindu du."
     diaspora: "diasporaren e-posta robota"
     hello: "Kaixo, %{name}!"
+    liked: 
+      liked: "%{name}(e)k zure mezua gustoko du:"
+      sign_in: "Sartu zaitez ikusteko"
+      subject: "%{name}(e)k zure mezua atsegin du"
     love: "ikusi arte,"
     manage_your_email_settings: "kudeatu zure e-posta ezarpenak"
     mentioned: 
@@ -540,6 +545,7 @@ eu:
     stream_element: 
       dislike: "Ez dut gustoko"
       like: "Gustoko dut"
+      unlike: "Ez dut gustoko"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"
@@ -578,6 +584,7 @@ eu:
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
       export_data: "Datuak esportatu"
+      liked: "...norbaitek zure mezu bat gustoko duenean?"
       mentioned: "...mezu batean aipatzen zaituztenean?"
       new_password: "Pasahitz Berria"
       private_message: "...mezu pribatu bat jasotzen duzunean?"
@@ -608,7 +615,7 @@ eu:
       email_notifications_changed: "E-posta janirazpenak aldatu dituzu"
       language_changed: "Hizkuntza Aldatua"
       language_not_changed: "Hizkuntza aldaketak huts egin du"
-      password_changed: "Pasahitza aldatu duzu"
+      password_changed: "Pasahitza aldatu duzu. Orain zure pasahitz berria erabiliz sar zaitezke."
       password_not_changed: "Pasahitz Aldaketak Huts egin du"
   webfinger: 
     fetch_failed: "ezin izan da webfinger profila hartu %{profile_url} webgunetik"

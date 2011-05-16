@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -267,6 +267,7 @@ de:
       and_others: "und %{number} andere"
       mark_all_as_read: "Markiere alle als gelesen"
       notifications: "Benachrichtigungen"
+    liked: "gefällt dein Beitrag"
     mentioned: "hat dich erwähnt in einem"
     new_request: "hat angeboten mit dir zu teilen."
     post: "Beitrag"
@@ -283,6 +284,10 @@ de:
       subject: "%{name} hat deinen Beitrag kommentiert."
     diaspora: "der Diaspora E-Mail-Roboter"
     hello: "Hallo %{name}!"
+    liked: 
+      liked: "%{name} gefällt dein Beitrag: "
+      sign_in: "Melde dich an um es zu sehen"
+      subject: "%{name} gefällt dein Beitrag"
     love: "Gruß,"
     manage_your_email_settings: "E-Mail  Einstellungen"
     mentioned: 
@@ -540,6 +545,7 @@ de:
     stream_element: 
       dislike: "Gefällt mir nicht"
       like: "Gefällt mir"
+      unlike: "Gefällt mir nicht mehr"
   status_messages: 
     create: 
       success: "Erfolgreich erwähnt: %{names}"
@@ -578,6 +584,7 @@ de:
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
       export_data: "Daten exportieren"
+      liked: "... wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
       new_password: "Neues Passwort"
       private_message: "… du eine private Nachricht erhältst?"

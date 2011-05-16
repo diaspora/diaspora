@@ -38,6 +38,8 @@ javascripts:
     - public/javascripts/content-updater.js
     - public/javascripts/search.js
     - public/javascripts/contact-edit.js
+  login:
+    - public/javascripts/login.js
   mobile:
     - public/javascripts/vendor/jquery152.min.js
     - public/javascripts/custom-mobile-scripting.js

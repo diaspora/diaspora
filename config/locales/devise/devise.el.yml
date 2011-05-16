@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,11 +28,11 @@ el:
         subject: "Οδηγίες επιβεβαίωσης"
         you_can_confirm: "Μπορείτε να επιβεβαιώσετε τον λογαριασμό σας μέσω του παρακάτω συνδέσμου:"
       hello: "Γειά σου %{email}!"
-      invitation: 
+      invitation_instructions: 
         accept: "Αποδοχή πρόσκλησης"
-        ignore: "Εάν δεν θέλετε να αποδεχθείτε την πρόσκληση, αγνοήστε αυτό το μήνυμα."
-        no_account_till: "Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να επισκεφθείτε τον παραπάνω σύνδεσμο και να εγγραφείτε."
-        subject: "Έχετε λάβει πρόσκληση για να γίνετε μέλος του Diaspora!"
+        ignore: "Εάν δεν θέλετε να αποδεχτήτε την πρόσκληση, παρακαλώ αγνοήστε αυτό το email."
+        no_account_till: "Your account won't be created until you access the link above and sign up."
+        subject: "You've been invited to join Diaspora!"
       inviters: 
         accept_at: ", στο %{url}, μπορείτε να το αποδεχτείτε, μέσω του επόμενου συνδέσμου."
         has_invited_you: "Ο χρήστης %{name} σας προσκάλεσε να γίνετε μέλος του Diaspora"

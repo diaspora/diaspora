@@ -73,4 +73,4 @@ Also, be sure to join the official [mailing list](http://eepurl.com/Vebk).
 
 If you wish to contact us privately about any exploits in Diaspora you may
 find, you can email
-[exploits@joindiaspora.com](mailto:exploits@joindiaspora.com).
+[exploits@joindiaspora.com](mailto:exploits@joindiaspora.com), [corresponding public key (keyID: 77485064)](http://pgp.mit.edu:11371/pks/lookup?op=vindex&search=0xCC6CAED977485064).

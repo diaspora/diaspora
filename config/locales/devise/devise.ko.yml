@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -28,7 +28,7 @@ ko:
         subject: "확인 안내"
         you_can_confirm: "아래 링크로 계정을 확인할 수 있습니다:"
       hello: "%{email} 님 환영합니다!"
-      invitation: 
+      invitation_instructions: 
         accept: "초대 수락하기"
         ignore: "초대를 수락하지 않으려면 이 메일을 무시하세요."
         no_account_till: "계정은 가입하지 않는 한 만들어지지 않습니다."
@@ -84,7 +84,7 @@ ko:
         sign_up: "가입하기"
         sign_up_closed: "공개 가입이 닫혀있습니다."
       mail_signup_form: 
-        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두세오!"
+        sign_up_for_an_invite: "초대받고 싶으면 이메일 주소를 등록해두세요!"
     unlocks: 
       new: 
         resend_unlock: "풀기 메일 다시 보내기"

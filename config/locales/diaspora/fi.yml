@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -236,17 +236,17 @@ fi:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
+        few: "%{count} ei tykkää"
+        many: "%{count} ei tykkää"
+        one: "%{count} ei tykkää"
         other: "%{count} people disliked this"
         zero: "no people disliked this"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} ihmistä tykkää tästä"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} tykkää"
+        many: "%{count} tykkää"
+        one: "%{count} tykkää"
+        other: "%{count} tykkää"
+        zero: "ei tykkäyksiä"
   more: "Lisää"
   next: "seuraava"
   no_results: "Tuloksia ei löytynyt"
@@ -263,10 +263,11 @@ fi:
         other: "%{count} uutta ilmoitusta"
         zero: "ei uusia ilmoituksia"
     index: 
-      and: "and"
-      and_others: "and %{number} others"
+      and: "ja"
+      and_others: "ja %{number} muuta"
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
+    liked: "has just liked your post"
     mentioned: "on maininnut sinut "
     new_request: "haluaa jakaa kanssasi."
     post: "viesti."
@@ -283,6 +284,10 @@ fi:
       subject: "%{name} on kommentoinut viestiisi."
     diaspora: "Diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
+    liked: 
+      liked: "%{name} has just liked your post: "
+      sign_in: "Sign to view it"
+      subject: "%{name} has just liked your post"
     love: "Terveisin,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -539,7 +544,8 @@ fi:
       reshare: "Jaa uudelleen"
     stream_element: 
       dislike: "En tykkää"
-      like: "Tykkään"
+      like: "Tykkää"
+      unlike: "Unlike"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -578,6 +584,7 @@ fi:
       download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"
       export_data: "Vie tietoja"
+      liked: "...someone likes your post?"
       mentioned: "...sinut mainitaan viestissä?"
       new_password: "Uusi salasana"
       private_message: "...saat uuden viestin?"

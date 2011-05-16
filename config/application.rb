@@ -9,7 +9,6 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
-require File.expand_path('../../lib/log_overrider', __FILE__)
 require File.expand_path('../../lib/fake', __FILE__)
 
 module Diaspora

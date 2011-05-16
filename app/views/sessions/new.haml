@@ -3,65 +3,51 @@
 -#   the COPYRIGHT file.
 
 = content_for :head do
+  = include_javascripts :login
+
   :css
     header{ display:none; }
-    footer{ position: absolute; bottom: 12px; }
-
-  :javascript
-    $(document).ready( function(){
-      $("#user_username").focus();
-      $("form").submit(function(){
-        $(this).fadeOut(200, function(){
-          $('#logo').animate({
-            'margin-top': '+=80'
-          }, 250, function(){
-            $("#spinner").fadeIn(300);
-          });
-        });
-        $(".login_error").remove();
-      });
-    });
+    footer{ position: absolute; bottom: 6px; }
 
 .container{:style => 'text-align:center;'}
   #login
-    = image_tag('logo_caps.png', :id => 'logo', :width => 143, :height => 21)
-    %br
-    %br
+    %p
+      = image_tag('asterisk.png', :id => 'asterisk', :class => 'logo', :height => 154, :width => 154)
+    %p
+      = image_tag('logo_caps.png', :id => 'logo', :width => 98, :height => 14)
 
     - flash.each do |name, msg|
       = content_tag :p, msg, :class => "login_error"
 
     = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+
       %p
         = f.label :username , t('username')
-        = f.text_field :username
-        %span.pod_location
-          ="@#{AppConfig[:pod_uri].host}"
-          %br
-          %br
+        = f.text_field :username, :tabindex => 1
+      %br
 
       %p
         = f.label :password , t('password')
-        = f.password_field :password
-        %span
-          - if devise_mapping.recoverable? && controller_name != 'passwords'
-            = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name)
-          - else
-            \.
-          %br
-          - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
-            = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
-          - else
-            \.
+        = f.password_field :password, :tabindex => 2
 
-      %p.submit
-        = f.submit t('devise.sessions.new.sign_in')
+        - if devise_mapping.recoverable? && controller_name != 'passwords'
+          = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), :id => "forgot_password_link", :class => 'hidden', :tabindex => 5
+
+      %br
+      %p#controls.hidden
         %span#remember_me
           - if devise_mapping.rememberable?
-            = f.check_box :remember_me
+            = f.check_box :remember_me, :tabindex => 3
             = f.label :remember_me, t('devise.sessions.new.remember_me')
-          - else
-            \.
+        %br
+        = f.submit t('devise.sessions.new.sign_in'), :tabindex => 4
 
-    = image_tag 'ajax-loader.gif', :id => "spinner", :class => "hidden"
+
+      - if !AppConfig[:registrations_closed] && devise_mapping.registerable? && controller_name != 'registrations'
+        %br
+        %br
+        %br
+        %br
+        = link_to t('devise.shared.links.sign_up'), new_registration_path(resource_name)
+      
 
