@@ -8,10 +8,11 @@
     &#9660;
 
   .wrapper
-    %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => ((@person.id) if @person)}
+    %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => ((person.id) if person)}
       - for aspect in @all_aspects
         = aspect_dropdown_list_item(aspect, contact, person)
-        
-      %li.newItem
-        .add_aspect
-          = link_to "Add a new aspect", new_aspect_path(:person_id => person.id), :rel => 'facebox'
+              
+      - if defined?(@aspect) && ( @aspect == :profile || @aspect == :tag)
+        %li.newItem
+          .add_aspect
+            = link_to "Add a new aspect", new_aspect_path(:person_id => person.id), :rel => 'facebox'

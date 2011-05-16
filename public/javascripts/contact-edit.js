@@ -8,9 +8,15 @@ var ContactEdit = {
       ContactEdit.processClick($(this), evt);
     });
   },
-  updateNumber: function(){
-    var number =  $(".dropdown_list input[type=checkbox]:checked").length
-    var element = $('.button.toggle');
+  updateNumber: function(personId){
+    console.log(personId);
+    var dropdown = $(".dropdown_list[data-person_id=" + personId.toString() +"]")
+    console.log(dropdown);
+
+    var number =  dropdown.find("input[type=checkbox]:checked").length
+
+    console.log(number);
+    var element = dropdown.parents(".dropdown").children('.button.toggle');
 
     var replacement;
 
