@@ -17,10 +17,10 @@
 
   :display inline
 
-  :padding 5px 5px
+  :padding 5px 7px
   :min-width 26px
 
-  :font-size 13px
+  :font-size 12px
   :line
     :height 13px
 
@@ -114,4 +114,110 @@ ul.button_set
 
   :border 4px solid #000
   :padding 2em
+
+
+
+
+.dropdown
+  :position relative
+  :display inline-block
+
+  .button
+    :width 240px
+
+  .wrapper
+    @include box-shadow(0, 2px, 5px, #666)
+
+    :z-index 20
+    :position absolute
+    :display none
+    :width 140px
+    :padding 4px 0
+    :margin-top 2px
+    :background
+      :color #fff
+    :border 1px solid #999
+
+    ul
+      @include user-select(none)
+
+      :padding 0 !important
+      :margin 0 !important
+      :color #333
+
+      > li
+        :font-size 11px !important
+        :padding 3px 2px 
+          :left 24px
+        :position relative
+
+        .check,
+        .checkWhite
+          :position absolute
+          :left 4px
+          :top 1px
+
+        .checkWhite
+          :display none
+          :top 0px
+
+        &.newItem
+          a
+            :color #999
+            :font-style italic
+
+            &:hover
+              :text-decoration none
+          
+
+  &.hang_right
+    .wrapper
+      @include border-radius(3px, 0, 3px, 3px)
+      :right 3px
+
+  &.hang_left
+    .wrapper
+      @include border-radius(0, 3px, 3px, 3px)
+      :left 0px
+
+  &.active
+    .wrapper
+      :display block
+
+    .button
+      @include border-radius(3px, 3px, 0, 0)
+      :border 1px solid #444
+        :bottom none
+    
+    .selected
+      :font-weight bold
+
+    .button,
+    .wrapper ul > li:hover
+      :background #666
+      :color #fff
+      :text-shadow none
+
+
+    .wrapper ul > li:hover
+      :border
+        :top 1px solid #444
+        :bottom 1px solid #444
+      :padding
+        :top 2px
+        :bottom 2px
+
+      a
+        :color #ccc
+
+    .wrapper ul > li,
+    .wrapper ul > li *
+      :cursor pointer
+
+    .selected:hover .checkWhite
+      :display block
+
+    .selected:hover .check
+      :display none
+
 

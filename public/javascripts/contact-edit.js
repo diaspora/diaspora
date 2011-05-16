@@ -8,15 +8,11 @@ var ContactEdit = {
       ContactEdit.processClick($(this), evt);
     });
   },
+
   updateNumber: function(personId){
-    console.log(personId);
-    var dropdown = $(".dropdown_list[data-person_id=" + personId.toString() +"]")
-    console.log(dropdown);
-
-    var number =  dropdown.find("input[type=checkbox]:checked").length
-
-    console.log(number);
-    var element = dropdown.parents(".dropdown").children('.button.toggle');
+    var dropdown = $(".dropdown_list[data-person_id=" + personId.toString() +"]"),
+        number = dropdown.find(".selected").length,
+        element = dropdown.parents(".dropdown").children('.button.toggle');
 
     var replacement;
 
@@ -33,26 +29,21 @@ var ContactEdit = {
       replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
 
-    element.html(replacement);
+    element.html(replacement + ' ▼');
   },
   
   toggleCheckbox: 
-    function(checkbox){
-      if(checkbox.attr('checked')){
-        checkbox.removeAttr('checked');
-      } else {
-        checkbox.attr('checked', true);
-      }
+    function(check){
+      check.toggleClass('hidden');
+      check.parent('li').toggleClass('selected');
     },
 
-  processClick:  function(li, evt){
+  processClick: function(li, evt){
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
 
-    if( evt.target.type != "checkbox" ) {
-      var checkbox = li.find('input[type=checkbox]');
-      ContactEdit.toggleCheckbox(checkbox);
-    }
+    var checkbox = li.find('img.check');
+    ContactEdit.toggleCheckbox(checkbox);
 
     $.fn.callRemote.apply(button);
   },

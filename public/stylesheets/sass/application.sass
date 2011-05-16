@@ -249,63 +249,6 @@ ul.dropdown
 
 //////////////////////////////////
 
-.dropdown
-  :position relative
-  :display inline-block
-
-  .button
-    :width 240px
-
-  .wrapper
-    :z-index 20
-    :position absolute
-    :display none
-    :width 140px
-    :padding 2px 0
-    :margin-top 3px
-    :background
-      :color #eee
-    :border 1px solid #AAA
-
-    ul
-      @include user-select(none)
-      :padding 0
-
-      > li
-        :padding 1px 6px
-
-        input
-          :position relative
-          :display inline
-          :top 1px
-
-  &.hang_right
-    .wrapper
-      :right 4px
-
-  &.hang_left
-    .wrapper
-      :left 0px
-
-  &.active
-    .wrapper
-      :display block
-
-    .button
-      @include border-radius(3px, 3px, 0, 0)
-
-    .button,
-    .wrapper ul > li:hover
-      :background desaturate($blue,10%)
-      :color #fff
-      :text-shadow none
-
-    .wrapper ul > li,
-    .wrapper ul > li *
-      :cursor pointer
-
-
-
 .unread
   :font-weight bold
   :color #333 !important

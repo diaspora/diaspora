@@ -18,7 +18,7 @@
   %h1.tag
     = "##{params[:name]}"
 
-.span-15
+.span-13
   #main_stream.stream
     - if @posts.length > 0
       = render 'shared/stream', :posts => @posts
@@ -27,7 +27,7 @@
     - else
       = t('.nobody_talking', :tag => "##{params[:name]}")
 
-.prepend-2.span-7.last
+.prepend-2.span-9.last
   %h3
     = t('people', :count => @people_count)
 
@@ -38,8 +38,9 @@
         - if current_user
           - contact = current_user.contacts.find_by_person_id(person.id)
           - contact ||= Contact.new(:person => person)
-          .right
-            = render 'contacts/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
+          - unless person == current_user.person
+            .right
+              = render 'contacts/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
 
         .content
           %span.from
