@@ -23,10 +23,11 @@
       %p
         = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
 
-      %hr{:style=>"width:300px;"}
 
-    %br
-    = render 'contacts/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
+    - if person != current_user.person
+      %hr{:style=>"width:300px;"}
+      %br
+      = render 'contacts/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
       
     -if contact.sharing? || person == current_user.person
       %br
