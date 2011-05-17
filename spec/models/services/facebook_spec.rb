@@ -28,7 +28,7 @@ describe Services::Facebook do
   end
 
   context 'finder' do
-    before do
+    before do 
       @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
@@ -70,25 +70,16 @@ JSON
     end
 
     describe '#finder' do
-      it 'returns an array of non-activerecord objects' do
-        @service.save_friends
-        result = @service.finder
-        result.should be_an(Array)
-        result.first.should_not be_an ActiveRecord::Base
-      end
-
       it 'does a syncronous call if it has not been called before' do
         @service.should_receive(:save_friends)
         @service.finder
       end
-
       it 'dispatches a resque job' do
         Resque.should_receive(:enqueue).with(Job::UpdateServiceUsers, @service.id)
         su2 = ServiceUser.create(:service => @user2_service, :uid => @user2_fb_id, :name => @user2_fb_name, :photo_url => @user2_fb_photo_url)
         @service.service_users = [su2]
         @service.finder
       end
-
       context 'opts' do
         it 'only local does not return people who are remote' do
           @service.save_friends

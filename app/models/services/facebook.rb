@@ -27,16 +27,14 @@ class Services::Facebook < Service
       Resque.enqueue(Job::UpdateServiceUsers, self.id)
     end
     person = Person.arel_table
-
-    query = self.service_users.scoped
+    service_user = ServiceUser.arel_table
     if opts[:local]
-      query = query.joins(:person).where(person[:owner_id].not_eq(nil))
+      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].not_eq(nil)).all
     elsif opts[:remote]
-      query = query.joins(:person).where(person[:owner_id].eq(nil))
+      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].eq(nil)).all
+    else
+      self.service_users
     end
-
-    result = ServiceUser.connection.execute(query.to_sql).to_a
-    fakes = result.map{|r| FakeServiceUser.new(r) }
   end
 
   def save_friends

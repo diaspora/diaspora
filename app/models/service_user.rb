@@ -12,7 +12,7 @@ class ServiceUser < ActiveRecord::Base
   def attach_local_models
     service_for_uid = Services::Facebook.where(:type => service.type.to_s, :uid => self.uid).first
     if !service_for_uid.blank? && (service_for_uid.user.person.profile.searchable)
-      self.person = service_for_uid.user.person
+      self.person = service_for_uid.user.person 
     else
       self.person = nil
     end
@@ -28,28 +28,3 @@ class ServiceUser < ActiveRecord::Base
                                                                        :invitation_identifier => self.uid}).first
   end
 end
-
-class FakeServiceUser < HashWithIndifferentAccess
-  def initialize(row)
-    columns = ServiceUser.column_names
-    self.replace Hash[columns.zip(row)]
-  end
-
-  ServiceUser.column_names.each do |column|
-    symbol = column.to_sym
-    define_method symbol do
-      self[symbol]
-    end
-  end
-
-  ServiceUser.reflect_on_all_associations.each do |assoc|
-    define_method assoc.name do
-      if associated_id = self[assoc.primary_key_name]
-        assoc.klass.unscoped.find(associated_id)
-      else
-        nil
-      end
-    end
-  end
-end
-
