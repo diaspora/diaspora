@@ -43,10 +43,9 @@ for when to rebase.
 
 We need you to fill out a
 [contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
-before we can accept your patches.  The agreement gives Diaspora joint
-ownership of the patch so the copyright isn't scattered.  You can find it
+before we can accept your patches.  This dual license agreement allows
+us to release limited pieces of Diaspora under the MIT license.  You can find it
 [here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ).
-We're currently working on revising it more details on what we're going for can be found [here](http://blog.joindiaspora.com/licensing.html).
 
 ## Resources
 
