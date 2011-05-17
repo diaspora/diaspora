@@ -45,7 +45,7 @@ class FakeServiceUser < HashWithIndifferentAccess
   ServiceUser.reflect_on_all_associations.each do |assoc|
     define_method assoc.name do
       if associated_id = self[assoc.primary_key_name]
-        assoc.klass.find(associated_id)
+        assoc.klass.unscoped.find(associated_id)
       else
         nil
       end

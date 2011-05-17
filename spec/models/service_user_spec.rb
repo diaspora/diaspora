@@ -134,6 +134,7 @@ describe FakeServiceUser do
 
     it 'has association methods' do
       person = mock
+      Person.stub!(:unscoped).and_return(Person)
       Person.should_receive(:find).with(@data[5]).and_return person
       @fake.person.should == person
     end
