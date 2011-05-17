@@ -10,6 +10,7 @@ OS=`uname -s`
 
 [ -e config/server.sh ] && source config/server.sh
 
+export SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
 
 function init_public
 # Create all dynamically generated files in public/ folder
@@ -169,6 +170,8 @@ fi
 
 mkdir -p -v log/thin/
 bundle exec ruby ./script/websocket_server.rb&
-redis-server config/redis.conf &>log/redis-console.log &
-QUEUE=* bundle exec rake resque:work&
+if [ "$(./script/get_config.rb single_process_mode $RAILS_ENV)" = "false" ]; then
+    redis-server config/redis.conf &>log/redis-console.log &
+    QUEUE=* bundle exec rake resque:work&
+fi
 bundle exec thin start $args
