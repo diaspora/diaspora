@@ -4,7 +4,7 @@ Dir[File.join(Rails.root, 'app', 'models', 'jobs', '*.rb')].each { |file| requir
 require 'resque'
 
 begin
-  if Diaspora::Application.config.work_in_process
+  if AppConfig[:single_process_mode]
     if Rails.env == 'production'
       puts "WARNING: You are running Diaspora in production without Resque workers turned on.  Please don't do this."
     end
