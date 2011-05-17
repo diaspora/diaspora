@@ -7,9 +7,9 @@
 .ui-autocomplete
   :left -11px
 
-.button, .button_set
+.button
   @include border-radius(3px)
-  @include linear-gradient(#f6f6f6,#d0d0d0)
+  @include linear-gradient(#f7f7f7,#d0d0d0)
 
   :font
     :style normal
@@ -17,7 +17,7 @@
 
   :display inline
 
-  :padding 5px 7px
+  :padding 4px 7px
   :min-width 26px
 
   :font-size 12px
@@ -27,8 +27,8 @@
   :min-height 10px
 
   :border 1px solid #aaa
-    :top 1px solid #ccc
-    :bottom 1px solid #666
+    :top 1px solid #bbb
+    :bottom 1px solid #888
 
   :cursor pointer
 
@@ -51,8 +51,8 @@
     :color #111
     :text-shadow 0 1px 0 #ccc
     :border 1px solid #666
-      :top 1px solid #333
-      :bottom 1px solid #888
+      :top 1px solid #444
+      :bottom 1px solid #999
 
   img
     :position relative
@@ -60,37 +60,7 @@
     :width 20px
     :top 6px
 
-ul.button_set
-
-  :padding
-    :left 0
-    :right 0
-
-  > li
-    :padding 5px
-    :display inline
-    :height 100%
-    :border
-      :left 1px solid #ccc
-      :right 1px solid #fff
-
-    :margin
-      :left -3px
-      :right -3px
-
-    &:first-child
-      :margin
-        :left 0
-      :border
-        :left none
-
-    &:last-child
-      :margin
-        :right 0
-      :border
-        :right none
-
-.button .selected, .button_set .selected
+.button .selected
   @include linear-gradient(#f0f0f0,#fafafa,29%,85%)
 
   :border
@@ -99,23 +69,6 @@ ul.button_set
 .right
   :position absolute
   :right 0
-
-.contextual_pane
-  @include border-radius(3px)
-  @include box-shadow(0,0,10px,#000)
-
-  :z-index 20
-
-  :position absolute
-  :display none
-
-  :background
-    :color #fff
-
-  :border 4px solid #000
-  :padding 2em
-
-
 
 
 .dropdown
@@ -133,7 +86,7 @@ ul.button_set
     :display none
     :width 140px
     :padding 4px 0
-    :margin-top 2px
+    :margin-top 1px
     :background
       :color #fff
     :border 1px solid #999
