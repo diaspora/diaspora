@@ -63,4 +63,11 @@ describe Diaspora::Socketable do
     Diaspora::WebSocket.should_receive(:queue_to_user)
     @post.socket_to_user(@user, :aspect_ids => @aspect.id)
   end
+
+  it 'no-ops if redis isnt present' do
+    Diaspora::WebSocket.stub(:redis).and_return(nil)
+    lambda {
+      @post.socket_to_user(@user, :aspect_ids => @aspect.id)
+    }.should_not raise_error
+  end
 end
