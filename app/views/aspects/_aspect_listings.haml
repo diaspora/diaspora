@@ -16,7 +16,7 @@
     %li#sharers{:class => ("dull" if @contacts_sharing_with.size == 0)}
       .right
         %b
-          = link_to t('contacts', :count => @contacts_sharing_with.size), contacts_sharing_path, :rel => 'facebox', :class => 'contact-count'
+          = link_to t('contacts', :count => @contacts_sharing_with.size), sharing_contacts_path, :rel => 'facebox', :class => 'contact-count'
       %b
         = t('aspects.index.people_sharing_with_you')
       %br

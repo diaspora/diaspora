@@ -69,8 +69,9 @@ Diaspora::Application.routes.draw do
 
   resource :profile
 
-  get 'contacts/sharing' => 'contacts#sharing'
-  resources :contacts,           :except => [:index, :update, :create]
+  resources :contacts,           :except => [:index, :update, :create] do
+    get :sharing, :on => :collection
+  end
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 

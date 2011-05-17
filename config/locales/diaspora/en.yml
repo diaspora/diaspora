@@ -188,6 +188,8 @@ en:
         few: "In %{count} aspects"
         many: "In %{count} aspects"
         other: "In %{count} aspects"
+    sharing:
+      people_sharing: "People sharing with you:"
 
   conversations:
     index:

@@ -11,7 +11,7 @@
       = t('contacts', :count =>@contacts.count)
 
     %h3#aspect_name_title
-      %span.name= "People sharing with you:"
+      %span.name= t('.people_sharing')
 
   - if @contacts.count > 0
     .contact_list
