@@ -44,7 +44,7 @@ javascripts:
     - public/javascripts/vendor/jquery152.min.js
     - public/javascripts/custom-mobile-scripting.js
     - public/javascripts/vendor/jquery.mobile-1.0a4.js
-    - public/javascripts/vendor/jquery.infinitescroll.js
+    - public/javascripts/jquery.infinitescroll-custom.js
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/infinite-scroll.js
