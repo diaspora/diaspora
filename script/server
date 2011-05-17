@@ -122,9 +122,6 @@ if [ -n "$services" ]; then
     exit 64
 fi
 
-redis_config
-
-
 # Force AGPL
 if [ -w public -a ! -e  public/source.tar.gz ]; then
     branch=$( git branch | awk '/^[*]/ {print $2}')
@@ -170,7 +167,9 @@ fi
 
 mkdir -p -v log/thin/
 if [ "$(./script/get_config.rb single_process_mode $RAILS_ENV)" = "false" ]; then
+    redis_config
     redis-server config/redis.conf &>log/redis-console.log &
+
     QUEUE=* bundle exec rake resque:work&
     
     bundle exec ruby ./script/websocket_server.rb&
