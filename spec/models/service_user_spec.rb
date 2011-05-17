@@ -137,5 +137,10 @@ describe FakeServiceUser do
       Person.should_receive(:find).with(@data[5]).and_return person
       @fake.person.should == person
     end
+
+    it 'does not error on an association with no id' do
+      @fake[:person_id] = nil
+      lambda{ @fake.person }.should_not raise_error
+    end
   end
 end
