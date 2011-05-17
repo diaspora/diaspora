@@ -6,14 +6,16 @@ var WebSocketReceiver = {
     //Attach onmessage to websocket
     ws.onmessage = WSR.onMessage;
     ws.onclose = function() {
-      Diaspora.widgets.notifications.showNotification({
-        html: '<div class="notification">' +
-            Diaspora.widgets.i18n.t("web_sockets.disconnected") +
-          '</div>',
-        incrementCount: false
-      });
+      if (websocket_enabled) {
+        Diaspora.widgets.notifications.showNotification({
+          html: '<div class="notification">' +
+              Diaspora.widgets.i18n.t("web_sockets.disconnected") +
+            '</div>',
+          incrementCount: false
+        });
 
-      WSR.debug("socket closed");
+        WSR.debug("socket closed");
+      }
     };
     ws.onopen = function() {
       ws.send(location.pathname);
