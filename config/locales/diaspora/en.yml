@@ -111,7 +111,7 @@ en:
       no_requests: "No new requests"
       manage_aspects: "Manage aspects"
       drag_to_add: "Drag to add people"
-    new_aspect:
+    new:
       name: "Name"
       create: "Create"
     create:
@@ -141,6 +141,7 @@ en:
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
+      people_sharing_with_you: "People sharing with you"
 
   aspect_memberships:
     destroy:
@@ -175,11 +176,18 @@ en:
       failure: "Failed to disconnect from %{name}"
     share_with_pane:
       share_with: "Start sharing with %{name}"
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       add_new_aspect: "add to new aspect" 
     create:
       failure: "Failed to create contact"
-
+    aspect_dropdown:
+      add_to_aspect: "Add to aspect"
+      toggle:
+        zero: "Add to aspect"
+        one: "In %{count} aspect"
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        other: "In %{count} aspects"
 
   conversations:
     index:
@@ -284,7 +292,7 @@ en:
         other: "%{count} dislikes"
 
   notifications:
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
     new_request: "offered to share with you."
     private_message: "sent you a message."
     comment_on_post: "commented on your"
@@ -316,14 +324,9 @@ en:
     single_admin:
         subject: "A message about your Diaspora account:"
         admin: "Your Diaspora administrator"
-    new_request:
-        subject: "new Diaspora* contact request from %{from}"
-        just_sent_you: "just sent you a contact request on Diaspora*"
-        try_it_out: "You should really think about checking it out."
-        sign_in: "Sign in here"
-    request_accepted:
-        subject: "%{name} has accepted your contact request on Diaspora*"
-        accepted: "has accepted your contact request!"
+    started_sharing:
+        subject: "%{name} has started sharing with you on Diaspora*"
+        sharing: "has started sharing with you!"
         sign_in: "Sign in here"
     comment_on_post:
         subject: "%{name} has commented on your post."
@@ -382,14 +385,12 @@ en:
       message: "Message"
       mention: "Mention"
     profile_sidebar:
-      remove_contact: "remove contact"
       edit_my_profile: "Edit my profile"
       bio: "bio"
       location: "location"
       gender: "gender"
       born: "birthday"
       in_aspects: "in aspects"
-      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
       remove_from: "Remove %{name} from %{aspect}?"
     helper:
       results_for: " results for %{params}"
@@ -559,9 +560,9 @@ en:
       invitations_left: "(%{count} left)"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invites_closed: "Invites are currently closed on this Diaspora pod"
-      invite_your_friends: "Find your friends"
+      invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
-      by_email: "by Email"
+      by_email: "via Email"
     reshare:
       reshare: "Reshare"
     public_explain:
@@ -573,7 +574,6 @@ en:
       new: "New %{type} from %{from}"
     contact_list:
       all_contacts: "All contacts"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     stream_element:
       like: "Like"
       unlike: "Unlike"
@@ -622,8 +622,7 @@ en:
       also_commented: "...someone also comments on your contact's post?"
       comment_on_post: "...someone comments on your post?"
       mentioned: "...you are mentioned in a post?"
-      request_received: "...you receive a new share request?"
-      request_acceptence: "...your share request is accepted?"
+      started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
       liked: "...someone likes your post?"
       change: "Change"

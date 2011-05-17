@@ -5,30 +5,28 @@
 require 'spec_helper'
 
 describe AspectMembership do
-  before do
-    @user = alice
-    @user2 = bob
-    @aspect = @user.aspects.create(:name => 'Boozers')
-    @contact = @user.contact_for(@user2.person)
-  end
 
-  it 'has an aspect' do
-    am = AspectMembership.new(:aspect => @aspect)
-    am.aspect.should == @aspect
-  end
+  describe '#before_destroy' do
+    before do
+      @aspect = alice.aspects.create(:name => "two")
+      @contact = alice.contact_for(bob.person)
 
-  it 'has a contact' do
-    am = AspectMembership.new(:contact => @contact)
-    am.contact.should == @contact 
-  end
+      @am = alice.aspects.first.aspect_memberships.first
+      @am.stub!(:user).and_return(alice)
+    end
 
-  context 'validations' do
-    describe '#ensure_membership' do
-      it 'does not destroy from the final aspect' do
-        am = @contact.aspect_memberships.first
-        am.destroy
-        am.errors.should_not be_empty
-      end
+    it 'calls disconnect if its the last aspect for the contact' do
+      alice.should_receive(:disconnect).with(@contact)
+
+      @am.destroy
+    end
+
+    it 'does not call disconnect if its not the last aspect for the contact' do
+      alice.should_not_receive(:disconnect)
+
+      alice.add_contact_to_aspect(@contact, @aspect)
+      @am.destroy     
     end
   end
+
 end

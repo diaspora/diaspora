@@ -5,83 +5,76 @@
 require 'spec_helper'
 
 describe User do
-
-  let!(:user) { alice }
-  let!(:user2) { eve }
-
-  let!(:aspect) { user.aspects.first }
-  let!(:aspect1) { user.aspects.create(:name => 'other') }
-  let!(:aspect2) { user2.aspects.first }
-
-  let!(:service1) { Factory(:service, :type => 'Services::Twitter' , :user => user) }
-  let!(:service2) { Factory(:service, :type => 'Services::Facebook', :user => user) }
+  before do
+    @aspect = alice.aspects.first
+    @aspect1 = alice.aspects.create(:name => 'other')
+  end
 
   describe '#add_to_streams' do
     before do
-      @params = {:text => "hey", :to => [aspect.id, aspect1.id]}
-      @post = user.build_post(:status_message, @params)
+      @params = {:text => "hey", :to => [@aspect.id, @aspect1.id]}
+      @post = alice.build_post(:status_message, @params)
       @post.save
       @aspect_ids = @params[:to]
-      @aspects = user.aspects_from_ids(@aspect_ids)
+      @aspects = alice.aspects_from_ids(@aspect_ids)
     end
 
     it 'saves post into visible post ids' do
-      proc {
-        user.add_to_streams(@post, @aspects)
-      }.should change{user.visible_posts(:by_members_of => @aspects).length}.by(1)
-      user.visible_posts(:by_members_of => @aspects).should include @post
+      lambda {
+        alice.add_to_streams(@post, @aspects)
+      }.should change{alice.visible_posts(:by_members_of => @aspects).length}.by(1)
+      alice.visible_posts(:by_members_of => @aspects).should include @post
     end
 
     it 'saves post into each aspect in aspect_ids' do
-      user.add_to_streams(@post, @aspects)
-      aspect.reload.post_ids.should include @post.id
-      aspect1.reload.post_ids.should include @post.id
+      alice.add_to_streams(@post, @aspects)
+      @aspect.reload.post_ids.should include @post.id
+      @aspect1.reload.post_ids.should include @post.id
     end
 
     it 'sockets the post to the poster' do
-      @post.should_receive(:socket_to_user).with(user, anything)
-      user.add_to_streams(@post, @aspects)
+      @post.should_receive(:socket_to_user).with(alice, anything)
+      alice.add_to_streams(@post, @aspects)
     end
   end
 
   describe '#aspects_from_ids' do
-    it 'returns a list of all valid aspects a user can post to' do
+    it 'returns a list of all valid aspects a alice can post to' do
       aspect_ids = Aspect.all.map(&:id)
-      user.aspects_from_ids(aspect_ids).map{|a| a}.should ==
-        user.aspects.map{|a| a} #RSpec matchers ftw
+      alice.aspects_from_ids(aspect_ids).map{|a| a}.should ==
+        alice.aspects.map{|a| a} #RSpec matchers ftw
     end
     it "lets you post to your own aspects" do
-      user.aspects_from_ids([aspect.id]).should == [aspect]
-      user.aspects_from_ids([aspect1.id]).should == [aspect1]
+      alice.aspects_from_ids([@aspect.id]).should == [@aspect]
+      alice.aspects_from_ids([@aspect1.id]).should == [@aspect1]
     end
     it 'removes aspects that are not yours' do
-      user.aspects_from_ids(aspect2.id).should == []
+      alice.aspects_from_ids(eve.aspects.first.id).should == []
     end
   end
 
   describe '#build_post' do
-    it 'sets status_message#message' do
-      post = user.build_post(:status_message, :text => "hey", :to => aspect.id)
+    it 'sets status_message#text' do
+      post = alice.build_post(:status_message, :text => "hey", :to => @aspect.id)
       post.text.should == "hey"
     end
+
     it 'does not save a status_message' do
-      post = user.build_post(:status_message, :text => "hey", :to => aspect.id)
-      post.persisted?.should be_false
+      post = alice.build_post(:status_message, :text => "hey", :to => @aspect.id)
+      post.should_not be_persisted
     end
 
     it 'does not save a photo' do
-      post = user.build_post(:photo, :user_file => uploaded_photo, :to => aspect.id)
-      post.persisted?.should be_false
+      post = alice.build_post(:photo, :user_file => uploaded_photo, :to => @aspect.id)
+      post.should_not be_persisted
     end
-
   end
-
 
   describe '#update_post' do
     it 'should update fields' do
-      photo = user.post(:photo, :user_file => uploaded_photo, :text => "Old caption", :to => aspect.id)
+      photo = alice.post(:photo, :user_file => uploaded_photo, :text => "Old caption", :to => @aspect.id)
       update_hash = {:text => "New caption"}
-      user.update_post(photo, update_hash)
+      alice.update_post(photo, update_hash)
 
       photo.text.should match(/New/)
     end

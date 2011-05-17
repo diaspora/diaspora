@@ -42,13 +42,13 @@ var View = {
     /* Submit the form when the user hits enter */
       .keypress(this.search.keyPress);
 
-    /* Getting started animation */
-    $(this.gettingStarted.selector)
-      .live("click", this.gettingStarted.click);
-
     /* User menu */
     $(this.userMenu.selector)
       .click(this.userMenu.click);
+      
+    /* Dropdowns */
+    $(this.dropdowns.selector)
+      .live('click', this.dropdowns.click);
 
     /* Sending a request message */
     $(this.newRequest.selector)
@@ -66,19 +66,20 @@ var View = {
       .submit(this.webFingerForm.submit);
 
     $(document.body)
+      .click(this.dropdowns.removeFocus)
       .click(this.userMenu.removeFocus)
       .click(this.reshareButton.removeFocus);
 
     /* facebox */
-    $.facebox.settings.closeImage = '/images/facebox/closelabel.png'
-    $.facebox.settings.loadingImage = '/images/facebox/loading.gif'
+    $.facebox.settings.closeImage = '/images/facebox/closelabel.png';
+    $.facebox.settings.loadingImage = '/images/facebox/loading.gif';
     $('a[rel*=facebox]').facebox();
     $(document).bind('reveal.facebox', function() {
       Diaspora.widgets.directionDetector.updateBinds();
     });
 
     /* facebox 'done' buttons */
-    $("a[rel*=close]").live('click', function(){ $.facebox.close() });
+    $("a[rel*=close]").live('click', function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
@@ -104,18 +105,6 @@ var View = {
       $("#debug_more").toggle("fast");
     },
     selector: "#debug_info"
-  },
-
-  gettingStarted: {
-    click: function() {
-      var $this = $(this);
-      $this.animate({
-        left: parseInt($this.css("left"), 30) === 0 ? -$this.outerWidth() : 0
-      }, function() {
-        $this.css("left", "1000px");
-      });
-    },
-    selector: ".getting_started_box"
   },
 
   newRequest: {
@@ -210,6 +199,21 @@ var View = {
         $(".reshare_button.active").removeClass("active").siblings(".reshare_box").css("display", "none");
       }
     }
+  },
+
+  dropdowns: {
+    click: function(evt) {
+      $(this).parent('.dropdown').toggleClass("active");
+      evt.preventDefault();
+    },
+    removeFocus: function(evt) {
+      var $target = $(evt.target);
+      if(!$target.is('.dropdown_list *') && !$target.is('.dropdown.active > .toggle')) {
+        $(View.dropdowns.selector).parent().removeClass("active");
+      }
+    },
+    selector: ".dropdown > .toggle",
+    parentSelector: ".dropdown > .wrapper"
   },
 
   userMenu: {

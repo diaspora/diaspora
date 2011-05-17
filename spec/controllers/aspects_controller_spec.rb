@@ -221,6 +221,26 @@ describe AspectsController do
         post :create, "aspect" => {"name" => "new aspect"}
         response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
       end
+
+      context "with person_id param" do
+        it "creates a contact if one does not already exist" do
+          lambda {
+            post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+          }.should change{
+            alice.contacts.count
+          }.by(1)
+        end
+
+        it "adds a new contact to the new aspect" do
+          post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
+          alice.aspects.find_by_name("new").contacts.count.should == 1
+        end
+
+        it "adds an existing contact to the new aspect" do
+          post :create, :format => 'js', :aspect => {:name => "new", :person_id => bob.person.id}
+          alice.aspects.find_by_name("new").contacts.count.should == 1
+        end
+      end
     end
     context "with invalid params" do
       it "does not create an aspect" do
@@ -247,7 +267,7 @@ describe AspectsController do
         aspect = alice.aspects.create(:name => "aspect#{n}")
         8.times do |o|
           person = Factory(:person)
-          alice.activate_contact(person, aspect)
+          alice.contacts.create(:person => person, :aspects => [aspect])
         end
       end
       Benchmark.realtime{
@@ -260,53 +280,25 @@ describe AspectsController do
       assigns(:aspect).should == :manage
     end
 
-    it "assigns remote_requests" do
-      get :manage
-      assigns(:remote_requests).should be_empty
-    end
-
-    it "assigns contacts to only non-pending" do
-      contact = alice.contact_for(bob.person)
-      Contact.unscoped.where(:user_id => alice.id).count.should == 1
-      alice.send_contact_request_to(Factory(:user).person, @alices_aspect_1)
-      Contact.unscoped.where(:user_id => alice.id).count.should == 2
-
+    it "assigns contacts" do
       get :manage
       contacts = assigns(:contacts)
-      contacts.count.should == 1
-      contacts.first.should == contact
+      contacts.to_set.should == alice.contacts.to_set
     end
 
-    context "when the user has pending requests" do
-      before do
-        requestor        = Factory.create(:user)
-        requestor_aspect = requestor.aspects.create(:name => "Meh")
-        requestor.send_contact_request_to(alice.person, requestor_aspect)
+    it "succeeds" do
+      get :manage
+      response.should be_success
+    end
 
-        requestor.reload
-        requestor_aspect.reload
-        alice.reload
-      end
+    it "assigns aspect to manage" do
+      get :manage
+      assigns(:aspect).should == :manage
+    end
 
-      it "succeeds" do
-        get :manage
-        response.should be_success
-      end
-
-      it "assigns aspect to manage" do
-        get :manage
-        assigns(:aspect).should == :manage
-      end
-
-      it "assigns remote_requests" do
-        get :manage
-        assigns(:remote_requests).count.should == 1
-      end
-
-      it "generates a jasmine fixture", :fixture => 'jasmine' do
-        get :manage
-        save_fixture(html_for("body"), "aspects_manage")
-      end
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
+      get :manage
+      save_fixture(html_for("body"), "aspects_manage")
     end
   end
 
@@ -330,11 +322,11 @@ describe AspectsController do
       eve.profile.save
       eve.save
 
-      @zed   = Factory(:user_with_aspect, :username => "zed")
+      @zed = Factory(:user_with_aspect, :username => "zed")
       @zed.profile.first_name = "zed"
       @zed.profile.save
       @zed.save
-      @katz   = Factory(:user_with_aspect, :username => "katz")
+      @katz = Factory(:user_with_aspect, :username => "katz")
       @katz.profile.first_name = "katz"
       @katz.profile.save
       @katz.save
@@ -359,6 +351,13 @@ describe AspectsController do
 
       get :edit, :id => alices_aspect_3.id
       assigns[:contacts].map(&:id).should == [alice.contact_for(bob.person), alice.contact_for(eve.person), alice.contact_for(@katz.person), alice.contact_for(@zed.person)].map(&:id)
+    end
+
+    it 'eager loads the aspect memberships for all the contacts' do
+      get :edit, :id => @alices_aspect_2.id
+      assigns[:contacts].each do |c|
+        c.aspect_memberships.loaded?.should be_true
+      end
     end
   end
 

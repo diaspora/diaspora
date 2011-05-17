@@ -51,8 +51,8 @@ describe Notifier do
     end
   end
 
-  describe ".new_request" do
-    let!(:request_mail) {Notifier.new_request(user.id, person.id)}
+  describe ".started_sharing" do
+    let!(:request_mail) {Notifier.started_sharing(user.id, person.id)}
     it 'goes to the right person' do
       request_mail.to.should == [user.email]
     end
@@ -61,28 +61,12 @@ describe Notifier do
       request_mail.body.encoded.include?(user.person.profile.first_name).should be true
     end
 
-
     it 'has the name of person sending the request' do
       request_mail.body.encoded.include?(person.name).should be true
     end
 
     it 'has the css' do
       request_mail.body.encoded.include?("<style type='text/css'>")
-    end
-  end
-
-  describe ".request_accepted" do
-    let!(:request_accepted_mail) {Notifier.request_accepted(user.id, person.id)}
-    it 'goes to the right person' do
-      request_accepted_mail.to.should == [user.email]
-    end
-
-    it 'has the receivers name in the body' do
-      request_accepted_mail.body.encoded.include?(user.person.profile.first_name).should be true
-    end
-
-    it 'has the name of person sending the request' do
-      request_accepted_mail.body.encoded.include?(person.name).should be true
     end
   end
 

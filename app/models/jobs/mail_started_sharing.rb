@@ -4,10 +4,10 @@
 
 
 module Job
-  class MailRequestAcceptance < Base
+  class MailStartedSharing < Base
     @queue = :mail
     def self.perform_delegate(recipient_id, sender_id, target_id)
-      Notifier.request_accepted(recipient_id, sender_id).deliver
+      Notifier.started_sharing(recipient_id, sender_id).deliver
     end
   end
 end

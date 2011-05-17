@@ -6,18 +6,14 @@ require 'spec_helper'
 
 describe Contact do
   describe 'aspect_memberships' do
-    before do
-      @user = alice
-      @user2 = bob
-    end
     it 'deletes dependent aspect memberships' do
       lambda{
-        @user.contact_for(@user2.person).destroy
+        alice.contact_for(bob.person).destroy
       }.should change(AspectMembership, :count).by(-1)
     end
   end
 
-  describe 'validations' do
+  context 'validations' do
     let(:contact){Contact.new}
 
     it 'requires a user' do
@@ -31,31 +27,46 @@ describe Contact do
     end
 
     it 'ensures user is not making a contact for himself' do
-      user = Factory.create(:user)
-
-      contact.person = user.person
-      contact.user = user
+      contact.person = alice.person
+      contact.user = alice
 
       contact.valid?
       contact.errors.full_messages.should include "Cannot create self-contact"
     end
 
-    it 'has many aspects' do
-      contact.aspects.should be_empty
-    end
-
     it 'validates uniqueness' do
-      user = Factory.create(:user)
       person = Factory(:person)
 
-      contact2 = Contact.create(:user => user,
-                                :person => person)
-
+      contact2 = alice.contacts.create(:person=>person)
       contact2.should be_valid
 
-      contact.user = user
+      contact.user = alice
       contact.person = person
       contact.should_not be_valid
+    end
+  end
+
+  context 'scope' do
+    describe 'sharing' do
+      it 'returns contacts with sharing true' do
+        lambda {
+          alice.contacts.create!(:sharing => true, :person => Factory(:person))
+          alice.contacts.create!(:sharing => false, :person => Factory(:person))
+        }.should change{
+          Contact.sharing.count
+        }.by(1)
+      end
+    end
+
+    describe 'receiving' do
+      it 'returns contacts with sharing true' do
+        lambda {
+          alice.contacts.create!(:receiving => true, :person => Factory(:person))
+          alice.contacts.create!(:receiving => false, :person => Factory(:person))
+        }.should change{
+          Contact.receiving.count
+        }.by(1)
+      end
     end
   end
 
@@ -70,29 +81,33 @@ describe Contact do
 
       1.upto(5) do
         person = Factory(:person)
-        bob.activate_contact(person, bob.aspects.first)
+        bob.contacts.create(:person => person, :aspects => [bob.aspects.first])
         @people1 << person
       end
       1.upto(5) do
         person = Factory(:person)
-        bob.activate_contact(person, bob.aspects.last)
+        bob.contacts.create(:person => person, :aspects => [bob.aspects.last])
         @people2 << person
       end
     #eve <-> bob <-> alice
     end
+
     context 'on a contact for a local user' do
       before do
         @contact = @alice.contact_for(@bob.person)
       end
+
       it "returns the target local user's contacts that are in the same aspect" do
         @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
       end
+
       it 'returns nothing if contacts_visible is false in that aspect' do
         asp = @bob.aspects.first
         asp.contacts_visible = false
         asp.save
         @contact.contacts.should == []
       end
+
       it 'returns no duplicate contacts' do
         [@alice, @eve].each {|c| @bob.add_contact_to_aspect(@bob.contact_for(c.person), @bob.aspects.last)}
         contact_ids = @contact.contacts.map{|p| p.id}
@@ -108,9 +123,7 @@ describe Contact do
         @contact.contacts.should == []
       end
     end
-
   end
-
 
   context 'requesting' do
     before do
@@ -139,10 +152,6 @@ describe Contact do
         m.should_receive(:post)
         Postzord::Dispatch.should_receive(:new).and_return(m)
         @contact.dispatch_request
-      end
-      it 'persists no request' do
-        @contact.dispatch_request
-        Request.where(:sender_id => @user.person.id, :recipient_id => @person.id).should be_empty
       end
     end
   end

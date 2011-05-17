@@ -65,18 +65,6 @@ JSON
         @su.person.should be_nil
       end
 
-      context "request" do
-        before do
-          @request = Request.diaspora_initialize(:from => @user2.person, :to => @user.person, :into => @user2.aspects.first)
-          Postzord::Receiver.new(@user, :object => @request, :person => @user2.person).receive_object
-          Request.count.should == 1
-        end
-        it 'contains a request object if one has been sent' do
-          @su.save
-          @su.request.should == @request
-        end
-      end
-
       it 'contains a contact object if connected' do
         connect_users(@user, @user.aspects.first, @user2, @user2.aspects.first)
         @su.save

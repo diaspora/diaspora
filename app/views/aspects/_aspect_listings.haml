@@ -10,4 +10,18 @@
 
 %ul
   - for aspect in aspects
-    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts.reject{|x| x.pending == true}
+    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
+
+  - if @contacts_sharing_with
+    %li#sharers{:class => ("dull" if @contacts_sharing_with.size == 0)}
+      .right
+        %b
+          = link_to t('contacts', :count => @contacts_sharing_with.size), contacts_sharing_path, :rel => 'facebox', :class => 'contact-count'
+      %b
+        = t('aspects.index.people_sharing_with_you')
+      %br
+
+      - if @contacts_sharing_with.size > 0
+        .contacts
+          - for contact in @contacts_sharing_with[0..15]
+            = person_image_link(contact.person)

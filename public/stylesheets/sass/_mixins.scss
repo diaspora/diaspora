@@ -13,10 +13,10 @@ $easing: linear;
   border-radius: 15px;
 }
 
-@mixin border-radius($radius){
-  -moz-border-radius: $radius;
-  -webkit-border-radius: $radius;
-  border-radius: $radius;
+@mixin border-radius($tl, $tr:$tl, $br:$tl, $bl:$tl){
+  -moz-border-radius: $tl $tr $br $bl;
+  -webkit-border-radius: $tl $tr $br $bl;
+  border-radius: $tl $tr $br $bl;
 }
 
 @mixin box-shadow($left, $top, $blur, $color:#000){
@@ -40,6 +40,11 @@ $easing: linear;
   -moz-opacity: $val;
   -khtml-opacity: $val;
   opacity: $val;
+}
+
+@mixin user-select($val){
+  -webkit-user-select: $val;
+  -moz-user-select: $val;
 }
 
 @mixin transition($type, $speed:$speed, $easing:$easing){

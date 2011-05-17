@@ -2,7 +2,7 @@
   = t('notifier.hello', :name => @receiver.profile.first_name)
 %p
   = "#{@sender.name} (#{@sender.diaspora_handle})"
-  = t('.accepted')
+  = t('.sharing')
 
   %br
   = link_to t('.sign_in'), new_user_session_url

@@ -1,13 +1,8 @@
 %li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
   .right
-    -if friend.contact && !friend.contact.pending
-      = t('people.person.already_connected')
-    - elsif (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
-      = t('people.person.pending_request')
-    - elsif (friend.request && friend.request.sender_id == friend.person.id)
-      = link_to t('people.show.incoming_request', :name => truncate(friend.person.name, :length => 20, :separator => ' ', :omission => '')),
-        '#',
-        :class => 'button'
+    -if friend.contact
+      / TODO(*) add following method in Contact
+      sharing
     - elsif friend.invitation_id
       = t('invitations.new.already_invited')
       %br
@@ -34,7 +29,9 @@
     - else
       = friend.name
 
-- unless friend.person.nil? || (friend.contact && friend.contact.pending) || (friend.request && friend.request.sender_id != friend.person.id)
+- unless friend.person.nil?
+  / should be dropdown
+
   %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
     - contact = friend.contact
     - contact ||= Contact.new

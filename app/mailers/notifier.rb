@@ -21,31 +21,17 @@ class Notifier < ActionMailer::Base
          :subject => I18n.t('notifier.single_admin.subject'), :host => AppConfig[:pod_uri].host)
   end
 
-  def new_request(recipient_id, sender_id)
+  def started_sharing(recipient_id, sender_id)
     @receiver = User.find_by_id(recipient_id)
     @sender = Person.find_by_id(sender_id)
 
-    log_mail(recipient_id, sender_id, 'new_request')
+    log_mail(recipient_id, sender_id, 'started_sharing')
 
     attachments.inline['logo_caps.png'] = ATTACHMENT
 
     I18n.with_locale(@receiver.language) do
       mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.new_request.subject', :from => @sender.name), :host => AppConfig[:pod_uri].host)
-    end
-  end
-
-  def request_accepted(recipient_id, sender_id)
-    @receiver = User.find_by_id(recipient_id)
-    @sender = Person.find_by_id(sender_id)
-
-    log_mail(recipient_id, sender_id, 'request_accepted')
-
-    attachments.inline['logo_caps.png'] = ATTACHMENT
-
-    I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.request_accepted.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+           :subject => I18n.t('notifier.started_sharing.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
     end
   end
 

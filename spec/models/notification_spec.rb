@@ -59,18 +59,14 @@ describe Notification do
       before do
         @request = Request.diaspora_initialize(:from => @user.person, :to => @user2.person, :into => @aspect)
       end
+
       it 'calls Notification.create if the object has a notification_type' do
         Notification.should_receive(:make_notification).once
         Notification.notify(@user, @request, @person)
       end
 
-      it 'creates the notification already read' do
-        n = Notification.notify(@user, @request, @person)
-        n.unread?.should be_false
-      end
-
       it 'sockets to the recipient' do
-        opts = {:target_id => @request.id,
+        opts = {:target_id => @request.sender.id,
           :target_type => "Request",
           :actors => [@person],
           :recipient_id => @user.id}
@@ -88,7 +84,7 @@ describe Notification do
             :actors => [@person],
             :recipient_id => @user.id}
 
-            n = Notifications::NewRequest.new(opts)
+            n = Notifications::StartedSharing.new(opts)
             n.stub!(:recipient).and_return @user
 
             @user.should_receive(:mail)

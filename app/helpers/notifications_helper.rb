@@ -22,7 +22,7 @@ module NotificationsHelper
       else
         t('notifications.also_commented_deleted')
       end
-    else #Notifications::NewRequest, Notifications::RequestAccepted, Notifications::Liked, etc.
+    else #Notifications:StartedSharing, Notifications::Liked, etc.
       translation(target_type)
     end
   end

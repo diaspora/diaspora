@@ -18,47 +18,43 @@
   .profile_photo
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
-  - if user_signed_in? && person == current_user.person
-    %p
-      = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
+  - if user_signed_in?
+    - if person == current_user.person
+      %p
+        = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
 
-    %hr{:style=>"width:300px;"}
-
-  %ul
-    - if user_signed_in? && person != current_user.person
-      %li
-        = render :partial => 'people/aspect_list',
-          :locals => {:person => person,
-                      :contact => contact,
-                      :aspects_with_person => @aspects_with_person,
-                      :aspects_without_person => @all_aspects.reject{ |aspect| @aspects_with_person.include?(aspect)}}
-      %br
       %hr{:style=>"width:300px;"}
 
-  -if user_signed_in? && ((contact.persisted? && !contact.pending?) || person == current_user.person || @incoming_request)
-    %ul#profile_information
-      - unless person.profile.bio.blank?
-        %li
-          %h4
-            =t('.bio')
-          %div{ :class => direction_for(person.profile.bio) }
-            = markdownify(person.profile.bio, :newlines => true)
-      - unless person.profile.location.blank?
-        %li
-          %h4
-            =t('.location')
-          %div{ :class => direction_for(person.profile.location) }
-            = markdownify(person.profile.location, :newlines => true)
-
-      %li.span-8.last
-        .span-4
-          - unless person.profile.gender.blank?
+    %br
+    = render 'contacts/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
+      
+    -if contact.sharing? || person == current_user.person
+      %br
+      %br
+      %hr{:style=>"width:300px;"}
+      %ul#profile_information
+        - unless person.profile.bio.blank?
+          %li
             %h4
-              =t('.gender')
-            = person.profile.gender
-
-        .span-4.last
-          - unless person.profile.birthday.blank?
+              =t('.bio')
+            %div{ :class => direction_for(person.profile.bio) }
+              = markdownify(person.profile.bio, :newlines => true)
+        - unless person.profile.location.blank?
+          %li
             %h4
-              =t('.born')
-            = birthday_format(person.profile.birthday)
+              =t('.location')
+            %div{ :class => direction_for(person.profile.location) }
+              = markdownify(person.profile.location, :newlines => true)
+
+        %li.span-8.last
+          .span-4
+            - unless person.profile.gender.blank?
+              %h4
+                =t('.gender')
+              = person.profile.gender
+
+          .span-4.last
+            - unless person.profile.birthday.blank?
+              %h4
+                =t('.born')
+              = birthday_format(person.profile.birthday)

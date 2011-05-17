@@ -262,7 +262,7 @@ class User < ActiveRecord::Base
         self.password              = opts[:password]
         self.password_confirmation = opts[:password_confirmation]
         self.save!
-        invitations_to_me.each{|invitation| invitation.to_request!}
+        invitations_to_me.each{|invitation| invitation.share_with!}
         log_string << "success"
         Rails.logger.info log_string
 
@@ -329,15 +329,15 @@ class User < ActiveRecord::Base
   end
 
   def disconnect_everyone
-    Contact.unscoped.where(:user_id => self.id).each { |contact|
+    self.contacts.each do |contact|
       unless contact.person.owner.nil?
-        contact.person.owner.disconnected_by self.person
-        remove_contact(contact)
+        contact.person.owner.disconnected_by(self.person)
+        remove_contact(contact, :force => true)
       else
-        self.disconnect contact
+        self.disconnect(contact)
       end
-    }
-    self.aspects.delete_all
+    end
+    self.aspects.destroy_all
   end
 
   def remove_mentions

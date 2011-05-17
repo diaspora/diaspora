@@ -39,10 +39,15 @@ describe Post do
 
   describe '#subscribers' do
     it 'returns the people contained in the aspects the post appears in' do
-
       post = @user.post :status_message, :text => "hello", :to => @aspect.id
 
       post.subscribers(@user).should == []
+    end
+
+    it 'returns all a users contacts if the post is public' do
+      post = @user.post :status_message, :text => "hello", :to => @aspect.id, :public => true
+
+      post.subscribers(@user).to_set.should == @user.contact_people.to_set
     end
   end
 

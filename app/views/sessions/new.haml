@@ -34,12 +34,11 @@
           = link_to t('devise.shared.links.forgot_your_password'), new_password_path(resource_name), :id => "forgot_password_link", :class => 'hidden', :tabindex => 5
 
       %br
-      %p#controls.hidden
+      %p#controls
         %span#remember_me
           - if devise_mapping.rememberable?
             = f.check_box :remember_me, :tabindex => 3
             = f.label :remember_me, t('devise.sessions.new.remember_me')
-        %br
         = f.submit t('devise.sessions.new.sign_in'), :tabindex => 4
 
 

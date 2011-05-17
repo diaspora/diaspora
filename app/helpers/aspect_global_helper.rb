@@ -81,4 +81,19 @@ module AspectGlobalHelper
       aspects_path
     end
   end
+
+  def aspect_dropdown_list_item(aspect, contact, person)
+    checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
+    klass = checked ? "selected" : ""
+    hidden = !checked ? "hidden" : ""
+
+    str = "<li data-aspect_id=#{aspect.id} class='#{klass}'>"
+    #str << "<input #{checked} id=\"in_aspect\" name=\"in_aspect\" type=\"checkbox\" value=\"in_aspect\" />"
+    str << "<img src='/images/icons/check_yes_ok.png' width=18 height=18 class='check #{hidden}'/>"
+    str << "<img src='/images/icons/check_yes_ok_white.png' width=18 height=18 class='checkWhite'/>"
+    str << aspect.name
+    str << "<div class=\"hidden\">"
+    str << aspect_membership_button(aspect, contact, person)
+    str.html_safe
+  end
 end

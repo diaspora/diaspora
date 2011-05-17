@@ -39,10 +39,6 @@ class PeopleController < ApplicationController
 
   def hashes_for_people people, aspects
     ids = people.map{|p| p.id}
-    requests = {}
-    Request.where(:sender_id => ids, :recipient_id => current_user.person.id).each do |r|
-      requests[r.id] = r
-    end
     contacts = {}
     Contact.unscoped.where(:user_id => current_user.id, :person_id => ids).each do |contact|
       contacts[contact.person_id] = contact
@@ -51,7 +47,6 @@ class PeopleController < ApplicationController
     people.map{|p|
       {:person => p,
         :contact => contacts[p.id],
-        :request => requests[p.id],
         :aspects => aspects}
     }
   end
@@ -63,18 +58,15 @@ class PeopleController < ApplicationController
       return
     end
 
-
     @post_type = :all
     @aspect = :profile
     @share_with = (params[:share_with] == 'true')
 
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     if @person
-
       @profile = @person.profile
 
       if current_user
-        @incoming_request = current_user.request_from(@person)
         @contact = current_user.contact_for(@person)
         @aspects_with_person = []
         if @contact && !params[:only_posts]
@@ -89,7 +81,7 @@ class PeopleController < ApplicationController
           @contacts_of_contact = []
         end
 
-        if (@person != current_user.person) && (!@contact || !@contact.persisted? || @contact.pending)
+        if (@person != current_user.person) && !@contact.persisted?
           @commenting_disabled = true
         else
           @commenting_disabled = false
@@ -130,7 +122,6 @@ class PeopleController < ApplicationController
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
       @hashes = hashes_for_people @contacts_of_contact, @aspects
-      @incoming_request = current_user.request_from(@person)
       @contact = current_user.contact_for(@person)
       @aspects_with_person = @contact.aspects
       @aspect_ids = @aspects_with_person.map(&:id)

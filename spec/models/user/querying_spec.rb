@@ -13,11 +13,10 @@ describe User do
 
   describe "#visible_posts" do
     it "returns all the posts the user can see" do
-      connect_users(eve, @eves_aspect, alice, @alices_aspect)
       self_post = alice.post(:status_message, :text => "hi", :to => @alices_aspect.id)
-      visible_post = eve.post(:status_message, :text => "hello", :to => @eves_aspect.id)
-      dogs = eve.aspects.create(:name => "dogs")
-      invisible_post = eve.post(:status_message, :text => "foobar", :to => dogs.id)
+      visible_post = bob.post(:status_message, :text => "hello", :to => bob.aspects.first.id)
+      dogs = bob.aspects.create(:name => "dogs")
+      invisible_post = bob.post(:status_message, :text => "foobar", :to => dogs.id)
 
       stream = alice.visible_posts
       stream.should include(self_post)
@@ -157,10 +156,6 @@ describe User do
       end
 
       it "only returns non-pending contacts" do
-        alice.send_contact_request_to(Factory(:user).person, @alices_aspect)
-        @alices_aspect.reload
-        alice.reload
-
         alice.people_in_aspects([@alices_aspect]).should == [bob.person]
       end
 
@@ -170,12 +165,12 @@ describe User do
     end
   end
 
-
   context 'contact querying' do
     let(:person_one) { Factory.create :person }
     let(:person_two) { Factory.create :person }
     let(:person_three) { Factory.create :person }
     let(:aspect) { alice.aspects.create(:name => 'heroes') }
+
     describe '#contact_for_person_id' do
       it 'returns a contact' do
         contact = Contact.create(:user => alice, :person => person_one, :aspects => [aspect])
@@ -217,20 +212,23 @@ describe User do
         alice.contact_for(nil).should be_nil
       end
     end
-  end
 
-  describe "#request_from" do
-    let!(:user5) {Factory(:user)}
+    describe '#aspects_with_person' do
+      before do
+        @connected_person = bob.person
+      end
 
-    it 'should not have a pending request before connecting' do
-      request = alice.request_from(user5.person)
-      request.should be_nil
-    end
+      it 'should return the aspects with given contact' do
+        alice.aspects_with_person(@connected_person).should == [alice.aspects.first]
+      end
 
-    it 'should have a pending request after sending a request' do
-      alice.send_contact_request_to(user5.person, alice.aspects.first)
-      request = user5.request_from(alice.person)
-      request.should_not be_nil
+      it 'returns multiple aspects if the person is there' do
+        aspect2 = alice.aspects.create(:name => 'second')
+        contact = alice.contact_for(@connected_person)
+
+        alice.add_contact_to_aspect(contact, aspect2)
+        alice.aspects_with_person(@connected_person).to_set.should == alice.aspects.to_set
+      end
     end
   end
 

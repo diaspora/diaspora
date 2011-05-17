@@ -7,15 +7,15 @@ class AspectsController < ApplicationController
   before_filter :save_sort_order, :only => :index
   before_filter :ensure_page, :only => :index
 
-  respond_to :html
+  respond_to :html, :js
   respond_to :json, :only => [:show, :create]
-  respond_to :js
 
   def index
     if params[:a_ids]
       @aspects = current_user.aspects.where(:id => params[:a_ids])
     else
       @aspects = current_user.aspects
+      @contacts_sharing_with = current_user.contacts.sharing
     end
 
     #No aspect_listings on infinite scroll
@@ -56,19 +56,17 @@ class AspectsController < ApplicationController
         redirect_to :back
       elsif request.env['HTTP_REFERER'].include?("aspects/manage")
         redirect_to :back
-      elsif params[:aspect][:share_with]
-        @contact = Contact.where(:id => params[:aspect][:contact_id]).first
+      elsif params[:aspect][:person_id]
         @person = Person.where(:id => params[:aspect][:person_id]).first
-        @contact = current_user.contact_for(@person) || Contact.new
 
-        respond_to do |format|
-          format.js { render :json => {:html => render_to_string(
-            :partial => 'aspects/aspect_list_item',
-            :locals => {:aspect => @aspect,
-                        :person => @person,
-                        :contact => @contact}
-          ), :aspect_id => @aspect.id}, :status => 201 }
+        if @contact = current_user.contact_for(@person)
+          @contact.aspects << @aspect
+        else
+          @contact = current_user.share_with(@person, @aspect)
         end
+
+
+
       else
         respond_with @aspect
       end
@@ -85,6 +83,8 @@ class AspectsController < ApplicationController
 
   def new
     @aspect = Aspect.new
+    @person_id = params[:person_id]
+    render :layout => false
   end
 
   def destroy
@@ -112,12 +112,12 @@ class AspectsController < ApplicationController
   def edit
     @aspect = current_user.aspects.where(:id => params[:id]).includes(:contacts => {:person => :profile}).first
 
-    @contacts_in_aspect = @aspect.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+    @contacts_in_aspect = @aspect.contacts.includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     c = Contact.arel_table
     if @contacts_in_aspect.empty?
-      @contacts_not_in_aspect = current_user.contacts.includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+      @contacts_not_in_aspect = current_user.contacts.receiving.includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     else
-      @contacts_not_in_aspect = current_user.contacts.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
+      @contacts_not_in_aspect = current_user.contacts.receiving.where(c[:id].not_in(@contacts_in_aspect.map(&:id))).includes(:aspect_memberships, :person => :profile).all.sort! { |x, y| x.person.name <=> y.person.name }
     end
 
     @contacts = @contacts_in_aspect + @contacts_not_in_aspect
@@ -134,7 +134,6 @@ class AspectsController < ApplicationController
   def manage
     @aspect = :manage
     @contacts = current_user.contacts.includes(:person => :profile)
-    @remote_requests = Request.where(:recipient_id => current_user.person.id).includes(:sender => :profile)
     @aspects = @all_aspects.includes(:contacts => {:person => :profile})
   end
 
@@ -164,8 +163,7 @@ class AspectsController < ApplicationController
     params[:max_time] ||= Time.now + 1
   end
 
-  protected
-
+  private
   def save_sort_order
     if params[:sort_order].present?
       session[:sort_order] = (params[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
@@ -175,4 +173,5 @@ class AspectsController < ApplicationController
       session[:sort_order] = (session[:sort_order] == 'created_at') ? 'created_at' : 'updated_at'
     end
   end
+
 end

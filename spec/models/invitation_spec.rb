@@ -7,7 +7,7 @@ require 'spec_helper'
 describe Invitation do
   let(:user) { alice }
   let(:aspect) { user.aspects.first }
-  let(:user2) { eve }
+
   before do
     user.invites = 20
     user.save
@@ -17,11 +17,11 @@ describe Invitation do
   describe 'validations' do
     before do
       aspect
-      @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
+      @invitation = Invitation.new(:sender => user, :recipient => eve, :aspect => aspect)
     end
     it 'is valid' do
       @invitation.sender.should == user
-      @invitation.recipient.should == user2
+      @invitation.recipient.should == eve 
       @invitation.aspect.should == aspect
       @invitation.should be_valid
     end
@@ -40,7 +40,7 @@ describe Invitation do
   end
 
   it 'has a message' do
-    @invitation = Invitation.new(:sender => user, :recipient => user2, :aspect => aspect)
+    @invitation = Invitation.new(:sender => user, :recipient => eve, :aspect => aspect)
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
@@ -53,7 +53,7 @@ describe Invitation do
       @identifier = "maggie@example.org"
       inv.invitation_identifier.should == @identifier
       inv.invitation_service.should == 'email'
-      inv.persisted?.should be_false
+      inv.should_not be_persisted
       lambda {
         inv.reload
       }.should raise_error ActiveRecord::RecordNotFound
@@ -73,50 +73,47 @@ describe Invitation do
 
   describe '.find_existing_user' do
     let(:inv) { Invitation.find_existing_user(@type, @identifier) }
-    before do
-      @users = []
-      8.times do
-        @users << Factory.create(:user)
-      end
-      @user_fb_id = 'abc123'
-      @user_fb = Factory.create(:user, :invitation_service => "facebook", :invitation_identifier => @user_fb_id)
-    end
 
     context 'send a request to an existing' do
       context 'active user' do
         it 'by email' do
-          @identifier = @users[3].email
+          @identifier = alice.email
           @type = 'email'
-          inv.should == @users[3]
+          inv.should == alice
         end
 
         it 'by service' do
           uid = '123324234'
-          @users[0].services << Services::Facebook.new(:uid => uid)
-          @users[0].save
+          alice.services << Services::Facebook.new(:uid => uid)
+          alice.save
 
           @type = 'facebook'
           @identifier = uid
 
-          inv.should == @users[0]
+          inv.should == alice
         end
       end
 
       context 'invited user' do
         it 'by email' do
-          @identifier = @users[3].email
+          @identifier = alice.email
           @type = 'email'
 
-          @users[3].invitation_identifier = @identifier
-          @users[3].invitation_service = @type
-          @users[3].save
-          inv.should == @users[3]
+          alice.invitation_identifier = @identifier
+          alice.invitation_service = @type
+          alice.save
+          inv.should == alice
         end
 
         it 'by service' do
-          @identifier = @user_fb_id
+          fb_id = 'abc123'
+          alice.invitation_service = 'facebook'
+          alice.invitation_identifier = fb_id
+          alice.save
+
+          @identifier = fb_id
           @type = 'facebook'
-          inv.should == @user_fb
+          inv.should == alice
         end
       end
     end
@@ -164,12 +161,8 @@ describe Invitation do
     end
 
     it 'sends a contact request to a user with that email into the aspect' do
-      user2
-      user.should_receive(:send_contact_request_to) { |a, b|
-        a.should == user2.person
-        b.should == aspect
-      }
-      Invitation.invite(:from => user, :service => 'email', :identifier => user2.email, :into => aspect)
+      user.should_receive(:share_with).with(eve.person, aspect)
+      Invitation.invite(:from => user, :service => 'email', :identifier => eve.email, :into => aspect)
     end
 
     it 'decrements the invite count of the from user' do
@@ -303,7 +296,7 @@ describe Invitation do
     end
   end
 
-  describe '#to_request!' do
+  describe '#share_with!' do
     before do
       @new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect)
       acceptance_params = {:invitation_token => "abc",
@@ -317,38 +310,17 @@ describe Invitation do
       @new_user.save
       @invitation = @new_user.invitations_to_me.first
     end
+
     it 'destroys the invitation' do
       lambda {
-        @invitation.to_request!
+        @invitation.share_with!
       }.should change(Invitation, :count).by(-1)
     end
-    it 'creates a request, and sends it to the new user' do
+
+    it 'creates a contact for the inviter and invitee' do
       lambda {
-        @invitation.to_request!
-      }.should change(Request, :count).by(1)
-    end
-    it 'creates a pending contact for the inviter' do
-      lambda {
-        @invitation.to_request!
-      }.should change(Contact.unscoped, :count).by(1)
-      @invitation.sender.contact_for(@new_user.person).should be_pending
-    end
-    describe 'return values' do
-      before do
-        @request = @invitation.to_request!
-      end
-      it 'returns the sent request' do
-        @request.is_a?(Request).should be_true
-      end
-      it 'sets the receiving user' do
-        @request.recipient.should == @new_user.person
-      end
-      it 'sets the sending user' do
-        @request.sender.should == user.person
-      end
-      it 'sets the aspect' do
-        @request.aspect.should == aspect
-      end
+        @invitation.share_with!
+      }.should change(Contact, :count).by(2)
     end
   end
 end

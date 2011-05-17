@@ -55,7 +55,7 @@ module Diaspora
       end
 
       def contact_for_person_id(person_id)
-        Contact.unscoped.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first if person_id
+        Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
       end
 
       def people_in_aspects(requested_aspects, opts={})
@@ -85,18 +85,13 @@ module Diaspora
         self.aspects.all.collect{|x| x.id}
       end
 
-      def request_from(person)
-        Request.where(:sender_id => person.id,
-                      :recipient_id => self.person.id).first
-      end
-
       def posts_from(person)
         return self.person.posts.where(:pending => false).order("created_at DESC") if person == self.person
         con = Contact.arel_table
         p = Post.arel_table
         post_ids = []
         if contact = self.contact_for(person)
-          post_ids = Post.connection.execute(contact.post_visibilities.select('post_visibilities.post_id').to_sql).map{|r| r.first}
+          post_ids = Post.connection.execute(contact.post_visibilities.where(:hidden => false).select('post_visibilities.post_id').to_sql).map{|r| r.first}
         end
         post_ids += Post.connection.execute(person.posts.where(:public => true).select('posts.id').to_sql).map{|r| r.first}
 

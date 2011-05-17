@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110514182918) do
+ActiveRecord::Schema.define(:version => 20110517180148) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -68,17 +68,17 @@ ActiveRecord::Schema.define(:version => 20110514182918) do
   add_index "comments", ["post_id"], :name => "index_comments_on_post_id"
 
   create_table "contacts", :force => true do |t|
-    t.integer  "user_id",                      :null => false
-    t.integer  "person_id",                    :null => false
-    t.boolean  "pending",    :default => true, :null => false
+    t.integer  "user_id",                       :null => false
+    t.integer  "person_id",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "mongo_id"
+    t.boolean  "sharing",    :default => false, :null => false
+    t.boolean  "receiving",  :default => false, :null => false
   end
 
   add_index "contacts", ["mongo_id"], :name => "index_contacts_on_mongo_id"
-  add_index "contacts", ["person_id", "pending"], :name => "index_contacts_on_person_id_and_pending"
-  add_index "contacts", ["user_id", "pending"], :name => "index_contacts_on_user_id_and_pending"
+  add_index "contacts", ["person_id"], :name => "index_contacts_on_person_id"
   add_index "contacts", ["user_id", "person_id"], :name => "index_contacts_on_user_id_and_person_id", :unique => true
 
   create_table "conversation_visibilities", :force => true do |t|
@@ -275,20 +275,6 @@ ActiveRecord::Schema.define(:version => 20110514182918) do
   add_index "profiles", ["mongo_id"], :name => "index_profiles_on_mongo_id"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
 
-  create_table "requests", :force => true do |t|
-    t.integer  "sender_id",    :null => false
-    t.integer  "recipient_id", :null => false
-    t.integer  "aspect_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.string   "mongo_id"
-  end
-
-  add_index "requests", ["mongo_id"], :name => "index_requests_on_mongo_id"
-  add_index "requests", ["recipient_id"], :name => "index_requests_on_recipient_id"
-  add_index "requests", ["sender_id", "recipient_id"], :name => "index_requests_on_sender_id_and_recipient_id", :unique => true
-  add_index "requests", ["sender_id"], :name => "index_requests_on_sender_id"
-
   create_table "service_users", :force => true do |t|
     t.string   "uid",           :null => false
     t.string   "name",          :null => false
@@ -383,7 +369,7 @@ ActiveRecord::Schema.define(:version => 20110514182918) do
   add_index "users", ["mongo_id"], :name => "index_users_on_mongo_id"
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
-  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk"
+  add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete
   add_foreign_key "aspect_memberships", "contacts", :name => "aspect_memberships_contact_id_fk", :dependent => :delete
 
   add_foreign_key "aspect_visibilities", "aspects", :name => "aspect_visibilities_aspect_id_fk", :dependent => :delete
@@ -416,9 +402,6 @@ ActiveRecord::Schema.define(:version => 20110514182918) do
   add_foreign_key "posts", "people", :name => "posts_author_id_fk", :column => "author_id", :dependent => :delete
 
   add_foreign_key "profiles", "people", :name => "profiles_person_id_fk", :dependent => :delete
-
-  add_foreign_key "requests", "people", :name => "requests_recipient_id_fk", :column => "recipient_id", :dependent => :delete
-  add_foreign_key "requests", "people", :name => "requests_sender_id_fk", :column => "sender_id", :dependent => :delete
 
   add_foreign_key "services", "users", :name => "services_user_id_fk", :dependent => :delete
 

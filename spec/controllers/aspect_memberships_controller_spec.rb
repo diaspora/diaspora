@@ -6,55 +6,76 @@ require 'spec_helper'
 
 describe AspectMembershipsController do
   before do
-    @user  = alice
-    @user2 = bob
+    @aspect0  = alice.aspects.first
+    @aspect1  = alice.aspects.create(:name => "another aspect")
+    @aspect2  = bob.aspects.first
 
-    @aspect0  = @user.aspects.first
-    @aspect1  = @user.aspects.create(:name => "another aspect")
-    @aspect2  = @user2.aspects.first
-
-    @contact = @user.contact_for(@user2.person)
-    @user.getting_started = false
-    @user.save
-    sign_in :user, @user
-    @controller.stub(:current_user).and_return(@user)
+    @contact = alice.contact_for(bob.person)
+    alice.getting_started = false
+    alice.save
+    sign_in :user, alice 
+    @controller.stub(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
 
   describe '#create' do
-    it 'creates an aspect membership' do
-      @user.should_receive(:add_contact_to_aspect)
+    before do
+      @person = eve.person
+    end
+
+    it 'succeeds' do
       post :create,
         :format => 'js',
-        :person_id => @user2.person.id,
+        :person_id => bob.person.id,
         :aspect_id => @aspect1.id
       response.should be_success
+    end
+
+    it 'creates an aspect membership' do
+      lambda {
+        post :create,
+          :format => 'js',
+          :person_id => bob.person.id,
+          :aspect_id => @aspect1.id
+      }.should change{
+        alice.contact_for(bob.person).aspect_memberships.count
+      }.by(1)
+
+    end
+
+    it 'creates a contact' do
+      lambda {
+        post :create,
+          :format => 'js',
+          :person_id => @person.id,
+          :aspect_id => @aspect0.id
+      }.should change{
+        alice.contacts.size
+      }.by(1)
+    end
+
+    it 'failure flashes error' do
+      alice.should_receive(:share_with).and_return(nil)
+      post :create,
+        :format => 'js',
+        :person_id => @person.id,
+        :aspect_id => @aspect0.id
+      flash[:error].should_not be_empty
     end
   end
 
 
   describe "#destroy" do
     it 'removes contacts from an aspect' do
-      @user.add_contact_to_aspect(@contact, @aspect1)
+      alice.add_contact_to_aspect(@contact, @aspect1)
       delete :destroy,
         :format => 'js', :id => 123,
-        :person_id => @user2.person.id,
+        :person_id => bob.person.id,
         :aspect_id => @aspect0.id
       response.should be_success
       @aspect0.reload
       @aspect0.contacts.include?(@contact).should be false
     end
-
-  describe "#update" do
-    it 'calls the move_contact method' do
-      @controller.stub!(:current_user).and_return(@user)
-      @user.should_receive(:move_contact)
-      put :update, :id => 123,
-                   :person_id => @user.person.id,
-                   :aspect_id => @aspect0.id,
-                   :to => @aspect1.id
-    end
-  end
 
     context 'aspect membership does not exist' do
       it 'person does not exist' do
@@ -69,20 +90,22 @@ describe AspectMembershipsController do
       it 'contact is not in the aspect' do
         delete :destroy,
           :format => 'js', :id => 123,
-          :person_id => @user2.person.id,
+          :person_id => bob.person.id,
           :aspect_id => 2321
         response.should_not be_success
         response.body.should include "Could not find the selected person in that aspect"
       end
     end
+  end
 
-    it 'has the error of cannot delete contact from last aspect if its the last aspect' do
-      delete :destroy,
-        :format => 'js', :id => 123,
-        :person_id => @user2.person.id,
-        :aspect_id => @aspect0.id
-      response.should_not be_success
-      response.body.should include "Cannot remove person from last aspect"
+  describe "#update" do
+    it 'calls the move_contact method' do
+      @controller.stub!(:current_user).and_return(alice)
+      alice.should_receive(:move_contact)
+      put :update, :id => 123,
+                   :person_id => alice.person.id,
+                   :aspect_id => @aspect0.id,
+                   :to => @aspect1.id
     end
   end
 end

@@ -89,11 +89,11 @@ describe InvitationsController do
         invited.aspects.count.should == 2
       end
 
-      it 'adds a pending request' do
-        put :update, @accept_params
-        Request.where(:recipient_id => invited.person.id).count.should == 1
+      it 'adds a contact' do
+        lambda { 
+          put :update, @accept_params
+        }.should change(@user.contacts, :count).by(1)
       end
-
     end
 
     context 'failure' do

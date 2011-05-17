@@ -128,7 +128,7 @@ describe Person do
     end
 
     it "deletes all contacts pointing towards a person" do
-      @user.activate_contact(@deleter, @user.aspects.first)
+      @user.contacts.create(:person => @deleter, :aspects => [@user.aspects.first])
       @deleter.destroy
       @user.contact_for(@deleter).should be_nil
     end
@@ -141,22 +141,6 @@ describe Person do
       lambda {
         @deleter.destroy
       }.should change(Profile, :count).by(-1)
-    end
-
-    it 'deletes all requests to a person' do
-      alice.send_contact_request_to(eve.person, alice.aspects.first)
-      Request.count.should == 1
-      lambda {
-        eve.person.destroy
-      }.should change(Request, :count).by(-1)
-    end
-
-    it 'deletes all requests from a person' do
-      Request.create(:sender_id => @deleter.id, :recipient_id => alice.person.id)
-      Request.count.should == 1
-      lambda {
-        @deleter.destroy
-      }.should change(Request, :count).by(-1)
     end
 
     it "deletes a person's comments on person deletion" do
@@ -174,14 +158,14 @@ describe Person do
       @aspect2 = @user2.aspects.create(:name => "Abscence of Babes")
     end
     it 'should not delete an orphaned contact' do
-      @user.activate_contact(@person, @aspect)
+      @user.contacts.create(:person => @person, :aspects => [@aspect])
 
       lambda {@user.disconnect(@user.contact_for(@person))}.should_not change(Person, :count)
     end
 
     it 'should not delete an un-orphaned contact' do
-      @user.activate_contact(@person, @aspect)
-      @user2.activate_contact(@person, @aspect2)
+      @user.contacts.create(:person => @person, :aspects => [@aspect])
+      @user2.contacts.create(:person => @person, :aspects => [@aspect2])
 
       lambda {@user.disconnect(@user.contact_for(@person))}.should_not change(Person, :count)
     end
@@ -293,7 +277,7 @@ describe Person do
       @casey_grippi.profile.first_name = "AAA"
       @casey_grippi.profile.save
 
-      @user.activate_contact(@casey_grippi, @user.aspects.first)
+      @user.contacts.create(:person => @casey_grippi, :aspects => [@user.aspects.first])
 
       people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
@@ -317,7 +301,7 @@ describe Person do
       @casey_grippi.profile.first_name = "AAA"
       @casey_grippi.profile.save
 
-      requestor.send_contact_request_to(@user.person, requestor.aspects.first)
+      requestor.share_with(@user.person, requestor.aspects.first)
       people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [requestor.person, @yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
     end

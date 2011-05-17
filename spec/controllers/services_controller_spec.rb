@@ -38,7 +38,7 @@ describe ServicesController do
   end
 
   describe '#create' do
-    it 'creates a new OmniauthService' do
+    it 'creates a new OmniauthService' do 
       request.env['omniauth.auth'] = omniauth_auth
       lambda{
         post :create, :provider => 'twitter'

@@ -159,14 +159,6 @@ Then /^I should( not)? see the contact dialog$/ do |not_see|
   end
 end
 
-When /^I add the person to my first aspect$/ do
-  steps %Q{
-    And I press the first ".add.button" within "#facebox #aspects_list ul > li:first-child"
-    And I wait for the ajax to finish
-    Then I should see a ".added.button" within "#facebox #aspects_list ul > li:first-child"
-  }
-end
-
 Then /^I should( not)? see an add contact button$/ do |not_see|
   expected_length = not_see ? 0 : 1
   evaluate_script("$('.add_contact a').length == #{expected_length};")

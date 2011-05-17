@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class PostVisibility < ActiveRecord::Base
-  default_scope where(:hidden => false)
-
   belongs_to :contact
   belongs_to :post
 end

@@ -71,99 +71,52 @@ describe Postzord::Dispatch do
         @zord.should_receive(:deliver_to_remote).with(@remote_people)
         @zord.post
       end
+    end
 
-      context "comments" do
+    context "comments" do
+      before do
+        @local_luke, @local_leia, @remote_raphael = set_up_friends
+      end
+
+      context "local luke's post is commented on by" do
         before do
-          @local_luke, @local_leia, @remote_raphael = set_up_friends
+          @post = @local_luke.post(:status_message, :text => "hello", :to => @local_luke.aspects.first)
         end
-
-        context "local luke's post is commented on by" do
+        context "local leia" do
           before do
-            @post = @local_luke.post(:status_message, :text => "hello", :to => @local_luke.aspects.first)
+            @comment = @local_leia.build_comment "yo", :on => @post
+            @comment.save
           end
-          context "local leia" do
+          context "local leia's mailman" do
             before do
-              @comment = @local_leia.build_comment "yo", :on => @post
-              @comment.save
+              @mailman = Postzord::Dispatch.new(@local_leia, @comment)
             end
-            context "local leia's mailman" do
-              before do
-                @mailman = Postzord::Dispatch.new(@local_leia, @comment)
-              end
-              it 'calls deliver_to_local with local_luke' do
-                @mailman.should_receive(:deliver_to_local).with([@local_luke.person])
-                @mailman.post
-              end
-              it 'calls deliver_to_remote with nobody' do
-                @mailman.should_receive(:deliver_to_remote).with([])
-                @mailman.post
-              end
-              it 'does not call socket_to_users' do
-                @mailman.should_not_receive(:socket_to_users)
-                @mailman.post
-              end
-              it 'does not call notify_users' do
-                @mailman.should_not_receive(:notify_users)
-                @mailman.post
-              end
+            it 'calls deliver_to_local with local_luke' do
+              @mailman.should_receive(:deliver_to_local).with([@local_luke.person])
+              @mailman.post
             end
-            context "local luke's mailman" do
-              before do
-                @mailman = Postzord::Dispatch.new(@local_luke, @comment)
-              end
-              it 'does not call deliver_to_local' do
-                @mailman.should_not_receive(:deliver_to_local)
-                @mailman.post
-              end
-              it 'calls deliver_to_remote with remote raphael' do
-                @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
-                @mailman.post
-              end
-              it 'calls socket_to_users' do
-                @mailman.should_receive(:socket_to_users).with([@local_leia, @local_luke])
-                @mailman.post
-              end
-              it 'calls notify_users' do
-                @mailman.should_receive(:notify_users).with([@local_leia])
-                @mailman.post
-              end
+            it 'calls deliver_to_remote with nobody' do
+              @mailman.should_receive(:deliver_to_remote).with([])
+              @mailman.post
             end
-
+            it 'does not call socket_to_users' do
+              @mailman.should_not_receive(:socket_to_users)
+              @mailman.post
+            end
+            it 'does not call notify_users' do
+              @mailman.should_not_receive(:notify_users)
+              @mailman.post
+            end
           end
-          context "remote raphael" do
+          context "local luke's mailman" do
             before do
-              @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
-              @comment.save
               @mailman = Postzord::Dispatch.new(@local_luke, @comment)
             end
             it 'does not call deliver_to_local' do
               @mailman.should_not_receive(:deliver_to_local)
               @mailman.post
             end
-            it 'calls deliver_to_remote with remote_raphael' do
-              @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
-              @mailman.post
-            end
-            it 'calls socket_to_users' do
-              @mailman.should_receive(:socket_to_users).with([@local_leia])
-              @mailman.post
-            end
-            it 'calls notify_users' do
-              @mailman.should_receive(:notify_users).with([@local_leia])
-              @mailman.post
-            end
-          end
-          context "local luke" do
-            before do
-              @comment = @local_luke.build_comment "yo", :on => @post
-              @comment.save
-              @mailman = Postzord::Dispatch.new(@local_luke, @comment)
-            end
-            it 'does not call deliver_to_local' do
-              @mailman.should_not_receive(:deliver_to_local)
-              @mailman.post
-            end
-            it 'calls deliver_to_remote with remote_raphael' do
+            it 'calls deliver_to_remote with remote raphael' do
               @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
               @mailman.post
             end
@@ -176,31 +129,78 @@ describe Postzord::Dispatch do
               @mailman.post
             end
           end
+
         end
-        context "remote raphael's post is commented on by local luke" do
+        context "remote raphael" do
           before do
-            @post = Factory(:status_message, :author => @remote_raphael)
-            @comment = @local_luke.build_comment "yo", :on => @post
+            @comment = Factory.build(:comment, :author => @remote_raphael, :post => @post)
             @comment.save
             @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+          end
+          it 'does not call deliver_to_local' do
+            @mailman.should_not_receive(:deliver_to_local)
+            @mailman.post
           end
           it 'calls deliver_to_remote with remote_raphael' do
             @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
             @mailman.post
           end
-          it 'calls deliver_to_local with nobody' do
-            @mailman.should_receive(:deliver_to_local).with([])
+          it 'calls socket_to_users' do
+            @mailman.should_receive(:socket_to_users).with([@local_leia])
             @mailman.post
           end
-          it 'does not call socket_to_users' do
-            @mailman.should_not_receive(:socket_to_users)
+          it 'calls notify_users' do
+            @mailman.should_receive(:notify_users).with([@local_leia])
             @mailman.post
           end
-          it 'does not call notify_users' do
-            @mailman.should_not_receive(:notify_users)
+        end
+        context "local luke" do
+          before do
+            @comment = @local_luke.build_comment "yo", :on => @post
+            @comment.save
+            @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+          end
+          it 'does not call deliver_to_local' do
+            @mailman.should_not_receive(:deliver_to_local)
             @mailman.post
           end
+          it 'calls deliver_to_remote with remote_raphael' do
+            @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+            @mailman.post
+          end
+          it 'calls socket_to_users' do
+            @mailman.should_receive(:socket_to_users).with([@local_leia, @local_luke])
+            @mailman.post
+          end
+          it 'calls notify_users' do
+            @mailman.should_receive(:notify_users).with([@local_leia])
+            @mailman.post
+          end
+        end
+      end
 
+      context "remote raphael's post is commented on by local luke" do
+        before do
+          @post = Factory(:status_message, :author => @remote_raphael)
+          @comment = @local_luke.build_comment "yo", :on => @post
+          @comment.save
+          @mailman = Postzord::Dispatch.new(@local_luke, @comment)
+        end
+        it 'calls deliver_to_remote with remote_raphael' do
+          @mailman.should_receive(:deliver_to_remote).with([@remote_raphael])
+          @mailman.post
+        end
+        it 'calls deliver_to_local with nobody' do
+          @mailman.should_receive(:deliver_to_local).with([])
+          @mailman.post
+        end
+        it 'does not call socket_to_users' do
+          @mailman.should_not_receive(:socket_to_users)
+          @mailman.post
+        end
+        it 'does not call notify_users' do
+          @mailman.should_not_receive(:notify_users)
+          @mailman.post
         end
       end
     end

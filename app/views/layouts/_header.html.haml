@@ -33,7 +33,7 @@
         .badge_count{:class => ("hidden" if @unread_message_count == 0)}
           = @unread_message_count
 
-    %ul#user_menu
+    %ul#user_menu.dropdown
       %li
         .right
           &#9660;
@@ -58,4 +58,4 @@
 
       .facebox_content
         #add_aspect_pane
-          = render "aspects/new_aspect"
+          = render "aspects/new"

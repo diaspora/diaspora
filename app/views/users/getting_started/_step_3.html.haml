@@ -11,10 +11,6 @@
   %br
 
 #people_stream.stream
-  - for pending_req in @requests
-    - person = pending_req.sender
-
-    = render :partial => 'people/person', :locals => {:request => pending_req, :person => person, :contact => nil}
   - for friend in @friends
     = render :partial => 'people/person', :locals => {:request => friend.request, :person => friend.person, :contact => friend.contact}
 

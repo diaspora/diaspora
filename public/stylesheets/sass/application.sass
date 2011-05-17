@@ -188,10 +188,7 @@ header
         :color #222
 
     li
-      :display none
-
       a
-        :display block
         :padding 4px
         :height 100%
         &:hover
@@ -200,10 +197,7 @@ header
           :color #fff
 
       &:first-child
-        :display inline
         a
-          :height auto
-          :display inline
           :padding
             :right 15px
           :color #CCC
@@ -225,9 +219,6 @@ header
         :color #000
       :border 1px solid #999
 
-      li
-        :display block
-
     .avatar
       :height 20px
       :width 20px
@@ -235,6 +226,28 @@ header
       :left 2px
       :top 2px
       :display block
+
+//////////////////////////////////
+ul.dropdown
+  :padding 0
+
+  li
+    :display none
+    a
+      :display block
+
+    &:first-child
+      :display block
+      a
+        :height auto
+        :display inline
+
+  &.active
+    :z-index 30
+    li
+      :display block
+
+//////////////////////////////////
 
 .unread
   :font-weight bold
@@ -700,17 +713,14 @@ ul.show_comments,
         :bottom 2em
 
 a.paginate, #infscr-loading
-  :border
-    :width 1px
-    :style solid
-    :color $blue
   :display block
+
   :margin
     :top 10px
-  :padding 5px
+
+  :padding 8px 0
   :text-align center
   :width 100%
-  :cursor pointer
 
   &:hover
     :border 1px solid #1C6D99
@@ -754,8 +764,6 @@ a.paginate, #infscr-loading
     :padding 0 10px
     :font
       :size 16px
-    :font
-      :family 'MARKER FELT', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
     :color #333
 
 #debug_info
@@ -1815,7 +1823,14 @@ ul#request_result
     :margin
       :top 0
 
-  ul
+  .button.share
+    :padding
+      :right 20px
+    .right
+      :right 8px
+      :top 3px
+
+  > ul
     :margin 0
     :padding 0
 
@@ -1834,7 +1849,7 @@ ul#request_result
         :background
           :color rgb(245,245,245)
 
-      .right
+      > .right
         :right 8px
         :top 12px
 
@@ -2697,12 +2712,6 @@ ul.show_comments,
     :padding 10px 0
   .avatar
     :float left
-  .right
-    :display none
-
-  .stream_element:hover
-    .right
-      :display none
 
 .tag
   :display inline-block

@@ -59,10 +59,10 @@ When /^I have user with username "([^"]*)" in an aspect called "([^"]*)"$/ do |u
 end
 
 
-Given /^I have one contact request$/ do
+Given /^I have one follower$/ do
   other_user = Factory(:user)
   other_aspect = other_user.aspects.create!(:name => "meh")
-  other_user.send_contact_request_to(@me.person, other_aspect)
+  other_user.share_with(@me.person, other_aspect)
 
   other_user.reload
   other_aspect.reload
@@ -153,6 +153,39 @@ Given /^many posts from alice for bob$/ do
     post.save
     time_interval += 1000
   end
+end
+
+Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
+  @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
+end
+
+Given /^I have (\d) contacts?$/ do |count|
+  count.to_i.times do
+    u = Factory(:user_with_aspect)
+    u.share_with(@me.person, u.aspects.first)
+  end
+end
+
+When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$/ do |word1, word2, aspect_number, nd|
+  steps %Q{
+    And I press the first ".toggle.button"
+    And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
+    And I wait for the ajax to finish
+    And I press the first ".toggle.button"
+  }
+end
+
+When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
+  steps %Q{
+    And I press the first ".toggle.button"
+
+    And I press click ".new_aspect" within ".dropdown.active"
+    And I fill in "#aspect_name" with "#{aspect_name}"
+    And I submit the form
+
+    And I wait for the ajax to finish
+    And I press the first ".toggle.button"
+  }
 end
 
 And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|

@@ -12,9 +12,6 @@ class PhotosController < ApplicationController
     @person = Person.find_by_id(params[:person_id])
 
     if @person
-      @incoming_request = Request.where(:recipient_id => current_user.person.id, :sender_id => @person.id).first
-      @outgoing_request = Request.where(:sender_id => current_user.person.id, :recipient_id => @person.id).first
-
       @profile = @person.profile
       @contact = current_user.contact_for(@person)
       @is_contact = @person != current_user.person && @contact

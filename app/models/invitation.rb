@@ -20,7 +20,7 @@ class Invitation < ActiveRecord::Base
       if opts[:from].contact_for(opts[:from].person)
         raise "You are already connceted to this person"
       elsif not existing_user.invited?
-        opts[:from].send_contact_request_to(existing_user.person, opts[:into])
+        opts[:from].share_with(existing_user.person, opts[:into])
         return
       elsif Invitation.where(:sender_id => opts[:from].id, :recipient_id => existing_user.id).first
         raise "You already invited this person"
@@ -87,9 +87,9 @@ class Invitation < ActiveRecord::Base
     recipient.invite!
   end
 
-  def to_request!
-    request = sender.send_contact_request_to(recipient.person, aspect)
-    destroy if request
-    request
+  def share_with!
+    contact = sender.share_with(recipient.person, aspect)
+    destroy if contact
+    contact
   end
 end

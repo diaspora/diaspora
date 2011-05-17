@@ -3,8 +3,6 @@
 #   the COPYRIGHT file.
 
 class Contact < ActiveRecord::Base
-  default_scope where(:pending => false)
-
   belongs_to :user
   validates_presence_of :user
 
@@ -18,7 +16,16 @@ class Contact < ActiveRecord::Base
   has_many :posts, :through => :post_visibilities
 
   validate :not_contact_for_self
+
   validates_uniqueness_of :person_id, :scope => :user_id
+
+  scope :sharing, lambda {
+    where(:sharing => true)
+  }
+
+  scope :receiving, lambda {
+    where(:receiving => true)
+  }
 
   def dispatch_request
     request = self.generate_request
@@ -27,9 +34,9 @@ class Contact < ActiveRecord::Base
   end
 
   def generate_request
-    Request.new(:sender => self.user.person,
-                :recipient => self.person,
-                :aspect => aspects.first)
+    Request.diaspora_initialize(:from => self.user.person,
+                :to => self.person,
+                :into => aspects.first)
   end
 
   def receive_post(post)
@@ -47,6 +54,11 @@ class Contact < ActiveRecord::Base
     similar_contacts = Person.joins(:contacts => :aspect_memberships).where(
       :aspect_memberships => {:aspect_id => incoming_aspect_ids}).where(people[:id].not_eq(self.user.person.id)).select('DISTINCT people.*')
   end
+
+  def mutual?
+    self.sharing && self.receiving
+  end
+
   private
   def not_contact_for_self
     if person_id && person.owner == user
