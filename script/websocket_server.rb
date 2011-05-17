@@ -69,7 +69,7 @@ begin
 
           debug_pp cookie
 
-          user_id = cookie["warden.user.user.key"].last
+          user_id = cookie["warden.user.user.key"][1].first
 
           debug_pp "In WSS, suscribing user: #{User.find(user_id).name} with id: #{user_id}"
           sid = Diaspora::WebSocket.subscribe(user_id, ws)
