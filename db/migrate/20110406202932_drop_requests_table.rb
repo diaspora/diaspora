@@ -9,6 +9,12 @@ class DropRequestsTable < ActiveRecord::Migration
     remove_index :requests, :sender_id
 
     drop_table :requests
+
+    execute( <<SQL
+      DELETE contacts.* FROM contacts
+        WHERE contacts.sharing = false
+SQL
+)
   end
 
   def self.down
