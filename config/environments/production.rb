@@ -47,6 +47,10 @@ Diaspora::Application.configure do
   # the I18n.default_locale when a translation can not be found)
   config.i18n.fallbacks = true
   config.threadsafe!
+
+  # Process jobs in process?
+  #config.work_in_process = false
+
 end
 
 # Sacrifice readability for a 10% performance boost

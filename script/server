@@ -121,7 +121,6 @@ if [ -n "$services" ]; then
     exit 64
 fi
 
-
 redis_config
 
 
