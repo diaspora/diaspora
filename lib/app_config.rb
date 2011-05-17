@@ -1,4 +1,4 @@
-# Copyright (c) 2010, Diaspora Inc.  This file is
+# Copyright (c) 2011, Diaspora Inc.  This file is
 # licensed under the Affero General Public License version 3 or later.  See
 # the COPYRIGHT file.
 
@@ -12,6 +12,10 @@ class AppConfig
 
   def self.[]=(key, value)
     config_vars[key] = value
+  end
+
+  def self.has_key?(key)
+    config_vars.has_key?(key)
   end
 
   def self.configure_for_environment(env)

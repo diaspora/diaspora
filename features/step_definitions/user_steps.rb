@@ -187,3 +187,11 @@ When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
     And I press the first ".toggle.button"
   }
 end
+
+And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|
+  doc = Nokogiri(Devise.mailer.deliveries.first.body.to_s)
+  links = doc.css('a')
+  link = links.detect{ |link| link.text == link_text }
+  path = link.attributes["href"].value
+  visit URI::parse(path).request_uri
+end

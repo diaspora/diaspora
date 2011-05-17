@@ -42,10 +42,10 @@ See [here](http://www.mail-archive.com/dri-devel@lists.sourceforge.net/msg39091.
 for when to rebase.
 
 We need you to fill out a
-[contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq)
+[contributor agreement form](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ)
 before we can accept your patches.  The agreement gives Diaspora joint
 ownership of the patch so the copyright isn't scattered.  You can find it
-[here](https://spreadsheets.google.com/a/joindiaspora.com/viewform?formkey=dGI2cHA3ZnNHLTJvbm10LUhXRTJjR0E6MQ&theme=0AX42CRMsmRFbUy1iOGYwN2U2Mi1hNWU0LTRlNjEtYWMyOC1lZmU4ODg1ODc1ODI&ifq).
+[here](https://spreadsheets.google.com/a/joindiaspora.com/spreadsheet/viewform?formkey=dFdRTnY0TGtfaklKQXZNUndsMlJ2eGc6MQ).
 We're currently working on revising it more details on what we're going for can be found [here](http://blog.joindiaspora.com/licensing.html).
 
 ## Resources

@@ -8,10 +8,10 @@ gem 'bundler', '>= 1.0.0'
 gem 'chef', '0.9.12', :require => false
 gem 'ohai', '0.5.8', :require => false #Chef dependency
 
-gem 'nokogiri', '1.4.3.1'
+gem 'nokogiri'
 
 #Security
-gem 'devise', '1.3.1'
+gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
 
 #Authentication
@@ -61,7 +61,7 @@ gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9' || RUBY_PLATFORM =
 group :development do
   gem 'capistrano', '2.5.19', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
-  gem 'sod', :git => "git://github.com/MikeSofaer/sod.git"
+  gem 'sod', :git => "git://github.com/MikeSofaer/sod.git", :require => false
 end
 
 group :test, :development do
@@ -80,7 +80,7 @@ group :test do
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'
   gem 'rspec-rails', '>= 2.0.0'
-  gem 'rcov'
+  gem 'rcov', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
   gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false

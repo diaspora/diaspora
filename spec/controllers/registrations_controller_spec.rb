@@ -63,9 +63,10 @@ describe RegistrationsController do
         flash[:notice].should_not be_empty
       end
 
-      it "redirects to the root path" do
+      it "redirects to the home path" do
         get :create, @valid_params
-        response.should redirect_to root_path
+        response.should be_redirect
+        response.location.should match /^#{aspects_url}\??$/
       end
     end
 

@@ -24,15 +24,17 @@ describe SessionsController do
   end
 
   describe "#create" do
-    it "redirects to / for a non-mobile user" do
+    it "redirects to /aspects for a non-mobile user" do
       post :create, {"user" => {"remember_me" => "0", "username" => @user.username, "password" => "evankorth"}}
-      response.should redirect_to root_path
+      response.should be_redirect
+      response.location.should match /^#{aspects_url}\??$/
     end
 
-    it "redirects to / for a mobile user" do
+    it "redirects to /aspects for a mobile user" do
       @request.env['HTTP_USER_AGENT'] = 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_1 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8B117 Safari/6531.22.7'
       post :create, {"user" => {"remember_me" => "0", "username" => @user.username, "password" => "evankorth"}}
-      response.should redirect_to root_path
+      response.should be_redirect
+      response.location.should match /^#{aspects_url}\??$/
     end
 
     it 'queues up an update job' do
