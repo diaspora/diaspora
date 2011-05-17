@@ -12,7 +12,7 @@
       - for aspect in @all_aspects
         = aspect_dropdown_list_item(aspect, contact, person)
               
-      - if defined?(@aspect) && ( @aspect == :profile || @aspect == :tag)
+      - if defined?(@aspect) && ( @aspect == :profile || @aspect == :tag || @aspect == :search)
         %li.newItem
           .add_aspect
             = link_to "Add a new aspect", new_aspect_path(:person_id => person.id), :rel => 'facebox'
