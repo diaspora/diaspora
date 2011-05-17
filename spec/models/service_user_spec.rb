@@ -106,3 +106,36 @@ JSON
     end
   end
 end
+
+describe FakeServiceUser do
+  describe '.initialize' do
+    before do
+      @data = [182, "820651", "Maxwell Salzberg", "http://cdn.fn.com/pic1.jpg", 299, 1610, nil, nil, nil, DateTime.parse("Tue May 17 00:31:44 UTC 2011"), DateTime.parse("Tue May 17 00:31:44 UTC 2011")]
+      @fake = FakeServiceUser.new(@data)
+    end
+    it 'takes a mysql row and sets the attr names to their values' do
+      @fake[:id].should == @data[0]
+      @fake[:uid].should == @data[1]
+      @fake[:name].should == @data[2]
+      @fake[:photo_url].should == @data[3]
+      @fake[:service_id].should == @data[4]
+      @fake[:person_id].should == @data[5]
+      @fake[:contact_id].should == @data[6]
+      @fake[:request_id].should == @data[7]
+      @fake[:invitation_id].should == @data[8]
+      @fake[:created_at].should == @data[9]
+      @fake[:updated_at].should == @data[10]
+    end
+
+    it 'has reader methods' do
+      @fake.photo_url.should == @data[3]
+      @fake.person_id.should == @data[5]
+    end
+
+    it 'has association methods' do
+      person = mock
+      Person.should_receive(:find).with(@data[5]).and_return person
+      @fake.person.should == person
+    end
+  end
+end
