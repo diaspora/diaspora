@@ -15,4 +15,4 @@
       - if defined?(@aspect) && ( @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification)
         %li.newItem
           .add_aspect
-            = link_to "Add a new aspect", new_aspect_path(:person_id => person.id), :rel => 'facebox'
+            = link_to t('aspects.manage.add_a_new_aspect'), new_aspect_path(:person_id => person.id), :rel => 'facebox'

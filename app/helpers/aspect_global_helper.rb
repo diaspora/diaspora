@@ -94,6 +94,7 @@ module AspectGlobalHelper
     str << aspect.name
     str << "<div class=\"hidden\">"
     str << aspect_membership_button(aspect, contact, person)
+    str << "</li>"
     str.html_safe
   end
 end
