@@ -38,7 +38,7 @@ class AppConfig
       all_envs.deep_merge!(all_envs_custom)
     else
       unless Rails.env == "development" || Rails.env == "test"
-        $stderr.puts "WARNING: No config/app.yml found! Look at config/app_config.yml.example for help."
+        $stderr.puts "WARNING: No config/app.yml found! Look at config/app.yml.example for help."
       end
     end
 
