@@ -14,11 +14,14 @@ pl:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
     search_for: "Szukaj: {{name}}"
+    show_more: "show more"
     timeago: 
       day: "dzień"
       days: "%d dni"

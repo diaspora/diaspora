@@ -14,11 +14,14 @@ zh-CN:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "你确定吗？"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
     search_for: "搜索 {{name}}"
+    show_more: "show more"
     timeago: 
       day: "1天"
       days: "%d天"

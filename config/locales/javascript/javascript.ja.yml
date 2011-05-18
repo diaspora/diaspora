@@ -14,11 +14,14 @@ ja:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "本当にいいですか。"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "投稿はこれ以上ありません。"
     publisher: 
       at_least_one_aspect: "アスペクトを選択してから投稿してください。"
     search_for: "{{name}}を検索する"
+    show_more: "show more"
     timeago: 
       day: "1日"
       days: "%d日"

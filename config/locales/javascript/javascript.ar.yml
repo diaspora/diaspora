@@ -14,11 +14,14 @@ ar:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "هل أنت متأكد؟"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
       at_least_one_aspect: "عليك تحديد فئة واحدة على الأقل"
     search_for: "إبحث عن {{name}}"
+    show_more: "show more"
     timeago: 
       day: "منذ يوم"
       days: "منذ %d أيام"

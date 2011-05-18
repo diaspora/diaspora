@@ -30,9 +30,9 @@ el:
       hello: "Γειά σου %{email}!"
       invitation_instructions: 
         accept: "Αποδοχή πρόσκλησης"
-        ignore: "Εάν δεν θέλετε να αποδεχτήτε την πρόσκληση, παρακαλώ αγνοήστε αυτό το email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        ignore: "Εάν δεν θέλετε να αποδεχτείτε την πρόσκληση, παρακαλώ αγνοήστε αυτό το email."
+        no_account_till: "Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να μεταβείτε στον παρακάτω σύνδεσμο και συνδεθείτε. "
+        subject: "Έχετε προσκληθεί να συμμετάσχετε στο Diaspora!"
       inviters: 
         accept_at: ", στο %{url}, μπορείτε να το αποδεχτείτε, μέσω του επόμενου συνδέσμου."
         has_invited_you: "Ο χρήστης %{name} σας προσκάλεσε να γίνετε μέλος του Diaspora"

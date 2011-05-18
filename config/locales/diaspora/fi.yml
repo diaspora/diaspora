@@ -54,7 +54,7 @@ fi:
       done_editing: "muokkaus valmis"
     aspect_stream: 
       activity: "aktiivisuus"
-      post_time: "lähetys aika"
+      post_time: "lähetysaika"
       sort_by: "järjestä:"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
@@ -83,7 +83,7 @@ fi:
     index: 
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       no_contacts: "Ei kontakteja"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Lisää uusi näkymä"
@@ -98,7 +98,7 @@ fi:
       failure: "ei toiminut %{inspect}"
       success: "Henkilö siirretty uuteen näkymään"
     new: 
-      create: "Create"
+      create: "Luo"
       name: "Name"
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
@@ -152,7 +152,7 @@ fi:
       following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Aloita jakamaan %{name} kanssa"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Ihmiset jotka jakavat kanssasi:"
     zero: "ei kontakteja"
   conversations: 
     create: 
@@ -250,7 +250,7 @@ fi:
         few: "%{count} ei tykkää"
         many: "%{count} ei tykkää"
         one: "%{count} ei tykkää"
-        other: "%{count} people disliked this"
+        other: "%{count} ei tykkää"
         zero: "no people disliked this"
       people_like_this: 
         few: "%{count} tykkää"
@@ -297,7 +297,7 @@ fi:
     hello: "Hei %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
+      sign_in: "Kirjaudu sisään nähdäksesi"
       subject: "%{name} has just liked your post"
     love: "Terveisin,"
     manage_your_email_settings: "manage your email settings"
@@ -428,7 +428,7 @@ fi:
       your_photo: "Profiili kuva"
       your_private_profile: "Yksityinen profiilisi"
       your_public_profile: "Julkinen profiilisi"
-      your_tags: "You: in 5 #tags"
+      your_tags: "Sinä 5:llä #tagilla"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Profiilin päivitys epäonnistui"
@@ -520,7 +520,7 @@ fi:
       from_facebook: "Facebookista"
       invitations_left: "(%{count} jäljellä)"
       invite_someone: "Kutsu joku"
-      invite_your_friends: "Etsi kavereitasi"
+      invite_your_friends: "Kutsu kavereitasi"
       invites: "Kutsut"
       invites_closed: "Kutsut on toistaiseksi suljettu tällä Diaspora-palvelimella"
     notification: 
@@ -534,11 +534,11 @@ fi:
       add_photos: "lisää kuvia"
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Jakomenetelmät:"
       make_public: "tee julkiseksi"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
-      public: "Public"
+      public: "Julkinen"
       publishing_to: "publishing to: "
       share: "Jaa"
       share_with: "Jaa"
@@ -557,11 +557,17 @@ fi:
     helper: 
       no_message_to_display: "Ei näytettäviä viestejä."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mainitse: %{person}"
     show: 
       destroy: "Poista"
       not_found: "Sorry, we couldn't find that post."
       permalink: "pysyvä linkki"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "Ole hyvä ja kirjoita tilaasi vähemmän kuin %{count} merkkiä"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "piilota kommentit"
     show_comments: "näytä kaikki kommentit"
@@ -617,7 +623,7 @@ fi:
       email_notifications_changed: "Sähköposti-ilmoitukset vaihdettu"
       language_changed: "Kieli vaihdettu"
       language_not_changed: "Kielen vaihtaminen epäonnistui"
-      password_changed: "Salasana vaihdettu"
+      password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
       password_not_changed: "Salasanan vaihto epäonnistui"
   webfinger: 
     fetch_failed: "webfinger-profiilin %{profile_url} haku epäonnistui"

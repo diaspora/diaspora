@@ -562,6 +562,12 @@ de:
       destroy: "Entfernen"
       not_found: "Es tut uns Leid, aber wir konnten den Post nicht finden."
       permalink: "Permalink"
+    too_long: 
+      few: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
+      many: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
+      one: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
+      other: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
+      zero: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
   stream_helper: 
     hide_comments: "Kommentare verbergen"
     show_comments: "alle Kommentare zeigen"

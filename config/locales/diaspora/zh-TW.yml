@@ -83,7 +83,7 @@ zh-TW:
     index: 
       handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "與你分享的人"
       post_a_message: "發表訊息 >>"
     manage: 
       add_a_new_aspect: "新增面向"
@@ -98,8 +98,8 @@ zh-TW:
       failure: "因%{inspect}沒有作用"
       success: "聯絡人已移至新的面向"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "建立"
+      name: "名字"
     no_posts_message: 
       start_talking: "還沒人說話. 你來起個頭吧!"
     one: "1個面向"
@@ -314,9 +314,9 @@ zh-TW:
       admin: "為您服務的 Diaspora 管理員"
       subject: "關於你的 Diaspora 帳號的訊息:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "開始跟你分享了!"
+      sign_in: "由此登入"
+      subject: "%{name} 在 Diaspora* 開始跟你分享了"
     thanks: "謝謝,"
   ok: "好了"
   or: "或是"
@@ -515,12 +515,12 @@ zh-TW:
       logged_in_as: "已用 %{name} 登入"
       your_aspects: "你的面向"
     invitations: 
-      by_email: "透過電子郵件"
+      by_email: "用電子郵件"
       dont_have_now: "目前你還不能邀請任何人, 但很快就可以了!"
       from_facebook: "從 Facebook"
       invitations_left: "(剩餘%{count}張)"
       invite_someone: "邀請某人來"
-      invite_your_friends: "找到你的朋友"
+      invite_your_friends: "邀請你的朋友"
       invites: "邀請"
       invites_closed: "目前本 Diaspora pod 不開放邀請功能"
     notification: 
@@ -562,6 +562,12 @@ zh-TW:
       destroy: "刪除"
       not_found: "抱歉, 找不到該則貼文."
       permalink: "靜態連結"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "隱藏意見"
     show_comments: "顯示所有意見"
@@ -592,7 +598,7 @@ zh-TW:
       new_password: "新的密碼"
       private_message: "...當收到私人訊息時?"
       receive_email_notifications: "是否要在以下時機透過電子郵件接收消息..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...當有人開始和你分享時?"
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 

@@ -14,11 +14,14 @@ ko:
         other: "애스펙 {{count}}개 안에 있습니다"
         zero: "애스펙에 넣기"
     confirm_dialog: "확실합니까?"
+    failed_to_like: "좋아요를 실패했습니다!"
+    failed_to_post_message: "공유물 올리기를 실패했습니다!"
     infinite_scroll: 
       no_more: "공유물이 더 없습니다."
     publisher: 
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
     search_for: "{{name}} 검색"
+    show_more: "더 보기"
     timeago: 
       day: "하루"
       days: "%d일"

@@ -14,11 +14,14 @@ es:
         other: "En {{count}} aspectos"
         zero: "Añadir al aspecto"
     confirm_dialog: "¿Estás seguro?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
     search_for: "Buscar a {{name}}"
+    show_more: "show more"
     timeago: 
       day: "un día"
       days: "%d días"

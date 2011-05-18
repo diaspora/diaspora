@@ -83,7 +83,7 @@ es:
     index: 
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
-      people_sharing_with_you: "Están compartiendo contigo"
+      people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
     manage: 
       add_a_new_aspect: "Añadir nuevo aspecto"
@@ -458,7 +458,7 @@ es:
     destroy: 
       error: "¡Selecciona un aspecto!"
       ignore: "Solicitud de contacto ignorada."
-      success: "Ahora están compartiendo."
+      success: "Ahora estas compartiendo."
     helper: 
       new_requests: 
         few: "¡%{count} nuevas solicitudes!"
@@ -562,6 +562,12 @@ es:
       destroy: "Eliminar"
       not_found: "Lo sentimos, no pudimos encontrar esa publicación."
       permalink: "Enlace permanente"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "Ocultar comentarios"
     show_comments: "Mostrar comentarios"

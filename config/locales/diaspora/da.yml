@@ -283,7 +283,7 @@ da:
     new_request: "tilbød at dele med dig."
     post: "indlæg"
     private_message: "har sendt dig en besked."
-    started_sharing: "started sharing with you."
+    started_sharing: "er begyndt at dele med dig."
   notifier: 
     also_commented: 
       commented: "har også kommenteret på %{post_author}'s post:"
@@ -314,9 +314,9 @@ da:
       admin: "Din Diaspora administrator"
       subject: "En besked fra din Diaspora administrator:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "er begyndt at dele med dig!"
+      sign_in: "Log in her"
+      subject: "%{name} er begyndt at dele med dig på Diaspora*"
     thanks: "Tak,"
   ok: "OK"
   or: "eller"
@@ -562,6 +562,12 @@ da:
       destroy: "Slet"
       not_found: "Desværre, vi kunne ikke finde den post."
       permalink: "permanentlink"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "Skjul kommentarer"
     show_comments: "Vis kommentarer"

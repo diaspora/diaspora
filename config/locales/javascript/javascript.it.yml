@@ -14,11 +14,14 @@ it:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Sei sicuro?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Non ci sono altri post."
     publisher: 
       at_least_one_aspect: "Devi condividere almeno con un aspetto"
     search_for: "Ricerca per {{name}}"
+    show_more: "show more"
     timeago: 
       day: "un giorno"
       days: "%d giorni"

@@ -14,11 +14,14 @@ ro:
         other: "În {{count}} aspecte"
         zero: "Adaugă la aspect"
     confirm_dialog: "Sunteţi sigur?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Nu mai sunt posturi."
     publisher: 
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
     search_for: "Caută {{name}}"
+    show_more: "show more"
     timeago: 
       day: "o zi"
       days: "%d zile"

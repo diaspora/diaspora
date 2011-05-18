@@ -14,11 +14,14 @@ nl:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Weet je het zeker?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Geen posts meer."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"
+    show_more: "show more"
     timeago: 
       day: "een dag"
       days: "%d dagen"

@@ -14,11 +14,14 @@ br:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Emaoc'h sur?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     search_for: "Klask war-lerc'h {{name}}"
+    show_more: "show more"
     timeago: 
       day: "un devezh"
       days: "%d a zevezhioù"

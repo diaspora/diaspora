@@ -14,11 +14,14 @@ zh-TW:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "你確定嗎?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "沒有貼文了."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"
+    show_more: "show more"
     timeago: 
       day: "一天"
       days: "%d天"

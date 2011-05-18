@@ -6,19 +6,22 @@
 el: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Προσθήκη σε πτυχή"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "Σε {{count}} πτυχές"
+        many: "Σε {{count}} πτυχές"
+        one: "Σε {{count}} πτυχές"
+        other: "Σε {{count}} πτυχές"
+        zero: "Προσθήκη σε πτυχή"
     confirm_dialog: "Είστε σίγουρος/η;"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     infinite_scroll: 
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     publisher: 
       at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
     search_for: "Αναζήτηση για {{name}}"
+    show_more: "Προβολή περισσότερων"
     timeago: 
       day: "μία μέρα"
       days: "%d μέρες"

@@ -69,7 +69,7 @@ eu:
       aspect_list_is_not_visible: "alderdiaren zerrenda ezktua da alderdiko besteentzat"
       aspect_list_is_visible: "alderdiaren zerrenda ikusgarria da aldediko besteengandik"
       confirm_remove_aspect: "Ziur al zaude alderdi hau ezabatu nahi duzunaz?"
-      done: "Egina"
+      done: "Ados"
       make_aspect_list_visible: "alderdiaren zerrenda publikoa egin?"
       remove_aspect: "Alderdi hau ezabatu"
       rename: "berrizendatu"
@@ -83,7 +83,7 @@ eu:
     index: 
       handle_explanation: "Hau da zure Diaspora erabiltzailea. Zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
     manage: 
       add_a_new_aspect: "Alderdi berri bat sortu"
@@ -98,8 +98,8 @@ eu:
       failure: "huts egin du %{inspect}"
       success: "Pertsona alderdi berrira gehitua"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Sortu"
+      name: "Izena"
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
     one: "alderdi 1"
@@ -131,13 +131,13 @@ eu:
     zero: "iruzkinik ez"
   contacts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Alderdira gehitu"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "%{count} alderdietan"
+        many: "%{count} alderdietan"
+        one: "Alderdi %{count}ean"
+        other: "%{count} alderdietan"
+        zero: "Alderdira gehitu"
     create: 
       failure: "Akatsa adiskide berria sortzean"
     destroy: 
@@ -149,10 +149,10 @@ eu:
     other: "%{count} adiskide"
     share_with_pane: 
       add_new_aspect: "alderdi berrira gehitu"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
+      following: "%{name} alderdi batean sartuz, haiei jarraitzen eta mezuak bidaltzen hasiko zara."
       share_with: "%{name}(r)ekin harremanetan hasi"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Zurekin harremanetan dagoen jendea:"
     zero: "adiskiderik ez"
   conversations: 
     create: 
@@ -283,7 +283,7 @@ eu:
     new_request: "(e)k zurekin partekatu nahi du."
     post: "mezua."
     private_message: "(e)k mezu bat bidali dizu."
-    started_sharing: "started sharing with you."
+    started_sharing: "zurekin harremanetan hasi da."
   notifier: 
     also_commented: 
       commented: "(e)k ere iruzkindu du %{post_author}(r)en mezuan:"
@@ -314,9 +314,9 @@ eu:
       admin: "Zure Diaspora administratzailea"
       subject: "Mezu bat zure Diaspora kontuari buruz:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "zurekin harremanetan hasi da!"
+      sign_in: "Sartu hemen"
+      subject: "%{name} zurekin harremanetan hasi da Diasporan"
     thanks: "Milesker,"
   ok: "Onartu"
   or: "edo"
@@ -360,7 +360,7 @@ eu:
       mention: "Aipatu"
       message: "Mezu pribatua bidali"
       no_posts: "erakusteko sarrerarik ez dago!"
-      not_connected: "Ez zaude partekatzen pertsona honekin"
+      not_connected: "Ez zaude harremanetan pertsona honekin"
       recent_posts: "Mezu Berrienak"
       recent_public_posts: "Azken berri publikoak"
       return_to_aspects: "Zure alderdi orrialdera itzuli"
@@ -454,7 +454,7 @@ eu:
   requests: 
     create: 
       sending: "Bidaltzen"
-      sent: "%{name}(r)ekin partekatzea eskatu duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute eskaera."
+      sent: "%{name}(r)ekin harremanetan hasi nahi duzu. Diasporara sartzen diren hurrengo aldian ikusiko dute eskaera."
     destroy: 
       error: "Alderdi bat aukeratu, mesedez!"
       ignore: "Adiskide eskaera baztertua."
@@ -520,7 +520,7 @@ eu:
       from_facebook: "Facebooketik"
       invitations_left: "(%{count} geratzen zai(zki)zu)"
       invite_someone: "Norbait gonbidatu"
-      invite_your_friends: "Zure lagunak aurkitu"
+      invite_your_friends: "Zure lagunak gonbidatu"
       invites: "Gonbidapenak"
       invites_closed: "Gonbidapenak itxita daude orain Diaspora zerbitzari hontan"
     notification: 
@@ -534,7 +534,7 @@ eu:
       add_photos: "argazkiak gehitu"
       all: "guztiak"
       all_contacts: "adiskide guztiak"
-      click_to_share_with: "Sakatu hauekin partekatzeko:"
+      click_to_share_with: "Sakatu zerbitzu hauetara bidaltzeko:"
       make_public: "publikoa egin"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
@@ -562,6 +562,12 @@ eu:
       destroy: "Suntsitu"
       not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
       permalink: "permalink"
+    too_long: 
+      few: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+      many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+      one: "mesedez, egin itzazu zure mezuak karaktere %{count} baino motzagoak"
+      other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
+      zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
   stream_helper: 
     hide_comments: "iruzkinak ezkutatu"
     show_comments: "iruzkin guztiak erakutsi"
@@ -592,7 +598,7 @@ eu:
       new_password: "Pasahitz Berria"
       private_message: "...mezu pribatu bat jasotzen duzunean?"
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...norbaitek zurekin harreman berria hasten duenean?"
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora erabiltzailea"
     getting_started: 

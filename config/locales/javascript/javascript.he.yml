@@ -14,11 +14,14 @@ he:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "בבטחה?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "אין רשומות נוספות."
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
     search_for: "חיפוש אחר {{name}}"
+    show_more: "show more"
     timeago: 
       day: "יום"
       days: "%d ימים"

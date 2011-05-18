@@ -14,11 +14,14 @@ eu:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Ziur al zaude?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
+    show_more: "show more"
     timeago: 
       day: "egun bat"
       days: "%d egun"

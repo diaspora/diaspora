@@ -152,7 +152,7 @@ bg:
       following: "Поставяйки %{name} в аспект ще започнете да следвате и изпращате публикации до тях."
       share_with: "Започнете да споделяте с %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Хора споделящи с вас:"
     zero: "няма контакти"
   conversations: 
     create: 
@@ -315,7 +315,7 @@ bg:
       subject: "Съобщение относно акаунта ви в Diaspora:"
     started_sharing: 
       sharing: "започна да споделя с вас!"
-      sign_in: "Sign in here"
+      sign_in: "Впишете се тук"
       subject: "%{name} започна да споделя с вас в Diaspora*"
     thanks: "Благодаря,"
   ok: "Добре"
@@ -353,7 +353,7 @@ bg:
       location: "местоположение"
       remove_from: "Премахване на %{name} от %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "добавяне"
       does_not_exist: "Лицето не съществува!"
       edit: "редактиране"
       incoming_request: "%{name} желае да споделя с вас"
@@ -367,7 +367,7 @@ bg:
       see_all: "Вижте всички"
       start_sharing: "започнете да споделяте"
       to_accept_or_ignore: "to accept or ignore it."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "не сте се описали с марки!"
     webfinger: 
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "няма хора"
@@ -389,18 +389,18 @@ bg:
       invalid_ext: "{file} е с невалидно разширение. Позволени са само: {extensions}."
       size_error: "{file} е твърде голям. Максималният разрешен размер е {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "или изберете една от вашите (вече качени)"
+      or_select_one: "или изберете от вече качените"
       upload: "Качете нова снимка за профила!"
     photo: 
       view_all: "всички снимки на %{name}"
     show: 
-      collection_permalink: "collection permalink"
+      collection_permalink: "постоянен адрес на колекцията"
       delete_photo: "Изтриване на изображение"
       edit: "редактиране"
       edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "ползване като профилна снимка"
       original_post: "Оригинална публикация"
-      permalink: "permalink"
+      permalink: "постоянен адрес"
       update_photo: "Update Photo"
       view: "view"
     update: 
@@ -561,7 +561,13 @@ bg:
     show: 
       destroy: "Изтриване"
       not_found: "За съжаление публикацията не може да бъде намерена."
-      permalink: "permalink"
+      permalink: "постоянен адрес"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "скриване на коментарите"
     show_comments: "всички коментари"
@@ -592,7 +598,7 @@ bg:
       new_password: "Нова парола"
       private_message: "...получите лично съобщение?"
       receive_email_notifications: "Получаване на известие по ел. поща когато..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...някой започне да споделя с вас?"
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 

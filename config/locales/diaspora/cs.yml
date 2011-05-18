@@ -152,7 +152,7 @@ cs:
       following: "Umístěním %{name} v aspektu, začnete sledovat jeho příspěvky a odesílat mu vaše vlastní."
       share_with: "Začít sdílet s %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Lidé, kteří s vámi sdílí:"
     zero: "žádné kontakty"
   conversations: 
     create: 
@@ -562,6 +562,12 @@ cs:
       destroy: "Smazat"
       not_found: "Omlouváme se, ale nemůžeme najít tento příspěvek."
       permalink: "trvalý odkaz"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "skrýt komentáře"
     show_comments: "zobrazit komentáře"

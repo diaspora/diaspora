@@ -14,11 +14,14 @@ hu:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Biztos vagy benne?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
     search_for: "{{name}} keresése."
+    show_more: "show more"
     timeago: 
       day: "egy nappal"
       days: "%d nappal"

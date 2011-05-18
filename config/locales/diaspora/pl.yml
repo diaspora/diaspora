@@ -562,6 +562,12 @@ pl:
       destroy: "Usuń"
       not_found: "Niestety, nie udało się nam znaleźć tego wpisu."
       permalink: "odnośnik bezpośredni"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "ukryj komentarze"
     show_comments: "pokaż komentarze"

@@ -562,6 +562,12 @@ ru:
       destroy: "Удалить"
       not_found: "К сожалению мы не смогли найти это сообщение."
       permalink: "постоянная ссылка"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "скрыть комментарии"
     show_comments: "комментарии"

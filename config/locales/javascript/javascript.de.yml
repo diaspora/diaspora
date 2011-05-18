@@ -14,11 +14,14 @@ de:
         other: "In {{count}} Aspekten"
         zero: "Zu Aspekt hinzufügen"
     confirm_dialog: "Bist du dir sicher?"
+    failed_to_like: "Gefällt mir fehlgeschlagen."
+    failed_to_post_message: "Konnte Beitrag nicht senden!"
     infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
     search_for: "Nach {{name}} suchen"
+    show_more: "Mehr zeigen"
     timeago: 
       day: "einem Tag"
       days: "%d Tagen"

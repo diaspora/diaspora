@@ -14,11 +14,14 @@ sv:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     confirm_dialog: "Är du säker?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
     infinite_scroll: 
       no_more: "Inga fler inlägg."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
     search_for: "Sök efter {{name}}"
+    show_more: "show more"
     timeago: 
       day: "en dag"
       days: "%d dagar"

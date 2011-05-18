@@ -83,7 +83,7 @@ es-CL:
     index: 
       handle_explanation: "Esta es tu dirección Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Personas compartiendo contigo"
       post_a_message: "postea un mensaje >>"
     manage: 
       add_a_new_aspect: "Agregar un nuevo aspecto"
@@ -98,8 +98,8 @@ es-CL:
       failure: "no funcionó %{inspect}"
       success: "Persona movida al nuevo aspecto"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Crear"
+      name: "Nombre"
     no_posts_message: 
       start_talking: "Nadie ha dicho nada aún.  ¡Que comiense la conversación!"
     one: "1 aspecto"
@@ -131,13 +131,13 @@ es-CL:
     zero: "no hay comentarios"
   contacts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Agregar al aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "En %{count} aspectos"
+        many: "En %{count} aspectos"
+        one: "En %{count} aspecto"
+        other: "En %{count} aspectos"
+        zero: "Agregar al aspecto"
     create: 
       failure: "Error al crear contacto"
     destroy: 
@@ -149,10 +149,10 @@ es-CL:
     other: "%{count} contactos"
     share_with_pane: 
       add_new_aspect: "Agregar a un nuevo Aspecto"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
+      following: "Al colocar a %{name} en un Aspecto, comenzaras compartir posts con el."
       share_with: "Empezar a compartir con %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Personas compartiendo contigo:"
     zero: "no hay contactos"
   conversations: 
     create: 
@@ -283,7 +283,7 @@ es-CL:
     new_request: "quiere compartir contigo."
     post: "post."
     private_message: "te envió un mensaje."
-    started_sharing: "started sharing with you."
+    started_sharing: "Comenzó a compartir contigo."
   notifier: 
     also_commented: 
       commented: "También comentó en el post de %{post_author}:"
@@ -314,9 +314,9 @@ es-CL:
       admin: "Tu administrador de Diaspora"
       subject: "Un mensaje sobre tu cuenta de Diaspora:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "Ha comenzado a compartir contigo!"
+      sign_in: "Conectate aqui"
+      subject: "%{name} ha comenzado a compartir contigo en Diaspora*"
     thanks: "Gracias,"
   ok: "OK"
   or: "o"
@@ -562,6 +562,12 @@ es-CL:
       destroy: "Eliminar"
       not_found: "Perdón, no pudimos encontrar ese post."
       permalink: "permalink"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "ocultar comentarios"
     show_comments: "mostrar todos los comentarios"
@@ -592,7 +598,7 @@ es-CL:
       new_password: "Nueva Contraseña"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo electrónico cuando..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...alguien comienza a compartir contigo?"
       your_email: "Tu correo electrónico"
       your_handle: "Tu dirección diaspora"
     getting_started: 
@@ -617,7 +623,7 @@ es-CL:
       email_notifications_changed: "Notificaciones por email cambiadas"
       language_changed: "Idioma Cambiado"
       language_not_changed: "Error al cambiar de idioma"
-      password_changed: "Contraseña Cambiada"
+      password_changed: "Contraseña Cambiada. Ahora puedes conectarte con la nueva contraseña."
       password_not_changed: "Error al cambiar la contraseña"
   webfinger: 
     fetch_failed: "error al buscar el perfil webfinger para %{profile_url}"

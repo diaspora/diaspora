@@ -152,7 +152,7 @@ ko:
       following: "%{name} 님을 애스펙에 넣으면, 팔로잉과 공유물 보내기를 시작합니다."
       share_with: "%{name} 님과 공유 시작"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "나와 공유하는 사람들:"
     zero: "컨택 없음"
   conversations: 
     create: 
@@ -562,6 +562,12 @@ ko:
       destroy: "지우기"
       not_found: "공유물을 찾을 수 없습니다."
       permalink: "영구주소"
+    too_long: 
+      few: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      many: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      one: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      other: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
+      zero: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper: 
     hide_comments: "댓글 감추기"
     show_comments: "댓글 보기"

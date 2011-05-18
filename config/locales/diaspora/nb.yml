@@ -562,6 +562,12 @@ nb:
       destroy: "Utslett"
       not_found: "Beklager, vi kunne ikke finne innlegget."
       permalink: "permalink"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "skjul kommentarer"
     show_comments: "vis kommentarer"

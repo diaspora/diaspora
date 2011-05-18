@@ -562,6 +562,12 @@ zh-CN:
       destroy: "删除"
       not_found: "抱歉，找不到该内容。"
       permalink: "静态连接"
+    too_long: 
+      few: "please make your status messages less than %{count} characters"
+      many: "please make your status messages less than %{count} characters"
+      one: "please make your status messages less than %{count} character"
+      other: "please make your status messages less than %{count} characters"
+      zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "隐藏评论"
     show_comments: "显示所有评论"

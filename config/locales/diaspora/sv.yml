@@ -83,7 +83,7 @@ sv:
     index: 
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       no_contacts: "Inga kontakter"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
     manage: 
       add_a_new_aspect: "Lägg till en ny aspekt"
@@ -98,8 +98,8 @@ sv:
       failure: "fungerade inte %{inspect}"
       success: "Personen flyttades till den nya aspekten"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Skapa"
+      name: "Namn"
     no_posts_message: 
       start_talking: "Ingen har sagt något än. Bli först!"
     one: "1 aspekt"
@@ -131,13 +131,13 @@ sv:
     zero: "inga kommentarer"
   contacts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Lägg till i aspekt"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "I %{count} aspekter"
+        many: "I %{count} aspekter"
+        one: "I %{count} aspekter"
+        other: "I %{count} aspekter"
+        zero: "Lägg till i aspekter"
     create: 
       failure: "Misslyckades med att skapa kontakt"
     destroy: 
@@ -149,10 +149,10 @@ sv:
     other: "%{count} kontakter"
     share_with_pane: 
       add_new_aspect: "lägg till på ny aspekt"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
+      following: "Genom att placera %{name} i en aspekt, kommer du börja följa och skicka inlägg till dem."
       share_with: "Börja dela med %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Personer delar med dig:"
     zero: "inga kontakter"
   conversations: 
     create: 
@@ -283,7 +283,7 @@ sv:
     new_request: "erbjöd sig att dela med dig."
     post: "inlägg."
     private_message: "skickade dig ett meddelande."
-    started_sharing: "started sharing with you."
+    started_sharing: "börjat dela med dig."
   notifier: 
     also_commented: 
       commented: "har också kommenterat %{post_author}'s inlägg:"
@@ -314,9 +314,9 @@ sv:
       admin: "Din Diaspora administratör"
       subject: "Ett meddelande gällande ditt Diaspora-konto:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "har börjat dela med dig!"
+      sign_in: "Logga in här"
+      subject: "%{name} har börjat dela med dig på Diaspora*"
     thanks: "Tack,"
   ok: "OK"
   or: "eller"
@@ -562,6 +562,12 @@ sv:
       destroy: "Ta bort"
       not_found: "Ursäkta, vi hittar inte den posten."
       permalink: "permalänk"
+    too_long: 
+      few: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      many: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      one: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
   stream_helper: 
     hide_comments: "dölj kommentarer"
     show_comments: "Visa alla kommentarer"
@@ -592,7 +598,7 @@ sv:
       new_password: "Nytt lösenord"
       private_message: "...du mottar ett privat meddelande?"
       receive_email_notifications: "Skicka meddelanden via e-post när..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...någon börjar dela med dig?"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
