@@ -343,11 +343,11 @@ var Publisher = {
     $("#publisher textarea").removeClass("with_attachments").css('paddingBottom', '');
   },
   onFailure: function(data, json, xhr){
-    json = $.parseJSON(html.responseText);
+    json = $.parseJSON(json.responseText);
     if(json.errors.length !== 0){
       Diaspora.widgets.alert.alert(json.errors);
     }else{
-      Diaspora.widgets.alert.alert('Failed to post message!');
+      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t('failed_to_post_message'));
     }
   },
   onSuccess: function(data, json, xhr){
