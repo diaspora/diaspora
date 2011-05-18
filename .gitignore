@@ -5,6 +5,7 @@ public/images/ball_small.png
 public/images/ball.png
 # Configuration files
 config/app_config.yml
+config/app.yml
 config/fb_config.yml
 config/oauth_keys.yml
 config/initializers/secret_token.rb

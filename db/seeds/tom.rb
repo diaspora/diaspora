@@ -6,16 +6,16 @@ require File.join(File.dirname(__FILE__), "..", "..", "config", "environment")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 
 def set_app_config username
-  current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
+  current_config = YAML.load(File.read(Rails.root.join('config', 'app.yml.example')))
   current_config[Rails.env.to_s] ||= {}
   current_config[Rails.env.to_s]['pod_url'] = "http://#{username}.joindiaspora.com/"
   current_config['default']['pod_url'] = "http://#{username}.joindiaspora.com/"
-  file = File.new(Rails.root.join('..','..','shared','app_config.yml'),'w')
+  file = File.new(Rails.root.join('..','..','shared','app.yml'),'w')
   file.write(current_config.to_yaml)
   file.close
 end
 
-set_app_config "tom" unless File.exists?(Rails.root.join('config', 'app_config.yml'))
+set_app_config "tom" unless File.exists?(Rails.root.join('config', 'app.yml'))
 
 require 'config/initializers/_load_app_config.rb'
 include HelperMethods

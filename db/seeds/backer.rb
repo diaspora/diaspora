@@ -13,9 +13,9 @@ def create
 
   #set pod url
   username = backer_info[backer_number]['username'].gsub(/ /,'').downcase
-  set_app_config username unless File.exists?(Rails.root.join('config', 'app_config.yml'))
+  set_app_config username unless File.exists?(Rails.root.join('config', 'app.yml'))
 
-  require File.join(File.dirname(__FILE__), "..", "..", "config", "initializers", "_load_app_config.rb")
+  require File.join(File.dirname(__FILE__), "..", "..", "config", "initializers", "_load_app.rb")
 
   # Create seed user
   user = User.build(:email => "#{username}@#{username}.joindiaspora.com",
@@ -36,11 +36,11 @@ def create
 end
 
 def set_app_config username
-  current_config = YAML.load(File.read(Rails.root.join('config', 'app_config.yml.example')))
+  current_config = YAML.load(File.read(Rails.root.join('config', 'app.yml.example')))
   current_config[Rails.env.to_s] ||= {}
   current_config[Rails.env.to_s]['pod_url'] = "http://#{username}.joindiaspora.com/"
   current_config['default']['pod_url'] = "http://#{username}.joindiaspora.com/"
-  file = File.new(Rails.root.join('..','..','shared','app_config.yml'),'w')
+  file = File.new(Rails.root.join('..','..','shared','app.yml'),'w')
   file.write(current_config.to_yaml)
   file.close
 end

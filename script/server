@@ -138,8 +138,8 @@ fi
 
 
 # Check if config files exists
-if [ ! -e 'config/app_config.yml' ]; then
-    echo "FATAL: config/app_config.yml is missing! Copy over config/app_config.yml.example to config/app_config.yml and edit it properly!" >&2
+if [ ! -e 'config/app.yml' ]; then
+    echo "FATAL: config/app.yml is missing! Copy over config/app.yml.example to config/app.yml and edit it properly!" >&2
     exit 67
 fi
 

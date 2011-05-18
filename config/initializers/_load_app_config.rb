@@ -3,10 +3,10 @@
 # the COPYRIGHT file.
 #
 # Sets up AppConfig. Unless stated below, each entry is a the string in
-# the file app_config.yml, as applicable for current environment.
+# the file app.yml, as applicable for current environment.
 #
 # Specific items
-#   * pod_url: As in app_config.yml, normalized with a trailing /.
+#   * pod_url: As in app.yml, normalized with a trailing /.
 #   * pod_uri: An uri object derived from pod_url.
 
 require File.join(Rails.root, 'lib', 'app_config')

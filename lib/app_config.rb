@@ -28,17 +28,17 @@ class AppConfig
 
   def self.load_config_for_environment(env)
     if File.exist? "#{Rails.root}/config/app_config.yml.example"
-      all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
+      all_envs = load_config_yaml "#{Rails.root}/config/app.yml.example"
     else
-      $stderr.puts "ERROR: Why have you deleted config/app_config.yml.example?"
+      $stderr.puts "ERROR: Why have you deleted config/app.yml.example?"
       all_envs = {}
     end
-    if File.exist? "#{Rails.root}/config/app_config.yml"
-      all_envs_custom = load_config_yaml "#{Rails.root}/config/app_config.yml"
+    if File.exist? "#{Rails.root}/config/app.yml"
+      all_envs_custom = load_config_yaml "#{Rails.root}/config/app.yml"
       all_envs.deep_merge!(all_envs_custom)
     else
       unless Rails.env == "development" || Rails.env == "test"
-        $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
+        $stderr.puts "WARNING: No config/app.yml found! Look at config/app_config.yml.example for help."
       end
     end
 
@@ -68,7 +68,7 @@ class AppConfig
 
   def self.check_pod_uri
     if self.config_vars[:pod_uri].host == "example.org" && Rails.env != "test"
-      puts "WARNING: Please modify your app_config.yml to have a proper pod_url!"
+      puts "WARNING: Please modify your app.yml to have a proper pod_url!"
     end
   end
 
