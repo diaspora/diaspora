@@ -627,6 +627,7 @@ en:
       started_sharing: "...someone starts sharing with you?"
       private_message: "...you receive a private message?"
       liked: "...someone likes your post?"
+      podwide: "...pod-wide news happen [new features, etc.]?"
       change: "Change"
     destroy: "Account successfully closed."
     getting_started:

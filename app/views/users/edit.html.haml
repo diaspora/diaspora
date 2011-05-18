@@ -105,6 +105,10 @@
           = type.label t('.liked') 
           = type.check_box :liked, {:checked =>  @email_prefs['liked']}, false, true 
 
+        %br
+        %p.checkbox_select
+          = type.label t('.podwide') 
+          = type.check_box :podwide, {:checked =>  @email_prefs['podwide']}, false, true 
     %br
     = f.submit t('.change')
 
