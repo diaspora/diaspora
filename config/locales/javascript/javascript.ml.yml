@@ -36,4 +36,4 @@ ml:
     web_sockets: 
       disconnected: 
         body: "പോസ്റ്റൂകള്‍ തത്സമയമായി കാണിക്കുന്നതല്ല."
-        title: "You have been disconnected."
+        title: "താങ്കള്‍ വിച്ഛേദിക്കപ്പെട്ടിരിക്കുന്നു."
