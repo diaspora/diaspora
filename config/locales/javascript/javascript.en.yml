@@ -41,3 +41,6 @@ en:
           few: "In {{count}} aspects"
           many: "In {{count}} aspects"
           other: "In {{count}} aspects"
+      show_more: "show more"
+      failed_to_like: "Failed to like!"
+      failed_to_post_message: "Failed to post message!"

@@ -67,7 +67,7 @@ var Stream = {
     });
 
     $(stream_string + ".new_comment").live('ajax:failure', function(data, html, xhr) {
-      Diaspora.widgets.alert.alert('Failed to post message!');
+      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t('failed_to_post_message'));
     });
 
     $stream.find(".comment_delete", ".comment").live('ajax:success', function(data, html, xhr) {
@@ -89,7 +89,7 @@ var Stream = {
     $(stream_string + " .content").find("p").expander({
       slicePoint: 400,
       widow: 12,
-      expandText: "show more",
+      expandText: Diaspora.widgets.i18n.t('show_more'),
       userCollapse: false
     });
   },
@@ -101,7 +101,7 @@ var Stream = {
     });
 
     likes.live('ajax:failure', function(data, html, xhr) {
-      Diaspora.widgets.alert.alert('Failed to like/dislike!');
+      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t('failed_to_like'));
       $(this).parent().fadeIn('fast');
     });
   },
