@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110518184453) do
+ActiveRecord::Schema.define(:version => 20110518222303) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -242,6 +242,10 @@ ActiveRecord::Schema.define(:version => 20110518184453) do
     t.datetime "updated_at"
     t.string   "mongo_id"
     t.string   "unprocessed_image"
+    t.string   "target_url"
+    t.string   "image_url"
+    t.integer  "image_height"
+    t.integer  "image_width"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"

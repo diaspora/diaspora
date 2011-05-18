@@ -63,6 +63,7 @@ Diaspora::Application.routes.draw do
   # generating a new user token (for devise)
   match 'users/generate_new_token' => 'users#generate_new_token'
 
+  resources :bookmarks, :only => :create
 
 
   get 'login' => redirect('/users/sign_in')
