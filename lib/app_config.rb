@@ -27,7 +27,7 @@ class AppConfig
   end
 
   def self.load_config_for_environment(env)
-    if File.exist? "#{Rails.root}/config/app_config.yml.example"
+    if File.exist? "#{Rails.root}/config/app.yml.example"
       all_envs = load_config_yaml "#{Rails.root}/config/app.yml.example"
     else
       $stderr.puts "ERROR: Why have you deleted config/app.yml.example?"
