@@ -86,11 +86,11 @@ var Stream = {
     });
 
     // collapse long comments
-    $(".content").find("p").expander({
+    $(stream_string + " .content").find("p").expander({
       slicePoint: 400,
       widow: 12,
       expandText: "show more",
-      userCollapseText: "show less"
+      userCollapse: false
     });
   },
   setUpLikes: function(){

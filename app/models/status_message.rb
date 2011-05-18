@@ -13,7 +13,7 @@ class StatusMessage < Post
   acts_as_taggable_on :tags
   extract_tags_from :raw_message
 
-  validates_length_of :text, :maximum => 1000, :text => "please make your status messages less than 1000 characters"
+  validates_length_of :text, :maximum => 10000, :text => "please make your status messages less than 10000 characters"
   xml_name :status_message
   xml_attr :raw_message
 
