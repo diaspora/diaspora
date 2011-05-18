@@ -5,15 +5,20 @@
 
 ar: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "هل أنت متأكد؟"
     infinite_scroll: 
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
       at_least_one_aspect: "عليك تحديد فئة واحدة على الأقل"
     search_for: "إبحث عن {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "استحالة إخراج العضو من الفئة المحددة. (تريد قطع الاتصال مع هذا العضو، يجب عليك حذفه تماما)"
     timeago: 
       day: "منذ يوم"
       days: "منذ %d أيام"

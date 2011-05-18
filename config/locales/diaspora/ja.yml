@@ -83,6 +83,7 @@ ja:
     index: 
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       no_contacts: "連絡先無し"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "投稿する"
     manage: 
       add_a_new_aspect: "新しいアスペクトを追加する"
@@ -96,9 +97,9 @@ ja:
       error: "連絡先の移動にエラーが発生しました： %{inspect}"
       failure: "連絡先を移動させるのに失敗しました：%{inspect}"
       success: "連絡先を新しいアスペクトに移動させました。"
-    new_aspect: 
-      create: "作成する"
-      name: "アスペクト名"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "投稿がまだありません。会話を始めましょう！"
     one: "アスペクト1集"
@@ -129,6 +130,14 @@ ja:
     other: "コメント%{count}件"
     zero: "コメントがありません"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "連絡先を作成するのに失敗しました。"
     destroy: 
@@ -139,9 +148,11 @@ ja:
     one: "連絡先1件"
     other: "連絡先%{count}件"
     share_with_pane: 
-      accepts: "%{name}さんが承諾したら、ダイアスポラ＊投稿がお互いに見れるようになります。"
       add_new_aspect: "新しいアスペクトに追加する"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "%{name}さんと共有を開始する"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "連絡先無し"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ ja:
     new_request: "さんは共有の許可を求めました。"
     post: "（投稿で）"
     private_message: "さんからメッセージが届いています。"
-    request_accepted: "さんは共有リクエストを承諾しました。"
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "も%{post_author}さんの投稿にコメントしました："
@@ -294,23 +305,18 @@ ja:
       mentioned: "さんは投稿であなたをメンションしました。"
       sign_in: "見るのにログインして下さい。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
-    new_request: 
-      just_sent_you: "さんからダイアスポラ＊の追加リクエストが届いています。"
-      sign_in: "ここからログイン"
-      subject: "%{from}さんの新しいダイアスポラ＊追加リクエスト"
-      try_it_out: "是非お試しください。"
     private_message: 
       message_subject: "件名：%{subject}"
       private_message: "からメッセージが届いています。"
       sign_in: "見るにはログインしてください。"
       subject: "ダイアスポラ＊で%{name}さんからの非公開メッセージが届いています。"
-    request_accepted: 
-      accepted: "さんは追加リクエストを承諾してくれました。"
-      sign_in: "ここからログインしてください。"
-      subject: "%{name}さんはダイアスポラ＊の追加リクエストを承諾してくれました。"
     single_admin: 
       admin: "ダイアスポラ＊管理者"
       subject: "ダイアスポラ＊アカウントの重要なお知らせ："
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "ありがとうございます。"
   ok: "了解"
   or: "または"
@@ -341,12 +347,10 @@ ja:
     profile_sidebar: 
       bio: "略歴"
       born: "誕生日"
-      cannot_remove: "連絡先を最後のアスペクから除外することができません。（断絶したい場合は連絡先を削除してください。）"
       edit_my_profile: "プロフィールを編集する"
       gender: "性別"
       in_aspects: "アスペクトで"
       location: "所在地"
-      remove_contact: "連絡先を削除する"
       remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show: 
       add_some: "追加する"
@@ -507,7 +511,6 @@ ja:
       your_diaspora_username_is: "あなたのハンドル名は%{diaspora_handle}です。"
     contact_list: 
       all_contacts: "全ての連絡先"
-      cannot_remove: "連絡先を最後のアスペクトから除外することができません。（断絶したい場合は連絡先を削除してください。）"
     footer: 
       logged_in_as: "%{name}としてログイン済"
       your_aspects: "アスペクト"
@@ -589,8 +592,7 @@ ja:
       new_password: "新しいパスワード"
       private_message: "非公開メッセージが届いたとき"
       receive_email_notifications: "通知メールの送信設定"
-      request_acceptence: "共有リクエストが承諾されたとき"
-      request_received: "共有リクエストが届いたとき"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "メールアドレス"
       your_handle: "ダイアスポラのユーザ名"
     getting_started: 

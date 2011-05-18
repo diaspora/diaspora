@@ -5,15 +5,20 @@
 
 fi: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Oletko varma?"
     infinite_scroll: 
       no_more: "Ei enempää viestejä."
     publisher: 
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
     search_for: "Etsi nimellä {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Et voi poistaa henkilöä viimeisestä näkymästä. (Jos haluat katkaista yhteytesi tähän henkilöön, sinun täytyy poistaa kontakti.)"
     timeago: 
       day: "päivä"
       days: "%d päivää"

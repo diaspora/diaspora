@@ -29,10 +29,10 @@ es:
         you_can_confirm: "Puedes confirmar tu cuenta a través del siguiente enlace:"
       hello: "Hola %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Aceptar invitación"
+        ignore: "Si no quieres aceptar la invitación, ignora este email."
+        no_account_till: "Tu cuenta no será creada hasta que no accedas al enlace de arriba para registrarte."
+        subject: "¡Has sido invitado a unirte a Diaspora*!"
       inviters: 
         accept_at: ", en %{url}, puedes aceptar en el siguiente enlace."
         has_invited_you: "%{name} te ha invitado a unirte a Diaspora"

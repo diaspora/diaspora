@@ -83,6 +83,7 @@ pt-BR:
     index: 
       handle_explanation: "Este é o seu endereço na Diaspora*. Como um endereço de e-mail, pode ser usado por outras pessoas para contactar você."
       no_contacts: "Nenhum contato"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Adicionar um novo aspecto"
@@ -96,9 +97,9 @@ pt-BR:
       error: "Erro ao mover contato: %{inspect}"
       failure: "Falhou %{inspect}"
       success: "Contato movido para seu novo aspecto"
-    new_aspect: 
-      create: "Criar"
-      name: "Nome do aspecto"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Ninguém postou ainda. Comece você! Diga algo!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ pt-BR:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ pt-BR:
     one: "1 contato"
     other: "%{count} contatos"
     share_with_pane: 
-      accepts: "Uma vez que %{name} aceite, começarão a ver os posts de cada um no Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Começar a partilhar com %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "sem contatos"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ pt-BR:
     new_request: "deseja partilhar com você."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "Aceitou a sua solicitação de partilha."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "também comentou sobre a postagem de %{post_author}:"
@@ -294,23 +305,18 @@ pt-BR:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "acabou de lhe enviar um pedido de contato na Diaspora*"
-      sign_in: "Cadastre-se aqui"
-      subject: "Novo pedido de contato na Diaspora* de %{from}"
-      try_it_out: "Você deve dar uma olhada."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "aceitou seu pedido de contato!"
-      sign_in: "Entre aqui"
-      subject: "%{name} aceitou seu pedido de contato na Diaspora*"
     single_admin: 
       admin: "O administrador de sua Diaspora*"
       subject: "Uma mensagem do administrador de sua Diaspora*:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Obrigado,"
   ok: "OK"
   or: "ou"
@@ -341,12 +347,10 @@ pt-BR:
     profile_sidebar: 
       bio: "biografia"
       born: "nascido"
-      cannot_remove: "Não foi possível remover %{name} do último aspecto. (Se você quer se desconectar desta pessoa você deve remover o contato)."
       edit_my_profile: "Editar meu perfil"
       gender: "sexo"
       in_aspects: "nos aspectos"
       location: "location"
-      remove_contact: "remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ pt-BR:
       your_diaspora_username_is: "Seu nome de usuário na Diaspora* é: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Todos os contatos"
-      cannot_remove: "Não é possível remover a pessoa do último aspecto."
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ pt-BR:
       new_password: "Nova Senha"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receber notificações por email?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Seu email"
       your_handle: "Seu endereço Diaspora*"
     getting_started: 

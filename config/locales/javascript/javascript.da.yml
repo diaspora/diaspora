@@ -5,15 +5,20 @@
 
 da: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Er du sikker?"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
     search_for: "Søg efter {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Kan ikke fjerne personen fra sidste aspekt. (Hvis du ikke ønsker at dele med denne person mere må du fjerne ham fra kontakter.)"
     timeago: 
       day: "en dag"
       days: "%d dage"

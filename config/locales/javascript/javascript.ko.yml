@@ -5,15 +5,20 @@
 
 ko: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "애스펙에 넣기"
+      toggle: 
+        few: "애스펙 {{count}}개 안에 있습니다"
+        many: "애스펙 {{count}}개 안에 있습니다"
+        one: "애스펙 한 개 안에 있습니다"
+        other: "애스펙 {{count}}개 안에 있습니다"
+        zero: "애스펙에 넣기"
     confirm_dialog: "확실합니까?"
     infinite_scroll: 
       no_more: "공유물이 더 없습니다."
     publisher: 
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
     search_for: "{{name}} 검색"
-    shared: 
-      contact_list: 
-        cannot_remove: "모든 컨택은 적어도 한 애스펙에 속해야 합니다. 공유를 끊고 싶다면 컨택을 지워야 합니다."
     timeago: 
       day: "하루"
       days: "%d일"

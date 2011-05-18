@@ -29,7 +29,7 @@ zh-TW:
         you_can_confirm: "你可以使用以下連結確認帳號:"
       hello: "你好, %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
+        accept: "接受邀請"
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"

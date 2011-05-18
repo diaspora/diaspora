@@ -5,15 +5,20 @@
 
 zh-CN: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "你确定吗？"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
     search_for: "搜索 {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "无法将好友从他所在的最后一个情景中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
     timeago: 
       day: "1天"
       days: "%d天"

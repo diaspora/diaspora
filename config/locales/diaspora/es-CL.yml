@@ -83,6 +83,7 @@ es-CL:
     index: 
       handle_explanation: "Esta es tu dirección Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "postea un mensaje >>"
     manage: 
       add_a_new_aspect: "Agregar un nuevo aspecto"
@@ -96,9 +97,9 @@ es-CL:
       error: "Error al mover el contacto: %{inspect}"
       failure: "no funcionó %{inspect}"
       success: "Persona movida al nuevo aspecto"
-    new_aspect: 
-      create: "Crear"
-      name: "Nombre"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Nadie ha dicho nada aún.  ¡Que comiense la conversación!"
     one: "1 aspecto"
@@ -129,6 +130,14 @@ es-CL:
     other: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Error al crear contacto"
     destroy: 
@@ -139,9 +148,11 @@ es-CL:
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
-      accepts: "Una vez que %{name} acepte, podrán ver sus post mutuamente en Diaspora"
       add_new_aspect: "Agregar a un nuevo Aspecto"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Empezar a compartir con %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "no hay contactos"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ es-CL:
     new_request: "quiere compartir contigo."
     post: "post."
     private_message: "te envió un mensaje."
-    request_accepted: "aceptó tu solicitud de contacto."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "También comentó en el post de %{post_author}:"
@@ -294,23 +305,18 @@ es-CL:
       mentioned: "Te mencionó en un post:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} te mencionó en Diaspora*"
-    new_request: 
-      just_sent_you: "acaban de enviarte una solicitud de contacto en Diaspora*"
-      sign_in: "Conéctate aquí"
-      subject: "nueva solicitud de contacto Diaspora* de %{from}"
-      try_it_out: "Deberías pensar en echarle un vistazo."
     private_message: 
       message_subject: "Asunto: %{subject}"
       private_message: "te envió un mensaje privado:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} te envió un mensaje privado en Diaspora*"
-    request_accepted: 
-      accepted: "aceptó tu solicitud de contacto!"
-      sign_in: "Conéctate aquí"
-      subject: "%{name} ha aceptado tu solicitud de contacto en Diaspora*"
     single_admin: 
       admin: "Tu administrador de Diaspora"
       subject: "Un mensaje sobre tu cuenta de Diaspora:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Gracias,"
   ok: "OK"
   or: "o"
@@ -341,12 +347,10 @@ es-CL:
     profile_sidebar: 
       bio: "biografía"
       born: "Cumpleaños"
-      cannot_remove: "No se puede eliminar a %{name} del último aspecto. (Si quieres desconectarte de esta persona primero debes eliminar al contacto.)"
       edit_my_profile: "Editar mi perfil"
       gender: "sexo"
       in_aspects: "en aspectos"
       location: "Ubicación"
-      remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       add_some: "agrega algunas"
@@ -507,7 +511,6 @@ es-CL:
       your_diaspora_username_is: "Tu nombre de usuario Diaspora es: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Todos los contactos"
-      cannot_remove: "No se puede eliminar a la persona del último aspecto. (Si quieres desconectarte de esta persona primero debes eliminar al contacto.)"
     footer: 
       logged_in_as: "Conectado como %{name}"
       your_aspects: "Tus Aspectos"
@@ -589,8 +592,7 @@ es-CL:
       new_password: "Nueva Contraseña"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo electrónico cuando..."
-      request_acceptence: "...aceptan tu solicitud de contacto?"
-      request_received: "...recibes una solicitud de contacto?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Tu correo electrónico"
       your_handle: "Tu dirección diaspora"
     getting_started: 

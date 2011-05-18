@@ -5,15 +5,20 @@
 
 bg: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Добавяне в аспект"
+      toggle: 
+        few: "В {{count}} аспекта"
+        many: "В {{count}} аспекта"
+        one: "В {{count}} аспект"
+        other: "В {{count}} аспекта"
+        zero: "Добавяне в аспект"
     confirm_dialog: "Сигурни ли сте?"
     infinite_scroll: 
       no_more: "Няма повече публикации."
     publisher: 
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
     search_for: "Търсене за {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Лицето не може да бъде премахнато от последния аспект. (Ако желаете да бъде прекратена връзката с лицето е необходимо да премахнете контакта.)"
     timeago: 
       day: "ден"
       days: "%d дни"

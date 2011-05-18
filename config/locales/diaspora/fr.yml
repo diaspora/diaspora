@@ -83,6 +83,7 @@ fr:
     index: 
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "publier un message >>"
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
@@ -96,9 +97,9 @@ fr:
       error: "Erreur lors du déplacement du contact : %{inspect}"
       failure: "n'a pas fonctionné %{inspect}"
       success: "Personne déplacée vers le nouvel aspect"
-    new_aspect: 
-      create: "Créer"
-      name: "Nom"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
     one: "1 aspect"
@@ -129,6 +130,14 @@ fr:
     other: "%{count} commentaires"
     zero: "aucun commentaire"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Impossible de créer le contact"
     destroy: 
@@ -139,9 +148,11 @@ fr:
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Dès que %{name} acceptera, vous commencerez à voir mutuellement vos messages sur Diaspora"
       add_new_aspect: "ajouter à un nouvel aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Commencer à partager avec %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "aucun contact"
   conversations: 
     create: 
@@ -238,15 +249,15 @@ fr:
       people_dislike_this: 
         few: "%{count} personnes n'aiment pas"
         many: "%{count} personnes n'aiment pas"
-        one: "1 personne n'aime pas"
+        one: "%{count} personne n'aime pas"
         other: "%{count} personnes n'aiment pas"
-        zero: "Personne n'aime pas"
+        zero: "Personne n'aime pas ça"
       people_like_this: 
-        few: "%{count} personnes n'aiment pas"
+        few: "%{count} personnes aiment"
         many: "%{count} personnes aiment"
-        one: "1 personne aime"
+        one: "%{count} personne aime"
         other: "%{count} personnes aiment"
-        zero: "Personne n'aime"
+        zero: "Personne n'aime ça"
   more: "Plus"
   next: "suivant"
   no_results: "Aucun résultat trouvé"
@@ -267,12 +278,12 @@ fr:
       and_others: "et %{number} autres"
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
-    liked: "has just liked your post"
+    liked: "vient juste d'aimer votre message"
     mentioned: "vous a mentionné(e) dans un"
     new_request: "a proposé de partager avec vous."
     post: "message."
     private_message: "vous a envoyé un message."
-    request_accepted: "a accepté votre demande de partage."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
@@ -285,32 +296,27 @@ fr:
     diaspora: "le robot de messagerie électronique de Diaspora"
     hello: "Bonjour %{name} !"
     liked: 
-      liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      liked: "%{name} vient juste d'aimer votre message : "
+      sign_in: "Identifiez-vous pour le voir"
+      subject: "%{name} vient juste d'aimer votre message"
     love: "affectueusement,"
     manage_your_email_settings: "modifier vos paramètres de courriel"
     mentioned: 
       mentioned: "vous a mentionné(e) dans un message :"
       sign_in: "Connectez-vous pour le/la voir."
       subject: "%{name} vous a mentionné(e) sur Diaspora*"
-    new_request: 
-      just_sent_you: "vient juste de vous envoyer une requête de contact sur Diaspora*"
-      sign_in: "Connectez-vous ici"
-      subject: "nouvelle requête de contact Diaspora* de %{from}"
-      try_it_out: "Vous devriez vraiment envisager de l'essayer."
     private_message: 
       message_subject: "Sujet : %{subject}"
       private_message: "vous a envoyé un message privé :"
       sign_in: "Connectez-vous pour le voir."
       subject: "%{name} vous a envoyé un message privé sur Diaspora*"
-    request_accepted: 
-      accepted: "a accepté votre requête de contact !"
-      sign_in: "Enregistrez ici"
-      subject: "%{name} a accepté votre requête de contact sur Diaspora*"
     single_admin: 
       admin: "Votre administrateur Diaspora"
       subject: "Un message concernant votre compte Diaspora :"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Merci,"
   ok: "OK"
   or: "ou"
@@ -341,12 +347,10 @@ fr:
     profile_sidebar: 
       bio: "bio"
       born: "anniversaire"
-      cannot_remove: "Impossible de supprimer %{name} du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
       edit_my_profile: "Modifier mon profil"
       gender: "sexe"
       in_aspects: "dans les aspects"
       location: "localisation"
-      remove_contact: "supprimer le contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
       add_some: "ajouter"
@@ -507,7 +511,6 @@ fr:
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
     contact_list: 
       all_contacts: "Tous les contacts"
-      cannot_remove: "Impossible de supprimer la personne du dernier aspect. (Si vous voulez supprimer toute connexion avec cette personne vous devez la supprimer en tant que contact.)"
     footer: 
       logged_in_as: "Connecté en tant que %{name}"
       your_aspects: "vos aspects"
@@ -545,7 +548,7 @@ fr:
     stream_element: 
       dislike: "Je n'aime pas"
       like: "J'aime"
-      unlike: "Unlike"
+      unlike: "Je n'aime pas"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -584,13 +587,12 @@ fr:
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"
       export_data: "Exporter des données"
-      liked: "...someone likes your post?"
+      liked: "...quelqu'un aime votre message ?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé ?"
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
-      request_acceptence: "…votre demande de partage est acceptée ?"
-      request_received: "…vous recevez une nouvelle demande de partage ?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Votre adresse électronique"
       your_handle: "Votre handle diaspora"
     getting_started: 
@@ -615,7 +617,7 @@ fr:
       email_notifications_changed: "Notifications par courriel modifiées"
       language_changed: "Langue mise à jour"
       language_not_changed: "Échec lors de la mise à jour de la langue"
-      password_changed: "Mot de passe mis à jour"
+      password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."
       password_not_changed: "Échec de la mise à jour du mot de passe"
   webfinger: 
     fetch_failed: "impossible de télécharger le profil webfinger pour %{profile_url}"

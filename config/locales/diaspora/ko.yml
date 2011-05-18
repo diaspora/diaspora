@@ -23,7 +23,7 @@ ko:
         request: 
           attributes: 
             from_id: 
-              taken: "이미 요청하였습니다."
+              taken: "이미 요청했습니다."
         user: 
           attributes: 
             email: 
@@ -83,6 +83,7 @@ ko:
     index: 
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       no_contacts: "컨택 없음"
+      people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
     manage: 
       add_a_new_aspect: "애스펙 추가"
@@ -93,10 +94,10 @@ ko:
       requests: "요청"
     many: "애스펙 %{count}개"
     move_contact: 
-      error: "%{inspect} 컨택을 옮기는데 에러가 발생하였습니다"
+      error: "%{inspect} 컨택을 옮기는데 에러가 발생했습니다."
       failure: "%{inspect} 님을 옮길 수 없습니다"
       success: "새 애스펙으로 옮겼습니다"
-    new_aspect: 
+    new: 
       create: "만들기"
       name: "이름"
     no_posts_message: 
@@ -129,6 +130,14 @@ ko:
     other: "댓글 %{count}개"
     zero: "댓글 없음"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "애스펙에 넣기"
+      toggle: 
+        few: "애스펙 %{count}개 안에 있습니다"
+        many: "애스펙 %{count}개 안에 있습니다"
+        one: "애스펙 한 개 안에 있습니다"
+        other: "애스펙 %{count}개 안에 있습니다"
+        zero: "애스펙에 넣기"
     create: 
       failure: "컨택을 만들 수 없습니다"
     destroy: 
@@ -139,9 +148,11 @@ ko:
     one: "컨택 한 명"
     other: "컨택 %{count}명"
     share_with_pane: 
-      accepts: "%{name} 님이 수락하면 디아스포라에서 서로를 볼 수 있습니다."
       add_new_aspect: "새 애스펙에 넣기"
-      share_with: "%{name} 님에게 공유 요청"
+      following: "%{name} 님을 애스펙에 넣으면, 팔로잉과 공유물 보내기를 시작합니다."
+      share_with: "%{name} 님과 공유 시작"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "컨택 없음"
   conversations: 
     create: 
@@ -268,20 +279,20 @@ ko:
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
     liked: "님이 내 공유물을 좋아합니다"
-    mentioned: " 님이 귀하를 멘션하였습니다."
-    new_request: " 님이 공유를 요청하였습니다."
+    mentioned: " 님이 나를 멘션했습니다:"
+    new_request: " 님이 나와 공유를 시작했습니다."
     post: "공유물"
     private_message: " 님이 쪽지를 보냈습니다."
-    request_accepted: " 님이 공유 요청을 수락하였습니다."
+    started_sharing: "님이 나와 공유를 시작했습니다."
   notifier: 
     also_commented: 
       commented: "님도 %{post_author} 님의 공유물에 댓글을 달았습니다:"
       sign_in: "로그인하기"
       subject: "%{name} 님도 %{post_author} 님의 공유물에 댓글을 달았습니다."
     comment_on_post: 
-      commented: "님이 귀하의 공유물에 댓글을 달았습니다:"
+      commented: "님이 내 공유물에 댓글을 달았습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님이 귀하의 공유물에 댓글을 달았습니다."
+      subject: "%{name} 님이 내 공유물에 댓글을 달았습니다."
     diaspora: "디아스포라 자동 이메일"
     hello: "%{name} 님!"
     liked: 
@@ -291,26 +302,21 @@ ko:
     love: ""
     manage_your_email_settings: "이메일 설정 관리"
     mentioned: 
-      mentioned: "님이 디아스포라*의 글에서 귀하를 멘션했습니다:"
+      mentioned: "님이 디아스포라*의 공유물에서 나를 멘션했습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님이 디아스포라*에서 귀하를 멘션했습니다"
-    new_request: 
-      just_sent_you: "님이 방금 디아스포라*에서 새 요청을 보냈습니다"
-      sign_in: "로그인하기"
-      subject: "%{from} 님이 새 디아스포라* 컨택 요청"
-      try_it_out: "꼭 확인해보세요!"
+      subject: "%{name} 님이 디아스포라*에서 나를 멘션했습니다"
     private_message: 
       message_subject: "제목: %{subject}"
       private_message: "님이 디아스포라*에서 쪽지를 보냈습니다:"
       sign_in: "로그인하기"
       subject: "%{name} 님이 디아스포라*에서 쪽지를 보냈습니다"
-    request_accepted: 
-      accepted: "님이 공유 요청을 수락했습니다!"
-      sign_in: "로그인하기"
-      subject: "%{name} 님이 디아스포라*에서 공유 요청을 수락했습니다"
     single_admin: 
       admin: "디아스포라 관리자"
-      subject: "귀하의 디아스포라 계정에 대한 메시지:"
+      subject: "내 디아스포라 계정에 대한 메시지:"
+    started_sharing: 
+      sharing: "님이 나와 공유를 시작했습니다!"
+      sign_in: "여기서 로그인하세요"
+      subject: "%{name} 님이 디아스포라*에서 나와 공유를 시작했습니다."
     thanks: "고맙습니다."
   ok: "확인"
   or: "또는"
@@ -336,23 +342,21 @@ ko:
     person: 
       add_contact: "컨택 추가"
       already_connected: "이미 연결되었습니다"
-      pending_request: "이미 요청하였습니다"
+      pending_request: "이미 요청했습니다"
       thats_you: "바로 나!"
     profile_sidebar: 
       bio: "자기소개"
       born: "생년월일"
-      cannot_remove: "모든 컨택은 적어도 한 애스펙에 속해야 합니다. 공유를 끊고 싶다면 컨택을 지워야 합니다."
       edit_my_profile: "프로필 고치기"
       gender: "성별"
       in_aspects: "속한 애스펙:"
       location: "위치"
-      remove_contact: "컨택 지우기"
       remove_from: "%{aspect}에서 %{name} 님을 지울까요?"
     show: 
       add_some: "태그 달기"
       does_not_exist: "없는 사람입니다!"
       edit: "고치기"
-      incoming_request: "%{name} 님이 공유를 요청했습니다"
+      incoming_request: "%{name} 님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
       no_posts: "보여줄 공유물이 없습니다!"
@@ -361,8 +365,8 @@ ko:
       recent_public_posts: "최근 공개 공유물"
       return_to_aspects: "애스펙 페이지로 돌아가"
       see_all: "모두 보기"
-      start_sharing: "공유 요청"
-      to_accept_or_ignore: "수락 또는 거절하기"
+      start_sharing: "공유 시작"
+      to_accept_or_ignore: "수락 또는 무시하기."
       you_have_no_tags: "달아둔 태그가 없습니다!"
     webfinger: 
       fail: "%{handle} 핸들을 찾을 수 없습니다."
@@ -428,7 +432,7 @@ ko:
       your_tags_placeholder: "예) #diaspora #ironing #kittens #music"
     update: 
       failed: "프로필 갱신 실패"
-      updated: "프로필을 갱신하였습니다"
+      updated: "프로필을 갱신했습니다"
   registrations: 
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
     create: 
@@ -450,10 +454,10 @@ ko:
   requests: 
     create: 
       sending: "공유를 요청하고 있습니다."
-      sent: "%{name} 님에게 공유를 요청하였습니다."
+      sent: "%{name} 님에게 공유를 요청했습니다. 상대방이 디아스포라에 로그인하면 볼겁니다."
     destroy: 
       error: "애스펙을 골라주세요!"
-      ignore: "공유 요청을 거절하였습니다."
+      ignore: "컨택 요청이 무시되었습니다."
       success: "공유하고 있습니다."
     helper: 
       new_requests: 
@@ -466,7 +470,7 @@ ko:
       existing: "Existing contacts"
       manage_within: "컨택 관리하기:"
     new_request_to_person: 
-      sent: "요청하였습니다!"
+      sent: "보냈습니다."
   search: "검색"
   services: 
     create: 
@@ -474,7 +478,7 @@ ko:
     destroy: 
       success: "인증을 성공적으로 지웠습니다."
     failure: 
-      error: "서비스 연결중 에러가 발생하였습니다"
+      error: "서비스 연결중 에러가 발생했습니다."
     finder: 
       friends: 
         few: "친구 %{count}명"
@@ -507,7 +511,6 @@ ko:
       your_diaspora_username_is: "내 디아스포라 핸들: %{diaspora_handle}"
     contact_list: 
       all_contacts: "모든 컨택"
-      cannot_remove: "모든 컨택은 적어도 하나의 애스펙에 속해야 합니다. 연결을 끊으려면 컨택을 지우세요."
     footer: 
       logged_in_as: "%{name}로 로그인중"
       your_aspects: "내 애스펙"
@@ -589,8 +592,7 @@ ko:
       new_password: "새 암호"
       private_message: "쪽지를 받았을 때"
       receive_email_notifications: "이럴 때 이메일 알림을 받겠습니다"
-      request_acceptence: "요청했던 공유가 수락되었을 때"
-      request_received: "새로운 공유 요청을 받았을 때"
+      started_sharing: "누군가가 나와 공유를 시작할 때"
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 

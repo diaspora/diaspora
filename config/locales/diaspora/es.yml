@@ -83,6 +83,7 @@ es:
     index: 
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
+      people_sharing_with_you: "Están compartiendo contigo"
       post_a_message: "publica un mensaje >>"
     manage: 
       add_a_new_aspect: "Añadir nuevo aspecto"
@@ -96,7 +97,7 @@ es:
       error: "Error moviendo el contacto: %{inspect}"
       failure: "%{inspect} no funcionó"
       success: "El contacto fue movido al nuevo aspecto"
-    new_aspect: 
+    new: 
       create: "Crear"
       name: "Nombre"
     no_posts_message: 
@@ -129,6 +130,14 @@ es:
     other: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Añadir al aspecto"
+      toggle: 
+        few: "En %{count} aspectos"
+        many: "En %{count} aspectos"
+        one: "En %{count} aspecto"
+        other: "En %{count} aspectos"
+        zero: "Añadir al aspecto"
     create: 
       failure: "No se pudo crear el contacto"
     destroy: 
@@ -139,9 +148,11 @@ es:
     one: "1 contacto"
     other: "%{count} contactos"
     share_with_pane: 
-      accepts: "Una vez que %{name} acepte, veras sus demás publicaciones en Diaspora*"
       add_new_aspect: "añadir nuevo aspecto"
+      following: "Colocando a %{name} en un aspecto, compartireis vuestras publicaciones."
       share_with: "Empezar a compartir con %{name}"
+    sharing: 
+      people_sharing: "Compartiendo contigo:"
     zero: "no hay contactos"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ es:
     new_request: "quisiera compartir contigo."
     post: "publicación."
     private_message: "te envió un mensaje."
-    request_accepted: "aceptó tu solicitud de contacto."
+    started_sharing: "empezó a compartir contigo."
   notifier: 
     also_commented: 
       commented: "participó en la publicación de %{post_author}:"
@@ -294,23 +305,18 @@ es:
       mentioned: "te mencionó en una publicación:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} te mencionó en Diaspora*"
-    new_request: 
-      just_sent_you: "acaban de enviarte una solicitud de contacto Diaspora*"
-      sign_in: "Conéctate aquí"
-      subject: "nueva solicitud de contacto Diaspora* de %{from}"
-      try_it_out: "¡Pruébalo!"
     private_message: 
       message_subject: "Asunto: %{subject}"
       private_message: "te envió un mensaje privado:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} te envió un mensaje privado en Diaspora*"
-    request_accepted: 
-      accepted: "aceptó tu solicitud de contacto."
-      sign_in: "Conectar aquí"
-      subject: "%{name} aceptó tu solicitud de contacto en Diaspora*"
     single_admin: 
       admin: "Tu administrador de Diaspora*"
       subject: "Un mensaje de tu administrador de Diaspora*:"
+    started_sharing: 
+      sharing: "ha empezado a compartir contigo!"
+      sign_in: "Accede aquí"
+      subject: "%{name} ha empezado a compartir contigo en Diaspora*"
     thanks: "Gracias,"
   ok: "OK"
   or: "o"
@@ -341,12 +347,10 @@ es:
     profile_sidebar: 
       bio: "Biografía"
       born: "Fecha de Nacimiento"
-      cannot_remove: "%{name} no puede eliminarse del último aspecto. (Si quieres dejar de compartir, deberas eliminarlo.)"
       edit_my_profile: "Editar mi perfil"
       gender: "Género / Sexo"
       in_aspects: "en aspectos"
       location: "Ubicación "
-      remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       add_some: "agrega algunos"
@@ -507,12 +511,11 @@ es:
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Todos los contactos"
-      cannot_remove: "No puede eliminarse a la persona del último aspecto. (Si quieres dejar de compartir deberas elminarla.)"
     footer: 
       logged_in_as: "Conectado como %{name}"
       your_aspects: "tus aspectos"
     invitations: 
-      by_email: "por Email"
+      by_email: "vía Email"
       dont_have_now: "No tienes invitaciones ahora mismo pero, ¡pronto llegarán más!"
       from_facebook: "Desde Facebook"
       invitations_left: "(%{count} restantes)"
@@ -589,8 +592,7 @@ es:
       new_password: "Nueva contraseña"
       private_message: "...recibes un mensaje privado?"
       receive_email_notifications: "Recibir notificaciones por correo cuando..."
-      request_acceptence: "...tu solicitud de contacto es aceptada?"
-      request_received: "...recibes una nueva solicitud de contacto?"
+      started_sharing: "...alquien empieza a compartir contigo?"
       your_email: "Tu dirección de correo"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
@@ -598,7 +600,7 @@ es:
       connect_services: "Conectar con otros servicios"
       could_not_find_anyone: "No se pudo encontrar a ningún amigo en Diaspora*. Use el buscador de amigos para invitarlos."
       edit_profile: "Edita tu perfil"
-      finished: "¡Finalizado!"
+      finished: "¡Terminado!"
       save_and_continue: "Guardar y continuar"
       signup_steps: "Termina tu registro en tres pasos:"
       skip: "saltar inicio"
@@ -607,7 +609,7 @@ es:
         skip: "Saltar"
       step_3: 
         finish: "Terminar"
-        people_already_on_diaspora: "Gente que ya está en Diaspora*"
+        people_already_on_diaspora: "Ya están en Diaspora*"
       welcome: "¡Bienvenido a Diaspora*!"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
@@ -615,7 +617,7 @@ es:
       email_notifications_changed: "Notificaciones por correo cambiadas"
       language_changed: "Idioma cambiado"
       language_not_changed: "Error cambiando de idioma"
-      password_changed: "Contraseña cambiada"
+      password_changed: "Contraseña cambiada. Ya puedes acceder con tu nueva contraseña."
       password_not_changed: "Error cambiando la contraseña"
   webfinger: 
     fetch_failed: "Error al buscar el perfil webfinger de %{profile_url}"

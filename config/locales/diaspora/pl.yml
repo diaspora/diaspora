@@ -83,6 +83,7 @@ pl:
     index: 
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       no_contacts: "Brak kontaktów"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "napisz wiadomość >>"
     manage: 
       add_a_new_aspect: "Dodaj nowy aspekt"
@@ -96,9 +97,9 @@ pl:
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
       failure: "nie zadziałało %{inspect}"
       success: "Osoba przeniesiona do nowego aspektu"
-    new_aspect: 
-      create: "Utwórz"
-      name: "Nazwa"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Nikt jeszcze nic nie powiedział. Rozkręć rozmowę!"
     one: "1 aspekt"
@@ -129,6 +130,14 @@ pl:
     other: "%{count} komentarzy"
     zero: "brak komentarzy"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Nie udało się utworzyć kontaktu"
     destroy: 
@@ -139,9 +148,11 @@ pl:
     one: "1 kontakt"
     other: "%{count} kontaktów"
     share_with_pane: 
-      accepts: "Kiedy %{name} zaakceptuje zaproszenie, zaczniecie widzieć nawzajem swoje wpisy w serwisie Diaspora"
       add_new_aspect: "dodaj do nowego aspektu"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Zacznij współdzielić z %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "brak kontaktów"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ pl:
     new_request: "chce zostać twoim znajomym."
     post: "wpis."
     private_message: "wysłał(a) ci wiadomość."
-    request_accepted: "zaakceptował Twoje zaproszenie."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "skomentował też wpis użytkownika %{post_author}:"
@@ -294,23 +305,18 @@ pl:
       mentioned: "wspomniał(a) o tobie we wpisie:"
       sign_in: "Zaloguj się, aby uzyskać dostęp."
       subject: "%{name} wspomniał o tobie w serwisie Diaspora*"
-    new_request: 
-      just_sent_you: "właśnie wysłał(-a) Ci zaproszenie do Diaspory*"
-      sign_in: "zaloguj się"
-      subject: "nowe zaproszenie do znajomych w Diasporze* od %{from}"
-      try_it_out: "Przemyśl to, naprawdę warto spróbować."
     private_message: 
       message_subject: "Temat: %{subject}"
       private_message: "wysłał ci wiadomość prywatną:"
       sign_in: "Zarejestruj się, aby zobaczyć."
       subject: "%{name} wysłał ci prywatną wiadomość w serwisie Diaspora*"
-    request_accepted: 
-      accepted: "zaakceptował Twoje zaproszenie!"
-      sign_in: "Zaloguj się"
-      subject: "%{name} zaakceptował(-a) twoje zaproszenie do znajomych w Diasporze*"
     single_admin: 
       admin: "Twój panel zarządzania Diaspora"
       subject: "Wiadomość od twojego panelu zarządzania Diaspora:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Dzięki,"
   ok: "OK"
   or: "lub"
@@ -341,12 +347,10 @@ pl:
     profile_sidebar: 
       bio: "notka biograficzna"
       born: "urodziny"
-      cannot_remove: "Nie można usunąć %{name} z jedynego pozostałego aspektu. (Jeśli chcesz się odłączyć od tej osoby musisz usunąć ją ze znajomych.)"
       edit_my_profile: "Edycja mojego profilu"
       gender: "płeć"
       in_aspects: "w aspektach"
       location: "położenie"
-      remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show: 
       add_some: "dodaj kogoś"
@@ -507,7 +511,6 @@ pl:
       your_diaspora_username_is: "Twój identyfikator w Diasporze: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Wszystkie kontakty"
-      cannot_remove: "Nie można usunąć osoby z jedynego pozostałego aspektu. (Jeśli chcesz się rozłączyć z tą osobą musisz ją usunąć ze znajomych.)"
     footer: 
       logged_in_as: "zalogowany jako %{name}"
       your_aspects: "twoje aspekty"
@@ -589,8 +592,7 @@ pl:
       new_password: "Nowe hasło"
       private_message: "...otrzymasz prywatną wiadomość?"
       receive_email_notifications: "Otrzymywanie powiadomień emailowych kiedy..."
-      request_acceptence: "...twoje zaproszenie do współdzielenia zostanie zaakceptowane?"
-      request_received: "...otrzymasz nowe zaproszenie do współdzielenia?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Twój e-mail"
       your_handle: "Twój identyfikator w Diasporze"
     getting_started: 

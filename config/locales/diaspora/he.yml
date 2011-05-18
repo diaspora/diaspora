@@ -83,6 +83,7 @@ he:
     index: 
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "פרסום הודעה >>"
     manage: 
       add_a_new_aspect: "הוספת היבט חדש"
@@ -96,9 +97,9 @@ he:
       error: "שגיאה בהעברת איש הקשר: %{inspect}"
       failure: "%{inspect} לא עבד"
       success: "האדם הועבר להיבט חדש"
-    new_aspect: 
-      create: "יציאה"
-      name: "שם"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
     one: "היבט אחד"
@@ -129,6 +130,14 @@ he:
     other: "%{count} תגובות"
     zero: "אין תגובות"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "אירע כשל ביצירת איש קשר"
     destroy: 
@@ -139,9 +148,11 @@ he:
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
     share_with_pane: 
-      accepts: "לאחר שיתקבל אישור מאיש הקשר %{name}, תתחילו לראות את הרשומות זה של זה בדיאספורה"
       add_new_aspect: "הוספה להיבט חדש"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "התחלת השיתוף עם %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "אין אנשי קשר"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ he:
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה."
     private_message: "שלח/ה לך הודעה."
-    request_accepted: "קיבל/ה את בקשת השיתוף שלך."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "גם כן הגיב/ה על הרשומה של %{post_author}:"
@@ -294,23 +305,18 @@ he:
       mentioned: "הזכיר/ה אותך ברשומה:"
       sign_in: "יש להיכנס כדי לצפות בזה."
       subject: "הוזכרת על ידי %{name} ב־Diaspora*"
-    new_request: 
-      just_sent_you: "שלח/ה לך בקשת חברות בדיאספורה*"
-      sign_in: "כניסה מכאן"
-      subject: "בקשת התקשרות חדשה בדיאספורה* מאת %{from}"
-      try_it_out: "מאוד כדאי לבדוק זאת."
     private_message: 
       message_subject: "נושא: %{subject}"
       private_message: "שלח/ה לך הודעה פרטית:"
       sign_in: "יש להיכנס כדי לצפות בזה."
       subject: "נשלחה אליך הודעה פרטית מאת %{name} דרך דיאספורה*"
-    request_accepted: 
-      accepted: "קיבל/ה את בקשת ההתקשרות שלך!"
-      sign_in: "כניסה מכאן"
-      subject: "בקשת ההתקשרות שלך התקבלה על ידי %{name} בדיאספורה*"
     single_admin: 
       admin: "מנהל הדיאספורה שלך"
       subject: "הודעה בנוגע לחשבונך בדיאספורה:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "רב תודות,"
   ok: "אישור"
   or: "או"
@@ -341,12 +347,10 @@ he:
     profile_sidebar: 
       bio: "פרטים"
       born: "תאריך הלידה"
-      cannot_remove: "לא ניתן להסיר את %{name} מההיבט האחרון. (אם ברצונך להתנתק מאיש קשר זה, עליך להסירו מרשימת אנשי הקשר.)"
       edit_my_profile: "עריכת הפרופיל שלי"
       gender: "מגדר"
       in_aspects: "בהיבטים"
       location: "מיקום"
-      remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
       add_some: "הוספת אנשים"
@@ -507,7 +511,6 @@ he:
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
     contact_list: 
       all_contacts: "כל אנשי הקשר"
-      cannot_remove: "לא ניתן להסיר את איש הקשר מההיבט האחרון. (אם ברצונך להתנתק מאיש הקשר עליך להסירו מרשימת אנשי הקשר)."
     footer: 
       logged_in_as: "נכנסת בשם %{name}"
       your_aspects: "ההיבטים שלך"
@@ -589,8 +592,7 @@ he:
       new_password: "ססמה חדשה"
       private_message: "...קיבלת הודעה פרטית?"
       receive_email_notifications: "לקבל התרעות בדוא״ל כאשר..."
-      request_acceptence: "...בקשת השיתוף שלך נענתה בחיוב?"
-      request_received: "...קיבלת בקשת שיתוף חדשה?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 

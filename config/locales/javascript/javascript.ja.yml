@@ -5,15 +5,20 @@
 
 ja: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "本当にいいですか。"
     infinite_scroll: 
       no_more: "投稿はこれ以上ありません。"
     publisher: 
       at_least_one_aspect: "アスペクトを選択してから投稿してください。"
     search_for: "{{name}}を検索する"
-    shared: 
-      contact_list: 
-        cannot_remove: "人を最後のアスペクトから除外することができません。（絶交したい場合は連絡先を削除してください。）"
     timeago: 
       day: "1日"
       days: "%d日"

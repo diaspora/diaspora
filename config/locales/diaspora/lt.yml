@@ -83,6 +83,7 @@ lt:
     index: 
       handle_explanation: "Tai tavo vartotojo vardas Diasporoje. Kaip ir el. pašto adresas, jis leidžia sistemoje rasti pažįstamus."
       no_contacts: "No contacts"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Pridėti naują aspektą"
@@ -96,9 +97,9 @@ lt:
       error: "Klaida perkeliant kontaktą: %{inspect}"
       failure: "nepavyko %{inspect}"
       success: "Kontaktas perkeltas į aspektą"
-    new_aspect: 
-      create: "Sukurti"
-      name: "Pavadinimas"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ lt:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ lt:
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "no contacts"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ lt:
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -294,23 +305,18 @@ lt:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "tavęs ką tik paprašė priimti į draugus Diasporoje*"
-      sign_in: "prisijungimas čia"
-      subject: "naujas prašymas priimti į Diasporos* draugus iš %{from}"
-      try_it_out: "Pabandyk!"
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "priėmė tavo prašymą draugauti. Jie dabar yra tavo"
-      sign_in: "Sign in here"
-      subject: "%{name} priėmė tavo pasiūlymą draugauti Diasporoje*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Thanks,"
   ok: "gerai"
   or: "arba"
@@ -341,12 +347,10 @@ lt:
     profile_sidebar: 
       bio: "biografija"
       born: "gimimo data"
-      cannot_remove: "Iš paskutinio aspekto vartotojo \"%{name}\" pašalinti negalima."
       edit_my_profile: "Redaguoti mano profilį"
       gender: "lytis"
       in_aspects: "aspektuose"
       location: "location"
-      remove_contact: "pašalinti kontaktą"
       remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ lt:
       your_diaspora_username_is: "Tavo Diasporos vartotojo vardas yra: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Visi kontaktai"
-      cannot_remove: "Iš paskutinio aspekto asmens pašalinti negalima."
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ lt:
       new_password: "Naujas slaptažodis"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Tavo el. pašto adresas"
       your_handle: "Tavo Diasporos vartotojo vardas"
     getting_started: 

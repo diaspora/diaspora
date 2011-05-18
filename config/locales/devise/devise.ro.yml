@@ -29,10 +29,10 @@ ro:
         you_can_confirm: "Puteţi confirma contul dvs. prin intermediul link-ul de mai jos:"
       hello: "Bună %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Acceptă invitaţia"
+        ignore: "Dacă nu doreşti sa accepţi invitaţia, ignoră acest mesaj."
+        no_account_till: "Contul dvs. nu va fi creat până când nu veţi accesa linkul de mai sus şi vă veţi înscrie."
+        subject: "Un prieten te-a invitat pe Diaspora!"
       inviters: 
         accept_at: ", la %{url}, puteţi să-l acceptaţi prin link-ul de mai jos"
         has_invited_you: "%{name} v-a invitat pe Diaspora"
@@ -47,30 +47,30 @@ ro:
         account_locked: "Contul dvs. a fost blocat din cauza unei cantitaţi excesive de încercări nereuşite de autentificare."
         click_to_unlock: "Clic pe link-ul de mai jos pentru a debloca contul dvs."
         subject: "Instrucţiuni pentru a debloca"
-        unlock: "Deblochează contul meu"
+        unlock: "Deblochează-mi contul"
       welcome: "Bine ai revenit %{email}!"
     passwords: 
       edit: 
         change_password: "Schimbă-mi parola"
       new: 
         forgot_password: "Aţi uitat parola?"
-        no_account: "Nici un cont cu acest e-mail există. Dacă sunteţi ȋn aşteptare pentru o invitaţie, cât mai curând posibil vor fi disponibile\n"
+        no_account: "Nici un cont cu acest e-mail există. Dacă sunteţi în aşteptare pentru o invitaţie, le vom trimite cât mai curând posibil.\n"
         send_password_instructions: "Trimite-mi instrucţiunile pentru a reseta parola"
       send_instructions: "În scurt timp veți primi un email cu instrucțiuni pentru resetarea parolei."
       updated: "Parolă schimbată cu success. Sunteți acum autentificat(ă)."
     registrations: 
-      destroyed: "Pa! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând."
+      destroyed: "La revedere! Contul dvs. a fost dezactivat cu succes. Sperăm să vă revedem în curând."
       signed_up: "Sunteți autentificat(ă). Dacă este cazul, un mesaj de confirmare a fost trimis pe email-ul dvs."
       updated: "Cont actualizat cu succes."
     sessions: 
       new: 
         alpha_software: "Sunteţi pe cale de a utiliza software alfa."
-        bugs_and_feedback: "Aveţi grijă, puteţi experimenta probleme. Vă încurajăm să utilizaţi butonul Feedback pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
-        bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probeleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât de repede putem pentru a rezolva orice dificultaţi veţi întâmpina."
+        bugs_and_feedback: "Aveţi grijă, puteţi experimenta probleme. Vă încurajăm să utilizaţi butonul Feedback de pe partea dreaptă a browser-ului pentru a raporta orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
+        bugs_and_feedback_mobile: "Aveţi grijă, veţi experimenta probleme. Vă încurajăm să raportaţi orice problemă! Vom lucra cât mai repede posibil pentru a rezolva orice dificultăţi veţi întâmpina."
         login: "Autentificare"
         modern_browsers: "suportă doar browser-ele moderne."
         password: "Parola"
-        remember_me: "Amintește-mă"
+        remember_me: "Nu mă uita"
         sign_in: "Autentificare"
         username: "Nume de utilizator"
       signed_in: "Autentificare cu succes."
@@ -93,5 +93,5 @@ ro:
   errors: 
     messages: 
       already_confirmed: "a fost deja confirmat"
-      not_found: "inexistent"
+      not_found: "Inexistent"
       not_locked: "nu a fost blocat"

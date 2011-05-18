@@ -83,6 +83,7 @@ ar:
     index: 
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني, يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم"
       no_contacts: "لا أعضاء"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "انشر رسالة >>"
     manage: 
       add_a_new_aspect: "أضف فئة جديدة"
@@ -96,9 +97,9 @@ ar:
       error: "خطأ خلال تحريك عضو: %{inspect}"
       failure: "لم يعمل %{inspect}"
       success: "تم تحريك عضو إلى الفئة الجديدة"
-    new_aspect: 
-      create: "إنشاء فئة جديدة"
-      name: "إسم الفئة"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "لم تنشر أي رسالة بعد، إبدأ المحادثة"
     one: "فئة"
@@ -129,6 +130,14 @@ ar:
     other: "%{count} تعليقات"
     zero: "لا تعليقات"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "فشل في إنشاء الإتصال"
     destroy: 
@@ -139,9 +148,11 @@ ar:
     one: "1 عضو"
     other: "%{count} أعضاء"
     share_with_pane: 
-      accepts: "حالما يقبل %{name}, ستتمكنان من رؤية رسائل بعضكما البعض"
       add_new_aspect: "إضافة إلى فئة جديدة"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "ابدأ المشاركة مع %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "لا يوجد أعضاء"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ ar:
     new_request: "عرض المشاركة معك"
     post: "منشور"
     private_message: "أرسل لك رسالة"
-    request_accepted: "وافق على عرضك للمشاركة"
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "علق أيضا على مشاركة %{post_author}:"
@@ -294,23 +305,18 @@ ar:
       mentioned: "قام بذكرك في مشاركة:"
       sign_in: "لُج لمشاهدته"
       subject: "%{name} قام بذكرك في دياسبرا"
-    new_request: 
-      just_sent_you: "أرسل لك لتوه طلب مشاركة*"
-      sign_in: "لُج هنا"
-      subject: "طلب مشاركة جديد بدياسبرا %{from}"
-      try_it_out: "ينصح بشدة الإطلاع عليه"
     private_message: 
       message_subject: "العنوان: %{subject}"
       private_message: "راسلك برسالة خاصة:"
       sign_in: "لُج لمشاهدته"
       subject: "%{name} راسلك برسالة خاصة في دياسبرا"
-    request_accepted: 
-      accepted: "وافق على عرضك للمشاركة"
-      sign_in: "لُج لمشاهدته"
-      subject: "%{name} وافق على عرضك للمشاركة في دياسبرا"
     single_admin: 
       admin: "إدارة دياسبرا"
       subject: "رسالة من إدارة دياسبرا:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "شكرا,"
   ok: "حسنا"
   or: "أو"
@@ -341,12 +347,10 @@ ar:
     profile_sidebar: 
       bio: "سيرة"
       born: "تاريخ الميلاد"
-      cannot_remove: "استحالة حذف %{name} من الفئة"
       edit_my_profile: "تحرير صفحتي الشخصية"
       gender: "الجنس"
       in_aspects: "في الفئة"
       location: "المكان"
-      remove_contact: "حذف العضو"
       remove_from: "حذف %{name} من %{aspect}?"
     show: 
       add_some: "إضافة"
@@ -507,7 +511,6 @@ ar:
       your_diaspora_username_is: "معرف دياسبورا خاصتك هو: %{diaspora_handle}"
     contact_list: 
       all_contacts: "جميع الأعضاء"
-      cannot_remove: "استحالة حذف هذا الشخص من الفئة"
     footer: 
       logged_in_as: "ولوج بـ %{name}"
       your_aspects: "الفئات خاصتك"
@@ -589,8 +592,7 @@ ar:
       new_password: "كلمة مرور جديدة"
       private_message: "...وصلتك راسلة خاصة"
       receive_email_notifications: "استقبال تنبيهات عبر البريد الإلكتروني؟"
-      request_acceptence: "...عروض مشاركتك المقبولة"
-      request_received: "...استقبالك لعروض مشاركة"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "بريدك الإلكتروني"
       your_handle: "وسيط دياسبرا خاصتك"
     getting_started: 

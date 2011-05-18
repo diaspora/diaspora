@@ -83,6 +83,7 @@ ru:
     index: 
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "опубликовать сообщение>>"
     manage: 
       add_a_new_aspect: "Добавить новый аспект"
@@ -96,9 +97,9 @@ ru:
       error: "Ошибка при перемещении контакта: %{inspect}"
       failure: "не работает %{inspect}"
       success: "Персона перемещена в новый аспект"
-    new_aspect: 
-      create: "Создать"
-      name: "Имя"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал.  Начните разговор!"
     one: "1 аспект"
@@ -129,6 +130,14 @@ ru:
     other: "%{count} комментариев"
     zero: "нет комментариев"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Не удалось создать контакт"
     destroy: 
@@ -139,9 +148,11 @@ ru:
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
     share_with_pane: 
-      accepts: "После того как %{name} принял, вы сможите видеть сообщения друг друга в диаспоре"
       add_new_aspect: "добавить в новый аспект"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Начать обмен с %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "ни одного контакта"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ ru:
     new_request: "предлагает поделиться с вами."
     post: "сообщение."
     private_message: "послал Вам сообщение."
-    request_accepted: "ваше приглашение принял[-а]"
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "также прокомментировал %{post_author} сообщение:\n"
@@ -294,23 +305,18 @@ ru:
       mentioned: "упомянул вас в сообщении:"
       sign_in: "Войти в систему, чтобы посмотреть."
       subject: "% {name} упомянул вас в диаспоре*"
-    new_request: 
-      just_sent_you: "отправил вам запрос для Диаспоры*"
-      sign_in: "Войдите в систему здесь"
-      subject: "новый контакт-запрос в Диаспоре от %{from}"
-      try_it_out: "Вы должны подумать о его проверке.\n"
     private_message: 
       message_subject: "Тема: %{subject}"
       private_message: "отправил вам личное сообщение:"
       sign_in: "Войдите в систему, чтобы посмотреть."
       subject: "%{name} прислал вам личное сообщение в диаспоре*"
-    request_accepted: 
-      accepted: "принял Ваш запрос!"
-      sign_in: "Войти здесь"
-      subject: "%{name} принял(а) ваш запрос для присоединения к Диаспоре*"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
       subject: "Сообщение о вашем аккаунте Диаспоры:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Спасибо,"
   ok: "Ок"
   or: "или"
@@ -341,12 +347,10 @@ ru:
     profile_sidebar: 
       bio: "О себе"
       born: "день рождения"
-      cannot_remove: "Не удалось удалить %{name} c последнего аспекта.(Если вы хотите отключиться от этого человека необходимо удалить контакт)"
       edit_my_profile: "Редиктировать профиль"
       gender: "пол"
       in_aspects: "в аспектах"
       location: "местоположение"
-      remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
       add_some: "добавить"
@@ -507,7 +511,6 @@ ru:
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Все контакты"
-      cannot_remove: "Нельзя удалить человека из последнего аспекта. (Если вы хотите отключить этого человека, необходимо удалить контакт)"
     footer: 
       logged_in_as: "вошли как %{name}"
       your_aspects: "ваши аспекты"
@@ -589,8 +592,7 @@ ru:
       new_password: "Новый пароль"
       private_message: "... Вы получаете личное сообщение?"
       receive_email_notifications: "Получать извещение электронной почтой (email), если..."
-      request_acceptence: "... Ваш обменный запрос принят?"
-      request_received: "... Вы получили новый обменный запрос?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Ваш адрес электронной почты (email)"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 

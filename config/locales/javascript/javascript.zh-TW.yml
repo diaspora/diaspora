@@ -5,15 +5,20 @@
 
 zh-TW: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "你確定嗎?"
     infinite_scroll: 
       no_more: "沒有貼文了."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "無法將人從它最後一個面向移除. (如果你想和這個人切斷連結, 你必須刪除和它的聯繫.)"
     timeago: 
       day: "一天"
       days: "%d天"

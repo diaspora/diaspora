@@ -83,6 +83,7 @@ sk:
     index: 
       handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
       no_contacts: "Žiadne kontakty"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Pridať nový aspekt"
@@ -96,9 +97,9 @@ sk:
       error: "Chyba pri presúvaní kontaktu: %{inspect}"
       failure: "nepracuje %{inspect}"
       success: "Osoba presunutá do nového aspektu"
-    new_aspect: 
-      create: "Vytvoriť"
-      name: "Meno"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Nikto nič nevraví. Začnite Vy!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ sk:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ sk:
     one: "1 kontakt"
     other: "kontakty (%{count})"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "pridať k novému aspektu"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "žiadne kontakty"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ sk:
     new_request: "offered to share with you."
     post: "príspevok"
     private_message: "sent you a message."
-    request_accepted: "Vaša požiadavka bola akceptovaná."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "tiež komentoval príspevok užívateľa %{post_author} :"
@@ -294,23 +305,18 @@ sk:
       mentioned: "ťa spomenul v príspevku:"
       sign_in: "K prezeraniu sa prihlás."
       subject: "%{name} ťa spomenul na Diaspore*"
-    new_request: 
-      just_sent_you: "Vám zaslal žiadosť v Diaspore*"
-      sign_in: "Prihláste sa"
-      subject: "Nová žiadosť o kontakt od %{from}"
-      try_it_out: "Mali by ste to skontrolovať."
     private_message: 
       message_subject: "Predmet: %{subject}"
       private_message: "ti poslal súkromnú správu:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "prijal Vašu žiadosť. Teraz je vo Vašich"
-      sign_in: "Prihláste sa"
-      subject: "Užívateľ %{name} prijal Vašu žiadosť a pripojil sa k Diaspore*"
     single_admin: 
       admin: "Váš administrátor"
       subject: "A message from your Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Vďaka,"
   ok: "OK"
   or: "alebo"
@@ -341,12 +347,10 @@ sk:
     profile_sidebar: 
       bio: "Niečo o Vás"
       born: "dátum narodenia"
-      cannot_remove: "Užívateľa %{name} nie je možné z posledného aspektu odstrániť."
       edit_my_profile: "Upraviť profil"
       gender: "pohlavie"
       in_aspects: "v aspektoch"
       location: "location"
-      remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť užívateľa %{name} z aspektu %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ sk:
       your_diaspora_username_is: "Vaše užívateľské meno je %{diaspora_handle}"
     contact_list: 
       all_contacts: "Všetky kontakty"
-      cannot_remove: "Nie je možné osobu odstrániť z posledného aspektu. (Ak s ňou chcete nadobro prerušiť kontakt, odstráňte ju prosím z Vášho zoznamu osôb.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ sk:
       new_password: "Nové heslo"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Zasielať e-mailové notifikácie?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 

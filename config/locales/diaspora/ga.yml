@@ -83,6 +83,7 @@ ga:
     index: 
       handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Cuir gné nua leis"
@@ -96,9 +97,9 @@ ga:
       error: "Earráid ag boga teagmháil: %{inspect}"
       failure: "níor d'eirigh le %{inspect}"
       success: "Bogadh an duine chuig gné nua"
-    new_aspect: 
-      create: "Cruthaigh"
-      name: "Ainm"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Níor deireadh aon rud fós. Cuir tús leis an comhrá!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ ga:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ ga:
     one: "teagmháil amháin"
     other: "%{count} teagmháil"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "níl aon teagmháila"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ ga:
     new_request: "ofráiladh chun roint leant"
     post: "póst"
     private_message: "sent you a message."
-    request_accepted: "glacadh le do iarratas roinnt"
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -294,23 +305,18 @@ ga:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "díreach ag seoala iarratas teagmháil chugat ar Diaspora*"
-      sign_in: "síniú isteach anseo"
-      subject: "Iarratas teagmháil Diaspora* nua ó %{from}"
-      try_it_out: "Ba cheart duit smaoineamh faoi é a thriala."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "tar éis do iarratas teagmháil a glacadh!"
-      sign_in: "Sign in here"
-      subject: "Glacadh %{name} le do iarratas teagmháil ar Diaspora*"
     single_admin: 
       admin: "Do riarthóir Diaspora"
       subject: "Fógra faoi do chúntas Diaspora:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Gur raibh maith agat,"
   ok: "OK"
   or: "nó"
@@ -341,12 +347,10 @@ ga:
     profile_sidebar: 
       bio: "beathaisnéis"
       born: "breithlá"
-      cannot_remove: "Ní féidir leat fháil ré le %{name} ón gné déarnach. (Má tá tú ag iarradh dínascadh ón duine seo, tá ort fháil ré le teagmháil.)"
       edit_my_profile: "Athraigh mo próifíl"
       gender: "inscne"
       in_aspects: "i gnéithe"
       location: "location"
-      remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ ga:
       your_diaspora_username_is: "Is é %{diaspora_handle} do ainm úsáideora"
     contact_list: 
       all_contacts: "All contacts"
-      cannot_remove: "Ní féidir leat fháil ré leis an duine seo ón gné déarnach. (Má tá tú ag iarradh dínascadh ón duine seo, tá ort fháil ré le teagmháil.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ ga:
       new_password: "Pasfhocal nua"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Fháil fógraí ríomhphost?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Do seola ríomhphost"
       your_handle: "Do hanla diaspora"
     getting_started: 

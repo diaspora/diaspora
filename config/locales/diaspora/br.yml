@@ -83,6 +83,7 @@ br:
     index: 
       handle_explanation: "Ar postel-mañ zo ho skor diaspora. E-giz ur chomlec'h-postel e c'hellit skignat anezhañ a-benn bezañ kavet gant an dud."
       no_contacts: "Darempred ebet"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Add a new aspect"
@@ -96,9 +97,9 @@ br:
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
-    new_aspect: 
-      create: "Krouiñ"
-      name: "Anv"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
     one: "1 arvez"
@@ -129,6 +130,14 @@ br:
     other: "%{count} embann"
     zero: "embann ebet"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ br:
     one: "1 darempred"
     other: "%{count} a zarempredoù"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "ouzhpennañ da'n arvez nevez"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "darempred ebet"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ br:
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -294,23 +305,18 @@ br:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "just sent you a contact request on Diaspora*"
-      sign_in: "Sign in here"
-      subject: "new Diaspora* contact request from %{from}"
-      try_it_out: "You should really think about checking it out."
     private_message: 
       message_subject: "Danvez: %{subject}"
       private_message: "en/hi deus kaset deoc'h ur gemennadenn prevez:"
       sign_in: "Sign in to view it."
       subject: "%{name} en/hi deus kaset deoc'h ur gemennadenn prevez gant Diaspora*"
-    request_accepted: 
-      accepted: "has accepted your contact request!"
-      sign_in: "Sign in here"
-      subject: "%{name} has accepted your contact request on Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message about your Diaspora account:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Thanks,"
   ok: "MAT EO"
   or: "pe"
@@ -341,12 +347,10 @@ br:
     profile_sidebar: 
       bio: "buhez"
       born: "deiziad-ganidigezh"
-      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
       edit_my_profile: "Edit my profile"
       gender: "reizh"
       in_aspects: "in aspects"
       location: "chomaj"
-      remove_contact: "skarzhañ an darempred"
       remove_from: "Fellout a ra deoc'h skarzhañ %{name} diwar %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ br:
       your_diaspora_username_is: "Setu hoc'h anv-implijer war Diaspora: %{diaspora_handle}"
     contact_list: 
       all_contacts: "An holl zarempredoù"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ br:
       new_password: "Ger-Kuzh Nevez"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notifications when..."
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Ho postel"
       your_handle: "Ho skor diaspora"
     getting_started: 

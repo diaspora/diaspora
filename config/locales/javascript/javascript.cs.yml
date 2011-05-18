@@ -5,15 +5,20 @@
 
 cs: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Přidat do aspektu"
+      toggle: 
+        few: "Ve {{count}} aspektech"
+        many: "V {{count}} aspektech"
+        one: "V {{count}} aspektu"
+        other: "Ve {{count}} aspektech"
+        zero: "Přidat do aspektu"
     confirm_dialog: "Jste si jisti?"
     infinite_scroll: 
       no_more: "Žádné další příspěvky."
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
     search_for: "Hledat {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Nelze odstranit osobu z posledního aspektu. (Pokud se chcete odpojit od této osoby je třeba odebrat kontakt.)"
     timeago: 
       day: "1 dnem"
       days: "%d dny"

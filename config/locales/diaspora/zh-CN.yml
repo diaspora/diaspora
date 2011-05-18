@@ -83,6 +83,7 @@ zh-CN:
     index: 
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       no_contacts: "没有任何好友"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "发布站内信>>"
     manage: 
       add_a_new_aspect: "添加分类"
@@ -96,9 +97,9 @@ zh-CN:
       error: "好友移动错误：%{inspect}"
       failure: "%{inspect}没有成功"
       success: "好友成功添加到新分类"
-    new_aspect: 
-      create: "添加"
-      name: "名称"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "还没人发布过内容。你发布第一条吧！"
     one: "1个分类"
@@ -129,6 +130,14 @@ zh-CN:
     other: "%{count}条回应"
     zero: "没有回复"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "添加好友失败"
     destroy: 
@@ -139,9 +148,11 @@ zh-CN:
     one: "1个好友"
     other: "%{count}个好友"
     share_with_pane: 
-      accepts: "当 %{name} 同意请求后，你们就开始看到彼此在Diaspora上发布的内容"
       add_new_aspect: "添加到新的分类"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "与 %{name} 分享"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "没有好友"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ zh-CN:
     new_request: "想要与您分享。"
     post: "日志。"
     private_message: "写了一则消息给您。"
-    request_accepted: "已同意和您分享。"
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "也对 %{post_author} 的贴文发布了意见:"
@@ -294,23 +305,18 @@ zh-CN:
       mentioned: "在 Diaspora* 发布的内容中提到了您："
       sign_in: "登录后可以查看。"
       subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
-    new_request: 
-      just_sent_you: "刚刚在 Diaspora* 上与向您发送了好友请求"
-      sign_in: "由此登录"
-      subject: "%{from} 想与您在 Diaspora* 上建立好友请求"
-      try_it_out: "您赶紧来查看一下吧。"
     private_message: 
       message_subject: "主题: %{subject}"
       private_message: "已发送了私人信息给您："
       sign_in: "登录进来看看。"
       subject: "%{name} 在 Diaspora* 给您发送了私人信息"
-    request_accepted: 
-      accepted: "已接受了您的好友请求！"
-      sign_in: "由此登录"
-      subject: "%{name} 已在 Diaspora* 接收了您的好友请求"
     single_admin: 
       admin: "为您服务的 Diaspora 管理员"
       subject: "关于您 Diaspora 帐号的信息:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "谢谢，"
   ok: "确定"
   or: "或"
@@ -341,12 +347,10 @@ zh-CN:
     profile_sidebar: 
       bio: "自我介绍"
       born: "生日"
-      cannot_remove: "无法将好友从他所在的最后一个分类中移除。(如果你想与这个人断绝连接，你可以解除与他的好友关系。)"
       edit_my_profile: "编辑我的个人档案"
       gender: "性别"
       in_aspects: "所属分类"
       location: "位置"
-      remove_contact: "解除好友关系"
       remove_from: "要从 %{aspect} 删除 %{name} 吗？"
     show: 
       add_some: "添加一些"
@@ -507,7 +511,6 @@ zh-CN:
       your_diaspora_username_is: "您的 Diaspora 帐号是: %{diaspora_handle}"
     contact_list: 
       all_contacts: "全部好友"
-      cannot_remove: "无法将好友从他所在的最后一个分类中移除。(如果你想与这个人断绝连结，你可以解除与他的好友关系。)"
     footer: 
       logged_in_as: "已用 %{name} 登录"
       your_aspects: "您的分类"
@@ -589,8 +592,7 @@ zh-CN:
       new_password: "新密码"
       private_message: "……当收到私人信息时？"
       receive_email_notifications: "是否要在以下情况收到电子邮件通知……"
-      request_acceptence: "……当请求跟人分享被接受时？"
-      request_received: "……当收到有人想与您分享的新请求时？"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "您的电子邮箱"
       your_handle: "您的 diaspora 帐号"
     getting_started: 

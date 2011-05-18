@@ -83,6 +83,7 @@ eu:
     index: 
       handle_explanation: "Hau da zure Diaspora erabiltzailea. Zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "mezu bat bidali >>"
     manage: 
       add_a_new_aspect: "Alderdi berri bat sortu"
@@ -96,9 +97,9 @@ eu:
       error: "Huts adiskidea mugitzean: %{inspect}"
       failure: "huts egin du %{inspect}"
       success: "Pertsona alderdi berrira gehitua"
-    new_aspect: 
-      create: "Sortu"
-      name: "Izena"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
     one: "alderdi 1"
@@ -129,6 +130,14 @@ eu:
     other: "%{count} iruzkin"
     zero: "iruzkinik ez"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Akatsa adiskide berria sortzean"
     destroy: 
@@ -139,9 +148,11 @@ eu:
     one: "adiskide 1"
     other: "%{count} adiskide"
     share_with_pane: 
-      accepts: "%{name}(e)k onartzen duenean, bakoitzak bestearen mezuak ikusiko ditu Diasporan"
       add_new_aspect: "alderdi berrira gehitu"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "%{name}(r)ekin harremanetan hasi"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "adiskiderik ez"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ eu:
     new_request: "(e)k zurekin partekatu nahi du."
     post: "mezua."
     private_message: "(e)k mezu bat bidali dizu."
-    request_accepted: "(e)k zure partekatze eskaera onartu du."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "(e)k ere iruzkindu du %{post_author}(r)en mezuan:"
@@ -294,23 +305,18 @@ eu:
       mentioned: "zu aipatu zaituzte mezu batean:"
       sign_in: "Sartu ikusteko."
       subject: "%{name}(e)k Diasporan aipatu zaitu"
-    new_request: 
-      just_sent_you: "oraintxe Diaspora* adiskide eskaera bidali zaizu"
-      sign_in: "sartu hemen"
-      subject: "Diaspora* adiskide eskaera berria %{from}(e)k bidalia"
-      try_it_out: "Hobe zenuke begiztatzea."
     private_message: 
       message_subject: "Gaia: %{subject}"
       private_message: "(e)k mezu pribatu bat bidali dizu:"
       sign_in: "Sartu zaitez ikusteko."
       subject: "%{name}(e)k mezu pribatu bat bidali dizu Diasporan"
-    request_accepted: 
-      accepted: "(e)k zure adiskide eskaera onartu du. Orain hemen dago:"
-      sign_in: "Sartu hemen"
-      subject: "%{name}(e)k zure adiskide eskaera onartu du Diasporan"
     single_admin: 
       admin: "Zure Diaspora administratzailea"
       subject: "Mezu bat zure Diaspora kontuari buruz:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Milesker,"
   ok: "Onartu"
   or: "edo"
@@ -341,12 +347,10 @@ eu:
     profile_sidebar: 
       bio: "niri buruz"
       born: "jaioteguna"
-      cannot_remove: "Ezin izan da %{name} ezabatu azken alderditik. (Pertsona honekin harremanak etendu nahi badituzu, adiskidea ezabatu egin beharko duzu.)"
       edit_my_profile: "Nire profila aldatu"
       gender: "sexua"
       in_aspects: "alderdietan"
       location: "kokalekua"
-      remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
       add_some: "gehitu batzuk"
@@ -507,7 +511,6 @@ eu:
       your_diaspora_username_is: "Zure Diaspora erabiltzailea honakoa da: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Adiskide Guztiak"
-      cannot_remove: "Ezin izan da pertsona azken alderditik ezabatu. (Pertsona honekin harremanak nahi ez badituzu, adiskidea ezabatu behar duzu.)"
     footer: 
       logged_in_as: "%{name} zara"
       your_aspects: "zure alderdiak"
@@ -589,8 +592,7 @@ eu:
       new_password: "Pasahitz Berria"
       private_message: "...mezu pribatu bat jasotzen duzunean?"
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
-      request_acceptence: "...zure partekatze eskaerak onartuak izan direnean?"
-      request_received: "...partekatze eskaera berriak dituzunean?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora erabiltzailea"
     getting_started: 

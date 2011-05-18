@@ -83,6 +83,7 @@ mk:
     index: 
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       no_contacts: "No contacts"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Додај нов аспект"
@@ -96,9 +97,9 @@ mk:
       error: "Грешка при преместувањето на контактот: %{inspect}"
       failure: "не проработи %{inspect}"
       success: "Личноста е преместена во нов аспект"
-    new_aspect: 
-      create: "Креирај"
-      name: "Име"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Никој досега нема кажано ништо. Започни го разговорот!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ mk:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ mk:
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "no contacts"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ mk:
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -294,23 +305,18 @@ mk:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "самошто ви испратив барање за контакт на Diaspora*"
-      sign_in: "најави се овде"
-      subject: "ново Diaspora* контакт барање од %{from}"
-      try_it_out: "Навистина треба да го проверите."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "го прифати вашето контакт барање. Сега се во вашиот"
-      sign_in: "Sign in here"
-      subject: "%{name} го прифати вашето контакт барање на Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Thanks,"
   ok: "ОК"
   or: "или"
@@ -341,12 +347,10 @@ mk:
     profile_sidebar: 
       bio: "биографија"
       born: "роденден"
-      cannot_remove: "Неможе да се одстрани %{name} од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
       edit_my_profile: "Уреди го мојот профил"
       gender: "пол"
       in_aspects: "во аспекти"
       location: "location"
-      remove_contact: "одстрани контакт"
       remove_from: "Одстрани %{name} од %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ mk:
       your_diaspora_username_is: "Вашето Diaspora корисничко име е: %{diaspora_handle}"
     contact_list: 
       all_contacts: "All contacts"
-      cannot_remove: "Неможе да се одстрани личноста од последниот аспект. (Ако сакате да се раздвоите од оваа личност мора да ја одстраните од листата на контакти.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ mk:
       new_password: "Нова лозинка"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Вашиот е-маил"
       your_handle: "Вашето diaspora корисничко име"
     getting_started: 

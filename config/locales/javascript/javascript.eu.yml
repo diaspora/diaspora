@@ -5,15 +5,20 @@
 
 eu: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Ziur al zaude?"
     infinite_scroll: 
       no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Ezin izan da adiskidea azken alderditik ezabatu. (Pertsona honekin harremanak bukatu nahi badituzu, hura ezabatu behar duzu.)"
     timeago: 
       day: "egun bat"
       days: "%d egun"

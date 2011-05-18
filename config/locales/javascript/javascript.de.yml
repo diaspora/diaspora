@@ -5,15 +5,20 @@
 
 de: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Zu Aspekt hinzufügen"
+      toggle: 
+        few: "In {{count}} Aspekten"
+        many: "In {{count}} Aspekten"
+        one: "In {{count}} Aspekten"
+        other: "In {{count}} Aspekten"
+        zero: "Zu Aspekt hinzufügen"
     confirm_dialog: "Bist du dir sicher?"
     infinite_scroll: 
       no_more: "Keine weiteren Beiträge."
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
     search_for: "Nach {{name}} suchen"
-    shared: 
-      contact_list: 
-        cannot_remove: "Die Person kann vom letzten Aspekt nicht entfernt werden. (Wenn du dich von dieser Person trennen willst, musst du diesen Kontakt entfernen.)"
     timeago: 
       day: "einem Tag"
       days: "%d Tagen"

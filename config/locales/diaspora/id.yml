@@ -83,6 +83,7 @@ id:
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Tambah aspek baru"
@@ -96,8 +97,8 @@ id:
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
       success: "Person moved to new aspect"
-    new_aspect: 
-      create: "Ciptakan"
+    new: 
+      create: "Create"
       name: "Name"
     no_posts_message: 
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
@@ -129,6 +130,14 @@ id:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ id:
     one: "1 contact"
     other: "%{count} contacts"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "no contacts"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ id:
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -294,23 +305,18 @@ id:
       mentioned: "mentioned you in a post:"
       sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "just sent you a friend request on Diaspora*"
-      sign_in: "sign in here"
-      subject: "new Diaspora* friend request from %{from}"
-      try_it_out: "You should really think about checking it out."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "has accepted your friend request. They are now in your"
-      sign_in: "Sign in here"
-      subject: "%{name} has accepted your friend request on Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Thanks,"
   ok: "OK"
   or: "or"
@@ -341,12 +347,10 @@ id:
     profile_sidebar: 
       bio: "bio"
       born: "born"
-      cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Edit my profile"
       gender: "gender"
       in_aspects: "in aspects"
       location: "location"
-      remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ id:
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
     contact_list: 
       all_contacts: "All contacts"
-      cannot_remove: "Cannot remove person from last aspect."
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ id:
       new_password: "New Password"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Your email"
       your_handle: "Your diaspora handle"
     getting_started: 

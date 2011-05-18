@@ -51,9 +51,9 @@ ro:
       failure: "Nu s-a reuşit adăuga contactul la aspect."
       success: "Contactul a fost adăugat cu succes la aspect."
     aspect_contacts: 
-      done_editing: "done editing"
+      done_editing: "terminat de editat"
     aspect_stream: 
-      activity: "activity"
+      activity: "activitate"
       post_time: "post time"
       sort_by: "sort by:"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
@@ -83,6 +83,7 @@ ro:
     index: 
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Adaugă un nou aspect"
@@ -95,10 +96,10 @@ ro:
     move_contact: 
       error: "Error moving contact: %{inspect}"
       failure: "didn't work %{inspect}"
-      success: "S-a mutat persoana la noul aspectul"
-    new_aspect: 
-      create: "Crează"
-      name: "Nume"
+      success: "S-a mutat persoana la noul aspect"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Nimeni nu a spus nimic deocamdată. Începe tu o conversaţie!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ ro:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
     destroy: 
@@ -139,9 +148,11 @@ ro:
     one: "1 contact"
     other: "%{count} contacte"
     share_with_pane: 
-      accepts: "Once %{name} accepts, you'll start seeing each other's posts on Diaspora"
       add_new_aspect: "add to new aspect"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Start sharing with %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "nici un contact"
   conversations: 
     create: 
@@ -208,10 +219,10 @@ ro:
     edit: 
       sign_up: "sign_up"
     new: 
-      already_invited: "Already invited"
+      already_invited: "Deja invitat "
       aspect: "Aspect"
       comma_seperated_plz: "You can enter multiple email addresses separated by commas."
-      if_they_accept_info: "în cazul în care acceptă, acestea vor fi adăugate la aspectul la care ai le-ai invitat."
+      if_they_accept_info: "în cazul în care acceptă, vor fi adăugate la aspectul la care le-ai invitat."
       invite_someone_to_join: "Invită pe cineva pe Diaspora!"
       personal_message: "Mesaj personal"
       resend: "Resend"
@@ -224,7 +235,7 @@ ro:
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
-      whats_new: "what's new?"
+      whats_new: "ce mai e nou?"
       your_aspects: "aspectele tale"
     header: 
       blog: "blog"
@@ -272,7 +283,7 @@ ro:
     new_request: "offered to share with you."
     post: "post"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -291,26 +302,21 @@ ro:
     love: "cu dragoste,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
-      mentioned: "mentioned you in a post:"
+      mentioned: "te-a menţionat întrun post:  "
       sign_in: "Sign in to view it."
-      subject: "%{name} has mentioned you on Diaspora*"
-    new_request: 
-      just_sent_you: "just sent you a friend request on Diaspora*"
-      sign_in: "sign in here"
-      subject: "new Diaspora* friend request from %{from}"
-      try_it_out: "You should really think about checking it out."
+      subject: "%{name} te-a menţionat pe Diaspora*"
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "a acceptat cererea dumneavoastră de contact!"
-      sign_in: "Sign in here"
-      subject: "%{name} a acceptat cererea de contact pe Diaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Mulţumim,"
   ok: "OK"
   or: "sau"
@@ -324,10 +330,10 @@ ro:
     few: "%{count} people"
     helper: 
       people_on_pod_are_aware_of: " people on pod are aware of"
-      results_for: " results for %{params}"
+      results_for: "rezultate pentru %{params}"
     index: 
       couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
-      no_one_found: "...and no one was found."
+      no_one_found: "...nimeni nu a fost găsit."
       no_results: "Hey! You need to search for something."
       results_for: "caută rezultate pentru"
     many: "%{count} people"
@@ -335,18 +341,16 @@ ro:
     other: "%{count} people"
     person: 
       add_contact: "adaugă contact"
-      already_connected: "Already connected"
+      already_connected: "Eşti deja conectat"
       pending_request: "cerere în aşteptare"
       thats_you: "eşti tu!"
     profile_sidebar: 
       bio: "biografie"
       born: "Zi de naştere"
-      cannot_remove: "Cannot remove %{name} from last aspect."
       edit_my_profile: "Editează profilul meu"
       gender: "gen"
       in_aspects: "în aspecte"
       location: "location"
-      remove_contact: "Elimină contactul"
       remove_from: "Elimini pe %{name} din %{aspect}?"
     show: 
       add_some: "add some"
@@ -392,7 +396,7 @@ ro:
     show: 
       collection_permalink: "collection permalink"
       delete_photo: "Șterge Fotografie"
-      edit: "edit"
+      edit: "editează "
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "Setează ca fotografie de profil"
       original_post: "Original Post"
@@ -412,23 +416,23 @@ ro:
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
-      edit_profile: "Edit profile"
+      edit_profile: "Editează profil"
       first_name: "First name"
       last_name: "Last name"
       update_profile: "Update Profile"
       your_bio: "Your bio"
-      your_birthday: "Your birthday"
+      your_birthday: "Ziua ta de naştere"
       your_gender: "Your gender"
       your_location: "Your location"
-      your_name: "Your name"
-      your_photo: "Your photo"
+      your_name: "Numele tău "
+      your_photo: "Poza ta"
       your_private_profile: "Your private profile"
       your_public_profile: "Your public profile"
       your_tags: "You: in 5 #tags"
       your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
     update: 
       failed: "Failed to update profile"
-      updated: "Profile updated"
+      updated: "Profil updatat"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -454,7 +458,7 @@ ro:
     destroy: 
       error: "Vă rugăm să selectaţi un aspect!"
       ignore: "Ignorează cererea de contact."
-      success: "Sunteţi acum prieteni."
+      success: "Acum sunteţi prieteni."
     helper: 
       new_requests: 
         few: "%{count} new requests!"
@@ -489,8 +493,8 @@ ro:
       connect_to_twitter: "Conectează cu Twitter"
       disconnect: "desconectează"
       edit_services: "Edit services"
-      logged_in_as: "logged in as"
-      really_disconnect: "disconnect %{service}?"
+      logged_in_as: "conectat ca"
+      really_disconnect: "desconectează %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Click pe acest link pentru a accepta invitaţia"
       join_me_on_diaspora: "Join me on DIASPORA*"
@@ -507,7 +511,6 @@ ro:
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Toate contactele"
-      cannot_remove: "Cannot remove person from last aspect."
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -518,7 +521,7 @@ ro:
       invitations_left: "(%{count} rămase)"
       invite_someone: "Invită pe cineva"
       invite_your_friends: "Invită-ţi prietenii"
-      invites: "Invites"
+      invites: "Invitaţii "
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
       new: "New %{type} from %{from}"
@@ -550,7 +553,7 @@ ro:
     create: 
       success: "Successfully mentioned: %{names}"
     destroy: 
-      failure: "Failed to delete post"
+      failure: "Nu sa putut şterge postul"
     helper: 
       no_message_to_display: "Nici un mesaj nou."
     new: 
@@ -582,15 +585,14 @@ ro:
       current_password: "Parola curentă"
       download_photos: "descarcă fotografiile mele"
       download_xml: "descarcă datele mele (xml)"
-      edit_account: "Edit account"
+      edit_account: "Editează cont"
       export_data: "Exportare de date"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
       new_password: "Parolă nouă"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Receive email notificaions?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tau pe Diaspora"
     getting_started: 
@@ -598,25 +600,25 @@ ro:
       connect_services: "Connect your services"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
       edit_profile: "Editează-ţi profilul"
-      finished: "Finished!"
+      finished: "Terminat!"
       save_and_continue: "Salvează si continuă"
       signup_steps: "Complete your sign-up by doing these things:"
       skip: "sări peste tutorial"
       step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+        find_your_friends_on_diaspora: "Ai vrea sa-ţi găseşti prietenii de pe Facebook pe Diaspora?"
+        skip: "Treci peste"
       step_3: 
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
+        finish: "Termină"
+        people_already_on_diaspora: "Persoane deja pe Diaspora"
       welcome: "Bine ai venit pe Diaspora!"
     public: 
       does_not_exist: "Utilizatorul %{username} nu există!"
     update: 
       email_notifications_changed: "Language Change Failed"
       language_changed: "Limba schimbată"
-      language_not_changed: "Language Change Failed"
+      language_not_changed: "Nu sa putut modifica limba"
       password_changed: "S-a modificat parola"
-      password_not_changed: "Password Change Failed"
+      password_not_changed: "Nu sa putut schimba parola"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

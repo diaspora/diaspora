@@ -83,6 +83,7 @@ sv:
     index: 
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       no_contacts: "Inga kontakter"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "skriv ett inlägg >>"
     manage: 
       add_a_new_aspect: "Lägg till en ny aspekt"
@@ -96,9 +97,9 @@ sv:
       error: "Kunde inte flytta kontakt: %{inspect}"
       failure: "fungerade inte %{inspect}"
       success: "Personen flyttades till den nya aspekten"
-    new_aspect: 
-      create: "Skapa"
-      name: "Namn"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Ingen har sagt något än. Bli först!"
     one: "1 aspekt"
@@ -129,6 +130,14 @@ sv:
     other: "%{count} kommentarer"
     zero: "inga kommentarer"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Misslyckades med att skapa kontakt"
     destroy: 
@@ -139,9 +148,11 @@ sv:
     one: "1 kontakt"
     other: "%{count} kontakter"
     share_with_pane: 
-      accepts: "När %{name} accepterar så kommer ni börja se varandras inlägg på Diaspora"
       add_new_aspect: "lägg till på ny aspekt"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Börja dela med %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "inga kontakter"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ sv:
     new_request: "erbjöd sig att dela med dig."
     post: "inlägg."
     private_message: "skickade dig ett meddelande."
-    request_accepted: "accepterade din förfrågan om att dela."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "har också kommenterat %{post_author}'s inlägg:"
@@ -294,23 +305,18 @@ sv:
       mentioned: "nämnde dig i ett inlägg:"
       sign_in: "Logga in för att kunna se det."
       subject: "%{name} har nämnt dig på Diaspora*"
-    new_request: 
-      just_sent_you: "skickade nyss en kontaktförfrågan till dig på Diaspora"
-      sign_in: "Logga in här"
-      subject: "ny kontaktförfrågan från %{from}"
-      try_it_out: "Du borde verkligen överväga att kolla upp detta."
     private_message: 
       message_subject: "Ämne: %{subject}"
       private_message: "har skickat dig ett private meddelande:"
       sign_in: "Logga in för att se det."
       subject: "%{name} har skickat ett privat meddelande till dig på Diaspora*"
-    request_accepted: 
-      accepted: "har accepterat din kontaktförfrågan!"
-      sign_in: "Logga in här"
-      subject: "%{name} har accepterat din kontaktförfrågan på Diaspora"
     single_admin: 
       admin: "Din Diaspora administratör"
       subject: "Ett meddelande gällande ditt Diaspora-konto:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Tack,"
   ok: "OK"
   or: "eller"
@@ -341,12 +347,10 @@ sv:
     profile_sidebar: 
       bio: "bio"
       born: "födelsedag"
-      cannot_remove: "Kan inte ta bort %{name} från den sista sidan. Du måste ta bort personen om du inte längre vill vara ansluten till denne."
       edit_my_profile: "Ändra min profil"
       gender: "kön"
       in_aspects: "i aspekter"
       location: "plats"
-      remove_contact: "ta bort kontakt"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show: 
       add_some: "lägg till några"
@@ -507,7 +511,6 @@ sv:
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alla kontakter"
-      cannot_remove: "Kan inte ta bort personen från fler sidor, ta bort kontakten om du inte längre vill vara ansluten till denne."
     footer: 
       logged_in_as: "inloggad som %{name}"
       your_aspects: "dina aspekter"
@@ -589,8 +592,7 @@ sv:
       new_password: "Nytt lösenord"
       private_message: "...du mottar ett privat meddelande?"
       receive_email_notifications: "Skicka meddelanden via e-post när..."
-      request_acceptence: "...din delningsförfrågan är accepterad?"
-      request_received: "...du mottar en delningsförfrågan?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 

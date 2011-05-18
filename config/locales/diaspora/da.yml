@@ -83,6 +83,7 @@ da:
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post en besked >>"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
@@ -96,9 +97,9 @@ da:
       error: "Kunne ikke flytte kontaktperson: %{inspect}"
       failure: "virkede ikke %{inspect}"
       success: "Person flyttet til nyt aspekt"
-    new_aspect: 
-      create: "Opret"
-      name: "Navn"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
     one: "1 aspekt"
@@ -129,6 +130,14 @@ da:
     other: "%{count} kommentarer"
     zero: "ingen kommentarer"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Kunne ikke oprette kontakt"
     destroy: 
@@ -139,9 +148,11 @@ da:
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
     share_with_pane: 
-      accepts: "Når %{name} acceptere, vil i kunne se hinandens indlæg på Diaspora"
       add_new_aspect: "tilføj til nyt aspekt"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Begynd at dele med %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "Ingen kontaktpersoner"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ da:
     new_request: "tilbød at dele med dig."
     post: "indlæg"
     private_message: "har sendt dig en besked."
-    request_accepted: "accepterede din anmodning."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "har også kommenteret på %{post_author}'s post:"
@@ -294,23 +305,18 @@ da:
       mentioned: "omtalte dig i en post:"
       sign_in: "Log in for at se det."
       subject: "%{name} har omtalt dig på Diaspora*"
-    new_request: 
-      just_sent_you: "har lige sendt dig en kontaktanmodning på Diaspora*"
-      sign_in: "Log ind her"
-      subject: "ny Diaspora* kontaktanmodning fra %{from}"
-      try_it_out: "Du bør virkelig overveje at tjekke den ud."
     private_message: 
       message_subject: "Emne: %{subject}"
       private_message: "har sendt dig en privat besked:"
       sign_in: "Log in for at se."
       subject: "%{name} har sendt dig en privat meddelelse på Diaspora*"
-    request_accepted: 
-      accepted: "har accepteret din kontaktanmodning."
-      sign_in: "Log ind her"
-      subject: "% {name} har accepteret din kontaktanmodning på Diaspora*"
     single_admin: 
       admin: "Din Diaspora administrator"
       subject: "En besked fra din Diaspora administrator:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Tak,"
   ok: "OK"
   or: "eller"
@@ -341,12 +347,10 @@ da:
     profile_sidebar: 
       bio: "bio"
       born: "fødselsdag"
-      cannot_remove: "Kan ikke fjerne %{name} fra sidste aspekt."
       edit_my_profile: "Redigér min profil"
       gender: "køn"
       in_aspects: "i aspekter"
       location: "placering"
-      remove_contact: "fjern kontaktperson"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
       add_some: "tilføj nogle"
@@ -507,7 +511,6 @@ da:
       your_diaspora_username_is: "Dit Diaspora handle er: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle kontaktpersoner"
-      cannot_remove: "Kan ikke fjerne person fra sidste aspekt."
     footer: 
       logged_in_as: "logget ind som %{name}"
       your_aspects: "Dine aspekter"
@@ -589,8 +592,7 @@ da:
       new_password: "Ny adgangskode"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
-      request_acceptence: "...din anmodning om at dele er blevet accepteret?"
-      request_received: "...du har modtaget en nu dele anmodning?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 

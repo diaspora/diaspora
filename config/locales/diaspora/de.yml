@@ -83,6 +83,7 @@ de:
     index: 
       handle_explanation: "Das ist deine Diaspora*-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       no_contacts: "Keine Kontakte"
+      people_sharing_with_you: "Leute die mit dir teilen"
       post_a_message: "schreibe eine Nachricht >>"
     manage: 
       add_a_new_aspect: "Neuen Aspekt hinzufügen"
@@ -96,7 +97,7 @@ de:
       error: "Fehler beim Verschieben des Kontakts: %{inspect}"
       failure: "hat nicht funktioniert: %{inspect}"
       success: "Person in neuen Aspekt verschoben"
-    new_aspect: 
+    new: 
       create: "Erstellen"
       name: "Name"
     no_posts_message: 
@@ -129,6 +130,14 @@ de:
     other: "%{count} Kommentare"
     zero: "%{count} Kommentare"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Zu Aspekt hinzufügen"
+      toggle: 
+        few: "In %{count} Aspekten"
+        many: "In %{count} Aspekten"
+        one: "In einem Aspekt"
+        other: "In %{count} Aspekten"
+        zero: "Zu Aspekt hinzufügen"
     create: 
       failure: "Konnte Kontakt nicht erstellen"
     destroy: 
@@ -139,9 +148,11 @@ de:
     one: "1 Kontakt"
     other: "%{count} Kontakte"
     share_with_pane: 
-      accepts: "Sobald %{name} die Anfrage akzeptiert hat, könnt ihr eure Beiträge auf Diaspora* sehen"
       add_new_aspect: "zu neuem Aspekt hinzufügen"
+      following: "Wenn du  %{name} einem Aspekt hinzufügst, fängst du an ihm zu folgen und Beiträge an ihn zu senden."
       share_with: "Beginne Inhalte mit %{name} zu teilen"
+    sharing: 
+      people_sharing: "Leute die mit dir teilen:"
     zero: "Keine Kontakte"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ de:
     new_request: "hat angeboten mit dir zu teilen."
     post: "Beitrag"
     private_message: "hat dir eine Nachricht gesendet."
-    request_accepted: "hat deine Teilen-Anfrage angenommen."
+    started_sharing: "hat angefangen mit dir zu teilen."
   notifier: 
     also_commented: 
       commented: "hat den Beitrag von %{post_author} ebenfalls kommentiert:"
@@ -294,23 +305,18 @@ de:
       mentioned: "hat dich in einem Beitrag erwähnt:"
       sign_in: "Melde dich an um sie zu sehen."
       subject: "%{name} hat dich auf Diaspora* erwähnt"
-    new_request: 
-      just_sent_you: "hat dir gerade eine Kontakt-Anfrage auf Diaspora* geschickt"
-      sign_in: "Melde dich hier an"
-      subject: "Neue Diaspora* Kontakt-Anfrage von %{from}"
-      try_it_out: "Probier’s aus!"
     private_message: 
       message_subject: "Betreff: %{subject}"
       private_message: "hat dir eine Private Nachricht gesendet."
       sign_in: "Melde dich an um sie Anzuschauen"
       subject: "%{name} hat dir eine Private Nachricht bei Diaspora* gesendet"
-    request_accepted: 
-      accepted: "hat deine Kontakt-Anfrage akzeptiert!"
-      sign_in: "Hier anmelden"
-      subject: "%{name} hat deine Kontakt-Anfrage auf Diaspora* akzeptiert"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
       subject: "Eine Nachricht dein Diaspora*-Konto betreffend:"
+    started_sharing: 
+      sharing: "hat angefangen mit dir zu teilen!"
+      sign_in: "Hier anmelden"
+      subject: "Auf Diaspora* hat %{name} angefangen mit dir zu teilen"
     thanks: "Danke,"
   ok: "OK"
   or: "oder"
@@ -341,12 +347,10 @@ de:
     profile_sidebar: 
       bio: "Beschreibung"
       born: "Geburtstag"
-      cannot_remove: "%{name} kann nicht aus dem letzten Aspekt entfernt werden. (Wenn du nicht länger verbunden sein willst, lösche den Kontakt.)"
       edit_my_profile: "Mein Profil bearbeiten"
       gender: "Geschlecht"
       in_aspects: "in Aspekten"
       location: "Ort"
-      remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show: 
       add_some: "Ein paar hinzufügen"
@@ -507,7 +511,6 @@ de:
       your_diaspora_username_is: "Dein Diaspora* Nutzername ist: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Alle Kontakte"
-      cannot_remove: "Kontakt kann nicht aus dem letzten Aspekt entfernt werden. (Wenn du nicht länger verbunden sein willst, lösche den Kontakt.)"
     footer: 
       logged_in_as: "Angemeldet als %{name}"
       your_aspects: "Deine Aspekte"
@@ -589,8 +592,7 @@ de:
       new_password: "Neues Passwort"
       private_message: "… du eine private Nachricht erhältst?"
       receive_email_notifications: "E-Mail-Benachrichtigungen empfangen, wenn …"
-      request_acceptence: "… deine Teilen-Anfrage akzeptiert wurde?"
-      request_received: "… du eine neue Teilen-Anfrage erhalten hast?"
+      started_sharing: "...jemand anfängt mit dir zu teilen?"
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora* Adresse"
     getting_started: 

@@ -5,15 +5,20 @@
 
 hu: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Biztos vagy benne?"
     infinite_scroll: 
       no_more: "Nincs több bejegyzés."
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
     search_for: "{{name}} keresése."
-    shared: 
-      contact_list: 
-        cannot_remove: "Nem tudod eltávolítani a személyt az utolsó csoportból. (előbb törölnöd kell a kapcsolatot)."
     timeago: 
       day: "egy nappal"
       days: "%d nappal"

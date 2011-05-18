@@ -5,15 +5,20 @@
 
 pl: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Czy @{m,f:jesteś|n:na}{ pew}{m:ien|f:na|n:no}?"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
     search_for: "Szukaj: {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Nie można usunąć osoby z ostatniego aspektu. (Jeśli chcesz się z nią rozłączyć, musisz usunąć kontakt.)"
     timeago: 
       day: "dzień"
       days: "%d dni"

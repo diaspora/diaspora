@@ -83,6 +83,7 @@ is:
     index: 
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       no_contacts: "Engir tengiliðir"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Bæta við nýrri ásýnd"
@@ -96,9 +97,9 @@ is:
       error: "Villa við að breyta tengiliði: %{inspect}"
       failure: "virkaði ekki %{inspect}"
       success: "Fólk flutt í nýja ásýnd"
-    new_aspect: 
-      create: "Búa til"
-      name: "Nafn"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
     one: "1 aspect"
@@ -129,6 +130,14 @@ is:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Ekki tókst að mynda tengsl"
     destroy: 
@@ -139,9 +148,11 @@ is:
     one: "Ein tengsl"
     other: "%{count} tengsl"
     share_with_pane: 
-      accepts: "Þegar %{nafn} hefur samþykkt, munu þið byrja að sjá innlegg hvers annars á Díaspora"
       add_new_aspect: "bæta við í nýja ásýnd"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Byrja að deila með %{nafn}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "Engin tengsl"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ is:
     new_request: "bauð þér samnýtingu."
     post: "setja inn"
     private_message: "sent you a message."
-    request_accepted: "accepted your share request."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "hefur einnig gert athugasemd við færslu notandans %{post_author}:"
@@ -294,23 +305,18 @@ is:
       mentioned: "gat þín í pósti:"
       sign_in: "Skráðu þig inn til að sjá það."
       subject: "% {Nafn} hefur getið þín á Diaspora*"
-    new_request: 
-      just_sent_you: "var að senda þér vinabeiðni á Díaspora*"
-      sign_in: "innskráning hér"
-      subject: "ný Diaspora* vinabeiðni frá %{from}"
-      try_it_out: "Þú ættir virkilega að skoða það."
     private_message: 
       message_subject: "Subject: %{subject}"
       private_message: "has sent you a private message:"
       sign_in: "Sign in to view it."
       subject: "%{name} has sent you a private message yon Diaspora*"
-    request_accepted: 
-      accepted: "hefur samþykkt vinabeiðni þína!"
-      sign_in: "Innskráning hér"
-      subject: "%{name} hefur samþykkt vinabeiðni þína á Díaspora*"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "Skilaboð um notandastillingar þínar í Diaspora:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Takk,"
   ok: "OK"
   or: "eða"
@@ -341,12 +347,10 @@ is:
     profile_sidebar: 
       bio: "bio"
       born: "afmælisdagur"
-      cannot_remove: "Cannot remove %{name} from last aspect. (If you want to disconnect from this person you must remove contact.)"
       edit_my_profile: "Breyta síðunni minni"
       gender: "kyn"
       in_aspects: "í ásýnd"
       location: "location"
-      remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show: 
       add_some: "add some"
@@ -507,7 +511,6 @@ is:
       your_diaspora_username_is: "Þitt Diaspora notandanafn er: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Allir tengiliðir"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
     footer: 
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
@@ -589,8 +592,7 @@ is:
       new_password: "Nýtt lykilorð"
       private_message: "...you receive a private message?"
       receive_email_notifications: "Fá tilkynningar í tölvupósti?"
-      request_acceptence: "...your share request is accepted?"
-      request_received: "...you receive a new share request?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Netfangið þitt"
       your_handle: "Díaspora netfangið þitt."
     getting_started: 

@@ -83,6 +83,7 @@ it:
     index: 
       handle_explanation: "Questo è il tuo contatto Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       no_contacts: "Nessun contatto"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "invia un messaggio >>"
     manage: 
       add_a_new_aspect: "Aggiungi aspetto della vita"
@@ -96,7 +97,7 @@ it:
       error: "Errore nello spostare il contatto: %{inspect}"
       failure: "non ha funzionato %{inspect}"
       success: "Persona spostata nel nuovo aspetto"
-    new_aspect: 
+    new: 
       create: "Crea"
       name: "Nome"
     no_posts_message: 
@@ -129,6 +130,14 @@ it:
     other: "%{count} commenti"
     zero: "nessun commento"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Impossibile creare il contatto"
     destroy: 
@@ -139,9 +148,11 @@ it:
     one: "1 contatto"
     other: "%{count} contatti"
     share_with_pane: 
-      accepts: "Quando %{name} avrà accettato, inizierete a vedere reciprocamente i vostri post su Diaspora"
       add_new_aspect: "aggiungi ad un nuovo aspetto"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Inizia a condividere con %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "nessun contatto"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ it:
     new_request: "vuole condividere con te."
     post: "post."
     private_message: "ti ha inviato un messaggio."
-    request_accepted: "ha accettato la tua richiesta di condivisione."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "ha anche commentato sul post di %{post_author}:"
@@ -294,23 +305,18 @@ it:
       mentioned: "ti ha menzionato in un post:"
       sign_in: "Accedi per vederlo."
       subject: "%{name} ti ha menzionato su Diaspora*"
-    new_request: 
-      just_sent_you: "ti ha appena inviato una richiesta di contatto su Diaspora*"
-      sign_in: "Accedi qui"
-      subject: "nuova richiesta di contatto su Diaspora* da %{from}"
-      try_it_out: "Dovresti veramente provarlo."
     private_message: 
       message_subject: "Oggetto: %{subject}"
       private_message: "ti ha inviato un messaggio privato:"
       sign_in: "Accedi per vederlo."
       subject: "%{name} ti ha inviato un messaggio privato su Diaspora*"
-    request_accepted: 
-      accepted: "ha accettato la tua richiesta di contatto!"
-      sign_in: "Registrati qui"
-      subject: "%{name} ha accettato la tua richiesta di contatto su Diaspora*"
     single_admin: 
       admin: "Il tuo amministratore Diaspora"
       subject: "Un messaggio sul tuo account Diaspora:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Grazie,"
   ok: "OK"
   or: "o"
@@ -341,12 +347,10 @@ it:
     profile_sidebar: 
       bio: "bio"
       born: "data di nascita"
-      cannot_remove: "Impossibile rimuovere %{name} dall'ultimo aspetto."
       edit_my_profile: "Modifica il mio profilo"
       gender: "sesso"
       in_aspects: "negli aspetti"
       location: "dove ti trovi"
-      remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show: 
       add_some: "aggiungine alcune"
@@ -507,7 +511,6 @@ it:
       your_diaspora_username_is: "Il tuo nome utente Diaspora è: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Tutti i contatti"
-      cannot_remove: "Impossibile rimuovere la persona dall'ultimo aspetto."
     footer: 
       logged_in_as: "accesso effettuato come %{name}"
       your_aspects: "i tuoi aspetti"
@@ -545,7 +548,7 @@ it:
     stream_element: 
       dislike: "Non mi piace"
       like: "Mi piace"
-      unlike: "Non come"
+      unlike: "Annulla"
   status_messages: 
     create: 
       success: "Menzionati con successo: %{names}"
@@ -589,8 +592,7 @@ it:
       new_password: "Nuova Password"
       private_message: "...hai ricevuto un messaggio privato?"
       receive_email_notifications: "Vuoi ricevere notifiche via email?"
-      request_acceptence: "...la tua richiesta di condivisione è stata accettata?"
-      request_received: "...la tua richiesta di condivisione è stata accettata?"
+      started_sharing: "...qualcuno vuole condividere con te?"
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 

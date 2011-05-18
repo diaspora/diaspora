@@ -83,6 +83,7 @@ en_shaw:
     index: 
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
     manage: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -96,9 +97,9 @@ en_shaw:
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
       failure: "𐑛𐑦𐑛𐑯𐑑 𐑢𐑻𐑒 %{inspect}"
       success: "𐑐𐑻𐑕𐑩𐑯 𐑥𐑵𐑝𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
-    new_aspect: 
-      create: "𐑒𐑮𐑦𐑱𐑑"
-      name: "𐑯𐑱𐑥"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -129,6 +130,14 @@ en_shaw:
     other: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     zero: "𐑯𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     destroy: 
@@ -139,9 +148,11 @@ en_shaw:
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     share_with_pane: 
-      accepts: "𐑢𐑳𐑯𐑕 %{name} 𐑩𐑒𐑕𐑧𐑐𐑑𐑕, 𐑿'𐑤 𐑕𐑑𐑸𐑑 𐑕𐑰𐑦𐑙 𐑰𐑗 𐑳𐑞𐑼𐑟 𐑐𐑴𐑕𐑑𐑕 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
       add_new_aspect: "𐑨𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ en_shaw:
     new_request: "𐑪𐑓𐑼𐑛 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿."
     post: "𐑐𐑴𐑕𐑑"
     private_message: "𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑥𐑧𐑕𐑩𐑡."
-    request_accepted: "𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "𐑣𐑨𐑟 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑩𐑛 𐑪𐑯 %{post_author}𐑟 𐑐𐑴𐑕𐑑:"
@@ -294,23 +305,18 @@ en_shaw:
       mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
       subject: "%{name} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-    new_request: 
-      just_sent_you: "𐑡𐑳𐑕𐑑 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
-      subject: "𐑯𐑿 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩* 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑓𐑮𐑪𐑥 %{from}"
-      try_it_out: "𐑿 𐑖𐑫𐑛 𐑮𐑦𐑤𐑦 𐑔𐑦𐑙𐑒 𐑩𐑚𐑬𐑑 𐑗𐑧𐑒𐑦𐑙 𐑦𐑑 𐑬𐑑."
     private_message: 
       message_subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑: %{subject}"
       private_message: "𐑣𐑨𐑟 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡:"
       sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑."
       subject: "%{name} 𐑣𐑨𐑟 𐑕𐑧𐑯𐑑 𐑿 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡 𐑪𐑯 *𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
-    request_accepted: 
-      accepted: "𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑!"
-      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑣𐑽"
-      subject: "%{name} 𐑣𐑨𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     single_admin: 
       admin: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑛𐑥𐑦𐑯𐑦𐑕𐑑𐑮𐑱𐑑𐑼"
       subject: "𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "𐑔𐑱𐑙𐑒𐑕,"
   ok: "𐑴𐑒𐑱"
   or: "𐑹"
@@ -341,12 +347,10 @@ en_shaw:
     profile_sidebar: 
       bio: "𐑚𐑲𐑴"
       born: "𐑚𐑻𐑔𐑛𐑱"
-      cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 𐑤𐑨𐑕𐑑 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑥𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
       edit_my_profile: "𐑧𐑛𐑦𐑑 𐑥𐑲 𐑐𐑮𐑴𐑓𐑲𐑤"
       gender: "𐑡𐑧𐑯𐑛𐑼"
       in_aspects: "𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
       location: "𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
-      remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
       add_some: "𐑨𐑛 𐑕𐑳𐑥"
@@ -507,7 +511,6 @@ en_shaw:
       your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
     contact_list: 
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      cannot_remove: "𐑒𐑨𐑯𐑪𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑. (𐑦𐑓 𐑿 𐑢𐑳𐑯𐑑 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 𐑿 𐑥𐑳𐑕𐑑 𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑.)"
     footer: 
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟 %{name}"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
@@ -589,8 +592,7 @@ en_shaw:
       new_password: "𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛"
       private_message: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑐𐑮𐑲𐑝𐑩𐑑 𐑥𐑧𐑕𐑩𐑡?"
       receive_email_notifications: "𐑮𐑦𐑕𐑰𐑝 𐑦-𐑥𐑱𐑤 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟 𐑢𐑧𐑯..."
-      request_acceptence: "...𐑿𐑼 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑 𐑦𐑟 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛?"
-      request_received: "...𐑿 𐑮𐑦𐑕𐑰𐑝 𐑩 𐑯𐑿 𐑖𐑺 𐑮𐑦𐑒𐑢𐑧𐑕𐑑?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
     getting_started: 

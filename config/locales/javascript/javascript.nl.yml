@@ -5,15 +5,20 @@
 
 nl: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Weet je het zeker?"
     infinite_scroll: 
       no_more: "Geen posts meer."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     search_for: "Zoek naar {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Kan persoon niet uit laatste aspect verwijderen. (Als je de verbinding met deze persoon wilt verbreken moet je het contact verwijderen.)"
     timeago: 
       day: "een dag"
       days: "%d dagen"

@@ -5,15 +5,20 @@
 
 sv: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Är du säker?"
     infinite_scroll: 
       no_more: "Inga fler inlägg."
     publisher: 
       at_least_one_aspect: "Du måste publicera till minst en aspekt."
     search_for: "Sök efter {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Kan inte ta bort person från tidigare aspekt. (Om du vill koppla bort från denhär personen måste du ta bort kontakten.)"
     timeago: 
       day: "en dag"
       days: "%d dagar"

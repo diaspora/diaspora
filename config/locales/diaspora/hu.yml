@@ -83,6 +83,7 @@ hu:
     index: 
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
       no_contacts: "Nincs ismerős"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "üzenet küldése >>"
     manage: 
       add_a_new_aspect: "Új csoport hozzáadása"
@@ -96,9 +97,9 @@ hu:
       error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
       failure: "nem működött: %{inspect}"
       success: "Más csoportba tett téged."
-    new_aspect: 
-      create: "Létrehoz"
-      name: "Név"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
     one: "1 csoport"
@@ -129,6 +130,14 @@ hu:
     other: "%{count} hozzászólás"
     zero: "nincs hozzászólás"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
     destroy: 
@@ -139,9 +148,11 @@ hu:
     one: "1 ismerős"
     other: "%{count} ismerős"
     share_with_pane: 
-      accepts: "Ha %{name} elfogadja a felkérésed, akkor látjátok majd egymás bejegyzéseit."
       add_new_aspect: "hozzáadás új csoporthoz"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Megosztás indítása vele: %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "nincs ismerős"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ hu:
     new_request: "megosztást ajánlott neked."
     post: "bejegyzésben."
     private_message: "üzenetet küldött neked."
-    request_accepted: "elfogadta a megosztási kérésed."
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "hozzászólt még %{post_author} bejegyzéséhez is:"
@@ -294,23 +305,18 @@ hu:
       mentioned: "megemlített téged egy bejegyzésében:"
       sign_in: "Jelentkezz be, hogy megnézhesd."
       subject: "%{name} megemlített téged a Diaspora* közösségi oldalon."
-    new_request: 
-      just_sent_you: "ismerősnek jelölt a Diaspora* közösségi oldalon."
-      sign_in: "Jelentkezz be"
-      subject: "új Diaspora* ismerősnek jelölt: %{from}"
-      try_it_out: "Tényleg ki kellene próbálnod."
     private_message: 
       message_subject: "Tárgy: %{subject}"
       private_message: "egy személyes üzenetet küldött neked:"
       sign_in: "Jelentkezz be, hogy megnézd."
       subject: "%{name} egy személyes üzenetet küldött neked a Diaspora-n"
-    request_accepted: 
-      accepted: "elfogadta a jelölésed."
-      sign_in: "Jelentkezz be"
-      subject: "%{name} elfogadta a felkérésed."
     single_admin: 
       admin: "A Te Diaspora* rendszergazdád"
       subject: "Üzenet a Diaspora* rendszergazdától:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Köszi,"
   ok: "Rendben"
   or: "vagy"
@@ -341,12 +347,10 @@ hu:
     profile_sidebar: 
       bio: "személyes"
       born: "születésnap"
-      cannot_remove: "Nem tudod törölni %{name}-t az utolsó csoportodból. (Ha nem kívánsz az ismerőse lenni, törölnöd kell a kapcsolatot.)"
       edit_my_profile: "Profilom szerkesztése"
       gender: "nem"
       in_aspects: "csoportokban"
       location: "hely"
-      remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show: 
       add_some: "hozzáad"
@@ -507,7 +511,6 @@ hu:
       your_diaspora_username_is: "Diaspora felhasználóneved: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Összes kapcsolat"
-      cannot_remove: "Nem törölheted az utolsó csoportot. (Ha nem akarsz a személy ismerőse lenni, töröld a kapcsolatot.)"
     footer: 
       logged_in_as: "bejelentkezve, mint %{name}"
       your_aspects: "csoportjaid"
@@ -589,8 +592,7 @@ hu:
       new_password: "Új jelszó"
       private_message: "...privát üzenetet kaptál?"
       receive_email_notifications: "Email értesítést kérek amikor..."
-      request_acceptence: "...elfogadta a kérelmed?"
-      request_received: "...valaki meg szeretne osztani veled?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "E-mail címed"
       your_handle: "Diaspora felhasználóneved"
     getting_started: 

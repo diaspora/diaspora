@@ -83,6 +83,7 @@ el:
     index: 
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
+      people_sharing_with_you: "People sharing with you"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
     manage: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
@@ -96,9 +97,9 @@ el:
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
       failure: "δεν λειτούργησε %{inspect}"
       success: "Το άτομο μετακινήθηκε σε νέα πτυχή"
-    new_aspect: 
-      create: "Δημιουργία"
-      name: "Όνομα"
+    new: 
+      create: "Create"
+      name: "Name"
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
     one: "1 πτυχή"
@@ -129,6 +130,14 @@ el:
     other: "%{count} σχόλια"
     zero: "κανένα σχόλιο"
   contacts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
     destroy: 
@@ -139,9 +148,11 @@ el:
     one: "1 επαφή"
     other: "%{count} επαφές"
     share_with_pane: 
-      accepts: "Όταν ο/η %{name} σας αποδεχτεί, θα ξεκινήσετε να βλέπετε μεταξύ σας τις δημοσιεύεσεις σας στο Diaspora"
       add_new_aspect: "προσθήκη σε νεα πτυχή"
+      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
       share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
+    sharing: 
+      people_sharing: "People sharing with you:"
     zero: "καμία επαφή"
   conversations: 
     create: 
@@ -272,7 +283,7 @@ el:
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση."
     private_message: "σας έστειλε ένα μήνυμα"
-    request_accepted: "δέχτηκε το αίτημα σας για διαμοιρασμό. "
+    started_sharing: "started sharing with you."
   notifier: 
     also_commented: 
       commented: "σχολίασε επίσης τη %{post_author} :"
@@ -294,23 +305,18 @@ el:
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο/Η %{name} σας αναφέρει στο Diaspora*"
-    new_request: 
-      just_sent_you: "έχετε ένα νέο αίτημα φίλου στο Diaspora*"
-      sign_in: "Είσοδος εδώ"
-      subject: "έχετε νέο αίτημα επαφής Diaspora από τον χρήστη %{from}"
-      try_it_out: "Θα πρέπει πραγματικά να σκεφτείτε να το ελέγξετε."
     private_message: 
       message_subject: "Θέμα: %{subject}"
       private_message: "σας έστειλε ένα ιδιωτικό μήνυμα:"
       sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο χρήστης %{name} σας έστειλε ένα ιδιωτικό μήνυμα στο Diaspora*"
-    request_accepted: 
-      accepted: "έχει αποδεχθεί το αίτημα φιλίας σας!"
-      sign_in: "Συνδεθείτε εδώ"
-      subject: "%{name} έχει αποδεχθεί το αίτημα φιλίας σας στο Diaspora*"
     single_admin: 
       admin: "Ο διαχειριστής Diaspora σας"
       subject: "Μήνυμα για τον Diaspora λογαριασμό σας:"
+    started_sharing: 
+      sharing: "has started sharing with you!"
+      sign_in: "Sign in here"
+      subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Ευχαριστώ,"
   ok: "OK"
   or: "ή"
@@ -341,12 +347,10 @@ el:
     profile_sidebar: 
       bio: "βιογραφικό"
       born: "γεννήθηκε"
-      cannot_remove: "Δεν μπορεί να αφαιρεθεί ο/η %{name} από την τελευταία πτυχή. (Εάν θέλετε να αποσυνδεθείτε από αυτό το άτομο θα πρέπει να αφαιρέσετε πρώτα την επαφή.)"
       edit_my_profile: "Επεξεργασία του προφίλ μου"
       gender: "φύλο"
       in_aspects: "στις πτυχές"
       location: "τοποθεσία"
-      remove_contact: "αφαίρεση επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
       add_some: "προσθέστε κάποιες"
@@ -507,7 +511,6 @@ el:
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Όλες οι επαφές"
-      cannot_remove: "Δεν είναι δυνατή η αφαίρεση του ατόμου από την τελευταία πτυχή. (Αν θέλετε να αποσυνδεθείτε από το πρόσωπο αυτό πρέπει να καταργήσετε την αντίστοιχη επαφή.)"
     footer: 
       logged_in_as: "συνδεδεμένος/η ως %{name}"
       your_aspects: "οι πτυχές σας"
@@ -589,8 +592,7 @@ el:
       new_password: "Νέος κωδικός πρόσβασης"
       private_message: "...μόλις λάβατε μία προσωπική ειδοποίηση?"
       receive_email_notifications: "Να λαμβάνετε ειδοποιήσεις στο ηλεκτρονικό σας ταχυδρομείο όταν..."
-      request_acceptence: "...το αίτημα σας για διαμοιρασμό έγινε αποδεκτό?"
-      request_received: "...μόλις λάβατε ένα καινούριο αίτημα για διαμοιρασμό?"
+      started_sharing: "...someone starts sharing with you?"
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 

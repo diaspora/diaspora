@@ -5,15 +5,20 @@
 
 br: 
   javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
     confirm_dialog: "Emaoc'h sur?"
     infinite_scroll: 
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Dav eo deoc'h embann un arvez da'n nebeutañ"
     search_for: "Klask war-lerc'h {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Ne c'hell ket skarzhañ an den diwar an arvez diwezhañ. (Ma faot deoc'h digevreañ gant an den-se eo dav deoc'h skarzhañ an darempred.)"
     timeago: 
       day: "un devezh"
       days: "%d a zevezhioù"
