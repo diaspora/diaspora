@@ -12,7 +12,6 @@ describe Notifier do
   before do
     Notifier.deliveries = []
   end
-
   describe '.administrative' do
     it 'mails a user' do
       mails = Notifier.admin("Welcome to bureaucracy!", [user])
@@ -22,7 +21,6 @@ describe Notifier do
       mail.body.encoded.should match /Welcome to bureaucracy!/
       mail.body.encoded.should match /#{user.username}/
     end
-
     it 'mails a bunch of users' do
       users = []
       5.times do
@@ -35,18 +33,6 @@ describe Notifier do
         mail.body.encoded.should match /Welcome to bureaucracy!/
         mail.body.encoded.should match /#{this_user.username}/
       }
-    end
-
-    it 'does not email the users who opted out of podwide emails' do
-      users = []
-      5.times do
-        users << Factory.create(:user)
-      end
-      2.times do |n|
-        users[n].user_preferences.create(:email_type => 'podwide')
-      end
-      mails = Notifier.admin("Welcome to bureaucracy!", users)
-      mails.length.should == 3
     end
   end
 

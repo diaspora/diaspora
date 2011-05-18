@@ -7,10 +7,8 @@ class Notifier < ActionMailer::Base
   def self.admin(string, recipients, opts = {})
     mails = []
     recipients.each do |rec|
-      if !rec.user_preferences.exists?(:email_type => "podwide")
-        mail = single_admin(string, rec)
-        mails << mail
-      end
+      mail = single_admin(string, rec)
+      mails << mail
     end
     mails
   end
