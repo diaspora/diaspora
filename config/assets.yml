@@ -15,6 +15,7 @@ javascripts:
     - public/javascripts/vendor/jquery.hotkeys.js
     - public/javascripts/vendor/jquery.autoresize.min.js
     - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+    - public/javascripts/vendor/jquery.expander.js
     - public/javascripts/vendor/facebox.js
     - public/javascripts/vendor/timeago.js
     - public/javascripts/vendor/Mustache.js
