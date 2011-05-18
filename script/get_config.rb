@@ -35,8 +35,8 @@ if ARGV.length >= 1
     exit 2
   end
 else
-  puts "Usage: ./script/get_config.rb option [environment]"
+  puts "Usage: ./script/get_config.rb option [section]"
   puts ""
-  puts "envrionment defaults to development"
+  puts "section defaults to development"
   exit 1
 end

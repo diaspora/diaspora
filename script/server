@@ -8,9 +8,13 @@ cd $( dirname $realpath)/..
 OS=`uname -s`
 
 
-[ -e config/server.sh ] && source config/server.sh
+export RAILS_ENV=$(./script/get_config.rb rails_env script_server)
+THIN_PORT=$(./script/get_config.rb thin_port script_server)
+eval "DEFAULT_THIN_ARGS=\"$(./script/get_config.rb default_thin_args script_server)\""
+SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
 
-export SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
+# Backward compatibillity, overide default settings
+[ -e config/server.sh ] && source config/server.sh
 
 function init_public
 # Create all dynamically generated files in public/ folder

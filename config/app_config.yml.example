@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -99,13 +99,28 @@ default:
   # Process jobs in process?
   single_process_mode: true
 
+# Use this sections to overide settings from default in the specific environments
 development:
   enable_splunk_logging: false
 
+production:
+  single_process_mode: false
+
+# Do not touch unless you know what you're doing
 test:
   pod_url: "http://example.org/"
   socket_port: 8081
   enable_splunk_logging: false
 
-production:
-  single_process_mode: false
+
+# This section is special, you cannot overide settings from here in the above sections
+script_server:
+  # Port on which thin should listen
+  thin_port: 3000
+
+  # customize thins startup
+  default_thin_args: "-p $THIN_PORT -e $RAILS_ENV"
+
+  # Possibilties are development, production
+  rails_env: "development"
+

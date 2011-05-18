@@ -27,14 +27,19 @@ class AppConfig
   end
 
   def self.load_config_for_environment(env)
+    if File.exist? "#{Rails.root}/config/app_config.yml.example"
+      all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
+    else
+      $stderr.puts "ERROR: Why have you deleted config/app_config.yml.example?"
+      all_envs = {}
+    end
     if File.exist? "#{Rails.root}/config/app_config.yml"
-      all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml"
-      all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example" unless all_envs
+      all_envs_custom = load_config_yaml "#{Rails.root}/config/app_config.yml"
+      all_envs.merge!(all_envs_custom)
     else
       unless Rails.env == "development" || Rails.env == "test"
         $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
       end
-      all_envs = load_config_yaml "#{Rails.root}/config/app_config.yml.example"
     end
 
     env = env.to_s
