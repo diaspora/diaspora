@@ -8,6 +8,7 @@ require 'yaml'
 
 require 'active_support/core_ext/class/attribute_accessors'
 require 'active_support/core_ext/hash/keys'
+require 'active_support/core_ext/hash/deep_merge'
 
 class Rails
   def self.root

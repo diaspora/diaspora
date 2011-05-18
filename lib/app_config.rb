@@ -35,7 +35,7 @@ class AppConfig
     end
     if File.exist? "#{Rails.root}/config/app_config.yml"
       all_envs_custom = load_config_yaml "#{Rails.root}/config/app_config.yml"
-      all_envs.merge!(all_envs_custom)
+      all_envs.deep_merge!(all_envs_custom)
     else
       unless Rails.env == "development" || Rails.env == "test"
         $stderr.puts "WARNING: No config/app_config.yml found! Look at config/app_config.yml.example for help."
