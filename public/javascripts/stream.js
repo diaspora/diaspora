@@ -84,6 +84,14 @@ var Stream = {
       });
 
     });
+
+    // collapse long comments
+    $(".content").find("p").expander({
+      slicePoint: 400,
+      widow: 12,
+      expandText: "show more",
+      userCollapseText: "show less"
+    });
   },
   setUpLikes: function(){
     var likes = $("#main_stream .like_it, #main_stream .dislike_it");
