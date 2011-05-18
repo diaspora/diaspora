@@ -91,6 +91,7 @@ default:
   #s3_key: 'key'
   #s3_secret: 'secret'
   #s3_bucket: 'my_photos'
+  #s3_region: 'us-east-1'
 
   # If you want normal Rails logs, set this to false in the appropriate environment.
   # It is false by default in development and test.
