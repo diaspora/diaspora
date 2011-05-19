@@ -59,6 +59,16 @@ Diaspora::Application.routes.draw do
                                       :invitations   => "invitations"} do
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
   end
+
+  # generating a new user token (for devise)
+  match 'users/generate_new_token' => 'users#generate_new_token'
+
+  # ActivityStreams routes
+  scope "/activity_streams", :module => "activity_streams" do
+    resources :photos, :controller => "photos", :only => :create, :as => "as_photos"
+  end
+
+
   get 'login' => redirect('/users/sign_in')
 
   scope 'admins', :controller => :admins do

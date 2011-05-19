@@ -31,7 +31,7 @@ class AspectsController < ApplicationController
 
     @aspect_ids = @aspects.map { |a| a.id }
     posts = current_user.visible_posts(:by_members_of => @aspect_ids,
-                                           :type => 'StatusMessage',
+                                           :type => ['StatusMessage','ActivityStreams::Photo'],
                                            :order => session[:sort_order] + ' DESC',
                                            :max_time => params[:max_time].to_i
                           ).includes(:comments, :mentions, :likes, :dislikes)

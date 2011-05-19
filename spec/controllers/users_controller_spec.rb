@@ -138,4 +138,22 @@ describe UsersController do
       assigns[:email_prefs]['mentioned'].should be_false
     end
   end
+
+  describe '#generate_new_token' do
+    before do
+      AppConfig[:admins] = [@user.username]
+    end
+
+    it 'generates a new token for the current user' do
+      lambda { 
+        get 'generate_new_token' 
+      }.should change{ @user.reload.authentication_token }
+    end
+
+    it 'displays a token' do
+      get 'generate_new_token' 
+      response.body.should include(@user.reload.authentication_token)
+    end
+  end
+
 end

@@ -141,4 +141,14 @@ class UsersController < ApplicationController
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
   end
+
+  before_filter :redirect_unless_admin, :only => :generate_new_token
+  def generate_new_token
+    if current_user.reset_authentication_token!
+      @token = current_user.authentication_token
+    else
+      @token = "No token created"
+    end
+    render :text => @token
+  end
 end
