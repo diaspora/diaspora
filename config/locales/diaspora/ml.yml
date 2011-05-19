@@ -483,7 +483,7 @@ ml:
       connect_to_twitter: "ട്വിറ്ററുമായി ബന്ധിപ്പിക്കു"
       disconnect: "വിച്ഛേദിക്കു"
       edit_services: "സേവനങ്ങളില്‍ മാറ്റം വരുത്തുക"
-      logged_in_as: "logged in as"
+      logged_in_as: "ആയി പ്രവേശിച്ചിരിക്കുന്നു"
       really_disconnect: "%{service} വിച്ഛേദിക്കണോ?"
     inviter: 
       click_link_to_accept_invitation: "ക്ഷണം സ്വീകരിക്കുന്നതിനായി കണ്ണിയില്‍ അമര്‍ത്തുക"
