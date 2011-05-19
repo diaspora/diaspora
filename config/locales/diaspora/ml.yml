@@ -184,15 +184,15 @@ ml:
   home: 
     show: 
       already_account: "നിലവില്‍ ഒരു അക്കൌണ്ടുണ്ടോ?"
-      choice: "Choice"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
+      choice: "തിരഞ്ഞെടുക്കുക"
+      choice_explanation: "ഡയസ്പോറയില്‍ താങ്കള്‍ക്ക് സമ്പര്‍ക്കങ്ങളെ പരിചയങ്ങള്‍ എന്ന കൂട്ടങ്ങളായി തിരിക്കാന്‍ അനുവദിക്കുന്നു. ഫോട്ടോകള്‍, കഥകള്‍, തമാശകള്‍ തുടങ്ങിയവ ഉദ്ദേശിക്കുന്ന ആളുകള്‍ക്കു മാത്രം കിട്ടാന്‍ പരിചയങ്ങള്‍ സഹായിക്കുന്നു. ഇത് ഡയസ്പോറയില്‍ മാത്രമുള്ളതാണ്."
       learn_about_host: "താങ്കളുടെ ഡയസ്പോറ സെര്‍വര്‍ എങ്ങിനെ സജ്ജീകരിക്കാമെന്നു നോക്കാം."
       login_here: "ഇവിടെ ലോഗിന്‍ ചെയ്യുന്നുണ്ടോ?"
       ownership: "ഉടമസ്ഥത"
       ownership_explanation: "നിങ്ങള്‍ തന്നെയാണു് നിങ്ങളുടെ ചിത്രങ്ങളുടെ ഉടമസ്ഥര്‍, പങ്കിടാനാഗ്രഹിയ്ക്കുന്നതു് കൊണ്ടു് മാത്രം മറ്റൊരാളെ ഉടമയാക്കണമെന്നില്ല. നിങ്ങള്‍ ഡയാസ്പുറയില്‍ പങ്കിടുന്നതെല്ലാം നിങ്ങളുടെ ഉടമസ്ഥതയിലായതിനാല്‍ അതെങ്ങനെയാണു് വിതരണം ചെയ്യേണ്ടതെന്നു് പൂര്‍ണ്ണമായും നിങ്ങള്‍ക്കു് തന്നെ നിയന്ത്രിയ്ക്കാം."
       share_what_you_want: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി, നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു."
       simplicity: "ലളിതം"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      simplicity_explanation: "ഡയസ്പോറ പങ്കിടല്‍ എളുപ്പമാക്കുന്നു - സ്വകാര്യതയിലും. ഡയസ്പോറ പ്രൊഫൈല്‍ സുരക്ഷിതമാക്കാന്‍ പേജുകള്‍ ക​ണക്കിന് ക്രമികരണങ്ങള്‍ മാറ്റേണ്ട."
       tagline_first_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു,"
       tagline_second_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി."
   invitations: 
@@ -221,7 +221,7 @@ ml:
     application: 
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "%{name} -ന്റെ പൊതു ഡയസ്പോറ ഫീഡ്"
       toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
@@ -250,9 +250,9 @@ ml:
   next: "അടുത്തത്"
   no_results: "ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല."
   notifications: 
-    also_commented: "also commented on your contact's"
+    also_commented: "സമ്പര്‍ക്കത്തിന്റെ അഭിപ്രായം രേഖപെടുത്തി"
     also_commented_deleted: "നീക്കം ചെയ്ത കുറിപ്പില്‍ അഭിപ്രായം രേഖപ്പെടുത്തി"
-    comment_on_post: "commented on your"
+    comment_on_post: "അഭിപ്രായം രേഖപെടുത്തി"
     deleted: "നീക്കം ചെയ്തു"
     helper: 
       new_notifications: 
@@ -312,12 +312,12 @@ ml:
   password_confirmation: "അടയാളവാക്ക് തിര്‍ച്ചപ്പെടുത്തുക"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "ടാഗില്‍ നിന്ന് സമ്പര്‍ക്കം ചേര്‍ക്കുക"
     aspect_list: 
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
     few: "%{count} ആളുകള്‍"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
+      people_on_pod_are_aware_of: " ഈ പോഡിലെ ആളുകള്‍ക്ക് ഇതിനെകുറിച്ച് അറിവുണ്ട്"
       results_for: " %{params} ന്റെ ഫലങ്ങള്‍"
     index: 
       couldnt_find_them_send_invite: "കണ്ടുപിടിയ്ക്കാനാകുന്നില്ലേ? ഒരു ക്ഷണം അയക്കു!"
@@ -343,7 +343,7 @@ ml:
       remove_contact: "സമ്പര്‍ക്കം മാറ്റുക"
       remove_from: "%{name} നെ %{aspect} നിന്ന് മാറ്റട്ടേ?"
     show: 
-      add_some: "add some"
+      add_some: "കുറച്ച് ചേര്‍ക്കുക"
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       edit: "തിരുത്തു"
       incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
@@ -501,7 +501,7 @@ ml:
       your_diaspora_username_is: "താങ്കളുടെ ഡയസ്പോറ ഉപയോക്തൃ നാമം: %{diaspora_handle}"
     contact_list: 
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      cannot_remove: "അവസാനത്തെ പരിചയത്തില്‍ നിന്ന് വ്യക്തിയെ മാറ്റാന്‍ പറ്റുന്നില്ല. (താങ്കള്‍ക്ക് ഈ വ്യക്തിയില്‍ നിന്നും ഒഴിവാകണമെങ്കില്‍ സമ്പര്‍ക്കത്തില്‍ നിന്നും നീക്കം ചെയ്യണം.)"
     footer: 
       logged_in_as: "%{name} ആയി പ്രവേശിച്ചിരിക്കുന്നു."
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
@@ -530,7 +530,7 @@ ml:
       post_a_message_to: "%{aspect}ല്‍ ഒരു സന്ദേശം പ്രസിദ്ധീകരിക്കുക"
       posting: "കുറിക്കുന്നു..."
       public: "പൊതുവായ"
-      publishing_to: "publishing to: "
+      publishing_to: "പ്രസിദ്ധീകരിക്കുന്നു: "
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"
       whats_on_your_mind: "എന്താണ് നിങ്ങളുടെ മനസ്സില്‍?"
@@ -610,8 +610,8 @@ ml:
       password_changed: "അടയാളവാക്ക് മാറ്റി"
       password_not_changed: "അടയാളവാക്ക് മാറ്റാനാകുന്നില്ല"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    fetch_failed: "%{profile_url} -ന്റെ വെബ്ഫിംഗര്‍ പ്രൊഫൈല്‍ എടുക്കുന്നതില്‍ പരാജയം"
+    hcard_fetch_failed: "%{account} -ന്റെ hcard എടുക്കുന്നതിന് പ്രശ്നം ഉണ്ട്"
     no_person_constructed: "ഒരു വ്യക്തിയ്ക്കും ഈ hcard ല്‍ നിന്ന്  നിര്‍മ്മിക്കാന്‍ കഴിയില്ല."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    not_enabled: "%{account}-ന്റെ ഹോസ്റ്റില്‍ വെബ്ഫിംഗര്‍ സജ്ജമാക്കിയിട്ടില്ലെന്ന് തോന്നുന്നു."
     xrd_fetch_failed: "അവിടെ %{account} അക്കൌണ്ടില്‍ നിന്നും  xrd കിട്ടുന്നതിന്  ഒരു തെറ്റുണ്ട്."
