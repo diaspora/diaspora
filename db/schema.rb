@@ -225,12 +225,12 @@ ActiveRecord::Schema.define(:version => 20110518222303) do
   add_index "post_visibilities", ["post_id"], :name => "index_post_visibilities_on_post_id"
 
   create_table "posts", :force => true do |t|
-    t.integer  "author_id",                                          :null => false
-    t.boolean  "public",                          :default => false, :null => false
+    t.integer  "author_id",                                              :null => false
+    t.boolean  "public",                              :default => false, :null => false
     t.string   "diaspora_handle"
-    t.string   "guid",                                               :null => false
-    t.boolean  "pending",                         :default => false, :null => false
-    t.string   "type",              :limit => 40,                    :null => false
+    t.string   "guid",                                                   :null => false
+    t.boolean  "pending",                             :default => false, :null => false
+    t.string   "type",                  :limit => 40,                    :null => false
     t.text     "text"
     t.integer  "status_message_id"
     t.text     "remote_photo_path"
@@ -242,10 +242,12 @@ ActiveRecord::Schema.define(:version => 20110518222303) do
     t.datetime "updated_at"
     t.string   "mongo_id"
     t.string   "unprocessed_image"
-    t.string   "target_url"
+    t.string   "object_url"
     t.string   "image_url"
     t.integer  "image_height"
     t.integer  "image_width"
+    t.string   "provider_display_name"
+    t.string   "actor_url"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"

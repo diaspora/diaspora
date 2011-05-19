@@ -2,11 +2,13 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class Bookmark < Post
+class ActivityStreams::Photo < Post
   include Diaspora::Socketable
 
-  validates_presence_of :target_url
-
+  validates_presence_of :image_url,
+                        :object_url,
+                        :provider_display_name,
+                        :actor_url
 
   def socket_to_user(user_or_id, opts={}) #adds aspect_ids to opts if they are not there
     unless opts[:aspect_ids]
@@ -21,10 +23,13 @@ class Bookmark < Post
 
   def self.from_activity(json)
     self.new(
-      :image_url => json["target"]["image"]["url"],
-      :image_height => json["target"]["image"]["height"],
-      :image_width => json["target"]["image"]["width"],
-      :target_url => json["target"]["url"]
+      :image_url => json["object"]["image"]["url"],
+      :image_height => json["object"]["image"]["height"],
+      :image_width => json["object"]["image"]["width"],
+      :object_url => json["object"]["url"],
+
+      :provider_display_name => json["provider"]["displayName"],
+      :actor_url => json["actor"]["url"]
     )
   end
 end

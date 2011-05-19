@@ -9,7 +9,10 @@
     .from
       = person_link(post.author)
 
-    = render 'status_messages/status_message', :post => post, :photos => post.photos
+    - if post.model.instance_of?(ActivityStreams::Photo)
+      = image_tag post.image_url
+    - else
+      = render 'status_messages/status_message', :post => post, :photos => post.photos
 
     .info
       %span.time{:integer => post.created_at.to_i}
