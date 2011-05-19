@@ -15,18 +15,28 @@ module AspectGlobalHelper
     end
   end
 
+ #aspect_badges takes an array of aspects, and a hash containing  a key called :link which hashes to either true or false, depending on whether the resulting badge should serve as a working link.
+  #aspect_badges returns the the HTML code for an 'All Aspects' badge if the post is associated with all of a user's aspects, and returns HTML code for a collection of individual aspect badges if the post is associated with only some of a user's aspects
   def aspect_badges(aspects, opts={})
     str = ''
-    aspects.each do |aspect|
-      str << aspect_badge(aspect, opts)
-    end
+	if (!aspects.nil? && !@all_aspects.nil?)
+		if aspects.count == @all_aspects.count
+			str << "<span class='aspect_badge single'>"
+			str << link_to(I18n.t('all_aspects'), aspects_path, :class => 'hard_aspect_link').html_safe
+			str << "</span>"
+		else
+     		aspects.each do |aspect| 
+       		str << aspect_badge(aspect, opts)
+     		end
+		end
+	end
     str.html_safe
   end
 
+# aspect_badge takes an aspect and returns the HTML code for an individual aspect badge
   def aspect_badge(aspect, opts={})
     str = "<span class='aspect_badge single'>"
-    link = opts.delete(:link)
-    if !link
+    if !opts[:link]
       str << link_to(aspect.name, "#", 'data-guid' => aspect.id, :class => 'hard_aspect_link').html_safe
     else
       str << link_for_aspect(aspect).html_safe
@@ -81,6 +91,7 @@ module AspectGlobalHelper
       aspects_path
     end
   end
+<<<<<<< HEAD
 
   def aspect_dropdown_list_item(aspect, contact, person)
     checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
@@ -97,4 +108,6 @@ module AspectGlobalHelper
     str << "</li>"
     str.html_safe
   end
+=======
+>>>>>>> added a spec for adding and dropping aspects after a post is created
 end
