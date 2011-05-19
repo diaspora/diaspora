@@ -132,25 +132,25 @@ var Stream = {
       text = $this.html(),
       showUl = $(this).closest('li'),
       commentBlock = $this.closest(".stream_element").find("ul.comments", ".content"),
-      commentBlockMore = $this.closest(".stream_element").find(".older_comments", ".content"),
-      show = (text.indexOf("show") != -1);
+      commentBlockMore = $this.closest(".stream_element").find(".older_comments", ".content")
 
     if( commentBlockMore.hasClass("inactive") ) {
       commentBlockMore.fadeIn(150, function() {
         commentBlockMore.removeClass("inactive");
         commentBlockMore.removeClass("hidden");
       });
+      $this.html(Diaspora.widgets.i18n.t('comments.hide'));
     } else {
       if(commentBlock.hasClass("hidden")) {
         commentBlock.removeClass('hidden');
         showUl.css('margin-bottom','-1em');
+        $this.html(Diaspora.widgets.i18n.t('comments.hide'));
       }else{
         commentBlock.addClass('hidden');
         showUl.css('margin-bottom','1em');
+        $this.html(Diaspora.widgets.i18n.t('comments.show'));
       }
     }
-
-    $this.html(text.replace((show) ? "show" : "hide", (show) ? "hide" : "show"));
   },
 
   focusNewComment: function(toggle, evt) {

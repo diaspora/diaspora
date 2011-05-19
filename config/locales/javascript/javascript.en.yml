@@ -44,3 +44,6 @@ en:
       show_more: "show more"
       failed_to_like: "Failed to like!"
       failed_to_post_message: "Failed to post message!"
+      comments:
+        show: "show all comments"
+        hide: "hide comments"
