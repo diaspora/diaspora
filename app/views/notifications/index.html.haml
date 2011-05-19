@@ -18,9 +18,9 @@
         .span-8.notifications_for_day
           - notes.each do |note|
             .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
-              - if note.type == "Notifications::StartedSharing"
+              - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note.target)
                 .right
-                  = render 'contacts/aspect_dropdown', :contact => current_user.contact_for(note.target), :person => note.target, :hang => 'left'
+                  = render 'contacts/aspect_dropdown', :contact => contact, :person => note.target, :hang => 'left'
 
               %span.from
                 = notification_people_link(note)

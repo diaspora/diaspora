@@ -58,6 +58,24 @@ describe AdminsController do
       end
     end
   end
+  
+  describe '#generate_new_token' do
+    before do
+      AppConfig[:admins] = [@user.username]
+    end
+
+    it 'generates a new token for the current user' do
+      lambda { 
+        get 'generate_new_token' 
+      }.should change{ @user.reload.authentication_token }
+    end
+
+    it 'displays a token' do
+      get 'generate_new_token' 
+      get :user_search
+      response.body.should include(@user.reload.authentication_token)
+    end
+  end
 
   describe '#admin_inviter' do
     context 'admin signed in' do
