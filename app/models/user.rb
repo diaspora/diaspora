@@ -322,6 +322,10 @@ class User < ActiveRecord::Base
     OpenSSL::PKey::RSA.new(serialized_private_key)
   end
 
+  def admin?
+    AppConfig[:admins].present? && AppConfig[:admins].include?(self.username)
+  end
+
   protected
 
   def remove_person

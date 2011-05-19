@@ -76,9 +76,9 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_unless_admin
-    admins = AppConfig[:admins]
-    unless admins.present? && admins.include?(current_user.username)
-      redirect_to root_url
+    unless current_user.admin?
+      redirect_to root_url, :notice => 'you need to be an admin to do that'
+      return
     end
   end
 

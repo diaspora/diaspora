@@ -28,6 +28,13 @@ class AdminsController < ApplicationController
 
     redirect_to :back, :notice => notice, :user => {:id => u.id}
   end
+
+  def generate_new_token
+    current_user.reset_authentication_token!
+    current_user.authentication_token
+    redirect_to user_search_path, :notice => "auth token reset" 
+  end
+  
   def admin_inviter
     opts = {:service => 'email', :identifier => params[:identifier]}
     existing_user = Invitation.find_existing_user('email', params[:identifier])

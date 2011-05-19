@@ -270,6 +270,7 @@ en:
       blog: "blog"
       login: "log in"
       code: "code"
+      admin: "admin"
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"

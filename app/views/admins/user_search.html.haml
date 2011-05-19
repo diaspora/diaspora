@@ -40,6 +40,11 @@
   = link_to "add 10 invites for this user", add_invites_path(:user_id => user.id)
   %br
   %br
+  %br
+%h3 your auth token
+%h2= current_user.authentication_token
+= link_to "reset auth token", new_auth_token_path
+%br
 = javascript_include_tag 'apiconsole'
 #query
   %h3 api console

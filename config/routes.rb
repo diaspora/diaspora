@@ -61,7 +61,6 @@ Diaspora::Application.routes.draw do
   end
 
   # generating a new user token (for devise)
-  match 'users/generate_new_token' => 'users#generate_new_token'
 
   # ActivityStreams routes
   scope "/activity_streams", :module => "activity_streams" do
@@ -75,6 +74,7 @@ Diaspora::Application.routes.draw do
     match 'user_search'   => :user_search
     get   'admin_inviter' => :admin_inviter
     get   'add_invites'   => :add_invites, :as => 'add_invites'
+    get   'generate_new_token' => :generate_new_token, :as => 'new_auth_token'
   end
 
   resource :profile
