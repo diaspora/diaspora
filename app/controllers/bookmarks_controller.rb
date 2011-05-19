@@ -11,6 +11,7 @@ class BookmarksController < ApplicationController
   def create
     @bookmark = Bookmark.from_activity(params[:activity])
     @bookmark.author = current_user.person
+    @bookmark.public = true
     
     if @bookmark.save
       Rails.logger.info("event=create type=bookmark")
