@@ -48,6 +48,10 @@ class PostsFake
       @fakes_collection.people_hash[@model.author_id]
     end
 
+    def respond_to?(*args)
+      super(*args) || model.respond_to?(*args)
+    end
+
     def method_missing(method, *args)
       @model.send(method, *args)
     end
