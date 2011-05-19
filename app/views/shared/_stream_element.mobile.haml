@@ -9,7 +9,7 @@
     .from
       = person_link(post.author)
 
-    - if post.model.instance_of?(ActivityStreams::Photo)
+    - if post.respond_to?(:activity_streams?)
       = image_tag post.image_url
     - else
       = render 'status_messages/status_message', :post => post, :photos => post.photos

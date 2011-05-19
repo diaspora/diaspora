@@ -32,5 +32,7 @@ class ActivityStreams::Photo < Post
       :actor_url => json["actor"]["url"]
     )
   end
+
+  def activity_streams?; true; end
 end
 
