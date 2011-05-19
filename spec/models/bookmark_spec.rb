@@ -19,7 +19,7 @@ describe Bookmark do
           }
         },
         "object"=> {
-          "url"=>"cubbi.es/daniel",
+          "url"=>"http://cubbi.es/daniel",
           "objectType"=>"bookmark"
         }
       }
