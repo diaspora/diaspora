@@ -28,10 +28,9 @@
       %hr{:style=>"width:300px;"}
       %br
       = render 'contacts/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
-      
+      %br
+      %br
     -if contact.sharing? || person == current_user.person
-      %br
-      %br
       %hr{:style=>"width:300px;"}
       %ul#profile_information
         - unless person.profile.bio.blank?
