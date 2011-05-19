@@ -36,6 +36,10 @@ class AppConfig
     if File.exist? "#{Rails.root}/config/app.yml"
       all_envs_custom = load_config_yaml "#{Rails.root}/config/app.yml"
       all_envs.deep_merge!(all_envs_custom)
+    elsif File.exist? "#{Rails.root}/config/app_config.yml"
+      all_envs_custom = load_config_yaml "#{Rails.root}/config/app_config.yml"
+      all_envs.deep_merge!(all_envs_custom)
+      $stderr.puts "DEPRECATION WARNING: config/app_config.yml has been renamed to config/app.yml"
     else
       unless Rails.env == "development" || Rails.env == "test"
         $stderr.puts "WARNING: No config/app.yml found! Look at config/app.yml.example for help."
