@@ -63,8 +63,8 @@ Diaspora::Application.routes.draw do
   # generating a new user token (for devise)
 
   # ActivityStreams routes
-  scope "/activity_streams", :module => "activity_streams" do
-    resources :photos, :controller => "photos", :only => :create, :as => "as_photos"
+  scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
+    resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
   end
 
 

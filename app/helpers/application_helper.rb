@@ -18,8 +18,14 @@ module ApplicationHelper
 
   def object_path(object, opts={})
     return "" if object.nil?
-    object = object.person if object.is_a? User
-    eval("#{object.class.name.underscore}_path(object, opts)")
+    object = object.person if object.instance_of? User
+    object = object.model if object.instance_of? PostsFake::Fake
+    if object.activity_streams?
+      class_name = object.class.name.underscore.split('/')
+      eval("#{class_name.first}_#{class_name.last}_path(object, opts)")
+    else
+      eval("#{object.class.name.underscore}_path(object, opts)")
+    end
   end
 
   def object_fields(object)

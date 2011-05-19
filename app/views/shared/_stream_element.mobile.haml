@@ -17,4 +17,9 @@
     .info
       %span.time{:integer => post.created_at.to_i}
         = t('ago', :time => time_ago_in_words(post.created_at))
-      = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link right'
+
+      - if post.activity_streams?
+        = link_to "#{t('comments', :count => post.comments.length)} →", activity_streams_photo_path(post), :class => 'comment_link right'
+      - else
+        = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link right'
+

@@ -38,7 +38,7 @@
             = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
 
         %span.timeago
-          = show_link_for post
+          = link_to(how_long_ago(post), object_path(post))
 
         %span.via
           - if post.activity_streams?
