@@ -54,7 +54,7 @@ ml:
     aspect_stream: 
       activity: "പ്രവര്‍ത്തനം"
       post_time: "കുറിപ്പ് ചേര്‍ത്ത സമയം"
-      sort_by: "sort by:"
+      sort_by: "ഇപ്രകാരം ക്രമീകരിക്കുക:"
     contacts_not_visible: "ഈ പരിചയത്തില്‍പ്പെട്ട സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുകയില്ല "
     contacts_visible: "ഈ പരിചയത്തിലുള്ള സമ്പര്‍ക്കങ്ങള്‍ക്ക് പരസ്പരം കാണാന്‍ സാധിക്കുന്നതാണ്."
     create: 
@@ -82,7 +82,7 @@ ml:
     index: 
       handle_explanation: "ഇത് താങ്കളുടെ ഡയസ്പോറ ഹാന്റിലാണ്. അളുകള്‍ക്ക് താങ്കളെ ബന്ധപെടാന്‍ ഇത് ഇമെയില്‍ പോലെ കൊടുക്കാം."
       no_contacts: "സമ്പര്‍ക്കങ്ങളില്ല"
-      post_a_message: "post a message >>"
+      post_a_message: "ഒരു കത്തയക്കുക >>"
     manage: 
       add_a_new_aspect: "പുതിയ പരിചയം ചേര്‍ക്കുക"
       add_a_new_contact: "പുതിയ സമ്പര്‍ക്കം ചേര്‍ക്കുക"
@@ -184,15 +184,15 @@ ml:
   home: 
     show: 
       already_account: "നിലവില്‍ ഒരു അക്കൌണ്ടുണ്ടോ?"
-      choice: "Choice"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
-      learn_about_host: "Learn about how to host your own Diaspora server."
+      choice: "തിരഞ്ഞെടുക്കുക"
+      choice_explanation: "ഡയസ്പോറയില്‍ താങ്കള്‍ക്ക് സമ്പര്‍ക്കങ്ങളെ പരിചയങ്ങള്‍ എന്ന കൂട്ടങ്ങളായി തിരിക്കാന്‍ അനുവദിക്കുന്നു. ഫോട്ടോകള്‍, കഥകള്‍, തമാശകള്‍ തുടങ്ങിയവ ഉദ്ദേശിക്കുന്ന ആളുകള്‍ക്കു മാത്രം കിട്ടാന്‍ പരിചയങ്ങള്‍ സഹായിക്കുന്നു. ഇത് ഡയസ്പോറയില്‍ മാത്രമുള്ളതാണ്."
+      learn_about_host: "താങ്കളുടെ ഡയസ്പോറ സെര്‍വര്‍ എങ്ങിനെ സജ്ജീകരിക്കാമെന്നു നോക്കാം."
       login_here: "ഇവിടെ ലോഗിന്‍ ചെയ്യുന്നുണ്ടോ?"
       ownership: "ഉടമസ്ഥത"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      ownership_explanation: "നിങ്ങള്‍ തന്നെയാണു് നിങ്ങളുടെ ചിത്രങ്ങളുടെ ഉടമസ്ഥര്‍, പങ്കിടാനാഗ്രഹിയ്ക്കുന്നതു് കൊണ്ടു് മാത്രം മറ്റൊരാളെ ഉടമയാക്കണമെന്നില്ല. നിങ്ങള്‍ ഡയാസ്പുറയില്‍ പങ്കിടുന്നതെല്ലാം നിങ്ങളുടെ ഉടമസ്ഥതയിലായതിനാല്‍ അതെങ്ങനെയാണു് വിതരണം ചെയ്യേണ്ടതെന്നു് പൂര്‍ണ്ണമായും നിങ്ങള്‍ക്കു് തന്നെ നിയന്ത്രിയ്ക്കാം."
       share_what_you_want: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി, നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു."
       simplicity: "ലളിതം"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      simplicity_explanation: "ഡയസ്പോറ പങ്കിടല്‍ എളുപ്പമാക്കുന്നു - സ്വകാര്യതയിലും. ഡയസ്പോറ പ്രൊഫൈല്‍ സുരക്ഷിതമാക്കാന്‍ പേജുകള്‍ ക​ണക്കിന് ക്രമികരണങ്ങള്‍ മാറ്റേണ്ട."
       tagline_first_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്നത് പങ്കുവെയ്ക്കു,"
       tagline_second_half: "നിങ്ങള്‍ ആഗ്രഹിക്കുന്ന ആളുമായി."
   invitations: 
@@ -221,7 +221,7 @@ ml:
     application: 
       have_a_problem: "പ്രശ്നമുണ്ടോ?"
       powered_by: "ഡയസ്പോറയാല്‍* ശക്തമാക്കിയത്"
-      public_feed: "Public Diaspora Feed for %{name}"
+      public_feed: "%{name} -ന്റെ പൊതു ഡയസ്പോറ ഫീഡ്"
       toggle: "മൊബൈല്‍ സൈറ്റിലേക്ക് മാറുക"
       whats_new: "പുതിയത്?"
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
@@ -250,9 +250,9 @@ ml:
   next: "അടുത്തത്"
   no_results: "ഫലങ്ങളൊന്നും കണ്ടെത്താനായില്ല."
   notifications: 
-    also_commented: "also commented on your contact's"
+    also_commented: "സമ്പര്‍ക്കത്തിന്റെ അഭിപ്രായം രേഖപെടുത്തി"
     also_commented_deleted: "നീക്കം ചെയ്ത കുറിപ്പില്‍ അഭിപ്രായം രേഖപ്പെടുത്തി"
-    comment_on_post: "commented on your"
+    comment_on_post: "അഭിപ്രായം രേഖപെടുത്തി"
     deleted: "നീക്കം ചെയ്തു"
     helper: 
       new_notifications: 
@@ -262,11 +262,11 @@ ml:
         other: "%{count} പുതിയ അറിയിപ്പുകള്‍"
         zero: "പുതിയ അറിയിപ്പൊന്നുമില്ല"
     index: 
-      and: "and"
+      and: "കൂടാതെ"
       and_others: "ഉം %{number} മറ്റുള്ളവരും"
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
       notifications: "അറിയിപ്പുകള്‍"
-    mentioned: "has mentioned you in their"
+    mentioned: "താങ്കളെ സൂചിപ്പിച്ചിരിക്കുന്നു"
     new_request: "താങ്കളുമായി പങ്കുവയ്ക്കാന്‍ തയ്യാറായിരിക്കുന്നു."
     post: "കുറിപ്പ്"
     private_message: "താങ്കള്‍ക്ക് ഒരു സന്ദേശം അയച്ചിരിക്കുന്നു."
@@ -312,12 +312,12 @@ ml:
   password_confirmation: "അടയാളവാക്ക് തിര്‍ച്ചപ്പെടുത്തുക"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "ടാഗില്‍ നിന്ന് സമ്പര്‍ക്കം ചേര്‍ക്കുക"
     aspect_list: 
       edit_membership: "പരിചയത്തിലെ അംഗത്വം തിരുത്തു"
     few: "%{count} ആളുകള്‍"
     helper: 
-      people_on_pod_are_aware_of: " people on pod are aware of"
+      people_on_pod_are_aware_of: " ഈ പോഡിലെ ആളുകള്‍ക്ക് ഇതിനെകുറിച്ച് അറിവുണ്ട്"
       results_for: " %{params} ന്റെ ഫലങ്ങള്‍"
     index: 
       couldnt_find_them_send_invite: "കണ്ടുപിടിയ്ക്കാനാകുന്നില്ലേ? ഒരു ക്ഷണം അയക്കു!"
@@ -343,7 +343,7 @@ ml:
       remove_contact: "സമ്പര്‍ക്കം മാറ്റുക"
       remove_from: "%{name} നെ %{aspect} നിന്ന് മാറ്റട്ടേ?"
     show: 
-      add_some: "add some"
+      add_some: "കുറച്ച് ചേര്‍ക്കുക"
       does_not_exist: "വ്യക്തി നിലവിലില്ല!"
       edit: "തിരുത്തു"
       incoming_request: "%{name} നിങ്ങളുമായി പങ്കിടാന്‍ ആഗ്രഹിക്കുന്നു"
@@ -356,7 +356,7 @@ ml:
       return_to_aspects: "താങ്കളുടെ പരിചയം താളിലേയ്ക്ക് തിരിച്ച് പോവുക"
       see_all: "എല്ലാം കാണു"
       start_sharing: "പങ്കുവച്ച് തുടങ്ങുക"
-      to_accept_or_ignore: "to accept or ignore it."
+      to_accept_or_ignore: "സ്വീകരിക്കുകയോ ത്യജിക്കുകയോ ചെയ്യാന്‍."
       you_have_no_tags: "താങ്കള്‍ക്ക് ടാഗുകളില്ല!"
     webfinger: 
       fail: "ക്ഷമിക്കണം, ഞങ്ങള്‍ക്ക് %{handle} കണ്ടെത്താനായില്ല.."
@@ -458,7 +458,7 @@ ml:
         zero: "പുതിയ അപേക്ഷയൊന്നുമില്ല"
     manage_aspect_contacts: 
       existing: "നിലവിലുള്ള സമ്പര്‍ക്കങ്ങള്‍"
-      manage_within: "Manage contacts within"
+      manage_within: "ഉള്ളിലുള്ള സമ്പര്‍ക്കങ്ങളെ നിയന്ത്രിക്കുക"
     new_request_to_person: 
       sent: "അയച്ചു!"
   search: "തിരയുക"
@@ -483,7 +483,7 @@ ml:
       connect_to_twitter: "ട്വിറ്ററുമായി ബന്ധിപ്പിക്കു"
       disconnect: "വിച്ഛേദിക്കു"
       edit_services: "സേവനങ്ങളില്‍ മാറ്റം വരുത്തുക"
-      logged_in_as: "logged in as"
+      logged_in_as: "ആയി പ്രവേശിച്ചിരിക്കുന്നു"
       really_disconnect: "%{service} വിച്ഛേദിക്കണോ?"
     inviter: 
       click_link_to_accept_invitation: "ക്ഷണം സ്വീകരിക്കുന്നതിനായി കണ്ണിയില്‍ അമര്‍ത്തുക"
@@ -501,7 +501,7 @@ ml:
       your_diaspora_username_is: "താങ്കളുടെ ഡയസ്പോറ ഉപയോക്തൃ നാമം: %{diaspora_handle}"
     contact_list: 
       all_contacts: "എല്ലാ സമ്പര്‍ക്കവും"
-      cannot_remove: "Cannot remove person from last aspect. (If you want to disconnect from this person you must remove contact.)"
+      cannot_remove: "അവസാനത്തെ പരിചയത്തില്‍ നിന്ന് വ്യക്തിയെ മാറ്റാന്‍ പറ്റുന്നില്ല. (താങ്കള്‍ക്ക് ഈ വ്യക്തിയില്‍ നിന്നും ഒഴിവാകണമെങ്കില്‍ സമ്പര്‍ക്കത്തില്‍ നിന്നും നീക്കം ചെയ്യണം.)"
     footer: 
       logged_in_as: "%{name} ആയി പ്രവേശിച്ചിരിക്കുന്നു."
       your_aspects: "നിങ്ങളുടെ പരിചയങ്ങള്‍"
@@ -530,14 +530,14 @@ ml:
       post_a_message_to: "%{aspect}ല്‍ ഒരു സന്ദേശം പ്രസിദ്ധീകരിക്കുക"
       posting: "കുറിക്കുന്നു..."
       public: "പൊതുവായ"
-      publishing_to: "publishing to: "
+      publishing_to: "പ്രസിദ്ധീകരിക്കുന്നു: "
       share: "പങ്കുവെയ്ക്കുക"
       share_with: "പങ്കുവെയ്ക്കുക"
       whats_on_your_mind: "എന്താണ് നിങ്ങളുടെ മനസ്സില്‍?"
     reshare: 
       reshare: "വീണ്ടും പങ്കിടുക"
     stream_element: 
-      dislike: "ഞാനിതിഷ്ടപ്പെടുന്നില്ല"
+      dislike: "ഇഷ്ടപ്പെടുന്നില്ല"
       like: "ഇഷ്ടപ്പെടുന്നു"
   status_messages: 
     create: 
@@ -561,7 +561,7 @@ ml:
       people_tagged_with: "%{tag} ചേര്‍ത്തിട്ടുള്ള ആളുകള്‍"
       posts_tagged_with: "#%{tag} ചേര്‍ത്തിട്ടുള്ള കുറിപ്പുകള്‍"
   the_world: "ലോകം മുഴുവന്‍"
-  undo: "Undo?"
+  undo: "പൂര്‍വരൂപത്തിലാക്കണോ?"
   username: "ഉപയോക്തൃനാമം"
   users: 
     destroy: "അക്കൌണ്ട് വിജയകരമായി അവസാനിപ്പിച്ചു."
@@ -588,7 +588,7 @@ ml:
     getting_started: 
       connect_on_diaspora: "ഡയസ്പോറയില്‍ ബന്ധിപ്പിക്കു"
       connect_services: "താങ്കളുടെ മറ്റുള്ള സേവനങ്ങള്‍ ബന്ധിപ്പിക്കു"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "താങ്കള്‍ക്ക് ഡയസ്പോറയില്‍ സുഹൃത്തുക്കളാരും തന്നെ ഇല്ല , അവരെ ഫ്രണ്ട് ഫൈന്റര്‍ ഉപയോഗിച്ച് ക്ഷണിക്കാവുന്നതാണ്."
       edit_profile: "താങ്കളുടെ പ്രൊഫൈല്‍ തിരുത്തുക"
       finished: "തീര്‍ന്നു!"
       save_and_continue: "സൂക്ഷിച്ച ശേഷം തുടരു"
@@ -610,8 +610,8 @@ ml:
       password_changed: "അടയാളവാക്ക് മാറ്റി"
       password_not_changed: "അടയാളവാക്ക് മാറ്റാനാകുന്നില്ല"
   webfinger: 
-    fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
-    hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
+    fetch_failed: "%{profile_url} -ന്റെ വെബ്ഫിംഗര്‍ പ്രൊഫൈല്‍ എടുക്കുന്നതില്‍ പരാജയം"
+    hcard_fetch_failed: "%{account} -ന്റെ hcard എടുക്കുന്നതിന് പ്രശ്നം ഉണ്ട്"
     no_person_constructed: "ഒരു വ്യക്തിയ്ക്കും ഈ hcard ല്‍ നിന്ന്  നിര്‍മ്മിക്കാന്‍ കഴിയില്ല."
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    not_enabled: "%{account}-ന്റെ ഹോസ്റ്റില്‍ വെബ്ഫിംഗര്‍ സജ്ജമാക്കിയിട്ടില്ലെന്ന് തോന്നുന്നു."
     xrd_fetch_failed: "അവിടെ %{account} അക്കൌണ്ടില്‍ നിന്നും  xrd കിട്ടുന്നതിന്  ഒരു തെറ്റുണ്ട്."
