@@ -20,7 +20,7 @@ module ApplicationHelper
     return "" if object.nil?
     object = object.person if object.instance_of? User
     object = object.model if object.instance_of? PostsFake::Fake
-    if object.activity_streams?
+    if object.respond_to?(:activity_streams?) && object.activity_streams?
       class_name = object.class.name.underscore.split('/')
       eval("#{class_name.first}_#{class_name.last}_path(object, opts)")
     else
