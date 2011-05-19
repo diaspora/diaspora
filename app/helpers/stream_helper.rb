@@ -20,4 +20,12 @@ module StreamHelper
       post.created_at
     end
   end
+
+  def show_link_for post
+    if post.activity_streams?
+      how_long_ago(post)
+    else
+      link_to(how_long_ago(post), status_message_path(post))
+    end
+  end
 end

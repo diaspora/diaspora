@@ -24,7 +24,7 @@
         %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
 
       - if post.activity_streams?
-        = image_tag post.image_url
+        = link_to image_tag(post.image_url), post.object_url
       - else
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
@@ -38,8 +38,13 @@
             = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
 
         %span.timeago
-          = link_to(how_long_ago(post), status_message_path(post))
+          = show_link_for post
 
+        %span.via
+          - if post.activity_streams?
+            = t('.via')
+            = link_to("#{post.provider_display_name}", post.actor_url)
+        
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
           |
           %span.like_action
