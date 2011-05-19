@@ -107,5 +107,9 @@ class Post < ActiveRecord::Base
       Rails.logger.info("event=receive payload_type=#{self.class} update=true status=abort sender=#{self.diaspora_handle} reason='update not from post owner' existing_post=#{self.id}")
     end
   end
+
+  def activity_streams?
+    false
+  end
 end
 
