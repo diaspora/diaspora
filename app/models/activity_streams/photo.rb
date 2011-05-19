@@ -5,6 +5,13 @@
 class ActivityStreams::Photo < Post
   include Diaspora::Socketable
 
+  xml_attr :image_url
+  xml_attr :image_height
+  xml_attr :image_width
+  xml_attr :object_url
+  xml_attr :provider_display_name
+  xml_attr :actor_url
+
   validates_presence_of :image_url,
                         :object_url,
                         :provider_display_name,
