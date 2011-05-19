@@ -3,17 +3,9 @@ class AdminsController < ApplicationController
   before_filter :redirect_unless_admin
 
   def user_search
-    user = params[:user] || {}
-    user = user.delete_if {|key, value| value.blank? }
-    params[:user] = user
-
-    if user.keys.count == 0
-      @users = []
-    else
-      @users = User.where(params[:user]).all || []
-    end
-
-    render 'user_search'
+    params[:user] ||= {}
+    params[:user].delete_if {|key, value| value.blank? }
+    @users = params[:user].empty? ? [] : User.where(params[:user])
   end
 
   def add_invites

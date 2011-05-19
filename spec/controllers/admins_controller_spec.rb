@@ -23,9 +23,10 @@ describe AdminsController do
         AppConfig[:admins] = [@user.username]
       end
 
-      it 'succeeds' do
+      it 'succeeds and renders user_search' do
         get :user_search
         response.should be_success
+        response.should render_template(:user_search)
       end
 
       it 'assigns users to an empty array if nothing is searched for' do
