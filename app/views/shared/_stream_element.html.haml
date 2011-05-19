@@ -42,8 +42,7 @@
 
         %span.via
           - if post.activity_streams?
-            = t('.via')
-            = link_to("#{post.provider_display_name}", post.actor_url)
+            = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
         
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
           |

@@ -578,7 +578,7 @@ en:
     contact_list:
       all_contacts: "All contacts"
     stream_element:
-      via: "via"
+      via: "via %{link}"
       like: "Like"
       unlike: "Unlike"
       dislike: "Dislike"

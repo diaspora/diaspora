@@ -17,6 +17,9 @@
     .info
       %span.time{:integer => post.created_at.to_i}
         = t('ago', :time => time_ago_in_words(post.created_at))
+      %span.via
+        - if post.activity_streams?
+          = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
 
       - if post.activity_streams?
         = link_to "#{t('comments', :count => post.comments.length)} →", activity_streams_photo_path(post), :class => 'comment_link right'
