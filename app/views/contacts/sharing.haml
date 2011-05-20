@@ -2,9 +2,6 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-/- content_for :head do
-/  = include_javascripts :aspects
-
 #aspect_edit_pane
   #facebox_header
     .right
@@ -26,7 +23,7 @@
                 = contact.person.diaspora_handle
 
             .right
-              = render 'aspect_dropdown', :contact => contact, :person => contact.person, :hang => 'right'
+              = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => contact.person, :hang => 'right'
 
   %br
   %div{:style => "text-align:right;"}

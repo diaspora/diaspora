@@ -40,7 +40,7 @@
           - contact ||= Contact.new(:person => person)
           - unless person == current_user.person
             .right
-              = render 'contacts/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
+              = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
 
         .content
           %span.from

@@ -30,14 +30,8 @@
       = friend.name
 
 - unless friend.person.nil?
-  / should be dropdown
 
   %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
     - contact = friend.contact
-    - contact ||= Contact.new
-    = render :partial => 'contacts/share_with_list',
-          :locals => {:person => friend.person,
-            :contact => contact,
-              :aspects_with_person => [],
-              :aspects_without_person => current_user.aspects,
-              :friend_finder => true}
+    - contact ||= Contact.new(:person => friend.person)
+    = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => friend.person, :hang => 'left'

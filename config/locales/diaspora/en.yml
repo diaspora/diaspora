@@ -148,6 +148,14 @@ en:
       success: "Successfully removed person from aspect"
       failure: "Failed to remove person from aspect"
       no_membership: "Could not find the selected person in that aspect"
+    aspect_dropdown:
+      add_to_aspect: "Add to aspect"
+      toggle:
+        zero: "Add to aspect"
+        one: "In %{count} aspect"
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        other: "In %{count} aspects"
 
   bookmarklet:
     post_success: "Posted! Closing!"
@@ -171,23 +179,8 @@ en:
     few: "%{count} contacts"
     many: "%{count} contacts"
     other: "%{count} contacts"
-    destroy:
-      success: "Successfully disconnected from %{name}"
-      failure: "Failed to disconnect from %{name}"
-    share_with_pane:
-      share_with: "Start sharing with %{name}"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      add_new_aspect: "add to new aspect" 
     create:
       failure: "Failed to create contact"
-    aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      toggle:
-        zero: "Add to aspect"
-        one: "In %{count} aspect"
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        other: "In %{count} aspects"
     sharing:
       people_sharing: "People sharing with you:"
 
