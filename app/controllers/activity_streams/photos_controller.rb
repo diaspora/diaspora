@@ -4,7 +4,6 @@
 
 class ActivityStreams::PhotosController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :redirect_unless_admin, :only => :create
   skip_before_filter :verify_authenticity_token, :only => :create
 
   respond_to :json
