@@ -250,7 +250,7 @@ ul.dropdown
 //////////////////////////////////
 
 .unread
-  :font-weight bold
+  :background-color #E6E6E6
   :color #333 !important
   time
     :color #333 !important
@@ -2272,6 +2272,10 @@ h3,h4
       :bottom 0.3em
     :padding 0.2em 0.5em
     :width 500px
+    @include border-radius(5px)
+    
+    &:hover
+      :background-color #EFEFEF
 
 .day_group
   :min-height 100px
