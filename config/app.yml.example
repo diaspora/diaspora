@@ -87,6 +87,11 @@ default:
   admins:
     - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
 
+  #List of users who can generate auth tokens
+  #Temporary so we can work on apps while oauth is being developed
+  auth_tokenable:
+    - 'iknowthatthismanualauthtokenthingisnoteasyorsecure'
+
   #s3 config, if set, carrierwave will store your photos on s3
   #s3_key: 'key'
   #s3_secret: 'secret'

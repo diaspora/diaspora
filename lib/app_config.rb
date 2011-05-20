@@ -23,7 +23,7 @@ class AppConfig
     generate_pod_uri
     normalize_pod_url
     check_pod_uri
-    downcase_admins
+    downcase_usernames
   end
 
   def self.load_config_for_environment(env)
@@ -77,9 +77,11 @@ class AppConfig
   end
 
 
-  def self.downcase_admins
-    self.config_vars[:admins] ||= []
-    self.config_vars[:admins].collect! { |admin| admin.downcase }
+  def self.downcase_usernames
+    [:admins, :auth_tokenable].each do |key|
+      self.config_vars[key] ||= []
+      self.config_vars[key].collect! { |username| username.downcase }
+    end
   end
 
   def self.load_config_yaml filename

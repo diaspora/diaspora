@@ -67,6 +67,8 @@ Diaspora::Application.routes.draw do
     resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
   end
 
+  #Temporary token_authenticable route
+  resource :token, :only => [:show, :create]
 
   get 'login' => redirect('/users/sign_in')
 
@@ -74,7 +76,6 @@ Diaspora::Application.routes.draw do
     match 'user_search'   => :user_search
     get   'admin_inviter' => :admin_inviter
     get   'add_invites'   => :add_invites, :as => 'add_invites'
-    get   'generate_new_token' => :generate_new_token, :as => 'new_auth_token'
   end
 
   resource :profile

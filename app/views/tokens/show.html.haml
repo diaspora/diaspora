@@ -1,0 +1,16 @@
+%h3
+  This is a temporary hack while we develop a more general application framework.
+%div
+  - if current_user.authentication_token
+    %h4= current_user.authentication_token
+  - else
+    %h4 No authentication token set.
+%div
+  = form_tag(token_path) do
+    =submit_tag "Generate new authentication token"
+%br
+%div
+  %h4
+    Click settings on
+    = link_to "Cubbi.es", 'http://cubbi.es'
+    to share your internet folder with the internet!

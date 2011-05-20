@@ -12,11 +12,11 @@
 = form_tag 'user_search', :method => :get do
   username:
   = text_field_tag 'user[username]', params[:user][:username]
-  
+
   email:
   = text_field_tag 'user[email]', params[:user][:email]
 
-  invitation identifier 
+  invitation identifier
   = text_field_tag 'user[invitation_identifier]', params[:user][:invitation_identifier]
 
   invitation token:
@@ -36,14 +36,11 @@
     - if user.person.profile
       = user.person.profile.inspect
     %br
-  = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token 
+  = "invite token: #{accept_invitation_url(user, :invitation_token => user.invitation_token)}" if user.invitation_token
   = link_to "add 10 invites for this user", add_invites_path(:user_id => user.id)
   %br
   %br
   %br
-%h3 your auth token
-%h2= current_user.authentication_token
-= link_to "reset auth token", new_auth_token_path
 %br
 = javascript_include_tag 'apiconsole'
 #query
