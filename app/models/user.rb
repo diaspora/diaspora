@@ -326,10 +326,6 @@ class User < ActiveRecord::Base
     AppConfig[:admins].present? && AppConfig[:admins].include?(self.username)
   end
 
-  def auth_tokenable?
-    admin? || (AppConfig[:auth_tokenable].present? && AppConfig[:auth_tokenable].include?(self.username))
-  end
-
   protected
 
   def remove_person

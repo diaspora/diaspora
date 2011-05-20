@@ -34,7 +34,7 @@ describe UsersController do
     end
 
     it 'redirects to a profile page if html is requested' do
-      
+
       get :public, :username => @user.username
       response.should be_redirect
     end
@@ -136,6 +136,13 @@ describe UsersController do
       @user.user_preferences.create(:email_type => 'mentioned')
       get 'edit', :id => @user.id
       assigns[:email_prefs]['mentioned'].should be_false
+    end
+
+    it 'does not allow token auth' do
+      sign_out :user
+      bob.reset_authentication_token!
+      get :edit, :auth_token => bob.authentication_token
+      response.should redirect_to new_user_session_path
     end
   end
 end

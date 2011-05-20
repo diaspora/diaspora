@@ -14,3 +14,9 @@ Feature: user authentication
     And I click on my name in the header
     And I follow "log out"
     Then I should be on the home page
+
+  Scenario: user uses token auth
+    Given a user with username "ohai" and password "secret"
+    When I post a photo with a token
+    And I go to the aspects page
+    Then I should be on the new user session page

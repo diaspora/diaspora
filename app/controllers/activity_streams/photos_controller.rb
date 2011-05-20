@@ -13,7 +13,7 @@ class ActivityStreams::PhotosController < ApplicationController
     @photo = ActivityStreams::Photo.from_activity(params[:activity])
     @photo.author = current_user.person
     @photo.public = true
-    
+
     if @photo.save
       Rails.logger.info("event=create type=activitystreams_photo")
 
