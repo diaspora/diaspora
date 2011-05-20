@@ -238,6 +238,7 @@ eu:
       whats_new: "zer berri?"
       your_aspects: "zure alderdiak"
     header: 
+      admin: "admin"
       blog: "bloga"
       code: "kodea"
       login: "sartu"
@@ -351,6 +352,7 @@ eu:
       gender: "sexua"
       in_aspects: "alderdietan"
       location: "kokalekua"
+      remove_contact: "remove contact"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
       add_some: "gehitu batzuk"
@@ -549,6 +551,7 @@ eu:
       dislike: "Ez dut gustoko"
       like: "Gustoko dut"
       unlike: "Ez dut gustoko"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"

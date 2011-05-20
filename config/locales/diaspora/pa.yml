@@ -238,6 +238,7 @@ pa:
       whats_new: "ਨਵਾਂ ਕੀ ਹੈ?"
       your_aspects: "your aspects"
     header: 
+      admin: "admin"
       blog: "ਬਲੌਗ"
       code: "ਕੋਡ"
       login: "ਲਾਗਇਨ"
@@ -351,6 +352,7 @@ pa:
       gender: "gender"
       in_aspects: "in aspects"
       location: "location"
+      remove_contact: "remove contact"
       remove_from: "Remove %{name} from %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ pa:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

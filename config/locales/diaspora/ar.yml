@@ -238,6 +238,7 @@ ar:
       whats_new: "ما الجديد؟"
       your_aspects: "فئاتك"
     header: 
+      admin: "admin"
       blog: "مدونة"
       code: "شيفرة"
       login: "لُج"
@@ -351,6 +352,7 @@ ar:
       gender: "الجنس"
       in_aspects: "في الفئة"
       location: "المكان"
+      remove_contact: "حذف العضو"
       remove_from: "حذف %{name} من %{aspect}?"
     show: 
       add_some: "إضافة"
@@ -549,6 +551,7 @@ ar:
       dislike: "لم يعجبني هذا"
       like: "أعجبني هذا"
       unlike: "إلغاء إعجابي"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "ذكرت بنجاح: %{names}"

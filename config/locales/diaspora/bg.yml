@@ -238,6 +238,7 @@ bg:
       whats_new: "какво ново?"
       your_aspects: "вашите аспекти"
     header: 
+      admin: "admin"
       blog: "блог"
       code: "код"
       login: "вписване"
@@ -351,6 +352,7 @@ bg:
       gender: "пол"
       in_aspects: "in aspects"
       location: "местоположение"
+      remove_contact: "премахване на контакта"
       remove_from: "Премахване на %{name} от %{aspect}?"
     show: 
       add_some: "добавяне"
@@ -549,6 +551,7 @@ bg:
       dislike: "Не ми харесва"
       like: "Харесва ми"
       unlike: "Не ми харесва"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

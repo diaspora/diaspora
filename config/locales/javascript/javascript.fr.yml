@@ -6,22 +6,25 @@
 fr: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Ajouter à l'aspect"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "Dans {{count}} aspects"
+        many: "Dans {{count}} aspects"
+        one: "Dans {{count}} aspect"
+        other: "Dans {{count}} aspects"
+        zero: "Ajouter à l'aspect"
+    comments: 
+      hide: "cacher les commentaires"
+      show: "afficher tous les commentaires"
     confirm_dialog: "Êtes-vous sûr ?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Impossible d'aimer !"
+    failed_to_post_message: "Impossible de partager le message !"
     infinite_scroll: 
       no_more: "Pas d'autre messages."
     publisher: 
       at_least_one_aspect: "Vous devez créer au moins un aspect"
     search_for: "Chercher {{name}}"
-    show_more: "show more"
+    show_more: "voir plus"
     timeago: 
       day: "environ un jour"
       days: "environ %d jours"

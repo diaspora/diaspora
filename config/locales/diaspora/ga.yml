@@ -238,6 +238,7 @@ ga:
       whats_new: "cad atá nua?"
       your_aspects: "your aspects"
     header: 
+      admin: "admin"
       blog: "blag"
       code: "cod"
       login: "logáil isteach"
@@ -351,6 +352,7 @@ ga:
       gender: "inscne"
       in_aspects: "i gnéithe"
       location: "location"
+      remove_contact: "fhaíl ré le teagmháil"
       remove_from: "Fháil ré le %{name} ó %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ ga:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

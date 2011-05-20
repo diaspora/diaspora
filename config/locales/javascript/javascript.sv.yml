@@ -13,6 +13,9 @@ sv:
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
         zero: "Add to aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "Är du säker?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

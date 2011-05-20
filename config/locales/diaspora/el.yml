@@ -238,6 +238,7 @@ el:
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "κώδικας"
       login: "Είσοδος"
@@ -351,6 +352,7 @@ el:
       gender: "φύλο"
       in_aspects: "στις πτυχές"
       location: "τοποθεσία"
+      remove_contact: "remove contact"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
       add_some: "προσθέστε κάποιες"
@@ -549,6 +551,7 @@ el:
       dislike: "Δεν μ' αρέσει"
       like: "Μου αρέσει"
       unlike: "Δεν μου αρέσει"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Αναφέρθηκαν επιτυχώς: %{names}"

@@ -238,6 +238,7 @@ cs:
       whats_new: "co je nového?"
       your_aspects: "vaše aspekty"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "kód"
       login: "přihlásit"
@@ -351,6 +352,7 @@ cs:
       gender: "pohlaví"
       in_aspects: "v aspektech"
       location: "poloha"
+      remove_contact: "remove contact"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
       add_some: "přidat nějaké"
@@ -549,6 +551,7 @@ cs:
       dislike: "to se mi nelíbí"
       like: "to se mi líbí"
       unlike: "to se mi už nelíbí"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"
@@ -563,11 +566,11 @@ cs:
       not_found: "Omlouváme se, ale nemůžeme najít tento příspěvek."
       permalink: "trvalý odkaz"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      few: "vaše stavové zprávy musí mít méně než %{count} znaků"
+      many: "vaše stavové zprávy musí mít méně než %{count} znaků"
+      one: "vaše stavové zprávy musí mít méně než %{count} znak"
+      other: "vaše stavové zprávy musí mít méně než %{count} znaků"
+      zero: "vaše stavové zprávy musí mít méně než %{count} znaků"
   stream_helper: 
     hide_comments: "skrýt komentáře"
     show_comments: "zobrazit komentáře"

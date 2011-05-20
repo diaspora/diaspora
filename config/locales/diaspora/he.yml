@@ -238,6 +238,7 @@ he:
       whats_new: "מה חדש?"
       your_aspects: "ההיבטים שלך"
     header: 
+      admin: "admin"
       blog: "בלוג"
       code: "קוד"
       login: "כניסה"
@@ -351,6 +352,7 @@ he:
       gender: "מגדר"
       in_aspects: "בהיבטים"
       location: "מיקום"
+      remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
       add_some: "הוספת אנשים"
@@ -549,6 +551,7 @@ he:
       dislike: "לא אהבתי את זה"
       like: "אהבתי"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "אוזכרו בהצלחה: %{names}"

@@ -33,7 +33,7 @@ pt-PT:
             username: 
               taken: "já foi escolhido."
   ago: "Há %{time} atrás"
-  all_aspects: "All aspects"
+  all_aspects: "Todos os Aspectos"
   application: 
     helper: 
       diaspora_alpha: "DIASPORA* ALPHA"
@@ -74,17 +74,17 @@ pt-PT:
       remove_aspect: "Eliminar este aspecto"
       rename: "mudar o nome"
       update: "actualizar"
-      updating: "updating"
+      updating: "a actualizar"
     few: "%{count} aspectos"
     helper: 
       are_you_sure: "Tem a certeza que deseja eliminar este aspecto?"
       aspect_not_empty: "Aspecto não vazio"
       remove: "remover"
     index: 
-      handle_explanation: "Esta é a sua chave do Diaspora. Tal como um endereço de email, pode dar esta chave a quem deseja que o contacte."
+      handle_explanation: "Este é o seu endereço do Diaspora. Tal como um endereço de email, pode dá-lo a quem deseja que o contacte."
       no_contacts: "Não há contactos"
-      people_sharing_with_you: "People sharing with you"
-      post_a_message: "post a message >>"
+      people_sharing_with_you: "Pessoas a partilhar consigo"
+      post_a_message: "publicar uma mensagem >>"
     manage: 
       add_a_new_aspect: "Adicionar um novo aspecto"
       add_a_new_contact: "Adicionar um novo contacto"
@@ -99,7 +99,7 @@ pt-PT:
       success: "Pessoa movida para o novo aspecto"
     new: 
       create: "Create"
-      name: "Name"
+      name: "Nome"
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada. Dê início à conversa!"
     one: "1 aspecto"
@@ -115,10 +115,10 @@ pt-PT:
     zero: "não há aspectos"
   back: "Voltar"
   bookmarklet: 
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
-    post_something: "Post something to Diaspora"
-    post_success: "Posted! Closing!"
+    explanation: "%{link} de qualquer lado ao adicionar esta hiperligação como marcador."
+    explanation_link_text: "Publicar no Diaspora"
+    post_something: "Publique qualquer coisa no Diaspora"
+    post_success: "Publicado! A fechar!"
   cancel: "Cancelar"
   comments: 
     few: "%{count} comentários"
@@ -131,13 +131,13 @@ pt-PT:
     zero: "não há comentários"
   contacts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Adicionar ao aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Em %{count} aspectos"
+        many: "Em %{count} aspectos"
+        one: "Em %{count} aspecto"
+        other: "Em %{count} aspectos"
+        zero: "Adicionar ao aspecto"
     create: 
       failure: "Erro ao criar contacto"
     destroy: 
@@ -149,16 +149,16 @@ pt-PT:
     other: "%{count} contactos"
     share_with_pane: 
       add_new_aspect: "adicionar a novo aspecto"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
+      following: "Ao colocar %{name} num aspecto, vai começar a enviar e receber publicações deles."
       share_with: "Começar a partilhar com %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Pessoas a partilhar consigo:"
     zero: "sem contactos"
   conversations: 
     create: 
-      sent: "Message sent"
+      sent: "A mensagem foi enviada"
     destroy: 
-      success: "Conversation successfully removed"
+      success: "A conversa foi removida com sucesso"
     helper: 
       new_messages: 
         few: "%{count} novas mensagens"
@@ -168,7 +168,7 @@ pt-PT:
         zero: "não há novas mensagens"
     index: 
       create_a_new_message: "criar uma nova mensagem"
-      inbox: "Inbox"
+      inbox: "Caixa de Entrada"
       message_inbox: "Caixa de Entrada das Mensagens"
       new_message: "Nova Mensagem"
       no_conversation_selected: "nenhuma conversa foi seleccionada"
@@ -192,7 +192,7 @@ pt-PT:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Informe-me"
-  hide: "Hide"
+  hide: "Esconder"
   home: 
     show: 
       already_account: "já tem uma conta?"
@@ -234,33 +234,34 @@ pt-PT:
       have_a_problem: "Tem um problema? Encontre uma resposta aqui"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Fonte Pública do Diaspora para %{name}"
-      toggle: "toggle mobile site"
+      toggle: "ligar site móvel"
       whats_new: "O que há de novo?"
       your_aspects: "os seus aspectos"
     header: 
+      admin: "administrador"
       blog: "blogue"
       code: "código"
       login: "iniciar sessão"
       logout: "Terminar sessão"
-      profile: "profile"
-      settings: "settings"
+      profile: "perfil"
+      settings: "definições"
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} people disliked this"
-        many: "%{count} people disliked this"
-        one: "1 person disliked this"
-        other: "%{count} people disliked this"
-        zero: "no people disliked this"
+        few: "%{count} pessoas não gostam"
+        many: "%{count} pessoas não gostam"
+        one: "%{count} pessoa não gosta"
+        other: "%{count} pessoa não gosta"
+        zero: "nenhuma pessoa não gosta disto"
       people_like_this: 
-        few: "%{count} people liked this"
-        many: "%{count} people liked this"
-        one: "1 person liked this"
-        other: "%{count} people liked this"
-        zero: "no people liked this"
+        few: "%{count} pessoas gostam"
+        many: "%{count} pessoas não gostam"
+        one: "%{count} pessoa gosta"
+        other: "%{count} pessoas gostam"
+        zero: "ninguém gosta"
   more: "Mais"
   next: "próximo"
-  no_results: "No Results Found"
+  no_results: "Não Foram Encontrados Resultados"
   notifications: 
     also_commented: "também comentou em  %{post_author}"
     also_commented_deleted: "comentou numa publicação eliminada."
@@ -278,12 +279,12 @@ pt-PT:
       and_others: "e %{number} outros"
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
-    liked: "has just liked your post"
+    liked: "gostou da sua publicação"
     mentioned: "mencionou-o numa"
     new_request: "deseja partilhar consigo."
     post: "publicação."
-    private_message: "sent you a message."
-    started_sharing: "started sharing with you."
+    private_message: "enviou-lhe uma mensagem."
+    started_sharing: "começou a partilhar consigo."
   notifier: 
     also_commented: 
       commented: "também comentou na publicação de %{post_author}:"
@@ -296,11 +297,11 @@ pt-PT:
     diaspora: "o robot de email do diaspora"
     hello: "Olá %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      liked: "%{name} gostou da sua publicação: "
+      sign_in: "Inicie sessão para ver"
+      subject: "%{name} gostou da sua publicação"
     love: "com carinho,"
-    manage_your_email_settings: "manage your email settings"
+    manage_your_email_settings: "gerir as suas definições de email"
     mentioned: 
       mentioned: "mencionou-o numa publicação:"
       sign_in: "Inicie sessão para ver."
@@ -314,9 +315,9 @@ pt-PT:
       admin: "O seu administrador do Diaspora"
       subject: "Uma mensagem sobre a sua conta do Diaspora:"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "começou a partilhar consigo!"
+      sign_in: "Inicie a sessão aqui"
+      subject: "%{name} começou a partilhar consigo no Diaspora*"
     thanks: "Obrigado,"
   ok: "OK"
   or: "ou"
@@ -324,10 +325,10 @@ pt-PT:
   password_confirmation: "Confirmação de palavra-passe"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "adicionar contacto pela tag"
     aspect_list: 
       edit_membership: "editar a participação no aspecto"
-    few: "%{count} people"
+    few: "%{count} pessoas"
     helper: 
       people_on_pod_are_aware_of: "as pessoas no pod estão cientes de que"
       results_for: "resultados para %{params}"
@@ -336,9 +337,9 @@ pt-PT:
       no_one_found: "...e ninguém foi encontrado."
       no_results: "Hei! Precisa pesquisar por alguma coisa."
       results_for: "resultados da pesquisa para"
-    many: "%{count} people"
-    one: "1 person"
-    other: "%{count} people"
+    many: "%{count} pessoas"
+    one: "1 pessoa"
+    other: "%{count} pessoas"
     person: 
       add_contact: "adicionar contacto"
       already_connected: "Já está ligado"
@@ -350,27 +351,28 @@ pt-PT:
       edit_my_profile: "Editar o meu perfil"
       gender: "sexo"
       in_aspects: "nos aspectos"
-      location: "location"
+      location: "localização"
+      remove_contact: "remover contacto"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
-      add_some: "add some"
+      add_some: "adicionar alguns"
       does_not_exist: "Essa pessoa não existe!"
-      edit: "edit"
+      edit: "editar"
       incoming_request: "%{name} quer partilhar consigo"
-      mention: "Mention"
+      mention: "Mencionar"
       message: "Mensagem"
       no_posts: "Não existem publicações para mostrar!"
       not_connected: "Não está ligado a esta pessoa"
       recent_posts: "Publicações Recentes"
       recent_public_posts: "Publicações Públicas Recentes"
       return_to_aspects: "Voltar à sua página dos aspectos"
-      see_all: "See all"
+      see_all: "Ver tudo"
       start_sharing: "começar a partilhar"
       to_accept_or_ignore: "para o aceitar ou ignorar."
-      you_have_no_tags: "you have no tags!"
+      you_have_no_tags: "não tem tags!"
     webfinger: 
       fail: "Lamentamos muito, não conseguimos encontrar %{handle}."
-    zero: "no people"
+    zero: "não há pessoas"
   photos: 
     create: 
       integrity_error: "O envio da fotografia falhou. Tem a certeza de que o ficheiro que seleccionou era uma imagem?"
@@ -408,9 +410,9 @@ pt-PT:
       notice: "Fotografia actualizada com sucesso."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "A publicação de %{name} foi escondida."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    doesnt_exist: "essa publicação não existe!"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
@@ -423,13 +425,13 @@ pt-PT:
       your_bio: "A sua biografia"
       your_birthday: "O seu aniversário"
       your_gender: "O seu sexo"
-      your_location: "Your location"
+      your_location: "A sua localização"
       your_name: "O seu nome"
       your_photo: "A sua fotografia"
-      your_private_profile: "Your private profile"
-      your_public_profile: "Your public profile"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_private_profile: "O seu perfil privado"
+      your_public_profile: "O seu perfil público"
+      your_tags: "Você: em 5 #tags"
+      your_tags_placeholder: "p.ex. #diaspora #varrer #gatos #música"
     update: 
       failed: "Falhou ao actualizar o perfil"
       updated: "Perfil actualizado"
@@ -504,7 +506,7 @@ pt-PT:
   settings: "Definições"
   shared: 
     add_contact: 
-      create_request: "Encontrar através da chave do Diaspora"
+      create_request: "Encontrar através do endereço do Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Introduza um nome de utilizador do Diaspora:"
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
@@ -512,8 +514,8 @@ pt-PT:
     contact_list: 
       all_contacts: "Todos os contactos"
     footer: 
-      logged_in_as: "logged in as %{name}"
-      your_aspects: "your aspects"
+      logged_in_as: "iniciou sessão como %{name}"
+      your_aspects: "os seus aspectos"
     invitations: 
       by_email: "por email"
       dont_have_now: "Não tem nenhum agora, mas terá mais convites brevemente!"
@@ -534,50 +536,51 @@ pt-PT:
       add_photos: "adicionar fotografias"
       all: "tudo"
       all_contacts: "todos os contactos"
-      click_to_share_with: "Click to share with: "
+      click_to_share_with: "Clique para partilhar com: "
       make_public: "tornar público"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
-      public: "Public"
-      publishing_to: "publishing to: "
+      public: "Público"
+      publishing_to: "publicando para:"
       share: "Partilhar"
       share_with: "partilhar com"
       whats_on_your_mind: "em que está a pensar?"
     reshare: 
       reshare: "Voltar a partilhar"
     stream_element: 
-      dislike: "I dislike this"
-      like: "I like this"
-      unlike: "Unlike"
+      dislike: "Não gosto"
+      like: "Gosto"
+      unlike: "Não Gosto"
+      via: "via %{link}"
   status_messages: 
     create: 
-      success: "Successfully mentioned: %{names}"
+      success: "Mencionou com sucesso: %{names}"
     destroy: 
       failure: "Falhou ou eliminar publicação"
     helper: 
       no_message_to_display: "Não há mensagens para mostrar."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Mencionando: %{person}"
     show: 
       destroy: "Apagar"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Lamentamos muito, não conseguimos encontrar essa publicação."
       permalink: "permalink"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      few: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
+      many: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
+      one: "por favor não utilize mais de %{count} caracter ao escrever as suas mensagens de estado"
+      other: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
+      zero: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
   stream_helper: 
     hide_comments: "ocultar comentários"
     show_comments: "mostrar todos os comentários"
   tags: 
     show: 
-      nobody_talking: "Nobody is talking about %{tag} yet."
-      people_tagged_with: "People tagged with %{tag}"
-      posts_tagged_with: "Posts tagged with #%{tag}"
+      nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
+      people_tagged_with: "Pessoas com a %{tag}"
+      posts_tagged_with: "Publicações com a tag #%{tag}"
   the_world: "o mundo"
-  undo: "Undo?"
+  undo: "Anular?"
   username: "Nome de utilizador"
   users: 
     destroy: "A conta foi encerrada com sucesso."
@@ -593,18 +596,18 @@ pt-PT:
       download_xml: "descarregar o meu xml"
       edit_account: "Editar conta"
       export_data: "Exportar Dados"
-      liked: "...someone likes your post?"
+      liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
       new_password: "Nova Palavra-passe"
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...alguém começa a partilhar consigo?"
       your_email: "O seu endereço de email"
-      your_handle: "O sua chave do Diaspora"
+      your_handle: "O seu endereço do Diaspora"
     getting_started: 
       connect_on_diaspora: "Ligue-se no Diaspora"
       connect_services: "Ligue os seus outros serviços"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Não encontrámos os seus amigos no Diaspora*. Use o descobridor de amigos para os convidar."
       edit_profile: "Edite o seu perfil"
       finished: "Terminado!"
       save_and_continue: "Guardar e continuar"

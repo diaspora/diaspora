@@ -238,6 +238,7 @@ sl:
       whats_new: "kaj je novega?"
       your_aspects: "vaše skupine"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "koda"
       login: "prijava"
@@ -351,6 +352,7 @@ sl:
       gender: "spol"
       in_aspects: "v skupinah"
       location: "location"
+      remove_contact: "odstrani stik"
       remove_from: "Ali odstranim %{name} iz skupine %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ sl:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

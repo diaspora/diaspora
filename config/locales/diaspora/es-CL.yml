@@ -238,6 +238,7 @@ es-CL:
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus Aspectos"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "codigo"
       login: "entrar"
@@ -351,6 +352,7 @@ es-CL:
       gender: "sexo"
       in_aspects: "en aspectos"
       location: "Ubicación"
+      remove_contact: "remove contact"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       add_some: "agrega algunas"
@@ -549,6 +551,7 @@ es-CL:
       dislike: "No me gusta esto"
       like: "Me gusta esto"
       unlike: "No me gusta"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"

@@ -13,6 +13,9 @@ bg:
         one: "В {{count}} аспект"
         other: "В {{count}} аспекта"
         zero: "Добавяне в аспект"
+    comments: 
+      hide: "скриване на коментарите"
+      show: "показване на коментарите"
     confirm_dialog: "Сигурни ли сте?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Съобщението не бе публикувано!"

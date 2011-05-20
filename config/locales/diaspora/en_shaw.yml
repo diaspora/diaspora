@@ -238,6 +238,7 @@ en_shaw:
       whats_new: "𐑢𐑪𐑑𐑕 𐑯𐑿?"
       your_aspects: "𐑿𐑼 𐑨𐑕𐑒𐑐𐑧𐑒𐑑𐑕"
     header: 
+      admin: "admin"
       blog: "𐑚𐑤𐑪𐑜"
       code: "𐑒𐑴𐑛"
       login: "𐑤𐑪𐑜 𐑦𐑯"
@@ -351,6 +352,7 @@ en_shaw:
       gender: "𐑡𐑧𐑯𐑛𐑼"
       in_aspects: "𐑦𐑯 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
       location: "𐑤𐑴𐑒𐑱𐑖𐑩𐑯"
+      remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
       add_some: "𐑨𐑛 𐑕𐑳𐑥"
@@ -549,6 +551,7 @@ en_shaw:
       dislike: "𐑲 𐑛𐑦𐑕𐑤𐑲𐑒 𐑞𐑦𐑕"
       like: "𐑲 𐑤𐑲𐑒 𐑞𐑦𐑕"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑥𐑧𐑯𐑖𐑩𐑯𐑛: %{names}"

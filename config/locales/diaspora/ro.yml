@@ -238,6 +238,7 @@ ro:
       whats_new: "ce mai e nou?"
       your_aspects: "aspectele tale"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "codul"
       login: "login"
@@ -351,6 +352,7 @@ ro:
       gender: "gen"
       in_aspects: "în aspecte"
       location: "location"
+      remove_contact: "Elimină contactul"
       remove_from: "Elimini pe %{name} din %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ ro:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

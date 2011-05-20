@@ -83,7 +83,7 @@ fr:
     index: 
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
     manage: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
@@ -98,8 +98,8 @@ fr:
       failure: "n'a pas fonctionné %{inspect}"
       success: "Personne déplacée vers le nouvel aspect"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Créer"
+      name: "Nom"
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
     one: "1 aspect"
@@ -131,13 +131,13 @@ fr:
     zero: "aucun commentaire"
   contacts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Ajouter à l'aspect"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Dans %{count} aspects"
+        many: "Dans %{count} aspects"
+        one: "Dans %{count} aspect"
+        other: "Dans %{count} aspects"
+        zero: "Ajouter à l'aspect"
     create: 
       failure: "Impossible de créer le contact"
     destroy: 
@@ -149,10 +149,10 @@ fr:
     other: "%{count} contacts"
     share_with_pane: 
       add_new_aspect: "ajouter à un nouvel aspect"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
+      following: "En plaçant %{name} dans un aspect, vous pourrez commencer à leur envoyer des messages."
       share_with: "Commencer à partager avec %{name}"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Personnes partageant avec vous :"
     zero: "aucun contact"
   conversations: 
     create: 
@@ -238,6 +238,7 @@ fr:
       whats_new: "Quoi de neuf ?"
       your_aspects: "vos aspects"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "code"
       login: "connexion"
@@ -283,7 +284,7 @@ fr:
     new_request: "a proposé de partager avec vous."
     post: "message."
     private_message: "vous a envoyé un message."
-    started_sharing: "started sharing with you."
+    started_sharing: "a commencé à partager avec vous."
   notifier: 
     also_commented: 
       commented: "a également commenté le message de %{post_author} :"
@@ -314,9 +315,9 @@ fr:
       admin: "Votre administrateur Diaspora"
       subject: "Un message concernant votre compte Diaspora :"
     started_sharing: 
-      sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
-      subject: "%{name} has started sharing with you on Diaspora*"
+      sharing: "a commencé à partager avec vous !"
+      sign_in: "Identifiez-vous ici"
+      subject: "%{name} a commencé à partager avec vous sur Diaspora*"
     thanks: "Merci,"
   ok: "OK"
   or: "ou"
@@ -351,6 +352,7 @@ fr:
       gender: "sexe"
       in_aspects: "dans les aspects"
       location: "localisation"
+      remove_contact: "supprimer ce contact"
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
       add_some: "ajouter"
@@ -515,12 +517,12 @@ fr:
       logged_in_as: "Connecté en tant que %{name}"
       your_aspects: "vos aspects"
     invitations: 
-      by_email: "par mail"
+      by_email: "par courriel"
       dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
       from_facebook: "depuis Facebook"
       invitations_left: "(il vous en reste %{count})"
       invite_someone: "Inviter quelqu'un"
-      invite_your_friends: "Chercher vos amis"
+      invite_your_friends: "Invitez vos amis"
       invites: "Invitations"
       invites_closed: "Les invitations sont actuellement fermées sur ce pod Diaspora"
     notification: 
@@ -549,6 +551,7 @@ fr:
       dislike: "Je n'aime pas"
       like: "J'aime"
       unlike: "Je n'aime pas"
+      via: "via {link}%"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -563,11 +566,11 @@ fr:
       not_found: "Désolé, nous ne trouvons pas ce message."
       permalink: "permalien"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      few: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
+      many: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
+      one: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractère"
+      other: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
+      zero: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
   stream_helper: 
     hide_comments: "masquer les commentaires"
     show_comments: "afficher tous les commentaires"
@@ -598,7 +601,7 @@ fr:
       new_password: "Nouveau mot de passe"
       private_message: "…vous recevez un message privé ?"
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...quelqu'un commence à partager avec vous ?"
       your_email: "Votre adresse électronique"
       your_handle: "Votre handle diaspora"
     getting_started: 

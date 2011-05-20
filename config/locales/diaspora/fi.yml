@@ -238,6 +238,7 @@ fi:
       whats_new: "Uutta"
       your_aspects: "näkymäsi"
     header: 
+      admin: "admin"
       blog: "blogi"
       code: "lähdekoodi"
       login: "kirjaudu sisään"
@@ -351,6 +352,7 @@ fi:
       gender: "Sukupuoli"
       in_aspects: "näkymissä"
       location: "location"
+      remove_contact: "poista kontakti"
       remove_from: "Poista %{name} näkymästä %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ fi:
       dislike: "En tykkää"
       like: "Tykkää"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

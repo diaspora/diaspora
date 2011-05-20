@@ -238,6 +238,7 @@ nb:
       whats_new: "hva er nytt?"
       your_aspects: "dine aspekt"
     header: 
+      admin: "admin"
       blog: "blogg"
       code: "kode"
       login: "logg inn"
@@ -351,6 +352,7 @@ nb:
       gender: "kjønn"
       in_aspects: "i aspekt"
       location: "sted"
+      remove_contact: "fjern kontakt"
       remove_from: "Fjern %{name} fra %{aspect}?"
     show: 
       add_some: "legg til noen"
@@ -549,6 +551,7 @@ nb:
       dislike: "Liker ikke"
       like: "Liker"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Nevnte :%{navn}"

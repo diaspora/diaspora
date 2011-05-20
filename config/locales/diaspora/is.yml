@@ -238,6 +238,7 @@ is:
       whats_new: "hvað er að frétta?"
       your_aspects: "þínar ásýndir"
     header: 
+      admin: "admin"
       blog: "blogg"
       code: "code"
       login: "Innskráning"
@@ -351,6 +352,7 @@ is:
       gender: "kyn"
       in_aspects: "í ásýnd"
       location: "location"
+      remove_contact: "fjarlægja tengilið"
       remove_from: "Fjarlægja %{name} úr %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ is:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

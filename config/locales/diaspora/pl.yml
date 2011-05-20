@@ -238,6 +238,7 @@ pl:
       whats_new: "co nowego?"
       your_aspects: "twoje aspekty"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "kod"
       login: "logowanie"
@@ -351,6 +352,7 @@ pl:
       gender: "płeć"
       in_aspects: "w aspektach"
       location: "położenie"
+      remove_contact: "usuwanie kontaktu"
       remove_from: "Usunąć %{name} z aspektu %{aspect}?"
     show: 
       add_some: "dodaj kogoś"
@@ -549,6 +551,7 @@ pl:
       dislike: "Nie lubię tego"
       like: "Lubię to"
       unlike: "Odwołaj \"Lubię to\""
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Pomyślnie wspomniano o: %{names}"

@@ -238,6 +238,7 @@ zh-TW:
       whats_new: "有什麼新消息?"
       your_aspects: "你的面向"
     header: 
+      admin: "admin"
       blog: "部落格"
       code: "源碼"
       login: "登入"
@@ -351,6 +352,7 @@ zh-TW:
       gender: "性別"
       in_aspects: "所屬面向"
       location: "位置"
+      remove_contact: "刪除聯繫"
       remove_from: "要從 %{aspect} 刪除 %{name} 嗎?"
     show: 
       add_some: "新增一些"
@@ -549,6 +551,7 @@ zh-TW:
       dislike: "遜"
       like: "讚"
       unlike: "收回讚"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"

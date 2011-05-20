@@ -13,6 +13,9 @@ en_shaw:
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
         zero: "Add to aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "𐑸 𐑿 𐑖𐑻?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

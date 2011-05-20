@@ -13,6 +13,9 @@ br:
         one: "In {{count}} aspect"
         other: "In {{count}} aspects"
         zero: "Add to aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "Emaoc'h sur?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

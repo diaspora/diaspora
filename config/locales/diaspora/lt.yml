@@ -238,6 +238,7 @@ lt:
       whats_new: "what's new?"
       your_aspects: "your aspects"
     header: 
+      admin: "admin"
       blog: "blog'as"
       code: "code"
       login: "prisijungti"
@@ -351,6 +352,7 @@ lt:
       gender: "lytis"
       in_aspects: "aspektuose"
       location: "location"
+      remove_contact: "pašalinti kontaktą"
       remove_from: "Ar pašalinti kontaktą \"%{name}\" iš aspekto \"%{aspect}\"?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ lt:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

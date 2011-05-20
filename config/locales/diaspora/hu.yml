@@ -238,6 +238,7 @@ hu:
       whats_new: "belépés"
       your_aspects: "csoportjaid"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "kód"
       login: "bejelentkezés"
@@ -351,6 +352,7 @@ hu:
       gender: "nem"
       in_aspects: "csoportokban"
       location: "hely"
+      remove_contact: "kapcsolat törlése"
       remove_from: "Törlöd %{name}-t a %{aspect} csoportból?"
     show: 
       add_some: "hozzáad"
@@ -549,6 +551,7 @@ hu:
       dislike: "Nem tetszik"
       like: "Tetszik"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Megemlítetted: %{names}"

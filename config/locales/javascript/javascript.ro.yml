@@ -13,6 +13,9 @@ ro:
         one: "În {{count}} aspect"
         other: "În {{count}} aspecte"
         zero: "Adaugă la aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "Sunteţi sigur?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

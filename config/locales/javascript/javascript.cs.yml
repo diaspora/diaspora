@@ -13,15 +13,18 @@ cs:
         one: "V {{count}} aspektu"
         other: "Ve {{count}} aspektech"
         zero: "Přidat do aspektu"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "Jste si jisti?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Oblíbení se nezdařilo!"
+    failed_to_post_message: "Odeslání příspěvku se nezdařilo!"
     infinite_scroll: 
       no_more: "Žádné další příspěvky."
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
     search_for: "Hledat {{name}}"
-    show_more: "show more"
+    show_more: "zobrazit více"
     timeago: 
       day: "1 dnem"
       days: "%d dny"

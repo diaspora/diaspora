@@ -6,22 +6,25 @@
 pt-PT: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Adicionar ao aspecto"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
-    confirm_dialog: "Are you sure?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+        few: "Em {{count}} aspectos"
+        many: "Em {{count}} aspectos"
+        one: "Em {{count}} aspecto"
+        other: "Em {{count}} aspectos"
+        zero: "Adicionar ao aspecto"
+    comments: 
+      hide: "esconder comentários"
+      show: "mostrar todos os comentários"
+    confirm_dialog: "Tem a certeza?"
+    failed_to_like: "Falhou ao gostar!"
+    failed_to_post_message: "Falhou ao publicar a mensagem!"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "Não há mais publicações."
     publisher: 
-      at_least_one_aspect: "You must publish to at least one aspect"
-    search_for: "Search for {{name}}"
-    show_more: "show more"
+      at_least_one_aspect: "Tem de publicar para pelo menos um aspecto"
+    search_for: "Procurar por {{name}}"
+    show_more: "mostrar mais"
     timeago: 
       day: "um dia"
       days: "%d dias"
@@ -31,15 +34,15 @@ pt-PT:
       minutes: "%d minutos"
       month: "cerca de um mês"
       months: "%d meses"
-      prefixAgo: ""
-      prefixFromNow: ""
+      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "menos de um minuto"
       suffixAgo: "atrás"
       suffixFromNow: "a partir de agora"
       year: "cerca de um ano"
       years: "%d anos"
     videos: 
-      unknown: "Unknown video type"
-      watch: "Watch this video on {{provider}}"
+      unknown: "Tipo de vídeo desconhecido"
+      watch: "Assista a este vídeo em {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "A websocket está fechada; as publicações não serão distribuídas em directo."

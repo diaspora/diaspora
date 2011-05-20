@@ -13,6 +13,9 @@ es:
         one: "En {{count}} aspecto"
         other: "En {{count}} aspectos"
         zero: "Añadir al aspecto"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Failed to post message!"

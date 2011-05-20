@@ -13,6 +13,9 @@ de:
         one: "In {{count}} Aspekten"
         other: "In {{count}} Aspekten"
         zero: "Zu Aspekt hinzufügen"
+    comments: 
+      hide: "Kommentare verbergen"
+      show: "Alle Kommentare zeigen"
     confirm_dialog: "Bist du dir sicher?"
     failed_to_like: "Gefällt mir fehlgeschlagen."
     failed_to_post_message: "Konnte Beitrag nicht senden!"

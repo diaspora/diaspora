@@ -6,22 +6,25 @@
 eu: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Alderdira gehitu"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "{{count}} alderdietan"
+        many: "{{count}} alderdietan"
+        one: "Alderdi {{count}}ean"
+        other: "{{count}} alderdietan"
+        zero: "Alderdira gehitu"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
     confirm_dialog: "Ziur al zaude?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Huts gustoko egitean!"
+    failed_to_post_message: "Huts egin du mezuaren bidalketak!"
     infinite_scroll: 
       no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
     search_for: "Bilatu {{name}}"
-    show_more: "show more"
+    show_more: "erakutsi gehiago"
     timeago: 
       day: "egun bat"
       days: "%d egun"

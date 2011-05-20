@@ -238,6 +238,7 @@ ko:
       whats_new: "새로운 점"
       your_aspects: "애스펙"
     header: 
+      admin: "관리자"
       blog: "블로그"
       code: "코드"
       login: "로그인"
@@ -351,6 +352,7 @@ ko:
       gender: "성별"
       in_aspects: "속한 애스펙:"
       location: "위치"
+      remove_contact: "컨택 지우기"
       remove_from: "%{aspect}에서 %{name} 님을 지울까요?"
     show: 
       add_some: "태그 달기"
@@ -549,6 +551,7 @@ ko:
       dislike: "싪어요"
       like: "좋아요"
       unlike: "좋아요 취소"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "%{names} 님을 성공적으로 멘션했습니다."

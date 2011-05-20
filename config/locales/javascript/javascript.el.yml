@@ -13,6 +13,9 @@ el:
         one: "Σε {{count}} πτυχές"
         other: "Σε {{count}} πτυχές"
         zero: "Προσθήκη σε πτυχή"
+    comments: 
+      hide: "Απόκρυψη σχολίων"
+      show: "προβολή σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
     failed_to_like: "Failed to like!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"

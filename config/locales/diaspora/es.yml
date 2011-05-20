@@ -238,6 +238,7 @@ es:
       whats_new: "Novedades en Diaspora*"
       your_aspects: "tus aspectos"
     header: 
+      admin: "admin"
       blog: "Blog"
       code: "Código"
       login: "Conectarse"
@@ -351,6 +352,7 @@ es:
       gender: "Género / Sexo"
       in_aspects: "en aspectos"
       location: "Ubicación "
+      remove_contact: "remove contact"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       add_some: "agrega algunos"
@@ -549,6 +551,7 @@ es:
       dislike: "No me gusta"
       like: "Me gusta"
       unlike: "No me gusta"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"

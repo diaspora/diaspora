@@ -238,6 +238,7 @@ sv:
       whats_new: "några nyheter?"
       your_aspects: "dina aspekter"
     header: 
+      admin: "admin"
       blog: "Blogg"
       code: "källkod"
       login: "Logga in"
@@ -351,6 +352,7 @@ sv:
       gender: "kön"
       in_aspects: "i aspekter"
       location: "plats"
+      remove_contact: "remove contact"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show: 
       add_some: "lägg till några"
@@ -549,6 +551,7 @@ sv:
       dislike: "Jag ogillar det här"
       like: "Jag gillar det här"
       unlike: "Sluta gilla"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Lyckades omnämna: %{names}"

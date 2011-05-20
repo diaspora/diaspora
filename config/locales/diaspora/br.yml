@@ -238,6 +238,7 @@ br:
       whats_new: "petra nevez?"
       your_aspects: "your aspects"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "kod"
       login: "login"
@@ -351,6 +352,7 @@ br:
       gender: "reizh"
       in_aspects: "in aspects"
       location: "chomaj"
+      remove_contact: "skarzhañ an darempred"
       remove_from: "Fellout a ra deoc'h skarzhañ %{name} diwar %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ br:
       dislike: "Ne blij ket din"
       like: "Plij' ra din"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

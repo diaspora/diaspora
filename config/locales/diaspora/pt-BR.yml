@@ -238,6 +238,7 @@ pt-BR:
       whats_new: "O que há de novo?"
       your_aspects: "Seus aspectos"
     header: 
+      admin: "admin"
       blog: "Blog"
       code: "Código"
       login: "Entrar"
@@ -351,6 +352,7 @@ pt-BR:
       gender: "sexo"
       in_aspects: "nos aspectos"
       location: "location"
+      remove_contact: "remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ pt-BR:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

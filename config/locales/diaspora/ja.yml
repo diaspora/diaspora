@@ -238,6 +238,7 @@ ja:
       whats_new: "更新履歴"
       your_aspects: "アスペクト"
     header: 
+      admin: "admin"
       blog: "ブログ"
       code: "ソース"
       login: "ログイン"
@@ -351,6 +352,7 @@ ja:
       gender: "性別"
       in_aspects: "アスペクトで"
       location: "所在地"
+      remove_contact: "連絡先を削除する"
       remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show: 
       add_some: "追加する"
@@ -549,6 +551,7 @@ ja:
       dislike: "これ嫌い！"
       like: "これ好き！"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "%{names}を参照するのに成功しました。"

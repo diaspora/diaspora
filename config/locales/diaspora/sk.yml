@@ -238,6 +238,7 @@ sk:
       whats_new: "Čo je nové?"
       your_aspects: "Vaše aspekty"
     header: 
+      admin: "admin"
       blog: "blog"
       code: "kód"
       login: "prihlásenie"
@@ -351,6 +352,7 @@ sk:
       gender: "pohlavie"
       in_aspects: "v aspektoch"
       location: "location"
+      remove_contact: "odstrániť kontakt"
       remove_from: "Odstrániť užívateľa %{name} z aspektu %{aspect}?"
     show: 
       add_some: "add some"
@@ -549,6 +551,7 @@ sk:
       dislike: "I dislike this"
       like: "I like this"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"

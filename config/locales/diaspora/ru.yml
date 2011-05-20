@@ -83,7 +83,7 @@ ru:
     index: 
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Люди делятса с вами"
       post_a_message: "опубликовать сообщение>>"
     manage: 
       add_a_new_aspect: "Добавить новый аспект"
@@ -98,8 +98,8 @@ ru:
       failure: "не работает %{inspect}"
       success: "Персона перемещена в новый аспект"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Создать"
+      name: "Имя"
     no_posts_message: 
       start_talking: "Здесь ещё никто ничего не сказал.  Начните разговор!"
     one: "1 аспект"
@@ -238,6 +238,7 @@ ru:
       whats_new: "Что нового?"
       your_aspects: "Ваши аспекты"
     header: 
+      admin: "admin"
       blog: "блог"
       code: "код"
       login: "логин"
@@ -351,6 +352,7 @@ ru:
       gender: "пол"
       in_aspects: "в аспектах"
       location: "местоположение"
+      remove_contact: "удалить контакт"
       remove_from: "Удалить %{name} из %{aspect}?"
     show: 
       add_some: "добавить"
@@ -549,6 +551,7 @@ ru:
       dislike: "Не нравится"
       like: "Нравится"
       unlike: "В отличие от"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Успешно упомянут: %{names}"
@@ -598,7 +601,7 @@ ru:
       new_password: "Новый пароль"
       private_message: "... Вы получаете личное сообщение?"
       receive_email_notifications: "Получать извещение электронной почтой (email), если..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "... кто-то начинает делится с вами?"
       your_email: "Ваш адрес электронной почты (email)"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
@@ -623,7 +626,7 @@ ru:
       email_notifications_changed: "Уведомления по электронной почте изменены"
       language_changed: "Язык изменён"
       language_not_changed: "Не удалось изменить язык"
-      password_changed: "Пароль изменён"
+      password_changed: "Пароль изменён. Теперь вы можете войти в систему с новым паролем."
       password_not_changed: "Изменить пароль не удалось"
   webfinger: 
     fetch_failed: "Не удалось получить профиль для %{profile_url}"

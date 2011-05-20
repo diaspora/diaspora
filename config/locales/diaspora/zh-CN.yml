@@ -238,6 +238,7 @@ zh-CN:
       whats_new: "有什么新内容？"
       your_aspects: "您的分类"
     header: 
+      admin: "admin"
       blog: "博客"
       code: "源码"
       login: "登录"
@@ -351,6 +352,7 @@ zh-CN:
       gender: "性别"
       in_aspects: "所属分类"
       location: "位置"
+      remove_contact: "解除好友关系"
       remove_from: "要从 %{aspect} 删除 %{name} 吗？"
     show: 
       add_some: "添加一些"
@@ -549,6 +551,7 @@ zh-CN:
       dislike: "不喜欢"
       like: "喜欢"
       unlike: "Unlike"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "成功推荐了: %{names}"
