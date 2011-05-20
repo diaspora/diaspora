@@ -22,36 +22,37 @@ class UsersController < ApplicationController
   def update
 
     password_changed = false
-    u = params[:user]
-    @user = current_user
+    if u = params[:user]
+      @user = current_user
 
-    u.delete(:password) if u[:password].blank?
-    u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
-    u.delete(:language) if u[:language].blank?
+      u.delete(:password) if u[:password].blank?
+      u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
+      u.delete(:language) if u[:language].blank?
 
-    # change email notifications
-    if u[:email_preferences]
-      @user.update_user_preferences(u[:email_preferences])
-      flash[:notice] = I18n.t 'users.update.email_notifications_changed'
-    # change password
-    elsif u[:current_password] && u[:password] && u[:password_confirmation]
-      if @user.update_with_password(u)
-        password_changed = true
-        flash[:notice] = I18n.t 'users.update.password_changed'
-      else
-        flash[:error] = I18n.t 'users.update.password_not_changed'
-      end
-    elsif u[:language]
-      if @user.update_attributes(:language => u[:language])
-        I18n.locale = @user.language
-        flash[:notice] = I18n.t 'users.update.language_changed'
-      else
-        flash[:error] = I18n.t 'users.update.language_not_changed'
-      end
-    elsif u[:a_ids]
-      @user.aspects.update_all(:open => false)
-      unless u[:a_ids] == ["home"]
-        @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
+      # change email notifications
+      if u[:email_preferences]
+        @user.update_user_preferences(u[:email_preferences])
+        flash[:notice] = I18n.t 'users.update.email_notifications_changed'
+      # change password
+      elsif u[:current_password] && u[:password] && u[:password_confirmation]
+        if @user.update_with_password(u)
+          password_changed = true
+          flash[:notice] = I18n.t 'users.update.password_changed'
+        else
+          flash[:error] = I18n.t 'users.update.password_not_changed'
+        end
+      elsif u[:language]
+        if @user.update_attributes(:language => u[:language])
+          I18n.locale = @user.language
+          flash[:notice] = I18n.t 'users.update.language_changed'
+        else
+          flash[:error] = I18n.t 'users.update.language_not_changed'
+        end
+      elsif u[:a_ids]
+        @user.aspects.update_all(:open => false)
+        unless u[:a_ids] == ["home"]
+          @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
+        end
       end
     end
 
