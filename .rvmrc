@@ -1,1 +1,6 @@
-rvm ree-1.8.7-2011.03
+#!/bin/bash
+if [ -e '.rvmrc_custom' ]; then
+  source .rvmrc_custom;
+else
+  rvm --create use ree@diaspora;
+fi

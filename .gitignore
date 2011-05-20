@@ -14,6 +14,7 @@ config/deploy_config.yml
 .bundle
 vendor/bundle/*
 config/database.yml
+.rvmrc_custom
 
 # Generated files
 log/*
