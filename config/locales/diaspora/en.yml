@@ -559,7 +559,7 @@ en:
       invites_closed: "Invites are currently closed on this Diaspora pod"
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
-      by_email: "via Email"
+      by_email: "By Email"
     reshare:
       reshare: "Reshare"
     public_explain:
