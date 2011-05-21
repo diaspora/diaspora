@@ -160,8 +160,8 @@ en:
   bookmarklet:
     post_success: "Posted! Closing!"
     post_something: "Post something to Diaspora"
-    explanation: "%{link} from anywhere by bookmarking this link."
-    explanation_link_text: "Post to Diaspora"
+    explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
+    explanation_link_text: "this link"
 
   comments:
     zero: "no comments"
@@ -554,7 +554,7 @@ en:
     invitations:
       invites: "Invites"
       invite_someone: "Invite someone"
-      invitations_left: "(%{count} left)"
+      invitations_left: "%{count} left"
       dont_have_now: "You don't have any right now, but more invites are coming soon!"
       invites_closed: "Invites are currently closed on this Diaspora pod"
       invite_your_friends: "Invite your friends"

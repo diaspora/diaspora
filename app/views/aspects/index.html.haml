@@ -12,7 +12,7 @@
       :aspect_ids => @aspect_ids,
       :posts => @posts
 
-.span-7.last
+.span-7.leftBar.last
   #home_user_badge
     = owner_image_link
     %h3{:style => "position:relative;"}
@@ -20,14 +20,36 @@
       .description
         = link_to current_user.diaspora_handle, person_path(current_user.person)
 
-  %h4.section.invite_friends
-    != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
-  %h4.section.invite_friends= link_to "Generate an authentication token for Cubbi.es", token_path
-  - if @invites > 0
-    .section.invite_friends
-      %h4= t('shared.invitations.invite_your_friends')
-      = render "shared/invitations", :invites => @invites
+  .section
+    .title
+      = image_tag('/images/icons/bookmark.png')
+      %h5
+        Diaspora Bookmarklet
+    .content
+      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
+  .section
+    .title
+      = image_tag('/images/icons/cubbies.png')
+      %h5
+        Connect to Cubbi.es
+    .content
+      Cubbi.es is the first Diaspora application under development.
+      = link_to "Follow the instructions to get started", token_path
+
+  - if @invites > 0
+    .section
+      .title
+
+        = image_tag('/images/icons/plus.png')
+        %h5
+          .right
+            = t('shared.invitations.invitations_left', :count => @invites)
+          = t('shared.invitations.invite_your_friends')
+      .content
+        = render "shared/invitations", :invites => @invites
+
+  %hr
 
   #aspect_listings.section
     = render 'aspects/aspect_listings', :aspects => @aspects
