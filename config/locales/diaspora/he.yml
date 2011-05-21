@@ -42,6 +42,14 @@ he:
         unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: "בבטחה?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "אירע כשל בהסרת המשתמש מההיבט"
       no_membership: "לא ניתן למצוא את איש הקשר הנבחר בהיבט זה"
@@ -130,27 +138,12 @@ he:
     other: "%{count} תגובות"
     zero: "אין תגובות"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "אירע כשל ביצירת איש קשר"
-    destroy: 
-      failure: "אירע כשל בניתוק מאיש הקשר %{name}"
-      success: "הניתוק מאיש הקשר %{name} הצליח"
     few: "%{count} אנשי קשר"
     many: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
-    share_with_pane: 
-      add_new_aspect: "הוספה להיבט חדש"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "התחלת השיתוף עם %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "אין אנשי קשר"

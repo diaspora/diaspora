@@ -42,6 +42,14 @@ pl:
         unknown: "Wideo bez nazwy"
   are_you_sure: "Na pewno?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Nie udało się usunąć osoby z aspektu"
       no_membership: "Nie udało się odnaleźć wskazanej osoby w tym aspekcie"
@@ -98,8 +106,8 @@ pl:
       failure: "nie zadziałało %{inspect}"
       success: "Osoba przeniesiona do nowego aspektu"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Stwórz"
+      name: "Nazwa"
     no_posts_message: 
       start_talking: "Nikt jeszcze nic nie powiedział. Rozkręć rozmowę!"
     one: "1 aspekt"
@@ -118,7 +126,7 @@ pl:
     explanation: "%{link} z każdego miejsca dodając ten link do zakładek."
     explanation_link_text: "Publikuj w serwisie Diaspora"
     post_something: "Napisz coś na Diasporze"
-    post_success: "Posted! Closing!"
+    post_success: "Post opublikowany! Zamykam okno!"
   cancel: "Anuluj"
   comments: 
     few: "%{count} komentarze"
@@ -130,27 +138,12 @@ pl:
     other: "%{count} komentarzy"
     zero: "brak komentarzy"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Nie udało się utworzyć kontaktu"
-    destroy: 
-      failure: "Nie udało się odłączyć od %{name}"
-      success: "Pomyślnie odłączono od %{name}"
     few: "%{count} kontakty"
     many: "%{count} kontaktów"
     one: "1 kontakt"
     other: "%{count} kontaktów"
-    share_with_pane: 
-      add_new_aspect: "dodaj do nowego aspektu"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Zacznij współdzielić z %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "brak kontaktów"
@@ -316,7 +309,7 @@ pl:
       subject: "Wiadomość od twojego panelu zarządzania Diaspora:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
+      sign_in: "Zaloguj się"
       subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Dzięki,"
   ok: "OK"

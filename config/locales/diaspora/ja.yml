@@ -42,6 +42,14 @@ ja:
         unknown: "不明な動画タイトル"
   are_you_sure: "本当にいいですか。"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "連絡先をアスペクトから除外するのに失敗しました。"
       no_membership: "選択した連絡先はそのアスペクト内に見つかりませんでした"
@@ -130,27 +138,12 @@ ja:
     other: "コメント%{count}件"
     zero: "コメントがありません"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "連絡先を作成するのに失敗しました。"
-    destroy: 
-      failure: "%{name}さんの連絡先を削除するのに失敗しました。"
-      success: "%{name}さんの連絡先を削除するのに成功しました。"
     few: "連絡先%{count}件"
     many: "連絡先%{count}件"
     one: "連絡先1件"
     other: "連絡先%{count}件"
-    share_with_pane: 
-      add_new_aspect: "新しいアスペクトに追加する"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "%{name}さんと共有を開始する"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "連絡先無し"

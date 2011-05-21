@@ -42,6 +42,14 @@ ru:
         unknown: "Неизвестное название видеозаписи"
   are_you_sure: "Вы уверены?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Не удалось удалить человека из аспектов"
       no_membership: "Не удалось найти этого человека в этом аспекте"
@@ -130,27 +138,12 @@ ru:
     other: "%{count} комментариев"
     zero: "нет комментариев"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Не удалось создать контакт"
-    destroy: 
-      failure: "Не удалось отсоединить от %{name}"
-      success: "Успешно отключены от %{name}"
     few: "%{count} контакт[-а, -ов]"
     many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
-    share_with_pane: 
-      add_new_aspect: "добавить в новый аспект"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Начать обмен с %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "ни одного контакта"

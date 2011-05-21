@@ -42,6 +42,14 @@ ko:
         unknown: "알 수 없는 비디오 제목"
   are_you_sure: "확실합니까?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "애스펙에서 지우지 못했습니다"
       no_membership: "애스펙에서 찾을 수 없는 사람입니다"
@@ -130,27 +138,12 @@ ko:
     other: "댓글 %{count}개"
     zero: "댓글 없음"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "애스펙에 넣기"
-      toggle: 
-        few: "애스펙 %{count}개 안에 있습니다"
-        many: "애스펙 %{count}개 안에 있습니다"
-        one: "애스펙 한 개 안에 있습니다"
-        other: "애스펙 %{count}개 안에 있습니다"
-        zero: "애스펙에 넣기"
     create: 
       failure: "컨택을 만들 수 없습니다"
-    destroy: 
-      failure: "%{name} 컨택을 끊을 수 없습니다"
-      success: "%{name} 컨택을 성공적으로 끊었습니다"
     few: "컨택 %{count}명"
     many: "컨택 %{count}명"
     one: "컨택 한 명"
     other: "컨택 %{count}명"
-    share_with_pane: 
-      add_new_aspect: "새 애스펙에 넣기"
-      following: "%{name} 님을 애스펙에 넣으면, 팔로잉과 공유물 보내기를 시작합니다."
-      share_with: "%{name} 님과 공유 시작"
     sharing: 
       people_sharing: "나와 공유하는 사람들:"
     zero: "컨택 없음"

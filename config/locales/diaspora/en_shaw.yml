@@ -42,6 +42,14 @@ en_shaw:
         unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
   are_you_sure: "𐑸 𐑿 𐑖𐑻?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
       no_membership: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑞 𐑕𐑦𐑤𐑧𐑒𐑑𐑩𐑛 𐑐𐑻𐑕𐑩𐑯 𐑦𐑯 𐑞𐑨𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -130,27 +138,12 @@ en_shaw:
     other: "%{count} 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     zero: "𐑯𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-    destroy: 
-      failure: "𐑓𐑱𐑤𐑛 𐑑 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 𐑓𐑮𐑪𐑥 %{name}"
-      success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑓𐑮𐑪𐑥 %{name}"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-    share_with_pane: 
-      add_new_aspect: "𐑨𐑛 𐑑 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"

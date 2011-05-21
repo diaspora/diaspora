@@ -42,6 +42,14 @@ de:
         unknown: "Unbekannter Video-Titel"
   are_you_sure: "Bist du sicher?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Zu Aspekt hinzufügen"
+      toggle: 
+        few: "In %{count} Aspekten"
+        many: "In %{count} Aspekten"
+        one: "In einem Aspekt"
+        other: "In %{count} Aspekten"
+        zero: "Zu Aspekt hinzufügen"
     destroy: 
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
       no_membership: "Konnte die ausgewählte Person in diesem Aspekt leider nicht finden"
@@ -115,8 +123,8 @@ de:
     zero: "keine Aspekte"
   back: "Zurück"
   bookmarklet: 
-    explanation: "%{link} von überall in dem du diesen Link als Lesezeichen speicherst."
-    explanation_link_text: "Erstelle einen Beitrag in Diaspora"
+    explanation: "Erstelle einen Beitrag in Diaspora von überall in dem du %{link} als Lesezeichen speicherst."
+    explanation_link_text: "diesen Link"
     post_something: "Erstelle einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen…"
   cancel: "Abbrechen"
@@ -130,27 +138,12 @@ de:
     other: "%{count} Kommentare"
     zero: "%{count} Kommentare"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Zu Aspekt hinzufügen"
-      toggle: 
-        few: "In %{count} Aspekten"
-        many: "In %{count} Aspekten"
-        one: "In einem Aspekt"
-        other: "In %{count} Aspekten"
-        zero: "Zu Aspekt hinzufügen"
     create: 
       failure: "Konnte Kontakt nicht erstellen"
-    destroy: 
-      failure: "Konnte nicht von %{name} trennen"
-      success: "Erfolgreich von %{name} getrennt"
     few: "%{count} Kontakte"
     many: "%{count} Kontakte"
     one: "1 Kontakt"
     other: "%{count} Kontakte"
-    share_with_pane: 
-      add_new_aspect: "zu neuem Aspekt hinzufügen"
-      following: "Wenn du  %{name} einem Aspekt hinzufügst, fängst du an ihm zu folgen und Beiträge an ihn zu senden."
-      share_with: "Beginne Inhalte mit %{name} zu teilen"
     sharing: 
       people_sharing: "Leute die mit dir teilen:"
     zero: "Keine Kontakte"
@@ -517,10 +510,10 @@ de:
       logged_in_as: "Angemeldet als %{name}"
       your_aspects: "Deine Aspekte"
     invitations: 
-      by_email: "per E-Mail"
+      by_email: "Per E-Mail"
       dont_have_now: "Du hast im Moment keine Einladungen zur Verfügung, aber es wird bald wieder neue geben!"
       from_facebook: "Von Facebook"
-      invitations_left: "(%{count} übrig)"
+      invitations_left: "%{count} übrig"
       invite_someone: "Jemanden einladen"
       invite_your_friends: "Lade deine Freunde ein"
       invites: "Einladungen"

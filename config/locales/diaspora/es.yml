@@ -42,6 +42,14 @@ es:
         unknown: "Título de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "No se pudo eliminar a la persona del aspecto"
       no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto"
@@ -130,27 +138,12 @@ es:
     other: "%{count} comentarios"
     zero: "no hay comentarios"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Añadir al aspecto"
-      toggle: 
-        few: "En %{count} aspectos"
-        many: "En %{count} aspectos"
-        one: "En %{count} aspecto"
-        other: "En %{count} aspectos"
-        zero: "Añadir al aspecto"
     create: 
       failure: "No se pudo crear el contacto"
-    destroy: 
-      failure: "No se pudo desconectar de %{name}"
-      success: "Se desconectó con éxito de %{name}"
     few: "%{count} contactos"
     many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
-    share_with_pane: 
-      add_new_aspect: "añadir nuevo aspecto"
-      following: "Colocando a %{name} en un aspecto, compartireis vuestras publicaciones."
-      share_with: "Empezar a compartir con %{name}"
     sharing: 
       people_sharing: "Compartiendo contigo:"
     zero: "no hay contactos"

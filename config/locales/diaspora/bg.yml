@@ -42,6 +42,14 @@ bg:
         unknown: "Unknown Video Title"
   are_you_sure: "Сигурни ли сте?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Добавяне в аспект"
+      toggle: 
+        few: "В %{count} аспекта"
+        many: "В %{count}аспекта"
+        one: "В %{count} аспект"
+        other: "В %{count} аспекта"
+        zero: "Добавяне в аспект"
     destroy: 
       failure: "Лицето не бе премахнато от аспекта"
       no_membership: "Избраното лице не може да бъде намерено в този аспект"
@@ -115,8 +123,8 @@ bg:
     zero: "няма аспекти"
   back: "Назад"
   bookmarklet: 
-    explanation: "%{link} от където и да е, запаметявайки връзката като отметка."
-    explanation_link_text: "Публикувайте в Diaspora"
+    explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
+    explanation_link_text: "тази връзка"
     post_something: "Публикуване в Diaspora"
     post_success: "Публикувано!"
   cancel: "Отказ"
@@ -130,27 +138,12 @@ bg:
     other: "%{count} коментара"
     zero: "няма коментари"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Добавяне в аспект"
-      toggle: 
-        few: "В %{count} аспекта"
-        many: "В %{count} аспекта"
-        one: "В %{count} аспект"
-        other: "В %{count} аспекта"
-        zero: "Добавяне в аспект"
     create: 
       failure: "Контактът не бе създаден"
-    destroy: 
-      failure: "Връзката с %{name} не бе премахната"
-      success: "Връзката с %{name} е премахната"
     few: "%{count} контакта"
     many: "%{count} контакта"
     one: "1 контакт"
     other: "%{count} контакта"
-    share_with_pane: 
-      add_new_aspect: "добавяне на нов аспект"
-      following: "Поставяйки %{name} в аспект ще започнете да следвате и изпращате публикации до тях."
-      share_with: "Започнете да споделяте с %{name}"
     sharing: 
       people_sharing: "Хора споделящи с вас:"
     zero: "няма контакти"

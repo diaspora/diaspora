@@ -42,6 +42,14 @@ eu:
         unknown: "Bideo izen ezezaguna"
   are_you_sure: "Ziur al zaude?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Akatsa pertsona alderditik ezabatzean"
       no_membership: "Ezin izan da hautatutako pertsona aurkitu alderdian"
@@ -130,27 +138,12 @@ eu:
     other: "%{count} iruzkin"
     zero: "iruzkinik ez"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Alderdira gehitu"
-      toggle: 
-        few: "%{count} alderdietan"
-        many: "%{count} alderdietan"
-        one: "Alderdi %{count}ean"
-        other: "%{count} alderdietan"
-        zero: "Alderdira gehitu"
     create: 
       failure: "Akatsa adiskide berria sortzean"
-    destroy: 
-      failure: "Akatsa %{name} ezabatzean"
-      success: "Arrakastaz ezabatu duzu %{name} adiskide zerrendatik"
     few: "%{count} adiskide"
     many: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
-    share_with_pane: 
-      add_new_aspect: "alderdi berrira gehitu"
-      following: "%{name} alderdi batean sartuz, haiei jarraitzen eta mezuak bidaltzen hasiko zara."
-      share_with: "%{name}(r)ekin harremanetan hasi"
     sharing: 
       people_sharing: "Zurekin harremanetan dagoen jendea:"
     zero: "adiskiderik ez"

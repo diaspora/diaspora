@@ -14,8 +14,8 @@ it:
         other: "In {{count}} aspetti"
         zero: "Aggiungi ad un aspetto"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "nascondi i commenti"
+      show: "mostra tutti i commenti"
     confirm_dialog: "Sei sicuro?"
     failed_to_like: "Valutazione fallita!"
     failed_to_post_message: "Invio messaggio fallito!"

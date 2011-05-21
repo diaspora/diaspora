@@ -42,6 +42,14 @@ zh-TW:
         unknown: "影片標題不明"
   are_you_sure: "你確定嗎?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "從面向中移除聯絡人失敗"
       no_membership: "在面向中找不到選擇的聯絡人"
@@ -130,27 +138,12 @@ zh-TW:
     other: "%{count}則回應"
     zero: "沒有回應"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "建立聯繫失敗"
-    destroy: 
-      failure: "跟 %{name} 切斷聯繫失敗"
-      success: "成功切斷與 %{name} 的聯繫"
     few: "%{count}個聯繫"
     many: "%{count}個聯繫"
     one: "1個聯繫"
     other: "%{count}個聯繫"
-    share_with_pane: 
-      add_new_aspect: "加入至新的面向"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "開始跟 %{name} 分享"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "沒有任何聯繫"

@@ -42,6 +42,14 @@ fr:
         unknown: "Titre de vidéo inconnu"
   are_you_sure: "Êtes-vous certains?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Impossible de retirer la personne de l'aspect"
       no_membership: "Impossible de trouver la personne sélectionnée dans cet aspect"
@@ -130,27 +138,12 @@ fr:
     other: "%{count} commentaires"
     zero: "aucun commentaire"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Ajouter à l'aspect"
-      toggle: 
-        few: "Dans %{count} aspects"
-        many: "Dans %{count} aspects"
-        one: "Dans %{count} aspect"
-        other: "Dans %{count} aspects"
-        zero: "Ajouter à l'aspect"
     create: 
       failure: "Impossible de créer le contact"
-    destroy: 
-      failure: "Impossible de se déconnecter de %{name}"
-      success: "Vous êtes déconnecté(e) de %{name}"
     few: "%{count} contacts"
     many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
-    share_with_pane: 
-      add_new_aspect: "ajouter à un nouvel aspect"
-      following: "En plaçant %{name} dans un aspect, vous pourrez commencer à leur envoyer des messages."
-      share_with: "Commencer à partager avec %{name}"
     sharing: 
       people_sharing: "Personnes partageant avec vous :"
     zero: "aucun contact"
@@ -410,7 +403,7 @@ fr:
       notice: "La photo a été mise à jour."
   post_visibilites: 
     update: 
-      post_hidden: "Le message de % {name} à été masqué."
+      post_hidden: "Le message de %{name} à été masqué."
   posts: 
     doesnt_exist: "cette publication n'existe pas !"
   previous: "précédent"
@@ -551,7 +544,7 @@ fr:
       dislike: "Je n'aime pas"
       like: "J'aime"
       unlike: "Je n'aime pas"
-      via: "via {link}%"
+      via: "via %{link}"
   status_messages: 
     create: 
       success: "Mention de : %{names}"

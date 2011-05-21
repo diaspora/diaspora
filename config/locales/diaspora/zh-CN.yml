@@ -42,6 +42,14 @@ zh-CN:
         unknown: "未知影片标题"
   are_you_sure: "你确定吗？"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "从分类中移除好友失败"
       no_membership: "在分类中找不到选择的好友"
@@ -130,27 +138,12 @@ zh-CN:
     other: "%{count}条回应"
     zero: "没有回复"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "添加好友失败"
-    destroy: 
-      failure: "与 %{name} 取消好友关系失败"
-      success: "与 %{name} 取消好友关系成功"
     few: "%{count}个好友"
     many: "%{count}个好友"
     one: "1个好友"
     other: "%{count}个好友"
-    share_with_pane: 
-      add_new_aspect: "添加到新的分类"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "与 %{name} 分享"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "没有好友"

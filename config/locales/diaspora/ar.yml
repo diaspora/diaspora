@@ -42,6 +42,14 @@ ar:
         unknown: "عنوان فيديو غير محدد"
   are_you_sure: "هل أنت متأكد؟"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "فشل في حذف عضو من الفئة"
       no_membership: "لم يتم إيجاد العضو المحدد في هذه الفئة"
@@ -130,27 +138,12 @@ ar:
     other: "%{count} تعليقات"
     zero: "لا تعليقات"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "فشل في إنشاء الإتصال"
-    destroy: 
-      failure: "فشل في فصل اتصالك مع %{name}"
-      success: "تم فصل اتصالك مع  %{name} بنجاح"
     few: "%{count} أعضاء"
     many: "%{count} أعضاء"
     one: "1 عضو"
     other: "%{count} أعضاء"
-    share_with_pane: 
-      add_new_aspect: "إضافة إلى فئة جديدة"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "ابدأ المشاركة مع %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "لا يوجد أعضاء"

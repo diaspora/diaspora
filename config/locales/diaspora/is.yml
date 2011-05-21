@@ -42,6 +42,14 @@ is:
         unknown: "Óþekktur vídeótitill"
   are_you_sure: "Ertu viss?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Ekki tókst að fjarlægja persónu af ásýnd"
       no_membership: "Valda manneskjan fannst ekki í þeirri ásýnd"
@@ -130,27 +138,12 @@ is:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Ekki tókst að mynda tengsl"
-    destroy: 
-      failure: "Ekki tókst að aftengjast %{name}"
-      success: "Tókst að aftengjast %{name}"
     few: "%{count} tengsl"
     many: "%{count} contacts"
     one: "Ein tengsl"
     other: "%{count} tengsl"
-    share_with_pane: 
-      add_new_aspect: "bæta við í nýja ásýnd"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Byrja að deila með %{nafn}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "Engin tengsl"

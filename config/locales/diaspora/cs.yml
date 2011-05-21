@@ -42,6 +42,14 @@ cs:
         unknown: "Neznámý název videa"
   are_you_sure: "Jste si jist?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "přidat k aspektu"
+      toggle: 
+        few: "v %{count} aspektech"
+        many: "v %{count} aspektech"
+        one: "v %{count} aspektech"
+        other: "v %{count} aspektech"
+        zero: "přidat k aspektu"
     destroy: 
       failure: "Nepodařilo se odstranit osobu z aspektu"
       no_membership: "Nelze najít vybrané osoby v tomto aspektu"
@@ -115,8 +123,8 @@ cs:
     zero: "žádné aspekty"
   back: "Zpět"
   bookmarklet: 
-    explanation: "%{link} odkudkoliv pomocí tohoto odkazu."
-    explanation_link_text: "Příspěvek do Diaspory"
+    explanation: "Přidat na Diaspora odkudkoliv do záložek %{link}."
+    explanation_link_text: "tento odkaz"
     post_something: "Poslat něco na Diasporu"
     post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
@@ -130,27 +138,12 @@ cs:
     other: "%{count} komentářů"
     zero: "žádné komentáře"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Přidat do aspektu"
-      toggle: 
-        few: "Ve %{count} aspektech"
-        many: "V %{count} aspektech"
-        one: "V %{count} aspektu"
-        other: "V %{count} aspektech"
-        zero: "Přidat do aspektu"
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
-    destroy: 
-      failure: "Nepodařilo se odpojit od %{name}"
-      success: "Úspěšně odpojeno od %{name}"
     few: "%{count} kontaktů"
     many: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
-    share_with_pane: 
-      add_new_aspect: "přidat do nového aspektu"
-      following: "Umístěním %{name} v aspektu, začnete sledovat jeho příspěvky a odesílat mu vaše vlastní."
-      share_with: "Začít sdílet s %{name}"
     sharing: 
       people_sharing: "Lidé, kteří s vámi sdílí:"
     zero: "žádné kontakty"
@@ -238,7 +231,7 @@ cs:
       whats_new: "co je nového?"
       your_aspects: "vaše aspekty"
     header: 
-      admin: "admin"
+      admin: "správce"
       blog: "blog"
       code: "kód"
       login: "přihlásit"
@@ -352,7 +345,7 @@ cs:
       gender: "pohlaví"
       in_aspects: "v aspektech"
       location: "poloha"
-      remove_contact: "remove contact"
+      remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
       add_some: "přidat nějaké"
@@ -517,10 +510,10 @@ cs:
       logged_in_as: "přihlášen jako %{name}"
       your_aspects: "vaše aspekty"
     invitations: 
-      by_email: "pomocí emailu"
+      by_email: "e-mailem"
       dont_have_now: "Již nemáte žádné, ale další brzy přibudou!"
       from_facebook: "z Facebooku"
-      invitations_left: "(%{count} zbývá)"
+      invitations_left: "%{count} zbývá"
       invite_someone: "Pozvěte někoho"
       invite_your_friends: "Pozvěte vaše přátele"
       invites: "Pozvánky"
@@ -551,7 +544,7 @@ cs:
       dislike: "to se mi nelíbí"
       like: "to se mi líbí"
       unlike: "to se mi už nelíbí"
-      via: "via %{link}"
+      via: "skrz %{link}"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"

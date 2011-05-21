@@ -42,6 +42,14 @@ el:
         unknown: "Άγνωστος τίτλος video"
   are_you_sure: "Είστε σίγουρος/η;"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
       no_membership: "Δεν βρέθηκε το επιλεγμένο άτομο σε αυτή την πτυχή"
@@ -130,27 +138,12 @@ el:
     other: "%{count} σχόλια"
     zero: "κανένα σχόλιο"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Προσθήκη σε πτυχή "
-      toggle: 
-        few: "Σε %{count} πτυχές"
-        many: "Σε %{count} πτυχές"
-        one: "Σε %{count} πτυχές"
-        other: "Σε %{count} πτυχές"
-        zero: "Προσθήκη σε πτυχή "
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
-    destroy: 
-      failure: "Αποτυχία αποσύνδεσης από τον/την %{name}"
-      success: "Επιτυχία αποσύνδεσης από τον/την %{name}"
     few: "%{count} επαφές"
     many: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
-    share_with_pane: 
-      add_new_aspect: "προσθήκη σε νεα πτυχή"
-      following: "Τοποθετώντας το χρήστη %{name} σε μια πτυχή, θα ξεκινήσετε να τον παρακολουθείτε και να του στέλνετε δημοσιεύσεις."
-      share_with: "Έναρξη διαμοιρασμού με τον/την %{name}"
     sharing: 
       people_sharing: "Άτομα που διαμοιράζονται μαζί σας: "
     zero: "καμία επαφή"
@@ -352,7 +345,7 @@ el:
       gender: "φύλο"
       in_aspects: "στις πτυχές"
       location: "τοποθεσία"
-      remove_contact: "remove contact"
+      remove_contact: "διαγραφή επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
       add_some: "προσθέστε κάποιες"

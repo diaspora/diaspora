@@ -42,6 +42,14 @@ nl:
         unknown: "Onbekende Videotitel"
   are_you_sure: "Weet je het zeker?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Persoon verwijderen van aspect mislukt"
       no_membership: "Kon de geselecteerde persoon niet vinden in dat aspect"
@@ -130,27 +138,12 @@ nl:
     other: "%{count} reacties"
     zero: "geen reacties"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Voeg toe aan aspect"
-      toggle: 
-        few: "In %{count} aspecten"
-        many: "In %{count} aspecten"
-        one: "In %{count} aspect"
-        other: "In %{count} aspecten"
-        zero: "Voeg toe aan aspect"
     create: 
       failure: "Verbinding maken mislukt"
-    destroy: 
-      failure: "Verbinding met %{name} verbreken mislukt"
-      success: "Verbinding met %{name} succesvol verbroken"
     few: "%{count} contacten"
     many: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
-    share_with_pane: 
-      add_new_aspect: "voeg toe aan nieuw aspect"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Start delen met %{name}"
     sharing: 
       people_sharing: "Mensen die met jou delen:"
     zero: "geen contacten"

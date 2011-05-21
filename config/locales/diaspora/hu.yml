@@ -42,6 +42,14 @@ hu:
         unknown: "Ismeretlen videó cím"
   are_you_sure: "Biztos vagy benne?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Személy törlése a csoportból sikertelen"
       no_membership: "Nem található a személy ebben a csoportban"
@@ -130,27 +138,12 @@ hu:
     other: "%{count} hozzászólás"
     zero: "nincs hozzászólás"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
-    destroy: 
-      failure: "Sikertelen a kapcsolat megszakítása vele: %{name}"
-      success: "Kapcsolat megszakítva vele: %{name}"
     few: "%{count} ismerős"
     many: "%{count} ismerős"
     one: "1 ismerős"
     other: "%{count} ismerős"
-    share_with_pane: 
-      add_new_aspect: "hozzáadás új csoporthoz"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Megosztás indítása vele: %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "nincs ismerős"

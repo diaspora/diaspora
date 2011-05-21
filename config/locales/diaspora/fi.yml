@@ -42,6 +42,14 @@ fi:
         unknown: "Videon Otsikko Tuntematon"
   are_you_sure: "Oletko varma?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Henkilön poisto näkymästä epäonnistui"
       no_membership: "Kyseistä henkilöä ei löytynyt valitusta näkymästä"
@@ -130,27 +138,12 @@ fi:
     other: "%{count} kommenttia"
     zero: "ei kommentteja"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Kontaktin luonti epäonnistui"
-    destroy: 
-      failure: "Katkaiseminen kontaktiin %{name} epäonnistui"
-      success: "Yhteys henkilöön %{name} katkaistu onnistuneesti"
     few: "%{count} kontaktia"
     many: "%{count} kontaktia"
     one: "1 kontakti"
     other: "%{count} kontaktia"
-    share_with_pane: 
-      add_new_aspect: "Lisää uusi näkymä"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Aloita jakamaan %{name} kanssa"
     sharing: 
       people_sharing: "Ihmiset jotka jakavat kanssasi:"
     zero: "ei kontakteja"

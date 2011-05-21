@@ -42,6 +42,14 @@ it:
         unknown: "Video Senza Nome"
   are_you_sure: "Sei sicuro?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Impossibile rimuovere la persona dall'aspetto"
       no_membership: "Impossibile trovare la persona selezionata in questo aspetto"
@@ -130,27 +138,12 @@ it:
     other: "%{count} commenti"
     zero: "nessun commento"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Aggiungi ad un aspetto"
-      toggle: 
-        few: "In %{count} aspetti"
-        many: "In %{count} aspetti"
-        one: "In %{count} aspetto"
-        other: "In %{count} aspetti"
-        zero: "Aggiungi ad un aspetto"
     create: 
       failure: "Impossibile creare il contatto"
-    destroy: 
-      failure: "Impossibile disconnettersi da %{name}"
-      success: "Disconnessione effettuata con successo da %{name}"
     few: "%{count} contatti"
     many: "%{count} contatti"
     one: "1 contatto"
     other: "%{count} contatti"
-    share_with_pane: 
-      add_new_aspect: "aggiungi ad un nuovo aspetto"
-      following: "Mettendo %{name} in un aspetto, inizierai a mandare e ricevere messaggi con quella persona."
-      share_with: "Inizia a condividere con %{name}"
     sharing: 
       people_sharing: "Persone in condivisione con te:"
     zero: "nessun contatto"
@@ -202,7 +195,7 @@ it:
       login_here: "accedi qui"
       ownership: "Possesso"
       ownership_explanation: "Tu possiedi le tue foto, e non dovresti perderne il possesso solo per condividerle. Tu mantieni il possesso di qualsiasi cosa condividi su Diaspora e ti viene dato pieno controllo su come viene distribuita."
-      share_what_you_want: "Condividi ciò che vuoi, con chi vuoi"
+      share_what_you_want: "Condividi ciò che vuoi, con chi vuoi."
       simplicity: "Semplicità"
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni solo per tenere il tuo profilo sicuro."
       tagline_first_half: "Condividi ciò che desideri,"
@@ -211,11 +204,11 @@ it:
     check_token: 
       not_found: "Token di invito non trovato"
     create: 
-      already_contacts: "Sei gi&agrave; connessa con questa persona"
-      already_sent: "Hai gi&agrave; invitato questa persona."
+      already_contacts: "Sei già connessa con questa persona"
+      already_sent: "Hai già invitato questa persona."
       no_more: "Non hai più inviti a disposizione"
-      rejected: "Questo indirizzo email ha dei problemi: "
-      sent: "Il tuo invito è stato inviato."
+      rejected: "Questi indirizzi email hanno dei problemi:"
+      sent: "Il tuoi inviti sono stati inviati a:"
     edit: 
       sign_up: "iscriviti"
     new: 
@@ -255,7 +248,7 @@ it:
         zero: "0 Non mi piace"
       people_like_this: 
         few: "%{count} Mi piace"
-        many: "Piace a %{count}"
+        many: "%{count} Mi piace"
         one: "%{count} Mi piace"
         other: "%{count} Mi piace"
         zero: "0 Mi piace"
@@ -273,7 +266,7 @@ it:
         many: "%{count} nuove notifiche"
         one: "una nuova notifica"
         other: "%{count} nuove notifiche"
-        zero: "nessuna notifica"
+        zero: "nessuna nuova notifica"
     index: 
       and: "e"
       and_others: "e altri %{number}"
@@ -294,13 +287,13 @@ it:
       commented: "ha commentato il tuo post:"
       sign_in: "Accedi per vederlo."
       subject: "%{name} ha commentato il tuo post."
-    diaspora: "l'email robot di diaspora"
+    diaspora: "il robot che manda email per diaspora"
     hello: "Ciao %{name}!"
     liked: 
       liked: "%{name} ha appena apprezzato il tuo post: "
       sign_in: "Accedi per vedere l'elemento"
       subject: "%{name} ha appena apprezzato il tuo post"
-    love: "amore,"
+    love: "pace e bene,"
     manage_your_email_settings: "gestisci le tue impostazioni email"
     mentioned: 
       mentioned: "ti ha menzionato in un post:"
@@ -352,7 +345,7 @@ it:
       gender: "sesso"
       in_aspects: "negli aspetti"
       location: "dove ti trovi"
-      remove_contact: "remove contact"
+      remove_contact: "rimuovi contatto"
       remove_from: "Rimuovere %{name} da %{aspect}?"
     show: 
       add_some: "aggiungine alcune"
@@ -364,7 +357,7 @@ it:
       no_posts: "nessun post da mostrare!"
       not_connected: "Non sei in contatto con %{name}"
       recent_posts: "Post Recenti"
-      recent_public_posts: "Post pubblici recenti"
+      recent_public_posts: "Post Pubblici Recenti"
       return_to_aspects: "Torna alla pagina dei tuoi aspetti"
       see_all: "Visualizza tutti"
       start_sharing: "inizia a condividere"
@@ -377,7 +370,7 @@ it:
     create: 
       integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
       runtime_error: "La fotografia non si è caricata. Hai dimenticato forse di allacciare la cintura?"
-      type_error: "La foto non si è caricata.  Sei sicuro di aver aggiunto un'immagine?"
+      type_error: "Errore nel caricare la foto.  Sei sicuro di aver aggiunto un'immagine?"
     destroy: 
       notice: "Foto eliminata."
     edit: 
@@ -443,7 +436,7 @@ it:
       cancel_my_account: "Cancella il mio account"
       edit: "Modifica %{name}"
       leave_blank: "(lascialo bianco se non vuoi modificarlo)"
-      password_to_confirm: "(abbiamo bisogno della tua password per confermare le tue modifiche)"
+      password_to_confirm: "(abbiamo bisogno della tua password attuale per confermare le tue modifiche)"
       unhappy: "Triste?"
       update: "Aggiorna"
     new: 
@@ -536,7 +529,7 @@ it:
       add_photos: "aggiungi foto"
       all: "tutti"
       all_contacts: "tutti i contatti"
-      click_to_share_with: "Clicca per condividere con: "
+      click_to_share_with: "Clicca per condividere con:"
       make_public: "rendi pubblico"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
@@ -560,17 +553,17 @@ it:
     helper: 
       no_message_to_display: "Nessun messaggio da visualizzare."
     new: 
-      mentioning: "stai menzionando: %{person}"
+      mentioning: "Stai menzionando: %{person}"
     show: 
       destroy: "Elimina"
       not_found: "Ci scusiamo, non possiamo trovare il post."
       permalink: "permalink"
     too_long: 
-      few: "per favore scrivi i tuoi messaggi di stato in meno di %{count} caratteri"
-      many: "per favore scrivi i tuoi messaggi di stato in meno di %{count} caratteri"
-      one: "per favore scrivi i tuoi messaggi di stato in meno di %{count} carattere"
-      other: "per favore scrivi i tuoi messaggi di stato in meno di %{count} caratteri"
-      zero: "per favore scrivi i tuoi messaggi di stato in meno di %{count} caratteri"
+      few: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
+      many: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
+      one: "per favore scrivi i tuoi messaggi di stato con meno di %{count} carattere"
+      other: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
+      zero: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
   stream_helper: 
     hide_comments: "nascondi i commenti"
     show_comments: "mostra tutti i commenti"
@@ -600,14 +593,14 @@ it:
       mentioned: "...sei menzionato in un post?"
       new_password: "Nuova Password"
       private_message: "...hai ricevuto un messaggio privato?"
-      receive_email_notifications: "Vuoi ricevere notifiche via email?"
+      receive_email_notifications: "Ricevi notifiche via email quando..."
       started_sharing: "...qualcuno vuole condividere con te?"
       your_email: "La tua email"
       your_handle: "Il tuo contatto Diaspora"
     getting_started: 
       connect_on_diaspora: "Connetti su Diaspora"
-      connect_services: "Collega i tuoi servizi"
-      could_not_find_anyone: "Non è possibile trovare neanche un tuo amico su Diaspora*. Usa barra di ricerca amici per trovarli."
+      connect_services: "Collega altri tuoi servizi"
+      could_not_find_anyone: "Non è possibile trovare neanche un tuo amico su Diaspora*. Usa la barra di ricerca amici per trovarli."
       edit_profile: "Modifica il tuo profilo"
       finished: "Finito!"
       save_and_continue: "Salva e continua"

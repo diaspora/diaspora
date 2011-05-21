@@ -42,6 +42,14 @@ sk:
         unknown: "Neznámy názov videa"
   are_you_sure: "Ste si istý?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Nepodarilo sa odstrániť osobu z hľadiska"
       no_membership: "Could not find the selected person in that aspect"
@@ -130,27 +138,12 @@ sk:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
-    destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
     few: "kontakty (%{count})"
     many: "%{count} contacts"
     one: "1 kontakt"
     other: "kontakty (%{count})"
-    share_with_pane: 
-      add_new_aspect: "pridať k novému aspektu"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Start sharing with %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "žiadne kontakty"

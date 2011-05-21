@@ -42,6 +42,14 @@ tr:
         unknown: "Unknown Video Title"
   are_you_sure: "Are you sure?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Failed to remove person from aspect"
       no_membership: "Could not find the selected person in that aspect"
@@ -130,27 +138,12 @@ tr:
     other: "%{count} comments"
     zero: "no comments"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Failed to create contact"
-    destroy: 
-      failure: "Failed to disconnect from %{name}"
-      success: "Successfully disconnected from %{name}"
     few: "%{count} kişi"
     many: "%{count} contacts"
     one: "1 kişi"
     other: "%{count} kişi"
-    share_with_pane: 
-      add_new_aspect: "add to new aspect"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Start sharing with %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "kişi yok"

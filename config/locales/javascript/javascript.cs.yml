@@ -14,8 +14,8 @@ cs:
         other: "Ve {{count}} aspektech"
         zero: "Přidat do aspektu"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "skrýt komentáře"
+      show: "zobrazit všechny komentáře"
     confirm_dialog: "Jste si jisti?"
     failed_to_like: "Oblíbení se nezdařilo!"
     failed_to_post_message: "Odeslání příspěvku se nezdařilo!"

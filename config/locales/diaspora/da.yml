@@ -42,6 +42,14 @@ da:
         unknown: "Ukendt videotitel"
   are_you_sure: "Er du sikker?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Kunne ikke fjerne person fra aspekt"
       no_membership: "Kunne ikke finde den valgte person i det aspekt"
@@ -130,27 +138,12 @@ da:
     other: "%{count} kommentarer"
     zero: "ingen kommentarer"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     create: 
       failure: "Kunne ikke oprette kontakt"
-    destroy: 
-      failure: "Det lykkedes ikke at afbryde forbindelse til %{name}"
-      success: "Forbindelse til %{name} er nu afbrudt "
     few: "%{count} kontaktpersoner"
     many: "%{count} kontakter"
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
-    share_with_pane: 
-      add_new_aspect: "tilføj til nyt aspekt"
-      following: "By placing %{name} in an aspect, you'll start following and sending posts to them."
-      share_with: "Begynd at dele med %{name}"
     sharing: 
       people_sharing: "People sharing with you:"
     zero: "Ingen kontaktpersoner"

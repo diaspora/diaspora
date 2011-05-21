@@ -42,6 +42,14 @@ sv:
         unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
   aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     destroy: 
       failure: "Misslyckades med att ta bort personen från aspekten"
       no_membership: "Kunde inte hitta den valda personen i aspekten"
@@ -130,27 +138,12 @@ sv:
     other: "%{count} kommentarer"
     zero: "inga kommentarer"
   contacts: 
-    aspect_dropdown: 
-      add_to_aspect: "Lägg till i aspekt"
-      toggle: 
-        few: "I %{count} aspekter"
-        many: "I %{count} aspekter"
-        one: "I %{count} aspekter"
-        other: "I %{count} aspekter"
-        zero: "Lägg till i aspekter"
     create: 
       failure: "Misslyckades med att skapa kontakt"
-    destroy: 
-      failure: "Misslyckades med att koppla från %{name}"
-      success: "Lyckades koppla från %{name}"
     few: "%{count} kontakter"
     many: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
-    share_with_pane: 
-      add_new_aspect: "lägg till på ny aspekt"
-      following: "Genom att placera %{name} i en aspekt, kommer du börja följa och skicka inlägg till dem."
-      share_with: "Börja dela med %{name}"
     sharing: 
       people_sharing: "Personer delar med dig:"
     zero: "inga kontakter"
