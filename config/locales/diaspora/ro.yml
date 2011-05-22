@@ -207,6 +207,7 @@ ro:
       already_contacts: "Eşti deja conectat cu această persoană"
       already_sent: "Ai invitat deja această persoană."
       no_more: "Nu mai dispui de invitaţii."
+      own_address: "You can't send an invitation to your own address."
       rejected: "The following email addresses had problems: "
       sent: "Invitaţia dvs. a fost trimisă."
     edit: 
@@ -273,6 +274,7 @@ ro:
       mark_all_as_read: "Marchează-le pe toate ca citite"
       notifications: "Notificări"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"

@@ -43,13 +43,13 @@ ko:
   are_you_sure: "확실합니까?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "애스펙에 넣기"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "애스펙 %{count}개 안에 있어요"
+        many: "애스펙 %{count}개 안에 있어요"
+        one: "애스펙 한 개 안에 있어요"
+        other: "애스펙 %{count}개 안에 있어요"
+        zero: "애스펙에 넣기"
     destroy: 
       failure: "애스펙에서 지우지 못했습니다"
       no_membership: "애스펙에서 찾을 수 없는 사람입니다"
@@ -207,6 +207,7 @@ ko:
       already_contacts: "이미 컨택인 사람입니다."
       already_sent: "이미 초대한 사람입니다."
       no_more: "가진 초대장 이 없습니다."
+      own_address: "You can't send an invitation to your own address."
       rejected: "아래의 이메일 주소는 문제가 있습니다: "
       sent: "초대장이 보내진 이메일 주소: "
     edit: 
@@ -273,6 +274,7 @@ ko:
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
     liked: "님이 내 공유물을 좋아합니다"
+    liked_post_deleted: "liked your deleted post."
     mentioned: " 님이 나를 멘션했습니다:"
     new_request: " 님이 나와 공유를 시작했습니다."
     post: "공유물"

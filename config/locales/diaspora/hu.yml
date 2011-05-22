@@ -207,6 +207,7 @@ hu:
       already_contacts: "Már ismerősöd ez a személy"
       already_sent: "Már meghívtad ezt a személyt."
       no_more: "Nincs több felkérésed."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Az alábbi e-mail címmel voltak problémák:"
       sent: "Meghívók elküldve ide:"
     edit: 
@@ -273,6 +274,7 @@ hu:
       mark_all_as_read: "Mind megjelölése olvasottként"
       notifications: "Értesítések"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "megemlített téged egy"
     new_request: "megosztást ajánlott neked."
     post: "bejegyzésben."

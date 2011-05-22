@@ -43,13 +43,13 @@ el:
   are_you_sure: "Είστε σίγουρος/η;"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Προσθήκη σε πτυχή"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Σε %{count} πτυχές"
+        many: "Σε %{count} πτυχές"
+        one: "Σε %{count} πτυχές"
+        other: "Σε %{count} πτυχές"
+        zero: "Προσθήκη σε πτυχή"
     destroy: 
       failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
       no_membership: "Δεν βρέθηκε το επιλεγμένο άτομο σε αυτή την πτυχή"
@@ -123,8 +123,8 @@ el:
     zero: "καμία πτυχή"
   back: "Πίσω"
   bookmarklet: 
-    explanation: "%{link} από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο."
-    explanation_link_text: "Δημοσιεύστε στο Diaspora"
+    explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο %{link}."
+    explanation_link_text: "αυτός ο σύνδεσμος"
     post_something: "Δημοσιεύστε κάτι στο Diaspora"
     post_success: "Δημοσιεύτηκε! Κλείνει!"
   cancel: "Ακύρωση"
@@ -207,6 +207,7 @@ el:
       already_contacts: "Είστε ήδη συνδεδεμένος με αυτό το άτομο"
       already_sent: "Έχετε ήδη προσκαλέσει αυτό το άτομο."
       no_more: "Δεν έχετε άλλες προσκλήσεις."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Οι παρακάτω διευθύνσεις ηλεκτρονικού ταχυδρομείου είχαν προβλήματα:"
       sent: "Η πρόσκλησή σας έχει σταλεί στο:"
     edit: 
@@ -231,7 +232,7 @@ el:
       whats_new: "Τι νέα?"
       your_aspects: "οι πτυχές σας"
     header: 
-      admin: "admin"
+      admin: "διαχειριστής"
       blog: "blog"
       code: "κώδικας"
       login: "Είσοδος"
@@ -273,6 +274,7 @@ el:
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
     liked: "μόλις του/της άρεσε η δημοσίευση σας"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "σας ανέφερε σε"
     new_request: "προσφέρθηκε να μοιραστεί μαζί σας."
     post: "δημοσίευση."
@@ -510,12 +512,12 @@ el:
       logged_in_as: "συνδεδεμένος/η ως %{name}"
       your_aspects: "οι πτυχές σας"
     invitations: 
-      by_email: "με ηλεκτρονικό ταχυδρομείο"
+      by_email: "Μέσω ηλεκτρονικού ταχυδρομείου"
       dont_have_now: "Δεν έχετε κάποιο δικαίωμα τώρα, αλλά περισσότερες προσκλήσεις έρχονται σύντομα!"
       from_facebook: "Από το Facebook"
-      invitations_left: "(απομένουν %{count})"
+      invitations_left: "απομένουν %{count}"
       invite_someone: "Προσκαλέστε κάποιον/α"
-      invite_your_friends: "Προσκαλέστε τους φίλους σας"
+      invite_your_friends: "Προσκαλέστε φίλους"
       invites: "Προσκλήσεις"
       invites_closed: "Οι προσκλήσεις είναι κλειστές αυτή την περίοδο στο Diaspora pod"
     notification: 
@@ -544,7 +546,7 @@ el:
       dislike: "Δεν μ' αρέσει"
       like: "Μου αρέσει"
       unlike: "Δεν μου αρέσει"
-      via: "via %{link}"
+      via: "μέσω %{link}"
   status_messages: 
     create: 
       success: "Αναφέρθηκαν επιτυχώς: %{names}"
@@ -559,11 +561,11 @@ el:
       not_found: "Συγνώμη, δεν μπορέσαμε να βρούμε αυτή τη δημοσίευση."
       permalink: "permalink"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
+      few: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
       many: "παρακαλώ ελαττώστε την κατάσταση σας σε λιγότερο από %{count} χαρακτήρες"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      one: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερο από %{count} χαρακτήρα"
+      other: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
+      zero: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
   stream_helper: 
     hide_comments: "απόκρυψη σχολίων"
     show_comments: "προβολή όλων των σχολίων"

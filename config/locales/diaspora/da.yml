@@ -207,6 +207,7 @@ da:
       already_contacts: "Du er allerede forbundet med denne person"
       already_sent: "Du har allerede inviteret denne person."
       no_more: "Du har ikke flere invitationer."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Der var problemer med de følgende e-mail adresser: "
       sent: "Din invitation er blevet sendt til:"
     edit: 
@@ -273,6 +274,7 @@ da:
       mark_all_as_read: "Marker alle som læst"
       notifications: "Notifikationer"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "har omtalt dig i deres"
     new_request: "tilbød at dele med dig."
     post: "indlæg"

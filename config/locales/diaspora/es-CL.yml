@@ -43,13 +43,13 @@ es-CL:
   are_you_sure: "¿Estás seguro?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Agregar al aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "En %{count} aspectos"
+        many: "En %{count} aspectos"
+        one: "En %{count} aspecto"
+        other: "En %{count} aspectos"
+        zero: "Agregar al aspecto"
     destroy: 
       failure: "No se pudo eliminar a la persona del Aspecto"
       no_membership: "No se pudo encontrar la persona seleccionada en ese Aspecto"
@@ -207,6 +207,7 @@ es-CL:
       already_contacts: "Ya estás conectado con esta persona"
       already_sent: "Ya has invitado a esta persona."
       no_more: "No tienes más invitaciones."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Las siguientes direcciones de correo han tenido problemas:"
       sent: "Las invitaciones han sido enviadas a:"
     edit: 
@@ -231,7 +232,7 @@ es-CL:
       whats_new: "¿Qué hay de nuevo?"
       your_aspects: "Tus Aspectos"
     header: 
-      admin: "admin"
+      admin: "administrar"
       blog: "blog"
       code: "codigo"
       login: "entrar"
@@ -273,6 +274,7 @@ es-CL:
       mark_all_as_read: "Marcar todo como leido"
       notifications: "Notificaciones"
     liked: "le gustó tu post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "te mencionó en un"
     new_request: "quiere compartir contigo."
     post: "post."
@@ -345,7 +347,7 @@ es-CL:
       gender: "sexo"
       in_aspects: "en aspectos"
       location: "Ubicación"
-      remove_contact: "remove contact"
+      remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
       add_some: "agrega algunas"
@@ -513,7 +515,7 @@ es-CL:
       by_email: "Por email"
       dont_have_now: "No tienes ninguna ahora, ¡pero pronto vendrán mas invitaciones!"
       from_facebook: "Desde Facebook"
-      invitations_left: "(quedan %{count})"
+      invitations_left: "quedan %{count}"
       invite_someone: "Invita a alguien"
       invite_your_friends: "Invita a tus amigos"
       invites: "Invitaciones"
@@ -559,11 +561,11 @@ es-CL:
       not_found: "Perdón, no pudimos encontrar ese post."
       permalink: "permalink"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      one: "Tu mensaje de estado debe tener menos de %{count} caracter"
+      other: "Tu mensaje de estado debe tener menos de %{count} caracteres"
+      zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "ocultar comentarios"
     show_comments: "mostrar todos los comentarios"

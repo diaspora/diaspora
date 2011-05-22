@@ -207,6 +207,7 @@ id:
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
       no_more: "You have no more invitations."
+      own_address: "You can't send an invitation to your own address."
       rejected: "The following email addresses had problems: "
       sent: "Your invitation has been sent."
     edit: 
@@ -273,6 +274,7 @@ id:
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"

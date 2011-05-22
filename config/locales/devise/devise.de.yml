@@ -12,7 +12,7 @@ de:
       send_instructions: "Du wirst in ein paar Minuten eine E-Mail erhalten, die beschreibt, wie du dein Konto bestätigst."
     failure: 
       inactive: "Dein Konto wurde noch nicht aktiviert."
-      invalid: "Ungültige E-Mail-Adresse oder Kennwort."
+      invalid: "Ungültiger Benutzername oder ungültiges Kennwort."
       invalid_token: "Ungültiger Authentifizierungstoken."
       locked: "Dein Konto ist gesperrt."
       timeout: "Deine Sitzung ist abgelaufen! Um fortzufahren, melde dich bitte erneut an."

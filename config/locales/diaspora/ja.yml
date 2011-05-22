@@ -207,6 +207,7 @@ ja:
       already_contacts: "既に連絡先として登録しています。"
       already_sent: "既に招待しました。"
       no_more: "招待権がもう残っていません。"
+      own_address: "You can't send an invitation to your own address."
       rejected: "次のメールアドレスに問題が発生しました："
       sent: "次の人々に招待を送信しました："
     edit: 
@@ -273,6 +274,7 @@ ja:
       mark_all_as_read: "全件を既読にする"
       notifications: "通知"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "さんはあなたをメンションしました。"
     new_request: "さんは共有の許可を求めました。"
     post: "（投稿で）"

@@ -207,6 +207,7 @@ sk:
       already_contacts: "S touto osobou ste už spojený."
       already_sent: "Túto osobu ste už pozvali."
       no_more: "Nemáte žiadné nové pozvania."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Problém s nasledujúcimi adresami: "
       sent: "Vaše pozvanie bolo odoslané."
     edit: 
@@ -273,6 +274,7 @@ sk:
       mark_all_as_read: "Všetko označiť ako prečítané"
       notifications: "Notifikácie"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "ťa spomenuli v ich"
     new_request: "offered to share with you."
     post: "príspevok"

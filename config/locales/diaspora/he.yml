@@ -207,6 +207,7 @@ he:
       already_contacts: "כבר יש לך קשר עם אדם זה"
       already_sent: "כבר הזמנת אדם זה."
       no_more: "אין לך עוד הזמנות."
+      own_address: "You can't send an invitation to your own address."
       rejected: "בכתובת הדוא״ל הבאה התגלו שגיאות:"
       sent: "נשלחו הזמנות אל:"
     edit: 
@@ -273,6 +274,7 @@ he:
       mark_all_as_read: "סימון הכול כלאחר קריאה"
       notifications: "התרעות"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "הזכיר/ה אותך ב"
     new_request: "הציע/ה לשתף אתך."
     post: "רשומה."

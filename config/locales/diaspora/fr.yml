@@ -43,13 +43,13 @@ fr:
   are_you_sure: "Êtes-vous certains?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Ajouter à l'aspect"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Dans %{count} aspects"
+        many: "Dans %{count} aspects"
+        one: "Dans %{count} aspect"
+        other: "Dans %{count} aspects"
+        zero: "Ajouter à l'aspect"
     destroy: 
       failure: "Impossible de retirer la personne de l'aspect"
       no_membership: "Impossible de trouver la personne sélectionnée dans cet aspect"
@@ -123,8 +123,8 @@ fr:
     zero: "aucun aspect"
   back: "Retour"
   bookmarklet: 
-    explanation: "%{link} depuis n'importe où en ajoutant ce bookmarklet à vos marque-pages ou favoris."
-    explanation_link_text: "Publier sur Diaspora"
+    explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
+    explanation_link_text: "ce lien"
     post_something: "Publier quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
@@ -207,6 +207,7 @@ fr:
       already_contacts: "Vous avez déjà établi une connexion avec cette personne"
       already_sent: "Vous avez déjà invité cette personne."
       no_more: "Vous n’avez plus d’invitation."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes :"
       sent: "Les invitations ont été envoyées à :"
     edit: 
@@ -273,6 +274,7 @@ fr:
       mark_all_as_read: "Tout marquer comme lu"
       notifications: "Notifications"
     liked: "vient juste d'aimer votre message"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "vous a mentionné(e) dans un"
     new_request: "a proposé de partager avec vous."
     post: "message."
@@ -510,10 +512,10 @@ fr:
       logged_in_as: "Connecté en tant que %{name}"
       your_aspects: "vos aspects"
     invitations: 
-      by_email: "par courriel"
+      by_email: "Par courriel"
       dont_have_now: "Vous n'en avez aucune pour l'instant, mais d'autres invitations arriveront bientôt !"
       from_facebook: "depuis Facebook"
-      invitations_left: "(il vous en reste %{count})"
+      invitations_left: "il vous en reste %{count}"
       invite_someone: "Inviter quelqu'un"
       invite_your_friends: "Invitez vos amis"
       invites: "Invitations"

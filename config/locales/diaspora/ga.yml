@@ -207,6 +207,7 @@ ga:
       already_contacts: "Tá tú cheanna féin ceangailte leis an duine seo"
       already_sent: "Cheana féin sheol tú cuireadh chuig an duine seo."
       no_more: "Níl aon cuiridh eile agat."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Bhí fadbhanna ag na seolaí ríomhphost seo: "
       sent: "Tá cuiridh seola chuigh: "
     edit: 
@@ -273,6 +274,7 @@ ga:
       mark_all_as_read: "Mark All as Read"
       notifications: "Fograí"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "has mentioned you in their"
     new_request: "ofráiladh chun roint leant"
     post: "póst"

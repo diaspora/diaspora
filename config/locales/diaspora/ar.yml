@@ -207,6 +207,7 @@ ar:
       already_contacts: "لقد قمت بإنشاء اتصال مع هذا العضو مسبقا"
       already_sent: "لقد قمت بدعوة هذا الشخص مسبقا"
       no_more: "لم يتبقى لك أية دعوات"
+      own_address: "You can't send an invitation to your own address."
       rejected: "واجه هذا البريد الإلكتروني مشاكلا:  "
       sent: "تم إرسال دعوتك"
     edit: 
@@ -273,6 +274,7 @@ ar:
       mark_all_as_read: "وضع الجميع كمقروء"
       notifications: "تنبيهات"
     liked: "أعجبه منشورك:"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "قام بذكرك في"
     new_request: "عرض المشاركة معك"
     post: "منشور"

@@ -207,6 +207,7 @@ eu:
       already_contacts: "Pertsona honekin harremanetan zaude jadanik"
       already_sent: "Pertsona hau gonbidatu duzu jada."
       no_more: "Ez daukazu gonbidapen gehiago."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
       sent: "Gonbidapenen jasotzaileak hauek izan dira:"
     edit: 
@@ -273,6 +274,7 @@ eu:
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
     liked: "(e)k zure mezua gustoko du"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "(e)k zu aipatu zaitu hemen:"
     new_request: "(e)k zurekin partekatu nahi du."
     post: "mezua."

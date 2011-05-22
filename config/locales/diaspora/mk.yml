@@ -207,6 +207,7 @@ mk:
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
       no_more: "Немате повеќе покани."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Следните е-маил адреси имаа проблем:"
       sent: "Поканите беа испратени кон:"
     edit: 
@@ -273,6 +274,7 @@ mk:
       mark_all_as_read: "Mark All as Read"
       notifications: "Notifications"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "has mentioned you in their"
     new_request: "offered to share with you."
     post: "post"

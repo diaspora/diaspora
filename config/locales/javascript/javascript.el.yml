@@ -17,7 +17,7 @@ el:
       hide: "Απόκρυψη σχολίων"
       show: "προβολή σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
-    failed_to_like: "Failed to like!"
+    failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     infinite_scroll: 
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."

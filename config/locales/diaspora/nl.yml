@@ -207,6 +207,7 @@ nl:
       already_contacts: "Je bent al verbonden met deze persoon"
       already_sent: "Je hebt deze persoon al uitgenodigd."
       no_more: "Je hebt geen uitnodigingen meer."
+      own_address: "You can't send an invitation to your own address."
       rejected: "De volgende e-mailadressen gaven problemen: "
       sent: "Uitnodigingen zijn verzonden aan:"
     edit: 
@@ -273,6 +274,7 @@ nl:
       mark_all_as_read: "Markeer alles gelezen"
       notifications: "Notificaties"
     liked: "vind je post leuk"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "heeft je genoemd in een"
     new_request: "bood aan om met jou te delen."
     post: "post."
