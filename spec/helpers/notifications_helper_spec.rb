@@ -33,6 +33,18 @@ describe NotificationsHelper do
         output = object_link(@notification)
         output.should include t("#{@notification.popup_translation_key}")
       end
+
+      context 'when post is deleted' do
+        it 'works' do
+          @post.destroy
+          expect{ object_link(@notification)}.should_not raise_error
+        end
+
+        it 'displays that the post was deleted' do
+          @post.destroy
+          object_link(@notification).should == t('notifications.liked_post_deleted')
+        end
+      end
     end
   end
 end
