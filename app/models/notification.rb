@@ -18,7 +18,7 @@ class Notification < ActiveRecord::Base
   def self.notify(recipient, target, actor)
     if target.respond_to? :notification_type
       if note_type = target.notification_type(recipient, actor)
-        if target.is_a? Comment
+        if(target.is_a? Comment) || (target.is_a? Like) 
           n = note_type.concatenate_or_create(recipient, target.post, actor, note_type)
         else
           n = note_type.make_notification(recipient, target, actor, note_type)
@@ -33,6 +33,8 @@ class Notification < ActiveRecord::Base
   def email_the_user(target, actor)
     self.recipient.mail(self.mail_job, self.recipient_id, actor.id, target.id)
   end
+
+
   def mail_job
     raise NotImplementedError.new('Subclass this.')
   end
@@ -43,9 +45,7 @@ private
                               :target_type => target.class.base_class,
                                :recipient_id => recipient.id,
                                :unread => true).first
-      unless n.actors.include?(actor)
-        n.actors << actor
-      end
+      n.actors = n.actors | [actor]
 
       n.unread = true
       n.save!
@@ -58,7 +58,7 @@ private
   def self.make_notification(recipient, target, actor, notification_type)
     n = notification_type.new(:target => target,
                                :recipient_id => recipient.id)
-    n.actors << actor
+    n.actors = n.actors | [actor]
     n.unread = false if target.is_a? Request
     n.save!
     n

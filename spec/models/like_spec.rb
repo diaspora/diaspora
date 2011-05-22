@@ -15,6 +15,10 @@ describe Like do
     @status = bob.post(:status_message, :text => "hello", :to => @alices_aspect.id)
   end
 
+  it 'has a valid factory' do
+    Factory(:like).should be_valid
+  end
+
   describe 'User#like' do
     it "should be able to like on one's own status" do
       alice.like(1, :on => @status)

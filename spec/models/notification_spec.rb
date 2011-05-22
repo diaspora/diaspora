@@ -92,6 +92,28 @@ describe Notification do
         end
       end
 
+      context 'multiple likes' do
+        it 'concatinates the like notifications' do
+          p = Factory(:status_message, :author => @user.person)
+          person2 = Factory(:person)
+          notification = Notification.notify(@user, Factory(:like, :author => @person, :post => p), @person)
+          notification2 =  Notification.notify(@user, Factory(:like, :author => person2, :post => p), person2)
+          notification.id.should == notification2.id
+        end
+      end
+
+      context 'multiple comments' do
+        it 'concatinates the comment notifications' do
+          p = Factory(:status_message, :author => @user.person)
+          person2 = Factory(:person)
+          notification = Notification.notify(@user, Factory(:comment, :author => @person, :post => p), @person)
+          notification2 =  Notification.notify(@user, Factory(:comment, :author => person2, :post => p), person2)
+          notification.id.should == notification2.id
+        end
+      end
+
+
+
       context 'multiple people' do
 
         before do

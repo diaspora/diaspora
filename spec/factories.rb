@@ -35,6 +35,11 @@ Factory.define :searchable_person, :parent => :person do |p|
   end
 end
 
+Factory.define :like do |x|
+  x.association :author, :factory => :person
+  x.association :post, :factory => :status_message
+end
+
 Factory.define :user do |u|
   u.sequence(:username) { |n| "bob#{n}#{r_str}" }
   u.sequence(:email) { |n| "bob#{n}#{r_str}@pivotallabs.com" }

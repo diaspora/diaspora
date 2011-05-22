@@ -19,6 +19,7 @@ class Like < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
 
   validates_uniqueness_of :post_id, :scope => :author_id
+  validates_presence_of :author, :post
 
   def diaspora_handle
     self.author.diaspora_handle
