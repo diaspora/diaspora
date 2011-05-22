@@ -24,6 +24,7 @@ module NotificationsHelper
       end
     elsif note.instance_of?(Notifications::Liked)
       post = note.target
+      post = post.post if post.is_a? Like
       if post
         "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
       else
