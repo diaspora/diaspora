@@ -238,7 +238,8 @@ en:
       rejected: "The following email addresses had problems: "
       no_more: "You have no more invitations."
       already_sent: "You already invited this person."
-      already_contacts: "You are already connected with this person" 
+      already_contacts: "You are already connected with this person"
+      own_address: "You can't send an invitation to your own address."
     new:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."

@@ -23,6 +23,17 @@ class InvitationsController < Devise::InvitationsController
 
       good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
 
+      if good_emails.include?(current_user.email)
+        if good_emails.length == 1
+          flash[:error] = I18n.t 'invitations.create.own_address'
+          redirect_to :back
+          return
+        else
+          bad_emails.push(current_user.email)
+          good_emails.delete(current_user.email)
+        end
+      end
+
       good_emails.each{|e| Resque.enqueue(Job::InviteUserByEmail, current_user.id, e, aspect, message)}
 
       if bad_emails.any?

@@ -61,6 +61,15 @@ describe InvitationsController do
       post :create, :user => @invite
       response.should redirect_to("http://test.host/cats/foo")
     end
+    
+    it 'strips out your own email' do
+      lambda {
+        post :create, :user => @invite.merge(:email => @user.email)
+      }.should_not change(User, :count)
+      
+      Resque.should_receive(:enqueue).once
+      post :create, :user => @invite.merge(:email => "hello@example.org, #{@user.email}")
+    end
   end
 
   describe "#update" do
