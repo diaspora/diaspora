@@ -7,12 +7,12 @@ var WebSocketReceiver = {
     ws.onmessage = WSR.onMessage;
     ws.onclose = function() {
       if (websocket_enabled) {
-        Diaspora.widgets.notifications.showNotification({
+       /* Diaspora.widgets.notifications.showNotification({
           html: '<div class="notification">' +
               Diaspora.widgets.i18n.t("web_sockets.disconnected") +
             '</div>',
           incrementCount: false
-        });
+        }); TODO:figure out why this fires so often */
 
         WSR.debug("socket closed");
       }
