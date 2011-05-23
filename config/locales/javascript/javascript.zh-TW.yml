@@ -6,25 +6,25 @@
 zh-TW: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "加入面向"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "在{{count}}個面向中"
+        many: "在{{count}}個面向中"
+        one: "在{{count}}個面向中"
+        other: "在{{count}}個面向中"
+        zero: "加入面向"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "隱藏意見"
+      show: "顯示所有意見"
     confirm_dialog: "你確定嗎?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "說讚失敗!"
+    failed_to_post_message: "貼文失敗!"
     infinite_scroll: 
       no_more: "沒有貼文了."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
     search_for: "搜尋 {{name}}"
-    show_more: "show more"
+    show_more: "顯示更多"
     timeago: 
       day: "一天"
       days: "%d天"

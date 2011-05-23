@@ -14,8 +14,8 @@ eu:
         other: "{{count}} alderdietan"
         zero: "Alderdira gehitu"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "iruzkinak ezkutatu"
+      show: "iruzkin guztiak erakutsi"
     confirm_dialog: "Ziur al zaude?"
     failed_to_like: "Huts gustoko egitean!"
     failed_to_post_message: "Huts egin du mezuaren bidalketak!"

@@ -43,13 +43,13 @@ eu:
   are_you_sure: "Ziur al zaude?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Alderdira gehitu"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "%{count} alderdietan"
+        many: "%{count} alderdietan"
+        one: "alderdi %{count}ean"
+        other: "%{count} alderdietan"
+        zero: "Alderdira gehitu"
     destroy: 
       failure: "Akatsa pertsona alderditik ezabatzean"
       no_membership: "Ezin izan da hautatutako pertsona aurkitu alderdian"
@@ -123,8 +123,8 @@ eu:
     zero: "alderdirik ez"
   back: "Atzera"
   bookmarklet: 
-    explanation: "%{link} edozein lekutik esteka hau laster-marketarantz herresta eginez."
-    explanation_link_text: "Diasporan partekatu"
+    explanation: "%{link} edozein lekutatik esteka hau laster-marka bihurtuz"
+    explanation_link_text: "esteka hau"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"
@@ -207,7 +207,7 @@ eu:
       already_contacts: "Pertsona honekin harremanetan zaude jadanik"
       already_sent: "Pertsona hau gonbidatu duzu jada."
       no_more: "Ez daukazu gonbidapen gehiago."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Ezin diozu zeure buruari gonbidapen bat bidali."
       rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
       sent: "Gonbidapenen jasotzaileak hauek izan dira:"
     edit: 
@@ -232,7 +232,7 @@ eu:
       whats_new: "zer berri?"
       your_aspects: "zure alderdiak"
     header: 
-      admin: "admin"
+      admin: "kudeatu"
       blog: "bloga"
       code: "kodea"
       login: "sartu"
@@ -273,8 +273,8 @@ eu:
       and_others: "eta beste %{number}(e)k"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
-    liked: "(e)k zure mezua gustoko du"
-    liked_post_deleted: "liked your deleted post."
+    liked: "(e)k oraintxe gustoko izan du zure"
+    liked_post_deleted: "(e)k zure mezu ezabatua gustoko du."
     mentioned: "(e)k zu aipatu zaitu hemen:"
     new_request: "(e)k zurekin partekatu nahi du."
     post: "mezua."
@@ -347,7 +347,7 @@ eu:
       gender: "sexua"
       in_aspects: "alderdietan"
       location: "kokalekua"
-      remove_contact: "remove contact"
+      remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
       add_some: "gehitu batzuk"
@@ -512,10 +512,10 @@ eu:
       logged_in_as: "%{name} zara"
       your_aspects: "zure alderdiak"
     invitations: 
-      by_email: "e-posta bidez"
+      by_email: "(%{count} dauzkazu"
       dont_have_now: "Bukatu egin zaizkizu, baina gonbidapen gehiago iritsiko dira laister!"
       from_facebook: "Facebooketik"
-      invitations_left: "(%{count} geratzen zai(zki)zu)"
+      invitations_left: "(%{count} dauzkazu"
       invite_someone: "Norbait gonbidatu"
       invite_your_friends: "Zure lagunak gonbidatu"
       invites: "Gonbidapenak"
@@ -546,7 +546,7 @@ eu:
       dislike: "Ez dut gustoko"
       like: "Gustoko dut"
       unlike: "Ez dut gustoko"
-      via: "via %{link}"
+      via: "%{link}(r)en bidez"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"
@@ -575,6 +575,22 @@ eu:
       people_tagged_with: "%{tag} etiketadun jendea"
       posts_tagged_with: "#%{tag} etiketadun mezuak"
   the_world: "mundua"
+  tokens: 
+    show: 
+      connect_to_cubbies: "Connect to Cubbi.es"
+      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      daniels_account: "Daniel's Diaspora account"
+      generate_a_token: "Generate a token"
+      love_to_try: "We'd love for you to try it out."
+      making_the_connection: "Making the Connection"
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      sign_up_today: "Sign up today!"
+      typical_userpage: "A typical cubbi.es userpage"
+      via: "(via %{link})"
+      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_token: "Your Diaspora Token:"
   undo: "Desegin?"
   username: "Erabiltzailea"
   users: 

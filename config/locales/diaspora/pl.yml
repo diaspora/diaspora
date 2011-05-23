@@ -43,7 +43,7 @@ pl:
   are_you_sure: "Na pewno?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Dodaj do aspektu"
       toggle: 
         few: "In %{count} aspects"
         many: "In %{count} aspects"
@@ -82,7 +82,7 @@ pl:
       remove_aspect: "Usuń ten aspekt"
       rename: "zmień nazwę"
       update: "aktualizuj"
-      updating: "updating"
+      updating: "aktualizuję"
     few: "%{count} aspekty"
     helper: 
       are_you_sure: "@{m,f:Jesteś|n:Czy na}{ pew}{m:ien|f:na|n:no}{m,f:, że } chcesz usunąć ten aspekt?"
@@ -207,7 +207,7 @@ pl:
       already_contacts: "{m,f:Jesteś już|n:Połączono już}{ }{m,f:połączon}{m:y|f:a} z tą osobą."
       already_sent: "Już zapros@{m:iłeś|f:iłaś|n:zono} tę osobę."
       no_more: "Nie masz więcej zaproszeń."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Nie możesz wysłać zaproszenia na swój własny adres."
       rejected: "Poniższy adres e-mail okazał się problematyczny:"
       sent: "Zaproszenia zostały wysłane do:"
     edit: 
@@ -232,7 +232,7 @@ pl:
       whats_new: "co nowego?"
       your_aspects: "twoje aspekty"
     header: 
-      admin: "admin"
+      admin: "administrator"
       blog: "blog"
       code: "kod"
       login: "logowanie"
@@ -274,7 +274,7 @@ pl:
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: "Powiadomienia"
     liked: "polubił twój wpis"
-    liked_post_deleted: "liked your deleted post."
+    liked_post_deleted: "polubił twój usunięty wpis."
     mentioned: "wspomniał o tobie we wpisie"
     new_request: "chce zostać twoim znajomym."
     post: "wpis."
@@ -320,7 +320,7 @@ pl:
   password_confirmation: "Potwierdzenie hasła"
   people: 
     add_contact_small: 
-      add_contact_from_tag: "add contact from tag"
+      add_contact_from_tag: "Dodaj znajomego ze znacznika"
     aspect_list: 
       edit_membership: "edytuj przynależność do aspektów"
     few: "%{count} osoby"
@@ -535,7 +535,7 @@ pl:
       make_public: "upublicznij"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Wysyłanie…"
-      public: "Public"
+      public: "Publiczne"
       publishing_to: "publikuj na:"
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
@@ -555,7 +555,7 @@ pl:
     helper: 
       no_message_to_display: "Brak wiadomości."
     new: 
-      mentioning: "Mentioning: %{person}"
+      mentioning: "Wspominasz o: %{person}"
     show: 
       destroy: "Usuń"
       not_found: "Niestety, nie udało się nam znaleźć tego wpisu."
@@ -575,6 +575,22 @@ pl:
       people_tagged_with: "Osoby opisane poprzez %{tag}"
       posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
   the_world: "świat"
+  tokens: 
+    show: 
+      connect_to_cubbies: "Connect to Cubbi.es"
+      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      daniels_account: "Daniel's Diaspora account"
+      generate_a_token: "Generate a token"
+      love_to_try: "We'd love for you to try it out."
+      making_the_connection: "Making the Connection"
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      sign_up_today: "Sign up today!"
+      typical_userpage: "A typical cubbi.es userpage"
+      via: "(via %{link})"
+      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_token: "Your Diaspora Token:"
   undo: "Cofnąć?"
   username: "Nazwa użytkownika"
   users: 
@@ -602,7 +618,7 @@ pl:
     getting_started: 
       connect_on_diaspora: "Connect on Diaspora"
       connect_services: "Połącz się ze swoimi usługami"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+      could_not_find_anyone: "Nie znaleziono żadnych znajomych w serwisie Diaspora*. Użyj wyszukiwarki znajomych, aby ich zaprosić."
       edit_profile: "Edytuj swój profil"
       finished: "Gotowe!"
       save_and_continue: "Zapisz i kontynuuj"

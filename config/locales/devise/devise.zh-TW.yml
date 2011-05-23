@@ -30,9 +30,9 @@ zh-TW:
       hello: "你好, %{email}!"
       invitation_instructions: 
         accept: "接受邀請"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        ignore: "如果你不想接受邀請,請不用管這封信."
+        no_account_till: "在你按了以上連結並註冊後,你的帳號才會成功開戶."
+        subject: "有人邀請你加入 Diaspora!"
       inviters: 
         accept_at: ", 在 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name} 邀請你加入 Diaspora"

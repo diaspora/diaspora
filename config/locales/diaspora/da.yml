@@ -575,6 +575,22 @@ da:
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Poster tagged med #%{tag}"
   the_world: "Verden"
+  tokens: 
+    show: 
+      connect_to_cubbies: "Connect to Cubbi.es"
+      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      daniels_account: "Daniel's Diaspora account"
+      generate_a_token: "Generate a token"
+      love_to_try: "We'd love for you to try it out."
+      making_the_connection: "Making the Connection"
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      sign_up_today: "Sign up today!"
+      typical_userpage: "A typical cubbi.es userpage"
+      via: "(via %{link})"
+      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_token: "Your Diaspora Token:"
   undo: "Fortryd?"
   username: "Brugernavn"
   users: 

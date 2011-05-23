@@ -6,25 +6,25 @@
 zh-CN: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "添加到视图"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "在{{count}}个视图中"
+        many: "在{{count}}个视图中"
+        one: "在{{count}}个视图中"
+        other: "在{{count}}个视图中"
+        zero: "添加到视图"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "隐藏评论"
+      show: "显示所有评论"
     confirm_dialog: "你确定吗？"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "表示喜欢失败！"
+    failed_to_post_message: "发布消息失败！"
     infinite_scroll: 
-      no_more: "No more posts."
+      no_more: "没有更多的内容了。"
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
     search_for: "搜索 {{name}}"
-    show_more: "show more"
+    show_more: "查看更多"
     timeago: 
       day: "1天"
       days: "%d天"
@@ -45,4 +45,4 @@ zh-CN:
       unknown: "未知视频格式"
       watch: "在 {{provider}} 上看观看视频"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "websocket已关闭，内容不会再实时更新。"
