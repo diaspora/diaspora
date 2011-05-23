@@ -1,39 +1,86 @@
-%h3
-  This is a temporary hack while we develop a more general application framework.
-%br
-%br
-%br
-%br
+- content_for :page_title do
+  = t('.connect_to_cubbies')
 
-.span-11.append-1
-  %h3
-    Your Diaspora Token:
-  - if current_user.authentication_token
-    %h1
-      = current_user.authentication_token
-  - else
-    %h4 No authentication token set.
-
-  = form_tag(token_path) do
-    =submit_tag "Generate new authentication token"
-
-.span-11.last
-  %h3
-    Your Diaspora Handle:
+.span-24.last{:style => "position:relative;"}
+  .right{:style => 'z-index:10;'}
+    = link_to t('.sign_up_today'), 'http://cubbi.es', :class => "button sign_up"
   %h1
-    = current_user.diaspora_handle
+    = t('.connect_to_cubbies')
+%h3
+  = t('.what_is_cubbies')
+  %br
+  = t('.love_to_try')
+  
+%hr
+
+.span-24{:style => "text-align:center;"}
+  = image_tag '/images/cubbies_screenshot.png', :width => 600, :height => 452
+
+.span-18.prepend-3.append-3.last{:style => "text-align:center;"}
+  %p.subtle
+    != t('.screenshot_explanation', :link1 => link_to(t('.typical_userpage'), "http://cubbi.es/daniel"), :link2 => link_to(t('.daniels_account'), "https://joindiaspora.com/people/29"))
+%hr
+
+/%p.subtle
+/  Cubbi.es allows you to collect images from all across the internet and keep them in one place (your cubby) in a simple and intuative way.  Hooking up your Diaspora account with Cubbi.es means the images you collect will automatically be shared on Diaspora.*
+
+%br
+.span-24.last
+  %h2
+    = t('.making_the_connection')
+  %br
+  %br
+
+.span-20.append-2.prepend-2.last
+  .span-8
+    = image_tag '/images/cubbies_settings.png', :width => 238, :height => 248, :class => "cubbies-settings-image"
+    %div.subtle
+      != t('.via', :link => link_to('http://cubbi.es/users/edit', 'http://cubbi.es/users/edit'))
+
+  .span-12.last
+    %h3
+      = t('.connecting_is_simple')
+
+    %p.subtle
+      = t('.were_working_hard')
+
+    %br
+
+    .span-11.cubbies-credentials
+      .span-4
+        %h5
+          = t('.your_diaspora_handle')
+      .span-6
+        %h2
+          = current_user.diaspora_handle
+      .span-4
+        %h5
+          = t('.your_diaspora_token')
+
+      .span-6
+        - if current_user.authentication_token
+          %h2
+            = current_user.authentication_token
+        - else
+          = form_tag(token_path) do
+            = submit_tag t('.generate_a_token')
+
+    %br
+    %br
+    %br
 
 .clearfix
 
 %br
 %br
-%br
-%br
-%br
-%div
-  %h4
-    Click settings on
-    = link_to "Cubbi.es", 'http://cubbi.es'
-    to share your internet folder with the internet!
-  %h5
-    Make sure to fill out both these fields to properly connect your account!!
+%hr
+.span-20.append-2.prepend-2.last{:style => "text-align:center;"}
+  %p.subtle
+    * Using Cubbi.es requires the
+    %strong
+      Google Chrome
+    browser for the time being.
+    %strong
+      Adding to your cubby is exclusive to a Chrome extension.
+    If you are a deveolper, we would strongly support you in creating a FF addon and/or a js bookmarklet!
+

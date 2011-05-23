@@ -611,6 +611,23 @@ en:
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
 
+  tokens:
+    show:
+      connect_to_cubbies: "Connect to Cubbi.es"
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      love_to_try: "We'd love for you to try it out."
+      sign_up_today: "Sign up today!"
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      typical_userpage: "A typical cubbi.es userpage"
+      daniels_account: "Daniel's Diaspora account"
+      making_the_connection: "Making the Connection"
+      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
+      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_token: "Your Diaspora Token:"
+      generate_a_token: "Generate a token"
+      via: "(via %{link})"
+
   users:
     edit:
       export_data: "Export Data"

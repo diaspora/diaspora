@@ -27,12 +27,21 @@ h1, h2, h3, h4, h5
   :position relative
   :font
     :weight bold
+    
+h1, h2, h3
+  :letter-spacing -1px
 
 h4
   :margin
     :bottom 5px
 
-ol, ul, li
+h1
+  :color #111
+
+h3
+  :color #777
+
+ul > li
   :list-style none
 
 form
@@ -2856,3 +2865,35 @@ h1.tag
       :height 36px
     :margin
       :bottom 4px
+
+.subtle
+  :color #888
+  :font
+    :style italic
+
+.cubbies_steps
+  li
+    :margin
+      :bottom 12px
+    :vertical-align top
+
+.cubbies-credentials
+  :background
+    :color #eee
+  :padding 15px
+
+.cubbies-settings-image
+  @include box-shadow(3px, 3px, 15px, #333)
+  :margin
+    :bottom 5px
+
+.button.sign_up
+  @include linear-gradient(#D9FFA9,#B9E68A)
+  :text-shadow none
+  :color #333
+
+  &:hover
+    @include linear-gradient(darken(#D9FFA9,10%),darken(#B9E68A,10%))
+
+  &:active
+    @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
