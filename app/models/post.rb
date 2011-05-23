@@ -29,6 +29,9 @@ class Post < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 10
 
+  def diaspora_handle
+    read_attribute(:diaspora_handle) || self.author.diaspora_handle
+  end
   def user_refs
     if AspectVisibility.exists?(:post_id => self.id)
       self.post_visibilities.count + 1

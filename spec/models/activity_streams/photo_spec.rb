@@ -27,10 +27,16 @@ JSON
   end
 
   describe 'serialization' do
+    before do
+      @photo = Factory(:activity_streams_photo)
+      xml = @photo.to_diaspora_xml.to_s
+      @marshalled = Diaspora::Parser.from_xml(xml)
+    end
     it 'Diaspora::Parser should pick the right class' do
-      photo = Factory(:activity_streams_photo)
-      xml = photo.to_diaspora_xml.to_s
-      Diaspora::Parser.from_xml(xml).class.should == ActivityStreams::Photo
+      @marshalled.class.should == ActivityStreams::Photo
+    end
+    it 'marshals the author' do
+      @marshalled.author.should == @photo.author
     end
   end
 end
