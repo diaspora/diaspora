@@ -7,7 +7,8 @@ module Diaspora
     def self.from_xml(xml)
       doc = Nokogiri::XML(xml) { |cfg| cfg.noblanks }
       return unless body = doc.xpath("/XML/post").children.first
-      body.name.camelize.constantize.from_xml body.to_s
+      class_name = body.name.gsub('-', '/')
+      class_name.camelize.constantize.from_xml body.to_s
     end
   end
 end
