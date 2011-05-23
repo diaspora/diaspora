@@ -97,7 +97,7 @@ module MarkdownifyHelper
   end
 
   def process_vimeo(message, vimeo_maps)
-    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})/
+    regex = /https?:\/\/(?:w{3}\.)?vimeo.com\/(\d{6,})\/?/
     processed_message = message.gsub(regex) do |matched_string|
       match_data = message.match(regex)
       video_id = match_data[1]

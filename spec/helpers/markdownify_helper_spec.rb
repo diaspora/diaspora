@@ -44,6 +44,15 @@ describe MarkdownifyHelper do
           res.should =~ /data-video-id="#{video_id}"/
         end
 
+        it "matches a trailing slash in a vimeo link" do
+          video_id = "17449557"
+          url = "http://www.vimeo.com/#{video_id}/"
+          res = markdownify(url)
+          res.should =~ /data-host="vimeo.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+          res.should_not =~ />\//
+        end
+
         it "recognizes youtube links" do
           video_id = "0x__dDWdf23"
           url = "http://www.youtube.com/watch?v=" + video_id + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
