@@ -207,6 +207,7 @@ fi:
       already_contacts: "Olet jo yhteydessä tähän henkilöön"
       already_sent: "Olet jo kutsunut tämän henkilön."
       no_more: "Sinulla ei ole enempää kutsuja."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Seuraavissa sähköpostiosoitteissa oli ongelmia: "
       sent: "Kutsut on lähetetty seuraaviin osoitteisiin:"
     edit: 
@@ -273,6 +274,7 @@ fi:
       mark_all_as_read: "Merkitse kaikki luetuiksi"
       notifications: "Ilmoitukset"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "on maininnut sinut "
     new_request: "haluaa jakaa kanssasi."
     post: "viesti."

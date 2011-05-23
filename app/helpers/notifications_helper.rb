@@ -22,7 +22,15 @@ module NotificationsHelper
       else
         t('notifications.also_commented_deleted')
       end
-    else #Notifications:StartedSharing, Notifications::Liked, etc.
+    elsif note.instance_of?(Notifications::Liked)
+      post = note.target
+      post = post.post if post.is_a? Like
+      if post
+        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
+      else
+        t('notifications.liked_post_deleted')
+      end
+    else #Notifications:StartedSharing, etc.
       translation(target_type)
     end
   end
@@ -41,11 +49,20 @@ module NotificationsHelper
   def notification_people_link(note)
     actors = note.actors
     number_of_actors = actors.count
-    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase)}", person_path(person))}
+    sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
+    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
+    
     if number_of_actors < 4
-      message =  actor_links.join(', ')
+      message = actor_links.to_sentence(sentence_translations)
     else
-      message  = actor_links[0..2].join(', ') << "<a class='more' href='#'> #{t('.and_others', :number =>(number_of_actors - 3))}</a><span class='hidden'>, " << actor_links[3..(number_of_actors-2)].join(', ')<< " #{t('.and')} "<< actor_links.last << '</span>'
+      first, second, third, *others = actor_links
+      others_sentence = others.to_sentence(sentence_translations)
+      if others.count == 1
+        others_sentence = " #{t('notifications.index.and')} " + others_sentence
+      end
+      message = "#{first}, #{second}, #{third},"
+      message += "<a class='more' href='#'> #{t('notifications.index.and_others', :number =>(number_of_actors - 3))}</a>"
+      message += "<span class='hidden'> #{others_sentence} </span>"
     end
     message.html_safe
   end

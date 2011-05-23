@@ -207,6 +207,7 @@ sv:
       already_contacts: "Du är redan ansluten med denna personen"
       already_sent: "Du har redan bjudit in denna personen."
       no_more: "Du har inga fler inbjudningar."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Det var problem med följande e-postadresser: "
       sent: "Inbjudningar har skickats till:"
     edit: 
@@ -273,6 +274,7 @@ sv:
       mark_all_as_read: "Markera alla som läst"
       notifications: "Notifieringar"
     liked: "har precis gillat ditt inlägg"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "har nämnt dig i sitt"
     new_request: "erbjöd sig att dela med dig."
     post: "inlägg."

@@ -43,13 +43,13 @@ cs:
   are_you_sure: "Jste si jist?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "přidat k aspektu"
+      add_to_aspect: "Přidat do aspektu"
       toggle: 
-        few: "v %{count} aspektech"
-        many: "v %{count} aspektech"
-        one: "v %{count} aspektech"
-        other: "v %{count} aspektech"
-        zero: "přidat k aspektu"
+        few: "V %{count} aspektech"
+        many: "Ve %{count} aspektech"
+        one: "V %{count} aspektu"
+        other: "V %{count} aspektech"
+        zero: "Přidat do aspektu"
     destroy: 
       failure: "Nepodařilo se odstranit osobu z aspektu"
       no_membership: "Nelze najít vybrané osoby v tomto aspektu"
@@ -207,6 +207,7 @@ cs:
       already_contacts: "Jste již propojen s touto osobou"
       already_sent: "Již jste pozval tuto osobu."
       no_more: "Nemáte žádné další pozvánky."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Následující emailové adresy mají problémy: "
       sent: "Pozvánky byly poslány pro:"
     edit: 
@@ -273,6 +274,7 @@ cs:
       mark_all_as_read: "Označit vše jako přečtené"
       notifications: "Oznámení"
     liked: "si právě oblíbil váš příspěvek"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "vás zmínil v příspěvku"
     new_request: "nabídnul vám sdílení."
     post: "zpráva"

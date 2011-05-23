@@ -207,6 +207,7 @@ is:
       already_contacts: "Þú tengist þessari manneskju nú þegar"
       already_sent: "Þessari manneskju hefur þegar verið boðið."
       no_more: "Ekki eru til fleiri boðsmiðar."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Eftirfarandi netföng ollu vandræðum: "
       sent: "Boðsmiðar hafa verið sendir til:"
     edit: 
@@ -273,6 +274,7 @@ is:
       mark_all_as_read: "Merkja allt sem lesið"
       notifications: "Tilkynningar"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "hefur getið þín í þeirra"
     new_request: "bauð þér samnýtingu."
     post: "setja inn"

@@ -207,6 +207,7 @@ zh-CN:
       already_contacts: "你已经将他加为好友了"
       already_sent: "你邀请过这个人了。"
       no_more: "你没有邀请函了。"
+      own_address: "You can't send an invitation to your own address."
       rejected: "下列电子信箱有问题: "
       sent: "邀请函已经寄给: "
     edit: 
@@ -273,6 +274,7 @@ zh-CN:
       mark_all_as_read: "全部标示为已读"
       notifications: "消息"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "在他发布的内容中提到了你"
     new_request: "想要与您分享。"
     post: "日志。"

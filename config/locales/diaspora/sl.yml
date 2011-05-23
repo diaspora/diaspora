@@ -207,6 +207,7 @@ sl:
       already_contacts: "S to osebo ste že povezani"
       already_sent: "To osebo ste že povabili."
       no_more: "Nimate več povabil."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Naslednji e-naslovi imajo težave z dostavo povabila: "
       sent: "Povabila so bila poslana naslednjim: "
     edit: 
@@ -273,6 +274,7 @@ sl:
       mark_all_as_read: "Označi vse kot prebrano"
       notifications: "Sporočila"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "bili ste omenjeni v objavi"
     new_request: "nekdo želi deliti z vami."
     post: "prispevek"

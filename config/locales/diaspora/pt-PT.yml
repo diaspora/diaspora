@@ -43,13 +43,13 @@ pt-PT:
   are_you_sure: "Tem a certeza?"
   aspect_memberships: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Adicionar ao aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Em %{count} aspectos"
+        many: "Em %{count} aspectos"
+        one: "Em %{count} aspecto"
+        other: "Em %{count} aspectos"
+        zero: "Adicionar ao aspecto"
     destroy: 
       failure: "Erro ao remover a pessoa do aspecto"
       no_membership: "A pessoa seleccionada não foi encontrada neste aspecto"
@@ -123,8 +123,8 @@ pt-PT:
     zero: "não há aspectos"
   back: "Voltar"
   bookmarklet: 
-    explanation: "%{link} de qualquer lado ao adicionar esta hiperligação como marcador."
-    explanation_link_text: "Publicar no Diaspora"
+    explanation: "Publique no Diaspora de qualquer lado ao adicionar %{link} como marcador."
+    explanation_link_text: "esta hiperligação"
     post_something: "Publique qualquer coisa no Diaspora"
     post_success: "Publicado! A fechar!"
   cancel: "Cancelar"
@@ -207,6 +207,7 @@ pt-PT:
       already_contacts: "Já está ligado a esta pessoa"
       already_sent: "Já convidou esta pessoa."
       no_more: "Não tem mais convites."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Os seguintes endereços de email tiveram problemas: "
       sent: "Os convites foram enviados a:"
     edit: 
@@ -273,6 +274,7 @@ pt-PT:
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
     liked: "gostou da sua publicação"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "mencionou-o numa"
     new_request: "deseja partilhar consigo."
     post: "publicação."
@@ -510,10 +512,10 @@ pt-PT:
       logged_in_as: "iniciou sessão como %{name}"
       your_aspects: "os seus aspectos"
     invitations: 
-      by_email: "por email"
+      by_email: "Por Email"
       dont_have_now: "Não tem nenhum agora, mas terá mais convites brevemente!"
       from_facebook: "do Facebook"
-      invitations_left: "(faltam %{count})"
+      invitations_left: "ainda tem %{count}"
       invite_someone: "Convidar alguém"
       invite_your_friends: "Convide os seus amigos"
       invites: "Convites"

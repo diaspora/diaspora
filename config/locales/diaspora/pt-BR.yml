@@ -207,6 +207,7 @@ pt-BR:
       already_contacts: "Você já está conectado com essa pessoa."
       already_sent: "Você já convidou essa pessoa."
       no_more: "Você não possui mais convites."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Emails com problemas: "
       sent: "Convites foram enviados para:"
     edit: 
@@ -273,6 +274,7 @@ pt-BR:
       mark_all_as_read: "Marcar Tudo como Lido"
       notifications: "Notificações"
     liked: "has just liked your post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "has mentioned you in their"
     new_request: "deseja partilhar com você."
     post: "post"

@@ -207,6 +207,7 @@ pl:
       already_contacts: "{m,f:Jesteś już|n:Połączono już}{ }{m,f:połączon}{m:y|f:a} z tą osobą."
       already_sent: "Już zapros@{m:iłeś|f:iłaś|n:zono} tę osobę."
       no_more: "Nie masz więcej zaproszeń."
+      own_address: "You can't send an invitation to your own address."
       rejected: "Poniższy adres e-mail okazał się problematyczny:"
       sent: "Zaproszenia zostały wysłane do:"
     edit: 
@@ -273,6 +274,7 @@ pl:
       mark_all_as_read: "Oznacz wszystkie jako przeczytane"
       notifications: "Powiadomienia"
     liked: "polubił twój wpis"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "wspomniał o tobie we wpisie"
     new_request: "chce zostać twoim znajomym."
     post: "wpis."

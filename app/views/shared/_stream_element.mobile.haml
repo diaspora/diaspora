@@ -23,6 +23,7 @@
 
       - if post.activity_streams?
         = link_to "#{t('comments', :count => post.comments.length)} →", activity_streams_photo_path(post), :class => 'comment_link right'
+        %br
       - else
         = link_to "#{t('comments', :count => post.comments.length)} →", status_message_path(post), :class => 'comment_link right'
 

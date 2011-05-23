@@ -207,6 +207,7 @@ it:
       already_contacts: "Sei già connessa con questa persona"
       already_sent: "Hai già invitato questa persona."
       no_more: "Non hai più inviti a disposizione"
+      own_address: "You can't send an invitation to your own address."
       rejected: "Questi indirizzi email hanno dei problemi:"
       sent: "Il tuoi inviti sono stati inviati a:"
     edit: 
@@ -273,6 +274,7 @@ it:
       mark_all_as_read: "Segna Tutti come Letti"
       notifications: "Notifiche"
     liked: "ha appena apprezzato il tuo post"
+    liked_post_deleted: "liked your deleted post."
     mentioned: "ti ha menzionato in un "
     new_request: "vuole condividere con te."
     post: "post."

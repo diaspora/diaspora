@@ -295,10 +295,11 @@ en:
     comment_on_post: "commented on your"
     also_commented: "also commented on %{post_author}'s"
     mentioned: "has mentioned you in a "
-    liked: "has just liked your post"
+    liked: "has just liked your"
     post: "post."
     deleted: "deleted"
     also_commented_deleted: "commented on a deleted post."
+    liked_post_deleted: "liked your deleted post."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
