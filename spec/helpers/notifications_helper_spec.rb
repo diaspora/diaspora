@@ -50,7 +50,6 @@ describe NotificationsHelper do
 
       it 'with more than three, lists the first three, then the others tag' do
         @note.stub!(:actors).and_return([@max, @sarah, @daniel, @ilya])
-        puts output
         output.scan(/,/).count.should be 3
         output.scan(/and/).count.should be 2
       end
