@@ -49,11 +49,20 @@ module NotificationsHelper
   def notification_people_link(note)
     actors = note.actors
     number_of_actors = actors.count
-    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase)}", person_path(person))}
+    sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
+    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
+    
     if number_of_actors < 4
-      message =  actor_links.join(', ')
+      message = actor_links.to_sentence(sentence_translations)
     else
-      message  = actor_links[0..2].join(', ') << "<a class='more' href='#'> #{t('.and_others', :number =>(number_of_actors - 3))}</a><span class='hidden'>, " << actor_links[3..(number_of_actors-2)].join(', ')<< " #{t('.and')} "<< actor_links.last << '</span>'
+      first, second, third, *others = actor_links
+      others_sentence = others.to_sentence(sentence_translations)
+      if others.count == 1
+        others_sentence = " #{t('notifications.index.and')} " + others_sentence
+      end
+      message = "#{first}, #{second}, #{third},"
+      message += "<a class='more' href='#'> #{t('notifications.index.and_others', :number =>(number_of_actors - 3))}</a>"
+      message += "<span class='hidden'> #{others_sentence} </span>"
     end
     message.html_safe
   end

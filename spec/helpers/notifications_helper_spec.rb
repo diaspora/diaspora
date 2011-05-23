@@ -13,6 +13,48 @@ describe NotificationsHelper do
     
   end
   describe '#notification_people_link' do
+    context 'formatting' do
+      include ActionView::Helpers::SanitizeHelper
+      let(:output){ strip_tags(notification_people_link(@note)) }
+
+      before do
+        @max = Factory(:person)
+        @max.profile.first_name = 'max'
+        @max.profile.last_name = 'salzberg'
+        @sarah = Factory(:person)
+        @sarah.profile.first_name = 'sarah'
+        @sarah.profile.last_name = 'mei'
+
+
+        @daniel = Factory(:person)
+        @daniel.profile.first_name = 'daniel'
+        @daniel.profile.last_name = 'grippi'
+
+        @ilya = Factory(:person)
+        @ilya.profile.first_name = 'ilya'
+        @ilya.profile.last_name = 'zhit'
+        @note = mock()
+      end
+
+      it 'with two, does not comma seperate two actors' do
+        @note.stub!(:actors).and_return([@max, @sarah])
+        output.scan(/,/).should be_empty
+        output.scan(/and/).count.should be 1
+      end
+
+      it 'with three, comma seperates the first two, and and the last actor' do
+        @note.stub!(:actors).and_return([@max, @sarah, @daniel])
+        output.scan(/,/).count.should be 2
+        output.scan(/and/).count.should be 1
+      end
+
+      it 'with more than three, lists the first three, then the others tag' do
+        @note.stub!(:actors).and_return([@max, @sarah, @daniel, @ilya])
+        puts output
+        output.scan(/,/).count.should be 3
+        output.scan(/and/).count.should be 2
+      end
+    end
     describe 'for a like' do
       it 'displays #{list of actors}' do
         output = notification_people_link(@notification)
