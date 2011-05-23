@@ -5,6 +5,7 @@
 class ActivityStreams::Photo < Post
   include Diaspora::Socketable
 
+  xml_name "activity_streams::_photo"
   xml_attr :image_url
   xml_attr :image_height
   xml_attr :image_width

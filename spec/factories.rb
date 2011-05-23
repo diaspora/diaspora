@@ -104,3 +104,12 @@ Factory.define(:notification) do |n|
   end
 end
 
+Factory.define(:activity_streams_photo, :class => ActivityStreams::Photo) do |p|
+  p.association(:author, :factory => :person)
+  p.image_url "http://example.com/awesome.png"
+  p.image_height 9001
+  p.image_width 4
+  p.object_url "http://example.com/awesome_things.html"
+  p.actor_url "http://notcubbi.es/cubber"
+  p.provider_display_name "not cubbies"
+end

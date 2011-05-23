@@ -25,4 +25,12 @@ JSON
     end
 
   end
+
+  describe 'serialization' do
+    it 'Diaspora::Parser should pick the right class' do
+      photo = Factory(:activity_streams_photo)
+      xml = photo.to_diaspora_xml.to_s
+      Diaspora::Parser.from_xml(xml).class.should == ActivityStreams::Photo
+    end
+  end
 end
