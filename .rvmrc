@@ -2,5 +2,5 @@
 if [ -e '.rvmrc_custom' ]; then
   source .rvmrc_custom;
 else
-  rvm --create use ree@diaspora;
+  rvm --create use ree-1.8.7-2011.03@diaspora;
 fi
