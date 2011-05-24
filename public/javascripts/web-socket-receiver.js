@@ -102,7 +102,7 @@ var WebSocketReceiver = {
         );
       }
 
-      var toggler = $('.show_post_comments', post);
+      var toggler = $('.show_post_comments', post).parent();
 
       if(toggler.length > 0){
         toggler.html(
