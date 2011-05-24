@@ -4,21 +4,21 @@ module NotificationsHelper
     if note.instance_of?(Notifications::Mentioned)
       post = Mention.find(note.target_id).post
       if post
-        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        translation(target_type, :post_link => link_to(t('notifications.post'), object_path(post)).html_safe)
       else
-        "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
+        t('notifications.mentioned_deleted')
       end
     elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(target_type)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
+        translation(target_type, :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
-        "#{translation(target_type)} #{t('notifications.deleted')} #{t('notifications.post')}"
+        t('notifications.also_commented_deleted')
       end
     elsif note.instance_of?(Notifications::AlsoCommented)
       post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
+        translation(target_type, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.also_commented_deleted')
       end
@@ -26,7 +26,7 @@ module NotificationsHelper
       post = note.target
       post = post.post if post.is_a? Like
       if post
-        "#{translation(target_type, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
+        translation(target_type, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.liked_post_deleted')
       end
@@ -35,8 +35,9 @@ module NotificationsHelper
     end
   end
 
-  def translation(target_type, post_author = nil)
-    t("#{target_type}", :post_author => post_author)
+  def translation(target_type, opts = {})
+    {:post_author => nil}.merge!(opts)
+    t("#{target_type}", opts).html_safe
   end
 
 
@@ -51,7 +52,7 @@ module NotificationsHelper
     number_of_actors = actors.count
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
-    
+
     if number_of_actors < 4
       message = actor_links.to_sentence(sentence_translations)
     else
