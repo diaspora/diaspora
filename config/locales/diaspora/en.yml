@@ -289,21 +289,70 @@ en:
         other: "%{count} dislikes"
 
   notifications:
-    started_sharing: "started sharing with you."
-    new_request: "offered to share with you."
-    private_message: "sent you a message."
-    comment_on_post: "commented on your %{post_link}."
-    also_commented: "also commented on %{post_author}'s %{post_link}."
-    mentioned: "has mentioned you in a %{post_link}."
-    liked: "has just liked your %{post_link}."
+    started_sharing:
+      zero: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+    private_message:
+      zero: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+    comment_on_post:
+      zero: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+    also_commented:
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+    mentioned:
+      zero: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+    liked:
+      zero: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
     post: "post"
-    also_commented_deleted: "commented on a deleted post."
-    liked_post_deleted: "liked your deleted post."
-    mentioned_deleted: "mentioned you in a deleted post."
+    also_commented_deleted:
+      zero: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+    liked_post_deleted:
+      zero: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+    mentioned_deleted:
+      zero: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
     index:
       notifications: "Notifications"
       mark_all_as_read: "Mark All as Read"
-      and_others: "and %{number} others"
+      and_others: 
+        zero: "and nobody else"
+        one: "and one more"
+        few: "and %{count} others"
+        many: "and %{count} others"
+        other: "and %{count} others"
       and: 'and'
     helper:
         new_notifications:

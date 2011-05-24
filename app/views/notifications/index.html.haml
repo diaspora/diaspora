@@ -23,8 +23,7 @@
                   = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => note.target, :hang => 'left'
 
               %span.from
-                = notification_people_link(note)
-                = object_link(note)
+                = notification_message_for(note)
 
               %br
               %time= timeago(note.created_at)
