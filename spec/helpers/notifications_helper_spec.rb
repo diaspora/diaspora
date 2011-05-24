@@ -73,7 +73,8 @@ describe NotificationsHelper do
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification)
-        output.should include t("#{@notification.popup_translation_key}")
+        output.should include t("#{@notification.popup_translation_key}", 
+                                :post_link => "<a href=\"#{status_message_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
       end
 
       context 'when post is deleted' do
