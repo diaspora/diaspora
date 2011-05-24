@@ -29,9 +29,20 @@ ca:
           watch: "Visualitza aquest video a {{provider}}"
           unknown: "El tipus de vídeo és desconegut"
       search_for: "Cerca per {{name}}"
-      shared:
-        contact_list:
-          cannot_remove: "No es pot suprimir a una persona de l'últim aspecte. (Si voleu desconnectar d'aquesta persona, heu de suprimir el contacte.)"
       publisher:
         at_least_one_aspect: "Heu de publicar en almenys un aspecte."
-          
+      infinite_scroll:
+        no_more: "No hi ha més publicacions."
+      web_sockets:
+        disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
+      aspect_dropdown:
+        add_to_aspect: "Afegeix a l'aspecte"
+        toggle:
+          zero: "Afegeix a aspectes"
+          one: "En {{count}} aspecte"
+          few: "En {{count}} aspectes"
+          many: "En {{count}} aspectes"
+          other: "En {{count}} aspectes"
+      show_more: "mostra'n més"
+      failed_to_like: "No s'ha pogut comunicar que us agrada!"
+      failed_to_post_message: "No s'ha pogut publicar el missatge!"
