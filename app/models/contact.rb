@@ -27,6 +27,14 @@ class Contact < ActiveRecord::Base
     where(:receiving => true)
   }
 
+  before_destroy :destroy_notifications
+  def destroy_notifications
+    Notification.where(:target_type => "Person",
+                       :target_id => person_id,
+                       :recipient_id => user_id,
+                      :type => "Notifications::StartedSharing").delete_all
+  end
+
   def dispatch_request
     request = self.generate_request
     Postzord::Dispatch.new(self.user, request).post

@@ -18,7 +18,7 @@ module Diaspora
         if notification = Notification.where(:target_id => person.id).first
           notification.update_attributes(:unread=>false)
         end
-        
+
         contact
       end
 
@@ -44,7 +44,7 @@ module Diaspora
         retraction = Retraction.for(self)
         retraction.subscribers = [person]#HAX
         Postzord::Dispatch.new(self, retraction).post
-        
+
         AspectMembership.where(:contact_id => bad_contact.id).delete_all
         remove_contact(bad_contact)
       end
