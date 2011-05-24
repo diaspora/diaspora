@@ -85,6 +85,7 @@ class AppConfig
   end
 
   def self.load_config_yaml filename
-    YAML.load(File.read(filename))
+      # nil values are bad for merges and have no meaning here, so lets get rid of them
+    YAML.load(File.read(filename)).delete_if { |k, v| v.nil? }
   end
 end
