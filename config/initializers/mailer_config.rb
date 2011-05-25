@@ -27,7 +27,7 @@ Diaspora::Application.configure do
           :authentication => AppConfig[:smtp_authentication],
           :user_name => AppConfig[:smtp_username],
           :password => AppConfig[:smtp_password],
-          :enable_starttls_auto => true
+          :enable_starttls_auto => AppConfig[:smtp_starttls_auto]
         }
       end
     end

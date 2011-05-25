@@ -61,6 +61,9 @@ default:
   # authentication
   smtp_authentication: 'plain'
 
+  # Automatically enable TLS? Ignored if smtp_authentication is set to none
+  smtp_starttls_auto: true
+
   # Credentails possibly required to log in to SMTP server if
   # smtp_authentication != 'none'
   smtp_username: 'smtp_username'
