@@ -1,7 +1,7 @@
 #This is a spec for the class that runs the servers used in the other multi-server specs
 
 require 'spec_helper'
-if Server.all.first.running?
+if Server.all && Server.all.first && Server.all.first.running?
   describe Server do
     before do
       Server.all.each{|s| s.truncate_database }
