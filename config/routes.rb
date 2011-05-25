@@ -34,7 +34,8 @@ Diaspora::Application.routes.draw do
 
   resources :tags, :only => [:index]
   get 'tags/:name' => 'tags#show', :as => 'tag'
-
+  
+  resources :apps, :only => [:show]
   # Users and people
 
   resource :user, :only => [:edit, :update, :destroy], :shallow => true do

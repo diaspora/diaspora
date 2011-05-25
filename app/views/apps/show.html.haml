@@ -1,0 +1,27 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = "everything happening from #{@app}"
+
+- content_for :head do
+  = include_javascripts :home
+
+- content_for :body_class do
+  = "apps_show"
+
+.span-24.last
+  %h1.tag
+    = "everything happening from #{@app}"
+
+.span-13
+  #main_stream.stream
+    - if @posts.length > 0
+      = render 'shared/stream', :posts => @posts
+      #pagination
+        =link_to(t('more'), next_page_path, :class => 'paginate')
+    - else
+      = t('tags.show.nobody_talking', :tag => "##{params[:name]}")
+
+.prepend-2.span-9.last
