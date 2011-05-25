@@ -6,6 +6,21 @@ namespace :db do
   desc "rebuild and prepare test db"
   task :rebuild => [:drop, :create, :migrate, 'db:test:prepare']
 
+  namespace :integration do
+    # desc 'Check for pending migrations and load the integration schema'
+    task :prepare => :environment do
+      abcs = ActiveRecord::Base.configurations
+      envs = abcs.keys.select{ |k| k.include?("integration") }
+      envs.each do |env|
+        ActiveRecord::Base.establish_connection(env)
+        ActiveRecord::Base.connection.drop_database(abcs[env]["database"])
+        ActiveRecord::Base.connection.create_database(abcs[env]["database"])
+        ActiveRecord::Base.establish_connection(env)
+        ActiveRecord::Migrator.migrate("db/migrate", nil)
+      end
+    end
+  end
+
   desc 'Seed the current RAILS_ENV database from db/seeds.rb'
   namespace :seed do
     task :tom do

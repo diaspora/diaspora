@@ -2,8 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-# This file is copied to ~/spec when you run 'ruby script/generate rspec'
-# from the project root directory.
 ENV["RAILS_ENV"] ||= 'test'
 require File.join(File.dirname(__FILE__), '..', 'config', 'environment') unless defined?(Rails)
 require 'helper_methods'
@@ -12,6 +10,7 @@ require 'webmock/rspec'
 require 'factory_girl'
 
 include WebMock::API
+WebMock::Config.instance.allow_localhost = true
 include HelperMethods
 
 # Force fixture rebuild
