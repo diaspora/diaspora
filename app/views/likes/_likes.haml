@@ -8,5 +8,5 @@
       = image_tag('icons/heart.png')
       = link_to t('.people_like_this', :count => likes.length), "#", :class => "expand_likes"
       %span.hidden.likes_list
-        = likes_list(likes)
+        = notification_people_link(nil, likes.map{|x| x.author})
 

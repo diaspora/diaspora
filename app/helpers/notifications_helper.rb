@@ -48,8 +48,8 @@ module NotificationsHelper
     end
   end
 
-  def notification_people_link(note)
-    actors = note.actors
+  def notification_people_link(note, people=nil)
+    actors =people || note.actors
     number_of_actors = actors.count
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
