@@ -1,6 +1,0 @@
-#!/usr/bin/env ruby
-
-require 'rubygems'
-require 'jasmine'
-
-Jasmine::CommandLineTool.new.process ARGV
