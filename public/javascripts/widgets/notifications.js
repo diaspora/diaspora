@@ -7,7 +7,9 @@
   var Notifications = function() {
     this.start = function() {
       var self = this;
-      this.badge = $("#notification_badge .badge_count, .notification_count");
+      this.badge = $("#notification_badge .badge_count")
+      this.index_badge =  $(".notification_count");
+      this.on_index_page = this.index_badge.length > 0
       this.notificationArea = $("#notifications");
       this.count = parseInt(this.badge.html()) || 0;
 
@@ -50,9 +52,13 @@
 
     if(this.badge.text() !== "") {
       this.badge.text(this.count);
+      if(this.on_index_page)
+        this.index_badge.text(this.count + " ");
 
       if(this.count === 0) {
         this.badge.addClass("hidden");
+        if(this.on_index_page)
+          this.index_badge.removeClass('unread');
       }
       else if(this.count === 1) {
         this.badge.removeClass("hidden");
