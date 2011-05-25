@@ -32,8 +32,20 @@ describe AppConfig do
     end
     it "prints error if base file is missing" do
       AppConfig.base_file_path = "/no/such/file"
+      AppConfig.file_path = File.join(Rails.root, "config", "app_base.yml")
 
       AppConfig.load_config_for_environment(:test)
+      $stderr.rewind
+      $stderr.string.chomp.should_not be_blank
+    end
+    it "prints error and exits if there's no config at all" do
+      AppConfig.base_file_path = "/no/such/file"
+      AppConfig.file_path = "/no/such/file"
+      
+      lambda {
+        AppConfig.load_config_for_environment(:test)
+      }.should raise_error SystemExit
+      
       $stderr.rewind
       $stderr.string.chomp.should_not be_blank
     end

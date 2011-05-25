@@ -6,9 +6,14 @@ class AppConfig
 
   cattr_accessor :config_vars
   cattr_accessor :base_file_path
+  cattr_accessor :file_path
   
   def self.base_file_path
     @@base_file_path || File.join(Rails.root, "config", "app_base.yml")
+  end
+  
+  def self.file_path
+    @@file_path || File.join(Rails.root, "config", "app.yml")
   end
   
   def self.[](key)
@@ -38,8 +43,8 @@ class AppConfig
       $stderr.puts "OH NO! Required file #{base_file_path} doesn't exist! Did you move it?"
       all_envs = {}
     end
-    if File.exist? "#{Rails.root}/config/app.yml"
-      all_envs_custom = load_config_yaml "#{Rails.root}/config/app.yml"
+    if File.exist?(file_path)
+      all_envs_custom = load_config_yaml(file_path)
       all_envs.deep_merge!(all_envs_custom)
     elsif File.exist? "#{Rails.root}/config/app_config.yml"
       all_envs_custom = load_config_yaml "#{Rails.root}/config/app_config.yml"
@@ -49,6 +54,12 @@ class AppConfig
       unless Rails.env == "development" || Rails.env == "test"
         $stderr.puts "WARNING: No config/app.yml found! Look at config/app.yml.example for help."
       end
+    end
+
+    # Is there a config at all?
+    unless all_envs['default']
+      $stderr.puts "What did you do? There's no config at all!"
+      Process.exit(false)
     end
 
     env = env.to_s
