@@ -21,6 +21,8 @@ class ActivityStreams::PhotosController < ApplicationController
       current_user.dispatch_post(@photo, :url => post_url(@photo))
 
       render :nothing => true, :status => 201
+    else
+      render :nothing => true, :status => 422
     end
   end
 
