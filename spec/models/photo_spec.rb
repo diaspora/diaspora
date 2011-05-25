@@ -191,36 +191,9 @@ describe Photo do
     end
 
     it 'is deleted with parent status message' do
-      proc {
+      expect {
         @status_message.destroy
       }.should change(Photo, :count).by(-1)
-    end
-
-    it 'deletes the parent object if there are no other photos or message' do
-      pending
-      proc {
-        @photo2.destroy
-      }.should change(StatusMessage, :count).by(-1)
-    end
-
-    it 'does not delete the parent if the parent has other photos' do
-      pending
-      @status_message.photos << @photo
-      @status_message.save
-
-      proc {
-        @photo2.destroy
-      }.should_not change(StatusMessage, :count)
-    end
-
-    it 'does not delete the parent if the parent has a message' do
-      pending
-      @status_message.text = "hello there kids"
-      @status_message.save
-
-      proc {
-        @photo2.destroy
-      }.should_not change(StatusMessage, :count)
     end
   end
 end
