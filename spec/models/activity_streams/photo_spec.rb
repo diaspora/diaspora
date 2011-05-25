@@ -19,6 +19,7 @@ JSON
       photo.image_height.should == @json["object"]["image"]["height"]
       photo.image_width.should == @json["object"]["image"]["width"]
       photo.object_url.should == @json["object"]["url"]
+      photo.objectId.should == @json["object"]["id"]
 
       photo.provider_display_name.should == @json["provider"]["displayName"]
       photo.actor_url.should == @json["actor"]["url"]

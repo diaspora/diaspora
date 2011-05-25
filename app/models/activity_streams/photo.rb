@@ -12,11 +12,13 @@ class ActivityStreams::Photo < Post
   xml_attr :object_url
   xml_attr :provider_display_name
   xml_attr :actor_url
+  xml_attr :objectId
 
   validates_presence_of :image_url,
                         :object_url,
                         :provider_display_name,
-                        :actor_url
+                        :actor_url,
+                        :objectId
 
   def socket_to_user(user_or_id, opts={}) #adds aspect_ids to opts if they are not there
     unless opts[:aspect_ids]
@@ -35,6 +37,7 @@ class ActivityStreams::Photo < Post
       :image_height => json["object"]["image"]["height"],
       :image_width => json["object"]["image"]["width"],
       :object_url => json["object"]["url"],
+      :objectId => json["object"]["id"],
 
       :provider_display_name => json["provider"]["displayName"],
       :actor_url => json["actor"]["url"]
