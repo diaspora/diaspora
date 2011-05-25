@@ -20,8 +20,12 @@ var Search = {
     return results;
   },
   selectItemCallback :  function(event, data, formatted) {
-    $(Search.selector).val(formatted);
-    window.location = data['url'];
+    if (data['id'] !== undefined) { // actual result
+      $(Search.selector).val(formatted);
+      window.location = data['url'];
+    } else { //use form val to eliminate timing issue
+      window.location = '/people?q='+$(Search.selector).val();
+    }
   },
   options : function(){return {
       minChars : 3,
@@ -33,7 +37,7 @@ var Search = {
       extraParams : {limit : 4},
       formatItem : Search.formatItem,
       formatResult : Search.formatResult,
-      parse : Search.parse,
+      parse : Search.parse
   };},
 
   searchLinkli : function() {
