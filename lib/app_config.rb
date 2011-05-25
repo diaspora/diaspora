@@ -5,7 +5,12 @@
 class AppConfig
 
   cattr_accessor :config_vars
-
+  cattr_accessor :base_file_path
+  
+  def self.base_file_path
+    @@base_file_path || File.join(Rails.root, "config", "app_base.yml")
+  end
+  
   def self.[](key)
     config_vars[key]
   end
@@ -27,10 +32,10 @@ class AppConfig
   end
 
   def self.load_config_for_environment(env)
-    if File.exist? "#{Rails.root}/config/app.yml.example"
-      all_envs = load_config_yaml "#{Rails.root}/config/app.yml.example"
+    if File.exist?(base_file_path)
+      all_envs = load_config_yaml(base_file_path)
     else
-      $stderr.puts "ERROR: Why have you deleted config/app.yml.example?"
+      $stderr.puts "OH NO! Required file #{base_file_path} doesn't exist! Did you move it?"
       all_envs = {}
     end
     if File.exist? "#{Rails.root}/config/app.yml"

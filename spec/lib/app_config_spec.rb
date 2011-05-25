@@ -5,14 +5,40 @@
 require 'spec_helper'
 
 describe AppConfig do
-  describe ".generate_pod_uri" do
+  before do
+    @environment_vars = AppConfig.config_vars
+    AppConfig.config_vars = {}
+  end
+  after do
+    AppConfig.config_vars = @environment_vars
+  end
+  describe ".base_file_path" do
+    it "allows you to set the base file path" do
+      AppConfig.base_file_path = "foo"
+      AppConfig.base_file_path.should == "foo"
+    end
+    it "defaults to config/app_base.yml" do
+      AppConfig.base_file_path = nil
+      AppConfig.base_file_path.should == "#{Rails.root}/config/app_base.yml"
+    end
+  end
+  describe ".load_config_for_environment" do
     before do
-      @environment_vars = AppConfig.config_vars
-      AppConfig.config_vars = {}
+      @original_stderr = $stderr
+      $stderr = StringIO.new
     end
     after do
-      AppConfig.config_vars = @environment_vars
+      $stderr = @original_stderr
     end
+    it "prints error if base file is missing" do
+      AppConfig.base_file_path = "/no/such/file"
+
+      AppConfig.load_config_for_environment(:test)
+      $stderr.rewind
+      $stderr.string.chomp.should_not be_blank
+    end
+  end
+  describe ".generate_pod_uri" do
     describe "when pod_url is prefixed with protocol" do
       it "generates a URI with a host for http" do
         AppConfig[:pod_url] = "http://oscar.joindiaspora.com"
