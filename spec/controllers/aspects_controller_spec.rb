@@ -179,6 +179,12 @@ describe AspectsController do
         assigns(:posts).models.length.should == 2
       end
 
+      it "posts include reshares" do
+        reshare = alice.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id, :to => alice.aspects)
+        get :index
+        assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+      end
+
       it "can filter to a single aspect" do
         get :index, :a_ids => [@alices_aspect_2.id.to_s]
         assigns(:posts).models.length.should == 1

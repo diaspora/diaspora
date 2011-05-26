@@ -206,7 +206,7 @@ describe PeopleController do
         end
 
         it "posts include reshares" do
-          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id, :to => alice.aspects)
           get :show, :id => @user.person.id
           assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
         end
@@ -259,7 +259,7 @@ describe PeopleController do
       end
 
       it "posts include reshares" do
-        reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+        reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id, :to => alice.aspects)
         get :show, :id => @user.person.id
         assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
       end
@@ -297,7 +297,7 @@ describe PeopleController do
       end
 
         it "posts include reshares" do
-          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id, :to => alice.aspects)
           get :show, :id => @user.person.id
           assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
         end

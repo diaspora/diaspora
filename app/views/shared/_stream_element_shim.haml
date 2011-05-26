@@ -1,0 +1,5 @@
+
+-if post.model.is_a?(Reshare)
+  = render 'shared/stream_element', :post => post.root, :all_aspects => all_aspects, :commenting_disabled => commenting_disabled, :reshare => post
+- else
+  = render 'shared/stream_element', :post => post, :all_aspects => all_aspects, :commenting_disabled => commenting_disabled, :reshare => nil
