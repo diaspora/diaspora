@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 
-git_cmd = `git log -1 --format="%H %ci"`
+git_cmd = `git log -1 --pretty="format:%H %ci"`
 if git_cmd =~ /^([\d\w]+?)\s(.+)$/
   AppConfig[:git_revision] = $1
   AppConfig[:git_update] = $2.strip
