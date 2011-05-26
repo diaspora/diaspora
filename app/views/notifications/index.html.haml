@@ -1,3 +1,6 @@
+-self.extend AspectGlobalHelper
+-self.extend AspectsHelper
+-self.extend ApplicationHelper
 .span-13
   %h2
     %span.notification_count{:class => ('unread' if @notification_count > 0)}
@@ -8,7 +11,7 @@
 
 .span-24.last
   .stream.notifications
-    - @group_days.each do |day, notes|
+    - group_days.each do |day, notes|
       .day_group.span-24.last
         .span-3
           .date
@@ -28,4 +31,4 @@
               %br
               %time= timeago(note.created_at)
         .span-13.last
-    = will_paginate @notifications
+    = will_paginate notifications

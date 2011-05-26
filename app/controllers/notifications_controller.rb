@@ -2,9 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class NotificationsController < ApplicationController
-  before_filter :authenticate_user!
-  respond_to :html, :json
+class NotificationsController < VannaController
 
 
   def update
@@ -21,7 +19,7 @@ class NotificationsController < ApplicationController
     @aspect = :notification
     conditions = {:recipient_id => current_user.id}
     page = params[:page] || 1
-    @notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
+    notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
       result = Notification.find(:all,
                                  :conditions => conditions,
                                  :order => 'created_at desc',
@@ -33,8 +31,8 @@ class NotificationsController < ApplicationController
       pager.replace(result)
     end
 
-    @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
-    respond_with @notifications
+    group_days = notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
+    {:group_days => group_days, :current_user => current_user, :notifications => notifications}
   end
 
   def read_all

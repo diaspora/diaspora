@@ -13,6 +13,8 @@ gem 'ohai', '0.5.8', :require => false #Chef dependency
 gem 'nokogiri'
 gem 'settingslogic', '2.0.6'
 
+gem 'vanna', :git => "git://github.com/MikeSofaer/vanna.git"
+
 #Security
 gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'

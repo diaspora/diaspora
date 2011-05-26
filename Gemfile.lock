@@ -15,6 +15,14 @@ GIT
       net-scp
 
 GIT
+  remote: git://github.com/MikeSofaer/vanna.git
+  revision: 334eec220dbfddcc6bd3108e6e6c77fec8484dc4
+  specs:
+    vanna (0.1.1)
+      json
+      rails (>= 3.0.0)
+
+GIT
   remote: git://github.com/diaspora/acts-as-taggable-on.git
   revision: c3592fe1a906f6ff1cd12766c5cf1152c51eec40
   specs:
@@ -454,6 +462,7 @@ DEPENDENCIES
   thin (= 1.2.11)
   twitter (= 1.5.0)
   typhoeus
+  vanna!
   webmock
   will_paginate (= 3.0.pre2)
   yard
