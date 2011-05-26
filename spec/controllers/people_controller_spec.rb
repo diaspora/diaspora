@@ -137,6 +137,7 @@ describe PeopleController do
       response.body.match(profile.first_name).should be_false
     end
 
+
     context "when the person is the current user" do
       it "succeeds" do
         get :show, :id => @user.person.to_param
@@ -204,6 +205,12 @@ describe PeopleController do
           @public_posts.first.save
         end
 
+        it "posts include reshares" do
+          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+          get :show, :id => @user.person.id
+          assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+        end
+
         it "assigns only public posts" do
           get :show, :id => @person.id
           assigns[:posts].models.should =~ @public_posts
@@ -251,6 +258,12 @@ describe PeopleController do
         assigns(:posts).models.should =~ posts_user_can_see
       end
 
+      it "posts include reshares" do
+        reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+        get :show, :id => @user.person.id
+        assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+      end
+
       it 'sets @commenting_disabled to true' do
         get :show, :id => @person.id
         assigns(:commenting_disabled).should == false
@@ -282,6 +295,12 @@ describe PeopleController do
         get :show, :id => @person.id
         assigns[:posts].models.should =~ [public_post]
       end
+
+        it "posts include reshares" do
+          reshare = @user.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id)
+          get :show, :id => @user.person.id
+          assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+        end
 
       it 'sets @commenting_disabled to true' do
         get :show, :id => @person.id

@@ -91,6 +91,11 @@ Factory.define(:photo) do |p|
   end
 end
 
+Factory.define :reshare do |r|
+  r.association(:root, :public => true, :factory => :status_message)
+  r.association(:author, :factory => :person)
+end
+
 Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.type "Services::Twitter"

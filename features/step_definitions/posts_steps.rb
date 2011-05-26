@@ -8,3 +8,8 @@ end
 Then /^I should see an uploaded image within the photo drop zone$/ do
   find("#photodropzone img")["src"].should include("uploads/images")
 end
+
+Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
+  user = User.find_by_email(email)
+  user.post(:status_message, :text => text, :public => true, :to => user.aspects)
+end
