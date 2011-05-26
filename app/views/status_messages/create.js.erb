@@ -5,7 +5,8 @@
       :author => @status_message.author,
       :photos => @status_message.photos,
       :comments => [],
-      :all_aspects => current_user.aspects
+      :all_aspects => current_user.aspects,
+      :reshare => nil
     }
   ),
   :post_id => @status_message.guid}.to_json.html_safe%>

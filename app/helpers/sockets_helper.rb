@@ -28,6 +28,7 @@ module SocketsHelper
         post_hash = {:post => object,
           :author => object.author,
           :photos => object.photos,
+          :reshare => nil,
           :comments => object.comments.map{|c|
             {:comment => c,
              :author => c.author

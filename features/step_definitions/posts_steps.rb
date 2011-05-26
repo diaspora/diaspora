@@ -13,3 +13,9 @@ Given /^"([^"]*)" has a public post with text "([^"]*)"$/ do |email, text|
   user = User.find_by_email(email)
   user.post(:status_message, :text => text, :public => true, :to => user.aspects)
 end
+
+Given /^"([^"]*)" has a non public post with text "([^"]*)"$/ do |email, text|
+  user = User.find_by_email(email)
+  user.post(:status_message, :text => text, :public => false, :to => user.aspects)
+end
+

@@ -59,10 +59,13 @@
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
           %span.like_action
             = like_action(post, current_user)
+
+          - unless(post.author_id == current_user.person.id) || (!post.public?)
+            ·
+            %span.reshare_action
+              = link_to "Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
           ·
-          %span.reshare_action
-            = link_to "Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
-          ·
+
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
       .likes.on_post
