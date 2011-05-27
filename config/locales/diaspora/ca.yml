@@ -144,7 +144,7 @@ ca:
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
-      people_sharing_with_you: "Gent que comparteix amb vosaltres"
+      people_sharing_with_you: "Gent amb qui compartiu"
 
 
   aspect_memberships:
@@ -303,25 +303,71 @@ ca:
 
 
   notifications:
-    request_accepted: "ha acceptat la vostra petició per a compartir."
-    new_request: "s'ha oferit a compartir amb vosaltres."
-    private_message: "us ha enviat un missatge."
-    # FIXME Genre issues
-    comment_on_post: "ha comentat la vostra %{post_link}."
-    also_commented: "també ha comentat la %{post_link} de %{post_author}."
-    mentioned: "us ha mencionat a una %{post_link}."
-    # FIXME untranslatable
-    liked: "acaba d'agradar-li la vostra %{post_link}."
+    started_sharing:
+      zero: "%{actors} han començat a compartir amb vosaltres."
+      one: "%{actors} ha començat a compartir amb vosaltres."
+      few: "%{actors} ha començat a compartir amb vosaltres."
+      many: "%{actors} ha començat a compartir amb vosaltres."
+      other: "%{actors} ha començat a compartir amb vosaltres."
+    private_message:
+      zero: "%{actors} t'han enviat un missatge."
+      one: "%{actors} t'ha enviat un missatge."
+      few: "%{actors} t'han enviat un missatge."
+      many: "%{actors} t'han enviat un missatge."
+      other: "%{actors} t'han enviat un missatge."
+    comment_on_post:
+      zero: "%{actors} han comentat la vostra %{post_link}."
+      one: "%{actors} ha comentat la vostra %{post_link}."
+      few: "%{actors} han comentat la vostra %{post_link}."
+      many: "%{actors} han comentat la vostra %{post_link}."
+      other: "%{actors} han comentat la vostra %{post_link}."
+    also_commented:
+      zero: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      one: "%{actors} també ha comentat la %{post_link} de %{post_author}."
+      few: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      many: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      other: "%{actors} també han comentat la %{post_link} de %{post_author}."
+    mentioned:
+      zero: "%{actors} us han mencionat en una %{post_link}."
+      one: "%{actors} us ha mencionat en una %{post_link}."
+      few: "%{actors} us han mencionat en una %{post_link}."
+      many: "%{actors} us han mencionat en una %{post_link}."
+      other: "%{actors} us han mencionat en una %{post_link}."
+    liked:
+      zero: "A %{actors} els acaba d'agradar la vostra %{post_link}."
+      one: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      few: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      many: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      other: "A %{actors} li acaba d'agradar la vostra %{post_link}."
     post: "publicació"
-    also_commented_deleted: "ha comentat una publicació suprimida."
-    # FIXME untranslatable
-    liked_post_deleted: "li agrada la vostra publicació suprimida."
-    mentioned_deleted: "us ha mencionat en una publicació suprimida."
+    also_commented_deleted:
+      zero: "%{actors} han comentat una publicació suprimida."
+      one: "%{actors} ha comentat una publicació suprimida."
+      few: "%{actors} han comentat una publicació suprimida."
+      many: "%{actors} han comentat una publicació suprimida."
+      other: "%{actors} han comentat una publicació suprimida."
+    liked_post_deleted:
+      zero: "A %{actors} els agradava la vostra publicació suprimida."
+      one: "A %{actors} li agradava la vostra publicació suprimida."
+      few: "A %{actors} els agradava la vostra publicació suprimida."
+      many: "A %{actors} els agradava la vostra publicació suprimida."
+      other: "A %{actors} els agradava la vostra publicació suprimida."
+    mentioned_deleted:
+      zero: "%{actors} us han mencionat en una publicació suprimida."
+      one: "%{actors} us ha mencionat en una publicació suprimida."
+      few: "%{actors} us han mencionat en una publicació suprimida."
+      many: "%{actors} us han mencionat en una publicació suprimida."
+      other: "%{actors} us han mencionat en una publicació suprimida."
     index:
       notifications: "Notificacions"
       mark_all_as_read: "Marca-les totes com a llegides"
-      and_others: "i %{number} més"
-      and: "and"
+      and_others:
+        zero: "i ningú més"
+        one: "i una persona més"
+        few: "i %{number} més"
+        many: "i %{number} més"
+        other: "i %{number} més"
+      and: "i"
     helper:
       new_notifications:
         zero: "cap notificació nova"
@@ -340,14 +386,9 @@ ca:
     single_admin:
       subject: "Un missatge sobre el vostre compte de Diàspora:"
       admin: "L'administrador de Diàspora"
-    new_request:
-      subject: "Nova petició de contacte de %{from} al Diàspora"
-      just_sent_you: "us acaba d'enviar una petició de contacte al Diàspora*"
-      try_it_out: "Seria interessant que li pegareu una ullada."
-      sign_in: "Identifiqueu-vos aquí"
-    request_accepted:
-      subject: "%{name} ha acceptat la vostra petició de contacte al Diàspora*"
-      accepted: "ha acceptat la vostra petició de contacte!"
+    started_sharing:
+      subject: "%{name} ha començat a compartir amb vosaltres al Diàspora*"
+      sharing: "ha començat a compartir amb vosaltres!"
       sign_in: "Identifiqueu-vos aquí"
     comment_on_post:
       subject: "%{name} ha comentat la vostra publicació."
@@ -403,6 +444,7 @@ ca:
       recent_posts: "Publicacions recents"
       recent_public_posts: "Publicacions públiques recents"
       see_all: "Visualitza'ls tots"
+      start_sharing: "comença a compartir"
       message: "Envia-li un missatge"
       mention: "Menciona'l"
     profile_sidebar:
@@ -683,10 +725,9 @@ També és la millor forma de coŀleccionar fotos en línia."
       also_commented: "… algú també comenti la publicació del vostre contacte?"
       comment_on_post: "… algú comenti la vostra publicació?"
       mentioned: "… us mencionin a una publicació?"
-      request_received: "… rebeu una petició per a compartir nova?"
-      request_acceptence: "… la vostra petició per a compartir siga acceptada?"
+      started_sharing: "… algú comenci a compartir amb vosaltres?"
       private_message: "… rebeu un missatge privat?"
-      liked: "… a algú li agrade una publicació vostra?"
+      liked: "… a algú li agradi una publicació vostra?"
       change: "Canvia"
     destroy: "S'ha tancat el compte amb èxit."
     getting_started:
