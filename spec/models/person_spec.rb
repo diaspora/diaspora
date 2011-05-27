@@ -374,4 +374,15 @@ describe Person do
       end
     end
   end
+  describe '#has_photos?' do
+    it 'returns false if the user has no photos' do
+      alice.person.has_photos?.should be_false
+    end
+
+    it 'returns true if the user has photos' do
+      alice.post(:photo, :user_file => uploaded_photo, :to => alice.aspects.first.id)
+
+      alice.person.has_photos?.should be_true
+    end
+  end
 end
