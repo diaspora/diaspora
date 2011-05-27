@@ -91,7 +91,7 @@ da:
     index: 
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "post en besked >>"
     manage: 
       add_a_new_aspect: "Tilføj et nyt aspekt"
@@ -106,8 +106,8 @@ da:
       failure: "virkede ikke %{inspect}"
       success: "Person flyttet til nyt aspekt"
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Opret"
+      name: "Navn"
     no_posts_message: 
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
     one: "1 aspekt"
@@ -145,7 +145,7 @@ da:
     one: "Én kontaktperson"
     other: "%{count} kontaktpersoner"
     sharing: 
-      people_sharing: "People sharing with you:"
+      people_sharing: "Personer der deler med dig:"
     zero: "Ingen kontaktpersoner"
   conversations: 
     create: 
@@ -341,9 +341,9 @@ da:
     diaspora: "Diaspora e-mail robotten"
     hello: "Hej %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} har lige syntes om din post: "
       sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      subject: "%{name} synes godt om din post"
     love: "Hilsen,"
     manage_your_email_settings: "rediger dine email indstillinger"
     mentioned: 
@@ -594,7 +594,7 @@ da:
     stream_element: 
       dislike: "Jeg kan ikke lide det"
       like: "Jeg kan lide det"
-      unlike: "Unlike"
+      unlike: "Synes ikke godt om"
       via: "via %{link}"
   status_messages: 
     create: 
@@ -610,8 +610,8 @@ da:
       not_found: "Desværre, vi kunne ikke finde den post."
       permalink: "permanentlink"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
+      few: "din status skal være mindre end %{count} tegn"
+      many: "Din status besked skal være mindre en %{count} tegn"
       one: "please make your status messages less than %{count} character"
       other: "please make your status messages less than %{count} characters"
       zero: "please make your status messages less than %{count} characters"
@@ -656,12 +656,12 @@ da:
       download_xml: "Download min XML"
       edit_account: "Rediger konto"
       export_data: "Exportér data"
-      liked: "...someone likes your post?"
+      liked: "...nogen synes godt om din post?"
       mentioned: "...du er nævnt i en post?"
       new_password: "Ny adgangskode"
       private_message: "...du har modtaget en besked?"
       receive_email_notifications: "Modtag e-mail notifikation når..."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...nogen er begyndt at dele med dig?"
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 

@@ -6,25 +6,25 @@
 da: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Tilføj til aspekt"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "I {{count}} aspekter"
+        many: "I {{count}} aspekter"
+        one: "I {{count}} aspekt"
+        other: "I {{count}} aspekter"
+        zero: "Tilføj til aspekt"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "Skjul kommentarer"
+      show: "Vis alle kommentarer"
     confirm_dialog: "Er du sikker?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Kunne ikke synes godt om!"
+    failed_to_post_message: "Kunne ikke poste besked!"
     infinite_scroll: 
       no_more: "Ikke flere poster."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
     search_for: "Søg efter {{name}}"
-    show_more: "show more"
+    show_more: "Vis mere"
     timeago: 
       day: "en dag"
       days: "%d dage"

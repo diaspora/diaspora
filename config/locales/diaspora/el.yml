@@ -207,7 +207,7 @@ el:
       already_contacts: "Είστε ήδη συνδεδεμένος με αυτό το άτομο"
       already_sent: "Έχετε ήδη προσκαλέσει αυτό το άτομο."
       no_more: "Δεν έχετε άλλες προσκλήσεις."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Δεν μπορείτε να στείλετε πρόσκληση στην διεύθυνση σας."
       rejected: "Οι παρακάτω διευθύνσεις ηλεκτρονικού ταχυδρομείου είχαν προβλήματα:"
       sent: "Η πρόσκλησή σας έχει σταλεί στο:"
     edit: 
@@ -626,7 +626,7 @@ el:
   the_world: "ο κόσμος"
   tokens: 
     show: 
-      connect_to_cubbies: "Connect to Cubbi.es"
+      connect_to_cubbies: "Σύνδεση με Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
       generate_a_token: "Generate a token"
@@ -634,10 +634,10 @@ el:
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
+      typical_userpage: "Μία τυπική cubbi.es σελίδα χρήστη"
+      via: "(μέσω %{link})"
       were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+      what_is_cubbies: "Το Cubbi.es είναι παγκοσμίως η πρώτη εφαρμογή για το Diaspora. Είναι επίσης ο καλύτερος τρόπος συλλογής φωτογραφιών στο διαδίκτυο."
       your_diaspora_handle: "Your Diaspora Handle:"
       your_diaspora_token: "Your Diaspora Token:"
   undo: "Αναίρεση;"

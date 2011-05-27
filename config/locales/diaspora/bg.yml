@@ -27,7 +27,7 @@ bg:
         user: 
           attributes: 
             email: 
-              taken: "е вече заета."
+              taken: "е вече зает."
             person: 
               invalid: "is invalid."
             username: 
@@ -74,18 +74,18 @@ bg:
       success: "%{name} бе изтрит."
     edit: 
       add_existing: "Добавяне на съществуващ контакт"
-      aspect_list_is_not_visible: "списъкът на аспекта е скрит за останалите в аспекта"
-      aspect_list_is_visible: "списъкът на аспекта е открит за останалите в аспекта"
-      confirm_remove_aspect: "Наистина ли желаете да бъде премахнат аспектът?"
+      aspect_list_is_not_visible: "списъкът на аспекта не е видим за останалите в аспекта"
+      aspect_list_is_visible: "списъкът на аспекта е видим за останалите в аспекта"
+      confirm_remove_aspect: "Наистина ли желаете аспектът да бъде премахнат?"
       done: "Готово"
       make_aspect_list_visible: "нека аспектът бъде видим"
       remove_aspect: "Изтриване на аспекта"
       rename: "преименуване"
-      update: "update"
-      updating: "updating"
+      update: "обнови"
+      updating: "обновяване"
     few: "%{count} аспекта"
     helper: 
-      are_you_sure: "Наистина ли желаете да бъде изтрит аспектът?"
+      are_you_sure: "Наистина ли желаете аспектът да бъде изтрит?"
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
@@ -94,7 +94,7 @@ bg:
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
     manage: 
-      add_a_new_aspect: "Добавяне на аспект"
+      add_a_new_aspect: "Създаване на аспект"
       add_a_new_contact: "Добавяне на контакт"
       drag_to_add: "Влачете за да добавите хора"
       manage_aspects: "Управление на аспектите"
@@ -175,9 +175,9 @@ bg:
       reply: "отговор"
   date: 
     formats: 
-      birthday: "%B %d"
-      birthday_with_year: "%B %d %Y"
-      fullmonth_day: "%B %d"
+      birthday: "%d %B"
+      birthday_with_year: "%d %B %Y"
+      fullmonth_day: "%d %B"
   delete: "Изтриване"
   email: "Ел. поща"
   error_messages: 
@@ -207,7 +207,7 @@ bg:
       already_contacts: "Вече сте свързани с тава лице"
       already_sent: "Вече сте свързани с тава лице."
       no_more: "Не разполагате с повече покани."
-      own_address: "You can't send an invitation to your own address."
+      own_address: "Не можете да пращате покана до собствения си адрес."
       rejected: "The following email addresses had problems: "
       sent: "Покани са изпратени до: "
     edit: 
@@ -232,7 +232,7 @@ bg:
       whats_new: "какво ново?"
       your_aspects: "вашите аспекти"
     header: 
-      admin: "admin"
+      admin: "администриране"
       blog: "блог"
       code: "код"
       login: "вписване"
@@ -258,23 +258,23 @@ bg:
   no_results: "Няма намерени резултати"
   notifications: 
     also_commented: 
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors} също коментираха публикацията %{post_link} на %{post_author}."
+      many: "%{actors} също коментираха публикацията %{post_link} на %{post_author}."
+      one: "%{actors} също коментира публикацията %{post_link} на %{post_author}."
+      other: "%{actors}също коментира публикацията %{post_link} на %{post_author}."
+      zero: "%{actors} също коментира публикацията %{post_link} на %{post_author}."
     also_commented_deleted: 
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      few: "%{actors} коментираха изтрита публикация."
+      many: "%{actors} коментираха изтрита публикация."
+      one: "%{actors} коментира изтрита публикация."
+      other: "%{actors} коментира изтрита публикация."
+      zero: "%{actors} коментира изтрита публикация."
     comment_on_post: 
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      few: "%{actors} коментираха ваша %{post_link}."
+      many: "%{actors} коментираха ваша %{post_link}."
+      one: "%{actors} коментира ваша %{post_link}."
+      other: "%{actors} коментира ваша %{post_link}."
+      zero: "%{actors} коментира ваша %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} нови известия"
@@ -285,50 +285,50 @@ bg:
     index: 
       and: "и"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        zero: "and nobody else"
+        few: "и %{count} други"
+        many: "и %{count} други"
+        one: "и още някой"
+        other: "и %{count} други"
+        zero: "и никой друг"
       mark_all_as_read: "Маркиране на всички като прочетени"
       notifications: "Известия"
     liked: 
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      few: "%{actors} току-що харесаха ваша %{post_link}."
+      many: "%{actors} току-що харесаха ваша %{post_link}."
+      one: "%{actors} току-що хареса ваша %{post_link}."
+      other: "%{actors} току-що хареса ваша %{post_link}."
+      zero: "%{actors} току-що хареса %{post_link}."
     liked_post_deleted: 
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      few: "%{actors} харесаха ваша изтрита публикация."
+      many: "%{actors} харесаха ваша изтрита публикация."
+      one: "%{actors} хареса ваша изтрита публикация."
+      other: "%{actors} хареса ваша изтрита публикация."
+      zero: "%{actors} хареса ваша изтрита публикация."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} ви споменаха %{post_link}."
+      many: "%{actors} ви споменаха в %{post_link}."
+      one: "%{actors} ви спомена в %{post_link}."
+      other: "%{actors} ви спомена %{post_link}."
+      zero: "%{actors} ви спомена в %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
-    post: "публикация."
+      few: "%{actors} ви споменаха в изтрита публикация."
+      many: "%{actors} ви споменаха в изтрита публикация."
+      one: "%{actors} ви спомена в изтрита публикация."
+      other: "%{actors} ви спомена в изтрита публикация."
+      zero: "%{actors} ви спомена в изтрита публикация."
+    post: "публикация"
     private_message: 
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      few: "%{actors} ви изпратиха съобщение."
+      many: "%{actors} ви изпратиха съобщение."
+      one: "%{actors} ви изпрати съобщение."
+      other: "%{actors} ви изпрати съобщение."
+      zero: "%{actors} ви изпрати съобщение."
     started_sharing: 
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
-      other: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+      few: "%{actors} започнаха да споделят с вас."
+      many: "%{actors} започнаха да споделят с вас."
+      one: "%{actors} започна да споделя с вас."
+      other: "%{actors} започна да споделя с вас."
+      zero: "%{actors} започна да споделя с вас."
   notifier: 
     also_commented: 
       commented: "has also commented on %{post_author}'s post:"
@@ -379,7 +379,7 @@ bg:
     index: 
       couldnt_find_them_send_invite: "Не можете да намерите приятелите си? Пратете им покана!"
       no_one_found: "...и никой не е намерен."
-      no_results: "Hey! You need to search for something."
+      no_results: "Хей! Въведете нещо за търсене."
       results_for: "резултат от търсенето за"
     many: "%{count} човека"
     one: "1 човек"
@@ -451,7 +451,7 @@ bg:
       view: "view"
     update: 
       error: "Снимката не бе изтрита."
-      notice: "Photo successfully updated."
+      notice: "Снимката е обновена."
   post_visibilites: 
     update: 
       post_hidden: "Публикацията на %{name} е скрита."
@@ -477,8 +477,8 @@ bg:
       your_tags: "Опишете се с до 5 #марки"
       your_tags_placeholder: "например: #България #diaspora #фитнес #music"
     update: 
-      failed: "Failed to update profile"
-      updated: "Profile updated"
+      failed: "Профилът не бе обновен"
+      updated: "Профилът е обновен"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -489,7 +489,7 @@ bg:
       leave_blank: "(оставете празно ако не желаете да го променяте)"
       password_to_confirm: "(за да бъдат потвърдени промените е необходима текущата ви парола)"
       unhappy: "Unhappy?"
-      update: "Update"
+      update: "Обновяване"
     new: 
       enter_email: "Въведете ел. поща"
       enter_password: "Въведете парола"
@@ -595,7 +595,7 @@ bg:
       dislike: "Не ми харесва"
       like: "Харесва ми"
       unlike: "Не ми харесва"
-      via: "via %{link}"
+      via: "чрез %{link}"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -626,19 +626,19 @@ bg:
   the_world: "светът"
   tokens: 
     show: 
-      connect_to_cubbies: "Connect to Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel's Diaspora account"
+      connect_to_cubbies: "Свързване с Cubbi.es"
+      connecting_is_simple: "За свързване на акаунта ви в Diaspora е необходимо да попълните две полета в Cubbi.es."
+      daniels_account: "акаунтът на Daniel в Diaspora"
       generate_a_token: "Generate a token"
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
-      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
-      typical_userpage: "A typical cubbi.es userpage"
-      via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
+      love_to_try: "Бихме се радвали ако пробвате!"
+      making_the_connection: "Създаване на връзката"
+      screenshot_explanation: "%{link1}.  Тази cubby страница е свързана с %{link2}."
+      sign_up_today: "Регистрирайте се днес!"
+      typical_userpage: "Типична потребителска страница от cubbi.es"
+      via: "(чрез %{link})"
+      were_working_hard: "Работим усилено за създаването на лесен начин за свързване на Diaspora pods и приложения.  Междувременно свързването на акаунта ви в Diaspora с Cubbi.es става само с копиране и поставяне на две полета."
+      what_is_cubbies: "Cubbi.es е първото приложение за Diaspora.  Също така е и най-добият назчин за събиране на изображения online."
+      your_diaspora_handle: "Вашият адрес в Diaspora:"
       your_diaspora_token: "Your Diaspora Token:"
   undo: "Отмяна?"
   username: "Потребителско име"
@@ -675,7 +675,7 @@ bg:
       skip: "прескачане на страницата"
       step_2: 
         find_your_friends_on_diaspora: "Желаете ли да намерите приятелите си от Facebook в Diaspora?"
-        skip: "Skip"
+        skip: "Пропускане"
       step_3: 
         finish: "Готово"
         people_already_on_diaspora: "Хора, които вече са в Diaspora"

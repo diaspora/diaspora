@@ -17,14 +17,14 @@ bg:
       hide: "скриване на коментарите"
       show: "показване на коментарите"
     confirm_dialog: "Сигурни ли сте?"
-    failed_to_like: "Failed to like!"
+    failed_to_like: "Публикацията не бе харесана!"
     failed_to_post_message: "Съобщението не бе публикувано!"
     infinite_scroll: 
       no_more: "Няма повече публикации."
     publisher: 
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
     search_for: "Търсене за {{name}}"
-    show_more: "show more"
+    show_more: "покажи още"
     timeago: 
       day: "ден"
       days: "%d дни"

@@ -103,7 +103,7 @@ ko:
     many: "애스펙 %{count}개"
     move_contact: 
       error: "%{inspect} 컨택을 옮기는데 에러가 발생했습니다."
-      failure: "%{inspect} 님을 옮길 수 없습니다"
+      failure: "%{inspect}님을 옮길 수 없습니다"
       success: "새 애스펙으로 옮겼습니다"
     new: 
       create: "만들기"
@@ -227,7 +227,7 @@ ko:
     application: 
       have_a_problem: "문제가 있습니까? 여기서 해결하세요"
       powered_by: "디아스포라* 제공"
-      public_feed: "%{name} 님의 공개 디아스포라 피드"
+      public_feed: "%{name}님의 공개 디아스포라 피드"
       toggle: "모바일 사이트 전환"
       whats_new: "새로운 점"
       your_aspects: "애스펙"
@@ -258,23 +258,23 @@ ko:
   no_results: "결과 없음"
   notifications: 
     also_commented: 
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+      few: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
+      many: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
+      one: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
+      other: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
+      zero: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
     also_commented_deleted: 
-      few: "%{actors} commented on a deleted post."
-      many: "%{actors} commented on a deleted post."
-      one: "%{actors} commented on a deleted post."
-      other: "%{actors} commented on a deleted post."
-      zero: "%{actors} commented on a deleted post."
+      few: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
+      many: "%{actors}님이 내가 지운 공유물을 좋아합니다."
+      one: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
+      other: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
+      zero: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
     comment_on_post: 
-      few: "%{actors} commented on your %{post_link}."
-      many: "%{actors} commented on your %{post_link}."
-      one: "%{actors} commented on your %{post_link}."
-      other: "%{actors} commented on your %{post_link}."
-      zero: "%{actors} commented on your %{post_link}."
+      few: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
+      many: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
+      one: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
+      other: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
+      zero: "%{actors}님이 내 %{post_link} 공유물에 댓글을 달았습니다."
     helper: 
       new_notifications: 
         few: "새 알림 %{count}개"
@@ -285,83 +285,83 @@ ko:
     index: 
       and: "그리고"
       and_others: 
-        few: "and %{count} others"
-        many: "and %{count} others"
-        one: "and one more"
-        other: "and %{count} others"
-        zero: "and nobody else"
+        few: "+ %{count}명"
+        many: "+ %{count}명"
+        one: "+ 한 명"
+        other: "+ %{count}명"
+        zero: ""
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
     liked: 
-      few: "%{actors} has just liked your %{post_link}."
-      many: "%{actors} has just liked your %{post_link}."
-      one: "%{actors} has just liked your %{post_link}."
-      other: "%{actors} has just liked your %{post_link}."
-      zero: "%{actors} has just liked your %{post_link}."
+      few: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
+      many: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
+      one: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
+      other: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
+      zero: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
     liked_post_deleted: 
-      few: "%{actors} liked your deleted post."
-      many: "%{actors} liked your deleted post."
-      one: "%{actors} liked your deleted post."
-      other: "%{actors} liked your deleted post."
-      zero: "%{actors} liked your deleted post."
+      few: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
+      many: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
+      one: "%{actors}님이 내가 지운 공유물을 좋아합니다."
+      other: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
+      zero: "%{actors}님이 내가 지운 공유물을 좋아합니다."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
-      many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
-      zero: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
+      many: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다."
+      one: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
+      other: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
+      zero: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
     mentioned_deleted: 
-      few: "%{actors} mentioned you in a deleted post."
-      many: "%{actors} mentioned you in a deleted post."
-      one: "%{actors} mentioned you in a deleted post."
-      other: "%{actors} mentioned you in a deleted post."
-      zero: "%{actors} mentioned you in a deleted post."
+      few: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
+      many: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
+      one: "%{actors}님이 지워진 공유물에서 나를 멘션했습니다."
+      other: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
+      zero: "%{actors}님이 지워진 공유물에서 나를 멘션했습니다."
     post: "공유물"
     private_message: 
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
-      one: "%{actors} sent you a message."
-      other: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      few: "%{actors}님이 쪽지를 보냈습니다."
+      many: "%{actors}님이 쪽지를 보냈습니다."
+      one: "%{actors}님이 쪽지를 보냈습니다."
+      other: "%{actors}님이 쪽지를 보냈습니다."
+      zero: "%{actors}님이 쪽지를 보냈습니다."
     started_sharing: 
-      few: "%{actors} started sharing with you."
-      many: "%{actors} started sharing with you."
-      one: "%{actors} started sharing with you."
-      other: "%{actors} started sharing with you."
-      zero: "%{actors} started sharing with you."
+      few: "%{actors}님이 나와 공유를 시작했습니다."
+      many: "%{actors}님이 나와 공유를 시작했습니다."
+      one: "%{actors}님이 나와 공유를 시작했습니다."
+      other: "%{actors}님이 나와 공유를 시작했습니다."
+      zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
     also_commented: 
-      commented: "님도 %{post_author} 님의 공유물에 댓글을 달았습니다:"
+      commented: "님도 %{post_author}님의 공유물에 댓글을 달았습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님도 %{post_author} 님의 공유물에 댓글을 달았습니다."
+      subject: "%{name}님도 %{post_author}님의 공유물에 댓글을 달았습니다."
     comment_on_post: 
       commented: "님이 내 공유물에 댓글을 달았습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님이 내 공유물에 댓글을 달았습니다."
+      subject: "%{name}님이 내 공유물에 댓글을 달았습니다."
     diaspora: "디아스포라 자동 이메일"
-    hello: "%{name} 님!"
+    hello: "%{name}님!"
     liked: 
-      liked: "%{name} 님이 내 공유물을 좋아합니다:"
+      liked: "%{name}님이 내 공유물을 좋아합니다:"
       sign_in: "Sign to view it"
-      subject: "%{name} 님이 내 공유물을 좋아합니다."
+      subject: "%{name}님이 내 공유물을 좋아합니다."
     love: ""
     manage_your_email_settings: "이메일 설정 관리"
     mentioned: 
-      mentioned: "님이 디아스포라*의 공유물에서 나를 멘션했습니다:"
+      mentioned: "님이 공유물에서 나를 멘션했습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님이 디아스포라*에서 나를 멘션했습니다"
+      subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message: 
       message_subject: "제목: %{subject}"
       private_message: "님이 디아스포라*에서 쪽지를 보냈습니다:"
       sign_in: "로그인하기"
-      subject: "%{name} 님이 디아스포라*에서 쪽지를 보냈습니다"
+      subject: "%{name}님이 디아스포라*에서 쪽지를 보냈습니다"
     single_admin: 
       admin: "디아스포라 관리자"
       subject: "내 디아스포라 계정에 대한 메시지:"
     started_sharing: 
       sharing: "님이 나와 공유를 시작했습니다!"
       sign_in: "여기서 로그인하세요"
-      subject: "%{name} 님이 디아스포라*에서 나와 공유를 시작했습니다."
+      subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
     thanks: "고맙습니다."
   ok: "확인"
   or: "또는"
@@ -397,12 +397,12 @@ ko:
       in_aspects: "속한 애스펙:"
       location: "위치"
       remove_contact: "컨택 지우기"
-      remove_from: "%{aspect}에서 %{name} 님을 지울까요?"
+      remove_from: "%{aspect}에서 %{name}님을 지울까요?"
     show: 
       add_some: "태그 달기"
       does_not_exist: "없는 사람입니다!"
       edit: "고치기"
-      incoming_request: "%{name} 님이 나와 공유하길 원합니다"
+      incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
       no_posts: "보여줄 공유물이 없습니다!"
@@ -438,7 +438,7 @@ ko:
       or_select_one: "올려둔 사진 가운데 고르기"
       upload: "새 프로필 사진 업로드하기!"
     photo: 
-      view_all: "%{name} 님의 모든 사진 보기"
+      view_all: "%{name}님의 모든 사진 보기"
     show: 
       collection_permalink: "사진집 영구주소"
       delete_photo: "사진 지우기"
@@ -454,7 +454,7 @@ ko:
       notice: "사진을 성공적으로 갱신했습니다."
   post_visibilites: 
     update: 
-      post_hidden: "%{name} 님의 공유물을 감췄습니다."
+      post_hidden: "%{name}님의 공유물을 감췄습니다."
   posts: 
     doesnt_exist: "없는 공유물입니다!"
   previous: "이전"
@@ -500,7 +500,7 @@ ko:
   requests: 
     create: 
       sending: "공유를 요청하고 있습니다."
-      sent: "%{name} 님에게 공유를 요청했습니다. 상대방이 디아스포라에 로그인하면 볼겁니다."
+      sent: "%{name}님에게 공유를 요청했습니다. 상대방이 디아스포라에 로그인하면 볼겁니다."
     destroy: 
       error: "애스펙을 골라주세요!"
       ignore: "컨택 요청이 무시되었습니다."
@@ -570,7 +570,7 @@ ko:
       invites: "초대"
       invites_closed: "이 디아스포라는 초대가 닫혀있습니다."
     notification: 
-      new: "%{from} 님의 새 %{type}"
+      new: "%{from}님의 새 %{type}"
     public_explain: 
       logged_in: "%{service}에 로그인 되었습니다"
       manage: "연결된 서비스 관리"
@@ -598,13 +598,13 @@ ko:
       via: "via %{link}"
   status_messages: 
     create: 
-      success: "%{names} 님을 성공적으로 멘션했습니다."
+      success: "%{names}님을 성공적으로 멘션했습니다."
     destroy: 
       failure: "공유물을 지울 수 없습니다."
     helper: 
       no_message_to_display: "보여줄 공유물이 없습니다."
     new: 
-      mentioning: "%{person} 님을 멘션합니다"
+      mentioning: "%{person}님을 멘션합니다"
     show: 
       destroy: "지우기"
       not_found: "공유물을 찾을 수 없습니다."
@@ -628,7 +628,7 @@ ko:
     show: 
       connect_to_cubbies: "Cubbi.es에 연결하기"
       connecting_is_simple: "내 Cubbi.es에 있는 account 메뉴의 두 항목을 채워넣기만 하면 내 다이스포라 계정을 연결할 수 있습니다."
-      daniels_account: "Daniel(다니엘) 님의 디아스포라 계정"
+      daniels_account: "Daniel님의 디아스포라 계정"
       generate_a_token: "토큰 생성하기"
       love_to_try: "꼭 써보세요!"
       making_the_connection: "연결하기"
@@ -681,7 +681,7 @@ ko:
         people_already_on_diaspora: "디아스포라에 가입한 사람들"
       welcome: "디아스포라에 오신걸 환영합니다!"
     public: 
-      does_not_exist: "%{username} 님을 찾을 수 없습니다!"
+      does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update: 
       email_notifications_changed: "이메일 알림을 바꿨습니다"
       language_changed: "언어를 바꿨습니다"
