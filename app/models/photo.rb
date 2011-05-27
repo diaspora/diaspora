@@ -98,17 +98,6 @@ class Photo < Post
     true
   end
 
-  def as_json(opts={})
-    {
-    :photo => {
-      :id => self.id,
-        :url => self.url,
-        :thumb_small => self.url(:thumb_small),
-        :text => self.text
-      }
-    }
-  end
-
   scope :on_statuses, lambda { |post_guids|
     where(:status_message_guid => post_guids)
   }

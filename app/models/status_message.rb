@@ -108,26 +108,6 @@ class StatusMessage < Post
       XML
   end
 
-  def as_json(opts={})
-    opts ||= {}
-    if(opts[:format] == :twitter)
-      {
-        :id => self.guid,
-        :text => self.formatted_message(:plain_text => true),
-        :entities => {
-            :urls => [],
-            :hashtags => self.tag_list,
-            :user_mentions => self.mentioned_people.map{|p| p.diaspora_handle},
-          },
-        :source => 'diaspora',
-        :created_at => self.created_at,
-        :user => self.author.as_json(opts)
-      }
-    else
-      super(opts)
-    end
-  end
-
   def socket_to_user(user_or_id, opts={})
     unless opts[:aspect_ids]
       user_id = user_or_id.instance_of?(Fixnum) ? user_or_id : user_or_id.id

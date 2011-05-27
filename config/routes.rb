@@ -34,7 +34,7 @@ Diaspora::Application.routes.draw do
 
   resources :tags, :only => [:index]
   get 'tags/:name' => 'tags#show', :as => 'tag'
-  
+
   resources :apps, :only => [:show]
   # Users and people
 
@@ -67,6 +67,9 @@ Diaspora::Application.routes.draw do
   scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
     resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
   end
+
+  get "/oauth/authorize" => "authorizations#new"
+  post "/oauth/authorize" => "authorizations#create"
 
   #Temporary token_authenticable route
   resource :token, :only => [:show, :create]
@@ -125,17 +128,7 @@ Diaspora::Application.routes.draw do
   end
 
   scope 'api/v0', :controller => :apis do
-    match 'statuses/public_timeline' => :public_timeline
-    match 'statuses/home_timeline'   => :home_timeline
-    match 'statuses/show/:guid'      => :statuses
-    match 'statuses/user_timeline'   => :user_timeline
-
-    match 'users/show'               => :users
-    match 'users/search'             => :users_search
-    match 'users/profile_image'      => :users_profile_image
-
-    match 'tags_posts/:tag'          => :tag_posts
-    match 'tags_people/:tag'         => :tag_people
+    get 'me' => :me
   end
 
 

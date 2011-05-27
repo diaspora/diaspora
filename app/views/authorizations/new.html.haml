@@ -1,0 +1,7 @@
+= form_for :authorization,
+  :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
+  %h2
+    = "Authorize #{@client.name}?"
+
+  = form.submit "Fuck Yeah!", :value => "Yes"
+  = form.submit "Hell No.", :value => "No"

@@ -3,6 +3,7 @@ Given /^a user with username "([^\"]*)" and password "([^\"]*)"$/ do |username, 
                   :password_confirmation => password, :getting_started => false)
   @me.aspects.create(:name => "Besties")
   @me.aspects.create(:name => "Unicorns")
+  @me.reload
 end
 
 Given /^that I am a rock star$/ do
