@@ -13,7 +13,7 @@ class Photo < Post
   xml_attr :text
   xml_attr :status_message_guid
 
-  belongs_to :status_message
+  belongs_to :status_message, :foreign_key => :status_message_guid, :primary_key => :guid
 
   attr_accessible :text, :pending
   validate :ownership_of_status_message
@@ -22,8 +22,8 @@ class Photo < Post
   after_create :queue_processing_job
 
   def ownership_of_status_message
-    message = StatusMessage.find_by_id(self.status_message_id)
-    if status_message_id && message
+    message = StatusMessage.find_by_guid(self.status_message_guid)
+    if self.status_message_guid && message
       self.diaspora_handle == message.diaspora_handle
     else
       true
@@ -59,18 +59,6 @@ class Photo < Post
     name_start = remote_path.rindex '/'
     self.remote_photo_path = "#{remote_path.slice(0, name_start)}/"
     self.remote_photo_name = remote_path.slice(name_start + 1, remote_path.length)
-  end
-
-  def status_message_guid
-    if self.status_message
-      self.status_message.guid
-    else
-      nil
-    end
-  end
-
-  def status_message_guid= new_sm_guid
-    self.status_message= StatusMessage.where(:guid => new_sm_guid).first
   end
 
   def url(name = nil)
@@ -121,7 +109,7 @@ class Photo < Post
     }
   end
 
-  scope :on_statuses, lambda { |post_ids|
-    where(:status_message_id => post_ids)
+  scope :on_statuses, lambda { |post_guids|
+    where(:status_message_guid => post_guids)
   }
 end

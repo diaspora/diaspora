@@ -125,7 +125,7 @@ class PhotosController < ApplicationController
         format.json{ render :nothing => true, :status => 204 }
         format.html do
           flash[:notice] = I18n.t 'photos.destroy.notice'
-          if photo.status_message_id
+          if photo.status_message_guid
             respond_with photo, :location => photo.status_message
           else
             respond_with photo, :location => person_photos_path(current_user.person)
@@ -140,7 +140,7 @@ class PhotosController < ApplicationController
   def show
     @photo = current_user.find_visible_post_by_id(params[:id], :type => 'Photo')
     if @photo
-      @parent = StatusMessage.where(:id => @photo.status_message_id).includes(:photos).first if @photo.status_message_id
+      @parent = StatusMessage.where(:guid => @photo.status_message_guid).includes(:photos).first if @photo.status_message_guid
 
       #if photo is not an attachment, fetch comments for self
       if @parent

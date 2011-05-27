@@ -20,7 +20,7 @@
   %br
 
 .span-9.last
-  - if @post.status_message_id
+  - if @post.status_message_guid
     #original_post_info
       %h4{:style=>"position:relative;"}
         = t('photos.show.original_post')

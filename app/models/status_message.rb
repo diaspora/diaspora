@@ -17,7 +17,7 @@ class StatusMessage < Post
   xml_name :status_message
   xml_attr :raw_message
 
-  has_many :photos, :dependent => :destroy
+  has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
   validate :message_or_photos_present?
 
   attr_accessible :text

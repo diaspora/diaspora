@@ -17,5 +17,5 @@
 
 #thumbnails.span-15.last
   - for photo in photos
-    = link_to (image_tag photo.url(:thumb_medium), "data-message-id" => photo.status_message_id ), photo_path(photo)
+    = link_to (image_tag photo.url(:thumb_medium), "data-message-guid" => photo.status_message_guid ), photo_path(photo)
 
