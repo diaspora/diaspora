@@ -215,6 +215,10 @@ class Person < ActiveRecord::Base
   def to_twitter(format=:json)
   end
 
+  def has_photos?
+    self.posts.where(:type => "Photo").exists?
+  end
+
   protected
 
   def clean_url

@@ -13,7 +13,7 @@
   %p
     #fileInfo
 
-  -if !aspect.nil? && aspect != :getting_started 
+  -if !aspect.nil? && aspect != :getting_started && current_user.person.has_photos?
     %br
     %br
     %p
