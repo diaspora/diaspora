@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110524184202) do
+ActiveRecord::Schema.define(:version => 20110527135552) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -232,7 +232,6 @@ ActiveRecord::Schema.define(:version => 20110524184202) do
     t.boolean  "pending",                             :default => false, :null => false
     t.string   "type",                  :limit => 40,                    :null => false
     t.text     "text"
-    t.integer  "status_message_id"
     t.text     "remote_photo_path"
     t.string   "remote_photo_name"
     t.string   "random_string"
@@ -249,13 +248,14 @@ ActiveRecord::Schema.define(:version => 20110524184202) do
     t.string   "provider_display_name"
     t.string   "actor_url"
     t.integer  "objectId"
+    t.string   "status_message_guid"
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
   add_index "posts", ["guid"], :name => "index_posts_on_guid", :unique => true
   add_index "posts", ["mongo_id"], :name => "index_posts_on_mongo_id"
-  add_index "posts", ["status_message_id", "pending"], :name => "index_posts_on_status_message_id_and_pending"
-  add_index "posts", ["status_message_id"], :name => "index_posts_on_status_message_id"
+  add_index "posts", ["status_message_guid", "pending"], :name => "index_posts_on_status_message_guid_and_pending"
+  add_index "posts", ["status_message_guid"], :name => "index_posts_on_status_message_guid"
   add_index "posts", ["type", "pending", "id"], :name => "index_posts_on_type_and_pending_and_id"
 
   create_table "profiles", :force => true do |t|
