@@ -2,20 +2,12 @@
  *   licensed under the Affero General Public License version 3 or later.  See
  *   the COPYRIGHT file.
  */
-function randomString(string_length) {
-  var chars = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXTZabcdefghiklmnopqrstuvwxyz     ";
-  var randomstring = '';
-  for (var i=0; i<string_length; i++) {
-    var rnum = Math.floor(Math.random() * chars.length);
-    randomstring += chars.substring(rnum,rnum+1);
-  }
-  return randomstring;
-}
 
 describe("Stream", function() {
   beforeEach(function() {
     jasmine.Clock.useMock();
     spec.loadFixture('aspects_index_with_posts');
+    Diaspora.widgets.i18n.locale = { };
   });
 
   describe("initialize", function() {
@@ -27,44 +19,40 @@ describe("Stream", function() {
     });
 
     it("adds a 'show more' links to long posts", function() {
-      $("#jasmine_content").html(
-        '<li class="stream_element">' +
-          '<div class="content">' +
-            '<p id="text">' +
-              randomString(1000) +
-            '</p>' +
-          '</div>' +
-        '</li>'
-      );
+      Diaspora.widgets.i18n.loadLocale(
+        {show_more: 'Placeholder'}, 'en');
       Stream.initialize();
-      expect($(".details").css('display')).toEqual('none');
-      expect($(".read-more a").css('display').toEqual('inline');
-      expect($(".re-collapse a").css('display')).toEqual('none');
-      $(".read-more a").click();
+      stream_element = $('#main_stream .stream_element:first');
+      expect(stream_element.find(".details").css('display')).toEqual('none');
+      expect(stream_element.find(".read-more a").css('display')).toEqual('inline');
+      stream_element.find(".read-more a").click();
       jasmine.Clock.tick(200);
-      expect($(".read-more a").css('display').toEqual('none');
-      expect($(".re-collapse a").css('display')).toEqual('inline');
-      expect($(".details").css('display')).toEqual('inline');
+      expect(stream_element.find(".read-more").css('display')).toEqual('none');
+      expect(stream_element.find(".details").css('display')).toEqual('inline');
     });
   });
 
   describe("toggleComments", function() {
-    beforeEach(function(){
-      jQuery('#main_stream a.show_post_comments:not(.show)').die();
-      Stream.initialize();
-    });
     it("toggles class hidden on the comment block", function () {
-      expect(jQuery('ul.comments')).not.toHaveClass("hidden");
-      $("a.show_post_comments").click();
+      link = $("a.show_post_comments");
+      expect(jQuery('ul.comments .older_comments')).toHaveClass("hidden");
+      Stream.toggleComments.call(
+        link, {preventDefault: function(){} }
+      );
       jasmine.Clock.tick(200);
-      expect(jQuery('ul.comments')).toHaveClass("hidden");
+      expect(jQuery('ul.comments .older_comments')).not.toHaveClass("hidden");
     });
 
     it("changes the text on the show comments link", function() {
-      expect($("a.show_post_comments").text()).toEqual("hide comments (1)");
-      $("a.show_post_comments").click();
+      link = $("a.show_post_comments");
+      Diaspora.widgets.i18n.loadLocale(
+        {'comments.hide': 'comments.hide pl'}, 'en');
+      expect(link.text()).toEqual("show all comments");
+      Stream.toggleComments.call(
+        link, {preventDefault: function(){} }
+      );
       jasmine.Clock.tick(200);
-      expect($("a.show_post_comments").text()).toEqual("show comments (1)");
+      expect(link.text()).toEqual("comments.hide pl");
     });
   });
 });

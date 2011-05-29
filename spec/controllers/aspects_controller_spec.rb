@@ -64,11 +64,11 @@ describe AspectsController do
     end
 
     it 'generates a jasmine fixture with posts', :fixture => 'jasmine' do
-      message = alice.post(:status_message, :text => "hello", :to => @alices_aspect_2.id)
-      bob.comment("what", :on => message)
+      message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
+      4.times { bob.comment("what", :on => message) }
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
-      
+
       save_fixture(html_for(".stream_element:first"), "status_message_in_stream")
     end
 
