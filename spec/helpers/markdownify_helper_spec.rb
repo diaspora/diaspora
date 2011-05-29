@@ -35,6 +35,15 @@ describe MarkdownifyHelper do
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
       end
 
+      it "doesn't double parse video links" do
+        message = "http://www.vimeo.com/17449557
+                   http://www.youtube.com/watch?v=0x__dDWdf23&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1
+                   http://youtu.be/x_CzD0GBD-4"
+        res = markdownify(message)
+        res.should =~ /href.+href.+href/
+        res.should_not =~ /href.+href.+href.+href/
+      end
+
       describe "video links" do
         it "recognizes vimeo links" do
           video_id = "17449557"
@@ -56,6 +65,15 @@ describe MarkdownifyHelper do
         it "recognizes youtube links" do
           video_id = "0x__dDWdf23"
           url = "http://www.youtube.com/watch?v=" + video_id + "&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1"
+          res = markdownify(url)
+          res.should =~ /Youtube:/
+          res.should =~ /data-host="youtube.com"/
+          res.should =~ /data-video-id="#{video_id}"/
+        end
+
+        it "recognizes youtu.be links" do
+          video_id = "x_CzD0GBD-4"
+          url =  "http://youtu.be/#{video_id}"
           res = markdownify(url)
           res.should =~ /Youtube:/
           res.should =~ /data-host="youtube.com"/
