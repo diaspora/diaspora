@@ -46,12 +46,12 @@ describe("Stream", function() {
     it("changes the text on the show comments link", function() {
       link = $("a.show_post_comments");
       Diaspora.widgets.i18n.loadLocale(
-        {'comments.hide': 'comments.hide pl'}, 'en');
+        {'comments' : {'hide': 'comments.hide pl'}}, 'en');
       expect(link.text()).toEqual("show all comments");
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
       );
-      jasmine.Clock.tick(200);
+      jasmine.Clock.tick(400);
       expect(link.text()).toEqual("comments.hide pl");
     });
   });
