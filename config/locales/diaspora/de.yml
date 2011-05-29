@@ -617,7 +617,7 @@ de:
       zero: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
   stream_helper: 
     hide_comments: "Kommentare verbergen"
-    show_comments: "alle Kommentare zeigen"
+    show_comments: "Alle Kommentare zeigen"
   tags: 
     show: 
       nobody_talking: "Niemand hat bereits etwas über %{tag} gesagt."

@@ -6,25 +6,25 @@
 ar: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "أضف إلى فئة"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "في {{count}} فئات"
+        many: "في {{count}} فئات"
+        one: "في {{count}} فئة"
+        other: "في {{count}} فئات"
+        zero: "أضف إلى فئة"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "إخفاء التعليقات"
+      show: "عرض جميع التعليقات"
     confirm_dialog: "هل أنت متأكد؟"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "فشل في [أعجبني]"
+    failed_to_post_message: "فشل في نشر رسالة!"
     infinite_scroll: 
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
       at_least_one_aspect: "عليك تحديد فئة واحدة على الأقل"
     search_for: "إبحث عن {{name}}"
-    show_more: "show more"
+    show_more: "المزيد"
     timeago: 
       day: "منذ يوم"
       days: "منذ %d أيام"

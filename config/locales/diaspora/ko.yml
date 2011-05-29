@@ -293,11 +293,11 @@ ko:
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
     liked: 
-      few: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      many: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      one: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
-      other: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      zero: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
+      few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      many: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      one: "%{actors}님이 내 %{post_link}을 좋아합니다."
+      other: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      zero: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
     liked_post_deleted: 
       few: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
       many: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
