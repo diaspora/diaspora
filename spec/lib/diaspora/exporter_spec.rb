@@ -52,11 +52,11 @@ describe Diaspora::Exporter do
     end
 
     let(:contacts_xml) {exported.xpath('//contacts').to_s}
-    it 'includes a person id' do
+    it "includes a person's guid" do
       contacts_xml.should include @user3.person.guid
     end
 
-    it 'should include an aspects names of all aspects they are in' do
+    it "includes the names of all aspects they are in" do
       #contact specific xml needs to be tested
       @user1.contacts.find_by_person_id(@user3.person.id).aspects.count.should > 0
       @user1.contacts.find_by_person_id(@user3.person.id).aspects.each { |aspect|
@@ -68,37 +68,41 @@ describe Diaspora::Exporter do
   context '<people/>' do
     let(:people_xml) {exported.xpath('//people').to_s}
 
-    it 'should include persons id' do
+    it 'includes their guid' do
       people_xml.should include @user3.person.guid
     end
 
-    it 'should include their profile' do
+    it 'includes their profile' do
       people_xml.should include @user3.person.profile.first_name
       people_xml.should include @user3.person.profile.last_name
     end
 
-    it 'should include their public key' do
+    it 'includes their public key' do
       people_xml.should include @user3.person.exported_key
     end
 
-    it 'should include their diaspora handle' do
+    it 'includes their diaspora handle' do
       people_xml.should include @user3.person.diaspora_handle
     end
   end
 
   context '<posts>' do
     let(:posts_xml) {exported.xpath('//posts').to_s}
-    it 'should include many posts xml' do
+    it "includes many posts' xml" do
       posts_xml.should include @status_message1.text
       posts_xml.should include @status_message2.text
       posts_xml.should_not include @status_message3.text
     end
 
-    it 'should include post created at time' do
+    it "includes the post's created at time" do
+      @status_message1.update_attribute(:created_at, Time.now - 1.day) # make sure they have different created at times
+
       doc = Nokogiri::XML::parse(posts_xml)
-      target_xml = doc.xpath('//posts/status_message').detect{|status| status.to_s.include?(@status_message1.text)}
-      xml_time = Time.zone.parse(target_xml.xpath('//status_message').text)
-      xml_time.to_i.should == @status_message1.created_at.to_i
+      created_at_text = doc.xpath('//posts/status_message').detect do |status|
+        status.to_s.include?(@status_message1.guid)
+      end.xpath('created_at').text
+      
+      Time.zone.parse(created_at_text).to_i.should == @status_message1.created_at.to_i
     end
   end
 end
