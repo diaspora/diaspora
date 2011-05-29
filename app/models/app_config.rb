@@ -75,8 +75,11 @@ HELP
   end
 
   def self.[]= (key, value)
-    @@pod_uri = nil if key == :pod_url
     super
+    if key.to_sym == :pod_url
+      @@pod_uri = nil
+      normalize_pod_url
+    end
   end
 
   cattr_accessor :pod_uri

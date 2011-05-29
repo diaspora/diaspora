@@ -146,10 +146,32 @@ describe AppConfig do
       pod_uri.scheme.should == "http"
       pod_uri.host.should == "example.org"
     end
-    it "clears the cached pod_uri when you set pod_url" do
-      AppConfig[:pod_uri].host.should == "example.org"
-      AppConfig[:pod_url] = "http://joindiaspora.com"
-      AppConfig[:pod_uri].host.should == "joindiaspora.com"
+  end
+
+  describe ".[]=" do
+    describe "when setting pod_url" do
+      context "with a symbol" do
+        it "clears the cached pod_uri" do
+          AppConfig[:pod_uri].host.should == "example.org"
+          AppConfig[:pod_url] = "http://joindiaspora.com"
+          AppConfig[:pod_uri].host.should == "joindiaspora.com"
+        end
+        it "calls normalize_pod_url" do
+          AppConfig.should_receive(:normalize_pod_url).twice
+          AppConfig[:pod_url] = "http://joindiaspora.com"
+        end
+      end
+      context "with a string" do
+        it "clears the cached pod_uri" do
+          AppConfig[:pod_uri].host.should == "example.org"
+          AppConfig['pod_url'] = "http://joindiaspora.com"
+          AppConfig[:pod_uri].host.should == "joindiaspora.com"
+        end
+        it "calls normalize_pod_url" do
+          AppConfig.should_receive(:normalize_pod_url).twice
+          AppConfig['pod_url'] = "http://joindiaspora.com"
+        end
+      end
     end
   end
 end
