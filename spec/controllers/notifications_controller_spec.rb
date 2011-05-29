@@ -5,16 +5,18 @@
 require 'spec_helper'
 
 describe NotificationsController do
+  render_views(false)
   before do
-    @user   = alice
+    @user = alice
     @aspect = @user.aspects.first
-    sign_in :user, @user
+    @controller = NotificationsController.new
+    @controller.stub!(:current_user).and_return(@user)
   end
 
   describe '#update' do
     it 'marks a notification as read' do
       note = Factory(:notification, :recipient => @user)
-      put :update, :id => note.id
+      @controller.update :id => note.id
       Notification.first.unread.should == false
     end
 
@@ -24,7 +26,7 @@ describe NotificationsController do
       Factory(:notification, :recipient => @user)
       note = Factory(:notification, :recipient => user2)
 
-      put :update, :id => note.id
+      @controller.update :id => note.id
 
       Notification.find(note.id).unread.should == true
     end
@@ -37,7 +39,7 @@ describe NotificationsController do
       Factory(:notification, :recipient => @user)
 
       Notification.where(:unread => true).count.should == 2
-      get :read_all
+      @controller.read_all({})
       Notification.where(:unread => true).count.should == 0
     end
   end
@@ -50,11 +52,12 @@ describe NotificationsController do
     end
 
     it 'paginates the notifications' do
-      get :index
-      assigns[:notifications].count.should == 25
-
-      get :index, :page => 2
-      assigns[:notifications].count.should == 1
+      @controller.index({})[:notifications].count.should == 25
+      @controller.index(:page => 2)[:notifications].count.should == 1
+    end
+    it "includes the actors" do
+      notification = Factory(:notification, :recipient => @user)
+      @controller.index({})[:notifications].first[:actors].should == notification.actors
     end
 
     it 'eager loads the target' do

@@ -1,0 +1,15 @@
+.span-24.last#notifications_overlay
+  .stream.notifications
+    .day_group.span-24.last
+      .span-3
+        .date
+          .day
+          .month
+      .span-8.notifications_for_day
+        .stream_element{:data=>{:guid => nil}}
+          .right
+          %span.from
+            = link_to("", "#", :class => "actor")
+            = link_to("", "#", :class => "object")
+
+          %br

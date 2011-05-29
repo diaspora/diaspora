@@ -34,7 +34,32 @@
       if(typeof this.collection[widgetId].start !== "undefined") {
         this.collection[widgetId].start();
       }
-    }
+    };
+    $("#notification_badge a").click(function(event){
+      event.preventDefault();
+      $.ajax({
+        "url":"/notifications",
+        "success":function(data){
+          $("#notifications_overlay").show();
+          var hash = eval("(" + data + ")");
+          $.each(hash["group_days"], function(day){
+            $("#notifications_overlay .month").text(day.split(" ")[0])
+            $("#notifications_overlay .day").text(day.split(" ")[1])
+            var notifications_for_day = hash["group_days"][day]
+              console.log(notifications_for_day);
+            $.each(notifications_for_day, function(i, notification_hash){
+              $.each(notification_hash, function(notification_type, notification){
+                console.log(notification_type);
+                console.log(notification);
+                $("#notifications_overlay .actor").
+                  text(notification["actors"][0]["name"]).
+                  attr("href", notification["actors"][0]["url"]);
+              });
+            });
+          })
+        }
+      });
+    });
   };
 
   Diaspora.WidgetCollection.prototype.subscribe = function(id, callback, context) {

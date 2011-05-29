@@ -3,19 +3,20 @@
 #   the COPYRIGHT file.
 
 class NotificationsController < VannaController
+  include NotificationsHelper
 
 
-  def update
-    note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
+  def update(opts=params)
+    note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first
     if note
       note.update_attributes(:unread => false)
-      render :nothing => true
+      {}
     else
-      render :nothing => true, :status => 404
+      Response.new :status => 404
     end
   end
 
-  def index
+  def index(opts=params)
     @aspect = :notification
     conditions = {:recipient_id => current_user.id}
     page = params[:page] || 1
@@ -31,12 +32,17 @@ class NotificationsController < VannaController
       pager.replace(result)
     end
 
+    notifications.each{|n| n[:actors] = n.actors}
     group_days = notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
-    {:group_days => group_days, :current_user => current_user, :notifications => notifications}
+    {:group_days => group_days, :notifications => notifications}
   end
 
-  def read_all
+  def read_all(opts=params)
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
-    redirect_to aspects_path
+  end
+  post_process :html do
+    def post_read_all
+      Response.new(:status => 302, :location => aspects_path)
+    end
   end
 end
