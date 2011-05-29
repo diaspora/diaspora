@@ -557,4 +557,35 @@ describe User do
       end
     end
   end
+  
+  context 'likes' do
+    before do
+      @message = alice.post(:status_message, :text => "cool", :to => alice.aspects.first)
+      @message2 = bob.post(:status_message, :text => "uncool", :to => bob.aspects.first)
+      @like = alice.like(true, :on => @message)
+      @dislike = bob.like(false, :on => @message)
+    end
+    
+    describe '#like_for' do
+      it 'returns the correct like' do
+        alice.like_for(@message).should == @like
+        bob.like_for(@message).should == @dislike
+      end
+      
+      it "returns nil if there's no like" do
+        alice.like_for(@message2).should be_nil
+      end
+    end
+  
+    describe '#liked?' do
+      it "returns true if there's a like" do
+        alice.liked?(@message).should be_true
+        bob.liked?(@message).should be_true
+      end
+    
+      it "returns false if there's no like" do
+        alice.liked?(@message2).should be_false
+      end
+    end
+  end
 end
