@@ -129,14 +129,14 @@ GEM
       erubis
       extlib
       highline
-      json (>= 1.4.4, <= 1.4.6)
+      json (<= 1.4.6, >= 1.4.4)
       mixlib-authentication (>= 1.1.0)
       mixlib-cli (>= 1.1.0)
       mixlib-config (>= 1.1.2)
       mixlib-log (>= 1.2.0)
       moneta
       ohai (>= 0.5.7)
-      rest-client (>= 1.0.4, < 1.7.0)
+      rest-client (< 1.7.0, >= 1.0.4)
       uuidtools
     childprocess (0.1.7)
       ffi (~> 0.6.3)
@@ -146,10 +146,10 @@ GEM
     columnize (0.3.2)
     configuration (1.2.0)
     crack (0.1.8)
-    cucumber (0.10.2)
+    cucumber (0.10.3)
       builder (>= 2.1.2)
       diff-lcs (>= 1.1.2)
-      gherkin (>= 2.3.5)
+      gherkin (>= 2.3.8)
       json (>= 1.4.6)
       term-ansicolor (>= 1.0.5)
     cucumber-rails (0.3.2)
@@ -163,7 +163,7 @@ GEM
       warden (~> 1.0.3)
     devise_invitable (0.5.0)
       devise (~> 1.3.1)
-      rails (>= 3.0.0, <= 3.2)
+      rails (<= 3.2, >= 3.0.0)
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
@@ -177,7 +177,7 @@ GEM
     faraday (0.5.4)
       addressable (~> 2.2.2)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     faraday_middleware (0.3.2)
       faraday (~> 0.5.4)
     fastercsv (1.5.4)
@@ -201,7 +201,7 @@ GEM
       rspec-instafail (~> 0.1.4)
       ruby-progressbar (~> 0.0.10)
     gem_plugin (0.2.3)
-    gherkin (2.3.8)
+    gherkin (2.3.9)
       json (>= 1.4.6)
     haml (3.0.25)
     hashie (0.4.0)
@@ -244,7 +244,7 @@ GEM
       gem_plugin (>= 0.2.3)
     multi_json (0.0.5)
     multi_xml (0.2.2)
-    multipart-post (1.1.1)
+    multipart-post (1.1.2)
     mysql2 (0.2.6)
     net-ldap (0.1.1)
     net-scp (1.0.4)
@@ -284,7 +284,7 @@ GEM
       multi_json (~> 0.0.4)
     ohai (0.5.8)
       extlib
-      json (>= 1.4.4, <= 1.4.6)
+      json (<= 1.4.6, >= 1.4.4)
       mixlib-cli
       mixlib-config
       mixlib-log
@@ -299,7 +299,7 @@ GEM
     orm_adapter (0.0.5)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.2)
-    rack (1.2.2)
+    rack (1.2.3)
     rack-mount (0.6.14)
       rack (>= 1.0.0)
     rack-openid (1.2.0)
@@ -366,10 +366,11 @@ GEM
       ffi (~> 0.6.3)
       json_pure
       rubyzip
+    settingslogic (2.0.6)
     simple_oauth (0.1.5)
     sinatra (1.2.6)
       rack (~> 1.1)
-      tilt (>= 1.2.2, < 2.0)
+      tilt (< 2.0, >= 1.2.2)
     subexec (0.0.4)
     systemu (2.2.0)
     term-ansicolor (1.0.5)
@@ -449,6 +450,7 @@ DEPENDENCIES
   rspec-rails (>= 2.0.0)
   ruby-debug
   selenium-webdriver (= 0.1.3)
+  settingslogic (= 2.0.6)
   sod!
   thin (= 1.2.11)
   twitter!

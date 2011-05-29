@@ -4,17 +4,12 @@
 # the COPYRIGHT file.
 
 require 'rubygems'
-require 'yaml'
-
-require 'active_support/core_ext/class/attribute_accessors'
-require 'active_support/core_ext/hash/keys'
-require 'active_support/core_ext/hash/deep_merge'
 
 class Rails
   def self.root
-    File.join(File.dirname(__FILE__), "..")
+    File.expand_path(File.join(File.dirname(__FILE__), ".."))
   end
-  
+
   def self.env
     env = 'development'
     env = ENV['RAILS_ENV'] if ENV.has_key?('RAILS_ENV')
@@ -23,21 +18,33 @@ class Rails
   end
 end
 
-require File.join(Rails.root, 'lib', 'app_config')
-
-
 if ARGV.length >= 1
-  key = ARGV[0].to_sym
-  AppConfig.configure_for_environment(Rails.env)
-  if AppConfig.has_key?(key)
-    print AppConfig[key]
-  else
-    puts "Invalid option #{ARGV[0]}"
-    exit 2
+  setting_name = ARGV[0]
+  if Rails.env == 'script_server' # load from the special script_server_config.yml file
+    require 'yaml'
+    script_server_config_file = File.join(Rails.root, 'config', 'script_server_config.yml')
+    begin
+      print YAML.load_file(script_server_config_file)['script_server'][setting_name]
+    rescue
+      $stderr.puts "Setting '#{setting_name}' not found in file #{script_server_config_file}."
+      $stderr.puts "Does that file exist? If not, copy it from #{File.basename(script_server_config_file)}.example in the same directory and run this script again."
+      Process.exit(1)
+    end
+  else                            # load from the general diaspora settings file
+    require 'active_support/core_ext/class/attribute_accessors'
+    require 'settingslogic'
+    require File.join(Rails.root, 'app', 'models', 'app_config')
+    setting_name = setting_name.to_sym
+    if AppConfig[setting_name].nil?
+      $stderr.puts "Could not find setting #{ARGV[0]} for environment #{Rails.env}."
+      Process.exit(1)
+    else
+      print AppConfig[setting_name]
+    end
   end
 else
-  puts "Usage: ./script/get_config.rb option [section]"
-  puts ""
-  puts "section defaults to development"
-  exit 1
+  $stderr.puts "Usage: ./script/get_config.rb option [section]"
+  $stderr.puts ""
+  $stderr.puts "section defaults to development"
+  Process.exit(1)
 end

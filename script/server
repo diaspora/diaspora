@@ -137,12 +137,7 @@ if [ ! -e public/source.tar.gz ]; then
 fi
 
 
-# Check if config files exists
-if [ ! -e 'config/app.yml' ]; then
-    echo "FATAL: config/app.yml is missing! Copy over config/app.yml.example to config/app.yml and edit it properly!" >&2
-    exit 67
-fi
-
+# Check if database.yml exists
 if [ ! -e 'config/database.yml' ]; then
     echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
     exit 68

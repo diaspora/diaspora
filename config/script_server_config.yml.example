@@ -1,0 +1,9 @@
+script_server:
+  # Port on which thin should listen
+  thin_port: 3000
+
+  # Customize thin's startup
+  default_thin_args: "-p $THIN_PORT -e $RAILS_ENV"
+
+  # Possibilities are development, production
+  rails_env: "development"

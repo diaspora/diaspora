@@ -9,6 +9,7 @@ gem 'chef', '0.9.12', :require => false
 gem 'ohai', '0.5.8', :require => false #Chef dependency
 
 gem 'nokogiri'
+gem 'settingslogic', '2.0.6'
 
 #Security
 gem 'devise', '~> 1.3.1'
