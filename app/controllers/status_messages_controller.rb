@@ -79,7 +79,10 @@ class StatusMessagesController < ApplicationController
         photos.update_all(:status_message_guid => nil)
       end
       respond_to do |format|
-        format.js { render :json =>{:errors => @status_message.errors.full_messages}, :status => 422 }
+        format.js { 
+          errors = @status_message.errors.full_messages.collect { |msg| msg.gsub(/^Text/, "") }
+          render :json =>{:errors => errors}, :status => 422
+        }
         format.html {redirect_to :back}
       end
     end
