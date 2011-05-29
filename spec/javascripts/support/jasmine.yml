@@ -20,8 +20,8 @@ src_files:
   - public/javascripts/vendor/Mustache.js
   - public/javascripts/vendor/charCount.js
   - public/javascripts/vendor/timeago.js
-  - public/javascripts/vendor/facebox.js
   - public/javascripts/jquery.autocomplete-custom.js
+  - public/javascripts/vendor/facebox-custom.js
   - public/javascripts/diaspora.js
   - public/javascripts/keycodes.js
   - public/javascripts/widgets/alert.js

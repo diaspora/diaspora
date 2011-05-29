@@ -2407,11 +2407,6 @@ ul.show_comments,
       :size 11px
       :weight normal
 
-#facebox
-  .close
-    :display none
-  .diaspora_alert~.close
-    :display block
 
 #aspect_edit_controls
   :margin
@@ -2897,3 +2892,7 @@ h1.tag
 
   &:active
     @include linear-gradient(darken(#D9FFA9,20%),darken(#B9E68A,20%))
+
+#facebox
+  input[type='text'], input.text
+    :width 98%

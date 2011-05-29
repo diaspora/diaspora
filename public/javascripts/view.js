@@ -45,7 +45,7 @@ var View = {
     /* User menu */
     $(this.userMenu.selector)
       .click(this.userMenu.click);
-      
+
     /* Dropdowns */
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
@@ -71,8 +71,6 @@ var View = {
       .click(this.reshareButton.removeFocus);
 
     /* facebox */
-    $.facebox.settings.closeImage = '/images/facebox/closelabel.png';
-    $.facebox.settings.loadingImage = '/images/facebox/loading.gif';
     $('a[rel*=facebox]').facebox();
     $(document).bind('reveal.facebox', function() {
       Diaspora.widgets.directionDetector.updateBinds();
