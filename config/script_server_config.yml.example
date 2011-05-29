@@ -1,4 +1,7 @@
 script_server:
+  # Enable thin as application server
+  enable_thin: true
+
   # Port on which thin should listen
   thin_port: 3000
 
