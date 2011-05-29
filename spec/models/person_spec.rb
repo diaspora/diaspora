@@ -40,8 +40,8 @@ describe Person do
   describe '#diaspora_handle' do
     context 'local people' do
       it 'uses the pod config url to set the diaspora_handle' do
-        new_user = Factory.create(:user)
-        new_user.person.diaspora_handle.should == new_user.username + "@" + AppConfig[:pod_uri].host
+        new_person = User.build(:username => "foo123", :email => "foo123@example.com", :password => "password", :password_confirmation => "password").person
+        new_person.diaspora_handle.should == "foo123@#{AppConfig[:pod_uri].host}"
       end
     end
 
