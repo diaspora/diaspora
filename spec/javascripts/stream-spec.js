@@ -51,7 +51,7 @@ describe("Stream", function() {
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
       );
-      jasmine.Clock.tick(400);
+      jasmine.Clock.tick(200);
       expect(link.text()).toEqual("comments.hide pl");
     });
   });
