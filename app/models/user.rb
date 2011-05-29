@@ -188,12 +188,20 @@ class User < ActiveRecord::Base
   end
 
   def liked?(post)
+    if self.like_for(post)
+      return true
+    else
+      return false
+    end
+  end
+  
+  def like_for(post)
     [post.likes, post.dislikes].each do |likes|
       likes.each do |like|
-        return true if like.author_id == self.person.id
+        return like if like.author_id == self.person.id
       end
     end
-    return false
+    return nil
   end
 
   ######### Mailer #######################
