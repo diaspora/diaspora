@@ -71,6 +71,7 @@ group :test, :development do
   gem 'ruby-debug19' if RUBY_VERSION.include? '1.9'
   gem 'ruby-debug' if defined?(Rubinius).nil? && RUBY_VERSION.include?('1.8')
   gem 'launchy'
+  gem 'jasmine', '1.0.2.1'
 end
 
 group :test do
@@ -85,7 +86,6 @@ group :test do
   gem 'rcov', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
-  gem 'jasmine', :path => 'vendor/gems/jasmine', :require => false
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
