@@ -26,13 +26,15 @@ class PeopleController < ApplicationController
       end
 
       format.all do
-        @people = Person.search(params[:q], current_user).paginate :page => params[:page], :per_page => limit
-        @hashes = hashes_for_people(@people, @aspects)
-
         #only do it if it is an email address
         if params[:q].try(:match, Devise.email_regexp)
           webfinger(params[:q])
+          people = Person.where(:diaspora_handle => params[:q])
+        else
+          people = Person.search(params[:q], current_user)
         end
+        @people = people.paginate :page => params[:page], :per_page => limit
+        @hashes = hashes_for_people(@people, @aspects)
       end
     end
   end
