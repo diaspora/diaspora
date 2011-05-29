@@ -51,20 +51,20 @@ tr:
         one: '1 dakika'
         other: '%{count} dakika'
       about_x_hours:
-        one: '1 saat civarında'
-        other: '%{count} saat civarında'
+        one: 'yaklaşık 1 saat'
+        other: 'yaklaşık %{count} saat'
       x_days:
         one: '1 gün'
         other: '%{count} gün'
       about_x_months:
-        one: '1 ay civarında'
-        other: '%{count} ay civarında'
+        one: 'yaklaşık 1 ay'
+        other: 'yaklaşık %{count} ay'
       x_months:
         one: '1 ay'
         other: '%{count} ay'
       about_x_years:
-        one: '1 yıl civarında'
-        other: '%{count} yıl civarında'
+        one: 'yaklaşık 1 yıl'
+        other: 'yaklaşık %{count} yıl'
       over_x_years:
         one: '1 yıldan fazla'
         other: '%{count} yıldan fazla'
