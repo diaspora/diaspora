@@ -104,7 +104,7 @@ describe Comment do
       mock_http.should_receive(:get).with(/\/feeds\/api\/videos/, nil).twice.and_return(
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
-      comment = alice.build_comment url, :on => @message
+      comment = alice.build_comment :text => url, :on => @message
       comment.save!
 
       Comment.find(comment.id).youtube_titles.should == { first_video_id => CGI::escape(expected_title), second_video_id => CGI::escape(expected_title) }
@@ -118,7 +118,7 @@ describe Comment do
       @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.comment("yo", :on => @local_parent)
-      @object_by_recipient = @local_leia.build_comment("yo", :on => @local_parent)
+      @object_by_recipient = @local_leia.build_comment(:text => "yo", :on => @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
       @object_on_remote_parent = @local_luke.comment("Yeah, it was great", :on => @remote_parent)

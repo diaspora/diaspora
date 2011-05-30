@@ -91,7 +91,7 @@ describe Like do
       @local_parent = @local_luke.post :status_message, :text => "foobar", :to => @local_luke.aspects.first
 
       @object_by_parent_author = @local_luke.like(1, :on => @local_parent)
-      @object_by_recipient = @local_leia.build_like(1, :on => @local_parent)
+      @object_by_recipient = @local_leia.build_like(:positive => 1, :on => @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
       @object_on_remote_parent = @local_luke.like(0, :on => @remote_parent)
