@@ -142,6 +142,10 @@ en:
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
+      cubbies:
+        heading: "Connect to Cubbi.es"
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        learn_more: "Learn more"
 
   aspect_memberships:
     destroy:
@@ -158,6 +162,7 @@ en:
         other: "In %{count} aspects"
 
   bookmarklet:
+    heading: "Diaspora Bookmarklet"
     post_success: "Posted! Closing!"
     post_something: "Post something to Diaspora"
     explanation: "Post to Diaspora from anywhere by bookmarking %{link}."

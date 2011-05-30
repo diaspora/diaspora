@@ -24,7 +24,7 @@
     .title
       = image_tag('/images/icons/bookmark.png')
       %h5
-        Diaspora Bookmarklet
+        = t('bookmarklet.heading')
     .content
       != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
 
@@ -32,10 +32,10 @@
     .title
       = image_tag('/images/icons/cubbies.png')
       %h5
-        Connect to Cubbi.es
+        = t('.cubbies.heading')
     .content
-      Cubbi.es is the first Diaspora application under development.
-      = link_to "Learn more", token_path
+      = t('.cubbies.explanation')
+      = link_to t('.cubbies.learn_more'), token_path
 
   - if @invites > 0
     .section
