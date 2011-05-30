@@ -41,19 +41,19 @@ gem 'thin', '1.2.11', :require => false
 gem 'em-websocket', :git => 'git://github.com/igrigorik/em-websocket', :ref => 'e278f5a1c4db60be7485'
 
 #File uploading
-gem 'carrierwave', '0.5.2'
+gem 'carrierwave', '0.5.4'
 gem "fog", '0.3.25'
 gem "excon", "0.2.4"
-gem 'mini_magick', '3.2'
+gem 'mini_magick', '3.2.1'
 gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
 
 gem 'fastercsv', '1.5.4', :require => false
-gem 'jammit', '0.5.4'
+gem 'jammit', '0.6.3'
 gem 'rest-client', '1.6.1'
 gem 'typhoeus'
 
 #Backups
-gem 'cloudfiles', '1.4.10', :require => false
+gem 'cloudfiles', '1.4.17', :require => false
 
 #Queue
 gem 'resque', '1.10.0'
