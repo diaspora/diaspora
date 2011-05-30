@@ -67,7 +67,7 @@ body {
       float: left;
       width: $sidebar-width - $sidebar-pad*2;
       margin: 0 -100% 0 0;
-      padding: $sidebar-pad;
+      padding: 0 $sidebar-pad $sidebar-pad;
     }
   }
 }

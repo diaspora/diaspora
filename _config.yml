@@ -1,8 +1,7 @@
 source: source
 destination: public
 markdown: rdiscount
-pygments: false
-permalink: pretty
+pygments: true
 
 url: http://yoursite.com
 title: My Octopress Blog
@@ -10,7 +9,7 @@ author: Your Name
 email: you@domain.com #Add your email (optional) for the atom feed
 simple_search: http://google.com/search
 
-recent_posts: 10
+recent_posts: 20
 
 twitter_user: imathis
 tweet_count: 3
@@ -19,9 +18,8 @@ show_replies: false
 delicious_user:
 delicious_count: 3
 
-pinboard_user: designenthusiast
+pinboard_user: imathis
 pinboard_count: 3
 
-disqus_short_name: imathis
-
+#disqus_short_name: designenthusiast
 google_analytics_tracking_id:

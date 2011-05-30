@@ -50,6 +50,11 @@ module OctopressFilters
       end
     end
   end
+  #YearlyPost = Struct.new('YearlyPost', :year, :posts)
+  def yearly_posts(site)
+    #site.posts.reverse.group_by { |p| p.date.strftime("%Y") }.map { |k,v| YearlyPost.new(k,v) }
+    site
+  end
 end
-
 Liquid::Template.register_filter OctopressFilters
+

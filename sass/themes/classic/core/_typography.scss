@@ -2,16 +2,17 @@ $type-border: #ddd;
 $type-color-light: #555;
 $type-color: #000;
 $blockquote: $type-border !default; //darken($type-border, 20) !default;
-
+$mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 
 // Fonts
 @include font-face("Adelle", font-files("adellebasic_bold-webfont.woff", woff, "adellebasic_bold-webfont.ttf", truetype, "adellebasic_bold-webfont.svg#webfontKykxqSyz", svg), $eot: "adellebasic_bold-webfont.eot" );
-.heading-font { font-family: Adelle, "Helvetica Neue", Helvetica, Arial, sans; }
-.sans-font { font-family: "Helvetica Neue", Helvetica, Arial, sans; }
+.heading { font-family: Adelle, "Helvetica Neue", Arial, sans-serif; }
+.sans { font-family: "Helvetica Neue", Arial, sans-serif; }
+.mono { font-family: $mono; }
 
 body > header h1 {
   font-size: 3em;
-  @extend .heading-font;
+  @extend .heading;
   line-height: 1.2em;
   margin-bottom: 0.6667em;
 }
@@ -54,7 +55,7 @@ article {
 }
 
 #{headings()}{
-  @extend .heading-font; font-weight: normal;
+  @extend .heading; font-weight: normal;
   line-height: 1em;
   text-rendering: optimizelegibility;
 }

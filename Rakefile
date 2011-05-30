@@ -1,6 +1,5 @@
 require "rubygems"
-require "bundler"
-Bundler.setup
+require "bundler/setup"
 
 port        = "4000"      # preview project port eg. http://localhost:4000
 site        = "public"    # compiled site directory
@@ -104,7 +103,7 @@ end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-  system "trap 'kill $jekyllPid $guardPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; sleep 0.5; compass watch & compassPid=$!; guard & guardPid=$!; wait"
+  system "trap 'kill $jekyllPid $guardPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; guard & guardPid=$!; wait"
 end
 
 desc "generate and deploy website via rsync"

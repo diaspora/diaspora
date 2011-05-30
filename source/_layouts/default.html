@@ -1,9 +1,6 @@
-<!DOCTYPE html>
-<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
-<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
-<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
-<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
-<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" manifest="default.appcache?v=1" lang="en"><!--<![endif]-->
+---
+permalink: /blog/:year/:month/:day/:title
+---
 {% include head.html %}
 <body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.no_sidebar %} class="no-sidebar" {% endif %}>
   <header><div>{% include header.html %}</div></header>
@@ -18,9 +15,9 @@
   </div>
   <footer><div>{% include footer.html %}</div></footer>
   <!--[if (lt IE 9) & (!IEMobile)]>
-  <script src="javascripts/libs/DOMAssistantCompressed-2.8.js"></script>
-  <script src="javascripts/libs/selectivizr-1.0.1.js"></script>
-  <script src="javascripts/libs/respond.min.js"></script>
+  <script src="javascripts/libs/ie/DOMAssistantCompressed-2.8.js"></script>
+  <script src="javascripts/libs/ie/selectivizr-1.0.1.js"></script>
+  <script src="javascripts/libs/ie/respond.min.js"></script>
   <![endif]-->
 </body>
 </html>

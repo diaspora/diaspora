@@ -1,6 +1,5 @@
-var count = pinboard_count;
-var linkroll = 'pinboard_linkroll';
 function pinboardNS_fetch_script(url) {
+  console.log(url);
   document.writeln('<s'+'cript type="text/javascript" src="' + url + '"></s'+'cript>');
 }
 
@@ -9,9 +8,6 @@ function pinboardNS_show_bmarks(r) {
   lr.set_items(r);
   lr.show_bmarks();
 }
-
-var json_URL = "http://feeds.pinboard.in/json/v1/u:"+pinboard_user+"/?cb=pinboardNS_show_bmarks\&count=" + count;
-pinboardNS_fetch_script(json_URL);
 
 function Pinboard_Linkroll() {
   var items;
@@ -42,7 +38,7 @@ function Pinboard_Linkroll() {
     if (it.t.length > 0) {
       for (var i = 0; i < it.t.length; i++) {
         var tag = it.t[i];
-        str += " <a class=\"pin-tag\" href=\"http://pinboard.in/u:"+ this.cook(it.a) + "/t:" + this.cook(tag) + "\">" + this.cook(tag) + "</a>  ";
+        str += " <a class=\"pin-tag\" href=\"http://pinboard.in/u:"+ this.cook(it.a) + "/t:" + this.cook(tag) + "\">" + this.cook(tag).replace(/^\s+|\s+$/g, '') + "</a> ";
       }
     }
     str += "</p></li>\n";

@@ -1,0 +1,15 @@
+#pinboard_linkroll {
+  .pin-title, .pin-description {
+    display: block;
+    margin-bottom: .5em;
+  }
+  .pin-tag {
+    @extend .aside-alt-link;
+    &:after {
+      content: ',';
+    }
+    &:last-child:after {
+      content: '';
+    }
+  }
+}

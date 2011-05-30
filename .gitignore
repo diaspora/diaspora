@@ -2,9 +2,11 @@ site
 .bundle
 .DS_Store
 .sass-cache
-test
 source/_stash
 source/stylesheets
+source/javascripts/libs/node_modules
+source/javascripts/libs/syntax-highlighter
 vendor/ruby
-vendor/ruby
-vendor/ruby
+_cache
+.gist_cache
+public

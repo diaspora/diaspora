@@ -1,7 +1,16 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
+<!--[if lt IE 7 ]><html class="no-js ie6" lang="en"><![endif]-->
+<!--[if IE 7 ]><html class="no-js ie7" lang="en"><![endif]-->
+<!--[if IE 8 ]><html class="no-js ie8" lang="en"><![endif]-->
+<!--[if (gte IE 9)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" manifest="default.appcache?v=1" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-
-  <title>{{page.title}} - {{site.title}}</title>
+  {% if page.title %}
+    <title>{{site.title}}: {{page.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
+  {% else %}
+    <title>{{site.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
+  {% endif %}
   <meta name="author" content="{{site.author}}">
   {% if page.description %}
     <meta name="description" content="{{page.description}}"/>
@@ -10,7 +19,7 @@
   <!-- http://t.co/dKP3o1e -->
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   {% if page.keywords %}
     <meta name="keywords" content="{{page.keywords}}"/>
@@ -18,8 +27,12 @@
 
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <!--<script src="/javascripts/octopress.js" type="text/javascript"></script>-->
-  <script src="javascripts/libs/modernizr-1.7.min.js"></script>
-  <script src="javascripts/libs/ios-viewport-scaling-bug-fix.js"></script>
+  <script src="/javascripts/libs/modernizr-1.7.js"></script>
+  <script src="/javascripts/libs/ios-viewport-scaling-bug-fix.js"></script>
+  <script src="/javascripts/libs/json2.js"></script>
+  <script src="/javascripts/libs/jXHR.js"></script>
+  <script src="/javascripts/libs/ender.js"></script>
+  <script src="/javascripts/syntax-helper.js"></script>
   {% if site.google_analytics_tracking_id %}
     {% include google_analytics.html %}
   {% endif %}

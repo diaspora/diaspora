@@ -3,9 +3,9 @@
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 {% if site.pinboard_user %}
-  <script language="javascript">
-    var pinboard_user = "{{ site.pinboard_user }}";
-    var pinboard_count = "{{ site.pinboard_count }}";
-  </script>
   <script language="javascript" src="/javascripts/pinboard.js"></script>
+  <script language="javascript">
+    var linkroll = 'pinboard_linkroll'; //id target for pinboard list
+    pinboardNS_fetch_script("http://feeds.pinboard.in/json/v1/u:{{ site.pinboard_user }}/?cb=pinboardNS_show_bmarks\&count={{ site.pinboard_count }}");
+  </script>
 {% endif %}
