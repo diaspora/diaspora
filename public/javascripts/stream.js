@@ -169,6 +169,7 @@ var Stream = {
 };
 
 $(document).ready(function() {
+  if( $(Stream.selector).length == 0 ) { return }
   Diaspora.widgets.subscribe("stream/reloaded", Stream.initialize, Stream);
   Diaspora.widgets.publish("stream/reloaded");
 });
