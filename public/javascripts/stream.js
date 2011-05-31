@@ -7,8 +7,6 @@ var Stream = {
   selector: "#main_stream",
 
   initialize: function() {
-    console.log(this);
-
     Diaspora.widgets.timeago.updateTimeAgo();
     Diaspora.widgets.directionDetector.updateBinds();
 
@@ -23,8 +21,6 @@ var Stream = {
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
 
-
-    console.log(this, $(".focus_comment_textarea").length, $(".focus_comment_textarea", this.selector), this.selector);
     // comment link form focus
     $(".focus_comment_textarea", this.selector).click(function(evt) {
       Stream.focusNewComment($(this), evt);
