@@ -153,38 +153,30 @@ class User < ActiveRecord::Base
     Salmon::SalmonSlap.create(self, post.to_diaspora_xml)
   end
 
-  ######## Commenting  ########
-  def build_comment(text, options = {})
-    comment = Comment.new(:author_id => self.person.id,
-                          :text => text,
-                          :post => options[:on])
-    comment.set_guid
-    #sign comment as commenter
-    comment.author_signature = comment.sign_with_key(self.encryption_key)
+  def build_relayable(model, options = {})
+    options[:post] = options.delete(:on)
+    m = model.new(options.merge(:author_id => self.person.id))
+    m.set_guid
 
-    if !comment.post_id.blank? && person.owns?(comment.parent)
-      #sign comment as post owner
-      comment.parent_author_signature = comment.sign_with_key(self.encryption_key)
+    #sign relayable as model creator
+    m.author_signature = m.sign_with_key(self.encryption_key)
+
+    if !m.post_id.blank? && person.owns?(m.parent)
+      #sign relayable as parent object owner
+      m.parent_author_signature = m.sign_with_key(self.encryption_key)
     end
 
-    comment
+    m
+  end
+
+  ######## Commenting  ########
+  def build_comment(options = {})
+    build_relayable(Comment, options)
   end
 
   ######## Liking  ########
-  def build_like(positive, options = {})
-    like = Like.new(:author_id => self.person.id,
-                    :positive => positive,
-                    :post => options[:on])
-    like.set_guid
-    #sign like as liker
-    like.author_signature = like.sign_with_key(self.encryption_key)
-
-    if !like.post_id.blank? && person.owns?(like.parent)
-      #sign like as post owner
-      like.parent_author_signature = like.sign_with_key(self.encryption_key)
-    end
-
-    like
+  def build_like(options = {})
+    build_relayable(Like, options)
   end
 
   def liked?(post)
@@ -194,7 +186,7 @@ class User < ActiveRecord::Base
       return false
     end
   end
-  
+
   def like_for(post)
     [post.likes, post.dislikes].each do |likes|
       likes.each do |like|

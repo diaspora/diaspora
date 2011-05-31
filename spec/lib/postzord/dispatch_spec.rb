@@ -84,7 +84,7 @@ describe Postzord::Dispatch do
         end
         context "local leia" do
           before do
-            @comment = @local_leia.build_comment "yo", :on => @post
+            @comment = @local_leia.build_comment :text => "yo", :on => @post
             @comment.save
           end
           context "local leia's mailman" do
@@ -156,7 +156,7 @@ describe Postzord::Dispatch do
         end
         context "local luke" do
           before do
-            @comment = @local_luke.build_comment "yo", :on => @post
+            @comment = @local_luke.build_comment :text => "yo", :on => @post
             @comment.save
             @mailman = Postzord::Dispatch.new(@local_luke, @comment)
           end
@@ -182,7 +182,7 @@ describe Postzord::Dispatch do
       context "remote raphael's post is commented on by local luke" do
         before do
           @post = Factory(:status_message, :author => @remote_raphael)
-          @comment = @local_luke.build_comment "yo", :on => @post
+          @comment = @local_luke.build_comment :text => "yo", :on => @post
           @comment.save
           @mailman = Postzord::Dispatch.new(@local_luke, @comment)
         end

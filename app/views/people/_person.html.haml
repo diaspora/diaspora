@@ -6,7 +6,7 @@
   .right
     = render :partial => 'people/relationship_action',
              :locals => { :person => person, :contact => contact,
-                          :request => request, :current_user => current_user }
+                          :current_user => current_user }
 
   = person_image_link(person)
 

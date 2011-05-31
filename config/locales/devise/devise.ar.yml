@@ -29,10 +29,10 @@ ar:
         you_can_confirm: "يمكنك تأكيد حسابك عبر الرابط التالي"
       hello: "مرحبا %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "إقبل الدعوة"
+        ignore: "رجاء تجاهل هذا البريد الإلكتروني في حال لم ترغب بقبول الدعوة"
+        no_account_till: "لن يتم إنشاء حسابك حتى تلج الرابط أعلاه وتسجل"
+        subject: "تم دعوتك للإنضمام لدياسبرا"
       inviters: 
         accept_at: ", at %{url}, يمكنك قبولها عبر الرابط التالي."
         has_invited_you: "%{name} يدعوك للإنضمام إلى دياسبرا"

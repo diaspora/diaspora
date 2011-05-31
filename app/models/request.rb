@@ -71,7 +71,7 @@ class Request
   private
 
   def not_already_connected
-    if sender && recipient && Contact.where(:user_id => self.recipient.owner_id, :person_id => self.sender.id).count > 0
+    if sender && recipient && Contact.where(:user_id => self.recipient.owner_id, :person_id => self.sender.id).exists?
       errors[:base] << 'You have already connected to this person'
     end
   end

@@ -25,7 +25,6 @@ class Comment < ActiveRecord::Base
 
   serialize :youtube_titles, Hash
   before_save do
-    get_youtube_title text
     self.text.strip! unless self.text.nil?
   end
   def diaspora_handle

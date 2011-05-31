@@ -89,6 +89,10 @@ br:
       aspect_not_empty: "Aspect not empty"
       remove: "skarzhañ"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Ar postel-mañ zo ho skor diaspora. E-giz ur chomlec'h-postel e c'hellit skignat anezhañ a-benn bezañ kavet gant an dud."
       no_contacts: "Darempred ebet"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ br:
   bookmarklet: 
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."
     explanation_link_text: "Embann e-barzh Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Embann un dra bennak e-barzh Diaspora"
     post_success: "Embannet! O serriñ!"
   cancel: "Nullañ"

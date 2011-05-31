@@ -263,7 +263,12 @@ ml:
         zero: "പുതിയ അറിയിപ്പൊന്നുമില്ല"
     index: 
       and: "കൂടാതെ"
-      and_others: "ഉം %{number} മറ്റുള്ളവരും"
+      and_others:
+        zero: "ഉം %{count} മറ്റുള്ളവരും"
+        one: "ഉം %{count} മറ്റുള്ളവരും"
+        few: "ഉം %{count} മറ്റുള്ളവരും"
+        many: "ഉം %{count} മറ്റുള്ളവരും"
+        others: "ഉം %{count} മറ്റുള്ളവരും"
       mark_all_as_read: "എല്ലാം വായിച്ചതായി അടയാളപ്പെടുത്തുക"
       notifications: "അറിയിപ്പുകള്‍"
     mentioned: "താങ്കളെ സൂചിപ്പിച്ചിരിക്കുന്നു"

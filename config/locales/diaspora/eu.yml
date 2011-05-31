@@ -89,7 +89,11 @@ eu:
       aspect_not_empty: "Alderdi ez hutsa"
       remove: "ezabatu"
     index: 
-      handle_explanation: "Hau da zure Diaspora erabiltzailea. Zure adiskideei emaiezu zu aurkitzearren."
+      cubbies: 
+        explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
+        heading: "Cubbi.esera lotu"
+        learn_more: "Gehiago ikasi"
+      handle_explanation: "Hau da zure Diaspora helbidea. Zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
@@ -125,6 +129,7 @@ eu:
   bookmarklet: 
     explanation: "Diasporan partekatu %{link} erabiliz."
     explanation_link_text: "esteka hau"
+    heading: "Diaspora Bookmarkleta"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"
@@ -285,10 +290,10 @@ eu:
     index: 
       and: "eta"
       and_others: 
-        few: "eta beste %{count}"
-        many: "eta beste %{count}"
-        one: "eta beste bat"
-        other: "eta beste %{count}"
+        few: "eta beste %{count}(e)k"
+        many: "eta beste %{count}(e)k"
+        one: "eta beste batek"
+        other: "eta beste %{count}(e)k"
         zero: "eta inork gehiago ez"
       mark_all_as_read: "Guztiak irakurrita"
       notifications: "Jakinarazpenak"
@@ -554,7 +559,7 @@ eu:
       diaspora_handle: "diaspora@helbidea.org"
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
       know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
-      your_diaspora_username_is: "Zure Diaspora erabiltzailea honakoa da: %{diaspora_handle}"
+      your_diaspora_username_is: "Zure Diaspora helbidea honakoa da: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Adiskide Guztiak"
     footer: 
@@ -634,11 +639,11 @@ eu:
       making_the_connection: "Lotura Ezartzen"
       screenshot_explanation: "%{link1}. Cubby hau %{link2}(r)ekin lotuta dago."
       sign_up_today: "Izena eman oraintxe!"
-      typical_userpage: "Cubbi.es erabiltzaile orri tipiko bat"
+      typical_userpage: "Cubbi.es erabiltzaile orrialde tipiko bat"
       via: "(%{link}(r)en bidez)"
       were_working_hard: "Gogor ari gara lanean Diaspora zerbitzarien eta aplikazioen arteko harremanak eskaintzeko. Momentuan, Diaspora eta Cubbi.es kontuak lotzeak bi eremu kopiatzean eta itsastean datza."
       what_is_cubbies: "Cubbi.es munduko lehen Diaspora aplikazioa da. Argazkiak metatzeko biderik onena ere da."
-      your_diaspora_handle: "Zure Diaspora Kodea:"
+      your_diaspora_handle: "Zure Diaspora Helbidea:"
       your_diaspora_token: "Zure Diaspora Kodea:"
   undo: "Desegin?"
   username: "Erabiltzailea"
@@ -651,7 +656,7 @@ eu:
       change_password: "Pasahitza aldatu"
       close_account: "Kontua Ezabatu"
       comment_on_post: "...norbaitek zure mezu bat iruzkintzen duenean?"
-      current_password: "Oraingo pasahitza"
+      current_password: "Pasahitz zaharra"
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
@@ -663,7 +668,7 @@ eu:
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
       started_sharing: "...norbaitek zurekin harreman berria hasten duenean?"
       your_email: "Zure e-posta"
-      your_handle: "Zure Diaspora erabiltzailea"
+      your_handle: "Zure Diaspora helbidea"
     getting_started: 
       connect_on_diaspora: "Konektatu Diasporan"
       connect_services: "Beste zerbitzu batzuekin lotu"

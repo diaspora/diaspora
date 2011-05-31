@@ -364,9 +364,9 @@ ca:
       and_others:
         zero: "i ningú més"
         one: "i una persona més"
-        few: "i %{number} més"
-        many: "i %{number} més"
-        other: "i %{number} més"
+        few: "i %{count} més"
+        many: "i %{count} més"
+        other: "i %{count} més"
       and: "i"
     helper:
       new_notifications:

@@ -1,4 +1,12 @@
 module YoutubeTitles
+  def self.included(model)
+    model.class_eval do
+      before_save do
+        get_youtube_title text
+      end
+    end if model.respond_to?(:before_save)
+  end
+
   def youtube_title_for video_id
     http = Net::HTTP.new('gdata.youtube.com', 80)
     path = "/feeds/api/videos/#{video_id}?v=2"

@@ -89,6 +89,10 @@ es-CL:
       aspect_not_empty: "El aspecto no está vacío"
       remove: "eliminar"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es es la primera aplicación de Diaspora en desarrollo."
+        heading: "Conectate a Cubbi.es"
+        learn_more: "Aprende mas"
       handle_explanation: "Esta es tu dirección Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Personas compartiendo contigo"
@@ -125,6 +129,7 @@ es-CL:
   bookmarklet: 
     explanation: "%{link} donde sea agregando a marcadores este link."
     explanation_link_text: "Postea en Diaspora"
+    heading: "Diaspora en tus marcadores"
     post_something: "Postea algo en Diaspora"
     post_success: "Posteado! Cerrando!"
   cancel: "Cancelar"

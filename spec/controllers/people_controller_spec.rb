@@ -42,6 +42,22 @@ describe PeopleController do
       assigns[:people].should =~ [@eugene, eugene2]
     end
 
+    it "excludes people that are not searchable" do
+      eugene2 = Factory.create(:person,
+                               :profile => Factory.build(:profile, :first_name => "Eugene",
+                                                         :last_name => "w", :searchable => false))
+      get :index, :q => "Eug"
+      assigns[:people].should_not =~ [eugene2]
+    end
+
+    it "allows unsearchable people to be found by handle" do
+      eugene2 = Factory.create(:person, :diaspora_handle => "eugene@example.org",
+                               :profile => Factory.build(:profile, :first_name => "Eugene",
+                                                         :last_name => "w", :searchable => false))
+      get :index, :q => "eugene@example.org"
+      assigns[:people].should =~ [eugene2]
+    end
+    
     it "does not redirect to person page if there is exactly one match" do
       get :index, :q => "Korth"
       response.should_not redirect_to @korth

@@ -43,8 +43,8 @@ module SocketsHelper
           :person => object,
           :all_aspects => user.aspects,
           :contact => user.contact_for(object),
-          :request => user.request_from(object),
           :current_user => user}
+        @all_aspects = user.aspects
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment

@@ -84,7 +84,7 @@ bg:
         sign_up: "Регистриране"
         sign_up_closed: "За сега регистрациите не са възможни."
       mail_signup_form: 
-        sign_up_for_an_invite: "Запишете се за покана!"
+        sign_up_for_an_invite: "Резервирайте си покана!"
     unlocks: 
       new: 
         resend_unlock: "Повторно изпращане на инструкциите за отключване"

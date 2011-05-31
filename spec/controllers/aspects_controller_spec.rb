@@ -104,7 +104,7 @@ describe AspectsController do
           post.save!
           @posts << post
         end
-        alice.build_comment('lalala', :on => @posts.first ).save
+        alice.build_comment(:text => 'lalala', :on => @posts.first ).save
       end
 
       describe "post visibilities" do

@@ -89,6 +89,10 @@ el:
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
@@ -125,6 +129,7 @@ el:
   bookmarklet: 
     explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο %{link}."
     explanation_link_text: "αυτός ο σύνδεσμος"
+    heading: "Diaspora Bookmarklet"
     post_something: "Δημοσιεύστε κάτι στο Diaspora"
     post_success: "Δημοσιεύτηκε! Κλείνει!"
   cancel: "Ακύρωση"
@@ -316,7 +321,7 @@ el:
       one: "%{actors} mentioned you in a deleted post."
       other: "%{actors} mentioned you in a deleted post."
       zero: "%{actors} mentioned you in a deleted post."
-    post: "δημοσίευση."
+    post: "δημοσίευση"
     private_message: 
       few: "%{actors} sent you a message."
       many: "%{actors} sent you a message."
@@ -627,18 +632,18 @@ el:
   tokens: 
     show: 
       connect_to_cubbies: "Σύνδεση με Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      daniels_account: "Daniel's Diaspora account"
+      connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας γίνεται απλά με τη συμπλήρωση των δύο πεδίων στην σελίδα σύνδεσης του Cubbi.es."
+      daniels_account: "Ο Diaspora λογαριασμός του Daniel"
       generate_a_token: "Generate a token"
-      love_to_try: "We'd love for you to try it out."
-      making_the_connection: "Making the Connection"
+      love_to_try: "Θα χαιρόμασταν αν το δοκιμάζατε."
+      making_the_connection: "Γίνεται η σύνδεση"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
-      sign_up_today: "Sign up today!"
+      sign_up_today: "Συνδεθείτε σήμερα!"
       typical_userpage: "Μία τυπική cubbi.es σελίδα χρήστη"
       via: "(μέσω %{link})"
       were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Το Cubbi.es είναι παγκοσμίως η πρώτη εφαρμογή για το Diaspora. Είναι επίσης ο καλύτερος τρόπος συλλογής φωτογραφιών στο διαδίκτυο."
-      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_handle: "Το Diaspora αναγνωριστικό σας:"
       your_diaspora_token: "Your Diaspora Token:"
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"

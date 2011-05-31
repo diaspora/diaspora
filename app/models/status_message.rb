@@ -23,9 +23,6 @@ class StatusMessage < Post
   attr_accessible :text
 
   serialize :youtube_titles, Hash
-  before_save do
-    get_youtube_title text
-  end
 
   before_create :build_tags
 

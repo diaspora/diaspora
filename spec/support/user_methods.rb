@@ -27,7 +27,7 @@ class User
 
   def comment(text, options = {})
     fantasy_resque do
-      c = build_comment(text, options)
+      c = build_comment(options.merge(:text => text))
       if c.save!
         Postzord::Dispatch.new(self, c).post
       end
@@ -37,7 +37,7 @@ class User
 
   def like(positive, options ={})
     fantasy_resque do
-      l = build_like(positive, options)
+      l = build_like(options.merge(:positive => positive))
       if l.save!
         Postzord::Dispatch.new(self, l).post
       end

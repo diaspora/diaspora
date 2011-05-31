@@ -89,6 +89,10 @@ ko:
       aspect_not_empty: "애스펙이 비어있지 않습니다"
       remove: "지우기"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es는 개발중인 최초의 디아스포라 어플입니다."
+        heading: "Cubbi.es에 연결하기"
+        learn_more: "자세히 알아보기"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       no_contacts: "컨택 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
@@ -125,6 +129,7 @@ ko:
   bookmarklet: 
     explanation: "%{link} 링크를 북마크로 추가하세요."
     explanation_link_text: "디아스포라에 올리기"
+    heading: "디아스포라 북마크"
     post_something: "디아스포라에 올리기"
     post_success: "올렸습니다! 닫힙니다!"
   cancel: "취소"
@@ -258,11 +263,11 @@ ko:
   no_results: "결과 없음"
   notifications: 
     also_commented: 
-      few: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
-      many: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
-      one: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
-      other: "%{actors}님 등도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
-      zero: "%{actors}님도 %{post_author}님의 %{post_link} 공유물에 댓글을 달았습니다."
+      few: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      many: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      one: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님 등도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
+      zero: "%{actors}님도 %{post_author}님의 %{post_link}에 댓글을 달았습니다."
     also_commented_deleted: 
       few: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
       many: "%{actors}님이 내가 지운 공유물을 좋아합니다."
@@ -270,11 +275,11 @@ ko:
       other: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
       zero: "%{actors}님이 지운 공유물에 댓글을 달았습니다."
     comment_on_post: 
-      few: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
-      many: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
-      one: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
-      other: "%{actors}님 등이 내 %{post_link} 공유물에 댓글을 달았습니다."
-      zero: "%{actors}님이 내 %{post_link} 공유물에 댓글을 달았습니다."
+      few: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      many: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      one: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      other: "%{actors}님 등이 내 %{post_link}에 댓글을 달았습니다."
+      zero: "%{actors}님이 내 %{post_link}에 댓글을 달았습니다."
     helper: 
       new_notifications: 
         few: "새 알림 %{count}개"
@@ -293,11 +298,11 @@ ko:
       mark_all_as_read: "모두 읽음으로 표시"
       notifications: "알림"
     liked: 
-      few: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      many: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      one: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
-      other: "%{actors}님 등이 내 %{post_link} 공유물을 좋아합니다."
-      zero: "%{actors}님이 내 %{post_link} 공유물을 좋아합니다."
+      few: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      many: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      one: "%{actors}님이 내 %{post_link}을 좋아합니다."
+      other: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
+      zero: "%{actors}님 등이 내 %{post_link}을 좋아합니다."
     liked_post_deleted: 
       few: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
       many: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
@@ -305,11 +310,11 @@ ko:
       other: "%{actors}님 등이 내가 지운 공유물을 좋아합니다."
       zero: "%{actors}님이 내가 지운 공유물을 좋아합니다."
     mentioned: 
-      few: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
-      many: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다."
-      one: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
-      other: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
-      zero: "%{actors}님이 %{post_link} 공유물에서 나를 멘션했습니다!"
+      few: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
+      many: "%{actors}님이 %{post_link}에서 나를 멘션했습니다."
+      one: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
+      other: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
+      zero: "%{actors}님이 %{post_link}에서 나를 멘션했습니다!"
     mentioned_deleted: 
       few: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."
       many: "%{actors}님 등이 지워진 공유물에서 나를 멘션했습니다."

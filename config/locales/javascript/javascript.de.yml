@@ -10,7 +10,7 @@ de:
       toggle: 
         few: "In {{count}} Aspekten"
         many: "In {{count}} Aspekten"
-        one: "In {{count}} Aspekten"
+        one: "In einem Aspekt"
         other: "In {{count}} Aspekten"
         zero: "Zu Aspekt hinzufügen"
     comments: 

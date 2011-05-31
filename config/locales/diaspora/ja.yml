@@ -89,6 +89,10 @@ ja:
       aspect_not_empty: "アスペクトは空ではありません。"
       remove: "削除"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       no_contacts: "連絡先無し"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ ja:
   bookmarklet: 
     explanation: "このリンクをお気に入りに登録すると、どこからでも%{link}できます。"
     explanation_link_text: "ダイアスポラに投稿"
+    heading: "Diaspora Bookmarklet"
     post_something: "ダイアスポラに投稿"
     post_success: "投稿完了！ウィンドウを閉じます。"
   cancel: "取り消す"

@@ -63,7 +63,7 @@ class Message < ActiveRecord::Base
       vis.save
       self
     else
-      raise NotVisibileException("Attempting to access a ConversationVisibility that does not exist!")
+      raise NotVisibleException("Attempting to access a ConversationVisibility that does not exist!")
     end
   end
 

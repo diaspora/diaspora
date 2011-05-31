@@ -89,6 +89,10 @@ nl:
       aspect_not_empty: "Aspect niet leeg"
       remove: "verwijderen"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
       people_sharing_with_you: "Mensen die met jou delen"
@@ -125,6 +129,7 @@ nl:
   bookmarklet: 
     explanation: "%{link} vanaf elke locatie door deze link te bookmarken."
     explanation_link_text: "Post naar Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post iets naar Diaspora"
     post_success: "Gepost!"
   cancel: "Annuleren"

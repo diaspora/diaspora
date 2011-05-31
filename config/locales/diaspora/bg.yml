@@ -89,6 +89,10 @@ bg:
       aspect_not_empty: "Аспектът не е празен"
       remove: "премахване"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es е първото приложение за Diaspora и все още се разработва."
+        heading: "Свързване с Cubbi.es"
+        learn_more: "Научете повече"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       no_contacts: "Няма контакти"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -125,6 +129,7 @@ bg:
   bookmarklet: 
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
     explanation_link_text: "тази връзка"
+    heading: "Diaspora Bookmarklet"
     post_something: "Публикуване в Diaspora"
     post_success: "Публикувано!"
   cancel: "Отказ"
@@ -190,11 +195,11 @@ bg:
     show: 
       already_account: "вече имате акаунт?"
       choice: "Избор"
-      choice_explanation: "Diaspora предоставя възможност за сортиране на контактите в групи наречени аспекти. Те са уникална функция, която позволява споделянето на снимки, истории и шеги само с хората, за които са предвидени."
+      choice_explanation: "Diaspora предоставя възможност за сортиране на контактите в групи, наречени аспекти. Уникални за Diaspora, те позволяват споделянето на снимки, истории и шеги само с хората, за които са предвидени.\n"
       learn_about_host: "Научете как да стартирате Diaspora на собствен сървър."
       login_here: "впишете се от тук"
       ownership: "Собственост"
-      ownership_explanation: "Вие притежавате снимките си и не е необходимо да се отказвате от това си право само за да ги споделите. Вие запазвате собствеността си върху всичко споделено в Diaspora - това ви осигурява контрол над разпространението."
+      ownership_explanation: "Вие притежавате снимките си и не е необходимо да се отказвате от това си право само за да ги споделите. Запазвате собсвеност върху всичко, което споделяте в Diaspora и контролирате разпространението."
       share_what_you_want: "Споделяйте каквото желаете, с когото пожелаете."
       simplicity: "Леснота"
       simplicity_explanation: "Споделянето чрез Diaspora е просто и лесно. Характерно за Diaspora е, че запазва личния ви живот поверителен без нужда от настройване на различни страници с безброй опции."
@@ -213,7 +218,7 @@ bg:
     edit: 
       sign_up: "регистриране"
     new: 
-      already_invited: "Вече е поканен"
+      already_invited: "Вече поканени"
       aspect: "Аспект"
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
@@ -331,9 +336,9 @@ bg:
       zero: "%{actors} започна да споделя с вас."
   notifier: 
     also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
+      commented: "също коментира публикацията на %{post_author}:"
       sign_in: "Впишете се, за да я прегледате."
-      subject: "%{name} has also commented on %{post_author}'s post."
+      subject: "%{name} коментира публикация на %{post_author}."
     comment_on_post: 
       commented: "добави коментар на ваша публикация:"
       sign_in: "Впишете се, за да го прегледате."
@@ -441,7 +446,7 @@ bg:
       view_all: "всички снимки на %{name}"
     show: 
       collection_permalink: "постоянен адрес на колекцията"
-      delete_photo: "Изтриване на изображение"
+      delete_photo: "Изтриване на изображението"
       edit: "редактиране"
       edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "ползване като профилна снимка"
@@ -610,11 +615,11 @@ bg:
       not_found: "За съжаление публикацията не може да бъде намерена."
       permalink: "постоянен адрес"
     too_long: 
-      few: "please make your status messages less than %{count} characters"
-      many: "please make your status messages less than %{count} characters"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
-      zero: "please make your status messages less than %{count} characters"
+      few: ", моля съкратете съобщението си до %{count} знака"
+      many: ", моля съкратете съобщението си до %{count} знака"
+      one: ", моля съкратете съобщението си до %{count} знака"
+      other: ", моля съкратете съобщението си до %{count} знака"
+      zero: ", моля съкратете съобщението си до %{count} знака"
   stream_helper: 
     hide_comments: "скриване на коментарите"
     show_comments: "всички коментари"

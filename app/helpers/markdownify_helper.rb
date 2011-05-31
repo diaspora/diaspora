@@ -70,7 +70,7 @@ module MarkdownifyHelper
       captures = [$1,$2,$3]
       if !captures[0].nil?
         m
-      elsif m.match(/(youtube|vimeo)/)
+      elsif m.match(/(youtu.?be|vimeo)/)
         m.gsub(/(\*|_)/) { |m| "\\#{$1}" } #remove markers on markdown chars to not markdown inside links
       else
         res = %{<a target="_blank" href="#{captures[1]}://#{captures[2]}">#{captures[2]}</a>}
