@@ -89,6 +89,10 @@ fi:
       aspect_not_empty: "Näkymä ei ole tyhjä"
       remove: "poista"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       no_contacts: "Ei kontakteja"
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
@@ -125,6 +129,7 @@ fi:
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "Peruuta"

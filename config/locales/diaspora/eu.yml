@@ -89,6 +89,10 @@ eu:
       aspect_not_empty: "Alderdi ez hutsa"
       remove: "ezabatu"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
+        heading: "Cubbi.esera lotu"
+        learn_more: "Gehiago ikasi"
       handle_explanation: "Hau da zure Diaspora helbidea. Zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
@@ -125,6 +129,7 @@ eu:
   bookmarklet: 
     explanation: "Diasporan partekatu %{link} erabiliz."
     explanation_link_text: "esteka hau"
+    heading: "Diaspora Bookmarkleta"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"

@@ -89,6 +89,10 @@ el:
       aspect_not_empty: "Η πτυχή δεν είναι άδεια"
       remove: "αφαίρεση"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
@@ -125,6 +129,7 @@ el:
   bookmarklet: 
     explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας αυτόν τον σύνδεσμο %{link}."
     explanation_link_text: "αυτός ο σύνδεσμος"
+    heading: "Diaspora Bookmarklet"
     post_something: "Δημοσιεύστε κάτι στο Diaspora"
     post_success: "Δημοσιεύτηκε! Κλείνει!"
   cancel: "Ακύρωση"

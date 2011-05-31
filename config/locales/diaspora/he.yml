@@ -89,6 +89,10 @@ he:
       aspect_not_empty: "ההיבט אינו ריק"
       remove: "הסרה"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ he:
   bookmarklet: 
     explanation: "%{link} מכל מקום על ידי הוספת קישור זה לסימניות."
     explanation_link_text: "פרסום לדיאספורה"
+    heading: "Diaspora Bookmarklet"
     post_something: "פרסום משהו לתוך דיאספורה"
     post_success: "פורסם! נסגר!"
   cancel: "ביטול"

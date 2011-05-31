@@ -89,6 +89,10 @@ da:
       aspect_not_empty: "Aspektet er ikke tomt"
       remove: "slet"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
       people_sharing_with_you: "Personer der deler med dig"
@@ -125,6 +129,7 @@ da:
   bookmarklet: 
     explanation: "%{link} alle steder fra ved at bogmærke dette link."
     explanation_link_text: "Post på Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post noget til Diaspora"
     post_success: "Posted! Lukker!"
   cancel: "Annullér"

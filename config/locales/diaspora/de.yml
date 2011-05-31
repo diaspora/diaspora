@@ -89,6 +89,10 @@ de:
       aspect_not_empty: "Aspekt ist nicht leer"
       remove: "entfernen"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es ist die erste Diaspora Anwendung."
+        heading: "Mit Cubbi.es verbinden"
+        learn_more: "Mehr erfahren"
       handle_explanation: "Das ist deine Diaspora*-Adresse. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       no_contacts: "Keine Kontakte"
       people_sharing_with_you: "Leute die mit dir teilen"
@@ -125,6 +129,7 @@ de:
   bookmarklet: 
     explanation: "Erstelle einen Beitrag in Diaspora von überall in dem du %{link} als Lesezeichen speicherst."
     explanation_link_text: "diesen Link"
+    heading: "Diaspora Bookmarklet"
     post_something: "Erstelle einen Beitrag in Diaspora"
     post_success: "Erstellt! Schließen…"
   cancel: "Abbrechen"

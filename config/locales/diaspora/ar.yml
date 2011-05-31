@@ -89,6 +89,10 @@ ar:
       aspect_not_empty: "الفئة ليست فارغة"
       remove: "حذف"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني, يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم"
       no_contacts: "لا أعضاء"
       people_sharing_with_you: "أعضاء يتشاركون معك"
@@ -125,6 +129,7 @@ ar:
   bookmarklet: 
     explanation: "%{link} من أي مكان بحفظ هذا الرابط في المفضلة"
     explanation_link_text: "انشر على دياسبرا"
+    heading: "Diaspora Bookmarklet"
     post_something: "انشر شيئا على دياسبرا"
     post_success: "تم النشر, إغلاق"
   cancel: "إلغاء"

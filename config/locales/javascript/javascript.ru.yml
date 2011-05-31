@@ -6,25 +6,25 @@
 ru: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Добавить к аспектам"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "В {{count}} аспектах"
+        many: "В {{count}} аспектах"
+        one: "В {{count}} аспектах"
+        other: "В {{count}} аспектах"
+        zero: "Добавить к аспектам"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "скрыть комментарии"
+      show: "Показать все комментарии"
     confirm_dialog: "Вы уверенны? "
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Не удалось!"
+    failed_to_post_message: "Не удалось отправить сообщение!"
     infinite_scroll: 
       no_more: "Сообщений больше нет."
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
     search_for: "Искать {{name}}"
-    show_more: "show more"
+    show_more: "показать больше"
     timeago: 
       day: "день"
       days: "%d дней[-я]"

@@ -89,6 +89,10 @@ mk:
       aspect_not_empty: "Аспектот не е празен"
       remove: "одстрани"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Ова е вашето diaspora корисничко име. Исто како е-маил адреса, можете да го давате на луѓе за да се сврзат со вас."
       no_contacts: "No contacts"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ mk:
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "Откажи"

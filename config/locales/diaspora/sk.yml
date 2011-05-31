@@ -89,6 +89,10 @@ sk:
       aspect_not_empty: "Aspekt nie je prázdny"
       remove: "odstrániť"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
       no_contacts: "Žiadne kontakty"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ sk:
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "Zrušiť"

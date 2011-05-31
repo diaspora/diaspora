@@ -89,6 +89,10 @@ zh-TW:
       aspect_not_empty: "面向不是空的"
       remove: "刪除"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es 是 Diaspora 的第一個應用程式, 目前正在開發中."
+        heading: "與 Cubbi.es 連結"
+        learn_more: "進一步了解"
       handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
       people_sharing_with_you: "跟你分享的人"
@@ -125,6 +129,7 @@ zh-TW:
   bookmarklet: 
     explanation: "%{link}加入書籤後可對任何網站使用."
     explanation_link_text: "這個連結"
+    heading: "Diaspora 書籤小程式"
     post_something: "貼些東西到 Diaspora"
     post_success: "貼好了! 關掉中!"
   cancel: "取消"

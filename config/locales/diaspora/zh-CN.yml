@@ -89,6 +89,10 @@ zh-CN:
       aspect_not_empty: "此视图不是空的"
       remove: "删除"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       no_contacts: "没有任何好友"
       people_sharing_with_you: "与您分享的人"
@@ -125,6 +129,7 @@ zh-CN:
   bookmarklet: 
     explanation: "%{link} 收藏这个链接，即可随时发布新内容"
     explanation_link_text: "这个链接"
+    heading: "Diaspora Bookmarklet"
     post_something: "发布些新内容到Diaspora"
     post_success: "发布完成！关闭中！"
   cancel: "取消"

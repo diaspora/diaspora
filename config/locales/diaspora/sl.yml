@@ -89,6 +89,10 @@ sl:
       aspect_not_empty: "Skupina vsebuje stike"
       remove: "odstrani"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
       no_contacts: "Ni kontaktov"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ sl:
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."
     explanation_link_text: "Post to Diaspora"
+    heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
   cancel: "Prekliči"

@@ -89,6 +89,10 @@ hu:
       aspect_not_empty: "A csoport nem üres"
       remove: "eltávolítás"
     index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
       no_contacts: "Nincs ismerős"
       people_sharing_with_you: "People sharing with you"
@@ -125,6 +129,7 @@ hu:
   bookmarklet: 
     explanation: "Hivatkozz rá: %{link} bárhonnan, azzal, hogy hozzáadod a könyvjelzőkhöz!"
     explanation_link_text: "Posztolás a Diasporára"
+    heading: "Diaspora Bookmarklet"
     post_something: "Írj valamit a Diasporára"
     post_success: "Elküldve! Bezárás!"
   cancel: "Mégsem"
