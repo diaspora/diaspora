@@ -27,7 +27,7 @@
     = render :partial => 'messages/message', :collection => conversation.messages
 
     .stream_element.new_message
-      = owner_image_tag
+      = owner_image_tag(:thumb_small)
 
       .content
         = form_for [conversation, Message.new] do |message|
