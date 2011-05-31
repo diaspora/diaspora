@@ -10,13 +10,17 @@ describe("Stream", function() {
     Diaspora.widgets.i18n.locale = { };
   });
 
-  describe("initialize", function() {
+  describe("setUpLives", function() {
+
     it("attaches a click event to show_post_comments links", function() {
       spyOn(Stream, "toggleComments");
-      Stream.initialize();
+      Stream.initializeLives();
       $('.stream a.show_post_comments').click();
       expect(Stream.toggleComments).toHaveBeenCalled();
     });
+
+  });
+  describe("initialize", function() {
 
     it("adds a 'show more' links to long posts", function() {
       Diaspora.widgets.i18n.loadLocale(

@@ -14,38 +14,22 @@ var Stream = {
       trigger: "hover",
       gravity: "n"
     });
-
-    $("a.show_post_comments:not(.show)", this.selector).click(Stream.toggleComments);
-
     //audio links
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
 
-    // comment link form focus
-    $(".focus_comment_textarea", this.selector).click(function(evt) {
-      Stream.focusNewComment($(this), evt);
+    // collapse long comments
+    $(".content p", this.selector).expander({
+      slicePoint: 400,
+      widow: 12,
+      expandText: Diaspora.widgets.i18n.t("show_more"),
+      userCollapse: false
     });
+  },
 
-    $("textarea.comment_box", this.selector).bind("focus blur", function(evt) {
-      var commentBox = $(this);
-      commentBox
-        .attr("rows", (evt.type === "focus") ? 2 : 1)
-        .parent().parent()
-          .toggleClass("open");
-    });
-
-    $("a.expand_likes", this.selector).click(function(evt) {
-      evt.preventDefault();
-      $(this).siblings(".likes_list").fadeToggle("fast");
-    });
-
-    $("a.expand_dislikes", this.selector).click(function(evt) {
-      evt.preventDefault();
-      $(this).siblings(".dislikes_list").fadeToggle("fast");
-    });
-
+  initializeLives: function(){
     // reshare button action
-    $(".reshare_button", this.selector).click(function(evt) {
+    $(".reshare_button", this.selector).live("click", function(evt) {
       evt.preventDefault();
       var button = $(this),
         box = button.siblings(".reshare_box");
@@ -56,11 +40,31 @@ var Stream = {
       }
     });
 
-    $(".new_comment", this.selector).bind("ajax:failure", function() {
-      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_post_message"));
+    this.setUpComments();
+
+    $("a.expand_likes", this.selector).live('click',function(evt) {
+      evt.preventDefault();
+      $(this).siblings(".likes_list").fadeToggle("fast");
     });
 
-    $(".comment .comment_delete", this.selector).bind("ajax:success", function() {
+    $("a.expand_dislikes", this.selector).live('click',function(evt) {
+      evt.preventDefault();
+      $(this).siblings(".dislikes_list").fadeToggle("fast");
+    });
+  },
+
+  setUpComments: function(){
+    $("a.show_post_comments:not(.show)", this.selector).live('click', Stream.toggleComments);
+    // comment link form focus
+    $(".focus_comment_textarea", this.selector).live('click', function(evt) {
+      Stream.focusNewComment($(this), evt);
+    });
+
+    $(".new_comment", this.selector).live("ajax:failure", function() {
+       Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_post_message"));
+    });
+
+    $(".comment .comment_delete", this.selector).live("ajax:success", function() {
       var element = $(this),
         target = element.parents(".comment"),
         post = element.closest(".stream_element"),
@@ -75,23 +79,23 @@ var Stream = {
 
     });
 
-    // collapse long comments
-    $(".content p", this.selector).expander({
-      slicePoint: 400,
-      widow: 12,
-      expandText: Diaspora.widgets.i18n.t("show_more"),
-      userCollapse: false
+    $("textarea.comment_box", this.selector).live("focus blur", function(evt) {
+      var commentBox = $(this);
+      commentBox
+        .attr("rows", (evt.type === "focus") ? 2 : 1)
+        .parent().parent()
+          .toggleClass("open");
     });
   },
 
   setUpLikes: function() {
     var likes = $(".like_it, .dislike_it", this.selector);
 
-    likes.bind("ajax:loading", function() {
+    likes.live("ajax:loading", function() {
       $(this).parent().fadeOut("fast");
     });
 
-    likes.bind("ajax:failure", function() {
+    likes.live("ajax:failure", function() {
       Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_like"));
       $(this).parent().fadeIn("fast");
     });
@@ -170,6 +174,7 @@ var Stream = {
 
 $(document).ready(function() {
   if( $(Stream.selector).length == 0 ) { return }
+  Stream.initializeLives();
   Diaspora.widgets.subscribe("stream/reloaded", Stream.initialize, Stream);
   Diaspora.widgets.publish("stream/reloaded");
 });
