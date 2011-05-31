@@ -17,8 +17,8 @@
 
 #manage_aspect_zones
   .span-24.last
-    - for aspect in @aspects
-      .aspect.span-9{:data=>{:guid => aspect.id}}
+    - @aspects.each_with_index do |aspect, i|
+      .aspect.span-12{:data => {:guid => aspect.id}, :class => (i+1) % 2 == 0 ? "last" : nil}
         .aspect_name
           %span.edit_name_field
             %h3{:contenteditable=>true, :ondragenter=>"return false;", :ondragleave=>"return false;", :ondragover=>"return false;", :ondrop=>"return false;"}

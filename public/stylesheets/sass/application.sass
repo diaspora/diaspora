@@ -1334,9 +1334,11 @@ ul#aspect_nav
   :background-color rgb(252,252,252)
 
 .aspect
-  :margin
-    :right 20px
-
+  :margin-right 20px // overwriting default of 10px from grid
+  &.last
+    :margin-right 0
+  &.span-12
+    :width 465px // overwriting default of 470px from grid
 
 .requests
   ul.dropzone
