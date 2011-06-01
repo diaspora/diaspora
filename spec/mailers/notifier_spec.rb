@@ -231,7 +231,7 @@ describe Notifier do
       end
 
       it 'has the activation link in the body' do
-        pending
+        confirm_email.body.encoded.should include(confirm_email_url(:token => user.confirm_email_token))
       end
 
     end
