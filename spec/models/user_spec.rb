@@ -113,6 +113,11 @@ describe User do
         alice.email = eve.email
         alice.should_not be_valid
       end
+      
+      it "requires a vaild email address" do
+        alice.email = "somebody@anywhere"
+        alice.should_not be_valid
+      end
     end
 
     describe "of language" do
