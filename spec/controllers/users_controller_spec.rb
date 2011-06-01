@@ -109,6 +109,10 @@ describe UsersController do
     end
 
     describe 'email' do
+      before do
+        Resque.stub!(:enqueue)
+      end
+      
       it 'allow the user to change his (unconfirmed) email' do
         put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
         @user.reload
@@ -131,6 +135,11 @@ describe UsersController do
         put(:update, :id => @user.id, :user => { :email => ""})
         @user.reload
         @user.unconfirmed_email.should eql(nil)
+      end
+      
+      it 'sends out activation email on success' do
+        Resque.should_receive(:enqueue).with(Job::MailConfirmEmail, @user.id).once
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
       end
     end
 

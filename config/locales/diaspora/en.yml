@@ -401,6 +401,9 @@ en:
         subject: "%{name} has just liked your post"
         liked: "%{name} has just liked your post: "
         sign_in: "Sign in to view it"
+    confirm_email:
+        subject: "Please activate your new e-mail address %{unconfirmed_email}"
+        click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
 
   people:
     zero: "no people"

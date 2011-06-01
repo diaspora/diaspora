@@ -673,5 +673,18 @@ describe User do
         user.confirm_email_token.size.should eql(30)
       end
     end
+    
+    describe '#mail_confirm_email' do
+      it 'enqueues a mail job on user with unconfirmed email' do
+        user.update_attribute(:unconfirmed_email, "alice@newmail.com")
+        Resque.should_receive(:enqueue).with(Job::MailConfirmEmail, alice.id).once
+        alice.mail_confirm_email.should eql(true)
+      end
+
+      it 'enqueues NO mail job on user without unconfirmed email' do
+        Resque.should_not_receive(:enqueue).with(Job::MailConfirmEmail, alice.id)
+        alice.mail_confirm_email.should eql(false)
+      end
+    end
   end
 end

@@ -206,6 +206,12 @@ class User < ActiveRecord::Base
     end
   end
 
+  def mail_confirm_email
+    return false if unconfirmed_email.blank?
+    Resque.enqueue(Job::MailConfirmEmail, id)
+    true 
+  end
+
   ######### Posts and Such ###############
   def retract(post)
     if post.respond_to?(:relayable?) && post.relayable?

@@ -1,0 +1,12 @@
+%p
+  = t('notifier.hello', :name => @receiver.profile.first_name)
+%p
+  != t('notifier.confirm_email.click_link', :unconfirmed_email => @receiver.unconfirmed_email)
+  %br
+  = link_to root_url, root_url
+  
+  %br
+  %br
+  = t('notifier.love') 
+  %br
+  = t('notifier.diaspora')
