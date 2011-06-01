@@ -686,5 +686,64 @@ describe User do
         alice.mail_confirm_email.should eql(false)
       end
     end
+    
+    describe '#confirm_email' do
+      context 'on user with unconfirmed email' do
+        before do
+          user.update_attribute(:unconfirmed_email, "alice@newmail.com")
+        end
+
+        it 'confirms email and set the unconfirmed_email to email on valid token' do
+          user.confirm_email(user.confirm_email_token).should eql(true)
+          user.email.should eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+
+        it 'returns false and does not change anything on wrong token' do
+          user.confirm_email(user.confirm_email_token.reverse).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+        
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email("").should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+        
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email(nil).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+      end
+
+      context 'on user without unconfirmed email' do
+        it 'returns false and does not change anything on any token' do
+          user.confirm_email("12345"*6).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+        
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email("").should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+        
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email(nil).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+      end
+    end
   end
 end

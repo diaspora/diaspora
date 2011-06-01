@@ -93,6 +93,12 @@ class User < ActiveRecord::Base
     true
   end
 
+  def confirm_email(token)
+    return false if token.blank? || token != confirm_email_token
+    self.email = unconfirmed_email
+    save
+  end
+
   ######### Aspects ######################
   def move_contact(person, to_aspect, from_aspect)
     return true if to_aspect == from_aspect
