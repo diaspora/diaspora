@@ -90,9 +90,9 @@ cs:
       remove: "odebrat"
     index: 
       cubbies: 
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
-        learn_more: "Learn more"
+        explanation: "Cubbi.es je první Diaspora aplikace ve vývoji."
+        heading: "Připojit se na Cubbi.es"
+        learn_more: "Dozvědět se více"
       handle_explanation: "Toto je váš Diaspora identifikátor. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       no_contacts: "Žádné kontakty"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
@@ -137,7 +137,7 @@ cs:
     few: "%{count} komentáře"
     many: "%{count} komentářů"
     new_comment: 
-      comment: "Komentář"
+      comment: "komentář"
       commenting: "Komentování..."
     one: "1 komentář"
     other: "%{count} komentářů"

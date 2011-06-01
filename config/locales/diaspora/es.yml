@@ -199,10 +199,10 @@ es:
       learn_about_host: "Aprende acerca de cómo hostear tu propio servidor Diaspora*."
       login_here: "conectar aquí"
       ownership: "propiedad"
-      ownership_explanation: "Eres dueño de tus imágenes, y nadie debería tener que cederlas solo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora*, dándote control total sobre lo que es distribuido."
+      ownership_explanation: "Eres dueño de tus imágenes, y no deberías tener que cederlas sólo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora*, dándote control total sobre lo que es distribuido."
       share_what_you_want: "Comparte lo que quieras, con quien quieras."
       simplicity: "Simplicidad"
-      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil - y ésto es acerca de la privacidad también. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones solo para mantener tu perfil seguro."
+      simplicity_explanation: "Diaspora* hace que compartir sea transparente y fácil —y esto también va para la privacidad. Inheréntemente privado, Diaspora* no te hace ir a través de configuraciones y opciones sólo para mantener tu perfil seguro."
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
   invitations: 
@@ -223,7 +223,7 @@ es:
       comma_seperated_plz: "Puedes escribir múltiples direcciones de correo separadas por comas."
       if_they_accept_info: "Si aceptan, serán añadidos al aspecto que selecciones."
       invite_someone_to_join: "¡Invita a alguien a unirse a Diaspora*!"
-      personal_message: "Mensaje Personal"
+      personal_message: "Mensaje personal"
       resend: "Reenviado"
       send_an_invitation: "Enviar una invitación"
       send_invitation: "Enviar invitación"
@@ -233,7 +233,7 @@ es:
       have_a_problem: "¿Algún problema? Encuentra una solución aquí"
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de %{name} "
-      toggle: "cambiar sitio movil"
+      toggle: "cambiar al sitio móvil"
       whats_new: "Novedades en Diaspora*"
       your_aspects: "tus aspectos"
     header: 
@@ -343,7 +343,7 @@ es:
       commented: "participó en tu publicación:"
       sign_in: "Conéctate para verlo."
       subject: "%{name} escribió en tu publicación."
-    diaspora: "Email robot de Diaspora*"
+    diaspora: "el robot de email de Diaspora*"
     hello: "¡Hola %{name}!"
     liked: 
       liked: "a %{name} le gustó tu publicación:"
@@ -393,10 +393,10 @@ es:
       add_contact: "Añadir contacto"
       already_connected: "Ya está conectado"
       pending_request: "Solicitud pendiente"
-      thats_you: "¡Ese eres tú!"
+      thats_you: "¡Ése eres tú!"
     profile_sidebar: 
       bio: "Biografía"
-      born: "Fecha de Nacimiento"
+      born: "Fecha de nacimiento"
       edit_my_profile: "Editar mi perfil"
       gender: "Género / Sexo"
       in_aspects: "en aspectos"
@@ -412,8 +412,8 @@ es:
       message: "Mensaje"
       no_posts: "¡No hay publicaciones que mostrar!"
       not_connected: "No estás conectado con esta persona."
-      recent_posts: "Últimas Publicaciones"
-      recent_public_posts: "Últimas Publicaciones (El mundo)"
+      recent_posts: "Últimas publicaciones"
+      recent_public_posts: "Últimas publicaciones (al mundo)"
       return_to_aspects: "Volver a tu página de aspectos"
       see_all: "Ver todos"
       start_sharing: "Empezar a compartir"
@@ -421,7 +421,7 @@ es:
       you_have_no_tags: "¡No tienes etiquetas!"
     webfinger: 
       fail: "Perdona, no pudimos encontrar %{handle}"
-    zero: "sin personas"
+    zero: "ninguna persona"
   photos: 
     create: 
       integrity_error: "Error subiendo la foto. ¿Seguro que era una imagen?"
@@ -432,8 +432,8 @@ es:
     edit: 
       editing: "Editando"
     new: 
-      back_to_list: "Volver a la Lista"
-      new_photo: "Nueva Foto"
+      back_to_list: "Volver a la lista"
+      new_photo: "Nueva foto"
       post_it: "¡Publícalo!"
     new_photo: 
       empty: "{file} está vacío, por favor selecciona los archivos sin éste."
@@ -446,7 +446,7 @@ es:
       view_all: "ver todas las fotos de %{name}"
     show: 
       collection_permalink: "enlace permanente a la colección"
-      delete_photo: "Eliminar Foto"
+      delete_photo: "Eliminar foto"
       edit: "Editar"
       edit_delete_photo: "Editar pie de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
@@ -470,7 +470,7 @@ es:
       edit_profile: "Editar perfil"
       first_name: "Nombre"
       last_name: "Apellidos"
-      update_profile: "Actualizar Perfil"
+      update_profile: "Actualizar perfil"
       your_bio: "Biografía"
       your_birthday: "Fecha de nacimiento"
       your_gender: "Género / Sexo"
@@ -496,7 +496,7 @@ es:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new: 
-      enter_email: "Escribe una dirección de correo"
+      enter_email: "Escribe tu dirección de correo"
       enter_password: "Escribe una contraseña"
       enter_password_again: "Introduce la misma contraseña"
       enter_username: "Elije un nombre de usuario (sólo letras, números y guiones bajos)"
@@ -558,7 +558,7 @@ es:
       create_request: "Encontrar por la dirección Diaspora*"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
-      know_email: "¿Conoces sus direcciones de correo? ¡Puedes invitarles!"
+      know_email: "¿Conoces sus direcciones de correo? ¡Puedes invitarlos!"
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Todos los contactos"
@@ -654,7 +654,7 @@ es:
       change: "Cambiar"
       change_language: "Cambiar idioma"
       change_password: "Cambiar contraseña"
-      close_account: "Cerrar Cuenta"
+      close_account: "Cerrar cuenta"
       comment_on_post: "...alguien comenta en tu publicación?"
       current_password: "Contraseña actual"
       download_photos: "descargar mis fotos"

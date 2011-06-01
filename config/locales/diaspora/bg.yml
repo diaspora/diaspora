@@ -302,7 +302,7 @@ bg:
       many: "%{actors} току-що харесаха ваша %{post_link}."
       one: "%{actors} току-що хареса ваша %{post_link}."
       other: "%{actors} току-що хареса ваша %{post_link}."
-      zero: "%{actors} току-що хареса %{post_link}."
+      zero: "%{actors} току-що хареса ваша %{post_link}."
     liked_post_deleted: 
       few: "%{actors} харесаха ваша изтрита публикация."
       many: "%{actors} харесаха ваша изтрита публикация."
