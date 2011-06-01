@@ -145,6 +145,10 @@ ca:
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
       people_sharing_with_you: "Gent amb qui compartiu"
+      cubbies:
+        heading: "Connecteu a Cubbi.es"
+        explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament"
+        learn_more: "Més informació"
 
 
   aspect_memberships:
@@ -163,6 +167,8 @@ ca:
 
 
   bookmarklet:
+    # XXX: Miniaplicació enllaçada és simplement horrible (TERMCAT). jm
+    heading: "Miniaplicació enllaçada del Diàspora"
     post_success: "S'ha publicat! S'està tancant!"
     post_something: "Publiqueu alguna cosa al Diàspora"
     explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."

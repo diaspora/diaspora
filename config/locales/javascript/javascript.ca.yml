@@ -46,3 +46,6 @@ ca:
       show_more: "mostra'n més"
       failed_to_like: "No s'ha pogut comunicar que us agrada!"
       failed_to_post_message: "No s'ha pogut publicar el missatge!"
+      comments:
+        show: "mostra tots els comentaris"
+        hide: "amaga els comentaris"
