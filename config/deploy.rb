@@ -21,7 +21,7 @@ set :deploy_via, :checkout
 namespace :deploy do
   task :symlink_config_files do
     run "ln -s -f #{shared_path}/config/database.yml #{current_path}/config/database.yml"
-    run "ln -s -f #{shared_path}/config/app.yml #{current_path}/config/app.yml"
+    run "ln -s -f #{shared_path}/config/application.yml #{current_path}/config/application.yml"
     run "ln -s -f #{shared_path}/config/oauth_keys.yml #{current_path}/config/oauth_keys.yml"
   end
 
