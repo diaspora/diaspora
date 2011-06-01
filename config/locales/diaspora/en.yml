@@ -401,6 +401,9 @@ en:
         subject: "%{name} has just liked your post"
         liked: "%{name} has just liked your post: "
         sign_in: "Sign in to view it"
+    confirm_email:
+        subject: "Please activate your new e-mail address %{unconfirmed_email}"
+        click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
 
   people:
     zero: "no people"
@@ -688,6 +691,7 @@ en:
       close_account: "Close Account"
       change_language: "Change Language"
       change_password: "Change Password"
+      change_email: "Change E-Mail"
       new_password: "New Password"
       current_password: "Current password"
       download_xml: "download my xml"
@@ -703,6 +707,7 @@ en:
       private_message: "...you receive a private message?"
       liked: "...someone likes your post?"
       change: "Change"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
     destroy: "Account successfully closed."
     getting_started:
       welcome: "Welcome to Diaspora!"
@@ -726,8 +731,13 @@ en:
       language_changed: "Language Changed"
       language_not_changed: "Language Change Failed"
       email_notifications_changed: "Email notifications changed"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
     public:
       does_not_exist: "User %{username} does not exist!"
+    confirm_email:
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
 
   webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"

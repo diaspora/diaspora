@@ -53,6 +53,14 @@ class UsersController < ApplicationController
         unless u[:a_ids] == ["home"]
           @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
         end
+      elsif u[:email]
+        @user.unconfirmed_email = u[:email]
+        if @user.save
+          @user.mail_confirm_email
+          flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
+        else
+          flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
+        end
       end
     end
 
@@ -141,5 +149,14 @@ class UsersController < ApplicationController
   def export_photos
     tar_path = PhotoMover::move_photos(current_user)
     send_data( File.open(tar_path).read, :filename => "#{current_user.id}.tar" )
+  end
+
+  def confirm_email
+    if current_user.confirm_email(params[:token])
+      flash[:notice] = I18n.t('users.confirm_email.email_confirmed', :email => current_user.email)
+    elsif current_user.unconfirmed_email.present?
+      flash[:error] = I18n.t('users.confirm_email.email_not_confirmed')
+    end
+    redirect_to edit_user_path
   end
 end
