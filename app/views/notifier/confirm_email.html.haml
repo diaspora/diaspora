@@ -3,7 +3,7 @@
 %p
   != t('notifier.confirm_email.click_link', :unconfirmed_email => @receiver.unconfirmed_email)
   %br
-  = link_to root_url, root_url
+  = link_to confirm_email_url(:token => @receiver.confirm_email_token), confirm_email_url(:token => @receiver.confirm_email_token)
   
   %br
   %br

@@ -1,7 +1,7 @@
 != t('notifier.hello', :name => @receiver.profile.first_name)
 
 != t('notifier.confirm_email.click_link', :unconfirmed_email => @receiver.unconfirmed_email)
-!= root_url
+!= confirm_email_url(:token => @receiver.confirm_email_token)
 
 != "#{t('notifier.love')} \n"
 != t('notifier.diaspora')

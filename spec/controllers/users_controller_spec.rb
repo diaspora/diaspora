@@ -180,4 +180,31 @@ describe UsersController do
       response.should redirect_to new_user_session_path
     end
   end
+
+  describe '#confirm_email' do
+    before do
+      @user.update_attribute(:unconfirmed_email, 'my@newemail.com')
+    end
+
+    it 'redirects to to the user edit page' do
+      get 'confirm_email', :token => @user.confirm_email_token
+      response.should redirect_to edit_user_path
+    end
+
+    it 'confirms email' do
+      get 'confirm_email', :token => @user.confirm_email_token
+      @user.reload
+      @user.email.should eql('my@newemail.com')
+      request.flash[:notice].should eql(I18n.t('users.confirm_email.email_confirmed', :email => 'my@newemail.com'))
+      request.flash[:error].should be_blank
+    end
+    
+    it 'does NOT confirm email with wrong token' do
+      get 'confirm_email', :token => @user.confirm_email_token.reverse
+      @user.reload
+      @user.email.should_not eql('my@newemail.com')
+      request.flash[:error].should eql(I18n.t('users.confirm_email.email_not_confirmed'))
+      request.flash[:notice].should be_blank
+    end
+  end
 end

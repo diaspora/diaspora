@@ -686,7 +686,7 @@ describe User do
         alice.mail_confirm_email.should eql(false)
       end
     end
-    
+
     describe '#confirm_email' do
       context 'on user with unconfirmed email' do
         before do
@@ -729,14 +729,14 @@ describe User do
           user.unconfirmed_email.should eql(nil)
           user.confirm_email_token.should eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email("").should eql(false)
           user.email.should_not eql("alice@newmail.com")
           user.unconfirmed_email.should eql(nil)
           user.confirm_email_token.should eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email(nil).should eql(false)
           user.email.should_not eql("alice@newmail.com")
