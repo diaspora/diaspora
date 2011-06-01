@@ -12,6 +12,7 @@ available:
   en: "English"
   en_shaw: "𐑦𐑙𐑤𐑦𐑖"
   es: "Español"
+  es-AR: "Castellano"
   es-CL: "Español Chileno"
   eu: "Euskara"
   fi: "Suomi"
@@ -54,6 +55,8 @@ fallbacks:
     - :sv-SE
   he:
     - :he-IL
+  es-AR:
+    - :es
   es-CL:
     - :es
   gl:
