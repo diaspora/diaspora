@@ -9,8 +9,8 @@ class Comment < ActiveRecord::Base
   include ROXML
 
   include Diaspora::Webhooks
-  include Diaspora::Relayable
   include Diaspora::Guid
+  include Diaspora::Relayable
 
   include Diaspora::Socketable
 

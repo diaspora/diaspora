@@ -64,6 +64,16 @@ module Diaspora
       self
     end
 
+    def initialize_signatures
+      #sign relayable as model creator
+      self.author_signature = self.sign_with_key(author.owner.encryption_key)
+
+      if !self.post_id.blank? && self.author.owns?(self.parent)
+        #sign relayable as parent object owner
+        self.parent_author_signature = sign_with_key(author.owner.encryption_key)
+      end
+    end
+
     def verify_parent_author_signature
       verify_signature(self.parent_author_signature, self.parent.author)
     end
