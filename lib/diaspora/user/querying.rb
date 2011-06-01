@@ -29,8 +29,8 @@ module Diaspora
 
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
-        posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
-        posts_from_self = self.person.posts
+        posts_from_others = Post.joins(:contacts).where( :pending => false, :type => opts[:type], :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
+        posts_from_self = self.person.posts.where(:pending => false, :type => opts[:type])
 
         if opts[:by_members_of]
           posts_from_others = posts_from_others.joins(:contacts => :aspect_memberships).where(
@@ -44,7 +44,7 @@ module Diaspora
         all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
         post_ids = Post.connection.execute(all_posts).map{|r| r.first}
 
-        Post.where(:id => post_ids, :pending => false, :type => opts[:type]).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
+        Post.where(:id => post_ids).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
 
       def visible_photos(opts = {})
