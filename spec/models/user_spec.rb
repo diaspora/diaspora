@@ -34,6 +34,7 @@ describe User do
       new_user.id.should_not == alice.id
     end
   end
+
   describe "validation" do
     describe "of associated person" do
       it "fails if person is not valid" do
@@ -116,6 +117,26 @@ describe User do
       
       it "requires a vaild email address" do
         alice.email = "somebody@anywhere"
+        alice.should_not be_valid
+      end
+    end
+    
+    describe "of unconfirmed_email" do
+      it "unconfirmed_email address can be nil/blank" do
+        alice.unconfirmed_email = nil
+        alice.should be_valid
+        alice.unconfirmed_email = ""
+        alice.should be_valid
+      end
+
+      it "does NOT require a unique unconfirmed_email address" do
+        eve.update_attribute :unconfirmed_email, "new@email.com"
+        alice.unconfirmed_email = "new@email.com"
+        alice.should be_valid
+      end
+      
+      it "requires a vaild unconfirmed_email address" do
+        alice.unconfirmed_email = "somebody@anywhere"
         alice.should_not be_valid
       end
     end
@@ -590,6 +611,66 @@ describe User do
     
       it "returns false if there's no like" do
         alice.liked?(@message2).should be_false
+      end
+    end
+  end
+
+  context 'change email' do
+    let(:user){ alice }
+
+    describe "#unconfirmed_email" do
+      it "is nil by default" do
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "forces blank to nil" do
+        user.unconfirmed_email = ""
+        user.save!
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "is ignored if it equals email" do
+        user.unconfirmed_email = user.email
+        user.save!
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "allows change to valid new email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.unconfirmed_email.should eql("alice@newmail.com")
+      end
+    end
+
+    describe "#confirm_email_token" do
+      it "is nil by default" do
+        user.confirm_email_token.should eql(nil)
+      end
+
+      it "is autofilled when unconfirmed_email is set to new email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.confirm_email_token.should_not be_blank
+        user.confirm_email_token.size.should eql(30)
+      end
+
+      it "is set back to nil when unconfirmed_email is empty" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.confirm_email_token.should_not be_blank
+        user.unconfirmed_email = nil
+        user.save!
+        user.confirm_email_token.should eql(nil)
+      end
+
+      it "generates new token on every new unconfirmed_email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        first_token = user.confirm_email_token
+        user.unconfirmed_email = "alice@andanotherone.com"
+        user.save!
+        user.confirm_email_token.should_not eql(first_token)
+        user.confirm_email_token.size.should eql(30)
       end
     end
   end

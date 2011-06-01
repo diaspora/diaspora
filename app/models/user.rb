@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
   validates_format_of :username, :with => /\A[A-Za-z0-9_]+\z/
   validates_length_of :username, :maximum => 32
   validates_inclusion_of :language, :in => AVAILABLE_LANGUAGE_CODES
+  validates_format_of :unconfirmed_email, :with  => Devise.email_regexp, :allow_blank => true
 
   validates_presence_of :person, :unless => proc {|user| user.invitation_token.present?}
   validates_associated :person
@@ -43,6 +44,7 @@ class User < ActiveRecord::Base
   before_save do
     person.save if person && person.changed?
   end
+  before_save :guard_unconfirmed_email
 
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
 
@@ -347,6 +349,14 @@ class User < ActiveRecord::Base
   def remove_mentions
     Mention.where( :person_id => self.person.id).each do |mentioned_person|
       mentioned_person.delete
+    end
+  end
+
+  def guard_unconfirmed_email
+    self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
+    
+    if unconfirmed_email_changed?
+      self.confirm_email_token = unconfirmed_email ? ActiveSupport::SecureRandom.hex(15) : nil
     end
   end
 end
