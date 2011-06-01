@@ -21,7 +21,7 @@ namespace :backup do
       `mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
       tar_name = "mysql_#{Time.now.to_i}.tar"
-      `tar cfP /tmp/backup/#{tar_name} /tmp/backup/mysql`
+      `tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
 
       file = mysql_container.create_object(tar_name)
 
@@ -53,7 +53,7 @@ namespace :backup do
       photo_container = cf.container("Photo Backup")
 
       tar_name = "photos_#{Time.now.to_i}.tar"
-      `tar cfP /dev/stdout /usr/local/app/diaspora/public/uploads/images/ | split -d -b 4831838208 - /tmp/backup/#{tar_name}`
+      `tar cfPz /dev/stdout /usr/local/app/diaspora/public/uploads/images/ | split -d -b 4831838208 - /tmp/backup/#{tar_name}`
 
       (0..99).each do |n|
         padded_str = n.to_s.rjust(2,'0')
