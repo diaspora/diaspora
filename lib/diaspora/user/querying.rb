@@ -13,15 +13,20 @@ module Diaspora
       end
 
       def visible_posts(opts = {})
-        opts = opts.dup
-        opts[:type] ||= ['StatusMessage', 'Photo']
-        opts[:limit] ||= 15
-        opts[:order] ||= 'updated_at DESC'
+        defaults = {
+          :type => ['StatusMessage', 'Photo'],
+          :order => 'updated_at DESC',
+          :limit => 15,
+          :hidden => false
+        }
+        opts = defaults.merge(opts)
+
         order_field = opts[:order].split.first.to_sym
-        opts[:hidden] ||= false
         order_with_table = 'posts.' + opts[:order]
+
         opts[:max_time] = Time.at(opts[:max_time]) if opts[:max_time].is_a?(Integer)
         opts[:max_time] ||= Time.now + 1
+
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
         posts_from_others = Post.joins(:contacts).where( :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
