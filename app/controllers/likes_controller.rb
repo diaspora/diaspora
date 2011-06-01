@@ -12,7 +12,7 @@ class LikesController < ApplicationController
     target = current_user.find_visible_post_by_id params[:post_id]
     positive = (params[:positive] == 'true') ? true : false
     if target
-      @like = current_user.build_like(:positive => positive, :on => target)
+      @like = current_user.build_like(:positive => positive, :post => target)
 
       if @like.save
         Rails.logger.info("event=create type=like user=#{current_user.diaspora_handle} status=success like=#{@like.id} positive=#{positive}")

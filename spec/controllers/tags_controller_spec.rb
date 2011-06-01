@@ -99,7 +99,7 @@ describe TagsController do
         end
 
         it 'succeeds with comments' do
-          alice.comment('what WHAT!', :on => @post)
+          alice.comment('what WHAT!', :post => @post)
           get :show, :name => 'what'
           response.should be_success
         end

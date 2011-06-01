@@ -58,7 +58,7 @@ describe 'making sure the spec runner works' do
       m.stub!(:post)
       Postzord::Dispatch.should_receive(:new).and_return(m)
 
-      alice.comment "yo", :on => person_status
+      alice.comment "yo", :post => person_status
     end
   end
 

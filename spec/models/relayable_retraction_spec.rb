@@ -14,7 +14,7 @@ describe RelayableRetraction do
 
   describe '#subscribers' do
     before do
-      @comment= @local_luke.comment("yo", :on => @local_parent)
+      @comment= @local_luke.comment("yo", :post => @local_parent)
       @retraction= @local_luke.retract(@comment)
     end
     it 'delegates it to target' do
@@ -26,7 +26,7 @@ describe RelayableRetraction do
 
   describe '#receive' do
     it 'discards a retraction with a nil target' do
-      @comment= @local_luke.comment("yo", :on => @local_parent)
+      @comment= @local_luke.comment("yo", :post => @local_parent)
       @retraction= @local_luke.retract(@comment)
 
       @retraction.instance_variable_set(:@target, nil)
@@ -36,7 +36,7 @@ describe RelayableRetraction do
     end
     context 'from the downstream author' do
       before do
-        @comment = @local_leia.comment("yo", :on => @local_parent)
+        @comment = @local_leia.comment("yo", :post => @local_parent)
         @retraction = @local_leia.retract(@comment)
         @recipient = @local_luke
       end
@@ -59,7 +59,7 @@ describe RelayableRetraction do
     end
     context 'from the upstream owner' do
       before do
-        @comment = @local_luke.comment("Yeah, it was great", :on => @remote_parent)
+        @comment = @local_luke.comment("Yeah, it was great", :post => @remote_parent)
         @retraction = RelayableRetraction.allocate
         @retraction.sender = @remote_raphael
         @retraction.target = @comment
@@ -79,7 +79,7 @@ describe RelayableRetraction do
 
   describe 'xml' do
     before do
-      @comment = @local_leia.comment("yo", :on => @local_parent)
+      @comment = @local_leia.comment("yo", :post => @local_parent)
       @retraction = RelayableRetraction.build(@local_leia, @comment)
       @retraction.parent_author_signature = 'PARENTSIGNATURE'
       @retraction.target_author_signature = 'TARGETSIGNATURE'

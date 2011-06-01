@@ -65,7 +65,7 @@ describe AspectsController do
 
     it 'generates a jasmine fixture with posts', :fixture => 'jasmine' do
       message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-      4.times { bob.comment("what", :on => message) }
+      4.times { bob.comment("what", :post => message) }
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
 
@@ -104,7 +104,7 @@ describe AspectsController do
           post.save!
           @posts << post
         end
-        alice.build_comment(:text => 'lalala', :on => @posts.first ).save
+        alice.build_comment(:text => 'lalala', :post => @posts.first ).save
       end
 
       describe "post visibilities" do
@@ -187,7 +187,7 @@ describe AspectsController do
           connect_users(alice, @alices_aspect_1, user, aspect)
           post =  alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
-            user.comment "yo#{post.text}", :on => post
+            user.comment "yo#{post.text}", :post => post
           end
         end
       end

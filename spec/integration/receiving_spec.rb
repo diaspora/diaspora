@@ -233,7 +233,7 @@ describe 'a user receives a post' do
         receive_with_zord(bob, alice.person, xml)
         receive_with_zord(eve, alice.person, xml)
 
-        @comment = eve.comment('tada',:on => @post)
+        @comment = eve.comment('tada',:post => @post)
         @comment.parent_author_signature = @comment.sign_with_key(alice.encryption_key)
         @xml = @comment.to_diaspora_xml
         @comment.delete
@@ -290,7 +290,7 @@ describe 'a user receives a post' do
       end
 
       it 'does not raise a `Mysql2::Error: Duplicate entry...` exception on save' do
-        @comment = bob.comment('tada',:on => @post)
+        @comment = bob.comment('tada',:post => @post)
         @xml = @comment.to_diaspora_xml
 
         lambda {

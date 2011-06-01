@@ -163,7 +163,7 @@ describe Notifier do
   context "comments" do
     let!(:connect) { connect_users(user, aspect, user2, aspect2)}
     let!(:sm) {user.post(:status_message, :text => "Sunny outside", :to => :all)}
-    let!(:comment) { user2.comment("Totally is", :on => sm )}
+    let!(:comment) { user2.comment("Totally is", :post => sm )}
     describe ".comment_on_post" do
 
       let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}

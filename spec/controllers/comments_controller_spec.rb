@@ -49,7 +49,7 @@ describe CommentsController do
       end
 
       it "doesn't overwrite id" do
-        old_comment = alice.comment("hello", :on => @post)
+        old_comment = alice.comment("hello", :post => @post)
         comment_hash[:id] = old_comment.id
         post :create, comment_hash
         old_comment.reload.text.should == 'hello'
@@ -73,9 +73,9 @@ describe CommentsController do
     context 'your post' do
       before do
         @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
-        @comment = alice.comment("hey", :on => @message)
-        @comment2 = bob.comment("hey", :on => @message)
-        @comment3 = eve.comment("hey", :on => @message)
+        @comment = alice.comment("hey", :post => @message)
+        @comment2 = bob.comment("hey", :post => @message)
+        @comment3 = eve.comment("hey", :post => @message)
       end
 
       it 'lets the user delete his comment' do
@@ -94,9 +94,9 @@ describe CommentsController do
     context "another user's post" do
       before do
         @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
-        @comment = alice.comment("hey", :on => @message)
-        @comment2 = bob.comment("hey", :on => @message)
-        @comment3 = eve.comment("hey", :on => @message)
+        @comment = alice.comment("hey", :post => @message)
+        @comment2 = bob.comment("hey", :post => @message)
+        @comment3 = eve.comment("hey", :post => @message)
       end
 
       it 'let the user delete his comment' do

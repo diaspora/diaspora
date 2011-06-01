@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
          :timeoutable, :token_authenticatable
 
   before_validation :strip_and_downcase_username
-  before_validation :set_current_language, :on => :create
+  before_validation :set_current_language, :post => :create
 
   validates_presence_of :username
   validates_uniqueness_of :username
@@ -154,7 +154,6 @@ class User < ActiveRecord::Base
   end
 
   def build_relayable(model, options = {})
-    options[:post] = options.delete(:on)
     m = model.new(options.merge(:author_id => self.person.id))
     m.set_guid
 

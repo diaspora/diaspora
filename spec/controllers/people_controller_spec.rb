@@ -89,7 +89,7 @@ describe PeopleController do
       end
       @posts.each do |post|
         @users.each do |user|
-          user.comment "yo#{post.text}", :on => post
+          user.comment "yo#{post.text}", :post => post
         end
       end
     end
@@ -150,7 +150,7 @@ describe PeopleController do
 
       it "renders the comments on the user's posts" do
         message = @user.post :status_message, :text => 'test more', :to => @aspect.id
-        @user.comment 'I mean it', :on => message
+        @user.comment 'I mean it', :post => message
         get :show, :id => @user.person.id
         response.should be_success
       end

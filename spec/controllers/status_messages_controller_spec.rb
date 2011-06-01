@@ -54,8 +54,8 @@ describe StatusMessagesController do
     end
 
     it 'marks a corresponding notification as read' do
-      alice.comment("comment after me", :on => @message)
-      bob.comment("here you go", :on => @message)
+      alice.comment("comment after me", :post => @message)
+      bob.comment("here you go", :post => @message)
       note = Notification.where(:recipient_id => alice.id, :target_id => @message.id).first
       lambda{
         get :show, :id => @message.id

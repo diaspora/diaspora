@@ -17,19 +17,19 @@ describe Comment do
 
   describe 'comment#notification_type' do
     it "returns 'comment_on_post' if the comment is on a post you own" do
-      comment = bob.comment("why so formal?", :on => @status)
+      comment = bob.comment("why so formal?", :post => @status)
       comment.notification_type(alice, bob.person).should == Notifications::CommentOnPost
     end
 
     it 'returns false if the comment is not on a post you own and no one "also_commented"' do
-      comment = alice.comment("I simply felt like issuing a greeting.  Do step off.", :on => @status)
+      comment = alice.comment("I simply felt like issuing a greeting.  Do step off.", :post => @status)
       comment.notification_type(@bob, alice.person).should == false
     end
 
     context "also commented" do
       before do
-        @bob.comment("a-commenta commenta", :on => @status)
-        @comment = @eve.comment("I also commented on the first user's post", :on => @status)
+        @bob.comment("a-commenta commenta", :post => @status)
+        @comment = @eve.comment("I also commented on the first user's post", :post => @status)
       end
 
       it 'does not return also commented if the user commented' do
@@ -45,17 +45,17 @@ describe Comment do
 
   describe 'User#comment' do
     it "should be able to comment on one's own status" do
-      alice.comment("Yeah, it was great", :on => @status)
+      alice.comment("Yeah, it was great", :post => @status)
       @status.reload.comments.first.text.should == "Yeah, it was great"
     end
 
     it "should be able to comment on a contact's status" do
-      bob.comment("sup dog", :on => @status)
+      bob.comment("sup dog", :post => @status)
       @status.reload.comments.first.text.should == "sup dog"
     end
     it 'does not multi-post a comment' do
       lambda {
-        alice.comment 'hello', :on => @status
+        alice.comment 'hello', :post => @status
       }.should change { Comment.count }.by(1)
     end
   end
@@ -66,7 +66,7 @@ describe Comment do
       @commenter_aspect = @commenter.aspects.create(:name => "bruisers")
       connect_users(alice, @alices_aspect, @commenter, @commenter_aspect)
       @post = alice.post :status_message, :text => "hello", :to => @alices_aspect.id
-      @comment = @commenter.comment "Fool!", :on => @post
+      @comment = @commenter.comment "Fool!", :post => @post
       @xml = @comment.to_xml.to_s
     end
     it 'serializes the sender handle' do
@@ -104,7 +104,7 @@ describe Comment do
       mock_http.should_receive(:get).with(/\/feeds\/api\/videos/, nil).twice.and_return(
         [nil, 'Foobar <title>'+expected_title+'</title> hallo welt <asd><dasdd><a>dsd</a>'])
 
-      comment = alice.build_comment :text => url, :on => @message
+      comment = alice.build_comment :text => url, :post => @message
       comment.save!
 
       Comment.find(comment.id).youtube_titles.should == { first_video_id => CGI::escape(expected_title), second_video_id => CGI::escape(expected_title) }
@@ -117,11 +117,11 @@ describe Comment do
       @remote_parent = Factory.create(:status_message, :author => @remote_raphael)
       @local_parent = @local_luke.post :status_message, :text => "hi", :to => @local_luke.aspects.first
 
-      @object_by_parent_author = @local_luke.comment("yo", :on => @local_parent)
-      @object_by_recipient = @local_leia.build_comment(:text => "yo", :on => @local_parent)
+      @object_by_parent_author = @local_luke.comment("yo", :post => @local_parent)
+      @object_by_recipient = @local_leia.build_comment(:text => "yo", :post => @local_parent)
       @dup_object_by_parent_author = @object_by_parent_author.dup
 
-      @object_on_remote_parent = @local_luke.comment("Yeah, it was great", :on => @remote_parent)
+      @object_on_remote_parent = @local_luke.comment("Yeah, it was great", :post => @remote_parent)
     end
     it_should_behave_like 'it is relayable'
   end

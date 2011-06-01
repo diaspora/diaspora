@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     text = params[:text]
 
     if target
-      @comment = current_user.build_comment(:text => text, :on => target)
+      @comment = current_user.build_comment(:text => text, :post => target)
 
       if @comment.save
         Rails.logger.info("event=create type=comment user=#{current_user.diaspora_handle} status=success comment=#{@comment.id} chars=#{params[:text].length}")

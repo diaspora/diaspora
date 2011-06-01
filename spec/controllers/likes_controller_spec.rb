@@ -53,7 +53,7 @@ describe LikesController do
       end
 
       it "doesn't post multiple times" do
-        @user1.like(1, :on => @post)
+        @user1.like(1, :post => @post)
         post :create, dislike_hash
         response.code.should == '422'
       end
@@ -76,7 +76,7 @@ describe LikesController do
     context 'your like' do
       before do
         @message = bob.post(:status_message, :text => "hey", :to => @aspect1.id)
-        @like = alice.build_like(:positive => true, :on => @message)
+        @like = alice.build_like(:positive => true, :post => @message)
         @like.save
       end
 
@@ -87,7 +87,7 @@ describe LikesController do
       end
 
       it 'does not let a user destroy other likes' do
-        like2 = eve.build_like(:positive => true, :on => @message)
+        like2 = eve.build_like(:positive => true, :post => @message)
         like2.save
 
         expect {
