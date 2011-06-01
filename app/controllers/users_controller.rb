@@ -53,6 +53,13 @@ class UsersController < ApplicationController
         unless u[:a_ids] == ["home"]
           @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
         end
+      elsif u[:email]
+        @user.unconfirmed_email = u[:email]
+        if @user.save
+          flash[:notice] = I18n.t 'users.update.unconfirmed_email_changed'
+        else
+          flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
+        end
       end
     end
 

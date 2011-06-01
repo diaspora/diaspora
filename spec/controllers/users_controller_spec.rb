@@ -108,6 +108,32 @@ describe UsersController do
       end
     end
 
+    describe 'email' do
+      it 'allow the user to change his (unconfirmed) email' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        @user.reload
+        @user.unconfirmed_email.should eql("my@newemail.com")
+      end
+      
+      it 'informs the user about success' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        request.flash[:notice].should eql(I18n.t('users.update.unconfirmed_email_changed'))
+        request.flash[:error].should be_blank
+      end
+      
+      it 'informs the user about failure' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemailcom"})
+        request.flash[:error].should eql(I18n.t('users.update.unconfirmed_email_not_changed'))
+        request.flash[:notice].should be_blank
+      end
+
+      it 'allow the user to change his (unconfirmed) email to blank (= abort confirmation)' do
+        put(:update, :id => @user.id, :user => { :email => ""})
+        @user.reload
+        @user.unconfirmed_email.should eql(nil)
+      end
+    end
+
     describe 'email settings' do
       it 'lets the user turn off mail' do
         par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'true'}}}
