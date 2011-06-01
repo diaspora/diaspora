@@ -2,6 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+begin
 namespace :integration do
   desc "rebuild and prepare test db"
   task :gogogo => ['db:integration:prepare', :start_servers, :run_specs]
@@ -45,4 +46,6 @@ namespace :integration do
     end
   end
 
+end
+rescue MissingSourceFile
 end
