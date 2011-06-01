@@ -7,7 +7,7 @@ class PhotoStatusMessageAssociationOnGuid < ActiveRecord::Migration
   def self.up
     add_column :posts, :status_message_guid, :string
 
-    ActiveRecord::Base.record_timestamps = false
+    Post.record_timestamps = false
     photos = Post.where(Post.arel_table[:status_message_id].not_eq(nil).and(Post.arel_table[:type].eq('Photo')))
     photos.each do |photo|
       if Post.where(:id => photo.status_message_id).exists?
@@ -27,7 +27,7 @@ class PhotoStatusMessageAssociationOnGuid < ActiveRecord::Migration
   def self.down
     add_column :posts, :status_message_id, :integer
 
-    ActiveRecord::Base.record_timestamps = false
+    Post.record_timestamps = false
     photos = Post.where(Post.arel_table[:status_message_guid].not_eq(nil).and(Post.arel_table[:type].eq('Photo')))
     photos.each do |photo|
       if Post.where(:guid => photo.status_message_guid).exists?
