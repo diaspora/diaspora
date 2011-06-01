@@ -118,6 +118,14 @@ describe User do
         eve.find_visible_post_by_id(@status_message1.id).should == @status_message1
         eve.find_visible_post_by_id(@status_message5.id).should == nil
       end
+
+      it 'is not emptied by a load of pending photos' do
+        15.times {
+          eve.build_post(:photo, :pending => true, :user_file=> File.open(photo_fixture_name), :to => eve.aspect_ids, :updated_at => Time.now + 1.day).save!
+        }
+        query = eve.visible_posts
+        query.map{|p| p.id}.should =~ [@status_message1, @status_message2, @status_message3, @status_message4].map{|p| p.id}
+      end
     end
   end
 

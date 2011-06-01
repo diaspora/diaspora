@@ -75,10 +75,6 @@ Factory.define(:status_message) do |m|
   end
 end
 
-Factory.define :photo do |p|
-  p.image File.open( File.dirname(__FILE__) + '/fixtures/button.png')
-end
-
 Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.type "Services::Twitter"

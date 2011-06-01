@@ -79,3 +79,7 @@ end
 def remote_raphael
   @remote_raphael ||= Person.where(:diaspora_handle => 'raphael@remote.net').first
 end
+
+def photo_fixture_name
+    @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
+end
