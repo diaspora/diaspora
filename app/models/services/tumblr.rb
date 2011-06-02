@@ -16,8 +16,12 @@ class Services::Tumblr < Service
   def post(post, url='')
     consumer = OAuth::Consumer.new(consumer_key, consumer_secret, :site => 'http://tumblr.com')
     access = OAuth::AccessToken.new(consumer, self.access_token, self.access_secret)
-    resp = access.post('http://tumblr.com/api/write', {:type => 'regular', :title => self.public_message(post, url), :generator => 'diaspora'})
-    resp
+    begin
+      resp = access.post('http://tumblr.com/api/write', {:type => 'regular', :title => self.public_message(post, url), :generator => 'diaspora'})
+      resp
+    rescue
+      nil
+    end
   end
 
   def public_message(post, url)
