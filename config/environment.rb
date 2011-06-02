@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 
 # use newrelic if configured via config/newrelic.yml
-require 'newrelic_rpm' if File.exists?(Rails.root.to_s << '/config/newrelic.yml')
+require 'newrelic_rpm' if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
 
 # Load the rails application
 require File.expand_path('../application', __FILE__)
