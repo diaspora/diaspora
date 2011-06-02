@@ -62,9 +62,6 @@
         = button_to t('.delete_photo'), @photo, :confirm => t('are_you_sure'), :method => :delete
 
 .span-16.prepend-4.append-4.last
-  %h5
-    = t('_comments')
-
   #photo_stream.stream.show
     // TODO(likes)
     /- if (defined?(current_user) && !current_user.liked?(@parent))
