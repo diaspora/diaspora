@@ -11,8 +11,6 @@ class ServicesController < ApplicationController
   def create
     auth = request.env['omniauth.auth']
 
-    puts auth.inspect
-
     toke = auth['credentials']['token']
     secret = auth['credentials']['secret']
 

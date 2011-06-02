@@ -562,8 +562,9 @@ en:
       logged_in_as: "logged in as"
       disconnect: "disconnect"
       really_disconnect: "disconnect %{service}?"
-      connect_to_twitter: "Connect to twitter"
-      connect_to_facebook: "Connect to facebook"
+      connect_to_twitter: "Connect to Twitter"
+      connect_to_facebook: "Connect to Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       edit_services: "Edit services"
     create:
       success: "Authentication successful."
