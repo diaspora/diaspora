@@ -42,15 +42,6 @@ var Stream = {
 
     this.setUpComments();
 
-    $("a.expand_likes", this.selector).live('click',function(evt) {
-      evt.preventDefault();
-      $(this).siblings(".likes_list").fadeToggle("fast");
-    });
-
-    $("a.expand_dislikes", this.selector).live('click',function(evt) {
-      evt.preventDefault();
-      $(this).siblings(".dislikes_list").fadeToggle("fast");
-    });
   },
 
   setUpComments: function(){
@@ -88,21 +79,8 @@ var Stream = {
     });
   },
 
-  setUpLikes: function() {
-    var likes = $(".like_it, .dislike_it", this.selector);
-
-    likes.live("ajax:loading", function() {
-      $(this).parent().fadeOut("fast");
-    });
-
-    likes.live("ajax:failure", function() {
-      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_like"));
-      $(this).parent().fadeIn("fast");
-    });
-  },
-
   setUpAudioLinks: function() {
-    $(".stream a[target='_blank']").each(function() {
+    $(".stream a[target='_blank']").each(function(r){
       var link = $(this);
       if(this.href.match(/\.mp3$|\.ogg$/)) {
         $("<audio/>", {

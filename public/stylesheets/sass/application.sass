@@ -456,7 +456,24 @@ ul.dropdown
     .from
       a
         :color $blue
+.status_message_show
+  .stream_element
+    .content
+      p
+      :font
+        :size 1em
 
+  .comments
+    :padding
+      :bottom 6px
+    > li:last-child
+      :border-bottom none
+  .comment_box
+    :width 475px
+    :margin
+      :bottom 5px
+
+  
 .time,
 .timeago,
 .via
@@ -583,9 +600,20 @@ ul.dropdown
 
 
 .stream ul.comments
+  :padding
+    :bottom 6px
+    
+  > li:last-child
+    :border-bottom none
+    
   .avatar
     :width 30px
     :height 30px
+
+  .comment_box
+    :margin
+      :bottom 5px
+
 
 .submit_button
   :text

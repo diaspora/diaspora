@@ -4,6 +4,9 @@
 */
 
 var ContentUpdater = {
+  elementWithGuid: function(selector, guid) {
+    return $(selector + "[data-guid='" + guid + "']");
+  },
   addPostToStream: function(html) {
     var streamElement = $(html);
     var postId = streamElement.attr("data-guid");
@@ -21,5 +24,15 @@ var ContentUpdater = {
       Diaspora.widgets.timeago.updateTimeAgo();
       Diaspora.widgets.directionDetector.updateBinds();
     }
+  },
+
+  addLikesToPost: function(postId, html) {
+    var post = ContentUpdater.elementWithGuid("div", postId);
+
+    $(".likes_container", post)
+      .fadeOut("fast")
+      .html(html)
+      .fadeIn("fast");
   }
+  
 };

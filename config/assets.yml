@@ -34,6 +34,7 @@ javascripts:
     - public/javascripts/widgets/directionDetector.js
     - public/javascripts/widgets/notifications.js
     - public/javascripts/widgets/flashes.js
+    - public/javascripts/widgets/post.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
