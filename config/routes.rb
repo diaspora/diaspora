@@ -71,6 +71,8 @@ Diaspora::Application.routes.draw do
   get "/oauth/authorize" => "authorizations#new"
   post "/oauth/authorize" => "authorizations#create"
 
+  post "/oauth/token" => "authorizations#token"
+
   #Temporary token_authenticable route
   resource :token, :only => [:show, :create]
 

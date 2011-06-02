@@ -4,3 +4,4 @@ gem 'sinatra'
 gem 'haml'
 
 gem 'httparty'
+gem 'json'

@@ -3,6 +3,7 @@ require 'bundler/setup'
 require 'sinatra'
 require 'haml'
 require 'httparty'
+require 'json'
 
 def resource_host
   url = "http://localhost:"
@@ -14,8 +15,8 @@ def resource_host
   url
 end
 
-CLIENT_ID = 'abcdefgh12345678'
-CLIENT_SECRET = 'secret'
+@@client_id = nil
+@@client_secret = nil
 RESOURCE_HOST = resource_host
 
 enable :sessions
@@ -34,7 +35,11 @@ helpers do
   end
 
   def authorize_url
-    RESOURCE_HOST + "/oauth/authorize?client_id=#{CLIENT_ID}&client_secret=#{CLIENT_SECRET}&redirect_uri=#{redirect_uri}"
+    RESOURCE_HOST + "/oauth/authorize?client_id=#{@@client_id}&client_secret=#{@@client_secret}&redirect_uri=#{redirect_uri}"
+  end
+
+  def token_url
+    RESOURCE_HOST + "/oauth/token"
   end
 
   def access_token_url
@@ -48,28 +53,55 @@ end
 
 get '/callback' do
   unless params["error"]
-    response = HTTParty.post(access_token_url, :body => {
-      :client_id => CLIENT_ID,
-      :client_secret => CLIENT_SECRET,
-      :redirect_uri => redirect_uri,
-      :code => params["code"],
-      :grant_type => 'authorization_code'}
-    )
 
-    session[:access_token] = response["access_token"]
-    redirect '/account'
+   if(params["client_id"] && params["client_secret"])
+      @@client_id = params["client_id"]
+      @@client_secret = params["client_secret"]
+      redirect '/account'
+
+    else
+      response = HTTParty.post(access_token_url, :body => {
+        :client_id => @@client_id,
+        :client_secret => @@client_secret,
+        :redirect_uri => redirect_uri,
+        :code => params["code"],
+        :grant_type => 'authorization_code'}
+      )
+
+      session[:access_token] = response["access_token"]
+      redirect '/account'
+    end
   else
     "What is your major malfunction?"
   end
 end
 
 get '/account' do
-  if access_token
-    @resource_server = RESOURCE_HOST
-    @url = "/api/v0/me.json"
-    @resource_response = get_with_access_token(@url)
-    haml :response
+  if !@@client_id && !@@client_secret
+    response = HTTParty.post(token_url, :body => {
+      :type => :client_associate,
+      :name => :Chubbies,
+      :redirect_uri => redirect_uri
+    })
+
+    json = JSON.parse(response.body)
+
+    @@client_id = json["client_id"]
+    @@client_secret = json["client_secret"]
+    
+    redirect '/account'
+
   else
-    redirect authorize_url
+    if access_token
+      @resource_response = get_with_access_token("/api/v0/me")
+      haml :response
+    else
+      redirect authorize_url
+    end
   end
+end
+
+get '/reset' do
+  @@client_id = nil
+  @@client_secret = nil
 end

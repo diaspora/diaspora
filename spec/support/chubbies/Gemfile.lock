@@ -5,6 +5,7 @@ GEM
     haml (3.0.18)
     httparty (0.7.4)
       crack (= 0.1.8)
+    json (1.4.6)
     rack (1.2.2)
     sinatra (1.2.6)
       rack (~> 1.1)
@@ -17,4 +18,5 @@ PLATFORMS
 DEPENDENCIES
   haml
   httparty
+  json
   sinatra

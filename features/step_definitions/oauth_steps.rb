@@ -20,6 +20,11 @@ And /^I should see my "([^"]+)"/ do |code|
 end
 
 When /^I try to authorize Chubbies$/ do
+  # We need to reset the tokens saved in Chubbies,
+  # as we are clearing the Diaspora DB every scenario
+  Then 'I visit "/reset" on Chubbies'
+  Then 'I visit "/" on Chubbies'
+  ###
   And 'I follow "Log in with Diaspora"'
   Then 'I should be on the new user session page'
   And "I fill in \"Username\" with \"#{@me.username}\""
