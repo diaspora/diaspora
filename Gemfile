@@ -52,6 +52,8 @@ gem 'jammit', '0.5.4'
 gem 'rest-client', '1.6.1'
 gem 'typhoeus'
 
+gem 'newrelic_rpm', :require => false
+
 #Backups
 gem 'cloudfiles', '1.4.10', :require => false
 

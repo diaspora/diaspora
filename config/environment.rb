@@ -2,6 +2,9 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+# use newrelic if configured via config/newrelic.yml
+require 'newrelic_rpm' if File.exists?(Rails.root.to_s << '/config/newrelic.yml')
+
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 Haml::Template.options[:format] = :html5
