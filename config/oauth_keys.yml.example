@@ -4,3 +4,6 @@ twitter:
 facebook:
   app_id: ""
   app_secret: ""
+tumblr:
+  consumer_key: ""
+  consumer_secret: "" 
