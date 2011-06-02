@@ -9,6 +9,9 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(:default, Rails.env) if defined?(Bundler)
 
+# use newrelic if configured via config/newrelic.yml
+require 'newrelic_rpm' if File.exists?(File.expand_path('../newrelic.yml', __FILE__))
+
 require File.expand_path('../../lib/fake', __FILE__)
 
 module Diaspora
