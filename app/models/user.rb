@@ -16,7 +16,7 @@ class User < ActiveRecord::Base
          :timeoutable, :token_authenticatable
 
   before_validation :strip_and_downcase_username
-  before_validation :set_current_language, :post => :create
+  before_validation :set_current_language, :on => :create
 
   validates_presence_of :username
   validates_uniqueness_of :username
