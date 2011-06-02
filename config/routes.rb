@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -87,12 +87,15 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 
-  get 'people/tag_index' => 'people#tag_index'
+
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
     get  :contacts
-    post 'by_handle' => :retrieve_remote, :on => :collection, :as => 'person_by_handle'
+    collection do
+      post 'by_handle' => :retrieve_remote, :as => 'person_by_handle'
+      get :tag_index
+    end
   end
 
 
