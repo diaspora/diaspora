@@ -1,0 +1,17 @@
+.people_stream
+  - for person in people
+    .stream_element{:id => person.id}
+      = person_image_link(person)
+      - if current_user
+        - contact = current_user.contacts.find_by_person_id(person.id)
+        - contact ||= Contact.new(:person => person)
+        - unless person == current_user.person
+          .right
+            = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
+
+      .content
+        %span.from
+          =person_link(person)
+        .info
+          = person.profile.format_tags(person.profile.tag_string)
+  = will_paginate people, :params => {:controller => 'people', :action => 'tag_index'}

@@ -16,8 +16,8 @@ gem 'devise', '~> 1.3.1'
 gem 'devise_invitable', '0.5.0'
 
 #Authentication
-gem 'omniauth', '0.1.6'
-gem 'twitter', :git => 'git://github.com/jnunemaker/twitter.git', :ref => 'ef122bbb280e229ed343'
+gem 'omniauth', '0.2.6'
+gem 'twitter', '1.5.0' 
 
 #Views
 gem 'haml', '3.0.25'
@@ -31,7 +31,7 @@ gem 'acts-as-taggable-on', :git => 'git://github.com/diaspora/acts-as-taggable-o
 
 #Uncatagorized
 gem 'roxml', :git => 'git://github.com/Empact/roxml.git', :ref => '7ea9a9ffd2338aaef5b0'
-gem 'addressable', '2.2.2', :require => 'addressable/uri'
+gem 'addressable', '2.2.4', :require => 'addressable/uri'
 gem 'json', '1.4.6'
 gem 'http_accept_language', :git => 'git://github.com/iain/http_accept_language.git', :ref => '0b78aa7849fc90cf9e12'
 

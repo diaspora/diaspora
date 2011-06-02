@@ -16,3 +16,6 @@
 
 - unless @services.any?{|x| x.provider == 'facebook'}
   %h4= link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+
+- unless @services.any?{|x| x.provider == 'tumblr'}
+  %h4= link_to t('services.index.connect_to_tumblr'), "/auth/tumblr" if SERVICES['tumblr']['consumer_key'] !=""
