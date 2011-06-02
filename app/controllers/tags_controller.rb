@@ -65,7 +65,7 @@ class TagsController < ApplicationController
       render :partial => 'shared/stream', :locals => {:posts => @posts}
     else
       profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')
-      @people = Person.where(:id => profiles.map{|p| p.person_id}).limit(15)
+      @people = Person.where(:id => profiles.map{|p| p.person_id}).paginate(:page => params[:page], :per_page => 15)
       @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
     end
   end

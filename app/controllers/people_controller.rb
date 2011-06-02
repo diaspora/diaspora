@@ -5,8 +5,9 @@
 class PeopleController < ApplicationController
   before_filter :authenticate_user!, :except => [:show]
 
-  respond_to :html
+  respond_to :html, :except => [:tag_index]
   respond_to :json, :only => [:index, :show]
+  respond_to :js, :only => [:tag_index]
 
   def index
     @aspect = :search
@@ -33,10 +34,16 @@ class PeopleController < ApplicationController
         else
           people = Person.search(params[:q], current_user)
         end
-        @people = people.paginate :page => params[:page], :per_page => limit
+        @people = people.paginate( :page => params[:page], :per_page => 15)
         @hashes = hashes_for_people(@people, @aspects)
       end
     end
+  end
+
+  def tag_index
+    profiles = Profile.tagged_with(params[:name]).where(:searchable => true).select('profiles.id, profiles.person_id')
+    @people = Person.where(:id => profiles.map{|p| p.person_id}).paginate(:page => params[:page], :per_page => 15)
+    respond_with @people
   end
 
   def hashes_for_people people, aspects

@@ -10,7 +10,11 @@
 
 - content_for :head do
   = include_javascripts :home
-
+  :javascript
+    $(".people_stream .pagination a").live("click", function() {
+      $.getScript(this.href);
+      return false;
+    });
 - content_for :body_class do
   = "tags_show"
 
@@ -32,21 +36,4 @@
     = t('people', :count => @people_count)
 
   .side_stream.stream
-    - for person in @people
-      .stream_element{:id => person.id}
-        = person_image_link(person)
-        - if current_user
-          - contact = current_user.contacts.find_by_person_id(person.id)
-          - contact ||= Contact.new(:person => person)
-          - unless person == current_user.person
-            .right
-              = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
-
-        .content
-          %span.from
-            =person_link(person)
-          .info
-            = person.profile.format_tags(person.profile.tag_string)
-
-    - if @people_count > 15
-      \...
+    = render :partial => 'people/index', :locals => {:people => @people}

@@ -87,6 +87,7 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 
+  get 'people/tag_index' => 'people#tag_index'
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
@@ -94,6 +95,8 @@ Diaspora::Application.routes.draw do
     post 'by_handle' => :retrieve_remote, :on => :collection, :as => 'person_by_handle'
   end
 
+
+ 
 
   # Federation
 

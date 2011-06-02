@@ -74,6 +74,21 @@ describe PeopleController do
     end
   end
 
+  describe '#tag_index' do
+    it 'works for js' do
+      get :tag_index, :name => 'jellybeans', :format => :js
+      response.should be_success
+    end
+
+    it 'returns awesome people who have that tag' do
+      f = Factory(:person)
+      f.profile.tag_string = "#seeded"
+      f.profile.save
+      get :tag_index, :name => 'seeded', :format => :js
+      assigns[:people].count.should == 1
+    end
+  end
+
   describe "#show performance", :performance => true do
     before do
       require 'benchmark'
