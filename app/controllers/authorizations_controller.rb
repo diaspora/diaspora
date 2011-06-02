@@ -18,16 +18,14 @@ class AuthorizationsController < ApplicationController
   end
 
   def token
-    if(params[:type] == 'client_associate' && params[:redirect_uri] && params[:name])
-      client = OAuth2::Provider.client_class.create!(:name => params[:name])
+    if(params[:type] == 'client_associate' && params[:manifest_url])
+      client = OAuth2::Provider.client_class.create_from_manifest!(params[:manifest_url])
 
       render :json => {:client_id => client.oauth_identifier,
-                      :client_secret => client.oauth_secret,
-                      :expires_in => 0,
-                      :flows_supported => "",
-                      :user_endpoint_url => "bob"}
-
-      #redirect_to("#{params[:redirect_uri]}?#{query_string}")
+                       :client_secret => client.oauth_secret,
+                       :expires_in => 0,
+                       :flows_supported => "",
+                      }
 
     else
       render :text => "bad request", :status => 403
@@ -35,3 +33,10 @@ class AuthorizationsController < ApplicationController
   end
 end
 
+OAuth2::Provider.client_class.instance_eval do
+  def self.create_from_manifest! manifest_url
+    puts manifest_url
+    manifest = JSON.parse(RestClient.get(manifest_url).body)
+    create!(manifest)
+  end
+end

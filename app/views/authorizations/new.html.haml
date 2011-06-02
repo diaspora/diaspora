@@ -1,7 +1,24 @@
-= form_for :authorization,
-  :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
-  %h2
-    = "Authorize #{@client.name}?"
 
-  = form.submit "Fuck Yeah!", :value => "Yes"
-  = form.submit "Hell No.", :value => "No"
+%br
+%br
+
+.prepend-4
+  .floating.span-15
+    .span-3.append-1
+      = image_tag(@client.icon_url, :id => 'client-application-image')
+
+    .span-10
+      = form_for :authorization,
+        :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
+
+        %h1
+          = "Authorize #{@client.name}?"
+
+        .description
+          = @client.description
+
+        %br
+
+        %p
+          = form.submit "Fuck Yeah!", :value => "Yes"
+          = form.submit "Hell No.", :value => "No"

@@ -225,6 +225,9 @@ ActiveRecord::Schema.define(:version => 20110603212633) do
     t.string "name"
     t.string "oauth_identifier", :limit => 32, :null => false
     t.string "oauth_secret",     :limit => 32, :null => false
+    t.text   "description"
+    t.string "homepage_url"
+    t.string "icon_url"
   end
 
   create_table "people", :force => true do |t|

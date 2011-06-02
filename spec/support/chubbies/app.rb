@@ -80,8 +80,7 @@ get '/account' do
   if !@@client_id && !@@client_secret
     response = HTTParty.post(token_url, :body => {
       :type => :client_associate,
-      :name => :Chubbies,
-      :redirect_uri => redirect_uri
+      :manifest_url => "http://" + request.host_with_port + "/manifest"
     })
 
     json = JSON.parse(response.body)
@@ -90,7 +89,6 @@ get '/account' do
     @@client_secret = json["client_secret"]
     
     redirect '/account'
-
   else
     if access_token
       @resource_response = get_with_access_token("/api/v0/me")
@@ -99,6 +97,15 @@ get '/account' do
       redirect authorize_url
     end
   end
+end
+
+get '/manifest' do
+  {
+    :name => "Chubbies",
+    :description => "Chubbies tests Diaspora's OAuth capabilities.",
+    :homepage_url => "http://" + request.host_with_port,
+    :icon_url => "http://" + request.host_with_port + "/chubbies.jpeg"
+  }.to_json
 end
 
 get '/reset' do
