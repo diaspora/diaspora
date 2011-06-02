@@ -6,8 +6,8 @@
 Diaspora.widgets.add("timeago", function() {
   this.selector = "abbr.timeago";
   this.start = function() {
-    Diaspora.widgets.subscribe("stream/scrolled", this.updateTimeAgo);
-    Diaspora.widgets.subscribe("stream/reloaded", this.updateTimeAgo);
+    Diaspora.widgets.subscribe("stream/scrolled", this.updateTimeAgo, this);
+    Diaspora.widgets.subscribe("stream/reloaded", this.updateTimeAgo, this);
 
     if(this.timeAgoElement().length) {
       this.updateTimeAgo();
