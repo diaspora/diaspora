@@ -14,17 +14,17 @@ es:
         other: "En {{count}} aspectos"
         zero: "Añadir al aspecto"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "ocultar comentarios"
+      show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
     failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_post_message: "¡Fallo al publicar el mensaje!"
     infinite_scroll: 
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
     search_for: "Buscar a {{name}}"
-    show_more: "show more"
+    show_more: "ver más"
     timeago: 
       day: "un día"
       days: "%d días"

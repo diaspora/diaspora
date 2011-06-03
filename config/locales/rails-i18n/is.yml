@@ -1,4 +1,5 @@
 # Icelandic, by Ævar Arnfjörð Bjarmason <avarab@gmail.com>
+# Corrections by Ásgeir Bjarni Ingvarsson
 
 "is":
   date:
@@ -82,10 +83,18 @@
         units:
           unit: ""
           thousand: þúsund
-          million: milljón
-          billion: billjón
-          trillion: trilljón
-          quadrillion: grasilljón
+          million:
+            one: milljón
+            other: milljónir
+          billion:
+            one: milliarður
+            other: milliarðar
+          trillion:
+            one: billjón
+            other: billjónir
+          quadrillion:
+            one: billjarður
+            other: billjarðar
 
   datetime:
     distance_in_words:
@@ -129,7 +138,7 @@
       day:    "Dagur"
       hour:   "Klukkustund"
       minute: "Mínúta"
-      second: "Sekónda"
+      second: "Sekúnda"
 
   helpers:
     select:

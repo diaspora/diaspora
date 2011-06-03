@@ -540,8 +540,9 @@ zh-TW:
       invite_your_friends_from: "邀請你在 %{service} 的朋友"
       not_connected: "未連結"
     index: 
-      connect_to_facebook: "與 facebook 連結"
-      connect_to_twitter: "與 twitter 連結"
+      connect_to_facebook: "與 Facebook 連結"
+      connect_to_tumblr: "與 Tumblr 連結"
+      connect_to_twitter: "與 Twitter 連結"
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "登入為"
@@ -643,8 +644,8 @@ zh-TW:
       via: "(經由%{link})"
       were_working_hard: "我們正努力使 Diaspora pod 和應用程式能輕鬆連結. 在這段期間, 請用複製後貼上這兩個欄位來讓你的 Diaspora 帳號與 Cubbi.es 連結."
       what_is_cubbies: "Cubbi.es 是世界上第一個 Diaspora 應用程式. 它也是收集線上照片的最佳方式."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
+      your_diaspora_handle: "Diaspora handle:"
+      your_diaspora_token: "Diaspora token:"
   undo: "復原?"
   username: "用戶名稱"
   users: 

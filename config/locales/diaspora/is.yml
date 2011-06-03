@@ -541,6 +541,7 @@ is:
       not_connected: "ekki tengt"
     index: 
       connect_to_facebook: "Tengja við facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Tengja við twitter"
       disconnect: "aftengja"
       edit_services: "Breyta þjónustum"

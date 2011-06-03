@@ -541,6 +541,7 @@ mk:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "Конектирај се со facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Конектирај се со twitter"
       disconnect: "прекини"
       edit_services: "Edit services"

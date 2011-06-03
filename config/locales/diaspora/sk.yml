@@ -541,6 +541,7 @@ sk:
       not_connected: "nepripojený"
     index: 
       connect_to_facebook: "Pripojiť k Facebooku"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Pripojiť k Twitteru"
       disconnect: "odpojiť"
       edit_services: "Upraviť služby"

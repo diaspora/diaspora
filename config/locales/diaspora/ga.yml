@@ -541,6 +541,7 @@ ga:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "Nasc le facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Nasc let twitter"
       disconnect: "disconnect"
       edit_services: "Athraigh seirbhísí"

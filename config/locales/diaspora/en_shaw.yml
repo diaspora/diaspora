@@ -541,6 +541,7 @@ en_shaw:
       not_connected: "𐑯𐑪𐑑 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
     index: 
       connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑓𐑱𐑕𐑚𐑫𐑒"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑑𐑢𐑦𐑑𐑼"
       disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑"
       edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"

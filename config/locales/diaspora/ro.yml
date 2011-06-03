@@ -541,6 +541,7 @@ ro:
       not_connected: "nu este conectat"
     index: 
       connect_to_facebook: "Conectează cu Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Conectează cu Twitter"
       disconnect: "desconectează"
       edit_services: "Edit services"

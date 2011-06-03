@@ -541,6 +541,7 @@ pa:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "ਫੇਸਬੁੱਕ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "ਟਵਿੱਟਰ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
       disconnect: "ਕੁਨੈਕਸ਼ਨ ਖਤਮ ਕਰੋ"
       edit_services: "ਸਰਵਿਸ ਸੋਧ"

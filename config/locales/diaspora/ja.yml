@@ -541,6 +541,7 @@ ja:
       not_connected: "未接続"
     index: 
       connect_to_facebook: "Facebookに接続する"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "ツイッターに接続する"
       disconnect: "切断"
       edit_services: "サービスを編集する"

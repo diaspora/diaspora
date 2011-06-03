@@ -541,6 +541,7 @@ sl:
       not_connected: "ni povezano"
     index: 
       connect_to_facebook: "Poveži se s facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Poveži se s twitter"
       disconnect: "povezava prekinjena"
       edit_services: "Uredi servise"

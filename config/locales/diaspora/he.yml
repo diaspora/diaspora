@@ -541,6 +541,7 @@ he:
       not_connected: "לא מחובר"
     index: 
       connect_to_facebook: "התחברות לפייסבוק"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "התחברות לטוויטר"
       disconnect: "ניתוק"
       edit_services: "עריכת שירותים"

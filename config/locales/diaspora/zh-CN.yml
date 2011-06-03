@@ -541,6 +541,7 @@ zh-CN:
       not_connected: "未连接"
     index: 
       connect_to_facebook: "与 facebook 连接"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "与 twitter 连接"
       disconnect: "断开连接"
       edit_services: "编辑服务"

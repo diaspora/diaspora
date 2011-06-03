@@ -1,6 +1,7 @@
 # Spanish as spoken in Perú (es-PE) translations for Rails
 # by Peter Baker (pcbaker@gmail.com)
 # modificado por CCP
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
 
 es-PE:
   number:
@@ -28,10 +29,10 @@ es-PE:
       - :day
       - :month
       - :year
-    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_day_names: [dom, lun, mar, mié, jue, vie, sáb]
+    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+    day_names: [domingo, lunes, martes, miércoles, jueves, viernes, sábado]
+    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
     formats:
       month_and_year: "%B %Y"
       date_and_day: "%A %d"

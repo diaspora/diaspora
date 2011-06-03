@@ -541,6 +541,7 @@ sv:
       not_connected: "inte ansluten"
     index: 
       connect_to_facebook: "Anslut till facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Anslut till twitter"
       disconnect: "koppla från"
       edit_services: "Anslutna tjänster"

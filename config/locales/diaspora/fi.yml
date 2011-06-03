@@ -541,6 +541,7 @@ fi:
       not_connected: "ei yhdistetty"
     index: 
       connect_to_facebook: "Yhdistä palveluun facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Yhdistä palveluun twitter"
       disconnect: "katkaise"
       edit_services: "Muokkaa palveluita"

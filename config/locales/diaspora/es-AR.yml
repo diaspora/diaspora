@@ -541,6 +541,7 @@ es-AR:
       not_connected: "sin conexión"
     index: 
       connect_to_facebook: "Conectar a Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Conectar a Twitter"
       disconnect: "desconectar"
       edit_services: "Editar servicios"

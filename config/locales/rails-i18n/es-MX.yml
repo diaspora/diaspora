@@ -6,6 +6,7 @@
 # by Daniel Roux ( daniel.roux@gmail.com)
 # Added missing translations for Rails 2 and 3
 # by Carlos González ( carlosdavid.gonzalez@gmail.com)
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
 
 es-MX:
   number:
@@ -47,11 +48,11 @@ es-MX:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Mil"
-          million: "Millón"
-          billion: "Mil millones"
-          trillion: "Trillón"
-          quadrillion: "Cuatrillón"
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
     precision:
       format:
         delimiter: ","
@@ -61,10 +62,10 @@ es-MX:
       - :day
       - :month
       - :year
-    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_day_names: [dom, lun, mar, mié, jue, vie, sáb]
+    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
+    day_names: [domingo, lunes, martes, miércoles, jueves, viernes, sábado]
+    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
     formats:
       short: "%d de %b"
       default: "%d/%m/%Y"

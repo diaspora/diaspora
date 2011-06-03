@@ -541,6 +541,7 @@ ar:
       not_connected: "غير متصل"
     index: 
       connect_to_facebook: "إتصل بـ فسبوك"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "إتصل بتويتر"
       disconnect: "فصل الإتصال"
       edit_services: "تعديل الخدمات"

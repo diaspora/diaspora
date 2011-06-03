@@ -541,6 +541,7 @@ lt:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "Prijungti facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Prijungti twitter"
       disconnect: "atjungti"
       edit_services: "Edit services"

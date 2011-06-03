@@ -230,7 +230,7 @@ el:
       to: "Στον"
   layouts: 
     application: 
-      have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ"
+      have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ!"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
@@ -263,11 +263,11 @@ el:
   no_results: "Δεν βρέθηκαν αποτελέσματα"
   notifications: 
     also_commented: 
-      few: "Οι χρήστες %{actors} επίσης σχολίασαν τη δημοσίευση %{post_link} του %{post_author}."
-      many: "Οι χρήστες %{actors} επίσης σχολίασαν τη δημοσίευση %{post_link} του %{post_author}."
-      one: "Ο χρήστης %{actors} επίσης σχολίασε τη δημοσίευση %{post_link} του %{post_author}."
-      other: "Οι χρήστες %{actors} επίσης σχολίασαν τη δημοσίευση %{post_link} του %{post_author}."
-      zero: "Οι χρήστες %{actors} επίσης σχολίασαν τη δημοσίευση %{post_link} του %{post_author}"
+      few: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
+      many: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
+      one: "Ο χρήστης %{actors} επίσης σχολίασε τη %{post_link} του %{post_author}."
+      other: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}."
+      zero: "Οι χρήστες %{actors} επίσης σχολίασαν τη %{post_link} του %{post_author}"
     also_commented_deleted: 
       few: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
       many: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
@@ -275,9 +275,9 @@ el:
       other: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
       zero: "Οι χρήστες %{actors} σχολίασαν μια διαγεγραμμένη δημοσίευση. "
     comment_on_post: 
-      few: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
-      many: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
-      one: "Ο χρήστης %{actors} σχολίασε τη δημοσίευση %{post_link}."
+      few: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
+      many: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
+      one: "Ο χρήστης %{actors} σχολίασε τη %{post_link}."
       other: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
       zero: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
     helper: 
@@ -298,11 +298,11 @@ el:
       mark_all_as_read: "Σήμανση όλων ως διαβασμένα"
       notifications: "Ειδοποιήσεις"
     liked: 
-      few: "Η δημοσίευση σας %{post_link} άρεσε στους χρήστες %{actors}."
-      many: "Η δημοσίευση σας %{post_link} άρεσε στους χρήστες %{actors}."
-      one: "Η δημοσίευση σας %{post_link} άρεσε στον χρήστη %{actors}."
-      other: "Η δημοσίευση σας %{post_link} άρεσε στους χρήστες %{actors}."
-      zero: "Η δημοσίευση σας %{post_link} άρεσε στους χρήστες %{actors}."
+      few: "Η %{post_link} άρεσε στους χρήστες %{actors}."
+      many: "Η %{post_link} άρεσε στους χρήστες %{actors}."
+      one: "Η %{post_link} άρεσε στον χρήστη %{actors}."
+      other: "Η %{post_link} άρεσε στους χρήστες %{actors}."
+      zero: "Η %{post_link} άρεσε στους χρήστες %{actors}."
     liked_post_deleted: 
       few: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στους χρήστες %{actors}."
       many: "Η διαγεγραμμένη δημοσίευσή σας άρεσε στους χρήστες %{actors}."
@@ -541,6 +541,7 @@ el:
       not_connected: "δεν είναι συνδεδεμένο"
     index: 
       connect_to_facebook: "Σύνδεση με το facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Σύνδεση με το twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
@@ -633,17 +634,17 @@ el:
     show: 
       connect_to_cubbies: "Σύνδεση με Cubbi.es"
       connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας γίνεται απλά με τη συμπλήρωση των δύο πεδίων στην σελίδα σύνδεσης του Cubbi.es."
-      daniels_account: "Ο Diaspora λογαριασμός του Daniel"
+      daniels_account: "Diaspora λογαριασμό του Daniel"
       generate_a_token: "Δημιουργήστε ένα token"
       love_to_try: "Θα χαιρόμασταν αν το δοκιμάζατε."
-      making_the_connection: "Γίνεται η σύνδεση"
-      screenshot_explanation: "%{link1}.  Αυτό το συγκεκριμένο cubby συνδέεται στο %{link2}."
+      making_the_connection: "Σύνδεση"
+      screenshot_explanation: "%{link1}.  Αυτό το συγκεκριμένο cubby συνδέεται στον %{link2}."
       sign_up_today: "Συνδεθείτε σήμερα!"
       typical_userpage: "Μία τυπική cubbi.es σελίδα χρήστη"
       via: "(μέσω %{link})"
       were_working_hard: "Δουλεύουμε σκληρά για να παρέχουμε τη μέγιστη συνδεσιμότητα του Diaspora με άλλες εφαρμογές. Προς το παρόν, η σύνδεση του Diaspora λογαριασμού σας με το Cubbi.es γίνεται με την αντιγραφή και την επικόλληση δύο πεδίων."
       what_is_cubbies: "Το Cubbi.es είναι παγκοσμίως η πρώτη εφαρμογή για το Diaspora. Είναι επίσης ο καλύτερος τρόπος συλλογής φωτογραφιών στο διαδίκτυο."
-      your_diaspora_handle: "Το Diaspora αναγνωριστικό σας:"
+      your_diaspora_handle: "Το Diaspora Αναγνωριστικό σας:"
       your_diaspora_token: "Το Diaspora Token σας:"
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"

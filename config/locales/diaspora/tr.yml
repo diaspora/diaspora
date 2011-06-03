@@ -541,6 +541,7 @@ tr:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "facebook bağlan"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "twitter bağlan"
       disconnect: "çık"
       edit_services: "Edit services"

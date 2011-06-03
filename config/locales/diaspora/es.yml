@@ -90,9 +90,9 @@ es:
       remove: "eliminar"
     index: 
       cubbies: 
-        explanation: "Cubbi.es es la primera aplicación de Diaspora en desarrollo."
-        heading: "Conectate a Cubbi.es"
-        learn_more: "Aprende mas"
+        explanation: "Cubbi.es es la primera aplicación de Diaspora* en desarrollo."
+        heading: "Conecta con Cubbi.es"
+        learn_more: "Ver más"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Comparten contigo"
@@ -197,7 +197,7 @@ es:
       choice: "Elección"
       choice_explanation: "Diaspora* te permite organizar conexiones en grupos llamados aspectos. En Diaspora*, los aspectos aseguran que tus fotos, historias y bromas sean compartidas sólo con la gente que tu quieras."
       learn_about_host: "Aprende acerca de cómo hostear tu propio servidor Diaspora*."
-      login_here: "conectar aquí"
+      login_here: "Acceder aquí"
       ownership: "propiedad"
       ownership_explanation: "Eres dueño de tus imágenes, y no deberías tener que cederlas sólo para compartirlas. Tú mantienes la propiedad sobre todo lo que compartas en Diaspora*, dándote control total sobre lo que es distribuido."
       share_what_you_want: "Comparte lo que quieras, con quien quieras."
@@ -240,7 +240,7 @@ es:
       admin: "administrar"
       blog: "Blog"
       code: "Código"
-      login: "Conectarse"
+      login: "Acceder"
       logout: "salir"
       profile: "perfil"
       settings: "configuración"
@@ -265,21 +265,21 @@ es:
     also_commented: 
       few: "%{actors} también comentaron en la %{post_link} de %{post_author}."
       many: "%{actors} también comentaron en la %{post_link} de %{post_author}."
-      one: "%{actors} también comentó en la %{post_link} de %{post_author}."
+      one: "%{actors} también comentó la %{post_link} de %{post_author}."
       other: "%{actors} también comentaron en la %{post_link} de %{post_author}."
-      zero: "%{actors} también comentó en la %{post_link} de %{post_author}."
+      zero: "%{actors} también comentó la %{post_link} de %{post_author}."
     also_commented_deleted: 
       few: "%{actors} comentaron en una publicación eliminada."
       many: "%{actors} comentaron en una publicación eliminada."
-      one: "%{actors} comentó en una publicación eliminada."
+      one: "%{actors} comentó una publicación eliminada."
       other: "%{actors} comentaron en una publicación eliminada."
-      zero: "%{actors} comentó en una publicación eliminada."
+      zero: "%{actors} comentó una publicación eliminada."
     comment_on_post: 
       few: "%{actors} comentaron en tu %{post_link}."
       many: "%{actors} comentaron en tu %{post_link}."
-      one: "%{actors} comentó en tu %{post_link}."
+      one: "%{actors} comentó tu %{post_link}."
       other: "%{actors} comentaron en tu %{post_link}."
-      zero: "%{actors} comentó en tu %{post_link}."
+      zero: "%{actors} comentó tu %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} nuevas notificaciones"
@@ -411,7 +411,7 @@ es:
       mention: "Mencionar"
       message: "Mensaje"
       no_posts: "¡No hay publicaciones que mostrar!"
-      not_connected: "No estás conectado con esta persona."
+      not_connected: "No estás compartiendo con esta persona."
       recent_posts: "Últimas publicaciones"
       recent_public_posts: "Últimas publicaciones (al mundo)"
       return_to_aspects: "Volver a tu página de aspectos"
@@ -447,13 +447,13 @@ es:
     show: 
       collection_permalink: "enlace permanente a la colección"
       delete_photo: "Eliminar foto"
-      edit: "Editar"
+      edit: "editar"
       edit_delete_photo: "Editar pie de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Publicación original"
       permalink: "Enlace permanente"
       update_photo: "Actualizar foto"
-      view: "Ver"
+      view: "ver"
     update: 
       error: "Error editando la foto."
       notice: "Foto actualizada con éxito."
@@ -540,8 +540,9 @@ es:
       invite_your_friends_from: "Invita a tus amigos desde %{service}"
       not_connected: "no conectado"
     index: 
-      connect_to_facebook: "Conectar a Facebook"
-      connect_to_twitter: "Conectar a Twitter"
+      connect_to_facebook: "Conecta con Facebook"
+      connect_to_tumblr: "Conecta con Tumblr"
+      connect_to_twitter: "Conecta con Twitter"
       disconnect: "desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "Conectado como"
@@ -578,7 +579,7 @@ es:
       new: "Nuevo %{type} de %{from}"
     public_explain: 
       logged_in: "Conectado a %{service}"
-      manage: "Servicios conectados"
+      manage: "Gestión de servicios conectados"
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diaspora*."
       title: "Configurar los servicios conectados"
     publisher: 
@@ -622,7 +623,7 @@ es:
       zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "Ocultar comentarios"
-    show_comments: "Mostrar comentarios"
+    show_comments: "ver todos los comentarios"
   tags: 
     show: 
       nobody_talking: "Nadie esta hablando de %{tag} todavía."
@@ -631,8 +632,8 @@ es:
   the_world: "el mundo"
   tokens: 
     show: 
-      connect_to_cubbies: "Conectar a Cubbi.es"
-      connecting_is_simple: "Conectar tu cuenta de Diaspora es tan simple como llenar dos campos en tu pagina de usuario de Cubbi.es"
+      connect_to_cubbies: "Conecta con Cubbi.es"
+      connecting_is_simple: "Conectar con tu cuenta de Diaspora es tan simple como completar dos campos en tu página de Cubbi.es."
       daniels_account: "La cuenta de Diaspora de Daniel"
       generate_a_token: "Generar un token"
       love_to_try: "Nos encantaría que lo pruebes."
@@ -641,8 +642,8 @@ es:
       sign_up_today: "Regístrate hoy mismo!"
       typical_userpage: "Una típica pagina de usuario de cubbi.es"
       via: "(via %{link})"
-      were_working_hard: "Estamos trabajando duro en ofrecer una conectividad sencilla entre los pods de Diaspora y las aplicaciones. Mientras tanto, la conexión de su cuenta de diáspora con Cubbi.es significa copiar y pegar dos campos."
-      what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es, también, la mejor forma de coleccionar fotos en linea."
+      were_working_hard: "Estamos trabajando intensamente para ofrecer una conectividad sencilla entre servidores y aplicaciones de Diaspora. Mientras tanto, conectar Diaspora* con Cubbi.es solo es copiar y pegar dos campos."
+      what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es también la mejor forma de coleccionar fotos en linea."
       your_diaspora_handle: "Tu cuenta de Diaspora:"
       your_diaspora_token: "Tu token en Diaspora:"
   undo: "¿Deshacer?"
@@ -671,7 +672,7 @@ es:
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
       connect_on_diaspora: "Conectar en Diaspora*"
-      connect_services: "Conectar con otros servicios"
+      connect_services: "Conecta tus otros servicios"
       could_not_find_anyone: "No se pudo encontrar a ningún amigo en Diaspora*. Use el buscador de amigos para invitarlos."
       edit_profile: "Edita tu perfil"
       finished: "¡Terminado!"

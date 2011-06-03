@@ -1,6 +1,7 @@
 # Spanish translations for Rails as spoken in Chile
 # Based in the original Spanish translation by Francisco Fernando García Nieto
 # and Tsutomu Kuroda
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
 
 es-CL:
   date:
@@ -9,11 +10,11 @@ es-CL:
       short: "%d de %b"
       long: "%A %d de %B de %Y"
 
-    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
-    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+    day_names: [domingo, lunes, martes, miércoles, jueves, viernes, sábado]
+    abbr_day_names: [dom, lun, mar, mié, jue, vie, sáb]
 
-    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
-    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
     order:
       - :day
       - :month
@@ -82,11 +83,11 @@ es-CL:
         format: "%n %u"
         units:
           unit: ""
-          thousand: "Mil"
-          million: "Millón"
-          billion: "Mil millones"
-          trillion: "Trillón"
-          quadrillion: "Cuatrillón"
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
 
   datetime:
     distance_in_words:

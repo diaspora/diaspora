@@ -541,6 +541,7 @@ ru:
       not_connected: "не соединён"
     index: 
       connect_to_facebook: "Подключение к Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Подключение к Twitter"
       disconnect: "разъединить"
       edit_services: "Редактировать сервисы"

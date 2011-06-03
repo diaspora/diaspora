@@ -541,6 +541,7 @@ cy:
       not_connected: "not connected"
     index: 
       connect_to_facebook: "Connect to facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Connect to twitter"
       disconnect: "disconnect"
       edit_services: "Edit services"

@@ -541,6 +541,7 @@ hu:
       not_connected: "nem kapcsolódik"
     index: 
       connect_to_facebook: "Csatlakozás facebook-hoz"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Csatlakozás twitter-hez"
       disconnect: "Megszakít"
       edit_services: "Szolgáltatások szerkesztése"

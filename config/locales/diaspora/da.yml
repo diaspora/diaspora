@@ -541,6 +541,7 @@ da:
       not_connected: "ikke forbundet"
     index: 
       connect_to_facebook: "Tilslut til Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Tilslut til twitter"
       disconnect: "afbryd"
       edit_services: "Redigér tjenester"

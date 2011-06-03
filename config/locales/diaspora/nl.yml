@@ -541,6 +541,7 @@ nl:
       not_connected: "niet verbonden"
     index: 
       connect_to_facebook: "Verbind met Facebook"
+      connect_to_tumblr: "Connect to Tumblr"
       connect_to_twitter: "Verbind met Twitter"
       disconnect: "koppel los"
       edit_services: "Bewerk services"

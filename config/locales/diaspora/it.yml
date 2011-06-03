@@ -90,9 +90,9 @@ it:
       remove: "rimuovi"
     index: 
       cubbies: 
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
-        learn_more: "Learn more"
+        explanation: "Cubbi.es è la prima applicazione in sviluppo per Diaspora."
+        heading: "Connettiti a Cubbi.es"
+        learn_more: "Per saperne di più"
       handle_explanation: "Questo è il tuo contatto Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       no_contacts: "Nessun contatto"
       people_sharing_with_you: "Persone in condivisione con te"
@@ -129,7 +129,7 @@ it:
   bookmarklet: 
     explanation: "Condividi su Diaspora da ovunque aggiungendo come segnalibro %{link}."
     explanation_link_text: "questo link"
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet di Diaspora"
     post_something: "Pubblica qualcosa su Diaspora"
     post_success: "Inviato! Sta per chiudersi!"
   cancel: "Annulla"
@@ -150,7 +150,7 @@ it:
     one: "1 contatto"
     other: "%{count} contatti"
     sharing: 
-      people_sharing: "Persone in condivisione con te:"
+      people_sharing: "Persone che condividono con te:"
     zero: "nessun contatto"
   conversations: 
     create: 
@@ -310,8 +310,8 @@ it:
       other: "A %{actors} piaceva il messaggio che hai eliminato."
       zero: "A %{actors} piaceva il messaggio che hai eliminato."
     mentioned: 
-      few: "%{actors} ti ha menzionato in un %{post_link}."
-      many: "%{actors} ti ha menzionato in un %{post_link}."
+      few: "%{actors} ti hanno menzionato in un %{post_link}."
+      many: "%{actors} ti hanno menzionato in un %{post_link}."
       one: "%{actors} ti ha menzionato in un %{post_link}."
       other: "%{actors} ti ha menzionato in un %{post_link}."
       zero: "%{actors} ti ha menzionato in un %{post_link}."
@@ -347,7 +347,7 @@ it:
     hello: "Ciao %{name}!"
     liked: 
       liked: "%{name} ha appena apprezzato il tuo post: "
-      sign_in: "Accedi per vedere l'elemento"
+      sign_in: "Per vedere è necessario accedere"
       subject: "%{name} ha appena apprezzato il tuo post"
     love: "pace e bene,"
     manage_your_email_settings: "gestisci le tue impostazioni email"
@@ -541,6 +541,7 @@ it:
       not_connected: "non connesso"
     index: 
       connect_to_facebook: "Connettiti a facebook"
+      connect_to_tumblr: "Connettiti a Tumblr"
       connect_to_twitter: "Connettiti a twitter"
       disconnect: "disconnetti"
       edit_services: "Modifica servizi"

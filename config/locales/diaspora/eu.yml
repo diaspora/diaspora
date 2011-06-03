@@ -540,8 +540,9 @@ eu:
       invite_your_friends_from: "Gonbidatu lagunak %{service}(e)tik"
       not_connected: "harremanik ez"
     index: 
-      connect_to_facebook: "Facebookekin lotu"
-      connect_to_twitter: "Twitterekin lotu"
+      connect_to_facebook: "Facebookera lotu"
+      connect_to_tumblr: "Tumblrera lotu"
+      connect_to_twitter: "Twitterera lotu"
       disconnect: "irten"
       edit_services: "Aldatu zerbitzuak"
       logged_in_as: "Lotuta duzun kontua honakoa da:"
