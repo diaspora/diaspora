@@ -147,7 +147,7 @@ ca:
       people_sharing_with_you: "Gent amb qui compartiu"
       cubbies:
         heading: "Connecteu a Cubbi.es"
-        explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament"
+        explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
         learn_more: "Més informació"
 
 
@@ -588,6 +588,7 @@ ca:
       really_disconnect: "desconnecta del %{service}?"
       connect_to_twitter: "Connect al Twitter"
       connect_to_facebook: "Connecta al Facebook"
+      connect_to_tumblr: "Connecta al Tumblr"
       edit_services: "Edita els serveis"
     create:
       success: "S'ha autenticat amb èxit."

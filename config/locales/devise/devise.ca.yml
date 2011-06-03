@@ -17,7 +17,7 @@ ca:
       unauthenticated: "Heu d'entrar o registrar-vos abans de continuar."
       unconfirmed: "Heu de confirmar el vostre compte abans de continuar."
       locked: "El vostre compte és blocat."
-      invalid: "L'adreça de correu o la contrasenya no són vàlides."
+      invalid: "El nom d'usuari o contrasenya no són vàlids."
       invalid_token: "El testimoni d'autenticació és invàlid."
       timeout: "La vostra sessió ha caducat, torneu a entrar per a continuar."
       inactive: "El vostre compte encara no era actiu."
@@ -79,7 +79,7 @@ ca:
         account_locked: "S'ha blocat el vostre compte degut a un nombre excessiu d'entrades fallides."
         click_to_unlock: "Feu clic a l'enllaç següent per desblocar el vostre compte:"
         unlock: "Desbloca el meu compte"
-      invitation:
+      invitation_instructions:
         subject: "Us han convidat a unir-vos a Diàspora!"
         accept: "Accepta la invitació"
         ignore: "Si no voleu acceptar la invitació, ignoreu aquest correu electrònic."
