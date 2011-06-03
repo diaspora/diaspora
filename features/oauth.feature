@@ -4,6 +4,7 @@ Feature: oauth
 
   Background:
     Given Chubbies is running
+    When I visit "/" on Chubbies
     And a user with username "bob" and password "secret"
 
   Scenario: Authorize Chubbies

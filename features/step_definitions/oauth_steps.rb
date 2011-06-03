@@ -25,7 +25,8 @@ When /^I try to authorize Chubbies$/ do
   Then 'I visit "/reset" on Chubbies'
   Then 'I visit "/" on Chubbies'
   ###
-  And 'I follow "Log in with Diaspora"'
+  And "I fill in \"Diaspora Handle\" with \"#{@me.diaspora_handle}\""
+  And 'I press "Log in with Diaspora"'
   Then 'I should be on the new user session page'
   And "I fill in \"Username\" with \"#{@me.username}\""
   And "I fill in \"Password\" with \"#{@me.password}\""
@@ -34,6 +35,7 @@ When /^I try to authorize Chubbies$/ do
 end
 
 When /^I visit "([^"]+)" on Chubbies$/ do |path|
+
   former_host = Capybara.app_host
   Capybara.app_host = "localhost:#{Chubbies::PORT}"
   visit(path)

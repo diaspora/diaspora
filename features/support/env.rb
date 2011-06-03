@@ -45,7 +45,6 @@ require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_r
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support","user_methods")
 include HelperMethods
-
 Before do
   DatabaseCleaner.clean
   Devise.mailer.deliveries = []

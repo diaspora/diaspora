@@ -7,6 +7,8 @@ GEM
       crack (= 0.1.8)
     json (1.4.6)
     rack (1.2.2)
+    shotgun (0.9)
+      rack (>= 1.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -19,4 +21,5 @@ DEPENDENCIES
   haml
   httparty
   json
+  shotgun
   sinatra

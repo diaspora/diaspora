@@ -35,7 +35,6 @@ end
 
 OAuth2::Provider.client_class.instance_eval do
   def self.create_from_manifest! manifest_url
-    puts manifest_url
     manifest = JSON.parse(RestClient.get(manifest_url).body)
     create!(manifest)
   end

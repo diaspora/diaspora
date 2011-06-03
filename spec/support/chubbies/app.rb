@@ -23,7 +23,7 @@ enable :sessions
 
 helpers do
   def redirect_uri
-    "http://" + request.host_with_port + "/callback"
+    "http://" + request.host_with_port + "/callback" << "?diaspora_handle=#{params['diaspora_handle']}"
   end
 
   def access_token
@@ -31,19 +31,19 @@ helpers do
   end
 
   def get_with_access_token(path)
-    HTTParty.get(RESOURCE_HOST + path, :query => {:oauth_token => access_token})
+    HTTParty.get('http://' + domain_from_handle + path, :query => {:oauth_token => access_token})
   end
 
   def authorize_url
-    RESOURCE_HOST + "/oauth/authorize?client_id=#{@@client_id}&client_secret=#{@@client_secret}&redirect_uri=#{redirect_uri}"
+    "http://" + domain_from_handle + "/oauth/authorize?client_id=#{@@client_id}&client_secret=#{@@client_secret}&redirect_uri=#{redirect_uri}"
   end
 
   def token_url
-    RESOURCE_HOST + "/oauth/token"
+    "http://" + domain_from_handle + "/oauth/token"
   end
 
   def access_token_url
-    RESOURCE_HOST + "/oauth/access_token"
+    "http://" + domain_from_handle + "/oauth/access_token"
   end
 end
 
@@ -69,7 +69,7 @@ get '/callback' do
       )
 
       session[:access_token] = response["access_token"]
-      redirect '/account'
+      redirect "/account?diaspora_handle=#{params['diaspora_handle']}"
     end
   else
     "What is your major malfunction?"
@@ -78,24 +78,14 @@ end
 
 get '/account' do
   if !@@client_id && !@@client_secret
-    response = HTTParty.post(token_url, :body => {
-      :type => :client_associate,
-      :manifest_url => "http://" + request.host_with_port + "/manifest"
-    })
+    register_with_pod
+  end
 
-    json = JSON.parse(response.body)
-
-    @@client_id = json["client_id"]
-    @@client_secret = json["client_secret"]
-    
-    redirect '/account'
+  if access_token
+    @resource_response = get_with_access_token("/api/v0/me")
+    haml :response
   else
-    if access_token
-      @resource_response = get_with_access_token("/api/v0/me")
-      haml :response
-    else
-      redirect authorize_url
-    end
+    redirect authorize_url
   end
 end
 
@@ -112,3 +102,26 @@ get '/reset' do
   @@client_id = nil
   @@client_secret = nil
 end
+
+
+#=============================
+#helpers
+#
+def domain_from_handle
+ m = params['diaspora_handle'].match(/\@(.+)/) 
+ m = m[1] if m
+end
+
+def register_with_pod
+  response = HTTParty.post(token_url, :body => {
+    :type => :client_associate,
+    :manifest_url => "http://" + request.host_with_port + "/manifest"
+  })
+
+  json = JSON.parse(response.body)
+
+  @@client_id = json["client_id"]
+  @@client_secret = json["client_secret"]
+end
+
+
