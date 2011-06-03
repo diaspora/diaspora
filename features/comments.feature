@@ -88,5 +88,3 @@ Feature: commenting
     And I wait for the ajax to finish
     When I am on "alice@alice.alice"'s page
     Then I should see "I think thats a cat"
-
-
