@@ -49,8 +49,6 @@ class Pod < ActiveRecord::Base
   end
 end
 
-enable :sessions
-
 helpers do
   def redirect_uri
     "http://" + request.host_with_port + "/callback" << "?diaspora_handle=#{params['diaspora_handle']}"
