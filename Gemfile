@@ -93,8 +93,4 @@ group :test do
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
-
-  #For Chubbies
-  gem 'sinatra', :require => false
-  gem 'httparty', :require => false
 end

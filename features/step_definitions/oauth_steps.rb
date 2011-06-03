@@ -47,7 +47,7 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      Process.exec "cd #{Rails.root}/spec/support/chubbies/ && DIASPORA_PORT=9887 bundle exec rackup -p #{PORT} 2> /dev/null"
+      Process.exec "cd #{Rails.root}/spec/support/chubbies/ && BUNDLE_GEMFILE=Gemfile DIASPORA_PORT=9887 bundle exec rackup -p #{PORT} 2> /dev/null"
     end
     while(!running?) do
       sleep(1)

@@ -6,6 +6,37 @@
         Diaspora Handle
       %input{:type=>'text', :id => 'diaspora_handle', :name => 'diaspora_handle'}
       %input{:type => 'submit', :value => "Log in with Diaspora" }
+    %br
+    %br
+    %br
+    %table
+      %th
+        Host
+      %th
+        Client ID
+      %th
+        Client Secret
+      %th
+        Users
+    - @pods.each do |pod|
+      %tr
+        %td
+          = pod.host
+        %td
+          = pod.client_id
+        %td
+          = pod.client_secret
+        %td
+          - pod.users.each do |user|
+            %table
+              %th
+                Diaspora Handle
+              %th
+                Access Token
+            %tr
+              %td
+                = user.diaspora_handle
+              %td
+                = user.access_token
 
-
-        
+          

@@ -17,6 +17,9 @@
         .description
           = @client.description
 
+        %p
+          = "You are currently logged in as #{current_user.name}(#{current_user.diaspora_handle})."
+          = link_to("Not You?", destroy_user_session_path)
         %br
 
         %p

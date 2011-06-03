@@ -33,7 +33,7 @@ public/assets/*
 public/source.tar*
 tmp/**/*
 tmp/*
-db/*.sqlite3
+*.sqlite3
 
 # Temporary files of every sort
 .sass-cache/*
