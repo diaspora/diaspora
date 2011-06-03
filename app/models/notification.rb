@@ -42,13 +42,17 @@ class Notification < ActiveRecord::Base
 private
   def self.concatenate_or_create(recipient, target, actor, notification_type)
     if n = notification_type.where(:target_id => target.id,
-                              :target_type => target.class.base_class,
-                               :recipient_id => recipient.id,
-                               :unread => true).first
-      n.actors = n.actors | [actor]
+                                   :target_type => target.class.base_class,
+                                   :recipient_id => recipient.id,
+                                   :unread => true).first
 
-      n.unread = true
-      n.save!
+      begin
+        n.actors = n.actors | [actor]
+        n.unread = true
+        n.save!
+      rescue ActiveRecord::RecordNotUnique
+        nil
+      end
       n
     else
       make_notification(recipient, target, actor, notification_type)
