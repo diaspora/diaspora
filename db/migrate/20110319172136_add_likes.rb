@@ -15,8 +15,8 @@ class AddLikes < ActiveRecord::Migration
       end
       add_index :likes, :guid, :unique => true
       add_index :likes, :post_id
-      add_foreign_key(:likes, :posts, :dependant => :delete)
-      add_foreign_key(:likes, :people, :column =>  :author_id, :dependant => :delete)
+      add_foreign_key(:likes, :posts)
+      add_foreign_key(:likes, :people, :column =>  :author_id)
     end
   end
 
