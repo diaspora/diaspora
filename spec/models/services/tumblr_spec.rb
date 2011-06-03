@@ -21,12 +21,6 @@ describe Services::Tumblr do
       @service.post(@post)
     end
 
-    it 'should call public message' do
-      OAuth::AccessToken.any_instance.stub(:post)
-      url = "foo"
-      @service.should_receive(:public_message).with(@post, url)
-      @service.post(@post, url)
-    end
   end
 end
 
