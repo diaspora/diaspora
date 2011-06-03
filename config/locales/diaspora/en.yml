@@ -704,7 +704,7 @@ en:
       private_message: "...you receive a private message?"
       liked: "...someone likes your post?"
       change: "Change"
-    destroy: "Account successfully closed."
+    destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       welcome: "Welcome to Diaspora!"
       signup_steps: "Finish your sign up by completing these three steps:"

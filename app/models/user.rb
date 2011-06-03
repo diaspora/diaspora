@@ -13,7 +13,8 @@ class User < ActiveRecord::Base
 
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
-         :timeoutable, :token_authenticatable
+         :timeoutable, :token_authenticatable, :lockable,
+         :lock_strategy => :none, :unlock_strategy => :none
 
   before_validation :strip_and_downcase_username
   before_validation :set_current_language, :on => :create
@@ -39,10 +40,10 @@ class User < ActiveRecord::Base
   has_many :services
   has_many :user_preferences
 
-  before_destroy :disconnect_everyone, :remove_mentions, :remove_person
   before_save do
     person.save if person && person.changed?
   end
+
 
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
 
@@ -317,7 +318,11 @@ class User < ActiveRecord::Base
     AppConfig[:admins].present? && AppConfig[:admins].include?(self.username)
   end
 
-  protected
+  def remove_all_traces
+    disconnect_everyone
+    remove_mentions
+    remove_person
+  end
 
   def remove_person
     self.person.destroy
@@ -325,11 +330,11 @@ class User < ActiveRecord::Base
 
   def disconnect_everyone
     self.contacts.each do |contact|
-      unless contact.person.owner.nil?
+      if contact.person.remote?
+        self.disconnect(contact)
+      else
         contact.person.owner.disconnected_by(self.person)
         remove_contact(contact, :force => true)
-      else
-        self.disconnect(contact)
       end
     end
     self.aspects.destroy_all

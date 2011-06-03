@@ -145,4 +145,15 @@ describe UsersController do
       response.should redirect_to new_user_session_path
     end
   end
+
+  describe '#destroy' do
+    it 'enqueues a delete job' do
+      Resque.should_receive(:enqueue).with(Job::DeleteAccount, alice.id)
+      delete :destroy
+    end
+    it 'locks the user out' do
+      delete :destroy
+      alice.reload.access_locked?.should be_true
+    end
+  end
 end

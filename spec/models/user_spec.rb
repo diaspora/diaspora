@@ -226,7 +226,7 @@ describe User do
     it "returns false if the users are already connected" do
       alice.can_add?(bob.person).should be_false
     end
-    
+
     it "returns false if the user has already sent a request to that person" do
       alice.share_with(eve.person, alice.aspects.first)
       alice.reload
@@ -374,71 +374,68 @@ describe User do
     end
   end
 
-  describe 'account removal' do
-    it 'should disconnect everyone' do
-      alice.should_receive(:disconnect_everyone)
-      alice.destroy
+  describe 'account deletion' do
+    describe '#remove_all_traces' do
+      it 'should disconnect everyone' do
+        alice.should_receive(:disconnect_everyone)
+        alice.remove_all_traces
+      end
+
+
+      it 'should remove mentions' do
+        alice.should_receive(:remove_mentions)
+        alice.remove_all_traces
+      end
+
+      it 'should remove person' do
+        alice.should_receive(:remove_person)
+        alice.remove_all_traces
+      end
+
+      it 'should remove all aspects' do
+        lambda {
+          alice.remove_all_traces
+        }.should change{ alice.aspects(true).count }.by(-1)
+      end
     end
 
-    it 'removes invitations from the user' do
-      alice.invite_user alice.aspects.first.id, 'email', 'blah@blah.blah'
-      lambda {
-        alice.destroy
-      }.should change {alice.invitations_from_me(true).count }.by(-1)
-    end
+    describe '#destroy' do
+      it 'removes invitations from the user' do
+        alice.invite_user alice.aspects.first.id, 'email', 'blah@blah.blah'
+        lambda {
+          alice.destroy
+        }.should change {alice.invitations_from_me(true).count }.by(-1)
+      end
 
-    it 'removes invitations to the user' do
-      Invitation.create(:sender_id => eve.id, :recipient_id => alice.id, :aspect_id => eve.aspects.first.id)
-      lambda {
-        alice.destroy
-      }.should change {alice.invitations_to_me(true).count }.by(-1)
-    end
+      it 'removes invitations to the user' do
+        Invitation.create(:sender_id => eve.id, :recipient_id => alice.id, :aspect_id => eve.aspects.first.id)
+        lambda {
+          alice.destroy
+        }.should change {alice.invitations_to_me(true).count }.by(-1)
+      end
 
-    it 'should remove mentions' do
-      alice.should_receive(:remove_mentions)
-      alice.destroy
-    end
-
-    it 'should remove person' do
-      alice.should_receive(:remove_person)
-      alice.destroy
-    end
-
-    it 'should remove all aspects' do
-      lambda {
-        alice.destroy
-      }.should change{ alice.aspects(true).count }.by(-1)
-    end
-
-    it 'removes all contacts' do
-      lambda {
-        alice.destroy
-      }.should change {
-        alice.contacts.count
-      }.by(-1)
-    end
-
-    it 'removes all service connections' do
-      Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
-      lambda {
-        alice.destroy
-      }.should change {
-        alice.services.count
-      }.by(-1)
+      it 'removes all service connections' do
+        Services::Facebook.create(:access_token => 'what', :user_id => alice.id)
+        lambda {
+          alice.destroy
+        }.should change {
+          alice.services.count
+        }.by(-1)
+      end
     end
 
     describe '#remove_person' do
       it 'should remove the person object' do
         person = alice.person
-        alice.destroy
+        alice.remove_person
         person.reload
-        person.should be nil
+        person.should be_nil
       end
 
       it 'should remove the posts' do
         message = alice.post(:status_message, :text => "hi", :to => alice.aspects.first.id)
         alice.reload
-        alice.destroy
+        alice.remove_person
         proc { message.reload }.should raise_error ActiveRecord::RecordNotFound
       end
     end
@@ -449,40 +446,49 @@ describe User do
         sm =  Factory(:status_message)
         mention  = Mention.create(:person => person, :post=> sm)
         alice.reload
-        alice.destroy
+        alice.remove_mentions
         proc { mention.reload }.should raise_error ActiveRecord::RecordNotFound
       end
     end
 
     describe '#disconnect_everyone' do
       it 'has no error on a local friend who has deleted his account' do
-        alice.destroy
+        Job::DeleteAccount.perform(alice.id)
         lambda {
-          bob.destroy
+          bob.disconnect_everyone
         }.should_not raise_error
       end
 
       it 'has no error when the user has sent local requests' do
         alice.share_with(eve.person, alice.aspects.first)
         lambda {
-          alice.destroy
+          alice.disconnect_everyone
         }.should_not raise_error
       end
 
-      it 'should send retractions to remote poeple' do
+      it 'sends retractions to remote poeple' do
         person = eve.person
         eve.delete
+        person.owner_id = nil
         person.save
         alice.contacts.create(:person => person, :aspects => [alice.aspects.first])
 
         alice.should_receive(:disconnect).once
-        alice.destroy
+        alice.disconnect_everyone
       end
 
-      it 'should disconnect local people' do
+      it 'disconnects local people' do
         lambda {
-          alice.destroy
+          alice.remove_all_traces
         }.should change{bob.reload.contacts.count}.by(-1)
+      end
+
+      it 'removes all contacts' do
+        lambda {
+          alice.disconnect_everyone
+        }.should change {
+          alice.contacts.count
+        }.by(-1)
       end
     end
   end
@@ -519,7 +525,7 @@ describe User do
 
     describe "#add_contact_to_aspect" do
       it 'adds the contact to the aspect' do
-        lambda { 
+        lambda {
           alice.add_contact_to_aspect(@contact, @aspect1)
         }.should change(@aspect1.contacts, :count).by(1)
       end
@@ -557,7 +563,7 @@ describe User do
       end
     end
   end
-  
+
   context 'likes' do
     before do
       @message = alice.post(:status_message, :text => "cool", :to => alice.aspects.first)
@@ -565,24 +571,24 @@ describe User do
       @like = alice.like(true, :post => @message)
       @dislike = bob.like(false, :post => @message)
     end
-    
+
     describe '#like_for' do
       it 'returns the correct like' do
         alice.like_for(@message).should == @like
         bob.like_for(@message).should == @dislike
       end
-      
+
       it "returns nil if there's no like" do
         alice.like_for(@message2).should be_nil
       end
     end
-  
+
     describe '#liked?' do
       it "returns true if there's a like" do
         alice.liked?(@message).should be_true
         bob.liked?(@message).should be_true
       end
-    
+
       it "returns false if there's no like" do
         alice.liked?(@message2).should be_false
       end
