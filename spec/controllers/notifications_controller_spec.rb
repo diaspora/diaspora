@@ -43,16 +43,23 @@ describe NotificationsController do
   end
 
   describe '#index' do
-    it 'paginates the notifications' do
+    before do
       26.times do
         Factory(:notification, :recipient => @user)
       end
+    end
 
+    it 'paginates the notifications' do
       get :index
       assigns[:notifications].count.should == 25
 
       get :index, :page => 2
       assigns[:notifications].count.should == 1
+    end
+
+    it 'eager loads the target' do
+      get :index
+      assigns[:notifications].each{ |note| note.loaded_target?.should be_true }
     end
   end
 end

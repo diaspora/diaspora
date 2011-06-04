@@ -19,8 +19,20 @@ class NotificationsController < ApplicationController
 
   def index
     @aspect = :notification
-    @notifications = Notification.find(:all, :conditions => {:recipient_id => current_user.id},
-                                       :order => 'created_at desc', :include => [:target, {:actors => :profile}]).paginate :page => params[:page], :per_page => 25
+    conditions = {:recipient_id => current_user.id}
+    page = params[:page] || 1
+    @notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
+      result = Notification.find(:all,
+                                 :conditions => conditions,
+                                 :order => 'created_at desc',
+                                 :include => [:target, {:actors => :profile}],
+                                 :limit => pager.per_page,
+                                 :offset => pager.offset
+                                )
+
+      pager.replace(result)
+    end
+
     @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
     respond_with @notifications
   end
