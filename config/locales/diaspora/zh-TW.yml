@@ -649,7 +649,7 @@ zh-TW:
   undo: "復原?"
   username: "用戶名稱"
   users: 
-    destroy: "帳號關閉成功."
+    destroy: "帳號已鎖定. 關閉帳號可能需要20分鐘才能完成. 感謝你試用 Diaspora."
     edit: 
       also_commented: "...當有人也對你的聯繫的貼文發表意見時?"
       change: "更改"

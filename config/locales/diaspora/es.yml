@@ -649,7 +649,7 @@ es:
   undo: "¿Deshacer?"
   username: "Nombre de usuario"
   users: 
-    destroy: "Cuenta cerrada con éxito."
+    destroy: "Tu cuenta ha sido bloqueada. En unos 20 minutos se cerrará totalmente. Gracias por probar Diaspora*. "
     edit: 
       also_commented: "...alguien comenta en la publicación de tu contacto?"
       change: "Cambiar"
