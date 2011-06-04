@@ -48,11 +48,6 @@ class UsersController < ApplicationController
         else
           flash[:error] = I18n.t 'users.update.language_not_changed'
         end
-      elsif u[:a_ids]
-        @user.aspects.update_all(:open => false)
-        unless u[:a_ids] == ["home"]
-          @user.aspects.where(:id => u[:a_ids]).update_all(:open => true)
-        end
       end
     end
 

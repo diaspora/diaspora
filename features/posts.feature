@@ -14,7 +14,6 @@ Feature: posting
       And I have user with username "alice" in an aspect called "PostTo"
       And I have user with username "alice" in an aspect called "DidntPostTo"
 
-      And I have no open aspects saved
       And I am on the home page
 
     Scenario: post to all aspects

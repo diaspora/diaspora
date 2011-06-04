@@ -23,10 +23,9 @@ describe HomeController do
       @aspect0 = alice.aspects.all[0]
       @aspect1 = alice.aspects.create(:name => "Yeaaaah!")
       @index_params = {:a_ids => [@aspect0.id.to_s, @aspect1.id.to_s]}
-      alice.aspects.where(:id => @index_params[:a_ids]).update_all(:open => true)
       alice.save
       get :show
-      response.should redirect_to( :controller => 'aspects', :action => 'index', :a_ids => @index_params[:a_ids] )
+      response.should redirect_to( :controller => 'aspects', :action => 'index')
     end
 
     describe "custom logging on success" do

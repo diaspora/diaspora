@@ -10,10 +10,6 @@ var AspectFilters = {
     AspectFilters.initializeSelectedGUIDS();
     AspectFilters.interceptAspectLinks();
     AspectFilters.interceptAspectNavLinks();
-
-    if($("a.home_selector").parent().hasClass("selected")){
-      AspectFilters.performAspectUpdate();
-    }
   },
   initializeSelectedGUIDS: function(){
     $("#aspect_nav li").each(function(){
@@ -113,23 +109,6 @@ var AspectFilters = {
     }
     return baseURL;
   },
-  performAspectUpdate: function(){
-    // update the open aspects in the user
-    updateURL = "/user";
-    updateURL += '?';
-    if(AspectFilters.selectedGUIDS.length === 0){
-      updateURL += 'user[a_ids][]=home';
-    } else {
-      for(i=0; i < AspectFilters.selectedGUIDS.length; i++){
-        updateURL += 'user[a_ids][]='+ AspectFilters.selectedGUIDS[i] +'&';
-      }
-    }
-
-    $.ajax({
-      url : updateURL,
-      type: "PUT"
-      });
-  },
   performAjax: function(newURL) {
     var post = $("#publisher textarea").val(),
         photos = {};
@@ -177,7 +156,6 @@ var AspectFilters = {
         // fade contents back in
         if(AspectFilters.requests === 0){
           AspectFilters.fadeIn();
-          AspectFilters.performAspectUpdate();
         }
       }
     });

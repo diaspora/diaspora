@@ -109,10 +109,6 @@ When /^I click on the contact request$/ do
   find(".person.request.ui-draggable a").click
 end
 
-Given /^I have no open aspects saved$/ do
-  @me.aspects.update_all(:open => false)
-end
-
 Then /^aspect "([^"]*)" should (not )?be selected$/ do |aspect_name, not_selected|
   link_is_selected = evaluate_script("$('a:contains(\"#{aspect_name}\")').parent('li').hasClass('selected');")
   expected_value = !not_selected

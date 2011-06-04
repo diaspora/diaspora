@@ -5,7 +5,6 @@
 #     Background:
 #       Given a user with username "bob"
 #       When I sign in as "bob@bob.bob"
-#       And I have no open aspects saved
 #       And I am on the home page
 # 
 #     Scenario: Youtube is fully embedded
