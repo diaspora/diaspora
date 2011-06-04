@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604012703) do
+ActiveRecord::Schema.define(:version => 20110604204533) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -353,6 +353,7 @@ ActiveRecord::Schema.define(:version => 20110604012703) do
   add_index "users", ["email"], :name => "index_users_on_email"
   add_index "users", ["invitation_service", "invitation_identifier"], :name => "index_users_on_invitation_service_and_invitation_identifier", :unique => true
   add_index "users", ["invitation_token"], :name => "index_users_on_invitation_token"
+  add_index "users", ["remember_token"], :name => "index_users_on_remember_token", :unique => true
   add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
   add_foreign_key "aspect_memberships", "aspects", :name => "aspect_memberships_aspect_id_fk", :dependent => :delete
