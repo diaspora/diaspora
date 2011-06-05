@@ -15,3 +15,9 @@ rescue Bundler::GemNotFound => e
   STDERR.puts "Try running `bundle install`."
   exit!
 end if File.exist?(gemfile)
+
+# Use older yaml parser to fix issues with 
+# db:create and db:migrate failing with empty database
+# See bug #1120
+require 'yaml'
+YAML::ENGINE.yamler= 'syck'
