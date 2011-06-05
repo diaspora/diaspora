@@ -8,32 +8,43 @@ require File.join(Rails.root,  'lib/diaspora/ostatus_builder')
 
 describe Diaspora::OstatusBuilder do
 
-  let!(:user) { alice }
-  let(:aspect) { user.aspects.first }
-  let!(:public_status_messages) {
-    3.times.inject([]) do |arr,n|
-      s = user.post(:status_message, :text => "hey#{n}", :public => true, :to => aspect.id)
+  before do
+    @aspect = alice.aspects.first
+    @public_status_messages = 3.times.inject([]) do |arr,n|
+      s = alice.post(:status_message, :text => "hey#{n}", :public => true, :to => @aspect.id)
       arr << s
     end
-  }
-  let!(:private_status_messages) {
-    3.times.inject([]) do |arr,n|
-      s = user.post(:status_message, :text => "secret_ney#{n}", :public => false, :to => aspect.id)
+
+    @private_status_messages = 3.times.inject([]) do |arr,n|
+      s = alice.post(:status_message, :text => "secret_ney#{n}", :public => false, :to => @aspect.id)
       arr << s
     end
-  }
-  let!(:atom) { director = Diaspora::Director.new; director.build(Diaspora::OstatusBuilder.new(user, public_status_messages)) }
+
+    director = Diaspora::Director.new;
+    @atom = director.build(Diaspora::OstatusBuilder.new(alice, @public_status_messages))
+  end
 
   it 'should include a users posts' do
-    public_status_messages.each{ |status| atom.should include status.text}
+    @public_status_messages.each{ |status| @atom.should include status.text}
   end
 
   it 'should iterate through all objects, and not stop if it runs into a post without a to_activity' do
-    messages = public_status_messages.collect{|x| x.text}
-    public_status_messages.insert(1, [])
+    messages = @public_status_messages.collect{|x| x.text}
+    @public_status_messages.insert(1, [])
     director = Diaspora::Director.new;
-    atom2 = director.build(Diaspora::OstatusBuilder.new(user, public_status_messages))
+    atom2 = director.build(Diaspora::OstatusBuilder.new(alice, @public_status_messages))
     messages.each{ |message| atom2.should include message }
+  end
+
+    include Oink::InstanceTypeCounter
+  it 'does not query the db for the author of every post' do
+    alice.person #Preload user.person
+    ActiveRecord::Base.reset_instance_type_count
+    director = Diaspora::Director.new
+    messages = StatusMessage.where(:author_id => alice.person.id, :public => true)
+    builder = Diaspora::OstatusBuilder.new(alice, messages)
+    director.build( builder )
+    report_hash["Person"].should be_nil #No people should have been instantiated
   end
 end
 
