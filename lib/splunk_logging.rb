@@ -16,7 +16,7 @@ module SplunkLogging
         if [Symbol, Fixnum, Float, Class].include?(value.class)
            string << "#{key}=#{value} "
         else
-           string << "#{key}=\"#{value.to_s.gsub('"', '\"')}\""
+           string << "#{key}=\"#{value.to_s.gsub('"', '\"')}\" "
         end
       end
       string
