@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110604204533) do
+ActiveRecord::Schema.define(:version => 20110606192307) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -39,8 +39,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.integer  "user_id",                            :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
-    t.string   "user_mongo_id"
     t.boolean  "contacts_visible", :default => true, :null => false
   end
 
@@ -57,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
@@ -69,7 +66,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.integer  "person_id",                     :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
     t.boolean  "sharing",    :default => false, :null => false
     t.boolean  "receiving",  :default => false, :null => false
   end
@@ -106,7 +102,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"
@@ -184,7 +179,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.integer  "owner_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
   end
 
   add_index "people", ["diaspora_handle"], :name => "index_people_on_diaspora_handle", :unique => true
@@ -219,7 +213,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
     t.string   "unprocessed_image"
     t.string   "object_url"
     t.string   "image_url"
@@ -251,7 +244,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.integer  "person_id",                                         :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
     t.string   "location"
   end
 
@@ -285,8 +277,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.string   "nickname"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
-    t.string   "user_mongo_id"
   end
 
   add_index "services", ["user_id"], :name => "index_services_on_user_id"
@@ -339,7 +329,6 @@ ActiveRecord::Schema.define(:version => 20110604204533) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "mongo_id"
     t.string   "invitation_service",     :limit => 127
     t.string   "invitation_identifier",  :limit => 127
     t.integer  "invitation_limit"
