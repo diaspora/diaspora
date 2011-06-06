@@ -1,23 +1,23 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (3.0.7)
-      activesupport (= 3.0.7)
+    activemodel (3.0.3)
+      activesupport (= 3.0.3)
       builder (~> 2.1.2)
-      i18n (~> 0.5.0)
-    activerecord (3.0.7)
-      activemodel (= 3.0.7)
-      activesupport (= 3.0.7)
+      i18n (~> 0.4)
+    activerecord (3.0.3)
+      activemodel (= 3.0.3)
+      activesupport (= 3.0.3)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
-    activesupport (3.0.7)
+    activesupport (3.0.3)
     arel (2.0.10)
     builder (2.1.2)
     crack (0.1.8)
     haml (3.0.18)
     httparty (0.7.4)
       crack (= 0.1.8)
-    i18n (0.5.0)
+    i18n (0.6.0)
     json (1.4.6)
     rack (1.2.2)
     shotgun (0.9)
@@ -33,7 +33,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  activerecord
+  activerecord (= 3.0.3)
   haml
   httparty
   json

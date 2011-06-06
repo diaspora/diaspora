@@ -139,7 +139,7 @@ production:
 # Do not touch unless you know what you're doing
 test:
   <<: *defaults
-  pod_url: "http://example.org"
+  pod_url: "http://localhost:9887"
   socket_port: 8081
   enable_splunk_logging: false
 

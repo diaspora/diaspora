@@ -5,9 +5,10 @@ require 'haml'
 require 'httparty'
 require 'json'
 require 'active_record'
+require 'pp'
 
 # models ======================================
-`rm -f chubbies.sqlite3`
+`rm -f #{File.expand_path('../chubbies.sqlite3', __FILE__)}`
 ActiveRecord::Base.establish_connection(
     :adapter => "sqlite3",
     :database  => "chubbies.sqlite3"
@@ -75,9 +76,9 @@ get '/callback' do
       :code => params["code"],
       :grant_type => 'authorization_code'}
     )
-
-    user = pod.users.create!(:access_token => response["access_token"], :diaspora_handle => params['diaspora_handle'])
-    redirect "/account?diaspora_handle=#{user.diaspora_handle}"
+    
+    user = pod.users.create!(:access_token => response["access_token"] )
+    redirect "/account?id=#{user.id}"
   else
     "What is your major malfunction?"
   end
@@ -85,12 +86,14 @@ end
 
 get '/account' do
   # have diaspora handle
-  host = domain_from_handle
-  unless pod = Pod.where(:host => host).first
-    pod = register_with_pod
+  if params[:diaspora_handle]
+    host = domain_from_handle
+    unless pod = Pod.where(:host => host).first
+      pod = register_with_pod
+    end
   end
 
-  if user = pod.users.where(:diaspora_handle => params['diaspora_handle']).first
+  if params['id'] && user = User.where(:id => params['id']).first
     @resource_response = get_with_access_token(user, "/api/v0/me")
     haml :response
   else
@@ -107,6 +110,11 @@ get '/manifest' do
   }.to_json
 end
 
+get '/reset' do
+  User.delete_all
+  Pod.delete_all
+  "reset."
+end
 #=============================
 #helpers
 #

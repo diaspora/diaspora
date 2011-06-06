@@ -1,12 +1,9 @@
 Given /^Chubbies is running$/ do
-  if Chubbies.running?
-    puts "Chubbies is already running.  Killing it."
-    Chubbies.kill
-  end
-  Chubbies.run
-  at_exit do
-    Chubbies.kill
-  end
+  Chubbies.run unless Chubbies.running?
+end
+
+Given /^Chubbies has been killed$/ do
+  Chubbies.ensure_killed
 end
 
 Given /^Chubbies is registered on my pod$/ do
@@ -47,8 +44,13 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      Process.exec "cd #{Rails.root}/spec/support/chubbies/ && BUNDLE_GEMFILE=Gemfile DIASPORA_PORT=9887 bundle exec rackup -p #{PORT} 2> /dev/null"
+      Process.exec "cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile DIASPORA_PORT=9887 bundle exec rackup -p #{PORT} 2> /dev/null"
     end
+
+    at_exit do
+      Chubbies.kill
+    end
+    
     while(!running?) do
       sleep(1)
     end
@@ -56,6 +58,13 @@ class Chubbies
 
   def self.kill
     `kill -9 #{get_pid}`
+  end
+
+  def self.ensure_killed
+    if !(@killed) && self.running?
+      self.kill
+      @killed = true
+    end
   end
 
   def self.running?

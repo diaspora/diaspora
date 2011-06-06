@@ -3,7 +3,8 @@ Feature: oauth
   Exchanging oauth credentials
 
   Background:
-    Given Chubbies is running
+    Given Chubbies has been killed
+    And Chubbies is running
     When I visit "/" on Chubbies
     And a user with username "bob" and password "secret"
 
