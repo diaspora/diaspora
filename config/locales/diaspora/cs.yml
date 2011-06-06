@@ -440,7 +440,7 @@ cs:
       invalid_ext: "{file} má chybnou příponu. Jsou povoleny pouze {extensions}."
       size_error: "{file} je přiliš veliký, maximální velikost je {sizeLimit}."
     new_profile_photo: 
-      or_select_one: "nebo vyberte nějaký z již existujících"
+      or_select_one: "nebo vyberte nějaký z již existujících ve složce"
       upload: "Nahrajte novou profilovou fotku!"
     photo: 
       view_all: "zobrazit všechny fotky uživatele %{name}"
@@ -540,9 +540,9 @@ cs:
       invite_your_friends_from: "Pozvěte vaše přátele z %{service}"
       not_connected: "nepřipojen"
     index: 
-      connect_to_facebook: "Připojit na facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "Připojit na twitter"
+      connect_to_facebook: "Připojit na Facebook"
+      connect_to_tumblr: "Připojit na Tumblr"
+      connect_to_twitter: "Připojit na Twitter"
       disconnect: "odpojit"
       edit_services: "Upravit služby"
       logged_in_as: "přihlášen jako"
@@ -649,7 +649,7 @@ cs:
   undo: "Vrátit?"
   username: "Uživatelské jméno"
   users: 
-    destroy: "Účet byl úspěšně uzavřen."
+    destroy: "Váš účet byl uzamčen. Dokončení uzavření vašeho účtu může trvat 20 minut. Děkujeme vám za vyzkoušení Diaspory."
     edit: 
       also_commented: "...někdo komentoval váš příspěvek?"
       change: "Změnit"

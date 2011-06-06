@@ -56,8 +56,8 @@ eo:
       success: "Successfully removed person from aspect"
   aspects: 
     add_to_aspect: 
-      failure: "Failed to add contact to aspect."
-      success: "Successfully added contact to aspect."
+      failure: "Ne povis aldoni kontakton al aspekto."
+      success: "Sukcese aldonis kontakton al aspekto."
     aspect_contacts: 
       done_editing: "done editing"
     aspect_stream: 
@@ -67,11 +67,11 @@ eo:
     contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
-      failure: "Aspect creation failed."
+      failure: "Ne povis krei aspekton."
       success: "Via nova aspekto, %{name} kreiĝis"
     destroy: 
       failure: "%{name} is not empty and could not be removed."
-      success: "%{name} was successfully removed."
+      success: "%{name} sukcese elpreniĝis."
     edit: 
       add_existing: "Add an existing contact"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
@@ -93,37 +93,37 @@ eo:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      handle_explanation: "Tiu ĉi estas via DIASPORA* nomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       no_contacts: "No contacts"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
     manage: 
       add_a_new_aspect: "Aldoni novan aspekton"
       add_a_new_contact: "Aldoni novan kontakton"
-      drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
+      drag_to_add: "Trenu por aldoni homojn"
+      manage_aspects: "Administri aspektojn"
       no_requests: "Neniujn novajn petojn "
       requests: "Petoj"
     many: "%{count} aspects"
     move_contact: 
-      error: "Error moving contact: %{inspect}"
-      failure: "didn't work %{inspect}"
-      success: "Person moved to new aspect"
+      error: "Ne povis movi kontakton: %{inspect}"
+      failure: "Eraro: %{inspect}"
+      success: "Kontakto moviĝis al alian aspekton"
     new: 
       create: "Create"
       name: "Name"
     no_posts_message: 
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Neniu jam diris iun ajn.  Mem komencu la interparoladon!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Familio"
       work: "Verkejo"
     show: 
-      edit_aspect: "edit aspect"
+      edit_aspect: "redakti aspekton"
     update: 
       failure: "Your aspect, %{name}, had too long name to be saved."
-      success: "Your aspect, %{name}, has been successfully edited."
+      success: "Via aspekto, %{name}, sukcese redaktiĝis."
     zero: "no aspects"
   back: "Antaŭen"
   bookmarklet: 
@@ -132,13 +132,13 @@ eo:
     heading: "Diaspora Bookmarklet"
     post_something: "Post something to Diaspora"
     post_success: "Posted! Closing!"
-  cancel: "Cancel"
+  cancel: "Rezigni"
   comments: 
     few: "%{count} comments"
     many: "%{count} comments"
     new_comment: 
       comment: "Comment"
-      commenting: "Commenting..."
+      commenting: "Komentanta..."
     one: "1 comment"
     other: "%{count} comments"
     zero: "no comments"
@@ -184,48 +184,48 @@ eo:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Forigi"
-  email: "Email"
+  email: "Retpoŝti (?)"
   error_messages: 
     helper: 
-      correct_the_following_errors_and_try_again: "Correct the following errors and try again."
-      invalid_fields: "Invalid Fields"
-  fill_me_out: "Fill me out"
+      correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
+      invalid_fields: "Malvalidaj Kampoj"
+  fill_me_out: "Kompletu min"
   hide: "Hide"
   home: 
     show: 
       already_account: "ĉu vi jam havas konton?"
-      choice: "Choice"
-      choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
-      learn_about_host: "Learn about how to host your own Diaspora server."
+      choice: "Elekto"
+      choice_explanation: "DIASPORA* povigas vin klasigi viajn kontaktojn en grupojn, kiuj nomiĝas „aspektoj“.  Unike al DIASPORA*, aspektoj certigi, ke vi nur partoprenas viajn bildojn, rakontojn, kaj ŝercojn kun homoj, kun kiuj vi volas partopreni."
+      learn_about_host: "Lerni pri tiel, kiel havi vian mem DIASPORA*an servilon."
       login_here: "ensaluti tie ĉi"
-      ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      ownership: "Proprieto"
+      ownership_explanation: "Vi posedas viajn bildojn, kaj vi ne devus rezigni tiun, por partopreni ilin.  Vi ankoraŭ havas proprieton de ĉiu, kiun vi partoprenas per DIASPORA*, donante al vi kompletan administradon pri tiel, kiel aĵoj disdoniĝas."
       share_what_you_want: "Share what you want, with whom you want."
       simplicity: "Simpleco"
-      simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
+      simplicity_explanation: "DIASPORA* igas partoprenadon facilan – kaj ankaŭ privatecon.  Private per plano, DIASPORA* ne direktas tra multajn paĝojn de agordoj kaj opcioj, por sekurigi vian profilon."
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
   invitations: 
     check_token: 
-      not_found: "Invitation token not found"
+      not_found: "Ne povis trovi invitan ĵetonon"
     create: 
       already_contacts: "You are already connected with this person"
       already_sent: "You already invited this person."
-      no_more: "You have no more invitations."
+      no_more: "Vi ne havas iujn ajn invitojn."
       own_address: "You can't send an invitation to your own address."
-      rejected: "The following email addresses had problems: "
-      sent: "Invitations have been sent to: "
+      rejected: "La postaj retpoŝtadresoj estis problemaj:"
+      sent: "Invitoj sendiĝis al: "
     edit: 
-      sign_up: "sign_up"
+      sign_up: "registriĝi"
     new: 
       already_invited: "Already invited"
       aspect: "Aspect"
-      comma_seperated_plz: "You can enter multiple email addresses separated by commas."
+      comma_seperated_plz: "Vi povas aldoni multajn retpoŝtadresojn, apartate de komoj."
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
-      invite_someone_to_join: "Invite someone to join Diaspora!"
+      invite_someone_to_join: "Invitu iujn ajn aniĝi DIASPORA*!"
       personal_message: "Personal message"
       resend: "Resend"
-      send_an_invitation: "Send an invitation"
+      send_an_invitation: "Sendu inviton"
       send_invitation: "Send invitation"
       to: "Al"
   layouts: 
@@ -432,38 +432,38 @@ eo:
     edit: 
       editing: "Editing"
     new: 
-      back_to_list: "Back to List"
-      new_photo: "New Photo"
-      post_it: "post it!"
+      back_to_list: "Revenu al Listo"
+      new_photo: "Nova Bildo"
+      post_it: "afiŝu ĝin!"
     new_photo: 
-      empty: "{file} is empty, please select files again without it."
-      invalid_ext: "{file} has invalid extension. Only {extensions} are allowed."
-      size_error: "{file} is too large, maximum file size is {sizeLimit}."
+      empty: "{file} malplenas; bonvolu reelekti dosierojn sen ĝin."
+      invalid_ext: "{file} havas malvalidan sufikson. Nur {extensions} estas validaj."
+      size_error: "{file} estas tro ega; la maksimuma dosiergrandeco estas {sizeLimit}."
     new_profile_photo: 
       or_select_one: "or select one from your already existing"
       upload: "Upload a new profile photo!"
     photo: 
-      view_all: "view all of %{name}'s photos"
+      view_all: "Vidi ĉiuj bildoj de %{name}"
     show: 
       collection_permalink: "collection permalink"
-      delete_photo: "Delete Photo"
-      edit: "edit"
-      edit_delete_photo: "Edit photo description / delete photo"
-      make_profile_photo: "make profile photo"
+      delete_photo: "Forigi Bildon"
+      edit: "redakti"
+      edit_delete_photo: "Redakti bildpriskribon / forigi bildon"
+      make_profile_photo: "estigi profilbildon"
       original_post: "Original Post"
       permalink: "permalink"
-      update_photo: "Update Photo"
-      view: "view"
+      update_photo: "Ĝisdatigi Bildon"
+      view: "vidi"
     update: 
-      error: "Failed to edit photo."
-      notice: "Photo successfully updated."
+      error: "Ne povis redakti bildon."
+      notice: "Bildo sukcese ĝisdatiĝis."
   post_visibilites: 
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
     doesnt_exist: "that post does not exist!"
   previous: "previous"
-  profile: "Profile"
+  profile: "Profilo"
   profiles: 
     edit: 
       allow_search: "Allow for people to search for you within Diaspora"
@@ -485,12 +485,12 @@ eo:
       failed: "Failed to update profile"
       updated: "Profile updated"
   registrations: 
-    closed: "Signups are closed on this Diaspora pod."
+    closed: "Registrado estas ferma ĉe tiu ĉi DIASPORA* guŝo."
     create: 
-      success: "You've joined Diaspora!"
+      success: "Vi aniĝis DIASPORA*!"
     edit: 
-      cancel_my_account: "Cancel my account"
-      edit: "Edit %{name}"
+      cancel_my_account: "Malfari mian konton"
+      edit: "Redakti je %{name}"
       leave_blank: "(leave blank if you don't want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
       unhappy: "Unhappy?"
@@ -560,7 +560,7 @@ eo:
       diaspora_handle: "Diaspora Handle"
       enter_a_diaspora_username: "Enter a Diaspora username:"
       know_email: "Know their email address? You should invite them"
-      your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
+      your_diaspora_username_is: "Via DIASPORA* uzantnomo estas: %{diaspora_handle}"
     contact_list: 
       all_contacts: "All contacts"
     footer: 
@@ -568,18 +568,18 @@ eo:
       your_aspects: "your aspects"
     invitations: 
       by_email: "by Email"
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      dont_have_now: "Vi ne havas iujn ajn nun, sed pli invitoj baldaŭ venos!"
       from_facebook: "From Facebook"
       invitations_left: "(%{count} left)"
-      invite_someone: "Invite someone"
+      invite_someone: "Inviti iun"
       invite_your_friends: "Invite your friends"
       invites: "Invites"
       invites_closed: "Invites are currently closed on this Diaspora seed"
     notification: 
-      new: "New %{type} from %{from}"
+      new: "Nova %{type} de %{from}"
     public_explain: 
-      logged_in: "logged in to %{service}"
-      manage: "manage connected services"
+      logged_in: "ensalutita al %{service}"
+      manage: "administri ligitajn servojn"
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "You are about to post a public message!"
     publisher: 

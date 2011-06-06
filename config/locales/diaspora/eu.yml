@@ -150,7 +150,7 @@ eu:
     one: "adiskide 1"
     other: "%{count} adiskide"
     sharing: 
-      people_sharing: "Zurekin harremanetan dagoen jendea:"
+      people_sharing: "Zurekin harremanetan daudenak:"
     zero: "adiskiderik ez"
   conversations: 
     create: 

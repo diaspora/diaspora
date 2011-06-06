@@ -541,7 +541,7 @@ el:
       not_connected: "δεν είναι συνδεδεμένο"
     index: 
       connect_to_facebook: "Σύνδεση με το facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Σύνδεση με το Tumblr"
       connect_to_twitter: "Σύνδεση με το twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
