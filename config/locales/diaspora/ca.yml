@@ -736,7 +736,7 @@ També és la millor forma de coŀleccionar fotos en línia."
       private_message: "… rebeu un missatge privat?"
       liked: "… a algú li agradi una publicació vostra?"
       change: "Canvia"
-    destroy: "S'ha tancat el compte amb èxit."
+    destroy: "S'ha blocat el vostre compte. Trigarem fins a 20 minuts en tancar el compte. Moltes gràcies per provar Diàspora."
     getting_started:
       welcome: "Benvingut/da al Diàspora!"
       signup_steps: "Acabeu el registre completant aquests tres pasos:"
