@@ -11,17 +11,21 @@
 - content_for :body_class do
   = "apps_show"
 
-.span-24.last
-  %h1.tag
-    = "everything happening from #{@app}"
+- content_for :break_the_mold do
+  = "width:100%;"
 
-.span-13
-  #main_stream.stream
-    - if @posts.length > 0
-      = render 'shared/stream', :posts => @posts
-      #pagination
-        =link_to(t('more'), next_page_path, :class => 'paginate')
-    - else
-      = t('tags.show.nobody_talking', :tag => "##{params[:name]}")
+%h1
+  = "#{@app}"
 
-.prepend-2.span-9.last
+#main_stream.stream
+  - if @posts.length > 0
+    .canvas.stream
+      - for post in @posts
+        .image-element
+          .hold-me
+            = link_to(image_tag(post.image_url), object_path(post))
+            .via
+              = post.author.name
+    #pagination
+      =link_to(t('more'), next_page_path, :class => 'paginate')
+
