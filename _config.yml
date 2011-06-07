@@ -1,25 +1,41 @@
+# Required configuration
 source: source
 destination: public
-markdown: rdiscount
-pygments: true
 
 url: http://yoursite.com
 title: My Octopress Blog
 author: Your Name
-email: you@domain.com #Add your email (optional) for the atom feed
+subscribe_rss: /atom.xml
+subscribe_email: http://feedburner.com/asdfasdf
+
+markdown: rdiscount
+pygments: true
+recent_posts: 1
 simple_search: http://google.com/search
 
-recent_posts: 20
+# Optional configurations
 
-twitter_user: imathis
-tweet_count: 3
-show_replies: false
+# For RSS
+email:
 
+# Twitter
+#twitter_user: imathis
+twitter_tweet_count: 4
+twitter_show_replies: false
+twitter_follow_button: true
+twitter_show_follower_count: false
+twitter_tweet_button: true
+
+# Pinboard
+#pinboard_user: imathis
+pinboard_count: 3
+
+# Delicious
 delicious_user:
 delicious_count: 3
 
-pinboard_user: imathis
-pinboard_count: 3
+# Disqus Comments
+disqus_short_name:
 
-#disqus_short_name: designenthusiast
+# Google Analytics
 google_analytics_tracking_id:

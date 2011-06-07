@@ -1,12 +1,12 @@
-site
 .bundle
 .DS_Store
 .sass-cache
+.gist_cache
+_cache
+source
+sass
+public
 source/_stash
-source/stylesheets
 source/javascripts/libs/node_modules
 source/javascripts/libs/syntax-highlighter
 vendor/ruby
-_cache
-.gist_cache
-public

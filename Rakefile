@@ -29,18 +29,40 @@ def ok_failed(condition)
   end
 end
 
+desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
+task :install, :theme do |t, args|
+  # copy theme into working Jekyll directories
+  theme = args.theme || 'classic'
+  puts "## Copying "+theme+" theme to Jekyll paths"
+  system "cp -R themes/"+theme+"/source source"
+  system "cp -R themes/"+theme+"/sass sass"
+  system "cp -R themes/"+theme+"/_plugins/ _plugins/"
+
+  # The directories source and sass are ignored for development, but when Octopress is installed
+  # Users must be able to commit these directories, so this removes those lines from the gitignore
+  puts "## Cleaning up..."
+  new_content = ""
+  File.read('.gitignore').each_line do |e|
+    new_content << e unless e.strip == 'source' || e.strip == 'sass'
+  end
+  File.open('.gitignore', 'w') do |io|
+    io << new_content
+  end
+end
+
 ## if you're deploying with github, change the default deploy to push_github
 desc "default push task"
 task :push => [:push_rsync] do
 end
 
 desc "Generate and deploy task"
-task :deploy => [:integrate, :generate, :clean_debug, :push] do
+task :deploy => [:integrate, :generate, :push] do
 end
 
-desc "generate website in output directory"
-task :generate => [:generate_site, :generate_style] do
-  puts ">>> Site Generating Complete! <<<\n\n>>> Refresh your browser <<<"
+desc "Generate jekyll site"
+task :generate do
+  puts "## Generating Site with Jekyll"
+  system "jekyll"
 end
 
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
@@ -78,29 +100,6 @@ task :list do
   puts "(type rake -T for more detail)\n\n"
 end
 
-desc "remove files in output directory"
-task :clean do
-  puts ">>> Removing output <<<"
-  Dir["#{site}/*"].each { |f| rm_rf(f) }
-end
-
-task :clean_debug do
-  puts ">>> Removing debug pages <<<"
-  Dir["#{site}/test"].each { |f| rm_rf(f) }
-end
-
-desc "Generate styles only"
-task :generate_style do
-  puts ">>> Generating styles <<<"
-  system "compass compile"
-end
-
-desc "Generate site files only"
-task :generate_site => [:clean, :generate_style] do
-  puts "\n\n>>> Generating site files <<<"
-  system "jekyll"
-end
-
 desc "Watch the site and regenerate when it changes"
 task :watch do
   system "trap 'kill $jekyllPid $guardPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; guard & guardPid=$!; wait"
@@ -108,35 +107,35 @@ end
 
 desc "generate and deploy website via rsync"
 multitask :push_rsync do
-  puts ">>> Deploying website via Rsync <<<"
+  puts "## Deploying website via Rsync"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
 desc "deploy website to github user pages"
 multitask :push_github do
-  puts ">>> Deploying #{deploy_branch} branch to Github Pages <<<"
+  puts "## Deploying #{deploy_branch} branch to Github Pages "
   require 'git'
   repo = Git.open('.')
-  puts "\n>>> Checking out #{deploy_branch} branch <<<\n"
+  puts "\n## Checking out #{deploy_branch} branch \n"
   repo.branch("#{deploy_branch}").checkout
   (Dir["*"] - ["#{site}"]).each { |f| rm_rf(f) }
   Dir["#{site}/*"].each {|f| mv(f, ".")}
   rm_rf("#{site}")
-  puts "\n>>> Moving generated /#{site} files <<<\n"
+  puts "\n## Moving generated /#{site} files \n"
   Dir["**/*"].each {|f| repo.add(f) }
   repo.status.deleted.each {|f, s| repo.remove(f)}
-  puts "\n>>> Commiting: Site updated at #{Time.now.utc} <<<\n"
+  puts "\n## Commiting: Site updated at #{Time.now.utc} \n"
   message = ENV["MESSAGE"] || "Site updated at #{Time.now.utc}"
   repo.commit(message)
-  puts "\n>>> Pushing generated /#{site} files to #{deploy_branch} branch <<<\n"
+  puts "\n## Pushing generated /#{site} files to #{deploy_branch} branch\n"
   repo.push
-  puts "\n>>> Github Pages deploy complete <<<\n"
+  puts "\n## Github Pages deploy complete\n"
   repo.branch("#{source_branch}").checkout
 end
 
 desc "start up a web server on the output files"
 task :start_server => :stop_server do
-  print "Starting serve..."
+  print "## Starting serve..."
   system("serve #{site} #{port} > /dev/null 2>&1 &")
   sleep 1
   pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
@@ -148,9 +147,9 @@ desc "stop the web server"
 task :stop_server do
   pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
   if pid.empty?
-    puts "Adsf is not running"
+    puts "## Adsf is not running"
   else
-    print "Stoping adsf..."
+    print "## Stoping adsf..."
     ok_failed system("kill -9 #{pid}")
   end
 end
