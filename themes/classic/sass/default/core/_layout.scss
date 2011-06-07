@@ -1,0 +1,128 @@
+$default-border-radius: 4px;
+
+$pad-min: 18px;
+$pad-narrow: 18px;
+$pad-medium: 24px;
+$pad-wide: 30px;
+$sidebar-width-medium: 240px;
+$sidebar-pad-medium: 15px;
+$sidebar-pad-wide: 20px;
+$sidebar-width-wide: 300px;
+
+.group { @include pie-clearfix; }
+
+//html {  }
+body {
+  -webkit-text-size-adjust: none;
+  max-width: 1400px;
+  position: relative;
+  margin: 0 auto;
+  > header, > nav, > footer, #articles > article {
+    @extend .group;
+    padding-left: $pad-min;
+    padding-right: $pad-min;
+    @media only screen and (min-width: 480px) {
+      padding-left: $pad-narrow;
+      padding-right: $pad-narrow;
+    }
+    @media only screen and (min-width: 768px) {
+      padding-left: $pad-medium;
+      padding-right: $pad-medium;
+    }
+    @media only screen and (min-width: 992px) {
+      padding-left: $pad-wide;
+      padding-right: $pad-wide;
+    }
+  }
+  > header {
+    font-size: .8em;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+  }
+}
+
+.toggle-sidebar { display: none; }
+#articles { width: 100%; + aside { display: none; } }
+
+@media only screen and (min-width: 550px) {
+  body > header { font-size: 1em; }
+}
+@media only screen and (min-width: 768px) {
+  body { -webkit-text-size-adjust: auto; }
+  body > header { font-size: 1.2em; }
+  body > nav {
+    + div {
+      @extend .group;
+      padding: 0;
+      margin: 0 auto;
+      > div {
+        @extend .group;
+        margin-right: $sidebar-width-medium;
+      }
+    }
+  }
+  #articles {
+    padding-top: $pad-medium/2;
+    padding-bottom: $pad-medium/2;
+    float: left;
+    + aside {
+      width: $sidebar-width-medium - $sidebar-pad-medium*2;
+      padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
+      display: block;
+      float: left;
+      margin: 0 -100% 0 0;
+    }
+  }
+  body > div > div { position: relative; }
+
+  .collapse-sidebar {
+    > div > div { margin-right: 10px; }
+    #articles + aside {
+      display: none;
+    }
+    .toggle-sidebar {
+      right: -1px;
+      background-color: $sidebar-bg;
+      border-right-width: 0;
+      text-indent: 2px;
+      border-left: 1px solid $sidebar-border;
+      @include border-bottom-right-radius(0);
+      @include border-bottom-left-radius(.3em);
+      @include link-colors(#aaa, #888);
+    }
+  }
+
+  .toggle-sidebar {
+    outline: none;
+    position: absolute; right: -21px; top: 0;
+    width: 20px;
+    font-size: 1.2em;
+    line-height: 1.1em;
+    padding-bottom: .1em;
+    text-indent: -1px;
+    text-decoration: none;
+    @include link-colors(#ccc, #999);
+    @include border-bottom-right-radius(.3em);
+    text-align: center;
+    background: $main-bg;
+    border-bottom: 1px solid $sidebar-border;
+    border-right: 1px solid $sidebar-border;
+    display: inline-block;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body > * { font-size: 1.1em; }
+  body > header {
+    font-size: 1.3em;
+  }
+  body > nav + div > div { margin-right: $sidebar-width-wide; }
+  #articles {
+    padding-top: $pad-wide/2;
+    padding-bottom: $pad-wide/2;
+    + aside {
+      width: $sidebar-width-wide - $sidebar-pad-wide*2;
+      padding: 0 $sidebar-pad-wide $sidebar-pad-wide;
+    }
+  }
+}

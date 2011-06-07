@@ -19,7 +19,7 @@ simple_search: http://google.com/search
 email:
 
 # Twitter
-#twitter_user: imathis
+twitter_user: imathis
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true

@@ -1,0 +1,11 @@
+body > header {
+  background-color: $header_bg;
+  h1 {
+    display: inline-block;
+    margin: 0;
+    a, a:visited {
+      color: $title_color;
+      text-decoration: none;
+    }
+  }
+}

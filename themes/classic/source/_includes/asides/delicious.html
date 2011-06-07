@@ -1,0 +1,7 @@
+{% if site.delicious_user %}
+<section>
+  <h1>On Delicious</h1>
+  <script type="text/javascript" src="http://feeds.delicious.com/v2/js/{{ site.delicious_user }}?title=&count={{ site.delicious_count }}&sort=date&extended"></script>
+  <p><a href="http://delicious.com/{{ site.delicious_user }}">My Delicious Bookmarks &raquo;</a></p>
+</section>
+{% endif %}

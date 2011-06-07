@@ -1,0 +1,51 @@
+// Link Colors
+$link-color: lighten(#165b94, 3);
+$link-color-hover: darken(#165b94, 5);
+
+// Main Section Colors
+$body-color: #333333;
+$light-text: #999999;
+$page-bg: #252525;
+
+$header-bg: #333; //#0c2e46; //darken(#238bd2, 32); //#263448; //#323232;
+$header-border: lighten($header-bg, 15);
+$title-color: #f2f2f2;
+
+$nav-bg: #ccc;//#3a6ea5;
+$nav-color: darken($nav-bg, 38);
+$nav-color-hover: darken($nav-color, 25);
+$nav-border: darken($nav-bg, 10);
+$nav-border-top: lighten($nav-bg, 15);
+$nav-border-bottom: darken($nav-bg, 25);//darken($nav-bg, 5);
+$nav-border-left: darken($nav-bg, 11);
+$nav-border-right: lighten($nav-bg, 7);
+
+$sidebar-bg: #eee; //#f8f8f8; //desaturate(change-color(#e8f4f4, $hue: 207), 100); //mix(#f5f5f5, aqua, 93%);
+$sidebar-border: darken($sidebar-bg, 7);
+
+// Blog
+$article-border: #eeeeee;
+$main-bg: #f7f7f7;
+
+$footer-color: #999999;
+//$footer-bg: #444444;
+$footer-bg: $nav-bg;//$page-bg;
+$footer-border: $nav-border-top;//$page-bg;
+
+// Form Colors
+$fieldset-bg: #ececec;
+$fieldset-border: #c3c3c3;
+
+$textinput-color: #333333;
+$textinput-bg: #f4f4f4;
+$textinput-bg-focus: #fefeee;
+
+$textinput-border-top: #aaaaaa;
+$textinput-border-bottom: #c6c6c6;
+$textinput-border-left: #c3c3c3;
+$textinput-border-right: #c3c3c3;
+$textinput-border-focus: #989898;
+
+#articles a, #articles + aside a {
+  @include link-colors($link-color, $hover: saturate(darken($link_color, 15), 20), $focus: saturate(darken($link_color, 15), 20), $visited: darken(adjust_hue($link_color, 70), 10));
+}

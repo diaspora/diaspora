@@ -1,0 +1,28 @@
+{% if page.author %}
+  {% assign author = page.author %}
+{% else %}
+  {% assign author = site.author %}
+{% endif %}
+<header>
+  {% if index %}
+    <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title }}</a></h1>
+  {% else %}
+    <h1 class="entry-title">{{ page.title }}</h1>
+  {% endif %}
+  {% unless page.nometa %}
+    <p>
+      {% if page.date %}
+        <time datetime="{{ page.date | datetime }}" pubdate {% if page.updated %} updated {% endif %}>{{ page.date | ordinalize }}</time>
+      {% endif %}
+      {% if page.updated %}
+        <time class="updated" datetime="{{ page.updated | datetime }}"></time>
+      {% endif %}
+      {% if author %}<span class="byline author vcard">By <span class="fn">{{ author }}</span></span>{% endif %}
+    </p>
+  {% endunless %}
+</header>
+{% if index %}
+<div class="entry-content">{{ content | exerpt(content, page.url, 'Continue reading &raquo;') | smart_quotes }}</div>
+{% else %}
+<div class="entry-content">{{ content | smart_quotes }}</div>
+{% endif %}

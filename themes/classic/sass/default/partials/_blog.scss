@@ -1,0 +1,54 @@
+#articles {
+  > article {
+    padding-bottom: 1em;
+    &:last-child { margin-bottom: 0; border-bottom: none; }
+    h2 {
+      padding-top: 0.8em;
+      //border-top: 3px double $type-border;
+      background: inline-image('dotted-border.png') top left repeat-x;
+    }
+    .byline + time:before, .byline + time +time:before {
+      content: "\2022 ";
+      padding: 0 .3em 0 .2em;
+      display: inline-block;
+      @include opacity(.5);
+    }
+    header {
+      padding-top: 2em;
+      margin-bottom: 1.5em;
+      padding-bottom: 1.5em;
+      background: inline-image('dotted-border.png') bottom left repeat-x;
+      h1 {
+        margin: 0;
+        a { text-decoration: none;
+          &:hover { text-decoration: underline; } }
+      }
+      p {
+        font-size: .9em;
+        color: $type-color-light;
+        border: none;
+        padding-top: 0;
+        margin: 0;
+        font-style: italic;
+        font-family: "Georgia", Palatino, Times, "Times New Roman";
+      }
+    }
+    .entry-content {
+      img { max-width: 100%; }
+    }
+    #disqus_thread { }
+    .meta {
+      border-bottom: 1px dashed #dddddd;
+      text-transform: uppercase;
+      color: #777777;
+      padding: 8px 0 5px;
+      margin-bottom: 1.5em;
+      font-size: 75%;
+      letter-spacing: 1px;
+    }
+
+    .footer {
+      padding-top: 15px;
+    }
+  }
+}

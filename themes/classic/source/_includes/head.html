@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7" manifest="default.appcache?v=1"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" manifest="default.appcache?v=1" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  {% if page.title %}
+    <title>{{site.title}}: {{page.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
+  {% else %}
+    <title>{{site.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
+  {% endif %}
+  <meta name="author" content="{{site.author}}">
+  {% if page.description %}
+    <meta name="description" content="{{page.description}}"/>
+  {% endif %}
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  {% if page.keywords %}
+    <meta name="keywords" content="{{page.keywords}}"/>
+  {% endif %}
+
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="/javascripts/ender.js"></script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  {% include google_analytics.html %}
+  <link href="/atom.xml" rel="alternate" title="{{site.title}}" type="application/atom+xml"/>
+</head>

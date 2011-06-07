@@ -1,0 +1,17 @@
+body > footer {
+  @extend .sans;
+  font-size: .8em;
+  color: $nav-color;
+  text-shadow: lighten($footer-bg, 5) 0 1px;
+  background-color: $footer-bg;
+  @include background(linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)));
+  border-top: 1px solid $footer-border;
+  position: relative;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  z-index: 1;
+  a {
+    @include link-colors($nav-color, $nav-color-hover);
+  }
+  p:last-child { margin-bottom: 0; }
+}

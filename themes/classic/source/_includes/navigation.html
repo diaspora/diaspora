@@ -1,0 +1,16 @@
+<ul role="subscription">
+  <li><a href="{{ site.subscribe_rss }}" rel="subscribe-rss">RSS</a></li>
+  {% if site.subscribe_emai %}
+    <li><a href="{{ site.subscribe_email }}" rel="subscribe-email">Email</a></li>
+  {% endif %}
+</ul>
+<form action="{{ site.simple_search }}" method="get">
+  <fieldset role="site-search">
+    <input type="hidden" name="q" value="site:{{ site.url | search_url }}" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+<ul role="main-nav">
+  <li><a href="/">Home</a></li>
+  <li><a href="/archive.html">Archive</a></li>
+</ul>
