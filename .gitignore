@@ -3,8 +3,8 @@
 .sass-cache
 .gist_cache
 _cache
-source
-sass
+_source
+_sass
 public
 source/_stash
 source/javascripts/libs/node_modules
