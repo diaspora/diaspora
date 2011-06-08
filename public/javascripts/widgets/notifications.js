@@ -42,6 +42,15 @@
         $(this).detach();
       });
 
+    if (window.webkitNotifications.checkPermission() > 0) {
+      window.webkitNotifications.requestPermission();
+    }
+    window.webkitNotifications.createNotification(
+        $(notification.html).children("img"), // Icon
+        "DIASPORA*", // Headline
+        $(notification.html).text() // Body
+    ).show();
+
     if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
       this.incrementCount();
     }
