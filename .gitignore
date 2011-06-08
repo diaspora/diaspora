@@ -3,10 +3,6 @@
 .sass-cache
 .gist_cache
 _cache
-_source
-_sass
 public
 source/_stash
-source/javascripts/libs/node_modules
-source/javascripts/libs/syntax-highlighter
 vendor/ruby

@@ -37,17 +37,6 @@ task :install, :theme do |t, args|
   system "cp -R themes/"+theme+"/source source"
   system "cp -R themes/"+theme+"/sass sass"
   system "cp -R themes/"+theme+"/_plugins/ _plugins/"
-
-  # The directories source and sass are ignored for development, but when Octopress is installed
-  # Users must be able to commit these directories, so this removes those lines from the gitignore
-  puts "## Cleaning up..."
-  new_content = ""
-  File.read('.gitignore').each_line do |e|
-    new_content << e unless e.strip == 'source' || e.strip == 'sass'
-  end
-  File.open('.gitignore', 'w') do |io|
-    io << new_content
-  end
 end
 
 ## if you're deploying with github, change the default deploy to push_github
