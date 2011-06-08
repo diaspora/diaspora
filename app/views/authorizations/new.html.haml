@@ -1,27 +1,45 @@
+#popup-contents
+  %h4
+    = "#{@client.name} is requesting access to your account"
 
-%br
-%br
+  #popup-content-left
+    %ul#requested-scopes
+      - @requested_scopes.each do |scope|
+        - if scope == "name"
+          %li
+            .scope-photo
+              = owner_image_tag
 
-.prepend-4
-  .floating.span-15
-    .span-3.append-1
-      = image_tag(@client.icon_url, :id => 'client-application-image')
+            %strong
+              Basic Info
+            %br
+            Cubbies will be able to see your name, profile photo, and other basic profile information.
 
-    .span-10
-      = form_for :authorization,
-        :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
+        - elsif scope = "AS_photo:post"
+          %li
+            .scope-photo
+              = image_tag('/images/icons/photo.svg')
 
-        %h1
-          = "Authorize #{@client.name}?"
+            %strong
+              Your Photos
+            %br
+            Cubbies will be able to post photos on your behalf
 
-        .description
-          = @client.description
 
-        %p
-          = "You are currently logged in as #{current_user.name}(#{current_user.diaspora_handle})."
-          = link_to("Not You?", destroy_user_session_path)
-        %br
 
-        %p
-          = form.submit "Fuck Yeah!", :value => "Yes"
-          = form.submit "Hell No.", :value => "No"
+
+    = form_for :authorization,
+      :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form|
+      %br
+      %p
+        = form.submit "Fuck Yeah!", :value => "Authorize", :class => 'button'
+        = form.submit "Hell No.", :value => "No", :class => 'button'
+
+
+  #popup-content-right
+    = image_tag(@client.icon_url, :id => 'client-application-image')
+    %br
+    %strong
+      = @client.name
+    .description
+      = @client.description

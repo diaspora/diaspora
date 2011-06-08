@@ -3,7 +3,8 @@
 #   the COPYRIGHT file.
 
 class ActivityStreams::PhotosController < ApplicationController
-  before_filter :authenticate_user!
+  authenticate_with_oauth
+  before_filter :set_user_from_oauth
   skip_before_filter :verify_authenticity_token, :only => :create
 
   respond_to :json
@@ -37,5 +38,11 @@ class ActivityStreams::PhotosController < ApplicationController
       current_user.retract(@photo)
     end
     respond_with @photo
+  end
+  def current_user
+    @user
+  end
+  def set_user_from_oauth
+    @user = request.env['oauth2'].resource_owner
   end
 end

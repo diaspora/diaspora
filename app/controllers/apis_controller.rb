@@ -5,7 +5,11 @@ class ApisController < ApplicationController
 
   def me
     @person = @user.person
-    render :json => {:birthday => @person.profile.birthday, :name => @person.name}
+    render :json => {
+                      :birthday => @person.profile.birthday,
+                      :name => @person.name,
+                      :uid => @user.username
+                    }
   end
 
   private

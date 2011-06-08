@@ -86,6 +86,12 @@ stylesheets:
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css
     - public/stylesheets/vendor/autoSuggest.css
+
+  popup:
+    - public/stylesheets/application.css
+    - public/stylesheets/popup.css
+    - public/stylesheets/ui.css
+
   rtl:
     - public/stylesheets/rtl.css
  

@@ -6,7 +6,9 @@ class AuthorizationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :token
 
   def new
+    @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
+    render :layout => "popup" if params[:popup]
   end
 
   def create
