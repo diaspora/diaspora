@@ -42,20 +42,31 @@
         "success":function(data){
           $("#notifications_overlay").show();
           var hash = eval("(" + data + ")");
+          var notifications_element =  $("#notifications_overlay .notifications");
+          var day_element_template = $("#notifications_overlay .day_group").clone();
+          day_element_template.find(".notifications_for_day").empty();
+          var stream_element_template = $("#notifications_overlay .stream_element").clone();
+          notifications_element.empty();
           $.each(hash["group_days"], function(day){
-            $("#notifications_overlay .month").text(day.split(" ")[0])
-            $("#notifications_overlay .day").text(day.split(" ")[1])
+            var day_element = day_element_template.clone();
+            day_element.find(".month").text(day.split(" ")[0])
+            day_element.find(".day").text(day.split(" ")[1])
             var notifications_for_day = hash["group_days"][day]
-              console.log(notifications_for_day);
+            var notifications_for_day_element = day_element.find('.notifications_for_day');
             $.each(notifications_for_day, function(i, notification_hash){
               $.each(notification_hash, function(notification_type, notification){
+                var stream_element = stream_element_template.clone();
                 console.log(notification_type);
                 console.log(notification);
-                $("#notifications_overlay .actor").
+                stream_element.find(".actor").
                   text(notification["actors"][0]["name"]).
                   attr("href", notification["actors"][0]["url"]);
+                console.log(notification["created_at"]);
+                stream_element.find('time').text(notification["created_at"]);
+                notifications_for_day_element.append(stream_element);
               });
             });
+            notifications_element.append(day_element);
           })
         }
       });
