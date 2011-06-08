@@ -1,5 +1,5 @@
 body > header {
-  background-color: $header_bg;
+  background-color: $header-bg;
   h1 {
     display: inline-block;
     margin: 0;
@@ -7,5 +7,11 @@ body > header {
       color: $title_color;
       text-decoration: none;
     }
+  }
+  h2 {
+    margin: .2em 0 0;
+    @extend .sans;
+    font-size: 1em;
+    color: $subtitle-color;
   }
 }

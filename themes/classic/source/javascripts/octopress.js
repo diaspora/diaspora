@@ -24,12 +24,17 @@ function addSidebarToggler() {
 function testFeatures() {
   var features = ['maskImage'];
   $(features).map(function(feature){
-    if(Modernizr.testAllProps(feature)) {
+    if (Modernizr.testAllProps(feature)) {
       $('html').addClass(feature);
     } else {
       $('html').addClass('no-'+feature);
     }
   });
+  if ("placeholder" in document.createElement("input")) {
+    $('html').addClass('placeholder');
+  } else {
+    $('html').addClass('no-placeholder');
+  }
 }
 
 function addDivLines(){

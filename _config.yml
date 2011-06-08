@@ -4,6 +4,7 @@ destination: public
 
 url: http://yoursite.com
 title: My Octopress Blog
+subtitle: A blogging framework for hackers.
 author: Your Name
 subscribe_rss: /atom.xml
 subscribe_email: http://feedburner.com/asdfasdf

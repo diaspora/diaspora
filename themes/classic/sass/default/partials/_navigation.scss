@@ -12,9 +12,9 @@ body > nav {
     @include background-clip(padding-box);
     margin: 0; padding: 0;
     .search {
-      padding: .25em .5em 0;
+      padding: .3em .5em 0;
       font-size: .85em;
-      line-height: 1em;
+      line-height: 1.1em;
       width: 95%;
       @include border-radius(.5em);
       @include background-clip(padding-box);
@@ -41,7 +41,6 @@ body > nav {
     ul {
       @include horizontal-list(0);
       float: left;
-      //float: right;
       display: block;
       padding-top: .25em;
     }
@@ -90,6 +89,12 @@ body > nav {
     form {
       width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 + 5px;
     }
+  }
+}
+.no-placeholder {
+  body > nav .search {
+    background: lighten($nav-bg, 15) image-url('search.png') .3em .25em no-repeat;
+    text-indent: 1.3em;
   }
 }
 .maskImage {
