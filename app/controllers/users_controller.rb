@@ -1,6 +1,7 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+
 class UsersController < ApplicationController
   require File.join(Rails.root, 'lib/diaspora/ostatus_builder')
   require File.join(Rails.root, 'lib/diaspora/exporter')
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
   end
 
   def update
-
     password_changed = false
     if u = params[:user]
       @user = current_user
@@ -52,16 +52,8 @@ class UsersController < ApplicationController
     end
 
     respond_to do |format|
-      format.js{
-        render :nothing => true, :status => 204
-      }
-      format.all{
-        if password_changed
-          redirect_to new_user_session_path
-        else
-          redirect_to edit_user_path
-        end
-      }
+      format.js   { render :nothing => true, :status => 204 }
+      format.all  { redirect_to password_changed ? new_user_session_path : edit_user_path }
     end
   end
 
@@ -74,20 +66,17 @@ class UsersController < ApplicationController
   end
 
   def public
-    user = User.find_by_username(params[:username])
-
-    if user
-      posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC')
-      director = Diaspora::Director.new
-      ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
+    if user = User.find_by_username(params[:username])
       respond_to do |format|
-        format.atom{
+        format.atom do
+          posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC')
+          director = Diaspora::Director.new
+          ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
           render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
-        }
-        format.html{
-          redirect_to person_path(user.person.id)
-      }
-    end
+        end
+
+        format.html { redirect_to person_path(user.person.id) }
+      end
     else
       redirect_to root_url, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
     end
@@ -112,7 +101,6 @@ class UsersController < ApplicationController
       @friends = service ? service.finder(:local => true) : []
       @friends ||= []
     end
-
 
     if @step == 3 && @friends.length == 0
       @user.update_attributes(:getting_started => false)

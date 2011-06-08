@@ -34,7 +34,7 @@ describe UsersController do
     end
 
     it 'redirects to a profile page if html is requested' do
-
+      Diaspora::OstatusBuilder.should_not_receive(:new)
       get :public, :username => @user.username
       response.should be_redirect
     end
@@ -44,7 +44,6 @@ describe UsersController do
     before do
       @params  = { :id => @user.id,
                   :user => { :diaspora_handle => "notreal@stuff.com" } }
-
     end
 
     it "doesn't overwrite random attributes" do
@@ -133,6 +132,7 @@ describe UsersController do
       Resque.should_receive(:enqueue).with(Job::DeleteAccount, alice.id)
       delete :destroy
     end
+
     it 'locks the user out' do
       delete :destroy
       alice.reload.access_locked?.should be_true
