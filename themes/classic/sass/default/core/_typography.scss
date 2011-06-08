@@ -7,11 +7,10 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 // Fonts
 //@include font-face("Adelle", font-files("adellebasic_bold-webfont.woff", woff, "adellebasic_bold-webfont.ttf", truetype, "adellebasic_bold-webfont.svg#webfontKykxqSyz", svg), $eot: "adellebasic_bold-webfont.eot" );
 .heading {
-  font-family: "Georgia", "PT Sans", "Helvetica Neue", Arial, sans-serif;
-  font-weight: bold;
+  font-family: "PT Serif", "Georgia", "Helvetica Neue", Arial, sans-serif;
 }
-.sans { font-family: "Helvetica Neue", Arial, sans-serif; }
-.serif { font-family: Georgia, Times, "Times New Roman", serif; }
+.sans { font-family: "PT Sans", "Helvetica Neue", Arial, sans-serif; }
+.serif { font-family: "PT Serif", Georgia, Times, "Times New Roman", serif; }
 .mono { font-family: $mono; }
 
 body > header h1 {
@@ -28,7 +27,6 @@ body {
   @extend .serif;
 }
 
-
 #{headings()}{
   @extend .heading;
   text-rendering: optimizelegibility;
@@ -36,8 +34,8 @@ body {
   font-weight: normal;
 }
 h1 {
-  font-size: 2em;
-  line-height: 1.3334em
+  font-size: 2.4em;
+  line-height: 1.2em
 }
 h2, section h1 {
   font-size: 1.5em;

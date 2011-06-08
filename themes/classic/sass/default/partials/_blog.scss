@@ -1,11 +1,11 @@
+$border: inline-image('dotted-border.png');
 #articles {
   > article {
     padding-bottom: 1em;
     &:last-child { margin-bottom: 0; border-bottom: none; }
     h2 {
       padding-top: 0.8em;
-      //border-top: 3px double $type-border;
-      background: inline-image('dotted-border.png') top left repeat-x;
+      background: $border top left repeat-x;
     }
     .byline + time:before, .byline + time +time:before {
       content: "\2022 ";
@@ -17,7 +17,7 @@
       padding-top: 2em;
       margin-bottom: 1.5em;
       padding-bottom: 1.5em;
-      background: inline-image('dotted-border.png') bottom left repeat-x;
+      background: $border bottom left repeat-x;
       h1 {
         margin: 0;
         a { text-decoration: none;
@@ -30,7 +30,8 @@
         padding-top: 0;
         margin: 0;
         font-style: italic;
-        font-family: "Georgia", Palatino, Times, "Times New Roman";
+        @extend .sans;
+        //font-family: "Georgia", Palatino, Times, "Times New Roman";
       }
     }
     .entry-content {

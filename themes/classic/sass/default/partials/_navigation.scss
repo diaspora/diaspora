@@ -95,7 +95,7 @@ body > nav {
 .maskImage {
   ul[role=subscription] { li, a { border: 0; padding: 0; }}
   a[rel=subscribe-rss]{
-    position: relative; top: -2px;
+    position: relative; top: 0px;
     width: image-width('rss.png');
     height: image-height('rss.png');
     @include mask-image('rss.png');

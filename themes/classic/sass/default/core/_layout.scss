@@ -14,7 +14,7 @@ $sidebar-width-wide: 300px;
 //html {  }
 body {
   -webkit-text-size-adjust: none;
-  max-width: 1400px;
+  max-width: 1350px;
   position: relative;
   margin: 0 auto;
   > header, > nav, > footer, #articles > article {
@@ -112,7 +112,6 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-  body > * { font-size: 1.1em; }
   body > header {
     font-size: 1.3em;
   }
