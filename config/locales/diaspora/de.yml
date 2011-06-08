@@ -541,7 +541,7 @@ de:
       not_connected: "nicht verbunden"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Mit Tumblr verbinden"
       connect_to_twitter: "Mit Twitter verbinden"
       disconnect: "Verbindung entfernen"
       edit_services: "Dienste bearbeiten"
@@ -649,7 +649,7 @@ de:
   undo: "Rückgängig machen?"
   username: "Benutzername"
   users: 
-    destroy: "Konto erfolgreich geschlossen."
+    destroy: "Dein Konto wurde gesperrt. Es kann 20 Minuten dauern, bis wir die Schließung deines Kontos abgeschlossen haben. Vielen Dank, dass du Diaspora ausprobiert hast."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert hat?"
       change: "Ändern"

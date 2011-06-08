@@ -127,8 +127,8 @@ cs:
     zero: "žádné aspekty"
   back: "Zpět"
   bookmarklet: 
-    explanation: "Přidat na Diaspora odkudkoliv do záložek %{link}."
-    explanation_link_text: "tento odkaz"
+    explanation: "Příspěvek na Diasporu odkudkoliv pomocí %{link}."
+    explanation_link_text: "tohoto odkazu"
     heading: "Diaspora Bookmarklet"
     post_something: "Poslat něco na Diasporu"
     post_success: "Odesláno! Zavírám!"
