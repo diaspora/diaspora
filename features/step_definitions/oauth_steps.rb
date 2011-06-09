@@ -7,23 +7,28 @@ Given /^Chubbies has been killed$/ do
 end
 
 Given /^Chubbies is registered on my pod$/ do
-  OAuth2::Provider.client_class.create! :name => 'Chubbies',
-    :oauth_identifier => 'abcdefgh12345678',
-    :oauth_secret => 'secret'
+  client = OAuth2::Provider.client_class.create_from_manifest!("localhost:#{Chubbies::PORT}/manifest.json")
+  params = {:client_id => client.oauth_identifier,
+            :client_secret => client.oauth_secret,
+            :host => "localhost:9887"}
+  RestClient.post("localhost:#{Chubbies::PORT}/register", params)
 end
 
 And /^I should see my "([^"]+)"/ do |code|
   page.should have_content(@me.person.instance_eval(code).to_s)
 end
 
+And /^there is only one Chubbies$/ do
+  OAuth2::Provider.client_class.where(:name => "Chubbies").count.should == 1
+end
+
 When /^I try to authorize Chubbies$/ do
   # We need to reset the tokens saved in Chubbies,
   # as we are clearing the Diaspora DB every scenario
-  Then 'I visit "/reset" on Chubbies'
-  Then 'I visit "/" on Chubbies'
+  Then 'I visit "/new" on Chubbies'
   ###
   And "I fill in \"Diaspora Handle\" with \"#{@me.diaspora_handle}\""
-  And 'I press "Log in with Diaspora"'
+  And 'I press "Connect to Diaspora"'
   Then 'I should be on the new user session page'
   And "I fill in \"Username\" with \"#{@me.username}\""
   And "I fill in \"Password\" with \"#{@me.password}\""
@@ -44,13 +49,13 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      Process.exec "cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile DIASPORA_PORT=9887 bundle exec rackup -p #{PORT} 2> /dev/null"
+      Process.exec "cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle exec rackup -p #{PORT} 2> /dev/null 1> /dev/null"
     end
 
     at_exit do
       Chubbies.kill
     end
-    
+
     while(!running?) do
       sleep(1)
     end
@@ -69,7 +74,10 @@ class Chubbies
 
   def self.running?
     begin
-      RestClient.get("localhost:#{PORT}")
+      begin
+      RestClient.get("localhost:#{PORT}/running")
+      rescue RestClient::ResourceNotFound
+      end
       true
     rescue Errno::ECONNREFUSED
       false

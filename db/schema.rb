@@ -230,6 +230,8 @@ ActiveRecord::Schema.define(:version => 20110603212633) do
     t.string "icon_url"
   end
 
+  add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
+
   create_table "people", :force => true do |t|
     t.string   "guid",                  :null => false
     t.text     "url",                   :null => false
