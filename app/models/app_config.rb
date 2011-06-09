@@ -37,6 +37,24 @@ HELP
 
     super
     
+    if self[:ca_file].blank? && Rails.env.development?
+      OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE 
+    end
+
+    if no_cert_file_in_prod?
+      $stderr.puts <<-HELP
+******** Diaspora does not know where your SSL-CA-Certificates file is. **********
+  Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
+    CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
+    Debian: '/etc/ssl/certs/ca-certificates.crt'
+
+  Example:
+    ca_file: '/etc/ssl/certs/ca-certificates.crt'
+******** Thanks for being secure! **********
+HELP
+      Process.exit(1)
+    end
+
     normalize_pod_url
     normalize_admins
   end
@@ -47,6 +65,10 @@ HELP
 
   def self.no_config_file?
     !File.exists?(@source)
+  end
+
+  def self.no_cert_file_in_prod?
+    (Rails.env == "production") && !File.exists?(self[:ca_file])
   end
 
   def self.have_old_config_file?
