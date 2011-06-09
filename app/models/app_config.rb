@@ -5,11 +5,21 @@ require 'uri'
 
 class AppConfig < Settingslogic
 
-  source File.join(Rails.root, "config", "application.yml")
+  def self.travis?
+    ENV["TRAVIS"]
+  end
+
+  def self.source_file_name
+    file_name = "application.yml"
+    file_name << ".example" if travis?
+    File.join(Rails.root, "config", file_name)
+  end
+
+  source source_file_name
   namespace Rails.env
     
   def self.load!
-    if no_config_file? && !have_old_config_file?
+    if no_config_file? && !have_old_config_file? && !travis?
       $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
 Please do the following:
@@ -36,7 +46,6 @@ HELP
     end
 
     super
-
 
     if no_cert_file_in_prod?
       $stderr.puts <<-HELP

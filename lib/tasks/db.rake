@@ -4,7 +4,7 @@
 
 namespace :db do
   desc "rebuild and prepare test db"
-  task :rebuild => [:drop, :create, 'schema:load', 'db:test:prepare']
+  task :rebuild => [:drop, :create, :migrate, 'db:test:prepare']
 
   namespace :integration do
     # desc 'Check for pending migrations and load the integration schema'
