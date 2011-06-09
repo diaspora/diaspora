@@ -2,5 +2,5 @@ rvm:
   - ree
   - 1.9.2
 
-script: "rake cruise"
+script: "bundle exec rake cruise"
 env: "TRAVIS=true"
