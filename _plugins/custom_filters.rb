@@ -25,7 +25,6 @@ module OctopressFilters
     RubyPants.new(input).to_html
   end
   def titlecase(input)
-    require 'titlecase'
     input.titlecase
   end
   def datetime(date)
