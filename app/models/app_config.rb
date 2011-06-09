@@ -7,6 +7,10 @@ class AppConfig < Settingslogic
 
   source File.join(Rails.root, "config", "application.yml")
   namespace Rails.env
+    
+  if self[:ca_file].blank? && Rails.env.development?
+    OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE 
+  end
 
   def self.load!
     if no_config_file? && !have_old_config_file?
@@ -36,10 +40,7 @@ HELP
     end
 
     super
-    
-    if self[:ca_file].blank? && Rails.env.development?
-      OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE 
-    end
+
 
     if no_cert_file_in_prod?
       $stderr.puts <<-HELP
