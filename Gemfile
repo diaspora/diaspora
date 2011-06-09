@@ -17,7 +17,7 @@ gem 'devise_invitable', '0.5.0'
 
 #Authentication
 gem 'omniauth', '0.2.6'
-gem 'twitter', '1.5.0' 
+gem 'twitter', '1.5.0'
 
 gem 'oauth2-provider', '~> 0.0.0'
 
@@ -93,4 +93,6 @@ group :test do
   gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
+
+  gem 'diaspora-client', :path => '~/workspace/diaspora-client'
 end

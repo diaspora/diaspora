@@ -3,8 +3,8 @@ source :rubygems
 gem 'sinatra'
 gem 'haml'
 
-gem 'httparty'
 gem 'json'
 gem 'shotgun'
 gem 'sqlite3'
 gem 'activerecord', '3.0.3'
+gem 'diaspora-client', :path => '~/workspace/diaspora-client'
