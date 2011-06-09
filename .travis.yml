@@ -1,0 +1,6 @@
+rvm:
+  - ree
+  - 1.9.2
+
+script: "rake cruise"
+env: "TRAVIS=true"

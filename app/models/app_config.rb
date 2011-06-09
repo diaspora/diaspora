@@ -9,7 +9,7 @@ class AppConfig < Settingslogic
   namespace Rails.env
 
   def self.load!
-    if no_config_file? && !have_old_config_file?
+    if no_config_file? && !have_old_config_file? && !travis?
       $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
 Please do the following:
@@ -36,7 +36,7 @@ HELP
     end
 
     super
-    
+
     normalize_pod_url
     normalize_admins
   end
@@ -51,6 +51,10 @@ HELP
 
   def self.have_old_config_file?
     File.exists?(File.join(Rails.root, "config", "app.yml")) || (File.exists?(File.join(Rails.root, "config", "app_config.yml")))
+  end
+
+  def self.travis?
+    ENV["TRAVIS"]
   end
 
   def self.normalize_pod_url
