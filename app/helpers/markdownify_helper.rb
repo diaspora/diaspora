@@ -22,11 +22,11 @@ module MarkdownifyHelper
   end
 
   def process_links(message)
-    message.gsub!(/\[([^\[]+)\]\(([^ ]+) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\)/) do |m|
+    message.gsub!(/\[\s*([^\[]+)\s*\]\(\s*([^ ]+\s*) \&quot;(([^&]|(&[^q])|(&q[^u])|(&qu[^o])|(&quo[^t])|(&quot[^;]))+)\&quot;\s*\)/) do |m|
       escape = "\\"
-      link = $1
-      url = $2
-      title = $3
+      link = $1.strip
+      url = $2.strip
+      title = $3.strip
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
@@ -34,10 +34,10 @@ module MarkdownifyHelper
       res
     end
 
-    message.gsub!(/\[([^\[]+)\]\(([^ ]+)\)/) do |m|
+    message.gsub!(/\[\s*([^\[]+)\s*\]\(\s*([^ ]+)\s*\)/) do |m|
       escape = "\\"
-      link = $1
-      url = $2
+      link = $1.strip
+      url = $2.strip
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
