@@ -1,5 +1,6 @@
-PATH
-  remote: ~/workspace/diaspora-client
+GIT
+  remote: git@github.com:diaspora/diaspora-client.git
+  revision: c84fe1090fcbc16407582deca804fad48bf11ead
   specs:
     diaspora-client (0.0.0)
       activerecord
@@ -20,13 +21,13 @@ GEM
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
     activesupport (3.0.3)
-    addressable (2.2.6)
+    addressable (2.2.4)
     arel (2.0.10)
     builder (2.1.2)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
-      rack (>= 1.1.0, < 2)
+      rack (< 2, >= 1.1.0)
     haml (3.0.18)
     i18n (0.6.0)
     json (1.4.6)

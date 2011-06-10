@@ -37,8 +37,9 @@ GIT
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
-PATH
-  remote: ~/workspace/diaspora-client
+GIT
+  remote: git@github.com:diaspora/diaspora-client.git
+  revision: c84fe1090fcbc16407582deca804fad48bf11ead
   specs:
     diaspora-client (0.0.0)
       activerecord
