@@ -541,7 +541,7 @@ ru:
       not_connected: "не соединён"
     index: 
       connect_to_facebook: "Подключение к Facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Подключение к Tumblr"
       connect_to_twitter: "Подключение к Twitter"
       disconnect: "разъединить"
       edit_services: "Редактировать сервисы"
@@ -649,7 +649,7 @@ ru:
   undo: "Отменить?"
   username: "Имя пользователя"
   users: 
-    destroy: "Аккаунт успешно закрыт."
+    destroy: "Ваш Аккаунт заблокирован. Примерно через 20 минут Аккаунт будет закрыт. Благодарим Вас."
     edit: 
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: "Изменение"

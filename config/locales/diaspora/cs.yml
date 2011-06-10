@@ -637,7 +637,7 @@ cs:
       daniels_account: "Daniel's Diaspora account"
       generate_a_token: "Vytvořit token"
       love_to_try: "Rádi bychom, aby jste to vyzkoušeli."
-      making_the_connection: "Vytváří se spojení"
+      making_the_connection: "Vytvoření spojení"
       screenshot_explanation: "%{link1}. Tato konkrétní cubby je připojena na %{link2}."
       sign_up_today: "Registrujte se ještě dnes!"
       typical_userpage: "Typická uživatelská stránka na cubbi.es"
