@@ -25,9 +25,13 @@ task :install, :theme do |t, args|
   # copy theme into working Jekyll directories
   theme = args.theme || 'classic'
   puts "## Copying "+theme+" theme to Jekyll paths"
-  system "cp -R themes/"+theme+"/source source"
-  system "cp -R themes/"+theme+"/sass sass"
-  # system "cp -R themes/"+theme+"/_plugins/ _plugins/"
+  system "mkdir -p #{source}; cp -R themes/"+theme+"/source/ #{source}/"
+  system "mkdir -p sass; cp -R themes/"+theme+"/sass/ sass/"
+  system "mkdir -p _plugins; cp -R themes/"+theme+"/_plugins/ _plugins/"
+  system "mkdir -p #{source}/_posts";
+  puts "## Layouts, images, and javascritps from the #{theme} theme have been installed into ./#{source}"
+  puts "## Sass stylesheet sources from the #{theme} theme have been installed into ./sass"
+  puts "## Plugins from the #{theme} theme have been installed into ./_plugins"
 end
 
 #######################
