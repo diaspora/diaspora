@@ -3,6 +3,7 @@
 .sass-cache
 .gist_cache
 _cache
+_assets
 public
 source/_stash
 vendor

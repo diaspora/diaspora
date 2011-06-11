@@ -22,6 +22,7 @@ GEM
     maruku (0.6.0)
       syntax (>= 1.0.0)
     rake (0.9.0)
+    rb-fsevent (0.4.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)
     sass (3.1.1)
@@ -36,5 +37,6 @@ DEPENDENCIES
   haml (>= 3.1)
   jekyll
   rake
+  rb-fsevent
   rdiscount
   rubypants

@@ -1,6 +1,7 @@
 # Required configuration
 source: source
 destination: public
+port: 4000
 
 url: http://yoursite.com
 title: My Octopress Blog
@@ -16,7 +17,7 @@ simple_search: http://google.com/search
 
 # Optional configurations
 
-# For RSS
+# For RSS Feed
 email:
 
 # Twitter
