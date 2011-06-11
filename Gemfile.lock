@@ -2,8 +2,6 @@ GEM
   remote: http://rubygems.org/
   specs:
     RedCloth (4.2.7)
-    activesupport (3.0.7)
-    addressable (2.2.6)
     chunky_png (1.2.0)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
@@ -12,45 +10,22 @@ GEM
       fssm (>= 0.2.7)
       sass (~> 3.1)
     directory_watcher (1.4.0)
-    em-websocket (0.2.1)
-      addressable (>= 2.1.1)
-      eventmachine (>= 0.12.9)
-    eventmachine (0.12.10)
     fast-stemmer (1.0.0)
     fssm (0.2.7)
-    guard (0.3.4)
-      thor (~> 0.14.6)
-    guard-livereload (0.1.11)
-      em-websocket (~> 0.2.0)
-      guard (>= 0.2.2)
-      json (~> 1.5.1)
     haml (3.1.1)
-    i18n (0.6.0)
     jekyll (0.10.0)
       classifier (>= 1.3.1)
       directory_watcher (>= 1.1.1)
       liquid (>= 1.9.0)
       maruku (>= 0.5.9)
-    json (1.5.1)
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
-    rack (1.3.0)
     rake (0.9.0)
-    rb-fsevent (0.4.0)
     rdiscount (1.6.8)
     rubypants (0.2.0)
     sass (3.1.1)
-    serve (1.1.0)
-      activesupport (~> 3.0.7)
-      i18n (~> 0.6.0)
-      rack (~> 1.3.0)
-      tilt (~> 1.3.1)
-      tzinfo (~> 0.3.27)
     syntax (1.0.0)
-    thor (0.14.6)
-    tilt (1.3.2)
-    tzinfo (0.3.27)
 
 PLATFORMS
   ruby
@@ -58,11 +33,8 @@ PLATFORMS
 DEPENDENCIES
   RedCloth
   compass (>= 0.11)
-  guard-livereload
   haml (>= 3.1)
   jekyll
   rake
-  rb-fsevent
   rdiscount
   rubypants
-  serve

@@ -9,25 +9,16 @@ posts       = "_posts"    # directory for blog files
 post_format = "markdown"  # file format for new posts when using the post rake task
 
 ## -- Rsync Deploy config -- ##
+# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user      = "user@host.com"    # for rsync deployment
 document_root = "~/document_root/" # for rsync deployment
-## ---- ##
 
 ## -- Github Pages deploy config -- ##
 # Read http://pages.github.com for guidance
-# You can deploy to github pages with `rake push_github` or change the default push task below to :push_github
-# If you're not using this, you can remove it
+# You can deploy to github pages with `rake push_github` or change the default push task to :push_github
 source_branch = "source" # this compiles to your deploy branch
 deploy_branch = "master" # For user pages, use "master" for project pages use "gh-pages"
-## ---- ##
 
-def ok_failed(condition)
-  if (condition)
-    puts "OK"
-  else
-    puts "FAILED"
-  end
-end
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|
@@ -36,22 +27,21 @@ task :install, :theme do |t, args|
   puts "## Copying "+theme+" theme to Jekyll paths"
   system "cp -R themes/"+theme+"/source source"
   system "cp -R themes/"+theme+"/sass sass"
-  system "cp -R themes/"+theme+"/_plugins/ _plugins/"
+  # system "cp -R themes/"+theme+"/_plugins/ _plugins/"
 end
 
-## if you're deploying with github, change the default deploy to push_github
-desc "default push task"
-task :push => [:push_rsync] do
+#######################
+# Working with Jekyll #
+#######################
+
+desc "Watch the site and regenerate when it changes"
+task :watch do
+  system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; wait"
 end
 
-desc "Generate and deploy task"
-task :deploy => [:integrate, :generate, :push] do
-end
-
-desc "Generate jekyll site"
-task :generate do
-  puts "## Generating Site with Jekyll"
-  system "jekyll"
+desc "preview the site in a web browser"
+task :preview do
+  system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto --server & jekyllPid=$!; compass watch & compassPid=$!; wait"
 end
 
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
@@ -83,24 +73,40 @@ task :integrate do
   FileUtils.mv Dir.glob("#{source}/#{stash}/*.*"), "#{source}/#{posts}/"
 end
 
-desc "list tasks"
-task :list do
-  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).to_sentence}"
-  puts "(type rake -T for more detail)\n\n"
+##############
+# Deploying  #
+##############
+
+## if you're deploying with github, change the default deploy to push_github
+desc "default push task"
+task :push => [:push_rsync] do
 end
 
-desc "Watch the site and regenerate when it changes"
-task :watch do
-  system "trap 'kill $jekyllPid $guardPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; guard & guardPid=$!; wait"
+desc "Generate and deploy task"
+multitask :deploy => [:integrate, :generate, :push] do
 end
 
-desc "generate and deploy website via rsync"
-multitask :push_rsync do
+desc "Generate jekyll site"
+task :generate do
+  puts "## Generating Site with Jekyll"
+  system "jekyll"
+end
+
+def ok_failed(condition)
+  if (condition)
+    puts "OK"
+  else
+    puts "FAILED"
+  end
+end
+
+desc "Deploy website via rsync"
+task :push_rsync do
   puts "## Deploying website via Rsync"
   ok_failed system("rsync -avz --delete #{site}/ #{ssh_user}:#{document_root}")
 end
 
-desc "deploy website to github user pages"
+desc "deploy website to github pages"
 multitask :push_github do
   puts "## Deploying #{deploy_branch} branch to Github Pages "
   require 'git'
@@ -122,28 +128,10 @@ multitask :push_github do
   repo.branch("#{source_branch}").checkout
 end
 
-desc "start up a web server on the output files"
-task :start_server => :stop_server do
-  print "## Starting serve..."
-  system("serve #{site} #{port} > /dev/null 2>&1 &")
-  sleep 1
-  pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
-  ok_failed !pid.empty?
-  system "open http://localhost:#{port}" unless pid.empty?
-end
 
-desc "stop the web server"
-task :stop_server do
-  pid = `ps auxw | awk '/bin\\/serve #{site} #{port}/ { print $2 }'`.strip
-  if pid.empty?
-    puts "## Adsf is not running"
-  else
-    print "## Stoping adsf..."
-    ok_failed system("kill -9 #{pid}")
-  end
-end
 
-desc "preview the site in a web browser"
-task :preview do
-  system "trap 'kill $servePid $jekyllPid $guardPid' Exit; serve #{site} #{port} > /dev/null 2>&1 & servePid=$!; jekyll --auto & jekyllPid=$!; guard & guardPid=$!; compass compile; open http://localhost:#{port}; wait"
+desc "list tasks"
+task :list do
+  puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).to_sentence}"
+  puts "(type rake -T for more detail)\n\n"
 end
