@@ -34,6 +34,8 @@ When /^I try to authorize Chubbies$/ do
   And "I fill in \"Password\" with \"#{@me.password}\""
   And 'I press "Sign in"'
   Then 'I should be on the oauth authorize page'
+  Then 'I should see "Chubbies"'
+  And 'I should see "The best way to chub."'
 end
 
 When /^I visit "([^"]+)" on Chubbies$/ do |path|

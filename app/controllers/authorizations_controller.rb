@@ -1,7 +1,7 @@
 class AuthorizationsController < ApplicationController
   include OAuth2::Provider::Rack::AuthorizationCodesSupport
   before_filter :authenticate_user!, :except => :token
-  before_filter :block_invalid_authorization_code_requests, :except => :token
+  before_filter :block_invalid_authorization_code_requests, :except => [:token, :index]
 
   skip_before_filter :verify_authenticity_token, :only => :token
 
@@ -32,6 +32,11 @@ class AuthorizationsController < ApplicationController
     else
       render :text => "bad request", :status => 403
     end
+  end
+
+  def index
+    @authorizations = current_user.authorizations
+    @applications = current_user.applications
   end
 end
 

@@ -10,6 +10,7 @@ en:
   profile: "Profile"
   account: "Account"
   _services: "Services"
+  _applications: "Applications"
   _photos: "photos"
   ok: "OK"
   cancel: "Cancel"

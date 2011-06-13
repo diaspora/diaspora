@@ -68,10 +68,6 @@ Diaspora::Application.routes.draw do
     resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
   end
 
-  get "/oauth/authorize" => "authorizations#new"
-  post "/oauth/authorize" => "authorizations#create"
-
-  post "/oauth/token" => "authorizations#token"
 
   #Temporary token_authenticable route
   resource :token, :only => [:show, :create]
@@ -118,6 +114,13 @@ Diaspora::Application.routes.draw do
 
 
   # External
+
+
+  get "/oauth/authorize" => "authorizations#new"
+  post "/oauth/authorize" => "authorizations#create"
+
+  post "/oauth/token" => "authorizations#token"
+  resources :authorizations, :only => [:index]
 
   resources :services, :only => [:index, :destroy]
   controller :services do
