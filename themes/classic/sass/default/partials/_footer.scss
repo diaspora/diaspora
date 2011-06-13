@@ -9,6 +9,8 @@ body > footer {
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
+  margin-bottom: 3em;
+  @include border-bottom-radius(.4em);
   z-index: 1;
   a {
     @include link-colors($nav-color, $nav-color-hover);
