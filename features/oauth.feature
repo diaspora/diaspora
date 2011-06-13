@@ -37,6 +37,18 @@ Feature: oauth
     When I try to authorize Chubbies
 
     When I press "Authorize"
+
     And I am on the authorizations page
     Then I should see "Chubbies"
     And I should see "The best way to chub."
+
+  Scenario: Removing Chubbies from the authorized applications list de-authorizes it
+    When I try to authorize Chubbies
+
+    When I press "Authorize"
+
+    And I am on the authorizations page
+    And I preemptively confirm the alert
+    And I follow "Delete"
+    Then I visit "/account?id=1" on Chubbies
+    Then I should see "Token invalid"

@@ -1,7 +1,7 @@
 class AuthorizationsController < ApplicationController
   include OAuth2::Provider::Rack::AuthorizationCodesSupport
   before_filter :authenticate_user!, :except => :token
-  before_filter :block_invalid_authorization_code_requests, :except => [:token, :index]
+  before_filter :block_invalid_authorization_code_requests, :except => [:token, :index, :destroy]
 
   skip_before_filter :verify_authenticity_token, :only => :token
 
@@ -37,6 +37,13 @@ class AuthorizationsController < ApplicationController
   def index
     @authorizations = current_user.authorizations
     @applications = current_user.applications
+  end
+
+  def destroy
+    ## ID is actually the id of the client
+    auth = current_user.authorizations.where(:client_id => params[:id]).first
+    auth.revoke
+    redirect_to authorizations_path
   end
 end
 

@@ -120,7 +120,7 @@ Diaspora::Application.routes.draw do
   post "/oauth/authorize" => "authorizations#create"
 
   post "/oauth/token" => "authorizations#token"
-  resources :authorizations, :only => [:index]
+  resources :authorizations, :only => [:index, :destroy]
 
   resources :services, :only => [:index, :destroy]
   controller :services do

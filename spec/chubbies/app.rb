@@ -57,8 +57,12 @@ module Chubbies
     get '/account' do
       if params['id'] && user = User.where(:id => params['id']).first
         if user.access_token
-          @resource_response = user.access_token.token.get("/api/v0/me")
-          haml :response
+          begin 
+            @resource_response = user.access_token.token.get("/api/v0/me")
+            haml :response
+          rescue OAuth2::AccessDenied 
+            "Token invalid"
+          end
         else
           "No access token."
         end
