@@ -26,12 +26,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
 
-  cattr_reader :per_page
-  @@per_page = 10
-
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
   end
+
   def user_refs
     if AspectVisibility.exists?(:post_id => self.id)
       self.post_visibilities.count + 1
@@ -63,6 +61,7 @@ class Post < ActiveRecord::Base
     }
   end
 
+  # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
   def mutable?
     false
   end
@@ -79,6 +78,9 @@ class Post < ActiveRecord::Base
     end
   end
 
+  # @param [User] user The user that is receiving this post.
+  # @param [Person] person The person who dispatched this post to the
+  # @return [void]
   def receive(user, person)
     #exists locally, but you dont know about it
     #does not exsist locally, and you dont know about it

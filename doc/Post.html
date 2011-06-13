@@ -287,7 +287,7 @@ Copyright &#169; 2010, Diaspora Inc. This file is
         <li class="public ">
   <span class="summary_signature">
     
-      <a href="#receive-instance_method" title="#receive (instance method)">- (Object) <strong>receive</strong>(user, person) </a>
+      <a href="#receive-instance_method" title="#receive (instance method)">- (void) <strong>receive</strong>(user, person) </a>
     
 
     
@@ -443,12 +443,12 @@ The list of people that should receive this Post.
       <pre class="lines">
 
 
-118
-119
-120</pre>
+121
+122
+123</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 118</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 121</span>
 
 <span class='def def kw'>def</span> <span class='activity_streams? fid id'>activity_streams?</span>
   <span class='false false kw'>false</span>
@@ -611,19 +611,62 @@ The list of people that should receive this Post.
       <div class="method_details ">
   <p class="signature " id="receive-instance_method">
   
-    - (<tt>Object</tt>) <strong>receive</strong>(user, person) 
+    - (<tt>void</tt>) <strong>receive</strong>(user, person) 
   
 
   
-</p><table class="source_code">
+</p><div class="docstring">
+  <div class="discussion">
+    <p class="note returns_void">This method returns an undefined value.</p>
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Parameters:</h3>
+<ul class="param">
+  
+    <li>
+      
+        <span class='name'>user</span>
+      
+      
+        <span class='type'>(<tt>User</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The user that is receiving this post.
+</p>
+</div>
+      
+    </li>
+  
+    <li>
+      
+        <span class='name'>person</span>
+      
+      
+        <span class='type'>(<tt>Person</tt>)</span>
+      
+      
+      
+        &mdash;
+        <div class='inline'><p>
+The person who dispatched this post to the
+</p>
+</div>
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
   <tr>
     <td>
       <pre class="lines">
 
 
-82
-83
-84
 85
 86
 87
@@ -655,10 +698,13 @@ The list of people that should receive this Post.
 113
 114
 115
-116</pre>
+116
+117
+118
+119</pre>
     </td>
     <td>
-      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 82</span>
+      <pre class="code"><span class="info file"># File 'app/models/post.rb', line 85</span>
 
 <span class='def def kw'>def</span> <span class='receive identifier id'>receive</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='comma token'>,</span> <span class='person identifier id'>person</span><span class='rparen token'>)</span>
   <span class='comment val'>#exists locally, but you dont know about it</span>
@@ -831,7 +877,7 @@ The list of subscribers to this post
 </div>
     
     <div id="footer">
-  Generated on Mon Jun 13 16:11:16 2011 by 
+  Generated on Mon Jun 13 16:23:47 2011 by 
   <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
   0.7.1 (ruby-1.8.7).
 </div>
