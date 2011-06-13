@@ -1,0 +1,847 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: PhotosController
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (P)</a> &raquo; 
+    
+    
+    <span class="title">PhotosController</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: PhotosController
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="ApplicationController.html" title="ApplicationController (class)">ApplicationController</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActionController::Base</li>
+          
+            <li class="next"><span class='object_link'><a href="ApplicationController.html" title="ApplicationController (class)">ApplicationController</a></span></li>
+          
+            <li class="next">PhotosController</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/controllers/photos_controller.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Copyright &#169; 2010, Diaspora Inc. This file is
+</p>
+<pre class="code">
+  <span class='licensed identifier id'>licensed</span> <span class='under identifier id'>under</span> <span class='the identifier id'>the</span> <span class='Affero constant id'>Affero</span> <span class='General constant id'>General</span> <span class='Public constant id'>Public</span> <span class='License constant id'>License</span> <span class='version identifier id'>version</span> <span class='integer val'>3</span> <span class='or or kw'>or</span> <span class='later identifier id'>later</span><span class='dot token'>.</span>  <span class='See constant id'>See</span>
+  <span class='the identifier id'>the</span> <span class='COPYRIGHT constant id'>COPYRIGHT</span> <span class='file identifier id'>file</span><span class='dot token'>.</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div>
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#create-instance_method" title="#create (instance method)">- (Object) <strong>create</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#destroy-instance_method" title="#destroy (instance method)">- (Object) <strong>destroy</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#edit-instance_method" title="#edit (instance method)">- (Object) <strong>edit</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#index-instance_method" title="#index (instance method)">- (Object) <strong>index</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#make_profile_photo-instance_method" title="#make_profile_photo (instance method)">- (Object) <strong>make_profile_photo</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#show-instance_method" title="#show (instance method)">- (Object) <strong>show</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update-instance_method" title="#update (instance method)">- (Object) <strong>update</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="ApplicationController.html" title="ApplicationController (class)">ApplicationController</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="ApplicationController.html#after_sign_in_path_for-instance_method" title="ApplicationController#after_sign_in_path_for (method)">#after_sign_in_path_for</a></span>, <span class='object_link'><a href="ApplicationController.html#clear_gc_stats-instance_method" title="ApplicationController#clear_gc_stats (method)">#clear_gc_stats</a></span>, <span class='object_link'><a href="ApplicationController.html#ensure_http_referer_is_set-instance_method" title="ApplicationController#ensure_http_referer_is_set (method)">#ensure_http_referer_is_set</a></span>, <span class='object_link'><a href="ApplicationController.html#ensure_page-instance_method" title="ApplicationController#ensure_page (method)">#ensure_page</a></span>, <span class='object_link'><a href="ApplicationController.html#grammatical_gender-instance_method" title="ApplicationController#grammatical_gender (method)">#grammatical_gender</a></span>, <span class='object_link'><a href="ApplicationController.html#redirect_unless_admin-instance_method" title="ApplicationController#redirect_unless_admin (method)">#redirect_unless_admin</a></span>, <span class='object_link'><a href="ApplicationController.html#set_git_header-instance_method" title="ApplicationController#set_git_header (method)">#set_git_header</a></span>, <span class='object_link'><a href="ApplicationController.html#set_grammatical_gender-instance_method" title="ApplicationController#set_grammatical_gender (method)">#set_grammatical_gender</a></span>, <span class='object_link'><a href="ApplicationController.html#set_header_data-instance_method" title="ApplicationController#set_header_data (method)">#set_header_data</a></span>, <span class='object_link'><a href="ApplicationController.html#set_invites-instance_method" title="ApplicationController#set_invites (method)">#set_invites</a></span>, <span class='object_link'><a href="ApplicationController.html#set_locale-instance_method" title="ApplicationController#set_locale (method)">#set_locale</a></span>, <span class='object_link'><a href="ApplicationController.html#which_action_and_user-instance_method" title="ApplicationController#which_action_and_user (method)">#which_action_and_user</a></span></p>
+
+  
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="create-instance_method">
+  
+    - (<tt>Object</tt>) <strong>create</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 40</span>
+
+<span class='def def kw'>def</span> <span class='create identifier id'>create</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='raise identifier id'>raise</span> <span class='unless unless_mod kw'>unless</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span>
+
+    <span class='if if kw'>if</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>&quot;all&quot;</span>
+      <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='x identifier id'>x</span><span class='bitor op'>|</span> <span class='x identifier id'>x</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span>
+    <span class='elsif elsif kw'>elsif</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Hash constant id'>Hash</span><span class='rparen token'>)</span>
+      <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='values identifier id'>values</span>
+    <span class='end end kw'>end</span>
+
+    <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:user_file</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='file_handler identifier id'>file_handler</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
+
+    <span class='@photo ivar id'>@photo</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='build_post identifier id'>build_post</span><span class='lparen token'>(</span><span class='symbol val'>:photo</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+    <span class='if if kw'>if</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+
+      <span class='aspects identifier id'>aspects</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='aspects_from_ids identifier id'>aspects_from_ids</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+      <span class='unless unless kw'>unless</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='pending identifier id'>pending</span>
+        <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='add_to_streams identifier id'>add_to_streams</span><span class='lparen token'>(</span><span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='aspects identifier id'>aspects</span><span class='rparen token'>)</span>
+        <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='dispatch_post identifier id'>dispatch_post</span><span class='lparen token'>(</span><span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='symbol val'>:to</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:aspect_ids</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+
+      <span class='if if kw'>if</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:set_profile_photo</span><span class='rbrack token'>]</span>
+        <span class='profile_params identifier id'>profile_params</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='symbol val'>:image_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_large</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                         <span class='symbol val'>:image_url_medium</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_medium</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                         <span class='symbol val'>:image_url_small</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_small</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+        <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='update_profile identifier id'>update_profile</span><span class='lparen token'>(</span><span class='profile_params identifier id'>profile_params</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+
+      <span class='respond_to identifier id'>respond_to</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='format identifier id'>format</span><span class='bitor op'>|</span>
+        <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='json identifier id'>json</span><span class='lbrace token'>{</span> <span class='render identifier id'>render</span><span class='lparen token'>(</span><span class='symbol val'>:layout</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span> <span class='comma token'>,</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='string val'>&quot;success&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='string val'>&quot;data&quot;</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='to_json identifier id'>to_json</span> <span class='rparen token'>)</span><span class='rbrace token'>}</span>
+      <span class='end end kw'>end</span>
+    <span class='else else kw'>else</span>
+      <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photos_path identifier id'>photos_path</span><span class='comma token'>,</span> <span class='symbol val'>:error</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='message identifier id'>message</span>
+    <span class='end end kw'>end</span>
+
+  <span class='rescue rescue kw'>rescue</span> <span class='TypeError constant id'>TypeError</span>
+    <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.create.type_error'</span>
+    <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photos_path identifier id'>photos_path</span><span class='comma token'>,</span> <span class='symbol val'>:error</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='message identifier id'>message</span>
+
+  <span class='rescue rescue kw'>rescue</span> <span class='CarrierWave constant id'>CarrierWave</span><span class='colon2 op'>::</span><span class='IntegrityError constant id'>IntegrityError</span>
+    <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.create.integrity_error'</span>
+    <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photos_path identifier id'>photos_path</span><span class='comma token'>,</span> <span class='symbol val'>:error</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='message identifier id'>message</span>
+
+  <span class='rescue rescue kw'>rescue</span> <span class='RuntimeError constant id'>RuntimeError</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+    <span class='message identifier id'>message</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.create.runtime_error'</span>
+    <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photos_path identifier id'>photos_path</span><span class='comma token'>,</span> <span class='symbol val'>:error</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='message identifier id'>message</span>
+    <span class='raise identifier id'>raise</span> <span class='e identifier id'>e</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="destroy-instance_method">
+  
+    - (<tt>Object</tt>) <strong>destroy</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 118</span>
+
+<span class='def def kw'>def</span> <span class='destroy identifier id'>destroy</span>
+  <span class='photo identifier id'>photo</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+
+  <span class='if if kw'>if</span> <span class='photo identifier id'>photo</span>
+    <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='retract identifier id'>retract</span><span class='lparen token'>(</span><span class='photo identifier id'>photo</span><span class='rparen token'>)</span>
+
+    <span class='respond_to identifier id'>respond_to</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='format identifier id'>format</span><span class='bitor op'>|</span>
+      <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='json identifier id'>json</span><span class='lbrace token'>{</span> <span class='render identifier id'>render</span> <span class='symbol val'>:nothing</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>204</span> <span class='rbrace token'>}</span>
+      <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='html identifier id'>html</span> <span class='do do kw'>do</span>
+        <span class='flash identifier id'>flash</span><span class='lbrack token'>[</span><span class='symbol val'>:notice</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.destroy.notice'</span>
+        <span class='if if kw'>if</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='status_message_guid identifier id'>status_message_guid</span>
+          <span class='respond_with identifier id'>respond_with</span> <span class='photo identifier id'>photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='status_message identifier id'>status_message</span>
+        <span class='else else kw'>else</span>
+          <span class='respond_with identifier id'>respond_with</span> <span class='photo identifier id'>photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='person_photos_path identifier id'>person_photos_path</span><span class='lparen token'>(</span><span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+        <span class='end end kw'>end</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='respond_with identifier id'>respond_with</span> <span class='photo identifier id'>photo</span><span class='comma token'>,</span> <span class='symbol val'>:location</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='person_photos_path identifier id'>person_photos_path</span><span class='lparen token'>(</span><span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="edit-instance_method">
+  
+    - (<tt>Object</tt>) <strong>edit</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+175
+176
+177
+178
+179
+180
+181</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 175</span>
+
+<span class='def def kw'>def</span> <span class='edit identifier id'>edit</span>
+  <span class='if if kw'>if</span> <span class='@photo ivar id'>@photo</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+    <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span>
+  <span class='else else kw'>else</span>
+    <span class='redirect_to identifier id'>redirect_to</span> <span class='person_photos_path identifier id'>person_photos_path</span><span class='lparen token'>(</span><span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="index-instance_method">
+  
+    - (<tt>Object</tt>) <strong>index</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='index identifier id'>index</span>
+  <span class='@post_type ivar id'>@post_type</span> <span class='assign token'>=</span> <span class='symbol val'>:photos</span>
+  <span class='@person ivar id'>@person</span> <span class='assign token'>=</span> <span class='Person constant id'>Person</span><span class='dot token'>.</span><span class='find_by_id identifier id'>find_by_id</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:person_id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='@person ivar id'>@person</span>
+    <span class='@profile ivar id'>@profile</span> <span class='assign token'>=</span> <span class='@person ivar id'>@person</span><span class='dot token'>.</span><span class='profile identifier id'>profile</span>
+    <span class='@contact ivar id'>@contact</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='@person ivar id'>@person</span><span class='rparen token'>)</span>
+    <span class='@is_contact ivar id'>@is_contact</span> <span class='assign token'>=</span> <span class='@person ivar id'>@person</span> <span class='neq op'>!=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span> <span class='andop op'>&amp;&amp;</span> <span class='@contact ivar id'>@contact</span>
+    <span class='@aspects_with_person ivar id'>@aspects_with_person</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+
+    <span class='if if kw'>if</span> <span class='@contact ivar id'>@contact</span>
+      <span class='@aspects_with_person ivar id'>@aspects_with_person</span> <span class='assign token'>=</span> <span class='@contact ivar id'>@contact</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span>
+      <span class='@contacts_of_contact ivar id'>@contacts_of_contact</span> <span class='assign token'>=</span> <span class='@contact ivar id'>@contact</span><span class='dot token'>.</span><span class='contacts identifier id'>contacts</span>
+      <span class='@contacts_of_contact_count ivar id'>@contacts_of_contact_count</span> <span class='assign token'>=</span> <span class='@contact ivar id'>@contact</span><span class='dot token'>.</span><span class='contacts identifier id'>contacts</span><span class='dot token'>.</span><span class='count identifier id'>count</span>
+    <span class='else else kw'>else</span>
+      <span class='@contact ivar id'>@contact</span> <span class='assign token'>=</span> <span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+      <span class='@contacts_of_contact ivar id'>@contacts_of_contact</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+      <span class='@contacts_of_contact_count ivar id'>@contacts_of_contact_count</span> <span class='assign token'>=</span> <span class='integer val'>0</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@posts ivar id'>@posts</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='posts_from identifier id'>posts_from</span><span class='lparen token'>(</span><span class='@person ivar id'>@person</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Photo'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='paginate identifier id'>paginate</span><span class='lparen token'>(</span><span class='symbol val'>:page</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:page</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+    <span class='render identifier id'>render</span> <span class='string val'>'people/show'</span>
+
+  <span class='else else kw'>else</span>
+    <span class='flash identifier id'>flash</span><span class='lbrack token'>[</span><span class='symbol val'>:error</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'people.show.does_not_exist'</span>
+    <span class='redirect_to identifier id'>redirect_to</span> <span class='people_path identifier id'>people_path</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="make_profile_photo-instance_method">
+  
+    - (<tt>Object</tt>) <strong>make_profile_photo</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 92</span>
+
+<span class='def def kw'>def</span> <span class='make_profile_photo identifier id'>make_profile_photo</span>
+  <span class='author_id identifier id'>author_id</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span>
+  <span class='@photo ivar id'>@photo</span> <span class='assign token'>=</span> <span class='Photo constant id'>Photo</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo_id</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:author_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='author_id identifier id'>author_id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+
+  <span class='if if kw'>if</span> <span class='@photo ivar id'>@photo</span>
+    <span class='profile_hash identifier id'>profile_hash</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='symbol val'>:image_url</span>        <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_large</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:image_url_medium</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_medium</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                    <span class='symbol val'>:image_url_small</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_small</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+
+    <span class='if if kw'>if</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='update_profile identifier id'>update_profile</span><span class='lparen token'>(</span><span class='profile_hash identifier id'>profile_hash</span><span class='rparen token'>)</span>
+      <span class='respond_to identifier id'>respond_to</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='format identifier id'>format</span><span class='bitor op'>|</span>
+        <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='js identifier id'>js</span><span class='lbrace token'>{</span> <span class='render identifier id'>render</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span> <span class='symbol val'>:photo_id</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span>
+                                     <span class='symbol val'>:image_url</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_large</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                                     <span class='symbol val'>:image_url_medium</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_medium</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                                     <span class='symbol val'>:image_url_small</span>  <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_small</span><span class='rparen token'>)</span><span class='comma token'>,</span>
+                                     <span class='symbol val'>:author_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='author_id identifier id'>author_id</span><span class='rbrace token'>}</span><span class='comma token'>,</span>
+                          <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>201</span><span class='rbrace token'>}</span>
+      <span class='end end kw'>end</span>
+    <span class='else else kw'>else</span>
+      <span class='render identifier id'>render</span> <span class='symbol val'>:nothing</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>422</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='render identifier id'>render</span> <span class='symbol val'>:nothing</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>422</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="show-instance_method">
+  
+    - (<tt>Object</tt>) <strong>show</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 140</span>
+
+<span class='def def kw'>def</span> <span class='show identifier id'>show</span>
+  <span class='@photo ivar id'>@photo</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='find_visible_post_by_id identifier id'>find_visible_post_by_id</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Photo'</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='@photo ivar id'>@photo</span>
+    <span class='@parent ivar id'>@parent</span> <span class='assign token'>=</span> <span class='StatusMessage constant id'>StatusMessage</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:guid</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='status_message_guid identifier id'>status_message_guid</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='includes identifier id'>includes</span><span class='lparen token'>(</span><span class='symbol val'>:photos</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='if if_mod kw'>if</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='status_message_guid identifier id'>status_message_guid</span>
+
+    <span class='comment val'>#if photo is not an attachment, fetch comments for self</span>
+    <span class='if if kw'>if</span> <span class='@parent ivar id'>@parent</span>
+      <span class='@additional_photos ivar id'>@additional_photos</span> <span class='assign token'>=</span> <span class='@photo ivar id'>@photo</span><span class='dot token'>.</span><span class='status_message identifier id'>status_message</span><span class='dot token'>.</span><span class='photos identifier id'>photos</span>
+      <span class='if if kw'>if</span> <span class='@additional_photos ivar id'>@additional_photos</span>
+        <span class='@next_photo ivar id'>@next_photo</span> <span class='assign token'>=</span> <span class='@additional_photos ivar id'>@additional_photos</span><span class='lbrack token'>[</span><span class='@additional_photos ivar id'>@additional_photos</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='@photo ivar id'>@photo</span><span class='rparen token'>)</span><span class='plus op'>+</span><span class='integer val'>1</span><span class='rbrack token'>]</span>
+        <span class='@prev_photo ivar id'>@prev_photo</span> <span class='assign token'>=</span> <span class='@additional_photos ivar id'>@additional_photos</span><span class='lbrack token'>[</span><span class='@additional_photos ivar id'>@additional_photos</span><span class='dot token'>.</span><span class='index identifier id'>index</span><span class='lparen token'>(</span><span class='@photo ivar id'>@photo</span><span class='rparen token'>)</span><span class='minus op'>-</span><span class='integer val'>1</span><span class='rbrack token'>]</span>
+        <span class='@next_photo ivar id'>@next_photo</span> <span class='opasgn op'>||=</span> <span class='@additional_photos ivar id'>@additional_photos</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+      <span class='end end kw'>end</span>
+    <span class='else else kw'>else</span>
+      <span class='@parent ivar id'>@parent</span> <span class='assign token'>=</span> <span class='@photo ivar id'>@photo</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@object_aspect_ids ivar id'>@object_aspect_ids</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+    <span class='if if kw'>if</span> <span class='@parent_aspects ivar id'>@parent_aspects</span> <span class='assign token'>=</span> <span class='@parent ivar id'>@parent</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:user_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
+      <span class='@object_aspect_ids ivar id'>@object_aspect_ids</span> <span class='assign token'>=</span> <span class='@parent_aspects ivar id'>@parent_aspects</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='a identifier id'>a</span><span class='bitor op'>|</span> <span class='a identifier id'>a</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span>
+    <span class='end end kw'>end</span>
+
+    <span class='@ownership ivar id'>@ownership</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='owns? fid id'>owns?</span> <span class='@photo ivar id'>@photo</span>
+
+    <span class='respond_with identifier id'>respond_with</span> <span class='@photo ivar id'>@photo</span>
+  <span class='else else kw'>else</span>
+    <span class='begin begin kw'>begin</span>
+      <span class='redirect_to identifier id'>redirect_to</span> <span class='symbol val'>:back</span>
+    <span class='rescue rescue kw'>rescue</span>
+      <span class='redirect_to identifier id'>redirect_to</span> <span class='aspects_path identifier id'>aspects_path</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+183
+184
+185
+186
+187
+188
+189
+190
+191
+192
+193
+194
+195
+196
+197
+198
+199
+200
+201</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/controllers/photos_controller.rb', line 183</span>
+
+<span class='def def kw'>def</span> <span class='update identifier id'>update</span>
+  <span class='photo identifier id'>photo</span> <span class='assign token'>=</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:id</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='if if kw'>if</span> <span class='photo identifier id'>photo</span>
+    <span class='if if kw'>if</span> <span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='update_post identifier id'>update_post</span><span class='lparen token'>(</span> <span class='photo identifier id'>photo</span><span class='comma token'>,</span> <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:photo</span><span class='rbrack token'>]</span> <span class='rparen token'>)</span>
+      <span class='flash identifier id'>flash</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='lbrack token'>[</span><span class='symbol val'>:notice</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.update.notice'</span>
+      <span class='respond_to identifier id'>respond_to</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='format identifier id'>format</span><span class='bitor op'>|</span>
+        <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='js identifier id'>js</span><span class='lbrace token'>{</span> <span class='render identifier id'>render</span> <span class='symbol val'>:json</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='photo identifier id'>photo</span><span class='comma token'>,</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>200</span> <span class='rbrace token'>}</span>
+      <span class='end end kw'>end</span>
+    <span class='else else kw'>else</span>
+      <span class='flash identifier id'>flash</span><span class='dot token'>.</span><span class='now identifier id'>now</span><span class='lbrack token'>[</span><span class='symbol val'>:error</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span> <span class='string val'>'photos.update.error'</span>
+      <span class='respond_to identifier id'>respond_to</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='format identifier id'>format</span><span class='bitor op'>|</span>
+        <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='html identifier id'>html</span><span class='lbrace token'>{</span> <span class='redirect_to identifier id'>redirect_to</span> <span class='lbrack token'>[</span><span class='symbol val'>:edit</span><span class='comma token'>,</span> <span class='photo identifier id'>photo</span><span class='rbrack token'>]</span> <span class='rbrace token'>}</span>
+        <span class='format identifier id'>format</span><span class='dot token'>.</span><span class='js identifier id'>js</span><span class='lbrace token'>{</span> <span class='render identifier id'>render</span> <span class='symbol val'>:status</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>403</span> <span class='rbrace token'>}</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='else else kw'>else</span>
+    <span class='redirect_to identifier id'>redirect_to</span> <span class='person_photos_path identifier id'>person_photos_path</span><span class='lparen token'>(</span><span class='current_user identifier id'>current_user</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:21 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

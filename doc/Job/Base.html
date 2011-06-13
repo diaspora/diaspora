@@ -1,0 +1,267 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Job::Base
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (B)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Job.html" title="Job (module)">Job</a></span></span>
+     &raquo; 
+    <span class="title">Base</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Job::Base
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">Object</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">Job::Base</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+      <dt class="r2">Extended by:</dt>
+      <dd class="r2"><span class='object_link'><a href="../ResqueJobLogging.html" title="ResqueJobLogging (module)">ResqueJobLogging</a></span></dd>
+      
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/models/jobs/base.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="DeleteAccount.html" title="Job::DeleteAccount (class)">DeleteAccount</a></span>, <span class='object_link'><a href="HttpMulti.html" title="Job::HttpMulti (class)">HttpMulti</a></span>, <span class='object_link'><a href="HttpPost.html" title="Job::HttpPost (class)">HttpPost</a></span>, <span class='object_link'><a href="InviteUserByEmail.html" title="Job::InviteUserByEmail (class)">InviteUserByEmail</a></span>, <span class='object_link'><a href="MailAlsoCommented.html" title="Job::MailAlsoCommented (class)">MailAlsoCommented</a></span>, <span class='object_link'><a href="MailCommentOnPost.html" title="Job::MailCommentOnPost (class)">MailCommentOnPost</a></span>, <span class='object_link'><a href="MailLiked.html" title="Job::MailLiked (class)">MailLiked</a></span>, <span class='object_link'><a href="MailMentioned.html" title="Job::MailMentioned (class)">MailMentioned</a></span>, <span class='object_link'><a href="MailPrivateMessage.html" title="Job::MailPrivateMessage (class)">MailPrivateMessage</a></span>, <span class='object_link'><a href="MailStartedSharing.html" title="Job::MailStartedSharing (class)">MailStartedSharing</a></span>, <span class='object_link'><a href="NotifyLocalUsers.html" title="Job::NotifyLocalUsers (class)">NotifyLocalUsers</a></span>, <span class='object_link'><a href="PostToService.html" title="Job::PostToService (class)">PostToService</a></span>, <span class='object_link'><a href="ProcessPhoto.html" title="Job::ProcessPhoto (class)">ProcessPhoto</a></span>, <span class='object_link'><a href="PublishToHub.html" title="Job::PublishToHub (class)">PublishToHub</a></span>, <span class='object_link'><a href="Receive.html" title="Job::Receive (class)">Receive</a></span>, <span class='object_link'><a href="ReceiveLocalBatch.html" title="Job::ReceiveLocalBatch (class)">ReceiveLocalBatch</a></span>, <span class='object_link'><a href="ReceiveSalmon.html" title="Job::ReceiveSalmon (class)">ReceiveSalmon</a></span>, <span class='object_link'><a href="ResendInvitation.html" title="Job::ResendInvitation (class)">ResendInvitation</a></span>, <span class='object_link'><a href="SocketWebfinger.html" title="Job::SocketWebfinger (class)">SocketWebfinger</a></span>, <span class='object_link'><a href="UpdateServiceUsers.html" title="Job::UpdateServiceUsers (class)">UpdateServiceUsers</a></span></p>
+</div>
+
+
+  
+  
+  
+  
+
+
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#perform-class_method" title="perform (class method)">+ (Object) <strong>perform</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#perform_delegate-class_method" title="perform_delegate (class method)">+ (Object) <strong>perform_delegate</strong>(*args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+override this.
+</p>
+</div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../ResqueJobLogging.html" title="ResqueJobLogging (module)">ResqueJobLogging</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../ResqueJobLogging.html#application_trace-instance_method" title="ResqueJobLogging#application_trace (method)">application_trace</a></span>, <span class='object_link'><a href="../ResqueJobLogging.html#around_perform_log_job-instance_method" title="ResqueJobLogging#around_perform_log_job (method)">around_perform_log_job</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="perform-class_method">
+  
+    + (<tt>Object</tt>) <strong>perform</strong>(*args) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+5
+6
+7
+8</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/jobs/base.rb', line 5</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='perform identifier id'>perform</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>  
+  <span class='ActiveRecord constant id'>ActiveRecord</span><span class='colon2 op'>::</span><span class='Base constant id'>Base</span><span class='dot token'>.</span><span class='verify_active_connections! fid id'>verify_active_connections!</span>  
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='perform_delegate identifier id'>perform_delegate</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>  
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="perform_delegate-class_method">
+  
+    + (<tt>Object</tt>) <strong>perform_delegate</strong>(*args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+override this
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/jobs/base.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='perform_delegate identifier id'>perform_delegate</span><span class='lparen token'>(</span><span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span> <span class='comment val'># override this  </span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:16 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

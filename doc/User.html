@@ -1,0 +1,2412 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: User
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (U)</a> &raquo; 
+    
+    
+    <span class="title">User</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: User
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">User</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Diaspora/UserModules.html" title="Diaspora::UserModules (module)">Diaspora::UserModules</a></span>, <span class='object_link'><a href="Encryptor/Private.html" title="Encryptor::Private (module)">Encryptor::Private</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/models/user.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build-class_method" title="build (class method)">+ (Object) <strong>build</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Helpers############.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_for_database_authentication-class_method" title="find_for_database_authentication (class method)">+ (Object) <strong>find_for_database_authentication</strong>(conditions = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#generate_key-class_method" title="generate_key (class method)">+ (Object) <strong>generate_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#accept_invitation%21-instance_method" title="#accept_invitation! (instance method)">- (Object) <strong>accept_invitation!</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_contact_to_aspect-instance_method" title="#add_contact_to_aspect (instance method)">- (Object) <strong>add_contact_to_aspect</strong>(contact, aspect) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#add_to_streams-instance_method" title="#add_to_streams (instance method)">- (Object) <strong>add_to_streams</strong>(post, aspects_to_insert) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#admin%3F-instance_method" title="#admin? (instance method)">- (Boolean) <strong>admin?</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#aspects_from_ids-instance_method" title="#aspects_from_ids (instance method)">- (Object) <strong>aspects_from_ids</strong>(aspect_ids) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_comment-instance_method" title="#build_comment (instance method)">- (Object) <strong>build_comment</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Commenting ########.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_like-instance_method" title="#build_like (instance method)">- (Object) <strong>build_like</strong>(options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Liking ########.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_post-instance_method" title="#build_post (instance method)">- (Object) <strong>build_post</strong>(class_name, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Posting ########.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#build_relayable-instance_method" title="#build_relayable (instance method)">- (Object) <strong>build_relayable</strong>(model, options = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#can_add%3F-instance_method" title="#can_add? (instance method)">- (Boolean) <strong>can_add?</strong>(person) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#disconnect_everyone-instance_method" title="#disconnect_everyone (instance method)">- (Object) <strong>disconnect_everyone</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#dispatch_post-instance_method" title="#dispatch_post (instance method)">- (Object) <strong>dispatch_post</strong>(post, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#encryption_key-instance_method" title="#encryption_key (instance method)">- (Object) <strong>encryption_key</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#invite_user-instance_method" title="#invite_user (instance method)">- (Object) <strong>invite_user</strong>(aspect_id, service, identifier, invite_message = &quot;&quot;) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Invitations############.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#like_for-instance_method" title="#like_for (instance method)">- (Object) <strong>like_for</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#liked%3F-instance_method" title="#liked? (instance method)">- (Boolean) <strong>liked?</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mail-instance_method" title="#mail (instance method)">- (Object) <strong>mail</strong>(job, *args) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Mailer #######################.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#move_contact-instance_method" title="#move_contact (instance method)">- (Object) <strong>move_contact</strong>(person, to_aspect, from_aspect) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Aspects ######################.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify_if_mentioned-instance_method" title="#notify_if_mentioned (instance method)">- (Object) <strong>notify_if_mentioned</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_all_traces-instance_method" title="#remove_all_traces (instance method)">- (Object) <strong>remove_all_traces</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_mentions-instance_method" title="#remove_mentions (instance method)">- (Object) <strong>remove_mentions</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#remove_person-instance_method" title="#remove_person (instance method)">- (Object) <strong>remove_person</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#retract-instance_method" title="#retract (instance method)">- (Object) <strong>retract</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Posts and Such ###############.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#salmon-instance_method" title="#salmon (instance method)">- (Object) <strong>salmon</strong>(post) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#seed_aspects-instance_method" title="#seed_aspects (instance method)">- (Object) <strong>seed_aspects</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#set_current_language-instance_method" title="#set_current_language (instance method)">- (Object) <strong>set_current_language</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#setup-instance_method" title="#setup (instance method)">- (Object) <strong>setup</strong>(opts) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#strip_and_downcase_username-instance_method" title="#strip_and_downcase_username (instance method)">- (Object) <strong>strip_and_downcase_username</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_post-instance_method" title="#update_post (instance method)">- (Object) <strong>update_post</strong>(post, post_hash = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_profile-instance_method" title="#update_profile (instance method)">- (Object) <strong>update_profile</strong>(params) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'><p>
+Profile ######################.
+</p>
+</div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#update_user_preferences-instance_method" title="#update_user_preferences (instance method)">- (Object) <strong>update_user_preferences</strong>(pref_hash) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Encryptor/Private.html" title="Encryptor::Private (module)">Encryptor::Private</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Encryptor/Private.html#aes_decrypt-instance_method" title="Encryptor::Private#aes_decrypt (method)">#aes_decrypt</a></span>, <span class='object_link'><a href="Encryptor/Private.html#decrypt-instance_method" title="Encryptor::Private#decrypt (method)">#decrypt</a></span>, <span class='object_link'><a href="Encryptor/Private.html#get_aes_key-instance_method" title="Encryptor::Private#get_aes_key (method)">#get_aes_key</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Diaspora/UserModules/Querying.html" title="Diaspora::UserModules::Querying (module)">Diaspora::UserModules::Querying</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Diaspora/UserModules/Querying.html#all_aspect_ids-instance_method" title="Diaspora::UserModules::Querying#all_aspect_ids (method)">#all_aspect_ids</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#aspects_with_person-instance_method" title="Diaspora::UserModules::Querying#aspects_with_person (method)">#aspects_with_person</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#aspects_with_post-instance_method" title="Diaspora::UserModules::Querying#aspects_with_post (method)">#aspects_with_post</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#contact_for-instance_method" title="Diaspora::UserModules::Querying#contact_for (method)">#contact_for</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#contact_for_person_id-instance_method" title="Diaspora::UserModules::Querying#contact_for_person_id (method)">#contact_for_person_id</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#contacts_in_aspects-instance_method" title="Diaspora::UserModules::Querying#contacts_in_aspects (method)">#contacts_in_aspects</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#find_visible_post_by_id-instance_method" title="Diaspora::UserModules::Querying#find_visible_post_by_id (method)">#find_visible_post_by_id</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#people_in_aspects-instance_method" title="Diaspora::UserModules::Querying#people_in_aspects (method)">#people_in_aspects</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#posts_from-instance_method" title="Diaspora::UserModules::Querying#posts_from (method)">#posts_from</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#visible_photos-instance_method" title="Diaspora::UserModules::Querying#visible_photos (method)">#visible_photos</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Querying.html#visible_posts-instance_method" title="Diaspora::UserModules::Querying#visible_posts (method)">#visible_posts</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Diaspora/UserModules/Connecting.html" title="Diaspora::UserModules::Connecting (module)">Diaspora::UserModules::Connecting</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Diaspora/UserModules/Connecting.html#disconnect-instance_method" title="Diaspora::UserModules::Connecting#disconnect (method)">#disconnect</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Connecting.html#disconnected_by-instance_method" title="Diaspora::UserModules::Connecting#disconnected_by (method)">#disconnected_by</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Connecting.html#remove_contact-instance_method" title="Diaspora::UserModules::Connecting#remove_contact (method)">#remove_contact</a></span>, <span class='object_link'><a href="Diaspora/UserModules/Connecting.html#share_with-instance_method" title="Diaspora::UserModules::Connecting#share_with (method)">#share_with</a></span></p>
+
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="build-class_method">
+  
+    + (<tt>Object</tt>) <strong>build</strong>(opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Helpers############
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+272
+273
+274
+275
+276</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 272</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='u identifier id'>u</span> <span class='assign token'>=</span> <span class='User constant id'>User</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+  <span class='u identifier id'>u</span><span class='dot token'>.</span><span class='setup identifier id'>setup</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+  <span class='u identifier id'>u</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_for_database_authentication-class_method">
+  
+    + (<tt>Object</tt>) <strong>find_for_database_authentication</strong>(conditions = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+80
+81
+82
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 80</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='find_for_database_authentication identifier id'>find_for_database_authentication</span><span class='lparen token'>(</span><span class='conditions identifier id'>conditions</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='conditions identifier id'>conditions</span> <span class='assign token'>=</span> <span class='conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='dup identifier id'>dup</span>
+  <span class='conditions identifier id'>conditions</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='conditions identifier id'>conditions</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='downcase identifier id'>downcase</span>
+  <span class='if if kw'>if</span> <span class='conditions identifier id'>conditions</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span> <span class='match op'>=~</span> <span class='regexp val'>/^([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})$/i</span> <span class='comment val'># email regex</span>
+    <span class='conditions identifier id'>conditions</span><span class='lbrack token'>[</span><span class='symbol val'>:email</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='conditions identifier id'>conditions</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:username</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='conditions identifier id'>conditions</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="generate_key-class_method">
+  
+    + (<tt>Object</tt>) <strong>generate_key</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+308
+309
+310
+311</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 308</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='generate_key identifier id'>generate_key</span>
+  <span class='key_size identifier id'>key_size</span> <span class='assign token'>=</span> <span class='lparen token'>(</span><span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='env identifier id'>env</span> <span class='eq op'>==</span> <span class='string val'>'test'</span> <span class='question op'>?</span> <span class='integer val'>512</span> <span class='colon op'>:</span> <span class='integer val'>4096</span><span class='rparen token'>)</span>
+  <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='PKey constant id'>PKey</span><span class='colon2 op'>::</span><span class='RSA constant id'>RSA</span><span class='colon2 op'>::</span><span class='generate identifier id'>generate</span> <span class='key_size identifier id'>key_size</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="accept_invitation!-instance_method">
+  
+    - (<tt>Object</tt>) <strong>accept_invitation!</strong>(opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+247
+248
+249
+250
+251
+252
+253
+254
+255
+256
+257
+258
+259
+260
+261
+262
+263
+264
+265
+266
+267
+268
+269</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 247</span>
+
+<span class='def def kw'>def</span> <span class='accept_invitation! fid id'>accept_invitation!</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='log_string identifier id'>log_string</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;event=invitation_accepted username=#{opts[:username]} uid=#{self.id} &quot;</span>
+  <span class='log_string identifier id'>log_string</span> <span class='lshft op'>&lt;&lt;</span> <span class='dstring node'>&quot;inviter=#{invitations_to_me.first.sender.diaspora_handle} &quot;</span> <span class='if if_mod kw'>if</span> <span class='invitations_to_me identifier id'>invitations_to_me</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='begin begin kw'>begin</span>
+    <span class='if if kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='invited? fid id'>invited?</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='setup identifier id'>setup</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='invitation_token identifier id'>invitation_token</span> <span class='assign token'>=</span> <span class='nil nil kw'>nil</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='password identifier id'>password</span>              <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:password</span><span class='rbrack token'>]</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='password_confirmation identifier id'>password_confirmation</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:password_confirmation</span><span class='rbrack token'>]</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='save! fid id'>save!</span>
+      <span class='invitations_to_me identifier id'>invitations_to_me</span><span class='dot token'>.</span><span class='each identifier id'>each</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='invitation identifier id'>invitation</span><span class='bitor op'>|</span> <span class='invitation identifier id'>invitation</span><span class='dot token'>.</span><span class='share_with! fid id'>share_with!</span><span class='rbrace token'>}</span>
+      <span class='log_string identifier id'>log_string</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;success&quot;</span>
+      <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span> <span class='log_string identifier id'>log_string</span>
+
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='reload identifier id'>reload</span> <span class='comment val'># Because to_request adds a request and saves elsewhere</span>
+      <span class='self self kw'>self</span>
+    <span class='end end kw'>end</span>
+  <span class='rescue rescue kw'>rescue</span> <span class='Exception constant id'>Exception</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='e identifier id'>e</span>
+    <span class='log_string identifier id'>log_string</span> <span class='lshft op'>&lt;&lt;</span> <span class='string val'>&quot;failure&quot;</span>
+    <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span> <span class='log_string identifier id'>log_string</span>
+    <span class='raise identifier id'>raise</span> <span class='e identifier id'>e</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_contact_to_aspect-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_contact_to_aspect</strong>(contact, aspect) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+106
+107
+108
+109</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 106</span>
+
+<span class='def def kw'>def</span> <span class='add_contact_to_aspect identifier id'>add_contact_to_aspect</span><span class='lparen token'>(</span><span class='contact identifier id'>contact</span><span class='comma token'>,</span> <span class='aspect identifier id'>aspect</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='true true kw'>true</span> <span class='if if_mod kw'>if</span> <span class='AspectMembership constant id'>AspectMembership</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span><span class='lparen token'>(</span><span class='symbol val'>:contact_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:aspect_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='aspect identifier id'>aspect</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
+  <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='aspect_memberships identifier id'>aspect_memberships</span><span class='dot token'>.</span><span class='create! fid id'>create!</span><span class='lparen token'>(</span><span class='symbol val'>:aspect</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='aspect identifier id'>aspect</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="add_to_streams-instance_method">
+  
+    - (<tt>Object</tt>) <strong>add_to_streams</strong>(post, aspects_to_insert) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+138
+139
+140
+141
+142
+143</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 138</span>
+
+<span class='def def kw'>def</span> <span class='add_to_streams identifier id'>add_to_streams</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='comma token'>,</span> <span class='aspects_to_insert identifier id'>aspects_to_insert</span><span class='rparen token'>)</span>
+  <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='socket_to_user identifier id'>socket_to_user</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='symbol val'>:aspect_ids</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='aspects_to_insert identifier id'>aspects_to_insert</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='x identifier id'>x</span><span class='bitor op'>|</span> <span class='x identifier id'>x</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='symbol val'>:socket_to_user</span>
+  <span class='aspects_to_insert identifier id'>aspects_to_insert</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='aspect identifier id'>aspect</span><span class='bitor op'>|</span>
+    <span class='aspect identifier id'>aspect</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span> <span class='lshft op'>&lt;&lt;</span> <span class='post identifier id'>post</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="admin?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>admin?</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+317
+318
+319</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 317</span>
+
+<span class='def def kw'>def</span> <span class='admin? fid id'>admin?</span>
+  <span class='AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:admins</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='present? fid id'>present?</span> <span class='andop op'>&amp;&amp;</span> <span class='AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:admins</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='username identifier id'>username</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="aspects_from_ids-instance_method">
+  
+    - (<tt>Object</tt>) <strong>aspects_from_ids</strong>(aspect_ids) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+145
+146
+147
+148
+149
+150
+151</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 145</span>
+
+<span class='def def kw'>def</span> <span class='aspects_from_ids identifier id'>aspects_from_ids</span><span class='lparen token'>(</span><span class='aspect_ids identifier id'>aspect_ids</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='aspect_ids identifier id'>aspect_ids</span> <span class='eq op'>==</span> <span class='string val'>&quot;all&quot;</span> <span class='orop op'>||</span> <span class='aspect_ids identifier id'>aspect_ids</span> <span class='eq op'>==</span> <span class='symbol val'>:all</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span>
+  <span class='else else kw'>else</span>
+    <span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='aspect_ids identifier id'>aspect_ids</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_comment-instance_method">
+  
+    - (<tt>Object</tt>) <strong>build_comment</strong>(options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Commenting ########
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+165
+166
+167</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 165</span>
+
+<span class='def def kw'>def</span> <span class='build_comment identifier id'>build_comment</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='build_relayable identifier id'>build_relayable</span><span class='lparen token'>(</span><span class='Comment constant id'>Comment</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_like-instance_method">
+  
+    - (<tt>Object</tt>) <strong>build_like</strong>(options = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Liking ########
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+170
+171
+172</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 170</span>
+
+<span class='def def kw'>def</span> <span class='build_like identifier id'>build_like</span><span class='lparen token'>(</span><span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='build_relayable identifier id'>build_relayable</span><span class='lparen token'>(</span><span class='Like constant id'>Like</span><span class='comma token'>,</span> <span class='options identifier id'>options</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>build_post</strong>(class_name, opts = {}) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Posting ########
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+112
+113
+114
+115
+116
+117
+118</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 112</span>
+
+<span class='def def kw'>def</span> <span class='build_post identifier id'>build_post</span><span class='lparen token'>(</span><span class='class_name identifier id'>class_name</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:author</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span>
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:diaspora_handle</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:author</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='diaspora_handle identifier id'>diaspora_handle</span>
+
+  <span class='model_class identifier id'>model_class</span> <span class='assign token'>=</span> <span class='class_name identifier id'>class_name</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='camelize identifier id'>camelize</span><span class='dot token'>.</span><span class='constantize identifier id'>constantize</span>
+  <span class='model_class identifier id'>model_class</span><span class='dot token'>.</span><span class='diaspora_initialize identifier id'>diaspora_initialize</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="build_relayable-instance_method">
+  
+    - (<tt>Object</tt>) <strong>build_relayable</strong>(model, options = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+157
+158
+159
+160
+161
+162</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 157</span>
+
+<span class='def def kw'>def</span> <span class='build_relayable identifier id'>build_relayable</span><span class='lparen token'>(</span><span class='model identifier id'>model</span><span class='comma token'>,</span> <span class='options identifier id'>options</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='r identifier id'>r</span> <span class='assign token'>=</span> <span class='model identifier id'>model</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='options identifier id'>options</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:author_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='set_guid identifier id'>set_guid</span>
+  <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='initialize_signatures identifier id'>initialize_signatures</span>
+  <span class='r identifier id'>r</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="can_add?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>can_add?</strong>(person) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91
+92
+93</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 89</span>
+
+<span class='def def kw'>def</span> <span class='can_add? fid id'>can_add?</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='if if_mod kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span> <span class='eq op'>==</span> <span class='person identifier id'>person</span>
+  <span class='return return kw'>return</span> <span class='false false kw'>false</span> <span class='if if_mod kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='present? fid id'>present?</span>
+  <span class='true true kw'>true</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="disconnect_everyone-instance_method">
+  
+    - (<tt>Object</tt>) <strong>disconnect_everyone</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+331
+332
+333
+334
+335
+336
+337
+338
+339
+340
+341</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 331</span>
+
+<span class='def def kw'>def</span> <span class='disconnect_everyone identifier id'>disconnect_everyone</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='contacts identifier id'>contacts</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='contact identifier id'>contact</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='remote? fid id'>remote?</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='disconnect identifier id'>disconnect</span><span class='lparen token'>(</span><span class='contact identifier id'>contact</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='owner identifier id'>owner</span><span class='dot token'>.</span><span class='disconnected_by identifier id'>disconnected_by</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+      <span class='remove_contact identifier id'>remove_contact</span><span class='lparen token'>(</span><span class='contact identifier id'>contact</span><span class='comma token'>,</span> <span class='symbol val'>:force</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='destroy_all identifier id'>destroy_all</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="dispatch_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>dispatch_post</strong>(post, opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+120
+121
+122
+123</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 120</span>
+
+<span class='def def kw'>def</span> <span class='dispatch_post identifier id'>dispatch_post</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='mailman identifier id'>mailman</span> <span class='assign token'>=</span> <span class='Postzord constant id'>Postzord</span><span class='colon2 op'>::</span><span class='Dispatch constant id'>Dispatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='mailman identifier id'>mailman</span><span class='dot token'>.</span><span class='post identifier id'>post</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="encryption_key-instance_method">
+  
+    - (<tt>Object</tt>) <strong>encryption_key</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+313
+314
+315</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 313</span>
+
+<span class='def def kw'>def</span> <span class='encryption_key identifier id'>encryption_key</span>
+  <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='PKey constant id'>PKey</span><span class='colon2 op'>::</span><span class='RSA constant id'>RSA</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='serialized_private_key identifier id'>serialized_private_key</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="invite_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>invite_user</strong>(aspect_id, service, identifier, invite_message = &quot;&quot;) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Invitations############
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+234
+235
+236
+237
+238
+239
+240
+241
+242
+243
+244
+245</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 234</span>
+
+<span class='def def kw'>def</span> <span class='invite_user identifier id'>invite_user</span><span class='lparen token'>(</span><span class='aspect_id identifier id'>aspect_id</span><span class='comma token'>,</span> <span class='service identifier id'>service</span><span class='comma token'>,</span> <span class='identifier identifier id'>identifier</span><span class='comma token'>,</span> <span class='invite_message identifier id'>invite_message</span> <span class='assign token'>=</span> <span class='string val'>&quot;&quot;</span><span class='rparen token'>)</span>
+  <span class='aspect identifier id'>aspect</span> <span class='assign token'>=</span> <span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='aspect_id identifier id'>aspect_id</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='aspect identifier id'>aspect</span>
+    <span class='Invitation constant id'>Invitation</span><span class='dot token'>.</span><span class='invite identifier id'>invite</span><span class='lparen token'>(</span><span class='symbol val'>:service</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='service identifier id'>service</span><span class='comma token'>,</span>
+                      <span class='symbol val'>:identifier</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='identifier identifier id'>identifier</span><span class='comma token'>,</span>
+                      <span class='symbol val'>:from</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='comma token'>,</span>
+                      <span class='symbol val'>:into</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='aspect identifier id'>aspect</span><span class='comma token'>,</span>
+                      <span class='symbol val'>:message</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='invite_message identifier id'>invite_message</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='false false kw'>false</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="like_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>like_for</strong>(post) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+182
+183
+184
+185
+186
+187
+188
+189</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 182</span>
+
+<span class='def def kw'>def</span> <span class='like_for identifier id'>like_for</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='lbrack token'>[</span><span class='post identifier id'>post</span><span class='dot token'>.</span><span class='likes identifier id'>likes</span><span class='comma token'>,</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='dislikes identifier id'>dislikes</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='likes identifier id'>likes</span><span class='bitor op'>|</span>
+    <span class='likes identifier id'>likes</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='like identifier id'>like</span><span class='bitor op'>|</span>
+      <span class='return return kw'>return</span> <span class='like identifier id'>like</span> <span class='if if_mod kw'>if</span> <span class='like identifier id'>like</span><span class='dot token'>.</span><span class='author_id identifier id'>author_id</span> <span class='eq op'>==</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+  <span class='return return kw'>return</span> <span class='nil nil kw'>nil</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="liked?-instance_method">
+  
+    - (<tt>Boolean</tt>) <strong>liked?</strong>(post) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+174
+175
+176
+177
+178
+179
+180</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 174</span>
+
+<span class='def def kw'>def</span> <span class='liked? fid id'>liked?</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='like_for identifier id'>like_for</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+    <span class='return return kw'>return</span> <span class='true true kw'>true</span>
+  <span class='else else kw'>else</span>
+    <span class='return return kw'>return</span> <span class='false false kw'>false</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mail-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mail</strong>(job, *args) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Mailer #######################
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+192
+193
+194
+195
+196
+197</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 192</span>
+
+<span class='def def kw'>def</span> <span class='mail identifier id'>mail</span><span class='lparen token'>(</span><span class='job identifier id'>job</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='pref identifier id'>pref</span> <span class='assign token'>=</span> <span class='job identifier id'>job</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='gsub identifier id'>gsub</span><span class='lparen token'>(</span><span class='string val'>'Job::Mail'</span><span class='comma token'>,</span> <span class='string val'>''</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='underscore identifier id'>underscore</span>
+  <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='disable_mail identifier id'>disable_mail</span> <span class='eq op'>==</span> <span class='false false kw'>false</span> <span class='andop op'>&amp;&amp;</span> <span class='notop op'>!</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='user_preferences identifier id'>user_preferences</span><span class='dot token'>.</span><span class='exists? fid id'>exists?</span><span class='lparen token'>(</span><span class='symbol val'>:email_type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='pref identifier id'>pref</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+    <span class='Resque constant id'>Resque</span><span class='dot token'>.</span><span class='enqueue identifier id'>enqueue</span><span class='lparen token'>(</span><span class='job identifier id'>job</span><span class='comma token'>,</span> <span class='mult op'>*</span><span class='args identifier id'>args</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="move_contact-instance_method">
+  
+    - (<tt>Object</tt>) <strong>move_contact</strong>(person, to_aspect, from_aspect) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Aspects ######################
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 96</span>
+
+<span class='def def kw'>def</span> <span class='move_contact identifier id'>move_contact</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='comma token'>,</span> <span class='to_aspect identifier id'>to_aspect</span><span class='comma token'>,</span> <span class='from_aspect identifier id'>from_aspect</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='true true kw'>true</span> <span class='if if_mod kw'>if</span> <span class='to_aspect identifier id'>to_aspect</span> <span class='eq op'>==</span> <span class='from_aspect identifier id'>from_aspect</span>
+  <span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+
+  <span class='add_contact_to_aspect identifier id'>add_contact_to_aspect</span><span class='lparen token'>(</span><span class='contact identifier id'>contact</span><span class='comma token'>,</span> <span class='to_aspect identifier id'>to_aspect</span><span class='rparen token'>)</span>
+
+  <span class='membership identifier id'>membership</span> <span class='assign token'>=</span> <span class='contact identifier id'>contact</span> <span class='integer val'>? </span><span class='AspectMembership constant id'>AspectMembership</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:contact_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:aspect_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='from_aspect identifier id'>from_aspect</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span> <span class='colon op'>:</span> <span class='nil nil kw'>nil</span>
+  <span class='return return kw'>return</span><span class='lparen token'>(</span><span class='membership identifier id'>membership</span> <span class='andop op'>&amp;&amp;</span> <span class='membership identifier id'>membership</span><span class='dot token'>.</span><span class='destroy identifier id'>destroy</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="notify_if_mentioned-instance_method">
+  
+    - (<tt>Object</tt>) <strong>notify_if_mentioned</strong>(post) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+132
+133
+134
+135
+136</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 132</span>
+
+<span class='def def kw'>def</span> <span class='notify_if_mentioned identifier id'>notify_if_mentioned</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='unless unless_mod kw'>unless</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='dot token'>.</span><span class='author identifier id'>author</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:mentions?</span><span class='rparen token'>)</span>
+
+  <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='notify_person identifier id'>notify_person</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='mentions? fid id'>mentions?</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_all_traces-instance_method">
+  
+    - (<tt>Object</tt>) <strong>remove_all_traces</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+321
+322
+323
+324
+325</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 321</span>
+
+<span class='def def kw'>def</span> <span class='remove_all_traces identifier id'>remove_all_traces</span>
+  <span class='disconnect_everyone identifier id'>disconnect_everyone</span>
+  <span class='remove_mentions identifier id'>remove_mentions</span>
+  <span class='remove_person identifier id'>remove_person</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_mentions-instance_method">
+  
+    - (<tt>Object</tt>) <strong>remove_mentions</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+343
+344
+345
+346
+347</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 343</span>
+
+<span class='def def kw'>def</span> <span class='remove_mentions identifier id'>remove_mentions</span>
+  <span class='Mention constant id'>Mention</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span> <span class='symbol val'>:person_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='mentioned_person identifier id'>mentioned_person</span><span class='bitor op'>|</span>
+    <span class='mentioned_person identifier id'>mentioned_person</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="remove_person-instance_method">
+  
+    - (<tt>Object</tt>) <strong>remove_person</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+327
+328
+329</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 327</span>
+
+<span class='def def kw'>def</span> <span class='remove_person identifier id'>remove_person</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='destroy identifier id'>destroy</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="retract-instance_method">
+  
+    - (<tt>Object</tt>) <strong>retract</strong>(post) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Posts and Such ###############
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+200
+201
+202
+203
+204
+205
+206
+207
+208
+209
+210
+211
+212
+213
+214
+215</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 200</span>
+
+<span class='def def kw'>def</span> <span class='retract identifier id'>retract</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span><span class='lparen token'>(</span><span class='symbol val'>:relayable?</span><span class='rparen token'>)</span> <span class='andop op'>&amp;&amp;</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='relayable? fid id'>relayable?</span>
+    <span class='aspects identifier id'>aspects</span> <span class='assign token'>=</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='parent identifier id'>parent</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span>
+    <span class='retraction identifier id'>retraction</span> <span class='assign token'>=</span> <span class='RelayableRetraction constant id'>RelayableRetraction</span><span class='dot token'>.</span><span class='build identifier id'>build</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='else else kw'>else</span>
+    <span class='aspects identifier id'>aspects</span> <span class='assign token'>=</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span>
+    <span class='retraction identifier id'>retraction</span> <span class='assign token'>=</span> <span class='Retraction constant id'>Retraction</span><span class='dot token'>.</span><span class='for identifier id'>for</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='mailman identifier id'>mailman</span> <span class='assign token'>=</span> <span class='Postzord constant id'>Postzord</span><span class='colon2 op'>::</span><span class='Dispatch constant id'>Dispatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='retraction identifier id'>retraction</span><span class='rparen token'>)</span>
+  <span class='mailman identifier id'>mailman</span><span class='dot token'>.</span><span class='post identifier id'>post</span>
+
+  <span class='retraction identifier id'>retraction</span><span class='dot token'>.</span><span class='perform identifier id'>perform</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='rparen token'>)</span>
+
+  <span class='retraction identifier id'>retraction</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="salmon-instance_method">
+  
+    - (<tt>Object</tt>) <strong>salmon</strong>(post) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+153
+154
+155</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 153</span>
+
+<span class='def def kw'>def</span> <span class='salmon identifier id'>salmon</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='rparen token'>)</span>
+  <span class='Salmon constant id'>Salmon</span><span class='colon2 op'>::</span><span class='SalmonSlap constant id'>SalmonSlap</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='to_diaspora_xml identifier id'>to_diaspora_xml</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="seed_aspects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>seed_aspects</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+303
+304
+305
+306</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 303</span>
+
+<span class='def def kw'>def</span> <span class='seed_aspects identifier id'>seed_aspects</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span><span class='lparen token'>(</span><span class='string val'>'aspects.seed.family'</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='symbol val'>:name</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='t identifier id'>t</span><span class='lparen token'>(</span><span class='string val'>'aspects.seed.work'</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="set_current_language-instance_method">
+  
+    - (<tt>Object</tt>) <strong>set_current_language</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+76
+77
+78</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 76</span>
+
+<span class='def def kw'>def</span> <span class='set_current_language identifier id'>set_current_language</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='language identifier id'>language</span> <span class='assign token'>=</span> <span class='I18n constant id'>I18n</span><span class='dot token'>.</span><span class='locale identifier id'>locale</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span> <span class='if if_mod kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='language identifier id'>language</span><span class='dot token'>.</span><span class='blank? fid id'>blank?</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="setup-instance_method">
+  
+    - (<tt>Object</tt>) <strong>setup</strong>(opts) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+278
+279
+280
+281
+282
+283
+284
+285
+286
+287
+288
+289
+290
+291
+292
+293
+294
+295
+296
+297
+298
+299
+300
+301</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 278</span>
+
+<span class='def def kw'>def</span> <span class='setup identifier id'>setup</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='username identifier id'>username</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:username</span><span class='rbrack token'>]</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='email identifier id'>email</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:email</span><span class='rbrack token'>]</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='valid? fid id'>valid?</span>
+  <span class='errors identifier id'>errors</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='errors identifier id'>errors</span>
+  <span class='errors identifier id'>errors</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span> <span class='symbol val'>:person</span>
+  <span class='return return kw'>return</span> <span class='if if_mod kw'>if</span> <span class='errors identifier id'>errors</span><span class='dot token'>.</span><span class='size identifier id'>size</span> <span class='gt op'>&gt;</span> <span class='integer val'>0</span>
+
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+  <span class='unless unless kw'>unless</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:profile</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Profile constant id'>Profile</span><span class='rparen token'>)</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:profile</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='Profile constant id'>Profile</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+    <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:profile</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Profile constant id'>Profile</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='symbol val'>:profile</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span> <span class='assign token'>=</span> <span class='Person constant id'>Person</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:person</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='diaspora_handle identifier id'>diaspora_handle</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{opts[:username]}@#{AppConfig[:pod_uri].host}&quot;</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='url identifier id'>url</span> <span class='assign token'>=</span> <span class='AppConfig constant id'>AppConfig</span><span class='lbrack token'>[</span><span class='symbol val'>:pod_url</span><span class='rbrack token'>]</span>
+
+
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='serialized_private_key identifier id'>serialized_private_key</span> <span class='assign token'>=</span> <span class='User constant id'>User</span><span class='dot token'>.</span><span class='generate_key identifier id'>generate_key</span> <span class='if if_mod kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='serialized_private_key identifier id'>serialized_private_key</span><span class='dot token'>.</span><span class='blank? fid id'>blank?</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='serialized_public_key identifier id'>serialized_public_key</span> <span class='assign token'>=</span> <span class='OpenSSL constant id'>OpenSSL</span><span class='colon2 op'>::</span><span class='PKey constant id'>PKey</span><span class='colon2 op'>::</span><span class='RSA constant id'>RSA</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='serialized_private_key identifier id'>serialized_private_key</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='public_key identifier id'>public_key</span>
+
+  <span class='self self kw'>self</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="strip_and_downcase_username-instance_method">
+  
+    - (<tt>Object</tt>) <strong>strip_and_downcase_username</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+69
+70
+71
+72
+73
+74</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 69</span>
+
+<span class='def def kw'>def</span> <span class='strip_and_downcase_username identifier id'>strip_and_downcase_username</span>
+  <span class='if if kw'>if</span> <span class='username identifier id'>username</span><span class='dot token'>.</span><span class='present? fid id'>present?</span>
+    <span class='username identifier id'>username</span><span class='dot token'>.</span><span class='strip! fid id'>strip!</span>
+    <span class='username identifier id'>username</span><span class='dot token'>.</span><span class='downcase! fid id'>downcase!</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_post</strong>(post, post_hash = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+125
+126
+127
+128
+129
+130</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 125</span>
+
+<span class='def def kw'>def</span> <span class='update_post identifier id'>update_post</span><span class='lparen token'>(</span><span class='post identifier id'>post</span><span class='comma token'>,</span> <span class='post_hash identifier id'>post_hash</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='owns? fid id'>owns?</span> <span class='post identifier id'>post</span>
+    <span class='post identifier id'>post</span><span class='dot token'>.</span><span class='update_attributes identifier id'>update_attributes</span><span class='lparen token'>(</span><span class='post_hash identifier id'>post_hash</span><span class='rparen token'>)</span>
+    <span class='Postzord constant id'>Postzord</span><span class='colon2 op'>::</span><span class='Dispatch constant id'>Dispatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='post identifier id'>post</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='post identifier id'>post</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update_profile-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_profile</strong>(params) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    <p>
+Profile ######################
+</p>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+218
+219
+220
+221
+222
+223
+224
+225
+226
+227
+228
+229
+230
+231</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 218</span>
+
+<span class='def def kw'>def</span> <span class='update_profile identifier id'>update_profile</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='photo identifier id'>photo</span> <span class='assign token'>=</span> <span class='params identifier id'>params</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='symbol val'>:photo</span><span class='rparen token'>)</span>
+    <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='update_attributes identifier id'>update_attributes</span><span class='lparen token'>(</span><span class='symbol val'>:pending</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='pending identifier id'>pending</span>
+    <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:image_url</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_large</span><span class='rparen token'>)</span>
+    <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:image_url_medium</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_medium</span><span class='rparen token'>)</span>
+    <span class='params identifier id'>params</span><span class='lbrack token'>[</span><span class='symbol val'>:image_url_small</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='photo identifier id'>photo</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='lparen token'>(</span><span class='symbol val'>:thumb_small</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='if if kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='profile identifier id'>profile</span><span class='dot token'>.</span><span class='update_attributes identifier id'>update_attributes</span><span class='lparen token'>(</span><span class='params identifier id'>params</span><span class='rparen token'>)</span>
+    <span class='Postzord constant id'>Postzord</span><span class='colon2 op'>::</span><span class='Dispatch constant id'>Dispatch</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='comma token'>,</span> <span class='profile identifier id'>profile</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='post identifier id'>post</span>
+    <span class='true true kw'>true</span>
+  <span class='else else kw'>else</span>
+    <span class='false false kw'>false</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="update_user_preferences-instance_method">
+  
+    - (<tt>Object</tt>) <strong>update_user_preferences</strong>(pref_hash) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/user.rb', line 50</span>
+
+<span class='def def kw'>def</span> <span class='update_user_preferences identifier id'>update_user_preferences</span><span class='lparen token'>(</span><span class='pref_hash identifier id'>pref_hash</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='disable_mail identifier id'>disable_mail</span>
+    <span class='UserPreference constant id'>UserPreference</span><span class='colon2 op'>::</span><span class='VALID_EMAIL_TYPES constant id'>VALID_EMAIL_TYPES</span><span class='dot token'>.</span><span class='each identifier id'>each</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='x identifier id'>x</span><span class='bitor op'>|</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='user_preferences identifier id'>user_preferences</span><span class='dot token'>.</span><span class='find_or_create_by_email_type identifier id'>find_or_create_by_email_type</span><span class='lparen token'>(</span><span class='x identifier id'>x</span><span class='rparen token'>)</span><span class='rbrace token'>}</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='disable_mail identifier id'>disable_mail</span> <span class='assign token'>=</span> <span class='false false kw'>false</span>
+    <span class='self self kw'>self</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+  <span class='end end kw'>end</span>
+
+  <span class='pref_hash identifier id'>pref_hash</span><span class='dot token'>.</span><span class='keys identifier id'>keys</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='key identifier id'>key</span><span class='bitor op'>|</span>
+    <span class='if if kw'>if</span> <span class='pref_hash identifier id'>pref_hash</span><span class='lbrack token'>[</span><span class='key identifier id'>key</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'true'</span>
+      <span class='self self kw'>self</span><span class='dot token'>.</span><span class='user_preferences identifier id'>user_preferences</span><span class='dot token'>.</span><span class='find_or_create_by_email_type identifier id'>find_or_create_by_email_type</span><span class='lparen token'>(</span><span class='key identifier id'>key</span><span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='block identifier id'>block</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='user_preferences identifier id'>user_preferences</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:email_type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='key identifier id'>key</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+      <span class='if if kw'>if</span> <span class='block identifier id'>block</span>
+        <span class='block identifier id'>block</span><span class='dot token'>.</span><span class='destroy identifier id'>destroy</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:20 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

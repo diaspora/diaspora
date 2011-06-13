@@ -1,0 +1,329 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Job::HttpMulti
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (H)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Job.html" title="Job (module)">Job</a></span></span>
+     &raquo; 
+    <span class="title">HttpMulti</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Job::HttpMulti
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName"><span class='object_link'><a href="Base.html" title="Job::Base (class)">Base</a></span></span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next"><span class='object_link'><a href="Base.html" title="Job::Base (class)">Base</a></span></li>
+          
+            <li class="next">Job::HttpMulti</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">app/models/jobs/http_multi.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="Hydra-constant" class="">Hydra =
+          
+        </dt>
+        <dd><pre class="code"><span class='Typhoeus constant id'>Typhoeus</span><span class='colon2 op'>::</span><span class='Hydra constant id'>Hydra</span>
+</pre></dd>
+      
+        <dt id="Request-constant" class="">Request =
+          
+        </dt>
+        <dd><pre class="code"><span class='Typhoeus constant id'>Typhoeus</span><span class='colon2 op'>::</span><span class='Request constant id'>Request</span>
+</pre></dd>
+      
+        <dt id="MAX_RETRIES-constant" class="">MAX_RETRIES =
+          
+        </dt>
+        <dd><pre class="code"><span class='integer val'>3</span>
+</pre></dd>
+      
+        <dt id="OPTS-constant" class="">OPTS =
+          
+        </dt>
+        <dd><pre class="code"><span class='lbrace token'>{</span><span class='symbol val'>:max_redirects</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>3</span><span class='comma token'>,</span> <span class='symbol val'>:timeout</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>5000</span><span class='comma token'>,</span> <span class='symbol val'>:method</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:post</span><span class='rbrace token'>}</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#perform_delegate-class_method" title="perform_delegate (class method)">+ (Object) <strong>perform_delegate</strong>(user_id, enc_object_xml, person_ids, retry_count = 0) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods inherited from <span class='object_link'><a href="Base.html" title="Job::Base (class)">Base</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Base.html#perform-class_method" title="Job::Base.perform (method)">perform</a></span></p>
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="../ResqueJobLogging.html" title="ResqueJobLogging (module)">ResqueJobLogging</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="../ResqueJobLogging.html#application_trace-instance_method" title="ResqueJobLogging#application_trace (method)">#application_trace</a></span>, <span class='object_link'><a href="../ResqueJobLogging.html#around_perform_log_job-instance_method" title="ResqueJobLogging#around_perform_log_job (method)">#around_perform_log_job</a></span></p>
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="perform_delegate-class_method">
+  
+    + (<tt>Object</tt>) <strong>perform_delegate</strong>(user_id, enc_object_xml, person_ids, retry_count = 0) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/jobs/http_multi.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='perform_delegate identifier id'>perform_delegate</span><span class='lparen token'>(</span><span class='user_id identifier id'>user_id</span><span class='comma token'>,</span> <span class='enc_object_xml identifier id'>enc_object_xml</span><span class='comma token'>,</span> <span class='person_ids identifier id'>person_ids</span><span class='comma token'>,</span> <span class='retry_count identifier id'>retry_count</span><span class='assign token'>=</span><span class='integer val'>0</span><span class='rparen token'>)</span>
+  <span class='user identifier id'>user</span> <span class='assign token'>=</span> <span class='User constant id'>User</span><span class='dot token'>.</span><span class='find identifier id'>find</span><span class='lparen token'>(</span><span class='user_id identifier id'>user_id</span><span class='rparen token'>)</span>
+  <span class='people identifier id'>people</span> <span class='assign token'>=</span> <span class='Person constant id'>Person</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='person_ids identifier id'>person_ids</span><span class='rparen token'>)</span>
+
+  <span class='salmon identifier id'>salmon</span> <span class='assign token'>=</span> <span class='Salmon constant id'>Salmon</span><span class='colon2 op'>::</span><span class='SalmonSlap constant id'>SalmonSlap</span><span class='dot token'>.</span><span class='create identifier id'>create</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='comma token'>,</span> <span class='Base64 constant id'>Base64</span><span class='dot token'>.</span><span class='decode64 identifier id'>decode64</span><span class='lparen token'>(</span><span class='enc_object_xml identifier id'>enc_object_xml</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+
+  <span class='failed_request_people identifier id'>failed_request_people</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+
+  <span class='hydra identifier id'>hydra</span> <span class='assign token'>=</span> <span class='Hydra constant id'>Hydra</span><span class='dot token'>.</span><span class='new identifier id'>new</span>
+  <span class='people identifier id'>people</span><span class='dot token'>.</span><span class='each identifier id'>each</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='person identifier id'>person</span><span class='bitor op'>|</span>
+
+    <span class='url identifier id'>url</span> <span class='assign token'>=</span> <span class='person identifier id'>person</span><span class='dot token'>.</span><span class='receive_url identifier id'>receive_url</span>
+    <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='salmon identifier id'>salmon</span><span class='dot token'>.</span><span class='xml_for identifier id'>xml_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+
+    <span class='request identifier id'>request</span> <span class='assign token'>=</span> <span class='Request constant id'>Request</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='url identifier id'>url</span><span class='comma token'>,</span> <span class='OPTS constant id'>OPTS</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:params</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:xml</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='CGI constant id'>CGI</span><span class='colon2 op'>::</span><span class='escape identifier id'>escape</span><span class='lparen token'>(</span><span class='xml identifier id'>xml</span><span class='rparen token'>)</span><span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+
+    <span class='request identifier id'>request</span><span class='dot token'>.</span><span class='on_complete identifier id'>on_complete</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='response identifier id'>response</span><span class='bitor op'>|</span>
+      <span class='if if kw'>if</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='code identifier id'>code</span> <span class='geq op'>&gt;=</span> <span class='integer val'>300</span> <span class='andop op'>&amp;&amp;</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='code identifier id'>code</span> <span class='lt op'>&lt;</span> <span class='integer val'>400</span>
+        <span class='if if kw'>if</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='headers_hash identifier id'>headers_hash</span><span class='lbrack token'>[</span><span class='string val'>'Location'</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='request identifier id'>request</span><span class='dot token'>.</span><span class='url identifier id'>url</span><span class='dot token'>.</span><span class='sub identifier id'>sub</span><span class='lparen token'>(</span><span class='string val'>'http://'</span><span class='comma token'>,</span> <span class='string val'>'https://'</span><span class='rparen token'>)</span>
+          <span class='location identifier id'>location</span> <span class='assign token'>=</span> <span class='URI constant id'>URI</span><span class='dot token'>.</span><span class='parse identifier id'>parse</span><span class='lparen token'>(</span><span class='response identifier id'>response</span><span class='dot token'>.</span><span class='headers_hash identifier id'>headers_hash</span><span class='lbrack token'>[</span><span class='string val'>'Location'</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+          <span class='newuri identifier id'>newuri</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;#{location.scheme}://#{location.host}&quot;</span>
+          <span class='newuri identifier id'>newuri</span> <span class='opasgn op'>+=</span> <span class='dstring node'>&quot;:#{location.port}&quot;</span> <span class='unless unless_mod kw'>unless</span> <span class='lbrack token'>[</span><span class='string val'>&quot;80&quot;</span><span class='comma token'>,</span> <span class='string val'>&quot;443&quot;</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='include? fid id'>include?</span><span class='lparen token'>(</span><span class='location identifier id'>location</span><span class='dot token'>.</span><span class='port identifier id'>port</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='rparen token'>)</span>
+          <span class='newuri identifier id'>newuri</span> <span class='opasgn op'>+=</span> <span class='string val'>&quot;/&quot;</span>
+          <span class='person identifier id'>person</span><span class='dot token'>.</span><span class='url identifier id'>url</span> <span class='assign token'>=</span> <span class='newuri identifier id'>newuri</span>
+          <span class='person identifier id'>person</span><span class='dot token'>.</span><span class='save identifier id'>save</span>
+        <span class='end end kw'>end</span>
+      <span class='end end kw'>end</span>
+      <span class='unless unless kw'>unless</span> <span class='response identifier id'>response</span><span class='dot token'>.</span><span class='success? fid id'>success?</span>
+        <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span><span class='lparen token'>(</span><span class='dstring node'>&quot;event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}' xml='#{Base64.decode64(enc_object_xml)}'&quot;</span><span class='rparen token'>)</span>
+        <span class='failed_request_people identifier id'>failed_request_people</span> <span class='lshft op'>&lt;&lt;</span> <span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span>
+      <span class='end end kw'>end</span>
+    <span class='end end kw'>end</span>
+
+    <span class='hydra identifier id'>hydra</span><span class='dot token'>.</span><span class='queue identifier id'>queue</span> <span class='request identifier id'>request</span>
+  <span class='end end kw'>end</span>
+  <span class='hydra identifier id'>hydra</span><span class='dot token'>.</span><span class='run identifier id'>run</span>
+
+  <span class='unless unless kw'>unless</span> <span class='failed_request_people identifier id'>failed_request_people</span><span class='dot token'>.</span><span class='empty? fid id'>empty?</span>
+    <span class='if if kw'>if</span> <span class='retry_count identifier id'>retry_count</span> <span class='lt op'>&lt;</span> <span class='MAX_RETRIES constant id'>MAX_RETRIES</span>
+      <span class='Resque constant id'>Resque</span><span class='dot token'>.</span><span class='enqueue identifier id'>enqueue</span><span class='lparen token'>(</span><span class='Job constant id'>Job</span><span class='colon2 op'>::</span><span class='HttpMulti constant id'>HttpMulti</span><span class='comma token'>,</span> <span class='user_id identifier id'>user_id</span><span class='comma token'>,</span> <span class='enc_object_xml identifier id'>enc_object_xml</span><span class='comma token'>,</span> <span class='failed_request_people identifier id'>failed_request_people</span><span class='comma token'>,</span> <span class='retry_count identifier id'>retry_count</span> <span class='plus op'>+</span> <span class='integer val'>1</span> <span class='rparen token'>)</span>
+    <span class='else else kw'>else</span>
+      <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span><span class='lparen token'>(</span><span class='dstring node'>&quot;event=http_multi_abandon sender_id=#{user_id} failed_recipient_ids='[#{person_ids.join(', ')}] xml='#{Base64.decode64(enc_object_xml)}'&quot;</span><span class='rparen token'>)</span>
+    <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:19 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

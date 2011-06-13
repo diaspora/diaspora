@@ -1,0 +1,671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Diaspora::WebSocket
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (W)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Diaspora.html" title="Diaspora (module)">Diaspora</a></span></span>
+     &raquo; 
+    <span class="title">WebSocket</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Diaspora::WebSocket
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">lib/diaspora/web_socket.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+  <h2>Constant Summary</h2>
+  
+    <dl class="constants">
+      
+        <dt id="REDIS_CONNECTION_SET-constant" class="">REDIS_CONNECTION_SET =
+          
+        </dt>
+        <dd><pre class="code"><span class='string val'>'ws-uids'</span>
+</pre></dd>
+      
+    </dl>
+  
+
+
+
+
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#ensure_channel-class_method" title="ensure_channel (class method)">+ (Object) <strong>ensure_channel</strong>(uid) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#initialize_channels-class_method" title="initialize_channels (class method)">+ (Object) <strong>initialize_channels</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#is_connected%3F-class_method" title="is_connected? (class method)">+ (Boolean) <strong>is_connected?</strong>(uid) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#length-class_method" title="length (class method)">+ (Object) <strong>length</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#next-class_method" title="next (class method)">+ (Object) <strong>next</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#push_to_user-class_method" title="push_to_user (class method)">+ (Object) <strong>push_to_user</strong>(uid, data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#queue_to_user-class_method" title="queue_to_user (class method)">+ (Object) <strong>queue_to_user</strong>(uid, data) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#redis-class_method" title="redis (class method)">+ (Object) <strong>redis</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscribe-class_method" title="subscribe (class method)">+ (Object) <strong>subscribe</strong>(uid, ws) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#unsubscribe-class_method" title="unsubscribe (class method)">+ (Object) <strong>unsubscribe</strong>(uid, sid) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="ensure_channel-class_method">
+  
+    + (<tt>Object</tt>) <strong>ensure_channel</strong>(uid) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+42
+43
+44</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 42</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='ensure_channel identifier id'>ensure_channel</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='lbrack token'>[</span><span class='EM constant id'>EM</span><span class='colon2 op'>::</span><span class='Channel constant id'>Channel</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='comma token'>,</span> <span class='integer val'>0</span> <span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="initialize_channels-class_method">
+  
+    + (<tt>Object</tt>) <strong>initialize_channels</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+20
+21
+22</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 20</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='initialize_channels identifier id'>initialize_channels</span>
+  <span class='@channels ivar id'>@channels</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="is_connected?-class_method">
+  
+    + (<tt>Boolean</tt>) <strong>is_connected?</strong>(uid) 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Returns:</h3>
+<ul class="return">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>Boolean</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+56
+57
+58</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 56</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='is_connected? fid id'>is_connected?</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+  <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='sismember identifier id'>sismember</span><span class='lparen token'>(</span><span class='REDIS_CONNECTION_SET constant id'>REDIS_CONNECTION_SET</span><span class='comma token'>,</span> <span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="length-class_method">
+  
+    + (<tt>Object</tt>) <strong>length</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+13
+14
+15</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 13</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='length identifier id'>length</span>
+  <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='llen identifier id'>llen</span> <span class='symbol val'>:websocket</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="next-class_method">
+  
+    + (<tt>Object</tt>) <strong>next</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+24
+25
+26</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 24</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='next identifier id'>next</span>
+  <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='rpop identifier id'>rpop</span><span class='lparen token'>(</span><span class='symbol val'>:websocket</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="push_to_user-class_method">
+  
+    + (<tt>Object</tt>) <strong>push_to_user</strong>(uid, data) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 28</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='push_to_user identifier id'>push_to_user</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='comma token'>,</span> <span class='data identifier id'>data</span><span class='rparen token'>)</span>
+  <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='debug identifier id'>debug</span> <span class='dstring node'>&quot;event=socket-push uid=#{uid}&quot;</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='push identifier id'>push</span><span class='lparen token'>(</span><span class='data identifier id'>data</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="queue_to_user-class_method">
+  
+    + (<tt>Object</tt>) <strong>queue_to_user</strong>(uid, data) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+16
+17
+18</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 16</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='queue_to_user identifier id'>queue_to_user</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='comma token'>,</span> <span class='data identifier id'>data</span><span class='rparen token'>)</span>
+  <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='lpush identifier id'>lpush</span><span class='lparen token'>(</span><span class='symbol val'>:websocket</span><span class='comma token'>,</span> <span class='lbrace token'>{</span><span class='symbol val'>:uid</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='uid identifier id'>uid</span><span class='comma token'>,</span> <span class='symbol val'>:data</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='data identifier id'>data</span><span class='rbrace token'>}</span><span class='dot token'>.</span><span class='to_json identifier id'>to_json</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="redis-class_method">
+  
+    + (<tt>Object</tt>) <strong>redis</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+10
+11
+12</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 10</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='redis identifier id'>redis</span>
+  <span class='@redis ivar id'>@redis</span> <span class='opasgn op'>||=</span> <span class='Resque constant id'>Resque</span><span class='dot token'>.</span><span class='redis identifier id'>redis</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="subscribe-class_method">
+  
+    + (<tt>Object</tt>) <strong>subscribe</strong>(uid, ws) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35
+36
+37
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='subscribe identifier id'>subscribe</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='comma token'>,</span> <span class='ws identifier id'>ws</span><span class='rparen token'>)</span>
+  <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span> <span class='dstring node'>&quot;event=socket-subscribe uid=#{uid} channels=#{self.length}&quot;</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='ensure_channel identifier id'>ensure_channel</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='subscribe identifier id'>subscribe</span><span class='lbrace token'>{</span> <span class='bitor op'>|</span><span class='msg identifier id'>msg</span><span class='bitor op'>|</span> <span class='ws identifier id'>ws</span><span class='dot token'>.</span><span class='send identifier id'>send</span> <span class='msg identifier id'>msg</span> <span class='rbrace token'>}</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='opasgn op'>+=</span> <span class='integer val'>1</span>
+
+  <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='sadd identifier id'>sadd</span><span class='lparen token'>(</span><span class='REDIS_CONNECTION_SET constant id'>REDIS_CONNECTION_SET</span><span class='comma token'>,</span> <span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="unsubscribe-class_method">
+  
+    + (<tt>Object</tt>) <strong>unsubscribe</strong>(uid, sid) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+46
+47
+48
+49
+50
+51
+52
+53
+54</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/web_socket.rb', line 46</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='unsubscribe identifier id'>unsubscribe</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='comma token'>,</span><span class='sid identifier id'>sid</span><span class='rparen token'>)</span>
+  <span class='Rails constant id'>Rails</span><span class='dot token'>.</span><span class='logger identifier id'>logger</span><span class='dot token'>.</span><span class='info identifier id'>info</span> <span class='dstring node'>&quot;event=socket-unsubscribe sid=#{sid} uid=#{uid} channels=#{self.length}&quot;</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>0</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='unsubscribe identifier id'>unsubscribe</span><span class='lparen token'>(</span><span class='sid identifier id'>sid</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span>
+  <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='opasgn op'>-=</span> <span class='integer val'>1</span>
+  <span class='if if kw'>if</span> <span class='@channels ivar id'>@channels</span><span class='lbrack token'>[</span><span class='uid identifier id'>uid</span><span class='rbrack token'>]</span><span class='lbrack token'>[</span><span class='integer val'>1</span><span class='rbrack token'>]</span> <span class='leq op'>&lt;=</span> <span class='integer val'>0</span>
+    <span class='@channels ivar id'>@channels</span><span class='dot token'>.</span><span class='delete identifier id'>delete</span><span class='lparen token'>(</span><span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+    <span class='redis identifier id'>redis</span><span class='dot token'>.</span><span class='srem identifier id'>srem</span><span class='lparen token'>(</span><span class='REDIS_CONNECTION_SET constant id'>REDIS_CONNECTION_SET</span><span class='comma token'>,</span> <span class='uid identifier id'>uid</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:21 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

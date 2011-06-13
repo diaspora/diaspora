@@ -67,6 +67,10 @@ class Post < ActiveRecord::Base
     false
   end
 
+  # The list of people that should receive this Post.
+  #
+  # @param [User] user The context, or dispatching user.
+  # @return [Array<Person>] The list of subscribers to this post
   def subscribers(user)
     if self.public?
       user.contact_people

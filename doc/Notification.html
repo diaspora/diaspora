@@ -1,0 +1,431 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Class: Notification
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="_index.html">Index (N)</a> &raquo; 
+    
+    
+    <span class="title">Notification</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Class: Notification
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+    <dt class="r1">Inherits:</dt>
+    <dd class="r1">
+      <span class="inheritName">ActiveRecord::Base</span>
+      
+        <ul class="fullTree">
+          <li>Object</li>
+          
+            <li class="next">ActiveRecord::Base</li>
+          
+            <li class="next">Notification</li>
+          
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      
+      </dd>
+    
+  
+  
+    
+  
+    
+      <dt class="r2">Includes:</dt>
+      <dd class="r2"><span class='object_link'><a href="Diaspora/Socketable.html" title="Diaspora::Socketable (module)">Diaspora::Socketable</a></span></dd>
+      
+    
+  
+  
+  
+    <dt class="r1 last">Defined in:</dt>
+    <dd class="r1 last">app/models/notification.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+<h2>Overview</h2><div class="docstring">
+  <div class="discussion">
+    <p>
+Copyright &#169; 2010, Diaspora Inc. This file is
+</p>
+<pre class="code">
+  <span class='licensed identifier id'>licensed</span> <span class='under identifier id'>under</span> <span class='the identifier id'>the</span> <span class='Affero constant id'>Affero</span> <span class='General constant id'>General</span> <span class='Public constant id'>Public</span> <span class='License constant id'>License</span> <span class='version identifier id'>version</span> <span class='integer val'>3</span> <span class='or or kw'>or</span> <span class='later identifier id'>later</span><span class='dot token'>.</span>  <span class='See constant id'>See</span>
+  <span class='the identifier id'>the</span> <span class='COPYRIGHT constant id'>COPYRIGHT</span> <span class='file identifier id'>file</span><span class='dot token'>.</span>
+</pre>
+
+
+  </div>
+</div>
+<div class="tags">
+  
+</div><div id="subclasses">
+  <h2>Direct Known Subclasses</h2>
+  <p class="children"><span class='object_link'><a href="Notifications/AlsoCommented.html" title="Notifications::AlsoCommented (class)">Notifications::AlsoCommented</a></span>, <span class='object_link'><a href="Notifications/CommentOnPost.html" title="Notifications::CommentOnPost (class)">Notifications::CommentOnPost</a></span>, <span class='object_link'><a href="Notifications/Liked.html" title="Notifications::Liked (class)">Notifications::Liked</a></span>, <span class='object_link'><a href="Notifications/Mentioned.html" title="Notifications::Mentioned (class)">Notifications::Mentioned</a></span>, <span class='object_link'><a href="Notifications/PrivateMessage.html" title="Notifications::PrivateMessage (class)">Notifications::PrivateMessage</a></span>, <span class='object_link'><a href="Notifications/RequestAccepted.html" title="Notifications::RequestAccepted (class)">Notifications::RequestAccepted</a></span>, <span class='object_link'><a href="Notifications/StartedSharing.html" title="Notifications::StartedSharing (class)">Notifications::StartedSharing</a></span></p>
+</div>
+
+
+  
+  
+  
+  
+  
+
+
+  
+  
+  
+  
+
+  
+    <h2>
+      Class Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#for-class_method" title="for (class method)">+ (Object) <strong>for</strong>(recipient, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#notify-class_method" title="notify (class method)">+ (Object) <strong>notify</strong>(recipient, target, actor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#email_the_user-instance_method" title="#email_the_user (instance method)">- (Object) <strong>email_the_user</strong>(target, actor) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#mail_job-instance_method" title="#mail_job (instance method)">- (Object) <strong>mail_job</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+  
+  
+  
+  
+  
+  
+  
+  <h3 class="inherited">Methods included from <span class='object_link'><a href="Diaspora/Socketable.html" title="Diaspora::Socketable (module)">Diaspora::Socketable</a></span></h3>
+  <p class="inherited"><span class='object_link'><a href="Diaspora/Socketable.html#socket_to_user-instance_method" title="Diaspora::Socketable#socket_to_user (method)">#socket_to_user</a></span>, <span class='object_link'><a href="Diaspora/Socketable.html#unsocket_from_user-instance_method" title="Diaspora::Socketable#unsocket_from_user (method)">#unsocket_from_user</a></span></p>
+
+  
+
+  <div id="class_method_details" class="method_details_list">
+    <h2>Class Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="for-class_method">
+  
+    + (<tt>Object</tt>) <strong>for</strong>(recipient, opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+14
+15
+16</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/notification.rb', line 14</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='for identifier id'>for</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='merge! fid id'>merge!</span><span class='lparen token'>(</span><span class='symbol val'>:recipient_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='recipient identifier id'>recipient</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='string val'>'updated_at desc'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="notify-class_method">
+  
+    + (<tt>Object</tt>) <strong>notify</strong>(recipient, target, actor) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/notification.rb', line 18</span>
+
+<span class='def def kw'>def</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='notify identifier id'>notify</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='target identifier id'>target</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='rparen token'>)</span>
+  <span class='if if kw'>if</span> <span class='target identifier id'>target</span><span class='dot token'>.</span><span class='respond_to? fid id'>respond_to?</span> <span class='colon op'>:</span><span class='notification_type identifier id'>notification_type</span>
+    <span class='if if kw'>if</span> <span class='note_type identifier id'>note_type</span> <span class='assign token'>=</span> <span class='target identifier id'>target</span><span class='dot token'>.</span><span class='notification_type identifier id'>notification_type</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='rparen token'>)</span>
+      <span class='if if kw'>if</span><span class='lparen token'>(</span><span class='target identifier id'>target</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Comment constant id'>Comment</span><span class='rparen token'>)</span> <span class='orop op'>||</span> <span class='lparen token'>(</span><span class='target identifier id'>target</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span> <span class='Like constant id'>Like</span><span class='rparen token'>)</span> 
+        <span class='n identifier id'>n</span> <span class='assign token'>=</span> <span class='note_type identifier id'>note_type</span><span class='dot token'>.</span><span class='concatenate_or_create identifier id'>concatenate_or_create</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='target identifier id'>target</span><span class='dot token'>.</span><span class='post identifier id'>post</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='comma token'>,</span> <span class='note_type identifier id'>note_type</span><span class='rparen token'>)</span>
+      <span class='else else kw'>else</span>
+        <span class='n identifier id'>n</span> <span class='assign token'>=</span> <span class='note_type identifier id'>note_type</span><span class='dot token'>.</span><span class='make_notification identifier id'>make_notification</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='target identifier id'>target</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='comma token'>,</span> <span class='note_type identifier id'>note_type</span><span class='rparen token'>)</span>
+      <span class='end end kw'>end</span>
+      <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='email_the_user identifier id'>email_the_user</span><span class='lparen token'>(</span><span class='target identifier id'>target</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='n identifier id'>n</span>
+      <span class='n identifier id'>n</span><span class='dot token'>.</span><span class='socket_to_user identifier id'>socket_to_user</span><span class='lparen token'>(</span><span class='recipient identifier id'>recipient</span><span class='comma token'>,</span> <span class='symbol val'>:actor</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='actor identifier id'>actor</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='n identifier id'>n</span>
+      <span class='n identifier id'>n</span>
+     <span class='end end kw'>end</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="email_the_user-instance_method">
+  
+    - (<tt>Object</tt>) <strong>email_the_user</strong>(target, actor) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+33
+34
+35</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/notification.rb', line 33</span>
+
+<span class='def def kw'>def</span> <span class='email_the_user identifier id'>email_the_user</span><span class='lparen token'>(</span><span class='target identifier id'>target</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='recipient identifier id'>recipient</span><span class='dot token'>.</span><span class='mail identifier id'>mail</span><span class='lparen token'>(</span><span class='self self kw'>self</span><span class='dot token'>.</span><span class='mail_job identifier id'>mail_job</span><span class='comma token'>,</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='recipient_id identifier id'>recipient_id</span><span class='comma token'>,</span> <span class='actor identifier id'>actor</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='target identifier id'>target</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="mail_job-instance_method">
+  
+    - (<tt>Object</tt>) <strong>mail_job</strong> 
+  
+
+  
+</p><div class="docstring">
+  <div class="discussion">
+    
+
+  </div>
+</div>
+<div class="tags">
+  <h3>Raises:</h3>
+<ul class="raise">
+  
+    <li>
+      
+      
+        <span class='type'>(<tt>NotImplementedError</tt>)</span>
+      
+      
+      
+    </li>
+  
+</ul>
+
+</div><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+38
+39
+40</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'app/models/notification.rb', line 38</span>
+
+<span class='def def kw'>def</span> <span class='mail_job identifier id'>mail_job</span>
+  <span class='raise identifier id'>raise</span> <span class='NotImplementedError constant id'>NotImplementedError</span><span class='dot token'>.</span><span class='new identifier id'>new</span><span class='lparen token'>(</span><span class='string val'>'Subclass this.'</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:19 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Diaspora::Webhooks
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../_index.html">Index (W)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../Diaspora.html" title="Diaspora (module)">Diaspora</a></span></span>
+     &raquo; 
+    <span class="title">Webhooks</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Diaspora::Webhooks
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../Comment.html" title="Comment (class)">Comment</a></span>, <span class='object_link'><a href="../Conversation.html" title="Conversation (class)">Conversation</a></span>, <span class='object_link'><a href="OstatusBuilder.html" title="Diaspora::OstatusBuilder (class)">OstatusBuilder</a></span>, <span class='object_link'><a href="../Like.html" title="Like (class)">Like</a></span>, <span class='object_link'><a href="../Message.html" title="Message (class)">Message</a></span>, <span class='object_link'><a href="../Post.html" title="Post (class)">Post</a></span>, <span class='object_link'><a href="../Profile.html" title="Profile (class)">Profile</a></span>, <span class='object_link'><a href="../RelayableRetraction.html" title="RelayableRetraction (class)">RelayableRetraction</a></span>, <span class='object_link'><a href="../Request.html" title="Request (class)">Request</a></span>, <span class='object_link'><a href="../Retraction.html" title="Retraction (class)">Retraction</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/diaspora/webhooks.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#receive-instance_method" title="#receive (instance method)">- (Object) <strong>receive</strong>(user, person) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#subscribers-instance_method" title="#subscribers (instance method)">- (Object) <strong>subscribers</strong>(user) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#to_diaspora_xml-instance_method" title="#to_diaspora_xml (instance method)">- (Object) <strong>to_diaspora_xml</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#x-instance_method" title="#x (instance method)">- (Object) <strong>x</strong>(input) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="receive-instance_method">
+  
+    - (<tt>Object</tt>) <strong>receive</strong>(user, person) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+23
+24
+25</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/webhooks.rb', line 23</span>
+
+<span class='def def kw'>def</span> <span class='receive identifier id'>receive</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='comma token'>,</span> <span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>'you must override receive in order to enable federation on this model'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="subscribers-instance_method">
+  
+    - (<tt>Object</tt>) <strong>subscribers</strong>(user) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+19
+20
+21</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/webhooks.rb', line 19</span>
+
+<span class='def def kw'>def</span> <span class='subscribers identifier id'>subscribers</span><span class='lparen token'>(</span><span class='user identifier id'>user</span><span class='rparen token'>)</span>
+  <span class='raise identifier id'>raise</span> <span class='string val'>'you must override subscribers in order to enable federation on this model'</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="to_diaspora_xml-instance_method">
+  
+    - (<tt>Object</tt>) <strong>to_diaspora_xml</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/webhooks.rb', line 9</span>
+
+<span class='def def kw'>def</span> <span class='to_diaspora_xml identifier id'>to_diaspora_xml</span>
+  <span class='xml identifier id'>xml</span> <span class='assign token'>=</span> <span class='string val'>&quot;&lt;XML&gt;&quot;</span>
+  <span class='xml identifier id'>xml</span> <span class='opasgn op'>+=</span> <span class='dstring node'>&quot;&lt;post&gt;#{to_xml.to_s}&lt;/post&gt;&quot;</span>
+  <span class='xml identifier id'>xml</span> <span class='opasgn op'>+=</span> <span class='string val'>&quot;&lt;/XML&gt;&quot;</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="x-instance_method">
+  
+    - (<tt>Object</tt>) <strong>x</strong>(input) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/webhooks.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='x identifier id'>x</span><span class='lparen token'>(</span><span class='input identifier id'>input</span><span class='rparen token'>)</span>
+  <span class='input identifier id'>input</span><span class='dot token'>.</span><span class='to_s identifier id'>to_s</span><span class='dot token'>.</span><span class='to_xs identifier id'>to_xs</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:17 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>

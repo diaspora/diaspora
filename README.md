@@ -30,7 +30,7 @@ integration test suite.  As you can see, we need more integration tests.  Pick a
 - Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
 
-Patches must be tested, and all your tests should be green, 
+Catches must be tested, and all your tests should be green, 
 unless you're marking an existing bug, before a pull request is sent.
 Unit tests should be in Rspec, and integration tests should be in Cucumber.
 

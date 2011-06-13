@@ -1,0 +1,775 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>
+  Module: Diaspora::UserModules::Querying
+  
+    &mdash; Documentation by YARD 0.7.1
+  
+</title>
+
+  <link rel="stylesheet" href="../../css/style.css" type="text/css" media="screen" charset="utf-8" />
+
+  <link rel="stylesheet" href="../../css/common.css" type="text/css" media="screen" charset="utf-8" />
+
+<script type="text/javascript" charset="utf-8">
+  relpath = '../..';
+  if (relpath != '') relpath += '/';
+</script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/jquery.js"></script>
+
+  <script type="text/javascript" charset="utf-8" src="../../js/app.js"></script>
+
+
+  </head>
+  <body>
+    <script type="text/javascript" charset="utf-8">
+      if (window.top.frames.main) document.body.className = 'frames';
+    </script>
+    
+    <div id="header">
+      <div id="menu">
+  
+    <a href="../../_index.html">Index (Q)</a> &raquo; 
+    <span class='title'><span class='object_link'><a href="../../Diaspora.html" title="Diaspora (module)">Diaspora</a></span></span> &raquo; <span class='title'><span class='object_link'><a href="../UserModules.html" title="Diaspora::UserModules (module)">UserModules</a></span></span>
+     &raquo; 
+    <span class="title">Querying</span>
+  
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>
+
+      <div id="search">
+  
+    <a id="class_list_link" href="#">Class List</a>
+  
+    <a id="method_list_link" href="#">Method List</a>
+  
+    <a id="file_list_link" href="#">File List</a>
+  
+</div>
+      <div class="clear"></div>
+    </div>
+    
+    <iframe id="search_frame"></iframe>
+    
+    <div id="content"><h1>Module: Diaspora::UserModules::Querying
+  
+  
+  
+</h1>
+
+<dl class="box">
+  
+  
+    
+  
+    
+  
+  
+    <dt class="r1">Included in:</dt>
+    <dd class="r1"><span class='object_link'><a href="../UserModules.html" title="Diaspora::UserModules (module)">Diaspora::UserModules</a></span></dd>
+    
+  
+  
+    <dt class="r2 last">Defined in:</dt>
+    <dd class="r2 last">lib/diaspora/user/querying.rb</dd>
+  
+</dl>
+<div class="clear"></div>
+
+
+
+
+
+
+  
+    <h2>
+      Instance Method Summary
+      <small>(<a href="#" class="summary_toggle">collapse</a>)</small>
+    </h2>
+
+    <ul class="summary">
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#all_aspect_ids-instance_method" title="#all_aspect_ids (instance method)">- (Object) <strong>all_aspect_ids</strong> </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#aspects_with_person-instance_method" title="#aspects_with_person (instance method)">- (Object) <strong>aspects_with_person</strong>(person) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#aspects_with_post-instance_method" title="#aspects_with_post (instance method)">- (Object) <strong>aspects_with_post</strong>(post_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#contact_for-instance_method" title="#contact_for (instance method)">- (Object) <strong>contact_for</strong>(person) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#contact_for_person_id-instance_method" title="#contact_for_person_id (instance method)">- (Object) <strong>contact_for_person_id</strong>(person_id) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#contacts_in_aspects-instance_method" title="#contacts_in_aspects (instance method)">- (Object) <strong>contacts_in_aspects</strong>(aspects) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#find_visible_post_by_id-instance_method" title="#find_visible_post_by_id (instance method)">- (Object) <strong>find_visible_post_by_id</strong>(id, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#people_in_aspects-instance_method" title="#people_in_aspects (instance method)">- (Object) <strong>people_in_aspects</strong>(requested_aspects, opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#posts_from-instance_method" title="#posts_from (instance method)">- (Object) <strong>posts_from</strong>(person) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#visible_photos-instance_method" title="#visible_photos (instance method)">- (Object) <strong>visible_photos</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+        <li class="public ">
+  <span class="summary_signature">
+    
+      <a href="#visible_posts-instance_method" title="#visible_posts (instance method)">- (Object) <strong>visible_posts</strong>(opts = {}) </a>
+    
+
+    
+  </span>
+  
+  
+  
+  
+  
+  
+
+  
+    <span class="summary_desc"><div class='inline'></div></span>
+  
+</li>
+
+      
+    </ul>
+  
+
+
+
+  <div id="instance_method_details" class="method_details_list">
+    <h2>Instance Method Details</h2>
+    
+    
+      <div class="method_details first">
+  <p class="signature first" id="all_aspect_ids-instance_method">
+  
+    - (<tt>Object</tt>) <strong>all_aspect_ids</strong> 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+89
+90
+91</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 89</span>
+
+<span class='def def kw'>def</span> <span class='all_aspect_ids identifier id'>all_aspect_ids</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='all identifier id'>all</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='x identifier id'>x</span><span class='bitor op'>|</span> <span class='x identifier id'>x</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="aspects_with_person-instance_method">
+  
+    - (<tt>Object</tt>) <strong>aspects_with_person</strong>(person) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+79
+80
+81</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 79</span>
+
+<span class='def def kw'>def</span> <span class='aspects_with_person identifier id'>aspects_with_person</span> <span class='person identifier id'>person</span>
+  <span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="aspects_with_post-instance_method">
+  
+    - (<tt>Object</tt>) <strong>aspects_with_post</strong>(post_id) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+58
+59
+60</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 58</span>
+
+<span class='def def kw'>def</span> <span class='aspects_with_post identifier id'>aspects_with_post</span><span class='lparen token'>(</span><span class='post_id identifier id'>post_id</span><span class='rparen token'>)</span>
+  <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='joins identifier id'>joins</span><span class='lparen token'>(</span><span class='symbol val'>:aspect_visibilities</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:aspect_visibilities</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:post_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='post_id identifier id'>post_id</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="contact_for-instance_method">
+  
+    - (<tt>Object</tt>) <strong>contact_for</strong>(person) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+54
+55
+56
+57</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 54</span>
+
+<span class='def def kw'>def</span> <span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='nil nil kw'>nil</span> <span class='unless unless_mod kw'>unless</span> <span class='person identifier id'>person</span>
+  <span class='contact_for_person_id identifier id'>contact_for_person_id</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="contact_for_person_id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>contact_for_person_id</strong>(person_id) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+62
+63
+64</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 62</span>
+
+<span class='def def kw'>def</span> <span class='contact_for_person_id identifier id'>contact_for_person_id</span><span class='lparen token'>(</span><span class='person_id identifier id'>person_id</span><span class='rparen token'>)</span>
+  <span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:user_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:person_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='person_id identifier id'>person_id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='includes identifier id'>includes</span><span class='lparen token'>(</span><span class='symbol val'>:person</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:profile</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="contacts_in_aspects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>contacts_in_aspects</strong>(aspects) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+83
+84
+85
+86
+87</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 83</span>
+
+<span class='def def kw'>def</span> <span class='contacts_in_aspects identifier id'>contacts_in_aspects</span> <span class='aspects identifier id'>aspects</span>
+  <span class='aspects identifier id'>aspects</span><span class='dot token'>.</span><span class='inject identifier id'>inject</span><span class='lparen token'>(</span><span class='lbrack token'>[</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='do do kw'>do</span> <span class='bitor op'>|</span><span class='contacts identifier id'>contacts</span><span class='comma token'>,</span><span class='aspect identifier id'>aspect</span><span class='bitor op'>|</span>
+    <span class='contacts identifier id'>contacts</span> <span class='bitor op'>|</span> <span class='aspect identifier id'>aspect</span><span class='dot token'>.</span><span class='contacts identifier id'>contacts</span>
+  <span class='end end kw'>end</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="find_visible_post_by_id-instance_method">
+  
+    - (<tt>Object</tt>) <strong>find_visible_post_by_id</strong>(id, opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+9
+10
+11
+12
+13</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 9</span>
+
+<span class='def def kw'>def</span> <span class='find_visible_post_by_id identifier id'>find_visible_post_by_id</span><span class='lparen token'>(</span> <span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span> <span class='rparen token'>)</span>
+  <span class='post identifier id'>post</span> <span class='assign token'>=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='joins identifier id'>joins</span><span class='lparen token'>(</span><span class='symbol val'>:contacts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:contacts</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:user_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='post identifier id'>post</span> <span class='opasgn op'>||=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:author_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+  <span class='post identifier id'>post</span> <span class='opasgn op'>||=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='id identifier id'>id</span><span class='comma token'>,</span> <span class='symbol val'>:public</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='first identifier id'>first</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="people_in_aspects-instance_method">
+  
+    - (<tt>Object</tt>) <strong>people_in_aspects</strong>(requested_aspects, opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 66</span>
+
+<span class='def def kw'>def</span> <span class='people_in_aspects identifier id'>people_in_aspects</span><span class='lparen token'>(</span><span class='requested_aspects identifier id'>requested_aspects</span><span class='comma token'>,</span> <span class='opts identifier id'>opts</span><span class='assign token'>=</span><span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='allowed_aspects identifier id'>allowed_aspects</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='aspects identifier id'>aspects</span> <span class='bitand op'>&amp;</span> <span class='requested_aspects identifier id'>requested_aspects</span>
+  <span class='person_ids identifier id'>person_ids</span> <span class='assign token'>=</span> <span class='contacts_in_aspects identifier id'>contacts_in_aspects</span><span class='lparen token'>(</span><span class='allowed_aspects identifier id'>allowed_aspects</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='collect identifier id'>collect</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='contact identifier id'>contact</span><span class='bitor op'>|</span> <span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='person_id identifier id'>person_id</span><span class='rbrace token'>}</span>
+  <span class='people identifier id'>people</span> <span class='assign token'>=</span> <span class='Person constant id'>Person</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='person_ids identifier id'>person_ids</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'remote'</span>
+    <span class='people identifier id'>people</span> <span class='assign token'>=</span> <span class='people identifier id'>people</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:owner_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='nil nil kw'>nil</span><span class='rparen token'>)</span>
+  <span class='elsif elsif kw'>elsif</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span> <span class='eq op'>==</span> <span class='string val'>'local'</span>
+    <span class='people identifier id'>people</span> <span class='assign token'>=</span> <span class='people identifier id'>people</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='string val'>'people.owner_id IS NOT NULL'</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+  <span class='people identifier id'>people</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="posts_from-instance_method">
+  
+    - (<tt>Object</tt>) <strong>posts_from</strong>(person) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 93</span>
+
+<span class='def def kw'>def</span> <span class='posts_from identifier id'>posts_from</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+  <span class='return return kw'>return</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:pending</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='string val'>&quot;created_at DESC&quot;</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='person identifier id'>person</span> <span class='eq op'>==</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span>
+  <span class='con identifier id'>con</span> <span class='assign token'>=</span> <span class='Contact constant id'>Contact</span><span class='dot token'>.</span><span class='arel_table identifier id'>arel_table</span>
+  <span class='p identifier id'>p</span> <span class='assign token'>=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='arel_table identifier id'>arel_table</span>
+  <span class='post_ids identifier id'>post_ids</span> <span class='assign token'>=</span> <span class='lbrack token'>[</span><span class='rbrack token'>]</span>
+  <span class='if if kw'>if</span> <span class='contact identifier id'>contact</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='contact_for identifier id'>contact_for</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='rparen token'>)</span>
+    <span class='post_ids identifier id'>post_ids</span> <span class='assign token'>=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='connection identifier id'>connection</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='contact identifier id'>contact</span><span class='dot token'>.</span><span class='post_visibilities identifier id'>post_visibilities</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:hidden</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='string val'>'post_visibilities.post_id'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sql identifier id'>to_sql</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rbrace token'>}</span>
+  <span class='end end kw'>end</span>
+  <span class='post_ids identifier id'>post_ids</span> <span class='opasgn op'>+=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='connection identifier id'>connection</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:public</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='true true kw'>true</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='string val'>'posts.id'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='to_sql identifier id'>to_sql</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rbrace token'>}</span>
+
+  <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='post_ids identifier id'>post_ids</span><span class='comma token'>,</span> <span class='symbol val'>:pending</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='string val'>'DISTINCT posts.*'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='string val'>&quot;posts.created_at DESC&quot;</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="visible_photos-instance_method">
+  
+    - (<tt>Object</tt>) <strong>visible_photos</strong>(opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+50
+51
+52</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 50</span>
+
+<span class='def def kw'>def</span> <span class='visible_photos identifier id'>visible_photos</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='visible_posts identifier id'>visible_posts</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'Photo'</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+      <div class="method_details ">
+  <p class="signature " id="visible_posts-instance_method">
+  
+    - (<tt>Object</tt>) <strong>visible_posts</strong>(opts = {}) 
+  
+
+  
+</p><table class="source_code">
+  <tr>
+    <td>
+      <pre class="lines">
+
+
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48</pre>
+    </td>
+    <td>
+      <pre class="code"><span class="info file"># File 'lib/diaspora/user/querying.rb', line 15</span>
+
+<span class='def def kw'>def</span> <span class='visible_posts identifier id'>visible_posts</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='defaults identifier id'>defaults</span> <span class='assign token'>=</span> <span class='lbrace token'>{</span>
+    <span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrack token'>[</span><span class='string val'>'StatusMessage'</span><span class='comma token'>,</span> <span class='string val'>'Photo'</span><span class='rbrack token'>]</span><span class='comma token'>,</span>
+    <span class='symbol val'>:order</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='string val'>'updated_at DESC'</span><span class='comma token'>,</span>
+    <span class='symbol val'>:limit</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='integer val'>15</span><span class='comma token'>,</span>
+    <span class='symbol val'>:hidden</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span>
+  <span class='rbrace token'>}</span>
+  <span class='opts identifier id'>opts</span> <span class='assign token'>=</span> <span class='defaults identifier id'>defaults</span><span class='dot token'>.</span><span class='merge identifier id'>merge</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='rparen token'>)</span>
+
+  <span class='order_field identifier id'>order_field</span> <span class='assign token'>=</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:order</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='split identifier id'>split</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='dot token'>.</span><span class='to_sym identifier id'>to_sym</span>
+  <span class='order_with_table identifier id'>order_with_table</span> <span class='assign token'>=</span> <span class='string val'>'posts.'</span> <span class='plus op'>+</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:order</span><span class='rbrack token'>]</span>
+
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span> <span class='assign token'>=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='at identifier id'>at</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span><span class='rparen token'>)</span> <span class='if if_mod kw'>if</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='is_a? fid id'>is_a?</span><span class='lparen token'>(</span><span class='Integer constant id'>Integer</span><span class='rparen token'>)</span>
+  <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span> <span class='opasgn op'>||=</span> <span class='Time constant id'>Time</span><span class='dot token'>.</span><span class='now identifier id'>now</span> <span class='plus op'>+</span> <span class='integer val'>1</span>
+
+  <span class='select_clause identifier id'>select_clause</span> <span class='assign token'>=</span><span class='string val'>'DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'</span>
+
+  <span class='posts_from_others identifier id'>posts_from_others</span> <span class='assign token'>=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='joins identifier id'>joins</span><span class='lparen token'>(</span><span class='symbol val'>:contacts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span> <span class='symbol val'>:pending</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='comma token'>,</span> <span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='comma token'>,</span> <span class='symbol val'>:post_visibilities</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:hidden</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:hidden</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='comma token'>,</span> <span class='symbol val'>:contacts</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:user_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='id identifier id'>id</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='posts_from_self identifier id'>posts_from_self</span> <span class='assign token'>=</span> <span class='self self kw'>self</span><span class='dot token'>.</span><span class='person identifier id'>person</span><span class='dot token'>.</span><span class='posts identifier id'>posts</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:pending</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='false false kw'>false</span><span class='comma token'>,</span> <span class='symbol val'>:type</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:type</span><span class='rbrack token'>]</span><span class='rparen token'>)</span>
+
+  <span class='if if kw'>if</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:by_members_of</span><span class='rbrack token'>]</span>
+    <span class='posts_from_others identifier id'>posts_from_others</span> <span class='assign token'>=</span> <span class='posts_from_others identifier id'>posts_from_others</span><span class='dot token'>.</span><span class='joins identifier id'>joins</span><span class='lparen token'>(</span><span class='symbol val'>:contacts</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='symbol val'>:aspect_memberships</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span>
+      <span class='symbol val'>:aspect_memberships</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:aspect_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:by_members_of</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+    <span class='posts_from_self identifier id'>posts_from_self</span> <span class='assign token'>=</span> <span class='posts_from_self identifier id'>posts_from_self</span><span class='dot token'>.</span><span class='joins identifier id'>joins</span><span class='lparen token'>(</span><span class='symbol val'>:aspect_visibilities</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:aspect_visibilities</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='lbrace token'>{</span><span class='symbol val'>:aspect_id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:by_members_of</span><span class='rbrack token'>]</span><span class='rbrace token'>}</span><span class='rparen token'>)</span>
+  <span class='end end kw'>end</span>
+
+  <span class='posts_from_others identifier id'>posts_from_others</span> <span class='assign token'>=</span> <span class='posts_from_others identifier id'>posts_from_others</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='select_clause identifier id'>select_clause</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='limit identifier id'>limit</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:limit</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='order_with_table identifier id'>order_with_table</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='arel_table identifier id'>arel_table</span><span class='lbrack token'>[</span><span class='order_field identifier id'>order_field</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='lt identifier id'>lt</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+  <span class='posts_from_self identifier id'>posts_from_self</span> <span class='assign token'>=</span> <span class='posts_from_self identifier id'>posts_from_self</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='select_clause identifier id'>select_clause</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='limit identifier id'>limit</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:limit</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='order_with_table identifier id'>order_with_table</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='arel_table identifier id'>arel_table</span><span class='lbrack token'>[</span><span class='order_field identifier id'>order_field</span><span class='rbrack token'>]</span><span class='dot token'>.</span><span class='lt identifier id'>lt</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:max_time</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='rparen token'>)</span>
+
+  <span class='all_posts identifier id'>all_posts</span> <span class='assign token'>=</span> <span class='dstring node'>&quot;(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}&quot;</span>
+  <span class='post_ids identifier id'>post_ids</span> <span class='assign token'>=</span> <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='connection identifier id'>connection</span><span class='dot token'>.</span><span class='execute identifier id'>execute</span><span class='lparen token'>(</span><span class='all_posts identifier id'>all_posts</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='map identifier id'>map</span><span class='lbrace token'>{</span><span class='bitor op'>|</span><span class='r identifier id'>r</span><span class='bitor op'>|</span> <span class='r identifier id'>r</span><span class='dot token'>.</span><span class='first identifier id'>first</span><span class='rbrace token'>}</span>
+
+  <span class='Post constant id'>Post</span><span class='dot token'>.</span><span class='where identifier id'>where</span><span class='lparen token'>(</span><span class='symbol val'>:id</span> <span class='assign token'>=</span><span class='gt op'>&gt;</span> <span class='post_ids identifier id'>post_ids</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='select identifier id'>select</span><span class='lparen token'>(</span><span class='string val'>'DISTINCT posts.*'</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='limit identifier id'>limit</span><span class='lparen token'>(</span><span class='opts identifier id'>opts</span><span class='lbrack token'>[</span><span class='symbol val'>:limit</span><span class='rbrack token'>]</span><span class='rparen token'>)</span><span class='dot token'>.</span><span class='order identifier id'>order</span><span class='lparen token'>(</span><span class='order_with_table identifier id'>order_with_table</span><span class='rparen token'>)</span>
+<span class='end end kw'>end</span>
+</pre>
+    </td>
+  </tr>
+</table>
+</div>
+    
+  </div>
+
+</div>
+    
+    <div id="footer">
+  Generated on Mon Jun 13 15:59:22 2011 by 
+  <a href="http://yardoc.org" title="Yay! A Ruby Documentation Tool" target="_parent">yard</a>
+  0.7.1 (ruby-1.8.7).
+</div>
+
+  </body>
+</html>
