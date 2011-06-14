@@ -345,8 +345,6 @@ class User < ActiveRecord::Base
   end
 
   def remove_mentions
-    Mention.where( :person_id => self.person.id).each do |mentioned_person|
-      mentioned_person.delete
-    end
+    Mention.where( :person_id => self.person.id).delete_all
   end
 end
