@@ -53,10 +53,23 @@ class AuthorizationsController < ApplicationController
     redirect_to authorizations_path
   end
 
+  # @param [String] enc_signed_string A Base64 encoded string with app_url;pod_url;time;nonce
+  # @param [String] sig A Base64 encoded signature of the decoded signed_string with public_key.
+  # @param [String] public_key The application's public key to verify sig with.
+  def verify( enc_signed_string, sig, public_key)
+    signed_string = Base64.decode64(enc_signed_string)
+    split = signed_string.split(';')
+    time = split[2]
+    nonce = split[3]
+    return "invalid time" unless valid_time?(time)
+    return 'invalid nonce' unless valid_nonce?(nonce)
+    return 'invalid signature' unless verify_signature(signed_string, Base64.decode64(sig), public_key)
+    'ok'
+  end
 
   def verify_signature(challenge, signature, serialized_pub_key)
     public_key = OpenSSL::PKey::RSA.new(serialized_pub_key) 
-    public_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), challenge)
+    public_key.verify(OpenSSL::Digest::SHA256.new, signature, challenge)
   end
 
   def valid_time?(time)
@@ -64,7 +77,7 @@ class AuthorizationsController < ApplicationController
   end
 
   def valid_nonce?(nonce)
-    OAuth2::Provider.client_class.where(:nonce => nonce).first.nil?
+    !OAuth2::Provider.client_class.exists?(:nonce => nonce)
   end
 end
 

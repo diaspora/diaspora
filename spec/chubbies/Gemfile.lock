@@ -1,9 +1,9 @@
-GIT
-  remote: git@github.com:diaspora/diaspora-client.git
-  revision: c84fe1090fcbc16407582deca804fad48bf11ead
+PATH
+  remote: ~/workspace/diaspora-client
   specs:
     diaspora-client (0.0.0)
       activerecord
+      em-synchrony
       faraday
       oauth2
       sinatra
@@ -21,9 +21,12 @@ GEM
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
     activesupport (3.0.3)
-    addressable (2.2.4)
+    addressable (2.2.6)
     arel (2.0.10)
     builder (2.1.2)
+    em-synchrony (0.2.0)
+      eventmachine (>= 0.12.9)
+    eventmachine (0.12.10)
     faraday (0.6.1)
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)

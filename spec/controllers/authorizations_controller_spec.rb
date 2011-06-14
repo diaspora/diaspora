@@ -9,6 +9,10 @@ describe AuthorizationsController do
     sign_in :user, alice 
     @controller.stub(:current_user).and_return(alice)
 
+    @time = Time.now
+    Time.stub(:now).and_return(@time)
+    @nonce = 'asdfsfasf'
+    @signable_string = ["http://chubbi.es/",'http://pod.pod/',"#{Time.now.to_i}", @nonce].join(';')
   end
 
   describe '#token' do
@@ -28,18 +32,27 @@ describe AuthorizationsController do
     end
 
     it 'fetches the manifest' do
+      @controller.stub!(:verify).and_return('ok')
       post :token,  @params_hash
     end
     
     it 'creates a client application' do
+      @controller.stub!(:verify).and_return('ok')
       lambda {
         post :token,  @params_hash
       }.should change(OAuth2::Provider.client_class, :count).by(1)
     end
 
+    it 'does not create a client if verification fails' do
+      @controller.stub!(:verify).and_return('invalid signature')
+      lambda {
+        post :token,  @params_hash
+      }.should_not change(OAuth2::Provider.client_class, :count)
+    end
+    
     it 'verifies the signable string validity(time,nonce,sig)' do
-      post :token,  @params_hash.merge!({:signed_string => 'signable_string', :signature => 'sig'})
-      @controller.should_receive(:verify).with('signable_string', 'sig', 'public_key!')
+      @controller.should_receive(:verify).with('signed_string', 'sig', 'public_key!')
+      post :token,  @params_hash.merge!({:signed_string => 'signed_string', :signature => 'sig'})
     end
   end
 
@@ -76,37 +89,48 @@ describe AuthorizationsController do
   end
 
   describe '#verify' do
-    it 'checks for valid time'
-    it 'checks the signature'
-    it 'checks for valid nonce'
+    before do
+      @controller.stub!(:verify_signature)
+      @sig = Base64.encode64('sig')
+    end
+    it 'checks for valid time' do
+      @controller.should_receive(:valid_time?).with(@time.to_i.to_s)
+      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+    end
+
+    it 'checks the signature' do
+      @controller.should_receive(:verify_signature).with(@signable_string, 'sig', 'public_key!')
+      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+    end
+
+    it 'checks for valid nonce' do
+      @controller.should_receive(:valid_nonce?).with(@nonce)
+      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+    end
   end
 
   describe '#verify_signature' do
     before do
       @private_key = OpenSSL::PKey::RSA.new(File.read(Rails.root + "spec/chubbies/chubbies.private.pem"))
 
-      @signable_string = ["http://chubbi.es/",'http://pod.pod/',"#{Time.now.to_i}",'asdfsfasf'].join(';')
       @sig = @private_key.sign(OpenSSL::Digest::SHA256.new, @signable_string)
     end
 
     it 'returns true if the signature is valid' do
       @public_key = File.read(Rails.root + "spec/chubbies/chubbies.public.pem")
-      @controller.verify_signature(@signable_string, Base64.encode64(@sig), @public_key).should be_true
+      @controller.verify_signature(@signable_string, @sig, @public_key).should be_true
     end
 
     it 'returns false if the signature is invalid' do
       @signable_string = "something else"
 
       @public_key = File.read(Rails.root + "spec/chubbies/chubbies.public.pem")
-      @controller.verify_signature(@signable_string, Base64.encode64(@sig), @public_key).should be_false
+      @controller.verify_signature(@signable_string, @sig, @public_key).should be_false
     end
   end
 
   describe "valid_time?" do
-    before do
-      @time = Time.now
-      Time.stub(:now).and_return(@time)
-    end
+
 
     it "returns true if time is within the last 5 minutes" do
        @controller.valid_time?(@time - 4.minutes - 59.seconds).should be_true
