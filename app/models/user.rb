@@ -44,7 +44,6 @@ class User < ActiveRecord::Base
     person.save if person && person.changed?
   end
 
-
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
 
   def update_user_preferences(pref_hash)
