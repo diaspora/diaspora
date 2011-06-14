@@ -248,9 +248,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # This method is called when an invited user accepts his invitation
+  #
+  # @param [Hash] opts the options to accept the invitation with
+  # @option opts [String] :username The username the invited user wants.
+  # @option opts [String] :password
+  # @option opts [String] :password_confirmation
   def accept_invitation!(opts = {})
-    log_string = "event=invitation_accepted username=#{opts[:username]} uid=#{self.id} "
-    log_string << "inviter=#{invitations_to_me.first.sender.diaspora_handle} " if invitations_to_me.first
+    log_hash = {:event => :invitation_accepted, :username => opts[:username], :uid => self.id}
+    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first
     begin
       if self.invited?
         self.setup(opts)
@@ -259,15 +265,15 @@ class User < ActiveRecord::Base
         self.password_confirmation = opts[:password_confirmation]
         self.save!
         invitations_to_me.each{|invitation| invitation.share_with!}
-        log_string << "success"
-        Rails.logger.info log_string
+        log_hash[:status] = "success"
+        Rails.logger.info log_hash
 
         self.reload # Because to_request adds a request and saves elsewhere
         self
       end
     rescue Exception => e
-      log_string << "failure"
-      Rails.logger.info log_string
+      log_hash[:status] =  "failure"
+      Rails.logger.info log_hash
       raise e
     end
   end
