@@ -171,20 +171,21 @@ class User < ActiveRecord::Base
   end
 
   def liked?(post)
-    if self.like_for(post)
-      return true
+    if post.likes.loaded?
+      !(like_for(post).nil?)
     else
-      return false
+      Like.exists?(:author_id => self.person.id, :post_id => post.id)
     end
   end
 
   def like_for(post)
-    [post.likes, post.dislikes].each do |likes|
-      likes.each do |like|
-        return like if like.author_id == self.person.id
+    if post.likes.loaded?
+      [post.likes, post.dislikes].each do |likes|
+        likes.detect { |l| l.author_id == self.person.id }
       end
+    else
+      return Like.where(:post_id => post.id, :author_id => self.person.id).first
     end
-    return nil
   end
 
   ######### Mailer #######################
