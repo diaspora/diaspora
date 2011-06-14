@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110603212633) do
+ActiveRecord::Schema.define(:version => 20110614005205) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -228,9 +228,12 @@ ActiveRecord::Schema.define(:version => 20110603212633) do
     t.text   "description"
     t.string "homepage_url"
     t.string "icon_url"
+    t.string "nonce"
+    t.text   "public_key"
   end
 
   add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
+  add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce"
 
   create_table "people", :force => true do |t|
     t.string   "guid",                  :null => false

@@ -21,14 +21,21 @@ class AuthorizationsController < ApplicationController
 
   def token
     if(params[:type] == 'client_associate' && params[:manifest_url])
-      client = OAuth2::Provider.client_class.create_from_manifest!(params[:manifest_url])
+      manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
 
-      render :json => {:client_id => client.oauth_identifier,
-                       :client_secret => client.oauth_secret,
-                       :expires_in => 0,
-                       :flows_supported => "",
-                      }
+      message = verify(params[:signed_string], params[:signature], manifest['public_key'])
+      unless message =='ok' 
+        render :text => message, :status => 403
+      else
+        client = OAuth2::Provider.client_class.create_from_manifest!(manifest)
 
+        render :json => {:client_id => client.oauth_identifier,
+                         :client_secret => client.oauth_secret,
+                         :expires_in => 0,
+                         :flows_supported => "",
+                        }
+
+      end
     else
       render :text => "bad request", :status => 403
     end
@@ -45,11 +52,24 @@ class AuthorizationsController < ApplicationController
     auth.revoke
     redirect_to authorizations_path
   end
+
+
+  def verify_signature(challenge, signature, serialized_pub_key)
+    public_key = OpenSSL::PKey::RSA.new(serialized_pub_key) 
+    public_key.verify(OpenSSL::Digest::SHA256.new, Base64.decode64(signature), challenge)
+  end
+
+  def valid_time?(time)
+    time.to_i > (Time.now - 5.minutes).to_i
+  end
+
+  def valid_nonce?(nonce)
+    OAuth2::Provider.client_class.where(:nonce => nonce).first.nil?
+  end
 end
 
 OAuth2::Provider.client_class.instance_eval do
-  def self.create_from_manifest! manifest_url
-    manifest = JSON.parse(RestClient.get(manifest_url).body)
+  def self.create_from_manifest! manifest
     create!(manifest)
   end
 end
