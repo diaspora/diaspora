@@ -170,6 +170,8 @@ class User < ActiveRecord::Base
     build_relayable(Like, options)
   end
 
+  # Check whether the user has liked a post.  Extremely inefficient if the post's likes are not loaded.
+  # @param [Post] post
   def liked?(post)
     if self.like_for(post)
       return true
@@ -178,6 +180,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Get the user's like of a post, if there is one.  Extremely inefficient if the post's likes are not loaded.
+  # @param [Post] post
+  # @return [Like]
   def like_for(post)
     [post.likes, post.dislikes].each do |likes|
       likes.each do |like|
