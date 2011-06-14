@@ -1,45 +1,44 @@
 # Sitemap.xml Generator is a Jekyll plugin that generates a sitemap.xml file by
 # traversing all of the available posts and pages.
-#
+# 
 # How To Use:
-#   1.) Copy source file into your _plugins folder within your Jekyll project.
-#   2.) Change MY_URL to reflect your domain name.
-#   3.) Change SITEMAP_FILE_NAME if you want your sitemap to be called something
-#       other than sitemap.xml.
-#   4.) Change the PAGES_INCLUDE_POSTS list to include any pages that are looping
-#       through your posts (e.g. "index.html", "archive.html", etc.). This will
-#       ensure that right after you make a new post, the last modified date will
-#       be updated to reflect the new post.
-#   5.) Run Jekyll: jekyll --server to re-generate your site.
-#   6.) A sitemap.xml should be included in your _site folder.
+#   1) Copy source file into your _plugins folder within your Jekyll project.
+#   2) Change modify the url variable in _config.yml to reflect your domain name.
+#   3) Run Jekyll: jekyll --server to re-generate your site.
 #
-# Customizations:
-#   1.) If there are any files you don't want included in the sitemap, add them
-#       to the EXCLUDED_FILES list. The name should match the name of the source
-#       file.
-#   2.) If you want to include the optional changefreq and priority attributes,
-#       simply include custom variables in the YAML Front Matter of that file.
-#       The names of these custom variables are defined below in the
-#       CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME and PRIORITY_CUSTOM_VARIABLE_NAME
-#       constants.
+# Variables:
+#   * Change SITEMAP_FILE_NAME if you want your sitemap to be called something
+#     other than sitemap.xml.
+#   * Change the PAGES_INCLUDE_POSTS list to include any pages that are looping
+#     through your posts (e.g. "index.html", "archive.html", etc.). This will
+#     ensure that right after you make a new post, the last modified date will
+#     be updated to reflect the new post.
+#   * A sitemap.xml should be included in your _site folder.
+#   * If there are any files you don't want included in the sitemap, add them
+#     to the EXCLUDED_FILES list. The name should match the name of the source
+#     file.
+#   * If you want to include the optional changefreq and priority attributes,
+#     simply include custom variables in the YAML Front Matter of that file.
+#     The names of these custom variables are defined below in the
+#     CHANGE_FREQUENCY_CUSTOM_VARIABLE_NAME and PRIORITY_CUSTOM_VARIABLE_NAME
+#     constants.
 #
 # Notes:
-#   1.) The last modified date is determined by the latest from the following:
-#       system modified date of the page or post, system modified date of
-#       included layout, system modified date of included layout within that
-#       layout, ...
-#
+#   * The last modified date is determined by the latest from the following:
+#     system modified date of the page or post, system modified date of
+#     included layout, system modified date of included layout within that
+#     layout, ...
+# 
 # Author: Michael Levin
 # Site: http://www.kinnetica.com
 # Distributed Under A Creative Commons License
 #   - http://creativecommons.org/licenses/by/3.0/
-
+# 
+# Modified for Octopress by John W. Long
+#
 require 'rexml/document'
 
 module Jekyll
-
-  # Change MY_URL to reflect the site you are using
-  MY_URL = "http://www.mysite.com"
 
   # Change SITEMAP_FILE_NAME if you would like your sitemap file
   # to be called something else
@@ -66,7 +65,7 @@ module Jekyll
     end
 
     def location_on_server
-      "#{MY_URL}#{url}"
+      "#{site.config['url']}#{url}"
     end
   end
 
@@ -78,7 +77,7 @@ module Jekyll
     end
 
     def location_on_server
-      location = "#{MY_URL}#{@dir}#{url}"
+      location = "#{site.config['url']}#{@dir}#{url}"
       location.gsub(/index.html$/, "")
     end
   end
