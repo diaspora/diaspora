@@ -7,4 +7,5 @@ gem 'json'
 gem 'shotgun'
 gem 'sqlite3'
 gem 'activerecord', '3.0.3'
-gem 'diaspora-client',  :path => "~/workspace/diaspora-client" #:git => 'git@github.com:diaspora/diaspora-client.git'
+gem 'diaspora-client',  #:path => "~/workspace/diaspora-client"
+                        :git => 'git@github.com:diaspora/diaspora-client.git'
