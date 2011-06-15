@@ -107,6 +107,10 @@ describe AuthorizationsController do
       @controller.should_receive(:valid_nonce?).with(@nonce)
       @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
     end
+
+    it 'checks for public key' do
+      @controller.verify(Base64.encode64(@signable_string), @sig, '').should == "blank public key"
+    end
   end
 
   describe '#verify_signature' do

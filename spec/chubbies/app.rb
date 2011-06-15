@@ -40,6 +40,9 @@ module Chubbies
     has_one :access_token, :class_name => "DiasporaClient::AccessToken", :dependent => :destroy
   end
 
+  DiasporaClient.config do |d|
+    d.private_key_path = File.dirname(__FILE__) + "/chubbies.private.pem"
+  end
 
   class App < DiasporaClient::App
     def current_user
