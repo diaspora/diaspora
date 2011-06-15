@@ -61,6 +61,8 @@ class AuthorizationsController < ApplicationController
     split = signed_string.split(';')
     time = split[2]
     nonce = split[3]
+
+    return 'blank public key' if public_key.blank?
     return "invalid time" unless valid_time?(time)
     return 'invalid nonce' unless valid_nonce?(nonce)
     return 'invalid signature' unless verify_signature(signed_string, Base64.decode64(sig), public_key)

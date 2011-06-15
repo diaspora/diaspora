@@ -7,7 +7,8 @@ Given /^Chubbies has been killed$/ do
 end
 
 Given /^Chubbies is registered on my pod$/ do
-  client = OAuth2::Provider.client_class.create_from_manifest!("localhost:#{Chubbies::PORT}/manifest.json")
+  manifest = JSON.parse(RestClient.get("localhost:#{Chubbies::PORT}/manifest.json").body)
+  client = OAuth2::Provider.client_class.create_from_manifest!(manifest)
   params = {:client_id => client.oauth_identifier,
             :client_secret => client.oauth_secret,
             :host => "localhost:9887"}
