@@ -43,6 +43,8 @@ module Chubbies
   DiasporaClient.config do |d|
     d.private_key_path = File.dirname(__FILE__) + "/chubbies.private.pem"
     d.public_key_path = File.dirname(__FILE__) + "/chubbies.public.pem"
+    d.test_mode = true
+    d.application_url = "http://localhost:9292"
   end
 
   class App < DiasporaClient::App
