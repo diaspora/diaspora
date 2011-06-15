@@ -1,21 +1,20 @@
 #
-# Author: Josediaz Gonzalez - https://github.com/josegonzalez
-# Source URL: https://github.com/josegonzalez/josediazgonzalez.com/blob/master/_plugins/blockquote.rb
-# Modified by Brandon Mathis removed pullquotes and added simple cite paramaters
+# Author: Brandon Mathis
+# Based on the work of: Josediaz Gonzalez - https://github.com/josegonzalez/josediazgonzalez.com/blob/master/_plugins/blockquote.rb
 #
 require './_plugins/titlecase.rb'
 module Jekyll
 
   # Outputs a string with a given attribution as a quote
   #
-  #   {% blockquote John Paul Jones %}
-  #     Monkeys!
+  #   {% blockquote Bobby Willis http://google.com/blah the search for bobby's mom %}
+  #   Wheeee!
   #   {% endblockquote %}
   #   ...
   #   <blockquote>
-  #     Monkeys!
-  #     <br />
-  #     John Paul Jones
+  #     <p>Wheeee!</p>
+  #     <footer>
+  #     <strong>John Paul Jones</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
   #   </blockquote>
   #
   class Blockquote < Liquid::Block
@@ -42,15 +41,16 @@ module Jekyll
 
     def render(context)
       output = super
-      if @by.nil?
-        '<blockquote><p>' + output.join + '</p></blockquote>'
-      elsif !@title.nil?
-        '<blockquote><p>' + output.join + '</p>' + '<p><strong>' + @by + '</strong>' + '<cite><a class="source" href="' + @source + '">' + @title + '</a></cite></p></blockquote>'
+      author = "<strong>#{@by}</strong>"
+      cite = "<cite><a class='source' href='#{@source}'>#{(@title || 'source')}</a></cite>"
+      reply = if @by.nil?
+        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p>"
       elsif !@source.nil?
-        '<blockquote><p>' + output.join + '</p>' + '<p><strong>' + @by + '</strong>' + '<cite><a class="source" href="' + @source + '">source</a></cite></p></blockquote>'
+        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p><footer>#{author + cite}</footer>"
       else
-        '<blockquote><p>' + output.join + '</p>' + '<p><strong>' + @by + '</strong></p></blockquote>'
+        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p><footer>#{author}</footer>"
       end
+      "<blockquote>#{reply}</blockquote>"
     end
   end
 end
