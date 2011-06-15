@@ -42,6 +42,7 @@ module Chubbies
 
   DiasporaClient.config do |d|
     d.private_key_path = File.dirname(__FILE__) + "/chubbies.private.pem"
+    d.public_key_path = File.dirname(__FILE__) + "/chubbies.public.pem"
   end
 
   class App < DiasporaClient::App
@@ -84,7 +85,8 @@ module Chubbies
         "name"         => "Chubbies",
         "description"  => "The best way to chub.",
         "homepage_url" => "http://localhost:9292/",
-        "icon_url"     => "#"
+        "icon_url"     => "#",
+        "public_key"   => DiasporaClient.public_key
       }.to_json
     end
     get '/reset' do
