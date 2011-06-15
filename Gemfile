@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
-gem 'mysql2', '0.2.6'
+#gem 'mysql2', '0.2.6'
+gem 'pg'
 gem 'rails', '3.0.3'
 gem 'foreigner', '0.9.1'
 
