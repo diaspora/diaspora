@@ -23,8 +23,22 @@ Feature: oauth
     Then I should be on "/account" on Chubbies
     Then I should see "No access token."
 
-  Scenario: Authorize Chubbies when Chubbies is already registeded
+  Scenario: Authorize Chubbies when Chubbies is already connected
     Given Chubbies is registered on my pod
+    When I try to authorize Chubbies
+    And there is only one Chubbies
+
+    When I press "Authorize"
+    Then I should be on "/account" on Chubbies
+    And I should see my "profile.birthday"
+    And I should see my "name"
+
+  Scenario: Authorize Chubbies when the pod knows about Chubbies
+    Given Chubbies is registered on my pod
+    When I try to authorize Chubbies
+    And I visit "/reset" on Chubbies
+    And I go to the destroy user session page
+
     When I try to authorize Chubbies
     And there is only one Chubbies
 

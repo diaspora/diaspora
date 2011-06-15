@@ -20,25 +20,24 @@ class AuthorizationsController < ApplicationController
   end
 
   def token
-    if(params[:type] == 'client_associate' && params[:manifest_url])
+    unless(params[:type] == 'client_associate' && params[:manifest_url])
+      render :text => "bad request", :status => 403
+      return
+    end
       manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
 
       message = verify(params[:signed_string], params[:signature], manifest['public_key'])
       unless message =='ok' 
         render :text => message, :status => 403
       else
-        client = OAuth2::Provider.client_class.create_from_manifest!(manifest)
+        client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest)
 
         render :json => {:client_id => client.oauth_identifier,
                          :client_secret => client.oauth_secret,
                          :expires_in => 0,
                          :flows_supported => "",
                         }
-
       end
-    else
-      render :text => "bad request", :status => 403
-    end
   end
 
   def index
@@ -84,7 +83,14 @@ class AuthorizationsController < ApplicationController
 end
 
 OAuth2::Provider.client_class.instance_eval do
-  def self.create_from_manifest! manifest
-    create!(manifest)
+  def self.create_or_reset_from_manifest! manifest
+    if obj = find_by_name(manifest['name'])
+      obj.oauth_identifier = OAuth2::Provider::Random.base62(16)
+      obj.oauth_secret = OAuth2::Provider::Random.base62(32)
+      obj.save!
+      obj
+    else
+      create!(manifest)
+    end
   end
 end

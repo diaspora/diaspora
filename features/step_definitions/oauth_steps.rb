@@ -8,7 +8,7 @@ end
 
 Given /^Chubbies is registered on my pod$/ do
   manifest = JSON.parse(RestClient.get("localhost:#{Chubbies::PORT}/manifest.json").body)
-  client = OAuth2::Provider.client_class.create_from_manifest!(manifest)
+  client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest)
   params = {:client_id => client.oauth_identifier,
             :client_secret => client.oauth_secret,
             :host => "localhost:9887"}
