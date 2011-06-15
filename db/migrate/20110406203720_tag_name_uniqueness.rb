@@ -1,4 +1,6 @@
 class TagNameUniqueness < ActiveRecord::Migration
+  class Tag < ActiveRecord::Base; end
+
   def self.downcase_tags
     execute <<SQL
       UPDATE tags
@@ -30,8 +32,10 @@ SQL
   end
 
   def self.up
-    downcase_tags
-    consolidate_duplicate_tags
+    if Tag.count > 0
+      downcase_tags
+      consolidate_duplicate_tags
+    end
     add_index :tags, :name, :unique => true
   end
 

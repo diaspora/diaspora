@@ -1,4 +1,6 @@
 class DropRequestsTable < ActiveRecord::Migration
+  class Contact < ActiveRecord::Base; end
+
   def self.up
     remove_foreign_key :requests, :column => :recipient_id
     remove_foreign_key :requests, :column => :sender_id
@@ -14,7 +16,7 @@ class DropRequestsTable < ActiveRecord::Migration
       DELETE contacts.* FROM contacts
         WHERE contacts.sharing = false
 SQL
-)
+    ) if Contact.count > 0
   end
 
   def self.down

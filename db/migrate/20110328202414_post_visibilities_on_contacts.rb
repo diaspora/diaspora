@@ -57,7 +57,11 @@ SQL
   end
 
   def self.pv_count
-    @pv_count ||= execute('SELECT count(*) FROM post_visibilities').to_a.first.first
+    @pv_count ||= lambda {
+      count = execute('SELECT count(*) FROM post_visibilities').to_a.first.first
+      count = count.last.to_i if self.connection.class == ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+      count
+    }.call
   end
 
   def self.up
