@@ -185,7 +185,7 @@ class PhotosController < ApplicationController
   # used on the show page to show which aspects are selected
   def object_aspect_ids
     if  params[:action] == 'show' && parent_aspects = parent.aspects.where(:user_id => current_user.id).all
-      @object_aspect_ids ||= parent_aspects.map!{|a| a.id}
+      @object_aspect_ids ||= parent_aspects.map{|a| a.id}
     else
       super
     end

@@ -9,6 +9,9 @@ class StatusMessagesController < ApplicationController
   respond_to :mobile
   respond_to :json, :only => :show
 
+
+  helper_method :object_aspect_ids
+
   def new
     @person = Person.find(params[:person_id])
     @aspect = :profile
@@ -121,4 +124,11 @@ class StatusMessagesController < ApplicationController
     end
   end
 
+  def object_aspect_ids
+    if  params[:action] == 'show'
+      @object_aspect_ids ||= @status_message.aspects.map{|a| a.id}
+    else
+      super
+    end
+  end
 end
