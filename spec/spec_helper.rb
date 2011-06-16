@@ -83,3 +83,7 @@ end
 def photo_fixture_name
     @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
 end
+
+def postgres?
+  defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+end
