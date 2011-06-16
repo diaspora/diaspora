@@ -5,11 +5,11 @@
   height: image-height($img);
 }
 
-@mixin selection($bg: #b4d5fe, $color: inherit){
+@mixin selection($bg, $color: inherit, $text-shadow: none){
   * {
-    &::-moz-selection { background: $bg; color: $color; text-shadow: darken($bg, 20) 0 1px 1px; }
-    &::-webkit-selection { background: $bg; color: $color; text-shadow: darken($bg, 20) 0 1px 1px;}
-    &::selection { background: $bg; color: $color; text-shadow: darken($bg, 20) 0 1px 1px; }
+    &::-moz-selection { background: $bg; color: $color; text-shadow: $text-shadow; }
+    &::-webkit-selection { background: $bg; color: $color; text-shadow: $text-shadow; }
+    &::selection { background: $bg; color: $color; text-shadow: $text-shadow; }
   }
 }
 

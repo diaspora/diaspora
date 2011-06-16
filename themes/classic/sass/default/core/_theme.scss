@@ -50,3 +50,4 @@ $textinput-border-focus: #989898;
 #articles a, #articles + aside a {
   @include link-colors($link-color, $hover: saturate(darken($link_color, 15), 20), $focus: saturate(darken($link_color, 15), 20), $visited: darken(adjust_hue($link_color, 70), 10));
 }
+a { @include transition(color, .5s); }

@@ -14,6 +14,7 @@ body > nav {
     .search {
       padding: .3em .5em 0;
       font-size: .85em;
+      @extend .sans;
       line-height: 1.1em;
       width: 95%;
       @include border-radius(.5em);
@@ -58,7 +59,7 @@ body > nav {
       text-shadow: lighten($nav-bg, 12) 0 1px;
       float: left;
       text-decoration: none;
-      font-size: .9em;
+      font-size: 1em;
       padding: .1em 0;
       line-height: 1.5em;
     }
@@ -82,7 +83,7 @@ body > nav {
       }
     }
     ul[data-subscription$=email] + form {
-      width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium - 48px;
+      width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium - 58px;
       .search { width: 91%; }
     }
     fieldset[role=mobile-nav] { display: none; }
@@ -94,7 +95,7 @@ body > nav {
       width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 + 5px;
     }
     ul[data-subscription$=email] + form {
-      width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 - 48px;
+      width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 - 58px;
     }
   }
 }

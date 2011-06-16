@@ -25,51 +25,73 @@ $green:     #859900;
 //$base2: $base02;
 //$base3: $base03;
 
-.gutter {
-  .line-numbers {
+.highlight, html .gist .gist-file .gist-syntax .gist-highlight {
+  pre.line-numbers {
     text-align: right;
     background: $base02 !important;
-    border-right: 1px solid darken($base03, 2);
+    border-right: 1px solid darken($base03, 2) !important;
     @include box-shadow(lighten($base02, 2) -1px 0 inset);
     text-shadow: darken($base02, 10) 0 -1px;
     span { color: $base01 !important; }
+    padding-left: .8em !important;
+    padding-right: .8em !important;
   }
 }
 html .gist .gist-file {
   margin-bottom: 1.5em;
+  position: relative;
   border: none;
+  padding-top: image-height("code_bg.png") !important;
   .gist-syntax {
-    border-bottom: 1px solid #515151 !important;
+    border-bottom: 1px solid darken($base03, 2) !important;
     .gist-highlight{
       background: $base03 !important;
       pre {
         @extend .pre;
-        overflow-y: hidden;
-        overflow-x: auto;
+      }
+      pre.line-numbers {
+
       }
     }
   }
   .gist-meta {
-    @include background(linear-gradient(#b0b0b0, #a7a7a7));
-    padding: 0.5em;
-    background-color: #bababa !important;
-    border: 1px solid #9c9c9c;
-    border-top: 1px solid #d0d0d0;
-    border-bottom: 1px solid #777777;
-    font-size: .7em !important;
-    font-family: "Helvetica Neue", Arial, sans-serif !important;
-    color: #464646 !important;
-    line-height: 1.4em;
+   padding: .6em 0.8em;
+   border: 1px solid lighten($base02, 2) !important;
+   color: $base01;
+   font-size: .7em !important;
+   background: $base02;
+   @extend .sans;
+   line-height: 1.5em;
+    a {
+      color: mix($base1, $base01) !important;
+      @include hover-link;
+      &:hover { color: $base1 !important; }
+    }
+    a[href*='#file'] {
+      position: absolute; top: 0; left:0; right:-10px;
+      color: #474747 !important;
+      @extend .code-title;
+      &:hover { color: $link-color !important; }
+    }
+    a[href*=raw]{
+      @extend .download-source;
+      top: .4em;
+    }
   }
 }
 pre { @extend .pre; }
 
 .pre {
   @extend .mono;
+  @include selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text-shadow: $base03 0 1px);
   font-size: .8em;
+  overflow: scroll;
+  overflow-y: hidden;
+  overflow-x: auto;
   line-height: 1.45em;
   padding: 1em 1.2em !important;
   background: $base03 !important;
+  code { background: $base03 !important; overflow: hidden; }
   color: $base1 !important;
   span { color: $base1 !important; }
   span { font-style: normal !important; font-weight: normal !important; }
@@ -84,13 +106,13 @@ pre { @extend .pre; }
   .o      { color: $base1 !important; font-weight: bold !important; }                       /* Operator */
   .p      { color: $base1 !important; }                                             /* Operator */
   .ow     { color: $cyan !important; font-weight: bold !important; }                       /* Operator.Word */
-  .gd     { color: $base1 !important; background-color: mix($red, $base03, 25%) !important; display: block; }               /* Generic.Deleted */
-  .gd .x  { color: $base1 !important; background-color: mix($red, $base03, 35%) !important; display: block; }               /* Generic.Deleted.Specific */
+  .gd     { color: $base1 !important; background-color: mix($red, $base03, 25%) !important; display: inline-block; }               /* Generic.Deleted */
+  .gd .x  { color: $base1 !important; background-color: mix($red, $base03, 35%) !important; display: inline-block; }               /* Generic.Deleted.Specific */
   .ge     { color: $base1 !important; font-style: italic !important; }                      /* Generic.Emph */
   //.gr     { color: #aa0000 }                                          /* Generic.Error */
   .gh     { color: $base01 !important; }                                          /* Generic.Heading */
-  .gi     { color: $base1 !important; background-color: mix($green, $base03, 20%) !important; display: block; }               /* Generic.Inserted */
-  .gi .x  { color: $base1 !important; background-color: mix($green, $base03, 40%) !important; display: block; }               /* Generic.Inserted.Specific */
+  .gi     { color: $base1 !important; background-color: mix($green, $base03, 20%) !important; display: inline-block; }               /* Generic.Inserted */
+  .gi .x  { color: $base1 !important; background-color: mix($green, $base03, 40%) !important; display: inline-block; }               /* Generic.Inserted.Specific */
   //.go     { color: #888888 }                                          /* Generic.Output */
   //.gp     { color: #555555 }                                          /* Generic.Prompt */
   .gs     { color: $base1 !important; font-weight: bold !important; }                                       /* Generic.Strong */
@@ -136,28 +158,37 @@ pre { @extend .pre; }
   .s1     { color: $cyan !important; }                                             /* Literal.String.Single */
   //.ss     { color: #990073 }                                          /* Literal.String.Symbol */
   //.il     { color: #009999 }                                          /* Literal.Number.Integer.Long */
+  div { .gd, .gd .x, .gi, .gi .x { display: block; }}
 }
 
-.highlight {
+.highlight, .gist-highlight {
   margin-bottom: 1.5em;
+  background: $base03;
   overflow-y: hidden;
-  .gutter pre {
-    padding-left: .8em !important;
-    padding-right: .8em !important;
-  }
+  overflow-x: auto;
+  pre { overflow: visible; }
 }
-
-h3.filename {
+figure {
+  margin-bottom: 1.5em;
+  figcaption {
+    position: relative;
+    @extend .code-title;
+    a { @extend .download-source; }
+  }
+  .highlight { margin-bottom: 0; border-bottom: 1px solid darken($base03, 2) !important; }
+}
+h3.filename { @extend .code-title; }
+.code-title {
+  text-align: center;
   font-size: 13px;
   line-height: 2em;
-  text-align: center;
   text-shadow: #cbcccc 0 1px 0;
   color: #474747;
   font-style: normal;
   margin-bottom: 0;
 
   @include border-top-radius(5px);
-  font-family: "Helvetica Neue",Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
+  font-family: "Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
   background: #aaaaaa image-url("code_bg.png") top repeat-x;
   border: 1px solid #565656;
   border-top-color: #cbcbcb;
@@ -165,3 +196,15 @@ h3.filename {
   border-right-color: #a5a5a5;
   border-bottom: 0;
 }
+
+.download-source {
+  position: absolute; right: .8em;
+  @include hover-link;
+  color: #666 !important;
+  &:hover { color: $link-color !important; }
+  z-index: 1;
+  font-size: 13px;
+  text-shadow: #cbcccc 0 1px 0;
+  padding-left: 3em;
+}
+
