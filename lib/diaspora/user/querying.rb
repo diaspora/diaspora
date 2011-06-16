@@ -55,7 +55,7 @@ module Diaspora
       # @param row The row to get the id from.
       # @return The id of the database row passed in.
       def id_for row
-        @@id_method_for_row ||= if Post.connection.class == ActiveRecord::ConnectionAdapters::PostgreSQLAdapter
+        @@id_method_for_row ||= if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
                                   [:[], "id"]
                                 else
                                   :first
