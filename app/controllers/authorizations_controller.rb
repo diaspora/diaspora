@@ -20,8 +20,8 @@ class AuthorizationsController < ApplicationController
   end
 
   def token
-    unless(params[:type] == 'client_associate' && params[:manifest_url])
-      render :text => "bad request", :status => 403
+    if (!params[:type] == 'client_associate' || !params[:manifest_url])
+      render :text => "bad request: #{params.inspect}", :status => 403
       return
     end
       manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
