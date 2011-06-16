@@ -4,8 +4,8 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
+  helper_method :all_aspects
   protect_from_forgery :except => :receive
-
   before_filter :ensure_http_referer_is_set
   before_filter :set_header_data, :except => [:create, :update]
   before_filter :set_invites
@@ -29,9 +29,16 @@ class ApplicationController < ActionController::Base
         @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
       @object_aspect_ids = []
-      @all_aspects = current_user.aspects
+ 
     end
   end
+
+  def all_aspects
+    if user_signed_in?
+      @all_aspects ||= current_user.aspects
+    end
+  end
+
 
   def ensure_page
     params[:page] = params[:page] ? params[:page].to_i : 1

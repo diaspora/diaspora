@@ -3,7 +3,7 @@
   .inset
     %b= t('.your_aspects')
     %div{:data => {:role => 'controlgroup', :type => 'horizontal'}}
-      - for aspect in @all_aspects
+      - for aspect in all_aspects
         = link_to aspect, aspects_path('a_ids[]' => aspect.id)
         |
   .ui-bar

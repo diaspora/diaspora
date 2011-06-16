@@ -134,7 +134,7 @@ class AspectsController < ApplicationController
   def manage
     @aspect = :manage
     @contacts = current_user.contacts.includes(:person => :profile)
-    @aspects = @all_aspects.includes(:contacts => {:person => :profile})
+    @aspects = all_aspects.includes(:contacts => {:person => :profile})
   end
 
   def update

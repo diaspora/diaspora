@@ -51,7 +51,7 @@
         %li{:class => ('selected' if @aspect == :all)}
           = link_to t('all_aspects'), aspects_path, :class => 'home_selector'
 
-        - for aspect in @all_aspects
+        - for aspect in all_aspects
           %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
             = link_for_aspect(aspect, :class => 'aspect_selector name', :title => t('contacts', :count => aspect.contacts.size))
 
