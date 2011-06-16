@@ -98,7 +98,7 @@ describe Contact do
       end
 
       it "returns the target local user's contacts that are in the same aspect" do
-        @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
+        @contact.contacts.map{|p| p.id}.should =~ [@eve.person].concat(@people1).map{|p| p.id}
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do

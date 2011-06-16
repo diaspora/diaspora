@@ -5,6 +5,10 @@
 module Diaspora
   module UserModules
     module Connecting
+      # This will create a contact on the side of the sharer and the sharee.
+      # @param [Person] person The person to start sharing with.
+      # @param [Aspect] aspect The aspect to add them to.
+      # @return [Contact] The newly made contact for the passed in person.
       def share_with(person, aspect)
         contact = self.contacts.find_or_initialize_by_person_id(person.id)
         unless contact.receiving?
