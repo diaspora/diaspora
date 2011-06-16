@@ -60,7 +60,7 @@ describe PhotosController do
 
       it "assigns the photo" do
         assigns[:photo].should == @alices_photo
-        assigns[:ownership].should be_true
+        @controller.ownership.should be_true
       end
     end
 
@@ -75,7 +75,7 @@ describe PhotosController do
 
       it "assigns the photo" do
         assigns[:photo].should == @bobs_photo
-        assigns[:ownership].should be_false
+        @controller.ownership.should be_false
       end
     end
 
@@ -111,7 +111,7 @@ describe PhotosController do
 
       it "assigns the photo" do
         assigns[:photo].should == @photo
-        assigns[:ownership].should be_false
+        @controller.ownership.should be_false
       end
     end
   end
@@ -181,6 +181,74 @@ describe PhotosController do
     it 'should return a 422 on failure' do
       get :make_profile_photo, :photo_id => @bobs_photo.id
       response.code.should == "422"
+    end
+  end
+
+
+  describe 'data helpers' do
+    describe '.object_aspect_ids' do
+      it 'on show, assigns object aspect ids' do
+        get :show, :id => @alices_photo.id
+        @controller.object_aspect_ids.should == [alice.aspects.first.id]
+      end
+
+      it 'on index, it is empty' do
+        get :index, :person_id => alice.person.id
+        @controller.object_aspect_ids.should == []
+      end
+    end
+
+    describe '.ownership' do
+      it 'is true if current user owns the photo' do
+        get :show, :id => @alices_photo.id 
+        @controller.ownership.should be_true
+      end
+
+      it 'is true if current user owns the photo' do
+        get :show, :id => @bobs_photo.id 
+        @controller.ownership.should be_false
+      end
+    end
+
+    describe 'parent' do
+      it 'grabs the status message of the photo if a parent exsists' do
+        sm = alice.post(:status_message, :text => 'yes', :to => alice.aspects.first)
+        @alices_photo.status_message = sm
+        @alices_photo.save
+        get :show, :id => @alices_photo.id
+        @controller.parent.id.should == sm.id
+      end
+
+      it 'uses the photo if no status_message exsists' do
+        get :show, :id => @alices_photo.id
+        @controller.parent.id.should == @alices_photo.id
+      end
+    end
+
+    describe '.photo' do
+      it 'returns a visible photo, based on the :id param' do
+        get :show, :id => @alices_photo.id
+        @controller.photo.id.should == @alices_photo.id
+        
+      end
+    end
+
+    describe '.additonal_photos' do
+      it 'finds all of a parent status messages photos' do
+        sm = alice.post(:status_message, :text => 'yes', :to => alice.aspects.first)
+        @alices_photo.status_message = sm
+        @alices_photo.save
+        get :show, :id => @alices_photo.id
+        @controller.additional_photos.should include(@alices_photo)
+      end
+    end
+
+    describe '.next_photo' do
+
+    end
+
+    describe '.previous_photo' do
+
     end
   end
 end

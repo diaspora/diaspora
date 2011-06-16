@@ -4,7 +4,6 @@
 
 class ApplicationController < ActionController::Base
   has_mobile_fu
-  helper_method :all_aspects
   protect_from_forgery :except => :receive
   before_filter :ensure_http_referer_is_set
   before_filter :set_header_data, :except => [:create, :update]
@@ -17,6 +16,8 @@ class ApplicationController < ActionController::Base
 
   inflection_method :grammatical_gender => :gender
 
+  helper_method :all_aspects, :object_aspect_ids
+  
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
   end
@@ -28,8 +29,14 @@ class ApplicationController < ActionController::Base
         @notification_count = Notification.for(current_user, :unread =>true).count
         @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
-      @object_aspect_ids = []
- 
+    end
+  end
+
+
+  ##helpers
+  def object_aspect_ids
+    if user_signed_in?
+      @object_aspect_ids ||= []
     end
   end
 
