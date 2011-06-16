@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(:version => 20110606192307) do
     t.datetime "updated_at"
   end
 
-  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_everything", :unique => true
+  add_index "conversation_visibilities", ["conversation_id", "person_id"], :name => "index_conversation_visibilities_on_conversation_id_and_person_id", :unique => true
   add_index "conversation_visibilities", ["conversation_id"], :name => "index_conversation_visibilities_on_conversation_id"
   add_index "conversation_visibilities", ["person_id"], :name => "index_conversation_visibilities_on_person_id"
 
@@ -92,6 +92,8 @@ ActiveRecord::Schema.define(:version => 20110606192307) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "conversations", ["author_id"], :name => "conversations_author_id_fk"
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
@@ -117,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110606192307) do
     t.datetime "updated_at"
   end
 
+  add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
   add_index "likes", ["post_id"], :name => "index_likes_on_post_id"
 
@@ -141,6 +144,7 @@ ActiveRecord::Schema.define(:version => 20110606192307) do
   end
 
   add_index "messages", ["author_id"], :name => "index_messages_on_author_id"
+  add_index "messages", ["conversation_id"], :name => "messages_conversation_id_fk"
 
   create_table "notification_actors", :force => true do |t|
     t.integer  "notification_id"

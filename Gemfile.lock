@@ -226,6 +226,7 @@ GEM
     multi_json (1.0.3)
     multi_xml (0.2.2)
     multipart-post (1.1.2)
+    mysql2 (0.2.6)
     net-ldap (0.2.2)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
@@ -282,7 +283,6 @@ GEM
       oa-openid (= 0.2.6)
     open4 (1.0.1)
     orm_adapter (0.0.5)
-    pg (0.11.0)
     polyglot (0.3.1)
     pyu-ruby-sasl (0.0.3.3)
     rack (1.2.3)
@@ -430,11 +430,11 @@ DEPENDENCIES
   linecache (= 0.43)
   mini_magick (= 3.2)
   mongrel
+  mysql2 (= 0.2.6)
   newrelic_rpm
   nokogiri
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
-  pg
   rails (= 3.0.3)
   rcov
   resque (= 1.10.0)
