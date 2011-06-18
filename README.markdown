@@ -1,5 +1,5 @@
-1. **It sports a clean responsive theme** written in semantic HTML5, focused on readability and friendliness toward mobile devices.
-2. **Octopress loves programmers.** Embed code (with [Solarized](http://ethanschoonover.com/solarized) styling) in your posts from gists or from your filesystem.
+1. **Octopress sports a clean responsive theme** written in semantic HTML5, focused on readability and friendliness toward mobile devices.
+2. **Code blogging is easy and beautiful.** Embed code (with [Solarized](http://ethanschoonover.com/solarized) styling) in your posts from gists or from your filesystem.
 3. **Third party integration is simple** with built-in support for Twitter, Pinboard, Delicious, Disqus Comments, and Google Analytics.
 4. **It's easy to use.** A collection of rake tasks simplifies development and makes deploying a cinch.
 5. **Get curated plugins.** Plugins are hand selected from the Jekyll community then tested and improved.
@@ -59,9 +59,6 @@ If you'd rather use [POW](http://pow.cx) to serve up your site, you can do this 
 `rake watch` does the same thing as `rake preview` except it doesn't mount Jekyll's webbrick server.
 
 ### Configure Octopress
-
-http://gmarik.info/blog/2010/05/10/blogging-with-jekyll-and-heroku-for-free
-http://jstorimer.com/2009/12/29/jekyll-on-heroku.html
 
 Octopress keeps configurations in two places, the `Rakefile` and the `_config.yml`.
 
