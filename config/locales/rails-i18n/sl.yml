@@ -8,11 +8,51 @@ sl:
       long: "%d. %b %Y"
       simple: "%d. %b %Y"
 
-    day_names: [nedelja, ponedeljek, torek, sreda, četrtek, petek, sobota]
-    abbr_day_names: [ned, pon, tor, sre, čet, pet, sob]
+    day_names:
+      - nedelja
+      - ponedeljek
+      - torek
+      - sreda
+      - četrtek
+      - petek
+      - sobota
+    abbr_day_names:
+      - ned
+      - pon
+      - tor
+      - sre
+      - čet
+      - pet
+      - sob
 
-    month_names: [~, januar, februar, marec, april, maj, junij, julij, avgust, september, oktober, november, december]
-    abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, avg, sep, okt, nov, dec]
+    month_names:
+      - ~
+      - januar
+      - februar
+      - marec
+      - april
+      - maj
+      - junij
+      - julij
+      - avgust
+      - september
+      - oktober
+      - november
+      - december
+    abbr_month_names:
+      - ~
+      - jan
+      - feb
+      - mar
+      - apr
+      - maj
+      - jun
+      - jul
+      - avg
+      - sep
+      - okt
+      - nov
+      - dec
     order:
       - :day
       - :month

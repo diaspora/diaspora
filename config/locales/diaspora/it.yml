@@ -263,11 +263,11 @@ it:
   no_results: "Nessun Risultato Trovato"
   notifications: 
     also_commented: 
-      few: "Anche %{actors} hanno commentato sul %{post_link} di %{post_author}."
-      many: "Anche %{actors} hanno commentato sul %{post_link} di %{post_author}."
-      one: "Anche %{actors} ha commentato sul %{post_link} di %{post_author}."
-      other: "Anche %{actors} ha commentato sul %{post_link} di %{post_author}."
-      zero: "%{actors} ha commentato sul %{post_link} di %{post_author}."
+      few: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      many: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      one: "Anche %{actors} ha commentato il %{post_link} di %{post_author}."
+      other: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted: 
       few: "%{actors} hanno commentato il messaggio che hai eliminato."
       many: "%{actors} hanno commentato il messaggio che hai eliminato."

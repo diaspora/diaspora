@@ -263,11 +263,11 @@ de:
   no_results: "Du musst nach etwas suchen."
   notifications: 
     also_commented: 
-      few: "%{actors} haben auch %{post_author}'s %{post_link} kommentiert."
-      many: "%{actors} haben auch %{post_author}'s %{post_link} kommentiert."
-      one: "%{actors} hat auch %{post_author}'s %{post_link} kommentiert."
-      other: "%{actors} haben auch %{post_author}'s %{post_link} kommentiert."
-      zero: "Niemand hat auch %{post_author}'s %{post_link} kommentiert."
+      few: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      many: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      one: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
+      other: "%{actors} haben auch %{post_author}s %{post_link} kommentiert."
+      zero: "%{actors} hat auch %{post_author}s %{post_link} kommentiert."
     also_commented_deleted: 
       few: "%{actors} haben einen gelöschten Beitrag kommentiert."
       many: "%{actors} haben einen gelöschten Beitrag kommentiert."
@@ -459,7 +459,7 @@ de:
       notice: "Foto erfolgreich aktualisiert."
   post_visibilites: 
     update: 
-      post_hidden: "%{name}'s Beitrag wurde ausgeblendet."
+      post_hidden: "%{name}s Beitrag wurde ausgeblendet."
   posts: 
     doesnt_exist: "Dieser Post existiert nicht!"
   previous: "Vorherige"
@@ -634,7 +634,7 @@ de:
     show: 
       connect_to_cubbies: "Mit Cubbi.es verbinden"
       connecting_is_simple: "Um dein Diaspora Konto zu verbinden, kopiere einfach die zwei Felder in deine Cubbi.es Kontoseite."
-      daniels_account: "Daniel's Diaspora Konto"
+      daniels_account: "Daniels Diaspora-Konto"
       generate_a_token: "Token generieren"
       love_to_try: "Es wäre toll wenn Du es ausprobieren würdest."
       making_the_connection: "Die Verbindung herstellen"

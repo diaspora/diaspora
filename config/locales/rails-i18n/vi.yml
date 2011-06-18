@@ -173,12 +173,52 @@ vi:
       short: "%d %b"
       long: "%d %B, %Y"
 
-    day_names: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
-    abbr_day_names: ["Chủ nhật", "Thứ hai", "Thứ ba", "Thứ tư", "Thứ năm", "Thứ sáu", "Thứ bảy"]
+    day_names:
+      - "Chủ nhật"
+      - "Thứ hai"
+      - "Thứ ba"
+      - "Thứ tư"
+      - "Thứ năm"
+      - "Thứ sáu"
+      - "Thứ bảy"
+    abbr_day_names:
+      - "Chủ nhật"
+      - "Thứ hai"
+      - "Thứ ba"
+      - "Thứ tư"
+      - "Thứ năm"
+      - "Thứ sáu"
+      - "Thứ bảy"
 
     # Don't forget the nil at the beginning; there's no such thing as a 0th month
-    month_names: [~, "Tháng một", "Tháng hai", "Tháng ba", "Tháng tư", "Tháng năm", "Tháng sáu", "Tháng bảy", "Tháng tám", "Tháng chín", "Tháng mười", "Tháng mười một", "Tháng mười hai"]
-    abbr_month_names: [~, "Tháng một", "Tháng hai", "Tháng ba", "Tháng tư", "Tháng năm", "Tháng sáu", "Tháng bảy", "Tháng tám", "Tháng chín", "Tháng mười", "Tháng mười một", "Tháng mười hai"]
+    month_names:
+      - ~
+      - "Tháng một"
+      - "Tháng hai"
+      - "Tháng ba"
+      - "Tháng tư"
+      - "Tháng năm"
+      - "Tháng sáu"
+      - "Tháng bảy"
+      - "Tháng tám"
+      - "Tháng chín"
+      - "Tháng mười"
+      - "Tháng mười một"
+      - "Tháng mười hai"
+    abbr_month_names:
+      - ~
+      - "Tháng một"
+      - "Tháng hai"
+      - "Tháng ba"
+      - "Tháng tư"
+      - "Tháng năm"
+      - "Tháng sáu"
+      - "Tháng bảy"
+      - "Tháng tám"
+      - "Tháng chín"
+      - "Tháng mười"
+      - "Tháng mười một"
+      - "Tháng mười hai"
     # Used in date_select and datime_select.
     order:
       - :day
