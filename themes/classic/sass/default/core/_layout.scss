@@ -11,7 +11,6 @@ $sidebar-width-wide: 300px;
 
 .group { @include pie-clearfix; }
 
-//html {  }
 body {
   -webkit-text-size-adjust: none;
   max-width: 1350px;
@@ -42,7 +41,14 @@ body {
 }
 
 .toggle-sidebar { display: none; }
-#articles { width: 100%; + aside { display: none; } }
+#articles { width: 100%;
+  + aside {
+    float: none;
+    padding: 0 $pad-min 1px;
+    background-color: $sidebar-bg;
+    border-top: 1px solid $sidebar-border;
+  }
+}
 
 @media only screen and (min-width: 550px) {
   body > header { font-size: 1em; }
@@ -68,7 +74,7 @@ body {
     + aside {
       width: $sidebar-width-medium - $sidebar-pad-medium*2;
       padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
-      display: block;
+      background: none;
       float: left;
       margin: 0 -100% 0 0;
     }
@@ -112,14 +118,14 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-  body > header {
-    font-size: 1.3em;
-  }
+  body > header { font-size: 1.3em; }
   body > nav + div > div { margin-right: $sidebar-width-wide; }
   #articles {
+    padding-top: $pad-wide/2;
+    padding-bottom: $pad-wide/2;
     + aside {
       width: $sidebar-width-wide - $sidebar-pad-wide*2;
-      padding: 0 $sidebar-pad-wide $sidebar-pad-wide;
+      padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
     }
   }
 }

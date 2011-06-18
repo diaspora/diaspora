@@ -1,50 +1,54 @@
 // Main Link Colors
-$link-color: lighten(#165b94, 3);
-$link-color-hover: adjust-hue($link-color, -200);
-$link-color-visited: darken(adjust_hue($link_color, 70), 10);
-$link-color-active: darken($link-color-hover, 15);
+$link-color: lighten(#165b94, 3) !default;
+$link-color-hover: adjust-hue($link-color, -200) !default;
+$link-color-visited: darken(adjust_hue($link_color, 70), 10) !default;
+$link-color-active: darken($link-color-hover, 15) !default;
 
 // Main Section Colors
-$body-color: #333333;
-$light-text: #999999;
-$page-bg: #252525;
-$article-border: #eeeeee;
-$main-bg: #f5f5f5;
+$body-color: #333333 !default;
+$light-text: #999999 !default;
+$page-bg: #252525 !default;
+$article-border: #eeeeee !default;
+$main-bg: #f5f5f5 !default;
 
-$header-bg: #333;
-$header-border: lighten($header-bg, 15);
-$title-color: #f2f2f2;
-$subtitle-color: #aaa;
+$header-bg: #333 !default;
+$header-border: lighten($header-bg, 15) !default;
+$title-color: #f2f2f2 !default;
+$subtitle-color: #aaa !default;
 
-$type-border: #ddd;
-$type-color-light: #555;
-$type-color: #222;
+$type-color: #222 !default;
+$type-color-light: #555 !default;
+$type-border: #ddd !default;
 
-$nav-bg: #ccc;
-$nav-color: darken($nav-bg, 38);
+
+/* Navigation */
+$nav-bg: #ccc !default;
+$nav-color: darken($nav-bg, 38) !default;
 $nav-color-hover: darken($nav-color, 25);
+$nav-placeholder: desaturate(darken($nav-bg, 10), 15);
 $nav-border: darken($nav-bg, 10);
 $nav-border-top: lighten($nav-bg, 15);
 $nav-border-bottom: darken($nav-bg, 25);
 $nav-border-left: darken($nav-bg, 11);
 $nav-border-right: lighten($nav-bg, 7);
 
-$sidebar-bg: #eee;
-$sidebar-color: change-color(mix($type-color, $sidebar-bg, 80), $hue: hue($sidebar-bg), $saturation: saturation($sidebar-bg)/2);
+/* Sidebar colors */
+$sidebar-bg: #eee !default;
+$sidebar-link-color: $link-color !default;
+$sidebar-link-color-hover: $link-color-hover !default;
+$sidebar-color: change-color(mix($type-color, $sidebar-bg, 80), $hue: hue($sidebar-bg), $saturation: saturation($sidebar-bg)/2) !default;
 $sidebar-border: desaturate(darken($sidebar-bg, 7), 10);
 $sidebar-border: darken($sidebar-bg, 7);
-$sidebar-link-color: $link-color;
-$sidebar-link-color-hover: $link-color-hover;
 $sidebar-link-color-subdued: lighten($sidebar-color, 20);
-$sidebar-link-color-subdued-hover: $link-color-hover;//darken($sidebar-link-color-subdued, 20);
+$sidebar-link-color-subdued-hover: $sidebar-link-color-hover;
 $twitter-status-link: lighten($sidebar-link-color-subdued, 15);
 
-$footer-color: #999999;
-$footer-bg: #ccc;
+$footer-color: #999999 !default;
+$footer-bg: #ccc !default;
 $footer-color: darken($footer-bg, 38);
 $footer-color-hover: darken($footer-color, 10);
-$footer-placeholder: desaturate(darken($footer-bg, 10), 15);
 $footer-border-top: lighten($footer-bg, 15);
+$footer-border-bottom: darken($footer-bg, 15);
 $footer-link-color: darken($footer-bg, 38);
 $footer-link-color-hover: darken($footer-color, 25);
 $page-border-bottom: darken($footer-bg, 5);

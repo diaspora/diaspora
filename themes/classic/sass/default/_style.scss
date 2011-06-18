@@ -2,7 +2,18 @@
 @include reset-html5;
 
 @import "core/utilities";
+@import "partials/solarized";
+@import "custom/colors";
 @import "core/theme";
 @import "core/layout";
 @import "core/typography";
-@import "partials";
+
+/* layout partials */
+@import "partials/header";
+@import "partials/navigation";
+@import "partials/page";
+@import "partials/sidebar";
+@import "partials/blog";
+@import "partials/footer";
+@import "partials/syntax";
+@import "custom/styles";
