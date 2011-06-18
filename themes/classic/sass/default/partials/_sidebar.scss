@@ -1,12 +1,14 @@
 .side-shadow-border {
-  @include box-shadow(#fff 0 1px);
+  @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
 }
 #articles + aside {
+  color: $sidebar-color;
   padding-top: 1.2em;
+  text-shadow: lighten($sidebar-bg, 8) 0 1px;
   section {
     @extend .sans;
     font-size: .8em;
-    line-height: 1.5em;
+    line-height: 1.4em;
     margin-bottom: 1.5em;
     h1 {
       margin: 1.5em 0 0;
@@ -35,7 +37,9 @@
     color: inherit;
     @include transition(color, .5s);
   }
-  &:hover a, &:hover #tweets a { color: $link-color; }
+  &:hover a, &:hover #tweets a { color: $sidebar-link-color;
+    &:hover { color: $sidebar-link-color-hover; }
+  }
   #recent_posts {
     time {
       text-transform: uppercase;
@@ -48,8 +52,8 @@
   @import "delicious";
 }
 .aside-alt-link {
-  color: #999;
+  color: $sidebar-link-color-subdued;
   &:hover {
-    color: #555;
+    color: $sidebar-link-color-subdued-hover;
   }
 }

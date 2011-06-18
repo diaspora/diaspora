@@ -1,11 +1,11 @@
 body > footer {
   @extend .sans;
   font-size: .8em;
-  color: $nav-color;
+  color: $footer-color;
   text-shadow: lighten($footer-bg, 5) 0 1px;
   background-color: $footer-bg;
-  @include background(linear-gradient(lighten($nav-bg, 8), $nav-bg, darken($nav-bg, 11)));
-  border-top: 1px solid $footer-border;
+  @include background(linear-gradient(lighten($footer-bg, 8), $footer-bg, darken($footer-bg, 11)));
+  border-top: 1px solid $footer-border-top;
   position: relative;
   padding-top: 1em;
   padding-bottom: 1em;
@@ -13,7 +13,7 @@ body > footer {
   @include border-bottom-radius(.4em);
   z-index: 1;
   a {
-    @include link-colors($nav-color, $nav-color-hover);
+    @include link-colors($footer-link-color, $footer-link-color-hover);
   }
   p:last-child { margin-bottom: 0; }
 }

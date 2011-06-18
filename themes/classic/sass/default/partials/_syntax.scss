@@ -26,15 +26,16 @@ $green:     #859900;
 //$base3: $base03;
 
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
-  pre.line-numbers {
+  .line-numbers {
     text-align: right;
+    font-size: .8em;
+    line-height: 1.45em;
     background: $base02 !important;
     border-right: 1px solid darken($base03, 2) !important;
     @include box-shadow(lighten($base02, 2) -1px 0 inset);
     text-shadow: darken($base02, 10) 0 -1px;
     span { color: $base01 !important; }
-    padding-left: .8em !important;
-    padding-right: .8em !important;
+    padding: .8em !important;
   }
 }
 html .gist .gist-file {
@@ -47,10 +48,7 @@ html .gist .gist-file {
     .gist-highlight{
       background: $base03 !important;
       pre {
-        @extend .pre;
-      }
-      pre.line-numbers {
-
+        @extend .pre-code;
       }
     }
   }
@@ -79,19 +77,39 @@ html .gist .gist-file {
     }
   }
 }
-pre { @extend .pre; }
-
-.pre {
+pre {
+  background: #fff;
+  border: 1px solid #ddd;
+  @include border-radius(.4em);
   @extend .mono;
-  @include selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text-shadow: $base03 0 1px);
+  line-height: 1.45em;
   font-size: .8em;
+  margin-bottom: 1.5em;
+  padding: .4em .8em;
+  color: #555;
+}
+
+p code {
+  @extend .mono;
+  display: inline-block;
+  white-space: no-wrap;
+  background: #fff;
+  font-size: .9em;
+  color: #555;
+  border: 1px solid #ddd;
+  @include border-radius(.4em);
+  padding: 0 .3em;
+}
+
+.pre-code {
+  @include selection(adjust-color($base03, $lightness: 23%, $saturation: -65%), $text-shadow: $base03 0 1px);
   overflow: scroll;
   overflow-y: hidden;
+  display: block;
+  padding: .8em !important;
   overflow-x: auto;
   line-height: 1.45em;
-  padding: 1em 1.2em !important;
   background: $base03 !important;
-  code { background: $base03 !important; overflow: hidden; }
   color: $base1 !important;
   span { color: $base1 !important; }
   span { font-style: normal !important; font-weight: normal !important; }
@@ -162,12 +180,13 @@ pre { @extend .pre; }
 }
 
 .highlight, .gist-highlight {
+  pre { background: none; @include border-radius(none); border: none; padding: 0; margin-bottom: 0; }
   margin-bottom: 1.5em;
   background: $base03;
   overflow-y: hidden;
   overflow-x: auto;
-  pre { overflow: visible; }
 }
+.highlight code { @extend .pre-code; background: #000;}
 figure {
   margin-bottom: 1.5em;
   figcaption {
@@ -201,7 +220,6 @@ h3.filename { @extend .code-title; }
   position: absolute; right: .8em;
   @include hover-link;
   color: #666 !important;
-  &:hover { color: $link-color !important; }
   z-index: 1;
   font-size: 13px;
   text-shadow: #cbcccc 0 1px 0;

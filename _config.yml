@@ -4,14 +4,14 @@ destination: public
 code_dir: downloads/code
 port: 4000
 
-url: http://octopress.dev
-title: My Octopress Blog
+url: http://dev.octopress.org
+title: Octopress
 subtitle: A blogging framework for hackers.
 author: Your Name
 subscribe_rss: /atom.xml
-subscribe_email: http://feedburner.com/asdfasdf
+subscribe_email:
 
-#markdown: rdiscount
+markdown: kramdown
 pygments: true
 recent_posts: 1
 simple_search: http://google.com/search

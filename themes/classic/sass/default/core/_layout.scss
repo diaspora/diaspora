@@ -1,9 +1,9 @@
 $default-border-radius: 4px;
 
 $pad-min: 18px;
-$pad-narrow: 18px;
-$pad-medium: 24px;
-$pad-wide: 30px;
+$pad-narrow: 20px;
+$pad-medium: 35px;
+$pad-wide: 55px;
 $sidebar-width-medium: 240px;
 $sidebar-pad-medium: 15px;
 $sidebar-pad-wide: 20px;
@@ -117,8 +117,6 @@ body {
   }
   body > nav + div > div { margin-right: $sidebar-width-wide; }
   #articles {
-    padding-top: $pad-wide/2;
-    padding-bottom: $pad-wide/2;
     + aside {
       width: $sidebar-width-wide - $sidebar-pad-wide*2;
       padding: 0 $sidebar-pad-wide $sidebar-pad-wide;

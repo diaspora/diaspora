@@ -9,13 +9,13 @@
       background: inline-image('bird_32_gray_fail.png') no-repeat center .5em;
     }
   }
-  a { color: #666; @include hover-link; }
+  a { color: $sidebar-link-color-subdued; @include hover-link; }
   p {
     position: relative;
     padding-right: 1em;
   }
-  a[href*='status']{
-    color: #aaa;
+  a[href*=status]{
+    color: $twitter-status-link;
     float: right;
     padding: 0 0 .1em 1em;
     position: relative; right: -1.3em;
@@ -23,7 +23,7 @@
     font-size: .7em;
     span { font-size: 1.5em; }
     &:hover {
-      color: #555;
+      color: $sidebar-link-color-subdued-hover;
       text-decoration: none;
     }
   }

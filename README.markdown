@@ -1,59 +1,84 @@
-# What is Octopress?
-Octopress gives developers a well designed starting point for a Jekyll blog. It's easy to configure and easy to deploy. Sweet huh?
+1. **It sports a clean responsive theme** written in semantic HTML5, focused on readability and friendliness toward mobile devices.
+2. **Octopress loves programmers.** Embed code (with [Solarized](http://ethanschoonover.com/solarized) styling) in your posts from gists or from your filesystem.
+3. **Third party integration is simple** with built-in support for Twitter, Pinboard, Delicious, Disqus Comments, and Google Analytics.
+4. **It's easy to use.** A collection of rake tasks simplifies development and makes deploying a cinch.
+5. **Get curated plugins.** Plugins are hand selected from the Jekyll community then tested and improved.
 
-#### Octopress comes with
-1. A nice, easy to configure theme that focuses on readability.
-2. Built in support for Twitter, Delicious, Disqus Comments, Google Analytics, and Custom Search.
-3. Rake tasks that make development fast, and deploying easy.
+## Get Setup
 
-## Why?
-1. Building a Jekyll blog from scratch is a lot of work.
-2. Jekyll doesn't have default layouts or themes.
-3. Most developers don't want to do design.
+[Fork Octopress](https://github.com/imathis/octopress), then open the console and follow along.
 
-## Octopress is made of
-- [Jekyll](http://github.com/henrik/jekyll) a blog aware static site generator (Henrik's fork adds [HAML](http://haml-lang.com) support)
-- [Compass](http://compass-style.org) an awesome [SASS](http://sass-lang.com) framework
-- [FSSM](http://github.com/ttilley/fssm/tree/master) + a rake task, automatically regenerates the blog as you work
-- [Serve](http://github.com/jlong/serve) for live previews of the site while in development
-- [Rsync](http://samba.anu.edu.au/rsync/) for easy deployment
+    git clone (your repo url)
 
-## Setup
-Setup is really simple.
-  
-1. Download Octopress: <code>git clone git://github.com/imathis/octopress.git</code>
-2. Install dependencies (requires the bundler gem): <code>bundle install</code>
-3. Run <code>rake preview</code> to build the site and preview it in a local webserver.
+    # Optionally add a branch for pulling in Octopress updates
+    git remote add octopress git://github.com/imathis/octopress.git
 
-You'll want to change some settings, so check out the wiki for [Setup & Configurations](http://wiki.github.com/imathis/octopress/configuration).
+Setup an [RVM](http://beginrescueend.com/) and install dependencies.
 
-#### Optional:
-- Install Pygments (Python syntax highlighter), if you wish to enable _Syntax Highlighting_.  Download from [pygments.org](http://pygments.org), or <code>sudo aptitude install python-pigments</code> for Debian/Ubuntu users.
+    source .rvmrc
+    bundle install
 
-## Usage
-Octopress is almost like a front-end for Jekyll. It provides some really handy rake tasks and automation to make blogging as simple as possible. With Octopress you can:
+    # Install pygments (for syntax highlighing)
+    sudo easy_install pip
+    sudo pip install pygments
 
-- Preview the site locally with the power of Serve.
-- Automatically regenerate your blog while you work.
-- Generate and deploy with a single command.
+    # Install the default Octopress theme
+    rake install
 
-See the wiki to learn more about [Usage](http://wiki.github.com/imathis/octopress/usage).
+### Write A Post
 
-## Third Party Integration
-With search, comments, and analytics, you have no need for a database. This is what makes a statically generated blog possible.
+    rake post['hello world']
 
-- Twitter
-- Disqus Comments
-- Google Custom Search
-- Google Analytics
-- Delicious Bookmarks
+This will create a new post named something like `2011-06-17-hello-world.markdown` in the `source/_posts` directory.
+Open that file in your favorite text editor and you'll see a block of [yaml front matter](https://github.com/mojombo/jekyll/wiki/yaml-front-matter)
+which tells Jekyll how to processes posts and pages.
 
-If you already have an account with these services, you can get set up within seconds. Check out the wiki for [Third Party Configuration](http://wiki.github.com/imathis/octopress/third-party-integration) details, and to learn how to setup or remove these services.
+    ---
+    title: Hello World
+    date: 2011-06-17 14:34
+    layout: post
+    ---
 
-## Octopress Style
-- Stylesheets use [SASS](http://sass-lang.com) and [Compass](http://compass-style.org)
-- They're broken up into Layout, Typography, Theme (colors), and Partials
-- Checkout [the wiki](http://wiki.github.com/imathis/octopress/style-customization) for help with customization.
+Octopress adds some custom paramaters to give you more publishing flexibility and you can [read about those here](#include_link),
+but for now. Go ahead and type up a sample post or use some [inspired filler](http://baconipsum.com/).
+
+### Generate Your Blog
+
+    rake preview
+
+This will generate your blog, watch your `sass` and `source` directories for changes regenerating automatically, and mount Jekyll's built in webbrick server. Open your browser to `http://localhost:4000` and check it out.
+
+If you'd rather use [POW](http://pow.cx) to serve up your site, you can do this instead.
+
+    cd ~/.pow
+    ln -s /path/to/octopress
+
+    #Then generate your site
+    rake watch
+
+`rake watch` does the same thing as `rake preview` except it doesn't mount Jekyll's webbrick server.
+
+### Configure Octopress
+
+http://gmarik.info/blog/2010/05/10/blogging-with-jekyll-and-heroku-for-free
+http://jstorimer.com/2009/12/29/jekyll-on-heroku.html
+
+Octopress keeps configurations in two places, the `Rakefile` and the `_config.yml`.
+
+In the `rakefile` you'll want to set up your deployment configurations.
+
+    ## -- Rsync Deploy config -- ##
+    # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
+    ssh_user      = "mathisweb@imathis.com"
+    document_root = "~/dev.octopress.org/"
+
+    ## -- Git deploy config -- ##
+    source_branch = "source" # this compiles to your deploy branch
+    deploy_branch = "master" # For user/organization pages, use "master" for project pages use "gh-pages"
+
+If you want to deploy with github pages, read [http://pages.github.com](http://pages.github.com) for guidance.
+
+TODO : Write _configt.yml instructions…
 
 ## License
 (The MIT License)

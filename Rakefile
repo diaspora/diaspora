@@ -1,7 +1,6 @@
 require "rubygems"
 require "bundler/setup"
 
-port        = "4000"      # preview project port eg. http://localhost:4000
 site        = "public"    # compiled site directory
 source      = "source"    # source file directory
 stash       = "_stash"    # directory to stash posts for speedy generation
@@ -10,8 +9,8 @@ post_format = "markdown"  # file format for new posts when using the post rake t
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user      = "user@host.com"    # for rsync deployment
-document_root = "~/document_root/" # for rsync deployment
+ssh_user      = "mathisweb@imathis.com"
+document_root = "~/dev.octopress.org/"
 
 ## -- Github Pages deploy config -- ##
 # Read http://pages.github.com for guidance
@@ -28,7 +27,7 @@ task :install, :theme do |t, args|
   system "mkdir -p #{source}; cp -R themes/"+theme+"/source/ #{source}/"
   system "mkdir -p sass; cp -R themes/"+theme+"/sass/ sass/"
   system "mkdir -p _plugins; cp -R themes/"+theme+"/_plugins/ _plugins/"
-  system "mkdir -p #{source}/_posts";
+  system "mkdir -p #{source}/#{posts}";
   puts "## Layouts, images, and javascritps from the #{theme} theme have been installed into ./#{source}"
   puts "## Sass stylesheet sources from the #{theme} theme have been installed into ./sass"
   puts "## Plugins from the #{theme} theme have been installed into ./_plugins"
@@ -54,8 +53,9 @@ task :post, :filename do |t, args|
   require './_plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-post')
   open("#{source}/_posts/#{Time.now.strftime('%Y-%m-%d')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
+    system "mkdir -p #{source}/#{posts}";
     post.puts "---"
-    post.puts "title: \"#{args.filename.gsub(/[-_]/, ' ').titlecase}\""
+    post.puts "title: #{args.filename.gsub(/[-_]/, ' ').titlecase}"
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "layout: post"
     post.puts "---"
@@ -75,6 +75,11 @@ end
 desc "Move all stashed posts back into the posts directory, ready for site generation."
 task :integrate do
   FileUtils.mv Dir.glob("#{source}/#{stash}/*.*"), "#{source}/#{posts}/"
+end
+
+desc "Clean out caches: _code_cache, _gist_cache, .sass-cache"
+task :clean do
+  system "rm -rf _code_cache/** _gist_cache/** .sass-cache/**"
 end
 
 ##############

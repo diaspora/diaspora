@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Blog Archive
-nometa: true
+no_meta: true
 ---
 {% for post in site.posts reverse %}
   {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}

@@ -1,11 +1,18 @@
 $border: inline-image('dotted-border.png');
 #articles {
+  @media only screen and (max-width: 992px) {
+    ul, ol { margin-left: 1.4em; }
+  }
   > article {
     padding-bottom: 1em;
     &:last-child { margin-bottom: 0; border-bottom: none; }
     h2 {
       padding-top: 0.8em;
       background: $border top left repeat-x;
+      &:first-child {
+        background: none;
+        padding-top: 0;
+      }
     }
     .byline + time:before, .byline + time +time:before {
       content: "\2022 ";
@@ -31,7 +38,6 @@ $border: inline-image('dotted-border.png');
         margin: 0;
         font-style: italic;
         @extend .sans;
-        //font-family: "Georgia", Palatino, Times, "Times New Roman";
       }
     }
     .entry-content {
@@ -59,6 +65,10 @@ $border: inline-image('dotted-border.png');
           }
         }
       }
+    }
+    header.feature h1 {
+      font-size: 2.0em; font-style: italic;
+      line-height: 1.3em;
     }
     #disqus_thread { }
     .meta {
