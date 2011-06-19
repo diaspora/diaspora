@@ -31,14 +31,14 @@ class User < ActiveRecord::Base
   has_one :person, :foreign_key => :owner_id
   delegate :public_key, :posts, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
+  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
+  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
   has_many :aspects
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
-  has_many :services
-  has_many :user_preferences
+  has_many :services, :dependent => :destroy
+  has_many :user_preferences, :dependent => :destroy
 
   before_save do
     person.save if person && person.changed?

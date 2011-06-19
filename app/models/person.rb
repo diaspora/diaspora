@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
-  has_one :profile
+  has_one :profile, :dependent => :destroy
   delegate :last_name, :to => :profile
 
   before_validation :downcase_diaspora_handle
@@ -25,8 +25,9 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase! unless diaspora_handle.blank?
   end
 
-  has_many :contacts #Other people's contacts for this person
-  has_many :posts, :foreign_key => :author_id #his own posts
+  has_many :contacts, :dependent => :destroy #Other people's contacts for this person
+  has_many :posts, :foreign_key => :author_id, :dependent => :destroy #his own posts
+  has_many :comments, :foreign_key => :author_id, :dependent => :destroy #his own comments
 
   belongs_to :owner, :class_name => 'User'
 
