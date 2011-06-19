@@ -2,21 +2,21 @@
 # Author: Brandon Mathis
 # Based on the work of: Josediaz Gonzalez - https://github.com/josegonzalez/josediazgonzalez.com/blob/master/_plugins/blockquote.rb
 #
+# Outputs a string with a given attribution as a quote
+#
+#   {% blockquote Bobby Willis http://google.com/blah the search for bobby's mom %}
+#   Wheeee!
+#   {% endblockquote %}
+#   ...
+#   <blockquote>
+#     <p>Wheeee!</p>
+#     <footer>
+#     <strong>John Paul Jones</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
+#   </blockquote>
+#
 require './_plugins/titlecase.rb'
 module Jekyll
 
-  # Outputs a string with a given attribution as a quote
-  #
-  #   {% blockquote Bobby Willis http://google.com/blah the search for bobby's mom %}
-  #   Wheeee!
-  #   {% endblockquote %}
-  #   ...
-  #   <blockquote>
-  #     <p>Wheeee!</p>
-  #     <footer>
-  #     <strong>John Paul Jones</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
-  #   </blockquote>
-  #
   class Blockquote < Liquid::Block
     FullCiteWithTitle = /([\w\s]+)(https?:\/\/)(\S+\s)([\w\s]+)/i
     FullCite = /([\w\s]+)(https?:\/\/)(\S+)/i

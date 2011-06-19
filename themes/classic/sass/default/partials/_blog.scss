@@ -14,16 +14,17 @@ $border: inline-image('dotted-border.png');
         padding-top: 0;
       }
     }
-    .byline + time:before, .byline + time +time:before {
+    time + .byline:before, .byline + time +time:before {
       content: "\2022 ";
       padding: 0 .3em 0 .2em;
       display: inline-block;
       @include opacity(.5);
     }
     header {
+      position: relative;
       padding-top: 2em;
       margin-bottom: 1.5em;
-      padding-bottom: 1.5em;
+      padding-bottom: 1em;
       background: $border bottom left repeat-x;
       h1 {
         margin: 0;
@@ -33,11 +34,24 @@ $border: inline-image('dotted-border.png');
       p {
         font-size: .9em;
         color: $type-color-light;
-        border: none;
-        padding-top: 0;
         margin: 0;
-        font-style: italic;
         @extend .sans;
+        &.meta {
+          text-transform: uppercase;
+          position: absolute;
+          top: 0;
+        }
+      }
+      @media only screen and (max-width: 768px) {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+        background: $border bottom left repeat-x;
+        p.meta { position: static; }
+      }
+
+      &.feature h1 {
+        font-size: 2.0em; font-style: italic;
+        line-height: 1.3em;
       }
     }
     .entry-content {
@@ -66,23 +80,33 @@ $border: inline-image('dotted-border.png');
         }
       }
     }
-    header.feature h1 {
-      font-size: 2.0em; font-style: italic;
-      line-height: 1.3em;
-    }
     #disqus_thread { }
-    .meta {
-      border-bottom: 1px dashed #dddddd;
-      text-transform: uppercase;
-      color: #777777;
-      padding: 8px 0 5px;
-      margin-bottom: 1.5em;
-      font-size: 75%;
-      letter-spacing: 1px;
-    }
 
-    .footer {
+    footer {
       padding-top: 15px;
+      time, .author { color: $light-text; }
+    }
+  }
+}
+article + article {
+  background: $border top left repeat-x;
+}
+#articles.blog-index {
+  article header { background: none; padding-bottom: 0; }
+  article h1 {
+    font-size: 2.2em;
+    a { color: inherit; &:hover{ color: $link-color-hover; } }
+  }
+  a[rel=full-article] {
+    background: darken($main-bg, 5);
+    display: inline-block;
+    padding: .4em .8em;
+    margin-right: .5em;
+    text-decoration: none;
+    @include transition(background-color, .5s);
+    &:hover {
+      background: $link-color-hover;
+      color: $main-bg;
     }
   }
 }

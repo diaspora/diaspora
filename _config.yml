@@ -11,9 +11,10 @@ author: Your Name
 subscribe_rss: /atom.xml
 subscribe_email:
 
-markdown: kramdown
+markdown: rdiscount
 pygments: true
-recent_posts: 1
+posts_per_page: 10
+recent_posts: 5
 simple_search: http://google.com/search
 
 # Optional configurations

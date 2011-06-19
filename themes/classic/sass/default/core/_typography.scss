@@ -31,8 +31,11 @@ body {
 }
 h1 {
   font-size: 3.2em;
-  line-height: 1.2em
+  line-height: 1.2em;
+  @media only screen and (max-width: 768px) { font-size: 2.2em; }
 }
+
+
 h2, section h1 {
   font-size: 1.5em;
 }
@@ -116,3 +119,24 @@ blockquote {
     a { font-style: italic; }
   }
 }
+
+.has-pullquote:before {
+  /* Reset metrics. */
+  padding: 0;
+  border: none;
+
+  /* Content */
+  content: attr(data-pullquote);
+
+  /* Pull out to the right, modular scale based margins. */
+  float: right;
+  width: 45%;
+  margin: 1em 0 1em 1.5em;
+
+  /* Baseline correction */
+  position: relative;
+  top: 6px;
+  font-size: 1.4em;
+  line-height: 1.45em;
+}
+

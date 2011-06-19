@@ -1,9 +1,10 @@
 ---
 layout: default
+blog_index: true
 ---
-{% for page in site.posts limit:3 %}
-{% assign content = page.content %}
 {% assign index = true %}
+{% for page in site.posts limit:site.posts_per_page %}
+{% assign content = page.content %}
   <article>
     {% include article.html %}
   </article>

@@ -4,7 +4,7 @@
   <nav>{% include navigation.html %}</nav>
   <div>
     <div>
-      <div id="articles">{{ content }}</div>
+      <div id="articles" {% if page.blog_index %} class="blog-index" {% endif %}>{{ content }}</div>
       {% unless page.sidebar == 'none' %}
         <aside>{% include sidebar.html %}</aside>
       {% endunless %}

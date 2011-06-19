@@ -1,11 +1,16 @@
 #custom filters for Octopress
 
 module OctopressFilters
-  def exerpt(input, url, url_text="Reade more&hellip;", permalink_text=false)
+  def auto_exerpt(input, url, url_text="Read more &hellip;")
     if input.index(/<!--\s?more\s?-->/i)
-      input.split(/<!--\s?more\s?-->/i)[0] + "<p><a href='#{url}'>#{url_text}</a></p>"
-    elsif permalink_text
-      input + "<p><a href='#{url}'>#{permalink_text}</a></p>"
+      input.split(/<!--\s?more\s?-->/i)[0] + "<p><a rel='full-article' href='#{url}'>#{url_text}</a></p>"
+    else
+      input
+    end
+  end
+  def exerpt(input)
+    if input.index(/<!--\s*more\s*-->/i)
+      input.split(/<!--\s*more\s*-->/i)[0]
     else
       input
     end
@@ -35,7 +40,7 @@ module OctopressFilters
   end
   def ordinalize(date)
     date = datetime(date)
-    "#{date.strftime('%B')} #{ordinal(date.strftime('%e').to_i)}, #{date.strftime('%Y')}"
+    "#{date.strftime('%b')} #{ordinal(date.strftime('%e').to_i)}, #{date.strftime('%Y')}"
   end
   def ordinal(number)
     if (11..13).include?(number.to_i % 100)
@@ -56,4 +61,3 @@ module OctopressFilters
   end
 end
 Liquid::Template.register_filter OctopressFilters
-

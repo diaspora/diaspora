@@ -10,22 +10,19 @@
     {% else %}
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
-    {% unless page.no_meta %}
-      <p>
-        {% if page.date %}
-          <time datetime="{{ page.date | datetime }}" pubdate {% if page.updated %} updated {% endif %}>{{ page.date | ordinalize }}</time>
-        {% endif %}
-        {% if page.updated %}
-          <time class="updated" datetime="{{ page.updated | datetime }}"></time>
-        {% endif %}
-        {% if author %}<span class="byline author vcard">By <span class="fn">{{ author }}</span></span>{% endif %}
-      </p>
-    {% endunless %}
+    {% unless page.no_meta or !index %}<p class="meta">{% include post_meta.html %}</p>{% endunless %}
   </header>
 {% endunless %}
 {% if index %}
-<div class="entry-content">{{ content | exerpt(content, page.url, 'Continue reading &raquo;') | smart_quotes }}</div>
+<div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
+<footer>
+  <p>
+  {% if content contains "<!-- more -->" or content contains "<!--more-->" %}
+    <a rel="full-article" href="{{ page.url }}">Read more &hellip;</a>
+  {% endif %}
+  {% include post_meta.html %}
+  </p>
+</footer>
 {% else %}
 <div class="entry-content">{{ content | smart_quotes }}</div>
 {% endif %}
-
