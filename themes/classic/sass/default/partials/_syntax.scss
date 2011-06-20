@@ -69,10 +69,12 @@ p code {
   white-space: no-wrap;
   background: #fff;
   font-size: .9em;
+  line-height: 1.5em;
   color: #555;
   border: 1px solid #ddd;
   @include border-radius(.4em);
   padding: 0 .3em;
+  margin: -1px 0;
 }
 
 .pre-code {

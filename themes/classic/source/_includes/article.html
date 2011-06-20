@@ -1,8 +1,3 @@
-{% if page.author %}
-  {% assign author = page.author %}
-{% else %}
-  {% assign author = site.author %}
-{% endif %}
 {% unless page.no_header %}
   <header>
     {% if index %}
@@ -10,19 +5,20 @@
     {% else %}
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
-    {% unless page.no_meta or !index %}<p class="meta">{% include post_meta.html %}</p>{% endunless %}
+    {% unless page.no_meta or !index %}<p class="meta">{% include post_date.html %}</p>{% endunless %}
   </header>
 {% endunless %}
 {% if index %}
-<div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
-<footer>
-  <p>
-  {% if content contains "<!-- more -->" or content contains "<!--more-->" %}
-    <a rel="full-article" href="{{ page.url }}">Read more &hellip;</a>
-  {% endif %}
-  {% include post_meta.html %}
-  </p>
-</footer>
+  <div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
+  <p><a rel="full-article" href="{{ page.url }}">Read on &rarr;</a></p>
+  <footer>
+    <p class="meta">
+      {% include post_author.html %}
+      {% include post_date.html %}
+      <span class="comments"><a rel="comments" href="{{ page.url }}#disqus_thread">Add a comment</a></span>
+      {% include sharing.html %}
+    </p>
+  </footer>
 {% else %}
 <div class="entry-content">{{ content | smart_quotes }}</div>
 {% endif %}

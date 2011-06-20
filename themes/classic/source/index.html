@@ -9,4 +9,14 @@ blog_index: true
     {% include article.html %}
   </article>
 {% endfor %}
-
+{% if site.disqus_short_name %}
+<script type="text/javascript">
+    var disqus_shortname = '{{ site.disqus_short_name }}';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+{% endif %}

@@ -42,7 +42,13 @@ which tells Jekyll how to processes posts and pages.
 Octopress adds some custom paramaters to give you more publishing flexibility and you can [read about those here](#include_link),
 but for now. Go ahead and type up a sample post or use some [inspired filler](http://baconipsum.com/).
 
-### Generate Your Blog
+{% pullquote %}
+  When writing longform posts, I find it helpful to include pullquotes, which help those scanning a post discern whether or not a post is helpful.
+  It is important to note, {" pullquotes are merely visual in presentation and should not appear twice in the text. "} That is why it is prefered
+  to use a CSS only technique for styling pullquotes.
+{% endpullquote %}
+
+## Generate Your Blog
 
     rake preview
 

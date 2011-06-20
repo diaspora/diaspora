@@ -19,7 +19,7 @@ body > header h1 {
 
 body {
   line-height: 1.5em;
-  color: $type-color;
+  color: $text-color;
   @extend .serif;
 }
 
@@ -115,7 +115,7 @@ blockquote {
   + p > cite {
     margin-left: $bq-margin;
     text-align: right;
-    &:before { content: '– '; color: $type-color-light; }
+    &:before { content: '– '; color: $text-color-light; }
     a { font-style: italic; }
   }
 }
@@ -131,11 +131,11 @@ blockquote {
   /* Pull out to the right, modular scale based margins. */
   float: right;
   width: 45%;
-  margin: 1em 0 1em 1.5em;
+  margin: .5em 0 1em 1.5em;
 
   /* Baseline correction */
   position: relative;
-  top: 6px;
+  top: 7px;
   font-size: 1.4em;
   line-height: 1.45em;
 }

@@ -14,11 +14,8 @@ $border: inline-image('dotted-border.png');
         padding-top: 0;
       }
     }
-    time + .byline:before, .byline + time +time:before {
-      content: "\2022 ";
-      padding: 0 .3em 0 .2em;
-      display: inline-block;
-      @include opacity(.5);
+    .byline + time:before, time +time:before, .comments:before {
+      @extend .separator;
     }
     header {
       position: relative;
@@ -33,7 +30,7 @@ $border: inline-image('dotted-border.png');
       }
       p {
         font-size: .9em;
-        color: $type-color-light;
+        color: $text-color-light;
         margin: 0;
         @extend .sans;
         &.meta {
@@ -82,9 +79,20 @@ $border: inline-image('dotted-border.png');
     }
     #disqus_thread { }
 
+    iframe.twitter-share-button {
+      //display: block;
+      //margin-top: .5em;
+      //padding: .2em 0;
+      position: relative;
+      top: .3em;
+      padding-left: .5em;
+    }
     footer {
-      padding-top: 15px;
-      time, .author { color: $light-text; }
+      margin-top: 2em;
+      padding-top: 1em;
+      margin-bottom: 1.5em;
+      background: $border top left repeat-x;
+      time, .author { color: $text-color-light; @extend .sans; }
     }
   }
 }
@@ -103,10 +111,25 @@ article + article {
     padding: .4em .8em;
     margin-right: .5em;
     text-decoration: none;
+    color: mix($text-color, $text-color-light);
+    @extend .serif;
     @include transition(background-color, .5s);
     &:hover {
       background: $link-color-hover;
+      text-shadow: none;
       color: $main-bg;
     }
   }
+  footer {
+    @extend .sans;
+    margin-top: 1em;
+    p.meta { color: $text-color-light; }
+    a { color: inherit; &:hover{ color: $link-color-hover;} }
+  }
+}
+
+.separator {
+  content: "\2022 ";
+  padding: 0 .4em 0 .2em;
+  display: inline-block;
 }
