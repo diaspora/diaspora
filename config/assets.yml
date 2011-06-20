@@ -33,6 +33,7 @@ javascripts:
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/widgets/directionDetector.js
     - public/javascripts/widgets/notifications.js
+    - public/javascripts/widgets/notifications-badge.js
     - public/javascripts/widgets/flashes.js
     - public/javascripts/widgets/post.js
     - public/javascripts/view.js

@@ -1,0 +1,151 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+defaults: &defaults
+
+  # Hostname of the machine you're running Diaspora on, as seen from the internet.
+  # For development and testing, you can leave this as is.
+  pod_url: "http://localhost:3000"
+
+  # Set this to true to prevent people from signing up for your pod without an invitation.
+  registrations_closed: false
+
+  # Set this to true to prevent users from sending invitations.
+  invites_off: false
+
+  #
+  # Logging setup
+  #
+
+  # Enable extensive logging to log/{development,test,production}.log
+  debug: false
+
+  # If you want normal Rails logs, set this to false in the appropriate environment.
+  # It is false by default in development and test.
+  enable_splunk_logging: true
+
+  #
+  # Websocket server setup - see script/websocket_server.rb
+  #
+
+  # Enable extensive logging to websocket server.
+  socket_debug : false
+
+  # Websocket host - leave as 0.0.0.0 unless you know what you are doing
+  socket_host: 0.0.0.0
+
+  # File containing pid of running script/websocket_server.rb
+  socket_pidfile: "log/diaspora-wsd.pid"
+
+  # Websocket port - should normally be 8080 or 8081.
+  socket_port: 8090
+  socket_collection_name: 'websocket'
+
+  # Secure websocket confguration (wss://).
+  # Requires SSL cert and key
+  socket_secure: false
+  socket_cert_chain_location: '/full/path/to/cert_chain.crt'
+  socket_private_key_location: '/full/path/to/file.key'
+
+  #
+  # Federation setup
+  #
+
+  # Diaspora is only tested against this default pubsub server. You probably don't want to change this.
+  pubsub_server: 'https://pubsubhubbub.appspot.com/'
+
+  #
+  # Email setup
+  #
+
+  # Setting this to true enables Diaspora's "send email" functionality,
+  # requiring meaningful smtp_* settings. These are options for RoR's
+  # ActionMailer class.
+  mailer_on: false
+
+  # This chooses which mailer should be used. 'smtp' for a smtp
+  # connection or 'sendmail' to use the sendmail binary.
+  mailer_method: 'smtp'
+
+  # Address/port to smtp server handling outgoing mail.
+  smtp_address: 'smtp.example.com'
+  smtp_port: '587'
+
+  # Domain of smtp server.
+  smtp_domain: 'example.com'
+
+  # Sender address in Diaspora's outgoing mail.
+  smtp_sender_address: 'no-reply@joindiaspora.com'
+
+  # Authentication required to send mail. Use one of 'one', 'plain',
+  # 'login' or 'cram-md5'. Use 'none' if server does not support
+  # authentication
+  smtp_authentication: 'plain'
+
+  # Automatically enable TLS? Ignored if smtp_authentication is set to none
+  smtp_starttls_auto: true
+
+  # Credentials to log in to the SMTP server - may be necessary if
+  # smtp_authentication is not 'none'
+  smtp_username: 'smtp_username'
+  smtp_password: 'secret'
+
+  # The path to the sendmail binary.
+  sendmail_location: '/usr/sbin/sendmail'
+
+  #
+  # Web tracking setup
+  #
+
+  # google analytics key - if false, no javascript included
+  google_a_site: false
+
+  # piwik integration - if not set, no javascript included
+  piwik_id:
+  # the site url in raw format (e.g. pikwik.examplehost.com)
+  piwik_url:
+
+  #
+  # Miscellaneous setup
+  #
+
+  # cloudfiles username and api-key - used for backups
+  cloudfiles_username: 'example'
+  cloudfiles_api_key:  'abc123'
+
+  # List of users who have admin privileges
+  admins:
+    - 'example_user1dsioaioedfhgoiesajdigtoearogjaidofgjo'
+
+  # s3 config - if set, carrierwave will store your photos on s3. Otherwise they're on the filesystem.
+  #s3_key: 'key'
+  #s3_secret: 'secret'
+  #s3_bucket: 'my_photos'
+  s3_region: 'us-east-1'
+
+  # Set this to true if you want to do everything synchronously instead of using resque, our redis-backed queue system.
+  single_process_mode: true
+
+
+# Use this section to override default settings in specific environments
+development:
+  <<: *defaults
+  enable_splunk_logging: false
+
+production:
+  <<: *defaults
+  single_process_mode: false
+
+  # Setting the root certificate bundle (this is operating system specific). Defaults:
+  # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
+  # Debian: '/etc/ssl/certs/ca-certificates.crt'
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
+
+# Do not touch unless you know what you're doing
+test:
+  <<: *defaults
+  pod_url: "http://example.org"
+  socket_port: 8081
+  enable_splunk_logging: false
+
