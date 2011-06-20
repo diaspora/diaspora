@@ -9,10 +9,50 @@
       long: "%B %e, %Y"
       only_day: "%e"
 
-    day_names: [Nedelja, Ponedeljak, Utorak, Sreda, Četvrtak, Petak, Subota]
-    abbr_day_names: [Ned, Pon, Uto, Sre, Čet, Pet, Sub]
-    month_names: [~, Januar, Februar, Mart, April, Maj, Jun, Jul, Avgust, Septembar, Oktobar, Novembar, Decembar]
-    abbr_month_names: [~, Jan, Feb, Mar, Apr, Maj, Jun, Jul, Avg, Sep, Okt, Nov, Dec]
+    day_names:
+      - Nedelja
+      - Ponedeljak
+      - Utorak
+      - Sreda
+      - Četvrtak
+      - Petak
+      - Subota
+    abbr_day_names:
+      - Ned
+      - Pon
+      - Uto
+      - Sre
+      - Čet
+      - Pet
+      - Sub
+    month_names:
+      - ~
+      - Januar
+      - Februar
+      - Mart
+      - April
+      - Maj
+      - Jun
+      - Jul
+      - Avgust
+      - Septembar
+      - Oktobar
+      - Novembar
+      - Decembar
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mar
+      - Apr
+      - Maj
+      - Jun
+      - Jul
+      - Avg
+      - Sep
+      - Okt
+      - Nov
+      - Dec
     order:
       - :day
       - :month

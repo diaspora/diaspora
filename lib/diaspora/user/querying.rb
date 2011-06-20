@@ -42,9 +42,25 @@ module Diaspora
         posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
 
         all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
-        post_ids = Post.connection.execute(all_posts).map{|r| r.first}
+
+        post_ids = Post.connection.execute(all_posts).map {|post| id_for(post) }
 
         Post.where(:id => post_ids).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
+      end
+
+      # Determine, cache, and execute the method call needed to extract the id from a raw result row.
+      # Returns row["id"] for PostgreSQL
+      # Returns row.first for everything else (MYSQL)
+      #
+      # @param row The row to get the id from.
+      # @return The id of the database row passed in.
+      def id_for row
+        @@id_method_for_row ||= if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+                                  [:[], "id"]
+                                else
+                                  :first
+                                end
+        row.send(*@@id_method_for_row)
       end
 
       def visible_photos(opts = {})

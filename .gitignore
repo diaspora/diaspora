@@ -27,6 +27,10 @@ spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/*
 
+#Documentation
+.yardoc/
+doc/
+
 # Uploaded files and local files
 public/uploads/*
 public/assets/*

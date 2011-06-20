@@ -1,21 +1,25 @@
 class ContactRemovePendingAddSharingAndReceiving < ActiveRecord::Migration
+  class Contact < ActiveRecord::Base; end
+
   def self.up
     add_column :contacts, :sharing, :boolean, :default => false, :null => false
     add_column :contacts, :receiving, :boolean, :default => false, :null => false
 
-    execute( <<SQL
-      UPDATE contacts
-        SET contacts.sharing = true, contacts.receiving = true
-          WHERE contacts.pending = false
+    if Contact.count > 0
+      execute( <<SQL
+        UPDATE contacts
+          SET contacts.sharing = true, contacts.receiving = true
+            WHERE contacts.pending = false
 SQL
 )
 
-    execute( <<SQL
-      DELETE user_preferences.* FROM user_preferences
-        WHERE user_preferences.email_type = 'request_acceptance'
-          OR user_preferences.email_type = 'request_received'
+      execute( <<SQL
+        DELETE user_preferences.* FROM user_preferences
+          WHERE user_preferences.email_type = 'request_acceptance'
+            OR user_preferences.email_type = 'request_received'
 SQL
 )
+    end
 
     remove_foreign_key "contacts", "people"
     remove_index :contacts, [:person_id, :pending]

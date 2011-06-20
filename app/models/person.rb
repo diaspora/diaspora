@@ -17,7 +17,7 @@ class Person < ActiveRecord::Base
   xml_attr :profile, :as => Profile
   xml_attr :exported_key
 
-  has_one :profile
+  has_one :profile, :dependent => :destroy
   delegate :last_name, :to => :profile
 
   before_validation :downcase_diaspora_handle
@@ -25,8 +25,9 @@ class Person < ActiveRecord::Base
     diaspora_handle.downcase! unless diaspora_handle.blank?
   end
 
-  has_many :contacts #Other people's contacts for this person
-  has_many :posts, :foreign_key => :author_id #his own posts
+  has_many :contacts, :dependent => :destroy #Other people's contacts for this person
+  has_many :posts, :foreign_key => :author_id, :dependent => :destroy #his own posts
+  has_many :comments, :foreign_key => :author_id, :dependent => :destroy #his own comments
 
   belongs_to :owner, :class_name => 'User'
 
@@ -71,10 +72,23 @@ class Person < ActiveRecord::Base
 
     sql, tokens = self.search_query_string(query)
     Person.searchable.where(sql, *tokens).joins(
-      "LEFT OUTER JOIN `contacts` ON `contacts`.user_id = #{user.id} AND `contacts`.person_id = `people`.id"
+      "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
     ).includes(:profile
-    ).order("contacts.user_id DESC", "profiles.last_name ASC", "profiles.first_name ASC")
+    ).order(search_order)
   end
+
+  # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
+  def self.search_order
+    @search_order ||= Proc.new {
+      order = if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+        "ASC"
+      else
+        "DESC"
+      end
+      ["contacts.user_id #{order}", "profiles.last_name ASC", "profiles.first_name ASC"]
+    }.call
+  end
+
 
 
   def self.public_search(query, opts={})

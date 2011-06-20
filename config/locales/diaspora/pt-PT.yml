@@ -541,7 +541,7 @@ pt-PT:
       not_connected: "desligado"
     index: 
       connect_to_facebook: "Ligar ao Facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Ligar ao Tumblr"
       connect_to_twitter: "Ligar ao Twitter"
       disconnect: "desligar"
       edit_services: "Editar serviços"
@@ -649,7 +649,7 @@ pt-PT:
   undo: "Anular?"
   username: "Nome de utilizador"
   users: 
-    destroy: "A conta foi encerrada com sucesso."
+    destroy: "A sua conta foi encerrada. Pode demorar até 20 minutos para que terminemos o processo de encerramento da sua conta. Obrigado por experimentar o Diaspora."
     edit: 
       also_commented: "...alguém também comenta na publicação do seu contacto?"
       change: "Alterar"

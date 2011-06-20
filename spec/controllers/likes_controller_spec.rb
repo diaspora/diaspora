@@ -73,27 +73,28 @@ describe LikesController do
   end
 
   describe '#destroy' do
-    context 'your like' do
-      before do
-        @message = bob.post(:status_message, :text => "hey", :to => @aspect1.id)
-        @like = alice.build_like(:positive => true, :post => @message)
-        @like.save
-      end
+    before do
+      @message = bob.post(:status_message, :text => "hey", :to => @aspect1.id)
+      @like = alice.build_like(:positive => true, :post => @message)
+      @like.save
+    end
 
-      it 'lets a user destroy their like' do
-        expect {
-          delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
-        }.should change(Like, :count).by(-1)
-      end
+    it 'lets a user destroy their like' do
+      expect {
+        delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
+      }.should change(Like, :count).by(-1)
+      response.status.should == 200
+    end
 
-      it 'does not let a user destroy other likes' do
-        like2 = eve.build_like(:positive => true, :post => @message)
-        like2.save
+    it 'does not let a user destroy other likes' do
+      like2 = eve.build_like(:positive => true, :post => @message)
+      like2.save
 
-        expect {
-          delete :destroy, :format => "js", :post_id => like2.post_id, :id => like2.id
-        }.should_not change(Like, :count)
-      end
+      expect {
+        delete :destroy, :format => "js", :post_id => like2.post_id, :id => like2.id
+      }.should_not change(Like, :count)
+
+      response.status.should == 403
     end
   end
 end

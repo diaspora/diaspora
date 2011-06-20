@@ -127,6 +127,7 @@ defaults: &defaults
   # Set this to true if you want to do everything synchronously instead of using resque, our redis-backed queue system.
   single_process_mode: true
 
+
 # Use this section to override default settings in specific environments
 development:
   <<: *defaults
@@ -135,6 +136,11 @@ development:
 production:
   <<: *defaults
   single_process_mode: false
+
+  # Setting the root certificate bundle (this is operating system specific). Defaults:
+  # CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
+  # Debian: '/etc/ssl/certs/ca-certificates.crt'
+  ca_file: '/etc/pki/tls/certs/ca-bundle.crt'
 
 # Do not touch unless you know what you're doing
 test:

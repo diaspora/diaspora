@@ -11,16 +11,16 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-      RestClient.should_receive(:post).with("https://graph.facebook.com/me/feed", :message => @post.text, :access_token => @service.access_token)
+      Faraday.should_receive(:post).with("https://graph.facebook.com/me/feed", :message => @post.text, :access_token => @service.access_token)
       @service.post(@post)
     end
     it 'swallows exception raised by facebook always being down' do
-      RestClient.should_receive(:post).and_raise
+      Faraday.should_receive(:post).and_raise
       @service.post(@post)
     end
 
     it 'should call public message' do
-      RestClient.stub!(:post)
+      Faraday.stub!(:post)
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
@@ -53,12 +53,12 @@ describe Services::Facebook do
 JSON
       @web_mock = mock()
       @web_mock.stub!(:body).and_return(@fb_list_hash)
-      RestClient.stub!(:get).and_return(@web_mock)
+      Faraday.stub!(:get).and_return(@web_mock)
     end
 
     describe '#save_friends' do
       it 'requests a friend list' do
-        RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=yeah").and_return(@web_mock)
+        Faraday.should_receive(:get).with("https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=yeah").and_return(@web_mock)
                                              @service.save_friends
       end
 

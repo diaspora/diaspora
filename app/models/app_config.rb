@@ -5,11 +5,21 @@ require 'uri'
 
 class AppConfig < Settingslogic
 
-  source File.join(Rails.root, "config", "application.yml")
-  namespace Rails.env
+  def self.travis?
+    ENV["TRAVIS"]
+  end
 
+  def self.source_file_name
+    file_name = "application.yml"
+    file_name << ".example" if travis?
+    File.join(Rails.root, "config", file_name)
+  end
+
+  source source_file_name
+  namespace Rails.env
+    
   def self.load!
-    if no_config_file? && !have_old_config_file?
+    if no_config_file? && !have_old_config_file? && !travis?
       $stderr.puts <<-HELP
 ******** You haven't set up your Diaspora settings file. **********
 Please do the following:
@@ -36,7 +46,21 @@ HELP
     end
 
     super
-    
+
+    if no_cert_file_in_prod?
+      $stderr.puts <<-HELP
+******** Diaspora does not know where your SSL-CA-Certificates file is. **********
+  Please add the root certificate bundle (this is operating system specific) to application.yml. Defaults:
+    CentOS: '/etc/pki/tls/certs/ca-bundle.crt'
+    Debian: '/etc/ssl/certs/ca-certificates.crt'
+
+  Example:
+    ca_file: '/etc/ssl/certs/ca-certificates.crt'
+******** Thanks for being secure! **********
+HELP
+      Process.exit(1)
+    end
+
     normalize_pod_url
     normalize_admins
   end
@@ -47,6 +71,10 @@ HELP
 
   def self.no_config_file?
     !File.exists?(@source)
+  end
+
+  def self.no_cert_file_in_prod?
+    (Rails.env == "production") && self[:ca_file] && !File.exists?(self[:ca_file])
   end
 
   def self.have_old_config_file?

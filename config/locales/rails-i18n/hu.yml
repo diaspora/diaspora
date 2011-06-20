@@ -10,10 +10,50 @@
       default: "%Y.%m.%d."
       short: "%b %e."
       long: "%Y. %B %e."
-    day_names: [vasárnap, hétfő, kedd, szerda, csütörtök, péntek, szombat]
-    abbr_day_names: [v., h., k., sze., cs., p., szo.]
-    month_names: [~, január, február, március, április, május, június, július, augusztus, szeptember, október, november, december]
-    abbr_month_names: [~, jan., febr., márc., ápr., máj., jún., júl., aug., szept., okt., nov., dec.]
+    day_names:
+      - vasárnap
+      - hétfő
+      - kedd
+      - szerda
+      - csütörtök
+      - péntek
+      - szombat
+    abbr_day_names:
+      - v.
+      - h.
+      - k.
+      - sze.
+      - cs.
+      - p.
+      - szo.
+    month_names:
+      - ~
+      - január
+      - február
+      - március
+      - április
+      - május
+      - június
+      - július
+      - augusztus
+      - szeptember
+      - október
+      - november
+      - december
+    abbr_month_names:
+      - ~
+      - jan.
+      - febr.
+      - márc.
+      - ápr.
+      - máj.
+      - jún.
+      - júl.
+      - aug.
+      - szept.
+      - okt.
+      - nov.
+      - dec.
     order:
       - :year
       - :month

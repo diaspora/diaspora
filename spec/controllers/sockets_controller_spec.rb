@@ -20,6 +20,7 @@ describe SocketsController do
 
   describe 'actionhash' do
     it 'actionhashes posts' do
+      @controller.instance_variable_set(:@params, {:user_or_id => @user, :object => @message})
       json = @controller.action_hash(@user, @message)
       json.include?(@message.text).should be_true
       json.include?('status_message').should be_true

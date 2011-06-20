@@ -5,8 +5,11 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
+  helper_method :object_aspect_ids, :parent, :photo, :additional_photos, :next_photo, :previous_photo, :ownership
+
   respond_to :html, :json
 
+  
   def index
     @post_type = :photos
     @person = Person.find_by_id(params[:person_id])
@@ -138,30 +141,8 @@ class PhotosController < ApplicationController
   end
 
   def show
-    @photo = current_user.find_visible_post_by_id(params[:id], :type => 'Photo')
-    if @photo
-      @parent = StatusMessage.where(:guid => @photo.status_message_guid).includes(:photos).first if @photo.status_message_guid
-
-      #if photo is not an attachment, fetch comments for self
-      if @parent
-        @additional_photos = @photo.status_message.photos
-        if @additional_photos
-          @next_photo = @additional_photos[@additional_photos.index(@photo)+1]
-          @prev_photo = @additional_photos[@additional_photos.index(@photo)-1]
-          @next_photo ||= @additional_photos.first
-        end
-      else
-        @parent = @photo
-      end
-
-      @object_aspect_ids = []
-      if @parent_aspects = @parent.aspects.where(:user_id => current_user.id)
-        @object_aspect_ids = @parent_aspects.map{|a| a.id}
-      end
-
-      @ownership = current_user.owns? @photo
-
-      respond_with @photo
+    if photo
+      respond_with photo
     else
       begin
         redirect_to :back
@@ -169,7 +150,6 @@ class PhotosController < ApplicationController
         redirect_to aspects_path
       end
     end
-
   end
 
   def edit
@@ -200,6 +180,45 @@ class PhotosController < ApplicationController
     end
   end
 
+  # helpers
+  
+  # used on the show page to show which aspects are selected
+  def object_aspect_ids
+    if  params[:action] == 'show' && parent_aspects = parent.aspects.where(:user_id => current_user.id).all
+      @object_aspect_ids ||= parent_aspects.map{|a| a.id}
+    else
+      super
+    end
+  end
+
+  def ownership
+    @ownership ||= current_user.owns? photo
+  end
+
+  def parent
+    @parent ||= StatusMessage.where(:guid => photo.status_message_guid).includes(:photos).first if photo.status_message_guid
+    @parent ||= photo
+  end
+
+  def photo
+    @photo ||= current_user.find_visible_post_by_id(params[:id], :type => 'Photo')
+    @photo
+  end
+
+  def additional_photos
+    if photo.status_message_guid?
+      @additional_photos ||= photo.status_message.photos
+    end
+  end
+
+  def next_photo
+    @next_photo ||= additional_photos[additional_photos.index(photo)+1]
+    @next_photo ||= additional_photos.first
+  end
+
+  def previous_photo
+    @previous_photo ||= additional_photos[additional_photos.index(photo)-1]
+  end
 
   private
 

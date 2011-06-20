@@ -10,10 +10,50 @@ ro:
       long: "%d %B %Y"
 #      only_day: "%e"
 
-    day_names: [Duminică, Luni, Marți, Miercuri, Joi, Vineri, Sâmbată]
-    abbr_day_names: [Dum, Lun, Mar, Mie, Joi, Vin, Sâm]
-    month_names: [~, Ianuarie, Februarie, Martie, Aprilie, Mai, Iunie, Iulie, August, Septembrie, Octombrie, Noiembrie, Decembrie]
-    abbr_month_names: [~, Ian, Feb, Mar, Apr, Mai, Iun, Iul, Aug, Sep, Oct, Noi, Dec]
+    day_names:
+      - Duminică
+      - Luni
+      - Marți
+      - Miercuri
+      - Joi
+      - Vineri
+      - Sâmbată
+    abbr_day_names:
+      - Dum
+      - Lun
+      - Mar
+      - Mie
+      - Joi
+      - Vin
+      - Sâm
+    month_names:
+      - ~
+      - Ianuarie
+      - Februarie
+      - Martie
+      - Aprilie
+      - Mai
+      - Iunie
+      - Iulie
+      - August
+      - Septembrie
+      - Octombrie
+      - Noiembrie
+      - Decembrie
+    abbr_month_names:
+      - ~
+      - Ian
+      - Feb
+      - Mar
+      - Apr
+      - Mai
+      - Iun
+      - Iul
+      - Aug
+      - Sep
+      - Oct
+      - Noi
+      - Dec
     order:
       - :day
       - :month

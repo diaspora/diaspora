@@ -389,6 +389,7 @@ GEM
       crack (>= 0.1.7)
     will_paginate (3.0.pre2)
     xml-simple (1.0.16)
+    yard (0.7.1)
     yui-compressor (0.9.6)
       POpen4 (>= 0.1.4)
 
@@ -426,6 +427,7 @@ DEPENDENCIES
   jasmine (= 1.0.2.1)
   json (= 1.4.6)
   launchy
+  linecache (= 0.43)
   mini_magick (= 3.2)
   mongrel
   mysql2 (= 0.2.6)
@@ -451,3 +453,4 @@ DEPENDENCIES
   typhoeus
   webmock
   will_paginate (= 3.0.pre2)
+  yard

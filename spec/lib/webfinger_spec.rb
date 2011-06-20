@@ -78,7 +78,7 @@ describe Webfinger do
       diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
       hcard_xml.stub!(:body).and_return(hcard_xml)
       diaspora_finger.stub!(:body).and_return(diaspora_finger)
-      RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
+      Faraday.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
       #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
       # http://tom.joindiaspora.com/.well-known/host-meta
       f = Webfinger.new("alice@example.org").fetch
@@ -90,7 +90,7 @@ describe Webfinger do
       f = Webfinger.new("tom@tom.joindiaspora.com")
 
       diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
-      RestClient.should_receive(:get).twice.and_return(nil, diaspora_xrd)
+      Faraday.should_receive(:get).twice.and_return(nil, diaspora_xrd)
       f.should_receive(:xrd_url).twice
       f.send(:get_xrd)
       f.instance_variable_get(:@ssl).should == false

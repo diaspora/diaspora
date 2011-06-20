@@ -24,7 +24,7 @@
 
         %h4
           = t('.aspect')
-        = invite.select(:aspects, options_from_collection_for_select(@all_aspects, 'id', 'name'))
+        = invite.select(:aspects, options_from_collection_for_select(all_aspects, 'id', 'name'))
 
         %br
         %br

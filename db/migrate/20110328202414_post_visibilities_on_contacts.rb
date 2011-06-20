@@ -1,4 +1,5 @@
 class PostVisibilitiesOnContacts < ActiveRecord::Migration
+  class PostVisibility < ActiveRecord::Base; end
   def self.move_author_pvs_to_aspect_pvs
     where_clause = <<SQL
       FROM post_visibilities as pv
@@ -57,7 +58,7 @@ SQL
   end
 
   def self.pv_count
-    @pv_count ||= execute('SELECT count(*) FROM post_visibilities').to_a.first.first
+    @pv_count ||= PostVisibility.count
   end
 
   def self.up

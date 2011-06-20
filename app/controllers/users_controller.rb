@@ -69,7 +69,7 @@ class UsersController < ApplicationController
     if user = User.find_by_username(params[:username])
       respond_to do |format|
         format.atom do
-          posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC')
+          posts = StatusMessage.where(:author_id => user.person.id, :public => true).order('created_at DESC').limit(25)
           director = Diaspora::Director.new
           ostatus_builder = Diaspora::OstatusBuilder.new(user, posts)
           render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'

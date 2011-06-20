@@ -49,11 +49,51 @@ fur:
       short: "%d di %b"
       long: "%d di %B dal %Y"
 
-    day_names: [domenie, lunis, martars, miercus, joibe, vinars, sabide]
-    abbr_day_names: [dom, lun, mar, mie, joi, vin, sab]
+    day_names:
+      - domenie
+      - lunis
+      - martars
+      - miercus
+      - joibe
+      - vinars
+      - sabide
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mie
+      - joi
+      - vin
+      - sab
 
-    month_names: [~, Zenâr, Fevrâr, Març, Avrîl, Mai, Jugn, Lui, Avost, Setembar, Otubar, Novembar, Dicembar]
-    abbr_month_names: [~, Zen, Fev, Mar, Avr, Mai, Jug, Lui, Avo, Set, Otu, Nov, Dic]
+    month_names:
+      - ~
+      - Zenâr
+      - Fevrâr
+      - Març
+      - Avrîl
+      - Mai
+      - Jugn
+      - Lui
+      - Avost
+      - Setembar
+      - Otubar
+      - Novembar
+      - Dicembar
+    abbr_month_names:
+      - ~
+      - Zen
+      - Fev
+      - Mar
+      - Avr
+      - Mai
+      - Jug
+      - Lui
+      - Avo
+      - Set
+      - Otu
+      - Nov
+      - Dic
     order:
       - :day
       - :month

@@ -13,10 +13,50 @@ da:
       short: "%e. %b %Y"
       long: "%e. %B %Y"
 
-    day_names: [søndag, mandag, tirsdag, onsdag, torsdag, fredag, lørdag]
-    abbr_day_names: [sø, ma, ti, 'on', to, fr, lø] # Note: unescaped 'on' is parsed as true
-    month_names: [~, januar, februar, marts, april, maj, juni, juli, august, september, oktober, november, december]
-    abbr_month_names: [~, jan, feb, mar, apr, maj, jun, jul, aug, sep, okt, nov, dec]
+    day_names:
+      - søndag
+      - mandag
+      - tirsdag
+      - onsdag
+      - torsdag
+      - fredag
+      - lørdag
+    abbr_day_names:
+      - sø
+      - ma
+      - ti
+      - 'on' # Note: unescaped 'on' is parsed as true
+      - to
+      - fr
+      - lø
+    month_names:
+      - ~
+      - januar
+      - februar
+      - marts
+      - april
+      - maj
+      - juni
+      - juli
+      - august
+      - september
+      - oktober
+      - november
+      - december
+    abbr_month_names:
+      - ~
+      - jan
+      - feb
+      - mar
+      - apr
+      - maj
+      - jun
+      - jul
+      - aug
+      - sep
+      - okt
+      - nov
+      - dec
     order:
       - :day
       - :month

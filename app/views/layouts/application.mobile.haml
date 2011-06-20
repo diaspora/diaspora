@@ -88,7 +88,7 @@
           %ul{:data => {:role => 'listview', :inset => 'true'}}
             %li
               = link_to t('all_aspects'), aspects_path
-            - for aspect in @all_aspects
+            - for aspect in all_aspects
               %li
                 = link_to aspect, aspects_path('a_ids[]' => aspect.id)
 

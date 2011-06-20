@@ -19,7 +19,12 @@ es-PE:
     human:
       format:
         delimiter: ","
-      storage_units: [Bytes, KB, MB, GB, TB]
+      storage_units: 
+        - Bytes
+        - KB
+        - MB
+        - GB
+        - TB
     precision:
       format:
         delimiter: ","
@@ -29,10 +34,50 @@ es-PE:
       - :day
       - :month
       - :year
-    abbr_day_names: [dom, lun, mar, mié, jue, vie, sáb]
-    abbr_month_names: [~, ene, feb, mar, abr, may, jun, jul, ago, sep, oct, nov, dic]
-    day_names: [domingo, lunes, martes, miércoles, jueves, viernes, sábado]
-    month_names: [~, enero, febrero, marzo, abril, mayo, junio, julio, agosto, septiembre, octubre, noviembre, diciembre]
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+    abbr_month_names:
+      - ~
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    month_names:
+      - ~
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
     formats:
       month_and_year: "%B %Y"
       date_and_day: "%A %d"

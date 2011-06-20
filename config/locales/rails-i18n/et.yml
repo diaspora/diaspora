@@ -10,14 +10,87 @@ et:
       short: "%d.%m.%y"
       long: "%d. %B %Y"
 
-    day_names: [pühapäev, esmaspäev, teisipäev, kolmapäev, neljapäev, reede, laupäev]
-    standalone_day_names: [Pühapäev, Esmaspäev, Teisipäev, Kolmapäev, Neljapäev, Reede, Laupäev]
-    abbr_day_names: [P, E, T, K, N, R, L]
+    day_names:
+      - pühapäev
+      - esmaspäev
+      - teisipäev
+      - kolmapäev
+      - neljapäev
+      - reede
+      - laupäev
+    standalone_day_names:
+      - Pühapäev
+      - Esmaspäev
+      - Teisipäev
+      - Kolmapäev
+      - Neljapäev
+      - Reede
+      - Laupäev
+    abbr_day_names:
+      - P
+      - E
+      - T
+      - K
+      - N
+      - R
+      - L
 
-    month_names: [~, jaanuar, veebruar, märts, aprill, mai, juuni, juuli, august, september, oktoober, november, detsember]
-    standalone_month_names: [~, Jaanuar, Veebruar, Märts, Aprill, Mai, Juuni, Juuli, August, September, Oktoober, November, Detsember]
-    abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
-    standalone_abbr_month_names: [~, jaan., veebr., märts, apr., mai, juuni, juuli, aug., sept., okt., nov., dets.]
+    month_names:
+      - ~
+      - jaanuar
+      - veebruar
+      - märts
+      - aprill
+      - mai
+      - juuni
+      - juuli
+      - august
+      - september
+      - oktoober
+      - november
+      - detsember
+    standalone_month_names:
+      - ~
+      - Jaanuar
+      - Veebruar
+      - Märts
+      - Aprill
+      - Mai
+      - Juuni
+      - Juuli
+      - August
+      - September
+      - Oktoober
+      - November
+      - Detsember
+    abbr_month_names:
+      - ~
+      - jaan.
+      - veebr.
+      - märts
+      - apr.
+      - mai
+      - juuni
+      - juuli
+      - aug.
+      - sept.
+      - okt.
+      - nov.
+      - dets.
+    standalone_abbr_month_names:
+      - ~
+      - jaan.
+      - veebr.
+      - märts
+      - apr.
+      - mai
+      - juuni
+      - juuli
+      - aug.
+      - sept.
+      - okt.
+      - nov.
+      - dets.
 
     order:
       - :day

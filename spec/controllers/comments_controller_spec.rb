@@ -111,5 +111,10 @@ describe CommentsController do
         response.status.should == 403
       end
     end
+    it 'renders nothing and 404 on a nonexistent comment' do
+      delete :destroy, :id => 343415
+      response.status.should == 404
+      response.body.strip.should be_empty
+    end
   end
 end

@@ -282,29 +282,6 @@ describe Person do
       people = Person.search("AAA", @user)
       people.map{|p| p.name}.should == [@casey_grippi, @yevgeniy_dodis, @robert_grimm, @eugene_weinstein].map{|p|p.name}
     end
-    it "puts the searching user's incoming requests first" do
-      requestor = Factory(:user_with_aspect)
-      profile = requestor.person.profile
-      profile.first_name = "AAA"
-      profile.last_name = "Something"
-      profile.save
-
-      @robert_grimm.profile.first_name = "AAA"
-      @robert_grimm.profile.save
-
-      @eugene_weinstein.profile.first_name = "AAA"
-      @eugene_weinstein.profile.save
-
-      @yevgeniy_dodis.profile.first_name = "AAA"
-      @yevgeniy_dodis.profile.save
-
-      @casey_grippi.profile.first_name = "AAA"
-      @casey_grippi.profile.save
-
-      requestor.share_with(@user.person, requestor.aspects.first)
-      people = Person.search("AAA", @user)
-      people.map{|p| p.name}.should == [requestor.person, @yevgeniy_dodis, @robert_grimm, @casey_grippi, @eugene_weinstein].map{|p|p.name}
-    end
   end
 
   context 'people finders for webfinger' do

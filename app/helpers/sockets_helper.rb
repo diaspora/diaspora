@@ -34,17 +34,16 @@ module SocketsHelper
             }
         },
           :current_user => user,
-          :all_aspects => user.aspects,
+          :all_aspects => all_aspects,
         }
         v = render_to_string(:partial => 'shared/stream_element', :locals => post_hash)
       elsif object.is_a? Person
         person_hash = {
           :single_aspect_form => opts["single_aspect_form"],
           :person => object,
-          :all_aspects => user.aspects,
+          :all_aspects => all_aspects,
           :contact => user.contact_for(object),
           :current_user => user}
-        @all_aspects = user.aspects
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment

@@ -1,5 +1,8 @@
 class EliminateStrayUserRecords < ActiveRecord::Migration
+  class User < ActiveRecord::Base; end
+
   def self.up
+    return unless User.count > 0
     duplicated_emails = execute("SELECT LOWER(email) from users WHERE users.email != '' GROUP BY LOWER(email) HAVING COUNT(*) > 1").to_a
     duplicated_emails.each do |email|
       records = execute("SELECT users.id, users.username, users.created_at from users WHERE LOWER(users.email) = '#{email}'").to_a

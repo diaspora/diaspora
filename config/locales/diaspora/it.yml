@@ -195,11 +195,11 @@ it:
     show: 
       already_account: "hai già un account?"
       choice: "Scelta"
-      choice_explanation: "Diaspora ti permette di suddividere le tue connessioni in gruppi chiamati aspetti. Solo su Diaspora, gli aspetti fanno si che le foto, i racconti e gli scherzi siano condivisi solamente con le persone che desideri."
+      choice_explanation: "Diaspora ti permette di suddividere i tuoi contatti in gruppi chiamati aspetti. Solo su Diaspora, gli aspetti fanno sì che le foto, i racconti e gli scherzi siano condivisi solamente con le persone che desideri."
       learn_about_host: "Impara come ospitare il tuo server Diaspora."
       login_here: "accedi qui"
       ownership: "Proprietà"
-      ownership_explanation: "Tu possiedi le tue foto, e non dovresti perderne il possesso solo per condividerle. Tu mantieni il possesso di qualsiasi cosa condividi su Diaspora e ti viene dato pieno controllo su come viene distribuita."
+      ownership_explanation: "Su Diaspora possiedi le tue foto, se le vuoi condividere non hai l'obbligo di cedere i diritti d'uso a nessun altro. Tutto ciò che pubblichi rimane tuo ed hai il controllo sulla sua diffusione."
       share_what_you_want: "Condividi ciò che vuoi, con chi vuoi."
       simplicity: "Semplicità"
       simplicity_explanation: "Diaspora permette una condivisione facile e veloce - e lo stesso accade per la gestione della privacy. Essendo riservata per natura, Diaspora non ti fa smarrire tra paginate di impostazioni e opzioni solo per tenere il tuo profilo sicuro."
@@ -222,7 +222,7 @@ it:
       aspect: "Aspetto"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
-      invite_someone_to_join: "Invita qualcuno ad unirsi a Diaspora!"
+      invite_someone_to_join: "Invita qualcuno ad entrare in Diaspora!"
       personal_message: "Messaggio privato"
       resend: "Invia di nuovo"
       send_an_invitation: "Invia un invito"
@@ -263,11 +263,11 @@ it:
   no_results: "Nessun Risultato Trovato"
   notifications: 
     also_commented: 
-      few: "%{actors} ha anche commentato sul %{post_link} di %{post_author}."
-      many: "%{actors} ha anche commentato sul %{post_link} di %{post_author}."
-      one: "%{actors} ha anche commentato sul %{post_link} di %{post_author}."
-      other: "%{actors} ha anche commentato sul %{post_link} di %{post_author}."
-      zero: "%{actors} ha anche commentato sul %{post_link} di %{post_author}."
+      few: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      many: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      one: "Anche %{actors} ha commentato il %{post_link} di %{post_author}."
+      other: "Anche %{actors} hanno commentato il %{post_link} di %{post_author}."
+      zero: "%{actors} ha commentato il %{post_link} di %{post_author}."
     also_commented_deleted: 
       few: "%{actors} hanno commentato il messaggio che hai eliminato."
       many: "%{actors} hanno commentato il messaggio che hai eliminato."
@@ -295,7 +295,7 @@ it:
         one: "e uno di più"
         other: "e %{count} altri"
         zero: "e nessun altro"
-      mark_all_as_read: "Segna Tutti come Letti"
+      mark_all_as_read: "Segna tutti come letti"
       notifications: "Notifiche"
     liked: 
       few: "%{actors} ha apprezzato il tuo %{post_link}."
@@ -487,7 +487,7 @@ it:
   registrations: 
     closed: "Le iscrizioni sono chiuse su questo pod Diaspora."
     create: 
-      success: "Ti sei unito a Diaspora!"
+      success: "Fai parte di Diaspora!"
     edit: 
       cancel_my_account: "Cancella il mio account"
       edit: "Modifica %{name}"
@@ -540,9 +540,9 @@ it:
       invite_your_friends_from: "Invita i tuoi amici da %{service}"
       not_connected: "non connesso"
     index: 
-      connect_to_facebook: "Connettiti a facebook"
+      connect_to_facebook: "Connettiti a Facebook"
       connect_to_tumblr: "Connettiti a Tumblr"
-      connect_to_twitter: "Connettiti a twitter"
+      connect_to_twitter: "Connettiti a Twitter"
       disconnect: "disconnetti"
       edit_services: "Modifica servizi"
       logged_in_as: "accesso effettuato come"
@@ -649,13 +649,13 @@ it:
   undo: "Annullare?"
   username: "Nome Utente"
   users: 
-    destroy: "Account chiuso con successo."
+    destroy: "Il tuo account è stato bloccato. Potrebbero occorrerci 20 minuti per terminare la chiusura del tuo account. Grazie per aver provato Diaspora."
     edit: 
       also_commented: "...qualcun altro ha commentato il post del tuo contatto?"
       change: "Cambia"
-      change_language: "Cambia Lingua"
+      change_language: "Cambia lingua"
       change_password: "Cambia Password"
-      close_account: "Chiudi Account"
+      close_account: "Chiudi account"
       comment_on_post: "...qualcuno ha commentato il tuo post?"
       current_password: "Password attuale"
       download_photos: "scarica le mie foto"
@@ -690,9 +690,9 @@ it:
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
       email_notifications_changed: "Notifiche email modificate con successo"
-      language_changed: "Lingua Cambiata"
+      language_changed: "Lingua cambiata"
       language_not_changed: "Cambio di lingua fallito"
-      password_changed: "Password Cambiata. Ora puoi effettuare l'accesso con la tua nuova password."
+      password_changed: "Password cambiata. Ora puoi effettuare l'accesso con la tua nuova password."
       password_not_changed: "Cambio di password fallito"
   webfinger: 
     fetch_failed: "impossibile recuperare il profilo webfinger da %{profile_url}"

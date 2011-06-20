@@ -10,11 +10,51 @@
             short: "%d %b"
             long: "%d. %B %Y"
 
-        day_names: [Nedeľa, Pondelok, Utorok, Streda, Štvrtok, Piatok, Sobota]
-        abbr_day_names: [Ne, Po, Ut, St, Št, Pi, So]
+        day_names:
+          - Nedeľa
+          - Pondelok
+          - Utorok
+          - Streda
+          - Štvrtok
+          - Piatok
+          - Sobota
+        abbr_day_names:
+          - Ne
+          - Po
+          - Ut
+          - St
+          - Št
+          - Pi
+          - So
 
-        month_names: [~, Január, Február, Marec, Apríl, Máj, Jún, Júl, August, September, Október, November, December]
-        abbr_month_names: [~, Jan, Feb, Mar, Apr, Máj, Jún, Júl, Aug, Sep, Okt, Nov, Dec]
+        month_names:
+          - ~
+          - Január
+          - Február
+          - Marec
+          - Apríl
+          - Máj
+          - Jún
+          - Júl
+          - August
+          - September
+          - Október
+          - November
+          - December
+        abbr_month_names:
+          - ~
+          - Jan
+          - Feb
+          - Mar
+          - Apr
+          - Máj
+          - Jún
+          - Júl
+          - Aug
+          - Sep
+          - Okt
+          - Nov
+          - Dec
         order:
           - :day
           - :month

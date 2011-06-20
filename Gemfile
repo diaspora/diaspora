@@ -1,6 +1,8 @@
 source 'http://rubygems.org'
 
 gem 'mysql2', '0.2.6'
+#gem 'pg'
+#gem 'sqlite3'
 gem 'rails', '3.0.3'
 gem 'foreigner', '0.9.1'
 
@@ -17,7 +19,7 @@ gem 'devise_invitable', '0.5.0'
 
 #Authentication
 gem 'omniauth', '0.2.6'
-gem 'twitter', '1.5.0' 
+gem 'twitter', '1.5.0'
 
 #Views
 gem 'haml', '3.0.25'
@@ -62,6 +64,7 @@ gem 'resque', '1.10.0'
 gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9' || RUBY_PLATFORM =~ 'win32'
 
 group :development do
+  gem 'yard'
   gem 'capistrano', '2.5.19', :require => false
   gem 'capistrano-ext', '1.2.1', :require => false
   gem 'sod', :git => "git://github.com/MikeSofaer/sod.git", :require => false
@@ -71,7 +74,10 @@ group :test, :development do
   gem 'factory_girl_rails', :require => false
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
   gem 'ruby-debug19' if RUBY_VERSION.include? '1.9'
-  gem 'ruby-debug' if defined?(Rubinius).nil? && RUBY_VERSION.include?('1.8')
+  if defined?(Rubinius).nil? && RUBY_VERSION.include?('1.8')
+    gem 'ruby-debug'
+    gem 'linecache', '0.43'
+  end
   gem 'launchy'
   gem 'jasmine', '1.0.2.1'
 end

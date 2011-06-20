@@ -12,7 +12,7 @@
 
 #people_stream.stream
   - for friend in @friends
-    = render :partial => 'people/person', :locals => {:request => friend.request, :person => friend.person, :contact => friend.contact}
+    = render :partial => 'people/person', :locals => {:person => friend.person, :contact => friend.contact}
 
 %br
 %br

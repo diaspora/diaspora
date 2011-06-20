@@ -58,12 +58,17 @@ class ConversationsController < ApplicationController
   def new
     all_contacts_and_ids = Contact.connection.execute(current_user.contacts.joins(:person => :profile
       ).select("contacts.id, profiles.first_name, profiles.last_name, people.diaspora_handle").to_sql).map do |r|
-      {:value => r[0],
-       :name => Person.name_from_attrs(r[1], r[2], r[3]).gsub(/(")/, "'")}
+      person_json_from_row r
     end
     @contacts_json = all_contacts_and_ids.to_json.gsub!(/(")/, '\\"')
     @contact = current_user.contacts.find(params[:contact_id]) if params[:contact_id]
     render :layout => false
+  end
+
+  def person_json_from_row r
+      r = [r["id"], r["first_name"], r["last_name"], r["diaspora_handle"]] if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      {:value => r[0],
+       :name => Person.name_from_attrs(r[1], r[2], r[3]).gsub(/(")/, "'")}
   end
 
 end

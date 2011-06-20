@@ -65,10 +65,50 @@ gl-ES:
       short:    "%e %b"
       long:     "%A %e de %B de %Y"
       # Podes engadir máis formatos nesta lista ou cambiar os aquí definidos
-    day_names:        [Domingo, Luns, Martes, Mércores, Xoves, Venres, Sábado]
-    abbr_day_names:   [Dom, Lun, Mar, Mer, Xov, Ven, Sab]
-    month_names:      [~, Xaneiro, Febreiro, Marzo, Abril, Maio, Xuño, Xullo, Agosto, Setembro, Outubro, Novembro, Decembro]
-    abbr_month_names: [~, Xan, Feb, Mar, Abr, Mai, Xuñ, Xul, Ago, Set, Out, Nov, Dec]
+    day_names:
+      - Domingo
+      - Luns
+      - Martes
+      - Mércores
+      - Xoves
+      - Venres
+      - Sábado
+    abbr_day_names:
+      - Dom
+      - Lun
+      - Mar
+      - Mer
+      - Xov
+      - Ven
+      - Sab
+    month_names:
+      - ~
+      - Xaneiro
+      - Febreiro
+      - Marzo
+      - Abril
+      - Maio
+      - Xuño
+      - Xullo
+      - Agosto
+      - Setembro
+      - Outubro
+      - Novembro
+      - Decembro
+    abbr_month_names:
+      - ~
+      - Xan
+      - Feb
+      - Mar
+      - Abr
+      - Mai
+      - Xuñ
+      - Xul
+      - Ago
+      - Set
+      - Out
+      - Nov
+      - Dec
     order:
       - :day
       - :month

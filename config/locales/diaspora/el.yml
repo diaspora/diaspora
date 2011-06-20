@@ -540,9 +540,9 @@ el:
       invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
       not_connected: "δεν είναι συνδεδεμένο"
     index: 
-      connect_to_facebook: "Σύνδεση με το facebook"
+      connect_to_facebook: "Σύνδεση με Facebook"
       connect_to_tumblr: "Σύνδεση με το Tumblr"
-      connect_to_twitter: "Σύνδεση με το twitter"
+      connect_to_twitter: "Σύνδεση με Twitter"
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
       logged_in_as: "συνδεδεμένο ως"
@@ -649,7 +649,7 @@ el:
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"
   users: 
-    destroy: "Ο λογαριασμός έκλεισε με επιτυχία."
+    destroy: "Ο λογαριασμός σας έχει κλειδωθεί. Μπορεί να διαρκέσει μέχρι και 20 λεπτά για να τελειώσουμε το κλείσιμο του λογαριασμού. Σας ευχαριστούμε που δοκιμάσατε το Diaspora."
     edit: 
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
       change: "Αλλαγή"

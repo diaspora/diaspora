@@ -1,4 +1,7 @@
 class PmForeignKeys < ActiveRecord::Migration
+  class Message < ActiveRecord::Base
+  end
+
   def self.delete_disconnected_cvs
     execute <<SQL
     DELETE conversation_visibilities FROM conversation_visibilities
@@ -23,7 +26,7 @@ SQL
 SQL
   end
   def self.up
-    if execute('SELECT COUNT(*) FROM messages').to_a.first.first > 0
+    if Message.count > 0
       delete_disconnected_conversations
       delete_disconnected_messages
       delete_disconnected_cvs
