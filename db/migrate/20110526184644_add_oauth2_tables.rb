@@ -32,9 +32,13 @@ class AddOauth2Tables < ActiveRecord::Migration
       t.datetime 'created_at'
       t.datetime 'updated_at'
     end
+
+    add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :unque => true, :name => "index_oauth_authorizations_on_resource_owner_and_client_id"
   end
 
   def self.down
+    remove_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"]
+
     drop_table 'oauth_access_tokens'
     drop_table 'oauth_authorizations'
     drop_table 'oauth_authorization_codes'

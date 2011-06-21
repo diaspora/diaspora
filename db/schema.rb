@@ -221,6 +221,8 @@ ActiveRecord::Schema.define(:version => 20110614005205) do
     t.datetime "expires_at"
   end
 
+  add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :name => "index_oauth_authorizations_on_resource_owner_and_client_id"
+
   create_table "oauth_clients", :force => true do |t|
     t.string "name"
     t.string "oauth_identifier", :limit => 32, :null => false

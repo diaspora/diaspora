@@ -5,9 +5,11 @@
 require 'spec_helper'
 
 describe OAuth2::Provider::Models::ActiveRecord::Client do
-  #TODO
   describe 'validations'do
-    it 'is pending for now'
+    it 'validates uniqueness on identifier' do
+      OAuth2::Provider::Models::ActiveRecord::Client.create(:oauth_identifier => "three")
+      OAuth2::Provider::Models::ActiveRecord::Client.new(:oauth_identifier => "three").valid?.should be_false
+    end
   end
 end
 
