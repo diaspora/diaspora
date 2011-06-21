@@ -33,4 +33,9 @@ $(function() {
     });
   });
   
+  $("#notifications_overlay").delegate('a.close', 'click', function() {
+    console.log("hi!");
+    $('#notifications_overlay').hide();
+  });
+  
 });
