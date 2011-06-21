@@ -1,4 +1,4 @@
-(function() {
+$(function() {
   $("#notification_badge a").live("click", function(event){
     event.preventDefault();
     $.getJSON("/notifications", function(hash) {
@@ -15,7 +15,7 @@
         dayElement.find(".day").text(dayParts[1])
         var notificationsForDay = hash["group_days"][day],
           notificationsForDayElement = dayElement.find('.notifications_for_day');
-          
+                  
         $.each(notificationsForDay, function(i, notificationHash) {
           $.each(notificationHash, function(notificationType, notification) {
             var actor = notification.actors[0];
@@ -23,12 +23,14 @@
             streamElement.find(".actor")
               .text(actor.name)
               .attr("href", notification.actors[0]["url"]);
-            streamElement.find('time').text(notification["created_at"]);
+            streamElement.find('time').attr("datetime", notification["created_at"]);
           });
         });
-        notificationsElement.append(dayElement);
+        notificationsElement.append(dayElement)
+        
+        Diaspora.widgets.timeago.updateTimeAgo("time");  
       });
     });
   });
   
-})();
+});
