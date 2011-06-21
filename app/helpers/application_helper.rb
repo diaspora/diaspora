@@ -22,10 +22,11 @@ module ApplicationHelper
     object = object.model if object.instance_of? PostsFake::Fake
     if object.respond_to?(:activity_streams?) && object.activity_streams?
       class_name = object.class.name.underscore.split('/')
-      eval("#{class_name.first}_#{class_name.last}_path(object, opts)")
+      method_sym = "#{class_name.first}_#{class_name.last}_path".to_sym
     else
-      eval("#{object.class.name.underscore}_path(object, opts)")
+      method_sym = "#{object.class.name.underscore}_path".to_sym
     end
+    self.send(method_sym, object, opts)
   end
 
   def object_fields(object)
