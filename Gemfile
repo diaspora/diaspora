@@ -21,6 +21,10 @@ gem 'devise_invitable', '0.5.0'
 gem 'omniauth', '0.2.6'
 gem 'twitter', '1.5.0'
 
+#Web
+gem 'faraday'
+gem 'faraday-stack'
+
 #Views
 gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
