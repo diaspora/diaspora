@@ -36,3 +36,8 @@ module Devise
     end
   end
 end
+
+# check what database you have
+def postgres?
+  @using_postgres ||= defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+end

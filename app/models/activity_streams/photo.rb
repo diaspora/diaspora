@@ -23,9 +23,9 @@ class ActivityStreams::Photo < Post
   def socket_to_user(user_or_id, opts={}) #adds aspect_ids to opts if they are not there
     unless opts[:aspect_ids]
       user_id = user_or_id.instance_of?(Fixnum) ? user_or_id : user_or_id.id
-      aspect_ids = AspectMembership.connection.execute(
+      aspect_ids = AspectMembership.connection.select_values(
         AspectMembership.joins(:contact).where(:contacts => {:user_id => user_id, :person_id => self.author_id}).select('aspect_memberships.aspect_id').to_sql
-      ).map{|r| r.first}
+      )
       opts.merge!(:aspect_ids => aspect_ids)
     end
     super(user_or_id, opts)

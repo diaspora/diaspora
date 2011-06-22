@@ -80,7 +80,7 @@ class Person < ActiveRecord::Base
   # @return [Array<String>] postgreSQL and mysql deal with null values in orders differently, it seems.
   def self.search_order
     @search_order ||= Proc.new {
-      order = if defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+      order = if postgres?
         "ASC"
       else
         "DESC"
