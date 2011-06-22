@@ -45,13 +45,22 @@ class Person < ActiveRecord::Base
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
   def self.search_query_string(query)
-    where_clause = <<-SQL
-      profiles.first_name LIKE ? OR
-      profiles.last_name LIKE ? OR
-      people.diaspora_handle LIKE ? OR
-      profiles.first_name LIKE ? OR
-      profiles.last_name LIKE ?
-    SQL
+    if postgres?
+      where_clause = <<-SQL
+        profiles.first_name ILIKE ? OR
+        profiles.last_name ILIKE ? OR
+        people.diaspora_handle ILIKE ?
+      SQL
+    else
+      where_clause = <<-SQL
+        profiles.first_name LIKE ? OR
+        profiles.last_name LIKE ? OR
+        people.diaspora_handle LIKE ? OR
+        profiles.first_name LIKE ? OR
+        profiles.last_name LIKE ?
+      SQL
+    end
+
     sql = ""
     tokens = []
 
@@ -62,7 +71,7 @@ class Person < ActiveRecord::Base
       sql << " OR " unless i == 0
       sql << where_clause
       tokens.concat([token, token, token])
-      tokens.concat([up_token, up_token])
+      tokens.concat([up_token, up_token]) unless postgres?
     end
     [sql, tokens]
   end

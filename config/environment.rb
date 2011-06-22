@@ -2,6 +2,11 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
+# check what database you have
+def postgres?
+  @using_postgres ||= defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
+end
+
 # Load the rails application
 require File.expand_path('../application', __FILE__)
 Haml::Template.options[:format] = :html5
@@ -35,9 +40,4 @@ module Devise
       end
     end
   end
-end
-
-# check what database you have
-def postgres?
-  @using_postgres ||= defined?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter) && ActiveRecord::Base.connection.is_a?(ActiveRecord::ConnectionAdapters::PostgreSQLAdapter)
 end
