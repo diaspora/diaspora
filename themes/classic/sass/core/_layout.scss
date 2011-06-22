@@ -1,19 +1,18 @@
-$default-border-radius: 4px;
-
-$pad-min: 18px;
-$pad-narrow: 20px;
-$pad-medium: 35px;
-$pad-wide: 55px;
-$sidebar-width-medium: 240px;
-$sidebar-pad-medium: 15px;
-$sidebar-pad-wide: 20px;
-$sidebar-width-wide: 300px;
+$max-width: 1200px !default;
+$pad-min: 18px !default;
+$pad-narrow: 25px !default;
+$pad-medium: 35px !default;
+$pad-wide: 55px !default;
+$sidebar-width-medium: 240px !default;
+$sidebar-pad-medium: 15px !default;
+$sidebar-pad-wide: 20px !default;
+$sidebar-width-wide: 300px !default;
 
 .group { @include pie-clearfix; }
 
 body {
   -webkit-text-size-adjust: none;
-  max-width: 1350px;
+  max-width: $max-width;
   position: relative;
   margin: 0 auto;
   > header, > nav, > footer, #articles > article {

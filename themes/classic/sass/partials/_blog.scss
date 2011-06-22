@@ -1,5 +1,6 @@
 $border: inline-image('dotted-border.png');
 #articles {
+  overflow: hidden;
   @media only screen and (max-width: 768px) {
     ul, ol { margin-left: 1.4em; }
   }
@@ -91,7 +92,7 @@ $border: inline-image('dotted-border.png');
       top: .3em;
       padding-left: .5em;
     }
-    footer {
+    > footer {
       margin-top: 2em;
       padding-top: 1em;
       margin-bottom: 1.5em;

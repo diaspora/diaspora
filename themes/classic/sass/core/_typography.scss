@@ -10,7 +10,7 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 .mono { font-family: $mono; }
 
 body > header h1 {
-  font-size: 3em;
+  font-size: 2.6em;
   @extend .heading;
   font-weight: normal;
   line-height: 1.2em;
@@ -93,30 +93,18 @@ blockquote {
   $bq-margin: 1.2em;
   font-style: italic;
   position: relative;
-  margin-left: $bq-margin;
-  > p {
-    &:first-child:before {
-      content: "\201C";
-      position: absolute;
-      top: 0.1em;
-      left: -.5em;
-      font-size: 3em;
-      color: $blockquote;
-    }
-    &:last-child:after {
-      content: "\201D";
-      position: relative;
-      top: 0.3em;
-      line-height: 0;
-      font-size: 2em;
-      color: $blockquote;
-    }
+  font-size: 1.2em;
+  line-height: 1.5em;
+  padding-left: 1em;
+  border-left: 4px solid rgba($text-color-light, .5);
+  cite {
+    font-style: italic;
+    a { color: $text-color-light !important; word-wrap: break-word; }
+    &:before { content: '–'; padding:{right: .3em; left: .3em;} color: $text-color-light; }
   }
-  + p > cite {
-    margin-left: $bq-margin;
-    text-align: right;
-    &:before { content: '– '; color: $text-color-light; }
-    a { font-style: italic; }
+  @media only screen and (min-width: 992px) {
+    padding-left: 1.5em;
+    border-left-width: 4px;
   }
 }
 

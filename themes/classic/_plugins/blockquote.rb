@@ -11,7 +11,7 @@
 #   <blockquote>
 #     <p>Wheeee!</p>
 #     <footer>
-#     <strong>John Paul Jones</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
+#     <strong>Bobby Willis</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
 #   </blockquote>
 #
 require './_plugins/titlecase.rb'
@@ -40,17 +40,32 @@ module Jekyll
     end
 
     def render(context)
-      output = super
-      author = "<strong>#{@by}</strong>"
-      cite = "<cite><a class='source' href='#{@source}'>#{(@title || 'source')}</a></cite>"
+      output = paragraphize(super.map(&:strip).join)
+      author = "<strong>#{@by.strip}</strong>"
+      if @source
+        url = @source.match(/https?:\/\/(.+)/)[1].split('/')
+        parts = []
+        url.each do |part|
+          if (parts + [part]).join('/').length < 32
+            parts << part
+          end
+        end
+        source = parts.join('/')
+        source << '/&hellip;' unless source == @source
+      end
+      cite = "<cite><a href='#{@source}'>#{(@title || source)}</a></cite>"
       reply = if @by.nil?
-        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p>"
+        output
       elsif !@source.nil?
-        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p><footer>#{author + cite}</footer>"
+        "#{output}<footer>#{author + cite}</footer>"
       else
-        "<p>#{output.join.gsub(/\n\n/, '</p><p>')}</p><footer>#{author}</footer>"
+        "#{output}<footer>#{author}</footer>"
       end
       "<blockquote>#{reply}</blockquote>"
+    end
+
+    def paragraphize(input)
+      "<p>#{input.gsub(/\n\n/, '</p><p>').gsub(/\n/, '<br/>')}</p>"
     end
   end
 end
