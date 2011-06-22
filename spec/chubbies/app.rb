@@ -45,6 +45,16 @@ module Chubbies
     d.public_key_path = File.dirname(__FILE__) + "/chubbies.public.pem"
     d.test_mode = true
     d.application_url = "http://localhost:9292"
+
+    d.manifest_field(:name, "Chubbies")
+    d.manifest_field(:description, "The best way to chub.")
+    d.manifest_field(:homepage_url, "http://localhost:9292/")
+    d.manifest_field(:icon_url, "#")
+
+    d.manifest_field(:permissions_overview, "Chubbi.es wants to post photos to your stream.")
+
+    d.permission(:profile, :read, "Chubbi.es wants to view your profile so that it can show it to other users.")
+    d.permission(:photos, :write, "Chubbi.es wants to write to your photos to share your findings with your contacts.")
   end
 
   class App < DiasporaClient::App
@@ -83,14 +93,9 @@ module Chubbies
     end
 
     get '/manifest.json' do
-      {
-        "name"         => "Chubbies",
-        "description"  => "The best way to chub.",
-        "homepage_url" => "http://localhost:9292/",
-        "icon_url"     => "#",
-        "public_key"   => DiasporaClient.public_key
-      }.to_json
+      DiasporaClient.package_manifest
     end
+
     get '/reset' do
       Chubbies.reset_db
     end

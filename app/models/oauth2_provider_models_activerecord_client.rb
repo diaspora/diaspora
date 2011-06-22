@@ -6,7 +6,14 @@ class OAuth2::Provider::Models::ActiveRecord::Client
       obj.save!
       obj
     else
-      create!(manifest)
+      self.create!(
+        :name => manifest["name"],
+        :permissions_overview => manifest["permissions_overview"],
+        :description => manifest["description"],
+        :homepage_url => manifest["homepage_url"],
+        :icon_url => manifest["icon_url"],
+        :public_key => manifest["public_key"]
+      )
     end
   end
 end

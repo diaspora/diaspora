@@ -37,12 +37,20 @@ GIT
       addressable (>= 2.1.1)
       eventmachine (>= 0.12.9)
 
+GIT
+  remote: https://github.com/zhitomirskiyi/ruby-jwt
+  revision: fa7f46b5ac3653e30cf60abc78de9ffb3319dc0c
+  specs:
+    jwt (0.1.3)
+      json (>= 1.2.4)
+
 PATH
-  remote: ~/workspace/diaspora-client
+  remote: ~/work/diaspora-client
   specs:
     diaspora-client (0.0.0)
       activerecord
       faraday
+      jwt (>= 0.1.3)
       oauth2
       sinatra
 
@@ -438,6 +446,7 @@ DEPENDENCIES
   jammit (= 0.5.4)
   jasmine (= 1.0.2.1)
   json (= 1.4.6)
+  jwt!
   launchy
   mini_magick (= 3.2)
   mongrel

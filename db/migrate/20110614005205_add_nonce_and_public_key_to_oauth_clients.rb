@@ -1,6 +1,6 @@
 class AddNonceAndPublicKeyToOauthClients < ActiveRecord::Migration
   def self.up
-    add_column :oauth_clients, :nonce, :string
+    add_column :oauth_clients, :nonce, :string, :limit => 64
     add_column :oauth_clients, :public_key, :text
     add_index :oauth_clients, :nonce
   end

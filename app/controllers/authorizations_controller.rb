@@ -20,13 +20,17 @@ class AuthorizationsController < ApplicationController
   end
 
   def token
+    require 'jwt'
+
     if (!params[:type] == 'client_associate' || !params[:manifest_url])
       render :text => "bad request: #{params.inspect}", :status => 403
       return
     end
-      manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
+      packaged_manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
+      public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
+      manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
-      message = verify(params[:signed_string], params[:signature], manifest['public_key'])
+      message = verify(params[:signed_string], params[:signature], public_key)
       unless message =='ok' 
         render :text => message, :status => 403
       else
@@ -35,8 +39,7 @@ class AuthorizationsController < ApplicationController
         render :json => {:client_id => client.oauth_identifier,
                          :client_secret => client.oauth_secret,
                          :expires_in => 0,
-                         :flows_supported => "",
-                        }
+                         :flows_supported => ""}
       end
   end
 

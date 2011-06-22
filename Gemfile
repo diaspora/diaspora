@@ -20,6 +20,8 @@ gem 'omniauth', '0.2.6'
 gem 'twitter', '1.5.0'
 
 gem 'oauth2-provider', '~> 0.0.0'
+gem 'jwt', :git => "https://github.com/zhitomirskiyi/ruby-jwt", :require => false
+
 
 #Views
 gem 'haml', '3.0.25'
@@ -95,5 +97,5 @@ group :test do
   gem 'fuubar'
 
   gem 'diaspora-client', #:git => 'git@github.com:diaspora/diaspora-client.git'
-                          :path => "~/workspace/diaspora-client" 
+                          :path => "~/work/diaspora-client" 
 end

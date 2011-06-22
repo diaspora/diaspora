@@ -224,13 +224,14 @@ ActiveRecord::Schema.define(:version => 20110614005205) do
   add_index "oauth_authorizations", ["resource_owner_id", "resource_owner_type", "client_id"], :name => "index_oauth_authorizations_on_resource_owner_and_client_id"
 
   create_table "oauth_clients", :force => true do |t|
-    t.string "name"
-    t.string "oauth_identifier", :limit => 32, :null => false
-    t.string "oauth_secret",     :limit => 32, :null => false
+    t.string "name",                 :limit => 127, :null => false
+    t.string "oauth_identifier",     :limit => 32,  :null => false
+    t.string "oauth_secret",         :limit => 32,  :null => false
+    t.text   "permissions_overview",                :null => false
     t.text   "description"
     t.string "homepage_url"
     t.string "icon_url"
-    t.string "nonce"
+    t.string "nonce",                :limit => 64
     t.text   "public_key"
   end
 

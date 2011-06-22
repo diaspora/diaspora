@@ -1,10 +1,12 @@
 class AddOauth2Tables < ActiveRecord::Migration
   def self.up
     create_table 'oauth_clients', :force => true do |t|
-      t.string   'name'
-      t.string   'oauth_identifier', :limit => 32, :null => false
-      t.string   'oauth_secret',     :limit => 32, :null => false
+      t.string   'name',             :limit => 127, :null => false
+      t.string   'oauth_identifier', :limit => 32,  :null => false
+      t.string   'oauth_secret',     :limit => 32,  :null => false
+      t.text     'permissions_overview',            :null => false
     end
+
     add_index :oauth_clients, :name, :unique => true
 
     create_table 'oauth_authorization_codes', :force => true do |t|

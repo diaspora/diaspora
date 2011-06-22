@@ -7,7 +7,10 @@ Given /^Chubbies has been killed$/ do
 end
 
 Given /^Chubbies is registered on my pod$/ do
-  manifest = JSON.parse(RestClient.get("localhost:#{Chubbies::PORT}/manifest.json").body)
+  packaged_manifest = JSON.parse(RestClient.get("localhost:#{Chubbies::PORT}/manifest.json").body)
+  public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
+  manifest = JWT.decode(packaged_manifest['jwt'], public_key)
+
   client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest)
   params = {:client_id => client.oauth_identifier,
             :client_secret => client.oauth_secret,
