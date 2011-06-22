@@ -1,6 +1,13 @@
 require "rubygems"
 require "bundler/setup"
 
+## -- Rsync Deploy config -- ##
+# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
+ssh_user      = "mathisweb@imathis.com"
+document_root = "~/dev.octopress.org/"
+
+## -- Misc Configs, you probably have no reason to changes these -- ##
+
 public_dir  = "public"    # compiled site directory
 source_dir  = "source"    # source file directory
 deploy_dir  = "_deploy"    # deploy directory (for Github pages deployment)
@@ -8,10 +15,6 @@ stash_dir   = "_stash"    # directory to stash posts for speedy generation
 posts_dir   = "_posts"    # directory for blog files
 post_format = "markdown"  # file format for new posts when using the post rake task
 
-## -- Rsync Deploy config -- ##
-# Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user      = "mathisweb@imathis.com"
-document_root = "~/dev.octopress.org/"
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|

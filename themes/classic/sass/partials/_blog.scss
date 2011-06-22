@@ -1,6 +1,6 @@
 $border: inline-image('dotted-border.png');
 #articles {
-  @media only screen and (max-width: 992px) {
+  @media only screen and (max-width: 768px) {
     ul, ol { margin-left: 1.4em; }
   }
   > article {
@@ -46,10 +46,14 @@ $border: inline-image('dotted-border.png');
         p.meta { position: static; }
       }
 
-      &.feature h1 {
-        font-size: 2.0em; font-style: italic;
-        line-height: 1.3em;
-      }
+    }
+    h1.feature {
+      padding-top: .5em;
+      margin-bottom: 1em;
+      padding-bottom: 1em;
+      background: $border bottom left repeat-x;
+      font-size: 2.0em; font-style: italic;
+      line-height: 1.3em;
     }
     .entry-content {
       img, video { max-width: 100%; height: auto; }

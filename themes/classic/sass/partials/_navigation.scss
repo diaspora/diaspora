@@ -75,7 +75,7 @@ body > nav {
       float: right;
       text-align: left;
       padding-left: .8em;
-      width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium + 5px;
+      width: $sidebar-width-medium - $pad-medium*2 - $sidebar-pad-medium + 20px;
       .search {
         width: 93%;
         font-size: .95em;
@@ -92,7 +92,7 @@ body > nav {
 
   @media only screen and (min-width: 992px) {
     form {
-      width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 + 5px;
+      width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 + 10px;
     }
     ul[data-subscription$=email] + form {
       width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 - 58px;
