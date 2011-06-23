@@ -1,3 +1,6 @@
+require File.join(Rails.root, "app", "models", "oauth2_provider_models_activerecord_authorization")
+require File.join(Rails.root, "app", "models", "oauth2_provider_models_activerecord_client")
+
 class AuthorizationsController < ApplicationController
   include OAuth2::Provider::Rack::AuthorizationCodesSupport
   before_filter :authenticate_user!, :except => :token
