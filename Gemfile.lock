@@ -154,6 +154,8 @@ GEM
       addressable (~> 2.2.4)
       multipart-post (~> 1.1.0)
       rack (>= 1.1.0, < 2)
+    faraday-stack (0.1.2)
+      faraday (~> 0.6)
     faraday_middleware (0.6.3)
       faraday (~> 0.6.0)
     fastercsv (1.5.4)
@@ -415,6 +417,8 @@ DEPENDENCIES
   em-websocket!
   excon (= 0.2.4)
   factory_girl_rails
+  faraday
+  faraday-stack
   fastercsv (= 1.5.4)
   fixture_builder (~> 0.2.0)
   fog (= 0.3.25)

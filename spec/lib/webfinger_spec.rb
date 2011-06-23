@@ -67,6 +67,21 @@ describe Webfinger do
       end
     end
 
+    describe '#get_xrd' do
+      it 'follows redirects' do
+        puts "Now in spec."
+        redirect_url = "http://whereami.whatisthis/host-meta"
+        stub_request(:get, "https://tom.joindiaspora.com/.well-known/host-meta").
+          to_return(:status => 302, :headers => { 'Location' => redirect_url })
+        stub_request(:get, redirect_url).
+          to_return(:status => 200, :body => diaspora_xrd)
+        begin
+        finger.send :get_xrd
+        rescue; end
+        a_request(:get, redirect_url).should have_been_made
+      end
+    end
+
 
     context 'webfingering local people' do
       it 'should return a person from the database if it matches its handle' do

@@ -29,10 +29,10 @@ nl:
         you_can_confirm: "Je kunt je account bevestigen via onderstaande link:"
       hello: "Hallo %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Accepteer uitnodiging"
+        ignore: "Als je de uitnodiging niet wilt accepteren, negeer dan deze E-mail."
+        no_account_till: "Je account wordt niet aangemaakt totdat je de bovenstaande link bezoekt en je aanmeldt."
+        subject: "Je bent uitgenodigd om lid te worden van Diaspora!"
       inviters: 
         accept_at: ", op %{url}, je kunt het accepteren via onderstaande link."
         has_invited_you: "%{name} heeft je uitgenodigd om lid te worden van Diaspora"
@@ -61,7 +61,7 @@ nl:
     registrations: 
       destroyed: "Tot ziens! Je account is succesvol verwijderd. We hopen je snel terug te zien."
       signed_up: "Je bent succesvol geregistreerd. Indien geactiveerd, ontvang je een bevestigingsmail."
-      updated: "Je account is succesvol geüpdatet."
+      updated: "Je account is succesvol geüpdate."
     sessions: 
       new: 
         alpha_software: "Je staat op het punt om alpha software te gebruiken."
