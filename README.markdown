@@ -4,18 +4,32 @@
 4. **It's easy to use.** A collection of rake tasks simplifies development and makes deploying a cinch.
 5. **Get curated plugins.** Plugins are hand selected from the Jekyll community then tested and improved.
 
-## Get Setup
+## Getting Started
 
-[Fork Octopress](https://github.com/imathis/octopress), then open the console and follow along.
+[Create a new repository](https://github.com/repositories/new) for your website then
+open up a terminal and follow along. If you plan to host your site on [Github Pages](http://pages.github.com) for a user or organization, make sure the
+repository is named `your_username.github.com` or `your_organization.github.com`.
 
-    git clone (your repo url)
+### Setting up Git
 
-    # Optionally add a branch for pulling in Octopress updates
+    mkdir my_octopress_site
+    cd my_octopress_site
+    git init
     git remote add octopress git://github.com/imathis/octopress.git
+    git pull octopress master
+    git remote add origin (your repository url)
+    git push origin master
 
-Setup an [RVM](http://beginrescueend.com/) and install dependencies.
+    # If you're using Github user or organization pages,
+    # rename the master branch to source and then push
+    git branch -m master source
+    git push origin source
 
-    source .rvmrc
+
+### Setting up Octopress
+<span>Next</span>, setup an [RVM](http://beginrescueend.com/) and install dependencies.
+
+    rvm rvmrc trust
     bundle install
 
     # Install pygments (for syntax highlighing)
@@ -25,7 +39,23 @@ Setup an [RVM](http://beginrescueend.com/) and install dependencies.
     # Install the default Octopress theme
     rake install
 
-### Write A Post
+### Generating Your Blog
+
+    rake generate   # Generates your blog into the public directory
+    rake watch      # Watches files for changes and regenerates your blog
+    rake preview    # Watches, regenerates, and mounts a webserver at http://localhost:4000
+
+Jekyll's built in webbrick server is handy, but if you're a [POW](http://pow.cx) user, you can set it up to work with Octopress like this.
+
+    cd ~/.pow
+    ln -s /path/to/octopress
+    cd -
+
+Now you'll just run `rake watch` and load up `http://octopress.dev` instead.
+
+## Writing A Post
+
+While running `rake preview` or `rake watch`, open a new terminal session and start a Hello World post.
 
     rake post['hello world']
 
@@ -39,49 +69,58 @@ which tells Jekyll how to processes posts and pages.
     layout: post
     ---
 
-Octopress adds some custom paramaters to give you more publishing flexibility and you can [read about those here](#include_link),
-but for now. Go ahead and type up a sample post or use some [inspired filler](http://baconipsum.com/).
+Now, go ahead and type up a sample post, or use some [inspired filler](http://baconipsum.com/). Save and refresh your browser, and you
+should see the new post show up in your blog index.
 
-{% pullquote %}
-  When writing longform posts, I find it helpful to include pullquotes, which help those scanning a post discern whether or not a post is helpful.
-  It is important to note, {" pullquotes are merely visual in presentation and should not appear twice in the text. "} That is why it is prefered
-  to use a CSS only technique for styling pullquotes.
-{% endpullquote %}
+Octopress does more than this though. Check out [Blogging with Octopress](#include_link) to learn about cool features which
+help make blogging easier and more beautiful.
 
-## Generate Your Blog
+## Configuring Octopress
 
-    rake preview
+I've tried to keep configuring Octopress fairly simple. Here's a list of files for configuring Octopress.
 
-This will generate your blog, watch your `sass` and `source` directories for changes regenerating automatically, and mount Jekyll's built in webbrick server. Open your browser to `http://localhost:4000` and check it out.
+    _config.yml       # Main config (Jekyll blog settings)
+    Rakefile          # Config for Rsync deployment
+    config.rb         # Compass config
 
-If you'd rather use [POW](http://pow.cx) to serve up your site, you can do this instead.
+    sass/custom/_colors.scss      # change your blog's color scheme
+    sass/custom/_layout.scss      # change your blog's layout
+    sass/custom/_styles.scss      # override your blog's styles
 
-    cd ~/.pow
-    ln -s /path/to/octopress
+Octopress keeps it's main configurations in two places, the `Rakefile` and the `_config.yml`. You probably won't have to change anything in the rakefile except the
+deployment configurations (if you're going to [deploy with Rsync over SSH](#deploy_with_rsync)).
 
-    #Then generate your site
-    rake watch
+## Deploying
 
-`rake watch` does the same thing as `rake preview` except it doesn't mount Jekyll's webbrick server.
+### Deploying with Rsync via SSH
 
-### Configure Octopress
+Add your server configurations to the `Rakefile` under Rsync deploy config. To deploy with Rsync, be sure your public key is listed in your server's `~/.ssh/authorized_keys` file.
 
-Octopress keeps configurations in two places, the `Rakefile` and the `_config.yml`.
+    ssh_user      = "user@domain.com"
+    document_root = "~/website.com/"
 
-In the `rakefile` you'll want to set up your deployment configurations.
+Now if you run `rake deploy` in your terminal, your `public` directory will be synced to your server's document root.
 
-    ## -- Rsync Deploy config -- ##
-    # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-    ssh_user      = "mathisweb@imathis.com"
-    document_root = "~/dev.octopress.org/"
+### Deploying to Github Pages
 
-    ## -- Git deploy config -- ##
-    source_branch = "source" # this compiles to your deploy branch
-    deploy_branch = "master" # For user/organization pages, use "master" for project pages use "gh-pages"
+To setup deployment, you'll want to clone your target repository into the `_deploy` directory in your Octopress project.
+If you're using Github project pages, clone the repository for that project, eg `git@github.com:username/project.git`.
+If you're using Github user or organization pages, clone the repository `git@github.com:usernem/username.github.com.git`.
 
-If you want to deploy with github pages, read [http://pages.github.com](http://pages.github.com) for guidance.
+    # For Github project pages:
+    git clone git@github.com:username/project.git _deploy
+    rake init_deploy[gh-pages]
 
-TODO : Write _configt.yml instructions…
+    # For Github user/organization pages:
+    git clone git@github.com:username/username.github.com _deploy
+    rake init_deploy[master]
+
+    # Now to deploy, you'll run
+    rake push
+
+The `init_deploy` rake task takes a branch name as an argument and creates a [new empty branch](http://book.git-scm.com/5_creating_new_empty_branches.html), adds an initial commit, and pushes it to the origin remote.
+This prepares your branch for easy deployment. The `rake push` task copies the generated blog from the `public` directory to the `_deploy` directory, adds new files, removes old files, sets a commit message, and pushes to Github.
+Then Github will queue your site for publishing (which usually occurs within minutes).
 
 ## License
 (The MIT License)

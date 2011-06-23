@@ -34,6 +34,12 @@ end
 # Working with Jekyll #
 #######################
 
+desc "Generate jekyll site"
+task :generate do
+  puts "## Generating Site with Jekyll"
+  system "jekyll"
+end
+
 desc "Watch the site and regenerate when it changes"
 task :watch do
   system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; wait"
@@ -83,37 +89,14 @@ end
 # Deploying  #
 ##############
 
-## if you're deploying with github, change the default deploy to push_github
-desc "default push task"
-task :push => [:push_rsync] do
-end
-
-desc "Generate and deploy task"
-multitask :deploy => [:integrate, :generate, :push] do
-end
-
-desc "Generate jekyll site"
-task :generate do
-  puts "## Generating Site with Jekyll"
-  system "jekyll"
-end
-
-def ok_failed(condition)
-  if (condition)
-    puts "OK"
-  else
-    puts "FAILED"
-  end
-end
-
 desc "Deploy website via rsync"
-task :push_rsync do
+task :sync do
   puts "## Deploying website via Rsync"
   ok_failed system("rsync -avz --delete #{public_dir}/ #{ssh_user}:#{document_root}")
 end
 
 desc "deploy public directory to github pages"
-multitask :push_github do
+task :push do
   puts "## Deploying branch to Github Pages "
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   system "cp -R #{public_dir}/ #{deploy_dir}"
@@ -130,7 +113,26 @@ multitask :push_github do
   end
 end
 
+desc "setup _deploy folder and deploy branch"
+task :init_deploy, :branch do |t, args|
+  puts "Please provide a deploy branch, eg. rake init_deploy[gh-pages]" unless args.branch
+  cd "#{_deploy}" do
+    system "git symbolic-ref HEAD refs/heads/#{args.branch}"
+    system "rm .git/index"
+    system "git clean -fdx"
+    system "touch README && echo 'initial commit' >> README"
+    system "git add ."
+    system "git push origin #{args.branch}"
+  end
+end
 
+def ok_failed(condition)
+  if (condition)
+    puts "OK"
+  else
+    puts "FAILED"
+  end
+end
 
 desc "list tasks"
 task :list do
