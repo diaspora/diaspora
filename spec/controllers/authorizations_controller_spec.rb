@@ -5,6 +5,13 @@
 require 'spec_helper'
 
 describe AuthorizationsController do
+  RSA = OpenSSL::PKey::RSA
+
+  before :all do
+    @private_key = RSA.generate(2048)
+    @public_key = @private_key.public_key
+  end
+
   before do
     sign_in :user, alice 
     @controller.stub(:current_user).and_return(alice)
@@ -22,11 +29,13 @@ describe AuthorizationsController do
         "description"  => "The best way to chub.",
         "homepage_url" => "http://chubbi.es/",
         "icon_url"     => "#",
-        'public_key'   => 'public_key!'
-      }.to_json 
+        "permissions_overview"     => "I will use the permissions this way!",
+      }
+
+      packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
 
       stub_request(:get, "http://chubbi.es/manifest.json"). 
-        to_return(:status => 200, :body =>  manifest, :headers => {})
+        to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
       @params_hash = {:type => 'client_associate', :manifest_url => "http://chubbi.es/manifest.json" }
     end
@@ -51,7 +60,11 @@ describe AuthorizationsController do
     end
     
     it 'verifies the signable string validity(time,nonce,sig)' do
-      @controller.should_receive(:verify).with('signed_string', 'sig', 'public_key!')
+      @controller.should_receive(:verify){|a,b,c| 
+        a.should == 'signed_string'
+        b.should == 'sig'
+        c.export.should == @public_key.export 
+      }
       post :token,  @params_hash.merge!({:signed_string => 'signed_string', :signature => 'sig'})
     end
   end
@@ -95,40 +108,44 @@ describe AuthorizationsController do
     end
     it 'checks for valid time' do
       @controller.should_receive(:valid_time?).with(@time.to_i.to_s)
-      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
     end
 
     it 'checks the signature' do
-      @controller.should_receive(:verify_signature).with(@signable_string, 'sig', 'public_key!')
-      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+      @controller.should_receive(:verify_signature).with(@signable_string, 'sig', @public_key)
+      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
     end
 
     it 'checks for valid nonce' do
       @controller.should_receive(:valid_nonce?).with(@nonce)
-      @controller.verify(Base64.encode64(@signable_string), @sig, 'public_key!')
+      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
     end
 
     it 'checks for public key' do
-      @controller.verify(Base64.encode64(@signable_string), @sig, '').should == "blank public key"
+      @controller.verify(Base64.encode64(@signable_string), @sig, RSA.new()).should == "blank public key"
+    end
+    
+    it 'checks key size' do
+      short_key = RSA.generate(100)
+      RSA.stub!(:new).and_return(short_key)
+      @controller.verify(Base64.encode64(@signable_string), @sig, RSA.generate(100).public_key).
+        should == "key too small, use at least 2048 bits"
     end
   end
 
   describe '#verify_signature' do
     before do
-      @private_key = OpenSSL::PKey::RSA.new(File.read(Rails.root + "spec/chubbies/chubbies.private.pem"))
 
       @sig = @private_key.sign(OpenSSL::Digest::SHA256.new, @signable_string)
     end
 
     it 'returns true if the signature is valid' do
-      @public_key = File.read(Rails.root + "spec/chubbies/chubbies.public.pem")
       @controller.verify_signature(@signable_string, @sig, @public_key).should be_true
     end
 
     it 'returns false if the signature is invalid' do
       @signable_string = "something else"
 
-      @public_key = File.read(Rails.root + "spec/chubbies/chubbies.public.pem")
       @controller.verify_signature(@signable_string, @sig, @public_key).should be_false
     end
   end

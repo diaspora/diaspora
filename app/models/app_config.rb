@@ -5,7 +5,11 @@ require 'uri'
 
 class AppConfig < Settingslogic
 
-  source File.join(Rails.root, "config", "application.yml")
+  if Rails.env == 'test'
+    source File.join(Rails.root, "config", "application.yml.example")
+  else
+    source File.join(Rails.root, "config", "application.yml")
+  end
   namespace Rails.env
 
   def self.load!

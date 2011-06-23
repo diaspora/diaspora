@@ -60,22 +60,23 @@ class AuthorizationsController < ApplicationController
 
   # @param [String] enc_signed_string A Base64 encoded string with app_url;pod_url;time;nonce
   # @param [String] sig A Base64 encoded signature of the decoded signed_string with public_key.
-  # @param [String] public_key The application's public key to verify sig with.
+  # @param [OpenSSL::PKey::RSA] public_key The application's public key to verify sig with.
+  # @return [String] 'ok' or an error message.
   def verify( enc_signed_string, sig, public_key)
     signed_string = Base64.decode64(enc_signed_string)
     split = signed_string.split(';')
     time = split[2]
     nonce = split[3]
 
-    return 'blank public key' if public_key.blank?
+    return 'blank public key' if public_key.n.nil?
+    return 'key too small, use at least 2048 bits' if public_key.n.num_bits < 2048
     return "invalid time" unless valid_time?(time)
     return 'invalid nonce' unless valid_nonce?(nonce)
     return 'invalid signature' unless verify_signature(signed_string, Base64.decode64(sig), public_key)
     'ok'
   end
 
-  def verify_signature(challenge, signature, serialized_pub_key)
-    public_key = OpenSSL::PKey::RSA.new(serialized_pub_key) 
+  def verify_signature(challenge, signature, public_key)
     public_key.verify(OpenSSL::Digest::SHA256.new, signature, challenge)
   end
 
