@@ -2,6 +2,9 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+= content_for :page_title do
+  = t('devise.sessions.new.sign_in')
+
 = content_for :head do
   = include_javascripts :login
 
