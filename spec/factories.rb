@@ -118,4 +118,15 @@ Factory.define(:app, :class => OAuth2::Provider.client_class) do |a|
 
   a.description "The best way to chub on the net."
   a.icon_url "/images/chubbies48.png"
+  a.permissions_overview "I will use the permissions this way!"
+  a.sequence(:public_key) {|n| OpenSSL::PKey::RSA.new(2048) }
+end
+
+Factory.define(:oauth_authorization, :class => OAuth2::Provider.authorization_class) do |a|
+  a.association(:client, :factory => :app)
+  a.association(:resource_owner, :factory => :user)
+end
+
+Factory.define(:oauth_access_token, :class => OAuth2::Provider.access_token_class) do |a|
+  a.association(:authorization, :factory => :oauth_authorization)
 end

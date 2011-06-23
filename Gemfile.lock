@@ -45,7 +45,7 @@ GIT
       json (>= 1.2.4)
 
 PATH
-  remote: ~/work/diaspora-client
+  remote: ~/workspace/diaspora-client
   specs:
     diaspora-client (0.0.0)
       activerecord

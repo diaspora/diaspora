@@ -7,6 +7,7 @@ require 'spec_helper'
 require File.join(Rails.root, 'lib/webfinger')
 
 describe Webfinger do
+  let(:host_with_port) { "#{AppConfig.pod_uri.host}:#{AppConfig.pod_uri.port}" }
   let(:user1) { alice }
   let(:user2) { eve }
 
@@ -40,18 +41,13 @@ describe Webfinger do
 
     context 'webfinger query chain processing' do
       describe '#webfinger_profile_url' do
-        it 'should parse out the webfinger template' do
+        it 'parses out the webfinger template' do
           finger.send(:webfinger_profile_url, diaspora_xrd).should ==
-            "http://example.org/webfinger?q=foo@tom.joindiaspora.com"
+            "http://#{host_with_port}/webfinger?q=foo@tom.joindiaspora.com"
         end
 
         it 'should return nil if not an xrd' do
           finger.send(:webfinger_profile_url, '<html></html>').should be nil
-        end
-
-        it 'should return the template for xrd' do
-          finger.send(:webfinger_profile_url, diaspora_xrd).should ==
-            'http://example.org/webfinger?q=foo@tom.joindiaspora.com'
         end
       end
 
@@ -75,14 +71,17 @@ describe Webfinger do
       end
     end
     it 'should fetch a diaspora webfinger and make a person for them' do
-      diaspora_xrd.stub!(:body).and_return(diaspora_xrd)
-      hcard_xml.stub!(:body).and_return(hcard_xml)
-      diaspora_finger.stub!(:body).and_return(diaspora_finger)
-      RestClient.stub!(:get).and_return(diaspora_xrd, diaspora_finger, hcard_xml)
+      User.delete_all; Person.delete_all; Profile.delete_all;
+      diaspora_xrd.should_receive(:body).and_return(diaspora_xrd)
+      hcard_xml.should_receive(:body).and_return(hcard_xml)
+      diaspora_finger.should_receive(:body).and_return(diaspora_finger)
+      RestClient.should_receive(:get).exactly(3).times.and_return(diaspora_xrd, diaspora_finger, hcard_xml)
       #new_person = Factory.build(:person, :diaspora_handle => "tom@tom.joindiaspora.com")
       # http://tom.joindiaspora.com/.well-known/host-meta
-      f = Webfinger.new("alice@example.org").fetch
+      f = Webfinger.new("alice@#{host_with_port}").fetch
 
+      f.valid?
+      pp f.errors.full_messages
       f.should be_valid
     end
 

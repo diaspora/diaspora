@@ -97,5 +97,5 @@ group :test do
   gem 'fuubar'
 
   gem 'diaspora-client', #:git => 'git@github.com:diaspora/diaspora-client.git'
-                          :path => "~/work/diaspora-client" 
+                          :path => "~/workspace/diaspora-client" 
 end

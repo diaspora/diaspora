@@ -31,11 +31,10 @@ describe ActivityStreams::PhotosController do
         }
 JSON
     end
-    it 'allows token authentication' do
-      bob.reset_authentication_token!
-      get :create, @json.merge!(:auth_token => bob.authentication_token)
+    it 'allows oauth authentication' do
+      token = Factory(:oauth_access_token)
+      get :create, @json.merge!(:oauth_token => token.access_token)
       response.should be_success
-      warden.should be_authenticated
     end
 
     # It is unclear why this test fails.  An equivalent cucumber feature passes in features/logs_in_and_out.feature.
