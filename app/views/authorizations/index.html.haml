@@ -16,7 +16,7 @@
             = link_to t('.revoke_access'), authorization_path(:id => app.id), :method => :delete, :confirm => 'are you sure?', :class => "button"
           
           - if app.icon_url
-            = image_tag app.icon_url, :class => "avatar"
+            = image_tag(app.homepage_url + app.icon_url, :class => "avatar")
 
           .content
             %div.from
