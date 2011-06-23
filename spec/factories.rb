@@ -111,3 +111,11 @@ Factory.define(:activity_streams_photo, :class => ActivityStreams::Photo) do |p|
   p.actor_url "http://notcubbi.es/cubber"
   p.provider_display_name "not cubbies"
 end
+
+Factory.define(:app, :class => OAuth2::Provider.client_class) do |a|
+  a.sequence(:name) { |token| "Chubbies#{token}" }
+  a.sequence(:homepage_url) { |token| "http://chubbi#{token}.es/" }
+
+  a.description "The best way to chub on the net."
+  a.icon_url "/images/chubbies48.png"
+end

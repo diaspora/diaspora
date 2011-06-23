@@ -37,7 +37,7 @@ class AuthorizationsController < ApplicationController
       unless message =='ok' 
         render :text => message, :status => 403
       else
-        client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest)
+        client = OAuth2::Provider.client_class.create_or_reset_from_manifest!(manifest, public_key)
 
         render :json => {:client_id => client.oauth_identifier,
                          :client_secret => client.oauth_secret,

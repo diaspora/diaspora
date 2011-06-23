@@ -29,7 +29,7 @@ describe AuthorizationsController do
         "description"  => "The best way to chub.",
         "homepage_url" => "http://chubbi.es/",
         "icon_url"     => "#",
-        "permissions_overview"     => "I will use the permissions this way!",
+        "permissions_overview" => "I will use the permissions this way!",
       }
 
       packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
@@ -76,21 +76,22 @@ describe AuthorizationsController do
     end
 
     it 'assigns the auth. & apps for the current user' do
-     app1 = OAuth2::Provider.client_class.create(:name => "Authorized App") 
-     app2 = OAuth2::Provider.client_class.create(:name => "Unauthorized App") 
-     auth1 = OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => alice)
-     auth2 = OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => bob)
-     auth3 = OAuth2::Provider.authorization_class.create(:client => app2, :resource_owner => bob)
+     app1 = Factory.create(:app, :name => "Authorized App") 
+     app2 = Factory.create(:app, :name => "Unauthorized App") 
+     auth = OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => alice)
+
+     OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => bob)
+     OAuth2::Provider.authorization_class.create(:client => app2, :resource_owner => bob)
 
      get :index
-     assigns[:authorizations].should == [auth1]
+     assigns[:authorizations].should == [auth]
      assigns[:applications].should == [app1]
     end
   end
 
   describe "#destroy" do
     before do
-     @app1 = OAuth2::Provider.client_class.create(:name => "Authorized App") 
+     @app1 = Factory.create(:app) 
      @auth1 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => alice)
      @auth2 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => bob)
     end
@@ -151,8 +152,6 @@ describe AuthorizationsController do
   end
 
   describe "valid_time?" do
-
-
     it "returns true if time is within the last 5 minutes" do
        @controller.valid_time?(@time - 4.minutes - 59.seconds).should be_true
     end
@@ -164,7 +163,8 @@ describe AuthorizationsController do
 
   describe 'valid_nonce' do
     before do
-       @app1 = OAuth2::Provider.client_class.create(:name => "Authorized App", :nonce => "abc123") 
+      @nonce = "abc123"
+      Factory.create(:app, :nonce => @nonce) 
     end
 
     it 'returns true if its a new nonce' do
@@ -172,7 +172,7 @@ describe AuthorizationsController do
     end
     
     it 'returns false if the nonce was already used' do
-      @controller.valid_nonce?("abc123").should be_false
+      @controller.valid_nonce?(@nonce).should be_false
     end
   end
 end

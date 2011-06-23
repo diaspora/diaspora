@@ -1,5 +1,5 @@
 class OAuth2::Provider::Models::ActiveRecord::Client 
-  def self.create_or_reset_from_manifest! manifest
+  def self.create_or_reset_from_manifest!(manifest, pub_key)
     if obj = find_by_name(manifest['name'])
       obj.oauth_identifier = OAuth2::Provider::Random.base62(16)
       obj.oauth_secret = OAuth2::Provider::Random.base62(32)
@@ -12,7 +12,7 @@ class OAuth2::Provider::Models::ActiveRecord::Client
         :description => manifest["description"],
         :homepage_url => manifest["homepage_url"],
         :icon_url => manifest["icon_url"],
-        :public_key => manifest["public_key"]
+        :public_key => pub_key.export
       )
     end
   end
