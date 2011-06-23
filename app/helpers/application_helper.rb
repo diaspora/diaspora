@@ -54,7 +54,7 @@ module ApplicationHelper
   end
 
   def person_image_tag(person, size=:thumb_small)
-    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)}\">".html_safe
+    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)} is #{h(person.diaspora_handle)}\">".html_safe
   end
 
   def person_link(person, opts={})
