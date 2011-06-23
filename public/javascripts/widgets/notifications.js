@@ -35,10 +35,8 @@
   };
 
   Notifications.prototype.showNotification = function(notification) {
-	if( window.webkitNotifications ) {
-		if (window.webkitNotifications.checkPermission() > 0) {
-		  window.webkitNotifications.requestPermission();
-		}
+	// If browser supports webkitNotifications and we have permissions to show those.
+	if( window.webkitNotifications && window.webkitNotifications.checkPermission() !== 0 ) {
 		window.webkitNotifications.createNotification(
 			$(notification.html).children("img"), // Icon
 			"DIASPORA*", // Headline
@@ -46,6 +44,12 @@
 		).show();
 	}
 	else {
+		// If browser supports webkitNotifications, but we don't have the permissions to show those... yet!
+		if( window.webkitNotifications ) {
+			window.webkitNotifications.requestPermission();
+		}
+		
+		// If browser doesn't support webkitNotifications at all.
 		$(notification.html).prependTo(this.notificationArea)
 		  .fadeIn(200)
 		  .delay(8000)
