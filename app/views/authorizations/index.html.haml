@@ -8,24 +8,20 @@
   = render 'shared/settings_nav'
 
 .span-19.prepend-5.last
-  %h2
-    = t('_applications')
+  #applications_stream.stream
+    - if @applications.count > 0
+      - for app in @applications
+        .stream_element{:id => app.id}
+          .right
+            = link_to t('.revoke_access'), authorization_path(:id => app.id), :method => :delete, :confirm => 'are you sure?', :class => "button"
+          
+          - if app.icon_url
+            = image_tag app.icon_url, :class => "avatar"
 
+          .content
+            %div.from
+              = link_to app.name, app.homepage_url
+            = app.description
 
-#applications_stream.stream
-  - for app in @applications
-
-    .stream_element{:id => app.id}
-      .right
-        = link_to t('delete'), authorization_path(:id => app.id), :method => :delete, :confirm => 'are you sure?'
-      
-      - if app.icon_url
-        = image_tag app.icon_url
-
-      .content
-        %span.from
-          = link_to app.name, app.homepage_url
-
-        .info
-          = app.description
-
+    - else
+      You haven't registered any applications yet.

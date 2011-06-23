@@ -11,7 +11,7 @@ class AuthorizationsController < ApplicationController
   def new
     @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
-    render :layout => "popup" if params[:popup]
+    #render :layout => "popup" if params[:popup]
   end
 
   def create

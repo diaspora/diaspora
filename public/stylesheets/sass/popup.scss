@@ -4,6 +4,9 @@
 
 @import "mixins";
 
+body, html{
+  padding: 20px;
+}
 
 body, html, header, footer, ul{
   padding: 0;
@@ -13,18 +16,35 @@ body, html, header, footer, ul{
 header,
 footer{
   width: 100%;
+  left: 0;
+}
+
+header{
+  top: 0;
+}
+
+footer{
+  bottom: 0;
+  padding: 5px 0;
+  color: #444;
 }
 
 header{
   position: relative;
-  font-size: 14px;
-  font-weight: bold;
+  font-size: 12px;
+  padding-top: 8px;
+  padding-bottom: 0px;
+  font-weight: 700;
   color: #fff;
   vertical-align: top;
   margin-bottom: 20px;
 
   #asterisk{
+    position: relative;
     margin-right: 3px;
+    top: -2px;
+    left: 10px;
+    margin-right: 14px;
   }
 }
 

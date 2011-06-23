@@ -684,6 +684,10 @@ en:
       generate_a_token: "Generate a token"
       via: "(via %{link})"
 
+  authorizations:
+    index:
+      revoke_access: "Revoke Access"
+
   users:
     edit:
       export_data: "Export Data"

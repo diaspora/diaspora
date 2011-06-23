@@ -4,12 +4,15 @@
 
 
 %ul.stream#service_stream
-  - for service in @services
-    %h3
-      %b= service.provider
-      = t('services.index.logged_in_as')
-      %b= service.nickname
-      = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
+  - if @services.count > 0
+    - for service in @services
+      %h3
+        %b= service.provider
+        = t('services.index.logged_in_as')
+        %b= service.nickname
+        = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
+  - else
+    You haven't connected any services yet.
 
 - unless @services.any?{|x| x.provider == 'twitter'}
   %h4= link_to t('services.index.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter'] && SERVICES['twitter']['consumer_key']!= ""
