@@ -63,6 +63,6 @@ Feature: oauth
 
     And I am on the authorizations page
     And I preemptively confirm the alert
-    And I follow "Delete"
+    And I follow "Revoke Access"
     Then I visit "/account?id=1" on Chubbies
     Then I should see "Token invalid"
