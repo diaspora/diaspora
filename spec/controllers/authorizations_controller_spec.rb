@@ -40,6 +40,53 @@ describe AuthorizationsController do
       @params_hash = {:type => 'client_associate', :manifest_url => "http://chubbi.es/manifest.json" }
     end
 
+    context 'special casing (temporary, read note in the controller)' do
+      def prepare_manifest(url)
+        manifest =   {
+          "name"         => "Chubbies",
+          "description"  => "The best way to chub.",
+          "homepage_url" => url,
+          "icon_url"     => "#",
+          "permissions_overview" => "I will use the permissions this way!",
+        }
+
+        packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
+
+        stub_request(:get, "http://#{url}/manifest.json"). 
+          to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
+
+        @params_hash = {:type => 'client_associate', :manifest_url => "http://#{url}/manifest.json" }
+      end
+
+      it 'renders something for chubbies ' do
+        prepare_manifest("http://chubbi.es/")
+        @controller.stub!(:verify).and_return('ok')
+        post :token,  @params_hash
+        response.body.blank?.should be_false
+      end
+
+      it 'renders something for cubbies ' do
+        prepare_manifest("http://cubbi.es/")
+        @controller.stub!(:verify).and_return('ok')
+        post :token,  @params_hash
+        response.body.blank?.should be_false
+      end
+
+      it 'renders something for localhost' do
+        prepare_manifest("http://localhost:3423/")
+        @controller.stub!(:verify).and_return('ok')
+        post :token,  @params_hash
+        response.body.blank?.should be_false
+      end
+
+      it 'renders nothing for myspace' do
+        prepare_manifest("http://myspace.com/")
+        @controller.stub!(:verify).and_return('ok')
+        post :token,  @params_hash
+        response.body.blank?.should be_true
+      end
+    end
+
     it 'fetches the manifest' do
       @controller.stub!(:verify).and_return('ok')
       post :token,  @params_hash
