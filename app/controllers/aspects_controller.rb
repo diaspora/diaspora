@@ -131,12 +131,6 @@ class AspectsController < ApplicationController
     end
   end
 
-  def manage
-    @aspect = :manage
-    @contacts = current_user.contacts.includes(:person => :profile)
-    @aspects = all_aspects.includes(:contacts => {:person => :profile})
-  end
-
   def update
     @aspect = current_user.aspects.where(:id => params[:id]).first
 

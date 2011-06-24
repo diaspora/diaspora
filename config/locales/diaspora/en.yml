@@ -104,13 +104,7 @@ en:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    manage:
-      add_a_new_aspect: "Add a new aspect"
-      add_a_new_contact: "Add a new contact"
-      requests: "Requests"
-      no_requests: "No new requests"
-      manage_aspects: "Manage aspects"
-      drag_to_add: "Drag to add people"
+
     new:
       name: "Name"
       create: "Create"
@@ -188,6 +182,9 @@ en:
       failure: "Failed to create contact"
     sharing:
       people_sharing: "People sharing with you:"
+    index:
+      add_a_new_aspect: "Add a new aspect"
+      title: "Your Contacts"
 
   conversations:
     index:
@@ -608,6 +605,7 @@ en:
       create_request: "Find by Diaspora handle"
       diaspora_handle: "diaspora@handle.org"
       know_email: "Know their email address? You should invite them"
+      add_new_contact: "Add a new contact"
     invitations:
       invites: "Invites"
       invite_someone: "Invite someone"

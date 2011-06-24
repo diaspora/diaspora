@@ -56,7 +56,6 @@ javascripts:
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
   aspects:
-    - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
   finder:
     - public/javascripts/friend-finder.js

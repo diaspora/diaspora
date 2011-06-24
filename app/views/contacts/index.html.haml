@@ -1,0 +1,19 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.title')
+
+#section_header
+  .right
+    = link_to("+ #{t('.add_a_new_aspect')}", "#add_aspect_pane", :class => "new_aspect button", :title => t('.add_a_new_aspect'), :rel => 'facebox')
+
+  %h2
+    =t('.title')
+.span-15.append-1
+  #people_stream.stream
+    - for contact in @contacts
+      = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
+
+  = will_paginate @contacts

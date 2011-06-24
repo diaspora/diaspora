@@ -26,4 +26,27 @@ describe ContactsController do
       assigns[:contacts].to_set.should == alice.contacts.sharing.to_set
     end
   end
+
+  describe '#index' do
+    it "succeeds" do
+      get :index
+      response.should be_success
+    end
+
+    it "assigns aspect to manage" do
+      get :index
+      assigns(:aspect).should == :manage
+    end
+
+    it "assigns contacts" do
+      get :index
+      contacts = assigns(:contacts)
+      contacts.to_set.should == alice.contacts.to_set
+    end
+
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
+      get :index
+      save_fixture(html_for("body"), "aspects_manage")
+    end
+  end
 end

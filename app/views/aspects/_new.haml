@@ -5,7 +5,7 @@
 .span-12.last
   #facebox_header
     %h4
-      = t('aspects.manage.add_a_new_aspect')
+      = t('contacts.index.add_a_new_aspect')
 
   = form_for(Aspect.new, :remote => (defined?(remote) && remote) ) do |aspect|
     = aspect.error_messages
