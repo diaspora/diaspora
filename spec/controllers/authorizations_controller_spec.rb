@@ -56,32 +56,34 @@ describe AuthorizationsController do
         stub_request(:get, "http://#{url}/manifest.json"). 
           to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
-        @params_hash = {:type => 'client_associate', :manifest_url => "http://#{url}/manifest.json" }
+        @signed_string = [url,'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
+        @signature = @private_key.sign(OpenSSL::Digest::SHA256.new, @signed_string)
+        @params_hash = {:type => 'client_associate', :signed_string => Base64.encode64(@signed_string), :signature => Base64.encode64(@signature)}
       end
 
       it 'renders something for chubbies ' do
-        prepare_manifest("http://chubbi.es/")
+        prepare_manifest("http://chubbi.es")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
       end
 
       it 'renders something for cubbies ' do
-        prepare_manifest("http://cubbi.es/")
+        prepare_manifest("http://cubbi.es")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
       end
 
       it 'renders something for localhost' do
-        prepare_manifest("http://localhost:3423/")
+        prepare_manifest("http://localhost:3423")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
       end
 
       it 'renders nothing for myspace' do
-        prepare_manifest("http://myspace.com/")
+        prepare_manifest("http://myspace.com")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_true

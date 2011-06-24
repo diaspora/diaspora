@@ -48,7 +48,7 @@ module Chubbies
 
     d.manifest_field(:name, "Chubbies")
     d.manifest_field(:description, "The best way to chub.")
-    d.manifest_field(:homepage_url, "http://localhost:9292/")
+    d.manifest_field(:homepage_url, "http://localhost:9292")
     d.manifest_field(:icon_url, "#")
 
     d.manifest_field(:permissions_overview, "Chubbi.es wants to post photos to your stream.")

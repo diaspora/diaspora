@@ -35,11 +35,12 @@ class AuthorizationsController < ApplicationController
       packaged_manifest = JSON.parse(RestClient.get("#{app_url}/manifest.json").body)
       public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
       manifest = JWT.decode(packaged_manifest['jwt'], public_key)
+      pp manifest
 
       message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
       if not (message =='ok')
         render :text => message, :status => 403
-      elsif manifest["homepage_url"].match(/^http:\/\/(localhost:\d+|chubbi\.es|cubbi\.es)\/$/).nil?
+      elsif manifest["homepage_url"].match(/^http:\/\/(localhost:\d+|chubbi\.es|cubbi\.es)$/).nil?
         # This will only be temporary (less than a month) while we iron out the kinks in Diaspora Connect. Essentially, 
         # whatever we release people will try to work off of and it sucks to build things on top of non-stable things. 
         # We also started writing a gem that we'll release (around the same time) that makes becoming a Diaspora enabled 
