@@ -1,8 +1,12 @@
 $max-width: 1200px !default;
+
+// Padding used for layout margins
 $pad-min: 18px !default;
 $pad-narrow: 25px !default;
 $pad-medium: 35px !default;
 $pad-wide: 55px !default;
+
+// Sidebar widths used in media queries
 $sidebar-width-medium: 240px !default;
 $sidebar-pad-medium: 15px !default;
 $sidebar-pad-wide: 20px !default;
@@ -15,7 +19,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #articles > article {
+  > header, > nav, > footer, #articles > article, #articles > nav {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;

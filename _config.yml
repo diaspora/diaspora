@@ -4,8 +4,9 @@ destination: public
 code_dir: downloads/code
 port: 4000
 
-url: http://dev.octopress.org
-title: Octopress
+url: http://yoursite.com
+title: My Octopress Blog
+permalink: /blog/:year/:month/:day/:title
 subtitle: A blogging framework for hackers.
 author: Your Name
 subscribe_rss: /atom.xml
@@ -13,7 +14,8 @@ subscribe_email:
 
 markdown: rdiscount
 pygments: true
-posts_per_page: 10
+#posts_per_page: 10
+paginate: 5
 recent_posts: 5
 simple_search: http://google.com/search
 
@@ -23,7 +25,7 @@ simple_search: http://google.com/search
 email:
 
 # Twitter
-twitter_user: imathis
+twitter_user:
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
@@ -31,7 +33,7 @@ twitter_show_follower_count: false
 twitter_tweet_button: true
 
 # Pinboard
-#pinboard_user: imathis
+pinboard_user:
 pinboard_count: 3
 
 # Delicious

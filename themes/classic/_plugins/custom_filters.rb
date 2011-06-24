@@ -48,7 +48,7 @@ module OctopressFilters
     else
       case number.to_i % 10
       when 1; "#{number}<span>st</span>"
-      when 2; "#{number}<span>nd<span>"
+      when 2; "#{number}<span>nd</span>"
       when 3; "#{number}<span>rd</span>"
       else    "#{number}<span>th</span>"
       end

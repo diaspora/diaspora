@@ -3,12 +3,21 @@ layout: default
 blog_index: true
 ---
 {% assign index = true %}
-{% for page in site.posts limit:site.posts_per_page %}
+{% for page in paginator.posts %}
 {% assign content = page.content %}
   <article>
     {% include article.html %}
   </article>
 {% endfor %}
+<nav role="pagination">
+  {% if paginator.next_page %}
+    <a href="/page{{paginator.next_page}}/">&larr; Older</a>
+  {% endif %}
+  <a href="/archive.html">Blog Archive</a>
+  {% if paginator.previous_page %}
+    <a href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
+  {% endif %}
+</nav>
 {% if site.disqus_short_name %}
 <script type="text/javascript">
     var disqus_shortname = '{{ site.disqus_short_name }}';

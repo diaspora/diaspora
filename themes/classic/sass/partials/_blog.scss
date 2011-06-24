@@ -46,7 +46,6 @@ $border: inline-image('dotted-border.png');
         background: $border bottom left repeat-x;
         p.meta { position: static; }
       }
-
     }
     h1.feature {
       padding-top: .5em;
@@ -58,12 +57,15 @@ $border: inline-image('dotted-border.png');
     }
     .entry-content {
       img, video { max-width: 100%; height: auto; }
-      video { display: block; margin-bottom: 1.5em;
+      video {
+        width: 100%; display: block; margin-bottom: 1.5em;
         padding: .8em; background: #fff; border: 1px solid #eee;
         @include box-sizing(border-box);
       }
       .flash-video {
         max-width: 100%;
+        margin-bottom: 1.5em;
+        @include box-sizing(border-box);
         padding: .8em; background: #fff; border: 1px solid #eee;
         > div {
           position: relative;
@@ -82,12 +84,7 @@ $border: inline-image('dotted-border.png');
         }
       }
     }
-    #disqus_thread { }
-
     iframe.twitter-share-button {
-      //display: block;
-      //margin-top: .5em;
-      //padding: .2em 0;
       position: relative;
       top: .3em;
       padding-left: .5em;

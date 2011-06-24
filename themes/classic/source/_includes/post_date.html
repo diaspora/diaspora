@@ -1,0 +1,6 @@
+{% if page.date %}
+<time datetime="{{ page.date | datetime }}" pubdate {% if page.updated %} updated {% endif %}>{{ page.date | ordinalize }}</time>
+{% endif %}
+{% if page.updated %}
+<time class="updated" datetime="{{ page.updated | datetime }}"></time>
+{% endif %}

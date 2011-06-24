@@ -2,15 +2,13 @@
 2. **Code blogging is easy and beautiful.** Embed code (with [Solarized](http://ethanschoonover.com/solarized) styling) in your posts from gists or from your filesystem.
 3. **Third party integration is simple** with built-in support for Twitter, Pinboard, Delicious, Disqus Comments, and Google Analytics.
 4. **It's easy to use.** A collection of rake tasks simplifies development and makes deploying a cinch.
-5. **Get curated plugins.** Plugins are hand selected from the Jekyll community then tested and improved.
+5. **Ships with great plugins** some original and others from the Jekyll community &mdash; tested and improved.
 
 ## Getting Started
 
 [Create a new repository](https://github.com/repositories/new) for your website then
 open up a terminal and follow along. If you plan to host your site on [Github Pages](http://pages.github.com) for a user or organization, make sure the
 repository is named `your_username.github.com` or `your_organization.github.com`.
-
-### Setting up Git
 
     mkdir my_octopress_site
     cd my_octopress_site
@@ -26,8 +24,7 @@ repository is named `your_username.github.com` or `your_organization.github.com`
     git push origin source
 
 
-### Setting up Octopress
-<span>Next</span>, setup an [RVM](http://beginrescueend.com/) and install dependencies.
+Next, setup an [RVM](http://beginrescueend.com/) and install dependencies.
 
     rvm rvmrc trust
     bundle install

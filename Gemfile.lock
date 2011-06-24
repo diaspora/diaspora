@@ -21,6 +21,7 @@ GEM
     liquid (2.2.2)
     maruku (0.6.0)
       syntax (>= 1.0.0)
+    rack (1.3.0)
     rake (0.9.0)
     rb-fsevent (0.4.0)
     rdiscount (1.6.8)
@@ -36,6 +37,7 @@ DEPENDENCIES
   compass (>= 0.11)
   haml (>= 3.1)
   jekyll
+  rack
   rake
   rb-fsevent
   rdiscount

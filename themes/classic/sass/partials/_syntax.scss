@@ -51,16 +51,19 @@ html .gist .gist-file {
   }
 }
 pre {
-  background: #fff;
-  border: 1px solid #ddd;
+  background: #333;
   @include border-radius(.4em);
   @extend .mono;
   line-height: 1.45em;
   font-size: .8em;
   margin-bottom: 1.5em;
   padding: .8em 1em;
-  color: #555;
+  color: #ccc;
   overflow: auto;
+}
+h3.filename {
+  @extend .code-title;
+  + pre { @include border-top-radius(0px); }
 }
 
 p code {
@@ -172,16 +175,14 @@ figure {
   }
   .highlight { margin-bottom: 0; border-bottom: 1px solid darken($base03, 2) !important; }
 }
-h3.filename { @extend .code-title; }
 .code-title {
   text-align: center;
   font-size: 13px;
   line-height: 2em;
   text-shadow: #cbcccc 0 1px 0;
   color: #474747;
-  font-style: normal;
+  font-weight: normal;
   margin-bottom: 0;
-
   @include border-top-radius(5px);
   font-family: "Helvetica Neue", Arial, "Lucida Grande", "Lucida Sans Unicode", Lucida, sans-serif;
   background: #aaaaaa image-url("code_bg.png") top repeat-x;
