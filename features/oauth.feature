@@ -66,3 +66,14 @@ Feature: oauth
     And I follow "Revoke Access"
     Then I visit "/account?id=1" on Chubbies
     Then I should see "Token invalid"
+
+  Scenario: Re-registering a client if the client recognizes the diaspora pod but the diaspora pod has since been reset
+    Given Chubbies is registered on my pod
+    And I remove all traces of Chubbies on the pod
+
+    When I try to authorize Chubbies
+
+    When I press "Authorize"
+    Then I should be on "/account" on Chubbies
+    And I should see my "profile.birthday"
+    And I should see my "name"

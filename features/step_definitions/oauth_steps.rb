@@ -26,6 +26,10 @@ And /^there is only one Chubbies$/ do
   OAuth2::Provider.client_class.where(:name => "Chubbies").count.should == 1
 end
 
+And /^I remove all traces of Chubbies on the pod$/ do
+  OAuth2::Provider.client_class.destroy_all
+end
+
 When /^I try to authorize Chubbies$/ do
   # We need to reset the tokens saved in Chubbies,
   # as we are clearing the Diaspora DB every scenario
