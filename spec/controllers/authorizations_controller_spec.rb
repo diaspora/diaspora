@@ -19,25 +19,26 @@ describe AuthorizationsController do
     @time = Time.now
     Time.stub(:now).and_return(@time)
     @nonce = 'asdfsfasf'
-    @signable_string = ["http://chubbi.es/",'http://pod.pod/',"#{Time.now.to_i}", @nonce].join(';')
+    @signed_string = ["http://chubbi.es",'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
+    @signature = @private_key.sign(OpenSSL::Digest::SHA256.new, @signed_string)
+
+    @manifest =   {
+        "name"         => "Chubbies",
+        "description"  => "The best way to chub.",
+        "homepage_url" => "http://chubbi.es",
+        "icon_url"     => "#",
+        "permissions_overview" => "I will use the permissions this way!",
+      }
   end
 
   describe '#token' do
     before do
-      manifest =   {
-        "name"         => "Chubbies",
-        "description"  => "The best way to chub.",
-        "homepage_url" => "http://chubbi.es/",
-        "icon_url"     => "#",
-        "permissions_overview" => "I will use the permissions this way!",
-      }
-
-      packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
+      packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(@manifest, @private_key, "RS256")}.to_json
 
       stub_request(:get, "http://chubbi.es/manifest.json"). 
         to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
-      @params_hash = {:type => 'client_associate', :manifest_url => "http://chubbi.es/manifest.json" }
+      @params_hash = {:type => 'client_associate', :signed_string => Base64.encode64(@signed_string), :signature => Base64.encode64(@signature)}
     end
 
     context 'special casing (temporary, read note in the controller)' do
@@ -107,12 +108,13 @@ describe AuthorizationsController do
     end
     
     it 'verifies the signable string validity(time,nonce,sig)' do
-      @controller.should_receive(:verify){|a,b,c| 
-        a.should == 'signed_string'
-        b.should == 'sig'
+      @controller.should_receive(:verify){|a,b,c,d| 
+        a.should == @signed_string
+        b.should == @signature
         c.export.should == @public_key.export 
+        d.should == @manifest
       }
-      post :token,  @params_hash.merge!({:signed_string => 'signed_string', :signature => 'sig'})
+      post :token,  @params_hash
     end
   end
 
@@ -152,31 +154,35 @@ describe AuthorizationsController do
   describe '#verify' do
     before do
       @controller.stub!(:verify_signature)
-      @sig = Base64.encode64('sig')
+      @sig = 'sig'
     end
     it 'checks for valid time' do
       @controller.should_receive(:valid_time?).with(@time.to_i.to_s)
-      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
+      @controller.verify(@signed_string, @sig, @public_key, @manifest)
     end
 
     it 'checks the signature' do
-      @controller.should_receive(:verify_signature).with(@signable_string, 'sig', @public_key)
-      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
+      @controller.should_receive(:verify_signature).with(@signed_string, 'sig', @public_key)
+      @controller.verify(@signed_string, @sig, @public_key, @manifest)
     end
 
     it 'checks for valid nonce' do
       @controller.should_receive(:valid_nonce?).with(@nonce)
-      @controller.verify(Base64.encode64(@signable_string), @sig, @public_key)
+      @controller.verify(@signed_string, @sig, @public_key, @manifest)
     end
 
     it 'checks for public key' do
-      @controller.verify(Base64.encode64(@signable_string), @sig, RSA.new()).should == "blank public key"
+      @controller.verify(@signed_string, @sig, RSA.new(), @manifest).should == "blank public key"
+    end
+
+    it 'checks consistency of app_url' do
+      @controller.verify(@signed_string, @sig, @public_key, @manifest.merge({"homepage_url" => "http://badsite.com"})).should == "the app url in the manifest does not match the url passed in the parameters"
     end
     
     it 'checks key size' do
       short_key = RSA.generate(100)
       RSA.stub!(:new).and_return(short_key)
-      @controller.verify(Base64.encode64(@signable_string), @sig, RSA.generate(100).public_key).
+      @controller.verify(@signed_string, @sig, RSA.generate(100).public_key, @manifest).
         should == "key too small, use at least 2048 bits"
     end
   end
@@ -184,17 +190,17 @@ describe AuthorizationsController do
   describe '#verify_signature' do
     before do
 
-      @sig = @private_key.sign(OpenSSL::Digest::SHA256.new, @signable_string)
+      @sig = @private_key.sign(OpenSSL::Digest::SHA256.new, @signed_string)
     end
 
     it 'returns true if the signature is valid' do
-      @controller.verify_signature(@signable_string, @sig, @public_key).should be_true
+      @controller.verify_signature(@signed_string, @sig, @public_key).should be_true
     end
 
     it 'returns false if the signature is invalid' do
-      @signable_string = "something else"
+      @signed_string = "something else"
 
-      @controller.verify_signature(@signable_string, @sig, @public_key).should be_false
+      @controller.verify_signature(@signed_string, @sig, @public_key).should be_false
     end
   end
 

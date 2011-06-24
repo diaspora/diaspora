@@ -25,15 +25,18 @@ class AuthorizationsController < ApplicationController
   def token
     require 'jwt'
 
-    if (!params[:type] == 'client_associate' || !params[:manifest_url])
+    signed_string = Base64.decode64(params[:signed_string])
+    app_url = signed_string.split(';')[0]
+
+    if (!params[:type] == 'client_associate' && !app_url)
       render :text => "bad request: #{params.inspect}", :status => 403
       return
     end
-      packaged_manifest = JSON.parse(RestClient.get(params[:manifest_url]).body)
+      packaged_manifest = JSON.parse(RestClient.get("#{app_url}/manifest.json").body)
       public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
       manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
-      message = verify(params[:signed_string], params[:signature], public_key)
+      message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
       if not (message =='ok')
         render :text => message, :status => 403
       elsif manifest["homepage_url"].match(/^http:\/\/(localhost:\d+|chubbi\.es|cubbi\.es)\/$/).nil?
@@ -69,17 +72,18 @@ class AuthorizationsController < ApplicationController
   # @param [String] sig A Base64 encoded signature of the decoded signed_string with public_key.
   # @param [OpenSSL::PKey::RSA] public_key The application's public key to verify sig with.
   # @return [String] 'ok' or an error message.
-  def verify( enc_signed_string, sig, public_key)
-    signed_string = Base64.decode64(enc_signed_string)
+  def verify( signed_string, sig, public_key, manifest)
     split = signed_string.split(';')
+    app_url = split[0]
     time = split[2]
     nonce = split[3]
 
     return 'blank public key' if public_key.n.nil?
+    return 'the app url in the manifest does not match the url passed in the parameters' if manifest["homepage_url"] != app_url
     return 'key too small, use at least 2048 bits' if public_key.n.num_bits < 2048
     return "invalid time" unless valid_time?(time)
     return 'invalid nonce' unless valid_nonce?(nonce)
-    return 'invalid signature' unless verify_signature(signed_string, Base64.decode64(sig), public_key)
+    return 'invalid signature' unless verify_signature(signed_string, sig, public_key)
     'ok'
   end
 

@@ -38,8 +38,14 @@ GIT
       eventmachine (>= 0.12.9)
 
 GIT
-  remote: git@github.com:diaspora/diaspora-client.git
-  revision: 6b1b07fba73106755acd77d6def3e503df007a3f
+  remote: https://github.com/zhitomirskiyi/ruby-jwt
+  revision: fa7f46b5ac3653e30cf60abc78de9ffb3319dc0c
+  specs:
+    jwt (0.1.3)
+      json (>= 1.2.4)
+
+PATH
+  remote: ~/workspace/diaspora-client
   specs:
     diaspora-client (0.0.0)
       activerecord
@@ -47,13 +53,6 @@ GIT
       jwt (>= 0.1.3)
       oauth2
       sinatra
-
-GIT
-  remote: https://github.com/zhitomirskiyi/ruby-jwt
-  revision: fa7f46b5ac3653e30cf60abc78de9ffb3319dc0c
-  specs:
-    jwt (0.1.3)
-      json (>= 1.2.4)
 
 GEM
   remote: http://rubygems.org/

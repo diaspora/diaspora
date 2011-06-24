@@ -1,6 +1,5 @@
-GIT
-  remote: git@github.com:diaspora/diaspora-client.git
-  revision: 6b1b07fba73106755acd77d6def3e503df007a3f
+PATH
+  remote: ~/workspace/diaspora-client
   specs:
     diaspora-client (0.0.0)
       activerecord
