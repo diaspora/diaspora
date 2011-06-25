@@ -12,6 +12,8 @@ class StatusMessagesController < ApplicationController
 
   helper_method :object_aspect_ids
 
+  # Called when a user clicks "Mention" on a profile page
+  # @option [Integer] person_id The id of the person to be mentioned
   def new
     @person = Person.find(params[:person_id])
     @aspect = :profile
@@ -82,7 +84,7 @@ class StatusMessagesController < ApplicationController
         photos.update_all(:status_message_guid => nil)
       end
       respond_to do |format|
-        format.js { 
+        format.js {
           errors = @status_message.errors.full_messages.collect { |msg| msg.gsub(/^Text/, "") }
           render :json =>{:errors => errors}, :status => 422
         }
