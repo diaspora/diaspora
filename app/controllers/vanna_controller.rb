@@ -24,6 +24,8 @@ class VannaController < Vanna::Base
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :which_action_and_user
+  before_filter :all_aspects
+  before_filter :object_aspect_ids
   prepend_before_filter :clear_gc_stats
   before_filter :set_grammatical_gender
 
@@ -50,6 +52,18 @@ class VannaController < Vanna::Base
   def set_invites
     if user_signed_in?
       @invites = current_user.invites
+    end
+  end
+
+  def object_aspect_ids
+    if user_signed_in?
+      @object_aspect_ids ||= []
+    end
+  end
+
+  def all_aspects
+    if user_signed_in?
+      @all_aspects ||= current_user.aspects
     end
   end
 

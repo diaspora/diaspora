@@ -1,25 +1,30 @@
-
 module NotificationsHelper
-  def object_link(translation_key, post)
-    if translation_key == "notifications.mentioned"
+  def object_link(note, actors)
+    target_type = note.popup_translation_key
+    actors_count = note.actors.count
+    if note.instance_of?(Notifications::Mentioned)
+      post = Mention.find(note.target_id).post
       if post
-        "#{translation(translation_key)} #{link_to t('notifications.post'), object_path(post)}".html_safe
+        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), object_path(post)).html_safe)
       else
-        "#{translation(translation_key)} #{t('notifications.deleted')} #{t('notifications.post')}"
+        t('notifications.mentioned_deleted', :actors => actors, :count => actors_count).html_safe
       end
-    elsif translation_key == "notifications.comment_on_post"
+    elsif note.instance_of?(Notifications::CommentOnPost)
+      post = Post.where(:id => note.target_id).first
       if post
-        "#{translation(translation_key)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
-      else
-        "#{translation(translation_key)} #{t('notifications.deleted')} #{t('notifications.post')}"
-      end
-    elsif translation_key == "notifications.also_commented"
-      if post
-        "#{translation(translation_key, post.author.name)} #{link_to t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link'}".html_safe
+        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.also_commented_deleted', :actors => actors, :count => actors_count).html_safe
       end
-    elsif translation_key == "notifications.liked"
+    elsif note.instance_of?(Notifications::AlsoCommented)
+      post = Post.where(:id => note.target_id).first
+      if post
+        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+      else
+        t('notifications.also_commented_deleted', :actors => actors, :count => actors_count).html_safe
+      end
+    elsif note.instance_of?(Notifications::Liked)
+      post = note.target
       post = post.post if post.is_a? Like
       if post
         translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
@@ -48,6 +53,7 @@ module NotificationsHelper
     number_of_actors = actors.count
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
+
     if number_of_actors < 4
       message = actor_links.to_sentence(sentence_translations)
     else
@@ -79,3 +85,4 @@ module NotificationsHelper
     i18n[0].match(/\d/) ? i18n[1] : i18n[0]
   end
 end
+
