@@ -20,6 +20,7 @@ class ProfilesController < ApplicationController
   def update
     # upload and set new profile photo
     params[:profile] ||= {}
+    params[:tags] << params[:profile][:tag_string] unless params[:profile][:tag_string].nil?
     params[:profile][:tag_string] = (params[:tags]) ? params[:tags].gsub(',',' ') : ""
     params[:profile][:searchable] ||= false
     params[:profile][:photo] = Photo.where(:author_id => current_user.person.id,

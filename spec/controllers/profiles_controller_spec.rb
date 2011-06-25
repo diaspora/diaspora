@@ -49,6 +49,15 @@ describe ProfilesController do
       put :update, params
       @user.person(true).profile.tag_list.to_set.should == ['apples', 'oranges'].to_set
     end
+    
+    it 'sets plaintext tags' do
+      params = { :id => @user.person.id,
+                 :tags => ',#apples,#oranges,',
+                 :profile => {:tag_string => '#pears'} }
+      
+      put :update, params
+      @user.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'pears'].to_set
+    end
 
     context 'with a profile photo set' do
       before do
