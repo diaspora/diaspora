@@ -35,7 +35,6 @@ class AuthorizationsController < ApplicationController
       packaged_manifest = JSON.parse(RestClient.get("#{app_url}/manifest.json").body)
       public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
       manifest = JWT.decode(packaged_manifest['jwt'], public_key)
-      pp manifest
 
       message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
       if not (message =='ok')

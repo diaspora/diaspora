@@ -53,7 +53,7 @@ describe AuthorizationsController do
 
         packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
 
-        stub_request(:get, "http://#{url}/manifest.json"). 
+        stub_request(:get, "#{url}/manifest.json"). 
           to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
         @signed_string = [url,'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
