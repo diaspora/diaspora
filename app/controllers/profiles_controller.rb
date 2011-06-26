@@ -25,7 +25,7 @@ class ProfilesController < ApplicationController
         extra_tag.strip!
         unless extra_tag == ""
           extra_tag = "##{extra_tag}" unless extra_tag.start_with?( "#" )
-          params[:tags] += ",##{extra_tag}"
+          params[:tags] += " #{extra_tag}"
         end
       end
     end
