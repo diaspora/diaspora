@@ -36,6 +36,7 @@ var AspectFilters = {
     this.blur();
 
     $('html, body').animate({scrollTop:0}, 'fast');
+
   },
   switchToAspect: function(aspectLi){
     AspectFilters.requests++;
@@ -157,6 +158,9 @@ var AspectFilters = {
         if(AspectFilters.requests === 0){
           AspectFilters.fadeIn();
         }
+				
+        // Initalize view again
+        View.initialize.apply(View);
       }
     });
   },
