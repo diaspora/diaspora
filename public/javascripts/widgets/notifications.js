@@ -35,12 +35,24 @@
   };
 
   Notifications.prototype.showNotification = function(notification) {
-    $(notification.html).prependTo(this.notificationArea)
-      .fadeIn(200)
-      .delay(8000)
-      .fadeOut(200, function() {
-        $(this).detach();
-      });
+	if( window.webkitNotifications ) {
+		if (window.webkitNotifications.checkPermission() > 0) {
+		  window.webkitNotifications.requestPermission();
+		}
+		window.webkitNotifications.createNotification(
+			$(notification.html).children("img"), // Icon
+			"DIASPORA*", // Headline
+			$(notification.html).text() // Body
+		).show();
+	}
+	else {
+		$(notification.html).prependTo(this.notificationArea)
+		  .fadeIn(200)
+		  .delay(8000)
+		  .fadeOut(200, function() {
+			$(this).detach();
+		  });
+	}
 
     if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
       this.incrementCount();
