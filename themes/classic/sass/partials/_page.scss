@@ -1,12 +1,12 @@
 html {
-  background: $page-bg inline-image('line-tile.png') top left;
+  background: $page-bg image-url('line-tile.png') top left;
 }
 body {
   > div {
-    background-color: $sidebar-bg;
+    background: $sidebar-bg image-url('noise.png') top left;
     border-bottom: 1px solid $page-border-bottom;
     > div {
-      background-color: $main-bg;
+      background: $main-bg image-url('noise.png') top left;
       border-right: 1px solid $sidebar-border;
     }
   }

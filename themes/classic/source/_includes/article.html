@@ -1,7 +1,7 @@
 {% unless page.no_header %}
   <header>
     {% if index %}
-      <h1 class="entry-title"><a href="{{ page.url }}">{{ page.title | titlecase }}</a></h1>
+      <h1 class="entry-title"><a href="{{ post.url }}">{{ post.title | titlecase }}</a></h1>
     {% else %}
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
@@ -10,12 +10,13 @@
 {% endunless %}
 {% if index %}
   <div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
-  <p><a rel="full-article" href="{{ page.url }}">Read on &rarr;</a></p>
+  <p><a rel="full-article" href="{{ post.url }}">Read on &rarr;</a></p>
   <footer>
     <p class="meta">
       {% include post_author.html %}
       {% include post_date.html %}
-      <span class="comments"><a rel="comments" href="{{ page.url }}#disqus_thread">Add a comment</a></span>
+      {% include post_categories.html %}
+      <span class="comments"><a rel="comments" href="{{ post.url }}#disqus_thread">Comments</a></span>
       {% include sharing.html %}
     </p>
   </footer>

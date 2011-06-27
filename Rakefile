@@ -61,6 +61,7 @@ task :post, :filename do |t, args|
     post.puts "title: #{args.filename.gsub(/[-_]/, ' ').titlecase}"
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "layout: post"
+    post.puts "categories: []"
     post.puts "---"
   end
 end

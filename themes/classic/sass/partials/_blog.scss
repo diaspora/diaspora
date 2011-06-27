@@ -1,111 +1,107 @@
-$border: inline-image('dotted-border.png');
 #articles {
   overflow: hidden;
-  @media only screen and (max-width: 768px) {
-    ul, ol { margin-left: 1.4em; }
+  ul, ol { margin-left: 1.4em; }
+  @media only screen and (min-width: 768px) {
+    ul, ol { margin-left: 0; }
   }
   > article {
     padding-bottom: 1em;
-    &:last-child { margin-bottom: 0; border-bottom: none; }
+    &:last-child { margin-bottom: 0;  }
     h2 {
       padding-top: 0.8em;
-      background: $border top left repeat-x;
-      &:first-child {
-        background: none;
-        padding-top: 0;
-      }
+      background: $img-border top left repeat-x;
+      &:first-child { background: none; padding-top: 0; }
     }
-    .byline + time:before, time +time:before, .comments:before {
+    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
       @extend .separator;
     }
-    header {
-      position: relative;
-      padding-top: 2em;
+  }
+  header {
+    position: relative;
+    padding-top: 2em;
+    padding-bottom: 1em;
+    margin-bottom: 1em;
+    background: $img-border bottom left repeat-x;
+    h1 {
+      margin: 0;
+      a { text-decoration: none;
+        &:hover { text-decoration: underline; } }
+    }
+    p {
+      font-size: .9em;
+      color: $text-color-light;
+      margin: 0;
+      @extend .sans;
+      &.meta {
+        text-transform: uppercase;
+      }
+    }
+    @media only screen and (min-width: 768px) {
       margin-bottom: 1.5em;
       padding-bottom: 1em;
-      background: $border bottom left repeat-x;
-      h1 {
-        margin: 0;
-        a { text-decoration: none;
-          &:hover { text-decoration: underline; } }
-      }
-      p {
-        font-size: .9em;
-        color: $text-color-light;
-        margin: 0;
-        @extend .sans;
-        &.meta {
-          text-transform: uppercase;
-          position: absolute;
-          top: 0;
-        }
-      }
-      @media only screen and (max-width: 768px) {
-        padding-bottom: 1em;
-        margin-bottom: 1em;
-        background: $border bottom left repeat-x;
-        p.meta { position: static; }
-      }
-    }
-    h1.feature {
-      padding-top: .5em;
-      margin-bottom: 1em;
-      padding-bottom: 1em;
-      background: $border bottom left repeat-x;
-      font-size: 2.0em; font-style: italic;
-      line-height: 1.3em;
-    }
-    .entry-content {
-      img, video { max-width: 100%; height: auto; }
-      video {
-        width: 100%; display: block; margin-bottom: 1.5em;
-        padding: .8em; background: #fff; border: 1px solid #eee;
-        @include box-sizing(border-box);
-      }
-      .flash-video {
-        max-width: 100%;
-        margin-bottom: 1.5em;
-        @include box-sizing(border-box);
-        padding: .8em; background: #fff; border: 1px solid #eee;
-        > div {
-          position: relative;
-          display: block;
-          padding-bottom: 56.25%;
-          padding-top: 1px;
-          height: 0;
-          overflow: hidden;
-          iframe, object, embed {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-          }
-        }
-      }
-    }
-    iframe.twitter-share-button {
-      position: relative;
-      top: .3em;
-      padding-left: .5em;
-    }
-    > footer {
-      margin-top: 2em;
-      padding-top: 1em;
-      margin-bottom: 1.5em;
-      background: $border top left repeat-x;
-      time, .author { color: $text-color-light; @extend .sans; }
+      background: $img-border bottom left repeat-x;
+      p.meta { position: absolute; top: 0; }
     }
   }
+  h1.feature {
+    padding-top: .5em;
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+    background: $img-border bottom left repeat-x;
+    font-size: 2.0em; font-style: italic;
+    line-height: 1.3em;
+  }
+  .entry-content {
+    img, video { max-width: 100%; height: auto; }
+    video {
+      width: 100%; display: block; margin-bottom: 1.5em;
+      padding: .8em; background: #fff; border: 1px solid #eee;
+      @include box-sizing(border-box);
+    }
+  }
+  .flash-video {
+    max-width: 100%;
+    margin-bottom: 1.5em;
+    @include box-sizing(border-box);
+    padding: .8em; background: #fff; border: 1px solid #eee;
+    > div {
+      position: relative;
+      display: block;
+      padding-bottom: 56.25%;
+      padding-top: 1px;
+      height: 0;
+      overflow: hidden;
+      iframe, object, embed {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+  iframe.twitter-share-button {
+    position: relative;
+    top: .3em;
+    padding-left: .5em;
+  }
+  > article > footer {
+    margin-top: 2em;
+    padding-top: 1em;
+    margin-bottom: 1.5em;
+    background: $img-border top left repeat-x;
+    @extend .sans;
+  }
+
 }
 article + article {
-  background: $border top left repeat-x;
+  background: $img-border top left repeat-x;
 }
 #articles.blog-index {
   article header { background: none; padding-bottom: 0; }
   article h1 {
     font-size: 2.2em;
-    a { color: inherit; &:hover{ color: $link-color-hover; } }
+    a { color: inherit; &:hover { color: $link-color-hover; } }
   }
   a[rel=full-article] {
     background: darken($main-bg, 5);
@@ -125,8 +121,6 @@ article + article {
   footer {
     @extend .sans;
     margin-top: 1em;
-    p.meta { color: $text-color-light; }
-    a { color: inherit; &:hover{ color: $link-color-hover;} }
   }
 }
 

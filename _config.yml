@@ -17,6 +17,7 @@ pygments: true
 #posts_per_page: 10
 paginate: 5
 recent_posts: 5
+category_dir: category
 simple_search: http://google.com/search
 
 # Optional configurations

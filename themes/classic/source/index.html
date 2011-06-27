@@ -3,8 +3,8 @@ layout: default
 blog_index: true
 ---
 {% assign index = true %}
-{% for page in paginator.posts %}
-{% assign content = page.content %}
+{% for post in paginator.posts %}
+{% assign content = post.content %}
   <article>
     {% include article.html %}
   </article>

@@ -5,13 +5,16 @@ single: true
 
 <article class="hentry">
   {% include article.html %}
+  {% unless page.no_meta %}
   <footer>
     <p class="meta">
       {% include post_author.html %}
       {% include post_date.html %}
+      {% include post_categories.html %}
       {% include sharing.html %}
     </p>
   </footer>
+  {% endunless %}
   {% if site.disqus_short_name %}
   <section>
     <h1>Comments</h1>

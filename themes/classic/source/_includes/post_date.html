@@ -1,6 +1,10 @@
-{% if page.date %}
-<time datetime="{{ page.date | datetime }}" pubdate {% if page.updated %} updated {% endif %}>{{ page.date | ordinalize }}</time>
+{% capture date %}{{ page.date }}{{ post.date }}{% endcapture %}
+{% capture has_date %}{{ date | size }}{% endcapture %}
+{% capture updated %}{{ page.updated }}{{ post.updated }}{% endcapture %}
+{% capture was_updated %}{{ updated | size }}{% endcapture %}
+{% if has_date != '0' %}
+<time datetime="{{ date | datetime }}" pubdate {% if updated %} updated {% endif %}>{{ date | ordinalize }}</time>
 {% endif %}
-{% if page.updated %}
-<time class="updated" datetime="{{ page.updated | datetime }}"></time>
+{% if was_updated != '0' %}
+<time class="updated" datetime="{{ updated | datetime }}"></time>
 {% endif %}
