@@ -226,7 +226,7 @@ ActiveRecord::Schema.define(:version => 20110623210918) do
   create_table "oauth_clients", :force => true do |t|
     t.string "name",                 :limit => 127, :null => false
     t.text   "description",                         :null => false
-    t.string "homepage_url",         :limit => 127, :null => false
+    t.string "application_base_url", :limit => 127, :null => false
     t.string "icon_url",             :limit => 127, :null => false
     t.string "oauth_identifier",     :limit => 32,  :null => false
     t.string "oauth_secret",         :limit => 32,  :null => false
@@ -235,7 +235,7 @@ ActiveRecord::Schema.define(:version => 20110623210918) do
     t.text   "permissions_overview",                :null => false
   end
 
-  add_index "oauth_clients", ["homepage_url"], :name => "index_oauth_clients_on_homepage_url", :unique => true
+  add_index "oauth_clients", ["application_base_url"], :name => "index_oauth_clients_on_application_base_url", :unique => true
   add_index "oauth_clients", ["name"], :name => "index_oauth_clients_on_name", :unique => true
   add_index "oauth_clients", ["nonce"], :name => "index_oauth_clients_on_nonce", :unique => true
 

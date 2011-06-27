@@ -44,11 +44,10 @@ module Chubbies
     d.private_key_path = File.dirname(__FILE__) + "/chubbies.private.pem"
     d.public_key_path = File.dirname(__FILE__) + "/chubbies.public.pem"
     d.test_mode = true
-    d.application_url = "http://localhost:9292"
+    d.application_base_url = "localhost:9292/"
 
     d.manifest_field(:name, "Chubbies")
     d.manifest_field(:description, "The best way to chub.")
-    d.manifest_field(:homepage_url, "http://localhost:9292")
     d.manifest_field(:icon_url, "#")
 
     d.manifest_field(:permissions_overview, "Chubbi.es wants to post photos to your stream.")
@@ -73,10 +72,10 @@ module Chubbies
     get '/account' do
       if params['id'] && user = User.where(:id => params['id']).first
         if user.access_token
-          begin 
+          begin
             @resource_response = user.access_token.token.get("/api/v0/me")
             haml :response
-          rescue OAuth2::AccessDenied 
+          rescue OAuth2::AccessDenied
             "Token invalid"
           end
         else

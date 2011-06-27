@@ -1,6 +1,6 @@
 #authorize
   #application-description
-    = image_tag(@client.homepage_url + @client.icon_url, :id => 'client-application-image')
+    = image_tag(@client.application_base_url + @client.icon_url, :id => 'client-application-image')
     %br
     %strong
       = @client.name

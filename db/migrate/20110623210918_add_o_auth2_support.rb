@@ -1,20 +1,20 @@
 class AddOAuth2Support < ActiveRecord::Migration
   def self.up
     create_table 'oauth_clients', :force => true do |t|
-      t.string   'name',             :limit => 127, :null => false
-      t.text     'description',                     :null => false
-      t.string   'homepage_url',     :limit => 127, :null => false
-      t.string   'icon_url',         :limit => 127, :null => false
+      t.string   'name',                 :limit => 127, :null => false
+      t.text     'description',                         :null => false
+      t.string   'application_base_url', :limit => 127, :null => false
+      t.string   'icon_url',             :limit => 127, :null => false
 
-      t.string   'oauth_identifier', :limit => 32,  :null => false
-      t.string   'oauth_secret',     :limit => 32,  :null => false
-      t.string   'nonce',            :limit => 64
-      t.text     'public_key',                      :null => false
-      t.text     'permissions_overview',            :null => false
+      t.string   'oauth_identifier',     :limit => 32,  :null => false
+      t.string   'oauth_secret',         :limit => 32,  :null => false
+      t.string   'nonce',                :limit => 64
+      t.text     'public_key',                          :null => false
+      t.text     'permissions_overview',                :null => false
     end
 
     add_index :oauth_clients, :name, :unique => true
-    add_index :oauth_clients, :homepage_url, :unique => true
+    add_index :oauth_clients, :application_base_url, :unique => true
     add_index :oauth_clients, :nonce, :unique => true
 
     create_table 'oauth_authorization_codes', :force => true do |t|
@@ -56,7 +56,7 @@ class AddOAuth2Support < ActiveRecord::Migration
     drop_table 'oauth_authorization_codes'
 
     remove_index :oauth_clients, :column => :nonce
-    remove_index :oauth_clients, :column => :homepage_url
+    remove_index :oauth_clients, :column => :application_base_url
     remove_index :oauth_clients, :column => :name
 
     drop_table 'oauth_clients'

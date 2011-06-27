@@ -32,18 +32,18 @@ class AuthorizationsController < ApplicationController
       render :text => "bad request: #{params.inspect}", :status => 403
       return
     end
-      packaged_manifest = JSON.parse(RestClient.get("#{app_url}/manifest.json").body)
+      packaged_manifest = JSON.parse(RestClient.get("#{app_url}manifest.json").body)
       public_key = OpenSSL::PKey::RSA.new(packaged_manifest['public_key'])
       manifest = JWT.decode(packaged_manifest['jwt'], public_key)
 
       message = verify(signed_string, Base64.decode64(params[:signature]), public_key, manifest)
       if not (message =='ok')
         render :text => message, :status => 403
-      elsif manifest["homepage_url"].match(/^http:\/\/(localhost:\d+|chubbi\.es|cubbi\.es)$/).nil?
-        # This will only be temporary (less than a month) while we iron out the kinks in Diaspora Connect. Essentially, 
-        # whatever we release people will try to work off of and it sucks to build things on top of non-stable things. 
-        # We also started writing a gem that we'll release (around the same time) that makes becoming a Diaspora enabled 
-        # ruby project a breeze.  
+      elsif manifest["application_base_url"].match(/^http:\/\/(localhost:\d+|chubbi\.es|cubbi\.es)\/$/).nil?
+        # This will only be temporary (less than a month) while we iron out the kinks in Diaspora Connect. Essentially,
+        # whatever we release people will try to work off of and it sucks to build things on top of non-stable things.
+        # We also started writing a gem that we'll release (around the same time) that makes becoming a Diaspora enabled
+        # ruby project a breeze.
 
         render :nothing => true
       else
@@ -79,7 +79,7 @@ class AuthorizationsController < ApplicationController
     nonce = split[3]
 
     return 'blank public key' if public_key.n.nil?
-    return 'the app url in the manifest does not match the url passed in the parameters' if manifest["homepage_url"] != app_url
+    return 'the app url in the manifest does not match the url passed in the parameters' if manifest["application_base_url"] != app_url
     return 'key too small, use at least 2048 bits' if public_key.n.num_bits < 2048
     return "invalid time" unless valid_time?(time)
     return 'invalid nonce' unless valid_nonce?(nonce)

@@ -13,19 +13,19 @@ describe AuthorizationsController do
   end
 
   before do
-    sign_in :user, alice 
+    sign_in :user, alice
     @controller.stub(:current_user).and_return(alice)
 
     @time = Time.now
     Time.stub(:now).and_return(@time)
     @nonce = 'asdfsfasf'
-    @signed_string = ["http://chubbi.es",'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
+    @signed_string = ["http://chubbi.es/",'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
     @signature = @private_key.sign(OpenSSL::Digest::SHA256.new, @signed_string)
 
     @manifest =   {
         "name"         => "Chubbies",
         "description"  => "The best way to chub.",
-        "homepage_url" => "http://chubbi.es",
+        "application_base_url" => "http://chubbi.es/",
         "icon_url"     => "#",
         "permissions_overview" => "I will use the permissions this way!",
       }
@@ -35,7 +35,7 @@ describe AuthorizationsController do
     before do
       packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(@manifest, @private_key, "RS256")}.to_json
 
-      stub_request(:get, "http://chubbi.es/manifest.json"). 
+      stub_request(:get, "http://chubbi.es/manifest.json").
         to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
       @params_hash = {:type => 'client_associate', :signed_string => Base64.encode64(@signed_string), :signature => Base64.encode64(@signature)}
@@ -46,14 +46,14 @@ describe AuthorizationsController do
         manifest =   {
           "name"         => "Chubbies",
           "description"  => "The best way to chub.",
-          "homepage_url" => url,
+          "application_base_url" => url,
           "icon_url"     => "#",
           "permissions_overview" => "I will use the permissions this way!",
         }
 
         packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(manifest, @private_key, "RS256")}.to_json
 
-        stub_request(:get, "#{url}/manifest.json"). 
+        stub_request(:get, "#{url}manifest.json").
           to_return(:status => 200, :body =>  packaged_manifest, :headers => {})
 
         @signed_string = [url,'http://pod.pod',"#{Time.now.to_i}", @nonce].join(';')
@@ -62,21 +62,21 @@ describe AuthorizationsController do
       end
 
       it 'renders something for chubbies ' do
-        prepare_manifest("http://chubbi.es")
+        prepare_manifest("http://chubbi.es/")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
       end
 
       it 'renders something for cubbies ' do
-        prepare_manifest("http://cubbi.es")
+        prepare_manifest("http://cubbi.es/")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
       end
 
       it 'renders something for localhost' do
-        prepare_manifest("http://localhost:3423")
+        prepare_manifest("http://localhost:3423/")
         @controller.stub!(:verify).and_return('ok')
         post :token,  @params_hash
         response.body.blank?.should be_false
@@ -94,7 +94,7 @@ describe AuthorizationsController do
       @controller.stub!(:verify).and_return('ok')
       post :token,  @params_hash
     end
-    
+
     it 'creates a client application' do
       @controller.stub!(:verify).and_return('ok')
       lambda {
@@ -108,12 +108,12 @@ describe AuthorizationsController do
         post :token,  @params_hash
       }.should_not change(OAuth2::Provider.client_class, :count)
     end
-    
+
     it 'verifies the signable string validity(time,nonce,sig)' do
-      @controller.should_receive(:verify){|a,b,c,d| 
+      @controller.should_receive(:verify){|a,b,c,d|
         a.should == @signed_string
         b.should == @signature
-        c.export.should == @public_key.export 
+        c.export.should == @public_key.export
         d.should == @manifest
       }
       post :token,  @params_hash
@@ -127,8 +127,8 @@ describe AuthorizationsController do
     end
 
     it 'assigns the auth. & apps for the current user' do
-     app1 = Factory.create(:app, :name => "Authorized App") 
-     app2 = Factory.create(:app, :name => "Unauthorized App") 
+     app1 = Factory.create(:app, :name => "Authorized App")
+     app2 = Factory.create(:app, :name => "Unauthorized App")
      auth = OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => alice)
 
      OAuth2::Provider.authorization_class.create(:client => app1, :resource_owner => bob)
@@ -142,13 +142,13 @@ describe AuthorizationsController do
 
   describe "#destroy" do
     before do
-     @app1 = Factory.create(:app) 
+     @app1 = Factory.create(:app)
      @auth1 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => alice)
      @auth2 = OAuth2::Provider.authorization_class.create(:client => @app1, :resource_owner => bob)
     end
     it 'deletes an authorization' do
       lambda{
-        delete :destroy, :id => @app1.id 
+        delete :destroy, :id => @app1.id
       }.should change(OAuth2::Provider.authorization_class, :count).by(-1)
     end
   end
@@ -178,9 +178,9 @@ describe AuthorizationsController do
     end
 
     it 'checks consistency of app_url' do
-      @controller.verify(@signed_string, @sig, @public_key, @manifest.merge({"homepage_url" => "http://badsite.com"})).should == "the app url in the manifest does not match the url passed in the parameters"
+      @controller.verify(@signed_string, @sig, @public_key, @manifest.merge({"application_base_url" => "http://badsite.com/"})).should == "the app url in the manifest does not match the url passed in the parameters"
     end
-    
+
     it 'checks key size' do
       short_key = RSA.generate(100)
       RSA.stub!(:new).and_return(short_key)
@@ -219,13 +219,13 @@ describe AuthorizationsController do
   describe 'valid_nonce' do
     before do
       @nonce = "abc123"
-      Factory.create(:app, :nonce => @nonce) 
+      Factory.create(:app, :nonce => @nonce)
     end
 
     it 'returns true if its a new nonce' do
       @controller.valid_nonce?("lalalala").should be_true
     end
-    
+
     it 'returns false if the nonce was already used' do
       @controller.valid_nonce?(@nonce).should be_false
     end

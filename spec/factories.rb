@@ -114,7 +114,7 @@ end
 
 Factory.define(:app, :class => OAuth2::Provider.client_class) do |a|
   a.sequence(:name) { |token| "Chubbies#{token}" }
-  a.sequence(:homepage_url) { |token| "http://chubbi#{token}.es/" }
+  a.sequence(:application_base_url) { |token| "http://chubbi#{token}.es/" }
 
   a.description "The best way to chub on the net."
   a.icon_url "/images/chubbies48.png"
