@@ -284,6 +284,11 @@ ul.dropdown
       :bottom 1px solid #ddd
       :top 1px solid #fff
 
+    &:first-child
+      :border
+        :top none
+      
+
     .youtube-player, .vimeo-player
       :border none
       :height 370px
@@ -2953,3 +2958,53 @@ h1.tag
 
     .hold-me
       :display inline-block
+
+ul#left_nav
+  :margin 0
+  :padding 0
+
+  li
+    :position relative
+
+  a
+    :display block
+    :width 100%
+    :padding 3px 7px
+
+    &:hover
+      :background
+        :color lighten($blue,45%)
+      :text
+        :decoration none
+
+  li.active
+    a
+      :color #333
+      :font
+        :weight 700
+
+  .contact_count
+    @include border-radius(4px)
+    :float right
+    :margin-top 1px
+    :color #999
+    :background
+      :color #eee
+    :padding 0 5px
+    :display inline
+    :font
+      :size 11px
+
+  li.active
+    .contact_count
+      :font
+        :weight 700
+      :color #666
+
+  ul#aspect_sub_nav
+    :padding 0
+      :left 20px
+    :margin 0
+    :display none
+
+

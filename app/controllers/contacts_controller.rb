@@ -7,7 +7,15 @@ class ContactsController < ApplicationController
 
   def index
     @aspect = :manage
-    @contacts = current_user.contacts.includes(:aspects, :person => :profile).order('contacts.id DESC').paginate(:page => params[:page], :per_page => 25)
+
+    @all_contacts_count = current_user.contacts.count
+    @my_contacts_count = current_user.contacts.receiving.count
+
+    unless params[:set] == "all"
+      @contacts = current_user.contacts.receiving.includes(:aspects, :person => :profile).order('contacts.id DESC').paginate(:page => params[:page], :per_page => 25)
+    else
+      @contacts = current_user.contacts.includes(:aspects, :person => :profile).order('contacts.id DESC').paginate(:page => params[:page], :per_page => 25)
+    end
   end
 
   def sharing
