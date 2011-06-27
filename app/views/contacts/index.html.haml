@@ -35,11 +35,7 @@
 
 .span-15
   #people_stream.stream
-    - @contacts_grouped.each do |letter, contacts|
-      .right.letter
-        %h1
-          = letter
-      - for contact in contacts
-        = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
+    - for contact in @contacts
+      = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
 
   = will_paginate @contacts

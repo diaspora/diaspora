@@ -16,8 +16,6 @@ class ContactsController < ApplicationController
     else
       @contacts = current_user.contacts.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     end
-
-    @contacts_grouped = @contacts.group_by{|contact| contact.person.profile.last_name[0,1]}
   end
 
   def sharing
