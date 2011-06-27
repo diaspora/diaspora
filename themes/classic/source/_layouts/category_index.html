@@ -1,0 +1,12 @@
+---
+layout: post
+no_meta: true
+---
+
+<div class="blog-archives category">
+{% for post in site.categories[page.category] %}
+<article>
+  {% include archive_post.html %}
+</article>
+{% endfor %}
+</div>
