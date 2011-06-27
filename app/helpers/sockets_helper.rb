@@ -59,7 +59,7 @@ module SocketsHelper
         raise "#{object.inspect} with class #{object.class} is not actionhashable." unless object.is_a? Retraction
       end
     rescue Exception => e
-      Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
+      Rails.logger.error(:event => :socket_render, :status => :fail, :user => user.diaspora_handle, :object=> object.id, :object_class => object.class)
       raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}
