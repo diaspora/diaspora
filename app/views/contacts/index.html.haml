@@ -2,6 +2,19 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
+:javascript
+  $(document).ready(function(){
+    $("#people_stream").infinitescroll({
+      navSelector  : ".pagination",
+      nextSelector : ".next_page",
+      itemSelector : ".stream_element",
+      loadingText: "",
+      loadingImg: '/images/ajax-loader.gif',
+      bufferPx: 400
+    });
+  });
+
 - content_for :page_title do
   = t('.title')
 
