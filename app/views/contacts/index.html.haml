@@ -5,14 +5,6 @@
 
 :javascript
   $(document).ready(function(){
-    $("#people_stream").infinitescroll({
-      navSelector  : ".pagination",
-      nextSelector : ".next_page",
-      itemSelector : ".stream_element",
-      loadingText: "",
-      loadingImg: '/images/ajax-loader.gif',
-      bufferPx: 400
-    });
   });
 
 - content_for :page_title do
@@ -53,9 +45,21 @@
 
         .stream_element{:id => contact.person.id}
           .right
-            = render :partial => 'people/relationship_action',
-                     :locals => { :person => contact.person, :contact => contact,
-                                  :current_user => current_user }
+            - if @aspect_
+              = link_to(image_tag('/images/icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
+                  {:controller => "aspect_memberships",
+                    :action => 'destroy',
+                    :id => 42,
+                    :aspect_id => @aspect_.id,
+                    :person_id => contact.person.id},
+                  :title => "Remove #{contact.person.first_name} from \"#{@aspect_.name}\"",
+                  :method => 'delete')
+
+            - else 
+              = render :partial => 'people/relationship_action',
+                       :locals => { :person => contact.person, :contact => contact,
+                                    :current_user => current_user }
+
           = person_image_link(contact.person)
           .content
             %span.from

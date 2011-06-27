@@ -12,7 +12,8 @@ class ContactsController < ApplicationController
     @my_contacts_count = current_user.contacts.receiving.count
 
     if params["a_id"]
-      @contacts = current_user.aspects.find(params["a_id"]).contacts.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
+      @aspect_ = current_user.aspects.find(params["a_id"])
+      @contacts = @aspect_.contacts.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     elsif params[:set] != "all"
       @contacts = current_user.contacts.receiving.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     else

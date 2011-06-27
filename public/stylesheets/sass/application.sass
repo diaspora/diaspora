@@ -3031,6 +3031,13 @@ ul#left_nav
     :min-height 30px
     .right
       :top 16px
+
+      a
+        @include opacity(0.3)
+
+        &:hover
+          @include opacity(1)
+
     .from
       :position relative
       a
