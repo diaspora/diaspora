@@ -117,12 +117,13 @@ end
 desc "setup _deploy folder and deploy branch"
 task :init_deploy, :branch do |t, args|
   puts "Please provide a deploy branch, eg. rake init_deploy[gh-pages]" unless args.branch
-  cd "#{_deploy}" do
+  cd "#{deploy_dir}" do
     system "git symbolic-ref HEAD refs/heads/#{args.branch}"
     system "rm .git/index"
     system "git clean -fdx"
     system "touch README && echo 'initial commit' >> README"
     system "git add ."
+    system "git commit -m 'Setup for deploy with Octopress'"
     system "git push origin #{args.branch}"
   end
 end
