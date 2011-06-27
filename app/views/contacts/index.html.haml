@@ -21,9 +21,9 @@
       %ul#aspect_sub_nav
         - for aspect in all_aspects
           %li
-            = aspect
+            = link_to aspect, contacts_path(:a_id => aspect)
           %li
-            Add new aspect
+            = link_to "Add new aspect", "#", :class => "add_new_aspect_link"
           
     %li{:class => ("active" if params["set"] == "all")}
 
@@ -35,7 +35,11 @@
 
 .span-15
   #people_stream.stream
-    - for contact in @contacts
-      = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
+    - @contacts_grouped.each do |letter, contacts|
+      .right.letter
+        %h1
+          = letter
+      - for contact in contacts
+        = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
 
   = will_paginate @contacts
