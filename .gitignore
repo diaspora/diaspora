@@ -6,4 +6,5 @@ _code_cache
 _deploy
 public
 source/_stash
+source/stylesheets/screen.css
 vendor
