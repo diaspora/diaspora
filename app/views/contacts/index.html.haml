@@ -34,10 +34,22 @@
         All Contacts
 
 .span-15
-  #people_stream.stream
+  #people_stream.stream.contacts
     - if @contacts.size > 0
       - for contact in @contacts
-        = render :partial => 'people/person', :locals => {:contact => contact, :person => contact.person}
+
+        .stream_element{:id => contact.person.id}
+          .right
+            = render :partial => 'people/relationship_action',
+                     :locals => { :person => contact.person, :contact => contact,
+                                  :current_user => current_user }
+          = person_image_link(contact.person)
+          .content
+            %span.from
+              =person_link(contact.person)
+            .info
+              = contact.person.diaspora_handle
+
     - else
       %h3.no_contacts
         No contacts.
