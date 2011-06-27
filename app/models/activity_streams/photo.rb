@@ -20,7 +20,8 @@ class ActivityStreams::Photo < Post
                         :actor_url,
                         :objectId
 
-  def socket_to_user(user_or_id, opts={}) #adds aspect_ids to opts if they are not there
+  # This wrapper around {Diaspora::Socketable#socket_to_user} adds aspect_ids to opts if they are not there.
+  def socket_to_user(user_or_id, opts={})
     unless opts[:aspect_ids]
       user_id = user_or_id.instance_of?(Fixnum) ? user_or_id : user_or_id.id
       aspect_ids = AspectMembership.connection.select_values(
@@ -31,6 +32,10 @@ class ActivityStreams::Photo < Post
     super(user_or_id, opts)
   end
 
+  # This creates a new ActivityStreams::Photo from a json hash.
+  # Right now, it is only used by Cubbi.es, but there will be objects for all the AS types.
+  # @param [Hash] json An {http://www.activitystrea.ms ActivityStreams} compliant (we hope!) json hash.
+  # @return [ActivityStreams::Photo]
   def self.from_activity(json)
     self.new(
       :image_url => json["object"]["image"]["url"],
@@ -44,6 +49,9 @@ class ActivityStreams::Photo < Post
     )
   end
 
+  # A hack used in the stream_element partial to display cubbi.es posts correctly.
+  # A better solution is needed.
+  # @return [Boolean] true
   def activity_streams?; true; end
 end
 
