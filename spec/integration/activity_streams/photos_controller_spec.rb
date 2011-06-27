@@ -30,24 +30,29 @@ describe ActivityStreams::PhotosController do
           }
         }
 JSON
+      @url = activity_streams_photos_path
     end
     it 'allows oauth authentication' do
       token = Factory(:oauth_access_token)
-      get :create, @json.merge!(:oauth_token => token.access_token)
+      post @url, @json.merge!(:oauth_token => token.access_token)
       response.should be_success
     end
 
-    # It is unclear why this test fails.  An equivalent cucumber feature passes in features/logs_in_and_out.feature.
-=begin
-    it 'does not store a session' do
-      bob.reset_authentication_token!
-      get :create, @json.merge!(:auth_token => bob.authentication_token)
-      photo = ActivityStreams::Photo.where(:author_id => bob.person.id).first
-      warden.should be_authenticated
-      get :show, :id => photo.id
-      warden.should_not be_authenticated
-      response.should redirect_to new_user_session_path
+    it 'denies an invalid oauth token' do
+      post @url, @json.merge!(:oauth_token => "aoijgosidjg")
+      response.status.should == 401
+      response.body.should be_empty
     end
-=end
+
+    it 'allows token authentication' do
+      bob.reset_authentication_token!
+      post @url, @json.merge!(:auth_token => bob.authentication_token)
+      response.should be_success
+    end
+
+    it 'correctly denies an invalid token' do
+      post @url, @json.merge!(:auth_token => "iudsfghpsdifugh")
+      response.status.should == 401
+    end
   end
 end
