@@ -2965,6 +2965,7 @@ ul#left_nav
 
   li
     :position relative
+    :width 100%
 
   a
     :display block
@@ -2978,10 +2979,18 @@ ul#left_nav
         :decoration none
 
   li.active
-    > a
+    > a:not(.sub_selected)
       :color #333
       :font
         :weight 700
+
+      .contact_count
+        :font
+          :weight 700
+        :color #666
+
+    ul#aspect_sub_nav
+      :display block
 
   .contact_count
     @include border-radius(4px)
@@ -2995,15 +3004,23 @@ ul#left_nav
     :font
       :size 11px
 
-  li.active
-    .contact_count
-      :font
-        :weight 700
-      :color #666
-
   ul#aspect_sub_nav
     :padding 0
-      :left 15px
     :margin 0
     :display none
+    a
+      :padding
+        :left 15px
+      :width 182px
 
+.new_aspect
+  :color #999
+  :font
+    :style italic
+
+  &:hover
+    :color #777
+
+.no_contacts
+  :text-align center
+  :top 50px

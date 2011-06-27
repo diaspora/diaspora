@@ -54,7 +54,7 @@ class AspectsController < ApplicationController
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
       if current_user.getting_started
         redirect_to :back
-      elsif request.env['HTTP_REFERER'].include?("aspects/manage")
+      elsif request.env['HTTP_REFERER'].include?("contacts")
         redirect_to :back
       elsif params[:aspect][:person_id]
         @person = Person.where(:id => params[:aspect][:person_id]).first
@@ -64,9 +64,6 @@ class AspectsController < ApplicationController
         else
           @contact = current_user.share_with(@person, @aspect)
         end
-
-
-
       else
         respond_with @aspect
       end

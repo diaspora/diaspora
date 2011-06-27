@@ -50,7 +50,7 @@ describe ContactsController do
 
       get :index, :set => "mine"
       contacts = assigns(:contacts)
-      contacts.to_set.should == bob.contacts.sharing.to_set
+      contacts.to_set.should == bob.contacts.receiving.to_set
     end
 
     it "shows all contacts (sharing and receiving)" do
