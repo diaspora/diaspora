@@ -79,7 +79,7 @@ class AuthorizationsController < ApplicationController
     nonce = split[3]
 
     return 'blank public key' if public_key.n.nil?
-    return 'the app url in the manifest does not match the url passed in the parameters' if manifest["application_base_url"] != app_url
+    return "the app url in the manifest (#{manifest['application_base_url']}) does not match the url passed in the parameters (#{app_url})." if manifest["application_base_url"] != app_url
     return 'key too small, use at least 2048 bits' if public_key.n.num_bits < 2048
     return "invalid time" unless valid_time?(time)
     return 'invalid nonce' unless valid_nonce?(nonce)
