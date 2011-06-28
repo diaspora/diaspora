@@ -33,10 +33,7 @@ class NotificationsController < VannaController
     notifications.each do |n|
       n[:actors] = n.actors
       n[:translation_key] = n.popup_translation_key
-      if n.translation_key == "notifications.mentioned"
-        n[:target] = n[:target].post
-      end
-      # Go find out if the post exists, and set the target_id to nil if it doesn't
+      n[:target] = n.translation_key == "notifications.mentioned" ? n.target.post : n.target
     end
     group_days = notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
     {:group_days => group_days, :notifications => notifications}
