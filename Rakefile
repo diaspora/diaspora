@@ -20,14 +20,11 @@ desc "Initial setup for Octopress: copies the default theme into the path of Jek
 task :install, :theme do |t, args|
   # copy theme into working Jekyll directories
   theme = args.theme || 'classic'
-  puts "## Copying "+theme+" theme to Jekyll paths"
+  puts "## Copying "+theme+" theme into ./#{source_dir} ./sass and ./_plugins "
   system "mkdir -p #{source_dir}; cp -R themes/"+theme+"/source/ #{source_dir}/"
   system "mkdir -p sass; cp -R themes/"+theme+"/sass/ sass/"
   system "mkdir -p _plugins; cp -R themes/"+theme+"/_plugins/ _plugins/"
   system "mkdir -p #{source_dir}/#{posts_dir}";
-  puts "## Layouts, images, and javascritps from the #{theme} theme have been installed into ./#{source_dir}"
-  puts "## Sass stylesheet sources from the #{theme} theme have been installed into ./sass"
-  puts "## Plugins from the #{theme} theme have been installed into ./_plugins"
 end
 
 #######################
@@ -51,7 +48,7 @@ task :preview do
 end
 
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
-desc "Begin a new post in #{source_dir}/_posts"
+desc "Begin a new post in #{source_dir}/#{posts_dir}"
 task :post, :filename do |t, args|
   require './_plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-post')
@@ -116,14 +113,15 @@ end
 
 desc "setup _deploy folder and deploy branch"
 task :init_deploy, :branch do |t, args|
-  puts "Please provide a deploy branch, eg. rake init_deploy[gh-pages]" unless args.branch
+  puts "!! Please provide a deploy branch, eg. rake init_deploy[gh-pages] !!" unless args.branch
+  puts "## Creating a clean #{args.branch} branch in ./#{deploy_dir} for Github pages deployment"
   cd "#{deploy_dir}" do
     system "git symbolic-ref HEAD refs/heads/#{args.branch}"
     system "rm .git/index"
     system "git clean -fdx"
-    system "touch README && echo 'initial commit' >> README"
+    system "echo 'My Octopress Page is coming soon &hellip;' > index.html"
     system "git add ."
-    system "git commit -m 'Setup for deploy with Octopress'"
+    system "git commit -m 'My Octopress site is coming soon'"
     system "git push origin #{args.branch}"
   end
 end
