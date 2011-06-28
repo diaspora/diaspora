@@ -7,6 +7,7 @@ class VannaController < Vanna::Base
   include AspectGlobalHelper
   helper :layout
   helper_method :current_user
+  helper_method :all_aspects
   helper_method :flash
   config.stylesheets_dir = "public/stylesheets"
   layout "application"
