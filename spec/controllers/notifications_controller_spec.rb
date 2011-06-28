@@ -46,8 +46,9 @@ describe NotificationsController do
 
   describe '#index' do
     before do
+      @post = Factory(:status_message)
       26.times do
-        Factory(:notification, :recipient => @user)
+        Factory(:notification, :recipient => @user, :target => @post)
       end
     end
 
@@ -56,13 +57,14 @@ describe NotificationsController do
       @controller.index(:page => 2)[:notifications].count.should == 1
     end
     it "includes the actors" do
-      notification = Factory(:notification, :recipient => @user)
-      @controller.index({})[:notifications].first[:actors].should == notification.actors
+      notification = Factory(:notification, :recipient => @user, :target => @post)
+      response = @controller.index({})
+      response[:notifications].first[:actors].first.should be_a(Person)
     end
 
     it 'eager loads the target' do
-      get :index
-      assigns[:notifications].each{ |note| note.loaded_target?.should be_true }
+      response = @controller.index({})
+      response[:notifications].each{ |note| note[:target].should be }
     end
   end
 end

@@ -1,5 +1,5 @@
 $(function() {
-  $("#notification_badge a").live("click", function(event){
+  $("#notification_badge a").live("_click", function(event){
     event.preventDefault();
     $.getJSON("/notifications", function(hash) {
       $("#notifications_overlay").show();
@@ -15,7 +15,7 @@ $(function() {
         dayElement.find(".day").text(dayParts[1])
         var notificationsForDay = hash["group_days"][day],
           notificationsForDayElement = dayElement.find('.notifications_for_day');
-                  
+
         $.each(notificationsForDay, function(i, notificationHash) {
           $.each(notificationHash, function(notificationType, notification) {
             var actor = notification.actors[0];
@@ -27,15 +27,15 @@ $(function() {
           });
         });
         notificationsElement.append(dayElement)
-        
-        Diaspora.widgets.timeago.updateTimeAgo("time");  
+
+        Diaspora.widgets.timeago.updateTimeAgo("time");
       });
     });
   });
-  
+
   $("#notifications_overlay").delegate('a.close', 'click', function() {
     console.log("hi!");
     $('#notifications_overlay').hide();
   });
-  
+
 });

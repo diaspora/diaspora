@@ -18,7 +18,7 @@ class NotificationsController < VannaController
   def index(opts=params)
     @aspect = :notification
     conditions = {:recipient_id => current_user.id}
-    page = params[:page] || 1
+    page = opts[:page] || 1
     notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
       result = Notification.find(:all,
                                  :conditions => conditions,
@@ -34,9 +34,7 @@ class NotificationsController < VannaController
       n[:actors] = n.actors
       n[:translation_key] = n.popup_translation_key
       if n.translation_key == "notifications.mentioned"
-        n[:post] = Mention.find(n.target_id).post
-      else
-        n[:post] = Post.find(n.target_id)
+        n[:target] = n[:target].post
       end
       # Go find out if the post exists, and set the target_id to nil if it doesn't
     end
@@ -48,7 +46,7 @@ class NotificationsController < VannaController
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
   end
   post_process :html do
-    def post_read_all
+    def post_read_all(json)
       Response.new(:status => 302, :location => aspects_path)
     end
   end
