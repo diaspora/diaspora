@@ -16,4 +16,5 @@ rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02@diaspora/cache &&
 rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02@global/cache &&
 rm -rf /usr/local/rvm/gems/ree-1.8.7-2010.02/cache &&
 bundle install &&
+cp config/application.yml.example config/application.yml &&
 bundle exec rake cruise
