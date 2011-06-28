@@ -16,6 +16,7 @@ build_results = {}
 
 cd root_dir do
   build_results[:bundle] = system 'bundle install' # bundling here, rather than in a task (not in Rails context)
+  system "cp config/application.yml.example config/application.yml"
   build_results[:spec] = rake 'cruise'
 end
 
