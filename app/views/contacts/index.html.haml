@@ -16,13 +16,13 @@
 
 .span-5.append-1
   %ul#left_nav
-    %li{:class => ("active" unless params["set"] == "all")}
+    %li{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
       %a{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
         .contact_count
           = @my_contacts_count
         My Contacts
 
-      %ul#aspect_sub_nav
+      %ul.sub_nav
         - for aspect in all_aspects
           %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
             %a{:href => contacts_path(:a_id => aspect.id)}
@@ -32,17 +32,23 @@
         %li
           = link_to "+ Add new aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
           
-    %li{:class => ("active" if params["set"] == "all")}
-      %a{:href => contacts_path(:set => "all")}
+    %li{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
+      %a{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
         .contact_count
           = @all_contacts_count
         All Contacts
+
+      %ul.sub_nav
+        %li{:class => ("active" if params["set"] == "only_sharing")}
+          %a{:href => contacts_path(:set => "only_sharing")}
+            .contact_count
+              = @only_sharing_count
+            Only sharing with me
 
 .span-15
   #people_stream.stream.contacts
     - if @contacts.size > 0
       - for contact in @contacts
-
         .stream_element{:id => contact.person.id}
           .right
             - if @aspect_

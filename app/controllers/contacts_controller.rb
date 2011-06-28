@@ -10,10 +10,13 @@ class ContactsController < ApplicationController
 
     @all_contacts_count = current_user.contacts.count
     @my_contacts_count = current_user.contacts.receiving.count
+    @only_sharing_count = current_user.contacts.only_sharing.count
 
-    if params["a_id"]
+    if params[:a_id]
       @aspect_ = current_user.aspects.find(params["a_id"])
       @contacts = @aspect_.contacts.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
+    elsif params[:set] == "only_sharing"
+      @contacts = current_user.contacts.only_sharing.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     elsif params[:set] != "all"
       @contacts = current_user.contacts.receiving.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     else
