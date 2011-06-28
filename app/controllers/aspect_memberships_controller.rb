@@ -21,7 +21,6 @@ class AspectMembershipsController < ApplicationController
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
         respond_to do |format|
-          format.all {}
           format.html{
             redirect_to :back
           }

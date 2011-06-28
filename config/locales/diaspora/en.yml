@@ -184,7 +184,13 @@ en:
       people_sharing: "People sharing with you:"
     index:
       add_a_new_aspect: "Add a new aspect"
-      title: "Your Contacts"
+      title: "Contacts"
+      your_contacts: "Your Contacts"
+      no_contacts: "No contacts."
+      my_contacts: "My Contacts"
+      all_contacts: "All Contacts"
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
 
   conversations:
     index:

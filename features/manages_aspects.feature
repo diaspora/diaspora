@@ -8,7 +8,8 @@ Feature: User manages contacts
     Given I am signed in
     When I follow "All Aspects" in the header
     And I follow "Your Contacts"
-    And I follow "+ Add a new aspect"
+    And I follow "My Contacts"
+    And I follow "+ Add an aspect"
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
     Then I should see "Dorm Mates" in the header
