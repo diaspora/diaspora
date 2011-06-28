@@ -178,7 +178,8 @@ describe AuthorizationsController do
     end
 
     it 'checks consistency of app_url' do
-      @controller.verify(@signed_string, @sig, @public_key, @manifest.merge({"application_base_url" => "http://badsite.com/"})).should == "the app url in the manifest does not match the url passed in the parameters"
+      @controller.verify(@signed_string, @sig, @public_key, @manifest.merge({"application_base_url" => "http://badsite.com/"})).
+        should == "the app url in the manifest (http://badsite.com/) does not match the url passed in the parameters (http://chubbi.es/)."
     end
 
     it 'checks key size' do

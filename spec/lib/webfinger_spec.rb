@@ -80,8 +80,6 @@ describe Webfinger do
       # http://tom.joindiaspora.com/.well-known/host-meta
       f = Webfinger.new("alice@#{host_with_port}").fetch
 
-      f.valid?
-      pp f.errors.full_messages
       f.should be_valid
     end
 
