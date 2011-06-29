@@ -47,7 +47,7 @@ describe AppConfig do
         end
         after do
           File.instance_eval { alias :exists? :obfuscated_by_rspec_mocks__exists? } # unmock exists? so that the AppConfig.reload! in the top-level after block can run
-          AppConfig.source(AppConfig.source_file)
+          AppConfig.source(AppConfig.source_file_name)
         end
         context "and there are no old-style config files around" do
           it "prints an error message with instructions for setting up application.yml and exits" do
