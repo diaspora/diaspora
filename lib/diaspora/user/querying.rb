@@ -38,11 +38,17 @@ module Diaspora
           posts_from_self = posts_from_self.joins(:aspect_visibilities).where(:aspect_visibilities => {:aspect_id => opts[:by_members_of]})
         end
 
-        posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
-        posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+        unless defined?(ActiveRecord::ConnectionAdapters::SQLite3Adapter) && ActiveRecord::Base.connection.class == ActiveRecord::ConnectionAdapters::SQLite3Adapter
+          posts_from_others = posts_from_others.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+          posts_from_self = posts_from_self.select(select_clause).limit(opts[:limit]).order(order_with_table).where(Post.arel_table[order_field].lt(opts[:max_time]))
+          all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        else
+          posts_from_others = posts_from_others.select(select_clause)
+          posts_from_self = posts_from_self.select(select_clause)
+          all_posts = "#{posts_from_others.to_sql} UNION ALL #{posts_from_self.to_sql} ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
+        end
 
-        all_posts = "(#{posts_from_others.to_sql}) UNION ALL (#{posts_from_self.to_sql}) ORDER BY #{opts[:order]} LIMIT #{opts[:limit]}"
-        post_ids = Post.connection.execute(all_posts).map{|r| r.first}
+        post_ids = Post.connection.select_values(all_posts)
 
         Post.where(:id => post_ids).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
@@ -96,9 +102,13 @@ module Diaspora
         p = Post.arel_table
         post_ids = []
         if contact = self.contact_for(person)
-          post_ids = Post.connection.execute(contact.post_visibilities.where(:hidden => false).select('post_visibilities.post_id').to_sql).map{|r| r.first}
+          post_ids = Post.connection.select_values(
+            contact.post_visibilities.where(:hidden => false).select('post_visibilities.post_id').to_sql
+          )
         end
-        post_ids += Post.connection.execute(person.posts.where(:public => true).select('posts.id').to_sql).map{|r| r.first}
+        post_ids += Post.connection.select_values(
+          person.posts.where(:public => true).select('posts.id').to_sql
+        )
 
         Post.where(:id => post_ids, :pending => false).select('DISTINCT posts.*').order("posts.created_at DESC")
       end

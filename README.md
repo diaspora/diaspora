@@ -15,9 +15,9 @@ Please report any bugs you see at [bugs.joindiaspora.com](http://bugs.joindiaspo
 
 ## Contributing to Diaspora
 
-You can find an introduction to the source code [here](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source).
-Bugs and pending features are on our [issue tracker](http://bugs.joindiaspora.com). 
-A step-by-step guide to development using git can be found [here](http://github.com/diaspora/diaspora/wiki/Git-Workflow).
+###[An introduction to the source code](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source)
+###[Issue tracker (bugs and features)](http://bugs.joindiaspora.com).
+###[How to use git](http://github.com/diaspora/diaspora/wiki/Git-Workflow)
 
 Here are a few good places to start:
 
@@ -30,7 +30,7 @@ integration test suite.  As you can see, we need more integration tests.  Pick a
 - Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
 
-Patches must be tested, and all your tests should be green, 
+Catches must be tested, and all your tests should be green, 
 unless you're marking an existing bug, before a pull request is sent.
 Unit tests should be in Rspec, and integration tests should be in Cucumber.
 

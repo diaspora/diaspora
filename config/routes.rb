@@ -7,7 +7,6 @@ Diaspora::Application.routes.draw do
   # Posting and Reading
 
   resources :aspects do
-    get 'manage'                    => :manage, :on => :collection
     put 'toggle_contact_visibility' => :toggle_contact_visibility
   end
 
@@ -82,7 +81,7 @@ Diaspora::Application.routes.draw do
 
   resource :profile
 
-  resources :contacts,           :except => [:index, :update, :create] do
+  resources :contacts,           :except => [:update, :create] do
     get :sharing, :on => :collection
   end
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
@@ -100,7 +99,7 @@ Diaspora::Application.routes.draw do
   end
 
 
- 
+
 
   # Federation
 

@@ -9,6 +9,11 @@ class StatusMessagesController < ApplicationController
   respond_to :mobile
   respond_to :json, :only => :show
 
+
+  helper_method :object_aspect_ids
+
+  # Called when a user clicks "Mention" on a profile page
+  # @option [Integer] person_id The id of the person to be mentioned
   def new
     @person = Person.find(params[:person_id])
     @aspect = :profile
@@ -79,7 +84,7 @@ class StatusMessagesController < ApplicationController
         photos.update_all(:status_message_guid => nil)
       end
       respond_to do |format|
-        format.js { 
+        format.js {
           errors = @status_message.errors.full_messages.collect { |msg| msg.gsub(/^Text/, "") }
           render :json =>{:errors => errors}, :status => 422
         }
@@ -121,4 +126,11 @@ class StatusMessagesController < ApplicationController
     end
   end
 
+  def object_aspect_ids
+    if  params[:action] == 'show'
+      @object_aspect_ids ||= @status_message.aspects.map{|a| a.id}
+    else
+      super
+    end
+  end
 end

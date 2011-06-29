@@ -68,6 +68,19 @@ describe Contact do
         }.by(1)
       end
     end
+
+    describe 'only_sharing' do
+      it 'returns contacts with sharing true and receiving false' do
+        lambda {
+          alice.contacts.create!(:receiving => true, :sharing => true, :person => Factory(:person))
+          alice.contacts.create!(:receiving => false, :sharing => true, :person => Factory(:person))
+          alice.contacts.create!(:receiving => false, :sharing => true, :person => Factory(:person))
+          alice.contacts.create!(:receiving => true, :sharing => false, :person => Factory(:person))
+        }.should change{
+          Contact.receiving.count
+        }.by(2)
+      end
+    end
   end
 
   describe '#contacts' do
@@ -98,7 +111,7 @@ describe Contact do
       end
 
       it "returns the target local user's contacts that are in the same aspect" do
-        @contact.contacts.map{|p| p.id}.should == [@eve.person].concat(@people1).map{|p| p.id}
+        @contact.contacts.map{|p| p.id}.should =~ [@eve.person].concat(@people1).map{|p| p.id}
       end
 
       it 'returns nothing if contacts_visible is false in that aspect' do

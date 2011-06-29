@@ -255,53 +255,6 @@ describe AspectsController do
     end
   end
 
-  describe "#manage" do
-    it "succeeds" do
-      get :manage
-      response.should be_success
-    end
-
-    it "performs reasonably", :performance => true do
-      require 'benchmark'
-      8.times do |n|
-        aspect = alice.aspects.create(:name => "aspect#{n}")
-        8.times do |o|
-          person = Factory(:person)
-          alice.contacts.create(:person => person, :aspects => [aspect])
-        end
-      end
-      Benchmark.realtime{
-        get :manage
-      }.should < 4.5
-    end
-
-    it "assigns aspect to manage" do
-      get :manage
-      assigns(:aspect).should == :manage
-    end
-
-    it "assigns contacts" do
-      get :manage
-      contacts = assigns(:contacts)
-      contacts.to_set.should == alice.contacts.to_set
-    end
-
-    it "succeeds" do
-      get :manage
-      response.should be_success
-    end
-
-    it "assigns aspect to manage" do
-      get :manage
-      assigns(:aspect).should == :manage
-    end
-
-    it "generates a jasmine fixture", :fixture => 'jasmine' do
-      get :manage
-      save_fixture(html_for("body"), "aspects_manage")
-    end
-  end
-
   describe "#update" do
     before do
       @alices_aspect_1 = alice.aspects.create(:name => "Bruisers")

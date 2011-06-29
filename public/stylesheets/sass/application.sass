@@ -27,7 +27,7 @@ h1, h2, h3, h4, h5
   :position relative
   :font
     :weight bold
-    
+
 h1, h2, h3
   :letter-spacing -1px
 
@@ -150,7 +150,7 @@ header
   &.fixit
     :position fixed
     :top -30px
-  
+
   a
     :color #CCC
 
@@ -283,6 +283,11 @@ ul.dropdown
     :border
       :bottom 1px solid #ddd
       :top 1px solid #fff
+
+    &:first-child
+      :border
+        :top none
+
 
     .youtube-player, .vimeo-player
       :border none
@@ -473,7 +478,7 @@ ul.dropdown
     :margin
       :bottom 5px
 
-  
+
 .time,
 .timeago,
 .via
@@ -602,10 +607,10 @@ ul.dropdown
 .stream ul.comments
   :padding
     :bottom 6px
-    
+
   > li:last-child
     :border-bottom none
-    
+
   .avatar
     :width 30px
     :height 30px
@@ -634,7 +639,7 @@ ul.show_comments,
     :height 18px
 
   :position relative
-  
+
   textarea
     :width 100%
     :height 1.4em
@@ -713,7 +718,7 @@ ul.show_comments,
       textarea
         :min-height 2.4em
 
-.comments 
+.comments
   .timeago
     :color #999
 
@@ -2239,9 +2244,9 @@ h3,h4
 
 .aspect_badge.removed
   :background
-    :color #FA2A00 
+    :color #FA2A00
   :text
-    :decoration line-through 
+    :decoration line-through
   &:hover
     :background
       :color #FA2A00
@@ -2314,7 +2319,7 @@ h3,h4
     :padding 0.2em 0.5em
     :width 500px
     @include border-radius(5px)
-    
+
     &:hover
       :background-color #EFEFEF
 
@@ -2352,7 +2357,7 @@ ul.show_comments,
 .likes_container
   > *
     :font
-      :size 8px
+      :size 10px
       :weight bold
 
   img
@@ -2561,7 +2566,7 @@ ul.show_comments,
     :color #444
     :overflow hidden
     :white-space nowrap
-  
+
   .last_author
     :font
       :size 12px
@@ -2773,7 +2778,7 @@ h1.tag
   &:hover
     :border
       :bottom 2px dotted $blue
-    
+
 
 .info
   .tag
@@ -2817,7 +2822,7 @@ h1.tag
     :background
       :color rgb(245,245,245)
 
-#contacts_of_contact 
+#contacts_of_contact
   .section
     :margin
       :bottom 4px
@@ -2863,7 +2868,7 @@ h1.tag
       :weight bold
 
 .leftBar
-  .title 
+  .title
     :position relative
     :border
       :bottom 1px solid #888
@@ -2960,3 +2965,140 @@ ul#requested-scopes
   
     .scope-description
       :display none
+
+.canvas
+  .image-element,
+  .stream_element
+    :border none
+    :padding 20px
+    :height 170px
+    :width 170px
+
+    :min-height 170px
+    :min-width 170px
+
+    :display inline-block
+    :vertical-align middle
+    :text-align center
+
+    img
+      :position relative
+      :max-width 100%
+      :max-height 100%
+
+    .via
+      :text-align left
+      :font-size 11px
+
+    .hold-me
+      :display inline-block
+
+ul#left_nav
+  :margin 0
+  :padding 0
+
+  li
+    :position relative
+    :width 100%
+
+  a
+    :display block
+    :width 100%
+    :padding 3px 7px
+
+    &:hover
+      @include border-radius(4px)
+
+      :background
+        :color lighten($blue,45%)
+      :text
+        :decoration none
+
+  li.active
+    > a:not(.sub_selected)
+      :color #333
+      :font
+        :weight 700
+
+      .contact_count
+        :font
+          :weight 700
+        :color #666
+
+    ul.sub_nav
+      :display block
+
+  .contact_count
+    @include border-radius(4px)
+    :float right
+    :margin-top 1px
+    :color #999
+    :background
+      :color #eee
+    :padding 0 5px
+    :display inline
+    :font
+      :size 11px
+
+  ul.sub_nav
+    :padding 0
+    :margin 0
+    :display none
+    a
+      :padding
+        :left 15px
+      :width 182px
+
+.new_aspect
+  :color #999
+  :font
+    :style italic
+
+  &:hover
+    :color #777
+
+.no_contacts
+  :text-align center
+  :top 50px
+
+#people_stream.contacts
+  .stream_element
+    :padding 10px
+    :min-height 30px
+    .right
+      :top 16px
+
+      a
+        @include opacity(0.3)
+
+        &:hover
+          @include opacity(1)
+
+    .from
+      :position relative
+      a
+        :color #444
+    .content
+      :padding
+        :left 40px
+    .info
+      :margin
+        :top -2px
+
+  .avatar
+    :height 30px
+    :width 30px
+
+#notifications_overlay
+  :display none
+  :position absolute
+  :border 4px solid black
+  :background
+    :color white
+  :width 700px
+  :padding 10px
+  :top 275.5px
+  :left 217.5px
+  a.close
+    :float right
+    :text-decoration none

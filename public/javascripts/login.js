@@ -14,7 +14,7 @@ $(document).ready( function(){
   var contentFilled = function(){
     return($('#user_username').val() != "" && $('#user_password').val() != "");
   }
-  
+
   var checkSubmitAvailability = function() {
     if(contentFilled()){
       controls.removeClass('hidden');
@@ -42,13 +42,5 @@ $(document).ready( function(){
 
   // Check it again
   setTimeout(checkSubmitAvailability, 1000);
-
-  password
-    .focus(function(){
-      forgotPass.removeClass('hidden');
-    })
-    .blur(function(){
-      forgotPass.addClass('hidden');
-    });
 });
 

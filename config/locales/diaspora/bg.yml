@@ -541,7 +541,7 @@ bg:
       not_connected: "не съществува връзка"
     index: 
       connect_to_facebook: "Свързване с facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Свързване с tumblr"
       connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
       edit_services: "Редактиране на услугите"
@@ -649,7 +649,7 @@ bg:
   undo: "Отмяна?"
   username: "Потребителско име"
   users: 
-    destroy: "Акаунтът е затворен успешно."
+    destroy: "Акаунтът ви в Diaspora е заключен. Затварянето може да отнеме до 20 минути. Благодарим ви, че пробвахте Diaspora."
     edit: 
       also_commented: "...някой коментира публикация на ваш контакт?"
       change: "Промяна"

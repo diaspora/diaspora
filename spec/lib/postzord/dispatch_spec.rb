@@ -302,7 +302,9 @@ describe Postzord::Dispatch do
       it 'should call object#socket_to_user for each local user' do
         sc = mock()
         SocketsController.should_receive(:new).and_return(sc)
-        sc.should_receive(:outgoing).with(bob, @zord.instance_variable_get(:@object), :aspect_ids => bob.contact_for(alice.person).aspect_memberships.map{|a| a.aspect_id})
+        sc.should_receive(:outgoing).with(bob,
+                                          @zord.instance_variable_get(:@object),
+                                          :aspect_ids => bob.contact_for(alice.person).aspect_memberships.map{|a| postgres? ? a.aspect_id.to_s : a.aspect_id })
         @zord.send(:socket_and_notify_users, [bob])
       end
 

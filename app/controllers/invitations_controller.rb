@@ -54,7 +54,7 @@ class InvitationsController < Devise::InvitationsController
       user = User.find_by_invitation_token(params[:user][:invitation_token])
       user.accept_invitation!(params[:user])
       user.seed_aspects
-    rescue Exception => e
+    rescue Exception => e #What exception is this trying to rescue?  If it is ActiveRecord::NotFound, we should say so.
       user = nil
       record = e.record
       record.errors.delete(:person)
@@ -75,7 +75,7 @@ class InvitationsController < Devise::InvitationsController
     invitation = current_user.invitations_from_me.where(:id => params[:id]).first
     if invitation
       Resque.enqueue(Job::ResendInvitation, invitation.id)
-      flash[:notice] = I18n.t('invitations.create.sent') + invitation.recipient.email 
+      flash[:notice] = I18n.t('invitations.create.sent') + invitation.recipient.email
     end
     redirect_to :back
   end

@@ -85,3 +85,4 @@ module NotificationsHelper
     i18n[0].match(/\d/) ? i18n[1] : i18n[0]
   end
 end
+

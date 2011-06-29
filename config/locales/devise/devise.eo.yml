@@ -8,18 +8,18 @@ eo:
     confirmations: 
       confirmed: "Via konto estis sukcese konfirmita. Vi nun estas ensalutinta."
       new: 
-        resend_confirmation: "Resend confirmation instructions"
+        resend_confirmation: "Resendu instruojn por konfirmi"
       send_instructions: "Vi post kelkaj minutoj ricevos instrukciojn pri kiel konfirmi vian konton."
     failure: 
       inactive: "Via konto ne jam estas konfirmita."
-      invalid: "Nevalida retpoŝtadreso aŭ pasvorto."
-      invalid_token: "Ungültiger Authentifizierungs-Token"
+      invalid: "Nevalida uzantnomo aŭ pasvorto."
+      invalid_token: "Malvalida aŭtentoindiko."
       locked: "Via konto estas ŝlosita."
       timeout: "Via sesio finis. Bonvolu reensaluti por daŭri."
       unauthenticated: "Vi devas ensaluti aŭ fari konton antaŭ ol daŭri."
       unconfirmed: "Vi devas konfirmi vian konton antaŭ ol daŭri."
     invitations: 
-      invitation_token_invalid: "The invitation token provided is not valid!"
+      invitation_token_invalid: "La invita ĵetono, kiun vi provizis, ne estas valida!"
       send_instructions: "Via invito estas sendita."
       updated: "Vi sukcese faris pasvorton. Vi nun estas ensalutinta. "
     mailer: 
@@ -29,20 +29,20 @@ eo:
         you_can_confirm: "Vi povas konfirmi vian konton per la suba ligilo:"
       hello: "Saluton, %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "Akcepti inviton"
+        ignore: "Se vi ne volas akcepti la inviton, bonvoli ignori tiun ĉi retpoŝton"
+        no_account_till: "Via konto ne kreiĝos ĝis vi eniros la supre ligilon kaj registiĝos."
+        subject: "Vi invitigitas aniĝi al DIASPORA*!"
       inviters: 
         accept_at: ", ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
         has_invited_you: "%{name} invitis vin aliĝi al Diaspora"
-        have_invited_you: "%{names} haben dich eingeladen Diaspora beizutreten"
+        have_invited_you: "%{names} invitis vin aniĝi al DIASPORA*."
       reset_password_instructions: 
         change: "Ŝanĝi mian pasvorton"
-        ignore: "If you didn't request this, please ignore this email."
-        someone_requested: "Someone has requested a link to change your password, and you can do this through the link below."
-        subject: "Reset password instructions"
-        wont_change: "Your password won't change until you access the link above and create a new one."
+        ignore: "Se vi ne petis tiun ĉi, bonvolu ignori tiun ĉi retpoŝton."
+        someone_requested: "Iu petis ligilon por ŝanĝi vian pasvorton, kaj vi povas fari tiun per la malsupre ligilo."
+        subject: "Instruoj por reŝargi pasvorton"
+        wont_change: "Via pasvorto ne ŝanĝiĝos ĝis vi eniros la supre ligilon kaj kreos nonan pasvorton."
       unlock_instructions: 
         account_locked: "Via konto estas ŝlosita pro tro da malsukcesaj ensalutprovoj."
         click_to_unlock: "Alklaku la suban ligilon por malŝlosi vian konton:"
@@ -54,7 +54,7 @@ eo:
         change_password: "Ŝanĝi mian pasvorton"
       new: 
         forgot_password: "Forgesis vian pasvorton?"
-        no_account: "No account with this email exsists.  If you are waiting for an invite, we are rolling them out as soon as possible"
+        no_account: "Ne konto kun tiu ĉi retpoŝtadreso ekzistas.  Se vi ĝisatendas por invito, ni plejrapide sendas ilin"
         send_password_instructions: "Sendu al mi instrukcioj por fari novan pasvorton"
       send_instructions: "Post kelkaj minutoj vi ricevos retpoŝton kun instrukcioj pri kiel fari novan pasvorton."
       updated: "Vi sukcese ŝanĝis vian pasvorton. Vi nun estas ensalutinta."
@@ -64,32 +64,32 @@ eo:
       updated: "Vi sukcese ĝisdatigis vian konton."
     sessions: 
       new: 
-        alpha_software: "You are about to use alpha software."
-        bugs_and_feedback: "Be advised, you will experience bugs.  We encourage you to use the Feedback button on the right hand side of your browser to report any hiccups!  We will work as fast as we can to resolve any issues you report."
-        bugs_and_feedback_mobile: "Be advised, you will experience bugs.  We encourage you to report any hiccups!  We will work as fast as we can to resolve any issues you report."
+        alpha_software: "Vi estas uzonta alfaprogramaron."
+        bugs_and_feedback: "Memoru, vi trovos erarojn.  Bonvolu uzi la „Feedback“ butonon dekstre por informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
+        bugs_and_feedback_mobile: "Memoru, vi trovos erarojn.  Bonvolu informi nin pri iuj ajn eraroj!  Ni tre rapide laboros, por ke ni riparu la erarojn, pri kiuj vi informis nin."
         login: "Kontonomo"
-        modern_browsers: "only supports modern browsers."
+        modern_browsers: "nur funkcias per modernaj retumiloj"
         password: "Pasvorto"
         remember_me: "Memoru min"
         sign_in: "Ensaluti"
-        username: "Kontonomo"
+        username: "Uzantnomo"
       signed_in: "Sukcese ensalutis."
       signed_out: "Sukcese elsalutis."
     shared: 
       links: 
         forgot_your_password: "Forgesis vian pasvorton?"
-        receive_confirmation: "Didn't receive confirmation instructions?"
-        receive_unlock: "Didn't receive unlock instructions?"
+        receive_confirmation: "Ĉu vi ne ricevis instruojn por konfirmi?"
+        receive_unlock: "Ĉu vi ne ricevis instruojn por malŝlosi?"
         sign_in: "Ensaluti"
-        sign_up: "Sign up"
-        sign_up_closed: "Open signups are closed at this time."
+        sign_up: "Registriĝi"
+        sign_up_closed: "Nun ne estas libera registrado."
       mail_signup_form: 
-        sign_up_for_an_invite: "Sign up for an invite!"
+        sign_up_for_an_invite: "Petu inviton!"
     unlocks: 
       new: 
-        resend_unlock: "Resend unlock instructions"
-      send_instructions: "You will receive an email with instructions about how to unlock your account in a few minutes."
-      unlocked: "Your account was successfully unlocked. You are now signed in."
+        resend_unlock: "Resendu instruojn por malŝlosi"
+      send_instructions: "Vi ricevos retpoŝton, kiu havos instruoj pri tiel, kiel malŝlosi vian konton, post kelkaj minutoj."
+      unlocked: "Via konto sukcese malŝlosiĝis.  Vi nun ensalutas."
   errors: 
     messages: 
       already_confirmed: "jam konfirmita"

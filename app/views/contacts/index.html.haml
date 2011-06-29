@@ -1,0 +1,76 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+- content_for :page_title do
+  = t('.title')
+
+#section_header
+  %h2
+    = t('.title')
+
+.span-5.append-1
+  %ul#left_nav
+    %li{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
+      %a{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
+        .contact_count
+          = @my_contacts_count
+        = t('.my_contacts')
+
+      %ul.sub_nav
+        - for aspect in all_aspects
+          %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
+            %a{:href => contacts_path(:a_id => aspect.id)}
+              .contact_count
+                = aspect.contacts.count
+              = aspect
+        %li
+          = link_to "+ Add an aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
+          
+    %li{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
+      %a{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+        .contact_count
+          = @all_contacts_count
+        = t('.all_contacts')
+
+      %ul.sub_nav
+        %li{:class => ("active" if params["set"] == "only_sharing")}
+          %a{:href => contacts_path(:set => "only_sharing")}
+            .contact_count
+              = @only_sharing_count
+            = t('.only_sharing_with_me')
+
+.span-18.last
+  #people_stream.stream.contacts
+    - if @contacts.size > 0
+      - for contact in @contacts
+        .stream_element{:id => contact.person.id}
+          .right
+            - if @aspect_
+              = link_to(image_tag('/images/icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
+                  {:controller => "aspect_memberships",
+                    :action => 'destroy',
+                    :id => 42,
+                    :aspect_id => @aspect_.id,
+                    :person_id => contact.person.id},
+                  :title => t('.remove_person_from_aspect', :person_name => contact.person.first_name, :aspect_name => @aspect_.name),
+                  :method => 'delete')
+
+            - else 
+              = render :partial => 'people/relationship_action',
+                       :locals => { :person => contact.person, :contact => contact,
+                                    :current_user => current_user }
+
+          = person_image_link(contact.person)
+          .content
+            %span.from
+              =person_link(contact.person)
+            .info
+              = contact.person.diaspora_handle
+
+    - else
+      %h3.no_contacts
+        = t('.no_contacts')
+
+  = will_paginate @contacts

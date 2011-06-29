@@ -1,42 +1,10 @@
 -#   Copyright (c) 2010, Diaspora Inc.  This file is
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
+
 .span-16.append-4.prepend-4.last
   #main_stream.stream.status_message_show
     = render 'shared/stream_element', :post => @status_message, :all_aspects => @status_message.aspects
 %br
 %br
 %br
-/.span-16.append-4.prepend-4.last
-/  #original_post_info
-/    = render 'shared/author_info', :person => @status_message.author, :post => @status_message
-/
-/  #show_text
-/    %p
-/      = markdownify(@status_message.text, :youtube_maps => @status_message[:youtube_titles])
-/
-/    - for photo in @status_message.photos
-/      = link_to (image_tag photo.url(:thumb_small), :class => 'thumb_small'), photo_path(photo)
-/
-/  %p.time
-/    = how_long_ago(@status_message)
-/  - unless (defined?(@commenting_disabled) && @commenting_disabled)
-/    %span.like_action
-/      = like_action(@status_message, current_user)
-/
-/  %hr
-//
-/  = link_to t('.permalink'), post_path(@status_message) if @status_message.public
-/  %br
-/  - if current_user.owns? @status_message
-/    = link_to t('.destroy'), @status_message, :confirm => t('are_you_sure'), :method => :delete
-/
-/
-//
-/  .likes
-/    - if @status_message.likes.count > 0
-/      = render "likes/likes", :post_id => @status_message.id, :likes => @status_message.likes, :dislikes => @status_message.dislikes, :current_user => current_user
-/
-/  #status_message_stream.stream.show
-/    %div{:data=>{:guid=>@status_message.id}}
-/      = render "comments/comments", :post => @status_message, :comments => @status_message.comments, :always_expanded => true

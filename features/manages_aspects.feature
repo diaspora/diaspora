@@ -1,14 +1,15 @@
 @aspects @javascript
-Feature: User manages aspects
+Feature: User manages contacts
   In order to share with a limited group
   As a User
   I want to create new aspects
 
-  Scenario: creating an aspect from manage aspects page
+  Scenario: creating an aspect from contacts index
     Given I am signed in
     When I follow "All Aspects" in the header
-    And I follow "Manage aspects"
-    And I follow "+ Add a new aspect"
+    And I follow "Your Contacts"
+    And I follow "My Contacts"
+    And I follow "+ Add an aspect"
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
     Then I should see "Dorm Mates" in the header

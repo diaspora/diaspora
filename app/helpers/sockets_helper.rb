@@ -34,17 +34,16 @@ module SocketsHelper
             }
         },
           :current_user => user,
-          :all_aspects => user.aspects,
+          :all_aspects => all_aspects,
         }
         v = render_to_string(:partial => 'shared/stream_element', :locals => post_hash)
       elsif object.is_a? Person
         person_hash = {
           :single_aspect_form => opts["single_aspect_form"],
           :person => object,
-          :all_aspects => user.aspects,
+          :all_aspects => all_aspects,
           :contact => user.contact_for(object),
           :current_user => user}
-        @all_aspects = user.aspects
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment
@@ -60,7 +59,7 @@ module SocketsHelper
         raise "#{object.inspect} with class #{object.class} is not actionhashable." unless object.is_a? Retraction
       end
     rescue Exception => e
-      Rails.logger.error("event=socket_render status=fail user=#{user.diaspora_handle} object=#{object.id.to_s}")
+      Rails.logger.error(:event => :socket_render, :status => :fail, :user => user.diaspora_handle, :object=> object.id, :object_class => object.class)
       raise e
     end
     action_hash = {:class =>object.class.to_s.underscore.pluralize, :html => v, :post_id => obj_id(object)}

@@ -34,7 +34,8 @@
       if(typeof this.collection[widgetId].start !== "undefined") {
         this.collection[widgetId].start();
       }
-    }
+    };
+  
   };
 
   Diaspora.WidgetCollection.prototype.subscribe = function(id, callback, context) {
@@ -52,4 +53,3 @@
 
 
 $(document).ready(function() { Diaspora.widgets.init(); });
-

@@ -24,7 +24,7 @@
     - if @notification_count
       #notification_badge
         = link_to "", notifications_path, :title => new_notification_text(@notification_count)
-        = image_tag 'icons/monotone_flag.png', :height => 20, :width => 20
+        = image_tag 'icons/monotone_flag.png', :height => 20, :width => 20, :id => "notification-flag"
         .badge_count{:class => ("hidden" if @notification_count == 0)}
           = @notification_count
       #message_inbox_badge
@@ -51,12 +51,12 @@
         %li{:class => ('selected' if @aspect == :all)}
           = link_to t('all_aspects'), aspects_path, :class => 'home_selector'
 
-        - for aspect in @all_aspects
-          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if @object_aspect_ids.include?(aspect.id))}
+        - for aspect in (@all_aspects || all_aspects)
+          %li{:data=>{:guid=>aspect.id}, :class => ("selected" if (@object_aspect_ids || object_aspect_ids).include?(aspect.id))}
             = link_for_aspect(aspect, :class => 'aspect_selector name', :title => t('contacts', :count => aspect.contacts.size))
 
         %li
-          = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('aspects.manage.add_a_new_aspect'), :rel => 'facebox'
+          = link_to '+', '#add_aspect_pane', :class => "add_aspect_button", :title => t('contacts.index.add_a_new_aspect'), :rel => 'facebox'
 
       .facebox_content
         #add_aspect_pane

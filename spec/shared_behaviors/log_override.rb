@@ -49,14 +49,14 @@ shared_examples_for 'it overrides the logs on success' do
         @line.include?("status=200").should be_true
       end
       it 'logs the controller' do
-        @line.include?("controller='#{controller.class.name}'").should be_true
+        @line.include?("controller=\"#{controller.class.name}\"").should be_true
       end
       it 'logs the action' do
-        @line.include?("action='#{@action}'").should be_true
+        @line.include?("action=\"#{@action}\"").should be_true
       end
       it 'logs params' do
         if @action_params
-          @line.include?("params='#{@action_params.inspect.gsub(" ", "")}'").should be_true
+          @line.include?("params=\"#{@action_params.inspect.gsub(" ", "").gsub("\"", "\\\"")}\"").should be_true
         end
       end
       it 'logs the view rendering time addition' do

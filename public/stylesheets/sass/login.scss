@@ -65,11 +65,6 @@
     }
 
     #forgot_password_link {
-      @include transition(opacity, 0.2s);
-      &.hidden {
-        display: block;
-        @include opacity(0);
-      }
       text-align: left;
       position: absolute;
       left: 205px;
@@ -96,11 +91,22 @@
   }
 }
 
+@-moz-keyframes rotate {
+  from {
+    -moz-transform: rotate(0deg);
+  }
+  to { 
+    -moz-transform: rotate(360deg);
+  }
+}
+
 .rideSpinners
 {
   -webkit-animation-name: rotate; 
   -webkit-animation-duration: 5s; 
   -webkit-animation-iteration-count: infinite;
+  -moz-animation-name: rotate; 
+  -moz-animation-duration: 5s; 
+  -moz-animation-iteration-count: infinite;
+
 }
-
-

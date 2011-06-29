@@ -6,8 +6,8 @@ require 'spec_helper'
 
 describe ContactsController do
   before do
-    sign_in :user, alice
-    @controller.stub(:current_user).and_return(alice)
+    sign_in :user, bob
+    @controller.stub(:current_user).and_return(bob)
   end
 
   describe '#sharing' do
@@ -23,7 +23,48 @@ describe ContactsController do
 
     it "assigns only the people sharing with you with 'share_with' flag" do
       get :sharing, :id => 'share_with'
-      assigns[:contacts].to_set.should == alice.contacts.sharing.to_set
+      assigns[:contacts].to_set.should == bob.contacts.sharing.to_set
+    end
+  end
+
+  describe '#index' do
+    it "succeeds" do
+      get :index
+      response.should be_success
+    end
+
+    it "assigns aspect to manage" do
+      get :index
+      assigns(:aspect).should == :manage
+    end
+
+    it "assigns contacts" do
+      get :index
+      contacts = assigns(:contacts)
+      contacts.to_set.should == bob.contacts.to_set
+    end
+
+    it "shows only contacts a user is sharing with" do
+      contact = bob.contacts.first
+      contact.update_attributes(:sharing => false)
+
+      get :index, :set => "mine"
+      contacts = assigns(:contacts)
+      contacts.to_set.should == bob.contacts.receiving.to_set
+    end
+
+    it "shows all contacts (sharing and receiving)" do
+      contact = bob.contacts.first
+      contact.update_attributes(:sharing => false)
+
+      get :index, :set => "all"
+      contacts = assigns(:contacts)
+      contacts.to_set.should == bob.contacts.to_set
+    end
+
+    it "generates a jasmine fixture", :fixture => 'jasmine' do
+      get :index
+      save_fixture(html_for("body"), "aspects_manage")
     end
   end
 end

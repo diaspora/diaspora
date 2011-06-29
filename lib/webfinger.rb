@@ -3,9 +3,6 @@ require File.join(Rails.root, 'lib/webfinger_profile')
 
 class Webfinger
   class WebfingerFailedError < RuntimeError; end
-  TIMEOUT = 5
-  REDIRECTS = 3
-  OPTS = {:timeout => TIMEOUT, :redirects => REDIRECTS}
   def initialize(account)
     @account = account.strip.gsub('acct:','').to_s
     @ssl = true
@@ -47,7 +44,7 @@ class Webfinger
   private
   def get_xrd
     begin
-      http = RestClient.get xrd_url, OPTS
+      http = Faraday.get xrd_url
 
       profile_url = webfinger_profile_url(http.body)
       if profile_url
@@ -69,12 +66,16 @@ class Webfinger
 
   def get_webfinger_profile(profile_url)
     begin
-      http = RestClient.get(profile_url, OPTS)
+      http = Faraday.get(profile_url)
 
     rescue
       raise I18n.t('webfinger.fetch_failed', :profile_url => profile_url)
     end
     return http.body
+  end
+
+  def hcard_url
+    @wf_profile.hcard
   end
 
   def get_hcard(webfinger_profile)
@@ -83,7 +84,7 @@ class Webfinger
       @wf_profile = WebfingerProfile.new(@account, webfinger_profile)
 
       begin
-        hcard = RestClient.get(@wf_profile.hcard, OPTS)
+        hcard = Faraday.get(hcard_url)
       rescue
         return I18n.t('webfinger.hcard_fetch_failed', :account => @account)
       end
@@ -97,7 +98,7 @@ class Webfinger
   def make_person_from_webfinger(webfinger_profile)
     card = get_hcard(webfinger_profile)
     if card && @wf_profile
-      p = Person.create_from_webfinger(@wf_profile, card)
+      Person.create_from_webfinger(@wf_profile, card)
     end
   end
 

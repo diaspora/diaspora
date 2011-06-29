@@ -9,7 +9,7 @@ class Services::Facebook < Service
     Rails.logger.debug("event=post_to_service type=facebook sender_id=#{self.user_id}")
     message = public_message(post, url)
     begin
-      RestClient.post("https://graph.facebook.com/me/feed", :message => message, :access_token => self.access_token)
+      Faraday.post("https://graph.facebook.com/me/feed", {:message => message, :access_token => self.access_token}.to_param)
     rescue Exception => e
       Rails.logger.info("#{e.message} failed to post to facebook")
     end
@@ -39,7 +39,7 @@ class Services::Facebook < Service
 
   def save_friends
     url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}"
-    response = RestClient.get(url)
+    response = Faraday.get(url)
     data = JSON.parse(response.body)['data']
     data.each{ |p|
       ServiceUser.find_or_create_by_service_id_and_uid(:service_id => self.id, :name => p["name"],

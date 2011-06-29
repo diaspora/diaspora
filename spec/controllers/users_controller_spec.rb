@@ -34,7 +34,7 @@ describe UsersController do
     end
 
     it 'redirects to a profile page if html is requested' do
-
+      Diaspora::OstatusBuilder.should_not_receive(:new)
       get :public, :username => @user.username
       response.should be_redirect
     end
@@ -44,7 +44,6 @@ describe UsersController do
     before do
       @params  = { :id => @user.id,
                   :user => { :diaspora_handle => "notreal@stuff.com" } }
-
     end
 
     it "doesn't overwrite random attributes" do
@@ -61,24 +60,6 @@ describe UsersController do
     it 'responds with a 204 on a js request' do
       put :update, @params.merge(:format => :js)
       response.status.should == 204
-    end
-
-    context "open aspects" do
-      before do
-        @index_params = {:id => @user.id, :user => {:a_ids => [@aspect.id.to_s, @aspect1.id.to_s]} }
-      end
-
-      it "stores the aspect params in the user" do
-        put :update,  @index_params
-        @user.reload.aspects.where(:open => true).all.to_set.should == [@aspect, @aspect1].to_set
-      end
-
-      it "correctly resets the home state" do
-        @index_params[:user][:a_ids] = ["home"]
-
-        put :update, @index_params
-        @user.aspects.where(:open => true).should == []
-      end
     end
 
     context 'password updates' do
@@ -151,6 +132,7 @@ describe UsersController do
       Resque.should_receive(:enqueue).with(Job::DeleteAccount, alice.id)
       delete :destroy
     end
+
     it 'locks the user out' do
       delete :destroy
       alice.reload.access_locked?.should be_true

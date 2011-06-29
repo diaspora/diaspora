@@ -1,6 +1,7 @@
 class DisablePasswordResetForAccountsWithoutUsernames < ActiveRecord::Migration
+  class User < ActiveRecord::Base; end
   def self.up
-    execute <<SQL
+    execute <<SQL if User.count > 0
       UPDATE users
         SET email = ""
       WHERE username IS NULL

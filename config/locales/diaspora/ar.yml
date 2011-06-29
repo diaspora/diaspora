@@ -401,7 +401,7 @@ ar:
       gender: "الجنس"
       in_aspects: "في الفئة"
       location: "المكان"
-      remove_contact: "حذف العضو"
+      remove_contact: "إحذف العضو"
       remove_from: "حذف %{name} من %{aspect}?"
     show: 
       add_some: "إضافة"

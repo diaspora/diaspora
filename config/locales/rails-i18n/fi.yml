@@ -12,11 +12,51 @@ fi:
       long: "%A %e. %Bta %Y"
       short: "%e.%m.%Y"
 
-    day_names: [sunnuntai, maanantai, tiistai, keskiviikko, torstai, perjantai, lauantai]
-    abbr_day_names: [su, ma, ti, ke, to, pe, la]
+    day_names:
+      - sunnuntai
+      - maanantai
+      - tiistai
+      - keskiviikko
+      - torstai
+      - perjantai
+      - lauantai
+    abbr_day_names:
+      - su
+      - ma
+      - ti
+      - ke
+      - to
+      - pe
+      - la
 
-    month_names: [~, tammikuu, helmikuu, maaliskuu, huhtikuu, toukokuu, kesäkuu, heinäkuu, elokuu, syyskuu, lokakuu, marraskuu, joulukuu]
-    abbr_month_names: [~, tammi, helmi, maalis, huhti, touko, kesä, heinä, elo, syys, loka, marras, joulu]
+    month_names:
+      - ~
+      - tammikuu
+      - helmikuu
+      - maaliskuu
+      - huhtikuu
+      - toukokuu
+      - kesäkuu
+      - heinäkuu
+      - elokuu
+      - syyskuu
+      - lokakuu
+      - marraskuu
+      - joulukuu
+    abbr_month_names:
+      - ~
+      - tammi
+      - helmi
+      - maalis
+      - huhti
+      - touko
+      - kesä
+      - heinä
+      - elo
+      - syys
+      - loka
+      - marras
+      - joulu
     order:
       - :day
       - :month

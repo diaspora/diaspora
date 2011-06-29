@@ -540,9 +540,9 @@ fr:
       invite_your_friends_from: "Inviter vos amis depuis %{service}"
       not_connected: "non connecté"
     index: 
-      connect_to_facebook: "Connecter à facebook"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "Connecter à twitter"
+      connect_to_facebook: "Connecter à Facebook"
+      connect_to_tumblr: "Connecter à Tumblr"
+      connect_to_twitter: "Connecter à Twitter"
       disconnect: "déconnecter"
       edit_services: "Modifier les services"
       logged_in_as: "connecté(e) en tant que"
@@ -649,7 +649,7 @@ fr:
   undo: "Annuler ?"
   username: "Nom d'utilisateur"
   users: 
-    destroy: "Compte clôturé."
+    destroy: "Votre compte a été clôturé. Il faudra peut-être 20 minutes pour terminer la fermeture de votre compte. Merci d'essayer Diaspora."
     edit: 
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"

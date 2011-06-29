@@ -10,7 +10,7 @@ require 'webmock/rspec'
 require 'factory_girl'
 
 include WebMock::API
-WebMock::Config.instance.allow_localhost = true
+WebMock::Config.instance.allow_localhost = false
 include HelperMethods
 
 # Force fixture rebuild
@@ -31,7 +31,7 @@ RSpec.configure do |config|
 
   config.before(:each) do
     I18n.locale = :en
-    RestClient.stub!(:post).and_return(FakeHttpRequest.new(:success))
+    stub_request(:post, "https://pubsubhubbub.appspot.com/")
 
     $process_queue = false
   end
@@ -81,5 +81,5 @@ def remote_raphael
 end
 
 def photo_fixture_name
-    @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
+  @photo_fixture_name = File.join(File.dirname(__FILE__), 'fixtures', 'button.png')
 end

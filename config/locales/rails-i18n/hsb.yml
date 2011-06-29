@@ -21,10 +21,50 @@ hsb:
       short:   "%d %b"
       long:    "%d. %B %Y"
 
-    day_names:        [njedźela, póndźela, wutora, srjeda, štwórtk, pjatk, sobota]
-    abbr_day_names:   [Nj, Pó, Wu, Sr, Št, Pj, So]
-    month_names:      [~, Januar, Februar, Měrc, Apryl, Meja, Junij, Julij, Awgust, September, Oktober, Nowember, December]
-    abbr_month_names: [~, jan, feb, měr, apr, mej, jun, jul, awg, sep, okt, now, dec]
+    day_names:
+      - njedźela
+      - póndźela
+      - wutora
+      - srjeda
+      - štwórtk
+      - pjatk
+      - sobota
+    abbr_day_names:
+      - Nj
+      - Pó
+      - Wu
+      - Sr
+      - Št
+      - Pj
+      - So
+    month_names:
+      - ~
+      - Januar
+      - Februar
+      - Měrc
+      - Apryl
+      - Meja
+      - Junij
+      - Julij
+      - Awgust
+      - September
+      - Oktober
+      - Nowember
+      - December
+    abbr_month_names:
+      - ~
+      - jan
+      - feb
+      - měr
+      - apr
+      - mej
+      - jun
+      - jul
+      - awg
+      - sep
+      - okt
+      - now
+      - dec
     order:
       - :day
       - :month

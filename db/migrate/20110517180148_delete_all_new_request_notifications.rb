@@ -1,6 +1,7 @@
 class DeleteAllNewRequestNotifications < ActiveRecord::Migration
+  class Notification < ActiveRecord::Base; end
   def self.up
-    execute <<SQL
+    execute <<SQL if Notification.count > 0
       DELETE notifications.* FROM notifications
       WHERE notifications.type = 'Notifications::NewRequest'
         OR notifications.type = 'Notifications::RequestAccepted'

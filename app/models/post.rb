@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   xml_attr :public
   xml_attr :created_at
 
-  has_many :comments, :order => 'created_at ASC'
+  has_many :comments, :order => 'created_at ASC', :dependent => :destroy
   has_many :likes, :conditions => {:positive => true}, :dependent => :delete_all
   has_many :dislikes, :conditions => {:positive => false}, :class_name => 'Like', :dependent => :delete_all
 
@@ -26,12 +26,10 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
 
-  cattr_reader :per_page
-  @@per_page = 10
-
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
   end
+
   def user_refs
     if AspectVisibility.exists?(:post_id => self.id)
       self.post_visibilities.count + 1
@@ -54,10 +52,15 @@ class Post < ActiveRecord::Base
     new_post
   end
 
+  # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
   def mutable?
     false
   end
 
+  # The list of people that should receive this Post.
+  #
+  # @param [User] user The context, or dispatching user.
+  # @return [Array<Person>] The list of subscribers to this post
   def subscribers(user)
     if self.public?
       user.contact_people
@@ -66,6 +69,9 @@ class Post < ActiveRecord::Base
     end
   end
 
+  # @param [User] user The user that is receiving this post.
+  # @param [Person] person The person who dispatched this post to the
+  # @return [void]
   def receive(user, person)
     #exists locally, but you dont know about it
     #does not exsist locally, and you dont know about it

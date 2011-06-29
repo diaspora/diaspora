@@ -2,31 +2,49 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-class NotificationsController < ApplicationController
-  before_filter :authenticate_user!
-  respond_to :html, :json
+class NotificationsController < VannaController
+  include NotificationsHelper
 
-
-  def update
-    note = Notification.where(:recipient_id => current_user.id, :id => params[:id]).first
+  def update(opts=params)
+    note = Notification.where(:recipient_id => current_user.id, :id => opts[:id]).first
     if note
       note.update_attributes(:unread => false)
-      render :nothing => true
+      {}
     else
-      render :nothing => true, :status => 404
+      Response.new :status => 404
     end
   end
 
-  def index
+  def index(opts=params)
     @aspect = :notification
-    @notifications = Notification.find(:all, :conditions => {:recipient_id => current_user.id},
-                                       :order => 'created_at desc', :include => [:target, {:actors => :profile}]).paginate :page => params[:page], :per_page => 25
-    @group_days = @notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
-    respond_with @notifications
+    conditions = {:recipient_id => current_user.id}
+    page = opts[:page] || 1
+    notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
+      result = Notification.find(:all,
+                                 :conditions => conditions,
+                                 :order => 'created_at desc',
+                                 :include => [:target, {:actors => :profile}],
+                                 :limit => pager.per_page,
+                                 :offset => pager.offset
+                                )
+
+      pager.replace(result)
+    end
+    notifications.each do |n|
+      n[:actors] = n.actors
+      n[:translation_key] = n.popup_translation_key
+      n[:target] = n.translation_key == "notifications.mentioned" ? n.target.post : n.target
+    end
+    group_days = notifications.group_by{|note| I18n.l(note.created_at, :format => I18n.t('date.formats.fullmonth_day')) }
+    {:group_days => group_days, :notifications => notifications}
   end
 
-  def read_all
+  def read_all(opts=params)
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
-    redirect_to aspects_path
+  end
+  post_process :html do
+    def post_read_all(json)
+      Response.new(:status => 302, :location => aspects_path)
+    end
   end
 end

@@ -63,11 +63,7 @@ module Diaspora
     def create_body
       @posts.inject("") do |xml,curr|
         if curr.respond_to?(:to_activity)
-          unless xml
-            curr.to_activity
-          else
-            xml + curr.to_activity
-          end
+          xml + curr.to_activity(:author => @user.person)
         else
           xml
         end

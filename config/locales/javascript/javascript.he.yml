@@ -6,25 +6,25 @@
 he: 
   javascripts: 
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "הוספה להיבט"
       toggle: 
-        few: "In {{count}} aspects"
-        many: "In {{count}} aspects"
-        one: "In {{count}} aspect"
-        other: "In {{count}} aspects"
-        zero: "Add to aspect"
+        few: "ב־{{count}} היבטים"
+        many: "ב־{{count}} היבטים"
+        one: "בהיבט אחד"
+        other: "ב־{{count}} היבטים"
+        zero: "הוספה להיבט"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "הסתרת תגובות"
+      show: "הצגת כל התגובות"
     confirm_dialog: "בבטחה?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "הסימון ב'אהבתי' נכשל!"
+    failed_to_post_message: "פרסום ההודעה נכשל!"
     infinite_scroll: 
       no_more: "אין רשומות נוספות."
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
     search_for: "חיפוש אחר {{name}}"
-    show_more: "show more"
+    show_more: "הצגת עוד"
     timeago: 
       day: "יום"
       days: "%d ימים"
@@ -45,4 +45,4 @@ he:
       unknown: "סוג הווידאו אינו ידוע"
       watch: "צפייה בסרטון וידאו זה באתר {{provider}}"
     web_sockets: 
-      disconnected: "שקע הרשת סגור; ההודעות לא יישלחו עוד בזמן אמת."
+      disconnected: "צינור ההודעות סגור; הודעות לא יוצגו בזמן אמת."

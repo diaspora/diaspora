@@ -22,10 +22,11 @@ module ApplicationHelper
     object = object.model if object.instance_of? PostsFake::Fake
     if object.respond_to?(:activity_streams?) && object.activity_streams?
       class_name = object.class.name.underscore.split('/')
-      eval("#{class_name.first}_#{class_name.last}_path(object, opts)")
+      method_sym = "#{class_name.first}_#{class_name.last}_path".to_sym
     else
-      eval("#{object.class.name.underscore}_path(object, opts)")
+      method_sym = "#{object.class.name.underscore}_path".to_sym
     end
+    self.send(method_sym, object, opts)
   end
 
   def object_fields(object)
@@ -54,7 +55,7 @@ module ApplicationHelper
   end
 
   def person_image_tag(person, size=:thumb_small)
-    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)}\">".html_safe
+    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)} (#{h(person.diaspora_handle)})\">".html_safe
   end
 
   def person_link(person, opts={})

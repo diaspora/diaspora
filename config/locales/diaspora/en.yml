@@ -105,13 +105,7 @@ en:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
-    manage:
-      add_a_new_aspect: "Add a new aspect"
-      add_a_new_contact: "Add a new contact"
-      requests: "Requests"
-      no_requests: "No new requests"
-      manage_aspects: "Manage aspects"
-      drag_to_add: "Drag to add people"
+
     new:
       name: "Name"
       create: "Create"
@@ -189,6 +183,15 @@ en:
       failure: "Failed to create contact"
     sharing:
       people_sharing: "People sharing with you:"
+    index:
+      add_a_new_aspect: "Add a new aspect"
+      title: "Contacts"
+      your_contacts: "Your Contacts"
+      no_contacts: "No contacts."
+      my_contacts: "My Contacts"
+      all_contacts: "All Contacts"
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
 
   conversations:
     index:
@@ -506,8 +509,8 @@ en:
       last_name: "Last name"
       your_gender: "Your gender"
       your_birthday: "Your birthday"
-      your_tags: "You: in 5 #tags"
-      your_tags_placeholder: "i.e. #diaspora #ironing #kittens #music"
+      your_tags: "Describe yourself in 5 words"
+      your_tags_placeholder: "like #movies #kittens #travel #teacher #newyork"
       your_bio: "Your bio"
       your_location: "Your location"
       your_photo: "Your photo"
@@ -609,6 +612,7 @@ en:
       create_request: "Find by Diaspora handle"
       diaspora_handle: "diaspora@handle.org"
       know_email: "Know their email address? You should invite them"
+      add_new_contact: "Add a new contact"
     invitations:
       invites: "Invites"
       invite_someone: "Invite someone"

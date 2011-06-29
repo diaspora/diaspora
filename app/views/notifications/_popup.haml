@@ -3,5 +3,4 @@
 -#   the COPYRIGHT file.
 .notification
   = person_image_tag(person)
-  = link_to "#{person.name.titleize}", person_path(person.id)
-  = object_link(note)
+  = notification_message_for(note)

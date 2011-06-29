@@ -150,7 +150,7 @@ eu:
     one: "adiskide 1"
     other: "%{count} adiskide"
     sharing: 
-      people_sharing: "Zurekin harremanetan dagoen jendea:"
+      people_sharing: "Zurekin harremanetan daudenak:"
     zero: "adiskiderik ez"
   conversations: 
     create: 
@@ -649,7 +649,7 @@ eu:
   undo: "Desegin?"
   username: "Erabiltzailea"
   users: 
-    destroy: "Kontua arrakastaz ezabatua."
+    destroy: "Zure kontua giltzapetuta dago. 20 minutu eraman dezake kontua ezabatzeak. Eskerrik asko Diaspora erabiltzeagatik."
     edit: 
       also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
       change: "Aldatu"

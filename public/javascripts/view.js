@@ -30,6 +30,10 @@ var View = {
       $('#main_stream .comments label').inFieldLabels();
     });
 
+    Diaspora.widgets.subscribe("stream/reloaded", function() {
+      $('#main_stream .comments label').inFieldLabels();
+    });
+
 
     /* Showing debug messages  */
     $(this.debug.selector)
@@ -55,11 +59,15 @@ var View = {
       .live("submit", this.newRequest.submit);
 
     /* Autoexpand textareas */
-    $('textarea')
-      .autoResize({
-        'animate': false,
-        'extraSpace': 40
-      });
+    var startAutoResize = function() {
+      $('textarea')
+        .autoResize({
+          'animate': false,
+          'extraSpace': 40
+        });
+    }
+    Diaspora.widgets.subscribe("stream/scrolled", startAutoResize)
+    Diaspora.widgets.subscribe("stream/reloaded", startAutoResize)
 
     /* Webfinger form ajaxy loading */
     $(this.webFingerForm.selector)

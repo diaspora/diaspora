@@ -32,6 +32,18 @@
       $('#main_stream').infinitescroll(this.options, function() {
         Diaspora.widgets.publish("stream/scrolled");
       });
+
+    } else if($('#people_stream.contacts').length !== 0){
+      $("#people_stream.contacts").infinitescroll({
+        navSelector  : ".pagination",
+        nextSelector : ".next_page",
+        itemSelector : ".stream_element",
+        loadingText: "",
+        loadingImg: '/images/ajax-loader.gif',
+        bufferPx: 400
+      }, function(){
+        Diaspora.widgets.publish("stream/scrolled");
+      });
     }
   };
 

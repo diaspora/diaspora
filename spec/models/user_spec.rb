@@ -34,6 +34,7 @@ describe User do
       new_user.id.should_not == alice.id
     end
   end
+
   describe "validation" do
     describe "of associated person" do
       it "fails if person is not valid" do

@@ -29,10 +29,10 @@ he:
         you_can_confirm: "באפשרותך לאמת את החשבון שלך באמצעות הקישור שלהלן:"
       hello: "שלום %{email}!"
       invitation_instructions: 
-        accept: "Accept invitation"
-        ignore: "If you don't want to accept the invitation, please ignore this email."
-        no_account_till: "Your account won't be created until you access the link above and sign up."
-        subject: "You've been invited to join Diaspora!"
+        accept: "אשר הזמנה"
+        ignore: "אם אין ברצונך לאשר את ההזמנה, ניתן להתעלם מהודעה זו."
+        no_account_till: " החשבון שלך לא ייווצר עד לכניסתך לקישור המופיע למעלה וההרשמה לשירות."
+        subject: "הוזמנת להצטרף לדיאספורה!"
       inviters: 
         accept_at: ", בכתובת %{url}, ניתן לקבל אותה דרך הקישור שלהלן."
         has_invited_you: "התקבלה הזמנה מאת %{name} להצטרף לדיאספורה"

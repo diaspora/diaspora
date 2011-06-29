@@ -14,15 +14,15 @@ ar:
         other: "في {{count}} فئات"
         zero: "أضف إلى فئة"
     comments: 
-      hide: "إخفاء التعليقات"
-      show: "عرض جميع التعليقات"
+      hide: "أخفِ التعليقات"
+      show: "إعرض جميع التعليقات"
     confirm_dialog: "هل أنت متأكد؟"
     failed_to_like: "فشل في [أعجبني]"
     failed_to_post_message: "فشل في نشر رسالة!"
     infinite_scroll: 
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
-      at_least_one_aspect: "عليك تحديد فئة واحدة على الأقل"
+      at_least_one_aspect: "حدد فئة واحدة على الأقل"
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
     timeago: 
@@ -43,6 +43,6 @@ ar:
       years: "منذ %d أعوام"
     videos: 
       unknown: "نوع فيديو غير معروف"
-      watch: "مشاهدة هذا الفيديو عبر {{provider}}"
+      watch: "شاهد هذا الفيديو عبر {{provider}}"
     web_sockets: 
       disconnected: "الـ websocket مغلق; الرسائل لن تنشر بعد الآن"

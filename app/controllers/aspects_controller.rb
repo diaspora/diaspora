@@ -15,7 +15,7 @@ class AspectsController < ApplicationController
       @aspects = current_user.aspects.where(:id => params[:a_ids])
     else
       @aspects = current_user.aspects
-      @contacts_sharing_with = current_user.contacts.sharing
+      @contacts_sharing_with = current_user.contacts.sharing.includes(:person => :profile)
     end
 
     #No aspect_listings on infinite scroll
@@ -54,7 +54,7 @@ class AspectsController < ApplicationController
       flash[:notice] = I18n.t('aspects.create.success', :name => @aspect.name)
       if current_user.getting_started
         redirect_to :back
-      elsif request.env['HTTP_REFERER'].include?("aspects/manage")
+      elsif request.env['HTTP_REFERER'].include?("contacts")
         redirect_to :back
       elsif params[:aspect][:person_id]
         @person = Person.where(:id => params[:aspect][:person_id]).first
@@ -64,9 +64,6 @@ class AspectsController < ApplicationController
         else
           @contact = current_user.share_with(@person, @aspect)
         end
-
-
-
       else
         respond_with @aspect
       end
@@ -129,12 +126,6 @@ class AspectsController < ApplicationController
       @aspect_contacts_count = @aspect.contacts.size
       render :layout => false
     end
-  end
-
-  def manage
-    @aspect = :manage
-    @contacts = current_user.contacts.includes(:person => :profile)
-    @aspects = @all_aspects.includes(:contacts => {:person => :profile})
   end
 
   def update

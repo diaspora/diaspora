@@ -15,12 +15,10 @@ describe Services::Tumblr do
       @service.post(@post)
     end
 
-     it 'swallows exception raised by tumblr not being webscale' do
-       pending "meh"
+    it 'swallows exception raised by tumblr not being webscale' do
       OAuth::AccessToken.any_instance.should_receive(:post).and_raise
       @service.post(@post)
     end
-
   end
 end
 

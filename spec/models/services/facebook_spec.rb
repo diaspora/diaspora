@@ -11,16 +11,16 @@ describe Services::Facebook do
 
   describe '#post' do
     it 'posts a status message to facebook' do
-      RestClient.should_receive(:post).with("https://graph.facebook.com/me/feed", :message => @post.text, :access_token => @service.access_token)
       @service.post(@post)
+      WebMock.should have_requested(:post, "https://graph.facebook.com/me/feed").with(:body => {:message => @post.text, :access_token => @service.access_token}.to_param)
     end
     it 'swallows exception raised by facebook always being down' do
-      RestClient.should_receive(:post).and_raise
+      stub_request(:post,"https://graph.facebook.com/me/feed").
+        to_raise(StandardError)
       @service.post(@post)
     end
 
     it 'should call public message' do
-      RestClient.stub!(:post)
       url = "foo"
       @service.should_receive(:public_message).with(@post, url)
       @service.post(@post, url)
@@ -28,7 +28,7 @@ describe Services::Facebook do
   end
 
   context 'finder' do
-    before do 
+    before do
       @user2 = Factory.create(:user_with_aspect)
       @user2_fb_id = '820651'
       @user2_fb_name = 'Maxwell Salzberg'
@@ -51,15 +51,14 @@ describe Services::Facebook do
         ]
       }
 JSON
-      @web_mock = mock()
-      @web_mock.stub!(:body).and_return(@fb_list_hash)
-      RestClient.stub!(:get).and_return(@web_mock)
+      stub_request(:get, "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=yeah").
+        to_return(:body => @fb_list_hash)
     end
 
     describe '#save_friends' do
       it 'requests a friend list' do
-        RestClient.should_receive(:get).with("https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=yeah").and_return(@web_mock)
-                                             @service.save_friends
+        @service.save_friends
+        WebMock.should have_requested(:get, "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=yeah")
       end
 
       it 'creates a service user objects' do
@@ -70,7 +69,7 @@ JSON
     end
 
     describe '#finder' do
-      it 'does a syncronous call if it has not been called before' do
+      it 'does a synchronous call if it has not been called before' do
         @service.should_receive(:save_friends)
         @service.finder
       end

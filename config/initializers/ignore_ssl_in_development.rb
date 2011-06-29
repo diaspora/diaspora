@@ -1,0 +1,14 @@
+# Copyright (c) 2010, Diaspora Inc.  This file is
+# licensed under the Affero General Public License version 3 or later.  See
+# the COPYRIGHT file.
+
+if AppConfig[:ca_file].blank? && (Rails.env == "development")
+  module OpenSSL
+    module SSL
+      remove_const :VERIFY_PEER
+    end
+  end
+  OpenSSL::SSL::VERIFY_PEER = OpenSSL::SSL::VERIFY_NONE
+end
+
+

@@ -31,14 +31,14 @@ class User < ActiveRecord::Base
   has_one :person, :foreign_key => :owner_id
   delegate :public_key, :posts, :owns?, :diaspora_handle, :name, :public_url, :profile, :first_name, :last_name, :to => :person
 
-  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id
-  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id
+  has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
+  has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
   has_many :aspects
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
-  has_many :services
-  has_many :user_preferences
+  has_many :services, :dependent => :destroy
+  has_many :user_preferences, :dependent => :destroy
 
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
@@ -46,7 +46,6 @@ class User < ActiveRecord::Base
   before_save do
     person.save if person && person.changed?
   end
-
 
   attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
 
@@ -80,6 +79,9 @@ class User < ActiveRecord::Base
     self.language = I18n.locale.to_s if self.language.blank?
   end
 
+  # This override allows a user to enter either their email address or their username into the username field.
+  # @return [User] The user that matches the username/email condition.
+  # @return [nil] if no user matches that condition.
   def self.find_for_database_authentication(conditions={})
     conditions = conditions.dup
     conditions[:username] = conditions[:username].downcase
@@ -89,6 +91,8 @@ class User < ActiveRecord::Base
     where(conditions).first
   end
 
+  # @param [Person] person
+  # @return [Boolean] whether this user can add person as a contact.
   def can_add?(person)
     return false if self.person == person
     return false if self.contact_for(person).present?
@@ -96,6 +100,7 @@ class User < ActiveRecord::Base
   end
 
   ######### Aspects ######################
+
   def move_contact(person, to_aspect, from_aspect)
     return true if to_aspect == from_aspect
     contact = contact_for(person)
@@ -174,6 +179,8 @@ class User < ActiveRecord::Base
     build_relayable(Like, options)
   end
 
+  # Check whether the user has liked a post.  Extremely inefficient if the post's likes are not loaded.
+  # @param [Post] post
   def liked?(post)
     if self.like_for(post)
       return true
@@ -182,6 +189,9 @@ class User < ActiveRecord::Base
     end
   end
 
+  # Get the user's like of a post, if there is one.  Extremely inefficient if the post's likes are not loaded.
+  # @param [Post] post
+  # @return [Like]
   def like_for(post)
     [post.likes, post.dislikes].each do |likes|
       likes.each do |like|
@@ -247,9 +257,15 @@ class User < ActiveRecord::Base
     end
   end
 
+  # This method is called when an invited user accepts his invitation
+  #
+  # @param [Hash] opts the options to accept the invitation with
+  # @option opts [String] :username The username the invited user wants.
+  # @option opts [String] :password
+  # @option opts [String] :password_confirmation
   def accept_invitation!(opts = {})
-    log_string = "event=invitation_accepted username=#{opts[:username]} uid=#{self.id} "
-    log_string << "inviter=#{invitations_to_me.first.sender.diaspora_handle} " if invitations_to_me.first
+    log_hash = {:event => :invitation_accepted, :username => opts[:username], :uid => self.id}
+    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first
     begin
       if self.invited?
         self.setup(opts)
@@ -258,15 +274,15 @@ class User < ActiveRecord::Base
         self.password_confirmation = opts[:password_confirmation]
         self.save!
         invitations_to_me.each{|invitation| invitation.share_with!}
-        log_string << "success"
-        Rails.logger.info log_string
+        log_hash[:status] = "success"
+        Rails.logger.info log_hash
 
         self.reload # Because to_request adds a request and saves elsewhere
         self
       end
     rescue Exception => e
-      log_string << "failure"
-      Rails.logger.info log_string
+      log_hash[:status] =  "failure"
+      Rails.logger.info log_hash
       raise e
     end
   end
@@ -344,8 +360,6 @@ class User < ActiveRecord::Base
   end
 
   def remove_mentions
-    Mention.where( :person_id => self.person.id).each do |mentioned_person|
-      mentioned_person.delete
-    end
+    Mention.where( :person_id => self.person.id).delete_all
   end
 end

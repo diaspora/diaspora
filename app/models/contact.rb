@@ -27,6 +27,10 @@ class Contact < ActiveRecord::Base
     where(:receiving => true)
   }
 
+  scope :only_sharing, lambda {
+    sharing.where(:receiving => false)
+  }
+
   before_destroy :destroy_notifications
   def destroy_notifications
     Notification.where(:target_type => "Person",

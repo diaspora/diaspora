@@ -134,14 +134,14 @@ zh-TW:
     post_success: "貼好了! 關掉中!"
   cancel: "取消"
   comments: 
-    few: "%{count}則回應"
-    many: "%{count}則回應"
+    few: "%{count}則意見"
+    many: "%{count}則意見"
     new_comment: 
       comment: "發表意見"
       commenting: "意見發表中..."
-    one: "1則回應"
-    other: "%{count}則回應"
-    zero: "沒有回應"
+    one: "1則意見"
+    other: "%{count}則意見"
+    zero: "沒有意見"
   contacts: 
     create: 
       failure: "建立聯繫失敗"
@@ -263,11 +263,11 @@ zh-TW:
   no_results: "搜尋沒有結果"
   notifications: 
     also_commented: 
-      few: "%{actors}在%{post_author}的%{post_link}中也發表了意見."
-      many: "%{actors}在%{post_author}的%{post_link}中也發表了意見."
-      one: "%{actors}在%{post_author}的%{post_link}中也發表了意見."
-      other: "%{actors}在%{post_author}的%{post_link}中也發表了意見."
-      zero: "%{actors}在%{post_author}的%{post_link}中也發表了意見."
+      few: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      many: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      one: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      other: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
+      zero: "%{actors} 也對 %{post_author} 的%{post_link}發表了意見."
     also_commented_deleted: 
       few: "%{actors}對已刪掉的貼文發表了意見."
       many: "%{actors}對已刪掉的貼文發表了意見."
@@ -336,13 +336,13 @@ zh-TW:
       zero: "%{actors}開始跟你分享了."
   notifier: 
     also_commented: 
-      commented: "也對 %{post_author} 的貼文發表意見:"
+      commented: "也對 %{post_author} 的貼文發表了意見:"
       sign_in: "登入來看看."
-      subject: "%{name} 也對 %{post_author} 的貼文發表意見."
+      subject: "%{name} 也對 %{post_author} 的貼文發表了意見."
     comment_on_post: 
-      commented: "對你的貼文發表意見:"
+      commented: "對你的貼文發表了意見:"
       sign_in: "登入來看看."
-      subject: "%{name} 對你的貼文發表意見."
+      subject: "%{name} 對你的貼文發表了意見."
     diaspora: "diaspora 電郵機器人"
     hello: "%{name}你好!"
     liked: 
@@ -649,7 +649,7 @@ zh-TW:
   undo: "復原?"
   username: "用戶名稱"
   users: 
-    destroy: "帳號關閉成功."
+    destroy: "帳號已鎖定. 關閉帳號可能需要20分鐘才能完成. 感謝你試用 Diaspora."
     edit: 
       also_commented: "...當有人也對你的聯繫的貼文發表意見時?"
       change: "更改"

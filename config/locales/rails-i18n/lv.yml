@@ -8,10 +8,50 @@ lv:
       short: "%e. %B"
       long: "%Y. gada %e. %B"
 
-    day_names: [svētdiena, pirmdiena, otrdiena, trešdiena, ceturtdiena, piektdiena, sestdiena]
-    abbr_day_names: [Sv., P., O., T., C., Pk., S.]
-    month_names: [~, janvārī, februārī, martā, aprīlī, maijā, jūnijā, jūlijā, augustā, septembrī, oktobrī, novembrī, decembrī]
-    abbr_month_names: [~, Janv, Febr, Marts, Apr, Maijs, Jūn, Jūl, Aug, Sept, Okt, Nov, Dec]
+    day_names:
+      - svētdiena
+      - pirmdiena
+      - otrdiena
+      - trešdiena
+      - ceturtdiena
+      - piektdiena
+      - sestdiena
+    abbr_day_names:
+      - Sv.
+      - P.
+      - O.
+      - T.
+      - C.
+      - Pk.
+      - S.
+    month_names:
+      - ~
+      - janvārī
+      - februārī
+      - martā
+      - aprīlī
+      - maijā
+      - jūnijā
+      - jūlijā
+      - augustā
+      - septembrī
+      - oktobrī
+      - novembrī
+      - decembrī
+    abbr_month_names:
+      - ~
+      - Janv
+      - Febr
+      - Marts
+      - Apr
+      - Maijs
+      - Jūn
+      - Jūl
+      - Aug
+      - Sept
+      - Okt
+      - Nov
+      - Dec
     order:
       - :year
       - :month

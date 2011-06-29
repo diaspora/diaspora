@@ -24,7 +24,7 @@ class Services::Tumblr < Service
     begin
       resp = access.post('http://tumblr.com/api/write', body)
       resp
-    rescue
+    rescue Exception
       nil
     end
   end

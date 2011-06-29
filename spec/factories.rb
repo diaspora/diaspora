@@ -104,12 +104,13 @@ end
 Factory.define(:activity_streams_photo, :class => ActivityStreams::Photo) do |p|
   p.association(:author, :factory => :person)
   p.image_url "http://example.com/awesome.png"
-  p.image_height 9001
-  p.image_width 4
+  p.image_height 900
+  p.image_width 400
   p.object_url "http://example.com/awesome_things.gif"
   p.objectId "http://example.com/awesome_things.gif"
   p.actor_url "http://notcubbi.es/cubber"
   p.provider_display_name "not cubbies"
+  p.public true
 end
 
 Factory.define(:app, :class => OAuth2::Provider.client_class) do |a|

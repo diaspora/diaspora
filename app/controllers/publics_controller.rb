@@ -10,6 +10,11 @@ class PublicsController < ApplicationController
   skip_before_filter :set_invites
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
+  before_filter :allow_cross_origin, :only => [:hcard, :host_meta, :webfinger]
+
+  def allow_cross_origin
+    headers["Access-Control-Allow-Origin"] = "*"
+  end
 
   layout false
   caches_page :host_meta
