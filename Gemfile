@@ -102,6 +102,7 @@ group :test do
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
   gem 'mongrel', :require => false, :platforms => :ruby_18
+  gem 'sqlite3', :require => false
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
 

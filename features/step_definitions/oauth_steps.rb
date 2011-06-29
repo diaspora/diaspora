@@ -59,8 +59,7 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      ensure_bundled
-      Process.exec "cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle exec rackup -p #{PORT} 2> /dev/null 1> /dev/null"
+      Process.exec "cd #{Rails.root}/spec/chubbies/ && bundle exec rackup -p #{PORT} #{nullify}"
     end
 
     at_exit do
@@ -76,13 +75,8 @@ class Chubbies
     `kill -9 #{get_pid}`
   end
 
-  def self.ensure_bundled
-    if !(@bundled)
-      Bundler.with_clean_env do
-        `cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle install`#2> /dev/null 1> /dev/null`
-      end
-      @bundled = true
-    end
+  def self.nullify
+    ENV["CI"] ? '' : "2> /dev/null 1> /dev/null"
   end
 
   def self.ensure_killed

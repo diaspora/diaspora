@@ -1,12 +1,1 @@
-source 'http://rubygems.org'
-
-gem 'sinatra'
-gem 'haml'
-
-gem 'json'
-gem 'sqlite3'
-gem 'activerecord', '3.0.3'
-gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
-gem 'jwt', :git => "git://github.com/zhitomirskiyi/ruby-jwt.git"
-
-
+./../../Gemfile

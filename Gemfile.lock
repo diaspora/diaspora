@@ -399,6 +399,7 @@ GEM
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
+    sqlite3 (1.3.3)
     subexec (0.0.4)
     systemu (2.2.0)
     term-ansicolor (1.0.5)
@@ -497,6 +498,7 @@ DEPENDENCIES
   selenium-webdriver (= 0.2.2)
   settingslogic (= 2.0.6)
   sod!
+  sqlite3
   thin (= 1.2.11)
   twitter (= 1.5.0)
   typhoeus
