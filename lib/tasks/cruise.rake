@@ -4,7 +4,7 @@ namespace :cruise do
     puts "Starting virtual display..."
     `sh -e /etc/init.d/xvfb start`
     puts "Starting specs..."
-    system('export DISPLAY=:99.0 && bundle exec rake')
+    system('export DISPLAY=:99.0 && CI=true bundle exec rake')
     exit_status = $?.exitstatus
     puts "Stopping virtual display..."
     `sh -e /etc/init.d/xvfb stop`
