@@ -134,7 +134,7 @@ form
 
 header
   @include box-shadow(0,1px,3px,#222)
-  @include linear-gradient(rgba(15,15,15,0.85),rgba(10,10,10,1))
+  @include linear-gradient(rgba(25,20,20,0.95),rgba(25,20,20,1))
 
   :z-index 50
   :padding 0
@@ -204,6 +204,8 @@ header
           :background
             :color $blue
           :color #fff
+          :text
+            :decoration none
 
       &:first-child
         a
@@ -278,7 +280,7 @@ ul.dropdown
     :margin 5px 0
 
   .stream_element
-    :padding 20px 20px
+    :padding 15px
     :min-height 50px
     :border
       :bottom 1px solid #ddd

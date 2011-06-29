@@ -8,8 +8,9 @@
   :left -11px
 
 .button
-  @include border-radius(3px)
-  @include linear-gradient(#f7f7f7,#d0d0d0)
+  @include border-radius(2px)
+  @include linear-gradient(rgb(248,250,250),rgb(228,223,223))
+  @include box-shadow(0,1px,1px,#cfcfcf)
 
   :font
     :style normal
@@ -17,8 +18,8 @@
 
   :display inline
 
-  :padding 4px 7px
-  :min-width 26px
+  :padding 4px 9px
+  :min-width 90px
 
   :font-size 12px
   :line
@@ -28,15 +29,13 @@
 
   :border 1px solid #aaa
     :top 1px solid #bbb
-    :bottom 1px solid #888
+    :bottom 1px solid darken(#aaa,13%)
 
   :cursor pointer
 
   :white-space nowrap
 
-  :color #4a4a4a
-  :text
-    :shadow 0 1px 1px #eee
+  :color #444
 
   &:hover
     @include linear-gradient(#d6d6d6,#b0b0b0)
