@@ -3,8 +3,12 @@ require "bundler/setup"
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
-ssh_user      = "mathisweb@imathis.com"
-document_root = "~/dev.octopress.org/"
+ssh_user       = "user@domain.com"
+document_root  = "~/website.com/"
+deploy_default = "rsync"
+
+# This will be configured for you when you run config_deploy
+deploy_branch  = "gh-pages"
 
 ## -- Misc Configs, you probably have no reason to changes these -- ##
 
@@ -13,6 +17,7 @@ source_dir  = "source"    # source file directory
 deploy_dir  = "_deploy"    # deploy directory (for Github pages deployment)
 stash_dir   = "_stash"    # directory to stash posts for speedy generation
 posts_dir   = "_posts"    # directory for blog files
+themes_dir  = ".themes"    # directory for blog files
 post_format = "markdown"  # file format for new posts when using the post rake task
 
 
@@ -21,9 +26,9 @@ task :install, :theme do |t, args|
   # copy theme into working Jekyll directories
   theme = args.theme || 'classic'
   puts "## Copying "+theme+" theme into ./#{source_dir} ./sass and ./_plugins "
-  system "mkdir -p #{source_dir}; cp -R themes/"+theme+"/source/ #{source_dir}/"
-  system "mkdir -p sass; cp -R themes/"+theme+"/sass/ sass/"
-  system "mkdir -p _plugins; cp -R themes/"+theme+"/_plugins/ _plugins/"
+  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/ #{source_dir}/"
+  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
+  system "mkdir -p _plugins; cp -R #{themes_dir}/"+theme+"/_plugins/ _plugins/"
   system "mkdir -p #{source_dir}/#{posts_dir}";
 end
 
@@ -87,8 +92,12 @@ end
 # Deploying  #
 ##############
 
+desc "Default deploy task"
+task :deploy => "#{deploy_default}" do
+end
+
 desc "Deploy website via rsync"
-task :sync do
+task :rsync do
   puts "## Deploying website via Rsync"
   ok_failed system("rsync -avz --delete #{public_dir}/ #{ssh_user}:#{document_root}")
 end
@@ -106,13 +115,13 @@ task :push do
     message = "Site updated at #{Time.now.utc}"
     system "git commit -m '#{message}'"
     puts "\n## Pushing generated #{deploy_dir} website"
-    system "git push"
+    system "git push origin #{deploy_branch}"
     puts "\n## Github Pages deploy complete"
   end
 end
 
 desc "setup _deploy folder and deploy branch"
-task :init_deploy, :branch do |t, args|
+task :config_deploy, :branch do |t, args|
   puts "!! Please provide a deploy branch, eg. rake init_deploy[gh-pages] !!" unless args.branch
   puts "## Creating a clean #{args.branch} branch in ./#{deploy_dir} for Github pages deployment"
   cd "#{deploy_dir}" do
@@ -121,8 +130,13 @@ task :init_deploy, :branch do |t, args|
     system "git clean -fdx"
     system "echo 'My Octopress Page is coming soon &hellip;' > index.html"
     system "git add ."
-    system "git commit -m 'My Octopress site is coming soon'"
-    system "git push origin #{args.branch}"
+    system "git commit -m 'Octopress init'"
+    rakefile = IO.read(__FILE__)
+    rakefile.sub!(/deploy_branch(\s*)=(\s*)(["'])[\w-]*["']/, "deploy_branch\\1=\\2\\3#{args.branch}\\3")
+    rakefile.sub!(/deploy_default(\s*)=(\s*)(["'])[\w-]*["']/, "deploy_default\\1=\\2\\3push\\3")
+    File.open(__FILE__, 'w') do |f|
+      f.write rakefile
+    end
   end
 end
 
@@ -139,4 +153,3 @@ task :list do
   puts "Tasks: #{(Rake::Task.tasks - [Rake::Task[:list]]).to_sentence}"
   puts "(type rake -T for more detail)\n\n"
 end
-

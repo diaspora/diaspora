@@ -7,9 +7,9 @@ $link-color-visited: darken(adjust_hue($link_color, 70), 10) !default;
 $link-color-active: darken($link-color-hover, 15) !default;
 
 // Main Section Colors
+$main-bg: #f8f8f8 !default;
 $page-bg: #252525 !default;
 $article-border: #eeeeee !default;
-$main-bg: #f5f5f5 !default;
 
 $header-bg: #333 !default;
 $header-border: lighten($header-bg, 15) !default;
