@@ -17,7 +17,6 @@ GIT
       json (>= 1.2.4)
 
 GEM
-  remote: http://rubygems.org/
   specs:
     activemodel (3.0.3)
       activesupport (= 3.0.3)
@@ -45,8 +44,6 @@ GEM
       faraday (~> 0.6.1)
       multi_json (>= 0.0.5)
     rack (1.3.0)
-    shotgun (0.9)
-      rack (>= 1.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (< 2.0, >= 1.2.2)
@@ -63,6 +60,5 @@ DEPENDENCIES
   haml
   json
   jwt!
-  shotgun
   sinatra
   sqlite3

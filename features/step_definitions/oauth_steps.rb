@@ -59,6 +59,7 @@ class Chubbies
 
   def self.run
     @pid = fork do
+      ensure_bundled
       Process.exec "cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle exec rackup -p #{PORT} 2> /dev/null 1> /dev/null"
     end
 
@@ -73,6 +74,13 @@ class Chubbies
 
   def self.kill
     `kill -9 #{get_pid}`
+  end
+
+  def self.ensure_bundled
+    if !(@bundled)
+      `cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle 2> /dev/null 1> /dev/null`
+      @bundled = true
+    end
   end
 
   def self.ensure_killed

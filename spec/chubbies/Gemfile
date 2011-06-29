@@ -1,10 +1,7 @@
-source :rubygems
-
 gem 'sinatra'
 gem 'haml'
 
 gem 'json'
-gem 'shotgun'
 gem 'sqlite3'
 gem 'activerecord', '3.0.3'
 gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'

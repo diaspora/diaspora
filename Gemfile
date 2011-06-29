@@ -70,7 +70,7 @@ gem 'cloudfiles', '1.4.10', :require => false
 
 #Queue
 gem 'resque', '1.10.0'
-gem 'SystemTimer', '1.2.1' unless RUBY_VERSION.include? '1.9' || RUBY_PLATFORM =~ 'win32'
+gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 
 group :development do
   gem 'yard'
@@ -82,11 +82,9 @@ end
 group :test, :development do
   gem 'factory_girl_rails', :require => false
   gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
-  gem 'ruby-debug19' if RUBY_VERSION.include? '1.9'
-  if defined?(Rubinius).nil? && RUBY_VERSION.include?('1.8')
-    gem 'ruby-debug'
-    gem 'linecache', '0.43'
-  end
+  gem 'ruby-debug19', :platforms => :ruby_19
+  gem 'ruby-debug', :platforms => :mri_18
+  gem 'linecache', '0.43', :platforms => :mri_18
   gem 'launchy'
   gem 'jasmine', '1.0.2.1'
 end
@@ -103,7 +101,7 @@ group :test do
   gem 'rcov', :require => false
   gem 'database_cleaner', '0.6.0'
   gem 'webmock', :require => false
-  gem 'mongrel', :require => false if RUBY_VERSION.include? '1.8'
+  gem 'mongrel', :require => false, :platforms => :ruby_18
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
 
