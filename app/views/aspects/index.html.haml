@@ -20,6 +20,12 @@
       .description
         = link_to current_user.diaspora_handle, person_path(current_user.person)
 
+  #aspect_listings.section
+    = render 'aspects/aspect_listings', :aspects => @aspects
+
+  %br
+  %br
+
   .section
     .title
       = image_tag('/images/icons/bookmark.png')
@@ -49,12 +55,3 @@
       .content
         = render "shared/invitations", :invites => @invites
 
-  %hr
-
-  #aspect_listings.section
-    = render 'aspects/aspect_listings', :aspects => @aspects
-
-  - if @invites <= 0
-    .section.invite_friends
-      %h4= t('shared.invitations.invite_your_friends')
-      = render "shared/invitations", :invites => @invites
