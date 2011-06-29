@@ -24,7 +24,12 @@ describe ConversationsController do
 
     it "assigns a contact if passed a contact id" do
       get :new, :contact_id => alice.contacts.first.id
-      assigns(:contact).should == alice.contacts.first
+      assigns(:contact_ids).should == alice.contacts.first.id
+    end
+
+    it "assigns a set of contacts if passed an aspect id" do
+      get :new, :aspect_id => alice.aspects.first.id
+      assigns(:contact_ids).should == alice.aspects.first.contacts.map(&:id).join(',')
     end
   end
 

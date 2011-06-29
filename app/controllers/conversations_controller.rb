@@ -61,8 +61,14 @@ class ConversationsController < ApplicationController
         select("contacts.id, profiles.first_name, profiles.last_name, people.diaspora_handle").to_sql
     ).map{|r| {:value => r[0], :name => Person.name_from_attrs(r[1], r[2], r[3]).gsub(/(")/, "'")} }
 
+    @contact_ids = ""
+
     @contacts_json = all_contacts_and_ids.to_json.gsub!(/(")/, '\\"')
-    @contact = current_user.contacts.find(params[:contact_id]) if params[:contact_id]
+    if params[:contact_id]
+      @contact_ids = current_user.contacts.find(params[:contact_id]).id
+    elsif params[:aspect_id]
+      @contact_ids = current_user.aspects.find(params[:aspect_id]).contacts.map{|c| c.id}.join(',')
+    end
     render :layout => false
   end
 

@@ -6,6 +6,9 @@
 - content_for :page_title do
   = t('.title')
 
+- content_for :head do
+  = include_javascripts :people
+
 #section_header
   %h2
     = t('.title')
@@ -44,6 +47,10 @@
 .span-18.last
   #people_stream.stream.contacts
     - if @contacts.size > 0
+      #aspect_controls
+        - if @aspect_
+          = link_to "start a conversation", new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+
       - for contact in @contacts
         .stream_element{:id => contact.person.id}
           .right
