@@ -24,7 +24,7 @@ gem 'omniauth', '0.2.6'
 gem 'twitter', '1.5.0'
 
 gem 'oauth2-provider', '~> 0.0.0'
-gem 'jwt', :git => "https://github.com/zhitomirskiyi/ruby-jwt", :require => false
+gem 'jwt', :git => "git://github.com/zhitomirskiyi/ruby-jwt.git", :require => false
 
 #Web
 gem 'faraday'
@@ -107,6 +107,6 @@ group :test do
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
 
-  gem 'diaspora-client', :git => 'git@github.com:diaspora/diaspora-client.git'
+  gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
 
 end
