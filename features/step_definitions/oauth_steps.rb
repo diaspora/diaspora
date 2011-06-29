@@ -78,7 +78,9 @@ class Chubbies
 
   def self.ensure_bundled
     if !(@bundled)
-      `cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle 2> /dev/null 1> /dev/null`
+      Bundler.with_clean_env do
+        `cd #{Rails.root}/spec/chubbies/ && BUNDLE_GEMFILE=Gemfile bundle install`#2> /dev/null 1> /dev/null`
+      end
       @bundled = true
     end
   end
