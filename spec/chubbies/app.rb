@@ -1,5 +1,6 @@
 module Chubbies
   require 'active_record'
+  require 'jwt'
   require 'diaspora-client'
 
   def self.reset_db
