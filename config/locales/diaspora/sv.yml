@@ -97,13 +97,6 @@ sv:
       no_contacts: "Inga kontakter"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
-    manage: 
-      add_a_new_aspect: "Lägg till en ny aspekt"
-      add_a_new_contact: "Lägg till en ny kontakt"
-      drag_to_add: "Dra för att lägga till personer"
-      manage_aspects: "Hantera aspekter"
-      no_requests: "Inga nya förfrågningar"
-      requests: "Kontaktförfrågningar"
     many: "%{count} aspekter"
     move_contact: 
       error: "Kunde inte flytta kontakt: %{inspect}"
@@ -146,6 +139,15 @@ sv:
     create: 
       failure: "Misslyckades med att skapa kontakt"
     few: "%{count} kontakter"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
@@ -556,6 +558,7 @@ sv:
   settings: "Inställningar"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Sök på Diaspora-användarnamn"
       diaspora_handle: "Diaspora-användarnamn"
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"

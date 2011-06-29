@@ -97,13 +97,6 @@ sk:
       no_contacts: "Žiadne kontakty"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Pridať nový aspekt"
-      add_a_new_contact: "Pridať nový kontakt"
-      drag_to_add: "Kontakt sem pridáte pretiahnutím miniatúry"
-      manage_aspects: "Spravovať aspekty"
-      no_requests: "Žiadne nové žiadosti"
-      requests: "Žiadosti"
     many: "%{count} aspects"
     move_contact: 
       error: "Chyba pri presúvaní kontaktu: %{inspect}"
@@ -146,6 +139,15 @@ sk:
     create: 
       failure: "Failed to create contact"
     few: "kontakty (%{count})"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} contacts"
     one: "1 kontakt"
     other: "kontakty (%{count})"
@@ -556,6 +558,7 @@ sk:
   settings: "Nastavenia"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Find by Diaspora handle"
       diaspora_handle: "Užívateľská príručka Diaspory"
       enter_a_diaspora_username: "Zadajte užívateľské meno:"

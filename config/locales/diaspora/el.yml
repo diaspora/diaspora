@@ -97,13 +97,6 @@ el:
       no_contacts: "Καμία επαφή"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
-    manage: 
-      add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
-      add_a_new_contact: "Προσθήκη νέας επαφής"
-      drag_to_add: "Σείρε για να προσθέσεις άτομα"
-      manage_aspects: "Διαχείρηση πτυχών"
-      no_requests: "Κανένα νέο αίτημα"
-      requests: "Αιτήματα"
     many: "%{count} πτυχές"
     move_contact: 
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
@@ -146,6 +139,15 @@ el:
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
     few: "%{count} επαφές"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} επαφές"
     one: "1 επαφή"
     other: "%{count} επαφές"
@@ -278,8 +280,8 @@ el:
       few: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
       many: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
       one: "Ο χρήστης %{actors} σχολίασε τη %{post_link}."
-      other: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
-      zero: "Οι χρήστες %{actors} σχολίασαν τη δημοσίευση %{post_link}."
+      other: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
+      zero: "Οι χρήστες %{actors} σχολίασαν τη %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} νέες ειδοποιήσεις"
@@ -312,9 +314,9 @@ el:
     mentioned: 
       few: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
       many: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
-      one: "Ο χρήστης %{actors} σας ανέφερε στο %{post_link}."
+      one: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
       other: "Οι χρήστες %{actors} σας ανέφεραν στο %{post_link}."
-      zero: "Ο χρήστης %{actors} σας ανέφερε στο %{post_link}."
+      zero: "Ο χρήστης %{actors} σας ανέφερε στη %{post_link}."
     mentioned_deleted: 
       few: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
       many: "Οι χρήστες %{actors} σας ανέφεραν σε μια διαγεγραμμένη δημοσίευση."
@@ -338,7 +340,7 @@ el:
     also_commented: 
       commented: "σχολίασε επίσης τη δημοσίευση του χρήστη %{post_author} :"
       sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο/Η %{name} επίσης σχολίασε τη δημοσίευση του %{post_author}."
+      subject: "Ο/Η %{name} επίσης σχολίασε τη δημοσίευση του χρήστη %{post_author}."
     comment_on_post: 
       commented: "έχει σχολιάσει σε δημοσίευση σας:"
       sign_in: "Συνδεθείτε για να το δείτε."
@@ -556,6 +558,7 @@ el:
   settings: "Ρυθμίσεις"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Εύρεση βάσει αναγνωριστικού Diaspora"
       diaspora_handle: "Αναγνωριστικό Diaspora"
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"

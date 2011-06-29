@@ -97,13 +97,6 @@ lt:
       no_contacts: "No contacts"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Pridėti naują aspektą"
-      add_a_new_contact: "Pridėti naują kontaktą"
-      drag_to_add: "Pridėk žmones tempdamas juos pele"
-      manage_aspects: "Tvarkyti aspektus"
-      no_requests: "Nėra naujų aspektų"
-      requests: "Prašymai"
     many: "%{count} aspects"
     move_contact: 
       error: "Klaida perkeliant kontaktą: %{inspect}"
@@ -146,6 +139,15 @@ lt:
     create: 
       failure: "Failed to create contact"
     few: "%{count} contacts"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
@@ -556,6 +558,7 @@ lt:
   settings: "Nustatymai"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Rask pagal Diasporos vartotojo vardą"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Įvesk Diasporos vartotojo vardą:"

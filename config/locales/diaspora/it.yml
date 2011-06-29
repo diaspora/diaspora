@@ -97,13 +97,6 @@ it:
       no_contacts: "Nessun contatto"
       people_sharing_with_you: "Persone in condivisione con te"
       post_a_message: "invia un messaggio >>"
-    manage: 
-      add_a_new_aspect: "Aggiungi aspetto della vita"
-      add_a_new_contact: "Aggiungi un nuovo contatto"
-      drag_to_add: "Trascina per aggiungere qualcuno"
-      manage_aspects: "Amministra gli aspetti della tua vita"
-      no_requests: "Nessuna nuova richiesta"
-      requests: "Richieste"
     many: "%{count} aspetti"
     move_contact: 
       error: "Errore nello spostare il contatto: %{inspect}"
@@ -146,6 +139,15 @@ it:
     create: 
       failure: "Impossibile creare il contatto"
     few: "%{count} contatti"
+    index: 
+      add_a_new_aspect: "Aggiungi un nuovo aspetto"
+      all_contacts: "Tutti i contatti"
+      my_contacts: "I miei contatti"
+      no_contacts: "Nessun contatto."
+      only_sharing_with_me: "Condividono con me"
+      remove_person_from_aspect: "Rimuovi %{person_name} da \"%{aspect_name}\""
+      title: "Contatti"
+      your_contacts: "I tuoi contatti"
     many: "%{count} contatti"
     one: "1 contatto"
     other: "%{count} contatti"
@@ -209,7 +211,7 @@ it:
     check_token: 
       not_found: "Token di invito non trovato"
     create: 
-      already_contacts: "Sei già connessa con questa persona"
+      already_contacts: "Questa persona è già tra i tuoi contatti"
       already_sent: "Hai già invitato questa persona."
       no_more: "Non hai più inviti a disposizione"
       own_address: "Non puoi inviare un invito al tuo indirizzo."
@@ -556,6 +558,7 @@ it:
   settings: "Impostazioni"
   shared: 
     add_contact: 
+      add_new_contact: "Aggiungi un nuovo contatto"
       create_request: "Cerca fra i nomi utente Diaspora"
       diaspora_handle: "Contatto Diaspora"
       enter_a_diaspora_username: "Inserisci un nome utente Diaspora"

@@ -97,13 +97,6 @@ sl:
       no_contacts: "Ni kontaktov"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Dodaj novo skupino"
-      add_a_new_contact: "Dodaj nov stik"
-      drag_to_add: "Za dodajanje osebe povleci"
-      manage_aspects: "Uredi skupine"
-      no_requests: "Ni novih prošenj"
-      requests: "Prošnje"
     many: "%{count} aspects"
     move_contact: 
       error: "Prestavljanje stika neuspešno: %{inspect}"
@@ -146,6 +139,15 @@ sl:
     create: 
       failure: "Failed to create contact"
     few: "število stikov %{count}"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} contacts"
     one: "1 stik"
     other: "število stikov %{count}"
@@ -556,6 +558,7 @@ sl:
   settings: "Nastavitve"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Poišči po Diaspora imenu"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Vpišite Diaspora uporabniško ime:"

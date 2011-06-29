@@ -97,13 +97,6 @@ ja:
       no_contacts: "連絡先無し"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "投稿する"
-    manage: 
-      add_a_new_aspect: "新しいアスペクトを追加する"
-      add_a_new_contact: "新しい連絡先を追加する"
-      drag_to_add: "追加したい連絡先をドラッグしてください"
-      manage_aspects: "アスペクトの管理"
-      no_requests: "新リクエスト無し"
-      requests: "リクエスト"
     many: "アスペクト%{count}集"
     move_contact: 
       error: "連絡先の移動にエラーが発生しました： %{inspect}"
@@ -146,6 +139,15 @@ ja:
     create: 
       failure: "連絡先を作成するのに失敗しました。"
     few: "連絡先%{count}件"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "連絡先%{count}件"
     one: "連絡先1件"
     other: "連絡先%{count}件"
@@ -556,6 +558,7 @@ ja:
   settings: "設定"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "ダイアスポラのハンドル名で検索"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "ダイアスポラのユーザ名を入力してください。"

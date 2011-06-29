@@ -97,13 +97,6 @@ ar:
       no_contacts: "لا أعضاء"
       people_sharing_with_you: "أعضاء يتشاركون معك"
       post_a_message: "انشر رسالة >>"
-    manage: 
-      add_a_new_aspect: "أضف فئة جديدة"
-      add_a_new_contact: "أضف عضوا جديدا"
-      drag_to_add: "اسحب لإضافة أعضاء"
-      manage_aspects: "إدارة الفئات"
-      no_requests: "لا طلبات إضافة جديدة"
-      requests: "طلبات"
     many: "%{count} فئات"
     move_contact: 
       error: "خطأ خلال تحريك عضو: %{inspect}"
@@ -146,6 +139,15 @@ ar:
     create: 
       failure: "فشل في إنشاء الإتصال"
     few: "%{count} أعضاء"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} أعضاء"
     one: "1 عضو"
     other: "%{count} أعضاء"
@@ -556,6 +558,7 @@ ar:
   settings: "إعدادات"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "ابحث باستخدام وسيط دياسبرا"
       diaspora_handle: "وسيط دياسبرا"
       enter_a_diaspora_username: "أدخل وسيط دياسبرا:"

@@ -97,13 +97,6 @@ ko:
       no_contacts: "컨택 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
-    manage: 
-      add_a_new_aspect: "애스펙 추가"
-      add_a_new_contact: "컨택 추가"
-      drag_to_add: "추가할 사람을 끌어놓으세요"
-      manage_aspects: "애스펙 관리"
-      no_requests: "새 요청 없음"
-      requests: "요청"
     many: "애스펙 %{count}개"
     move_contact: 
       error: "%{inspect} 컨택을 옮기는데 에러가 발생했습니다."
@@ -146,6 +139,15 @@ ko:
     create: 
       failure: "컨택을 만들 수 없습니다"
     few: "컨택 %{count}명"
+    index: 
+      add_a_new_aspect: "새 애스펙 추가"
+      all_contacts: "모든 컨택"
+      my_contacts: "내 컨택"
+      no_contacts: "컨택 없음."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
+      title: "컨택"
+      your_contacts: "내 컨택"
     many: "컨택 %{count}명"
     one: "컨택 한 명"
     other: "컨택 %{count}명"
@@ -556,6 +558,7 @@ ko:
   settings: "설정"
   shared: 
     add_contact: 
+      add_new_contact: "새 컨택 추가"
       create_request: "디아스포라 핸들로 찾기"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "디아스포라 사용자명을 입력하세요:"

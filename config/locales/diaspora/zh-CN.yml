@@ -97,13 +97,6 @@ zh-CN:
       no_contacts: "没有任何好友"
       people_sharing_with_you: "与您分享的人"
       post_a_message: "发布站内信>>"
-    manage: 
-      add_a_new_aspect: "添加视图"
-      add_a_new_contact: "添加新的好友"
-      drag_to_add: "拖动以添加好友"
-      manage_aspects: "视图管理"
-      no_requests: "没有新请求"
-      requests: "请求"
     many: "%{count}个视图"
     move_contact: 
       error: "好友移动错误：%{inspect}"
@@ -146,6 +139,15 @@ zh-CN:
     create: 
       failure: "添加好友失败"
     few: "%{count}个好友"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count}个好友"
     one: "1个好友"
     other: "%{count}个好友"
@@ -556,6 +558,7 @@ zh-CN:
   settings: "设置"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "用 Diaspora 帐号搜索"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "输入 Diaspora 帐号："

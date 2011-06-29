@@ -97,13 +97,6 @@ br:
       no_contacts: "Darempred ebet"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Add a new aspect"
-      add_a_new_contact: "Ouzhpennañ un darempred nevez"
-      drag_to_add: "Drag to add people"
-      manage_aspects: "Manage aspects"
-      no_requests: "No new requests"
-      requests: "Requests"
     many: "%{count} arvez"
     move_contact: 
       error: "Error moving contact: %{inspect}"
@@ -146,6 +139,15 @@ br:
     create: 
       failure: "Failed to create contact"
     few: "%{count} contacts"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} a zarempredoù"
     one: "1 darempred"
     other: "%{count} a zarempredoù"
@@ -556,6 +558,7 @@ br:
   settings: "Settings"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Klask diwar ar skor Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Enter a Diaspora username:"

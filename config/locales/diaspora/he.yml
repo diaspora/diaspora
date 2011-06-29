@@ -97,13 +97,6 @@ he:
       no_contacts: "אין אנשי קשר"
       people_sharing_with_you: "אנשים המשתפים אתך"
       post_a_message: "פרסום הודעה >>"
-    manage: 
-      add_a_new_aspect: "הוספת היבט חדש"
-      add_a_new_contact: "הוספת איש קשר חדש"
-      drag_to_add: "יש לגרור כדי להוסיף אנשי קשר"
-      manage_aspects: "ניהול היבטים"
-      no_requests: "אין בקשות חדשות"
-      requests: "בקשות"
     many: "%{count} היבטים"
     move_contact: 
       error: "שגיאה בהעברת איש הקשר: %{inspect}"
@@ -146,6 +139,15 @@ he:
     create: 
       failure: "אירע כשל ביצירת איש קשר"
     few: "%{count} אנשי קשר"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} אנשי קשר"
     one: "איש קשר אחד"
     other: "%{count} אנשי קשר"
@@ -556,6 +558,7 @@ he:
   settings: "הגדרות"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "חיפוש לפי שם משתמש בדיאספורה"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"

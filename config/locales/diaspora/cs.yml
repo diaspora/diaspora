@@ -97,13 +97,6 @@ cs:
       no_contacts: "Žádné kontakty"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
-    manage: 
-      add_a_new_aspect: "Přidat aspekt"
-      add_a_new_contact: "Přidat nový kontakt"
-      drag_to_add: "Přetáhněte kontakty"
-      manage_aspects: "Upravit aspekty"
-      no_requests: "Žádné nové žádosti"
-      requests: "Žádosti"
     many: "%{count} aspektů"
     move_contact: 
       error: "Chyba při přesunu kontaktu: %{inspect}"
@@ -146,6 +139,15 @@ cs:
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
     few: "%{count} kontaktů"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
@@ -556,6 +558,7 @@ cs:
   settings: "Nastavení"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Hledat podle Diaspora identifikátoru"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Zadejte uživatelské jméno na Diaspoře:"

@@ -97,13 +97,6 @@ nb:
       no_contacts: "Ingen kontakter"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Legg til et nytt aspekt"
-      add_a_new_contact: "Legg til ny kontakt"
-      drag_to_add: "Dra hit for å legge til"
-      manage_aspects: "Behandle aspekter"
-      no_requests: "Ingen nye forespørsler"
-      requests: "Forespørsler"
     many: "%{count} aspekter"
     move_contact: 
       error: "Feil ved flytting av kontakt: %{inspect}"
@@ -146,6 +139,15 @@ nb:
     create: 
       failure: "Kunne ikke opprette kontakt"
     few: "%{count} kontakter"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} kontakter"
     one: "1 kontakt"
     other: "%{count} kontakter"
@@ -556,6 +558,7 @@ nb:
   settings: "Innstillinger"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Finn etter Diaspora brukernavn"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Skriv inn et Diaspora brukernavn:"

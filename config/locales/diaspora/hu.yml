@@ -97,13 +97,6 @@ hu:
       no_contacts: "Nincs ismerős"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "üzenet küldése >>"
-    manage: 
-      add_a_new_aspect: "Új csoport hozzáadása"
-      add_a_new_contact: "Új ismerős hozzáadása"
-      drag_to_add: "Fogd meg és húzd ide az embereket."
-      manage_aspects: "Csoportok kezelése"
-      no_requests: "Nincs új felkérés"
-      requests: "Felkérések"
     many: "%{count} csoport"
     move_contact: 
       error: "Hiba a kapcsolat mozgatásakor: %{inspect}"
@@ -146,6 +139,15 @@ hu:
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
     few: "%{count} ismerős"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} ismerős"
     one: "1 ismerős"
     other: "%{count} ismerős"
@@ -556,6 +558,7 @@ hu:
   settings: "Beállítások"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Keresés Diaspora felhasználónév alapján"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Diaspora felhasználónév:"

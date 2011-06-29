@@ -74,8 +74,8 @@ ru:
       success: "%{name} успешно удалён."
     edit: 
       add_existing: "Добавить существующий контакт"
-      aspect_list_is_not_visible: "список аспектов скрыт для других пользователей"
-      aspect_list_is_visible: "список аспект виден другим пользователям"
+      aspect_list_is_not_visible: "список аспектов скрыт от других пользователей"
+      aspect_list_is_visible: "список аспектов виден другим пользователям"
       confirm_remove_aspect: "Вы уверены, что хотите удалить этот аспект?"
       done: "Выполнено"
       make_aspect_list_visible: "сделать список аспектов видимым?"
@@ -95,15 +95,8 @@ ru:
         learn_more: "Узнать больше"
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
-      people_sharing_with_you: "Люди делятса с вами"
+      people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "опубликовать сообщение>>"
-    manage: 
-      add_a_new_aspect: "Добавить новый аспект"
-      add_a_new_contact: "Добавить новый контакт"
-      drag_to_add: "Потяните для добавления в аспект"
-      manage_aspects: "Настройка аспектов"
-      no_requests: "Новых запросов нет"
-      requests: "Запросы"
     many: "%{count} аспект[-а, -ов]"
     move_contact: 
       error: "Ошибка при перемещении контакта: %{inspect}"
@@ -146,6 +139,15 @@ ru:
     create: 
       failure: "Не удалось создать контакт"
     few: "%{count} контакт[-а, -ов]"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
@@ -173,7 +175,7 @@ ru:
       no_messages: "нет сообщений"
     new: 
       send: "Отправить"
-      subject: "предмет"
+      subject: "тема"
       to: "к"
     show: 
       delete: "удалить и заблокировать разговор"
@@ -294,7 +296,7 @@ ru:
         many: "и %{count} другим"
         one: "и еще один"
         other: "и %{count} другим"
-        zero: "и больше кикому"
+        zero: "и больше никому"
       mark_all_as_read: "Отметить все как прочитанные"
       notifications: "Уведомления"
     liked: 
@@ -437,7 +439,7 @@ ru:
       post_it: "Опубликовать!"
     new_photo: 
       empty: "{file} пуст, выберите пожалуйста файл повторно."
-      invalid_ext: "{file} имеет не допустимое расширение. Разрешены только {extensions}."
+      invalid_ext: "{file} имеет недопустимое расширение. Разрешены только {extensions}."
       size_error: "{file} слишком большой, максимальный размер файла {sizeLimit}."
     new_profile_photo: 
       or_select_one: "или выбрать один из существующих"
@@ -556,10 +558,11 @@ ru:
   settings: "Настройки"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Поиск по Диаспоре"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"
-      know_email: "Знаете из email адреса? Вы должны предложить им присоединится к Диаспоре "
+      know_email: "Знаете их email адреса? Вы должны предложить им присоединится к Диаспоре "
       your_diaspora_username_is: "Ваше имя пользователя Диаспоры: %{diaspora_handle}"
     contact_list: 
       all_contacts: "Все контакты"
@@ -570,7 +573,7 @@ ru:
       by_email: "по электронной почте"
       dont_have_now: "У вас больше нет приглашений, но новые будут уже скоро!"
       from_facebook: "из Facebook"
-      invitations_left: "%{count} слева"
+      invitations_left: "осталось %{count}"
       invite_someone: "Пригласить кого-нибудь"
       invite_your_friends: "Пригласить своих друзей"
       invites: "Приглашения"
@@ -590,7 +593,7 @@ ru:
       make_public: "сделать публичным"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка..."
-      public: "Общеее"
+      public: "Общее"
       publishing_to: "публикация в:"
       share: "Поделиться"
       share_with: "поделиться с"
@@ -656,7 +659,7 @@ ru:
       change_language: "Изменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть аккаунт"
-      comment_on_post: "... кто-то комментарии на ваше сообщение?"
+      comment_on_post: "... кто-то прокомментировал ваше сообщение?"
       current_password: "Текущий пароль"
       download_photos: "Скачать мои фотографии"
       download_xml: "Скачать мою информацию в xml"
@@ -667,7 +670,7 @@ ru:
       new_password: "Новый пароль"
       private_message: "... Вы получаете личное сообщение?"
       receive_email_notifications: "Получать извещение электронной почтой (email), если..."
-      started_sharing: "... кто-то начинает делится с вами?"
+      started_sharing: "... кто-то начинает делиться с вами?"
       your_email: "Ваш адрес электронной почты (email)"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
@@ -677,7 +680,7 @@ ru:
       edit_profile: "Отредактировать профиль"
       finished: "Готово!"
       save_and_continue: "Сохранить и продолжить"
-      signup_steps: "Для заверщения вашей регистрации выполните эти три шага:"
+      signup_steps: "Для завершения вашей регистрации выполните эти три шага:"
       skip: "пропускать при старте"
       step_2: 
         find_your_friends_on_diaspora: "Хотели бы Вы найти своих Facebook друзей в диаспоре?"

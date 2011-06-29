@@ -97,13 +97,6 @@ en_shaw:
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
-    manage: 
-      add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
-      add_a_new_contact: "𐑨𐑛 𐑩 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
-      drag_to_add: "𐑛𐑮𐑨𐑜 𐑑 𐑨𐑛 𐑐𐑰𐑐𐑩𐑤"
-      manage_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-      no_requests: "𐑯𐑴 𐑯𐑿 𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
-      requests: "𐑮𐑦𐑒𐑢𐑧𐑕𐑑𐑕"
     many: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     move_contact: 
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
@@ -146,6 +139,15 @@ en_shaw:
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -556,6 +558,7 @@ en_shaw:
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"

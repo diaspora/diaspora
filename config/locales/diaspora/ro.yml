@@ -97,13 +97,6 @@ ro:
       no_contacts: "No contacts"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
-    manage: 
-      add_a_new_aspect: "Adaugă un nou aspect"
-      add_a_new_contact: "Adaugă un contact nou"
-      drag_to_add: "Glisaţi pentru a adăuga persoane"
-      manage_aspects: "Gestionează aspectele"
-      no_requests: "Nici o cerere nouă"
-      requests: "Cereri"
     many: "%{count} aspects"
     move_contact: 
       error: "Error moving contact: %{inspect}"
@@ -146,6 +139,15 @@ ro:
     create: 
       failure: "Failed to create contact"
     few: "%{count} contacts"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacte"
@@ -556,6 +558,7 @@ ro:
   settings: "Setări"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Find by Diaspora handle"
       diaspora_handle: "Diaspora handle"
       enter_a_diaspora_username: "Enter a Diaspora username:"

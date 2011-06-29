@@ -97,13 +97,6 @@ nl:
       no_contacts: "Geen contacten"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
-    manage: 
-      add_a_new_aspect: "Voeg een nieuw aspect toe"
-      add_a_new_contact: "Voeg contact toe"
-      drag_to_add: "Sleep om toe te voegen"
-      manage_aspects: "Beheer aspecten"
-      no_requests: "Geen nieuwe verzoeken"
-      requests: "Contactverzoeken"
     many: "%{count} aspecten"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
@@ -146,6 +139,15 @@ nl:
     create: 
       failure: "Verbinding maken mislukt"
     few: "%{count} contacten"
+    index: 
+      add_a_new_aspect: "Voeg een aspect toe"
+      all_contacts: "Alle Contacten"
+      my_contacts: "Mijn Contacten"
+      no_contacts: "Geen contacten."
+      only_sharing_with_me: "Delen alleen met mij"
+      remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
+      title: "Contacten"
+      your_contacts: "Jouw Contacten"
     many: "%{count} contacten"
     one: "1 contact"
     other: "%{count} contacten"
@@ -348,7 +350,7 @@ nl:
     liked: 
       liked: "%{name} vind je post leuk: "
       sign_in: "Sign to view it"
-      subject: "%{name} vind jou post leuk"
+      subject: "%{name} vindt jouw post leuk"
     love: "liefs,"
     manage_your_email_settings: "beheer je e-mail instellingen"
     mentioned: 
@@ -474,7 +476,7 @@ nl:
       your_bio: "Jouw bio"
       your_birthday: "Je verjaardag"
       your_gender: "Je geslacht"
-      your_location: "Jou locatie"
+      your_location: "Jouw locatie"
       your_name: "Je naam"
       your_photo: "Je profielfoto"
       your_private_profile: "Je privé-profiel"
@@ -556,6 +558,7 @@ nl:
   settings: "Instellingen"
   shared: 
     add_contact: 
+      add_new_contact: "Voeg een contact toe"
       create_request: "Vind door middel van Diaspora handle"
       diaspora_handle: "gebruikersnaam@pod.org"
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
@@ -565,7 +568,7 @@ nl:
       all_contacts: "Alle contacten"
     footer: 
       logged_in_as: "ingelogd als %{name}"
-      your_aspects: "jou aspecten"
+      your_aspects: "jouw aspecten"
     invitations: 
       by_email: "via E-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
@@ -651,12 +654,12 @@ nl:
   users: 
     destroy: "Je account is geblokkeerd. Het sluiten van je account kan twintig minuten in beslag nemen. Bedankt voor je interesse in Diaspora."
     edit: 
-      also_commented: "...iemand na jou op de post van jou contact reageert?"
+      also_commented: "...iemand na jou op de post van jouw contact reageert?"
       change: "Verander"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
-      comment_on_post: "...iemand op jou post reageert?"
+      comment_on_post: "...iemand op jouw post reageert?"
       current_password: "Huidig wachtwoord"
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"

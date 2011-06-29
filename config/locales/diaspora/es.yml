@@ -97,13 +97,6 @@ es:
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
-    manage: 
-      add_a_new_aspect: "Añade un nuevo aspecto"
-      add_a_new_contact: "Añadir nuevo contacto"
-      drag_to_add: "Arrastrar para añadir"
-      manage_aspects: "Gestión de aspectos"
-      no_requests: "No hay nuevas solicitudes"
-      requests: "Solicitudes"
     many: "%{count} aspectos"
     move_contact: 
       error: "Error moviendo el contacto: %{inspect}"
@@ -146,6 +139,15 @@ es:
     create: 
       failure: "No se pudo crear el contacto"
     few: "%{count} contactos"
+    index: 
+      add_a_new_aspect: "Añadir un nuevo aspecto"
+      all_contacts: "Todos los Contactos"
+      my_contacts: "Mis Contactos"
+      no_contacts: "Sin contactos."
+      only_sharing_with_me: "Solo compartiendo conmigo"
+      remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
+      title: "Contactos"
+      your_contacts: "Tus Contactos"
     many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
@@ -479,8 +481,8 @@ es:
       your_photo: "Foto"
       your_private_profile: "Perfil privado"
       your_public_profile: "Perfil público"
-      your_tags: "Tú: en 5 #etiquetas"
-      your_tags_placeholder: "p.ej. #diaspora #panqueque #gatitos #musica"
+      your_tags: "Describete en 5 palabras"
+      your_tags_placeholder: "como #peliculas #viajes #gatitos #profesora #panqueque"
     update: 
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
@@ -556,6 +558,7 @@ es:
   settings: "Configuración"
   shared: 
     add_contact: 
+      add_new_contact: "Añadir un nuevo contacto"
       create_request: "Encontrar por la dirección Diaspora*"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"

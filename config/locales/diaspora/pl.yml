@@ -97,13 +97,6 @@ pl:
       no_contacts: "Brak kontaktów"
       people_sharing_with_you: "Osoby dzielące się z tobą"
       post_a_message: "napisz wiadomość >>"
-    manage: 
-      add_a_new_aspect: "Dodaj nowy aspekt"
-      add_a_new_contact: "Dodaj nowy kontakt"
-      drag_to_add: "Przeciągnij, aby dodać ludzi"
-      manage_aspects: "Zarządzanie aspektami"
-      no_requests: "Brak nowych zaproszeń"
-      requests: "Zaproszenia"
     many: "%{count} aspektów"
     move_contact: 
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
@@ -146,6 +139,15 @@ pl:
     create: 
       failure: "Nie udało się utworzyć kontaktu"
     few: "%{count} kontakty"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} kontaktów"
     one: "1 kontakt"
     other: "%{count} kontaktów"
@@ -556,6 +558,7 @@ pl:
   settings: "Ustawienia"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Znajdź po identyfikatorze Diaspory"
       diaspora_handle: "identyfikator@diaspory"
       enter_a_diaspora_username: "Wpisz nazwę użytkownika Diaspory:"

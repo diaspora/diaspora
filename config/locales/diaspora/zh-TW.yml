@@ -97,13 +97,6 @@ zh-TW:
       no_contacts: "沒有任何聯繫"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
-    manage: 
-      add_a_new_aspect: "新增面向"
-      add_a_new_contact: "加入新的聯繫"
-      drag_to_add: "拖拉移動人以加入他們"
-      manage_aspects: "面向管理"
-      no_requests: "沒有新要求"
-      requests: "請求"
     many: "%{count}個面向"
     move_contact: 
       error: "聯繫移動錯誤: %{inspect}"
@@ -146,6 +139,15 @@ zh-TW:
     create: 
       failure: "建立聯繫失敗"
     few: "%{count}個聯繫"
+    index: 
+      add_a_new_aspect: "加入新面向"
+      all_contacts: "全部聯絡人"
+      my_contacts: "我的聯絡人"
+      no_contacts: "沒有聯絡人."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
+      title: "聯絡人"
+      your_contacts: "你的聯絡人"
     many: "%{count}個聯繫"
     one: "1個聯繫"
     other: "%{count}個聯繫"
@@ -479,8 +481,8 @@ zh-TW:
       your_photo: "你的相片"
       your_private_profile: "你的私人檔案"
       your_public_profile: "你的公開檔案"
-      your_tags: "你: 可以有5個\"#標籤\""
-      your_tags_placeholder: "像是: #diaspora #燙髮 #貓咪 #音樂"
+      your_tags: "用五個詞來表現你自己"
+      your_tags_placeholder: "像是: #電影 #貓咪 #旅行 #老師 #紐約"
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
@@ -556,6 +558,7 @@ zh-TW:
   settings: "設定"
   shared: 
     add_contact: 
+      add_new_contact: "加入新聯繫"
       create_request: "以 Diaspora 識別碼搜尋"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "輸入 Diaspora 用戶名稱:"

@@ -97,13 +97,6 @@ bg:
       no_contacts: "Няма контакти"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
-    manage: 
-      add_a_new_aspect: "Създаване на аспект"
-      add_a_new_contact: "Добавяне на контакт"
-      drag_to_add: "Влачете за да добавите хора"
-      manage_aspects: "Управление на аспектите"
-      no_requests: "Няма нови покани"
-      requests: "Покани"
     many: "%{count} аспекта"
     move_contact: 
       error: "Грешка при преместване на контакт: %{inspect}"
@@ -146,6 +139,15 @@ bg:
     create: 
       failure: "Контактът не бе създаден"
     few: "%{count} контакта"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} контакта"
     one: "1 контакт"
     other: "%{count} контакта"
@@ -556,6 +558,7 @@ bg:
   settings: "Настройки"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Търси по Diaspora адрес"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Въведете потребителско име от Diaspora:"

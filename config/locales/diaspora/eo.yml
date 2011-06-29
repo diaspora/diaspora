@@ -97,13 +97,6 @@ eo:
       no_contacts: "Nul kontaktoj"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
       post_a_message: "Afiŝi mesaĝon »"
-    manage: 
-      add_a_new_aspect: "Aldoni novan aspekton"
-      add_a_new_contact: "Aldoni novan kontakton"
-      drag_to_add: "Trenu por aldoni homojn"
-      manage_aspects: "Administri aspektojn"
-      no_requests: "Neniujn novajn petojn "
-      requests: "Petoj"
     many: "%{count} aspektoj"
     move_contact: 
       error: "Ne povis movi kontakton: %{inspect}"
@@ -146,6 +139,15 @@ eo:
     create: 
       failure: "Ne povis krei kontakton"
     few: "%{count} kontaktoj"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} kontaktoj"
     one: "1 kontakto"
     other: "%{count} kontaktoj"
@@ -556,6 +558,7 @@ eo:
   settings: "Agordoj"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Trovi per DIASPORA* uzantnomo"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Aldonu DIASPORA* uzantnomo:"

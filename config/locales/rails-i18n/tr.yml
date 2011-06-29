@@ -179,4 +179,3 @@ tr:
         odd: "tek olmalı"
         even: "çift olmalı"
         record_invalid: "Doğrulama başarısız oldu: %{errors}"
-      models:

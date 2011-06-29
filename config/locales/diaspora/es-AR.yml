@@ -97,13 +97,6 @@ es-AR:
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Comparten con vos"
       post_a_message: "publicar un mensaje >>"
-    manage: 
-      add_a_new_aspect: "Agregar un nuevo aspecto"
-      add_a_new_contact: "Agregar un nuevo contacto"
-      drag_to_add: "Arrastrar para agregar"
-      manage_aspects: "Gestión de aspectos"
-      no_requests: "No hay nuevas solicitudes"
-      requests: "Solicitudes"
     many: "%{count} aspectos"
     move_contact: 
       error: "Se produjo un error al mover el contacto: %{inspect}"
@@ -146,6 +139,15 @@ es-AR:
     create: 
       failure: "No pudo crearse el contacto"
     few: "%{count} contactos"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
@@ -556,6 +558,7 @@ es-AR:
   settings: "Configuración"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Buscar por la dirección Diáspora*"
       diaspora_handle: "direcc@diasp.org"
       enter_a_diaspora_username: "Ingresá el nombre de usuario de Diáspora*:"

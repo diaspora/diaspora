@@ -97,13 +97,6 @@ eu:
       no_contacts: "Adiskiderik ez"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
-    manage: 
-      add_a_new_aspect: "Alderdi berri bat sortu"
-      add_a_new_contact: "Adiskide berria gehitu"
-      drag_to_add: "Herresta egin ezazu jendea gehitzearren"
-      manage_aspects: "Alderdiak kudeatu"
-      no_requests: "Ez duzu eskaera berririk"
-      requests: "Eskaerak"
     many: "%{count} alderdi"
     move_contact: 
       error: "Huts adiskidea mugitzean: %{inspect}"
@@ -146,6 +139,15 @@ eu:
     create: 
       failure: "Akatsa adiskide berria sortzean"
     few: "%{count} adiskide"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      title: "Contacts"
+      your_contacts: "Your Contacts"
     many: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
@@ -556,6 +558,7 @@ eu:
   settings: "Lehentasunak"
   shared: 
     add_contact: 
+      add_new_contact: "Add a new contact"
       create_request: "Diaspora helbide arabera bilatu"
       diaspora_handle: "diaspora@helbidea.org"
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
