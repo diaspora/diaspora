@@ -47,15 +47,18 @@ describe NotificationsController do
   describe '#index' do
     before do
       @post = Factory(:status_message)
-      26.times do
-        Factory(:notification, :recipient => @user, :target => @post)
-      end
+      Factory(:notification, :recipient => @user, :target => @post)
     end
 
     it 'paginates the notifications' do
+      25.times do
+        Factory(:notification, :recipient => @user, :target => @post)
+      end
+
       @controller.index({})[:notifications].count.should == 25
       @controller.index(:page => 2)[:notifications].count.should == 1
     end
+
     it "includes the actors" do
       notification = Factory(:notification, :recipient => @user, :target => @post)
       response = @controller.index({})
