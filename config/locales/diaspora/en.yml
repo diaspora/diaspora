@@ -133,7 +133,7 @@ en:
       family: "Family"
       work: "Work"
     index:
-      handle_explanation: "This is your diaspora handle. Like an email address, you can give this to people to reach you."
+      handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
       people_sharing_with_you: "People sharing with you"
@@ -609,8 +609,8 @@ en:
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
-      create_request: "Find by Diaspora handle"
-      diaspora_handle: "diaspora@handle.org"
+      create_request: "Find by Diaspora ID"
+      diaspora_handle: "diaspora@pod.org"
       know_email: "Know their email address? You should invite them"
       add_new_contact: "Add a new contact"
     invitations:
@@ -683,7 +683,7 @@ en:
       making_the_connection: "Making the Connection"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
-      your_diaspora_handle: "Your Diaspora Handle:"
+      your_diaspora_handle: "Your Diaspora ID:"
       your_diaspora_token: "Your Diaspora Token:"
       generate_a_token: "Generate a token"
       via: "(via %{link})"
@@ -702,7 +702,7 @@ en:
       current_password: "Current password"
       download_xml: "download my xml"
       download_photos: "download my photos"
-      your_handle: "Your diaspora handle"
+      your_handle: "Your diaspora id"
       your_email: "Your email"
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when..."
