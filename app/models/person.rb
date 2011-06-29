@@ -219,6 +219,16 @@ class Person < ActiveRecord::Base
     self.posts.where(:type => "Photo").exists?
   end
 
+  def as_json(opts={})
+    {
+      :id => self.guid,
+      :name => self.name,
+      :avatar => self.profile.image_url(:thumb_small),
+      :handle => self.diaspora_handle,
+      :url => "/people/#{self.id}"
+    }
+  end
+
   protected
 
   def clean_url
