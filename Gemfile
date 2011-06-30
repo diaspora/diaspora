@@ -23,7 +23,7 @@ gem 'devise_invitable', '0.5.0'
 gem 'omniauth', '0.2.6'
 gem 'twitter', '1.5.0'
 
-gem 'oauth2-provider', '~> 0.0.0'
+gem 'oauth2-provider', '0.0.16'
 gem 'jwt', :git => "git://github.com/zhitomirskiyi/ruby-jwt.git", :require => false
 
 #Web

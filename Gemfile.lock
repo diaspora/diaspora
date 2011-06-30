@@ -481,7 +481,7 @@ DEPENDENCIES
   mysql2 (= 0.2.6)
   newrelic_rpm
   nokogiri
-  oauth2-provider (~> 0.0.0)
+  oauth2-provider (= 0.0.16)
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
   rails (= 3.0.3)
