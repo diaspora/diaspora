@@ -3,8 +3,11 @@
 -#   the COPYRIGHT file.
 
 .dropdown{:class => "hang_#{hang}"}
-  .button.toggle
-    = t('.toggle', :count => contact.aspects.size)
+  .button.toggle{:class => ("in_aspects" if contact.aspects.size > 0)}
+    - if contact.aspects.size == 1
+      = contact.aspects.first.name
+    - else
+      = t('.toggle', :count => contact.aspects.size)
     &#9660;
 
   .wrapper

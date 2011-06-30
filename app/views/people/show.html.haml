@@ -25,16 +25,15 @@
 
 .span-15.last
   #author_info
-    - if user_signed_in? && @contact && @contact.receiving?
+    - if user_signed_in? && current_user.person != @person
       .right
-        = link_to t('.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
-        - if @contact.mutual?
-          = link_to t('.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :class => 'button', :rel => 'facebox'
+        = render 'aspect_memberships/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
 
     %h3
       = @person.name
-      %span.diaspora_handle
-        = @person.diaspora_handle
+    %span.diaspora_handle
+      = @person.diaspora_handle
+
       .description
         - if !@person.profile.tag_string.blank? && user_signed_in? && (@contact.persisted? || @person == current_user.person || @incoming_request)
           = @person.profile.format_tags(@person.profile.tag_string)

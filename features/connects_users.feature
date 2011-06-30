@@ -91,7 +91,7 @@ Feature: sending and receiving requests
     When I sign in as "bob@bob.bob"
     And I am on "alice@alice.alice"'s page
 
-    Then I should see "In 1 aspect"
+    Then I should see "Besties"
     Then I should see "Mention"
     Then I should not see "Message"
 

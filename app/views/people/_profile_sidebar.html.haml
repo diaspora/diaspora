@@ -11,11 +11,12 @@
       %p
         = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
 
-
-    - if person != current_user.person
-      %hr{:style=>"width:300px;"}
-      %br
-      = render 'aspect_memberships/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
+    - else
+      - if @contact && @contact.receiving?
+        %br
+        = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
+        - if @contact.mutual?
+          = link_to t('people.show.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :class => 'button', :rel => 'facebox'
       %br
       %br
     -if contact.sharing? || person == current_user.person

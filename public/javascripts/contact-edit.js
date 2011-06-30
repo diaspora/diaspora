@@ -12,14 +12,16 @@ var ContactEdit = {
   updateNumber: function(personId){
     var dropdown = $(".dropdown_list[data-person_id=" + personId.toString() +"]"),
         number = dropdown.find(".selected").length,
-        element = dropdown.parents(".dropdown").children('.button.toggle');
+        button = dropdown.parents(".dropdown").children('.button.toggle');
 
     var replacement;
 
     if (number == 0) {
-      replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero") ;
+      button.removeClass("in_aspects");
+      replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero");
     }else if (number == 1) { 
-      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.one', { count: number.toString()})
+      button.addClass("in_aspects");
+      replacement = dropdown.find(".selected").first().text();
     }else if (number < 3) {
       replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
     }else if (number > 3) {
@@ -29,7 +31,7 @@ var ContactEdit = {
       replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
 
-    element.html(replacement + ' ▼');
+    button.html(replacement + ' ▼');
   },
   
   toggleCheckbox: 
