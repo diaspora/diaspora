@@ -112,23 +112,23 @@ module MarkdownifyHelper
   end
 
   def process_emoticons(message)
-    map = {
-      "&lt;3" => "&hearts;",
-      ":("    => "&#9785;",
-      ":-("   => "&#9785;",
-      ":)"    => "&#9786;",
-      ":-)"   => "&#9786;",
-      "&lt;-&gt;" => "&#8596;",
-      "-&gt;" => "&rarr;",
-      "&lt;-" => "&larr;",
-      "..."   => "&hellip;",
-      "(tm)"  => "&trade;",
-      "(r)"   => "&reg;",
-      "(c)"   => "&copy;"
-    }
+    map = [
+      ["&lt;3", "&hearts;"],
+      [":(", "&#9785;"],
+      [":-(", "&#9785;"],
+      [":)", "&#9786;"],
+      [":-)", "&#9786;"],
+      ["&lt;-&gt;", "&#8596;"],
+      ["-&gt;", "&rarr;"],
+      ["&lt;-", "&larr;"],
+      ["...", "&hellip;"],
+      ["(tm)", "&trade;"],
+      ["(r)", "&reg;"],
+      ["(c)", "&copy;"]
+    ]
 
-    map.each do |search, replace|
-      message.gsub!(search, replace)
+    map.each do |mapping|
+      message.gsub!(mapping[0], mapping[1])
     end
     message
   end
