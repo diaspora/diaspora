@@ -13,6 +13,7 @@ ca:
   profile: "Perfil"
   account: "Compte"
   _services: "Serveis"
+  _applications: "Aplicacions"
   _photos: "fotos"
   ok: "D'acord"
   cancel: "Canceŀla"
@@ -107,13 +108,6 @@ ca:
       edit_aspect: "edita l'aspecte"
     no_posts_message:
       start_talking:  "Ningú no ha dit res encara. Inicieu la conversa!"
-    manage:
-      add_a_new_aspect: "Afegeix un aspecte nou"
-      add_a_new_contact: "Afegeix un contacte nou"
-      requests: "Peticions"
-      no_requests: "No hi ha cap petició nova"
-      manage_aspects: "Gestiona els espectes"
-      drag_to_add: "Arrossegueu i deixeu anar per afegir gent"
     new:
       name: "Nom"
       create: "Crea'l"
@@ -196,6 +190,15 @@ ca:
       failure: "No s'ha pogut crear el contacte"
     sharing:
       people_sharing: "Gent que comparteix amb vosaltres:"
+    index:
+      add_a_new_aspect: "Afegeix un aspecte nou"
+      title: "Contactes"
+      your_contacts: "Els vostres contactes"
+      no_contacts: "Cap contacte."
+      my_contacts: "Els meus contactes"
+      all_contacts: "Tots els contactes"
+      only_sharing_with_me: "Només compartint amb mi"
+      remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
 
 
   conversations:
@@ -526,8 +529,8 @@ ca:
       last_name: "Cognom"
       your_gender: "El vostre gènere"
       your_birthday: "El vostre aniversari"
-      your_tags: "Vosaltres: en 5 #etiquetes"
-      your_tags_placeholder: "P. ex. #música #llibres #esport #amics #cervesa"
+      your_tags: "Descriviu-vos en 5 paraules"
+      your_tags_placeholder: "P. ex. #cinema #gats #infermer #viatjar #barcelona"
       your_bio: "La vostra biografia"
       your_location: "La vostra ubicació"
       your_photo: "La vostra foto"
@@ -633,6 +636,7 @@ ca:
       create_request: "Cerca per identificador de Diàspora"
       diaspora_handle: "diaspora@identificador.cat"
       know_email: "Coneixeu el seu correu electrònic? L'hauríeu de convidar"
+      add_new_contact: "Afegeix un contacte nou"
     invitations:
       invites: "Invitacions"
       invite_someone: "Convideu algú"
@@ -713,6 +717,11 @@ També és la millor forma de coŀleccionar fotos en línia."
       your_diaspora_token: "El vostre testimoni de Diàspora"
       generate_a_token: "Genera un testimoni"
       via: "(via %{link})"
+
+
+  authorizations:
+    index:
+      revoke_access: "Revoca l'accés"
 
 
   users:
