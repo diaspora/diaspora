@@ -4,6 +4,7 @@
 
 
 ar: 
+  _applications: "Applications"
   _comments: "تعليقات"
   _home: "الرئيسية"
   _photos: "صور"
@@ -118,6 +119,9 @@ ar:
       failure: "فئتك, %{name}, اسمها طويل ولا يمكن حفظها."
       success: ".بنجاح %{name} تم تعديل"
     zero: "لا فئات"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "عودة"
   bookmarklet: 
     explanation: "%{link} من أي مكان بحفظ هذا الرابط في المفضلة"

@@ -4,6 +4,7 @@
 
 
 ga: 
+  _applications: "Applications"
   _comments: "Nótaí tráchta"
   _home: "Abhaile"
   _photos: "pictíurí"
@@ -118,6 +119,9 @@ ga:
       failure: "Bhí ainm ró-fhada ag do gné, %{name}."
       success: "D'eirigh le athrú do gné %{name}."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Ar ais"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

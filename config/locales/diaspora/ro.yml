@@ -4,6 +4,7 @@
 
 
 ro: 
+  _applications: "Applications"
   _comments: "Comentarii"
   _home: "Acasă"
   _photos: "Fotografii"
@@ -118,6 +119,9 @@ ro:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspectul, %{name}, a fost editat cu succes."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Înapoi"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

@@ -4,6 +4,7 @@
 
 
 nb: 
+  _applications: "Applications"
   _comments: "Kommentarer"
   _home: "Hjem"
   _photos: "bilder"
@@ -118,6 +119,9 @@ nb:
       failure: "Aspektet ditt, %{name}, har for langt navn."
       success: "Aspektet ditt, %{name}, har blitt endra."
     zero: "ingen aspekter"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Tilbake"
   bookmarklet: 
     explanation: "%{link} fra hvor som helst ved å bokmerke denne linken."

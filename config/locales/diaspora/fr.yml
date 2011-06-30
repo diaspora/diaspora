@@ -4,6 +4,7 @@
 
 
 fr: 
+  _applications: "Applications"
   _comments: "Commentaires"
   _home: "Accueil"
   _photos: "photos"
@@ -118,6 +119,9 @@ fr:
       failure: "Votre aspect %{name} a un nom trop long pour être enregistré."
       success: "Votre aspect « %{aspect_name} » a été modifié."
     zero: "aucun aspect"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Retour"
   bookmarklet: 
     explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."

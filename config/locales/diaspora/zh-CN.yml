@@ -4,6 +4,7 @@
 
 
 zh-CN: 
+  _applications: "Applications"
   _comments: "评论"
   _home: "首页"
   _photos: "照片"
@@ -118,6 +119,9 @@ zh-CN:
       failure: "视图 %{name} 名称太长了，不能保存"
       success: "视图 %{name} 编辑成功。"
     zero: "没有视图"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "后退"
   bookmarklet: 
     explanation: "%{link} 收藏这个链接，即可随时发布新内容"

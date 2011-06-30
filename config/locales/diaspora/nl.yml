@@ -4,6 +4,7 @@
 
 
 nl: 
+  _applications: "Applicaties"
   _comments: "Reacties"
   _home: "Home"
   _photos: "foto's"
@@ -118,6 +119,9 @@ nl:
       failure: "De naam van je aspect, %{name}, is te lang om op te slaan."
       success: "Je aspect, %{name}, is succesvol aangepast."
     zero: "geen aspecten"
+  authorizations: 
+    index: 
+      revoke_access: "Toegang Terugdraaien"
   back: "Terug"
   bookmarklet: 
     explanation: "Post vanaf overal naar Diaspora door %{link} op te slaan."

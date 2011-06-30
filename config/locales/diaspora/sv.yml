@@ -4,6 +4,7 @@
 
 
 sv: 
+  _applications: "Applications"
   _comments: "Kommentarer"
   _home: "Hem"
   _photos: "foton"
@@ -118,6 +119,9 @@ sv:
       failure: "Din aspekt, %{name}, hade ett för långt namn för att kunna sparas."
       success: "Din aspekt %{name} är nu ändrad."
     zero: "inga aspekter"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Tillbaka"
   bookmarklet: 
     explanation: "%{link} från var som helst genom att lägga till den här länken som bokmärke."

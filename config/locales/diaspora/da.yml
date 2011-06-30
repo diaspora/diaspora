@@ -4,6 +4,7 @@
 
 
 da: 
+  _applications: "Applications"
   _comments: "Kommentarer"
   _home: "Hjem"
   _photos: "Billeder"
@@ -118,6 +119,9 @@ da:
       failure: "Dit aspekt, %{name}, var for langt til at blive gemt."
       success: "Dit aspekt, %{name}, er nu blevet redigeret."
     zero: "ingen aspekter"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Tilbage"
   bookmarklet: 
     explanation: "%{link} alle steder fra ved at bogmærke dette link."

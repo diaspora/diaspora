@@ -4,6 +4,7 @@
 
 
 zh-TW: 
+  _applications: "Applications"
   _comments: "意見"
   _home: "首頁"
   _photos: "相片"
@@ -118,6 +119,9 @@ zh-TW:
       failure: "你的面向 %{name} 因名稱太長了無法儲存."
       success: "你的面向 %{name} 已編輯完成."
     zero: "沒有面向"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "後退"
   bookmarklet: 
     explanation: "%{link}加入書籤後可對任何網站使用."

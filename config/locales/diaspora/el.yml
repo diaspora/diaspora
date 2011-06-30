@@ -4,6 +4,7 @@
 
 
 el: 
+  _applications: "Applications"
   _comments: "Σχόλια"
   _home: "Αρχική"
   _photos: "Φωτογραφίες"
@@ -118,6 +119,9 @@ el:
       failure: "Η πτυχή σας, %{name}, έχει πολύ μεγάλο όνομα για να αποθηκευτεί."
       success: "Έγινε επιτυχώς η επεξεργασία της πτυχής σας,% {name}."
     zero: "καμία πτυχή"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Πίσω"
   bookmarklet: 
     explanation: "Δημοσιεύστε στο Diaspora από οπουδήποτε προσθέτοντας %{link}."

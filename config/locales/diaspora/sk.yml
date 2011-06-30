@@ -4,6 +4,7 @@
 
 
 sk: 
+  _applications: "Applications"
   _comments: "Komentáre"
   _home: "Domov"
   _photos: "Fotky"
@@ -118,6 +119,9 @@ sk:
       failure: "Váš aspekt, %{name}, má príliš dlhý názov."
       success: "Váš aspekt, %{name}, bol úspešne upravený."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Späť"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

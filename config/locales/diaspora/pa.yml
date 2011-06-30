@@ -4,6 +4,7 @@
 
 
 pa: 
+  _applications: "Applications"
   _comments: "ਟਿੱਪਣੀਆਂ"
   _home: "ਘਰ"
   _photos: "ਫੋਟੋ"
@@ -118,6 +119,9 @@ pa:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Your aspect, %{name}, has been successfully edited."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "ਪਿੱਛੇ"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

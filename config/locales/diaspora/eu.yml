@@ -4,6 +4,7 @@
 
 
 eu: 
+  _applications: "Aplikazioak"
   _comments: "Iruzkinak"
   _home: "Hasiera"
   _photos: "argazkiak"
@@ -118,6 +119,9 @@ eu:
       failure: "Zure alderdiak, %{name}(e)k, izen luzeegia du."
       success: "Zure alderdia, %{name}, eraldatua izan da."
     zero: "alderdirik ez"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Atzera"
   bookmarklet: 
     explanation: "Diasporan partekatu %{link} erabiliz."
@@ -140,14 +144,14 @@ eu:
       failure: "Akatsa adiskide berria sortzean"
     few: "%{count} adiskide"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      add_a_new_aspect: "Alderdi berria gehitu"
+      all_contacts: "Adiskide Guztiak"
+      my_contacts: "Nire Adiskideak"
+      no_contacts: "Adiskiderik ez."
+      only_sharing_with_me: "Bakarrik nirekin harremanetan"
+      remove_person_from_aspect: "Ezabatu %{person_name} \"%{aspect_name}\"(e)tik"
+      title: "Adiskideak"
+      your_contacts: "Zure Adiskideak"
     many: "%{count} adiskide"
     one: "adiskide 1"
     other: "%{count} adiskide"
@@ -558,7 +562,7 @@ eu:
   settings: "Lehentasunak"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Adiskide berria gehitu"
       create_request: "Diaspora helbide arabera bilatu"
       diaspora_handle: "diaspora@helbidea.org"
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"

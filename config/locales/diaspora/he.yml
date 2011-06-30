@@ -4,6 +4,7 @@
 
 
 he: 
+  _applications: "Applications"
   _comments: "תגובות"
   _home: "בית"
   _photos: "תמונות"
@@ -118,6 +119,9 @@ he:
       failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
       success: "ההיבט שלך, %{name}, נערך בהצלחה."
     zero: "אין היבטים"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "חזרה"
   bookmarklet: 
     explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."

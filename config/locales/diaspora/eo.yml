@@ -4,6 +4,7 @@
 
 
 eo: 
+  _applications: "Aplikaĵoj"
   _comments: "Komentoj"
   _home: "Hejmo"
   _photos: "Bildoj"
@@ -118,6 +119,9 @@ eo:
       failure: "Via aspekto, %{name}, havis tro longan nomon saviĝi."
       success: "Via aspekto, %{name}, sukcese redaktiĝis."
     zero: "neniu aspektoj"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Antaŭen"
   bookmarklet: 
     explanation: "Vi povas poŝti al DIASPORA* el ĉie per legosignado la ligilon %{link}."
@@ -140,14 +144,14 @@ eo:
       failure: "Ne povis krei kontakton"
     few: "%{count} kontaktoj"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      add_a_new_aspect: "Aldoni novan aspekton"
+      all_contacts: "Ĉiuj kontaktoj"
+      my_contacts: "Miaj kontaktoj"
+      no_contacts: "Neniuj kontaktoj."
+      only_sharing_with_me: "Nur partoprenata al mi"
+      remove_person_from_aspect: "Forigi %{person_name} de \"%{aspect_name}\""
+      title: "Kontaktoj"
+      your_contacts: "Viaj kontaktoj"
     many: "%{count} kontaktoj"
     one: "1 kontakto"
     other: "%{count} kontaktoj"
@@ -481,7 +485,7 @@ eo:
       your_photo: "Via bildo"
       your_private_profile: "Via nepublika profilo"
       your_public_profile: "Via nepublika profilo"
-      your_tags: "Vi en kvin #etikedoj"
+      your_tags: "En kvin vortoj priskribu vin mem."
       your_tags_placeholder: "ekz. #diaspora #gladado #katidoj #muziko"
     update: 
       failed: "Ne povis ĝisdatigi profilon"
@@ -558,7 +562,7 @@ eo:
   settings: "Agordoj"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Aldoni novan kontakton"
       create_request: "Trovi per DIASPORA* uzantnomo"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Aldonu DIASPORA* uzantnomo:"

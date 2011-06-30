@@ -4,6 +4,7 @@
 
 
 en_shaw: 
+  _applications: "𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
   _home: "Home"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
@@ -90,9 +91,9 @@ en_shaw:
       remove: "𐑮𐑦𐑥𐑵𐑝"
     index: 
       cubbies: 
-        explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
-        learn_more: "Learn more"
+        explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
+        heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
+        learn_more: "𐑤𐑻𐑯 𐑥𐑹"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
@@ -118,11 +119,14 @@ en_shaw:
       failure: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑛 𐑑𐑵 𐑤𐑪𐑙 𐑩 𐑯𐑱𐑥 𐑑 𐑚𐑰 𐑕𐑱𐑝𐑛."
       success: "𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑, %{name}, 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑧𐑛𐑦𐑑𐑩𐑛."
     zero: "𐑯𐑴 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
+  authorizations: 
+    index: 
+      revoke_access: "𐑮𐑦𐑝𐑴𐑒 𐑨𐑒𐑕𐑧𐑕"
   back: "𐑚𐑨𐑒"
   bookmarklet: 
-    explanation: "%{link} 𐑓𐑮𐑪𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒."
-    explanation_link_text: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
-    heading: "Diaspora Bookmarklet"
+    explanation: "𐑐𐑴𐑕𐑑 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑮𐑳𐑥 𐑨𐑯𐑦𐑢𐑺 𐑚𐑲 𐑚𐑫𐑒𐑥𐑸𐑒𐑦𐑙 %{link}."
+    explanation_link_text: "𐑞𐑦𐑕 𐑤𐑦𐑙𐑒"
+    heading: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑚𐑫𐑒𐑥𐑸𐑒𐑤𐑧𐑑"
     post_something: "𐑐𐑴𐑕𐑑 𐑕𐑳𐑥𐑔𐑦𐑙 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
     post_success: "𐑐𐑴𐑕𐑑𐑩𐑛! 𐑒𐑤𐑴𐑟𐑦𐑙!"
   cancel: "𐑒𐑨𐑯𐑕𐑩𐑤"
@@ -140,14 +144,14 @@ en_shaw:
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
+      all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      my_contacts: "𐑥𐑲 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+      only_sharing_with_me: "𐑴𐑯𐑤𐑦 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑥𐑰"
+      remove_person_from_aspect: "𐑮𐑦𐑥𐑵𐑝 %{person_name} 𐑓𐑮𐑳𐑥 \"%{aspect_name}\""
+      title: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      your_contacts: "𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     one: "1 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
     other: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -249,17 +253,17 @@ en_shaw:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        many: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑒𐑲𐑒𐑑 𐑞𐑦𐑕"
-        one: "1 𐑐𐑻𐑕𐑩𐑯 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        other: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑛𐑦𐑕𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        few: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
+        many: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
+        one: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒"
+        other: "%{count} 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
+        zero: "𐑯𐑴 𐑛𐑦𐑕𐑤𐑲𐑒𐑕"
       people_like_this: 
-        few: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        many: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒 𐑞𐑦𐑕"
-        one: "1 𐑐𐑻𐑕𐑩𐑯 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        other: "%{count} 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
-        zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤 𐑤𐑲𐑒𐑑 𐑞𐑦𐑕"
+        few: "%{count} 𐑤𐑲𐑒𐑕"
+        many: "%{count} 𐑤𐑲𐑒𐑕"
+        one: "%{count} 𐑤𐑲𐑒"
+        other: "%{count} 𐑤𐑲𐑒𐑕"
+        zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
   no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
@@ -349,7 +353,7 @@ en_shaw:
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     liked: 
       liked: "%{name} 𐑣𐑨𐑟 𐑡𐑳𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 𐑐𐑴𐑕𐑑: "
-      sign_in: "Sign to view it"
+      sign_in: "𐑕𐑲𐑯 𐑦𐑯 𐑑 𐑝𐑿 𐑦𐑑"
       subject: "%{name} 𐑣𐑨𐑟 𐑡𐑳𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 𐑐𐑴𐑕𐑑"
     love: "𐑤𐑳𐑝,"
     manage_your_email_settings: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑦-𐑥𐑱𐑤 𐑕𐑧𐑑𐑦𐑙𐑟"
@@ -481,8 +485,8 @@ en_shaw:
       your_photo: "𐑿𐑼 𐑓𐑴𐑑𐑴"
       your_private_profile: "𐑿𐑼 𐑐𐑮𐑲𐑝𐑩𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       your_public_profile: "𐑿𐑼 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑮𐑴𐑓𐑲𐑤"
-      your_tags: "𐑿: 𐑦𐑯 5 #𐑑𐑨𐑜𐑟"
-      your_tags_placeholder: "𐑦.𐑧. #diaspora #ironing #kittens #music #𐑖𐑱𐑝𐑾𐑯"
+      your_tags: "𐑛𐑦𐑕𐑒𐑮𐑲𐑚 𐑿𐑼𐑕𐑧𐑤𐑓 𐑦𐑯 5 𐑢𐑻𐑛𐑟"
+      your_tags_placeholder: "𐑤𐑲𐑒 #diaspora #ironing #kittens #music #newyork"
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
@@ -542,9 +546,9 @@ en_shaw:
       invite_your_friends_from: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟 𐑓𐑮𐑪𐑥 %{service}"
       not_connected: "𐑯𐑪𐑑 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
     index: 
-      connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑓𐑱𐑕𐑚𐑫𐑒"
-      connect_to_tumblr: "Connect to Tumblr"
-      connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 𐑑𐑢𐑦𐑑𐑼"
+      connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Facebook"
+      connect_to_tumblr: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Tumblr"
+      connect_to_twitter: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Twitter"
       disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑"
       edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
@@ -558,7 +562,7 @@ en_shaw:
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "𐑨𐑛 𐑯𐑿 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       create_request: "𐑓𐑲𐑯𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"
@@ -573,9 +577,9 @@ en_shaw:
       by_email: "𐑚𐑲 𐑦-𐑥𐑱𐑤"
       dont_have_now: "𐑿 𐑛𐑴𐑯𐑑 𐑣𐑨𐑝 𐑨𐑯𐑦 𐑮𐑲𐑑 𐑯𐑬, 𐑚𐑳𐑑 𐑥𐑹 𐑦𐑥𐑝𐑲𐑑𐑕 𐑸 𐑒𐑳𐑥𐑦𐑙 𐑕𐑵𐑯!"
       from_facebook: "𐑓𐑮𐑪𐑥 ·𐑓𐑱𐑕𐑚𐑫𐑒"
-      invitations_left: "(%{count} 𐑤𐑧𐑓𐑑)"
+      invitations_left: "%{count} 𐑤𐑧𐑓𐑑"
       invite_someone: "𐑦𐑯𐑝𐑲𐑑 𐑕𐑳𐑥𐑢𐑩𐑯"
-      invite_your_friends: "𐑓𐑲𐑯𐑛 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
+      invite_your_friends: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟"
       invites: "𐑦𐑯𐑝𐑲𐑑𐑕"
       invites_closed: "𐑦𐑯𐑝𐑲𐑑𐑕 𐑸 𐑒𐑻𐑩𐑯𐑑𐑤𐑦 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛"
     notification: 
@@ -601,8 +605,8 @@ en_shaw:
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
     stream_element: 
-      dislike: "𐑲 𐑛𐑦𐑕𐑤𐑲𐑒 𐑞𐑦𐑕"
-      like: "𐑲 𐑤𐑲𐑒 𐑞𐑦𐑕"
+      dislike: "𐑛𐑦𐑕𐑤𐑲𐑒"
+      like: "𐑤𐑲𐑒"
       unlike: "𐑩𐑯𐑤𐑲𐑒"
       via: "𐑝𐑾 %{link}"
   status_messages: 
@@ -636,10 +640,10 @@ en_shaw:
   tokens: 
     show: 
       connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      connecting_is_simple: "𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑨𐑟 𐑕𐑦𐑥𐑐𐑩𐑤 𐑨𐑟 𐑓𐑦𐑤𐑦𐑙 𐑬𐑑 𐑑𐑵 𐑓𐑰𐑤𐑛𐑟 𐑪𐑯 𐑿𐑼 Cubbi.es 𐑩𐑒𐑬𐑯𐑑 𐑐𐑱𐑡."
       daniels_account: "·𐑛𐑨𐑯𐑘𐑩𐑤𐑟 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑"
       generate_a_token: "𐑡𐑧𐑯𐑼𐑱𐑑 𐑩 𐑑𐑴𐑒𐑩𐑯"
-      love_to_try: "We'd love for you to try it out."
+      love_to_try: "𐑢𐑰'𐑛 𐑤𐑳𐑝 𐑓𐑹 𐑿 𐑑 𐑑𐑮𐑲 𐑦𐑑 𐑬𐑑."
       making_the_connection: "𐑥𐑱𐑒𐑦𐑙 𐑞 𐑒𐑩𐑯𐑧𐑒𐑖𐑩𐑯"
       screenshot_explanation: "%{link1}.  𐑞𐑦𐑕 𐑐𐑼𐑑𐑦𐑒𐑿𐑤𐑼 𐑒𐑩𐑚𐑦 𐑦𐑟 𐑤𐑦𐑙𐑒𐑑 𐑑 %{link2}."
       sign_up_today: "𐑕𐑲𐑯 𐑳𐑐 𐑑𐑩𐑛𐑱!"
@@ -652,7 +656,7 @@ en_shaw:
   undo: "𐑩𐑯𐑛𐑵?"
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 
-    destroy: "𐑩𐑒𐑬𐑯𐑑 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑒𐑤𐑴𐑟𐑛."
+    destroy: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑤𐑪𐑒𐑑. 𐑦𐑑 𐑥𐑱 𐑑𐑱𐑒 20 𐑥𐑦𐑯𐑩𐑑𐑕 𐑓𐑹 𐑳𐑕 𐑑 𐑓𐑦𐑯𐑦𐑖 𐑒𐑤𐑴𐑟𐑦𐑙 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑. 𐑔𐑱𐑙𐑒 𐑿 𐑓𐑹 𐑑𐑮𐑲𐑦𐑙 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
     edit: 
       also_commented: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑?"
       change: "𐑗𐑱𐑯𐑡"
@@ -695,7 +699,7 @@ en_shaw:
       email_notifications_changed: "𐑦-𐑥𐑱𐑤 𐑥𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟 𐑗𐑱𐑯𐑡𐑛"
       language_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡𐑛"
       language_not_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
-      password_changed: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑗𐑱𐑯𐑡𐑛"
+      password_changed: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑗𐑱𐑯𐑡. 𐑿 𐑒𐑨𐑯 𐑯𐑬 𐑤𐑪𐑜 𐑦𐑯 𐑢𐑦𐑞 𐑿𐑼 𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛."
       password_not_changed: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"

@@ -4,6 +4,7 @@
 
 
 pt-PT: 
+  _applications: "Applications"
   _comments: "Comentários"
   _home: "Início"
   _photos: "fotografias"
@@ -118,6 +119,9 @@ pt-PT:
       failure: "O seu aspecto, %{name}, tinha um nome grande demais para ser guardado."
       success: "O seu aspecto, %{name}, foi editado com sucesso."
     zero: "não há aspectos"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Voltar"
   bookmarklet: 
     explanation: "Publique no Diaspora de qualquer lado ao adicionar %{link} como marcador."

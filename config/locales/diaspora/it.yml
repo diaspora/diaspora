@@ -4,6 +4,7 @@
 
 
 it: 
+  _applications: "Applicazioni"
   _comments: "Commenti"
   _home: "Home"
   _photos: "foto"
@@ -118,6 +119,9 @@ it:
       failure: "Il tuo  aspetto, %{name}, ha un nome troppo lungo per poter essere salvato."
       success: "Il tuo aspetto, %{name}, è stato modificato con successo."
     zero: "nessun aspetto"
+  authorizations: 
+    index: 
+      revoke_access: "Revoca l'autorizzazione"
   back: "Indietro"
   bookmarklet: 
     explanation: "Condividi su Diaspora da ovunque aggiungendo come segnalibro %{link}."

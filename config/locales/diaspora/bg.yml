@@ -4,6 +4,7 @@
 
 
 bg: 
+  _applications: "Приложения"
   _comments: "Коментари"
   _home: "Home"
   _photos: "снимки"
@@ -118,6 +119,9 @@ bg:
       failure: "Аспектът %{name} има твърде дълго име. Не може да бъде запаметен."
       success: "Аспектът %{name} е успешно редактиран."
     zero: "няма аспекти"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Назад"
   bookmarklet: 
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
@@ -141,13 +145,13 @@ bg:
     few: "%{count} контакта"
     index: 
       add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
+      all_contacts: "Всички контакти"
+      my_contacts: "Моите контакти"
+      no_contacts: "Няма контакти."
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      remove_person_from_aspect: "Премахване на %{person_name} от \"%{aspect_name}\""
+      title: "Контакти"
+      your_contacts: "Вашите контакти"
     many: "%{count} контакта"
     one: "1 контакт"
     other: "%{count} контакта"
@@ -481,8 +485,8 @@ bg:
       your_photo: "Снимка"
       your_private_profile: "Вашият личен профил"
       your_public_profile: "Вашият публичен профил"
-      your_tags: "Опишете се с до 5 #марки"
-      your_tags_placeholder: "например: #България #diaspora #фитнес #music"
+      your_tags: "Опишете се с до 5 #думи"
+      your_tags_placeholder: "например: #България #diaspora #фитнес #музика #котки"
     update: 
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
@@ -558,7 +562,7 @@ bg:
   settings: "Настройки"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Добавяне на контакт"
       create_request: "Търси по Diaspora адрес"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Въведете потребителско име от Diaspora:"

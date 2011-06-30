@@ -4,6 +4,7 @@
 
 
 sl: 
+  _applications: "Applications"
   _comments: "Komentarji"
   _home: "Domov"
   _photos: "slike"
@@ -118,6 +119,9 @@ sl:
       failure: "Skupina %{name} ima predolgo ime, zato je ni mogoče shraniti."
       success: "Vaša skupina %{name} je bila uspešno posodobljena."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Nazaj"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

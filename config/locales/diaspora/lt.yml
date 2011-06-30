@@ -4,6 +4,7 @@
 
 
 lt: 
+  _applications: "Applications"
   _comments: "Komentarai"
   _home: "Pradžia"
   _photos: "Nuotraukos"
@@ -118,6 +119,9 @@ lt:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Aspektas \"%{name}\" pakeistas sėkmingai."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Atgal"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

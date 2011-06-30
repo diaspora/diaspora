@@ -4,6 +4,7 @@
 
 
 hu: 
+  _applications: "Applications"
   _comments: "Hozzászólások"
   _home: "Kezdőlap"
   _photos: "képek"
@@ -118,6 +119,9 @@ hu:
       failure: "A %{name} nevű csoportodnak túl hosszú a neve."
       success: "%{name} csoport szerkesztve."
     zero: "nincs csoport"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Vissza"
   bookmarklet: 
     explanation: "Hivatkozz rá: %{link} bárhonnan, azzal, hogy hozzáadod a könyvjelzőkhöz!"

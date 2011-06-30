@@ -4,6 +4,7 @@
 
 
 es-CL: 
+  _applications: "Applications"
   _comments: "Comentarios"
   _home: "Inicio"
   _photos: "fotos"
@@ -118,6 +119,9 @@ es-CL:
       failure: "Tu aspecto, %{name}, tenía el nombre muy largo para ser guardado."
       success: "Tu aspecto, %{name}, ha sido correctamente editado."
     zero: "ningún aspecto"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Atrás"
   bookmarklet: 
     explanation: "%{link} donde sea agregando a marcadores este link."

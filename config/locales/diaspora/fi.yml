@@ -4,6 +4,7 @@
 
 
 fi: 
+  _applications: "Applications"
   _comments: "Comments"
   _home: "Etusivu"
   _photos: "kuvat"
@@ -118,6 +119,9 @@ fi:
       failure: "Antamasi näkymän nimi, %{name}, on liian pitkä."
       success: "Näkymäsi, %{name}, muokkaus onnistui."
     zero: "ei näkymiä"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Takaisin"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

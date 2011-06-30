@@ -4,6 +4,7 @@
 
 
 cs: 
+  _applications: "Aplikace"
   _comments: "Komentáře"
   _home: "Doma"
   _photos: "fotky"
@@ -118,6 +119,9 @@ cs:
       failure: "Váš aspekt %{name} má příliš dlouhý název na to, aby mohl být uložen."
       success: "Váš aspekt, %{name}, byl úspěšně upraven."
     zero: "žádné aspekty"
+  authorizations: 
+    index: 
+      revoke_access: "Zrušit přístup"
   back: "Zpět"
   bookmarklet: 
     explanation: "Příspěvek na Diasporu odkudkoliv pomocí %{link}."
@@ -140,14 +144,14 @@ cs:
       failure: "Nepodařilo se vytvořit kontakt"
     few: "%{count} kontaktů"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      add_a_new_aspect: "Přidat nový aspekt"
+      all_contacts: "Všechny kontakty"
+      my_contacts: "Moje kontakty"
+      no_contacts: "Žádné kontakty."
+      only_sharing_with_me: "Pouze sdílení se mnou"
+      remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
+      title: "Kontakty"
+      your_contacts: "Vaše kontakty"
     many: "%{count} kontaktů"
     one: "1 kontakt"
     other: "%{count} kontaktů"
@@ -481,8 +485,8 @@ cs:
       your_photo: "Vaše fotografie"
       your_private_profile: "Váš soukromý profil"
       your_public_profile: "Váš veřejný profil"
-      your_tags: "Vy: v 5 #značkách"
-      your_tags_placeholder: "např. #diaspora #žehlení #koťata #hudba"
+      your_tags: "Popište se pěti slovy"
+      your_tags_placeholder: "např. #filmy #koťata #cestování #učení #praha"
     update: 
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
@@ -558,7 +562,7 @@ cs:
   settings: "Nastavení"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Přidat nový kontakt"
       create_request: "Hledat podle Diaspora identifikátoru"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Zadejte uživatelské jméno na Diaspoře:"

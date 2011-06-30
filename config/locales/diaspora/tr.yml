@@ -4,6 +4,7 @@
 
 
 tr: 
+  _applications: "Applications"
   _comments: "Yorumlar"
   _home: "Ev"
   _photos: "fotoğraflar"
@@ -118,6 +119,9 @@ tr:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Sizin yanınız, %{name}, başariyla düzeltildi."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Geri"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

@@ -4,6 +4,7 @@
 
 
 pt-BR: 
+  _applications: "Applications"
   _comments: "Comentários"
   _home: "Página inicial"
   _photos: "Fotos"
@@ -118,6 +119,9 @@ pt-BR:
       failure: "Seu aspecto %{name} deve ter um nome mais curto."
       success: "Seu aspecto %{name} foi editado com sucesso."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Voltar"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

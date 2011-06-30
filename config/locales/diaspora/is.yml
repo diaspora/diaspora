@@ -4,6 +4,7 @@
 
 
 is: 
+  _applications: "Applications"
   _comments: "Athugasemdir"
   _home: "Forsíða"
   _photos: "Myndir"
@@ -118,6 +119,9 @@ is:
       failure: "Ásýnd þín,%{nafn}, hefur of langt nafn til að geta verið vistuð."
       success: "Ásýnd þinni,% {nafn}, hefur verið breytt."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Til baka"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

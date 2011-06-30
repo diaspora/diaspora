@@ -4,6 +4,7 @@
 
 
 mk: 
+  _applications: "Applications"
   _comments: "Коментари"
   _home: "Дома"
   _photos: "фотографии"
@@ -118,6 +119,9 @@ mk:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Вашиот аспект, %{name}, беше успешно уреден."
     zero: "no aspects"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Назад"
   bookmarklet: 
     explanation: "%{link} from anywhere by bookmarking this link."

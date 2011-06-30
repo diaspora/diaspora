@@ -4,6 +4,7 @@
 
 
 ru: 
+  _applications: "Applications"
   _comments: "Коментарии"
   _home: "Домашний"
   _photos: "фотографии"
@@ -118,6 +119,9 @@ ru:
       failure: "ваш аспект, %{name}, имеет слишком длинное имя для сохранения."
       success: "Ваш аспект %{name} успешно отредактирован."
     zero: "нет аспектов"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Назад"
   bookmarklet: 
     explanation: "Сообщение для диаспоры из любого места %{link}."

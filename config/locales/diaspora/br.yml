@@ -4,6 +4,7 @@
 
 
 br: 
+  _applications: "Applications"
   _comments: "Embannoù"
   _home: "Kêr"
   _photos: "fotoioù"
@@ -118,6 +119,9 @@ br:
       failure: "Your aspect, %{name}, had too long name to be saved."
       success: "Your aspect, %{name}, has been successfully edited."
     zero: "arvez ebet"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Distreiñ"
   bookmarklet: 
     explanation: "%{link} adalek pep lec'h dre lakaat al liamm-se e-barzh ho sinedoù."

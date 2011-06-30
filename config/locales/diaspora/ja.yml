@@ -4,6 +4,7 @@
 
 
 ja: 
+  _applications: "Applications"
   _comments: "コメント"
   _home: "ホーム"
   _photos: "写真"
@@ -118,6 +119,9 @@ ja:
       failure: "アスペクト名「%{name}」は長すぎて保存できませんでした。"
       success: "アスペクト「%{name}」の編集するのに成功しました。"
     zero: "アスペクト無し"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "前へ"
   bookmarklet: 
     explanation: "このリンクをお気に入りに登録すると、どこからでも%{link}できます。"

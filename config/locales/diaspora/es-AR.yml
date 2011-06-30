@@ -4,6 +4,7 @@
 
 
 es-AR: 
+  _applications: "Applications"
   _comments: "Comentarios"
   _home: "Inicio"
   _photos: "fotos"
@@ -118,6 +119,9 @@ es-AR:
       failure: "Tu aspecto, %{name}, tenía un nombre muy largo para guardarlo."
       success: "Tu aspecto, %{name}, se editó con éxito."
     zero: "no hay aspectos"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Atrás"
   bookmarklet: 
     explanation: "Publicá algo en Diáspora* desde donde quieras agregando %{link} al marcador."

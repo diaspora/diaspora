@@ -4,6 +4,7 @@
 
 
 de: 
+  _applications: "Applications"
   _comments: "Kommentare"
   _home: "Startseite"
   _photos: "Fotos"
@@ -118,6 +119,9 @@ de:
       failure: "%{name} ist ein zu langer Name um gespeichert zu werden."
       success: "Aspekt %{name} erfolgreich bearbeitet."
     zero: "keine Aspekte"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "Zurück"
   bookmarklet: 
     explanation: "Erstelle einen Beitrag in Diaspora von überall in dem du %{link} als Lesezeichen speicherst."

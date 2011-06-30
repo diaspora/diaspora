@@ -4,6 +4,7 @@
 
 
 ko: 
+  _applications: "Applications"
   _comments: "댓글"
   _home: "처음"
   _photos: "사진"
@@ -118,6 +119,9 @@ ko:
       failure: "%{name} 애스펙은 이름이 너무 길어 저장할 수 없습니다."
       success: "%{name} 애스펙을 성공적으로 고쳤습니다."
     zero: "애스펙 없음"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
   back: "돌아가기"
   bookmarklet: 
     explanation: "%{link} 링크를 북마크로 추가하세요."
