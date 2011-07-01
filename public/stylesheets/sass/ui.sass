@@ -68,6 +68,17 @@
 .button.in_aspects
   @include linear-gradient(lighten(#76C000,8%),#76C000)
 
+.button.creation
+  @include linear-gradient(lighten($creation-blue,8%), darken($creation-blue, 3%))
+  :color #fafafa
+
+  :border 1px solid #666
+    :top 1px solid #777
+    :bottom 1px solid darken(#666,13%)
+
+  &:hover
+    @include linear-gradient(lighten($creation-blue,3%), darken($creation-blue, 8%))
+
 .right
   :position absolute
   :right 0

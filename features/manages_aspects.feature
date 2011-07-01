@@ -6,35 +6,31 @@ Feature: User manages contacts
 
   Scenario: creating an aspect from contacts index
     Given I am signed in
-    When I follow "All Aspects" in the header
-    And I follow "Your Contacts"
-    And I follow "My Contacts"
+    And I am on the contacts page
     And I follow "+ Add an aspect"
     And I fill in "Name" with "Dorm Mates" in the modal window
     And I press "Create" in the modal window
-    Then I should see "Dorm Mates" in the header
+    Then I should see "Dorm Mates" within "#aspect_nav"
     
   Scenario: creating an aspect from homepage
     Given I am signed in
-    When I follow "All Aspects" in the header
-    And I follow "+" in the header
+    When I follow "Add an aspect"
     And I fill in "Name" with "losers" in the modal window
     And I press "Create" in the modal window
-    Then I should see "losers" in the header
+    Then I should see "losers" within "#aspect_nav"
 
-  Scenario: Editing the aspect memberships of a contact from the 'sharers' facebox
+  Scenario: Editing the aspect memberships of a contact from the aspect edit facebox
     Given I am signed in
     And I have 2 contacts
     And I have an aspect called "Cat People"
-    When I follow "All Aspects" in the header
-    And I follow "2 contacts" within "#sharers"
+    When I follow "My Contacts"
+    And I follow "Edit Cat People"
     And I wait for the ajax to finish
-    And I press the first ".toggle.button"
-    And I press the 2nd "li" within ".dropdown.active .dropdown_list"
+    And I press the first ".contact_list .button"
     And I wait for the ajax to finish
     Then I should have 1 contact in "Cat People"
 
-    When I press the 2nd "li" within ".dropdown.active .dropdown_list"
+    When I press the first ".contact_list .button"
     And I wait for the ajax to finish
     Then I should have 0 contacts in "Cat People"
 

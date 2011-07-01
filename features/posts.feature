@@ -20,7 +20,7 @@ Feature: posting
       Given I expand the publisher
       When I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
-        And I follow "All Aspects"
+        And I follow "My Contacts"
       Then I should see "I am eating a yogurt" within ".stream_element"
 
     Scenario: post a photo without text
@@ -30,7 +30,7 @@ Feature: posting
       Then I should see an uploaded image within the photo drop zone
       And I press "Share"
       And I wait for the ajax to finish
-      And I follow "All Aspects"
+      And I follow "My Contacts"
       Then I should see a "img" within ".stream_element:first div.photo_attachments"
       Then I log out
       And I sign in as "alice@alice.alice"
@@ -44,7 +44,7 @@ Feature: posting
       And I fill in "status_message_fake_text" with "Look at this dog"
       And I press "Share"
       And I wait for the ajax to finish
-      And I follow "All Aspects"
+      And I follow "My Contacts"
       Then I should see a "img" within ".stream_element:first div.photo_attachments"
       And I should see "Look at this dog" within ".stream_element:first"
       Then I log out
@@ -68,7 +68,7 @@ Feature: posting
         And I wait for the ajax to finish
         And I go to "bob@bob.bob"'s page
         Then I should not see "Here is a post for you to hide"
-        And I follow "All Aspects"
+        And I am on the aspects page
         Then I should not see "Here is a post for you to hide"
 
     Scenario: delete a post
@@ -76,12 +76,12 @@ Feature: posting
       When I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
         And I wait for the ajax to finish
-        And I follow "All Aspects"
+        And I follow "My Contacts"
         And I hover over the post
         And I preemptively confirm the alert
         And I click to delete the first post
         And I wait for the ajax to finish
-        And I follow "All Aspects"
+        And I follow "My Contacts"
         Then I should not see "I am eating a yogurt"
 
     Scenario Outline: post to one aspect
@@ -90,8 +90,8 @@ Feature: posting
         And I expand the publisher
         And I fill in "status_message_fake_text" with "I am eating a yogurt"
         And I press "Share"
-        And I follow "All Aspects"
-        And I follow "<aspect>"
+        And I am on the aspects page
+        And I follow "<aspect>" within "#aspect_nav"
       Then I should <see> "I am eating a yogurt"
 
       Examples:
@@ -106,7 +106,8 @@ Feature: posting
         And I expand the publisher in the modal window
         And I append "I am eating a yogurt" to the publisher
         And I press "Share" in the modal window
-        And I follow "<aspect>"
+        And I am on the aspects page
+        And I follow "<aspect>" within "#aspect_nav"
         Then I should <see> "I am eating a yogurt"
 
         Examples:
@@ -122,7 +123,8 @@ Feature: posting
         And I append "I am eating a yogurt" to the publisher
         And I follow "DidntPostTo" within "#publisher" in the modal window
         And I press "Share" in the modal window
-        And I follow "<aspect>"
+        And I am on the aspects page
+        And I follow "<aspect>" within "#aspect_nav"
         Then I should <see> "I am eating a yogurt"
 
         Examples:
