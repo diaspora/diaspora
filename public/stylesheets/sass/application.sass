@@ -278,7 +278,6 @@ ul.dropdown
     :min-height 50px
     :border
       :bottom 1px solid #ddd
-      :top 1px solid #fff
 
     &:first-child
       :border
@@ -368,7 +367,7 @@ ul.dropdown
 .stream_element
   :position relative
   :word-wrap break-word
-  :color #888
+  :color #555
 
   :font
     :size 13px
@@ -384,13 +383,12 @@ ul.dropdown
     :padding
       :left 60px
 
-    :color #666
     :font
       :weight normal
 
     p
       :margin
-        :top 2px
+        :top 4px
         :bottom 10px
       :font
         :size 12px
@@ -481,10 +479,13 @@ ul.dropdown
       :bottom 5px
 
 
+.details
+  :color #aaa
+
 .time,
 .timeago,
 .via
-  :color #999
+  :color #aaa
   a
     :color #999
   :text
@@ -657,6 +658,9 @@ ul.show_comments,
 
     .new_comment
       :min-height 35px
+      p
+        :margin
+          :bottom 0
 
     .from
       :font
@@ -2221,6 +2225,8 @@ h3,h4
 ul.show_comments
   :margin
     :bottom -0.5em
+  :border
+    :top 1px dotted #aaa
 
 .likes_container
   :margin
@@ -2230,10 +2236,10 @@ ul.show_comments
 
 ul.show_comments,
 .likes_container
-  > *
+  *
     :font
-      :size 10px
       :weight bold
+    :color #999
 
   img
     :position relative
@@ -2272,28 +2278,10 @@ ul.show_comments,
   &.larger
     :width 600px
 
-#new_message_pane
-  input:not([type='submit']),
-  textarea
-    :width 378px
-    :margin
-      :right 0
-
-  .as-selections
-    input
-      :width 200px
-
 #facebox_header
   :position relative
-  :padding 1em
-  :background
-    :color #222
-  :border
-    :bottom 1px solid #777
-
-  :-webkit-border-radius 5px 5px 0 0
-  :-moz-border-radius 5px 5px 0 0
-  :border-radius 5px 5px 0 0
+  :padding
+    :bottom 10px
 
   .right
     :z-index 3
@@ -2309,10 +2297,6 @@ ul.show_comments,
 
   h3,
   h4
-    :color #eee
-    :margin
-      :bottom 0
-
     .description
       :margin
         :top 0px
@@ -2619,12 +2603,6 @@ ul.show_comments,
   :font
     :size 12px
 
-.text-right
-  :text
-    :align right
-  :margin
-    :right 5px
-
 #contact_visibility_padlock:hover
   @include opacity(0.7)
 
@@ -2748,6 +2726,7 @@ h1.tag
     :border
       :bottom 1px solid #888
     :padding 2px 0
+      :top 0
       :left 24px
 
     &.no_icon
@@ -2769,7 +2748,7 @@ h1.tag
     img
       :position absolute
       :left 3px
-      :top 3px
+      :top 0px
 
   .section
     .content
@@ -2938,11 +2917,13 @@ ul.left_nav
     :margin
       :bottom 0
   :border
-    :left 1px solid #eee
+    :left 1px solid #ddd
   :padding
     :left 10px
+    :top 20px
   :margin
     :left -10px
+    :top -20px
 
 #aspect_stream_header
   :padding 0 12px
@@ -3014,9 +2995,6 @@ ul.left_nav
     :float right
 
 #selected_aspect_contacts
-  :margin
-    :top 30px
-
   .avatar
     :height 26px
     :width 26px
@@ -3029,3 +3007,9 @@ ul.left_nav
     :top 5px
   :padding 3px
   :border 1px dotted #ccc
+
+.bottom_submit_section
+  :text-align right
+
+#no_posts
+  :padding 20px

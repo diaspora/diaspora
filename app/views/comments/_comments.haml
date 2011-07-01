@@ -7,7 +7,6 @@
 - unless is_expanded
   %ul.show_comments{:class => ("hidden" unless comments.size > 3)}
     %li
-      = image_tag 'icons/spechbubble_2.png', :class => 'more_comments_icon'
       %b= comment_toggle(comments.size)
 
 %ul.comments{:id => post.id, :class => ("hidden" if comments.size == 0 && !defined?(force_open) && !is_expanded)}

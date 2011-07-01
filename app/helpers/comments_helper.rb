@@ -8,9 +8,8 @@ module CommentsHelper
     if count <= 3
       str = link_to "#{t('stream_helper.hide_comments')}", '#', :class => "show_post_comments"
     else
-      str = link_to "#{t('stream_helper.show_comments')}", '#', :class => "show_post_comments"
+      str = link_to "#{t('stream_helper.show_more_comments', :number => count-3)}", '#', :class => "show_post_comments"
     end
-    str << " (#{count})"
     str
   end
 

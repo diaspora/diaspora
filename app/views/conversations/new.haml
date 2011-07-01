@@ -25,7 +25,7 @@
 #new_message_pane
   .span-12.last
     #facebox_header
-      %h4
+      %h3
         = t('conversations.index.new_message')
 
     = form_for Conversation.new do |conversation|
@@ -47,6 +47,6 @@
       .span-10.prepend-2.last
         = text_area_tag "conversation[text]", '', :rows => 5
 
-      .text-right
+      .bottom_submit_section
+        = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close"
         = conversation.submit t('.send'), :disable_with => t('shared.publisher.posting'), :class => 'button'
-        = link_to t('cancel'), :back

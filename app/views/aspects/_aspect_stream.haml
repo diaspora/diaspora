@@ -7,7 +7,7 @@
     = t('.recently')
     %span.controls
       = link_to_if(session[:sort_order] == 'created_at', t('.commented_on'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'updated_at'))
-      \·
+      ·
       = link_to_if(session[:sort_order] == 'updated_at', t('.posted'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'created_at' ))
 
   %h3

@@ -6,26 +6,25 @@
   text-align: left;
 }
 
-
 #facebox .popup{
   position:relative;
   border:3px solid rgba(0,0,0,0);
-  -webkit-border-radius:5px;
-  -moz-border-radius:5px;
-  border-radius:5px;
-  -webkit-box-shadow:0 0 18px rgba(0,0,0,0.4);
-  -moz-box-shadow:0 0 18px rgba(0,0,0,0.4);
-  box-shadow:0 0 18px rgba(0,0,0,0.4);
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+  border-radius:2px;
+  -webkit-box-shadow:0 0 12px rgba(0,0,0,0.8);
+  -moz-box-shadow:0 0 12px rgba(0,0,0,0.8);
+  box-shadow:0 0 12px rgba(0,0,0,0.8);
 }
 
 #facebox .content {
   display:table;
   width: 370px;
-  padding: 10px;
+  padding: 20px;
   background: #fff;
-  -webkit-border-radius:4px;
-  -moz-border-radius:4px;
-  border-radius:4px;
+  -webkit-border-radius:2px;
+  -moz-border-radius:2px;
+  border-radius:2px;
 }
 
 #facebox .content > p:first-child{

@@ -9,12 +9,11 @@
 - content_for :page_title do
   = @person.name
 
-.span-8
+.span-6
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
   - if user_signed_in? && @contact.persisted? && @contacts_of_contact.count > 0
     .span-8.last#contacts_of_contact
-      %hr
       .section.contact_pictures
         %h4
           = t('contacts', :count => @contacts_of_contact_count)

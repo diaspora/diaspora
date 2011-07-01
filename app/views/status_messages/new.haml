@@ -18,7 +18,7 @@
 #new_status_message_pane
   .span-15.last
     #facebox_header
-      %h4
+      %h3
         = t('.mentioning', :person => @person.name)
 
     = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :aspects_with_person => @aspects_with_person, :person => @person}

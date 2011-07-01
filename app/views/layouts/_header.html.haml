@@ -19,7 +19,7 @@
   - elsif (current_user || !@landing_page)
     #global_search
       = form_tag(people_path, :method => 'get', :id => "global_search_form") do
-        = text_field_tag 'q', nil, :placeholder => t('search'), :type => 'search', :results => 5
+        = text_field_tag 'q', nil, :placeholder => t('find_people'), :type => 'search', :results => 5
 
     - if @notification_count
       #notification_badge

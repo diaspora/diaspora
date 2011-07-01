@@ -75,7 +75,7 @@ var View = {
     });
 
     /* facebox 'done' buttons */
-    $("a[rel*=close]").live('click', function(){ $.facebox.close(); });
+    $("*[rel*=close]").live('click', function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){

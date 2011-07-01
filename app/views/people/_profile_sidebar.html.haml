@@ -20,7 +20,6 @@
       %br
       %br
     -if contact.sharing? || person == current_user.person
-      %hr
       %ul#profile_information
         - unless person.profile.bio.blank?
           %li
@@ -36,16 +35,16 @@
               = markdownify(person.profile.location, :newlines => true)
 
         %li
-          .span-4
-            - unless person.profile.gender.blank?
-              %h4
-                =t('.gender')
-              = person.profile.gender
+          - unless person.profile.gender.blank?
+            %h4
+              =t('.gender')
+            = person.profile.gender
 
-          .span-4.last
-            - unless person.profile.birthday.blank?
-              %h4
-                =t('.born')
-              = birthday_format(person.profile.birthday)
+        %li
+          - unless person.profile.birthday.blank?
+            %h4
+              =t('.born')
+            = birthday_format(person.profile.birthday)
+
           %br
           %br
