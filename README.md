@@ -25,7 +25,7 @@ Here are a few good places to start:
 unit test suite.
 
 - Run "rake cucumber" to run our [Cucumber](http://rubylearning.com/blog/2010/10/05/outside-in-development/)
-integration test suite.  As you can see, we need more integration tests.  Pick a feature and write one!
+integration test suite.
 
 - Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
