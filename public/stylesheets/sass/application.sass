@@ -892,8 +892,8 @@ label
 
   form
     textarea
-      :height 18px !important
-      :width 474px
+      :width 455px
+      :margin 0
 
   &.mention_popup
     :padding 1px 12px
@@ -905,22 +905,21 @@ label
   &.closed
     .options_and_submit
       :display none !important
-    #file-upload
-      :display none
+
+    textarea
+      :height 18px !important
 
     .counter
       :display none
+
+  &:not(.closed)
+    textarea
+      :margin
+        :bottom 30px
+
   form
     :position relative
     :top 0
-
-  input[type='text'],
-  textarea
-    :margin 0
-    :width 395px
-
-  textarea
-    :height 42px
 
   label
     :font
@@ -961,23 +960,16 @@ label
       :top 1em
 
   #file-upload
-    :float left
+    :position absolute !important
+    :bottom 1px !important
+    :right 6px
     :z-index 10
     :margin 0
-    :top 2px
 
     :display inline-block
 
     :padding 0.3em
     :cursor pointer
-
-    :font
-      :weight bold
-      :size smaller
-
-    :text
-      :align center
-      :shadow none
 
     img
       @include opacity(0.4)
@@ -1007,9 +999,32 @@ label
       @include opacity(0.5)
 
 #publisher_textarea_wrapper
+  #hide_publisher
+    @include opacity(0.3)
+    :padding 3px
+    :position absolute
+    :right 6px
+    :top 0
+
+    &:hover
+      @include opacity(1)
+
+  @include border-radius(2px)
+
+  :border 1px solid #ccc
+  :background #fff
+
   :position relative
+  :padding
+    :right 10px
+
   textarea
     :z-index 2
+    :border none
+
+    &:focus
+      :outline 0
+      :background transparent
 
     &.with_attachments
       :padding
@@ -1073,6 +1088,11 @@ label
   input[type='text']
     :width 82%
     :display inline
+
+#publisher.closed
+  #publisher_textarea_wrapper
+    #hide_publisher
+      :display none
 
 .dim
   @include opacity(0.3)

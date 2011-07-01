@@ -371,9 +371,13 @@ var Publisher = {
     Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
 
-    if ($("#status_message_fake_text").val() === "") {
+    /* close text area */
+    Publisher.form().delegate("#hide_publisher", "click", function(){
+      $.each(Publisher.form().find("textarea"), function(idx, element){
+        $(element).val("");
+      });
       Publisher.close();
-    }
+    });
 
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());
