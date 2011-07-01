@@ -18,6 +18,8 @@ class AspectsController < ApplicationController
       @contacts_sharing_with = current_user.contacts.sharing.includes(:person => :profile)
     end
 
+    aspect_ids = @aspects.map{|a| a.id}
+
     #No aspect_listings on infinite scroll
     @aspects = @aspects.includes(:contacts => {:person => :profile}) unless params[:only_posts]
 
@@ -27,7 +29,9 @@ class AspectsController < ApplicationController
       return
     end
 
-    @selected_contacts = @aspects.map { |aspect| aspect.contacts }.flatten.uniq unless params[:only_posts]
+    @selected_contacts = Contact.joins(:aspect_memberships).
+      where(:aspect_memberships => {:aspect_id => aspect_ids}).
+      includes(:person => :profile).limit(20) unless params[:only_posts]
 
     @aspect_ids = @aspects.map { |a| a.id }
     posts = current_user.visible_posts(:by_members_of => @aspect_ids,

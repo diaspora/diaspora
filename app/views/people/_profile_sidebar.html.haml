@@ -20,7 +20,7 @@
       %br
       %br
     -if contact.sharing? || person == current_user.person
-      %hr{:style=>"width:300px;"}
+      %hr
       %ul#profile_information
         - unless person.profile.bio.blank?
           %li
@@ -35,7 +35,7 @@
             %div{ :class => direction_for(person.profile.location) }
               = markdownify(person.profile.location, :newlines => true)
 
-        %li.span-8.last
+        %li
           .span-4
             - unless person.profile.gender.blank?
               %h4
@@ -47,3 +47,5 @@
               %h4
                 =t('.born')
               = birthday_format(person.profile.birthday)
+          %br
+          %br

@@ -7,10 +7,9 @@
 body
   :padding 2em
   :margin 0
-    :top 40px
+    :top 33px
   :background-color $background
 a
-  :color #107FC9
   :color $blue
   :text
     :decoration none
@@ -28,9 +27,7 @@ h1
   :font
     :weight bold
 
-h1, h2, h3
-
-h4
+h1, h2, h3, h4
   :margin
     :bottom 5px
 
@@ -129,8 +126,8 @@ form
     :margin 0
 
 header
-  @include box-shadow(0,1px,3px,#222)
-  @include linear-gradient(rgba(25,20,20,0.95),rgba(25,20,20,1))
+  @include box-shadow(0,0px,2px,#777)
+  @include linear-gradient(rgba(35,30,30,0.95),rgba(35,30,30,1))
 
   :z-index 50
   :padding 0
@@ -138,7 +135,7 @@ header
   :color #CCC
   :height 35px
 
-  :position absolute
+  :position fixed
 
   :width 100%
   :top 0
@@ -340,6 +337,7 @@ ul.dropdown
     .from
       :padding 0
 
+  h2,
   h3,
   h4,
   h5
@@ -358,6 +356,9 @@ ul.dropdown
     h5
       :margin 0
       :padding 0
+
+  .right
+    :top 10px
 
 #conversation_inbox a
   &:hover
@@ -389,7 +390,8 @@ ul.dropdown
 
     p
       :margin
-        :bottom 0px
+        :top 2px
+        :bottom 10px
       :font
         :size 12px
       :line
@@ -630,8 +632,6 @@ ul.show_comments,
   :margin 0
     :top 0.5em
   :padding 0
-  :background
-    :color #F0F4F5
 
   :font
     :size 12px
@@ -650,9 +650,10 @@ ul.show_comments,
   li
     :list
       :style none
-    :padding 0.4em
+    :padding 8px 5px
+
     :border
-      :bottom 2px solid $background
+      :bottom 1px dotted #aaa
 
     .new_comment
       :min-height 35px
@@ -678,7 +679,11 @@ ul.show_comments,
         :right 10px
       .from
         a
-          :color #444
+          :color rgb(85,80,80)
+      p
+        :margin
+          :bottom 0
+          :top 0
 
     .right
       :right 4px
@@ -735,10 +740,8 @@ ul.show_comments,
 
 .profile_photo
   img
-    @include box-shadow(0,2px,2px,#333)
-
-    :height 300px
-    :width 300px
+    :height 200px
+    :width 200px
 
 #profile
   h3
@@ -2331,14 +2334,14 @@ ul.show_comments,
     :position absolute
     :left 0
 
-  h4
+  h3
     :position relative
-    :top 16px
+    :top 13px
     :padding
       :bottom 5px
 
   :margin
-    :bottom 60px
+    :bottom 54px
 
   :padding
     :left 60px
@@ -2747,6 +2750,10 @@ h1.tag
     :padding 2px 0
       :left 24px
 
+    &.no_icon
+      :padding
+        :left 8px
+
     .right
       :right 4px
       :top 3px
@@ -2756,9 +2763,8 @@ h1.tag
 
     h5
       :font-size 13px
-      :font-weight 500
       :margin 0
-      :color #444
+      :color #666
 
     img
       :position absolute
@@ -2771,7 +2777,7 @@ h1.tag
       :color #999
       :font-size 11px
     :margin
-      :bottom 4px
+      :bottom 10px
 
 .subtle
   :color #888
@@ -2921,11 +2927,13 @@ ul.left_nav
     :display none !important
 
   .left_nav
+    a
+      :width 150px
     ul.sub_nav
       a
         :width 140px
 
-#aspect_stream_container
+.stream_container
   h3
     :margin
       :bottom 0
@@ -2967,7 +2975,8 @@ ul.left_nav
     .from
       :position relative
       a
-        :color #444
+        :color rgb(85,80,80)
+
     .content
       :padding
         :left 40px
@@ -3003,3 +3012,20 @@ ul.left_nav
 
   .conversation_button
     :float right
+
+#selected_aspect_contacts
+  :margin
+    :top 30px
+
+  .avatar
+    :height 26px
+    :width 26px
+    :margin
+      :bottom -2px
+
+#edit_this_aspect
+  :text-align center
+  :margin
+    :top 5px
+  :padding 3px
+  :border 1px dotted #ccc

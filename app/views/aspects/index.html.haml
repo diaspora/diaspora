@@ -9,20 +9,42 @@
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link
-    %h4{:style => "position:relative;"}
+    %h3
       = current_user.first_name
 
   .section
     = render 'aspects/aspect_listings'
 
 .span-13.append-1
-  #aspect_stream_container
+  #aspect_stream_container.stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
       :aspect_ids => @aspect_ids,
       :posts => @posts
 
 .span-5.rightBar.last
+  #selected_aspect_contacts.section
+    .title.no_icon
+      %h5
+        = "Contacts (#{@selected_contacts.size})"
+
+    .content
+      - for contact in @selected_contacts
+        = person_image_link contact.person
+        = person_image_link contact.person
+        = person_image_link contact.person
+        = person_image_link current_user.person
+        = person_image_link current_user.person
+        = person_image_link contact.person
+        = person_image_link contact.person
+        = person_image_link current_user.person
+        = person_image_link contact.person
+        = person_image_link contact.person
+        = person_image_link current_user.person
+        = person_image_link contact.person
+
+      #edit_this_aspect
+        = link_to "View all contacts", "#"
 
   .section
     .title
