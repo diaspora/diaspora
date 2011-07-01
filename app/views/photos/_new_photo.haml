@@ -40,7 +40,7 @@
        onComplete: function(id, fileName, responseJSON) {
         $('#fileInfo').text(fileName + ' completed');
         var id = responseJSON.data.photo.id,
-            url = responseJSON.data.photo.url,
+            url = responseJSON.data.photo.unprocessed_image.url,
             currentPlaceholder = $('li.loading').first();
 
         $("#publisher textarea").addClass("with_attachments");

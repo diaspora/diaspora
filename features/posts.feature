@@ -26,6 +26,8 @@ Feature: posting
     Scenario: post a photo without text
       Given I expand the publisher
       And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I wait for the ajax to finish
+      Then I should see an uploaded image within the photo drop zone
       And I press "Share"
       And I wait for the ajax to finish
       And I follow "All Aspects"
@@ -96,7 +98,7 @@ Feature: posting
         | aspect      | see     |
         | PostTo      | see     |
         | DidntPostTo | not see |
-    
+
     Scenario Outline: posting to all aspects from the profile page
       Given I am on "alice@alice.alice"'s page
         And I have turned off jQuery effects

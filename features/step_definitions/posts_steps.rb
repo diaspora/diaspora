@@ -8,3 +8,7 @@ When /^I post a photo with a token$/ do
 JSON
   page.driver.post(activity_streams_photos_path, json.merge!(:auth_token => @me.authentication_token))
 end
+
+Then /^I should see an uploaded image within the photo drop zone$/ do
+  find("#photodropzone img")["src"].should include("uploads/images")
+end
