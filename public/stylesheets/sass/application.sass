@@ -129,10 +129,8 @@ header
   @include linear-gradient(rgba(35,30,30,0.95),rgba(35,30,30,1))
 
   :z-index 50
-  :padding 0
-    :top 2px
+  :padding 6px 0
   :color #CCC
-  :height 35px
 
   :position fixed
 
@@ -182,7 +180,7 @@ header
     :position absolute
     :display inline
 
-    :top 5px
+    :top 0
     :right 0
 
     &:hover
@@ -1617,37 +1615,41 @@ h3 span.current_gs_step
       :background
         :color #22AAE0
 
-#notification_badge,
-#message_inbox_badge
+#nav_badges
   :position relative
-  :top 5px
-  :display inline
-  :margin 0 10px
-    :right -5px
-  :font
-    :weight bold
-    :size smaller
-  :width 28px
+  :display inline-block
+  :top 3px
 
-  &:active
-    :top 6px
+  a:hover
+    :text
+      :decoration none
 
-  a
-    :z-index 5
-    :position absolute
-    :top -9px
-    :width 20px
-    :height 20px
+  .badge
+    :position relative
+    :display inline
+    :margin 0 15px
+      :right -5px
+    :font
+      :weight bold
+      :size smaller
+    :width 28px
 
-  &:hover
-    .badge_count
-      :background
-        :color lighten(#A40802, 5%)
+    &:active
+      :top 1px
+
+    &:hover
+      .badge_count
+        :background
+          :color lighten(#A40802, 5%)
+
+#message_inbox_badge
+  img
+    :position relative
+    :top -2px
 
 #notification_badge
   img
     :position relative
-    :top 2px
 
 .badge_count
   @include border-radius(2px)
@@ -2034,11 +2036,6 @@ h3,h4
   :padding
     :bottom 5px
 
-#edit_aspect_pane
-  @include box-shadow(0,4px,8px,#333)
-
-  :display none
-
 .big_buttons
   input
     :width 100%
@@ -2252,13 +2249,16 @@ ul.show_comments
     :bottom -4px
   :padding 4px
 
-
 ul.show_comments,
 .likes_container
   *
     :font
       :weight bold
     :color #999
+
+  li
+    :border
+      :bottom 1px solid #ccc
 
   img
     :position relative
@@ -2348,25 +2348,6 @@ ul.show_comments,
 
   :padding
     :left 60px
-
-#new_notifications,
-#new_requests
-  :position relative
-
-  :margin
-    :bottom 10px
-    :top -8px
-
-  h4
-    :display inline
-  img
-    :position relative
-    :display inline
-    :margin
-      :right 4px
-    :top 5px
-
-
 
 #email_invitation
   input
@@ -2882,7 +2863,7 @@ ul.left_nav
     :padding 3px 7px
 
     &:hover
-      @include border-radius(4px)
+      @include border-radius(2px)
 
       :background
         :color lighten($blue,45%)
@@ -3018,8 +2999,8 @@ ul.left_nav
 
 #selected_aspect_contacts
   .avatar
-    :height 26px
-    :width 26px
+    :height 32px
+    :width 32px
     :margin
       :bottom -2px
 
@@ -3031,7 +3012,16 @@ ul.left_nav
   :border 1px dotted #ccc
 
 .bottom_submit_section
+  :display block
+  :position relative
+
+  form
+    :display inline-block
   :text-align right
 
 #no_posts
   :padding 20px
+
+.left
+  :position absolute
+  :left 0

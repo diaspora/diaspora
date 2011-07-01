@@ -33,7 +33,7 @@ class AspectsController < ApplicationController
       all_selected_contacts = Contact.joins(:aspect_memberships).
         where(:aspect_memberships => {:aspect_id => aspect_ids})
       @selected_contacts_count =  all_selected_contacts.count
-      @selected_contacts = all_selected_contacts.limit(24)
+      @selected_contacts = all_selected_contacts.limit(20)
     end
 
     @aspect_ids = @aspects.map { |a| a.id }

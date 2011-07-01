@@ -36,6 +36,7 @@ en:
   _comments: "Comments"
   all_aspects: "All Aspects"
   no_results: "No Results Found"
+  _contacts: "Contacts"
 
 
   #for reference translation, the real activerecord english transations are actually
@@ -211,7 +212,7 @@ en:
       send: "Send"
     helper:
       new_messages: 
-        zero: "no new messages"
+        zero: "No new messages"
         one: "1 new messages"
         few: "%{count} new messages"
         many: "%{count} new messages"
@@ -366,7 +367,7 @@ en:
       and: 'and'
     helper:
         new_notifications:
-          zero: "no new notifications"
+          zero: "No new notifications"
           one: "1 new notifications"
           few: "%{count} new notifications"
           many: "%{count} new notifications"

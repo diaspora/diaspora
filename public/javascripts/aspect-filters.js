@@ -16,7 +16,7 @@ var AspectFilters = {
       var button = $(this),
           guid = button.attr('data-guid');
 
-      if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
+      if(guid && location.href.search("a_ids..="+guid+"(#|&|$)") != -1){
         button.parent().addClass('active');
         AspectFilters.selectedGUIDS.push(guid);
         $("#aspect_nav li.all_aspects").removeClass('active');
