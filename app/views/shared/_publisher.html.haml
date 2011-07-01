@@ -10,35 +10,26 @@
   });
 
 #publisher{:class => ((aspect == :profile)? 'mention_popup' : nil )}
-
-  #click_to_share
-    -unless aspect == :profile
-      = image_tag 'icons/doc_edit.png'
-      %span= t('.whats_on_your_mind')
-
-      = t('aspects', :count => aspect_ids.length)
-
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
       - if @selected_contacts
         = hidden_field_tag :contact_json, @selected_contacts.map{|contact| contact.person}.to_json
       = status.error_messages
-      #file-upload
-        = image_tag 'icons/photos.png'
-        %br
-        = t('.add_photos')
-
       %p
         %params
           #publisher_textarea_wrapper
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1
+            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
 
       - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
+        #file-upload
+          = image_tag 'icons/camera.svg', :height => 14
+          = t('.add_photos')
+
         - if aspect == :profile
           .mention_helper
             .badges

@@ -98,9 +98,9 @@ en:
     aspect_contacts:
       done_editing: "done editing"
     aspect_stream:
-      sort_by: "sort by:"
-      activity: "activity"
-      post_time: "post time"
+      recently: "recently:"
+      commented_on: "commented on"
+      posted: "posted"
     show:
       edit_aspect: "edit aspect"
     no_posts_message:
@@ -157,7 +157,7 @@ en:
         other: "In %{count} aspects"
 
   bookmarklet:
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet"
     post_success: "Posted! Closing!"
     post_something: "Post something to Diaspora"
     explanation: "Post to Diaspora from anywhere by bookmarking %{link}."

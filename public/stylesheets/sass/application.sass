@@ -7,7 +7,7 @@
 body
   :padding 2em
   :margin 0
-    :top 60px
+    :top 40px
   :background-color $background
 a
   :color #107FC9
@@ -22,14 +22,13 @@ a
 p
   :word-wrap break-word
 
-h1, h2, h3, h4, h5
+h1
   :color #333
   :position relative
   :font
     :weight bold
 
 h1, h2, h3
-  :letter-spacing -1px
 
 h4
   :margin
@@ -137,6 +136,7 @@ header
   :padding 0
     :top 2px
   :color #CCC
+  :height 35px
 
   :position absolute
 
@@ -265,9 +265,9 @@ ul.dropdown
 
 .diaspora_header_logo
   :position relative
-  :top 4px
+  :top 5px
   :margin
-    :right 1em
+    :right 49px
   &:active
     :top 5px
 
@@ -370,7 +370,7 @@ ul.dropdown
   :color #888
 
   :font
-    :size 14px
+    :size 13px
 
   a.author
     :font
@@ -391,7 +391,7 @@ ul.dropdown
       :margin
         :bottom 0px
       :font
-        :size 13px
+        :size 12px
       :line
         :height 18px
 
@@ -641,8 +641,11 @@ ul.show_comments,
   :position relative
 
   textarea
-    :width 100%
+    :width 365px
     :height 1.4em
+
+  input
+    :display none
 
   li
     :list
@@ -697,8 +700,6 @@ ul.show_comments,
           :size 1em
         :margin
           :bottom -3px
-        :width 438px
-        :min-height 23px
 
       p
         :position relative
@@ -715,8 +716,8 @@ ul.show_comments,
           :top 5px
           :bottom 2px
           :right 2px
-      textarea
-        :min-height 2.4em
+      input
+        :display inline-block
 
 .comments
   .timeago
@@ -816,11 +817,12 @@ a.paginate, #infscr-loading
 
 input:not([type='submit']):not([type='reset']),
 textarea
-  @include border-radius(3px)
+  @include border-radius(2px)
 
   :font
     :family 'Arial', 'Helvetica', sans-serif
     :size 14px
+
   :padding 0.3em
   :display block
   :width 100%
@@ -875,29 +877,30 @@ label
     :bottom 10px
     :top 0
   :padding 12px
-    :top 1px
+    :top 0
   :top 0
 
   :border
-    :bottom 2px #777 solid
+    :bottom 1px #eee solid
+
+  form
+    textarea
+      :height 18px !important
+      :width 474px
 
   &.mention_popup
-
     :padding 1px 12px
     :margin
       :bottom 0
     :border
       :bottom none
 
-
   &.closed
     .options_and_submit
       :display none !important
     #file-upload
       :display none
-    form
-      textarea
-        :height 18px !important
+
     .counter
       :display none
   form
@@ -906,11 +909,10 @@ label
 
   input[type='text'],
   textarea
-    :width 435px
     :margin 0
+    :width 395px
 
   textarea
-    :border 1px solid $blue
     :height 42px
 
   label
@@ -951,38 +953,13 @@ label
     :margin
       :top 1em
 
-  #click_to_share
-    :position relative
-    :padding 1em
-      :top 0
-    :margin
-      :bottom -16px
-
-    span
-      :margin
-        :left 12px
-      :font
-        :weight bold
-      :color #444
-
-    img
-      :display inline
-      :position absolute
-      :top 0
-      :left 0px
-
   #file-upload
-    @include border-radius(3px)
-
+    :float left
     :z-index 10
-    :float right
-    :height 42px
-    :width 103px
     :margin 0
+    :top 2px
 
-    :border 2px solid #ccc
-    :background
-      :color #fafafa
+    :display inline-block
 
     :padding 0.3em
     :cursor pointer
@@ -993,7 +970,7 @@ label
 
     :text
       :align center
-      :shadow 0 1px 0 #eee
+      :shadow none
 
     img
       @include opacity(0.4)
@@ -1006,18 +983,18 @@ label
 
     &:hover
       :background
-        :color #eee
+        :color none
       :cursor pointer
 
       :color #666
       img
-        @include opacity(0.6)
+        @include opacity(0.8)
 
     &:active
       :text-shadow 0 1px 0 #fafafa
-      :color #ccc
+      :color #444
       img
-        @include opacity(0.1)
+        @include opacity(1)
 
     &.loading
       @include opacity(0.5)
@@ -1120,84 +1097,6 @@ img.scaled_full
     img
       :height 100px
       :width 100px
-
-ul#aspect_nav
-  :margin
-    :top 3px
-    :bottom 2px
-  :bottom 0
-  :color #000
-
-  :position relative
-  :padding 0
-    :bottom 3px
-  :margin
-    :bottom 0
-
-  a:hover
-    :text
-      :decoration none
-
-  > li
-    @include border-radius(2px)
-
-    :display inline
-    :padding 1px 8px
-    :margin 0
-      :right 2px
-
-    :text-shadow 0 1px 0 #444
-
-    :color #999
-    :max-width 120px
-    :overflow hidden
-    :text-overflow ellipsis
-
-    .aspect_selector_edit
-      :position absolute
-      :margin
-        :left -3px
-      :display none
-      :color #555
-
-      &:hover
-        :color #eee
-
-    &:hover
-      :background
-        :color #000
-      :color #eee
-
-      .aspect_selector_edit
-        :display inline
-
-    &.selected
-      :text-shadow 0 1px 0 #fff
-      :font
-        :weight bold
-      :background
-        :color rgb(235,235,235)
-
-      :border
-        :bottom 1px solid #fff
-
-      :color #444
-
-      .aspect_selector_edit
-        :margin
-          :left -4px
-        :color #777
-        &:hover
-          :color #999
-
-      &:hover
-        :color #888
-      a
-        :color #000
-
-  .new_requests
-    :color red
-
 
 #global_search
   :display inline
@@ -1406,19 +1305,6 @@ ul#settings_nav
   a
     :line-height 30px
 
-.contact_pictures,
-#aspect_listings li
-  img
-    :margin
-      :right 2px
-      :bottom 0px
-    :width 29px
-    :height 29px
-
-  h5
-    :margin
-      :bottom 6px
-
 .contact_pictures.horizontal
   img
     :margin-right -5px
@@ -1438,20 +1324,6 @@ ul#settings_nav
 
   a
     :color #69AEDD
-
-#aspect_listings
-  .contacts
-    :margin
-      :top 6px
-
-  ul
-    :padding 0
-    :margin 0
-    > li
-      :position relative
-      :padding 8px 0
-      :border
-        :bottom 1px solid #ddd
 
 .floating.empty_message
   :margin
@@ -2448,7 +2320,6 @@ ul.show_comments,
       :size 11px
       :weight normal
 
-
 #aspect_edit_controls
   :margin
     :top 8px
@@ -2460,22 +2331,17 @@ ul.show_comments,
     :position absolute
     :left 0
 
-  h3
+  h4
     :position relative
-    :top 4px
+    :top 16px
+    :padding
+      :bottom 5px
 
   :margin
-    :bottom 1em
-
-  :border
-    :bottom 1px solid #ccc
+    :bottom 60px
 
   :padding
     :left 60px
-
-#aspect_listings
-  :margin
-    :top 24px
 
 #new_notifications,
 #new_requests
@@ -2544,7 +2410,15 @@ ul.show_comments,
     :width 100%
 
 #sort_by
-  :text-align right
+  :float right
+  :color #777
+  .controls
+    :font
+      :weight 700
+    a
+      :font
+        :weight normal
+
 
 #remember_me
   input[type='checkbox']
@@ -2865,7 +2739,7 @@ h1.tag
     :font
       :weight bold
 
-.leftBar
+.rightBar
   .title
     :position relative
     :border
@@ -2896,7 +2770,6 @@ h1.tag
       :padding 8px
       :color #999
       :font-size 11px
-      :height 36px
     :margin
       :bottom 4px
 
@@ -2991,7 +2864,7 @@ ul#requested-scopes
     .hold-me
       :display inline-block
 
-ul#left_nav
+ul.left_nav
   :margin 0
   :padding 0
 
@@ -3023,9 +2896,6 @@ ul#left_nav
           :weight 700
         :color #666
 
-    ul.sub_nav
-      :display block
-
   .contact_count
     @include border-radius(4px)
     :float right
@@ -3041,11 +2911,33 @@ ul#left_nav
   ul.sub_nav
     :padding 0
     :margin 0
-    :display none
     a
       :padding
         :left 15px
       :width 182px
+
+.section
+  .contact_count
+    :display none !important
+
+  .left_nav
+    ul.sub_nav
+      a
+        :width 140px
+
+#aspect_stream_container
+  h3
+    :margin
+      :bottom 0
+  :border
+    :left 1px solid #eee
+  :padding
+    :left 10px
+  :margin
+    :left -10px
+
+#aspect_stream_header
+  :padding 0 12px
 
 .new_aspect
   :color #999

@@ -71,12 +71,15 @@ var Stream = {
     });
 
     $("textarea.comment_box", this.selector).live("focus blur", function(evt) {
-      var commentBox = $(this);
-      commentBox
-        .attr("rows", (evt.type === "focus") ? 2 : 1)
-        .parent().parent()
-          .toggleClass("open");
+      if (this.value === undefined || this.value ===  ''){
+        var commentBox = $(this);
+        commentBox
+          .attr("rows", (evt.type === "focus") ? 2 : 1)
+          .parent().parent()
+            .toggleClass("open");
+      }
     });
+    
   },
 
   setUpAudioLinks: function() {

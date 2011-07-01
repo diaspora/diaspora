@@ -63,7 +63,7 @@ var View = {
       $('textarea')
         .autoResize({
           'animate': false,
-          'extraSpace': 40
+          'extraSpace': 5
         });
     }
     Diaspora.widgets.subscribe("stream/scrolled", startAutoResize)
