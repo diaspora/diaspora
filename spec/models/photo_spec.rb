@@ -17,6 +17,11 @@ describe Photo do
     @photo2 = @user.build_post(:photo, :user_file=> File.open(@fixture_name), :to => @aspect.id)
   end
 
+
+  describe "#process" do
+    it "should do something awesome"
+  end
+
   describe "protected attributes" do
     it "doesn't allow mass assignment of person" do
       @photo.save!
