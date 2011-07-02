@@ -20,9 +20,6 @@ class AspectsController < ApplicationController
 
     aspect_ids = @aspects.map{|a| a.id}
 
-    #No aspect_listings on infinite scroll
-    @aspects = @aspects.includes(:contacts => {:person => :profile}) unless params[:only_posts]
-
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
       redirect_to getting_started_path
@@ -33,7 +30,7 @@ class AspectsController < ApplicationController
       all_selected_contacts = Contact.joins(:aspect_memberships).
         where(:aspect_memberships => {:aspect_id => aspect_ids})
       @selected_contacts_count =  all_selected_contacts.count
-      @selected_contacts = all_selected_contacts
+      @selected_contacts = all_selected_contacts.includes(:person => :profile)
     end
 
     @aspect_ids = @aspects.map { |a| a.id }
