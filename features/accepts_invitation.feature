@@ -3,16 +3,18 @@ Feature: invitation acceptance
     Scenario: accept invitation from admin
       Given I have been invited by an admin
       And I am on my acceptance form page
-      And I fill in "Username" with "ohai"
-      And I fill in "Email" with "woot@sweet.com"
-      And I fill in "user_password" with "secret"
-      And I fill in "Password confirmation" with "secret"
+      And I fill in the following:
+        | Username              | ohai           |
+        | Email                 | woot@sweet.com |
+        | user_password         | secret         |
+        | Password confirmation | secret         |
       And I press "Sign up"
       Then I should be on the getting started page
       And I should see "getting_started_logo"
-     When I fill in "profile_first_name" with "O"
-      And I fill in "profile_last_name" with "Hai"
-      And I fill in "tags" with "#beingawesome"
+      And I fill in the following:
+        | profile_first_name | O             |
+        | profile_last_name  | Hai           |
+        | tags               | #beingawesome |
       And I press "Save and continue"
       Then I should see "Profile updated"
 			And I should see "Would you like to find your Facebook friends on Diaspora?"
@@ -21,16 +23,18 @@ Feature: invitation acceptance
     Scenario: accept invitation from user
       Given I have been invited by a user
       And I am on my acceptance form page
-      And I fill in "Username" with "ohai"
-      And I fill in "Email" with "sweet@woot.com"
-      And I fill in "user_password" with "secret"
-      And I fill in "Password confirmation" with "secret"
+      And I fill in the following:
+        | Username              | ohai           |
+        | Email                 | woot@sweet.com |
+        | user_password         | secret         |
+        | Password confirmation | secret         |
       And I press "Sign up"
       Then I should be on the getting started page
       And I should see "getting_started_logo"
-     When I fill in "profile_first_name" with "O"
-      And I fill in "profile_last_name" with "Hai"
-      And I fill in "tags" with "#tags"
+      And I fill in the following:
+        | profile_first_name | O     |
+        | profile_last_name  | Hai   |
+        | tags               | #tags |
       And I press "Save and continue"
       Then I should see "Profile updated"
       
