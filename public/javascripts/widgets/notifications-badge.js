@@ -1,75 +1,64 @@
 (function() {
   var NotificationDropdown = function() {
+    var self = this;
+
     this.start = function() {
-      this.badge = $("#notification_badge a");
+      this.badge = $("#notification_badge");
+      this.badgeLink = this.badge.find("a");
       this.documentBody = $(document.body);
       this.dropdown = $("#notification_dropdown");
+      this.dropdownNotifications = this.dropdown.find(".notifications");
 
-      this.badge.click($.proxy(function(evt) {
-        evt.preventDefault();
-        evt.stopPropagation();
-
-        if(!this.dropdownShowing()) {
-          this.getNotifications(function() {
-            this.toggleDropdown();
+      this.badgeLink.toggle(function(evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          
+          self.getNotifications(function() { 
+            self.renderNotifications();
+            self.dropdown.css("display", "block");
           });
-        }
-        else {
-          this.toggleDropdown();
-        }
-      }, this));
+        },  function(evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
 
-      this.documentBody.click($.proxy(function(evt) {
-        if(this.dropdownShowing()) {
-          this.toggleDropdown(evt);
+          self.dropdown.css("display", "none");
+      });
+
+      this.dropdown.click(function(evt) {
+        evt.stopPropagation();
+      });
+
+      this.documentBody.click(function(evt) {
+        if(self.dropdownShowing()) {
+          self.badgeLink.click();
         }
-      }, this));
+      });
     };
-  };
 
-  NotificationDropdown.prototype.dropdownShowing = function() {
-    return this.dropdown.css("display") === "block";
-  }
 
-  NotificationDropdown.prototype.toggleDropdown = function() {
-    if(!this.dropdownShowing()) {
-      this.renderNotifications();
-      this.showDropdown();
-    } else {
-      this.hideDropdown();
-    }
-  }
+    this.dropdownShowing = function() {
+      return this.dropdown.css("display") === "block";
+    };
 
-  NotificationDropdown.prototype.showDropdown = function() {
-    this.badge.parent().addClass("active");
-    this.dropdown.css("display", "block");
-  }
+    this.getNotifications = function(callback) {
+      $.getJSON("/notifications", function(notifications) {
+        self.notifications = notifications;
+        callback.apply(self, []);
+      });
+    };
 
-  NotificationDropdown.prototype.hideDropdown = function() {
-    this.badge.parent().removeClass("active");
-    this.dropdown.css("display", "none");
-  }
+    this.renderNotifications = function() {
+      self.dropdownNotifications.empty();
 
-  NotificationDropdown.prototype.getNotifications = function(callback) {
-    $.getJSON("/notifications", $.proxy(function(notifications) {
-      this.notifications = notifications;
-      callback.apply(this, [notifications]);
-    }, this));
-  };
-
-  NotificationDropdown.prototype.renderNotifications = function() {
-    this.dropdown.find(".notifications").html("");
-
-    $.each(this.notifications.notifications, $.proxy(function(index, notifications) {
-      $.each(notifications, $.proxy(function(index, notification) {
-          $("<div/>", {
-            "class": "notification_element"
-          })
+      $.each(self.notifications.notifications, function(index, notifications) {
+        $.each(notifications, function(index, notification) {
+          $("<div/>", { "class": "notification_element" })
             .html(notification.translation)
             .prepend($("<img/>", { src: notification.actors[0].avatar }))
-            .prependTo(this.dropdown.find(".notifications"));
-      }, this));
-    }, this));
+            .prependTo(self.dropdownNotifications);
+        });
+      });
+    };
   };
 
   Diaspora.widgets.add("notificationDropdown", NotificationDropdown);
