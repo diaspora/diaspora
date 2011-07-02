@@ -7,8 +7,3 @@
     - for contact in contacts
       = person_image_link contact.person
 
-    #edit_this_aspect
-      = link_to "View all contacts", contacts_path
-    - for aspect in @aspects
-      = link_to "Edit #{aspect.name}", edit_aspect_path(aspect), :rel => 'facebox'
-      %br

@@ -889,6 +889,7 @@ label
 
   form
     textarea
+      :resize none
       :width 455px
       :margin 0
 
@@ -2682,6 +2683,10 @@ h1.tag
   .see_all
     :text-align center
 
+  .avatar
+    :height 45px
+    :width 45px
+
 .date
   :background
     :color #e6e6e6
@@ -2857,7 +2862,7 @@ ul.left_nav
     :position relative
     :width 100%
 
-  a
+  a.aspect_selector
     :display block
     :width 100%
     :padding 3px 7px
@@ -2881,9 +2886,16 @@ ul.left_nav
           :weight 700
         :color #666
 
+  .contact_count,
+  .edit
+    :float right
+
+  .edit
+    :margin-top 4px
+    :display none
+
   .contact_count
     @include border-radius(4px)
-    :float right
     :margin-top 1px
     :color #999
     :background
@@ -2896,7 +2908,9 @@ ul.left_nav
   ul.sub_nav
     :padding 0
     :margin 0
-    a
+    li
+      :width 155px
+    a.aspect_selector
       :padding
         :left 15px
       :width 182px
@@ -2909,11 +2923,15 @@ ul.left_nav
     :display none !important
 
   .left_nav
-    a
+    a.aspect_selector
       :width 150px
     ul.sub_nav
-      a
+      :width 140px
+      a.aspect_selector
         :width 140px
+      li:hover
+        .edit
+          :display inline-block
 
 .stream_container
   h3
@@ -3003,13 +3021,6 @@ ul.left_nav
     :width 32px
     :margin
       :bottom -2px
-
-#edit_this_aspect
-  :text-align center
-  :margin
-    :top 5px
-  :padding 3px
-  :border 1px dotted #ccc
 
 .bottom_submit_section
   :display block

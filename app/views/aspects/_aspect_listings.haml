@@ -4,7 +4,7 @@
 
 %ul#aspect_nav.left_nav
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
-    %a{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
+    %a.aspect_selector{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
       .contact_count
         = my_contacts_count
       = t('contacts.index.my_contacts')
@@ -12,24 +12,26 @@
     %ul.sub_nav
       - for aspect in all_aspects
         %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
+          .edit
+            = link_to image_tag("icons/pencil.svg", :height => 12), edit_aspect_path(aspect), :rel => "facebox"
 
-          %a{aspect_listing_link_opts(aspect)}
-
+          %a.aspect_selector{aspect_listing_link_opts(aspect)}
             .contact_count
               = aspect.contacts.size
             = aspect
+
       %li
         = link_to "+ Add an aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
         
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
-    %a{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+    %a.aspect_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
       .contact_count
         = all_contacts_count
       = t('contacts.index.all_contacts')
 
     %ul.sub_nav
       %li{:class => ("active" if params["set"] == "only_sharing")}
-        %a{:href => contacts_path(:set => "only_sharing")}
+        %a.aspect_selector{:href => contacts_path(:set => "only_sharing")}
           .contact_count
             = only_sharing_count
           = t('contacts.index.only_sharing_with_me')
