@@ -1,7 +1,13 @@
 namespace :cruise do
   desc "Run all specs and features"
   task :cruise => [:environment, :'cruise:migrate'] do
+    puts "Starting virtual display..."
     run_cruise
+    puts "Cleaning up..."
+    FileUtils.rm_rf("#{Rails.root}/public/uploads/images")
+    FileUtils.rm_rf("#{Rails.root}/public/uploads/tmp")
+    raise "tests failed!" unless exit_status == 0
+    puts "All tests passed!"
   end
 
   task :migrate do
@@ -14,18 +20,12 @@ namespace :cruise do
     run_cruise
   end
   def run_cruise
-    puts "Starting virtual display..."
     `sh -e /etc/init.d/xvfb start`
     puts "Starting specs..."
     system('export DISPLAY=:99.0 && CI=true bundle exec rake')
     exit_status = $?.exitstatus
     puts "Stopping virtual display..."
     `sh -e /etc/init.d/xvfb stop`
-    puts "Cleaning up..."
-    FileUtils.rm_rf("#{Rails.root}/public/uploads/images")
-    FileUtils.rm_rf("#{Rails.root}/public/uploads/tmp")
-    raise "tests failed!" unless exit_status == 0
-    puts "All tests passed!"
   end
 end
 task :cruise => "cruise:cruise"
