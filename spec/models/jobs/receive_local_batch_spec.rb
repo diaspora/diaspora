@@ -9,18 +9,18 @@ describe Job::ReceiveLocalBatch do
     @post = alice.build_post(:status_message, :text => 'Hey Bob')
     @post.save!
   end
-  describe '.perform_delegate' do
+  describe '.perform' do
     it 'calls .create_visibilities' do
       Job::ReceiveLocalBatch.should_receive(:create_visibilities).with(@post, [bob.id])
-      Job::ReceiveLocalBatch.perform_delegate(@post.id, [bob.id])
+      Job::ReceiveLocalBatch.perform(@post.id, [bob.id])
     end
     it 'sockets to users' do
       Job::ReceiveLocalBatch.should_receive(:socket_to_users).with(@post, [bob.id])
-      Job::ReceiveLocalBatch.perform_delegate(@post.id, [bob.id])
+      Job::ReceiveLocalBatch.perform(@post.id, [bob.id])
     end
     it 'notifies mentioned users' do
       Job::ReceiveLocalBatch.should_receive(:notify_mentioned_users).with(@post)
-      Job::ReceiveLocalBatch.perform_delegate(@post.id, [bob.id])
+      Job::ReceiveLocalBatch.perform(@post.id, [bob.id])
     end
   end
   describe '.create_visibilities' do

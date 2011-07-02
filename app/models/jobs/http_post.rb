@@ -8,7 +8,7 @@ module Job
     @queue = :http
     NUM_TRIES = 3
 
-    def self.perform_delegate(url, body, tries_remaining = NUM_TRIES)
+    def self.perform(url, body, tries_remaining = NUM_TRIES)
       begin
         body = CGI::escape(body)
         RestClient.post(url, :xml => body){ |response, request, result, &block|

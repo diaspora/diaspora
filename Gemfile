@@ -58,6 +58,7 @@ gem "excon", "0.2.4"
 gem 'mini_magick', '3.2'
 gem 'aws', '2.3.32' # upgrade to 2.4 breaks 1.8 >.<
 
+
 gem 'fastercsv', '1.5.4', :require => false
 gem 'jammit', '0.5.4'
 gem 'rest-client', '1.6.1'
@@ -70,6 +71,7 @@ gem 'cloudfiles', '1.4.10', :require => false
 
 #Queue
 gem 'resque', '1.10.0'
+gem 'resque-ensure-connected'
 gem 'SystemTimer', '1.2.1', :platforms => :ruby_18
 
 group :development do

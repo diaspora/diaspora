@@ -8,7 +8,7 @@ module Job
     require File.join(Rails.root, 'lib/postzord/receiver')
 
     @queue = :receive
-    def self.perform_delegate(post_id, recipient_user_ids)
+    def self.perform(post_id, recipient_user_ids)
       post = Post.find(post_id)
       create_visibilities(post, recipient_user_ids)
       socket_to_users(post, recipient_user_ids) if post.respond_to?(:socket_to_user)
