@@ -19,13 +19,14 @@
     = person_image_link(post.author, :size => :thumb_small)
 
     .content
-      %span.from
-        = person_link(post.author, :class => 'author')
-        %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
-      %span.details
-        \-
-        %span.timeago
-          = link_to(how_long_ago(post), object_path(post))
+      %div
+        %span.from
+          = person_link(post.author, :class => 'author')
+          %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
+        %span.details
+          \-
+          %span.timeago
+            = link_to(how_long_ago(post), object_path(post))
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url), post.object_url
