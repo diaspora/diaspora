@@ -15,7 +15,7 @@ describe Job::ResendInvitation do
       #Notification.should_receive(:notify).with(instance_of(User), instance_of(StatusMessage), instance_of(Person))
       Invitation.stub(:where).with(:id => invitation.id ).and_return([invitation])
       invitation.should_receive(:resend)
-      Job::ResendInvitation.perform_delegate(invitation.id)
+      Job::ResendInvitation.perform(invitation.id)
     end
   end
 end

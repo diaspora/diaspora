@@ -6,7 +6,7 @@
 module Job
   class ProcessPhoto < Base
     @queue = :photos
-    def self.perform_delegate(photo_id)
+    def self.perform(photo_id)
       Photo.find(photo_id).process
     end
   end

@@ -6,7 +6,7 @@
 module Job
   class ResendInvitation < Base
     @queue = :mail
-    def self.perform_delegate(invitation_id)
+    def self.perform(invitation_id)
       inv = Invitation.where(:id => invitation_id).first
       inv.resend
     end

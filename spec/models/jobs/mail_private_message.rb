@@ -21,7 +21,7 @@ describe Job::MailPrivateMessage do
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_mock)
 
-      Job::MailMentioned.perform_delegate(user2.id, user1.person.id, message.id)
+      Job::MailMentioned.perform(user2.id, user1.person.id, message.id)
     end
   end
 end

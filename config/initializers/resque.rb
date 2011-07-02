@@ -8,12 +8,7 @@ begin
     if Rails.env == 'production'
       puts "WARNING: You are running Diaspora in production without Resque workers turned on.  Please don't do this."
     end
-
-    module Resque
-      def enqueue(klass, *args)
-        klass.send(:perform, *args)
-      end
-    end
+    Resque.inline = true
   end
 rescue
   nil
