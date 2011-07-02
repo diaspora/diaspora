@@ -29,7 +29,7 @@ describe StatusMessagesController do
       response.should be_success
     end
 
-    it 'generates a jasmine fixture', :fixture => 'jasmine' do
+    it 'generates a jasmine fixture', :fixture => true do
       contact = alice.contact_for(bob.person)
       aspect = alice.aspects.create(:name => 'people')
       contact.aspects << aspect

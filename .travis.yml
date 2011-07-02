@@ -1,7 +1,12 @@
-bundler_args: "--without development"
+bundler_args: "--without development production"
 rvm:
   - ree
 #  - 1.9.2
 
-script: "cp config/database.yml.example config/database.yml; bundle exec rake db:create; bundle exec rake cruise"
+before_script:
+  - "sass --update public/stylesheets/sass/:public/stylesheets/"
+  - "cp config/database.yml.example config/database.yml"
+  - "rspec spec --tag fixture"
+
+script: "bundle exec rake travis"
 env: "TRAVIS=true"

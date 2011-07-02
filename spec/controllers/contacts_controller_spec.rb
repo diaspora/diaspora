@@ -62,7 +62,7 @@ describe ContactsController do
       contacts.to_set.should == bob.contacts.to_set
     end
 
-    it "generates a jasmine fixture", :fixture => 'jasmine' do
+    it "generates a jasmine fixture", :fixture => true do
       get :index
       save_fixture(html_for("body"), "aspects_manage")
     end

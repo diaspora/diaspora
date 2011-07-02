@@ -12,7 +12,7 @@ describe PublicsController do
   end
 
   describe '#host_meta' do
-    it 'succeeds', :fixture => :rspec do
+    it 'succeeds', :fixture => true do
       get :host_meta
       response.should be_success
       response.body.should =~ /webfinger/
@@ -62,7 +62,7 @@ describe PublicsController do
   end
 
   describe '#hcard' do
-    it "succeeds", :fixture => :rspec do
+    it "succeeds", :fixture => true do
       post :hcard, "guid" => @user.person.guid.to_s
       response.should be_success
       save_fixture(response.body, "hcard", fixture_path)
@@ -81,7 +81,7 @@ describe PublicsController do
   end
 
   describe '#webfinger' do
-    it "succeeds when the person and user exist locally", :fixture => :rspec do
+    it "succeeds when the person and user exist locally", :fixture => true do
       post :webfinger, 'q' => @user.person.diaspora_handle
       response.should be_success
       save_fixture(response.body, "webfinger", fixture_path)

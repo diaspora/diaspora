@@ -1,6 +1,22 @@
 namespace :cruise do
   desc "Run all specs and features"
   task :cruise => [:environment, :'cruise:migrate'] do
+    run_cruise
+  end
+
+  task :migrate do
+    system('bundle exec rake db:migrate')
+    exit_status = $?.exitstatus
+    raise "db:migrate failed!" unless exit_status == 0
+  end
+
+  task :travis => ['db:create', 'db:schema:load'] do
+    debugger
+    Jammit.package!
+    debugger
+    run_cruise
+  end
+  def run_cruise
     puts "Starting virtual display..."
     `sh -e /etc/init.d/xvfb start`
     puts "Starting specs..."
@@ -14,11 +30,6 @@ namespace :cruise do
     raise "tests failed!" unless exit_status == 0
     puts "All tests passed!"
   end
-
-  task :migrate do
-    system('bundle exec rake db:migrate')
-    exit_status = $?.exitstatus
-    raise "db:migrate failed!" unless exit_status == 0
-  end
 end
 task :cruise => "cruise:cruise"
+task :travis => "cruise:travis"
