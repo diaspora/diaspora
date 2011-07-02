@@ -5,7 +5,6 @@
 #For Guidance
 #http://github.com/thoughtbot/factory_girl
 # http://railscasts.com/episodes/158-factories-not-fixtures
-#This inclsion, because gpg-agent(not needed) is never run and hence never sets any env. variables on a MAC
 
 def r_str
   ActiveSupport::SecureRandom.hex(3)

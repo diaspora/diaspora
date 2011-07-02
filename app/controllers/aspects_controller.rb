@@ -27,10 +27,10 @@ class AspectsController < ApplicationController
     end
 
     unless params[:only_posts]
-      all_selected_contacts = Contact.joins(:aspect_memberships).
-        where(:aspect_memberships => {:aspect_id => aspect_ids})
-      @selected_contacts_count =  all_selected_contacts.count
-      @selected_contacts = all_selected_contacts.includes(:person => :profile)
+      all_selected_people = Person.joins(:contacts => :aspect_memberships).
+        where(:contacts => {:user_id => current_user.id},
+              :aspect_memberships => {:aspect_id => aspect_ids})
+      @selected_people = all_selected_people.select("DISTINCT people.*").includes(:profile)
     end
 
     @aspect_ids = @aspects.map { |a| a.id }

@@ -8,9 +8,9 @@
       = "(#{count})"
 
   .content
-    - if contacts.size > 0
-      - for contact in contacts
-        = person_image_link contact.person
+    - if people.size > 0
+      - for person in people
+        = person_image_link person
 
       - if @aspect_ids.size > 1
         = link_to t('.view_all_contacts'), contacts_path, :id => "view_all_contacts_link"
