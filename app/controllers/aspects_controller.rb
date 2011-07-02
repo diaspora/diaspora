@@ -20,6 +20,9 @@ class AspectsController < ApplicationController
 
     aspect_ids = @aspects.map{|a| a.id}
 
+    #No aspect_listings on infinite scroll
+    @aspects = @aspects.includes(:contacts => {:person => :profile}) unless params[:only_posts]
+
     # redirect to signup
     if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
       redirect_to getting_started_path
