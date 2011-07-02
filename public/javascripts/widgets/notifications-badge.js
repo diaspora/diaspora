@@ -14,6 +14,7 @@
           evt.stopPropagation();
           
           self.getNotifications(function() { 
+            self.badge.addClass("active");
             self.renderNotifications();
             self.dropdown.css("display", "block");
           });
@@ -21,6 +22,7 @@
           evt.preventDefault();
           evt.stopPropagation();
 
+          self.badge.removeClass("active");
           self.dropdown.css("display", "none");
       });
 
@@ -52,12 +54,28 @@
 
       $.each(self.notifications.notifications, function(index, notifications) {
         $.each(notifications, function(index, notification) {
-          $("<div/>")
+          var notificationElement = $("<div/>")
             .addClass("notification_element")
-            .addClass((notification.unread) ? "unread" : "read" )
             .html(notification.translation)
             .prepend($("<img/>", { src: notification.actors[0].avatar }))
-            .prependTo(self.dropdownNotifications);
+            .append("<br />")
+            .append($("<abbr/>", {
+              "class": "timeago",
+              "title": notification.created_at
+            }))
+            .appendTo(self.dropdownNotifications);
+
+          Diaspora.widgets.timeago.updateTimeAgo(".notification_element time.timeago");
+
+          if(notification.unread) {
+            $.ajax({
+              url: "/notifications/" + notification.id,
+              type: "PUT",
+              success: function() {
+                Diaspora.widgets.notifications.decrementCount();
+              }
+            });
+          }
         });
       });
     };

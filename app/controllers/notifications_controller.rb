@@ -24,7 +24,7 @@ class NotificationsController < VannaController
                                  :conditions => conditions,
                                  :order => 'created_at desc',
                                  :include => [:target, {:actors => :profile}],
-                                 :limit => pager.per_page,
+                                 :limit => request.format == :json ? 5 : pager.per_page,
                                  :offset => pager.offset
                                 )
 
