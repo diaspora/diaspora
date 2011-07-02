@@ -10,22 +10,37 @@ Feature: posting
     When I sign in as "bob@bob.bob"
     And I am on the home page
 
-
-  Scenario: see a tag that I am following
-    Given I expand the publisher
-    And I fill in "status_message_fake_text" with "I am ALICE"
+    And I expand the publisher
+    And I fill in "status_message_fake_text" with "I am da #boss"
     And I press the first ".public_icon" within "#publisher"
     And I press "Share"
+    And I wait for the ajax to finish
+    And I wait for the ajax to finish
+
+    When I go to the home page
+    Then I should see "I am da #boss"
+    And I wait for 5 seconds
+
+    And I follow "#boss"
+    And I wait for the ajax to finish
+    And I debug
+    Then I should see "I am da #boss"
+
+
     And I go to the destroy user session page
 
     And I sign in as "alice@alice.alice"
-    And I search for "#alice"
-    And I press "Follow #alice"
-    And I go to the home page
-    And I press "#alice"
-    Then I should see "I am #alice"
+    And I search for "#boss"
+    And I press "Follow #boss"
+    And I wait for the ajax to finish
 
+  Scenario: see a tag that I am following
+    When I go to the home page
+    And I follow "#boss"
+    Then I should see "I am da #boss"
 
+  Scenario: see that I'm following a particular tag
+    Then I should see "Following #boss"
 
 
 

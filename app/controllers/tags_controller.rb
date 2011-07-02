@@ -69,4 +69,8 @@ class TagsController < ApplicationController
       @people_count = Person.where(:id => profiles.map{|p| p.person_id}).count
     end
   end
+
+# def tag_following?
+#   TagFollowings.join(:tags)
+# end
 end

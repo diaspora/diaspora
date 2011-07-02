@@ -331,4 +331,66 @@ describe AspectsController do
       @alices_aspect_1.reload.contacts_visible.should be_false
     end
   end
+
+  context 'helper methods' do
+    before do
+      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+      TagFollowing.create!(:tag => @tag, :user => bob )
+    end
+
+    describe 'tag_followings' do
+      it 'does nothing if no-one is signed in' do
+        @controller.stub!(:current_user).and_return(nil)
+        @controller.tag_followings.should be_nil
+      end
+
+      it 'queries current_users tag_followings' do
+        alice.should_receive(:tag_followings).once.and_return([42])
+
+        @controller.stub(:current_user).and_return(alice)
+        @controller.tag_followings.should == [42]
+      end
+
+      it 'does not query twice' do
+        alice.should_receive(:tag_followings).once.and_return([42])
+        @controller.stub(:current_user).and_return(alice)
+
+        @controller.tag_followings.should == [42]
+        @controller.tag_followings.should == [42]
+      end
+    end
+
+    describe 'tags' do
+      it 'does nothing there are no tag_followings' do
+        @controller.stub!(:tag_followings).and_return([])
+        @controller.tags.should == []
+      end
+
+      context "querying" do
+        before do
+          @ids = [1,2,3] 
+          @tag_followings = @ids.map do |n|
+            tf = mock()
+            tf.should_receive(:id).and_return(n)
+            tf
+          end
+
+          query = mock
+          query.should_receive(:all).and_return([42])
+
+          ActsAsTaggableOn::Tag.should_receive(:where).with(:id => @ids).once.and_return(query)
+          @controller.stub(:tag_followings).and_return(@tag_followings)
+        end
+
+        it 'queries current_users tag if there are tag_followings' do
+          @controller.tags.should == [42]
+        end
+        
+        it 'does not query twice' do
+          @controller.tags.should == [42]
+          @controller.tags.should == [42]
+        end
+      end
+    end
+  end
 end

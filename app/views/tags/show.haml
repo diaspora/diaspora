@@ -30,17 +30,20 @@
     #author_info
       - if user_signed_in? && current_user.person != @person
         .right
-          = button_to "Follow ##{params[:name]}", :class => "button"
+          - unless true #tag_followed?
+            = button_to t('.follow', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
+          - else
+            = button_to t('.stop_following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
       %h2
         = "##{params[:name]}"
 
     %hr
 
-  #main_stream.stream
-    - if @posts.length > 0
-      = render 'shared/stream', :posts => @posts
-      #pagination
-        =link_to(t('more'), next_page_path, :class => 'paginate')
-    - else
-      = t('.nobody_talking', :tag => "##{params[:name]}")
+    #main_stream.stream
+      - if @posts.length > 0
+        = render 'shared/stream', :posts => @posts
+        #pagination
+          =link_to(t('more'), next_page_path, :class => 'paginate')
+      - else
+        = t('.nobody_talking', :tag => "##{params[:name]}")
 
