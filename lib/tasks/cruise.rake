@@ -17,7 +17,10 @@ namespace :cruise do
   end
 
   task :travis do
-    run_cruise
+    ["rspec spec", "rake cucumber", "jasmine:ci"].each do |cmd|
+      system('bundle exec rspec spec')
+      raise "#{cmd} failed!" unless $?.exitstatus == 0
+    end
   end
   def run_cruise
     `sh -e /etc/init.d/xvfb start`
