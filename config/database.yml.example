@@ -4,7 +4,7 @@ common: &common
   port: 3306
 #  socket: /tmp/mysql.sock
   username: "root"
-  password: "password"
+  password: ""
   charset: utf8
   collation: utf8_bin
 

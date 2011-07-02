@@ -3,5 +3,5 @@ rvm:
   - ree
 #  - 1.9.2
 
-script: "cp config/database.yml.example config/database.yml; bundle exec rake cruise"
+script: "cp config/database.yml.example config/database.yml; bundle exec rake db:create; bundle exec rake cruise"
 env: "TRAVIS=true"
