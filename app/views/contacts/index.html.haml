@@ -20,8 +20,8 @@
   #people_stream.stream.contacts
     - if @aspect_
       #aspect_controls
-        = link_to "Edit #{@aspect_.name}", edit_aspect_path(@aspect_), :rel => "facebox"
-        = link_to "start a conversation", new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+        = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+        = link_to t('.edit_aspect', :name => @aspect_.name), edit_aspect_path(@aspect_), :rel => "facebox"
 
     - if @contacts.size > 0
       - for contact in @contacts
@@ -49,8 +49,8 @@
             .info
               = contact.person.diaspora_handle
 
+      = will_paginate @contacts
     - else
       %h3.no_contacts
         = t('.no_contacts')
 
-  = will_paginate @contacts

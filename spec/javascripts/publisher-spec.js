@@ -6,13 +6,6 @@
 describe("Publisher", function() {
 
   describe("initialize", function(){
-    it("calls close when it does not have text", function(){
-      spec.loadFixture('aspects_index');
-      spyOn(Publisher, 'close');
-      Publisher.initialize();
-      expect(Publisher.close).toHaveBeenCalled();
-    });
-
     it("does not call close when there is prefilled text", function(){
       spec.loadFixture('aspects_index_prefill');
       spyOn(Publisher, 'close');
@@ -224,6 +217,7 @@ describe("Publisher", function() {
       Publisher.initialize();
     });
     it("adds the closed class", function() {
+      Publisher.form().removeClass('closed');
       expect(Publisher.form().hasClass('closed')).toBeFalsy();
       Publisher.close();
       expect(Publisher.form().hasClass('closed')).toBeTruthy();

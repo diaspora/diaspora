@@ -22,12 +22,15 @@
       - if @contacts_of_contact.count > 8
         %p.see_all= link_to t('.see_all'), person_contacts_path(@person)
 
-.span-15.last
+.span-18.last
   .stream_container
     #author_info
-      - if user_signed_in? && current_user.person != @person
-        .right
+      .right
+        - if user_signed_in? && current_user.person != @person
           = render 'aspect_memberships/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
+        - else
+          = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path, :class => 'button creation'
+
       %h2
         = @person.name
       %span.diaspora_handle

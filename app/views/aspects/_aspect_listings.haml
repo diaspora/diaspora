@@ -4,10 +4,10 @@
 
 %ul#aspect_nav.left_nav
   %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
-    %a.aspect_selector{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
+    %a.home_selector{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
       .contact_count
         = my_contacts_count
-      = t('contacts.index.my_contacts')
+      = left_nav_root
 
     %ul.sub_nav
       - for aspect in all_aspects

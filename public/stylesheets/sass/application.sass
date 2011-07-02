@@ -997,6 +997,7 @@ label
       @include opacity(0.5)
 
 #publisher_textarea_wrapper
+
   #hide_publisher
     @include opacity(0.3)
     :padding 3px
@@ -1011,6 +1012,9 @@ label
 
   :border 1px solid #ccc
   :background #fff
+
+  &.active
+    :border 1px solid #999
 
   :position relative
   :padding
@@ -1620,6 +1624,7 @@ h3 span.current_gs_step
   :position relative
   :display inline-block
   :top 3px
+  :min-width 170px
 
   a:hover
     :text
@@ -2729,10 +2734,10 @@ h1.tag
   .title
     :position relative
     :border
-      :bottom 1px solid #888
+      :bottom 1px solid #ddd
     :padding 2px 0
       :top 0
-      :left 24px
+      :left 22px
 
     &.no_icon
       :padding
@@ -2746,7 +2751,7 @@ h1.tag
       :color #777
 
     h5
-      :font-size 13px
+      :font-size 12px
       :margin 0
       :color #666
 
@@ -2761,7 +2766,7 @@ h1.tag
       :color #999
       :font-size 11px
     :margin
-      :bottom 10px
+      :bottom 25px
 
 .subtle
   :color #888
@@ -2862,7 +2867,8 @@ ul.left_nav
     :position relative
     :width 100%
 
-  a.aspect_selector
+  a.aspect_selector,
+  a.home_selector
     :display block
     :width 100%
     :padding 3px 7px
@@ -2910,7 +2916,8 @@ ul.left_nav
     :margin 0
     li
       :width 155px
-    a.aspect_selector
+    a.aspect_selector,
+    a.new_aspect
       :padding
         :left 15px
       :width 182px
@@ -2923,17 +2930,23 @@ ul.left_nav
     :display none !important
 
   .left_nav
-    a.aspect_selector
+    a.aspect_selector,
+    a.home_selector
       :width 150px
     ul.sub_nav
       :width 140px
-      a.aspect_selector
+
+      a.aspect_selector,
+      a.new_aspect
         :width 140px
+
       li:hover
         .edit
           :display inline-block
 
 .stream_container
+  :min-height 500px
+
   h3
     :margin
       :bottom 0
@@ -2958,6 +2971,7 @@ ul.left_nav
     :color #777
 
 .no_contacts
+  :position relative
   :text-align center
   :top 50px
 
@@ -3022,6 +3036,14 @@ ul.left_nav
     :margin
       :bottom -2px
 
+#view_all_contacts_link
+  @include border-radius(2px)
+  :display block
+  :padding 5px
+  :border 1px dotted #aaa
+  :text-align center
+  :margin 5px 0
+
 .bottom_submit_section
   :display block
   :position relative
@@ -3036,3 +3058,6 @@ ul.left_nav
 .left
   :position absolute
   :left 0
+
+.big_stream_photo
+  :display block

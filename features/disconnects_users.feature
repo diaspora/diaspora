@@ -42,6 +42,8 @@ Feature: disconnecting users
 
   Scenario: remove a non-mutual contact from the aspect edit page
     When I go to the home page
+      And I follow "Contacts"
+      And I follow "Besties"
       And I follow "Edit Besties"
 
       And I wait for the ajax to finish

@@ -5,7 +5,7 @@
 - if likes.size > 0
   .likes_container
     .likes
-      = image_tag('icons/heart.png')
+      = image_tag('icons/heart.svg')
       = link_to t('.people_like_this', :count => likes.length), "#", :class => "expand_likes"
       %span.hidden.likes_list
         = notification_people_link(nil, likes.map{|x| x.author})

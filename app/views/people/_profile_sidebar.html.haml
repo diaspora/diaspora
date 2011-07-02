@@ -7,11 +7,7 @@
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
   - if user_signed_in?
-    - if person == current_user.person
-      %p
-        = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
-
-    - else
+    - if person != current_user.person
       - if @contact && @contact.receiving?
         %br
         = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'

@@ -4,5 +4,6 @@
 
 #no_posts.empty_message{:class => ("hidden" unless post_count == 0)}
   %h4
-    =t('.start_talking')
+    = t('.start_talking')
+    = link_to t('.try_adding_some_more_contacts'), contacts_path
 

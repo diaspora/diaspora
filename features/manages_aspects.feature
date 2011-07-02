@@ -23,9 +23,9 @@ Feature: User manages contacts
     Given I am signed in
     And I have 2 contacts
     And I have an aspect called "Cat People"
-    When I follow "My Contacts"
+    When I follow "Contacts"
+    And I follow "Cat People"
     And I follow "Edit Cat People"
-    And I wait for the ajax to finish
     And I press the first ".contact_list .button"
     And I wait for the ajax to finish
     Then I should have 1 contact in "Cat People"

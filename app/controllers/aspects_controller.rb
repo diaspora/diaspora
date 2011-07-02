@@ -72,7 +72,7 @@ class AspectsController < ApplicationController
           @contact = current_user.share_with(@person, @aspect)
         end
       else
-        respond_with @aspect
+        redirect_to contacts_path(:a_id => @aspect.id)
       end
     else
       respond_to do |format|

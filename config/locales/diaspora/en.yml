@@ -100,6 +100,7 @@ en:
     aspect_contacts:
       done_editing: "done editing"
     aspect_stream:
+      stream: "Stream"
       recently: "recently:"
       commented_on: "commented on"
       posted: "posted"
@@ -107,6 +108,12 @@ en:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
+
+    selected_contacts:
+      view_all_contacts: "View all contacts"
+      no_contacts: "You don't have any contacts here yet."
+      manage_your_aspects: "Manage your aspects."
 
     new:
       name: "Name"
@@ -135,6 +142,7 @@ en:
       family: "Family"
       work: "Work"
     index:
+      your_aspects: "Your Aspects"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
@@ -186,6 +194,8 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
+      edit_aspect: "Edit %{name}"
+      start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       your_contacts: "Your Contacts"
