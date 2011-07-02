@@ -1,6 +1,7 @@
+bundler_args: "--without development"
 rvm:
   - ree
-  - 1.9.2
+#  - 1.9.2
 
-script: "bundle exec rake cruise"
+script: "cp config/database.yml.example config/database.yml; bundle exec rake cruise"
 env: "TRAVIS=true"
