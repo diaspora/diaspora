@@ -23,7 +23,7 @@
       :posts => @posts
 
 .span-5.rightBar.last
-  = render 'selected_contacts', :contacts => @selected_contacts, :count => @selected_contacts_count
+  = render 'selected_contacts', :contacts => @selected_contacts[0..19], :count => @selected_contacts_count
 
   .section
     .title
