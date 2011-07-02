@@ -6,6 +6,8 @@ rvm:
 before_script:
   - "sass --update public/stylesheets/sass/:public/stylesheets/"
   - "cp config/database.yml.example config/database.yml"
+  - "rake db:create"
+  - "rake db:schema:load"
   - "rspec spec --tag fixture"
 
 script: "bundle exec rake travis"

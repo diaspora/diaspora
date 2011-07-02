@@ -10,10 +10,7 @@ namespace :cruise do
     raise "db:migrate failed!" unless exit_status == 0
   end
 
-  task :travis => ['db:create', 'db:schema:load'] do
-    debugger
-    Jammit.package!
-    debugger
+  task :travis do
     run_cruise
   end
   def run_cruise
