@@ -1,41 +1,67 @@
-$(function() {
-  $("#notification_badge a").live("_click", function(event){
-    event.preventDefault();
-    $.getJSON("/notifications", function(hash) {
-      $("#notifications_overlay").show();
-      var notificationsElement =  $("#notifications_overlay .notifications");
-      var dayElementTemplate = $("#notifications_overlay .day_group").clone();
-      dayElementTemplate.find(".notifications_for_day").empty();
-      var streamElementTemplate = $("#notifications_overlay .stream_element").clone();
-      notificationsElement.empty();
-      $.each(hash["group_days"], function(day){
-        var dayElement = dayElementTemplate.clone();
-        var dayParts = day.split(" ");
-        dayElement.find(".month").text(dayParts[0])
-        dayElement.find(".day").text(dayParts[1])
-        var notificationsForDay = hash["group_days"][day],
-          notificationsForDayElement = dayElement.find('.notifications_for_day');
+(function() {
+  var NotificationDropdown = function() {
+    this.start = function() {
+      this.badge = $("#notification_badge a");
+      this.documentBody = $(document.body);
+      this.dropdown = $("#notification_dropdown");
 
-        $.each(notificationsForDay, function(i, notificationHash) {
-          $.each(notificationHash, function(notificationType, notification) {
-            var actor = notification.actors[0];
-            var streamElement = streamElementTemplate.clone().appendTo(notificationsForDayElement);
-            streamElement.find(".actor")
-              .text(actor.name)
-              .attr("href", notification.actors[0]["url"]);
-            streamElement.find('time').attr("datetime", notification["created_at"]);
+      this.badge.click($.proxy(function(evt) {
+        evt.preventDefault();
+        evt.stopPropagation();
+
+        if(!this.dropdownShowing()) {
+          this.getNotifications(function() {
+            this.toggleDropdown();
           });
-        });
-        notificationsElement.append(dayElement)
+        }
+        else {
+          this.toggleDropdown();
+        }
+      }, this));
 
-        Diaspora.widgets.timeago.updateTimeAgo("time");
-      });
-    });
-  });
+      this.documentBody.click($.proxy(function(evt) {
+        if(this.dropdownShowing()) {
+          this.toggleDropdown(evt);
+        }
+      }, this));
+    };
+  };
 
-  $("#notifications_overlay").delegate('a.close', 'click', function() {
-    console.log("hi!");
-    $('#notifications_overlay').hide();
-  });
+  NotificationDropdown.prototype.dropdownShowing = function() {
+    return this.dropdown.css("display") === "block";
+  }
 
-});
+  NotificationDropdown.prototype.toggleDropdown = function() {
+    if(!this.dropdownShowing()) {
+      this.renderNotifications();
+      this.showDropdown();
+    } else {
+      this.hideDropdown();
+    }
+  }
+
+  NotificationDropdown.prototype.showDropdown = function() {
+    this.dropdown.css("display", "block");
+  }
+
+  NotificationDropdown.prototype.hideDropdown = function() {
+    this.dropdown.css("display", "none");
+  }
+
+  NotificationDropdown.prototype.getNotifications = function(callback) {
+    $.getJSON("/notifications", $.proxy(function(notifications) {
+      this.notifications = notifications;
+      callback.apply(this, [notifications]);
+    }, this));
+  };
+
+  NotificationDropdown.prototype.renderNotifications = function() {
+    $.each(this.notifications.notifications, $.proxy(function(index, notifications) {
+      $.each(notifications, $.proxy(function(index, notification) {
+          this.dropdown.append(notification.translation);
+      }, this));
+    }, this));
+  };
+
+  Diaspora.widgets.add("notificationDropdown", NotificationDropdown);
+})();

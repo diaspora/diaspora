@@ -194,3 +194,11 @@ end
 When /^I wait for (\d+) seconds$/ do |seconds|
   sleep seconds.to_i
 end
+
+When /^I click the notification badge$/ do
+  evaluate_script("$('#notification_badge a').click();");
+end
+
+Then /^the notification dropdown should be visible$/ do
+  evaluate_script("$('#notification_dropdown').css('display') === 'block'")
+end
