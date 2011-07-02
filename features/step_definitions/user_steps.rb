@@ -152,3 +152,12 @@ And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|
   path = link.attributes["href"].value
   visit URI::parse(path).request_uri
 end
+
+When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
+  user = User.find_for_database_authentication(:username => email)
+  post = Factory(:status_message_with_photo, :text => "Look at this dog", :author => user.person)
+  [post, post.photos.first].each do |p|
+    user.add_to_streams(p, user.aspects)
+    user.dispatch_post(p)
+  end
+end

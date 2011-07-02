@@ -8,17 +8,7 @@ Feature: commenting
     Given a user named "Bob Jones" with email "bob@bob.bob"
     And a user named "Alice Smith" with email "alice@alice.alice"
     And a user with email "bob@bob.bob" is connected with "alice@alice.alice"
-    When I sign in as "alice@alice.alice"
-    And I am on the home page
-    And I expand the publisher
-    And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
-    And I fill in "status_message_fake_text" with "Look at this dog"
-    And I press "Share"
-    And I wait for the ajax to finish
-    And I follow "Your Aspects"
-    Then I should see "Look at this dog" within ".stream_element"
-    And I should see a "img" within ".stream_element div.photo_attachments"
-    Then I log out
+    When "alice@alice.alice" has posted a status message with a photo
 
   Scenario: comment on a post from within a user's stream
     When I sign in as "bob@bob.bob"

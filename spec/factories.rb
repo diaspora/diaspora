@@ -76,6 +76,22 @@ Factory.define(:status_message) do |m|
   end
 end
 
+Factory.define(:status_message_with_photo, :parent => :status_message) do |m|
+  m.sequence(:text) { |n| "There are #{n} ninjas in this photo." }
+  m.after_build do |m|
+    p = Factory(:photo, :author => m.author, :status_message => m, :pending => false)
+  end
+end
+
+Factory.define(:photo) do |p|
+  p.sequence(:random_string) {|n| ActiveSupport::SecureRandom.hex(10) }
+  p.after_build do |p|
+    p.unprocessed_image.store! File.open(File.join(File.dirname(__FILE__), 'fixtures', 'button.png'))
+    p.process
+    p.update_remote_path
+  end
+end
+
 Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.type "Services::Twitter"
