@@ -217,9 +217,9 @@ describe AspectsController do
         post :create, "aspect" => {"name" => "new aspect"}
         alice.reload.aspects.count.should == 3
       end
-      it "redirects to the aspect page" do
+      it "redirects to the aspect's contact page" do
         post :create, "aspect" => {"name" => "new aspect"}
-        response.should redirect_to(aspect_path(Aspect.find_by_name("new aspect")))
+        response.should redirect_to(contacts_path(:a_id => Aspect.find_by_name("new aspect").id))
       end
 
       context "with person_id param" do

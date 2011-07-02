@@ -7,10 +7,12 @@
 var Publisher = {
   close: function(){
     Publisher.form().addClass('closed');
+    Publisher.form().find("#publisher_textarea_wrapper").removeClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '');
   },
   open: function(){
     Publisher.form().removeClass('closed');
+    Publisher.form().find("#publisher_textarea_wrapper").addClass('active');
     Publisher.form().find("textarea.ac_input").css('min-height', '42px');
     Publisher.determineSubmitAvailability();
   },
@@ -371,9 +373,13 @@ var Publisher = {
     Publisher.bindPublicIcon();
     Publisher.bindAspectToggles();
 
-    if ($("#status_message_fake_text").val() === "") {
+    /* close text area */
+    Publisher.form().delegate("#hide_publisher", "click", function(){
+      $.each(Publisher.form().find("textarea"), function(idx, element){
+        $(element).val("");
+      });
       Publisher.close();
-    }
+    });
 
     Publisher.autocompletion.initialize();
     Publisher.hiddenInput().val(Publisher.input().val());

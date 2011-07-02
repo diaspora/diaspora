@@ -32,7 +32,8 @@
     = render 'shared/contact_list', :aspect => @aspect, :contacts => @contacts
 
   %br
-  %div{:style => "text-align:right;"}
-    = link_to t('.done'), '#', :class => 'button', :rel => 'close'
-    = link_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button'
+  .bottom_submit_section
+    .left
+      = button_to t('delete'), @aspect, :method => "delete", :confirm => t('.confirm_remove_aspect'), :class => 'button delete'
+    = submit_tag t('.done'), :class => 'button creation', :rel => 'close'
 

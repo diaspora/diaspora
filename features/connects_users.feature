@@ -48,7 +48,7 @@ Feature: sending and receiving requests
     And I add the person to my 2nd aspect
 
     When I go to the home page
-    When I follow "All Aspects" in the header
+    When I follow "Your Aspects"
 
     Then I should have 1 contact in "Unicorns"
     Then I should have 1 contact in "Besties"
@@ -60,7 +60,7 @@ Feature: sending and receiving requests
     Then I go to the destroy user session page
 
     When I sign in as "bob@bob.bob"
-    When I follow "All Aspects" in the header
+    When I follow "Your Aspects"
       Then I should have 1 contacts in "Besties"
 
     And I am on the home page
@@ -79,12 +79,12 @@ Feature: sending and receiving requests
     And I wait for the ajax to finish
 
    When I go to the home page
-    When I follow "All Aspects" in the header
+   When I follow "Your Aspects"
    Then I should have 1 contact in "Super People"
    Then I go to the destroy user session page
 
    When I sign in as "bob@bob.bob"
-    When I follow "All Aspects" in the header
+   When I follow "Your Aspects"
    Then I should have 1 contact in "Besties"
 
   Scenario: should not see "Add to aspect" and see mention if already a follower

@@ -12,13 +12,14 @@ var AspectFilters = {
     AspectFilters.interceptAspectNavLinks();
   },
   initializeSelectedGUIDS: function(){
-    $("#aspect_nav li").each(function(){
+    $("#aspect_nav .aspect_selector").each(function(){
       var button = $(this),
           guid = button.attr('data-guid');
 
-      if(guid && location.href.search("a_ids..="+guid+"(&|$)") != -1){
-        button.addClass('selected');
+      if(guid && location.href.search("a_ids..="+guid+"(#|&|$)") != -1){
+        button.parent().addClass('active');
         AspectFilters.selectedGUIDS.push(guid);
+        $("#aspect_nav li.all_aspects").removeClass('active');
       }
     });
   },
@@ -43,8 +44,8 @@ var AspectFilters = {
     var guid = aspectLi.attr('data-guid');
 
     // select correct aspect in filter list & deselect others
-    $("#aspect_nav li").removeClass('selected');
-    aspectLi.addClass('selected');
+    $("#aspect_nav li.active").removeClass('active');
+    aspectLi.addClass('active');
 
     AspectFilters.fadeOut();
 
@@ -62,19 +63,19 @@ var AspectFilters = {
       // filtering //////////////////////
       var $this = $(this),
           listElement = $this.parent(),
-          guid = listElement.attr('data-guid'),
-          homeListElement = $("#aspect_nav a.home_selector").parent();
+          guid = $this.attr('data-guid'),
+          homeListElement = $("#aspect_nav li.all_aspects");
 
-      if( listElement.hasClass('selected') ){
+      if( listElement.hasClass('active') ){
         // remove filter
         var idx = AspectFilters.selectedGUIDS.indexOf( guid );
         if( idx != -1 ){
           AspectFilters.selectedGUIDS.splice(idx,1);
         }
-        listElement.removeClass('selected');
+        listElement.removeClass('active');
 
         if(AspectFilters.selectedGUIDS.length === 0){
-          homeListElement.addClass('selected');
+          homeListElement.addClass('active');
         }
 
       } else {
@@ -82,9 +83,9 @@ var AspectFilters = {
         if(AspectFilters.selectedGUIDS.indexOf( guid == 1)){
           AspectFilters.selectedGUIDS.push( guid );
         }
-        listElement.addClass('selected');
+        listElement.addClass('active');
 
-        homeListElement.removeClass('selected');
+        homeListElement.removeClass('active');
       }
 
        AspectFilters.performAjax(AspectFilters.generateURL());

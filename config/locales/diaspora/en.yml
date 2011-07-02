@@ -28,6 +28,7 @@ en:
   back: "Back"
   the_world: "the world"
   search: "Search"
+  find_people: "Find people"
   _home: "Home"
   more: "More"
   next: "next"
@@ -35,6 +36,7 @@ en:
   _comments: "Comments"
   all_aspects: "All Aspects"
   no_results: "No Results Found"
+  _contacts: "Contacts"
 
 
   #for reference translation, the real activerecord english transations are actually
@@ -98,13 +100,20 @@ en:
     aspect_contacts:
       done_editing: "done editing"
     aspect_stream:
-      sort_by: "sort by:"
-      activity: "activity"
-      post_time: "post time"
+      stream: "Stream"
+      recently: "recently:"
+      commented_on: "commented on"
+      posted: "posted"
     show:
       edit_aspect: "edit aspect"
     no_posts_message:
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      start_talking: "Nobody has said anything yet!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
+
+    selected_contacts:
+      view_all_contacts: "View all contacts"
+      no_contacts: "You don't have any contacts here yet."
+      manage_your_aspects: "Manage your aspects."
 
     new:
       name: "Name"
@@ -133,6 +142,7 @@ en:
       family: "Family"
       work: "Work"
     index:
+      your_aspects: "Your Aspects"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
@@ -157,7 +167,7 @@ en:
         other: "In %{count} aspects"
 
   bookmarklet:
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet"
     post_success: "Posted! Closing!"
     post_something: "Post something to Diaspora"
     explanation: "Post to Diaspora from anywhere by bookmarking %{link}."
@@ -184,6 +194,8 @@ en:
     sharing:
       people_sharing: "People sharing with you:"
     index:
+      edit_aspect: "Edit %{name}"
+      start_a_conversation: "Start a conversation"
       add_a_new_aspect: "Add a new aspect"
       title: "Contacts"
       your_contacts: "Your Contacts"
@@ -210,7 +222,7 @@ en:
       send: "Send"
     helper:
       new_messages: 
-        zero: "no new messages"
+        zero: "No new messages"
         one: "1 new messages"
         few: "%{count} new messages"
         many: "%{count} new messages"
@@ -365,7 +377,7 @@ en:
       and: 'and'
     helper:
         new_notifications:
-          zero: "no new notifications"
+          zero: "No new notifications"
           one: "1 new notifications"
           few: "%{count} new notifications"
           many: "%{count} new notifications"
@@ -599,13 +611,14 @@ en:
       post_a_message_to: "Post a message to %{aspect}"
       make_public: "make public"
       all: "all"
-      add_photos: "add photos"
+      upload_photos: "Upload photos"
       all_contacts: "all contacts"
       share_with: "share with"
-      whats_on_your_mind: "what's on your mind?"
+      whats_on_your_mind: "What's on your mind?"
       publishing_to: "publishing to: "
       public: "Public"
       click_to_share_with: "Click to share with: "
+      discard_post: "Discard post"
     add_contact:
       enter_a_diaspora_username: "Enter a Diaspora username:"
       your_diaspora_username_is: "Your Diaspora username is: %{diaspora_handle}"
@@ -662,8 +675,8 @@ en:
       other: "please make your status messages less than %{count} characters"
 
   stream_helper:
-    show_comments: "show all comments"
-    hide_comments: "hide comments"
+    show_more_comments: "Show %{number} more comments"
+    hide_comments: "Hide all comments"
 
   tags:
     show:

@@ -7,11 +7,7 @@
     = person_image_link(person, :size => :thumb_large, :to => :photos)
 
   - if user_signed_in?
-    - if person == current_user.person
-      %p
-        = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path
-
-    - else
+    - if person != current_user.person
       - if @contact && @contact.receiving?
         %br
         = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
@@ -20,7 +16,6 @@
       %br
       %br
     -if contact.sharing? || person == current_user.person
-      %hr{:style=>"width:300px;"}
       %ul#profile_information
         - unless person.profile.bio.blank?
           %li
@@ -35,15 +30,17 @@
             %div{ :class => direction_for(person.profile.location) }
               = markdownify(person.profile.location, :newlines => true)
 
-        %li.span-8.last
-          .span-4
-            - unless person.profile.gender.blank?
-              %h4
-                =t('.gender')
-              = person.profile.gender
+        %li
+          - unless person.profile.gender.blank?
+            %h4
+              =t('.gender')
+            = person.profile.gender
 
-          .span-4.last
-            - unless person.profile.birthday.blank?
-              %h4
-                =t('.born')
-              = birthday_format(person.profile.birthday)
+        %li
+          - unless person.profile.birthday.blank?
+            %h4
+              =t('.born')
+            = birthday_format(person.profile.birthday)
+
+          %br
+          %br

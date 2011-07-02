@@ -9,31 +9,23 @@
     $(".public_icon").tipsy({trigger: 'hover', gravity: 'n'});
   });
 
-#publisher{:class => ((aspect == :profile)? 'mention_popup' : nil )}
-
-  #click_to_share
-    -unless aspect == :profile
-      = image_tag 'icons/doc_edit.png'
-      %span= t('.whats_on_your_mind')
-
-      = t('aspects', :count => aspect_ids.length)
-
+#publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
       - if @selected_contacts
         = hidden_field_tag :contact_json, @selected_contacts.map{|contact| contact.person}.to_json
       = status.error_messages
-      #file-upload
-        = image_tag 'icons/photos.png'
-        %br
-        = t('.add_photos')
-
       %p
         %params
           #publisher_textarea_wrapper
+            = link_to( image_tag('deletelabel.png'), "#", :id => "hide_publisher", :title => t('.discard_post'))
             %ul#photodropzone
-            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1
+            = status.text_area :fake_text, :rows => 2, :value => h(params[:prefill]), :tabindex => 1, :placeholder => t('.whats_on_your_mind')
             = status.hidden_field :text, :value => '', :class => 'clear_on_submit'
+
+            #file-upload{:title => t('.upload_photos')}
+              = image_tag 'icons/camera.svg', :height => 14
+
 
       - for aspect_id in aspect_ids
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
@@ -55,7 +47,7 @@
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
-          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button', :tabindex => 2
+          = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
 
           .facebox_content
             #question_mark_pane

@@ -19,9 +19,13 @@
     = person_image_link(post.author, :size => :thumb_small)
 
     .content
-      .from
+      %span.from
         = person_link(post.author, :class => 'author')
         %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
+      %span.details
+        \-
+        %span.timeago
+          = link_to(how_long_ago(post), object_path(post))
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url), post.object_url
@@ -37,18 +41,15 @@
           %span.aspect_badges
             = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
 
-        %span.timeago
-          = link_to(how_long_ago(post), object_path(post))
-
         %span.via
           - if post.activity_streams?
             = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
 
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
-          |
+          ·
           %span.like_action
             = like_action(post, current_user)
-          |
+          ·
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
       .likes

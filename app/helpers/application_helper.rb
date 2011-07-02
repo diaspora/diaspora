@@ -106,4 +106,16 @@ module ApplicationHelper
   def rtl?
     @rtl ||= RTL_LANGUAGES.include? I18n.locale
   end
+
+  def controller_index_path 
+    self.send((request.filtered_parameters["controller"] + "_path").to_sym)
+  end
+
+  def left_nav_root
+    if request.filtered_parameters["controller"] == "contacts"
+      t('contacts.index.my_contacts')
+    else
+      t('aspects.index.your_aspects')
+    end
+  end
 end

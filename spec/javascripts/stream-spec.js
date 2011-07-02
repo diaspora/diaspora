@@ -27,7 +27,7 @@ describe("Stream", function() {
         {show_more: 'Placeholder'}, 'en');
       Stream.initialize();
       stream_element = $('#main_stream .stream_element:first');
-      expect(stream_element.find(".details").css('display')).toEqual('none');
+      expect(stream_element.find("p .details").css('display')).toEqual('none');
       expect(stream_element.find(".read-more a").css('display')).toEqual('inline');
       stream_element.find(".read-more a").click();
       jasmine.Clock.tick(200);
@@ -51,7 +51,7 @@ describe("Stream", function() {
       link = $("a.show_post_comments");
       Diaspora.widgets.i18n.loadLocale(
         {'comments' : {'hide': 'comments.hide pl'}}, 'en');
-      expect(link.text()).toEqual("show all comments");
+      expect(link.text()).toEqual("Show 1 more comments");
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
       );

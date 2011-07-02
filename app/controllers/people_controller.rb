@@ -82,7 +82,7 @@ class PeopleController < ApplicationController
           @aspects_with_person = @contact.aspects
           @aspect_ids = @aspects_with_person.map(&:id)
           @contacts_of_contact_count = @contact.contacts.count
-          @contacts_of_contact = @contact.contacts.limit(36)
+          @contacts_of_contact = @contact.contacts.limit(8)
 
         else
           @contact ||= Contact.new

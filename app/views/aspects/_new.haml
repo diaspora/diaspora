@@ -4,7 +4,7 @@
 
 .span-12.last
   #facebox_header
-    %h4
+    %h3
       = t('contacts.index.add_a_new_aspect')
 
   = form_for(Aspect.new, :remote => (defined?(remote) && remote) ) do |aspect|
@@ -21,5 +21,7 @@
 
     %br
 
-    = aspect.submit t('.create'), :class => 'button'
+    .bottom_submit_section
+      = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close"
+      = aspect.submit t('.create'), :class => 'button creation'
 

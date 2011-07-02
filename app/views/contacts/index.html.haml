@@ -14,43 +14,16 @@
     = t('.title')
 
 .span-5.append-1
-  %ul#left_nav
-    %li{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
-      %a{:href => contacts_path, :class => ("sub_selected" if params["a_id"])}
-        .contact_count
-          = @my_contacts_count
-        = t('.my_contacts')
-
-      %ul.sub_nav
-        - for aspect in all_aspects
-          %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
-            %a{:href => contacts_path(:a_id => aspect.id)}
-              .contact_count
-                = aspect.contacts.count
-              = aspect
-        %li
-          = link_to "+ Add an aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
-          
-    %li{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
-      %a{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
-        .contact_count
-          = @all_contacts_count
-        = t('.all_contacts')
-
-      %ul.sub_nav
-        %li{:class => ("active" if params["set"] == "only_sharing")}
-          %a{:href => contacts_path(:set => "only_sharing")}
-            .contact_count
-              = @only_sharing_count
-            = t('.only_sharing_with_me')
+  = render 'aspects/aspect_listings'
 
 .span-18.last
   #people_stream.stream.contacts
-    - if @contacts.size > 0
+    - if @aspect_
       #aspect_controls
-        - if @aspect_
-          = link_to "start a conversation", new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+        = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+        = link_to t('.edit_aspect', :name => @aspect_.name), edit_aspect_path(@aspect_), :rel => "facebox"
 
+    - if @contacts.size > 0
       - for contact in @contacts
         .stream_element{:id => contact.person.id}
           .right
@@ -76,8 +49,8 @@
             .info
               = contact.person.diaspora_handle
 
+      = will_paginate @contacts
     - else
       %h3.no_contacts
         = t('.no_contacts')
 
-  = will_paginate @contacts

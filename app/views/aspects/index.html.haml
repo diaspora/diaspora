@@ -5,26 +5,37 @@
 
 - content_for :head do
   = include_javascripts :home
-.span-15.append-2
-  #aspect_stream_container
+
+.span-5.leftNavBar
+  #home_user_badge
+    = owner_image_link
+    %h3
+      = current_user.first_name
+
+  .section
+    = render 'aspects/aspect_listings'
+
+.span-13.append-1
+  #aspect_stream_container.stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
       :aspect_ids => @aspect_ids,
       :posts => @posts
 
-.span-7.leftBar.last
-  #home_user_badge
-    = owner_image_link
-    %h3{:style => "position:relative;"}
-      = current_user.name
-      .description
-        = link_to current_user.diaspora_handle, person_path(current_user.person)
+.span-5.rightBar.last
+  = render 'selected_contacts', :contacts => @selected_contacts, :count => @selected_contacts_count
 
-  #aspect_listings.section
-    = render 'aspects/aspect_listings', :aspects => @aspects
-
-  %br
-  %br
+  .section
+    .title
+      = image_tag('/images/icons/bookmark.png')
+      %h5
+        Diaspora ID
+    .content
+      Your Diaspora ID is:
+      %b
+        = current_user.diaspora_handle
+      %br
+      Give it to anyone and they'll be able to find you on Diaspora.
 
   .section
     .title

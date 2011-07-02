@@ -2,26 +2,37 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-%h4
-  .right
-    = link_to t('contacts', :count => @contact_count), contacts_path , :title => t('contacts.index.your_contacts')
+%ul#aspect_nav.left_nav
+  %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
+    %a.home_selector{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
+      .contact_count
+        = my_contacts_count
+      = left_nav_root
 
-  = t('aspects', :count => aspects.count)
+    %ul.sub_nav
+      - for aspect in all_aspects
+        %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
+          .edit
+            = link_to image_tag("icons/pencil.svg", :height => 12), edit_aspect_path(aspect), :rel => "facebox"
 
-%ul
-  - for aspect in aspects
-    = render 'aspects/aspect', :aspect => aspect, :contacts => aspect.contacts
+          %a.aspect_selector{aspect_listing_link_opts(aspect)}
+            .contact_count
+              = aspect.contacts.size
+            = aspect
 
-  - if @contacts_sharing_with
-    %li#sharers{:class => ("dull" if @contacts_sharing_with.size == 0)}
-      .right
-        %b
-          = link_to t('contacts', :count => @contacts_sharing_with.size), sharing_contacts_path, :rel => 'facebox', :class => 'contact-count'
-      %b
-        = t('aspects.index.people_sharing_with_you')
-      %br
+      %li
+        = link_to "+ Add an aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
+        
+  %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
+    %a.aspect_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
+      .contact_count
+        = all_contacts_count
+      = t('contacts.index.all_contacts')
 
-      - if @contacts_sharing_with.size > 0
-        .contacts
-          - for contact in @contacts_sharing_with[0..15]
-            = person_image_link(contact.person)
+    %ul.sub_nav
+      %li{:class => ("active" if params["set"] == "only_sharing")}
+        %a.aspect_selector{:href => contacts_path(:set => "only_sharing")}
+          .contact_count
+            = only_sharing_count
+          = t('contacts.index.only_sharing_with_me')
+

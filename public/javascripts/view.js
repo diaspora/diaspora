@@ -4,16 +4,6 @@
 */
 var View = {
   initialize: function() {
-
-    $(window).scroll(function(){
-      var header = $('header');
-      if( $(this).scrollTop() > 30){
-        header.addClass('fixit');
-      } else {
-        header.removeClass('fixit');
-      }
-    });
-
     /* Buttons */
     $("input:submit").addClass("button");
 
@@ -63,7 +53,7 @@ var View = {
       $('textarea')
         .autoResize({
           'animate': false,
-          'extraSpace': 40
+          'extraSpace': 5
         });
     }
     Diaspora.widgets.subscribe("stream/scrolled", startAutoResize)
@@ -85,7 +75,7 @@ var View = {
     });
 
     /* facebox 'done' buttons */
-    $("a[rel*=close]").live('click', function(){ $.facebox.close(); });
+    $("*[rel*=close]").live('click', function(){ $.facebox.close(); });
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
