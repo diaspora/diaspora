@@ -29,13 +29,13 @@
     .title
       = image_tag('/images/icons/bookmark.png')
       %h5
-        Diaspora ID
+        = t(".diaspora_id.heading")
     .content
-      Your Diaspora ID is:
+      = t(".diaspora_id.content_1")
       %b
         = current_user.diaspora_handle
       %br
-      Give it to anyone and they'll be able to find you on Diaspora.
+      = t(".diaspora_id.content_2")
 
   .section
     .title

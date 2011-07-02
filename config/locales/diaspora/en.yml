@@ -109,6 +109,8 @@ en:
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+    aspect_listings:
+      add_an_aspect: "+ Add an aspect"
 
     selected_contacts:
       view_all_contacts: "View all contacts"
@@ -151,6 +153,10 @@ en:
         heading: "Connect to Cubbi.es"
         explanation: "Cubbi.es is the first Diaspora application under development."
         learn_more: "Learn more"
+      diaspora_id:
+        heading: "Diaspora ID"
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
 
   aspect_memberships:
     destroy:

@@ -21,8 +21,8 @@
             = aspect
 
       %li
-        = link_to "+ Add an aspect", "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
-        
+        = link_to t('.add_an_aspect'), "#add_aspect_pane", :class => "new_aspect", :rel => "facebox"
+
   %li.all_contacts{:class => ("active" if params["set"] == "all" || params["set"] == "only_sharing")}
     %a.aspect_selector{:href => contacts_path(:set => "all"), :class => ("sub_selected" if params["set"] == "only_sharing")}
       .contact_count
