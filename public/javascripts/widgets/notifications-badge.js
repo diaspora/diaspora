@@ -41,10 +41,12 @@
   }
 
   NotificationDropdown.prototype.showDropdown = function() {
+    this.badge.parent().addClass("active");
     this.dropdown.css("display", "block");
   }
 
   NotificationDropdown.prototype.hideDropdown = function() {
+    this.badge.parent().removeClass("active");
     this.dropdown.css("display", "none");
   }
 
@@ -56,9 +58,16 @@
   };
 
   NotificationDropdown.prototype.renderNotifications = function() {
+    this.dropdown.find(".notifications").html("");
+
     $.each(this.notifications.notifications, $.proxy(function(index, notifications) {
       $.each(notifications, $.proxy(function(index, notification) {
-          this.dropdown.append(notification.translation);
+          $("<div/>", {
+            "class": "notification_element"
+          })
+            .html(notification.translation)
+            .prepend($("<img/>", { src: notification.actors[0].avatar }))
+            .prependTo(this.dropdown.find(".notifications"));
       }, this));
     }, this));
   };

@@ -44,6 +44,13 @@
               = @unread_message_count
 
       #notification_dropdown
+        .header
+          %h4
+            Recent notifications
+        .notifications
+
+        .notification_element.view_more
+          = link_to "View all notifications", notifications_path, :id => "notification_dropdown_link"
 
     %ul#user_menu.dropdown
       %li

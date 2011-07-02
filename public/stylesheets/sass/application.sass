@@ -1621,10 +1621,10 @@ h3 span.current_gs_step
         :color #22AAE0
 
 #nav_badges
-  :position relative
+  :position absolute
   :display inline-block
-  :top 3px
   :min-width 170px
+  :top 3px
 
   a:hover
     :text
@@ -1632,16 +1632,16 @@ h3 span.current_gs_step
 
   .badge
     :position relative
+    :top 2px
     :display inline
-    :margin 0 15px
-      :right -5px
+    :margin 0 5px
+      :left 4px
+    :padding 8px 3px
+      :bottom 9px
     :font
       :weight bold
       :size smaller
     :width 28px
-
-    &:active
-      :top 1px
 
     &:hover
       .badge_count
@@ -1662,8 +1662,8 @@ h3 span.current_gs_step
 
   :z-index 3
   :position absolute
-  :top -10px
-  :left 11px
+  :top -2px
+  :left 13px
   :padding 0 2px
     :bottom 1px
   :background
@@ -3063,11 +3063,49 @@ ul.left_nav
   :display block
 
 #notification_dropdown
+  @include box-shadow(0,1px,5px,#666)
   :background white
-  :border solid #000 1px
-  :padding 25px
+  :border solid #888 1px
   :position absolute
-  :top 29px
+  :top 31px
   :left 540px
   :display none
 
+  :color #444
+  a
+    :color $blue
+
+  .header
+    :padding 15px 20px
+      :bottom 0
+
+  .notification_element
+    :padding 10px 20px
+    :min-height 30px
+
+    img
+      :height 30px
+      :width 30px
+      :float left
+      :margin
+        :right 10px
+
+    &.view_more
+      :background $blue
+      :min-height 0
+      :text
+        :align center
+      :font
+        :size 13px
+        :weight bold
+      :border
+        :top #eee 1px solid
+      a
+        :color white
+
+#notification_badge.active
+  :z-index 10
+  :background
+    :color #fff
+  :border 1px solid #888
+    :bottom none
