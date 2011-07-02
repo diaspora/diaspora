@@ -13,7 +13,7 @@ module Job
     MAX_RETRIES = 3
     OPTS = {:max_redirects => 3, :timeout => 5000, :method => :post}
 
-    def self.perform(user_id, enc_object_xml, person_ids, retry_count=0)
+    def self.perform_delegate(user_id, enc_object_xml, person_ids, retry_count=0)
       user = User.find(user_id)
       people = Person.where(:id => person_ids)
 

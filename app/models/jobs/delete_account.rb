@@ -6,7 +6,7 @@
 module Job
   class DeleteAccount < Base
     @queue = :delete_account
-    def self.perform(user_id)
+    def self.perform_delegate(user_id)
       user = User.find(user_id)
       user.remove_all_traces
       user.destroy

@@ -6,7 +6,7 @@ module Job
   class PublishToHub < Base
     @queue = :http_service
 
-    def self.perform(sender_public_url)
+    def self.perform_delegate(sender_public_url)
       require File.join(Rails.root, 'lib/pubsubhubbub')
       atom_url = sender_public_url + '.atom'
       Pubsubhubbub.new(AppConfig[:pubsub_server]).publish(atom_url)

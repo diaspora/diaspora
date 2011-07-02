@@ -6,7 +6,7 @@
 module Job
   class MailStartedSharing < Base
     @queue = :mail
-    def self.perform(recipient_id, sender_id, target_id)
+    def self.perform_delegate(recipient_id, sender_id, target_id)
       Notifier.started_sharing(recipient_id, sender_id).deliver
     end
   end

@@ -8,7 +8,7 @@ module Job
 
     @queue = :socket_webfinger
 
-    def self.perform(user_id, account, opts={})
+    def self.perform_delegate(user_id, account, opts={})
       finger = Webfinger.new(account)
       begin
         result = finger.fetch

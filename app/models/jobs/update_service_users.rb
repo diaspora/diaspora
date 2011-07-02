@@ -6,7 +6,7 @@
 module Job
   class UpdateServiceUsers < Base 
     @queue = :http_service
-    def self.perform(service_id)
+    def self.perform_delegate(service_id)
       service = Service.find(service_id)
       service.save_friends
     end
