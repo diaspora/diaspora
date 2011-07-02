@@ -52,7 +52,9 @@
 
       $.each(self.notifications.notifications, function(index, notifications) {
         $.each(notifications, function(index, notification) {
-          $("<div/>", { "class": "notification_element" })
+          $("<div/>")
+            .addClass("notification_element")
+            .addClass((notification.unread) ? "unread" : "read" )
             .html(notification.translation)
             .prepend($("<img/>", { src: notification.actors[0].avatar }))
             .prependTo(self.dropdownNotifications);
