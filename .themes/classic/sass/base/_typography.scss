@@ -10,7 +10,7 @@ $mono: Menlo, Monaco, "Andale Mono", "lucida console", "Courier New", monospace;
 .mono { font-family: $mono; }
 
 body > header h1 {
-  font-size: 2.6em;
+  font-size: 2.2em;
   @extend .heading;
   font-weight: normal;
   line-height: 1.2em;
@@ -22,6 +22,15 @@ body {
   color: $text-color;
   @extend .serif;
 }
+h1 {
+  font-size: 2.2em;
+  line-height: 1.2em;
+}
+
+@media only screen and (min-width: 768px) {
+  body { font-size: 1.15em; }
+  h1 { font-size: 3em; line-height: 1.2em; }
+}
 
 #{headings()}{
   @extend .heading;
@@ -29,13 +38,6 @@ body {
   margin-bottom: 1em;
   font-weight: bold;
 }
-h1 {
-  font-size: 3.2em;
-  line-height: 1.2em;
-  @media only screen and (max-width: 768px) { font-size: 2.2em; }
-}
-
-
 h2, section h1 {
   font-size: 1.5em;
 }
