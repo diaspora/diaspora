@@ -54,7 +54,12 @@
 
       #hovercard
         %img.avatar
-        %a.person
+        %h4
+          %a.person
+        = render 'aspect_memberships/aspect_dropdown', :contact => Contact.new, :person => Person.new, :hang => 'left'
+        .hovercard_footer
+          .footer_container
+            Message
 
     %ul#user_menu.dropdown
       %li

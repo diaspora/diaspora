@@ -9,7 +9,7 @@
   = person_image_link(comment.author)
   .content
     %span.from
-      = person_link(comment.author)
+      = person_link(comment.author, :class => "author")
 
     %span{:class => direction_for(comment.text)}
       = markdownify(comment.text, :youtube_maps => comment.youtube_titles)

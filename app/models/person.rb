@@ -220,13 +220,14 @@ class Person < ActiveRecord::Base
   end
 
   def as_json(opts={})
-    {
-      :id => self.guid,
+    json = {
+      :id => self.id,
       :name => self.name,
       :avatar => self.profile.image_url(:thumb_small),
       :handle => self.diaspora_handle,
       :url => "/people/#{self.id}"
     }
+    json.merge(:aspect_ids => opts[:aspect_ids])
   end
 
   protected

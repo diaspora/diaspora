@@ -3071,8 +3071,37 @@ ul.left_nav
     :display none
 
 #hovercard
+  @include box-shadow(0,0,7px,#333)
+  @include border-radius(2px)
+
+  .avatar
+    :position relative
+    :height 70px
+    :width 70px
+    :margin
+      :right 10px
+
+  :position absolute
   :display none
   :background
-    :color black
+    :color $background
+  :padding 5px
+    :bottom 25px
+
+  :border 1px solid #ddd
+
+  :width 240px
+
   :z
     :index 10
+
+  .hovercard_footer
+    :position absolute
+    :bottom 0
+    :left 0
+    :background
+      :color #eee
+    :width 100%
+
+    .footer_container
+      :padding 0 10px

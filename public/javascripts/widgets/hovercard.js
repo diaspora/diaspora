@@ -6,11 +6,12 @@
       this.hoverCard = {
         tip: $("#hovercard"),
         offset: {
-          left: -30,
-          top: -60
+          left: 00,
+          top: 20
         },
         personLink: $("#hovercard").find("a.person"),
-        avatar: $("#hovercard").find(".avatar")
+        avatar: $("#hovercard").find(".avatar"),
+        dropdown: $("#hovercard").find(".dropdown_list")
       };
 
       $(document.body).delegate("a.author", "hover", this.handleHoverEvent);
@@ -32,26 +33,26 @@
       if(!self.hoverCardTimeout) {
         self.clearTimeout(false);
       }
-      self.timeout = setTimeout(self.showHoverCard, 30);
+      self.timeout = setTimeout(self.showHoverCard, 100);
     };
 
     this.showHoverCard = function() {
-      self.hoverCard.tip.hide();
+      self.hoverCard.tip.fadeOut('fast');
       self.hoverCard.tip.prependTo(self.target.parent());
 
       $.getJSON(self.target.attr("href"), function(person) {
         var position = self.target.position();
         self.hoverCard.tip.css({
-          position: "absolute",
           left: position.left + self.hoverCard.offset.left,
           top: position.top + self.hoverCard.offset.top
         });
 
         self.hoverCard.avatar.attr("src", person.avatar);
-        self.hoverCard.personLink.attr("href", self.target.attr("href"));
+        self.hoverCard.personLink.attr("href", person.url);
         self.hoverCard.personLink.text(person.name);
+        self.hoverCard.dropdown.attr("data-person-id", person.id);
 
-        self.hoverCard.tip.show();
+        self.hoverCard.tip.fadeIn('fast');
       });
     };
 

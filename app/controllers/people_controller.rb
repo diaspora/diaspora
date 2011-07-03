@@ -106,7 +106,12 @@ class PeopleController < ApplicationController
       if params[:only_posts]
         render :partial => 'shared/stream', :locals => {:posts => @posts}
       else
-        respond_with @person, :locals => {:post_type => :all}
+        respond_to do |format|
+          format.all { respond_with @person, :locals => {:post_type => :all} }
+          format.json {
+            render :json => @person.to_json(:aspect_ids => @aspects_with_person.to_json)
+          }
+        end
       end
 
     else
