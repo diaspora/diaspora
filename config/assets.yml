@@ -33,9 +33,9 @@ javascripts:
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/widgets/directionDetector.js
     - public/javascripts/widgets/notifications.js
-    - public/javascripts/widgets/notifications-badge.js
     - public/javascripts/widgets/flashes.js
     - public/javascripts/widgets/post.js
+    - public/javascripts/widgets/hovercard.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
@@ -45,18 +45,27 @@ javascripts:
     - public/javascripts/login.js
   mobile:
     - public/javascripts/vendor/jquery152.min.js
-    - public/javascripts/custom-mobile-scripting.js
-    - public/javascripts/vendor/jquery.mobile-1.0a4.js
-    - public/javascripts/jquery.infinitescroll-custom.js
+
+    - public/javascripts/vendor/underscore.js
+    - public/javascripts/vendor/backbone-min.js
+
+    - public/javascripts/vendor/Mustache.js
+
+    - public/javascripts/mobile/app.js
+    - public/javascripts/mobile/helpers.js
+    - public/javascripts/mobile/models/*
+    - public/javascripts/mobile/collections/*
+    - public/javascripts/mobile/controllers/*
+    - public/javascripts/mobile/views/*
+
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
-    - public/javascripts/widgets/infinite-scroll.js
-    - public/javascripts/rails.js
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
   aspects:
+    - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
   finder:
     - public/javascripts/friend-finder.js
@@ -86,12 +95,9 @@ stylesheets:
     - public/stylesheets/vendor/fileuploader.css
     - public/stylesheets/vendor/tipsy.css
     - public/stylesheets/vendor/autoSuggest.css
-
-  popup:
-    - public/stylesheets/application.css
-    - public/stylesheets/popup.css
-    - public/stylesheets/ui.css
-
   rtl:
     - public/stylesheets/rtl.css
+
+  mobile:
+    - public/stylesheets/mobile.css
  
