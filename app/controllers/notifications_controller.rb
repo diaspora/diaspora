@@ -24,7 +24,7 @@ class NotificationsController < VannaController
                                  :conditions => conditions,
                                  :order => 'created_at desc',
                                  :include => [:target, {:actors => :profile}],
-                                 :limit => pager.per_page,
+                                 :limit => request.format == :json ? 5 : pager.per_page,
                                  :offset => pager.offset
                                 )
 
@@ -32,6 +32,7 @@ class NotificationsController < VannaController
     end
     notifications.each do |n|
       n[:actors] = n.actors
+      n[:translation] = object_link(n, n.actors.map { |a| person_link(a) })
       n[:translation_key] = n.popup_translation_key
       n[:target] = n.translation_key == "notifications.mentioned" ? n.target.post : n.target
     end
@@ -42,9 +43,14 @@ class NotificationsController < VannaController
   def read_all(opts=params)
     Notification.where(:recipient_id => current_user.id).update_all(:unread => false)
   end
+
   post_process :html do
     def post_read_all(json)
       Response.new(:status => 302, :location => aspects_path)
     end
+  end
+
+  def controller
+    Object.new
   end
 end

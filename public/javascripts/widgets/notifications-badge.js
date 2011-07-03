@@ -1,41 +1,92 @@
-$(function() {
-  $("#notification_badge a").live("_click", function(event){
-    event.preventDefault();
-    $.getJSON("/notifications", function(hash) {
-      $("#notifications_overlay").show();
-      var notificationsElement =  $("#notifications_overlay .notifications");
-      var dayElementTemplate = $("#notifications_overlay .day_group").clone();
-      dayElementTemplate.find(".notifications_for_day").empty();
-      var streamElementTemplate = $("#notifications_overlay .stream_element").clone();
-      notificationsElement.empty();
-      $.each(hash["group_days"], function(day){
-        var dayElement = dayElementTemplate.clone();
-        var dayParts = day.split(" ");
-        dayElement.find(".month").text(dayParts[0])
-        dayElement.find(".day").text(dayParts[1])
-        var notificationsForDay = hash["group_days"][day],
-          notificationsForDayElement = dayElement.find('.notifications_for_day');
+(function() {
+  var NotificationDropdown = function() {
+    var self = this;
 
-        $.each(notificationsForDay, function(i, notificationHash) {
-          $.each(notificationHash, function(notificationType, notification) {
-            var actor = notification.actors[0];
-            var streamElement = streamElementTemplate.clone().appendTo(notificationsForDayElement);
-            streamElement.find(".actor")
-              .text(actor.name)
-              .attr("href", notification.actors[0]["url"]);
-            streamElement.find('time').attr("datetime", notification["created_at"]);
+    this.start = function() {
+      this.badge = $("#notification_badge");
+      this.badgeLink = this.badge.find("a");
+      this.documentBody = $(document.body);
+      this.dropdown = $("#notification_dropdown");
+      this.dropdownNotifications = this.dropdown.find(".notifications");
+      this.ajaxLoader = this.dropdown.find(".ajax_loader");
+
+      this.badgeLink.toggle(function(evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
+          
+          self.ajaxLoader.show();
+          self.badge.addClass("active");
+          self.dropdown.css("display", "block");
+
+          self.getNotifications(function() { 
+            self.renderNotifications();
           });
-        });
-        notificationsElement.append(dayElement)
+        },  function(evt) {
+          evt.preventDefault();
+          evt.stopPropagation();
 
-        Diaspora.widgets.timeago.updateTimeAgo("time");
+          self.badge.removeClass("active");
+          self.dropdown.css("display", "none");
       });
-    });
-  });
 
-  $("#notifications_overlay").delegate('a.close', 'click', function() {
-    console.log("hi!");
-    $('#notifications_overlay').hide();
-  });
+      this.dropdown.click(function(evt) {
+        evt.stopPropagation();
+      });
 
-});
+      this.documentBody.click(function(evt) {
+        if(self.dropdownShowing()) {
+          self.badgeLink.click();
+        }
+      });
+    };
+
+
+    this.dropdownShowing = function() {
+      return this.dropdown.css("display") === "block";
+    };
+
+    this.getNotifications = function(callback) {
+      $.getJSON("/notifications", function(notifications) {
+        self.notifications = notifications;
+        callback.apply(self, []);
+      });
+    };
+
+    this.renderNotifications = function() {
+      self.dropdownNotifications.empty();
+
+      $.each(self.notifications.notifications, function(index, notifications) {
+        $.each(notifications, function(index, notification) {
+          var notificationElement = $("<div/>")
+            .addClass("notification_element")
+            .html(notification.translation)
+            .prepend($("<img/>", { src: notification.actors[0].avatar }))
+            .append("<br />")
+            .append($("<abbr/>", {
+              "class": "timeago",
+              "title": notification.created_at
+            }))
+            .appendTo(self.dropdownNotifications);
+
+          Diaspora.widgets.timeago.updateTimeAgo(".notification_element time.timeago");
+
+          if(notification.unread) {
+            notificationElement.addClass("unread");
+            $.ajax({
+              url: "/notifications/" + notification.id,
+              type: "PUT",
+              success: function() {
+                Diaspora.widgets.notifications.decrementCount();
+              }
+            });
+          }
+        });
+      });
+
+
+      self.ajaxLoader.hide();
+    };
+  };
+
+  Diaspora.widgets.add("notificationDropdown", NotificationDropdown);
+})();

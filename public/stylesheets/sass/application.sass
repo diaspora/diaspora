@@ -131,6 +131,7 @@ header
   :z-index 50
   :padding 6px 0
   :color #CCC
+  :height 26px
 
   :position fixed
 
@@ -1548,10 +1549,13 @@ h3 span.current_gs_step
         :color #22AAE0
 
 #nav_badges
-  :position relative
+  :position absolute
   :display inline-block
-  :top 3px
   :min-width 170px
+  :top 3px
+  :left 460px
+  :margin
+    :left 20px
 
   a:hover
     :text
@@ -1559,16 +1563,15 @@ h3 span.current_gs_step
 
   .badge
     :position relative
+    :top 2px
     :display inline
-    :margin 0 15px
-      :right -5px
+    :margin 0 2px
+    :padding 8px 3px
+      :bottom 9px
     :font
       :weight bold
       :size smaller
     :width 28px
-
-    &:active
-      :top 1px
 
     &:hover
       .badge_count
@@ -1589,8 +1592,8 @@ h3 span.current_gs_step
 
   :z-index 3
   :position absolute
-  :top -10px
-  :left 11px
+  :top -2px
+  :left 13px
   :padding 0 2px
     :bottom 1px
   :background
@@ -2755,7 +2758,7 @@ ul#requested-scopes
     img
       :height 30px
       :width 30px
-  
+
     .scope-description
       :display none
 
@@ -2931,20 +2934,6 @@ ul.left_nav
     :height 30px
     :width 30px
 
-#notifications_overlay
-  :display none
-  :position absolute
-  :border 4px solid black
-  :background
-    :color white
-  :width 700px
-  :padding 10px
-  :top 275.5px
-  :left 217.5px
-  a.close
-    :float right
-    :text-decoration none
-
 #aspect_controls
   @include border-radius(2px)
   :background
@@ -2988,3 +2977,72 @@ ul.left_nav
 
 .big_stream_photo
   :display block
+
+#view_all_notifications
+  :float right
+  :margin
+    :right 3px
+  :font
+    :weight bold
+
+
+#notification_dropdown
+  @include box-shadow(0,0px,13px,rgba(20,20,20,0.5))
+  :background white
+  :border solid #888 1px
+  :position absolute
+  :top 32px
+  :left 543px
+  :width 380px
+  :display none
+
+  :color #444
+
+  a
+    :color $blue
+
+  .header
+    :padding 10px
+    h4
+      :padding
+        :bottom 0
+      :margin
+        :bottom 0
+
+  .notification_element,
+  .header
+    :border
+      :bottom 1px solid #ddd
+
+  .ajax_loader
+    :text-align center
+    :padding 15px
+
+  .notification_element
+    :padding 10px 
+    :min-height 30px
+
+    img
+      :height 30px
+      :width 30px
+      :float left
+      :margin
+        :right 10px
+
+    &.unread
+      :background
+        :color #eee
+      :color #000
+      :font
+        :weight bold
+
+#notification_badge.active
+  :z-index 10
+  :background
+    :color #fff
+  :border 1px solid #888
+    :bottom none
+  :margin
+    :left 0px
+  :padding
+    :bottom 10px

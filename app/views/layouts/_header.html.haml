@@ -43,6 +43,15 @@
             .badge_count{:class => ("hidden" if @unread_message_count == 0)}
               = @unread_message_count
 
+      #notification_dropdown
+        .header
+          = link_to t('.view_all'), notifications_path, :id => "view_all_notifications"
+          %h4
+            Recent notifications
+        .notifications
+          .ajax_loader
+            = image_tag("ajax-loader.gif")
+
     %ul#user_menu.dropdown
       %li
         .right

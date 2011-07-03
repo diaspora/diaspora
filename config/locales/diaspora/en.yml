@@ -292,6 +292,7 @@ en:
       login: "log in"
       code: "code"
       admin: "admin"
+      view_all: "View all"
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
