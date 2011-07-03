@@ -4,11 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" manifest="default.appcache?v=1" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  {% if page.title %}
-    <title>{{site.title}}: {{page.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
-  {% else %}
-    <title>{{site.title}}{% if site.author %} - {{ site.author }}{% endif %}</title>
-  {% endif %}
+  <title>{{site.title}}{% if page.title %}: {{page.title}}{% endif %}</title>
   <meta name="author" content="{{site.author}}">
   {% if page.description %}
     <meta name="description" content="{{page.description}}"/>
