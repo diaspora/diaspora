@@ -45,12 +45,12 @@
 
       #notification_dropdown
         .header
+          = link_to t('.view_all'), notifications_path, :id => "view_all_notifications"
           %h4
             Recent notifications
         .notifications
-
-        .notification_element.view_more
-          = link_to "View all notifications", notifications_path, :id => "notification_dropdown_link"
+          .ajax_loader
+            = image_tag("ajax-loader.gif")
 
     %ul#user_menu.dropdown
       %li

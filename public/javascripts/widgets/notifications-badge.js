@@ -8,15 +8,18 @@
       this.documentBody = $(document.body);
       this.dropdown = $("#notification_dropdown");
       this.dropdownNotifications = this.dropdown.find(".notifications");
+      this.ajaxLoader = this.dropdown.find(".ajax_loader");
 
       this.badgeLink.toggle(function(evt) {
           evt.preventDefault();
           evt.stopPropagation();
           
+          self.ajaxLoader.show();
+          self.badge.addClass("active");
+          self.dropdown.css("display", "block");
+
           self.getNotifications(function() { 
-            self.badge.addClass("active");
             self.renderNotifications();
-            self.dropdown.css("display", "block");
           });
         },  function(evt) {
           evt.preventDefault();
@@ -68,6 +71,7 @@
           Diaspora.widgets.timeago.updateTimeAgo(".notification_element time.timeago");
 
           if(notification.unread) {
+            notificationElement.addClass("unread");
             $.ajax({
               url: "/notifications/" + notification.id,
               type: "PUT",
@@ -78,6 +82,9 @@
           }
         });
       });
+
+
+      self.ajaxLoader.hide();
     };
   };
 
