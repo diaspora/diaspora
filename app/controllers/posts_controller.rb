@@ -10,7 +10,13 @@ class PostsController < ApplicationController
   def show
     @post = Post.where(:id => params[:id], :public => true).includes(:author, :comments => :author).first
 
+    #hax to upgrade logged in users who can comment
     if @post
+      if user_signed_in? && current_user.find_visible_post_by_id(@post.id)
+        redirect_to "/#{@post.class.to_s.pluralize.underscore}/#{@post.id}"
+        return
+      end 
+
       @landing_page = true
       @person = @post.author
       if @person.owner_id
