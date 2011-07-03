@@ -6,6 +6,7 @@
 nl: 
   _applications: "Applicaties"
   _comments: "Reacties"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "foto's"
   _services: "Services"
@@ -61,10 +62,13 @@ nl:
       success: "Contact is met succes toegevoegd aan aspect."
     aspect_contacts: 
       done_editing: "klaar met bewerken"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "activiteit"
-      post_time: "tijd van plaatsing"
-      sort_by: "sorteren op:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
     create: 
@@ -94,10 +98,15 @@ nl:
         explanation: "Cubbi.es is de eerste Diaspora applicatie in ontwikkeling."
         heading: "Verbind met Cubbie.es"
         learn_more: "Vertel mij meer"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspecten"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
@@ -108,11 +117,16 @@ nl:
       name: "Naam"
     no_posts_message: 
       start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspect"
     other: "%{count} aspecten"
     seed: 
       family: "Familie"
       work: "Werk"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "bewerk aspect"
     update: 
@@ -146,10 +160,12 @@ nl:
     index: 
       add_a_new_aspect: "Voeg een aspect toe"
       all_contacts: "Alle Contacten"
+      edit_aspect: "Edit %{name}"
       my_contacts: "Mijn Contacten"
       no_contacts: "Geen contacten."
       only_sharing_with_me: "Delen alleen met mij"
       remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacten"
       your_contacts: "Jouw Contacten"
     many: "%{count} contacten"
@@ -196,6 +212,7 @@ nl:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
   fill_me_out: "Vul me in!"
+  find_people: "Find people"
   hide: "Verbergen"
   home: 
     show: 
@@ -590,10 +607,10 @@ nl:
       outside: "Openbare berichten zijn zichtbaar voor mensen buiten Diaspora."
       title: "Stel verbonden services in"
     publisher: 
-      add_photos: "+ foto's"
       all: "al"
       all_contacts: "alle contacten"
       click_to_share_with: "Klik om te delen met: "
+      discard_post: "Discard post"
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
@@ -601,6 +618,7 @@ nl:
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "waar denk je aan?"
     reshare: 
       reshare: "Herdeel"
@@ -630,7 +648,7 @@ nl:
       zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
   stream_helper: 
     hide_comments: "verberg reacties"
-    show_comments: "toon alle reacties"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nog niemand heeft het over %{tag}."

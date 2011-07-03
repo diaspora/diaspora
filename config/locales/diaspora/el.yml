@@ -6,6 +6,7 @@
 el: 
   _applications: "Applications"
   _comments: "Σχόλια"
+  _contacts: "Contacts"
   _home: "Αρχική"
   _photos: "Φωτογραφίες"
   _services: "Υπηρεσίες"
@@ -61,10 +62,13 @@ el:
       success: "Επιτυχής προσθήκη επαφής στην πτυχή."
     aspect_contacts: 
       done_editing: "ολοκλήρωση επεξεργασίας"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "δραστηριότητα"
-      post_time: "χρόνο δημοσίευσης"
-      sort_by: "ταξινόμηση κατά:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Οι επαφές σ' αυτήν την πτυχή δεν θα μπορούν να δουν ο ένας τον άλλον."
     contacts_visible: "Οι επαφές σ' αυτήν την πτυχή θα μπορούν να δουν ο ένας τον άλλον."
     create: 
@@ -94,10 +98,15 @@ el:
         explanation: "Το Cubbi.es είναι η πρώτη εφαρμογή του Diaspora υπό κατασκευή."
         heading: "Συνδεθείτε στο Cubbi.es"
         learn_more: "Μάθετε περισσότερα"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora. Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να μπορέσουν να σας βρουν."
       no_contacts: "Καμία επαφή"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
+      your_aspects: "Your Aspects"
     many: "%{count} πτυχές"
     move_contact: 
       error: "Σφάλμα μεταφοράς επαφής: %{inspect}"
@@ -108,11 +117,16 @@ el:
       name: "Όνομα"
     no_posts_message: 
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα. Ξεκινήστε εσείς τη συζήτηση!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 πτυχή"
     other: "%{count} πτυχές"
     seed: 
       family: "Οικογένεια"
       work: "Εργασία"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "επεξεργασία πτυχής"
     update: 
@@ -146,10 +160,12 @@ el:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} επαφές"
@@ -196,6 +212,7 @@ el:
       correct_the_following_errors_and_try_again: "Διορθώστε τα ακόλουθα σφάλματα και προσπαθήστε ξανά."
       invalid_fields: "Άκυρα Πεδία"
   fill_me_out: "Ενημέρωσε με"
+  find_people: "Find people"
   hide: "Απόκρυψη"
   home: 
     show: 
@@ -590,10 +607,10 @@ el:
       outside: "Τα δημόσια μηνύματα θα είναι διαθέσιμα και σε χρήστες εκτός του δικτύου Diaspora"
       title: "Ρύθμιση συνδεδεμένων υπηρεσιών"
     publisher: 
-      add_photos: "προσθέστε φωτογραφίες"
       all: "όλα"
       all_contacts: "όλες οι επαφές"
       click_to_share_with: "Πατήστε για να διαμοιραστείτε με: "
+      discard_post: "Discard post"
       make_public: "Δημοσιοποίησε το"
       post_a_message_to: "Αναρτήστε ένα μήνυμα στην πτυχή %{aspect}"
       posting: "Ανάρτηση..."
@@ -601,6 +618,7 @@ el:
       publishing_to: "δημοσίευση στο: "
       share: "Μοιράσου"
       share_with: "Μοιράσου με"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "Τι σκέφτεστε;"
     reshare: 
       reshare: "Μοιράσου και πάλι"
@@ -630,7 +648,7 @@ el:
       zero: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
   stream_helper: 
     hide_comments: "απόκρυψη σχολίων"
-    show_comments: "προβολή όλων των σχολίων"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Κανένας δεν μιλάει ακόμα για την ετικέτα %{tag}."

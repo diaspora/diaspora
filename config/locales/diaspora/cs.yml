@@ -6,6 +6,7 @@
 cs: 
   _applications: "Aplikace"
   _comments: "Komentáře"
+  _contacts: "Contacts"
   _home: "Doma"
   _photos: "fotky"
   _services: "Služby"
@@ -61,10 +62,13 @@ cs:
       success: "Kontakt byl úspěšně přidán do aspektu."
     aspect_contacts: 
       done_editing: "ukončit úpravy"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "činnost"
-      post_time: "čas příspěvku"
-      sort_by: "řadit podle:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
     create: 
@@ -94,10 +98,15 @@ cs:
         explanation: "Cubbi.es je první Diaspora aplikace ve vývoji."
         heading: "Připojit se na Cubbi.es"
         learn_more: "Dozvědět se více"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Toto je váš Diaspora identifikátor. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       no_contacts: "Žádné kontakty"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspektů"
     move_contact: 
       error: "Chyba při přesunu kontaktu: %{inspect}"
@@ -108,11 +117,16 @@ cs:
       name: "Název"
     no_posts_message: 
       start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspekt"
     other: "%{count} aspektů"
     seed: 
       family: "Rodina"
       work: "Práce"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "upravit aspekt"
     update: 
@@ -146,10 +160,12 @@ cs:
     index: 
       add_a_new_aspect: "Přidat nový aspekt"
       all_contacts: "Všechny kontakty"
+      edit_aspect: "Edit %{name}"
       my_contacts: "Moje kontakty"
       no_contacts: "Žádné kontakty."
       only_sharing_with_me: "Pouze sdílení se mnou"
       remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Kontakty"
       your_contacts: "Vaše kontakty"
     many: "%{count} kontaktů"
@@ -196,6 +212,7 @@ cs:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
   fill_me_out: "Vyplňte"
+  find_people: "Find people"
   hide: "Skrýt"
   home: 
     show: 
@@ -590,10 +607,10 @@ cs:
       outside: "Veřejné příspěvky budou dostupné pro ostatní mimo Diasporu."
       title: "Nastavit související služby"
     publisher: 
-      add_photos: "přidat fotky"
       all: "všechny"
       all_contacts: "všechny kontakty"
       click_to_share_with: "Klikněte pro sdílení s:"
+      discard_post: "Discard post"
       make_public: "vytvořit veřejnou"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
@@ -601,6 +618,7 @@ cs:
       publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "co máte na mysli?"
     reshare: 
       reshare: "Sdílet jinam"
@@ -630,7 +648,7 @@ cs:
       zero: "vaše stavové zprávy musí mít méně než %{count} znaků"
   stream_helper: 
     hide_comments: "skrýt komentáře"
-    show_comments: "zobrazit komentáře"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nikdo dosud nemluví o %{tag}."

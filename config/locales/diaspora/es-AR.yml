@@ -6,6 +6,7 @@
 es-AR: 
   _applications: "Applications"
   _comments: "Comentarios"
+  _contacts: "Contacts"
   _home: "Inicio"
   _photos: "fotos"
   _services: "Servicios"
@@ -61,10 +62,13 @@ es-AR:
       success: "Se agregó el contacto al aspecto."
     aspect_contacts: 
       done_editing: "aceptar"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "activitidad"
-      post_time: "fecha de publicación"
-      sort_by: "ordenar según:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Los contactos en este aspecto no van a poder verse entre ellos."
     contacts_visible: "Los contactos en este aspecto van a poder verse entre ellos."
     create: 
@@ -94,10 +98,15 @@ es-AR:
         explanation: "Cubbi.es es la primera aplicación de Diáspora* en desarrollo."
         heading: "Conectar a Cubbi.es"
         learn_more: "Aprendé más"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Ésta es tu dirección de Diáspora*. Es como una dirección de correo electrónico, podés dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Comparten con vos"
       post_a_message: "publicar un mensaje >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspectos"
     move_contact: 
       error: "Se produjo un error al mover el contacto: %{inspect}"
@@ -108,11 +117,16 @@ es-AR:
       name: "Nombre"
     no_posts_message: 
       start_talking: "Nadie dijo algo todavía. ¡Iniciá la conversación!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
       family: "Familia"
       work: "Trabajo"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "editar aspecto"
     update: 
@@ -146,10 +160,12 @@ es-AR:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} contactos"
@@ -196,6 +212,7 @@ es-AR:
       correct_the_following_errors_and_try_again: "Corregí los siguientes errores e intentá de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Completame"
+  find_people: "Find people"
   hide: "Ocultar"
   home: 
     show: 
@@ -590,10 +607,10 @@ es-AR:
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diáspora*."
       title: "Gesstioná los servicios conectados"
     publisher: 
-      add_photos: "agregar fotos"
       all: "todo"
       all_contacts: "agregar contactos"
       click_to_share_with: "Cliqueá para compartir con: "
+      discard_post: "Discard post"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
@@ -601,6 +618,7 @@ es-AR:
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "¿Qué tenés en mente?"
     reshare: 
       reshare: "Republicar"
@@ -630,7 +648,7 @@ es-AR:
       zero: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "ocultar los comentarios"
-    show_comments: "mostrar todos los comentarios"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nadie está hablado sobre %{tag} todavía."

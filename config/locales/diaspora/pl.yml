@@ -6,6 +6,7 @@
 pl: 
   _applications: "Applications"
   _comments: "Komentarze"
+  _contacts: "Kontakty"
   _home: "Wszyscy"
   _photos: "zdjęcia"
   _services: "Usługi"
@@ -61,10 +62,13 @@ pl:
       success: "Dodano kontakt to aspektu."
     aspect_contacts: 
       done_editing: "edycja zakończona"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "aktywność"
-      post_time: "data wpisu"
-      sort_by: "sortuj po:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Kontakty z tego aspektu nie będą dla siebie widoczne."
     contacts_visible: "Kontakty z tego aspektu będą widziały się nawzajem."
     create: 
@@ -94,10 +98,15 @@ pl:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       no_contacts: "Brak kontaktów"
       people_sharing_with_you: "Osoby dzielące się z tobą"
       post_a_message: "napisz wiadomość >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspektów"
     move_contact: 
       error: "Błąd przy przenoszeniu kontaktu: %{inspect}"
@@ -108,11 +117,16 @@ pl:
       name: "Nazwa"
     no_posts_message: 
       start_talking: "Nikt jeszcze nic nie powiedział. Rozkręć rozmowę!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspekt"
     other: "%{count} aspektów"
     seed: 
       family: "Rodzina"
       work: "Praca"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "edytuj aspekt"
     update: 
@@ -146,10 +160,12 @@ pl:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} kontaktów"
@@ -196,6 +212,7 @@ pl:
       correct_the_following_errors_and_try_again: "Popraw poniższe błędy i spróbuj ponownie."
       invalid_fields: "Pola z błędami"
   fill_me_out: "Wypełnij to pole"
+  find_people: "Find people"
   hide: "Ukryj"
   home: 
     show: 
@@ -590,10 +607,10 @@ pl:
       outside: "Publiczna wiadomość będzie widoczna dla wszystkich spoza Diaspory."
       title: "Zamierzasz wysłać wiadomość publiczną!"
     publisher: 
-      add_photos: "dodaj zdjęcia"
       all: "wszyscy"
       all_contacts: "wszyscy znajomi"
       click_to_share_with: "Kliknij, aby podzielić się z:"
+      discard_post: "Discard post"
       make_public: "upublicznij"
       post_a_message_to: "Wyślij wiadomość do %{aspect}"
       posting: "Wysyłanie…"
@@ -601,6 +618,7 @@ pl:
       publishing_to: "publikuj na:"
       share: "Podziel się"
       share_with: "Podziel się z aspektem %{aspect}"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "co Ci chodzi po głowie?"
     reshare: 
       reshare: "Podziel się ponownie"
@@ -630,7 +648,7 @@ pl:
       zero: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
   stream_helper: 
     hide_comments: "ukryj komentarze"
-    show_comments: "pokaż komentarze"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."

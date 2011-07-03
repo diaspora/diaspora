@@ -6,6 +6,7 @@
 eo: 
   _applications: "Aplikaĵoj"
   _comments: "Komentoj"
+  _contacts: "Contacts"
   _home: "Hejmo"
   _photos: "Bildoj"
   _services: "Servoj"
@@ -61,10 +62,13 @@ eo:
       success: "Sukcese aldonis kontakton al aspekto."
     aspect_contacts: 
       done_editing: "finita redakti"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "agemo"
-      post_time: "afiŝada tempo"
-      sort_by: "klasi per:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Kontaktoj en tiu aspekto ne povos vidi unu la aliajn."
     contacts_visible: "Kontaktoj en tiu aspekto povos vidi unu la alian."
     create: 
@@ -94,10 +98,15 @@ eo:
         explanation: "Cubbi.es estas la unua DIASPORA* aplikaĵo developata."
         heading: "Konekti al Cubbi.es"
         learn_more: "Lerni pli"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Tiu ĉi estas via DIASPORA* nomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       no_contacts: "Nul kontaktoj"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
       post_a_message: "Afiŝi mesaĝon »"
+      your_aspects: "Your Aspects"
     many: "%{count} aspektoj"
     move_contact: 
       error: "Ne povis movi kontakton: %{inspect}"
@@ -108,11 +117,16 @@ eo:
       name: "Nomo"
     no_posts_message: 
       start_talking: "Neniu jam diris iun ajn.  Mem komencu la interparoladon!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspekto"
     other: "%{count} aspektoj"
     seed: 
       family: "Familio"
       work: "Verkejo"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "redakti aspekton"
     update: 
@@ -146,10 +160,12 @@ eo:
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"
       all_contacts: "Ĉiuj kontaktoj"
+      edit_aspect: "Edit %{name}"
       my_contacts: "Miaj kontaktoj"
       no_contacts: "Neniuj kontaktoj."
       only_sharing_with_me: "Nur partoprenata al mi"
       remove_person_from_aspect: "Forigi %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Kontaktoj"
       your_contacts: "Viaj kontaktoj"
     many: "%{count} kontaktoj"
@@ -196,6 +212,7 @@ eo:
       correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
       invalid_fields: "Malvalidaj Kampoj"
   fill_me_out: "Kompletu min"
+  find_people: "Find people"
   hide: "Kaŝi"
   home: 
     show: 
@@ -590,10 +607,10 @@ eo:
       outside: "Publikaj afiŝoj videblos de aliaj, kiuj estas ekster DIASPORA*."
       title: "Agordi ligitajn servojn"
     publisher: 
-      add_photos: "aldoni bildojn"
       all: "ĉiuj"
       all_contacts: "ĉiuj kontaktoj"
       click_to_share_with: "Kliki por konigi kun:"
+      discard_post: "Discard post"
       make_public: "publikigi"
       post_a_message_to: "Afiŝi al %{aspect}"
       posting: "Afiŝanta..."
@@ -601,6 +618,7 @@ eo:
       publishing_to: "eldonanta al: "
       share: "Partopreni"
       share_with: "kontigi kun"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "kio vi nun pensas?"
     reshare: 
       reshare: "Rekontigi"
@@ -630,7 +648,7 @@ eo:
       zero: "bonvolu farigi viajn afiŝojn malpli longajn ol %{count} signoj"
   stream_helper: 
     hide_comments: "kaŝi komentojn"
-    show_comments: "vidi ĉiujn komentojn"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Neniu jam parolas pri %{tag}."

@@ -6,6 +6,7 @@
 fr: 
   _applications: "Applications"
   _comments: "Commentaires"
+  _contacts: "Contacts"
   _home: "Accueil"
   _photos: "photos"
   _services: "Services"
@@ -61,10 +62,13 @@ fr:
       success: "Le contact a été ajouté à l’aspect."
     aspect_contacts: 
       done_editing: "fin de la modification"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "activité"
-      post_time: "heure du message"
-      sort_by: "trier par :"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
     contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
@@ -94,10 +98,15 @@ fr:
         explanation: "Cubbi.es est la première application Diaspora en cours de développement."
         heading: "Connectez-vous à Cubbi.es"
         learn_more: "En savoir plus"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
       people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
       error: "Erreur lors du déplacement du contact : %{inspect}"
@@ -108,11 +117,16 @@ fr:
       name: "Nom"
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Famille"
       work: "Travail"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "modifier l'aspect"
     update: 
@@ -121,7 +135,7 @@ fr:
     zero: "aucun aspect"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Révoquer l'accès"
   back: "Retour"
   bookmarklet: 
     explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
@@ -144,14 +158,16 @@ fr:
       failure: "Impossible de créer le contact"
     few: "%{count} contacts"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      add_a_new_aspect: "Ajouter un nouvel aspect"
+      all_contacts: "Tous les contacts"
+      edit_aspect: "Edit %{name}"
+      my_contacts: "Mes Contacts"
+      no_contacts: "Pas de contacts."
+      only_sharing_with_me: "Partage uniquement avec moi"
+      remove_person_from_aspect: "Enlever %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
-      your_contacts: "Your Contacts"
+      your_contacts: "Vos contacts"
     many: "%{count} contacts"
     one: "1 contact"
     other: "%{count} contacts"
@@ -196,6 +212,7 @@ fr:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
   fill_me_out: "Remplissez-moi"
+  find_people: "Find people"
   hide: "Masquer"
   home: 
     show: 
@@ -485,8 +502,8 @@ fr:
       your_photo: "Votre photo"
       your_private_profile: "Votre profil privé"
       your_public_profile: "Votre profil public"
-      your_tags: "Vous en 5 #tags"
-      your_tags_placeholder: "par ex. #diaspora #repasssage #chatons #musique"
+      your_tags: "Décrivez-vous en 5 mots"
+      your_tags_placeholder: "comme #films #repasssage #voyage #professeur #paris"
     update: 
       failed: "Impossible de mettre à jour le profil"
       updated: "Profil mis à jour"
@@ -562,7 +579,7 @@ fr:
   settings: "Options"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Ajouter un nouveau contact"
       create_request: "Rechercher par handle Diaspora"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
@@ -590,10 +607,10 @@ fr:
       outside: "Les messages publics pourront être vus par d'autres en dehors de Diaspora."
       title: "Mettre en place des services connectés"
     publisher: 
-      add_photos: "ajouter des photos"
       all: "tous"
       all_contacts: "tous les contacts"
       click_to_share_with: "Cliquez pour partager avec : "
+      discard_post: "Discard post"
       make_public: "rendre public"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
@@ -601,6 +618,7 @@ fr:
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "exprimez-vous"
     reshare: 
       reshare: "Repartager"
@@ -630,7 +648,7 @@ fr:
       zero: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
   stream_helper: 
     hide_comments: "masquer les commentaires"
-    show_comments: "afficher tous les commentaires"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Personne ne parle encore de %{tag}."

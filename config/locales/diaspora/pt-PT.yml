@@ -6,6 +6,7 @@
 pt-PT: 
   _applications: "Applications"
   _comments: "Comentários"
+  _contacts: "Contacts"
   _home: "Início"
   _photos: "fotografias"
   _services: "serviços"
@@ -61,10 +62,13 @@ pt-PT:
       success: "Contacto adicionado ao aspecto com sucesso."
     aspect_contacts: 
       done_editing: "finalizar edição"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "actividade"
-      post_time: "hora de publicação"
-      sort_by: "ordenar por:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
     contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create: 
@@ -94,10 +98,15 @@ pt-PT:
         explanation: "Cubbi.es é a primeira aplicação do Diaspora sobre desenvolvimento."
         heading: "Ligar ao Cubbi.es"
         learn_more: "Aprender mais"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Este é o seu endereço do Diaspora. Tal como um endereço de email, pode dá-lo a quem deseja que o contacte."
       no_contacts: "Não há contactos"
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspectos"
     move_contact: 
       error: "Erro ao mover o contacto: %{inspect}"
@@ -108,11 +117,16 @@ pt-PT:
       name: "Nome"
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada. Dê início à conversa!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
       family: "Família"
       work: "Trabalho"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "editar aspecto"
     update: 
@@ -146,10 +160,12 @@ pt-PT:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} contactos"
@@ -196,6 +212,7 @@ pt-PT:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Informe-me"
+  find_people: "Find people"
   hide: "Esconder"
   home: 
     show: 
@@ -590,10 +607,10 @@ pt-PT:
       outside: "As mensagens públicas ficarão visíveis a pessoas fora do Diaspora."
       title: "Configurar serviços conectados"
     publisher: 
-      add_photos: "adicionar fotografias"
       all: "tudo"
       all_contacts: "todos os contactos"
       click_to_share_with: "Clique para partilhar com: "
+      discard_post: "Discard post"
       make_public: "tornar público"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
@@ -601,6 +618,7 @@ pt-PT:
       publishing_to: "publicando para:"
       share: "Partilhar"
       share_with: "partilhar com"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "em que está a pensar?"
     reshare: 
       reshare: "Voltar a partilhar"
@@ -630,7 +648,7 @@ pt-PT:
       zero: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
   stream_helper: 
     hide_comments: "ocultar comentários"
-    show_comments: "mostrar todos os comentários"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."

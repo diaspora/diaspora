@@ -6,6 +6,7 @@
 eu: 
   _applications: "Aplikazioak"
   _comments: "Iruzkinak"
+  _contacts: "Adiskideak"
   _home: "Hasiera"
   _photos: "argazkiak"
   _services: "Zerbitzuak"
@@ -46,10 +47,10 @@ eu:
     aspect_dropdown: 
       add_to_aspect: "Alderdira gehitu"
       toggle: 
-        few: "%{count} alderdietan"
-        many: "%{count} alderdietan"
+        few: "%{count} alderditan"
+        many: "%{count} alderditan"
         one: "alderdi %{count}ean"
-        other: "%{count} alderdietan"
+        other: "%{count} alderditan"
         zero: "Alderdira gehitu"
     destroy: 
       failure: "Akatsa pertsona alderditik ezabatzean"
@@ -61,10 +62,13 @@ eu:
       success: "Adiskidea arrakastaz gehitu da alderdira."
     aspect_contacts: 
       done_editing: "aldaketak gauzatu"
+    aspect_listings: 
+      add_an_aspect: "+ Alderdi berria sortu"
     aspect_stream: 
-      activity: "jardueraren arabera"
-      post_time: "mezuaren dataren arabera"
-      sort_by: "sailkatu:"
+      commented_on: "iruzkindua hemen:"
+      posted: "bidalita"
+      recently: "oraintsu:"
+      stream: "Kronologia"
     contacts_not_visible: "Alderdi honetako adiskideak nor dagoen bere alderdian ezingo dute ikusi."
     contacts_visible: "Alderdi honetako adiskideak jokingo dute nor dagoen alderdian."
     create: 
@@ -94,10 +98,15 @@ eu:
         explanation: "Cubbi.es garapenean dagoen lehenengo Diaspora aplikazioa da."
         heading: "Cubbi.esera lotu"
         learn_more: "Gehiago ikasi"
-      handle_explanation: "Hau da zure Diaspora helbidea. Zure adiskideei emaiezu zu aurkitzearren."
+      diaspora_id: 
+        content_1: "Zure Diaspora ID honakoa da:"
+        content_2: "Emaiozu edonori eta Diasporan aurkituko zaituzte hura erabiliz."
+        heading: "Diaspora IDa"
+      handle_explanation: "Hau da zure Diaspora IDa. E-posta helbidea bezalakoa da, zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
+      your_aspects: "Zure Alderdiak"
     many: "%{count} alderdi"
     move_contact: 
       error: "Huts adiskidea mugitzean: %{inspect}"
@@ -107,12 +116,17 @@ eu:
       create: "Sortu"
       name: "Izena"
     no_posts_message: 
-      start_talking: "Oraindik inork ez du ezer esan. Izan zaitez lehenengoa!"
+      start_talking: "Oraindik inork ez du ezer esan!"
+      try_adding_some_more_contacts: "Saiatu adiskide gehiago gehitzen."
     one: "alderdi 1"
     other: "%{count} alderdi"
     seed: 
       family: "Familia"
       work: "Lantokia"
+    selected_contacts: 
+      manage_your_aspects: "Zure alderdiak kudeatu."
+      no_contacts: "Ez duzu adiskiderik hemen oraindik."
+      view_all_contacts: "Adiskide guztiak ikusi"
     show: 
       edit_aspect: "alderdia aldatu"
     update: 
@@ -121,12 +135,12 @@ eu:
     zero: "alderdirik ez"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Sarbidea Baliogabetu"
   back: "Atzera"
   bookmarklet: 
     explanation: "Diasporan partekatu %{link} erabiliz."
     explanation_link_text: "esteka hau"
-    heading: "Diaspora Bookmarkleta"
+    heading: "Bookmarkleta"
     post_something: "Partekatu zerbait Diasporan"
     post_success: "Bidalia! Irteten!"
   cancel: "Ezeztatu"
@@ -146,10 +160,12 @@ eu:
     index: 
       add_a_new_aspect: "Alderdi berria gehitu"
       all_contacts: "Adiskide Guztiak"
+      edit_aspect: "Aldatu %{name}"
       my_contacts: "Nire Adiskideak"
       no_contacts: "Adiskiderik ez."
       only_sharing_with_me: "Bakarrik nirekin harremanetan"
       remove_person_from_aspect: "Ezabatu %{person_name} \"%{aspect_name}\"(e)tik"
+      start_a_conversation: "Elkarrizketa bat hasi"
       title: "Adiskideak"
       your_contacts: "Zure Adiskideak"
     many: "%{count} adiskide"
@@ -169,7 +185,7 @@ eu:
         many: "%{count} mezu pribatu berri"
         one: "mezu pribatu berri 1"
         other: "%{count} mezu pribatu berri"
-        zero: "mezu pribatu berririk ez"
+        zero: "Mezu pribatu berririk ez"
     index: 
       create_a_new_message: "mezu berria sortu"
       inbox: "Sarrera-ontzia"
@@ -196,6 +212,7 @@ eu:
       correct_the_following_errors_and_try_again: "Zuzendu honako akatsak eta saiatu berriro."
       invalid_fields: "Eremu akasdunak"
   fill_me_out: "Bete nazazu"
+  find_people: "Jendea aurkitu"
   hide: "Ezkutatu"
   home: 
     show: 
@@ -292,7 +309,7 @@ eu:
         many: "%{count} jakinarazpen berri"
         one: "jakinarazpen berri 1"
         other: "%{count} jakinarazpen berri"
-        zero: "jakinarazpen berririk ez"
+        zero: "Jakinarazpen berririk ez"
     index: 
       and: "eta"
       and_others: 
@@ -485,8 +502,8 @@ eu:
       your_photo: "Zure argazkia"
       your_private_profile: "Zure profil pribatua"
       your_public_profile: "Zure profil publikoa"
-      your_tags: "Zu: 5 #etiketetan"
-      your_tags_placeholder: "adib. #diaspora #lisatu #katakumeak #musika"
+      your_tags: "Zure burua deskribatu 5 hitzetan"
+      your_tags_placeholder: "#filmak #katakumeak #bidaiak #irakaslea #newyork bezalakoak"
     update: 
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
@@ -563,8 +580,8 @@ eu:
   shared: 
     add_contact: 
       add_new_contact: "Adiskide berria gehitu"
-      create_request: "Diaspora helbide arabera bilatu"
-      diaspora_handle: "diaspora@helbidea.org"
+      create_request: "Diaspora IDaren arabera bilatu"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
       know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
       your_diaspora_username_is: "Zure Diaspora helbidea honakoa da: %{diaspora_handle}"
@@ -590,10 +607,10 @@ eu:
       outside: "Mezu publikoak edozeinek irakurtzeko ahalmena izango ditu, Diaspora kontua ez badu ere."
       title: "Zerbitzu konektatuak kudeatu"
     publisher: 
-      add_photos: "argazkiak gehitu"
       all: "guztiak"
       all_contacts: "adiskide guztiak"
       click_to_share_with: "Sakatu zerbitzu hauetara bidaltzeko:"
+      discard_post: "Mezua baztertu"
       make_public: "publikoa egin"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
@@ -601,7 +618,8 @@ eu:
       publishing_to: "hemen partekatzen:"
       share: "Partekatu"
       share_with: "honekin partekatu:"
-      whats_on_your_mind: "zer berri?"
+      upload_photos: "Argazkiak igo"
+      whats_on_your_mind: "Zer ari zara pentsatzen?"
     reshare: 
       reshare: "Berriz partekatu"
     stream_element: 
@@ -629,8 +647,8 @@ eu:
       other: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
       zero: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
   stream_helper: 
-    hide_comments: "iruzkinak ezkutatu"
-    show_comments: "iruzkin guztiak erakutsi"
+    hide_comments: "Iruzkin guztiak ezkutatu"
+    show_more_comments: "Erakutsi %{number} iruzkin gehiago"
   tags: 
     show: 
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
@@ -651,7 +669,7 @@ eu:
       via: "(%{link}(r)en bidez)"
       were_working_hard: "Gogor ari gara lanean Diaspora zerbitzarien eta aplikazioen arteko harremanak eskaintzeko. Momentuan, Diaspora eta Cubbi.es kontuak lotzeak bi eremu kopiatzean eta itsastean datza."
       what_is_cubbies: "Cubbi.es munduko lehen Diaspora aplikazioa da. Argazkiak metatzeko biderik onena ere da."
-      your_diaspora_handle: "Zure Diaspora Helbidea:"
+      your_diaspora_handle: "Zure Diaspora IDa:"
       your_diaspora_token: "Zure Diaspora Kodea:"
   undo: "Desegin?"
   username: "Erabiltzailea"
@@ -676,7 +694,7 @@ eu:
       receive_email_notifications: "E-posta jakinarazpenak jaso nahi dituzu..."
       started_sharing: "...norbaitek zurekin harreman berria hasten duenean?"
       your_email: "Zure e-posta"
-      your_handle: "Zure Diaspora helbidea"
+      your_handle: "Zure Diaspora IDa"
     getting_started: 
       connect_on_diaspora: "Konektatu Diasporan"
       connect_services: "Beste zerbitzu batzuekin lotu"

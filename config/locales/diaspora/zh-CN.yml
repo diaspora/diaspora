@@ -6,6 +6,7 @@
 zh-CN: 
   _applications: "Applications"
   _comments: "评论"
+  _contacts: "Contacts"
   _home: "首页"
   _photos: "照片"
   _services: "服务"
@@ -61,10 +62,13 @@ zh-CN:
       success: "将好友添加到视图成功。"
     aspect_contacts: 
       done_editing: "编辑完成"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "活跃程度"
-      post_time: "发布时间"
-      sort_by: "排序方式："
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "此视图中的好友相互不可见。"
     contacts_visible: "此视图中的好友相互可见。"
     create: 
@@ -94,10 +98,15 @@ zh-CN:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       no_contacts: "没有任何好友"
       people_sharing_with_you: "与您分享的人"
       post_a_message: "发布站内信>>"
+      your_aspects: "Your Aspects"
     many: "%{count}个视图"
     move_contact: 
       error: "好友移动错误：%{inspect}"
@@ -108,11 +117,16 @@ zh-CN:
       name: "名字"
     no_posts_message: 
       start_talking: "还没人发布过内容。你发布第一条吧！"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1个视图"
     other: "%{count}个视图"
     seed: 
       family: "家人"
       work: "同事"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "编辑视图"
     update: 
@@ -146,10 +160,12 @@ zh-CN:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count}个好友"
@@ -196,6 +212,7 @@ zh-CN:
       correct_the_following_errors_and_try_again: "修正以下错误后重试。"
       invalid_fields: "无效栏目"
   fill_me_out: "填写我"
+  find_people: "Find people"
   hide: "隐藏"
   home: 
     show: 
@@ -590,10 +607,10 @@ zh-CN:
       outside: "不使用 Diaspora 的人也能看到公开讯息。"
       title: "设定连线服务"
     publisher: 
-      add_photos: "添加照片"
       all: "全部"
       all_contacts: "全部的好友"
       click_to_share_with: "点击后就可以分享: "
+      discard_post: "Discard post"
       make_public: "公开"
       post_a_message_to: "在 %{aspect} 发布讯息"
       posting: "发布中……"
@@ -601,6 +618,7 @@ zh-CN:
       publishing_to: "发布至："
       share: "分享"
       share_with: "与他分享："
+      upload_photos: "Upload photos"
       whats_on_your_mind: "你想到了什么？"
     reshare: 
       reshare: "重新分享"
@@ -630,7 +648,7 @@ zh-CN:
       zero: "请确认您的状态信息不超过%{count}个字符"
   stream_helper: 
     hide_comments: "隐藏评论"
-    show_comments: "显示所有评论"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "尚还没有人在讨论 %{tag}。"

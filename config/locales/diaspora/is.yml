@@ -6,6 +6,7 @@
 is: 
   _applications: "Applications"
   _comments: "Athugasemdir"
+  _contacts: "Tengiliðir"
   _home: "Forsíða"
   _photos: "Myndir"
   _services: "Þjónusta"
@@ -61,10 +62,13 @@ is:
       success: "Það heppnaðist að bæta tengilið við ásýnd."
     aspect_contacts: 
       done_editing: "búið að breyta"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "virkni"
-      post_time: "færslutími"
-      sort_by: "raða eftir:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Tengiliðir í þessari ásýnd geta ekki séð hvern annan."
     contacts_visible: "Tengiliðir í þessari ásýnd geta séð hvern annan."
     create: 
@@ -94,10 +98,15 @@ is:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       no_contacts: "Engir tengiliðir"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
       error: "Villa við að breyta tengiliði: %{inspect}"
@@ -108,11 +117,16 @@ is:
       name: "Name"
     no_posts_message: 
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Fjölskylda"
       work: "Vinna"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "Breyta ásýndum"
     update: 
@@ -146,10 +160,12 @@ is:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} contacts"
@@ -196,6 +212,7 @@ is:
       correct_the_following_errors_and_try_again: "Það þarf að lagfæra eftirfarandi villur og reyna síðan aftur. "
       invalid_fields: "Invalid Fields"
   fill_me_out: "Fylla út"
+  find_people: "Find people"
   hide: "Hide"
   home: 
     show: 
@@ -590,10 +607,10 @@ is:
       outside: "Almennt aðgengileg skilaboð verða sýnileg öðrum utan Diaspora."
       title: "Þú ert að fara að setja þetta á almannafæri!"
     publisher: 
-      add_photos: "bæta myndum við"
       all: "allt"
       all_contacts: "Allir tengiliðir"
       click_to_share_with: "Click to share with: "
+      discard_post: "Discard post"
       make_public: "gera almennt"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: "Senda..."
@@ -601,6 +618,7 @@ is:
       publishing_to: "publishing to: "
       share: "Deila"
       share_with: "deila með"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "hvað er þér efst í huga?"
     reshare: 
       reshare: "Endurdeila"
@@ -630,7 +648,7 @@ is:
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "fela athugasemdir"
-    show_comments: "show all comments"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nobody is talking about %{tag} yet."

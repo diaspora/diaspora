@@ -4,8 +4,9 @@
 
 
 fi: 
-  _applications: "Applications"
-  _comments: "Comments"
+  _applications: "Sovellukset"
+  _comments: "Kommentit"
+  _contacts: "Contacts"
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
@@ -61,10 +62,13 @@ fi:
       success: "Ystävän lisäys näkymään onnistui."
     aspect_contacts: 
       done_editing: "muokkaus valmis"
+    aspect_listings: 
+      add_an_aspect: "+ Lisää näkymä"
     aspect_stream: 
-      activity: "aktiivisuus"
-      post_time: "lähetysaika"
-      sort_by: "järjestä:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
     create: 
@@ -92,12 +96,17 @@ fi:
     index: 
       cubbies: 
         explanation: "Cubbi.es is the first Diaspora application under development."
-        heading: "Connect to Cubbi.es"
+        heading: "Yhdistä Cubbi.es:iin"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       no_contacts: "Ei kontakteja"
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
       post_a_message: "post a message >>"
+      your_aspects: "Näkymäsi"
     many: "%{count} näkymää"
     move_contact: 
       error: "Virhe siirrettäessä kontaktia: %{inspect}"
@@ -105,14 +114,19 @@ fi:
       success: "Henkilö siirretty uuteen näkymään"
     new: 
       create: "Luo"
-      name: "Name"
+      name: "Nimi"
     no_posts_message: 
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 näkymä"
     other: "%{count} näkymää"
     seed: 
       family: "Perhe"
       work: "Työ"
+    selected_contacts: 
+      manage_your_aspects: "Hallitse näkymiä."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "Näytä kaikki kontaktit"
     show: 
       edit_aspect: "muokkaa näkymää"
     update: 
@@ -146,12 +160,14 @@ fi:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Muokkaa %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      start_a_conversation: "Start a conversation"
+      title: "Kontaktit"
+      your_contacts: "Kontaktisi"
     many: "%{count} kontaktia"
     one: "1 kontakti"
     other: "%{count} kontaktia"
@@ -196,6 +212,7 @@ fi:
       correct_the_following_errors_and_try_again: "Korjaa seuraavat virheet ja yritä uudelleen."
       invalid_fields: "Vialliset arvot"
   fill_me_out: "Täytä tiedot"
+  find_people: "Find people"
   hide: "Piilota"
   home: 
     show: 
@@ -329,11 +346,11 @@ fi:
       zero: "%{actors} mentioned you in a deleted post."
     post: "viesti."
     private_message: 
-      few: "%{actors} sent you a message."
-      many: "%{actors} sent you a message."
+      few: "%{actors} lähetti sinulle viestin."
+      many: "%{actors} lähetti sinulle viestin."
       one: "%{actors} sent you a message."
       other: "%{actors} sent you a message."
-      zero: "%{actors} sent you a message."
+      zero: "%{actors} lähetti sinulle viestin."
     started_sharing: 
       few: "%{actors} started sharing with you."
       many: "%{actors} started sharing with you."
@@ -352,9 +369,9 @@ fi:
     diaspora: "Diasporan sähköpostirobotti"
     hello: "Hei %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} tykkäsi kirjoituksestasi: "
       sign_in: "Kirjaudu sisään nähdäksesi"
-      subject: "%{name} has just liked your post"
+      subject: "%{name} tykkäsi juuri kirjoituksestasi"
     love: "Terveisin,"
     manage_your_email_settings: "manage your email settings"
     mentioned: 
@@ -371,7 +388,7 @@ fi:
       subject: "Viesti Diaspora-käyttäjätilistäsi:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
+      sign_in: "Kirjaudu sisään täältä"
       subject: "%{name} has started sharing with you on Diaspora*"
     thanks: "Kiitos,"
   ok: "OK"
@@ -480,7 +497,7 @@ fi:
       your_bio: "Biografia"
       your_birthday: "Syntymäpäivä"
       your_gender: "Sukupuolesi"
-      your_location: "Your location"
+      your_location: "Sijaintisi"
       your_name: "Nimesi"
       your_photo: "Profiili kuva"
       your_private_profile: "Yksityinen profiilisi"
@@ -547,7 +564,7 @@ fi:
       not_connected: "ei yhdistetty"
     index: 
       connect_to_facebook: "Yhdistä palveluun facebook"
-      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_tumblr: "Yhdistä Tumblr:iin"
       connect_to_twitter: "Yhdistä palveluun twitter"
       disconnect: "katkaise"
       edit_services: "Muokkaa palveluita"
@@ -562,7 +579,7 @@ fi:
   settings: "Asetukset"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Lisää uusi kontakti"
       create_request: "Etsi Diaspora-tunnuksella"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Anna Diaspora-käyttäjätunnus:"
@@ -590,17 +607,18 @@ fi:
       outside: "Julkiset viestit näkyvät Diasporan ulkopuolelle."
       title: "Olet lähettämässä julkista viestiä!"
     publisher: 
-      add_photos: "lisää kuvia"
       all: "kaikki"
       all_contacts: "kaikki kontaktit"
       click_to_share_with: "Jakomenetelmät:"
+      discard_post: "Discard post"
       make_public: "tee julkiseksi"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
       public: "Julkinen"
-      publishing_to: "publishing to: "
+      publishing_to: "Julkaistaan: "
       share: "Jaa"
       share_with: "Jaa"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "Mitä mielessä?"
     reshare: 
       reshare: "Jaa uudelleen"
@@ -630,7 +648,7 @@ fi:
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "piilota kommentit"
-    show_comments: "näytä kaikki kommentit"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nobody is talking about %{tag} yet."
@@ -669,12 +687,12 @@ fi:
       download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"
       export_data: "Vie tietoja"
-      liked: "...someone likes your post?"
+      liked: "...tykkää kirjoituksistasi?"
       mentioned: "...sinut mainitaan viestissä?"
       new_password: "Uusi salasana"
       private_message: "...saat uuden viestin?"
       receive_email_notifications: "Vastaanota sähköposti-ilmoituksia, kun.."
-      started_sharing: "...someone starts sharing with you?"
+      started_sharing: "...aloittaa jakamaan kanssasi?"
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 

@@ -6,6 +6,7 @@
 en_shaw: 
   _applications: "𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯"
   _comments: "𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "𐑓𐑴𐑑𐑴𐑟"
   _services: "Services"
@@ -61,10 +62,13 @@ en_shaw:
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑨𐑛𐑩𐑛 𐑒𐑪𐑯𐑑𐑨𐑒𐑑 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑."
     aspect_contacts: 
       done_editing: "𐑛𐑳𐑯 𐑧𐑛𐑦𐑑𐑦𐑙"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "𐑨𐑒𐑑𐑦𐑝𐑦𐑑𐑦"
-      post_time: "𐑐𐑴𐑕𐑑 𐑑𐑲𐑥"
-      sort_by: "𐑕𐑹𐑑 𐑚𐑲:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
     contacts_visible: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑦𐑯 𐑞𐑦𐑕 𐑨𐑕𐑐𐑧𐑒𐑑 𐑢𐑦𐑤 𐑯𐑪𐑑 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑕𐑰 𐑰𐑗 𐑳𐑞𐑼."
     create: 
@@ -94,10 +98,15 @@ en_shaw:
         explanation: "Cubbi.es 𐑦𐑟 𐑞 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯 𐑳𐑯𐑛𐑼 𐑛𐑦𐑝𐑧𐑤𐑩𐑐𐑥𐑧𐑯𐑑."
         heading: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
         learn_more: "𐑤𐑻𐑯 𐑥𐑹"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕, 𐑿 𐑒 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
+      your_aspects: "Your Aspects"
     many: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     move_contact: 
       error: "𐑺𐑼 𐑥𐑵𐑝𐑦𐑙 𐑒𐑪𐑯𐑑𐑨𐑒𐑑: %{inspect}"
@@ -108,11 +117,16 @@ en_shaw:
       name: "𐑯𐑱𐑥"
     no_posts_message: 
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑨𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑.  𐑜𐑧𐑑 𐑞 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑑𐑸𐑑𐑩𐑛!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
     other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed: 
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
       work: "𐑢𐑻𐑒"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "𐑧𐑛𐑦𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
     update: 
@@ -146,10 +160,12 @@ en_shaw:
     index: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
+      edit_aspect: "Edit %{name}"
       my_contacts: "𐑥𐑲 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
       only_sharing_with_me: "𐑴𐑯𐑤𐑦 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑥𐑰"
       remove_person_from_aspect: "𐑮𐑦𐑥𐑵𐑝 %{person_name} 𐑓𐑮𐑳𐑥 \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       your_contacts: "𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     many: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
@@ -196,6 +212,7 @@ en_shaw:
       correct_the_following_errors_and_try_again: "𐑒𐑩𐑮𐑧𐑒𐑑 𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑺𐑼𐑟 𐑯 𐑑𐑮𐑲 𐑩𐑜𐑧𐑯."
       invalid_fields: "𐑦𐑯𐑝𐑨𐑤𐑦𐑛 𐑓𐑰𐑤𐑛𐑟"
   fill_me_out: "𐑓𐑦𐑤 𐑥𐑰 𐑬𐑑"
+  find_people: "Find people"
   hide: "𐑣𐑲𐑛"
   home: 
     show: 
@@ -590,10 +607,10 @@ en_shaw:
       outside: "𐑐𐑳𐑚𐑤𐑦𐑒 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑢𐑦𐑤 𐑚𐑰 𐑩𐑝𐑱𐑤𐑩𐑚𐑩𐑤 𐑓𐑹 𐑳𐑞𐑼𐑟 𐑬𐑑𐑕𐑲𐑛 𐑝 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑑 𐑕𐑰."
       title: "𐑕𐑧𐑑 𐑳𐑐 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
     publisher: 
-      add_photos: "𐑨𐑛 𐑓𐑴𐑑𐑴𐑟"
       all: "𐑷𐑤"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       click_to_share_with: "𐑒𐑤𐑦𐑒 𐑑 𐑖𐑺 𐑢𐑦𐑞:"
+      discard_post: "Discard post"
       make_public: "𐑥𐑱𐑒 𐑐𐑳𐑚𐑤𐑦𐑒"
       post_a_message_to: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 %{aspect}"
       posting: "𐑐𐑴𐑕𐑑𐑦𐑙..."
@@ -601,6 +618,7 @@ en_shaw:
       publishing_to: "𐑐𐑳𐑚𐑤𐑦𐑖𐑦𐑙 𐑑: "
       share: "𐑖𐑺"
       share_with: "𐑖𐑺 𐑢𐑦𐑞 %{aspect}"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "𐑢𐑪𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑥𐑲𐑯𐑛?"
     reshare: 
       reshare: "𐑮𐑦𐑖𐑺"
@@ -630,7 +648,7 @@ en_shaw:
       zero: "𐑐𐑤𐑰𐑟 𐑥𐑱𐑒 𐑿𐑼 𐑕𐑑𐑨𐑑𐑩𐑕 𐑥𐑧𐑕𐑩𐑡𐑩𐑟 𐑤𐑧𐑕 𐑞𐑨𐑯 %{count} 𐑒𐑺𐑩𐑒𐑑𐑼𐑟"
   stream_helper: 
     hide_comments: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
-    show_comments: "𐑖𐑴 𐑷𐑤 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."

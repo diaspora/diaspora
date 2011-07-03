@@ -4,10 +4,11 @@
 
 
 es: 
-  _applications: "Applications"
+  _applications: "Aplicaciones"
   _comments: "Comentarios"
+  _contacts: "Contactos"
   _home: "Inicio"
-  _photos: "Fotos"
+  _photos: "fotos"
   _services: "Servicios"
   account: "Cuenta"
   activerecord: 
@@ -61,10 +62,13 @@ es:
       success: "Contacto añadido con éxito al aspecto."
     aspect_contacts: 
       done_editing: "Editado"
+    aspect_listings: 
+      add_an_aspect: "+ Añadir un aspecto"
     aspect_stream: 
-      activity: "actividad"
-      post_time: "fecha de publicación"
-      sort_by: "ordenar por:"
+      commented_on: "comentados recientemente"
+      posted: "fecha de publicación"
+      recently: "ordenar por:"
+      stream: "Novedades"
     contacts_not_visible: "Los contactos de este aspecto no podrán verse."
     contacts_visible: "Los contactos de este aspecto podrán verse."
     create: 
@@ -94,10 +98,15 @@ es:
         explanation: "Cubbi.es es la primera aplicación de Diaspora* en desarrollo."
         heading: "Conecta con Cubbi.es"
         learn_more: "Ver más"
+      diaspora_id: 
+        content_1: "Tu identificador de Diaspora* es:"
+        content_2: "Compártelo con quien quieras y te podrán encontrar en Diaspora*."
+        heading: "Identificador de Diaspora*"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
+      your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
       error: "Error moviendo el contacto: %{inspect}"
@@ -107,12 +116,17 @@ es:
       create: "Crear"
       name: "Nombre"
     no_posts_message: 
-      start_talking: "Nadie dijo nada todavía. ¡Inicia la conversación!"
+      start_talking: "Nadie dijo nada aún. ¡Sé el primero en comentarlo!"
+      try_adding_some_more_contacts: "Inténtalo añadiendo más contactos."
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
       family: "Familia"
       work: "Trabajo"
+    selected_contacts: 
+      manage_your_aspects: "Gestiona tus aspectos."
+      no_contacts: "Aún no tienes ningún contacto aquí."
+      view_all_contacts: "Ver todos los contactos"
     show: 
       edit_aspect: "editar aspecto"
     update: 
@@ -121,12 +135,12 @@ es:
     zero: "no hay aspectos"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Revocar acceso"
   back: "Atrás"
   bookmarklet: 
     explanation: "%{link} desde donde quieras agregando a tus marcadores este enlace."
     explanation_link_text: "Publica en Diaspora"
-    heading: "Diaspora en tus marcadores"
+    heading: "Diaspora* en tus marcadores"
     post_something: "Publica algo en Diaspora"
     post_success: "Publicado! Cerrando!"
   cancel: "Cancelar"
@@ -146,10 +160,12 @@ es:
     index: 
       add_a_new_aspect: "Añadir un nuevo aspecto"
       all_contacts: "Todos los Contactos"
+      edit_aspect: "Editar %{name}"
       my_contacts: "Mis Contactos"
       no_contacts: "Sin contactos."
       only_sharing_with_me: "Solo compartiendo conmigo"
       remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Inicia una conversación"
       title: "Contactos"
       your_contacts: "Tus Contactos"
     many: "%{count} contactos"
@@ -169,7 +185,7 @@ es:
         many: "%{count} nuevos mensajes"
         one: "1 nuevo mensaje"
         other: "%{count} nuevos mensajes"
-        zero: "Ver mensajes anteriores"
+        zero: "No hay mensajes nuevos"
     index: 
       create_a_new_message: "Crear un nuevo mensaje"
       inbox: "Mensajes"
@@ -196,6 +212,7 @@ es:
       correct_the_following_errors_and_try_again: "Corrija los siguientes errores e inténtelo de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
+  find_people: "buscar contactos"
   hide: "Ocultar"
   home: 
     show: 
@@ -244,10 +261,10 @@ es:
       your_aspects: "tus aspectos"
     header: 
       admin: "administrar"
-      blog: "Blog"
-      code: "Código"
-      login: "Acceder"
-      logout: "Salir"
+      blog: "blog"
+      code: "código"
+      login: "acceder"
+      logout: "salir"
       profile: "perfil"
       settings: "configuración"
   likes: 
@@ -292,7 +309,7 @@ es:
         many: "%{count} nuevas notificaciones"
         one: "1 nueva notificación"
         other: "%{count} nuevas notificaciones"
-        zero: "Ver notificaciones anteriores"
+        zero: "No hay notificaciones nuevas"
     index: 
       and: "y"
       and_others: 
@@ -442,14 +459,14 @@ es:
       new_photo: "Nueva foto"
       post_it: "¡Publícalo!"
     new_photo: 
-      empty: "{file} está vacío, por favor selecciona los archivos sin éste."
+      empty: "{file} está vacío, por favor selecciona otros archivos."
       invalid_ext: "{file} tiene una extensión inválida. Sólo {extensions} están permitidas."
       size_error: "{file} es demasiado largo, el tamaño máximo por archivo es de {sizeLimit}."
     new_profile_photo: 
       or_select_one: "o selecciona alguna de las ya subidas"
       upload: "¡Sube una foto nueva de perfil!"
     photo: 
-      view_all: "Ver todas las fotos de %{name}"
+      view_all: "ver todas las fotos de %{name}"
     show: 
       collection_permalink: "enlace permanente a la colección"
       delete_photo: "Eliminar foto"
@@ -468,7 +485,7 @@ es:
       post_hidden: "La publicación de %{name} se ha ocultado."
   posts: 
     doesnt_exist: "esa publicación no existe!"
-  previous: "Anterior"
+  previous: "anterior"
   profile: "Perfil"
   profiles: 
     edit: 
@@ -564,7 +581,7 @@ es:
     add_contact: 
       add_new_contact: "Añadir un nuevo contacto"
       create_request: "Encontrar por la dirección Diaspora*"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
       know_email: "¿Conoces sus direcciones de correo? ¡Puedes invitarles!"
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
@@ -590,10 +607,10 @@ es:
       outside: "Las publicaciones para \"el mundo\" podrán verse fuera de Diaspora*."
       title: "Configurar los servicios conectados"
     publisher: 
-      add_photos: "Añadir fotos"
       all: "todo"
       all_contacts: "todos los contactos"
       click_to_share_with: "Selecciona para compartir con:"
+      discard_post: "Descartar mensaje"
       make_public: "hacer público"
       post_a_message_to: "Publicar un mensaje en %{aspect}"
       posting: "Publicando..."
@@ -601,6 +618,7 @@ es:
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "compartir con"
+      upload_photos: "Subir foto"
       whats_on_your_mind: "¿Qué te cuentas?"
     reshare: 
       reshare: "Publicar en..."
@@ -630,7 +648,7 @@ es:
       zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "Ocultar comentarios"
-    show_comments: "Ver todos los comentarios"
+    show_more_comments: "Muestra %{number} comentarios más"
   tags: 
     show: 
       nobody_talking: "Nadie esta hablando de %{tag} todavía."
@@ -651,7 +669,7 @@ es:
       via: "(via %{link})"
       were_working_hard: "Estamos trabajando intensamente para ofrecer una conectividad sencilla entre servidores y aplicaciones de Diaspora. Mientras tanto, conectar Diaspora* con Cubbi.es solo es copiar y pegar dos campos."
       what_is_cubbies: "Cubbi.es es la primera aplicación de Diaspora en el mundo.  Es también la mejor forma de coleccionar fotos en linea."
-      your_diaspora_handle: "Tu cuenta de Diaspora:"
+      your_diaspora_handle: "Tu identificador de Diaspora*:"
       your_diaspora_token: "Tu token en Diaspora:"
   undo: "¿Deshacer?"
   username: "Nombre de usuario"

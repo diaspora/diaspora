@@ -4,8 +4,9 @@
 
 
 es-CL: 
-  _applications: "Applications"
+  _applications: "Aplicaciones"
   _comments: "Comentarios"
+  _contacts: "Contacts"
   _home: "Inicio"
   _photos: "fotos"
   _services: "Servicios"
@@ -61,10 +62,13 @@ es-CL:
       success: "Contacto agregado correctamente al aspecto."
     aspect_contacts: 
       done_editing: "Aceptar"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "actividad"
-      post_time: "fecha del post"
-      sort_by: "Ordenar por:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Los contactos en este Aspecto no se podrán ver entre ellos."
     contacts_visible: "Los contactos en este Aspecto se podrán ver entre ellos."
     create: 
@@ -94,10 +98,15 @@ es-CL:
         explanation: "Cubbi.es es la primera aplicación de Diaspora en desarrollo."
         heading: "Conectate a Cubbi.es"
         learn_more: "Aprende mas"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "Esta es tu dirección Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       no_contacts: "No hay contactos"
       people_sharing_with_you: "Personas compartiendo contigo"
       post_a_message: "postea un mensaje >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspectos"
     move_contact: 
       error: "Error al mover el contacto: %{inspect}"
@@ -108,11 +117,16 @@ es-CL:
       name: "Nombre"
     no_posts_message: 
       start_talking: "Nadie ha dicho nada aún.  ¡Que comiense la conversación!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
       family: "Familia"
       work: "Trabajo"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "editar aspecto"
     update: 
@@ -121,7 +135,7 @@ es-CL:
     zero: "ningún aspecto"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Revocar el Acceso"
   back: "Atrás"
   bookmarklet: 
     explanation: "%{link} donde sea agregando a marcadores este link."
@@ -146,10 +160,12 @@ es-CL:
     index: 
       add_a_new_aspect: "Agregar un nuevo aspecto"
       all_contacts: "Todos los Contactos"
+      edit_aspect: "Edit %{name}"
       my_contacts: "Mis Contactos"
       no_contacts: "Sin Contactos."
       only_sharing_with_me: "Solo compartiendo conmigo"
       remove_person_from_aspect: "Eliminar a %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contactos"
       your_contacts: "Tus Contactos"
     many: "%{count} contactos"
@@ -196,6 +212,7 @@ es-CL:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Complétame"
+  find_people: "Find people"
   hide: "Ocultar"
   home: 
     show: 
@@ -590,10 +607,10 @@ es-CL:
       outside: "Los mensajes públicos estarán disponibles para que otros fuera de Diaspora los puedan ver."
       title: "Configurar los servicios conectados"
     publisher: 
-      add_photos: "agregar fotos"
       all: "todo"
       all_contacts: "todos los contactos"
       click_to_share_with: "Click para compartir con: "
+      discard_post: "Discard post"
       make_public: "hacer público"
       post_a_message_to: "Postear un mensaje a %{aspect}"
       posting: "Posteando..."
@@ -601,6 +618,7 @@ es-CL:
       publishing_to: "publicar en: "
       share: "Compartir"
       share_with: "Compartir con "
+      upload_photos: "Upload photos"
       whats_on_your_mind: "¿Que pasa por tu cabeza?"
     reshare: 
       reshare: "Compartir de nuevo"
@@ -630,7 +648,7 @@ es-CL:
       zero: "Tu mensaje de estado debe tener menos de %{count} caracteres"
   stream_helper: 
     hide_comments: "ocultar comentarios"
-    show_comments: "mostrar todos los comentarios"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Todavía nadie habla de %{tag}."

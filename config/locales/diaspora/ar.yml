@@ -6,6 +6,7 @@
 ar: 
   _applications: "Applications"
   _comments: "تعليقات"
+  _contacts: "Contacts"
   _home: "الرئيسية"
   _photos: "صور"
   _services: "خدمات"
@@ -61,10 +62,13 @@ ar:
       success: "إضافة صديق إلى الفئة بنجاح"
     aspect_contacts: 
       done_editing: "اتمام التغييرات"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "النشاط"
-      post_time: "زمن النشر"
-      sort_by: "تصنيف حسب"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "رؤية عضو لآخر في هاته الفئة غير متاحة"
     contacts_visible: "رؤية عضو لآخر في هاته الفئة متاحة"
     create: 
@@ -94,10 +98,15 @@ ar:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "هذا وسيط دياسبرا. مثل البريد الالكتروني, يمكنك منحه للأصدقاء حتى تستطيع التواصل معهم"
       no_contacts: "لا أعضاء"
       people_sharing_with_you: "أعضاء يتشاركون معك"
       post_a_message: "انشر رسالة >>"
+      your_aspects: "Your Aspects"
     many: "%{count} فئات"
     move_contact: 
       error: "خطأ خلال تحريك عضو: %{inspect}"
@@ -108,11 +117,16 @@ ar:
       name: "إسم"
     no_posts_message: 
       start_talking: "لم تنشر أي رسالة بعد، إبدأ المحادثة"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "فئة"
     other: "%{count} فئات"
     seed: 
       family: "العائلة"
       work: "العمل"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "تحرير الفئة"
     update: 
@@ -146,10 +160,12 @@ ar:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} أعضاء"
@@ -196,6 +212,7 @@ ar:
       correct_the_following_errors_and_try_again: ".صحح الأخطاء التالية ثم أعد المحاولة"
       invalid_fields: "مدخلات غير صحيحة"
   fill_me_out: "إملأ"
+  find_people: "Find people"
   hide: "إخفاء"
   home: 
     show: 
@@ -590,10 +607,10 @@ ar:
       outside: "الرسائل العامة، متاحة للجميع حتى لمن هم خارج دياسبرا"
       title: "أنت على وشك نشر رسالة عامة"
     publisher: 
-      add_photos: "إضافة صورة"
       all: "الجميع"
       all_contacts: "جميع الفئات"
       click_to_share_with: "إضغط للمشاركة مع: "
+      discard_post: "Discard post"
       make_public: "عممها"
       post_a_message_to: "انشر رسالة إلى %{aspect}"
       posting: "نشر..."
@@ -601,6 +618,7 @@ ar:
       publishing_to: "نشر إلى: "
       share: "مشاركة"
       share_with: "مشاركة مع %{aspect}"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "ما يجول في خاطرك؟"
     reshare: 
       reshare: "إعادة مشاركة"
@@ -630,7 +648,7 @@ ar:
       zero: "رجاء لا تتجاوز في منشوراتك حد %{count} حرفا"
   stream_helper: 
     hide_comments: "إخفاء التعليقات"
-    show_comments: "إظهار التعليقات"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "لا أحد يتكلم %{tag} بعد"

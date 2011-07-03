@@ -6,6 +6,7 @@
 sl: 
   _applications: "Applications"
   _comments: "Komentarji"
+  _contacts: "Contacts"
   _home: "Domov"
   _photos: "slike"
   _services: "Servisi"
@@ -61,10 +62,13 @@ sl:
       success: "Dodajanje stika v skupino je uspelo."
     aspect_contacts: 
       done_editing: "zaključi urejanje"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Stiki v tej skupini drug drugega ne bodo videli."
     contacts_visible: "Stiki v tej skupini drug drugega lahko vidijo."
     create: 
@@ -94,10 +98,15 @@ sl:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
       no_contacts: "Ni kontaktov"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
       error: "Prestavljanje stika neuspešno: %{inspect}"
@@ -108,11 +117,16 @@ sl:
       name: "Name"
     no_posts_message: 
       start_talking: "Trenutno še brez objav. Začnite s prvo objavo!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Družina"
       work: "Služba"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "uredi skupino"
     update: 
@@ -146,10 +160,12 @@ sl:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} contacts"
@@ -196,6 +212,7 @@ sl:
       correct_the_following_errors_and_try_again: "Popravite naslednje napake in poskusite znova."
       invalid_fields: "Neveljavna polja"
   fill_me_out: "Izpolni me"
+  find_people: "Find people"
   hide: "Hide"
   home: 
     show: 
@@ -590,10 +607,10 @@ sl:
       outside: "Javna sporočila bodo na ogled tudi osebam izven Diaspore."
       title: "Objavili boste javno sporočilo!"
     publisher: 
-      add_photos: "dodaj slike"
       all: "vsi"
       all_contacts: "vsi stiki"
       click_to_share_with: "Click to share with: "
+      discard_post: "Discard post"
       make_public: "objavi kot javno"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
@@ -601,6 +618,7 @@ sl:
       publishing_to: "publishing to: "
       share: "Objavi"
       share_with: "deli s/z"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "bi kaj želeli sporočiti?"
     reshare: 
       reshare: "Objavi še v"
@@ -630,7 +648,7 @@ sl:
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "skrij komentarje"
-    show_comments: "prikaži vse komentarje"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nobody is talking about %{tag} yet."

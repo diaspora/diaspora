@@ -6,6 +6,7 @@
 zh-TW: 
   _applications: "Applications"
   _comments: "意見"
+  _contacts: "Contacts"
   _home: "首頁"
   _photos: "相片"
   _services: "服務"
@@ -61,10 +62,13 @@ zh-TW:
       success: "將聯繫加入至面向成功."
     aspect_contacts: 
       done_editing: "編輯完成"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "近來活動"
-      post_time: "發表時間"
-      sort_by: "排序:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "此面向中的聯繫無法看見彼此."
     contacts_visible: "此面向中的聯繫可以看見彼此."
     create: 
@@ -94,10 +98,15 @@ zh-TW:
         explanation: "Cubbi.es 是 Diaspora 的第一個應用程式, 目前正在開發中."
         heading: "與 Cubbi.es 連結"
         learn_more: "進一步了解"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
+      your_aspects: "Your Aspects"
     many: "%{count}個面向"
     move_contact: 
       error: "聯繫移動錯誤: %{inspect}"
@@ -108,11 +117,16 @@ zh-TW:
       name: "名字"
     no_posts_message: 
       start_talking: "還沒人說話. 你來起個頭吧!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1個面向"
     other: "%{count}個面向"
     seed: 
       family: "家人"
       work: "工作"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "編輯面向"
     update: 
@@ -146,10 +160,12 @@ zh-TW:
     index: 
       add_a_new_aspect: "加入新面向"
       all_contacts: "全部聯絡人"
+      edit_aspect: "Edit %{name}"
       my_contacts: "我的聯絡人"
       no_contacts: "沒有聯絡人."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
+      start_a_conversation: "Start a conversation"
       title: "聯絡人"
       your_contacts: "你的聯絡人"
     many: "%{count}個聯繫"
@@ -196,6 +212,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
+  find_people: "Find people"
   hide: "隱藏"
   home: 
     show: 
@@ -590,10 +607,10 @@ zh-TW:
       outside: "不使用 Diaspora 的人也能看到公開訊息."
       title: "設定連線服務"
     publisher: 
-      add_photos: "加入相片"
       all: "全部"
       all_contacts: "全部的聯繫"
       click_to_share_with: "點一下以一起分享: "
+      discard_post: "Discard post"
       make_public: "公開"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
@@ -601,6 +618,7 @@ zh-TW:
       publishing_to: "發表至: "
       share: "分享"
       share_with: "跟他/她分享:"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "在想什麼?"
     reshare: 
       reshare: "重新分享"
@@ -630,7 +648,7 @@ zh-TW:
       zero: "請限制狀態訊息在%{count}個字內"
   stream_helper: 
     hide_comments: "隱藏意見"
-    show_comments: "顯示所有意見"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "尚還沒有人在討論 %{tag}."

@@ -6,6 +6,7 @@
 ko: 
   _applications: "Applications"
   _comments: "댓글"
+  _contacts: "Contacts"
   _home: "처음"
   _photos: "사진"
   _services: "서비스"
@@ -61,10 +62,13 @@ ko:
       success: "컨택을 애스펙에 성공적으로 넣었습니다."
     aspect_contacts: 
       done_editing: "고치기 완료"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "활동순"
-      post_time: "올린순"
-      sort_by: "순서:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "이 애스펙에 있는 사람들이 서로를 볼 수 없습니다."
     contacts_visible: "이 애스펙에 있는 사람들이 서로를 볼 수 있습니다."
     create: 
@@ -94,10 +98,15 @@ ko:
         explanation: "Cubbi.es는 개발중인 최초의 디아스포라 어플입니다."
         heading: "Cubbi.es에 연결하기"
         learn_more: "자세히 알아보기"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       no_contacts: "컨택 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
+      your_aspects: "Your Aspects"
     many: "애스펙 %{count}개"
     move_contact: 
       error: "%{inspect} 컨택을 옮기는데 에러가 발생했습니다."
@@ -108,11 +117,16 @@ ko:
       name: "이름"
     no_posts_message: 
       start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 
       family: "가족"
       work: "직장"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "애스펙 고치기"
     update: 
@@ -146,10 +160,12 @@ ko:
     index: 
       add_a_new_aspect: "새 애스펙 추가"
       all_contacts: "모든 컨택"
+      edit_aspect: "Edit %{name}"
       my_contacts: "내 컨택"
       no_contacts: "컨택 없음."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
+      start_a_conversation: "Start a conversation"
       title: "컨택"
       your_contacts: "내 컨택"
     many: "컨택 %{count}명"
@@ -196,6 +212,7 @@ ko:
       correct_the_following_errors_and_try_again: "아래의 에러를 정정한 뒤 다시 시도하십시오."
       invalid_fields: "유효하지 않은 항목"
   fill_me_out: "채워주세요"
+  find_people: "Find people"
   hide: "숨기기"
   home: 
     show: 
@@ -590,10 +607,10 @@ ko:
       outside: "공개 공유물은 디아스포라 밖의 사람들도 볼 수 있습니다."
       title: "서비스 설정"
     publisher: 
-      add_photos: "사진 추가"
       all: "모두"
       all_contacts: "모든 컨택"
       click_to_share_with: "공유할 대상을 클릭:"
+      discard_post: "Discard post"
       make_public: "공개하기"
       post_a_message_to: "%{aspect}에 공유물 올리기"
       posting: "올리는 중···"
@@ -601,6 +618,7 @@ ko:
       publishing_to: "올릴 곳: "
       share: "공유"
       share_with: "공유하기: "
+      upload_photos: "Upload photos"
       whats_on_your_mind: "무슨 생각해요?"
     reshare: 
       reshare: "재공유"
@@ -630,7 +648,7 @@ ko:
       zero: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper: 
     hide_comments: "댓글 감추기"
-    show_comments: "댓글 보기"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "아직 %{tag} 태그가 달린 공유물이 없습니다."

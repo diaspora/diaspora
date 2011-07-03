@@ -17,7 +17,7 @@ es:
       hide: "ocultar comentarios"
       show: "ver todos los comentarios"
     confirm_dialog: "¿Estás seguro?"
-    failed_to_like: "Failed to like!"
+    failed_to_like: "¡Ha fallado tu aprobación!"
     failed_to_post_message: "¡Fallo al publicar el mensaje!"
     infinite_scroll: 
       no_more: "No hay más publicaciones."
@@ -37,7 +37,7 @@ es:
       prefixAgo: "hace"
       prefixFromNow: "desde ahora"
       seconds: "menos de un minuto"
-      suffixAgo: ""
+      suffixAgo: "hace"
       suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
       years: "%d años"
@@ -45,4 +45,4 @@ es:
       unknown: "Tipo de video desconocido"
       watch: "Ver este video con {{provider}}"
     web_sockets: 
-      disconnected: "The websocket is closed; posts will no longer be streamed live."
+      disconnected: "El canal está cerrado; los comentarios no serán actualizados al momento."

@@ -6,6 +6,7 @@
 id: 
   _applications: "Applications"
   _comments: "Comments"
+  _contacts: "Contacts"
   _home: "Home"
   _photos: "photos"
   _services: "Services"
@@ -61,10 +62,13 @@ id:
       success: "Successfully added friend to aspect."
     aspect_contacts: 
       done_editing: "done editing"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "activity"
-      post_time: "post time"
-      sort_by: "sort by:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "Contacts in this aspect will not be able to see each other."
     contacts_visible: "Contacts in this aspect will be able to see each other."
     create: 
@@ -94,10 +98,15 @@ id:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "This is your diaspora handle.  Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
+      your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
       error: "Error moving contact: %{inspect}"
@@ -108,11 +117,16 @@ id:
       name: "Name"
     no_posts_message: 
       start_talking: "Nobody has said anything yet.  Get the conversation started!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Family"
       work: "Work"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "edit aspect"
     update: 
@@ -146,10 +160,12 @@ id:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} contacts"
@@ -196,6 +212,7 @@ id:
       correct_the_following_errors_and_try_again: "Perbaiki kesalahan berikut dan coba lagi."
       invalid_fields: "Field tidak valid"
   fill_me_out: "Fill me out"
+  find_people: "Find people"
   hide: "Hide"
   home: 
     show: 
@@ -590,10 +607,10 @@ id:
       outside: "Public messages will be available for others outside of Diaspora to see."
       title: "You are about to post a public message!"
     publisher: 
-      add_photos: "add photos"
       all: "all"
       all_contacts: "all contacts"
       click_to_share_with: "Click to share with: "
+      discard_post: "Discard post"
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
@@ -601,6 +618,7 @@ id:
       publishing_to: "publishing to: "
       share: "Bagikan"
       share_with: "Share with %{aspect}"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "what's on your mind?"
     reshare: 
       reshare: "Reshare"
@@ -630,7 +648,7 @@ id:
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "hide comments"
-    show_comments: "show comments"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "Nobody is talking about %{tag} yet."

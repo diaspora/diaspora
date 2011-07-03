@@ -6,6 +6,7 @@
 ja: 
   _applications: "Applications"
   _comments: "コメント"
+  _contacts: "Contacts"
   _home: "ホーム"
   _photos: "写真"
   _services: "サービス"
@@ -61,10 +62,13 @@ ja:
       success: "連絡先をアスペクトに追加するのに成功しました。"
     aspect_contacts: 
       done_editing: "編集完了"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "更新時"
-      post_time: "投稿時"
-      sort_by: "並び順"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "このアスペクトの連絡先はお互いの存在が確認できません。"
     contacts_visible: "このアスペクトの連絡先はお互いの存在が確認できます。"
     create: 
@@ -94,10 +98,15 @@ ja:
         explanation: "Cubbi.es is the first Diaspora application under development."
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       no_contacts: "連絡先無し"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "投稿する"
+      your_aspects: "Your Aspects"
     many: "アスペクト%{count}集"
     move_contact: 
       error: "連絡先の移動にエラーが発生しました： %{inspect}"
@@ -108,11 +117,16 @@ ja:
       name: "Name"
     no_posts_message: 
       start_talking: "投稿がまだありません。会話を始めましょう！"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "アスペクト1集"
     other: "アスペクト%{count}集"
     seed: 
       family: "家族"
       work: "仕事"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "アスペクトを編集する"
     update: 
@@ -146,10 +160,12 @@ ja:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "連絡先%{count}件"
@@ -196,6 +212,7 @@ ja:
       correct_the_following_errors_and_try_again: "次の問題を解決してからやり直してください。"
       invalid_fields: "不正なフィールド名"
   fill_me_out: "記入して"
+  find_people: "Find people"
   hide: "隠す"
   home: 
     show: 
@@ -590,10 +607,10 @@ ja:
       outside: "公開投稿はダイアスポラ外の人にも表示されます。"
       title: "提携サービスを設定する"
     publisher: 
-      add_photos: "写真を追加する"
       all: "すべて"
       all_contacts: "全ての連絡先"
       click_to_share_with: "クリックして次のアスペクトに共有："
+      discard_post: "Discard post"
       make_public: "公開にする"
       post_a_message_to: "%{aspect}に投稿する"
       posting: "投稿中"
@@ -601,6 +618,7 @@ ja:
       publishing_to: "公開先："
       share: "共有"
       share_with: "共有先："
+      upload_photos: "Upload photos"
       whats_on_your_mind: "いま何を考えている？"
     reshare: 
       reshare: "再共有"
@@ -630,7 +648,7 @@ ja:
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "コメントを非表示にする"
-    show_comments: "すべてのコメントを表示する"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "%{tag}についての投稿はまだありません。"

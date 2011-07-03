@@ -6,6 +6,7 @@
 he: 
   _applications: "Applications"
   _comments: "תגובות"
+  _contacts: "Contacts"
   _home: "בית"
   _photos: "תמונות"
   _services: "שירותים"
@@ -61,10 +62,13 @@ he:
       success: "איש הקשר נוסף בהצלחה להיבט."
     aspect_contacts: 
       done_editing: "סיום העריכה"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
     aspect_stream: 
-      activity: "פעילות"
-      post_time: "מועד הפרסום"
-      sort_by: "סידור לפי:"
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
     contacts_not_visible: "אנשי הקשר בהיבט זה לא יוכלו לראות אחד את השני."
     contacts_visible: "אנשי קשר בהיבט זה יוכלו לראות זה את זה."
     create: 
@@ -94,10 +98,15 @@ he:
         explanation: "Cubbi.es הנו היישום הראשון תחת דיאספורה הנמצא בפיתוח."
         heading: "התחברות ל־Cubbi.es"
         learn_more: "מידע נוסף"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
       people_sharing_with_you: "אנשים המשתפים אתך"
       post_a_message: "פרסום הודעה >>"
+      your_aspects: "Your Aspects"
     many: "%{count} היבטים"
     move_contact: 
       error: "שגיאה בהעברת איש הקשר: %{inspect}"
@@ -108,11 +117,16 @@ he:
       name: "שם"
     no_posts_message: 
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
+      try_adding_some_more_contacts: "Try adding some more contacts."
     one: "היבט אחד"
     other: "%{count} היבטים"
     seed: 
       family: "משפחה"
       work: "עבודה"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
     show: 
       edit_aspect: "עריכת היבט"
     update: 
@@ -146,10 +160,12 @@ he:
     index: 
       add_a_new_aspect: "Add a new aspect"
       all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
       my_contacts: "My Contacts"
       no_contacts: "No contacts."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
       title: "Contacts"
       your_contacts: "Your Contacts"
     many: "%{count} אנשי קשר"
@@ -196,6 +212,7 @@ he:
       correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
       invalid_fields: "שדות שגויים"
   fill_me_out: "נא לרשום אותי"
+  find_people: "Find people"
   hide: "הסתרה"
   home: 
     show: 
@@ -590,10 +607,10 @@ he:
       outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה."
       title: "הגדרת שירותים מקושרים"
     publisher: 
-      add_photos: "הוספת תמונות"
       all: "הכול"
       all_contacts: "כל אנשי הקשר"
       click_to_share_with: "יש ללחוץ כדי לשתף עם:"
+      discard_post: "Discard post"
       make_public: "הפיכה לציבורי"
       post_a_message_to: "פרסום הודעה אל %{aspect}"
       posting: "פרסום..."
@@ -601,6 +618,7 @@ he:
       publishing_to: "פרסום אל:"
       share: "שיתוף"
       share_with: "שיתוף עם"
+      upload_photos: "Upload photos"
       whats_on_your_mind: "מה עובר לך בראש?"
     reshare: 
       reshare: "שיתוף מחדש"
@@ -630,7 +648,7 @@ he:
       zero: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
   stream_helper: 
     hide_comments: "הסתרת הערות"
-    show_comments: "הצגת כל ההערות"
+    show_more_comments: "Show %{number} more comments"
   tags: 
     show: 
       nobody_talking: "אף אחד עדיין לא דיבר על %{tag}."
