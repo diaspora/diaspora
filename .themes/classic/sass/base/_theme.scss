@@ -1,3 +1,4 @@
+$noise-bg: image-url('noise.png') top left;
 $img-border: inline-image('dotted-border.png');
 
 // Main Link Colors
@@ -20,6 +21,10 @@ $text-color: #222 !default;
 $text-color-light: #aaa !default;
 $type-border: #ddd !default;
 
+/* non highlighted code colors */
+$pre-bg: $base03 !default;
+$pre-border: $base02 !default;
+$pre-color: $base1 !default;
 
 /* Navigation */
 $nav-bg: #ccc !default;
@@ -66,11 +71,12 @@ html {
 }
 body {
   > div {
-    background: $sidebar-bg image-url('noise.png') top left;
+    background: $sidebar-bg $noise-bg;
     border-bottom: 1px solid $page-border-bottom;
     > div {
-      background: $main-bg image-url('noise.png') top left;
+      background: $main-bg $noise-bg;
       border-right: 1px solid $sidebar-border;
     }
   }
 }
+

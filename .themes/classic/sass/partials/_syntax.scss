@@ -1,10 +1,9 @@
-$pre-bg: image-url('noise.png') top left;
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
   .line-numbers {
     text-align: right;
     font-size: .8em;
     line-height: 1.45em;
-    background: $base02 $pre-bg !important;
+    background: $base02 $noise-bg !important;
     border-right: 1px solid darken($base03, 2) !important;
     @include box-shadow(lighten($base02, 2) -1px 0 inset);
     text-shadow: darken($base02, 10) 0 -1px;
@@ -32,7 +31,7 @@ html .gist .gist-file {
    border: 1px solid lighten($base02, 2) !important;
    color: $base01;
    font-size: .7em !important;
-   background: $base02 $pre-bg;
+   background: $base02 $noise-bg;
    @extend .sans;
    line-height: 1.5em;
     a {
@@ -53,15 +52,15 @@ html .gist .gist-file {
   }
 }
 pre {
-  background: $base03 $pre-bg;
+  background: $pre-bg $noise-bg;
   @include border-radius(.4em);
   @extend .mono;
-  border: 1px solid $base02;
+  border: 1px solid $pre-border;
   line-height: 1.45em;
   font-size: .8em;
   margin-bottom: 1.5em;
   padding: .8em 1em;
-  color: $base1;
+  color: $pre-color;
   overflow: auto;
 }
 h3.filename {
@@ -91,7 +90,7 @@ p code {
   padding: .8em !important;
   overflow-x: auto;
   line-height: 1.45em;
-  background: $base03 $pre-bg !important;
+  background: $base03 $noise-bg !important;
   color: $base1 !important;
   span { color: $base1 !important; }
   span { font-style: normal !important; font-weight: normal !important; }
@@ -205,4 +204,5 @@ figure {
   text-shadow: #cbcccc 0 1px 0;
   padding-left: 3em;
 }
+
 
