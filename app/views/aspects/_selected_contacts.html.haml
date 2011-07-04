@@ -1,7 +1,7 @@
 #selected_aspect_contacts.section
   .title.no_icon
     %h5
-      - if @aspect_ids.size > 1
+      - if all_aspects_selected? || @aspect_ids.size > 1
         = "#{t('_contacts')}"
       - else
         = @aspect.name

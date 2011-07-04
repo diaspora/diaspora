@@ -40,6 +40,7 @@ DatabaseCleaner.orm = "active_record"
 Cucumber::Rails::World.use_transactional_fixtures = false
 
 require File.join(File.dirname(__FILE__), "database_cleaner_patches")
+require File.join(File.dirname(__FILE__), "integration_sessions_controller")
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_redis")
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "helper_methods")

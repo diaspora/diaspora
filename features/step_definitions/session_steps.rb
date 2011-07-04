@@ -16,6 +16,18 @@ end
 
 When /^I try to sign in$/ do
   @me ||= Factory(:user_with_aspect, :getting_started => false)
+  #page.driver.post(integration_sessions_path(:user_id => @me.id))
+
+  page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
+  And %(I press "Login")
+  # To save time as compared to:
+  #When %(I go to the new user session page)
+  #When %(I fill in "Username" with "#{@me.username}")
+  #When %(I fill in "Password" with "#{@me.password}")
+  #When %(I press "Sign in")
+end
+
+When /^I try to sign in manually$/ do
   When %(I go to the new user session page)
   When %(I fill in "Username" with "#{@me.username}")
   When %(I fill in "Password" with "#{@me.password}")

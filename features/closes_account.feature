@@ -13,7 +13,7 @@ Feature: Close Account
     Then I should be on the home page
 
     When I go to the new user session page
-    And I try to sign in
+    And I try to sign in manually
     Then I should be on the new user session page
     When I wait for the ajax to finish
     Then I should see "Invalid email or password."
