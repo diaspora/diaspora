@@ -9,7 +9,6 @@ before_script:
   - "rake db:create"
   - "rake db:schema:load"
   - "rspec spec --tag fixture"
-  - 'rails runner "puts ActiveRecord::Base.connection.collation"'
 script: "bundle exec rake travis"
 env: "TRAVIS=true"
 notifications:
