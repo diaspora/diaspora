@@ -12,3 +12,5 @@ before_script:
 
 script: "bundle exec rake travis"
 env: "TRAVIS=true"
+notifications:
+  disable: true
