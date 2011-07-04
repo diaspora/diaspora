@@ -4,9 +4,19 @@
 
 ContactEdit.updateNumber("<%= @contact.person_id%>");
 
-var element = $(".stream_container");
+var element = $(".add[data-aspect_id=<%= @aspect.id %>][data-person_id=<%= @contact.person_id%>]");
 
-element.html("<%= escape_javascript(render('aspect_memberships/add_to_aspect', :aspect_id => @aspect.id, :person_id => @person.id)) %>");
+if( $("#no_contacts").is(':visible') ) {
+  $("#no_contacts").fadeOut(200);
+}
+
+$(".badges").prepend("<%= escape_javascript( aspect_badge(@aspect).html_safe ) %>");
+element.parent().html("<%= escape_javascript(render('aspect_memberships/add_to_aspect', :aspect_id => @aspect.id, :person_id => @person.id)) %>");
+
+if($('#aspects_list').length == 1) {
+  $('.aspect_list').attr('data-contact_id', "<%= @contact_id %>");
+  $('.aspect_list ul').find('.add').each(function(a,b){$(b).attr('href', $(b).attr('href').replace('contacts','aspect_memberships'));})
+};
 
 element.fadeTo(200,1);
 
