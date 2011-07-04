@@ -110,18 +110,19 @@ describe TagsController do
   context 'helper methods' do
     describe 'tag_followed?' do
       before do
-        sign_in alice
+        sign_in bob
         @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
         @controller.stub(:current_user).and_return(bob)
+        @controller.stub(:params).and_return({:name => "partytimeexcellent"})
       end
 
       it 'returns true if the following already exists' do
         TagFollowing.create!(:tag => @tag, :user => bob )
-        @controller.tag_following?.should be_true
+        @controller.tag_followed?.should be_true
       end
 
       it 'returns false if the following does not already exist' do
-        @controller.tag_following?.should be_false
+        @controller.tag_followed?.should be_false
       end
     end
   end

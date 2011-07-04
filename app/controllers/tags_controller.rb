@@ -8,6 +8,8 @@ class TagsController < ApplicationController
   skip_before_filter :set_grammatical_gender
   before_filter :ensure_page, :only => :show
 
+  helper_method :tag_followed?
+
   respond_to :html, :only => [:show]
   respond_to :json, :only => [:index]
 
@@ -55,7 +57,6 @@ class TagsController < ApplicationController
 
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
-
     @posts = @posts.includes(:comments, :photos).order('posts.created_at DESC').limit(15)
 
     @posts = PostsFake.new(@posts)
@@ -70,7 +71,10 @@ class TagsController < ApplicationController
     end
   end
 
-# def tag_following?
-#   TagFollowings.join(:tags)
-# end
+ def tag_followed?
+   if @tf.nil?
+     @tf = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,    
+   end
+   @tf
+ end
 end

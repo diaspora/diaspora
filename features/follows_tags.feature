@@ -17,13 +17,13 @@ Feature: posting
     And I wait for the ajax to finish
     And I wait for the ajax to finish
 
+    #the following (3 lines) verbosity should not be needed
     When I go to the home page
     Then I should see "I am da #boss"
     And I wait for 5 seconds
 
     And I follow "#boss"
     And I wait for the ajax to finish
-    And I debug
     Then I should see "I am da #boss"
 
 
@@ -39,8 +39,10 @@ Feature: posting
     And I follow "#boss"
     Then I should see "I am da #boss"
 
-  Scenario: see that I'm following a particular tag
-    Then I should see "Following #boss"
+  Scenario: can stop following a particular tag
+    Then I should see "Stop Following #boss"
+    When I go to the home page
+    And I should not see "#boss" in ".left_nav"
 
 
 

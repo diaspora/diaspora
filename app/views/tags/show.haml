@@ -30,10 +30,10 @@
     #author_info
       - if user_signed_in? && current_user.person != @person
         .right
-          - unless true #tag_followed?
+          - unless tag_followed?
             = button_to t('.follow', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
           - else
-            = button_to t('.stop_following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
+            = button_to t('.stop_following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :delete,   :class => 'button take_action'
       %h2
         = "##{params[:name]}"
 

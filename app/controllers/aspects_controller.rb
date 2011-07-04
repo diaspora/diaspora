@@ -175,11 +175,7 @@ class AspectsController < ApplicationController
   end
 
   def tags
-    if tag_followings != [] && @tags != [] 
-      @tags ||= ActsAsTaggableOn::Tag.where(:id => tag_followings.map(&:id)).all
-    else
-      @tags ||= []
-    end
+    @tags ||= current_user.followed_tags
   end
 
   private
