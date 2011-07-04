@@ -9,12 +9,6 @@ module AspectGlobalHelper
     end
   end
 
-  def aspects_without_post(aspects, post)
-    aspects.reject do |aspect|
-      AspectVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
-    end
-  end
-
   def aspect_badges(aspects, opts={})
     str = ''
     aspects.each do |aspect|
@@ -44,21 +38,6 @@ module AspectGlobalHelper
     str.html_safe
   end
 
-  def aspect_li(aspect, opts={})
-    param_string = ""
-    if opts.size > 0
-      param_string << '?'
-      opts.each_pair do |k, v|
-        param_string << "#{k}=#{v}"
-      end
-    end
-"<li>
-  <a href='/aspects/#{aspect.id}#{param_string}'>
-    #{aspect.name}
-  </a>
-</li>".html_safe
-  end
-
   def link_for_aspect(aspect, opts={})
     opts[:params] ||= {}
     params ||= {}
@@ -76,10 +55,6 @@ module AspectGlobalHelper
     else
       {:href => aspects_path("a_ids[]" => aspect.id), :class => "aspect_selector name hard_aspect_link", 'data-guid' => aspect.id}
     end
-  end
-
-  def current_aspect?(aspect)
-    !@aspect.nil? && !@aspect.instance_of?(Symbol) && @aspect.id == aspect.id
   end
 
   def aspect_or_all_path(aspect)
