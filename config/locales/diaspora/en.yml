@@ -143,7 +143,7 @@ en:
     seed:
       family: "Family"
       work: "Work"
-    index:
+    index: 
       your_aspects: "Your Aspects"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
@@ -157,7 +157,9 @@ en:
         heading: "Diaspora ID"
         content_1: "Your Diaspora ID is:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-
+      services:
+        heading: "Connect Services"
+        content: "You can connect the following services to Diaspora:"
   aspect_memberships:
     destroy:
       success: "Successfully removed person from aspect"
