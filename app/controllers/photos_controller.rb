@@ -5,11 +5,11 @@
 class PhotosController < ApplicationController
   before_filter :authenticate_user!
 
-  helper_method :object_aspect_ids, :parent, :photo, :additional_photos, :next_photo, :previous_photo, :ownership
+  helper_method :parent, :photo, :additional_photos, :next_photo, :previous_photo, :ownership
 
   respond_to :html, :json
 
-  
+
   def index
     @post_type = :photos
     @person = Person.find_by_id(params[:person_id])
@@ -181,15 +181,6 @@ class PhotosController < ApplicationController
   end
 
   # helpers
-  
-  # used on the show page to show which aspects are selected
-  def object_aspect_ids
-    if  params[:action] == 'show' && parent_aspects = parent.aspects.where(:user_id => current_user.id).all
-      @object_aspect_ids ||= parent_aspects.map{|a| a.id}
-    else
-      super
-    end
-  end
 
   def ownership
     @ownership ||= current_user.owns? photo

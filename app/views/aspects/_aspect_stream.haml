@@ -11,7 +11,7 @@
       = link_to_if(session[:sort_order] == 'updated_at', t('.posted'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'created_at' ))
 
   %h3
-    - if @aspect == :all
+    - if all_aspects_selected?
       = t('.stream')
     - else
       = @aspects.to_sentence

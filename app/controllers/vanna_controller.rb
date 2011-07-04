@@ -26,7 +26,6 @@ class VannaController < Vanna::Base
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :which_action_and_user
   before_filter :all_aspects
-  before_filter :object_aspect_ids
   prepend_before_filter :clear_gc_stats
   before_filter :set_grammatical_gender
 
@@ -41,7 +40,6 @@ class VannaController < Vanna::Base
         @notification_count = Notification.for(current_user, :unread =>true).count
         @unread_message_count = ConversationVisibility.sum(:unread, :conditions => "person_id = #{current_user.person.id}")
       end
-      @object_aspect_ids = []
       @all_aspects = current_user.aspects
     end
   end
@@ -56,16 +54,8 @@ class VannaController < Vanna::Base
     end
   end
 
-  def object_aspect_ids
-    if user_signed_in?
-      @object_aspect_ids ||= []
-    end
-  end
-
   def all_aspects
-    if user_signed_in?
-      @all_aspects ||= current_user.aspects
-    end
+    @all_aspects ||= current_user.aspects
   end
 
   def set_git_header
@@ -130,6 +120,6 @@ class VannaController < Vanna::Base
   end
 
   def after_sign_in_path_for(resource)
-      stored_location_for(:user) || aspects_path(:a_ids => current_user.aspects.where(:open => true).select(:id).all.map{|a| a.id})
+    stored_location_for(:user) || aspects_path(:a_ids => current_user.aspects.where(:open => true).select(:id).all.map{|a| a.id})
   end
 end

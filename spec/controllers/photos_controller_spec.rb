@@ -186,26 +186,14 @@ describe PhotosController do
 
 
   describe 'data helpers' do
-    describe '.object_aspect_ids' do
-      it 'on show, assigns object aspect ids' do
-        get :show, :id => @alices_photo.id
-        @controller.object_aspect_ids.should == [alice.aspects.first.id]
-      end
-
-      it 'on index, it is empty' do
-        get :index, :person_id => alice.person.id
-        @controller.object_aspect_ids.should == []
-      end
-    end
-
     describe '.ownership' do
       it 'is true if current user owns the photo' do
-        get :show, :id => @alices_photo.id 
+        get :show, :id => @alices_photo.id
         @controller.ownership.should be_true
       end
 
       it 'is true if current user owns the photo' do
-        get :show, :id => @bobs_photo.id 
+        get :show, :id => @bobs_photo.id
         @controller.ownership.should be_false
       end
     end
@@ -229,7 +217,7 @@ describe PhotosController do
       it 'returns a visible photo, based on the :id param' do
         get :show, :id => @alices_photo.id
         @controller.photo.id.should == @alices_photo.id
-        
+
       end
     end
 

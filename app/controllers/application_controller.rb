@@ -16,8 +16,8 @@ class ApplicationController < ActionController::Base
 
   inflection_method :grammatical_gender => :gender
 
-  helper_method :all_aspects, :object_aspect_ids, :all_contacts_count, :my_contacts_count, :only_sharing_count
-  
+  helper_method :all_aspects, :all_contacts_count, :my_contacts_count, :only_sharing_count
+
   def ensure_http_referer_is_set
     request.env['HTTP_REFERER'] ||= '/aspects'
   end
@@ -34,16 +34,8 @@ class ApplicationController < ActionController::Base
 
 
   ##helpers
-  def object_aspect_ids
-    if user_signed_in?
-      @object_aspect_ids ||= []
-    end
-  end
-
   def all_aspects
-    if user_signed_in?
-      @all_aspects ||= current_user.aspects
-    end
+    @all_aspects ||= current_user.aspects
   end
 
   def all_contacts_count

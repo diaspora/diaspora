@@ -158,6 +158,11 @@ class AspectsController < ApplicationController
     params[:max_time] ||= Time.now + 1
   end
 
+  helper_method :all_aspects_selected?
+  def all_aspects_selected?
+    @aspect == :all
+  end
+
   private
   def save_sort_order
     if params[:sort_order].present?
