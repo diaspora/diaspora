@@ -41,15 +41,19 @@ describe TagFollowingsController do
         }.to_not change(alice.tag_followings, :count).by(1)
       end
 
-      it "redirects to the tag page" do
+      it "redirects and flashes success to the tag page" do
         post :create, valid_attributes
+
         response.should redirect_to(tag_path(:name => valid_attributes[:name]))
+        flash[:notice].should == "Successfully following: ##{valid_attributes[:name]}"
       end
 
-      it "returns a 406 if you already have a tag" do
+      it "redirects and flashes error if you already have a tag" do
         TagFollowing.any_instance.stub(:save).and_return(false)
         post :create, valid_attributes
-        response.code.should == "406"
+
+        response.should redirect_to(tag_path(:name => valid_attributes[:name]))
+        flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
       end
     end
   end
@@ -66,10 +70,19 @@ describe TagFollowingsController do
       }.to change(TagFollowing, :count).by(-1)
     end
 
-    it "returns a 410 if you already have a tag" do
+    it "redirects and flashes error if you already don't follow the tag" do
+      delete :destroy, valid_attributes
+
+      response.should redirect_to(tag_path(:name => valid_attributes[:name]))
+      flash[:notice].should == "Successfully stopped following: ##{valid_attributes[:name]}"
+    end
+
+    it "redirects and flashes error if you already don't follow the tag" do
       TagFollowing.any_instance.stub(:destroy).and_return(false)
       delete :destroy, valid_attributes
-      response.code.should == "410"
+
+      response.should redirect_to(tag_path(:name => valid_attributes[:name]))
+      flash[:error].should == "Failed to stop following: ##{valid_attributes[:name]}"
     end
   end
 

@@ -701,6 +701,14 @@ en:
       follow: "Follow #%{tag}"
       stop_following: "Stop Following #%{tag}"
 
+  tag_followings:
+    create:
+      success: "Successfully following: #%{name}"
+      failure: "Failed to follow: #%{name}"
+    destroy:
+      success: "Successfully stopped following: #%{name}"
+      failure: "Failed to stop following: #%{name}"
+
   tokens:
     show:
       connect_to_cubbies: "Connect to Cubbi.es"
