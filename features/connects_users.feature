@@ -97,7 +97,7 @@ Feature: sending and receiving requests
     When I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
-    Then I should not see /^In \d aspects?$/
+    Then I should see "Add to aspect"
     Then I should not see "Mention"
     Then I should not see "Message"
 
