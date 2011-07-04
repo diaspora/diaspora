@@ -570,13 +570,13 @@ describe User do
       @message = alice.post(:status_message, :text => "cool", :to => alice.aspects.first)
       @message2 = bob.post(:status_message, :text => "uncool", :to => bob.aspects.first)
       @like = alice.like(true, :post => @message)
-      @dislike = bob.like(false, :post => @message)
+      @like2 = bob.like(true, :post => @message)
     end
 
     describe '#like_for' do
       it 'returns the correct like' do
         alice.like_for(@message).should == @like
-        bob.like_for(@message).should == @dislike
+        bob.like_for(@message).should == @like2
       end
 
       it "returns nil if there's no like" do

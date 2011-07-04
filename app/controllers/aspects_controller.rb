@@ -38,7 +38,7 @@ class AspectsController < ApplicationController
                                            :type => ['StatusMessage','ActivityStreams::Photo'],
                                            :order => session[:sort_order] + ' DESC',
                                            :max_time => params[:max_time].to_i
-                          ).includes(:comments, :mentions, :likes, :dislikes)
+                          ).includes(:comments, :mentions, :likes)
 
     @posts = PostsFake.new(posts)
     if params[:only_posts]

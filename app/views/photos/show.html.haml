@@ -63,14 +63,7 @@
 
 .span-16.prepend-4.append-4.last
   #photo_stream.stream.show
-    // TODO(likes)
-    /- if (defined?(current_user) && !current_user.liked?(@parent))
-    /  %span.like_links
-    /    = link_to t('shared.stream_element.like'), likes_path(:positive => 'true', :post_id => @parent.id), :method => :post, :class => "like_it", :remote => true
-    /    |
-    /    = link_to t('shared.stream_element.dislike'), likes_path(:positive => 'false', :post_id => @parent.id), :method => :post, :class => "dislike_it", :remote => true
-
     %div{:data=>{:guid=>parent.id}}
       .likes_container
-        = render "likes/likes", :post_id => parent.id, :likes => parent.likes, :dislikes => parent.dislikes
+        = render "likes/likes", :post_id => parent.id, :likes => parent.likes
       = render "comments/comments", :post => parent, :comments => parent.comments, :always_expanded => true

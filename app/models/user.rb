@@ -193,10 +193,8 @@ class User < ActiveRecord::Base
   # @param [Post] post
   # @return [Like]
   def like_for(post)
-    [post.likes, post.dislikes].each do |likes|
-      likes.each do |like|
-        return like if like.author_id == self.person.id
-      end
+    post.likes.each do |like|
+      return like if like.author_id == self.person.id
     end
     return nil
   end
