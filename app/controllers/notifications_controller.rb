@@ -19,12 +19,13 @@ class NotificationsController < VannaController
     @aspect = :notification
     conditions = {:recipient_id => current_user.id}
     page = opts[:page] || 1
-    notifications = WillPaginate::Collection.create(page, 25, Notification.where(conditions).count ) do |pager|
+    per_page = opts[:per_page] || 25
+    notifications = WillPaginate::Collection.create(page, per_page, Notification.where(conditions).count ) do |pager|
       result = Notification.find(:all,
                                  :conditions => conditions,
                                  :order => 'created_at desc',
                                  :include => [:target, {:actors => :profile}],
-                                 :limit => request.format == :json ? 5 : pager.per_page,
+                                 :limit => pager.per_page,
                                  :offset => pager.offset
                                 )
 

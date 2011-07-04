@@ -48,45 +48,30 @@ describe NotificationsController do
     before do
       @post = Factory(:status_message)
       Factory(:notification, :recipient => @user, :target => @post)
-
-      @fake_request = ActionDispatch::Request.new({})
-      @controller.stub!(:request).and_return(@fake_request)
     end
 
-    context "html request" do
-      before do
-        @fake_request.stub!(:format).and_return(:html)
-      end
+    it 'paginates the notifications' do
+      25.times { Factory(:notification, :recipient => @user, :target => @post) }
 
-      it 'paginates the notifications' do
-        25.times { Factory(:notification, :recipient => @user, :target => @post) }
-
-        @controller.index({})[:notifications].count.should == 25
-        @controller.index(:page => 2)[:notifications].count.should == 1
-      end
-
-      it "includes the actors" do
-        Factory(:notification, :recipient => @user, :target => @post)
-        response = @controller.index({})
-        response[:notifications].first[:actors].first.should be_a(Person)
-      end
-
-      it 'eager loads the target' do
-        response = @controller.index({})
-        response[:notifications].each { |note| note[:target].should be }
-      end
+      @controller.index({})[:notifications].count.should == 25
+      @controller.index(:page => 2)[:notifications].count.should == 1
     end
 
-    context "json request" do
-      before do
-        @fake_request.stub!(:format).and_return(:json)
-      end
+    it "includes the actors" do
+      Factory(:notification, :recipient => @user, :target => @post)
+      response = @controller.index({})
+      response[:notifications].first[:actors].first.should be_a(Person)
+    end
 
-      it "returns just the first 5 notifications" do
-        5.times { Factory(:notification, :recipient => @user, :target => @post) }
-        response = @controller.index({})
-        response[:notifications].length.should == 5
-      end
+    it 'eager loads the target' do
+      response = @controller.index({})
+      response[:notifications].each { |note| note[:target].should be }
+    end
+
+    it "supports a limit per_page parameter" do
+      5.times { Factory(:notification, :recipient => @user, :target => @post) }
+      response = @controller.index({:per_page => 5})
+      response[:notifications].length.should == 5
     end
   end
 end

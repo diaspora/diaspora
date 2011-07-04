@@ -13,12 +13,12 @@
       this.badgeLink.toggle(function(evt) {
           evt.preventDefault();
           evt.stopPropagation();
-          
+
           self.ajaxLoader.show();
           self.badge.addClass("active");
           self.dropdown.css("display", "block");
 
-          self.getNotifications(function() { 
+          self.getNotifications(function() {
             self.renderNotifications();
           });
         },  function(evt) {
@@ -46,7 +46,7 @@
     };
 
     this.getNotifications = function(callback) {
-      $.getJSON("/notifications", function(notifications) {
+      $.getJSON("/notifications?per_page=5", function(notifications) {
         self.notifications = notifications;
         callback.apply(self, []);
       });
