@@ -100,7 +100,7 @@ class Chubbies
 
   def self.get_pid
     @pid ||= lambda {
-      processes = `ps -ax -o pid,command | grep "rackup -p #{PORT}"`.split("\n")
+      processes = `ps ax -o pid,command | grep "rackup -p #{PORT}"`.split("\n")
       processes = processes.select{|p| !p.include?("grep") }
       processes.first.split(" ").first
     }.call
