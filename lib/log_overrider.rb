@@ -106,7 +106,8 @@ module ActiveRecord
       end
 
       log_string = "event=sql name='#{payload[:name]}' ms=#{event.duration} query='#{sql}'"
-      log_string << "caller_hash=#{caller.hash} binds='#{binds}' caller_with_diaspora='#{caller.grep(/diaspora\/(app|lib)/).join(';')}'"
+      cleaned_trace = Rails.backtrace_cleaner.clean(caller)
+      log_string << "backtrace_hash=#{cleaned_trace.hash} binds='#{binds}' application_backtrace='#{cleaned_trace.inspect}'"
       info log_string
 
     end

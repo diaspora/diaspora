@@ -13,55 +13,33 @@
   
 %hr
 
-.span-24{:style => "text-align:center;"}
-  = image_tag '/images/cubbies_screenshot.png', :width => 600, :height => 452
+.cubbies_infographic.span-24{:style => "text-align:left;position:relative;"}
+  = image_tag '/images/cubbies_screenshot2.png', :height => 452, :class => "cubbies_screenshot"
+  = image_tag '/images/cubbies_collage.png', :class => "cubbies_collage"
 
-.span-18.prepend-3.append-3.last{:style => "text-align:center;"}
+.span-24.last{:style => "text-align:right;"}
   %p.subtle
     != t('.screenshot_explanation', :link1 => link_to(t('.typical_userpage'), "http://cubbi.es/daniel"), :link2 => link_to(t('.daniels_account'), "https://joindiaspora.com/people/29"))
+  %br
 %hr
-
-/%p.subtle
-/  Cubbi.es allows you to collect images from all across the internet and keep them in one place (your cubby) in a simple and intuative way.  Hooking up your Diaspora account with Cubbi.es means the images you collect will automatically be shared on Diaspora.*
 
 %br
 .span-24.last
   %h2
     = t('.making_the_connection')
   %br
-  %br
 
-.span-20.append-2.prepend-2.last
-  .span-8
-    = image_tag '/images/cubbies_settings.png', :width => 238, :height => 248, :class => "cubbies-settings-image"
+.span-24.last
+  .span-10
+    = image_tag '/images/connect_services.png', :class => "cubbies-settings-image"
     %div.subtle
       != t('.via', :link => link_to('http://cubbi.es/users/edit', 'http://cubbi.es/users/edit'))
 
+
   .span-12.last
     %h3
-      = t('.connecting_is_simple')
+      != t('.connecting_is_simple', :diaspora_id => current_user.diaspora_handle, :href_link => 'http://cubbi.es/users/edit')
 
     %p.subtle
-      = t('.were_working_hard')
-
-    %br
-
-    .span-11.cubbies-credentials
-      .span-4
-        %h5
-          = t('.your_diaspora_handle')
-      .span-6
-        %h2
-          = current_user.diaspora_handle
-      .span-4
-        %h5
-          = t('.your_diaspora_token')
-
-      .span-6
-        - if current_user.authentication_token
-          %h2
-            = current_user.authentication_token
-        - else
-          = form_tag(token_path) do
-            = submit_tag t('.generate_a_token')
+      = t('.log_in_with_diaspora_is_comming')
 

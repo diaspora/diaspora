@@ -12,7 +12,11 @@ class Pubsubhubbub
   end
 
   def publish(feed)
-    response = RestClient.post(@hub, :headers => @headers, 'hub.url' => feed, 'hub.mode' => 'publish')
-    response
+    begin
+      response = RestClient.post(@hub, :headers => @headers, 'hub.url' => feed, 'hub.mode' => 'publish')
+    return response
+    rescue  RestClient::BadRequest=> e
+      Rails.logger.warn "Public URL for your users are incorrect.  this is ok if you are in development and localhost is your pod_url#{e.inspect}" 
+    end
   end
 end

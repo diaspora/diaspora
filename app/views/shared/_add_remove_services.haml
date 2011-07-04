@@ -12,13 +12,8 @@
         %b= service.nickname
         = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
   - else
-    You haven't connected any services yet.
+    = t('.no_services')
 
-- unless @services.any?{|x| x.provider == 'twitter'}
-  %h4= link_to t('services.index.connect_to_twitter'), "/auth/twitter" if SERVICES['twitter'] && SERVICES['twitter']['consumer_key']!= ""
-
-- unless @services.any?{|x| x.provider == 'facebook'}
-  %h4= link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook'] && SERVICES['facebook']['app_id'] !=""
-
-- unless @services.any?{|x| x.provider == 'tumblr'}
-  %h4= link_to t('services.index.connect_to_tumblr'), "/auth/tumblr" if SERVICES['tumblr'] && SERVICES['tumblr']['consumer_key'] !=""
+- AppConfig.configured_services.each do |service|
+  - unless @services.any?{|x| x.provider == service}
+    %h4= link_to t("services.index.connect_to_#{service}"), "/auth/#{service}"

@@ -60,6 +60,7 @@ HELP
 
     normalize_pod_url
     normalize_admins
+    normalize_pod_services
   end
 
   def self.config_file_is_old_style?
@@ -90,6 +91,18 @@ HELP
   def self.normalize_admins
     self[:admins] ||= []
     self[:admins].collect! { |username| username.downcase }
+  end
+
+  def self.normalize_pod_services
+    if defined?(SERVICES)
+      connected_services = []
+      SERVICES.keys.each do |service|
+        unless SERVICES[service].keys.any?{|service_key| SERVICES[service][service_key].blank?}
+          connected_services << service
+        end
+      end
+      self['configured_services'] = connected_services
+    end
   end
 
   load!

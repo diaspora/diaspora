@@ -151,14 +151,6 @@ When /^I search for "([^\"]*)"$/ do |search_term|
   JS
 end
 
-Then /^I should( not)? see the contact dialog$/ do |not_see|
-  if not_see
-    wait_until { !page.find("#facebox").visible? }
-  else
-    wait_until { page.find("#facebox .share_with") && page.find("#facebox .share_with").visible? }
-  end
-end
-
 Then /^I should( not)? see an add contact button$/ do |not_see|
   expected_length = not_see ? 0 : 1
   evaluate_script("$('.add_contact a').length == #{expected_length};")
@@ -182,7 +174,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  evaluate_script("$('#main_stream .stream_element').length").should == n_posts.to_i
+  all("#main_stream .stream_element").length.should == n_posts.to_i
 end
 
 And /^I scroll down$/ do
@@ -196,9 +188,9 @@ When /^I wait for (\d+) seconds$/ do |seconds|
 end
 
 When /^I click the notification badge$/ do
-  evaluate_script("$('#notification_badge a').click();");
+  find(:css, "#notification_badge a").click
 end
 
 Then /^the notification dropdown should be visible$/ do
-  evaluate_script("$('#notification_dropdown').css('display') === 'block'")
+  find(:css, "#notification_dropdown").should be_visible
 end

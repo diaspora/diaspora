@@ -143,7 +143,7 @@ en:
     seed:
       family: "Family"
       work: "Work"
-    index:
+    index: 
       your_aspects: "Your Aspects"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
@@ -157,7 +157,9 @@ en:
         heading: "Diaspora ID"
         content_1: "Your Diaspora ID is:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-
+      services:
+        heading: "Connect Services"
+        content: "You can connect the following services to Diaspora:"
   aspect_memberships:
     destroy:
       success: "Successfully removed person from aspect"
@@ -589,6 +591,7 @@ en:
       connect_to_facebook: "Connect to Facebook"
       connect_to_tumblr: "Connect to Tumblr"
       edit_services: "Edit services"
+      no_services: 'You have not connected any services yet.'
     create:
       success: "Authentication successful."
     destroy:
@@ -701,11 +704,8 @@ en:
       typical_userpage: "A typical cubbi.es userpage"
       daniels_account: "Daniel's Diaspora account"
       making_the_connection: "Making the Connection"
-      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
-      your_diaspora_handle: "Your Diaspora ID:"
-      your_diaspora_token: "Your Diaspora Token:"
-      generate_a_token: "Generate a token"
+      connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       via: "(via %{link})"
 
   authorizations:
