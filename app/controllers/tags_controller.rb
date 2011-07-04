@@ -72,9 +72,9 @@ class TagsController < ApplicationController
   end
 
  def tag_followed?
-   if @tf.nil?
-     @tf = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,    
+   if @tag_followed.nil?
+     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,    
    end
-   @tf
+   @tag_followed
  end
 end
