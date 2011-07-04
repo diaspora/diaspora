@@ -16,8 +16,6 @@ end
 
 When /^I try to sign in$/ do
   @me ||= Factory(:user_with_aspect, :getting_started => false)
-  #page.driver.post(integration_sessions_path(:user_id => @me.id))
-
   page.driver.visit(new_integration_sessions_path(:user_id => @me.id))
   And %(I press "Login")
   # To save time as compared to:
