@@ -174,7 +174,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  evaluate_script("$('#main_stream .stream_element').length").should == n_posts.to_i
+  all("#main_stream .stream_element").length.should == n_posts.to_i
 end
 
 And /^I scroll down$/ do
