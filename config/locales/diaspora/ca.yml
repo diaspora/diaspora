@@ -31,6 +31,7 @@ ca:
   back: "Enrere"
   the_world: "el món"
   search: "Cerca"
+  find_people: "Cerqueu gent"
   _home: "Inici"
   more: "Més"
   next: "següent"
@@ -38,6 +39,7 @@ ca:
   _comments: "Comentaris"
   all_aspects: "Tots els aspectes"
   no_results: "No s'ha trobat cap resultat"
+  _contacts: "Contactes"
 
 
   activerecord:
@@ -101,13 +103,22 @@ ca:
     aspect_contacts:
       done_editing: "finalitza l'edició"
     aspect_stream:
-      sort_by: "ordena per:"
-      activity: "activitat"
-      post_time: "data de publicació"
+      stream: "Flux"
+      recently: "recentment:"
+      commented_on: "comentat"
+      posted: "publicat"
     show:
       edit_aspect: "edita l'aspecte"
     no_posts_message:
-      start_talking:  "Ningú no ha dit res encara. Inicieu la conversa!"
+      start_talking:  "Ningú no ha dit res encara!"
+      try_adding_some_more_contacts: "Proveu d'afegir alguns contactes més."
+    aspect_listings:
+      add_an_aspect: "+ Afegeix un aspecte"
+
+    selected_contacts:
+      view_all_contacts: "Mostra tots els contactes"
+      no_contacts: "Encara no teniu cap contacte aquí."
+      manage_your_aspects: "Gestioneu els vostres aspectes."
     new:
       name: "Nom"
       create: "Crea'l"
@@ -135,6 +146,7 @@ ca:
       family: "Família"
       work: "Feina"
     index:
+      your_aspects: "Els vostres aspectes"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
@@ -143,6 +155,10 @@ ca:
         heading: "Connecteu a Cubbi.es"
         explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
         learn_more: "Més informació"
+      diaspora_id:
+        heading: "ID de Diàspora"
+        content_1: "El vostre identificador de Diàspora és:"
+        content_2: "Compartiu-ho amb tothom qui vulgueu que us pugui trobar al Diàspora."
 
 
   aspect_memberships:
@@ -162,7 +178,7 @@ ca:
 
   bookmarklet:
     # XXX: Miniaplicació enllaçada és simplement horrible (TERMCAT). jm
-    heading: "Miniaplicació enllaçada del Diàspora"
+    heading: "Miniaplicació enllaçada"
     post_success: "S'ha publicat! S'està tancant!"
     post_something: "Publiqueu alguna cosa al Diàspora"
     explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
@@ -191,6 +207,8 @@ ca:
     sharing:
       people_sharing: "Gent que comparteix amb vosaltres:"
     index:
+      edit_aspect: "Edita %{name}"
+      start_a_conversation: "Inicia una conversa nova"
       add_a_new_aspect: "Afegeix un aspecte nou"
       title: "Contactes"
       your_contacts: "Els vostres contactes"
@@ -218,7 +236,7 @@ ca:
       send: "Envia"
     helper:
       new_messages:
-        zero: "cap missatge nou"
+        zero: "Cap missatge nou"
         one: "1 missatge nou"
         few: "%{count} missatges nous"
         many: "%{count} missatges nous"
@@ -286,6 +304,7 @@ ca:
       login: "entra"
       code: "codi"
       admin: "administra"
+      view_all: "Mostra-ho tot"
     application:
       powered_by: "FUNCIONA AMB DIÀSPORA*"
       whats_new: "què és nou?"
@@ -379,7 +398,7 @@ ca:
       and: "i"
     helper:
       new_notifications:
-        zero: "cap notificació nova"
+        zero: "Cap notificació nova"
         one: "1 notificació nova"
         few: "%{count} notificacions noves"
         many: "%{count} notificacions noves"
@@ -535,7 +554,7 @@ ca:
       your_location: "La vostra ubicació"
       your_photo: "La vostra foto"
       update_profile: "Actualitza el perfil"
-      allow_search: "Permet que la gent em cerque dins del Diàspora"
+      allow_search: "Permet que la gent em cerqui dins del Diàspora"
       edit_profile: "Edita el perfil"
     update:
       updated: "S'ha actualitzat el perfil"
@@ -623,13 +642,14 @@ ca:
       post_a_message_to: "Publica un missatge a %{aspect}"
       make_public: "fes públic"
       all: "tot"
-      add_photos: "afegeix fotos"
+      add_photos: "Pengeu fotos"
       all_contacts: "tots els contactes"
       share_with: "comparteix amb"
-      whats_on_your_mind: "què us passa pel cap?"
+      whats_on_your_mind: "Què us passa pel cap?"
       publishing_to: "s'està publicant a: "
       public: "Públic"
       click_to_share_with: "Feu clic per compartir amb: "
+      discard_post: "Descarta la publicació"
     add_contact:
       enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
       your_diaspora_username_is: "El vostre nom d'usuari de Diàspora és: %{diaspora_handle}"
@@ -689,8 +709,8 @@ ca:
 
 
   stream_helper:
-    show_comments: "mostra tots els comentaris"
-    hide_comments: "amaga els comentaris"
+    show_more_comments: "Mostra %{number} comentaris més"
+    hide_comments: "Amaga els comentaris"
 
 
   tags:
