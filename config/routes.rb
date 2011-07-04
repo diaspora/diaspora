@@ -69,7 +69,7 @@ Diaspora::Application.routes.draw do
 
 
   #Temporary token_authenticable route
-  resource :token, :only => [:show, :create]
+  resource :token, :only => :show
 
   get 'login' => redirect('/users/sign_in')
 
