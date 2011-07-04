@@ -95,7 +95,6 @@ HELP
 
   def self.normalize_pod_services
     if defined?(SERVICES)
-      puts "in here"
       connected_services = []
       SERVICES.keys.each do |service|
         unless SERVICES[service].keys.any?{|service_key| SERVICES[service][service_key].blank?}
