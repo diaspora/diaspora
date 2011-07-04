@@ -591,6 +591,7 @@ en:
       connect_to_facebook: "Connect to Facebook"
       connect_to_tumblr: "Connect to Tumblr"
       edit_services: "Edit services"
+      no_services: 'You have not connected any services yet.'
     create:
       success: "Authentication successful."
     destroy:
