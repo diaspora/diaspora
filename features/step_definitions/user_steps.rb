@@ -70,12 +70,6 @@ Given /^I have one follower$/ do
   @me.reload
 end
 
-Then /^aspect "([^"]*)" should (not )?be selected$/ do |aspect_name, not_selected|
-  link_is_selected = evaluate_script("$('a:contains(\"#{aspect_name}\")').parent('li').hasClass('selected');")
-  expected_value = !not_selected
-  link_is_selected.should == expected_value
-end
-
 Given /^a user with email "([^"]*)" is connected with "([^"]*)"$/ do |arg1, arg2|
   user1 = User.where(:email => arg1).first
   user2 = User.where(:email => arg2).first

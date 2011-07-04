@@ -151,14 +151,6 @@ When /^I search for "([^\"]*)"$/ do |search_term|
   JS
 end
 
-Then /^I should( not)? see the contact dialog$/ do |not_see|
-  if not_see
-    wait_until { !page.find("#facebox").visible? }
-  else
-    wait_until { page.find("#facebox .share_with") && page.find("#facebox .share_with").visible? }
-  end
-end
-
 Then /^I should( not)? see an add contact button$/ do |not_see|
   expected_length = not_see ? 0 : 1
   evaluate_script("$('.add_contact a').length == #{expected_length};")
