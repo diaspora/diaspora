@@ -17,14 +17,17 @@ describe StatusMessage do
   end
 
   describe '.before_create' do
-    it 'calls create_mentions' do
-      status = Factory.build(:status_message)
-      status.should_receive(:create_mentions)
-      status.save
-    end
     it 'calls build_tags' do
       status = Factory.build(:status_message)
       status.should_receive(:build_tags)
+      status.save
+    end
+  end
+
+  describe '.after_create' do
+    it 'calls create_mentions' do
+      status = Factory.build(:status_message)
+      status.should_receive(:create_mentions)
       status.save
     end
   end

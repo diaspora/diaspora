@@ -25,6 +25,7 @@ class StatusMessage < Post
   serialize :youtube_titles, Hash
 
   before_create :build_tags
+  after_create :create_mentions
 
   def text(opts = {})
     self.formatted_message(opts)
@@ -46,9 +47,9 @@ class StatusMessage < Post
   end
 
   def format_mentions(text, opts = {})
-    people = self.mentioned_people
     regex = /@\{([^;]+); ([^\}]+)\}/
     form_message = text.gsub(regex) do |matched_string|
+      people = self.mentioned_people
       person = people.detect{ |p|
         p.diaspora_handle == $~[2] unless p.nil?
       }
