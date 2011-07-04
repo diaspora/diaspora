@@ -6,11 +6,10 @@ rvm:
 before_script:
   - "sass --update public/stylesheets/sass/:public/stylesheets/"
   - "cp config/database.yml.example config/database.yml"
-  - "rake db:drop"
   - "rake db:create"
   - "rake db:schema:load"
   - "rspec spec --tag fixture"
-
+  - 'rails runner "puts ActiveRecord::Base.connection.collation"'
 script: "bundle exec rake travis"
 env: "TRAVIS=true"
 notifications:
