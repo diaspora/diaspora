@@ -80,4 +80,17 @@ describe Job::HttpMulti do
     person.reload
     person.url.should == "https://remote.net/"
   end
+
+  it 'only sends to users with valid RSA keys' do
+    person = @people[0]
+    person.serialized_public_key = "-----BEGIN RSA PUBLIC KEY-----\nPsych!\n-----END RSA PUBLIC KEY-----"
+    person.save
+
+    @hydra.stub(:post, @people[0].receive_url).and_return(@response)
+    @hydra.stub(:post, @people[1].receive_url).and_return(@response)
+    Typhoeus::Hydra.stub!(:new).and_return(@hydra)
+
+    @hydra.should_receive(:queue).once
+    Job::HttpMulti.perform(bob.id, @post_xml, [@people[0].id, @people[1].id])
+  end
 end
