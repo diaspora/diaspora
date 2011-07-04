@@ -23,7 +23,7 @@ Background:
   Then I should see "started sharing with you"
 
   Scenario: notification popup
-    #When I sign in as "alice@alice.alice"
-    #And I click the notification badge
-    #And I wait for the ajax to finish
-    #Then the notification dropdown should be visible
+    When I sign in as "alice@alice.alice"
+    And I click the notification badge
+    And I wait for the ajax to finish
+    Then the notification dropdown should be visible

@@ -188,9 +188,9 @@ When /^I wait for (\d+) seconds$/ do |seconds|
 end
 
 When /^I click the notification badge$/ do
-  evaluate_script("$('#notification_badge a').click();");
+  find(:css, "#notification_badge a").click
 end
 
 Then /^the notification dropdown should be visible$/ do
-  evaluate_script("$('#notification_dropdown').css('display') === 'block'")
+  find(:css, "#notification_dropdown").should be_visible
 end
