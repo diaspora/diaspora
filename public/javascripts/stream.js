@@ -18,9 +18,17 @@ var Stream = {
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
 
-    // collapse long comments
+    // collapse long posts
     $(".content p", this.selector).expander({
       slicePoint: 400,
+      widow: 12,
+      expandText: Diaspora.widgets.i18n.t("show_more"),
+      userCollapse: false
+    });
+
+    // collapse long comments
+    $(".comment .content span", this.selector).expander({
+      slicePoint: 200,
       widow: 12,
       expandText: Diaspora.widgets.i18n.t("show_more"),
       userCollapse: false
@@ -41,7 +49,6 @@ var Stream = {
     });
 
     this.setUpComments();
-
   },
 
   setUpComments: function(){

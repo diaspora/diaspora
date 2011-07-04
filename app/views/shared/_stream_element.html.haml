@@ -16,7 +16,7 @@
     = person_image_link(post.author, :size => :thumb_small)
 
     .content
-      %div
+      %div.post_initial_info
         %span.from
           = person_link(post.author, :class => 'author')
           %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
