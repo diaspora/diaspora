@@ -16,7 +16,7 @@ Feature: new user registration
     And I fill in "profile_last_name" with "Hai"
     And I fill in "tags" with "#tags"
     And I press "Save and continue"
-    And I wait for "step 2" to load
+    And I wait for the ajax to finish
     Then I should see "Profile updated"
     And I should see "Would you like to find your Facebook friends on Diaspora?"
     And I follow "Skip"
@@ -31,5 +31,4 @@ Feature: new user registration
   
   Scenario: new user skips the setup wizard
     When I follow "skip getting started"
-    And I wait for "the aspects page" to load
     Then I should be on the aspects page

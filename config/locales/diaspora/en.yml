@@ -699,6 +699,7 @@ en:
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
       follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       stop_following: "Stop Following #%{tag}"
 
   tag_followings:

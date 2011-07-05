@@ -2,6 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
 - content_for :page_title do
   - if params[:name]
     = "##{params[:name]}"
@@ -11,10 +12,19 @@
 - content_for :head do
   = include_javascripts :home
   :javascript
-    $(".people_stream .pagination a").live("click", function() {
-      $.getScript(this.href);
-      return false;
+    $(document).ready(function(){
+      $(".button.tag_following").hover(function(){
+        $this = $(this);
+        $this.removeClass("in_aspects");
+        $this.val("#{t('.stop_following', :tag => params[:name])}");
+      },
+      function(){
+        $this = $(this);
+        $this.addClass("in_aspects");
+        $this.val("#{t('.following', :tag => params[:name])}");
+      });
     });
+
 - content_for :body_class do
   = "tags_show"
 
@@ -33,7 +43,7 @@
           - unless tag_followed?
             = button_to t('.follow', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :post,   :class => 'button take_action'
           - else
-            = button_to t('.stop_following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :delete,   :class => 'button take_action'
+            = button_to t('.following', :tag => params[:name]), tag_tag_followings_path(:name => params[:name]), :method => :delete,   :class => 'button red_on_hover tag_following in_aspects take_action'
       %h2
         = "##{params[:name]}"
 
