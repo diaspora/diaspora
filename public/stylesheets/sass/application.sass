@@ -476,12 +476,14 @@ ul.dropdown
     :margin
       :bottom 5px
 
-
 .post_initial_info
   .details
     :color #aaa
   :margin
-    :top 4px
+    :bottom 5px
+
+.post_scope
+  :cursor default
 
 .time,
 .timeago,
@@ -2087,22 +2089,11 @@ h3,h4
 .stream
   .avatar
     :float left
-  .arrow,
-
-  .stream_element
-    .aspect_badges
-      @include opacity(0.5)
-
-    &:hover
-      .aspect_badges
-        @include opacity(1)
 
   .aspect_badge
     :position relative
     :margin
       :bottom 0
-  .arrow
-    :top -0.1em
   .aspect_badge
     :top -0.2em
 

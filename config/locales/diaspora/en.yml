@@ -26,7 +26,8 @@ en:
   are_you_sure: "Are you sure?"
   fill_me_out: "Fill me out"
   back: "Back"
-  the_world: "the world"
+  public: "Public"
+  limited: "Limited"
   search: "Search"
   find_people: "Find people"
   _home: "Home"
@@ -657,10 +658,12 @@ en:
     contact_list:
       all_contacts: "All contacts"
     stream_element:
+      viewable_to_anyone: "This post is viewable to anyone on the web"
       via: "via %{link}"
       like: "Like"
       unlike: "Unlike"
       dislike: "Dislike"
+      shared_with: "Shared with: %{aspect_names}"
     footer:
       logged_in_as: "logged in as %{name}"
       your_aspects: "your aspects"
