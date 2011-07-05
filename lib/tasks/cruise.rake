@@ -16,7 +16,7 @@ namespace :cruise do
   end
 
   task :migrate do
-    system('bundle exec rake db:schema:load')
+    system('bundle exec rake db:migrate')
     exit_status = $?.exitstatus
     raise "db:migrate failed!" unless exit_status == 0
   end
