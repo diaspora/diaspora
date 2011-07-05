@@ -159,6 +159,9 @@ ca:
         heading: "ID de Diàspora"
         content_1: "El vostre identificador de Diàspora és:"
         content_2: "Compartiu-ho amb tothom qui vulgueu que us pugui trobar al Diàspora."
+        services:
+          heading: "Connecteu serveis"
+          content: "Podeu connectar els serveis següents al Diàspora:"
 
 
   aspect_memberships:
@@ -612,6 +615,7 @@ ca:
       connect_to_facebook: "Connecta al Facebook"
       connect_to_tumblr: "Connecta al Tumblr"
       edit_services: "Edita els serveis"
+      no_services: "Encara no heu connectat cap servei."
     create:
       success: "S'ha autenticat amb èxit."
     destroy:
@@ -731,11 +735,8 @@ També és la millor forma de coŀleccionar fotos en línia."
       typical_userpage: "Una pàgina d'usuari de cubbi.es típica"
       daniels_account: "El compte de Diàspora d'en Daniel"
       making_the_connection: "Fent la connexió"
-      connecting_is_simple: "Connectar el vostre compte de Diàspora és tan simple com emplenar dos camps a la pàgina del vostre compte de Cubbi.es."
-      were_working_hard: "Hi treballem dur per oferir una connectivitat fàcil entre beines de Diàspora i aplicacions. Mentrestant, connectar el vostre compte de Diàspora amb Cubbi.es vol dir copiar i enganxar dos camps."
-      your_diaspora_handle: "El vostre identificador de Diàspora"
-      your_diaspora_token: "El vostre testimoni de Diàspora"
-      generate_a_token: "Genera un testimoni"
+      connecting_is_simple: "Connectar el vostre compte de Diàspora és simple! Introduïu el vostre ID de Diàspora (<b>%{diaspora_id}</b> a la <a href='%{href_link}'>pàgina de preferències</a> de Cubbies i feu clic en «Connecta»."
+      log_in_with_diaspora_is_comming: "Aviat podreu connectar a una aplicació nova sense haver de crear un compte accessori del vostre compte de Diàspora."
       via: "(via %{link})"
 
 
