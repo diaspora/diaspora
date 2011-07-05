@@ -36,6 +36,7 @@ Feature: posting
     Then I should see "I am da #boss"
 
   Scenario: can stop following a particular tag
+    When I hover over the ".button.tag_following"
     When I press "Stop Following #boss"
 
     And I go to the home page

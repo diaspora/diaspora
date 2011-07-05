@@ -63,7 +63,7 @@ Feature: posting
         And I sign in as "alice@alice.alice"
         And I am on "bob@bob.bob"'s page
 
-        And I hover over the post
+        And I hover over the ".stream_element"
         And I click to delete the first post
         And I wait for the ajax to finish
         And I go to "bob@bob.bob"'s page
@@ -77,7 +77,7 @@ Feature: posting
         And I press "Share"
         And I wait for the ajax to finish
         And I follow "Your Aspects"
-        And I hover over the post
+        And I hover over the ".stream_element"
         And I preemptively confirm the alert
         And I click to delete the first post
         And I wait for the ajax to finish

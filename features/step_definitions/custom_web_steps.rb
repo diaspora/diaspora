@@ -36,13 +36,8 @@ When /^I append "([^"]*)" to the publisher$/ do |stuff|
   end
 end
 
-And /^I hover over the (\w*)$/ do |element|
-  if element == 'post'
-    name = 'stream_element'
-  elsif element == 'comment'
-    name = 'comment.posted'
-  end
-  page.execute_script("$(\".#{name}\").first().mouseover()")
+And /^I hover over the "([^"]+)"$/ do |element|
+  page.execute_script("$(\"#{element}\").first().mouseover()")
 end
 
 When /^I click to delete the first post$/ do

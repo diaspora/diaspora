@@ -46,7 +46,7 @@ Feature: commenting
     And I fill in "Comment" with "is that a poodle?"
     And I press "Comment"
     And I wait for the ajax to finish
-    When I hover over the comment
+    When I hover over the ".comment.posted"
     And I preemptively confirm the alert
     And I click to delete the first comment
     And I wait for the ajax to finish
