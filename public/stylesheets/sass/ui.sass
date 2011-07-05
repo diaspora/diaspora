@@ -85,8 +85,15 @@
 
 .button.red_on_hover
   &:hover
-    @include linear-gradient(desaturate(lighten($red, 20%),20%), desaturate(lighten($red,14%),20%))
-    :color black
+    @include linear-gradient(lighten(#F74427, 10%), darken(#F74427,0%))
+    :color #222
+
+    :border 1px solid #666
+      :top 1px solid #777
+      :bottom 1px solid darken(#666,13%)
+
+  &:active
+    :text-shadow none
 
 .right
   :position absolute

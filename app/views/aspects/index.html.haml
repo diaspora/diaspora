@@ -6,7 +6,7 @@
 - content_for :head do
   = include_javascripts :home
 
-.span-5.leftNavBar.fixed
+.span-5.leftNavBar
   #home_user_badge
     = owner_image_link
     %h3
@@ -22,11 +22,16 @@
           = t('aspects.index.tags_following')
 
         %ul.sub_nav
-          - for tg in tags
+          - if tags.size > 0
+            - for tg in tags
+              %li
+                = link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
+          - else
             %li
-              = link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
+              %span.new_aspect
+                No tags
 
-.span-13.append-1.prepend-5
+.span-13.append-1
   #aspect_stream_container.stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
