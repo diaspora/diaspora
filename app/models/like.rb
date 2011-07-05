@@ -15,7 +15,7 @@ class Like < ActiveRecord::Base
   xml_attr :positive
   xml_attr :diaspora_handle
 
-  belongs_to :post
+  belongs_to :post, :counter_cache => true
   belongs_to :author, :class_name => 'Person'
 
   validates_uniqueness_of :post_id, :scope => :author_id

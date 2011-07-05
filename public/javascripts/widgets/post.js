@@ -20,11 +20,7 @@
     };
 
     this.setUpLikes = function() {
-      $(this.expandLikesSelector).live("click", function(evt) {
-        evt.preventDefault();
-        $(this).siblings(".likes_list")
-          .fadeToggle("fast");
-      });
+      $(this.expandLikesSelector).live("click", this.expandLikes);
 
       var likeIt = $(this.likesSelector);
 
@@ -36,6 +32,23 @@
         Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_like"));
         $(this).parent().fadeIn("fast");
       });
+    };
+    this.expandLikes = function(evt){
+      evt.preventDefault();
+      var likesList = $(this).siblings(".likes_list");
+      if(likesList.children().length == 0){
+        likesList.append("<img alt='loading' src='/images/ajax-loader.gif' />");
+        $.ajax({
+          url: this.href,
+          success: function(data){
+            likesList.html(data);
+            likesList.fadeToggle("fast");
+          }
+        });
+      }else {
+      likesList
+        .fadeToggle("fast");
+      }
     };
   };
 

@@ -182,10 +182,14 @@ class User < ActiveRecord::Base
   # Check whether the user has liked a post.  Extremely inefficient if the post's likes are not loaded.
   # @param [Post] post
   def liked?(post)
-    if self.like_for(post)
-      return true
+    if post.likes.loaded?
+      if self.like_for(post)
+        return true
+      else
+        return false
+      end
     else
-      return false
+      Like.exists?(:author_id => self.person.id, :post_id => post.id)
     end
   end
 
@@ -193,10 +197,11 @@ class User < ActiveRecord::Base
   # @param [Post] post
   # @return [Like]
   def like_for(post)
-    post.likes.each do |like|
-      return like if like.author_id == self.person.id
+    if post.likes.loaded?
+      return post.likes.detect{ |like| like.author_id == self.person.id }
+    else
+      return Like.where(:author_id => self.person.id, :post_id => post.id).first
     end
-    return nil
   end
 
   ######### Mailer #######################

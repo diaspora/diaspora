@@ -32,26 +32,31 @@
 
       .info
         - if post.public?
-          %span.aspect_badges
-            %span.aspect_badge.public
-              = t('the_world')
-        - elsif post.author.owner_id == current_user.id
-          %span.aspect_badges
-            = aspect_badges(aspects_with_post(all_aspects, post), :link => true)
+          %span.post_scope{:title => t('.viewable_to_anyone')}
+            = t('public')
+            ·
+        - else
+          - if post.author.owner_id == current_user.id
+            %span.post_scope{:title => t('.shared_with', :aspect_names => aspects_with_post(all_aspects, post).map!{|a| a.name}.join(', '))}
+              = t('limited')
+          - else
+            %span.post_scope
+              = t('limited')
+          ·
 
         %span.via
           - if post.activity_streams?
             = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
+            ·
 
         - unless (defined?(@commenting_disabled) && @commenting_disabled)
-          ·
           %span.like_action
             = like_action(post, current_user)
           ·
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
       .likes
-        - if post.likes.size > 0
-          = render "likes/likes", :post_id => post.id, :likes => post.likes, :current_user => current_user
+        - if post.likes_count > 0
+          = render "likes/likes_container", :post_id => post.id, :likes_count => post.likes_count, :current_user => current_user
 
       = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

@@ -56,6 +56,14 @@ describe Like do
     end
   end
 
+  describe 'counter cache' do
+    it 'increments the counter cache on its post' do
+      lambda {
+        @alice.like(1, :post => @status)
+      }.should change{ @status.reload.likes_count }.by(1)
+    end
+  end
+
   describe 'xml' do
     before do
       @liker = Factory.create(:user)
