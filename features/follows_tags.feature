@@ -9,7 +9,6 @@ Feature: posting
     And a user with username "alice"
     When I sign in as "bob@bob.bob"
 
-    And a user with username "bob" is connected with "alice"
     And I am on the home page
 
     And I expand the publisher
@@ -18,11 +17,6 @@ Feature: posting
     And I press "Share"
     And I wait for the ajax to finish
     And I wait for the ajax to finish
-
-    #the following (3 lines) verbosity should not be needed
-    When I go to the home page
-    Then I should see "I am da #boss"
-    And I wait for 5 seconds
 
     And I follow "#boss"
     And I wait for the ajax to finish

@@ -43,8 +43,10 @@ class TagsController < ApplicationController
   def show
     @aspect = :tag
     if current_user
-      @posts = StatusMessage.joins(:contacts).where(:pending => false).where(
-        Contact.arel_table[:user_id].eq(current_user.id).or(
+      @posts = StatusMessage.
+        joins("LEFT OUTER JOIN post_visibilities ON post_visibilities.post_id = posts.id").
+        joins("LEFT OUTER JOIN contacts ON contacts.id = post_visibilities.contact_id").
+        where(Contact.arel_table[:user_id].eq(current_user.id).or(
           StatusMessage.arel_table[:public].eq(true).or(
             StatusMessage.arel_table[:author_id].eq(current_user.person.id)
           )
