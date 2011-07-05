@@ -10,7 +10,10 @@ Diaspora::Application.routes.draw do
     put 'toggle_contact_visibility' => :toggle_contact_visibility
   end
 
-  resources :status_messages, :only => [:new, :create, :destroy, :show]
+  resources :status_messages, :only => [:new, :create, :destroy, :show] do
+    resources :likes, :only => [:create, :destroy, :index]
+  end
+
   get 'bookmarklet' => 'status_messages#bookmarklet'
   get 'p/:id'       => 'posts#show', :as => 'post'
 
@@ -20,7 +23,6 @@ Diaspora::Application.routes.draw do
 
   resources :comments, :only => [:create, :destroy]
 
-  resources :likes, :only => [:create, :destroy]
 
   resources :conversations do
     resources :messages, :only => [:create, :show]

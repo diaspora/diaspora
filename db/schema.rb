@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110623210918) do
+ActiveRecord::Schema.define(:version => 20110705003445) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -266,6 +266,7 @@ ActiveRecord::Schema.define(:version => 20110623210918) do
     t.string   "actor_url"
     t.integer  "objectId"
     t.string   "status_message_guid"
+    t.integer  "likes_count",                         :default => 0
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
