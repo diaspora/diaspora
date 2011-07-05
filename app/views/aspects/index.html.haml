@@ -6,7 +6,7 @@
 - content_for :head do
   = include_javascripts :home
 
-.span-5.leftNavBar
+.span-5.leftNavBar.fixed
   #home_user_badge
     = owner_image_link
     %h3
@@ -15,7 +15,7 @@
   .section
     = render 'aspects/aspect_listings'
 
-.span-13.append-1
+.span-13.append-1.prepend-5
   #aspect_stream_container.stream_container
     = render 'aspect_stream',
       :aspect => @aspect,
