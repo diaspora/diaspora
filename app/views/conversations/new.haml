@@ -47,6 +47,8 @@
       .span-10.prepend-2.last
         = text_area_tag "conversation[text]", '', :rows => 5
 
+      .clearfix
+
       .bottom_submit_section
-        = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close"
-        = conversation.submit t('.send'), :disable_with => t('shared.publisher.posting'), :class => 'button'
+        = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close", :confirm => t('.abandon_changes')
+        = conversation.submit t('.send'), :disable_with => t('shared.publisher.posting'), :class => 'button creation'
