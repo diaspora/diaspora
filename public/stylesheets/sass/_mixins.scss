@@ -54,3 +54,7 @@ $easing: linear;
   -o-transition: $type $speed $easing;
   transition: $type $speed $easing;
 }
+
+@mixin dropdown-shadow{
+  @include box-shadow(0,0px,13px,rgba(20,20,20,0.5))
+}

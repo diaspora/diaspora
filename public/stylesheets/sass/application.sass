@@ -25,6 +25,8 @@ h1
   :position relative
   :font
     :weight bold
+  :letter
+    :spacing -1px
 
 h1, h2, h3, h4
   :margin
@@ -145,6 +147,7 @@ header
 
   a
     :color #CCC
+    :color rgb(147,147,147)
 
     &:hover
       :background none
@@ -156,12 +159,11 @@ header
     :height 40px
 
   ul#user_menu
-    @include border-radius(5px)
-
     :overflow hidden
     :white-space nowrap
     :text-overflow ellipsis
     :text-shadow 0 1px 0 #000
+    :color rgb(147,147,147)
 
     :width auto
 
@@ -169,19 +171,23 @@ header
 
     :z-index 10
     :padding 5px 0
-      :left 30px
-      :right 5px
+      :left 32px
+      :right 7px
     :margin 0
       :top -2px
       :right -5px
 
     :background
-      :color #000
+      :color rgba(24,20,20,0.5)
+
+    :border
+      :left 1px solid #333
+      :right 1px solid #333
 
     :position absolute
     :display inline
 
-    :top 0
+    :top -4px
     :right 0
 
     &:hover
@@ -200,10 +206,10 @@ header
             :decoration none
 
       &:first-child
+        :padding 5px 0
         a
           :padding
             :right 15px
-          :color #CCC
           &:hover
             :background
               :color #222
@@ -213,21 +219,21 @@ header
           :right 5px
 
     &.active
-      @include box-shadow(0,1px,2px,#333)
+      @include dropdown-shadow
 
       :margin
         :top -3px
-        :right -6px
+        :right -5px
       :background
-        :color #000
+        :color rgb(34,30,30)
       :border 1px solid #999
 
     .avatar
       :height 20px
       :width 20px
       :position absolute
-      :left 2px
-      :top 2px
+      :left 4px
+      :top 5px
       :display block
 
 //////////////////////////////////
@@ -2976,7 +2982,8 @@ ul.left_nav
 
 
 #notification_dropdown
-  @include box-shadow(0,0px,13px,rgba(20,20,20,0.5))
+  @include dropdown-shadow
+
   :background white
   :border solid #888 1px
   :position absolute
