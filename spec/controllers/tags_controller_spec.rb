@@ -62,6 +62,13 @@ describe TagsController do
         assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
+
+      it 'displays a public post that was sent to no one' do
+        stranger = Factory(:user_with_aspect)
+        stranger_post = stranger.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+        get :show, :name => 'hello'
+        assigns(:posts).models.should == [stranger_post]
+      end
     end
 
     context "not signed in" do

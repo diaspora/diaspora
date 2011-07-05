@@ -8,6 +8,8 @@ Feature: posting
     Given a user with username "bob"
     And a user with username "alice"
     When I sign in as "bob@bob.bob"
+
+    And a user with username "bob" is connected with "alice"
     And I am on the home page
 
     And I expand the publisher
@@ -40,9 +42,10 @@ Feature: posting
     Then I should see "I am da #boss"
 
   Scenario: can stop following a particular tag
-    Then I should see "Stop Following #boss"
-    When I go to the home page
-    And I should not see "#boss" in ".left_nav"
+    When I press "Stop Following #boss"
+
+    And I go to the home page
+    Then I should not see "#boss" within ".left_nav"
 
 
 
