@@ -29,7 +29,8 @@ ca:
   are_you_sure: "N'esteu segur?"
   fill_me_out: "Emplena'm"
   back: "Enrere"
-  the_world: "el món"
+  public: "Públic"
+  limited: "Limitat"
   search: "Cerca"
   find_people: "Cerqueu gent"
   _home: "Inici"
@@ -682,10 +683,12 @@ ca:
     contact_list:
       all_contacts: "Tots els contactes"
     stream_element:
+      viewable_to_anyone: "Aquesta publicació és visible per tothom al web"
       via: "via %{link}"
       like: "M'agrada"
       unlike: "Ja no m'agrada"
       dislike: "No m'agrada"
+      shared_with: "Compartit amb %{aspect_names}"
     footer:
       logged_in_as: "autenticat com a %{name}"
       your_aspects: "els vostres aspectes"
