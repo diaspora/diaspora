@@ -15,15 +15,14 @@ namespace :cruise do
     puts "All tests passed!"
   end
 
-  task :migrate do
-    system('bundle exec rake db:migrate')
-    exit_status = $?.exitstatus
-    raise "db:migrate failed!" unless exit_status == 0
+  task :migrate => ['db:drop', 'db:create', 'db:schema:load'] do
+    system('bundle exec rake db:test:prepare')
+    raise "migration failed!" unless $?.exitstatus == 0
   end
 
   task :travis do
     ["rspec spec", "rake cucumber", "jasmine:ci"].each do |cmd|
-      system('bundle exec rspec spec')
+      system("bundle exec #{cmd}")
       raise "#{cmd} failed!" unless $?.exitstatus == 0
     end
   end
