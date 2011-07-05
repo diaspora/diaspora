@@ -1,8 +1,8 @@
 class CreateTagFollowings < ActiveRecord::Migration
   def self.up
     create_table :tag_followings do |t|
-      t.integer :tag_id
-      t.integer :user_id
+      t.integer :tag_id, :null => false
+      t.integer :user_id, :null => false
 
       t.timestamps
     end
