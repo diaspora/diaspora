@@ -4,6 +4,7 @@
 
 Diaspora::Application.routes.draw do
 
+
   # Posting and Reading
 
   resources :aspects do
@@ -34,6 +35,9 @@ Diaspora::Application.routes.draw do
   end
 
   resources :tags, :only => [:index]
+  post    "/tags/:name/tag_followings" => "tag_followings#create", :as => 'tag_tag_followings'
+  delete  "/tags/:name/tag_followings" => "tag_followings#destroy"
+
   get 'tags/:name' => 'tags#show', :as => 'tag'
 
   resources :apps, :only => [:show]

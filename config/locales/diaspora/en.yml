@@ -146,6 +146,7 @@ en:
       work: "Work"
     index: 
       your_aspects: "Your Aspects"
+      tags_following: "Followed Tags"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
@@ -697,6 +698,17 @@ en:
       posts_tagged_with: "Posts tagged with #%{tag}"
       nobody_talking: "Nobody is talking about %{tag} yet."
       people_tagged_with: "People tagged with %{tag}"
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
+      stop_following: "Stop Following #%{tag}"
+
+  tag_followings:
+    create:
+      success: "Successfully following: #%{name}"
+      failure: "Failed to follow: #%{name}"
+    destroy:
+      success: "Successfully stopped following: #%{name}"
+      failure: "Failed to stop following: #%{name}"
 
   tokens:
     show:

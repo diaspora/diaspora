@@ -2786,6 +2786,7 @@ ul#requested-scopes
 
 ul.left_nav
   :margin 0
+    :bottom 20px
   :padding 0
 
   li
@@ -2793,11 +2794,16 @@ ul.left_nav
     :width 100%
 
   a.aspect_selector,
-  a.home_selector
+  a.home_selector,
+  a.tag_selector,
+  .root_element
     :display block
     :width 100%
     :padding 3px 7px
 
+  a.aspect_selector,
+  a.home_selector,
+  a.tag_selector
     &:hover
       @include border-radius(2px)
 
@@ -2841,8 +2847,10 @@ ul.left_nav
     :margin 0
     li
       :width 155px
+
     a.aspect_selector,
-    a.new_aspect
+    a.new_aspect,
+    a.tag_selector
       :padding
         :left 15px
       :width 182px
@@ -2862,7 +2870,8 @@ ul.left_nav
       :width 140px
 
       a.aspect_selector,
-      a.new_aspect
+      a.new_aspect,
+      a.tag_selector
         :width 140px
 
       li:hover

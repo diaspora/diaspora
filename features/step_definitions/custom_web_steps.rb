@@ -129,15 +129,6 @@ When /^I click ok in the confirm dialog to appear next$/ do
   JS
 end
 
-When /^I wait for "([^\"]*)" to load$/ do |page_name|
-  wait_until(10) do
-    uri = URI.parse(current_url)
-    current_location = uri.path
-    current_location << "?#{uri.query}" unless uri.query.blank?
-    current_location == path_to(page_name)
-  end
-end
-
 Then /^I should get download alert$/ do
   page.evaluate_script("window.alert = function() { return true; }")
 end
@@ -183,7 +174,7 @@ And /^I scroll down$/ do
   wait_until(10) { evaluate_script('$("#infscr-loading:visible").length') == 0 }
 end
 
-When /^I wait for (\d+) seconds$/ do |seconds|
+When /^I wait for (\d+) seconds?$/ do |seconds|
   sleep seconds.to_i
 end
 

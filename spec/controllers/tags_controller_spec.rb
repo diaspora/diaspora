@@ -62,6 +62,13 @@ describe TagsController do
         assigns(:posts).models.should == [other_post]
         response.status.should == 200
       end
+
+      it 'displays a public post that was sent to no one' do
+        stranger = Factory(:user_with_aspect)
+        stranger_post = stranger.post(:status_message, :text => "#hello", :public => true, :to => 'all')
+        get :show, :name => 'hello'
+        assigns(:posts).models.should == [stranger_post]
+      end
     end
 
     context "not signed in" do
@@ -103,6 +110,26 @@ describe TagsController do
           get :show, :name => 'what'
           response.should be_success
         end
+      end
+    end
+  end
+
+  context 'helper methods' do
+    describe 'tag_followed?' do
+      before do
+        sign_in bob
+        @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+        @controller.stub(:current_user).and_return(bob)
+        @controller.stub(:params).and_return({:name => "partytimeexcellent"})
+      end
+
+      it 'returns true if the following already exists' do
+        TagFollowing.create!(:tag => @tag, :user => bob )
+        @controller.tag_followed?.should be_true
+      end
+
+      it 'returns false if the following does not already exist' do
+        @controller.tag_followed?.should be_false
       end
     end
   end

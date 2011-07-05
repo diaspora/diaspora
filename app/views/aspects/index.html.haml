@@ -15,6 +15,17 @@
   .section
     = render 'aspects/aspect_listings'
 
+  .section
+    %ul.left_nav
+      %li
+        %div.root_element
+          = t('aspects.index.tags_following')
+
+        %ul.sub_nav
+          - for tg in tags
+            %li
+              = link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
+
 .span-13.append-1.prepend-5
   #aspect_stream_container.stream_container
     = render 'aspect_stream',
