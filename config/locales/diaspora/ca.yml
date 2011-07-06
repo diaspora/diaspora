@@ -148,6 +148,7 @@ ca:
       work: "Feina"
     index:
       your_aspects: "Els vostres aspectes"
+      tags_following: "Etiquetes que esteu seguint"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
@@ -159,7 +160,7 @@ ca:
       diaspora_id:
         heading: "ID de Diàspora"
         content_1: "El vostre identificador de Diàspora és:"
-        content_2: "Compartiu-ho amb tothom qui vulgueu que us pugui trobar al Diàspora."
+        content_2: "Compartiu-lo amb tothom qui vulgueu que us pugui trobar al Diàspora."
         services:
           heading: "Connecteu serveis"
           content: "Podeu connectar els serveis següents al Diàspora:"
@@ -238,6 +239,7 @@ ca:
       to: "a"
       subject: "assumpte"
       send: "Envia"
+      abandon_changes: "Voleu descartar els canvis?"
     helper:
       new_messages:
         zero: "Cap missatge nou"
@@ -725,6 +727,18 @@ ca:
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
       nobody_talking: "Ningú ha parlat de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
+      follow: "Segueix #%{tag}"
+      following: "S'està seguint #%{tag}"
+      stop_following: "Deixa de seguir #%{tag}"
+
+
+  tag_followings:
+    create:
+      success: "S'ha començat a seguir #%{name} amb èxit"
+      failure: "No s'ha pogut seguir #%{name}"
+    destroy:
+      success: "S'ha deixat de seguir #%{name} amb èxit"
+      failure: "No s'ha pogut deixar de seguir #%{name}"
 
 
   tokens:
