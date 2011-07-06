@@ -40,7 +40,6 @@ describe AspectMembershipsController do
       }.should change{
         alice.contact_for(bob.person).aspect_memberships.count
       }.by(1)
-
     end
 
     it 'creates a contact' do
@@ -62,8 +61,19 @@ describe AspectMembershipsController do
         :aspect_id => @aspect0.id
       flash[:error].should_not be_empty
     end
-  end
 
+    context 'json' do
+      it 'returns a list of aspect ids for the person' do
+        post :create,
+        :format => 'json',
+        :person_id => @person.id,
+        :aspect_id => @aspect0.id
+
+        contact = @controller.current_user.contact_for(@person)
+        response.body.should == contact.aspect_memberships.first.to_json
+      end
+    end
+  end
 
   describe "#destroy" do
     it 'removes contacts from an aspect' do

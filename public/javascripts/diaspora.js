@@ -39,11 +39,14 @@
   };
 
   Diaspora.WidgetCollection.prototype.subscribe = function(id, callback, context) {
-    this.eventsContainer.bind(id, $.proxy(callback, context));
+    var ids = id.split(" ");
+    for(var id in ids) {
+      this.eventsContainer.bind(ids[id], $.proxy(callback, context));
+    }
   };
 
-  Diaspora.WidgetCollection.prototype.publish = function(id) {
-    this.eventsContainer.trigger(id);
+  Diaspora.WidgetCollection.prototype.publish = function(id, args) {
+    this.eventsContainer.trigger(id, args);
   };
 
   Diaspora.widgets = new Diaspora.WidgetCollection();

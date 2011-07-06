@@ -68,16 +68,12 @@ module AspectGlobalHelper
   def aspect_dropdown_list_item(aspect, contact, person)
     checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
     klass = checked ? "selected" : ""
-    hidden = !checked ? "hidden" : ""
 
     str = <<LISTITEM
 <li data-aspect_id=#{aspect.id} class='#{klass}'>
-  <img src='/images/icons/check_yes_ok.png' width=18 height=18 class='check #{hidden}'/>
+  <img src='/images/icons/check_yes_ok.png' width=18 height=18 class='check'/>
   <img src='/images/icons/check_yes_ok_white.png' width=18 height=18 class='checkWhite'/>
   #{aspect.name}
-  <div class=\"hidden\">
-    #{aspect_membership_button(aspect, contact, person)}
-  </div>
 </li>
 LISTITEM
     str.html_safe

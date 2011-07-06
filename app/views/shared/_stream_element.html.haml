@@ -18,7 +18,7 @@
     .content
       %div.post_initial_info
         %span.from
-          = person_link(post.author, :class => 'author')
+          = person_link(post.author, :class => 'hovercardable')
           %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
         %span.details
           \-

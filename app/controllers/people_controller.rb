@@ -106,7 +106,12 @@ class PeopleController < ApplicationController
       if params[:only_posts]
         render :partial => 'shared/stream', :locals => {:posts => @posts}
       else
-        respond_with @person, :locals => {:post_type => :all}
+        respond_to do |format|
+          format.all { respond_with @person, :locals => {:post_type => :all} }
+          format.json {
+            render :json => @person.to_json
+          }
+        end
       end
 
     else
@@ -115,6 +120,7 @@ class PeopleController < ApplicationController
     end
   end
 
+  
   def retrieve_remote
     if params[:diaspora_handle]
       webfinger(params[:diaspora_handle], :single_aspect_form => true)
@@ -131,7 +137,6 @@ class PeopleController < ApplicationController
       @aspect = :profile
       @contacts_of_contact = @contact.contacts.paginate(:page => params[:page], :per_page => (params[:limit] || 15))
       @hashes = hashes_for_people @contacts_of_contact, @aspects
-      @contact = current_user.contact_for(@person)
       @aspects_with_person = @contact.aspects
       @aspect_ids = @aspects_with_person.map(&:id)
     else
@@ -139,8 +144,16 @@ class PeopleController < ApplicationController
       redirect_to people_path
     end
   end
+
+  def aspect_membership_dropdown
+    @person = Person.find(params[:id])
+    @contact = current_user.contact_for(@person) || Contact.new
+    render :partial => 'aspect_memberships/aspect_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+  end
+
   private
   def webfinger(account, opts = {})
     Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
   end
+
 end
