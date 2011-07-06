@@ -41,6 +41,7 @@ class TagsController < ApplicationController
   end
 
   def show
+    params[:name].downcase!
     @aspect = :tag
     if current_user
       @posts = StatusMessage.
@@ -75,7 +76,7 @@ class TagsController < ApplicationController
 
  def tag_followed?
    if @tag_followed.nil?
-     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,    
+     @tag_followed = TagFollowing.joins(:tag).where(:tags => {:name => params[:name]}, :user_id => current_user.id).exists? #,
    end
    @tag_followed
  end
