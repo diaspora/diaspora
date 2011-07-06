@@ -148,7 +148,7 @@ ca:
       work: "Feina"
     index:
       your_aspects: "Els vostres aspectes"
-      tags_following: "Etiquetes que esteu seguint"
+      tags_following: "Etiquetes que seguiu"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
@@ -728,7 +728,7 @@ ca:
       nobody_talking: "Ningú ha parlat de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
       follow: "Segueix #%{tag}"
-      following: "S'està seguint #%{tag}"
+      following: "Esteu seguint #%{tag}"
       stop_following: "Deixa de seguir #%{tag}"
 
 
