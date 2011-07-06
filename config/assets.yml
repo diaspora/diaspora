@@ -47,26 +47,21 @@ javascripts:
   mobile:
     - public/javascripts/vendor/jquery152.min.js
 
-    - public/javascripts/vendor/underscore.js
-    - public/javascripts/vendor/backbone-min.js
-
-    - public/javascripts/vendor/Mustache.js
-
-    - public/javascripts/mobile/app.js
-    - public/javascripts/mobile/helpers.js
-    - public/javascripts/mobile/models/*
-    - public/javascripts/mobile/collections/*
-    - public/javascripts/mobile/controllers/*
-    - public/javascripts/mobile/views/*
-
+    - public/javascripts/custom-mobile-scripting.js
+    - public/javascripts/vendor/jquery.mobile-1.0a4.js
+    - public/javascripts/jquery.infinitescroll-custom.js
+    
     - public/javascripts/diaspora.js
     - public/javascripts/widgets/i18n.js
+
+    - public/javascripts/widgets/infinite-scroll.js
+    - public/javascripts/rails.js
+    
   mailchimp:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
   aspects:
-    - public/javascripts/aspect-edit.js
     - public/javascripts/contact-list.js
   finder:
     - public/javascripts/friend-finder.js

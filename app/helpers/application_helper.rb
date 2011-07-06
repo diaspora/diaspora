@@ -60,7 +60,7 @@ module ApplicationHelper
 
   def person_link(person, opts={})
     opts[:class] ||= ""
-    opts[:class] << " self" if current_user.person == person
+    opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
     "<a href='/people/#{person.id}' class='#{opts[:class]}'>
   #{h(person.name)}
 </a>".html_safe

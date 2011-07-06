@@ -33,6 +33,11 @@ class SocketsController < ApplicationController
    @user ||= ((@params[:user_or_id].instance_of? User )? @params[:user_or_id] : User.find(user_id))
   end
 
+  helper_method :current_user
+  def current_user
+    user
+  end
+
   def all_aspects
     @all_aspects ||= user.aspects
   end
