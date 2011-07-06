@@ -161,9 +161,9 @@ ca:
         heading: "ID de Diàspora"
         content_1: "El vostre identificador de Diàspora és:"
         content_2: "Compartiu-lo amb tothom qui vulgueu que us pugui trobar al Diàspora."
-        services:
-          heading: "Connecteu serveis"
-          content: "Podeu connectar els serveis següents al Diàspora:"
+      services:
+        heading: "Connecteu serveis"
+        content: "Podeu connectar els serveis següents al Diàspora:"
 
 
   aspect_memberships:
@@ -649,7 +649,7 @@ ca:
       post_a_message_to: "Publica un missatge a %{aspect}"
       make_public: "fes públic"
       all: "tot"
-      add_photos: "Pengeu fotos"
+      upload_photos: "Pengeu fotos"
       all_contacts: "tots els contactes"
       share_with: "comparteix amb"
       whats_on_your_mind: "Què us passa pel cap?"
