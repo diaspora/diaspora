@@ -25,7 +25,14 @@ module Job
       people.each do |person|
 
         url = person.receive_url
-        xml = salmon.xml_for(person)
+        begin
+          xml = salmon.xml_for(person)
+        rescue OpenSSL::PKey::RSAError => e
+          Rails.logger.info(:event => :invalid_rsa_key, :identifier => person.diaspora_handle)
+          next
+        end
+
+        Rails.logger.info("event=http_multi_send sender_id=#{user_id} recipient_id=#{person.id} url=#{url} xml='#{xml}'")
 
         request = Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
 
