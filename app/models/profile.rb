@@ -112,7 +112,12 @@ class Profile < ActiveRecord::Base
   end
 
   def tag_string
-    @tag_string || self.tags.map{|t| '#' << t.to_s }.join(' ')
+    if @tag_string
+      @tag_string
+    else
+      rows = connection.select_rows( self.tags.scoped.to_sql )
+      rows.inject(""){|string, row| string << "##{row[1]} " }
+    end
   end
 
   protected
