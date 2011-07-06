@@ -54,6 +54,27 @@
 
         self.hoverCard.tip.fadeIn('fast');
       });
+
+      $.get(self.target.attr('href')+'/aspect_membership_button',function(data){
+        self.hoverCard.tip.find('#hovercard_dropdown_container').html(data);
+      });
+    };
+
+    this.populateDropdown = function(aspect_ids){
+      var dropdown = this.hoverCard.tip.find('.dropdown_list'),
+          listElements = dropdown.children('li'),
+          inAspects = false;
+
+      // check-off aspects
+      $.each(listElements, function(idx,el){
+        var element = $(el);
+        if( aspect_ids.indexOf(element.attr('data-aspect_id')) !== -1 ){
+          element.addClass('selected');
+          inAspects = true;
+        }
+      });
+
+      // make button green
     };
 
     this.clearTimeout = function(delayed) {
@@ -63,7 +84,7 @@
       };
 
       if((typeof delayed === "boolean" && delayed) || (typeof delayed === "object" && delayed.type === "mouseleave")) {
-        self.hoverCardTimeout = setTimeout(callback, 300);
+        self.hoverCardTimeout = setTimeout(callback, 400);
       }
       else {
         callback();

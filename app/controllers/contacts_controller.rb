@@ -24,4 +24,5 @@ class ContactsController < ApplicationController
     @contacts = current_user.contacts.sharing.includes(:aspect_memberships)
     render :layout => false
   end
+
 end

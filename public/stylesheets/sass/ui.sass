@@ -150,7 +150,10 @@
 
             &:hover
               :text-decoration none
-          
+
+        &:not(.selected)
+          .check
+            :display none
 
   &.hang_right
     .wrapper
@@ -170,7 +173,7 @@
       @include border-radius(3px, 3px, 0, 0)
       :border 1px solid #444
         :bottom none
-    
+
     .selected
       :font-weight bold
 

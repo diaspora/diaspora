@@ -9,12 +9,9 @@ var ContactEdit = {
     });
   },
 
-  updateNumber: function(personId){
-    var dropdown = $(".dropdown_list[data-person_id=" + personId.toString() +"]"),
-        number = dropdown.find(".selected").length,
-        button = dropdown.parents(".dropdown").children('.button.toggle');
-
-    var replacement;
+  updateNumber: function(dropdown, personId, number){
+    var button = dropdown.parents(".dropdown").children('.button.toggle'),
+        replacement;
 
     if (number == 0) {
       button.removeClass("in_aspects");
@@ -36,7 +33,6 @@ var ContactEdit = {
   
   toggleCheckbox: 
     function(check){
-      check.toggleClass('hidden');
       check.parent('li').toggleClass('selected');
     },
 
@@ -44,10 +40,18 @@ var ContactEdit = {
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
 
-    var checkbox = li.find('img.check');
-    ContactEdit.toggleCheckbox(checkbox);
+    var checkbox = li.find('img.check'),
+        selected = li.hasClass("selected"),
+        routedId = selected ? "/42" : "";
 
-    $.fn.callRemote.apply(button);
+    $.post("/aspect_memberships" + routedId + ".json", {
+      "aspect_id": li.data("aspect_id"),
+      "person_id": li.parent().data("person_id"),
+      "_method": (selected) ? "DELETE" : "POST"
+    }, function(aspectMembership) {
+      ContactEdit.toggleCheckbox(checkbox);
+      ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
+    });
   },
 };
 

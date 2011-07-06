@@ -6,6 +6,8 @@
 class AspectMembershipsController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html, :json, :js
+
   def destroy
     #note :id is garbage
 
@@ -17,14 +19,14 @@ class AspectMembershipsController < ApplicationController
 
     if membership && membership.destroy 
         @aspect = membership.aspect
-
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
-        respond_to do |format|
-          format.js { }
-          format.html{
-            redirect_to :back
-          }
+        respond_with do |format|
+          format.all{ }
+          format.json{ render :json => {
+            :person_id => @person_id,
+            :aspect_ids => @contact.aspects.map{|a| a.id}
+          } }
         end
 
       else
@@ -44,12 +46,12 @@ class AspectMembershipsController < ApplicationController
     @aspect = current_user.aspects.where(:id => params[:aspect_id]).first
 
     if @contact = current_user.share_with(@person, @aspect)
-
       flash.now[:notice] =  I18n.t 'aspects.add_to_aspect.success'
-
+      respond_with AspectMembership.where(:contact_id => @contact.id, :aspect_id => @aspect.id).first
     else
       flash[:error] = I18n.t 'contacts.create.failure'
-      redirect_to :back
+      #TODO(dan) take this out once the .js template is removed
+      render :nothing => true
     end
   end
 

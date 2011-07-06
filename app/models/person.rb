@@ -227,7 +227,6 @@ class Person < ActiveRecord::Base
       :handle => self.diaspora_handle,
       :url => "/people/#{self.id}"
     }
-    json.merge(:aspect_ids => opts[:aspect_ids])
   end
 
   protected

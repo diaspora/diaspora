@@ -104,6 +104,8 @@ Diaspora::Application.routes.draw do
     end
   end
 
+  get "people/:id/aspect_membership_button" => "people#aspect_membership_dropdown", :as => "aspect_membership_button"
+
 
 
 
