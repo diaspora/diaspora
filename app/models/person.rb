@@ -225,7 +225,8 @@ class Person < ActiveRecord::Base
       :name => self.name,
       :avatar => self.profile.image_url(:thumb_small),
       :handle => self.diaspora_handle,
-      :url => "/people/#{self.id}"
+      :url => "/people/#{self.id}",
+      :hashtags => self.profile.tags.map{|t| "##{t.name}"}
     }
   end
 

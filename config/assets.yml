@@ -36,6 +36,7 @@ javascripts:
     - public/javascripts/widgets/flashes.js
     - public/javascripts/widgets/post.js
     - public/javascripts/widgets/hovercard.js
+    - public/javascripts/widgets/notifications-badge.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js

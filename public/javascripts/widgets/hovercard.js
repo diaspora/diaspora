@@ -7,20 +7,22 @@
     this.start = function() {
       self.personCache = new this.Cache();
       self.dropdownCache = new this.Cache();
-  
+ 
+      var card = $("#hovercard");
       self.hoverCard = {
-        tip: $("#hovercard"),
+        tip: $("#hovercard_container"),
         dropdownContainer: $("#hovercard_dropdown_container"),
         offset: {
-          left: 0,
-          top: 18
+          left: -10,
+          top: 13
         },
-        personLink: $("#hovercard").find("a.person"),
-        avatar: $("#hovercard").find(".avatar"),
-        dropdown: $("#hovercard").find(".dropdown_list")
+        personLink: card.find("a.person"),
+        avatar: card.find(".avatar"),
+        dropdown: card.find(".dropdown_list"),
+        hashtags: card.find(".hashtags"),
       };
 
-      $(document.body).delegate("a.author:not(.self)", "hover", self.handleHoverEvent);
+      $(document.body).delegate("a.hovercardable:not(.self)", "hover", self.handleHoverEvent);
       self.hoverCard.tip.hover(self.hoverCardHover, self.clearTimeout);
 
       Diaspora.widgets.subscribe("aspectDropdown/updated aspectDropdown/blurred", function(evt, personId, dropdownHtml) {
@@ -66,6 +68,14 @@
       self.hoverCard.personLink.attr("href", person.url);
       self.hoverCard.personLink.text(person.name);
       self.hoverCard.dropdown.attr("data-person-id", person.id);
+
+      $.each(person.hashtags, function(index, hashtag) {
+        self.hoverCard.hashtags.append(
+          $("<a/>", {
+            href: "/tags/" + hashtag.substring(1)
+          }).text(hashtag)
+        );
+      });
 
       self.dropdownCache.get(self.target.attr("href") + "/aspect_membership_button", function(dropdown) {
         self.hoverCard.dropdownContainer.html(dropdown);

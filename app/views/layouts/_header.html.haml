@@ -52,15 +52,16 @@
           .ajax_loader
             = image_tag("ajax-loader.gif")
 
-      #hovercard
-        %img.avatar
-        %h4
-          %a.person
-        #hovercard_dropdown_container
+      #hovercard_container
+        #hovercard
+          %img.avatar
+          %h4
+            %a.person
+          #hovercard_dropdown_container
 
-        .hovercard_footer
-          .footer_container
-            Message
+          .hovercard_footer
+            .footer_container
+              .hashtags
 
     %ul#user_menu.dropdown
       %li
