@@ -72,7 +72,8 @@ Feature: commenting
     Then I should see "Look at this dog"
     When I follow "less than a minute ago"
     Then I should see "Look at this dog"
-    Then I follow "Comment"
+    When I open the comment box
+    And I focus the comment field
     And I fill in "text" with "I think thats a cat"
     And I press "Comment"
     And I wait for the ajax to finish
