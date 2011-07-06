@@ -18,7 +18,9 @@ begin
       t.binary = vendored_cucumber_bin # If nil, the gem's binary is used.
       t.fork = true # You may get faster startup if you set this to false
       t.profile = 'default'
-      t.cucumber_opts =  "-f pretty --exclude features/uri-tests/*"
+      cucumber_opts = "--exclude features/uri-tests/*"
+      cucumber_opts << " -f pretty" unless ENV["CI"] || ENV["TRAVIS"]
+      t.cucumber_opts =  cucumber_opts
     end
 
     Cucumber::Rake::Task.new(:wip, 'Run features that are being worked on') do |t|
