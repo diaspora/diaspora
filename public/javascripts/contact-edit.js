@@ -24,7 +24,7 @@ var ContactEdit = {
     }else if (number > 3) {
       replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
     }else {
-      //the above one are a totalogy, but I want to have them here once for once we figure out a neat way i18n them
+      //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
       replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
 
@@ -51,6 +51,8 @@ var ContactEdit = {
     }, function(aspectMembership) {
       ContactEdit.toggleCheckbox(checkbox);
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
+
+      Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").get(0).outerHTML]);
     });
   },
 };

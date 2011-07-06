@@ -22,6 +22,10 @@
 
       $(document.body).delegate("a.author", "hover", self.handleHoverEvent);
       self.hoverCard.tip.hover(self.hoverCardHover, self.clearTimeout);
+
+      Diaspora.widgets.subscribe("aspectDropdown/updated aspectDropdown/blurred", function(evt, personId, dropdownHtml) {
+        self.dropdownCache.cache["/people/" + personId + "/aspect_membership_button"] = $(dropdownHtml).removeClass("active").get(0).outerHTML;
+      });
     };
 
     this.handleHoverEvent = function(evt) {
