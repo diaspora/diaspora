@@ -69,6 +69,7 @@
       self.hoverCard.personLink.text(person.name);
       self.hoverCard.dropdown.attr("data-person-id", person.id);
 
+      self.hoverCard.hashtags.html("");
       $.each(person.hashtags, function(index, hashtag) {
         self.hoverCard.hashtags.append(
           $("<a/>", {
