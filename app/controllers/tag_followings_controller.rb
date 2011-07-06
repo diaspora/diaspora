@@ -8,7 +8,7 @@ class TagFollowingsController < ApplicationController
     @tag_following = current_user.tag_followings.new(:tag_id => @tag.id)
 
     if @tag_following.save
-      flash[:notice] = I18n.t('tag_followings.create.success', :name => params[:name]) 
+      flash[:notice] = I18n.t('tag_followings.create.success', :name => params[:name])
     else
       flash[:error] = I18n.t('tag_followings.create.failure', :name => params[:name])
     end

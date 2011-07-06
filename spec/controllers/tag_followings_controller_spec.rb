@@ -55,6 +55,12 @@ describe TagFollowingsController do
         response.should redirect_to(tag_path(:name => valid_attributes[:name]))
         flash[:error].should == "Failed to follow: ##{valid_attributes[:name]}"
       end
+
+      it 'downcases the tag name' do
+        pending "THIS CAUSES A 500 WE NEED TO FIX IT"
+        post "tags/#{valid_attributes[:name].upcase}/tag_followings"
+        assigns[:tag].should == @tag
+      end
     end
   end
 
