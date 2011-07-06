@@ -106,6 +106,10 @@ pt-PT:
       no_contacts: "Não há contactos"
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} aspectos"
     move_contact: 
@@ -194,6 +198,7 @@ pt-PT:
       no_conversation_selected: "nenhuma conversa foi seleccionada"
       no_messages: "não há mensagens"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Enviar"
       subject: "assunto"
       to: "para"
@@ -267,6 +272,7 @@ pt-PT:
       logout: "Terminar sessão"
       profile: "perfil"
       settings: "definições"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ pt-PT:
         one: "%{count} pessoa gosta"
         other: "%{count} pessoas gostam"
         zero: "ninguém gosta"
+  limited: "Limited"
   more: "Mais"
   next: "próximo"
   no_results: "Não Foram Encontrados Resultados"
@@ -507,6 +514,7 @@ pt-PT:
     update: 
       failed: "Falhou ao actualizar o perfil"
       updated: "Perfil actualizado"
+  public: "Public"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."
     create: 
@@ -569,6 +577,7 @@ pt-PT:
       disconnect: "desligar"
       edit_services: "Editar serviços"
       logged_in_as: "com sessão registada como"
+      no_services: "You have not connected any services yet."
       really_disconnect: "desligar do %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Clique nesta ligação para aceitar o seu convite"
@@ -625,8 +634,10 @@ pt-PT:
     stream_element: 
       dislike: "Não gosto"
       like: "Gosto"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Não Gosto"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Mencionou com sucesso: %{names}"
@@ -649,28 +660,34 @@ pt-PT:
   stream_helper: 
     hide_comments: "ocultar comentários"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
       people_tagged_with: "Pessoas com a %{tag}"
       posts_tagged_with: "Publicações com a tag #%{tag}"
-  the_world: "o mundo"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Ligar ao Cubbi.es"
       connecting_is_simple: "Ligar a sua conta do Diaspora é tão simples como preencher dois campos na página da sua conta do Cubbi.es."
       daniels_account: "conta do Diaspora do Daniel"
-      generate_a_token: "Gerar uma chave"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Adoraríamos que o experimentasse."
       making_the_connection: "Fazer a Ligação"
       screenshot_explanation: "%{link1}.  Este cubby em particular está ligado à %{link2}."
       sign_up_today: "Registe-se hoje!"
       typical_userpage: "Uma típica página de utilizador do cubbi.es"
       via: "(via %{link})"
-      were_working_hard: "Estamos a trabalhar para conseguir conectividade fácil entre pods do Diaspora e aplicações.  Por enquanto, ligar a sua conta do Diaspora com o Cubbi.es implica copiar e colar dois campos."
       what_is_cubbies: "O Cubbi.es é a primeira aplicação Diaspora do mundo.  É também a melhor forma de coleccionar fotografias online."
-      your_diaspora_handle: "O Seu Endereço do Diaspora:"
-      your_diaspora_token: "A Sua Chave do Diaspora:"
   undo: "Anular?"
   username: "Nome de utilizador"
   users: 

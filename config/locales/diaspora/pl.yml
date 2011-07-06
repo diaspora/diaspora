@@ -106,6 +106,10 @@ pl:
       no_contacts: "Brak kontaktów"
       people_sharing_with_you: "Osoby dzielące się z tobą"
       post_a_message: "napisz wiadomość >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} aspektów"
     move_contact: 
@@ -194,6 +198,7 @@ pl:
       no_conversation_selected: "nie wybrano wątku"
       no_messages: "brak wiadomości"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Wyślij"
       subject: "temat"
       to: "do"
@@ -267,6 +272,7 @@ pl:
       logout: "wyloguj"
       profile: "profil"
       settings: "ustawienia"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ pl:
         one: "1 osoba to polubiła"
         other: "%{count} osób polubiło to"
         zero: "nikt tego nie polubił"
+  limited: "Limited"
   more: "Więcej"
   next: "następny"
   no_results: "Nie znaleziono niczego"
@@ -507,6 +514,7 @@ pl:
     update: 
       failed: "Nie udało się zaktualizować profilu"
       updated: "Profil został pomyślnie zaktualizowany"
+  public: "Public"
   registrations: 
     closed: "Na tym podzie Diaspory rejestracja jest zamknięta"
     create: 
@@ -569,6 +577,7 @@ pl:
       disconnect: "rozłącz"
       edit_services: "Edytuj usługi"
       logged_in_as: "zalogowano jako"
+      no_services: "You have not connected any services yet."
       really_disconnect: "rozłączyć %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Kliknij w ten link, aby przyjąć zaproszenie"
@@ -625,8 +634,10 @@ pl:
     stream_element: 
       dislike: "Nie lubię tego"
       like: "Lubię to"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Odwołaj \"Lubię to\""
       via: "z %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Pomyślnie wspomniano o: %{names}"
@@ -649,28 +660,34 @@ pl:
   stream_helper: 
     hide_comments: "ukryj komentarze"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Nikt jeszcze nie rozmawia o %{tag}."
       people_tagged_with: "Osoby opisane poprzez %{tag}"
       posts_tagged_with: "Wpisy oznaczone jako #%{tag}"
-  the_world: "świat"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Połącz z Cubbi.es"
       connecting_is_simple: "Połączenie twojego konta na Diasporze jest proste: polega na wypełnieniu dwóch pól w twoim profilu Cubbi.es."
       daniels_account: "Konto Daniela na Diasporze"
-      generate_a_token: "Wygeneruj kod"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Zapraszamy cię do wypróbowania!"
       making_the_connection: "Łączenie"
       screenshot_explanation: "%{link1}. Ten konkretny cubby jest połączony z %{link2}."
       sign_up_today: "Zarejestruj się już dziś!"
       typical_userpage: "Typowa strona użytkownika cubbi.es"
       via: "(z %{link})"
-      were_working_hard: "Ciężko pracujemy, aby umożliwić łatwe łączność konkretnych serwerów Diaspory z aplikacjami. Do czasu, kiedy zakończymy cały proces połączenie twojego konta na Diasporze z Cubbi.es oznacza skopiowanie i wklejenie zawartości dwóch pól."
       what_is_cubbies: "Cubbi.es jest pierwszą aplikacją Diaspory. To także najlepszy sposób na zebranie swoich zdjęć z sieci w jedno miejsce."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Cofnąć?"
   username: "Nazwa użytkownika"
   users: 

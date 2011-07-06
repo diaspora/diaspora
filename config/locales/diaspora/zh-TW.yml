@@ -106,6 +106,10 @@ zh-TW:
       no_contacts: "沒有任何聯繫"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count}個面向"
     move_contact: 
@@ -194,6 +198,7 @@ zh-TW:
       no_conversation_selected: "未選取任何對話"
       no_messages: "沒有訊息"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "傳送"
       subject: "主旨"
       to: "收件人"
@@ -267,6 +272,7 @@ zh-TW:
       logout: "登出"
       profile: "個人檔案"
       settings: "設定"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ zh-TW:
         one: "有%{count}個讚"
         other: "有%{count}個讚"
         zero: "沒有讚"
+  limited: "Limited"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -507,6 +514,7 @@ zh-TW:
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
+  public: "Public"
   registrations: 
     closed: "本 Diaspora pod 不開放登記."
     create: 
@@ -569,6 +577,7 @@ zh-TW:
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "登入為"
+      no_services: "You have not connected any services yet."
       really_disconnect: "切斷與 %{service} 的連結?"
     inviter: 
       click_link_to_accept_invitation: "按一下這個連結來接受邀請"
@@ -625,8 +634,10 @@ zh-TW:
     stream_element: 
       dislike: "遜"
       like: "讚"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "收回讚"
       via: "經由%{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"
@@ -649,28 +660,34 @@ zh-TW:
   stream_helper: 
     hide_comments: "隱藏意見"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
-  the_world: "全世界"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"
       connecting_is_simple: "只要在 Cubbi.es 的帳號設定中輸入兩個欄位, 就可以和你的 Diaspora 帳號建立連結了."
       daniels_account: "Daniel的 Diaspora 帳號"
-      generate_a_token: "產生token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "希望你能試試看."
       making_the_connection: "建立連結"
       screenshot_explanation: "%{link1}. 這個cubby頁面是連結至%{link2}."
       sign_up_today: "今天就來註冊!"
       typical_userpage: "典型的 cubbi.es 個人頁面"
       via: "(經由%{link})"
-      were_working_hard: "我們正努力使 Diaspora pod 和應用程式能輕鬆連結. 在這段期間, 請用複製後貼上這兩個欄位來讓你的 Diaspora 帳號與 Cubbi.es 連結."
       what_is_cubbies: "Cubbi.es 是世界上第一個 Diaspora 應用程式. 它也是收集線上照片的最佳方式."
-      your_diaspora_handle: "Diaspora handle:"
-      your_diaspora_token: "Diaspora token:"
   undo: "復原?"
   username: "用戶名稱"
   users: 

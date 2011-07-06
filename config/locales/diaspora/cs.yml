@@ -6,7 +6,7 @@
 cs: 
   _applications: "Aplikace"
   _comments: "Komentáře"
-  _contacts: "Contacts"
+  _contacts: "Kontakty"
   _home: "Doma"
   _photos: "fotky"
   _services: "Služby"
@@ -63,11 +63,11 @@ cs:
     aspect_contacts: 
       done_editing: "ukončit úpravy"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Přidat aspekt"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
+      commented_on: "komentoval"
+      posted: "publikováno"
+      recently: "v poslední době:"
       stream: "Stream"
     contacts_not_visible: "Kontakty v tomto aspektu se nebudou schopni vidět mezi sebou."
     contacts_visible: "Kontakty v tomto aspektu se budou moci vidět mezi sebou."
@@ -99,14 +99,18 @@ cs:
         heading: "Připojit se na Cubbi.es"
         learn_more: "Dozvědět se více"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_1: "Vaše Diaspora ID je:"
+        content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
         heading: "Diaspora ID"
-      handle_explanation: "Toto je váš Diaspora identifikátor. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
+      handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       no_contacts: "Žádné kontakty"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
-      your_aspects: "Your Aspects"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
+      your_aspects: "Vaše aspekty"
     many: "%{count} aspektů"
     move_contact: 
       error: "Chyba při přesunu kontaktu: %{inspect}"
@@ -116,17 +120,17 @@ cs:
       create: "Vytvořit"
       name: "Název"
     no_posts_message: 
-      start_talking: "Zatím žádný příspěvek. Začněte konverzaci!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      start_talking: "Nikdo zatím ještě nic nesdělil!"
+      try_adding_some_more_contacts: "Zkuste přidat další kontakty."
     one: "1 aspekt"
     other: "%{count} aspektů"
     seed: 
       family: "Rodina"
       work: "Práce"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Spravovat vaše aspekty."
+      no_contacts: "Nemáte zde dosud žádné kontakty."
+      view_all_contacts: "Zobrazit všechny kontakty"
     show: 
       edit_aspect: "upravit aspekt"
     update: 
@@ -140,7 +144,7 @@ cs:
   bookmarklet: 
     explanation: "Příspěvek na Diasporu odkudkoliv pomocí %{link}."
     explanation_link_text: "tohoto odkazu"
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet"
     post_something: "Poslat něco na Diasporu"
     post_success: "Odesláno! Zavírám!"
   cancel: "Zrušit"
@@ -160,12 +164,12 @@ cs:
     index: 
       add_a_new_aspect: "Přidat nový aspekt"
       all_contacts: "Všechny kontakty"
-      edit_aspect: "Edit %{name}"
+      edit_aspect: "Upravit %{name}"
       my_contacts: "Moje kontakty"
       no_contacts: "Žádné kontakty."
       only_sharing_with_me: "Pouze sdílení se mnou"
       remove_person_from_aspect: "Odstranit %{person_name} z \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "Zahájit konverzaci"
       title: "Kontakty"
       your_contacts: "Vaše kontakty"
     many: "%{count} kontaktů"
@@ -185,7 +189,7 @@ cs:
         many: "%{count} nových zpráv"
         one: "1 nová zpráva"
         other: "%{count} nových zpráv"
-        zero: "žádné nové zprávy"
+        zero: "Žádné nové zprávy"
     index: 
       create_a_new_message: "vytvořit novou zprávu"
       inbox: "Doručená pošta"
@@ -194,6 +198,7 @@ cs:
       no_conversation_selected: "není výbrána žádná konverzace"
       no_messages: "žádné zprávy"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Poslat"
       subject: "předmět"
       to: "pro"
@@ -212,7 +217,7 @@ cs:
       correct_the_following_errors_and_try_again: "Opravte následující chyby a zkuste to znovu."
       invalid_fields: "Neplatná pole"
   fill_me_out: "Vyplňte"
-  find_people: "Find people"
+  find_people: "Najít lidi"
   hide: "Skrýt"
   home: 
     show: 
@@ -267,6 +272,7 @@ cs:
       logout: "odhlásit"
       profile: "profil"
       settings: "nastavení"
+      view_all: "Zobrazit všechno"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ cs:
         one: "1 osobě se to líbí"
         other: "%{count} lidem se to líbí"
         zero: "žádná kladná hodnocení"
+  limited: "Limited"
   more: "Více"
   next: "další"
   no_results: "Nebyly nalezeny žádné výsledky"
@@ -309,7 +316,7 @@ cs:
         many: "%{count} nových oznámení"
         one: "1 nové oznámení"
         other: "%{count} nových oznámení"
-        zero: "žádná nová oznámení"
+        zero: "Žádná nová oznámení"
     index: 
       and: "a"
       and_others: 
@@ -507,6 +514,7 @@ cs:
     update: 
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
+  public: "Public"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 
@@ -569,6 +577,7 @@ cs:
       disconnect: "odpojit"
       edit_services: "Upravit služby"
       logged_in_as: "přihlášen jako"
+      no_services: "You have not connected any services yet."
       really_disconnect: "odpojit %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klikněte na tento odkaz, pokud chcete přijmout pozvání"
@@ -580,8 +589,8 @@ cs:
   shared: 
     add_contact: 
       add_new_contact: "Přidat nový kontakt"
-      create_request: "Hledat podle Diaspora identifikátoru"
-      diaspora_handle: "diaspora@handle.org"
+      create_request: "Hledat podle Diaspora ID"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Zadejte uživatelské jméno na Diaspoře:"
       know_email: "Znáte jejich emailové adresy? Můžete je pozvat"
       your_diaspora_username_is: "Vaše uživatelské jméno na Diaspoře: %{diaspora_handle}"
@@ -610,7 +619,7 @@ cs:
       all: "všechny"
       all_contacts: "všechny kontakty"
       click_to_share_with: "Klikněte pro sdílení s:"
-      discard_post: "Discard post"
+      discard_post: "Zahodit příspěvek"
       make_public: "vytvořit veřejnou"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
@@ -618,15 +627,17 @@ cs:
       publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"
-      upload_photos: "Upload photos"
-      whats_on_your_mind: "co máte na mysli?"
+      upload_photos: "Nahrát fotografie"
+      whats_on_your_mind: "Co máte na mysli?"
     reshare: 
       reshare: "Sdílet jinam"
     stream_element: 
       dislike: "to se mi nelíbí"
       like: "to se mi líbí"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "to se mi už nelíbí"
       via: "skrz %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"
@@ -647,30 +658,36 @@ cs:
       other: "vaše stavové zprávy musí mít méně než %{count} znaků"
       zero: "vaše stavové zprávy musí mít méně než %{count} znaků"
   stream_helper: 
-    hide_comments: "skrýt komentáře"
-    show_more_comments: "Show %{number} more comments"
+    hide_comments: "Skrýt všechny komentáře"
+    show_more_comments: "Zobrazit %{number} dalších komentářů"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
       people_tagged_with: "Lidé označeni %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
-  the_world: "svět"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Připojit na Cubbi.es"
       connecting_is_simple: "Připojení účtu na Diaspoře je tak jednoduché, jak vyplňovat dvě pole na vaší stránce účtu Cubbi.es."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Vytvořit token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Rádi bychom, aby jste to vyzkoušeli."
       making_the_connection: "Vytvoření spojení"
       screenshot_explanation: "%{link1}. Tato konkrétní cubby je připojena na %{link2}."
       sign_up_today: "Registrujte se ještě dnes!"
       typical_userpage: "Typická uživatelská stránka na cubbi.es"
       via: "(přes %{link})"
-      were_working_hard: "Usilovně pracujeme na dosažení snadného spojení mezi pody Diaspory a aplikacemi. Do té doby, spojení vašeho účtu na Diaspoře s Cubbi.es znamená kopírování a vkládání dvou polí."
       what_is_cubbies: "Cubbi.es je celosvětově první aplikace Diaspory. Je to také nejlepší způsob, jak shromáždit fotografie online."
-      your_diaspora_handle: "Vaše indentifikace na Diaspoře:"
-      your_diaspora_token: "Váš token na Diaspoře:"
   undo: "Vrátit?"
   username: "Uživatelské jméno"
   users: 
@@ -694,7 +711,7 @@ cs:
       receive_email_notifications: "Přijímat oznámení emailem když..."
       started_sharing: "...někdo začne sdílet s vámi?"
       your_email: "Váš email"
-      your_handle: "Vaše identifikace na Diaspoře"
+      your_handle: "Vaše Diaspora ID"
     getting_started: 
       connect_on_diaspora: "Připojit na Diaspoře"
       connect_services: "Připojit vaše další služby"

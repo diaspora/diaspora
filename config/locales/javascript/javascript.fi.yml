@@ -14,17 +14,17 @@ fi:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     comments: 
-      hide: "hide comments"
-      show: "show all comments"
+      hide: "piilota kommentit"
+      show: "näytä kaikki kommentit"
     confirm_dialog: "Oletko varma?"
-    failed_to_like: "Failed to like!"
-    failed_to_post_message: "Failed to post message!"
+    failed_to_like: "Tykkääminen epäonnistui!"
+    failed_to_post_message: "Viestin lähetys epäonnistui!"
     infinite_scroll: 
       no_more: "Ei enempää viestejä."
     publisher: 
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
     search_for: "Etsi nimellä {{name}}"
-    show_more: "show more"
+    show_more: "näytä lisää"
     timeago: 
       day: "päivä"
       days: "%d päivää"

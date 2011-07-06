@@ -106,6 +106,10 @@ en_shaw:
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     move_contact: 
@@ -194,6 +198,7 @@ en_shaw:
       no_conversation_selected: "𐑯𐑴 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑤𐑧𐑒𐑑𐑩𐑛"
       no_messages: "𐑯𐑴 𐑥𐑧𐑕𐑩𐑡𐑩𐑟"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "𐑕𐑧𐑯𐑛"
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
@@ -267,6 +272,7 @@ en_shaw:
       logout: "𐑤𐑪𐑜 𐑬𐑑"
       profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
       settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ en_shaw:
         one: "%{count} 𐑤𐑲𐑒"
         other: "%{count} 𐑤𐑲𐑒𐑕"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
+  limited: "Limited"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
   no_results: "𐑯𐑴 𐑮𐑦𐑟𐑫𐑤𐑑𐑕 𐑓𐑬𐑯𐑛"
@@ -507,6 +514,7 @@ en_shaw:
     update: 
       failed: "𐑓𐑱𐑤𐑛 𐑑 𐑳𐑐𐑛𐑱𐑑 𐑐𐑮𐑴𐑓𐑲𐑤"
       updated: "𐑐𐑮𐑴𐑓𐑲𐑤 𐑳𐑐𐑛𐑱𐑑𐑩𐑛"
+  public: "Public"
   registrations: 
     closed: "𐑕𐑲𐑯𐑩𐑐𐑕 𐑸 𐑒𐑤𐑴𐑟𐑛 𐑪𐑯 𐑞𐑦𐑕 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛."
     create: 
@@ -569,6 +577,7 @@ en_shaw:
       disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑"
       edit_services: "𐑧𐑛𐑦𐑑 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
       logged_in_as: "𐑤𐑪𐑜𐑛 𐑦𐑯 𐑨𐑟"
+      no_services: "You have not connected any services yet."
       really_disconnect: "𐑛𐑦𐑕𐑒𐑩𐑯𐑧𐑒𐑑 %{service}?"
     inviter: 
       click_link_to_accept_invitation: "𐑒𐑤𐑦𐑒 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒 𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑿𐑼 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯"
@@ -625,8 +634,10 @@ en_shaw:
     stream_element: 
       dislike: "𐑛𐑦𐑕𐑤𐑲𐑒"
       like: "𐑤𐑲𐑒"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "𐑩𐑯𐑤𐑲𐑒"
       via: "𐑝𐑾 %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑥𐑧𐑯𐑖𐑩𐑯𐑛: %{names}"
@@ -649,28 +660,34 @@ en_shaw:
   stream_helper: 
     hide_comments: "𐑣𐑲𐑛 𐑒𐑪𐑥𐑩𐑯𐑑𐑕"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑦𐑟 𐑑𐑷𐑒𐑦𐑙 𐑩𐑚𐑬𐑑 %{tag} 𐑘𐑧𐑑."
       people_tagged_with: "𐑐𐑰𐑐𐑩𐑤 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 %{tag}"
       posts_tagged_with: "𐑐𐑴𐑕𐑑𐑕 𐑑𐑨𐑜𐑛 𐑢𐑦𐑞 #%{tag}"
-  the_world: "𐑞 𐑢𐑻𐑤𐑛"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Cubbi.es"
       connecting_is_simple: "𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑦𐑟 𐑨𐑟 𐑕𐑦𐑥𐑐𐑩𐑤 𐑨𐑟 𐑓𐑦𐑤𐑦𐑙 𐑬𐑑 𐑑𐑵 𐑓𐑰𐑤𐑛𐑟 𐑪𐑯 𐑿𐑼 Cubbi.es 𐑩𐑒𐑬𐑯𐑑 𐑐𐑱𐑡."
       daniels_account: "·𐑛𐑨𐑯𐑘𐑩𐑤𐑟 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑"
-      generate_a_token: "𐑡𐑧𐑯𐑼𐑱𐑑 𐑩 𐑑𐑴𐑒𐑩𐑯"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "𐑢𐑰'𐑛 𐑤𐑳𐑝 𐑓𐑹 𐑿 𐑑 𐑑𐑮𐑲 𐑦𐑑 𐑬𐑑."
       making_the_connection: "𐑥𐑱𐑒𐑦𐑙 𐑞 𐑒𐑩𐑯𐑧𐑒𐑖𐑩𐑯"
       screenshot_explanation: "%{link1}.  𐑞𐑦𐑕 𐑐𐑼𐑑𐑦𐑒𐑿𐑤𐑼 𐑒𐑩𐑚𐑦 𐑦𐑟 𐑤𐑦𐑙𐑒𐑑 𐑑 %{link2}."
       sign_up_today: "𐑕𐑲𐑯 𐑳𐑐 𐑑𐑩𐑛𐑱!"
       typical_userpage: "𐑩 𐑑𐑦𐑐𐑦𐑒𐑩𐑤 cubbi.es 𐑿𐑟𐑼𐑐𐑱𐑡"
       via: "(𐑝𐑾 %{link})"
-      were_working_hard: "𐑢𐑺 𐑢𐑻𐑒𐑦𐑙 𐑣𐑸𐑛 𐑪𐑯 𐑛𐑦𐑤𐑦𐑝𐑼𐑦𐑙 𐑰𐑟𐑦 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑝𐑦𐑑𐑦 𐑚𐑦𐑑𐑢𐑰𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑐𐑪𐑛𐑟 𐑯 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯𐑟.  𐑦𐑯 𐑞 𐑥𐑰𐑯𐑑𐑲𐑥, 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑 𐑢𐑦𐑞 Cubbi.es 𐑥𐑰𐑯𐑟 𐑒𐑪𐑐𐑦𐑦𐑙 𐑯 𐑐𐑱𐑕𐑑𐑦𐑙 𐑑𐑵 𐑓𐑰𐑤𐑛𐑟."
       what_is_cubbies: "Cubbi.es 𐑦𐑟 𐑞 𐑢𐑻𐑤𐑛𐑟 𐑓𐑻𐑕𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑐𐑤𐑦𐑒𐑱𐑖𐑩𐑯.  𐑦𐑑𐑕 𐑷𐑤𐑕𐑴 𐑞 𐑚𐑧𐑕𐑑 𐑢𐑱 𐑑 𐑒𐑩𐑤𐑧𐑒𐑑 𐑓𐑴𐑑𐑴𐑟 𐑪𐑯𐑤𐑲𐑯."
-      your_diaspora_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑣𐑨𐑯𐑛𐑩𐑤:"
-      your_diaspora_token: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑑𐑴𐑒𐑩𐑯:"
   undo: "𐑩𐑯𐑛𐑵?"
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 

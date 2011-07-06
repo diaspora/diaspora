@@ -106,6 +106,10 @@ bg:
       no_contacts: "Няма контакти"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact: 
@@ -135,7 +139,7 @@ bg:
     zero: "няма аспекти"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Прекратяване на достъпа"
   back: "Назад"
   bookmarklet: 
     explanation: "Публикувайте в Diaspora от където и да е, запаметявайки %{link} като отметка."
@@ -194,6 +198,7 @@ bg:
       no_conversation_selected: "няма избран разговор"
       no_messages: "няма съобщения"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Изпращане"
       subject: "тема"
       to: "до"
@@ -267,6 +272,7 @@ bg:
       logout: "отписване"
       profile: "профил"
       settings: "настройки"
+      view_all: "Показване на всички"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ bg:
         one: "харесана %{count} път"
         other: "харесана %{count} пъти"
         zero: "не е харесана"
+  limited: "Limited"
   more: "Още"
   next: "следваща"
   no_results: "Няма намерени резултати"
@@ -507,6 +514,7 @@ bg:
     update: 
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
+  public: "Public"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -567,8 +575,9 @@ bg:
       connect_to_tumblr: "Свързване с tumblr"
       connect_to_twitter: "Свързване с twitter"
       disconnect: "изключване"
-      edit_services: "Редактиране на услугите"
+      edit_services: "Редактиране на услуги"
       logged_in_as: "вписани сте като"
+      no_services: "You have not connected any services yet."
       really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
     inviter: 
       click_link_to_accept_invitation: "Кликнете върху връзката, за да приемете поканата"
@@ -610,7 +619,7 @@ bg:
       all: "всички"
       all_contacts: "всички контакти"
       click_to_share_with: "Кликнете, за да споделите: "
-      discard_post: "Discard post"
+      discard_post: "Отхвърляне на публикацията"
       make_public: "направете публично"
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
       posting: "Публикуване..."
@@ -625,8 +634,10 @@ bg:
     stream_element: 
       dislike: "Не ми харесва"
       like: "Харесва ми"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Не ми харесва"
       via: "чрез %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Споменахте успешно: %{names}"
@@ -649,28 +660,34 @@ bg:
   stream_helper: 
     hide_comments: "Скриване на коментарите"
     show_more_comments: "Показване на още %{number} коментара"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       people_tagged_with: "Хора маркирани с %{tag}"
       posts_tagged_with: "Публикации с марка #%{tag}"
-  the_world: "светът"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Свързване с Cubbi.es"
       connecting_is_simple: "За свързване на акаунта ви в Diaspora е необходимо да попълните две полета в Cubbi.es."
       daniels_account: "акаунтът на Daniel в Diaspora"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Бихме се радвали ако пробвате!"
       making_the_connection: "Създаване на връзката"
       screenshot_explanation: "%{link1}.  Тази cubby страница е свързана с %{link2}."
       sign_up_today: "Регистрирайте се днес!"
       typical_userpage: "Типична потребителска страница от cubbi.es"
       via: "(чрез %{link})"
-      were_working_hard: "Работим усилено за създаването на лесен начин за свързване на Diaspora pods и приложения.  Междувременно свързването на акаунта ви в Diaspora с Cubbi.es става само с копиране и поставяне на две полета."
       what_is_cubbies: "Cubbi.es е първото приложение за Diaspora.  Също така е и най-добият назчин за събиране на изображения online."
-      your_diaspora_handle: "Вашият адрес в Diaspora:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Отмяна?"
   username: "Потребителско име"
   users: 

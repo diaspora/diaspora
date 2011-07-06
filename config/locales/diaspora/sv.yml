@@ -106,6 +106,10 @@ sv:
       no_contacts: "Inga kontakter"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} aspekter"
     move_contact: 
@@ -194,6 +198,7 @@ sv:
       no_conversation_selected: "ingen konversation vald"
       no_messages: "inga meddelanden"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Skicka"
       subject: "ämne"
       to: "till"
@@ -267,6 +272,7 @@ sv:
       logout: "Logga ut"
       profile: "profil"
       settings: "Inställningar"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ sv:
         one: "1 person gillar det här"
         other: "%{count} personer gillar det här"
         zero: "inga personer gillar det här"
+  limited: "Limited"
   more: "Mer"
   next: "nästa"
   no_results: "Inga Resultat Funna"
@@ -507,6 +514,7 @@ sv:
     update: 
       failed: "Misslyckades att uppdatera profil"
       updated: "Profilen uppdaterades"
+  public: "Public"
   registrations: 
     closed: "Registreringsformuläret är stäng på den här poden."
     create: 
@@ -569,6 +577,7 @@ sv:
       disconnect: "koppla från"
       edit_services: "Anslutna tjänster"
       logged_in_as: "inloggad som"
+      no_services: "You have not connected any services yet."
       really_disconnect: "koppla från %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klicka på den här länken för att acceptera din inbjudan"
@@ -625,8 +634,10 @@ sv:
     stream_element: 
       dislike: "Jag ogillar det här"
       like: "Jag gillar det här"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Sluta gilla"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Lyckades omnämna: %{names}"
@@ -649,28 +660,34 @@ sv:
   stream_helper: 
     hide_comments: "dölj kommentarer"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Ingen talar om %{tag} än."
       people_tagged_with: "Personer taggade med %{tag}"
       posts_tagged_with: "Poster taggade med #%{tag}"
-  the_world: "världen"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Ångra?"
   username: "Användarnamn"
   users: 

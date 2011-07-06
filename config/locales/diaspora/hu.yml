@@ -106,6 +106,10 @@ hu:
       no_contacts: "Nincs ismerős"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "üzenet küldése >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} csoport"
     move_contact: 
@@ -194,6 +198,7 @@ hu:
       no_conversation_selected: "nincs beszélgetés kiválasztva"
       no_messages: "nincs üzenet"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Küldés"
       subject: "tárgy"
       to: "címzett"
@@ -267,6 +272,7 @@ hu:
       logout: "kijelentkezés"
       profile: "profil"
       settings: "beállítások"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ hu:
         one: "1 személy kedveli"
         other: "%{count} személy kedveli"
         zero: "senki nem kedveli"
+  limited: "Limited"
   more: "Bővebben"
   next: "következő"
   no_results: "Nincs eredmény"
@@ -507,6 +514,7 @@ hu:
     update: 
       failed: "Profil frissítése sikertelen"
       updated: "Profil frissítve"
+  public: "Public"
   registrations: 
     closed: "A regisztráció zárva ezen a Diaspora kiszolgálón."
     create: 
@@ -569,6 +577,7 @@ hu:
       disconnect: "Megszakít"
       edit_services: "Szolgáltatások szerkesztése"
       logged_in_as: "Bejelentkezve, mint"
+      no_services: "You have not connected any services yet."
       really_disconnect: "Megszakítod a kapcsolatot ezzel: %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Kattints a linkre, hogy elfogadd a meghívást."
@@ -625,8 +634,10 @@ hu:
     stream_element: 
       dislike: "Nem tetszik"
       like: "Tetszik"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Megemlítetted: %{names}"
@@ -649,28 +660,34 @@ hu:
   stream_helper: 
     hide_comments: "hozzászólások elrejtése"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Senki nem beszélt még erről: %{tag}."
       people_tagged_with: "Személy felcímkézve: %{tag}"
       posts_tagged_with: "Bejegyzések felcímkézve: #%{tag}"
-  the_world: "a világ"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Visszavonod?"
   username: "Felhasználónév"
   users: 

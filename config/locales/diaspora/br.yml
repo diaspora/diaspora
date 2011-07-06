@@ -106,6 +106,10 @@ br:
       no_contacts: "Darempred ebet"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} arvez"
     move_contact: 
@@ -194,6 +198,7 @@ br:
       no_conversation_selected: "no conversation selected"
       no_messages: "kemennadenn ebet"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Kaset"
       subject: "sujed"
       to: "da"
@@ -267,6 +272,7 @@ br:
       logout: "mont kuit"
       profile: "patrom"
       settings: "dibaboù"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ br:
         one: "1 den zo bet plijet ganti"
         other: "%{count} den zo bet plijet ganti"
         zero: "den ebet zo bet plijet ganti"
+  limited: "Limited"
   more: "Muioc'h"
   next: "next"
   no_results: "Disoc'h Ebet"
@@ -507,6 +514,7 @@ br:
     update: 
       failed: "Failed to update profile"
       updated: "Profile updated"
+  public: "Public"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -569,6 +577,7 @@ br:
       disconnect: "disconnect"
       edit_services: "Edit services"
       logged_in_as: "logged in as"
+      no_services: "You have not connected any services yet."
       really_disconnect: "disconnect %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Click this link to accept your invitation"
@@ -625,8 +634,10 @@ br:
     stream_element: 
       dislike: "Ne blij ket din"
       like: "Plij' ra din"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Successfully mentioned: %{names}"
@@ -649,28 +660,34 @@ br:
   stream_helper: 
     hide_comments: "kuzhaat an embannoù"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Den ebet zo o kaozeal diwar-benn %{tag} c'hoazh."
       people_tagged_with: "Tud bet merket gant %{tag}"
       posts_tagged_with: "Skridoù bet merket gant #%{tag}"
-  the_world: "ar bed"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Mont war-gil?"
   username: "Anv-implijer"
   users: 

@@ -106,6 +106,10 @@ da:
       no_contacts: "Ingen kontakter"
       people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "post en besked >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} aspekter"
     move_contact: 
@@ -194,6 +198,7 @@ da:
       no_conversation_selected: "ingen samtale valgt"
       no_messages: "ingen beskeder"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Send"
       subject: "emne"
       to: "til"
@@ -267,6 +272,7 @@ da:
       logout: "Log ud"
       profile: "profil"
       settings: "indstillinger"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ da:
         one: "1 person kunne lide det"
         other: "%{count} personer kunne lide det"
         zero: "ingen personer kunne lide det"
+  limited: "Limited"
   more: "Mere"
   next: "Næste"
   no_results: "Ingen resultater fundet"
@@ -507,6 +514,7 @@ da:
     update: 
       failed: "Kunne ikke opdatere profil"
       updated: "Profil opdateret"
+  public: "Public"
   registrations: 
     closed: "Der er lukket for tilmeldinger på dette Diaspora server."
     create: 
@@ -569,6 +577,7 @@ da:
       disconnect: "afbryd"
       edit_services: "Redigér tjenester"
       logged_in_as: "log ind som"
+      no_services: "You have not connected any services yet."
       really_disconnect: "afbryd %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klik på dette link for at acceptere din invitation"
@@ -625,8 +634,10 @@ da:
     stream_element: 
       dislike: "Jeg kan ikke lide det"
       like: "Jeg kan lide det"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Synes ikke godt om"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "%{names} nævnet med succes"
@@ -649,28 +660,34 @@ da:
   stream_helper: 
     hide_comments: "Skjul kommentarer"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Ingen har talt om %{tag} endnu."
       people_tagged_with: "Personer tagged med %{tag}"
       posts_tagged_with: "Poster tagged med #%{tag}"
-  the_world: "Verden"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "Fortryd?"
   username: "Brugernavn"
   users: 

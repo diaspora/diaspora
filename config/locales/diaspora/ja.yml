@@ -106,6 +106,10 @@ ja:
       no_contacts: "連絡先無し"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "投稿する"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "アスペクト%{count}集"
     move_contact: 
@@ -194,6 +198,7 @@ ja:
       no_conversation_selected: "選択中の会話がありません"
       no_messages: "メッセージがありません"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "送信する"
       subject: "件名"
       to: "宛先"
@@ -267,6 +272,7 @@ ja:
       logout: "ログアウト"
       profile: "プロフィール"
       settings: "設定"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ ja:
         one: "これが好きな人：1人"
         other: "これが好きな人：%{count}人"
         zero: "これが好きな人：0人"
+  limited: "Limited"
   more: "続き"
   next: "次へ"
   no_results: "詮索結果はありません"
@@ -507,6 +514,7 @@ ja:
     update: 
       failed: "プロフィール更新に失敗しました"
       updated: "プロフィールを更新しました"
+  public: "Public"
   registrations: 
     closed: "このダイアスポラ＊ポッドでは新規登録を受け付けていません。"
     create: 
@@ -569,6 +577,7 @@ ja:
       disconnect: "切断"
       edit_services: "サービスを編集する"
       logged_in_as: "ログイン済みユーザ名："
+      no_services: "You have not connected any services yet."
       really_disconnect: "%{service}から切断しますか。"
     inviter: 
       click_link_to_accept_invitation: "招待を承諾するにはこのリンクにクリックしてください。"
@@ -625,8 +634,10 @@ ja:
     stream_element: 
       dislike: "これ嫌い！"
       like: "これ好き！"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Unlike"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "%{names}を参照するのに成功しました。"
@@ -649,28 +660,34 @@ ja:
   stream_helper: 
     hide_comments: "コメントを非表示にする"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "%{tag}についての投稿はまだありません。"
       people_tagged_with: "%{tag}とタグ付けられている人々"
       posts_tagged_with: "#%{tag}とタグ付けられている投稿"
-  the_world: "全世界"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connect to Cubbi.es"
       connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Generate a token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We'd love for you to try it out."
       making_the_connection: "Making the Connection"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       sign_up_today: "Sign up today!"
       typical_userpage: "A typical cubbi.es userpage"
       via: "(via %{link})"
-      were_working_hard: "We're working hard on delivering easy connectivity between Diaspora pods and applications.  In the meantime, connecting you Diaspora account with Cubbi.es means copying and pasting two fields."
       what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      your_diaspora_handle: "Your Diaspora Handle:"
-      your_diaspora_token: "Your Diaspora Token:"
   undo: "元に戻す"
   username: "ユーザ名"
   users: 

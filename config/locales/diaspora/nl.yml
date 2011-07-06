@@ -6,7 +6,7 @@
 nl: 
   _applications: "Applicaties"
   _comments: "Reacties"
-  _contacts: "Contacts"
+  _contacts: "Contacten"
   _home: "Home"
   _photos: "foto's"
   _services: "Services"
@@ -63,11 +63,11 @@ nl:
     aspect_contacts: 
       done_editing: "klaar met bewerken"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Voeg aspect toe"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
+      commented_on: "op gereageerd"
+      posted: "geplaatst"
+      recently: "laatst:"
       stream: "Stream"
     contacts_not_visible: "Contacten in dit aspect zullen elkaar niet kunnen zien."
     contacts_visible: "Contacten in dit aspect zullen elkaar kunnen zien."
@@ -99,14 +99,18 @@ nl:
         heading: "Verbind met Cubbie.es"
         learn_more: "Vertel mij meer"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_1: "Jou Diaspora ID is:"
+        content_2: "Geef deze aan mensen zodat ze je op Diaspora kunnen vinden."
         heading: "Diaspora ID"
-      handle_explanation: "Dit is jouw Diaspora handle. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
+      handle_explanation: "Dit is jouw Diaspora id. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
-      your_aspects: "Your Aspects"
+      services: 
+        content: "Je kunt de volgende service met Diaspora verbinden:"
+        heading: "Verbind Services"
+      tags_following: "Gevolgde Tags"
+      your_aspects: "Jou aspecten"
     many: "%{count} aspecten"
     move_contact: 
       error: "Probleem bij het verplaatsen van contact: %{inspect}"
@@ -116,17 +120,17 @@ nl:
       create: "Aanmaken"
       name: "Naam"
     no_posts_message: 
-      start_talking: "Nog niemand heeft iets gezegd. Breng het gesprek op gang!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      start_talking: "Nog niemand heeft iets gezegd!"
+      try_adding_some_more_contacts: "Voeg wat meer contacten toe."
     one: "1 aspect"
     other: "%{count} aspecten"
     seed: 
       family: "Familie"
       work: "Werk"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Beheer je aspecten."
+      no_contacts: "Je hebt hier momenteel nog geen contacten."
+      view_all_contacts: "Bekijk alle contacten"
     show: 
       edit_aspect: "bewerk aspect"
     update: 
@@ -140,7 +144,7 @@ nl:
   bookmarklet: 
     explanation: "Post vanaf overal naar Diaspora door %{link} op te slaan."
     explanation_link_text: "deze link"
-    heading: "Diaspora Bookmarklet"
+    heading: "Bookmarklet"
     post_something: "Post iets naar Diaspora"
     post_success: "Gepost!"
   cancel: "Annuleren"
@@ -160,12 +164,12 @@ nl:
     index: 
       add_a_new_aspect: "Voeg een aspect toe"
       all_contacts: "Alle Contacten"
-      edit_aspect: "Edit %{name}"
+      edit_aspect: "Bewerk %{name}"
       my_contacts: "Mijn Contacten"
       no_contacts: "Geen contacten."
       only_sharing_with_me: "Delen alleen met mij"
       remove_person_from_aspect: "Verwijder %{person_name} uit \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "Start een conversatie"
       title: "Contacten"
       your_contacts: "Jouw Contacten"
     many: "%{count} contacten"
@@ -185,7 +189,7 @@ nl:
         many: "%{count} nieuwe berichten"
         one: "1 nieuw bericht"
         other: "%{count} nieuwe berichten"
-        zero: "geen nieuwe berichten"
+        zero: "Geen nieuwe berichten"
     index: 
       create_a_new_message: "maak een nieuw bericht"
       inbox: "Postvak In"
@@ -194,6 +198,7 @@ nl:
       no_conversation_selected: "geen conversatie geselecteerd"
       no_messages: "geen berichten"
     new: 
+      abandon_changes: "Wijzigingen annuleren?"
       send: "Verstuur"
       subject: "onderwerp"
       to: "aan"
@@ -212,7 +217,7 @@ nl:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
   fill_me_out: "Vul me in!"
-  find_people: "Find people"
+  find_people: "Vind mensen"
   hide: "Verbergen"
   home: 
     show: 
@@ -267,6 +272,7 @@ nl:
       logout: "log uit"
       profile: "profiel"
       settings: "instellingen"
+      view_all: "Bekijk alles"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ nl:
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
         zero: "niemand vindt dit leuk"
+  limited: "Beperkt"
   more: "Meer"
   next: "volgende"
   no_results: "Geen resultaten gevonden"
@@ -309,7 +316,7 @@ nl:
         many: "%{count} nieuwe notificaties"
         one: "1 nieuwe notificatie"
         other: "%{count} nieuwe notificaties"
-        zero: "geen nieuwe notificaties"
+        zero: "Geen nieuwe notificaties"
     index: 
       and: "en"
       and_others: 
@@ -507,6 +514,7 @@ nl:
     update: 
       failed: "Profiel bijwerken mislukt"
       updated: "Profiel bijgewerkt"
+  public: "Openbaar"
   registrations: 
     closed: "Registratie is gesloten op deze Diaspora pod."
     create: 
@@ -569,6 +577,7 @@ nl:
       disconnect: "koppel los"
       edit_services: "Bewerk services"
       logged_in_as: "ingelogd als"
+      no_services: "Je hebt nog geen services verbonden."
       really_disconnect: "verbreek verbinding met %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klik op deze link om de uitnodiging te accepteren"
@@ -580,7 +589,7 @@ nl:
   shared: 
     add_contact: 
       add_new_contact: "Voeg een contact toe"
-      create_request: "Vind door middel van Diaspora handle"
+      create_request: "Vind door middel van Diaspora ID"
       diaspora_handle: "gebruikersnaam@pod.org"
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
       know_email: "Weet je hun e-mailadres? Je zou ze uit moeten nodigen"
@@ -610,7 +619,7 @@ nl:
       all: "al"
       all_contacts: "alle contacten"
       click_to_share_with: "Klik om te delen met: "
-      discard_post: "Discard post"
+      discard_post: "Maak veld leeg"
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
@@ -618,15 +627,17 @@ nl:
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"
-      upload_photos: "Upload photos"
-      whats_on_your_mind: "waar denk je aan?"
+      upload_photos: "Upload fotos"
+      whats_on_your_mind: "Waar denk je aan?"
     reshare: 
       reshare: "Herdeel"
     stream_element: 
       dislike: "Vind ik niet meer leuk"
       like: "Vind ik leuk"
+      shared_with: "Gedeeld met: %{aspect_names}"
       unlike: "vind ik niet meer leuk"
       via: "via %{link}"
+      viewable_to_anyone: "Deze post is zichtbaar voor iedereen op het internet"
   status_messages: 
     create: 
       success: "Succesvol genoemd: %{names}"
@@ -647,30 +658,36 @@ nl:
       other: "statusberichten mogen niet langer zijn dan %{count} tekens"
       zero: "statusberichten mogen niet langer zijn dan %{count} tekens"
   stream_helper: 
-    hide_comments: "verberg reacties"
-    show_more_comments: "Show %{number} more comments"
+    hide_comments: "Verberg alle reacties"
+    show_more_comments: "Toon %{number} meer reacties"
+  tag_followings: 
+    create: 
+      failure: "Volgen mislukt: #%{name}"
+      success: "Volgen succesvol: #%{name}"
+    destroy: 
+      failure: "Stoppen met volgen mislukt: #%{name}"
+      success: "Succesvol gestopt met volgen: #%{name}"
   tags: 
     show: 
+      follow: "Volg #%{tag}"
+      following: "Volgt #%{tag}"
       nobody_talking: "Nog niemand heeft het over %{tag}."
       people_tagged_with: "Personen gemerkt met %{tag}"
       posts_tagged_with: "Berichten gemerkt met #%{tag}"
-  the_world: "de wereld"
+      stop_following: "Stop met volgende van #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Verbind met Cubbi.es"
       connecting_is_simple: "Voor het koppelen van je Diaspora account vul je slechts twee velden in op je Cubbi.es account pagina."
       daniels_account: "Daniel's Diaspora account"
-      generate_a_token: "Genereer een token"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "We zouden het erg leuk vinden als je het uitprobeert."
       making_the_connection: "Verbindend"
       screenshot_explanation: "%{link1}.  Deze cubby is gelinkt aan %{link2}."
       sign_up_today: "Wordt vandaag lid!"
       typical_userpage: "Een typische cubbi.es gebruikerspagina"
       via: "(via %{link})"
-      were_working_hard: "We zijn hard aan het werk om eenvoudige connectiviteit tussen Diaspora pods en applicaties mogelijk te maken. Ondertussen is het nodig om twee velden te knippen en te plakken als je je Diaspora account met Cubbi.es wilt koppelen."
       what_is_cubbies: "Cubbi.es is de eerste Diaspora applicatie ter wereld. Het is ook de beste manier om foto's online te verzamelen."
-      your_diaspora_handle: "Jouw Diaspora Handle:"
-      your_diaspora_token: "Jouw Diaspora Token:"
   undo: "Ongedaan maken?"
   username: "Gebruikersnaam"
   users: 
@@ -694,7 +711,7 @@ nl:
       receive_email_notifications: "Ontvang e-mail notificaties wanneer..."
       started_sharing: "...iemand met je begint te delen?"
       your_email: "Jouw e-mail"
-      your_handle: "Jouw Diaspora handle"
+      your_handle: "Jouw Diaspora ID"
     getting_started: 
       connect_on_diaspora: "Verbind op Diaspora"
       connect_services: "Verbind met je andere services"

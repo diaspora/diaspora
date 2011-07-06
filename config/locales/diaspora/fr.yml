@@ -63,12 +63,12 @@ fr:
     aspect_contacts: 
       done_editing: "fin de la modification"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Ajouter un aspect"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      commented_on: "a/ont commenté"
+      posted: "publié"
+      recently: "récemment :"
+      stream: "Flux"
     contacts_not_visible: "Les contacts dans cet aspect ne se verront pas les uns les autres."
     contacts_visible: "Les contacts dans cet aspect pourront se voir entre eux."
     create: 
@@ -99,14 +99,18 @@ fr:
         heading: "Connectez-vous à Cubbi.es"
         learn_more: "En savoir plus"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-        heading: "Diaspora ID"
-      handle_explanation: "Ceci est votre handle diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
+        content_1: "Votre identifiant Diaspora est :"
+        content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
+        heading: "Identifiant Diaspora"
+      handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
       people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
-      your_aspects: "Your Aspects"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
+      your_aspects: "Vos aspects"
     many: "%{count} aspects"
     move_contact: 
       error: "Erreur lors du déplacement du contact : %{inspect}"
@@ -116,17 +120,17 @@ fr:
       create: "Créer"
       name: "Nom"
     no_posts_message: 
-      start_talking: "Personne n’a encore rien dit.  Engagez dès à présent la conversation !"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      start_talking: "Personne n’a encore rien dit !"
+      try_adding_some_more_contacts: "Essayez d'ajouter d'autres contacts."
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
       family: "Famille"
       work: "Travail"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Gérer vos aspects."
+      no_contacts: "Vous n'avez encore aucun contact."
+      view_all_contacts: "Afficher tous les contacts"
     show: 
       edit_aspect: "modifier l'aspect"
     update: 
@@ -140,7 +144,7 @@ fr:
   bookmarklet: 
     explanation: "Publier sur Diaspora depuis n'importe où en ajoutant %{link} à vos marque-pages."
     explanation_link_text: "ce lien"
-    heading: "Marque-page Diaspora"
+    heading: "Bookmarklet"
     post_something: "Publier quelque chose sur Diaspora"
     post_success: "Publié ! Fermeture !"
   cancel: "Annuler"
@@ -160,12 +164,12 @@ fr:
     index: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
       all_contacts: "Tous les contacts"
-      edit_aspect: "Edit %{name}"
+      edit_aspect: "Modifier %{name}"
       my_contacts: "Mes Contacts"
       no_contacts: "Pas de contacts."
       only_sharing_with_me: "Partage uniquement avec moi"
       remove_person_from_aspect: "Enlever %{person_name} de \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "Démarrer une conversation"
       title: "Contacts"
       your_contacts: "Vos contacts"
     many: "%{count} contacts"
@@ -185,7 +189,7 @@ fr:
         many: "%{count} nouveaux messages"
         one: "1 nouveau message"
         other: "%{count} nouveaux messages"
-        zero: "aucun nouveau message"
+        zero: "Aucun nouveau message"
     index: 
       create_a_new_message: "créer un nouveau message"
       inbox: "Boîte de réception"
@@ -194,6 +198,7 @@ fr:
       no_conversation_selected: "aucune conversation sélectionnée"
       no_messages: "aucun message"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Envoyer"
       subject: "sujet"
       to: "pour"
@@ -212,7 +217,7 @@ fr:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
   fill_me_out: "Remplissez-moi"
-  find_people: "Find people"
+  find_people: "Rechercher des personnes"
   hide: "Masquer"
   home: 
     show: 
@@ -267,6 +272,7 @@ fr:
       logout: "déconnexion"
       profile: "profil"
       settings: "paramètres"
+      view_all: "Tout afficher"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ fr:
         one: "%{count} personne aime"
         other: "%{count} personnes aiment"
         zero: "Personne n'aime ça"
+  limited: "Limited"
   more: "Plus"
   next: "suivant"
   no_results: "Aucun résultat trouvé"
@@ -301,15 +308,15 @@ fr:
       few: "%{actors} a/ont commenté %{post_link}."
       many: "%{actors} a/ont commenté %{post_link}."
       one: "%{actors} a/ont commenté %{post_link}."
-      other: "%{actors} a commenté sur votre %{post_link}."
-      zero: "%{actors} a commenté sur votre %{post_link}."
+      other: "%{actors} a/ont commenté votre %{post_link}."
+      zero: "%{actors} a/ont commenté votre %{post_link}."
     helper: 
       new_notifications: 
         few: "%{count} nouvelles notifications"
         many: "%{count} nouvelles notifications"
         one: "1 nouvelle notification"
         other: "%{count} nouvelles notifications"
-        zero: "aucune nouvelle notification"
+        zero: "Aucune nouvelle notification"
     index: 
       and: "et"
       and_others: 
@@ -507,6 +514,7 @@ fr:
     update: 
       failed: "Impossible de mettre à jour le profil"
       updated: "Profil mis à jour"
+  public: "Public"
   registrations: 
     closed: "Les inscriptions sont fermées sur ce pod Diaspora."
     create: 
@@ -569,6 +577,7 @@ fr:
       disconnect: "déconnecter"
       edit_services: "Modifier les services"
       logged_in_as: "connecté(e) en tant que"
+      no_services: "You have not connected any services yet."
       really_disconnect: "déconnecter %{service} ?"
     inviter: 
       click_link_to_accept_invitation: "Cliquer sur ce lien pour accepter l'invitation"
@@ -580,8 +589,8 @@ fr:
   shared: 
     add_contact: 
       add_new_contact: "Ajouter un nouveau contact"
-      create_request: "Rechercher par handle Diaspora"
-      diaspora_handle: "diaspora@handle.org"
+      create_request: "Rechercher par identifiant Diaspora"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Entrez un nom d'utilisateur Diaspora :"
       know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
@@ -610,7 +619,7 @@ fr:
       all: "tous"
       all_contacts: "tous les contacts"
       click_to_share_with: "Cliquez pour partager avec : "
-      discard_post: "Discard post"
+      discard_post: "Supprimer la publication"
       make_public: "rendre public"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
@@ -618,15 +627,17 @@ fr:
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"
-      upload_photos: "Upload photos"
+      upload_photos: "Envoyer des photos"
       whats_on_your_mind: "exprimez-vous"
     reshare: 
       reshare: "Repartager"
     stream_element: 
       dislike: "Je n'aime pas"
       like: "J'aime"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Je n'aime pas"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -647,30 +658,36 @@ fr:
       other: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
       zero: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
   stream_helper: 
-    hide_comments: "masquer les commentaires"
-    show_more_comments: "Show %{number} more comments"
+    hide_comments: "Masquer tous les commentaires"
+    show_more_comments: "Afficher %{number} commentaires supplémentaires"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Personne ne parle encore de %{tag}."
       people_tagged_with: "Personnes taguées avec %{tag}"
       posts_tagged_with: "Publications taguées avec #%{tag}"
-  the_world: "tout le monde"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Se connecter à Cubbi.es"
       connecting_is_simple: "La connexion de votre compte Diaspora est assez simple puisqu'il suffit de saisir deux champs sur votre page de compte Cubbi.es."
       daniels_account: "Le compte Diaspora de Daniel"
-      generate_a_token: "Générer un jeton"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Nous aimerions beaucoup que vous essayiez."
       making_the_connection: "Créez la connexion"
       screenshot_explanation: "%{link1}. Cette page cubbi est liée à %{link2}."
       sign_up_today: "Inscrivez-vous dès aujourd'hui !"
       typical_userpage: "Une page d'utilisateur typique sur cubbi.es"
       via: "(via %{link})"
-      were_working_hard: "Nous travaillons dur pour permettre de connecter facilement les pods Diaspora et les applications. En attendant, pour connecter votre compte Diaspora avec Cubbi.es il est nécessaire de copier et coller deux champs."
       what_is_cubbies: "Cubbi.es est la toute première application Diaspora. C'est aussi la meilleure manière de collectionner des photos en ligne."
-      your_diaspora_handle: "Votre handle Diaspora :"
-      your_diaspora_token: "Votre clé Diaspora :"
   undo: "Annuler ?"
   username: "Nom d'utilisateur"
   users: 
@@ -694,7 +711,7 @@ fr:
       receive_email_notifications: "Recevoir des notifications par courrier électronique lorsque…"
       started_sharing: "...quelqu'un commence à partager avec vous ?"
       your_email: "Votre adresse électronique"
-      your_handle: "Votre handle diaspora"
+      your_handle: "Votre identifiant diaspora"
     getting_started: 
       connect_on_diaspora: "Se connecter sur Diaspora"
       connect_services: "Connectez vos autres services"

@@ -37,7 +37,7 @@ es:
       prefixAgo: "hace"
       prefixFromNow: "desde ahora"
       seconds: "menos de un minuto"
-      suffixAgo: "hace"
+      suffixAgo: ""
       suffixFromNow: "desde ahora"
       year: "un año aproximadamente"
       years: "%d años"

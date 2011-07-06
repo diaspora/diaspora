@@ -106,6 +106,10 @@ he:
       no_contacts: "אין אנשי קשר"
       people_sharing_with_you: "אנשים המשתפים אתך"
       post_a_message: "פרסום הודעה >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} היבטים"
     move_contact: 
@@ -194,6 +198,7 @@ he:
       no_conversation_selected: "לא נבחר דיון"
       no_messages: "אין הודעות"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "שליחה"
       subject: "נושא"
       to: "אל"
@@ -267,6 +272,7 @@ he:
       logout: "יציאה"
       profile: "פרופיל"
       settings: "הגדרות"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ he:
         one: "אדם אחד אהב את זה"
         other: "%{count} אנשים אהבו את זה"
         zero: "אף אחד לא אהב את זה"
+  limited: "Limited"
   more: "המשך"
   next: "הבאה"
   no_results: "לא נמצאו תוצאות"
@@ -507,6 +514,7 @@ he:
     update: 
       failed: "אירע כשל בעדכון הפרופיל"
       updated: "הפרופיל עודכן"
+  public: "Public"
   registrations: 
     closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
     create: 
@@ -569,6 +577,7 @@ he:
       disconnect: "ניתוק"
       edit_services: "עריכת שירותים"
       logged_in_as: "נכנסת בשם"
+      no_services: "You have not connected any services yet."
       really_disconnect: "האם לנתק את %{service}?"
     inviter: 
       click_link_to_accept_invitation: "יש ללחוץ על קישור זה כדי לקבל את ההזמנה שלך"
@@ -625,8 +634,10 @@ he:
     stream_element: 
       dislike: "לא אהבתי את זה"
       like: "אהבתי"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "לא אהבתי"
       via: "באמצעות %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "אוזכרו בהצלחה: %{names}"
@@ -649,28 +660,34 @@ he:
   stream_helper: 
     hide_comments: "הסתרת הערות"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "אף אחד עדיין לא דיבר על %{tag}."
       people_tagged_with: "אנשים תויגו ב־%{tag}"
       posts_tagged_with: "אנשים תויגו ב־%{tag}"
-  the_world: "העולם"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "התחברות ל־Cubbi.es"
       connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה של מילוי שני שדות בחשבון ה־Cubbi.es שלך."
       daniels_account: "חשבון הדיאספורה של דניאל"
-      generate_a_token: "יצירת אסימון"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "נשמח אם תנסו זאת."
       making_the_connection: "יצירת הקשר"
       screenshot_explanation: "%{link1}.  ה־cubby המסוים הזה מקושר שלך %{link2}."
       sign_up_today: "הירשמו עוד היום!"
       typical_userpage: "דף משתמש טיפוסי ב־cubbi.es"
       via: "(באמצעות %{link})"
-      were_working_hard: "אנו עמלים קשה כדי להביא לכם תקשורת פשוטה בין הפודים של דיאספורה ומגוון היישומים. לבינתיים, התחברות עם חשבון הדיאספורה שלך ל־Cubbi.es הנה עניין פשוט של העתקה והדבקה של שני שדות."
       what_is_cubbies: "Cubbi.es הנו היישום הראשון לדיאספורה אי פעם. זוהי גם הדרך הטובה ביותר לאסוף תמונות באופן מקוון."
-      your_diaspora_handle: "הכינוי שלך בדיאספורה:"
-      your_diaspora_token: "האסימון שלך בדיאספורה:"
   undo: "האם לבטל?"
   username: "שם משתמש"
   users: 

@@ -106,6 +106,10 @@ de:
       no_contacts: "Keine Kontakte"
       people_sharing_with_you: "Leute die mit dir teilen"
       post_a_message: "schreibe eine Nachricht >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact: 
@@ -194,6 +198,7 @@ de:
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Senden"
       subject: "Betreff"
       to: "An"
@@ -267,6 +272,7 @@ de:
       logout: "Abmelden"
       profile: "Profil"
       settings: "Einstellungen"
+      view_all: "alle anzeigen"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ de:
         one: "1 Person gefällt das"
         other: "%{count} Personen gefällt das"
         zero: "Keinem gefällt das"
+  limited: "Limited"
   more: "Mehr"
   next: "Nächste"
   no_results: "Du musst nach etwas suchen."
@@ -309,7 +316,7 @@ de:
         many: "%{count} neue Benachrichtigungen"
         one: "Eine neue Benachrichtigung"
         other: "%{count} neue Benachrichtigungen"
-        zero: "keine neuen Benachrichtigungen"
+        zero: "Keine neuen Benachrichtigungen"
     index: 
       and: "und"
       and_others: 
@@ -507,6 +514,7 @@ de:
     update: 
       failed: "Fehler beim aktualisieren deines Profils"
       updated: "Profil aktualisiert"
+  public: "Public"
   registrations: 
     closed: "Registrierungen sind auf diesem Pod geschlossen."
     create: 
@@ -569,6 +577,7 @@ de:
       disconnect: "Verbindung entfernen"
       edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
+      no_services: "You have not connected any services yet."
       really_disconnect: "Verbindung mit %{service} entfernen?"
     inviter: 
       click_link_to_accept_invitation: "Öffne diesen Link um die Einladung zu akzeptieren"
@@ -625,8 +634,10 @@ de:
     stream_element: 
       dislike: "Gefällt mir nicht"
       like: "Gefällt mir"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Erfolgreich erwähnt: %{names}"
@@ -649,28 +660,34 @@ de:
   stream_helper: 
     hide_comments: "Kommentare verbergen"
     show_more_comments: "Zeige %{number} weitere Kommentare"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Niemand hat bereits etwas über %{tag} gesagt."
       people_tagged_with: "Personen die mit %{tag} getagt sind"
       posts_tagged_with: "Beiträge die mit #%{tag} getagt sind"
-  the_world: "Die Welt"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Mit Cubbi.es verbinden"
       connecting_is_simple: "Um dein Diaspora Konto zu verbinden, kopiere einfach die zwei Felder in deine Cubbi.es Kontoseite."
       daniels_account: "Daniels Diaspora-Konto"
-      generate_a_token: "Token generieren"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Es wäre toll wenn Du es ausprobieren würdest."
       making_the_connection: "Die Verbindung herstellen"
       screenshot_explanation: "%{link1}.  Dieses \"Cubby\" ist verlinkt auf %{link2}."
       sign_up_today: "Jetzt registrieren!"
       typical_userpage: "Eine typische cubbi.es Benutzerseite"
       via: "(via %{link})"
-      were_working_hard: "Wir arbeiten hart daran eine einfache Verbindung zwischen Diaspora Pods und Anwendungen zu ermöglichen. In der Zwischenzeit musst Du zwei Felder kopieren und wieder einfügen um dein Diaspora Konto mit Cubbi.es zu verbinden."
       what_is_cubbies: "Cubbi.es ist die erste Diaspora Anwendung der Welt. Es ist auch der beste Weg um Online Fotos zu sammeln."
-      your_diaspora_handle: "Deine Diaspora ID:"
-      your_diaspora_token: "Dein Diaspora-Token:"
   undo: "Rückgängig machen?"
   username: "Benutzername"
   users: 

@@ -4,9 +4,9 @@
 
 
 ko: 
-  _applications: "Applications"
+  _applications: "애플리케이션"
   _comments: "댓글"
-  _contacts: "Contacts"
+  _contacts: "컨택"
   _home: "처음"
   _photos: "사진"
   _services: "서비스"
@@ -63,12 +63,12 @@ ko:
     aspect_contacts: 
       done_editing: "고치기 완료"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ 애스펙 추가"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      commented_on: "댓글 달린 순"
+      posted: "올린 순"
+      recently: "최근에"
+      stream: "스트림"
     contacts_not_visible: "이 애스펙에 있는 사람들이 서로를 볼 수 없습니다."
     contacts_visible: "이 애스펙에 있는 사람들이 서로를 볼 수 있습니다."
     create: 
@@ -99,14 +99,18 @@ ko:
         heading: "Cubbi.es에 연결하기"
         learn_more: "자세히 알아보기"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-        heading: "Diaspora ID"
+        content_1: "내 디아스포라 ID:"
+        content_2: "내 ID를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
+        heading: "디아스포라 ID"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       no_contacts: "컨택 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
-      your_aspects: "Your Aspects"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
+      your_aspects: "내 애스펙"
     many: "애스펙 %{count}개"
     move_contact: 
       error: "%{inspect} 컨택을 옮기는데 에러가 발생했습니다."
@@ -117,16 +121,16 @@ ko:
       name: "이름"
     no_posts_message: 
       start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "컨택을 더 추가해보세요."
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 
       family: "가족"
       work: "직장"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "내 애스펙 관리하기."
+      no_contacts: "아직 컨택이 없습니다."
+      view_all_contacts: "모든 컨택 보기"
     show: 
       edit_aspect: "애스펙 고치기"
     update: 
@@ -135,7 +139,7 @@ ko:
     zero: "애스펙 없음"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "접속권한 취소"
   back: "돌아가기"
   bookmarklet: 
     explanation: "%{link} 링크를 북마크로 추가하세요."
@@ -160,12 +164,12 @@ ko:
     index: 
       add_a_new_aspect: "새 애스펙 추가"
       all_contacts: "모든 컨택"
-      edit_aspect: "Edit %{name}"
+      edit_aspect: "%{name} 고치기"
       my_contacts: "내 컨택"
       no_contacts: "컨택 없음."
-      only_sharing_with_me: "Only sharing with me"
+      only_sharing_with_me: "나와만 공유하고 있는 사람들"
       remove_person_from_aspect: "\"%{aspect_name} 애스펙에서 %{person_name}님 지우기"
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "대화를 시작하세요"
       title: "컨택"
       your_contacts: "내 컨택"
     many: "컨택 %{count}명"
@@ -194,6 +198,7 @@ ko:
       no_conversation_selected: "대화를 고르지 않았습니다"
       no_messages: "쪽지 없음"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "보내기"
       subject: "제목"
       to: "받는이"
@@ -212,7 +217,7 @@ ko:
       correct_the_following_errors_and_try_again: "아래의 에러를 정정한 뒤 다시 시도하십시오."
       invalid_fields: "유효하지 않은 항목"
   fill_me_out: "채워주세요"
-  find_people: "Find people"
+  find_people: "사람 찾기"
   hide: "숨기기"
   home: 
     show: 
@@ -267,6 +272,7 @@ ko:
       logout: "로그아웃"
       profile: "프로필"
       settings: "설정"
+      view_all: "모두 보기"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ ko:
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
         zero: "아무도 좋아하지 않습니다"
+  limited: "Limited"
   more: "더"
   next: "다음"
   no_results: "결과 없음"
@@ -507,6 +514,7 @@ ko:
     update: 
       failed: "프로필 갱신 실패"
       updated: "프로필을 갱신했습니다"
+  public: "Public"
   registrations: 
     closed: "우리 디아스포라 팓은 가입이 닫혀있습니다."
     create: 
@@ -569,6 +577,7 @@ ko:
       disconnect: "끊기"
       edit_services: "서비스 설정"
       logged_in_as: "로그인 중: "
+      no_services: "You have not connected any services yet."
       really_disconnect: "%{service} 서비스를 끊으시겠습니까?"
     inviter: 
       click_link_to_accept_invitation: "초대를 수락려면 클릭하세요!"
@@ -610,7 +619,7 @@ ko:
       all: "모두"
       all_contacts: "모든 컨택"
       click_to_share_with: "공유할 대상을 클릭:"
-      discard_post: "Discard post"
+      discard_post: "공유물 삭제"
       make_public: "공개하기"
       post_a_message_to: "%{aspect}에 공유물 올리기"
       posting: "올리는 중···"
@@ -618,15 +627,17 @@ ko:
       publishing_to: "올릴 곳: "
       share: "공유"
       share_with: "공유하기: "
-      upload_photos: "Upload photos"
+      upload_photos: "사진 올리기"
       whats_on_your_mind: "무슨 생각해요?"
     reshare: 
       reshare: "재공유"
     stream_element: 
       dislike: "싪어요"
       like: "좋아요"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "좋아요 취소"
       via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "%{names}님을 성공적으로 멘션했습니다."
@@ -648,29 +659,35 @@ ko:
       zero: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
   stream_helper: 
     hide_comments: "댓글 감추기"
-    show_more_comments: "Show %{number} more comments"
+    show_more_comments: "댓글 %{number}개 더 보기"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "아직 %{tag} 태그가 달린 공유물이 없습니다."
       people_tagged_with: "%{tag} 태그가 달린 사람들"
       posts_tagged_with: "#%{tag} 태그가 달린 공유물"
-  the_world: "공개"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Cubbi.es에 연결하기"
       connecting_is_simple: "내 Cubbi.es에 있는 account 메뉴의 두 항목을 채워넣기만 하면 내 다이스포라 계정을 연결할 수 있습니다."
       daniels_account: "Daniel님의 디아스포라 계정"
-      generate_a_token: "토큰 생성하기"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "꼭 써보세요!"
       making_the_connection: "연결하기"
       screenshot_explanation: "%{link1}. 이 cubby는 %{link2}에 연결되어 있습니다."
       sign_up_today: "지금 가입하세요!"
       typical_userpage: "전형적인 cubbi.es 사용자 페이지"
       via: "(via %{link})"
-      were_working_hard: "디아스포라 팓과 어플 사이의 쉬운 연결을 제공하기 위해 최선을 다 하고있습니다. 당분간 내 디아스포라 계정과 Cubbi.es를 연결하는 건 두 항목을 복사하여 붙여넣는 걸 뜻합니다."
       what_is_cubbies: "Cubbi.es 는 세계 최초의 디아스포라 어플입니다.  온라인으로 사진을 모을 수 있는 가장 좋은 방법이기도 합니다."
-      your_diaspora_handle: "내 디아스포라 핸들:"
-      your_diaspora_token: "내 디아스포라 토큰:"
   undo: "돌이키겠습니까?"
   username: "사용자명"
   users: 

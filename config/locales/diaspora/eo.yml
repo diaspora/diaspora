@@ -106,6 +106,10 @@ eo:
       no_contacts: "Nul kontaktoj"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
       post_a_message: "Afiŝi mesaĝon »"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
       your_aspects: "Your Aspects"
     many: "%{count} aspektoj"
     move_contact: 
@@ -194,6 +198,7 @@ eo:
       no_conversation_selected: "ne interparolado estas elektita"
       no_messages: "neniuj mesaĝoj"
     new: 
+      abandon_changes: "Abandon changes?"
       send: "Sendi"
       subject: "subjekto"
       to: "al"
@@ -267,6 +272,7 @@ eo:
       logout: "elsaluti"
       profile: "profilo"
       settings: "agordoj"
+      view_all: "View all"
   likes: 
     likes: 
       people_dislike_this: 
@@ -281,6 +287,7 @@ eo:
         one: "%{count} ŝato"
         other: "%{count} ŝatoj"
         zero: "nul ŝatoj"
+  limited: "Limited"
   more: "Pli"
   next: "poste"
   no_results: "Neniuj Resultoj Trovitaj"
@@ -507,6 +514,7 @@ eo:
     update: 
       failed: "Ne povis ĝisdatigi profilon"
       updated: "Ĝisdatigi profilon"
+  public: "Public"
   registrations: 
     closed: "Registrado estas ferma ĉe tiu ĉi DIASPORA* guŝo."
     create: 
@@ -569,6 +577,7 @@ eo:
       disconnect: "malkonekti"
       edit_services: "Redakti servojn"
       logged_in_as: "ensalutis, kiel"
+      no_services: "You have not connected any services yet."
       really_disconnect: "ĉu malkonektu el %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Kliki tiun ligilon por akcepti vian inviton"
@@ -625,8 +634,10 @@ eo:
     stream_element: 
       dislike: "Malŝati"
       like: "ŝati"
+      shared_with: "Shared with: %{aspect_names}"
       unlike: "Ne plu ŝati"
       via: "de %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
     create: 
       success: "Sukcese mencigis: %{names}"
@@ -649,28 +660,34 @@ eo:
   stream_helper: 
     hide_comments: "kaŝi komentojn"
     show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
       nobody_talking: "Neniu jam parolas pri %{tag}."
       people_tagged_with: "Homoj etikediĝis kun %{tag}"
       posts_tagged_with: "Afiŝoj etikediĝis kun #%{tag}"
-  the_world: "la tuta mondo"
+      stop_following: "Stop Following #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Konekti al Cubbi.es"
       connecting_is_simple: "Konekti vian DIASPORA* konton estas tiel facila, kiel kompleti du kampojn ĉe via Cubbi.es kontpaĝo."
       daniels_account: "La DIASPORA* konto de Daniel"
-      generate_a_token: "Generi ĵetonon"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
       love_to_try: "Ni vin amus, se vi provi ĝin."
       making_the_connection: "Konektanta"
       screenshot_explanation: "%{link1}.  Tiu aparta cubby ligas kun %{link2}."
       sign_up_today: "Registiĝi hodiaŭ!"
       typical_userpage: "Tipa cubbi.es uzantpaĝo"
       via: "(de %{link})"
-      were_working_hard: "Ni laboregas liveri facilan konektecon inter DIASPORA guŝoj kaj aplikaĵoj.  Dumtempe, por konektigi vian DIASPORA* konton kun Cubbi.es, vi devas kopii kaj algui du kampojn."
       what_is_cubbies: "Cubbi.es estas la unua DIASPORA* aplikaĵo en la tuta mondo.  Ĝi estas la plej bona maniero por rete kunigi bildojn."
-      your_diaspora_handle: "Via DIASPORA* Uzantnomo:"
-      your_diaspora_token: "Via DIASPORA* Ĵetono:"
   undo: "Ĉu malfarigi?"
   username: "Uzantnomo"
   users: 
