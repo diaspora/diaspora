@@ -12,15 +12,15 @@
         tip: $("#hovercard"),
         dropdownContainer: $("#hovercard_dropdown_container"),
         offset: {
-          left: -80,
-          top: -15
+          left: 0,
+          top: 18
         },
         personLink: $("#hovercard").find("a.person"),
         avatar: $("#hovercard").find(".avatar"),
         dropdown: $("#hovercard").find(".dropdown_list")
       };
 
-      $(document.body).delegate("a.author", "hover", self.handleHoverEvent);
+      $(document.body).delegate("a.author:not(.self)", "hover", self.handleHoverEvent);
       self.hoverCard.tip.hover(self.hoverCardHover, self.clearTimeout);
 
       Diaspora.widgets.subscribe("aspectDropdown/updated aspectDropdown/blurred", function(evt, personId, dropdownHtml) {
@@ -69,7 +69,7 @@
 
       self.dropdownCache.get(self.target.attr("href") + "/aspect_membership_button", function(dropdown) {
         self.hoverCard.dropdownContainer.html(dropdown);
-        self.hoverCard.tip.fadeIn('fast');
+        self.hoverCard.tip.fadeIn(140);
       });
     };
 
@@ -79,9 +79,8 @@
 
       function callback() {
           self.timeout = clearTimeout(self.timeout);
-          self.hoverCard.tip.fadeOut("fast", function(){
-            self.hoverCard.dropdownContainer.html("");
-          });
+          self.hoverCard.tip.hide();
+          self.hoverCard.dropdownContainer.html("");
       };
 
       if((typeof delayed === "boolean" && delayed) || (typeof delayed === "object" && delayed.type === "mouseleave")) {

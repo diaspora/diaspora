@@ -3072,9 +3072,7 @@ ul.left_nav
 
 #hovercard
   @include border-radius(2px)
-  @include dropdown-shadow
-
-  @include box-shadow(0,0,12px,#444)
+  @include box-shadow(0,0,5px,#666)
 
   .avatar
     :position relative
@@ -3087,12 +3085,13 @@ ul.left_nav
   :display none
   :background
     :color $background
+
   :padding 5px
-    :bottom 25px
+    :bottom 28px
 
   :border 1px solid #999
 
-  :width 240px
+  :width 220px
 
   :z
     :index 10
@@ -3105,5 +3104,11 @@ ul.left_nav
       :color #eee
     :width 100%
 
+    :font
+      :size smaller
+
+    :border
+      :top 1px solid #ccc
+
     .footer_container
-      :padding 0 10px
+      :padding 2px 5px

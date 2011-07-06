@@ -59,6 +59,8 @@ module ApplicationHelper
   end
 
   def person_link(person, opts={})
+    opts[:class] ||= ""
+    opts[:class] << " self" if current_user.person == person
     "<a href='/people/#{person.id}' class='#{opts[:class]}'>
   #{h(person.name)}
 </a>".html_safe
