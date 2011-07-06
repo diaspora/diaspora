@@ -29,7 +29,7 @@ var Stream = {
     // collapse long comments
     $(".comment .content span", this.selector).expander({
       slicePoint: 200,
-      widow: 12,
+      widow: 400,
       expandText: Diaspora.widgets.i18n.t("show_more"),
       userCollapse: false
     });
@@ -93,7 +93,7 @@ var Stream = {
             .removeClass("open");
       }
     });
-    
+
   },
 
   setUpAudioLinks: function() {

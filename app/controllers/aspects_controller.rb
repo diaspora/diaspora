@@ -9,7 +9,7 @@ class AspectsController < ApplicationController
 
   respond_to :html, :js
   respond_to :json, :only => [:show, :create]
-  
+
   helper_method :tags, :tag_followings
   helper_method :all_aspects_selected?
 

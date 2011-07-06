@@ -123,4 +123,8 @@ class StatusMessagesController < ApplicationController
     end
   end
 
+  helper_method :comments_expanded
+  def comments_expanded
+    true
+  end
 end

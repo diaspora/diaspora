@@ -24,4 +24,8 @@ module StreamHelper
       post.created_at
     end
   end
+
+  def comments_expanded
+    false
+  end
 end

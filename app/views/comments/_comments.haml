@@ -2,16 +2,14 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- is_expanded = defined?(always_expanded) && always_expanded
-
-- unless is_expanded
-  %ul.show_comments{:class => ("hidden" unless comments.size > 3)}
+- unless comments_expanded
+  %ul.show_comments{:class => ("hidden" if comments.size <= 3)}
     %li
       %b= comment_toggle(comments.size)
 
-%ul.comments{:id => post.id, :class => ("hidden" if comments.size == 0 && !defined?(force_open) && !is_expanded)}
+%ul.comments{:id => post.id, :class => ("hidden" if comments.size == 0 && !comments_expanded)}
   -if comments.size > 3
-    .older_comments{:class => ("hidden inactive" if defined?(condensed) && condensed)}
+    .older_comments{:class => ("hidden inactive" unless comments_expanded)}
       = render :partial => 'comments/comment', :collection => comments[0..-4], :locals => {:post => post}
     = render :partial => 'comments/comment', :collection => comments[-3, 3], :locals => {:post => post}
   -else

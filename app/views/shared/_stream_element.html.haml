@@ -59,4 +59,4 @@
         - if post.likes_count > 0
           = render "likes/likes_container", :post_id => post.id, :likes_count => post.likes_count, :current_user => current_user
 
-      = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :condensed => true, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)
+      = render "comments/comments", :post => post, :comments => post.comments, :current_user => current_user, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)
