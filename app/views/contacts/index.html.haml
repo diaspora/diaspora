@@ -9,6 +9,8 @@
 - content_for :head do
   = include_javascripts :people
 
+
+
 #section_header
   %h2
     = t('.title')
@@ -20,7 +22,13 @@
   #people_stream.stream.contacts
     - if @aspect_
       #aspect_controls
-        /= link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), :class => "button conversation_button", :rel => "facebox"
+        - suggested_limit = 16
+        - conv_opts = { :class => "button conversation_button", :rel => "facebox"}
+        - conv_opts[:title] = "Are you sure you want to start a private conversation with more than #{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." if @contacts.size > suggested_limit
+
+        = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect_.id, :name => @aspect_.name), conv_opts
+        - if @contacts.size > suggested_limit
+          = javascript_tag "$('.conversation_button').tipsy({trigger: 'hover', gravity: 'n'});"
         = link_to t('.edit_aspect', :name => @aspect_.name), edit_aspect_path(@aspect_), :rel => "facebox"
 
     - if @contacts.size > 0
