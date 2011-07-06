@@ -24,8 +24,14 @@ class AspectsController < ApplicationController
     aspect_ids = @aspects.map{|a| a.id}
 
     # redirect to signup
-    if (current_user.getting_started == true || @aspects.blank?) && !request.format.mobile? && !request.format.js?
+    if current_user.getting_started == true && !request.format.mobile? && !request.format.js?
       redirect_to getting_started_path
+      return
+    end
+    
+    # redirect to aspects creation
+    if @aspects.blank?
+      redirect_to new_aspect_path
       return
     end
 
@@ -88,7 +94,10 @@ class AspectsController < ApplicationController
   def new
     @aspect = Aspect.new
     @person_id = params[:person_id]
-    render :layout => false
+    respond_to do |format|
+      format.js { render :layout => false }
+      format.html { render '_new' }
+    end
   end
 
   def destroy
