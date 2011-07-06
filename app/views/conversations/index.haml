@@ -33,11 +33,14 @@
         %i
           = t('.no_messages')
 
-#conversation_show.span-16.prepend-8.last
-  - if @conversation
-    = render 'conversations/show', :conversation => @conversation
-  - else
-    #no_conversation_text
-      = t('.no_conversation_selected')
-    #no_conversation_controls
-      = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'
+
+.span-15.prepend-9.last
+  .stream_container
+    #conversation_show
+      - if @conversation
+        = render 'conversations/show', :conversation => @conversation
+      - else
+        #no_conversation_text
+          = t('.no_conversation_selected')
+        #no_conversation_controls
+          = link_to t('.create_a_new_message'), new_conversation_path, :rel => 'facebox'
