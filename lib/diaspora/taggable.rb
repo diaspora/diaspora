@@ -36,7 +36,7 @@ module Diaspora
       unique_matches.values
     end
 
-    def self.format_tags(text, opts={})
+    def format_tags(text, opts={})
       return text if opts[:plain_text]
       regex = /(^|\s)#(#{VALID_TAG_BODY})/
       form_message = text.gsub(regex) do |matched_string|

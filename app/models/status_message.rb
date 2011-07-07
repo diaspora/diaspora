@@ -43,7 +43,7 @@ class StatusMessage < Post
 
     escaped_message = opts[:plain_text] ? self.raw_message: ERB::Util.h(self.raw_message)
     mentioned_message = self.format_mentions(escaped_message, opts)
-    Diaspora::Taggable.format_tags(mentioned_message, opts)
+    self.format_tags(mentioned_message, opts)
   end
 
   def format_mentions(text, opts = {})

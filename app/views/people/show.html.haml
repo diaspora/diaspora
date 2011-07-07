@@ -38,7 +38,7 @@
 
         .description
           - if !@person.profile.tag_string.blank? && user_signed_in? && (@contact.persisted? || @person == current_user.person || @incoming_request)
-            = Diaspora::Taggable.format_tags(@person.profile.tag_string)
+            = @person.profile.format_tags(@person.profile.tag_string)
             - if user_signed_in? && @person == current_user.person
               %span.hover_edit
                 = link_to t('.edit'), edit_profile_path

@@ -69,20 +69,6 @@ describe TagsController do
         get :show, :name => 'hello'
         assigns(:posts).models.should == [stranger_post]
       end
-
-      it 'displays a post with a comment containing the tag search' do
-        bob.post(:status_message, :text => "other post y'all", :to => 'all')
-        other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
-        Factory(:comment, :text => "#hello", :post => other_post)
-        get :show, :name => 'hello'
-        assigns(:posts).models.should == [other_post]
-        response.status.should == 200
-      end
-
-      it 'succeeds without posts' do
-        get :show, :name => 'hellyes'
-        response.status.should == 200
-      end
     end
 
     context "not signed in" do
