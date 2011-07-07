@@ -116,4 +116,16 @@ describe AdminsController do
       end
     end
   end
+
+  describe '#stats' do
+    before do
+      AppConfig[:admins] = [@user.username]
+    end
+
+    it 'succeeds and renders stats' do
+      get :stats
+      response.should be_success
+      response.should render_template(:stats)
+    end
+  end
 end
