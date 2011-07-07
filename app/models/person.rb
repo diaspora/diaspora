@@ -223,7 +223,7 @@ class Person < ActiveRecord::Base
     json = {
       :id => self.id,
       :name => self.name,
-      :avatar => self.profile.image_url(:thumb_small),
+      :avatar => self.profile.image_url(:thumb_medium),
       :handle => self.diaspora_handle,
       :url => "/people/#{self.id}",
       :hashtags => self.profile.tags.map{|t| "##{t.name}"}

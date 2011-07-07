@@ -56,7 +56,7 @@ module NotificationsHelper
     actors =people || note.actors
     number_of_actors = actors.count
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
-    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person))}
+    actor_links = actors.collect{ |person| link_to("#{h(person.name.titlecase.strip)}", person_path(person), :class => ('hovercardable' if defined?(user_signed_in?) && user_signed_in? && current_user.person != person))}
 
     if number_of_actors < 4
       message = actor_links.to_sentence(sentence_translations)

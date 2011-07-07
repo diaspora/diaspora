@@ -83,6 +83,7 @@ Diaspora::Application.routes.draw do
     match 'user_search'   => :user_search
     get   'admin_inviter' => :admin_inviter
     get   'add_invites'   => :add_invites, :as => 'add_invites'
+    get   'stats'         => :stats, :as => 'pod_stats'
   end
 
   resource :profile
