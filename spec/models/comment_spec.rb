@@ -126,4 +126,11 @@ describe Comment do
     it_should_behave_like 'it is relayable'
   end
 
+  describe 'tags' do
+    before do
+      @object = Factory.build(:comment)
+    end
+    it_should_behave_like 'it is taggable'
+  end
+
 end

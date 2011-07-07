@@ -56,11 +56,18 @@ class TagsController < ApplicationController
       @posts = StatusMessage.where(:public => true, :pending => false)
     end
 
-    @posts = @posts.tagged_with(params[:name])
+    @tag = ActsAsTaggableOn::Tag.where(:name => params[:name]).first
+    if @tag
+      @posts = @posts.joins("LEFT OUTER JOIN comments ON comments.post_id = posts.id").
+                      joins("INNER JOIN taggings ON (taggings.tag_id = #{@tag.id} AND 
+                             ((taggable_id = posts.id AND taggable_type = 'Post') OR (taggings.taggable_type = 'Comment' AND taggings.taggable_id = comments.id)))")
 
-    max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
-    @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
-    @posts = @posts.includes({:comments => {:author => :profile}}, :photos).order('posts.created_at DESC').limit(15)
+      max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
+      @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
+      @posts = @posts.includes({:comments => {:author => :profile}}, :photos).order('posts.created_at DESC').limit(15)
+    else
+      @posts = []
+    end
 
     @posts = PostsFake.new(@posts)
     @commenting_disabled = true

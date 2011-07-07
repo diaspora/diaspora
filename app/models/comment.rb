@@ -13,6 +13,11 @@ class Comment < ActiveRecord::Base
   include Diaspora::Relayable
 
   include Diaspora::Socketable
+  include Diaspora::Taggable
+
+  acts_as_taggable_on :tags
+  extract_tags_from :text
+  before_create :build_tags
 
   xml_attr :text
   xml_attr :diaspora_handle
