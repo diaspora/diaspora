@@ -374,7 +374,7 @@ describe Person do
       }
     end
     it 'return tags if asked' do
-      @person.as_json(:includes => :tags).
+      @person.as_json(:includes => "tags").
         should == @person.as_json.merge(:tags =>  @person.profile.tags.map{|t| "##{t.name}"})
     end
   end
