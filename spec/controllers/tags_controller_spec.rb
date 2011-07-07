@@ -71,6 +71,7 @@ describe TagsController do
       end
 
       it 'displays a post with a comment containing the tag search' do
+        pending "toooo slow"
         bob.post(:status_message, :text => "other post y'all", :to => 'all')
         other_post = bob.post(:status_message, :text => "sup y'all", :to => 'all')
         Factory(:comment, :text => "#hello", :post => other_post)
