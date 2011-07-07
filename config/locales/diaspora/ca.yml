@@ -222,6 +222,7 @@ ca:
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
       remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
+      many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
 
 
   conversations:
@@ -532,7 +533,7 @@ ca:
       size_error: "{file} és massa gran. La mida màxima dels fitxers és {sizeLimit}."
       empty: "{file} és buit. Seleccioneu els fitxers de nou, sense incloure aquest."
     new_profile_photo:
-      upload: "Pugeu una foto de perfil nova!"
+      upload: "Pengeu una foto de perfil nova!"
       or_select_one: "o seleccioneu una de les ja existents"
 
 
