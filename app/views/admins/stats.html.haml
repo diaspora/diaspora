@@ -1,7 +1,7 @@
 .span-24.last
   %h3
     = for tg in @popular_tags
-      = link_to tg.first.first.name, tags_path(tg.first.first.name)
+      = link_to tg, tags_path(tg)
 
 %br
 %br
