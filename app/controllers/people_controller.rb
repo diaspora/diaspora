@@ -111,7 +111,7 @@ class PeopleController < ApplicationController
         respond_to do |format|
           format.all { respond_with @person, :locals => {:post_type => :all} }
           format.json {
-            render :json => @person.to_json
+            render :json => @person.to_json(:includes => params[:includes])
           }
         end
       end

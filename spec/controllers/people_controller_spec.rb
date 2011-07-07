@@ -57,7 +57,7 @@ describe PeopleController do
       get :index, :q => "eugene@example.org"
       assigns[:people].should =~ [eugene2]
     end
-    
+
     it "does not redirect to person page if there is exactly one match" do
       get :index, :q => "Korth"
       response.should_not redirect_to @korth
@@ -168,6 +168,12 @@ describe PeopleController do
         @user.comment 'I mean it', :post => message
         get :show, :id => @user.person.id
         response.should be_success
+      end
+
+      it 'passes through the includes option for json requests' do
+        json = @user.person.as_json
+        Person.any_instance.should_receive(:as_json).with(:includes => "horses").and_return(json)
+        get :show, :format => :json, :id => @user.person.id, :includes => "horses"
       end
     end
 

@@ -7,7 +7,7 @@
     this.start = function() {
       self.personCache = new this.Cache();
       self.dropdownCache = new this.Cache();
- 
+
       var card = $("#hovercard");
       self.hoverCard = {
         tip: $("#hovercard_container"),
@@ -52,7 +52,7 @@
       self.hoverCard.tip.hide();
       self.hoverCard.tip.prependTo(self.target.parent());
 
-      self.personCache.get(self.target.attr("href") + ".json", function(person) {
+      self.personCache.get(self.target.attr("href") + ".json?includes=tags", function(person) {
         self.populateHovercard(person);
       });
     };
@@ -70,7 +70,7 @@
       self.hoverCard.dropdown.attr("data-person-id", person.id);
 
       self.hoverCard.hashtags.html("");
-      $.each(person.hashtags, function(index, hashtag) {
+      $.each(person.tags, function(index, hashtag) {
         self.hoverCard.hashtags.append(
           $("<a/>", {
             href: "/tags/" + hashtag.substring(1)
