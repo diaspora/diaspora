@@ -15,5 +15,5 @@
       =person_link(person)
 
     .info
-      = person.profile.format_tags(person.profile.tag_string)
+      = Diaspora::Taggable.format_tags(person.profile.tag_string)
 

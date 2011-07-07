@@ -12,7 +12,7 @@ describe Diaspora::Taggable do
     def controller
     end
 
-    describe '#format_tags' do
+    describe '.format_tags' do
       before do
         @str = '#what #hey #vöglein'
         @object.send(@object.class.field_with_tags_setter, @str)
@@ -21,10 +21,10 @@ describe Diaspora::Taggable do
       end
       it 'links the tag to /p' do
         link = link_to('#vöglein', '/tags/vöglein', :class => 'tag')
-        @object.format_tags(@str).should include(link)
+        Diaspora::Taggable.format_tags(@str).should include(link)
       end
       it 'responds to plain_text' do
-        @object.format_tags(@str, :plain_text => true).should == @str
+        Diaspora::Taggable.format_tags(@str, :plain_text => true).should == @str
       end
     end
     describe '#build_tags' do
