@@ -32,22 +32,19 @@ module SocketsHelper
             {:comment => c,
              :author => c.author
             }
-        },
-          :current_user => user,
-          :all_aspects => all_aspects,
+          }
         }
         v = render_to_string(:partial => 'shared/stream_element', :locals => post_hash)
       elsif object.is_a? Person
         person_hash = {
           :single_aspect_form => opts["single_aspect_form"],
           :person => object,
-          :all_aspects => all_aspects,
-          :contact => user.contact_for(object),
-          :current_user => user}
+          :contact => user.contact_for(object)
+        }
         v = render_to_string(:partial => 'people/person', :locals => person_hash)
 
       elsif object.is_a? Comment
-        v = render_to_string(:partial => 'comments/comment', :locals => {:post => object.post, :comment => object, :person => object.author, :current_user => user})
+        v = render_to_string(:partial => 'comments/comment', :locals => {:post => object.post, :comment => object, :person => object.author})
 
       elsif object.is_a? Like
         v = render_to_string(:partial => 'likes/likes', :locals => {:likes => object.post.likes})
