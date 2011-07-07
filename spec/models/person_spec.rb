@@ -362,4 +362,9 @@ describe Person do
       alice.person.has_photos?.should be_true
     end
   end
+
+  describe '#as_json' do
+    it 'returns a hash representation of a person'
+    it 'return tags if asked'
+  end
 end
