@@ -121,7 +121,6 @@ When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$
   steps %Q{
     And I press the first ".toggle.button"
     And I press the #{aspect_number}#{nd} "li" within ".dropdown.active .dropdown_list"
-    And I wait for the ajax to finish
     And I press the first ".toggle.button"
   }
 end
