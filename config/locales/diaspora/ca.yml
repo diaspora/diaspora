@@ -148,6 +148,7 @@ ca:
       work: "Feina"
     index:
       your_aspects: "Els vostres aspectes"
+      tags_following: "Etiquetes que seguiu"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
@@ -159,10 +160,10 @@ ca:
       diaspora_id:
         heading: "ID de Diàspora"
         content_1: "El vostre identificador de Diàspora és:"
-        content_2: "Compartiu-ho amb tothom qui vulgueu que us pugui trobar al Diàspora."
-        services:
-          heading: "Connecteu serveis"
-          content: "Podeu connectar els serveis següents al Diàspora:"
+        content_2: "Compartiu-lo amb tothom qui vulgueu que us pugui trobar al Diàspora."
+      services:
+        heading: "Connecteu serveis"
+        content: "Podeu connectar els serveis següents al Diàspora:"
 
 
   aspect_memberships:
@@ -221,6 +222,7 @@ ca:
       all_contacts: "Tots els contactes"
       only_sharing_with_me: "Només compartint amb mi"
       remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
+      many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
 
 
   conversations:
@@ -238,6 +240,7 @@ ca:
       to: "a"
       subject: "assumpte"
       send: "Envia"
+      abandon_changes: "Voleu descartar els canvis?"
     helper:
       new_messages:
         zero: "Cap missatge nou"
@@ -530,7 +533,7 @@ ca:
       size_error: "{file} és massa gran. La mida màxima dels fitxers és {sizeLimit}."
       empty: "{file} és buit. Seleccioneu els fitxers de nou, sense incloure aquest."
     new_profile_photo:
-      upload: "Pugeu una foto de perfil nova!"
+      upload: "Pengeu una foto de perfil nova!"
       or_select_one: "o seleccioneu una de les ja existents"
 
 
@@ -647,7 +650,7 @@ ca:
       post_a_message_to: "Publica un missatge a %{aspect}"
       make_public: "fes públic"
       all: "tot"
-      add_photos: "Pengeu fotos"
+      upload_photos: "Pengeu fotos"
       all_contacts: "tots els contactes"
       share_with: "comparteix amb"
       whats_on_your_mind: "Què us passa pel cap?"
@@ -725,6 +728,18 @@ ca:
       posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
       nobody_talking: "Ningú ha parlat de %{tag} encara."
       people_tagged_with: "Gent etiquetada amb %{tag}"
+      follow: "Segueix #%{tag}"
+      following: "Esteu seguint #%{tag}"
+      stop_following: "Deixa de seguir #%{tag}"
+
+
+  tag_followings:
+    create:
+      success: "S'ha començat a seguir #%{name} amb èxit"
+      failure: "No s'ha pogut seguir #%{name}"
+    destroy:
+      success: "S'ha deixat de seguir #%{name} amb èxit"
+      failure: "No s'ha pogut deixar de seguir #%{name}"
 
 
   tokens:
