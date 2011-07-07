@@ -165,6 +165,7 @@ el:
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       all_contacts: "Όλες οι Επαφές"
       edit_aspect: "Επεξεργασία %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Καμία Επαφή"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"

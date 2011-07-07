@@ -107,9 +107,9 @@ bg:
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
+        content: "Можете да свържете следните услуги към Diaspora:"
+        heading: "Свързване към услуги"
+      tags_following: "Тагове, които следите"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact: 
@@ -165,6 +165,7 @@ bg:
       add_a_new_aspect: "Създаване на аспект"
       all_contacts: "Всички контакти"
       edit_aspect: "Редактиране на \"%{name}\""
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Моите контакти"
       no_contacts: "Няма контакти."
       only_sharing_with_me: "Само споделящите с мен"
@@ -198,7 +199,7 @@ bg:
       no_conversation_selected: "няма избран разговор"
       no_messages: "няма съобщения"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Отказвате се от промените?"
       send: "Изпращане"
       subject: "тема"
       to: "до"
@@ -241,7 +242,7 @@ bg:
       already_sent: "Вече сте свързани с тава лице."
       no_more: "Не разполагате с повече покани."
       own_address: "Не можете да пращате покана до собствения си адрес."
-      rejected: "The following email addresses had problems: "
+      rejected: "Възникна проблем със следната ел. поща: "
       sent: "Покани са изпратени до: "
     edit: 
       sign_up: "регистриране"
@@ -287,7 +288,7 @@ bg:
         one: "харесана %{count} път"
         other: "харесана %{count} пъти"
         zero: "не е харесана"
-  limited: "Limited"
+  limited: "Ограничено"
   more: "Още"
   next: "следваща"
   no_results: "Няма намерени резултати"
@@ -514,7 +515,7 @@ bg:
     update: 
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
-  public: "Public"
+  public: "Публично"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -524,7 +525,7 @@ bg:
       edit: "Edit %{name}"
       leave_blank: "(оставете празно ако не желаете да го променяте)"
       password_to_confirm: "(за да бъдат потвърдени промените е необходима текущата ви парола)"
-      unhappy: "Unhappy?"
+      unhappy: "Не сте доволни?"
       update: "Обновяване"
     new: 
       enter_email: "Въведете ел. поща"
@@ -577,7 +578,7 @@ bg:
       disconnect: "изключване"
       edit_services: "Редактиране на услуги"
       logged_in_as: "вписани сте като"
-      no_services: "You have not connected any services yet."
+      no_services: "Все още не сте свързали нито една услуга."
       really_disconnect: "Наистина ли желаете свързаността с %{service} да бъде изключена?"
     inviter: 
       click_link_to_accept_invitation: "Кликнете върху връзката, за да приемете поканата"
@@ -634,10 +635,10 @@ bg:
     stream_element: 
       dislike: "Не ми харесва"
       like: "Харесва ми"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Споделена с: %{aspect_names}"
       unlike: "Не ми харесва"
       via: "чрез %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Публикацията е видима за всеки"
   status_messages: 
     create: 
       success: "Споменахте успешно: %{names}"
@@ -662,32 +663,32 @@ bg:
     show_more_comments: "Показване на още %{number} коментара"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Не започнахте да следите \"#%{name}\""
+      success: "Започнахте да следите \"#%{name}\""
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Следенето на \"#%{name}\" не е прекратено"
+      success: "Следенето на \"#%{name}\" е прекатено"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Следете #%{tag}"
+      following: "Следите #%{tag}"
       nobody_talking: "Никой не е говорил за %{tag}."
       people_tagged_with: "Хора маркирани с %{tag}"
       posts_tagged_with: "Публикации с марка #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Прекратяване следването на #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Свързване с Cubbi.es"
-      connecting_is_simple: "За свързване на акаунта ви в Diaspora е необходимо да попълните две полета в Cubbi.es."
+      connecting_is_simple: "За свързване на акаунта ви в Diaspora е необходимо да въведете вашият адрес в Diaspora (<b>%{diaspora_id}</b>) в <a href='%{href_link}'>страницата с настройки</a> на Cubbi.es и да натиснете \"Connect\"."
       daniels_account: "акаунтът на Daniel в Diaspora"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "В най-скоро време ще можете да свързвате ново приложение без необходимост от създаване на отделен, от този, който ползвате, акаунт в Diaspora."
       love_to_try: "Бихме се радвали ако пробвате!"
       making_the_connection: "Създаване на връзката"
       screenshot_explanation: "%{link1}.  Тази cubby страница е свързана с %{link2}."
       sign_up_today: "Регистрирайте се днес!"
       typical_userpage: "Типична потребителска страница от cubbi.es"
       via: "(чрез %{link})"
-      what_is_cubbies: "Cubbi.es е първото приложение за Diaspora.  Също така е и най-добият назчин за събиране на изображения online."
+      what_is_cubbies: "Cubbi.es е първото приложение за Diaspora. Също така е и най-добият начин за събиране на изображения online."
   undo: "Отмяна?"
   username: "Потребителско име"
   users: 

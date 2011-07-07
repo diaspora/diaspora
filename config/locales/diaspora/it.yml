@@ -107,9 +107,9 @@ it:
       people_sharing_with_you: "Persone in condivisione con te"
       post_a_message: "invia un messaggio >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
+        content: "Puoi abbinare a Diaspora i seguenti servizi:"
+        heading: "Servizi connessi"
+      tags_following: "Tag che stai seguendo"
       your_aspects: "I tuoi aspetti"
     many: "%{count} aspetti"
     move_contact: 
@@ -165,6 +165,7 @@ it:
       add_a_new_aspect: "Aggiungi un nuovo aspetto"
       all_contacts: "Tutti i contatti"
       edit_aspect: "Modifica %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "I miei contatti"
       no_contacts: "Nessun contatto."
       only_sharing_with_me: "Condividono con me"
@@ -198,7 +199,7 @@ it:
       no_conversation_selected: "nessuna conversazione selezionata"
       no_messages: "nessun messaggio"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Annulla i cambiamenti?"
       send: "Invia"
       subject: "oggetto"
       to: "a"
@@ -210,7 +211,7 @@ it:
       birthday: "%d %B"
       birthday_with_year: "%d %B %Y"
       fullmonth_day: "%d %B"
-  delete: "Cancella"
+  delete: "Elimina"
   email: "Email"
   error_messages: 
     helper: 
@@ -287,7 +288,7 @@ it:
         one: "%{count} Mi piace"
         other: "%{count} Mi piace"
         zero: "0 Mi piace"
-  limited: "Limited"
+  limited: "Non pubblico"
   more: "Altro"
   next: "successivo"
   no_results: "Nessun Risultato Trovato"
@@ -514,7 +515,7 @@ it:
     update: 
       failed: "Aggiornamento del profilo non riuscito"
       updated: "Profilo aggiornato"
-  public: "Public"
+  public: "Pubblico"
   registrations: 
     closed: "Le iscrizioni sono chiuse su questo pod Diaspora."
     create: 
@@ -577,7 +578,7 @@ it:
       disconnect: "disconnetti"
       edit_services: "Modifica servizi"
       logged_in_as: "accesso effettuato come"
-      no_services: "You have not connected any services yet."
+      no_services: "Ancora non hai abbinato alcun servizio."
       really_disconnect: "disconnettere %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Fai click su questo link per accettare l'invito"
@@ -634,10 +635,10 @@ it:
     stream_element: 
       dislike: "Non mi piace"
       like: "Mi piace"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Condiviso con: %{aspect_names}"
       unlike: "Annulla"
       via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Questo post è visibile a tutti sul web"
   status_messages: 
     create: 
       success: "Menzionati con successo: %{names}"
@@ -662,25 +663,25 @@ it:
     show_more_comments: "Mostra gli altri %{number} commenti"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Errore nel tentativo di seguire: #%{name}"
+      success: "Hai iniziato a seguire: #%{name}"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Non è stato possibile smettere di seguire: #%{name}"
+      success: "Hai smesso di seguire: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Segui #%{tag}"
+      following: "Stai seguendo #%{tag}"
       nobody_talking: "Nessuno sta ancora parlando di %{tag}."
       people_tagged_with: "Persone etichettate come %{tag}"
       posts_tagged_with: "Post etichettati come #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Smetti di seguire #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Connettiti a Cubbi.es"
       connecting_is_simple: "Per connettere il tuo account Diaspora basta riempire due campi di testo nelle tue impostazioni su Cubbi.es."
       daniels_account: "account Diaspora di Daniel"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Presto potrai connetterti ad una nuova applicazione senza dover creare un account separato da quello che hai già su Diaspora."
       love_to_try: "Ci farebbe piacere che tu lo provassi."
       making_the_connection: "Effettua la connessione"
       screenshot_explanation: "%{link1}.  Questa pagina di cubby è collegata all' %{link2}."

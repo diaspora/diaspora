@@ -107,9 +107,9 @@ es:
       people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
+        content: "Ahora puedes enlazar los siguientes servicios a Diaspora*:"
+        heading: "Servicios enlazados"
+      tags_following: "Etiquetas"
       your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -165,6 +165,7 @@ es:
       add_a_new_aspect: "Añadir un nuevo aspecto"
       all_contacts: "Todos los Contactos"
       edit_aspect: "Editar %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Mis Contactos"
       no_contacts: "Sin contactos."
       only_sharing_with_me: "Solo compartiendo conmigo"
@@ -198,7 +199,7 @@ es:
       no_conversation_selected: "ninguna conversación seleccionada"
       no_messages: "Sin mensajes"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
       subject: "asunto"
       to: "para"
@@ -287,7 +288,7 @@ es:
         one: "A 1 le gusta"
         other: "A %{count} les gusta"
         zero: "A nadie le gusta"
-  limited: "Limited"
+  limited: "Restringido"
   more: "Más"
   next: "Siguiente"
   no_results: "No hay resultados"
@@ -514,7 +515,7 @@ es:
     update: 
       failed: "Error actualizando el perfil"
       updated: "Perfil actualizado"
-  public: "Public"
+  public: "Público"
   registrations: 
     closed: "Los registros están cerrados en este servidor Diaspora*"
     create: 
@@ -577,7 +578,7 @@ es:
       disconnect: "desconectar"
       edit_services: "Editar servicios"
       logged_in_as: "Conectar como"
-      no_services: "You have not connected any services yet."
+      no_services: "Aún no has enlazado ningún servicio."
       really_disconnect: "¿Desconectar %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Haz click aquí para aceptar tu invitación"
@@ -634,10 +635,10 @@ es:
     stream_element: 
       dislike: "No me gusta"
       like: "Me gusta"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Compartir con: %{aspect_names}"
       unlike: "No me gusta"
       via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Este comentario lo podrá ver cualquiera por internet"
   status_messages: 
     create: 
       success: "Se ha mencionado con éxito a: %{names}"
@@ -662,25 +663,25 @@ es:
     show_more_comments: "Muestra %{number} comentarios más"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Error al intentar seguir a #%{name}"
+      success: "Ahora también sigues a #%{name}"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Error al dejar de seguir a #%{name}"
+      success: "Ya no sigues más a #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Seguir a #%{tag}"
+      following: "Siguiendo a #%{tag}"
       nobody_talking: "Nadie esta hablando de %{tag} todavía."
       people_tagged_with: "Personas etiquetadas en %{tag}"
       posts_tagged_with: "Publicaciones etiquetadas con #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "No seguir más a #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Conecta con Cubbi.es"
-      connecting_is_simple: "Conectar con tu cuenta de Diaspora es tan simple como completar dos campos en tu página de Cubbi.es."
+      connecting_is_simple: "Enlazar tu cuenta de Diaspora* es sencillo. Solo introduce tu identificador de Diaspora*(<b>%{diaspora_id}</b>) en tu cuenta de Cubbi.es <a href='%{href_link}'>settings page</a> y darle a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a nuevas aplicaciones sin tener que crearte un nueva cuenta aparte de la de Diaspora*."
       love_to_try: "Nos encantaría que lo pruebes."
       making_the_connection: "Haciendo la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está enlazado a %{link2}."

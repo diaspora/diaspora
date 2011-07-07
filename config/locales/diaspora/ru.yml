@@ -4,7 +4,7 @@
 
 
 ru: 
-  _applications: "Applications"
+  _applications: "Приложения"
   _comments: "Коментарии"
   _contacts: "Contacts"
   _home: "Домашний"
@@ -162,16 +162,17 @@ ru:
       failure: "Не удалось создать контакт"
     few: "%{count} контакт[-а, -ов]"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
+      add_a_new_aspect: "Добавить аспект"
+      all_contacts: "Все контакты"
       edit_aspect: "Edit %{name}"
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      my_contacts: "Мои контакты"
+      no_contacts: "Контактов нет."
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      remove_person_from_aspect: "Удалить %{person_name} из \"%{aspect_name}\""
       start_a_conversation: "Start a conversation"
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      title: "Контакты"
+      your_contacts: "Ваши контакты"
     many: "%{count} контакт[-а, -ов]"
     one: "1 контакт"
     other: "%{count} контакт[-а, -ов]"
@@ -588,7 +589,7 @@ ru:
   settings: "Настройки"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Добавить контакт"
       create_request: "Поиск по Диаспоре"
       diaspora_handle: "diaspora@handle.org"
       enter_a_diaspora_username: "Введите имя пользователя Диаспоры:"

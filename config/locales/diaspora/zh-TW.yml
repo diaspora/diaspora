@@ -165,6 +165,7 @@ zh-TW:
       add_a_new_aspect: "加入新面向"
       all_contacts: "全部聯絡人"
       edit_aspect: "Edit %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "我的聯絡人"
       no_contacts: "沒有聯絡人."
       only_sharing_with_me: "Only sharing with me"

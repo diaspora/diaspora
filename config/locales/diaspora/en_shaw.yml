@@ -165,6 +165,7 @@ en_shaw:
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       edit_aspect: "Edit %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "𐑥𐑲 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
       only_sharing_with_me: "𐑴𐑯𐑤𐑦 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑥𐑰"

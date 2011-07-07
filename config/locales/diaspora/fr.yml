@@ -165,6 +165,7 @@ fr:
       add_a_new_aspect: "Ajouter un nouvel aspect"
       all_contacts: "Tous les contacts"
       edit_aspect: "Modifier %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Mes Contacts"
       no_contacts: "Pas de contacts."
       only_sharing_with_me: "Partage uniquement avec moi"

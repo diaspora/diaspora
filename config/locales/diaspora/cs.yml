@@ -165,6 +165,7 @@ cs:
       add_a_new_aspect: "Přidat nový aspekt"
       all_contacts: "Všechny kontakty"
       edit_aspect: "Upravit %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "Moje kontakty"
       no_contacts: "Žádné kontakty."
       only_sharing_with_me: "Pouze sdílení se mnou"
