@@ -53,9 +53,9 @@
               $('#fileInfo').text(fileName + ' completed').fadeOut(2000);
               $('#file-upload').removeClass("loading");
               var id = responseJSON.data.photo.id;
-              var url = responseJSON.data.photo.url;
+              var url = responseJSON.data.photo.unprocessed_image.url;
               var oldPhoto = $('#photo_id');
-
+              console.log(responseJSON);
               if(oldPhoto.length == 0) {
                 $('#update_profile_form').prepend("<input type='hidden' value='" + id + "' id='photo_id' name='photo_id'/>");
               }else{
