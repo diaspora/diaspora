@@ -11,12 +11,12 @@ network.
 Installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
 
 Thanks for helping battle test Diaspora.
-Please report any bugs you see at [bugs.joindiaspora.com](http://bugs.joindiaspora.com).
+Please report any bugs you see at [GitHub Issues](https://github.com/diaspora/diaspora/issues).
 
 ## Contributing to Diaspora
 
 ###[An introduction to the source code](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source)
-###[Issue tracker (bugs and features)](http://bugs.joindiaspora.com).
+###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues).
 ###[How to use git](http://github.com/diaspora/diaspora/wiki/Git-Workflow)
 
 Here are a few good places to start:
@@ -27,7 +27,7 @@ unit test suite.
 - Run "rake cucumber" to run our [Cucumber](http://rubylearning.com/blog/2010/10/05/outside-in-development/)
 integration test suite.
 
-- Take a look at the [issue tracker](http://bugs.joindiaspora.com) and pick a bug.
+- Take a look at the [issue tracker](https://github.com/diaspora/diaspora/issues) and pick a bug.
 Write a spec for it, so it's easy for another developer to fix it.
 
 Catches must be tested, and all your tests should be green, 
@@ -49,7 +49,7 @@ us to release limited pieces of Diaspora under the MIT license.  You can find it
 
 ## Resources
 
-Here is our [bug tracker](http://bugs.joindiaspora.com) and our
+Here is our [bug tracker](https://github.com/diaspora/diaspora/issues) and our
 [roadmap](https://github.com/diaspora/diaspora/wiki/Roadmap). Also, you can
 find see what the core team is up to [here](http://www.pivotaltracker.com/projects/61641).
 
