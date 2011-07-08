@@ -34,6 +34,9 @@ gem 'faraday-stack'
 gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
 
+# URL shrink/expand
+gem 'is-gd-shrinker', :git => 'git://github.com/disconn3ct/is-gd-shrinker.git'
+
 #Inflected translations
 gem 'i18n-inflector-rails', '~> 1.0'
 

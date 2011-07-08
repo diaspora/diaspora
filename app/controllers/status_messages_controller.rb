@@ -45,6 +45,8 @@ class StatusMessagesController < ApplicationController
     params[:status_message][:public] = public_flag
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
+    require File.join(Rails.root, 'lib/swap')
+    message = Shorty::swap(params[:status_message][:text])
     aspects = current_user.aspects_from_ids(params[:aspect_ids])
 
     if !photos.empty?
