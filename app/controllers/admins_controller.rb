@@ -31,8 +31,6 @@ class AdminsController < ApplicationController
 
   def stats
     @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag).limit(15).count(:group => :tag, :order => 'count(taggings.id) DESC')
-    @most_liked_posts = Post.where(:type => ['StatusMessage', 'ActivityStreams::Photo'],
-                                   :public => true).order('likes_count DESC').limit(15).all
     @new_posts = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
                             :public => true).order('created_at DESC').limit(15).all
   end

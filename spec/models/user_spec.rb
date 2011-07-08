@@ -569,8 +569,8 @@ describe User do
     before do
       @message = alice.post(:status_message, :text => "cool", :to => alice.aspects.first)
       @message2 = bob.post(:status_message, :text => "uncool", :to => bob.aspects.first)
-      @like = alice.like(true, :post => @message)
-      @like2 = bob.like(true, :post => @message)
+      @like = alice.like(true, :target => @message)
+      @like2 = bob.like(true, :target => @message)
     end
 
     describe '#like_for' do

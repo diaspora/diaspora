@@ -19,6 +19,12 @@ Diaspora::Application.routes.draw do
     resources :comments, :only => [:create, :destroy, :index]
   end
 
+  # roll up likes into a nested resource above
+  resources :comments, :only => [:create, :destroy] do
+    resources :likes, :only => [:create, :destroy, :index]
+  end
+
+
   get 'bookmarklet' => 'status_messages#bookmarklet'
   get 'p/:id'       => 'publics#post', :as => 'public_post'
 

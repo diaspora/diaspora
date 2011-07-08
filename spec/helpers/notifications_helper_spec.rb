@@ -8,10 +8,10 @@ describe NotificationsHelper do
     @person = Factory(:person)
     @post = Factory(:status_message, :author => @user.person)
     @person2 = Factory(:person)
-    @notification = Notification.notify(@user, Factory(:like, :author => @person, :post => @post), @person)
-    @notification =  Notification.notify(@user, Factory(:like, :author => @person2, :post => @post), @person2)
-
+    @notification = Notification.notify(@user, Factory(:like, :author => @person, :target => @post), @person)
+    @notification =  Notification.notify(@user, Factory(:like, :author => @person2, :target => @post), @person2)
   end
+
   describe '#notification_people_link' do
     context 'formatting' do
       include ActionView::Helpers::SanitizeHelper

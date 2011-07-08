@@ -19,4 +19,6 @@
       %br
       %time.timeago{:datetime => comment.created_at}
         = comment.created_at ? timeago(comment.created_at) : timeago(Time.now)
+      - unless (defined?(@commenting_disabled) && @commenting_disabled)
+        = like_action(comment, current_user)
 

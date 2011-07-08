@@ -183,26 +183,26 @@ class User < ActiveRecord::Base
 
   # Check whether the user has liked a post.  Extremely inefficient if the post's likes are not loaded.
   # @param [Post] post
-  def liked?(post)
-    if post.likes.loaded?
-      if self.like_for(post)
+  def liked?(target)
+    if target.likes.loaded?
+      if self.like_for(target)
         return true
       else
         return false
       end
     else
-      Like.exists?(:author_id => self.person.id, :post_id => post.id)
+      Like.exists?(:author_id => self.person.id, :target_type => target.class.base_class.to_s, :target_id => target.id)
     end
   end
 
   # Get the user's like of a post, if there is one.  Extremely inefficient if the post's likes are not loaded.
   # @param [Post] post
   # @return [Like]
-  def like_for(post)
-    if post.likes.loaded?
-      return post.likes.detect{ |like| like.author_id == self.person.id }
+  def like_for(target)
+    if target.likes.loaded?
+      return target.likes.detect{ |like| like.author_id == self.person.id }
     else
-      return Like.where(:author_id => self.person.id, :post_id => post.id).first
+      return Like.where(:author_id => self.person.id, :target_id => target.id).first
     end
   end
 
@@ -215,13 +215,20 @@ class User < ActiveRecord::Base
   end
 
   ######### Posts and Such ###############
-  def retract(post)
-    if post.respond_to?(:relayable?) && post.relayable?
-      aspects = post.parent.aspects
-      retraction = RelayableRetraction.build(self, post)
+  def retract(target)
+    if target.respond_to?(:relayable?) && target.relayable?
+
+      parent = if target.parent.instance_of?(Comment)
+          target.parent.parent
+        else
+          target.parent
+      end
+
+      aspects = parent.aspects
+      retraction = RelayableRetraction.build(self, target)
     else
-      aspects = post.aspects
-      retraction = Retraction.for(post)
+      aspects = target.aspects
+      retraction = Retraction.for(target)
     end
 
     mailman = Postzord::Dispatch.new(self, retraction)

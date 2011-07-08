@@ -25,6 +25,8 @@ class Comment < ActiveRecord::Base
   belongs_to :post, :touch => true
   belongs_to :author, :class_name => 'Person'
 
+  has_many :likes, :foreign_key => :target_id, :conditions => {:positive => true}, :dependent => :delete_all
+
   validates_presence_of :text, :post
   validates_length_of :text, :maximum => 2500
 

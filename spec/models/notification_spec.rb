@@ -96,8 +96,8 @@ describe Notification do
         it 'concatinates the like notifications' do
           p = Factory(:status_message, :author => @user.person)
           person2 = Factory(:person)
-          notification = Notification.notify(@user, Factory(:like, :author => @person, :post => p), @person)
-          notification2 =  Notification.notify(@user, Factory(:like, :author => person2, :post => p), person2)
+          notification = Notification.notify(@user, Factory(:like, :author => @person, :target => p), @person)
+          notification2 =  Notification.notify(@user, Factory(:like, :author => person2, :target => p), person2)
           notification.id.should == notification2.id
         end
       end
