@@ -4,6 +4,7 @@
 
 module Diaspora
   module Taggable
+    extend ActionView::Helpers::JavaScriptHelper
     VALID_TAG_BODY = /[^_,\s#*\[\]()\@\/"'\.%]+\b/
 
     def self.included(model)
@@ -39,7 +40,7 @@ module Diaspora
     def self.format_tags(text, opts={})
       return text if opts[:plain_text]
       regex = /(^|\s)#(#{VALID_TAG_BODY})/
-      form_message = text.gsub(regex) do |matched_string|
+      form_message = escape_javascript(text).gsub(regex) do |matched_string|
         "#{$~[1]}<a href=\"/tags/#{$~[2]}\" class=\"tag\">##{$~[2]}</a>"
       end
       form_message.html_safe
