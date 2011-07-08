@@ -52,7 +52,7 @@ describe LikesController do
       end
 
       it "doesn't post multiple times" do
-        @user1.like(1, :post => @post)
+        @user1.like(1, :target => @post)
         post :create, dislike_hash
         response.code.should == '422'
       end
@@ -81,7 +81,7 @@ describe LikesController do
     end
 
     it 'returns an array of likes for a post' do
-      like = bob.build_like(:positive => true, :post => @message)
+      like = bob.build_like(:positive => true, :target => @message)
       like.save!
 
       get :index, :post_id => @message.id
@@ -97,23 +97,23 @@ describe LikesController do
   describe '#destroy' do
     before do
       @message = bob.post(:status_message, :text => "hey", :to => @aspect1.id)
-      @like = alice.build_like(:positive => true, :post => @message)
+      @like = alice.build_like(:positive => true, :target => @message)
       @like.save
     end
 
     it 'lets a user destroy their like' do
       expect {
-        delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
+        delete :destroy, :format => "js", :post_id => @like.target_id, :id => @like.id
       }.should change(Like, :count).by(-1)
       response.status.should == 200
     end
 
     it 'does not let a user destroy other likes' do
-      like2 = eve.build_like(:positive => true, :post => @message)
+      like2 = eve.build_like(:positive => true, :target => @message)
       like2.save
 
       expect {
-        delete :destroy, :format => "js", :post_id => like2.post_id, :id => like2.id
+        delete :destroy, :format => "js", :post_id => like2.target_id, :id => like2.id
       }.should_not change(Like, :count)
 
       response.status.should == 403

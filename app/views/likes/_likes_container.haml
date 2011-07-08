@@ -6,7 +6,7 @@
   .likes_container
     .likes
       = image_tag('icons/heart.svg')
-      = link_to t('likes.likes.people_like_this', :count => likes_count), post_likes_path(post_id), :class => "expand_likes"
+      = link_to t('likes.likes.people_like_this', :count => likes_count), post_likes_path(target_id), :class => "expand_likes"
       %span.hidden.likes_list
         /= render 'likes/likes', :likes => likes
 

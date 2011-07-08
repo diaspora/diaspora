@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110707221112) do
+ActiveRecord::Schema.define(:version => 20110707234802) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -117,6 +117,8 @@ ActiveRecord::Schema.define(:version => 20110707221112) do
     t.text     "parent_author_signature"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "target_type",                               :null => false
+    t.integer  "target_id",                                 :null => false
   end
 
   add_index "likes", ["author_id"], :name => "likes_author_id_fk"
@@ -266,7 +268,6 @@ ActiveRecord::Schema.define(:version => 20110707221112) do
     t.string   "actor_url"
     t.integer  "objectId"
     t.string   "status_message_guid"
-    t.integer  "likes_count",                         :default => 0
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"

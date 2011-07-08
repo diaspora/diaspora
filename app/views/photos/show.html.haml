@@ -65,5 +65,5 @@
   #photo_stream.stream.show
     %div{:data=>{:guid=>parent.id}}
       .likes_container
-        = render "likes/likes_container", :post_id => parent.id, :likes_count => parent.likes_count
+        = render "likes/likes_container", :post_id => parent.id, :likes_count => parent.likes.count
       = render "comments/comments", :post => parent, :comments => parent.comments, :always_expanded => true

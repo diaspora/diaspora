@@ -37,7 +37,7 @@ end
 
 Factory.define :like do |x|
   x.association :author, :factory => :person
-  x.association :post, :factory => :status_message
+  x.association :target, :factory => :status_message
 end
 
 Factory.define :user do |u|
