@@ -85,11 +85,10 @@ var WebSocketReceiver = {
     }
   },
 
-  processComment: function(postId, commentId, html, opts) {
+  processComment: function(postGUID, commentGUID, html, opts) {
 
-    if( $("#"+commentId).length === 0 ) {
-
-      var post = $("#"+postId),
+    if( $("#"+commentGUID).length === 0 ) {
+      var post = $("#"+postGUID),
           prevComments = $('.comment.posted', post);
 
       if(prevComments.length > 0) {

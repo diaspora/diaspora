@@ -667,6 +667,23 @@ form.new_comment
       :display inline-block
 
 
+  .likes,
+  .likes_container
+    :display inline
+    :padding 0
+    :margin 0
+    :font
+      :size 10px
+    a
+      :font
+        :weight normal
+
+    img
+      :margin 0
+      :height 9px
+      :width 9px
+      :top 1px
+
 .stream.show
   ul.comments
     li
@@ -2211,18 +2228,15 @@ ul.show_comments
 
 ul.show_comments,
 .likes_container
-  *
+  a
     :font
       :weight bold
-    :color #999
 
   img
     :position relative
-    :top 3px
+    :top 2px
     :height 12px
     :width 12px
-    :margin
-      :left 0.5em
 
 .mark_all_read
   :position relative
