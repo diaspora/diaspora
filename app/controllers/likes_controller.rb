@@ -24,7 +24,7 @@ class LikesController < ApplicationController
         Postzord::Dispatch.new(current_user, @like).post
 
         respond_to do |format|
-          format.js { render :status => 201 }
+          format.js { render 'likes/update', :status => 201 }
           format.html { render :nothing => true, :status => 201 }
           format.mobile { redirect_to post_path(@like.post_id) }
         end
@@ -37,10 +37,13 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    target_id = params[:post_id] || params[:comment_id]
-
-    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id, :target_id => target_id).first
+    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id).first
       current_user.retract(@like)
+        pp @like
+      respond_to do |format|
+        format.all{}
+        format.js{ render 'likes/update' }
+      end
     else
       respond_to do |format|
         format.mobile {redirect_to :back}

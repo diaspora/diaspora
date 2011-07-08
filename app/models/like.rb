@@ -20,7 +20,7 @@ class Like < ActiveRecord::Base
   belongs_to :target, :polymorphic => true #, :counter_cache => true
   belongs_to :author, :class_name => 'Person'
 
-  validates_uniqueness_of :target_id, :scope => :author_id
+  validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
   validates_presence_of :author, :target
 
   def diaspora_handle

@@ -202,7 +202,7 @@ class User < ActiveRecord::Base
     if target.likes.loaded?
       return target.likes.detect{ |like| like.author_id == self.person.id }
     else
-      return Like.where(:author_id => self.person.id, :target_id => target.id).first
+      return Like.where(:author_id => self.person.id, :target_type => target.class.base_class.to_s, :target_id => target.id).first
     end
   end
 

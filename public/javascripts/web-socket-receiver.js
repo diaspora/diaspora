@@ -77,7 +77,7 @@ var WebSocketReceiver = {
   },
 
   processRetraction: function(post_id){
-    $("*[data-guid='" + post_id + "']").fadeOut(400, function() {
+    $("#" + post_id).fadeOut(400, function() {
       $(this).remove();
     });
     if($("#main_stream")[0].childElementCount === 0) {
@@ -87,9 +87,9 @@ var WebSocketReceiver = {
 
   processComment: function(postId, commentId, html, opts) {
 
-    if( $(".comment[data-guid='"+commentId+"']").length === 0 ) {
+    if( $("#"+commentId).length === 0 ) {
 
-      var post = $("*[data-guid='"+postId+"']'"),
+      var post = $("#"+postId),
           prevComments = $('.comment.posted', post);
 
       if(prevComments.length > 0) {
@@ -123,9 +123,8 @@ var WebSocketReceiver = {
     Diaspora.widgets.directionDetector.updateBinds();
   },
 
-  processLike: function(postId, html) {
-    var post = $("*[data-guid='"+postId+"']");
-    $('.likes', post).html(html);
+  processLike: function(targetGUID, html) {
+    $('.likes', "#" + targetGUID).first().html(html);
   },
 
   processPost: function(className, postId, html, aspectIds) {
