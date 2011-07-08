@@ -4,14 +4,11 @@
 */
 
 var ContentUpdater = {
-  elementWithGuid: function(selector, guid) {
-    return $(selector + "[data-guid='" + guid + "']");
-  },
   addPostToStream: function(html) {
     var streamElement = $(html);
-    var postId = streamElement.attr("data-guid");
+    var postId = streamElement.id;
 
-    if($(".stream_element[data-guid='" + postId + "']").length === 0) {
+    if($(".stream_element#" + postId).length === 0) {
       if($("#no_posts").length) {
         $("#no_posts").detach();
       }
@@ -27,7 +24,7 @@ var ContentUpdater = {
   },
 
   addLikesToPost: function(postId, html) {
-    var post = ContentUpdater.elementWithGuid("div", postId);
+    var post = $("div#" + postId);
 
     $(".likes_container", post)
       .fadeOut("fast")
