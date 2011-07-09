@@ -55,7 +55,7 @@ module Diaspora
         Postzord::Dispatch.new(user, object).post
       end
 
-      object.socket_to_user(user, :aspect_ids => object.parent.aspect_ids) if object.respond_to? :socket_to_user
+      object.socket_to_user(user) if object.respond_to? :socket_to_user
       if object.after_receive(user, person)
         object
       end

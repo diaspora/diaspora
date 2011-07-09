@@ -62,4 +62,10 @@ class Comment < ActiveRecord::Base
   def parent= parent
     self.post = parent
   end
+
+  # @return [Integer]
+  def update_likes_counter
+    self.likes_count = self.likes.count
+    self.save
+  end
 end

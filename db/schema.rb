@@ -46,15 +46,16 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
   add_index "aspects", ["user_id"], :name => "index_aspects_on_user_id"
 
   create_table "comments", :force => true do |t|
-    t.text     "text",                    :null => false
-    t.integer  "post_id",                 :null => false
-    t.integer  "author_id",               :null => false
-    t.string   "guid",                    :null => false
+    t.text     "text",                                   :null => false
+    t.integer  "post_id",                                :null => false
+    t.integer  "author_id",                              :null => false
+    t.string   "guid",                                   :null => false
     t.text     "author_signature"
     t.text     "parent_author_signature"
     t.text     "youtube_titles"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "likes_count",             :default => 0, :null => false
   end
 
   add_index "comments", ["author_id"], :name => "index_comments_on_person_id"
@@ -110,7 +111,7 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
 
   create_table "likes", :force => true do |t|
     t.boolean  "positive",                :default => true
-    t.integer  "post_id"
+    t.integer  "target_id"
     t.integer  "author_id"
     t.string   "guid"
     t.text     "author_signature"
@@ -118,12 +119,11 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "target_type",                               :null => false
-    t.integer  "target_id",                                 :null => false
   end
 
   add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
-  add_index "likes", ["post_id"], :name => "index_likes_on_post_id"
+  add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
 
   create_table "mentions", :force => true do |t|
     t.integer "post_id",   :null => false
@@ -268,6 +268,7 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
     t.string   "actor_url"
     t.integer  "objectId"
     t.string   "status_message_guid"
+    t.integer  "likes_count",                         :default => 0
   end
 
   add_index "posts", ["author_id"], :name => "index_posts_on_person_id"
@@ -419,7 +420,6 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
   add_foreign_key "invitations", "users", :name => "invitations_sender_id_fk", :column => "sender_id", :dependent => :delete
 
   add_foreign_key "likes", "people", :name => "likes_author_id_fk", :column => "author_id", :dependent => :delete
-  add_foreign_key "likes", "posts", :name => "likes_post_id_fk", :dependent => :delete
 
   add_foreign_key "messages", "conversations", :name => "messages_conversation_id_fk", :dependent => :delete
   add_foreign_key "messages", "people", :name => "messages_author_id_fk", :column => "author_id", :dependent => :delete
