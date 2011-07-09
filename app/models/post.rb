@@ -52,6 +52,12 @@ class Post < ActiveRecord::Base
     new_post
   end
 
+  # @return [Integer]
+  def update_likes_counter
+    self.likes_count = self.likes.count
+    self.save
+  end
+
   # @return Returns true if this Post will accept updates (i.e. updates to the caption of a photo).
   def mutable?
     false

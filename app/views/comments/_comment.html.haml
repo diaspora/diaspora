@@ -22,9 +22,9 @@
       ·
 
       .likes
-        = render "likes/likes_container", :target_id => comment.id, :likes_count => comment.likes.count
+        = render "likes/likes_container", :target_id => comment.id, :likes_count => comment.likes_count
 
-      - if comment.likes.count > 0
+      - if comment.likes_count > 0
         ·
 
       - unless (defined?(@commenting_disabled) && @commenting_disabled)

@@ -58,10 +58,16 @@ describe Like do
 
   describe 'counter cache' do
     it 'increments the counter cache on its post' do
-      pending
       lambda {
         @alice.like(1, :target => @status)
       }.should change{ @status.reload.likes_count }.by(1)
+    end
+
+    it 'increments the counter cache on its comment' do
+      comment = Factory(:comment, :post => @status)
+      lambda {
+        @alice.like(1, :target => comment)
+      }.should change{ comment.reload.likes_count }.by(1)
     end
   end
 

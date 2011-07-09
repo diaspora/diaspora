@@ -33,7 +33,12 @@ var WebSocketReceiver = {
         WebSocketReceiver.processPerson(obj);
 
       } else {
-        WSR.debug("got a " + obj['class'] + " for aspects " + obj.aspect_ids);
+        debug_string = "got a " + obj['class'];
+        if(obj.aspect_ids !== undefined){
+          debug_string +=  " for aspects " + obj.aspect_ids;
+        }
+
+        WSR.debug(debug_string);
 
         if (obj['class']=="retractions") {
           WebSocketReceiver.processRetraction(obj.post_id);

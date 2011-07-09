@@ -217,17 +217,8 @@ class User < ActiveRecord::Base
   ######### Posts and Such ###############
   def retract(target)
     if target.respond_to?(:relayable?) && target.relayable?
-
-      parent = if target.parent.instance_of?(Comment)
-          target.parent.parent
-        else
-          target.parent
-      end
-
-      aspects = parent.aspects
       retraction = RelayableRetraction.build(self, target)
     else
-      aspects = target.aspects
       retraction = Retraction.for(target)
     end
 
