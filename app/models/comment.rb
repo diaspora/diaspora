@@ -14,6 +14,7 @@ class Comment < ActiveRecord::Base
 
   include Diaspora::Socketable
   include Diaspora::Taggable
+  include Diaspora::Likeable
 
   acts_as_taggable_on :tags
   extract_tags_from :text
@@ -24,8 +25,6 @@ class Comment < ActiveRecord::Base
 
   belongs_to :post, :touch => true
   belongs_to :author, :class_name => 'Person'
-
-  has_many :likes, :conditions => {:positive => true}, :dependent => :delete_all, :as => :target
 
   validates_presence_of :text, :post
   validates_length_of :text, :maximum => 2500
@@ -61,11 +60,5 @@ class Comment < ActiveRecord::Base
 
   def parent= parent
     self.post = parent
-  end
-
-  # @return [Integer]
-  def update_likes_counter
-    self.likes_count = self.likes.count
-    self.save
   end
 end

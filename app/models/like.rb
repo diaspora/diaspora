@@ -11,7 +11,6 @@ class Like < ActiveRecord::Base
 
   xml_attr :target_type
   include Diaspora::Relayable
-
   include Diaspora::Socketable
 
   xml_attr :positive

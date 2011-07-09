@@ -12,7 +12,7 @@ class LikesOnComments < ActiveRecord::Migration
         SET target_type = 'Post'
 SQL
 
-    add_index :likes, [:target_id, :target_type], :unique => true
+    add_index :likes, [:target_id, :author_id, :target_type], :unique => true
   end
 
   def self.down
