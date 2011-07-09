@@ -123,6 +123,7 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
 
   add_index "likes", ["author_id"], :name => "likes_author_id_fk"
   add_index "likes", ["guid"], :name => "index_likes_on_guid", :unique => true
+  add_index "likes", ["target_id", "author_id", "target_type"], :name => "index_likes_on_target_id_and_author_id_and_target_type", :unique => true
   add_index "likes", ["target_id"], :name => "index_likes_on_post_id"
 
   create_table "mentions", :force => true do |t|

@@ -11,6 +11,8 @@ module Diaspora
         cattr_accessor :field_with_tags
       end
       model.instance_eval do
+        before_create :build_tags
+
         def extract_tags_from sym
           self.field_with_tags = sym
         end
