@@ -10,7 +10,7 @@ describe NotificationsHelper do
     @person2 = Factory(:person)
     @notification = Notification.notify(@user, Factory(:like, :author => @person, :post => @post), @person)
     @notification =  Notification.notify(@user, Factory(:like, :author => @person2, :post => @post), @person2)
-    
+
   end
   describe '#notification_people_link' do
     context 'formatting' do
@@ -68,14 +68,14 @@ describe NotificationsHelper do
     describe 'for a like' do
       it 'should include a link to the post' do
         output = object_link(@notification, notification_people_link(@notification))
-        output.should include status_message_path(@post)
+        output.should include post_path(@post)
       end
 
       it 'includes the boilerplate translation' do
         output = object_link(@notification,  notification_people_link(@notification))
         output.should include t("#{@notification.popup_translation_key}.one",
                                 :actors => notification_people_link(@notification),
-                                :post_link => "<a href=\"#{status_message_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
+                                :post_link => "<a href=\"#{post_path(@post)}\" class=\"hard_object_link\" data-ref=\"#{@post.id}\">#{t('notifications.post')}</a>")
       end
 
       context 'when post is deleted' do

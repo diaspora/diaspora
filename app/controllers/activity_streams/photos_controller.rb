@@ -28,7 +28,7 @@ class ActivityStreams::PhotosController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :create
 
   respond_to :json
-  respond_to :html, :only => [:show, :destroy]
+  respond_to :html, :only => [:show]
 
   def create
     @photo = ActivityStreams::Photo.from_activity(params[:activity])
@@ -49,14 +49,6 @@ class ActivityStreams::PhotosController < ApplicationController
 
   def show
     @photo = current_user.find_visible_post_by_id(params[:id])
-    respond_with @photo
-  end
-
-  def destroy
-    @photo = current_user.posts.where(:id => params[:id]).first
-    if @photo
-      current_user.retract(@photo)
-    end
     respond_with @photo
   end
 

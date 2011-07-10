@@ -1,0 +1,28 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#show_content{:data=>{:guid=>@post.id}}
+  = render 'shared/author_info', :person => @post.author, :post => @post
+
+  - if @post.activity_streams?
+    = image_tag @photo.image_url
+  - else
+    %p
+      = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
+
+    - for photo in @post.photos
+      = link_to (image_tag photo.url(:thumb_small), :class => 'thumb_small'), photo.url(:thumb_medium)
+
+  .info
+    %span.time
+      = t('ago', :time => time_ago_in_words(@post.created_at))
+
+      %br
+      - if current_user.owns? @post
+        = link_to t('delete'), @post, :confirm => t('are_you_sure'), :method => :delete
+      - else
+        = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
+
+.stream.show{:data=>{:guid=>@post.id}}
+  = render "comments/comments", :post => @post, :comments => @post.comments, :always_expanded => true

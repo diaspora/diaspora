@@ -9,21 +9,21 @@ module NotificationsHelper
     if note.instance_of?(Notifications::Mentioned)
       post = Mention.find(note.target_id).post
       if post
-        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), object_path(post)).html_safe)
+        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), post_path(post)).html_safe)
       else
         t('notifications.mentioned_deleted', :actors => actors, :count => actors_count).html_safe
       end
     elsif note.instance_of?(Notifications::CommentOnPost)
       post = Post.where(:id => note.target_id).first
       if post
-        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+        translation(target_type, :actors => actors, :count => actors_count, :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.also_commented_deleted', :actors => actors, :count => actors_count).html_safe
       end
     elsif note.instance_of?(Notifications::AlsoCommented)
       post = Post.where(:id => note.target_id).first
       if post
-        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.also_commented_deleted', :actors => actors, :count => actors_count).html_safe
       end
@@ -31,7 +31,7 @@ module NotificationsHelper
       post = note.target
       post = post.post if post.is_a? Like
       if post
-        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), object_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
+        translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
         t('notifications.liked_post_deleted', :actors => actors, :count => actors_count).html_safe
       end

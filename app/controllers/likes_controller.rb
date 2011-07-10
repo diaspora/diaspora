@@ -21,7 +21,7 @@ class LikesController < ApplicationController
         respond_to do |format|
           format.js { render :status => 201 }
           format.html { render :nothing => true, :status => 201 }
-          format.mobile { redirect_to status_message_path(@like.post_id) }
+          format.mobile { redirect_to post_path(@like.post_id) }
         end
       else
         render :nothing => true, :status => 422

@@ -11,19 +11,24 @@ Diaspora::Application.routes.draw do
     put 'toggle_contact_visibility' => :toggle_contact_visibility
   end
 
-  resources :status_messages, :only => [:new, :create, :destroy, :show] do
+  resources :status_messages, :only => [:new, :create] do
     resources :likes, :only => [:create, :destroy, :index]
   end
 
+  resources :comments, :only => [:create, :destroy, :index]
+  resources :posts, :only => [:show, :destroy]
+
   get 'bookmarklet' => 'status_messages#bookmarklet'
-  get 'p/:id'       => 'posts#show', :as => 'post'
+  get 'p/:id'       => 'publics#post', :as => 'public_post'
 
   resources :photos, :except => [:index] do
     put 'make_profile_photo' => :make_profile_photo
   end
 
-  resources :comments, :only => [:create, :destroy]
-
+  # ActivityStreams routes
+  scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
+    resources :photos, :controller => "photos", :only => [:create]
+  end
 
   resources :conversations do
     resources :messages, :only => [:create, :show]
@@ -66,15 +71,7 @@ Diaspora::Application.routes.draw do
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
   end
 
-  # generating a new user token (for devise)
-
-  # ActivityStreams routes
-  scope "/activity_streams", :module => "activity_streams", :as => "activity_streams" do
-    resources :photos, :controller => "photos", :only => [:create, :show, :destroy]
-  end
-
-
-  #Temporary token_authenticable route
+  #Cubbies info page
   resource :token, :only => :show
 
   get 'login' => redirect('/users/sign_in')

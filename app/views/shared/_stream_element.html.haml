@@ -5,7 +5,7 @@
 .stream_element{:data=>{:guid=>post.id}}
   - if current_user && post.author.owner_id == current_user.id
     .right.controls
-      = link_to image_tag('deletelabel.png'), status_message_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
+      = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
   - else
     .right.controls
       = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
@@ -23,7 +23,7 @@
         %span.details
           –
           %span.timeago
-            = link_to(how_long_ago(post), object_path(post))
+            = link_to(how_long_ago(post), post_path(post))
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url), post.object_url

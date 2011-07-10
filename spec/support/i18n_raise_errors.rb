@@ -1,6 +1,6 @@
 module I18n
   def self.just_raise_that_exception(*args)
-    raise args.first
+    raise "Translation not found: #{args.first.key}"
   end
 end
 

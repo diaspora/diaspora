@@ -7,7 +7,6 @@ class CommentsController < ApplicationController
   before_filter :authenticate_user!
 
   respond_to :html, :mobile
-  respond_to :json, :only => :show
 
   rescue_from ActiveRecord::RecordNotFound do
     render :nothing => true, :status => 404

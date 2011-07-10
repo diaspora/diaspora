@@ -39,36 +39,6 @@ describe StatusMessagesController do
     end
   end
 
-  describe '#show' do
-    before do
-      @message = alice.build_post :status_message, :text => "ohai", :to => @aspect1.id
-      @message.save!
-
-      alice.add_to_streams(@message, [@aspect1])
-      alice.dispatch_post @message, :to => @aspect1.id
-    end
-
-    it 'succeeds' do
-      get :show, "id" => @message.id.to_s
-      response.should be_success
-    end
-
-    it 'marks a corresponding notification as read' do
-      alice.comment("comment after me", :post => @message)
-      bob.comment("here you go", :post => @message)
-      note = Notification.where(:recipient_id => alice.id, :target_id => @message.id).first
-      lambda{
-        get :show, :id => @message.id
-        note.reload
-      }.should change(note, :unread).from(true).to(false)
-    end
-
-    it 'redirects to back if there is no status message' do
-      get :show, :id => 2345
-      response.status.should == 302
-    end
-  end
-
   describe '#create' do
     let(:status_message_hash) {
       { :status_message => {
@@ -162,34 +132,6 @@ describe StatusMessagesController do
         @photo1.reload.pending.should be_false
         @photo2.reload.pending.should be_false
       end
-    end
-  end
-
-  describe '#destroy' do
-    before do
-      @message = alice.post(:status_message, :text => "hey", :to => @aspect1.id)
-      @message2 = bob.post(:status_message, :text => "hey", :to => @aspect2.id)
-      @message3 = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
-    end
-
-    it 'let a user delete his message' do
-      delete :destroy, :format => :js, :id => @message.id
-      StatusMessage.find_by_id(@message.id).should be_nil
-    end
-
-    it 'sends a retraction on delete' do
-      alice.should_receive(:retract).with(@message)
-      delete :destroy, :format => :js, :id => @message.id
-    end
-
-    it 'will not let you destroy posts visible to you' do
-      delete :destroy, :format => :js, :id => @message2.id
-      StatusMessage.find_by_id(@message2.id).should be_true
-    end
-
-    it 'will not let you destory posts you do not own' do
-      delete :destroy, :format => :js, :id => @message3.id
-      StatusMessage.find_by_id(@message3.id).should be_true
     end
   end
 end

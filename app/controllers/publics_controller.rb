@@ -64,4 +64,29 @@ class PublicsController < ApplicationController
 
     render :nothing => true, :status => 202
   end
+
+  def post
+    @post = Post.where(:id => params[:id], :public => true).includes(:author, :comments => :author).first
+
+    #hax to upgrade logged in users who can comment
+    if @post
+      if user_signed_in? && current_user.find_visible_post_by_id(@post.id)
+        redirect_to post_path(@post)
+        return
+      end
+
+      @landing_page = true
+      @person = @post.author
+      if @person.owner_id
+        I18n.locale = @person.owner.language
+        render "#{@post.class.to_s.underscore}", :layout => 'application'
+      else
+        flash[:error] = I18n.t('posts.show.not_found')
+        redirect_to root_url
+      end
+    else
+      flash[:error] = I18n.t('posts.show.not_found')
+      redirect_to root_url
+    end
+  end
 end

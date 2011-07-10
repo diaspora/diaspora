@@ -7,8 +7,6 @@ class StatusMessagesController < ApplicationController
 
   respond_to :html
   respond_to :mobile
-  respond_to :json, :only => :show
-
 
   # Called when a user clicks "Mention" on a profile page
   # @option [Integer] person_id The id of the person to be mentioned
@@ -88,20 +86,6 @@ class StatusMessagesController < ApplicationController
         }
         format.html {redirect_to :back}
       end
-    end
-  end
-
-  def destroy
-    @status_message = current_user.posts.where(:id => params[:id]).first
-    if @status_message
-      current_user.retract(@status_message)
-      respond_to do |format|
-        format.js {render 'destroy'}
-        format.all {redirect_to root_url}
-      end
-    else
-      Rails.logger.info "event=post_destroy status=failure user=#{current_user.diaspora_handle} reason='User does not own post'"
-      render :nothing => true, :status => 404
     end
   end
 

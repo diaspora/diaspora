@@ -61,6 +61,28 @@ describe PublicsController do
     end
   end
 
+  describe '#post' do
+    it 'shows a public post' do
+      status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+
+      get :post, :id => status.id
+      response.status= 200
+    end
+
+    it 'does not show a private post' do
+      status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
+      get :post, :id => status.id
+      response.status = 302
+    end
+
+    it 'redirects to the proper show page if the user has visibility of the post' do
+      status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+      sign_in bob
+      get :post, :id => status.id
+      response.should be_redirect
+    end
+  end
+
   describe '#hcard' do
     it "succeeds", :fixture => true do
       post :hcard, "guid" => @user.person.guid.to_s

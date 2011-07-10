@@ -16,19 +16,6 @@ module ApplicationHelper
     "javascript:(function(){f='#{AppConfig[:pod_url]}bookmarklet?url='+encodeURIComponent(window.location.href)+'&title='+encodeURIComponent(document.title)+'&notes='+encodeURIComponent(''+(window.getSelection?window.getSelection():document.getSelection?document.getSelection():document.selection.createRange().text))+'&v=1&';a=function(){if(!window.open(f+'noui=1&jump=doclose','diasporav1','location=yes,links=no,scrollbars=no,toolbar=no,width=620,height=250'))location.href=f+'jump=yes'};if(/Firefox/.test(navigator.userAgent)){setTimeout(a,0)}else{a()}})()"
   end
 
-  def object_path(object, opts={})
-    return "" if object.nil?
-    object = object.person if object.instance_of? User
-    object = object.model if object.instance_of? PostsFake::Fake
-    if object.respond_to?(:activity_streams?) && object.activity_streams?
-      class_name = object.class.name.underscore.split('/')
-      method_sym = "#{class_name.first}_#{class_name.last}_path".to_sym
-    else
-      method_sym = "#{object.class.name.underscore}_path".to_sym
-    end
-    self.send(method_sym, object, opts)
-  end
-
   def object_fields(object)
     object.attributes.keys
   end
@@ -109,7 +96,7 @@ module ApplicationHelper
     @rtl ||= RTL_LANGUAGES.include? I18n.locale
   end
 
-  def controller_index_path 
+  def controller_index_path
     self.send((request.filtered_parameters["controller"] + "_path").to_sym)
   end
 

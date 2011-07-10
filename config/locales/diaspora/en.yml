@@ -490,7 +490,6 @@ en:
       view: "view"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
-      permalink: "permalink"
       collection_permalink: "collection permalink"
       original_post: "Original Post"
     edit:
@@ -519,7 +518,10 @@ en:
       or_select_one: "or select one from your already existing"
 
   posts:
-    doesnt_exist: "that post does not exist!"
+    show:
+      destroy: "Delete"
+      permalink: "permalink"
+      not_found: "Sorry, we couldn't find that post."
 
   post_visibilites:
     update:
@@ -675,10 +677,6 @@ en:
       mentioning: "Mentioning: %{person}"
     create:
       success: "Successfully mentioned: %{names}"
-    show:
-      destroy: "Delete"
-      permalink: "permalink"
-      not_found: "Sorry, we couldn't find that post."
     helper:
       no_message_to_display: "No message to display."
     destroy:
