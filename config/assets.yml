@@ -36,12 +36,14 @@ javascripts:
     - public/javascripts/widgets/flashes.js
     - public/javascripts/widgets/post.js
     - public/javascripts/widgets/hovercard.js
+    - public/javascripts/widgets/lightbox.js
     - public/javascripts/widgets/notifications-badge.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
     - public/javascripts/search.js
     - public/javascripts/contact-edit.js
+    - public/javascripts/contact-list.js
   login:
     - public/javascripts/login.js
   mobile:
@@ -61,14 +63,11 @@ javascripts:
     - public/javascripts/vendor/mailchimp/jquery.form.js
     - public/javascripts/vendor/mailchimp/jquery.validate.js
     - public/javascripts/vendor/mailchimp/jquery126.min.js
-  aspects:
-    - public/javascripts/contact-list.js
   finder:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
     - public/javascripts/aspect-filters.js
-    - public/javascripts/contact-list.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:
@@ -85,6 +84,7 @@ stylesheets:
   default:
     - public/stylesheets/application.css
     - public/stylesheets/ui.css
+    - public/stylesheets/lightbox.css
     - public/stylesheets/autocomplete.css
     - public/stylesheets/tags.css
     - public/stylesheets/vendor/facebox.css
