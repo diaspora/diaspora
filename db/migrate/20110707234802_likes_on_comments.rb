@@ -1,4 +1,5 @@
 class LikesOnComments < ActiveRecord::Migration
+  class Likes < ActiveRecord::Base; end
   def self.up
     remove_foreign_key :likes, :posts
 
@@ -11,7 +12,17 @@ class LikesOnComments < ActiveRecord::Migration
       UPDATE likes
         SET target_type = 'Post'
 SQL
+    execute <<SQL
+      UPDATE posts
+        SET likes_count = (SELECT COUNT(*) FROM likes WHERE likes.target_id = posts.id AND likes.target_type = 'Post')
+SQL
 
+    #There are some duplicate likes.
+    keeper_likes = Like.group(:target_id, :author_id, :target_type).having('COUNT(*) > 1')
+    keeper_likes.each do |like|
+      l = Like.arel_table
+      Like.where(:target_id => like.target_id, :author_id => like.author_id, :target_type => like.target_type).where(l[:id].not_eq(like.id)).delete_all
+    end
     add_index :likes, [:target_id, :author_id, :target_type], :unique => true
   end
 
