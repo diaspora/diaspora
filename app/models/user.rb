@@ -33,7 +33,7 @@ class User < ActiveRecord::Base
 
   has_many :invitations_from_me, :class_name => 'Invitation', :foreign_key => :sender_id, :dependent => :destroy
   has_many :invitations_to_me, :class_name => 'Invitation', :foreign_key => :recipient_id, :dependent => :destroy
-  has_many :aspects
+  has_many :aspects, :order => 'order_id ASC'
   has_many :aspect_memberships, :through => :aspects
   has_many :contacts
   has_many :contact_people, :through => :contacts, :source => :person
@@ -366,5 +366,13 @@ class User < ActiveRecord::Base
 
   def remove_mentions
     Mention.where( :person_id => self.person.id).delete_all
+  end
+
+  def reorder_aspects(aspect_order)
+    i = 0
+    aspect_order.each do |id|
+      self.aspects.find(id).update_attributes({ :order_id => i })
+      i += 1
+    end
   end
 end
