@@ -25,10 +25,10 @@ desc "Initial setup for Octopress: copies the default theme into the path of Jek
 task :install, :theme do |t, args|
   # copy theme into working Jekyll directories
   theme = args.theme || 'classic'
-  puts "## Copying "+theme+" theme into ./#{source_dir} ./sass and ./_plugins "
+  puts "## Copying "+theme+" theme into ./#{source_dir} ./sass and ./plugins "
   system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/ #{source_dir}/"
   system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
-  system "mkdir -p _plugins; cp -R #{themes_dir}/"+theme+"/_plugins/ _plugins/"
+  system "mkdir -p plugins; cp -R #{themes_dir}/"+theme+"/plugins/ plugins/"
   system "mkdir -p #{source_dir}/#{posts_dir}";
 end
 
@@ -138,6 +138,7 @@ task :config_deploy, :branch do |t, args|
       f.write rakefile
     end
   end
+  puts "## Deployment configured. Now you can deploy to the #{args.branch} branch with `rake deploy` ##"
 end
 
 def ok_failed(condition)
