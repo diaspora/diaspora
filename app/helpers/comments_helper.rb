@@ -13,6 +13,10 @@ module CommentsHelper
     str
   end
 
+  # This method memoizes the new comment form in order to avoid the overhead of rendering it on every post.
+  # @param [Integer] post_id The id of the post that this form should post to.
+  # @param [User] current_user
+  # @return [String] The HTML for the new comment form.
   def new_comment_form(post_id, current_user)
     @form ||= controller.render_to_string(
       :partial => 'comments/new_comment', :locals => {:post_id => GSUB_THIS, :current_user => current_user})
