@@ -1,2 +1,2 @@
-var target = $(".stream_element[data-guid=<%= escape_javascript(@post.id.to_s) %>]")
+var target = $("#<%= @post.guid %>")
 target.hide('blind', { direction: 'vertical' }, 300, function(){ target.remove() });

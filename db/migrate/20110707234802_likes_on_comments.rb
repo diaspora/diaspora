@@ -3,7 +3,7 @@ class LikesOnComments < ActiveRecord::Migration
   def self.up
     remove_foreign_key :likes, :posts
 
-    add_column :likes, :target_type, :string, :null => false
+    add_column :likes, :target_type, :string, :limit => 60, :null => false
     rename_column :likes, :post_id, :target_id
 
     add_column :comments, :likes_count, :integer, :default => 0, :null => false

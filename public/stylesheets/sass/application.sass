@@ -667,6 +667,7 @@ form.new_comment
       :display inline-block
 
 
+.comment
   .likes,
   .likes_container
     :display inline
@@ -2224,6 +2225,11 @@ ul.show_comments
   :border
     :top 1px dotted #aaa
 
+ul.show_comments,
+.likes_container
+  a
+    :color #999
+
 .likes_container
   :margin
     :bottom -4px
@@ -2231,10 +2237,6 @@ ul.show_comments
 
 ul.show_comments,
 .likes_container
-  a
-    :font
-      :weight bold
-
   img
     :position relative
     :top 2px

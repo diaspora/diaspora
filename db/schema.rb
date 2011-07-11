@@ -110,7 +110,7 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
   add_index "invitations", ["sender_id"], :name => "index_invitations_on_sender_id"
 
   create_table "likes", :force => true do |t|
-    t.boolean  "positive",                :default => true
+    t.boolean  "positive",                              :default => true
     t.integer  "target_id"
     t.integer  "author_id"
     t.string   "guid"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
     t.text     "parent_author_signature"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "target_type",                               :null => false
+    t.string   "target_type",             :limit => 60,                   :null => false
   end
 
   add_index "likes", ["author_id"], :name => "likes_author_id_fk"
