@@ -52,21 +52,33 @@ describe InvitationsController do
     it "doesn't invite anyone if you have 0 invites" do
       @user.invites = 0
       @user.save!
-      lambda {
-        post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
-      }.should_not change(User, :count)
+
+      Resque.should_not_receive(:enqueue)
+      post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
+    end
+
+    it "allows invitations without limit if invitations are open" do
+      open_bit = AppConfig[:open_invitations]
+      AppConfig[:open_invitations] = true
+      @user.invites = 0
+      @user.save!
+
+      Resque.should_receive(:enqueue).once
+      post :create, :user => @invite
+
+      AppConfig[:open_invitations] = open_bit
     end
 
     it 'returns to the previous page on success' do
       post :create, :user => @invite
       response.should redirect_to("http://test.host/cats/foo")
     end
-    
+
     it 'strips out your own email' do
       lambda {
         post :create, :user => @invite.merge(:email => @user.email)
       }.should_not change(User, :count)
-      
+
       Resque.should_receive(:enqueue).once
       post :create, :user => @invite.merge(:email => "hello@example.org, #{@user.email}")
     end

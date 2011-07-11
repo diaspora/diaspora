@@ -82,14 +82,15 @@
           %br= link_to service.titleize, "/auth/#{service}" 
 
 
-  - if @invites > 0
+  - unless AppConfig[:invites_off]
     .section
       .title
 
         = image_tag('/images/icons/plus.png')
         %h5
-          .right
-            = t('shared.invitations.invitations_left', :count => @invites)
+          - unless AppConfig[:open_invitations]
+            .right
+              = t('shared.invitations.invitations_left', :count => @invites)
           = t('shared.invitations.invite_your_friends')
       .content
         = render "shared/invitations", :invites => @invites
