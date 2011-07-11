@@ -28,7 +28,7 @@ class AspectsController < ApplicationController
       redirect_to getting_started_path
       return
     end
-    
+
     # redirect to aspects creation
     if @aspects.blank?
       redirect_to new_aspect_path
@@ -47,7 +47,7 @@ class AspectsController < ApplicationController
                                            :type => ['StatusMessage','ActivityStreams::Photo'],
                                            :order => session[:sort_order] + ' DESC',
                                            :max_time => params[:max_time].to_i
-                          ).includes({:comments => {:author => :profile}}, {:mentions => {:person => :profile}})
+                          ).includes(:mentions => {:person => :profile})
 
     @posts = PostsFake.new(posts)
     if params[:only_posts]

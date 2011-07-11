@@ -13,7 +13,7 @@ class Post < ActiveRecord::Base
   xml_attr :public
   xml_attr :created_at
 
-  has_many :comments, :order => 'created_at ASC', :dependent => :destroy
+  has_many :comments, :dependent => :destroy
   has_many :likes, :conditions => {:positive => true}, :dependent => :delete_all
   has_many :dislikes, :conditions => {:positive => false}, :class_name => 'Like', :dependent => :delete_all
 
@@ -110,6 +110,11 @@ class Post < ActiveRecord::Base
 
   def activity_streams?
     false
+  end
+
+  # @return [Array<Comment>]
+  def last_three_comments
+    self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
   end
 end
 

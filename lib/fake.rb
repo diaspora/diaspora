@@ -6,9 +6,6 @@ class PostsFake
     author_ids = []
     posts.each do |p|
       author_ids << p.author_id
-      p.comments.each do |c|
-        author_ids << c.author_id
-      end
     end
 
     people = Person.where(:id => author_ids).includes(:profile)
@@ -17,9 +14,6 @@ class PostsFake
 
     @post_fakes = posts.map do |post|
       f = Fake.new(post, self)
-      f.comments = post.comments.map do |comment|
-        Fake.new(comment, self)
-      end
       f
     end
   end
@@ -29,7 +23,6 @@ class PostsFake
   end
 
   class Fake
-    attr_accessor :comments
     attr_reader :model
     def initialize(model, fakes_collection)
       @fakes_collection = fakes_collection
