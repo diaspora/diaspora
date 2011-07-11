@@ -10,18 +10,6 @@ describe ApplicationHelper do
     @person = Factory.create(:person)
   end
 
-  describe "#object_path" do
-    it "returns an empty string if object is nil" do
-      object_path(nil).should == ""
-    end
-    it "returns person path if it's a person" do
-      object_path(@person).should == person_path(@person)
-    end
-    it "returns person path if it's a user" do
-      object_path(@user).should == person_path(@user.person)
-    end
-  end
-
   describe "#person_image_link" do
     it "returns an empty string if person is nil" do
       person_image_link(nil).should == ""
