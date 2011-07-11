@@ -14,6 +14,9 @@ defaults: &defaults
   # Set this to true to prevent users from sending invitations.
   invites_off: false
 
+  # Set this to true if you want users to invite as many people as they want
+  open_invitations: true
+
   #
   # Logging setup
   #
@@ -148,4 +151,6 @@ test:
   pod_url: "http://localhost:9887"
   socket_port: 8081
   enable_splunk_logging: false
+  open_invitations: false
+
 

@@ -51,7 +51,7 @@ class ServicesController < ApplicationController
   end
 
   def inviter
-    if current_user.invites == 0
+    if !AppConfig[:open_invitations] && current_user.invites == 0
       flash[:error] = I18n.t 'invitations.create.no_more'
       redirect_to :back
       return

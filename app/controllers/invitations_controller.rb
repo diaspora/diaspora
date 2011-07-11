@@ -12,7 +12,7 @@ class InvitationsController < Devise::InvitationsController
   end
 
   def create
-      if current_user.invites == 0
+    if !AppConfig[:open_invitations] && current_user.invites == 0
         flash[:error] = I18n.t 'invitations.create.no_more'
         redirect_to :back
         return
@@ -34,7 +34,7 @@ class InvitationsController < Devise::InvitationsController
         end
       end
 
-      good_emails.each{|e| Resque.enqueue(Job::InviteUserByEmail, current_user.id, e, aspect, message)}
+      good_emails.each{|e| pp Resque.enqueue(Job::InviteUserByEmail, current_user.id, e, aspect, message)}
 
       if bad_emails.any?
         flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')
