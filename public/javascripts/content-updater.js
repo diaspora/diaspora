@@ -6,7 +6,7 @@
 var ContentUpdater = {
   addPostToStream: function(html) {
     var streamElement = $(html);
-    var postGUID = streamElement.id;
+    var postGUID = $(streamElement).attr('id');
 
     if($("#"+postGUID).length === 0) {
       if($("#no_posts").length) {
@@ -31,5 +31,5 @@ var ContentUpdater = {
       .html(html)
       .fadeIn("fast");
   }
-  
+
 };
