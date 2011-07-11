@@ -1,5 +1,5 @@
 class LikesOnComments < ActiveRecord::Migration
-  class Likes < ActiveRecord::Base; end
+  class Like < ActiveRecord::Base; end
   def self.up
     remove_foreign_key :likes, :posts
 
