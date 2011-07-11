@@ -23,6 +23,7 @@ class Services::Facebook < Service
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
     if self.service_users.blank?
       self.save_friends
+      self.service_users.reload
     else
       Resque.enqueue(Job::UpdateServiceUsers, self.id)
     end
@@ -42,8 +43,8 @@ class Services::Facebook < Service
     response = Faraday.get(url)
     data = JSON.parse(response.body)['data']
     data.each{ |p|
-      ServiceUser.find_or_create_by_service_id_and_uid(:service_id => self.id, :name => p["name"],
-                         :uid => p["id"], :photo_url => p["picture"])
+      su = ServiceUser.find_or_initialize_by_service_id_and_uid(:service_id => self.id, :uid => p["id"])
+      su.update_attributes({:name => p["name"], :photo_url => p["picture"]})
     }
   end
 end
