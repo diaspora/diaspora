@@ -16,8 +16,10 @@
     this.eventsContainer = $({});
   };
 
-  Diaspora.WidgetCollection.prototype.add = function(widgetId, widget) {
-    this[widgetId] = this.collection[widgetId] = new widget();
+  Diaspora.WidgetCollection.prototype.add = function(widgetId, Widget) {
+    $.extend(Widget.prototype, Diaspora.BaseWidget);
+
+    this[widgetId] = this.collection[widgetId] = new Widget();
     if(this.initialized) {
       this.collection[widgetId].start();
     }
@@ -47,6 +49,12 @@
 
   Diaspora.WidgetCollection.prototype.publish = function(id, args) {
     this.eventsContainer.trigger(id, args);
+  };
+
+  Diaspora.BaseWidget = {
+    require: function(widgetName) {
+      this[widgetName] = Diaspora.widgets[widgetName];
+    }
   };
 
   Diaspora.widgets = new Diaspora.WidgetCollection();
