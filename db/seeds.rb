@@ -35,6 +35,12 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe",
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 
+# Uncomment these and return out of Service::Facebook#save_friends 
+#service = Service.new(:user_id => bob.id)
+#service.type = "Services::Facebook"
+#service.access_token = "abc123"
+#service.save!
+#su = ServiceUser.create!(:service_id => service.id, :photo_url => "/images/user/angela.jpg", :uid => "abc123", :name => "Angelica")
 
 require 'spec/support/fake_resque'
 require 'spec/support/fake_redis'
