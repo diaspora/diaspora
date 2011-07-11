@@ -26,7 +26,7 @@
             = link_to(how_long_ago(post), post_path(post))
 
       - if post.activity_streams?
-        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url), post.object_url, :class => "stream-photo-link"
+        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url), post.object_url, :class => "stream-photo-link"
       - else
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
