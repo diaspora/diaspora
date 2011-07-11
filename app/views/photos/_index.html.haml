@@ -3,19 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- content_for :head do
-  :javascript
-    $(document).ready(function(){
-      $("#thumbnails").find("img").bind("mouseenter",function(){
-        var photo = $(this),
-            messageId = photo.attr("data-message-id");
-
-        $("#thumbnails").find("img[data-message-id='"+messageId+"']").css('opacity','0.5');
-        $("#thumbnails").find("img").fadeTo(100,1);
-      });
-    });
-
 #thumbnails.span-15.last
   - for photo in photos
-    = link_to (image_tag photo.url(:thumb_medium), "data-message-guid" => photo.status_message_guid ), photo_path(photo)
+    = link_to (image_tag photo.url(:thumb_large), "data-message-guid" => photo.status_message_guid ), photo_path(photo)
 
