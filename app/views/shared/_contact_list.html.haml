@@ -3,15 +3,18 @@
 -#   the COPYRIGHT file.
 
 
+.contact_list_controls
+  = search_field_tag :contact_search, "", :id => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
+  = t('contacts', :count =>@aspect_contacts_count)
+
 .contact_list
-  = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
   %ul
     - for contact in contacts
       %li{:data=>{:contact_id=>contact.id}}
         = person_image_tag contact.person
-        %h4.name
+        .name
           = link_to contact.person.name, contact.person
-          .description
+          .diaspora_id
             = contact.person.diaspora_handle
         .right
           = aspect_membership_button(aspect, contact, contact.person)

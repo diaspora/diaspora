@@ -1054,14 +1054,17 @@ img.scaled_full
 #thumbnails
   a
     :display inline-block
-    :height 150px
+    :width 100px
+    :min-width 100px
+    :height 100px
+    :min-height 100px
     :margin
-      :bottom 8px
-      :right 2px
-    :vertical-align middle
+      :bottom 15px
+      :right 15px
 
     img
-      :max-height 150px
+      :height 100px
+      :width 100px
 
 #global_search
   :display inline
@@ -1679,38 +1682,48 @@ ul#request_result
       :bottom 2.5em
       :padding 0
 
+.contact_list_controls
+  :height 30px
+  :margin
+    :bottom 5px
+  :vertical-align middle
+
+#contact_list_search
+  :width 200px
+  :margin
+    :top 0
+  :float right
+
 .contact_list,
 .aspect_list
-  :height 450px
-  :max-height 450px
+  @include border-radius(3px)
+
+  :height 300px
+  :max-height 300px
 
   :overflow-y auto
   :overflow-x hidden
 
-  :border 2px solid #eee
+  :border 1px solid #bbb
 
   :background
     :color rgb(252,252,252)
 
   .name
     :position absolute
-    :left 70px
+    :left 65px
     :top 10px
+
+  .diaspora_id
+    :color #777
+    :font
+      :size smaller
 
   .avatar
     :position absolute
     :left 6px
     :height 50px
     :width 50px
-
-  :-webkit-border-radius 0 0 5px 5px
-  :-moz-border-radius 0 0 5px 5px
-  :border-radius 0 0 5px 5px
-
-  input.contact_list_search
-    :width 100%
-    :margin
-      :top 0
 
   .button.share
     :padding
@@ -1721,31 +1734,47 @@ ul#request_result
 
   > ul
     :margin 0
-    :padding 0
+    :padding 5px
+      :right 0
 
     > li
-      :position relative
-      :height 50px
-      :padding 4px
-      :border
-        :bottom 1px solid #eee
+      @include border-radius(3px)
+      :background
+        :color #fff
 
-      &:last-child
+      :position relative
+      :display inline-block
+
+      &.hidden
+        :display none
+
+      :height 50px
+      :width 170px
+
+      :margin
+        :bottom 5px
+        :right 5px
+
+      :padding 8px
+      :border 1px solid #ccc
+
+      > .right
+        :right -5px
+        :bottom 2px
+
+      a.button
+        @include box-shadow(0,0,0)
+
         :border
           :bottom none
 
-      &:hover
-        :background
-          :color rgb(245,245,245)
+        :height 12px !important
+        :width 12px !important
 
-      > .right
-        :right 8px
-        :top 12px
-
-      a.button
         :padding
           :right 4px
           :left 4px
+
         &.added
           @include linear-gradient(rgb(158,255,153), rgb(92,199,86))
 
@@ -2206,7 +2235,7 @@ ul.show_comments,
   :top 10px
 
 #aspect_edit_pane
-  :width 400px
+  :width 790px
   .person_tiles
     .tile
       @include border-radius(2px)
@@ -3087,9 +3116,8 @@ ul.left_nav
     :bottom 25px
 
   :border 1px solid #999
+  :width 220px
 
-  :width 240px
-    
   h4
     :margin
       :bottom 10px
