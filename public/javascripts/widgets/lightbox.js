@@ -25,24 +25,56 @@ jQuery.fn.center = (function() {
         lightbox: $("#lightbox"),
         imageset: $("#lightbox-imageset"),
         backdrop: $("#lightbox-backdrop"),
+        closelink: $("#lightbox-close-link"),
         image: $("#lightbox-image"),
-        stream: $("#main_stream"),
+        stream: $(".stream_container"),
         body: $(document.body),
         window: $(window)
       });
       
-      self.stream.delegate("a", "click", self.lightboxImageClicked);
+      self.stream.delegate("a.stream-photo-link", "click", self.lightboxImageClicked);
       self.imageset.delegate("img", "click", self.imagesetImageClicked);
 
       self.window.resize(function() {
         self.lightbox.css("max-height", (self.window.height() - 100) + "px");
       }).trigger("resize");
 
+      self.closelink.click(self.resetLightbox);
+
       self.body.keydown(function(evt) {
-        if(evt.keyCode == 27){
+
+        var imageThumb = self.imageset.find("img.selected");
+
+        switch(evt.keyCode) {
+        case 27:
           self.resetLightbox();
+          break;
+        case 37:
+          //left
+          self.selectImage(self.prevImage(imageThumb));
+          break;
+        case 39:
+          //right
+          self.selectImage(self.nextImage(imageThumb));
+          break;
         }
       });
+    };
+
+    this.nextImage = function(thumb){
+      var next = thumb.next();
+      if (next.length == 0) {
+        next = self.imageset.find("img").first();
+      }
+      return(next);
+    };
+
+    this.prevImage = function(thumb){
+      var prev = thumb.prev();
+      if (prev.length == 0) {
+        prev = self.imageset.find("img").last();
+      }
+      return(prev);
     };
 
     this.lightboxImageClicked = function(evt) {
@@ -75,7 +107,8 @@ jQuery.fn.center = (function() {
 
     this.imagesetImageClicked = function(evt) { 
       evt.preventDefault();
-      
+     
+
       self.selectImage($(this));
     };
 
