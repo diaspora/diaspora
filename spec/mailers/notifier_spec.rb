@@ -102,7 +102,7 @@ describe Notifier do
   describe ".liked" do
     before do
       @sm = Factory(:status_message, :author => alice.person)
-      @like = @sm.likes.create(:author => bob.person)
+      @like = @sm.likes.create!(:author => bob.person)
       @mail = Notifier.liked(alice.id, @like.author.id, @like.id)
     end
 

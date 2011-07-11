@@ -8,18 +8,27 @@ class Like < ActiveRecord::Base
 
   include Diaspora::Webhooks
   include Diaspora::Guid
-  include Diaspora::Relayable
 
+  xml_attr :target_type
+  include Diaspora::Relayable
   include Diaspora::Socketable
 
   xml_attr :positive
   xml_attr :diaspora_handle
 
-  belongs_to :post, :counter_cache => true
+  belongs_to :target, :polymorphic => true
   belongs_to :author, :class_name => 'Person'
 
-  validates_uniqueness_of :post_id, :scope => :author_id
-  validates_presence_of :author, :post
+  validates_uniqueness_of :target_id, :scope => [:target_type, :author_id]
+  validates_presence_of :author, :target
+
+  after_create do
+    self.target.update_likes_counter
+  end
+
+  after_destroy do
+    self.target.update_likes_counter
+  end
 
   def diaspora_handle
     self.author.diaspora_handle
@@ -30,18 +39,20 @@ class Like < ActiveRecord::Base
   end
 
   def parent_class
-    Post
+    self.target_type.constantize
   end
 
   def parent
-    self.post
+    self.target
   end
 
   def parent= parent
-    self.post = parent
+    self.target = parent
   end
 
   def notification_type(user, person)
-    Notifications::Liked if self.post.author == user.person && user.person != person
+    #TODO(dan) need to have a notification for likes on comments, until then, return nil
+    return nil if self.target_type == "Comment"
+    Notifications::Liked if self.target.author == user.person && user.person != person
   end
 end

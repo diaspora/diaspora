@@ -55,7 +55,7 @@ module Diaspora
         Postzord::Dispatch.new(user, object).post
       end
 
-      object.socket_to_user(user, :aspect_ids => object.parent.aspect_ids) if object.respond_to? :socket_to_user
+      object.socket_to_user(user) if object.respond_to? :socket_to_user
       if object.after_receive(user, person)
         object
       end
@@ -69,16 +69,18 @@ module Diaspora
       #sign relayable as model creator
       self.author_signature = self.sign_with_key(author.owner.encryption_key)
 
-      if !self.post_id.blank? && self.author.owns?(self.parent)
+      if !self.parent.blank? && self.author.owns?(self.parent)
         #sign relayable as parent object owner
         self.parent_author_signature = sign_with_key(author.owner.encryption_key)
       end
     end
 
+    # @return [Boolean]
     def verify_parent_author_signature
       verify_signature(self.parent_author_signature, self.parent.author)
     end
 
+    # @return [Boolean]
     def signature_valid?
       verify_signature(self.author_signature, self.author)
     end

@@ -2,7 +2,7 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-.stream_element{:data=>{:guid=>post.id}}
+.stream_element{:id => post.guid}
   - if current_user && post.author.owner_id == current_user.id
     .right.controls
       = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
@@ -55,8 +55,7 @@
           ·
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
-      .likes
-        - if post.likes_count > 0
-          = render "likes/likes_container", :post_id => post.id, :likes_count => post.likes_count, :current_user => current_user
+      .likes.on_post
+        = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :likes_index_link => true
 
       = render "comments/comments", :post => post, :current_user => current_user, :commenting_disabled => (defined?(@commenting_disabled) && @commenting_disabled)

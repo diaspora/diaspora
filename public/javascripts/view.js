@@ -79,7 +79,7 @@ var View = {
 
     /* notification routing */
     $("#notification").delegate('.hard_object_link', 'click', function(evt){
-      var post = $("*[data-guid='"+ $(this).attr('data-ref') +"']"),
+      var post = $("#"+ $(this).attr('data-ref')),
           lastComment = post.find('.comment.posted').last();
 
       if(post.length > 0){

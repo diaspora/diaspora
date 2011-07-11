@@ -14,6 +14,7 @@ class Comment < ActiveRecord::Base
 
   include Diaspora::Socketable
   include Diaspora::Taggable
+  include Diaspora::Likeable
 
   acts_as_taggable_on :tags
   extract_tags_from :text

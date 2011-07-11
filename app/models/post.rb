@@ -9,13 +9,13 @@ class Post < ActiveRecord::Base
   include Diaspora::Webhooks
   include Diaspora::Guid
 
+  include Diaspora::Likeable
+
   xml_attr :diaspora_handle
   xml_attr :public
   xml_attr :created_at
 
   has_many :comments, :dependent => :destroy
-  has_many :likes, :conditions => {:positive => true}, :dependent => :delete_all
-  has_many :dislikes, :conditions => {:positive => false}, :class_name => 'Like', :dependent => :delete_all
 
   has_many :aspect_visibilities
   has_many :aspects, :through => :aspect_visibilities

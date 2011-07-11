@@ -4,14 +4,11 @@
 */
 
 var ContentUpdater = {
-  elementWithGuid: function(selector, guid) {
-    return $(selector + "[data-guid='" + guid + "']");
-  },
   addPostToStream: function(html) {
     var streamElement = $(html);
-    var postId = streamElement.attr("data-guid");
+    var postGUID = $(streamElement).attr('id');
 
-    if($(".stream_element[data-guid='" + postId + "']").length === 0) {
+    if($("#"+postGUID).length === 0) {
       if($("#no_posts").length) {
         $("#no_posts").detach();
       }
@@ -20,19 +17,19 @@ var ContentUpdater = {
         streamElement.find("label").inFieldLabels();
       });
 
-      Diaspora.widgets.publish("stream/postAdded", [postId]);
+      Diaspora.widgets.publish("stream/postAdded", [postGUID]);
       Diaspora.widgets.timeago.updateTimeAgo();
       Diaspora.widgets.directionDetector.updateBinds();
     }
   },
 
-  addLikesToPost: function(postId, html) {
-    var post = ContentUpdater.elementWithGuid("div", postId);
+  addLikesToPost: function(postGUID, html) {
+    var post = $("#" + postGUID);
 
     $(".likes_container", post)
       .fadeOut("fast")
       .html(html)
       .fadeIn("fast");
   }
-  
+
 };

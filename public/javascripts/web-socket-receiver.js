@@ -33,7 +33,12 @@ var WebSocketReceiver = {
         WebSocketReceiver.processPerson(obj);
 
       } else {
-        WSR.debug("got a " + obj['class'] + " for aspects " + obj.aspect_ids);
+        debug_string = "got a " + obj['class'];
+        if(obj.aspect_ids !== undefined){
+          debug_string +=  " for aspects " + obj.aspect_ids;
+        }
+
+        WSR.debug(debug_string);
 
         if (obj['class']=="retractions") {
           WebSocketReceiver.processRetraction(obj.post_id);
@@ -77,7 +82,7 @@ var WebSocketReceiver = {
   },
 
   processRetraction: function(post_id){
-    $("*[data-guid='" + post_id + "']").fadeOut(400, function() {
+    $("#" + post_id).fadeOut(400, function() {
       $(this).remove();
     });
     if($("#main_stream")[0].childElementCount === 0) {
@@ -85,11 +90,10 @@ var WebSocketReceiver = {
     }
   },
 
-  processComment: function(postId, commentId, html, opts) {
+  processComment: function(postGUID, commentGUID, html, opts) {
 
-    if( $(".comment[data-guid='"+commentId+"']").length === 0 ) {
-
-      var post = $("*[data-guid='"+postId+"']'"),
+    if( $("#"+commentGUID).length === 0 ) {
+      var post = $("#"+postGUID),
           prevComments = $('.comment.posted', post);
 
       if(prevComments.length > 0) {
@@ -123,9 +127,8 @@ var WebSocketReceiver = {
     Diaspora.widgets.directionDetector.updateBinds();
   },
 
-  processLike: function(postId, html) {
-    var post = $("*[data-guid='"+postId+"']");
-    $('.likes', post).html(html);
+  processLike: function(targetGUID, html) {
+    $('.likes', "#" + targetGUID).first().html(html);
   },
 
   processPost: function(className, postId, html, aspectIds) {

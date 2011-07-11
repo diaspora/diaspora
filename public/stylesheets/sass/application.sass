@@ -302,10 +302,10 @@ ul.as-selections
       :height 370px
       :width 500px
 
-    time
-      :font
-        :weight normal
-        :size smaller
+    .comment
+      .comment_info
+        :font
+          :size smaller
 
 .from
   a
@@ -667,9 +667,23 @@ form.new_comment
       :display inline-block
 
 
-.comments
-  .timeago
-    :color #999
+.comment
+  .likes,
+  .likes_container
+    :display inline
+    :padding 0
+    :margin 0
+    :font
+      :size 10px
+    a
+      :font
+        :weight normal
+
+    img
+      :margin 0
+      :height 9px
+      :width 9px
+      :top 1px
 
 .stream.show
   ul.comments
@@ -816,6 +830,7 @@ label
     :cursor pointer
 
 #publisher
+
   :z-index 0
   :color #999
   :position relative
@@ -2210,6 +2225,11 @@ ul.show_comments
   :border
     :top 1px dotted #aaa
 
+ul.show_comments,
+.likes_container
+  a
+    :color #999
+
 .likes_container
   :margin
     :bottom -4px
@@ -2217,18 +2237,11 @@ ul.show_comments
 
 ul.show_comments,
 .likes_container
-  *
-    :font
-      :weight bold
-    :color #999
-
   img
     :position relative
-    :top 3px
+    :top 2px
     :height 12px
     :width 12px
-    :margin
-      :left 0.5em
 
 .mark_all_read
   :position relative

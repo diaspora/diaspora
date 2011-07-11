@@ -24,7 +24,6 @@ class StatusMessage < Post
 
   serialize :youtube_titles, Hash
 
-  before_create :build_tags
   after_create :create_mentions
 
   def text(opts = {})
