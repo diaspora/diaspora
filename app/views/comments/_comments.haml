@@ -3,9 +3,9 @@
 -#   the COPYRIGHT file.
 
 - unless comments_expanded
-  %ul.show_comments{:class => ("hidden" if comments.size <= 3)}
+  %ul.show_comments{:class => ("hidden" if post.comments.count <= 3)}
     %li
-      %b= comment_toggle(comments.size)
+      %b= comment_toggle( post.comments.count )
 
 %ul.comments{:id => post.id, :class => ("hidden" if comments.size == 0 && !comments_expanded)}
   -if comments.size > 3
