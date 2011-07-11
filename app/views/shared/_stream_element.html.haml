@@ -21,7 +21,7 @@
           = person_link(post.author, :class => 'hovercardable')
           %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
         %span.details
-          \-
+          –
           %span.timeago
             = link_to(how_long_ago(post), object_path(post))
 

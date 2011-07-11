@@ -483,10 +483,11 @@ ul.dropdown
       :bottom 5px
 
 .post_initial_info
-  .details
-    :color #aaa
   :margin
     :bottom 5px
+
+.details
+  :color #aaa
 
 .post_scope
   :cursor default
@@ -577,9 +578,10 @@ ul.show_comments,
 
   :position relative
 
-  textarea
-    :width 365px
-    :height 21px
+  form
+    textarea
+      :width 365px
+      :height 21px
 
   input
     :display none
@@ -610,16 +612,13 @@ ul.show_comments,
       :width 400px
 
     .content
-      :color #666
       :margin
         :top 0px
         :bottom -2px
       :padding
         :left 36px
         :right 10px
-      .from
-        a
-          :color rgb(85,80,80)
+        
       p
         :margin
           :bottom 0
@@ -2217,10 +2216,6 @@ ul.show_comments,
     :font
       :weight bold
     :color #999
-
-  li
-    :border
-      :bottom 1px solid #ccc
 
   img
     :position relative
