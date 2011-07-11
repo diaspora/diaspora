@@ -448,7 +448,7 @@ ul.as-selections
           :top -1px
 
   .delete
-    @include opacity(0.6)
+    @include opacity(0.3)
     :padding 5px
 
     &:hover
@@ -459,7 +459,8 @@ ul.as-selections
     :right 12px
 
   .controls
-    :display none
+    @include transition(opacity)
+    @include opacity(0)
     :z-index 6
     :color #999
     a
@@ -469,7 +470,7 @@ ul.as-selections
 
   &:hover, .comment:hover
     > .controls
-      :display inline
+      @include opacity(1)
 
     .from
       a
@@ -668,6 +669,17 @@ form.new_comment
 
 
 .comment
+  .like_action
+    @include transition(opacity)
+    @include opacity(0)
+
+    &:before
+      :content " · "
+
+  &:hover
+    .like_action
+      @include opacity(1)
+
   .likes,
   .likes_container
     :display inline
@@ -684,6 +696,11 @@ form.new_comment
       :height 9px
       :width 9px
       :top 1px
+
+  .likes
+    :margin
+      :left 5px
+
 
 .stream.show
   ul.comments
