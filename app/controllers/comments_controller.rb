@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
   include ApplicationHelper
   before_filter :authenticate_user!
 
-  respond_to :html, :mobile
+  respond_to :html, :mobile, :only => [:create, :destroy]
+  respond_to :js, :only => [:index]
 
   rescue_from ActiveRecord::RecordNotFound do
     render :nothing => true, :status => 404
@@ -50,6 +51,16 @@ class CommentsController < ApplicationController
         format.mobile {redirect_to :back}
         format.js {render :nothing => true, :status => 403}
       end
+    end
+  end
+
+  def index
+    @post = current_user.find_visible_post_by_id(params[:post_id])
+    if @post
+      @comments = @post.comments.includes(:author => :profile)
+      render :layout => false
+    else
+      raise ActiveRecord::RecordNotFound.new
     end
   end
 

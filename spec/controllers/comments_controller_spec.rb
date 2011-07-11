@@ -117,4 +117,25 @@ describe CommentsController do
       response.body.strip.should be_empty
     end
   end
+
+  describe '#index' do
+    before do
+      @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
+      @comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
+    end
+    it 'returns all the comments for a post' do
+      get :index, :post_id => @message.id, :format => 'js'
+      assigns[:comments].should == @comments
+    end
+    it 'returns a 404 on a nonexistent post' do
+      get :index, :post_id => 235236, :format => 'js'
+      response.status.should == 404
+    end
+    it 'returns a 404 on a post that is not visible to the signed in user' do
+      message = eve.post(:status_message, :text => "hey", :to => eve.aspects.first.id)
+      bob.comment("hey", :post => @message)
+      get :index, :post_id => message.id, :format => 'js'
+      response.status.should == 404
+    end
+  end
 end

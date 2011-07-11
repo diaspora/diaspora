@@ -4,11 +4,11 @@
 
 module CommentsHelper
   GSUB_THIS = "FIUSDHVIUSHDVIUBAIUHAPOIUXJM"
-  def comment_toggle(count, commenting_disabled=false)
-    if count <= 3
-      str = link_to "#{t('stream_helper.hide_comments')}", '#', :class => "show_post_comments"
+  def comment_toggle(post, commenting_disabled=false)
+    if post.comments.size <= 3
+      str = link_to "#{t('stream_helper.hide_comments')}", post_comments_path(post.id), :class => "toggle_post_comments"
     else
-      str = link_to "#{t('stream_helper.show_more_comments', :number => count-3)}", '#', :class => "show_post_comments"
+      str = link_to "#{t('stream_helper.show_more_comments', :number => post.comments.size - 3)}", post_comments_path(post.id), :class => "toggle_post_comments"
     end
     str
   end

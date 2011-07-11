@@ -51,6 +51,15 @@ describe Post do
     end
   end
 
-  describe '#receive' do
+  describe '#last_three_comments' do
+    it 'returns the last three comments of a post' do
+      post = bob.post :status_message, :text => "hello", :to => 'all'
+      created_at = Time.now - 100
+      comments = [alice, eve, bob, alice].map do |u|
+        created_at = created_at + 10
+        u.comment("hey", :post => post, :created_at => created_at)
+      end
+      post.last_three_comments.map{|c| c.id}.should == comments[1,3].map{|c| c.id}
+    end
   end
 end

@@ -52,7 +52,7 @@ var Stream = {
   },
 
   setUpComments: function(){
-    $("a.show_post_comments:not(.show)", this.selector).live('click', Stream.toggleComments);
+    $("a.toggle_post_comments:not(.show)", this.selector).live('click', Stream.toggleComments);
     // comment link form focus
     $(".focus_comment_textarea", this.selector).live('click', function(evt) {
       Stream.focusNewComment($(this), evt);
@@ -66,7 +66,7 @@ var Stream = {
       var element = $(this),
         target = element.parents(".comment"),
         post = element.closest(".stream_element"),
-        toggler = post.find(".show_post_comments");
+        toggler = post.find(".toggle_post_comments");
 
       target.hide("blind", { direction: "vertical" }, 300, function() {
         $(this).remove();
@@ -126,42 +126,58 @@ var Stream = {
 
   toggleComments: function(evt) {
     evt.preventDefault();
-    var $this = $(this),
-      showUl = $(this).closest("li"),
-      commentBlock = $this.closest(".stream_element").find("ul.comments", ".content"),
-      commentBlockMore = $this.closest(".stream_element").find(".older_comments", ".content")
 
-    if( commentBlockMore.hasClass("inactive") ) {
-      commentBlockMore.fadeIn(150, function() {
-        commentBlockMore.removeClass("inactive");
-        commentBlockMore.removeClass("hidden");
-      });
-      $this.html(Diaspora.widgets.i18n.t("comments.hide"));
-    } else {
-      if(commentBlock.hasClass("hidden")) {
-        commentBlock.removeClass("hidden");
-        showUl.css("margin-bottom","-1em");
-        $this.html(Diaspora.widgets.i18n.t("comments.hide"));
-      }else{
-        commentBlock.addClass("hidden");
-        showUl.css("margin-bottom","1em");
-        $this.html(Diaspora.widgets.i18n.t("comments.show"));
-      }
+    var $toggler = $(this),
+        comments = $toggler.closest('.stream_element').find('ul.comments');
+
+    if (comments.hasClass('loaded') && !comments.hasClass('hidden')){
+      Stream.hideComments.apply($toggler);
+    }else {
+      Stream.showComments.apply($toggler);
     }
+  },
+  showComments: function(){
+    var commentList = this.closest('.stream_element').find('ul.comments'),
+        toggle = this;
+
+    if( commentList.hasClass('loaded') ){
+        toggle.html(Diaspora.widgets.i18n.t("comments.hide"));
+        commentList.removeClass('hidden');
+    }
+    else {
+      toggle.append("<img alt='loading' src='/images/ajax-loader.gif' />");
+      $.ajax({
+        url: this.attr('href'),
+        success: function(data){
+          toggle.html(Diaspora.widgets.i18n.t("comments.hide"));
+          commentList.html(data)
+                     .addClass('loaded');
+          Diaspora.widgets.publish("stream/scrolled")
+        }
+      });
+    }
+  },
+
+  hideComments: function(){
+    var commentList = this.closest('.stream_element').find('ul.comments');
+    commentList.addClass('hidden');
+    this.html(Diaspora.widgets.i18n.t("comments.show"));
   },
 
   focusNewComment: function(toggle, evt) {
     evt.preventDefault();
-    var commentBlock = toggle.closest(".stream_element").find("ul.comments", ".content");
+    var post = toggle.closest(".stream_element");
+    var commentBlock = post.find(".new_comment_form_wrapper");
+    var textarea = post.find(".new_comment textarea");
 
     if(commentBlock.hasClass("hidden")) {
       commentBlock.removeClass("hidden");
-      commentBlock.find("textarea").focus();
+      textarea.focus();
     } else {
       if(commentBlock.children().length <= 1) {
         commentBlock.addClass("hidden");
       } else {
-        commentBlock.find("textarea").focus();
+        textarea.focus();
       }
     }
   }

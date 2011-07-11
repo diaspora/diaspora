@@ -97,16 +97,16 @@ var WebSocketReceiver = {
           $(html).fadeIn("fast", function(){})
         );
       } else {
-        $('.comments li:last', post).before(
+        $('.comments', post).append(
           $(html).fadeIn("fast", function(){})
         );
       }
 
-      var toggler = $('.show_post_comments', post).parent();
+      var toggler = $('.toggle_post_comments', post).parent();
 
       if(toggler.length > 0){
         toggler.html(
-          toggler.html().replace(/\d+/,$('.comments', post).find('li').length -1)
+          toggler.html().replace(/\d+/,$('.comments', post).find('li').length)
         );
 
         if( !$(".comments", post).is(':visible') ) {
