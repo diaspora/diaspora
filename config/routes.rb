@@ -12,11 +12,12 @@ Diaspora::Application.routes.draw do
   end
 
   resources :status_messages, :only => [:new, :create] do
-    resources :likes, :only => [:create, :destroy, :index]
   end
 
-  resources :comments, :only => [:create, :destroy]
-  resources :posts, :only => [:show, :destroy]
+  resources :posts, :only => [:show, :destroy] do
+    resources :likes, :only => [:create, :destroy, :index]
+    resources :comments, :only => [:create, :destroy]
+  end
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
   get 'p/:id'       => 'publics#post', :as => 'public_post'

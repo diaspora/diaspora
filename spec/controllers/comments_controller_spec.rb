@@ -80,13 +80,13 @@ describe CommentsController do
 
       it 'lets the user delete his comment' do
         alice.should_receive(:retract).with(@comment)
-        delete :destroy, :format => "js",  :id => @comment.id
+        delete :destroy, :format => "js", :post_id => 1,  :id => @comment.id
         response.status.should == 204
       end
 
       it "lets the user destroy other people's comments" do
         alice.should_receive(:retract).with(@comment2)
-        delete :destroy, :format => "js",  :id => @comment2.id
+        delete :destroy, :format => "js", :post_id => 1,  :id => @comment2.id
         response.status.should == 204
       end
     end
@@ -101,18 +101,18 @@ describe CommentsController do
 
       it 'let the user delete his comment' do
         alice.should_receive(:retract).with(@comment)
-        delete :destroy, :format => "js",  :id => @comment.id
+        delete :destroy, :format => "js", :post_id => 1,  :id => @comment.id
         response.status.should == 204
       end
 
       it 'does not let the user destroy comments he does not own' do
         alice.should_not_receive(:retract).with(@comment2)
-        delete :destroy, :format => "js",  :id => @comment3.id
+        delete :destroy, :format => "js", :post_id => 1,  :id => @comment3.id
         response.status.should == 403
       end
     end
     it 'renders nothing and 404 on a nonexistent comment' do
-      delete :destroy, :id => 343415
+      delete :destroy, :post_id => 1, :id => 343415
       response.status.should == 404
       response.body.strip.should be_empty
     end

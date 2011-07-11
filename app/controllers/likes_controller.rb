@@ -9,7 +9,7 @@ class LikesController < ApplicationController
   respond_to :html, :mobile, :json
 
   def create
-    target = current_user.find_visible_post_by_id params[:status_message_id]
+    target = current_user.find_visible_post_by_id params[:post_id]
     positive = (params[:positive] == 'true') ? true : false
     if target
       @like = current_user.build_like(:positive => positive, :post => target)
@@ -32,7 +32,7 @@ class LikesController < ApplicationController
   end
 
   def destroy
-    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id, :post_id => params[:status_message_id]).first
+    if @like = Like.where(:id => params[:id], :author_id => current_user.person.id, :post_id => params[:post_id]).first
       current_user.retract(@like)
     else
       respond_to do |format|
@@ -43,7 +43,7 @@ class LikesController < ApplicationController
   end
 
   def index
-    if target = current_user.find_visible_post_by_id(params[:status_message_id])
+    if target = current_user.find_visible_post_by_id(params[:post_id])
       @likes = target.likes.includes(:author => :profile)
       render :layout => false
     else

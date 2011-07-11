@@ -18,11 +18,11 @@ describe LikesController do
   describe '#create' do
     let(:like_hash) {
       {:positive => 1,
-       :status_message_id => "#{@post.id}"}
+       :post_id => "#{@post.id}"}
     }
     let(:dislike_hash) {
       {:positive => 0,
-       :status_message_id => "#{@post.id}"}
+       :post_id => "#{@post.id}"}
     }
 
     context "on my own post" do
@@ -77,19 +77,19 @@ describe LikesController do
     end
     it 'returns a 404 for a post not visible to the user' do
       sign_in eve
-      get :index, :status_message_id => @message.id
+      get :index, :post_id => @message.id
     end
 
     it 'returns an array of likes for a post' do
       like = bob.build_like(:positive => true, :post => @message)
       like.save!
 
-      get :index, :status_message_id => @message.id
+      get :index, :post_id => @message.id
       assigns[:likes].map(&:id).should == @message.likes.map(&:id)
     end
 
     it 'returns an empty array for a post with no likes' do
-      get :index, :status_message_id => @message.id
+      get :index, :post_id => @message.id
       assigns[:likes].should == []
     end
   end
@@ -103,7 +103,7 @@ describe LikesController do
 
     it 'lets a user destroy their like' do
       expect {
-        delete :destroy, :format => "js", :status_message_id => @like.post_id, :id => @like.id
+        delete :destroy, :format => "js", :post_id => @like.post_id, :id => @like.id
       }.should change(Like, :count).by(-1)
       response.status.should == 200
     end
@@ -113,7 +113,7 @@ describe LikesController do
       like2.save
 
       expect {
-        delete :destroy, :format => "js", :status_message_id => like2.post_id, :id => like2.id
+        delete :destroy, :format => "js", :post_id => like2.post_id, :id => like2.id
       }.should_not change(Like, :count)
 
       response.status.should == 403

@@ -10,9 +10,9 @@ module LikesHelper
 
   def like_action(post, current_user=current_user)
     if current_user.liked?(post)
-      link_to t('shared.stream_element.unlike'), status_message_like_path(post, current_user.like_for(post)), :method => :delete, :class => 'unlike', :remote => true
+      link_to t('shared.stream_element.unlike'), post_like_path(post, current_user.like_for(post)), :method => :delete, :class => 'unlike', :remote => true
     else
-      link_to t('shared.stream_element.like'), status_message_likes_path(post, :positive => 'true'), :method => :post, :class => 'like', :remote => true
+      link_to t('shared.stream_element.like'), post_likes_path(post, :positive => 'true'), :method => :post, :class => 'like', :remote => true
     end
   end
 end
