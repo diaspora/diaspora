@@ -15,7 +15,7 @@ Diaspora::Application.routes.draw do
     resources :likes, :only => [:create, :destroy, :index]
   end
 
-  resources :comments, :only => [:create, :destroy, :index]
+  resources :comments, :only => [:create, :destroy]
   resources :posts, :only => [:show, :destroy]
 
   get 'bookmarklet' => 'status_messages#bookmarklet'
