@@ -1,2 +1,0 @@
-var html = <%= render :partial => 'comments/comment', :collection => @comments, :locals => {:post => @post}  %>
-$('.comments', '.stream_element[data-guid="<%= @post.id %>"]').html(html);

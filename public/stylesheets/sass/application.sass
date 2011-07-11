@@ -472,11 +472,6 @@ ul.dropdown
       :font
         :size 1em
 
-  .comments
-    :padding
-      :bottom 6px
-    > li:last-child
-      :border-bottom none
   .comment_box
     :width 475px
     :margin
@@ -543,23 +538,6 @@ ul.dropdown
       :background none
       :border none
 
-
-.stream ul.comments
-  :padding
-    :bottom 6px
-
-  > li:last-child
-    :border-bottom none
-
-  .avatar
-    :width 30px
-    :height 30px
-
-  .comment_box
-    :margin
-      :bottom 5px
-
-
 .submit_button
   :text
     :align right
@@ -567,8 +545,12 @@ ul.dropdown
 ul.comments,
 ul.show_comments,
 .likes_container
+
+  .avatar
+    :width 30px
+    :height 30px
+
   :margin 0
-    :top 0.5em
   :padding 0
 
   :font
@@ -578,14 +560,6 @@ ul.show_comments,
 
   :position relative
 
-  form
-    textarea
-      :width 365px
-      :height 21px
-
-  input
-    :display none
-
   li
     :list
       :style none
@@ -593,12 +567,6 @@ ul.show_comments,
 
     :border
       :bottom 1px dotted #aaa
-
-    .new_comment
-      :min-height 35px
-      p
-        :margin
-          :bottom 0
 
     .from
       :font
@@ -618,7 +586,7 @@ ul.show_comments,
       :padding
         :left 36px
         :right 10px
-        
+
       p
         :margin
           :bottom 0
@@ -627,41 +595,68 @@ ul.show_comments,
     .right
       :right 4px
 
-    form
-      :margin
-        :top -5px
-        :bottom -4px
-      :font
-        :size 1em
-
-      .submit_button
-        input
-          :margin
-            :right 0
-
-      textarea
-        :font
-          :size 1em
-        :margin
-          :bottom -3px
-
-      p
-        :position relative
-        :left 35px
-
     .avatar
       :position absolute
       :display inline
 
-    form.open
-      .submit_button
-        :display block
-        :margin
-          :top 5px
-          :bottom 2px
-          :right 2px
-      input
-        :display inline-block
+ul.show_comments
+  :padding
+    :bottom 6px
+  :margin
+    :top 6px
+
+form.new_comment
+  :padding 8px 5px
+  .avatar
+    :position absolute
+    :display inline
+    :width 30px
+    :height 30px
+
+  :min-height 35px
+
+  input
+    :display none
+
+  :margin
+    :bottom -4px
+
+  :font
+    :size 1em
+
+  .submit_button
+    input
+      :margin
+        :right 0
+
+  textarea
+    :width 365px
+    :height 21px
+
+    :font
+      :size 1em
+    :margin
+      :top 0
+      :bottom -3px
+
+  p
+    :margin
+      :bottom 0
+      :top -10px
+    :position relative
+    :left 35px
+
+  &.open
+    .submit_button
+      :display block
+      :margin
+        :top 5px
+        :bottom 2px
+        :right 2px
+
+    input
+      :display inline-block
+
 
 .comments
   .timeago
@@ -2200,8 +2195,6 @@ h3,h4
 
 
 ul.show_comments
-  :margin
-    :bottom -0.5em
   :border
     :top 1px dotted #aaa
 

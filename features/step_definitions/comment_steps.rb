@@ -7,11 +7,9 @@ When /^I open the comment box$/ do
 end
 
 Then /^the first comment field should be open/ do
-  css_query = "$('#main_stream .stream_element:first ul.comments:visible')"
-  page.evaluate_script("#{css_query}.length").should == 1
+  find("#main_stream .stream_element .new_comment").should be_visible
 end
 
 Then /^the first comment field should be closed$/ do
-  css_query = "$('#main_stream .stream_element:first ul.comments:hidden')"
-  page.evaluate_script("#{css_query}.length").should == 1
+  find("#main_stream .stream_element .new_comment").should_not be_visible
 end
