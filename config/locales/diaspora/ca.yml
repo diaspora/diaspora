@@ -508,7 +508,6 @@ ca:
       view: "mostra"
       edit: "edita"
       edit_delete_photo: "Edita la descripció de la foto / suprimeix la foto"
-      permalink: "enllaç permanent"
       collection_permalink: "enllaç permanent a la colecció"
       original_post: "Publicació original"
     edit:
@@ -538,7 +537,10 @@ ca:
 
 
   posts:
-    doesnt_exist: "aquesta publicació no existeix!"
+    show:
+      destroy: "Suprimeix"
+      permalink: "enllaç permanent"
+      not_found: "No s'ha trobat aquesta publicació."
 
 
   post_visibilites:
@@ -702,10 +704,6 @@ ca:
       mentioning: "S'està mencionant: %{person}"
     create:
       success: "S'ha mencionat amb èxit: %{names}"
-    show:
-      destroy: "Suprimeix"
-      permalink: "enllaç permanent"
-      not_found: "No s'ha trobat aquesta publicació."
     helper:
       no_message_to_display: "No hi ha missatges a mostrar."
     destroy:
