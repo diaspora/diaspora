@@ -8,7 +8,7 @@ describe PostsFake do
       @people << post.author
       4.times do
         comment = Factory(:comment, :post => post)
-        @people << comment.author
+        comment.author
       end
       @posts << post
     end
@@ -40,10 +40,6 @@ describe PostsFake do
       @post.should_receive(:author_id)
       @fakes.should_receive(:people_hash).and_return({})
       @fake.author
-    end
-    it 'refers to its comments array for comments' do
-      @fake.comments = [mock()]
-      @fake.comments
     end
     it 'refers to its post for any other field' do
       @post.should_receive(:text)

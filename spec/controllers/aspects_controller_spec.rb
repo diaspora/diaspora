@@ -65,7 +65,7 @@ describe AspectsController do
 
     it 'generates a jasmine fixture with posts', :fixture => true do
       message = alice.post(:status_message, :text => "hello "*800, :to => @alices_aspect_2.id)
-      4.times { bob.comment("what", :post => message) }
+      3.times { bob.comment("what", :post => message) }
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
 
@@ -90,13 +90,13 @@ describe AspectsController do
         response.should_not be_redirect
       end
     end
-    
+
     context 'with no aspects' do
       before do
         alice.aspects.each { |aspect| aspect.destroy }
         alice.reload
       end
-      
+
       it 'redirects to the new aspect page' do
         get :index
         response.should redirect_to new_aspect_path

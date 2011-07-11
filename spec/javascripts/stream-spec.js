@@ -12,10 +12,10 @@ describe("Stream", function() {
 
   describe("setUpLives", function() {
 
-    it("attaches a click event to show_post_comments links", function() {
+    it("attaches a click event to toggle_post_comments links", function() {
       spyOn(Stream, "toggleComments");
       Stream.initializeLives();
-      $('.stream a.show_post_comments').click();
+      $('.stream a.toggle_post_comments').click();
       expect(Stream.toggleComments).toHaveBeenCalled();
     });
 
@@ -37,26 +37,26 @@ describe("Stream", function() {
   });
 
   describe("toggleComments", function() {
-    it("toggles class hidden on the comment block", function () {
-      link = $("a.show_post_comments");
-      expect(jQuery('ul.comments .older_comments')).toHaveClass("hidden");
+    it("toggles class hidden on the comments ul", function () {
+      link = $("a.toggle_post_comments");
+      expect(jQuery('ul.comments')).not.toHaveClass("hidden");
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
       );
       jasmine.Clock.tick(200);
-      expect(jQuery('ul.comments .older_comments')).not.toHaveClass("hidden");
+      expect(jQuery('ul.comments')).toHaveClass("hidden");
     });
 
     it("changes the text on the show comments link", function() {
-      link = $("a.show_post_comments");
+      link = $("a.toggle_post_comments");
       Diaspora.widgets.i18n.loadLocale(
-        {'comments' : {'hide': 'comments.hide pl'}}, 'en');
-      expect(link.text()).toEqual("Show 1 more comments");
+        {'comments' : {'show': 'comments.show pl'}}, 'en');
+      expect(link.text()).toEqual("Hide all comments");
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
       );
       jasmine.Clock.tick(200);
-      expect(link.text()).toEqual("comments.hide pl");
+      expect(link.text()).toEqual("comments.show pl");
     });
   });
 });
