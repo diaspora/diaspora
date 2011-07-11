@@ -14,7 +14,8 @@
 #     <strong>Bobby Willis</strong><cite><a href="http://google.com/blah">The Search For Bobby's Mom</a>
 #   </blockquote>
 #
-require './_plugins/titlecase.rb'
+require './plugins/titlecase.rb'
+
 module Jekyll
 
   class Blockquote < Liquid::Block
