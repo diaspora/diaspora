@@ -9,7 +9,7 @@ class PostVisibilitiesController < ApplicationController
   def update
     #note :id references a postvisibility
 
-    @post = Post.where(:id => params[:post_id]).select("id, author_id").first
+    @post = Post.where(:id => params[:post_id]).select("id, guid, author_id").first
     @contact = current_user.contact_for(@post.author)
 
     if @contact && @vis = PostVisibility.where(:contact_id => @contact.id,
