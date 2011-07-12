@@ -25,7 +25,7 @@ module Jekyll
         code = file.read
         file_type = file.extname
         url = "#{context.registers[:site].config['url']}/#{code_dir}/#{@file}"
-        source = "<figure><figcaption><span>#{file.basename}</span><a href='#{url}'>download</a></figcaption>\n"
+        source = "<figure><figcaption><span>#{file.basename}</span> <a href='#{url}'>download</a></figcaption>\n"
         source += "{% highlight #{file_type} %}\n" + code + "\n{% endhighlight %}</figure>"
         partial = Liquid::Template.parse(source)
         context.stack do
