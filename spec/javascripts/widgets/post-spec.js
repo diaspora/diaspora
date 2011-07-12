@@ -17,14 +17,14 @@ describe("Diaspora", function() {
         it("adds a listener for the click event on a.expand_likes", function() {
           spyOn(window, "$").andCallThrough();
           Diaspora.widgets.post.start();
-          expect($).toHaveBeenCalledWith(Diaspora.widgets.post.expandLikesSelector);
+          expect($).toHaveBeenCalledWith(Diaspora.widgets.post.likes.expanders);
           $.reset();
         });
 
         it("adds a listener for ajax:success and ajax:failure", function() {
           spyOn(window, "$").andCallThrough();
           Diaspora.widgets.post.start();
-          expect($).toHaveBeenCalledWith(Diaspora.widgets.post.likesSelector);
+          expect($).toHaveBeenCalledWith(Diaspora.widgets.post.likes.actions);
           $.reset();
         });
       });

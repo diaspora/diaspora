@@ -5,34 +5,31 @@
 
 (function() {
   var Post = function() {
-    this.likesSelector = ".like_it, .dislike_it";
-    this.expandLikesSelector = "a.expand_likes, a.expand_dislikes";
+    var self = this;
+    //timeago //set up ikes //comments //audio video links //embedder //
+
     this.start = function() {
-      //timeago
-      //set up ikes
-      //comments
-      //audio video links
-      //embedder
-      //
-
-
-      this.setUpLikes();
-    };
+      $.extend(self, {
+        likes: {
+          actions: $(".like_it, .dislike_it"),
+          expanders: $("a.expand_likes, a.expand_dislikes"),
+        }
+      });
+      self.setUpLikes();
+    },
 
     this.setUpLikes = function() {
-      $(this.expandLikesSelector).live("click", this.expandLikes);
-
-      var likeIt = $(this.likesSelector);
-
-      likeIt.live("ajax:loading", function() {
-        $(this).parent().fadeOut("fast");
+      self.likes.expanders.live("click", self.expandLikes);
+      self.likes.actions.live("ajax:loading", function() {
+        $(this).parent().fadeOut(100);
       });
 
-      likeIt.live("ajax:failure", function() {
+      self.likes.actions.live("ajax:failure", function() {
         Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t("failed_to_like"));
-        $(this).parent().fadeIn("fast");
+        $(this).parent().fadeIn(100);
       });
     };
+
     this.expandLikes = function(evt){
       evt.preventDefault();
       var likesList = $(this).siblings(".likes_list");
@@ -41,13 +38,13 @@
         $.ajax({
           url: this.href,
           success: function(data){
-            likesList.html(data);
-            likesList.fadeToggle("fast");
+            likesList.html(data)
+                     .fadeToggle(100);
           }
         });
-      }else {
-      likesList
-        .fadeToggle("fast");
+      }
+      else {
+        likesList.fadeToggle(100);
       }
     };
   };
