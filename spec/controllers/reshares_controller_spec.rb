@@ -2,16 +2,13 @@ require 'spec_helper'
 describe ResharesController do
 
   describe '#create' do 
-
     it 'requires authentication' do
       post :create, :format => :js
       response.should_not be_success
     end
 
     context 'with an authenticated user' do
-
       before do
-        
         sign_in :user, bob
         @post_id = Factory(:status_message, :public => true).id
         @controller.stub(:current_user).and_return(bob)
@@ -19,7 +16,6 @@ describe ResharesController do
 
       it 'succeeds' do
         post :create, :format => :js, :root_id => @post_id
-        puts response.code
         response.should be_success
       end
 

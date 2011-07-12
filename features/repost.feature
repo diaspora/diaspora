@@ -28,11 +28,14 @@ Feature: public repost
   Scenario: shows up on the profile page
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
+
     And I preemptively confirm the alert
     And I follow "Reshare"
     And I wait for the ajax to finish
+    And I wait for 2 seconds
 
-    Then I should see a ".reshared"
+
+
     And I am on "alice@alice.alice"'s page
     Then I should see "reshare this!" 
     Then I should see a ".reshared"
@@ -45,8 +48,9 @@ Feature: public repost
     And I follow "Reshare"
     And I wait for the ajax to finish
 
+    And I go to the home page
     Then I should see a ".reshared"
-    And I follow "All Aspects"
+    And I follow "Your Aspects"
     Then I should see "reshare this!" 
     Then I should see a ".reshared"
     And I should see "Bob" 
