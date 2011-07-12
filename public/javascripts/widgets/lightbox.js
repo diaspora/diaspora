@@ -39,7 +39,10 @@ jQuery.fn.center = (function() {
         self.lightbox.css("max-height", (self.window.height() - 100) + "px");
       }).trigger("resize");
 
-      self.closelink.click(self.resetLightbox);
+      self.closelink.click(function(evt){
+        evt.preventDefault();
+        self.resetLightbox();
+      });
 
       self.body.keydown(function(evt) {
 
