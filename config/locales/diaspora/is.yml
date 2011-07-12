@@ -482,7 +482,6 @@ is:
       edit_delete_photo: "Breyta lýsingu við mynd / eyða mynd"
       make_profile_photo: "setja mynd á síðuna mína"
       original_post: "Upphaflegur póstur."
-      permalink: "varanleg slóð"
       update_photo: "Uppfæra mynd"
       view: "sýn"
     update: 
@@ -492,7 +491,10 @@ is:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "fyrra"
   profile: "Síðan mín"
   profiles: 
@@ -648,10 +650,6 @@ is:
       no_message_to_display: "Engin skilaboð að sýna!"
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Eyða"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "varanleg slóð"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

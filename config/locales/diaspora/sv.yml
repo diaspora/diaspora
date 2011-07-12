@@ -482,7 +482,6 @@ sv:
       edit_delete_photo: "Ändra beskrivning / ta bort bild"
       make_profile_photo: "använd som profilbild"
       original_post: "Ursprungligt inlägg"
-      permalink: "permalink"
       update_photo: "Uppdatera foto"
       view: "visa"
     update: 
@@ -492,7 +491,10 @@ sv:
     update: 
       post_hidden: "%{name}s post har gömts."
   posts: 
-    doesnt_exist: "den posten finns inte!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "föregående"
   profile: "Profil"
   profiles: 
@@ -648,10 +650,6 @@ sv:
       no_message_to_display: "Inget meddelande att visa."
     new: 
       mentioning: "Omnämner: %{person}"
-    show: 
-      destroy: "Ta bort"
-      not_found: "Ursäkta, vi hittar inte den posten."
-      permalink: "permalänk"
     too_long: 
       few: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
       many: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"

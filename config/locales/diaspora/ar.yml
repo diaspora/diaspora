@@ -482,7 +482,6 @@ ar:
       edit_delete_photo: "تعديل وصف الصورة / حذف الصورة"
       make_profile_photo: "اجعلها صورة شخصية"
       original_post: "منشور أصلي"
-      permalink: "رابط دائم"
       update_photo: "تحديث صورة"
       view: "مشاهدة"
     update: 
@@ -492,7 +491,10 @@ ar:
     update: 
       post_hidden: "تم إخفاء مشاركة %{name}"
   posts: 
-    doesnt_exist: "هذه المشاركة غير موجودة"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "السابق"
   profile: "الصفحة الشخصية"
   profiles: 
@@ -648,10 +650,6 @@ ar:
       no_message_to_display: "لا يوجد رسائل لعرضها"
     new: 
       mentioning: "إشارة إلى: %{person}"
-    show: 
-      destroy: "إزالة"
-      not_found: "للأسف، لم نجد هذا المنشور"
-      permalink: "رابط دائم"
     too_long: 
       few: "رجاء لا تتجاوز في منشوراتك حد %{count} حرفا"
       many: "رجاء لا تتجاوز في منشوراتك حد %{count} حرفا"

@@ -482,7 +482,6 @@ fr:
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
       original_post: "Message original"
-      permalink: "permalien"
       update_photo: "Mettre à jour la photo"
       view: "voir"
     update: 
@@ -492,7 +491,10 @@ fr:
     update: 
       post_hidden: "Le message de %{name} à été masqué."
   posts: 
-    doesnt_exist: "cette publication n'existe pas !"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "précédent"
   profile: "Profil"
   profiles: 
@@ -648,10 +650,6 @@ fr:
       no_message_to_display: "Aucun message à afficher."
     new: 
       mentioning: "Mentionne : %{person}"
-    show: 
-      destroy: "Supprimer"
-      not_found: "Désolé, nous ne trouvons pas ce message."
-      permalink: "permalien"
     too_long: 
       few: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"
       many: "s'il vous plaît, veuillez écrire des messages de moins de %{count} caractères"

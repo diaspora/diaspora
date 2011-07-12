@@ -4,9 +4,9 @@
 
 
 zh-TW: 
-  _applications: "Applications"
+  _applications: "應用程式"
   _comments: "意見"
-  _contacts: "Contacts"
+  _contacts: "聯絡人"
   _home: "首頁"
   _photos: "相片"
   _services: "服務"
@@ -63,12 +63,12 @@ zh-TW:
     aspect_contacts: 
       done_editing: "編輯完成"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ 新增面向"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      commented_on: "有意見的"
+      posted: "發表的"
+      recently: "近來:"
+      stream: "事件流"
     contacts_not_visible: "此面向中的聯繫無法看見彼此."
     contacts_visible: "此面向中的聯繫可以看見彼此."
     create: 
@@ -99,18 +99,18 @@ zh-TW:
         heading: "與 Cubbi.es 連結"
         learn_more: "進一步了解"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-        heading: "Diaspora ID"
-      handle_explanation: "這是你的 diaspora 識別碼. 就像是電子信箱一樣, 你可以把它給想聯絡你的人."
+        content_1: "你的 Diaspora 識別碼是:"
+        content_2: "給任何一個人, 讓他/她們可以在 Diaspora 找到你."
+        heading: "Diaspora 識別碼"
+      handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
-      your_aspects: "Your Aspects"
+        content: "你可以連結以下服務至 Diaspora:"
+        heading: "連結服務"
+      tags_following: "追隨的標籤"
+      your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
       error: "聯繫移動錯誤: %{inspect}"
@@ -120,17 +120,17 @@ zh-TW:
       create: "建立"
       name: "名字"
     no_posts_message: 
-      start_talking: "還沒人說話. 你來起個頭吧!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      start_talking: "都還沒有人出聲!"
+      try_adding_some_more_contacts: "試著加入更多聯絡人."
     one: "1個面向"
     other: "%{count}個面向"
     seed: 
       family: "家人"
       work: "工作"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "管理你的面向."
+      no_contacts: "你在這裡還沒有任何聯絡人."
+      view_all_contacts: "檢視所有聯絡人"
     show: 
       edit_aspect: "編輯面向"
     update: 
@@ -139,12 +139,12 @@ zh-TW:
     zero: "沒有面向"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "撤銷存取權"
   back: "後退"
   bookmarklet: 
     explanation: "%{link}加入書籤後可對任何網站使用."
     explanation_link_text: "這個連結"
-    heading: "Diaspora 書籤小程式"
+    heading: "書籤小程式"
     post_something: "貼些東西到 Diaspora"
     post_success: "貼好了! 關掉中!"
   cancel: "取消"
@@ -164,13 +164,13 @@ zh-TW:
     index: 
       add_a_new_aspect: "加入新面向"
       all_contacts: "全部聯絡人"
-      edit_aspect: "Edit %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      edit_aspect: "編輯%{name}"
+      many_people_are_you_sure: "你確定要進行跟%{suggested_limit}個聯絡人的私人對話? 貼文到該面向可能是比較好跟他們聯絡的方式."
       my_contacts: "我的聯絡人"
       no_contacts: "沒有聯絡人."
-      only_sharing_with_me: "Only sharing with me"
+      only_sharing_with_me: "和我分享的人"
       remove_person_from_aspect: "將 %{person_name} 從\"%{aspect_name}\"中移除"
-      start_a_conversation: "Start a conversation"
+      start_a_conversation: "開始對話"
       title: "聯絡人"
       your_contacts: "你的聯絡人"
     many: "%{count}個聯繫"
@@ -199,7 +199,7 @@ zh-TW:
       no_conversation_selected: "未選取任何對話"
       no_messages: "沒有訊息"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "放棄目前變動?"
       send: "傳送"
       subject: "主旨"
       to: "收件人"
@@ -218,7 +218,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
-  find_people: "Find people"
+  find_people: "找人"
   hide: "隱藏"
   home: 
     show: 
@@ -273,7 +273,7 @@ zh-TW:
       logout: "登出"
       profile: "個人檔案"
       settings: "設定"
-      view_all: "View all"
+      view_all: "檢視全部"
   likes: 
     likes: 
       people_dislike_this: 
@@ -288,7 +288,7 @@ zh-TW:
         one: "有%{count}個讚"
         other: "有%{count}個讚"
         zero: "沒有讚"
-  limited: "Limited"
+  limited: "有限分享"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -482,7 +482,6 @@ zh-TW:
       edit_delete_photo: "編輯相片敘述或刪除相片"
       make_profile_photo: "選為個人照"
       original_post: "原貼文"
-      permalink: "靜態連結"
       update_photo: "更新相片"
       view: "檢視"
     update: 
@@ -492,7 +491,10 @@ zh-TW:
     update: 
       post_hidden: "已隱藏 %{name} 的貼文"
   posts: 
-    doesnt_exist: "貼文不存在!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "前面"
   profile: "個人檔案"
   profiles: 
@@ -515,7 +517,7 @@ zh-TW:
     update: 
       failed: "個人檔案更新失敗"
       updated: "個人檔案已更新"
-  public: "Public"
+  public: "公開"
   registrations: 
     closed: "本 Diaspora pod 不開放登記."
     create: 
@@ -578,7 +580,7 @@ zh-TW:
       disconnect: "切斷連結"
       edit_services: "編輯服務"
       logged_in_as: "登入為"
-      no_services: "You have not connected any services yet."
+      no_services: "你還沒有任何已連結的服務."
       really_disconnect: "切斷與 %{service} 的連結?"
     inviter: 
       click_link_to_accept_invitation: "按一下這個連結來接受邀請"
@@ -591,7 +593,7 @@ zh-TW:
     add_contact: 
       add_new_contact: "加入新聯繫"
       create_request: "以 Diaspora 識別碼搜尋"
-      diaspora_handle: "diaspora@handle.org"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "輸入 Diaspora 用戶名稱:"
       know_email: "知道他們的電子信箱嗎? 你應該邀請他們來"
       your_diaspora_username_is: "你的 Diaspora 用戶名稱是: %{diaspora_handle}"
@@ -620,7 +622,7 @@ zh-TW:
       all: "全部"
       all_contacts: "全部的聯繫"
       click_to_share_with: "點一下以一起分享: "
-      discard_post: "Discard post"
+      discard_post: "捨棄貼文"
       make_public: "公開"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
@@ -628,17 +630,17 @@ zh-TW:
       publishing_to: "發表至: "
       share: "分享"
       share_with: "跟他/她分享:"
-      upload_photos: "Upload photos"
+      upload_photos: "上傳照片"
       whats_on_your_mind: "在想什麼?"
     reshare: 
       reshare: "重新分享"
     stream_element: 
       dislike: "遜"
       like: "讚"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "分享給: %{aspect_names}"
       unlike: "收回讚"
       via: "經由%{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "任何網頁使用者都能看到這篇貼文"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"
@@ -648,10 +650,6 @@ zh-TW:
       no_message_to_display: "沒有訊息可顯示."
     new: 
       mentioning: "提及發表中: %{person}"
-    show: 
-      destroy: "刪除"
-      not_found: "抱歉, 找不到該則貼文."
-      permalink: "靜態連結"
     too_long: 
       few: "請限制狀態訊息在%{count}個字內"
       many: "請限制狀態訊息在%{count}個字內"
@@ -659,29 +657,29 @@ zh-TW:
       other: "請限制狀態訊息在%{count}個字內"
       zero: "請限制狀態訊息在%{count}個字內"
   stream_helper: 
-    hide_comments: "隱藏意見"
-    show_more_comments: "Show %{number} more comments"
+    hide_comments: "隱藏所有意見"
+    show_more_comments: "顯示下面 %{number} 個意見"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "追隨失敗: #%{name}"
+      success: "追隨成功: #%{name}"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "停止追隨失敗: #%{name}"
+      success: "停止追隨成功: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "追隨#%{tag}"
+      following: "正在追隨#%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "停止追隨#%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"
-      connecting_is_simple: "只要在 Cubbi.es 的帳號設定中輸入兩個欄位, 就可以和你的 Diaspora 帳號建立連結了."
+      connecting_is_simple: "跟 Diapora 帳號連結很簡單! 只要從 cubbies <a href='%{href_link}'>設定頁面</a>輸入你的 Diaspora 識別碼, 再按下\"連結\"就可以了."
       daniels_account: "Daniel的 Diaspora 帳號"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "很快你就可以使用 Diaspora 帳號連線至新的應用程式, 而不用另外再開新的帳號了."
       love_to_try: "希望你能試試看."
       making_the_connection: "建立連結"
       screenshot_explanation: "%{link1}. 這個cubby頁面是連結至%{link2}."

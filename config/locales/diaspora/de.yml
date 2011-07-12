@@ -86,8 +86,8 @@ de:
       make_aspect_list_visible: "Aspekte veröffentlichen?"
       remove_aspect: "Aspekt löschen"
       rename: "umbenennen"
-      update: "Aktualisieren"
-      updating: "Aktualisiere"
+      update: "Ändern"
+      updating: "Ändere"
     few: "%{count} Aspekte"
     helper: 
       are_you_sure: "Möchtest du diesen Aspekt wirklich löschen?"
@@ -107,8 +107,8 @@ de:
       people_sharing_with_you: "Leute die mit dir teilen"
       post_a_message: "schreibe eine Nachricht >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
+        heading: "Verbinde Dienste"
       tags_following: "Followed Tags"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
@@ -165,12 +165,12 @@ de:
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"
       all_contacts: "Alle Kontakte"
       edit_aspect: "Bearbeite %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Bist du dir sicher, dass du eine private Unterhaltung mit mehr als %{suggested_limit} Kontakten beginnen möchtest? Einen Beitrag in diesen Aspekt zu schreiben könnte ein besserer Weg sein um sie zu kontaktieren."
       my_contacts: "Meine Kontakte"
       no_contacts: "Keine Kontakte."
       only_sharing_with_me: "Nur mit mir teilende"
       remove_person_from_aspect: "Entferne %{person_name} aus \"%{aspect_name}\""
-      start_a_conversation: "Starte ein Gespräch"
+      start_a_conversation: "Starte eine Unterhaltung"
       title: "Kontakte"
       your_contacts: "Deine Kontakte"
     many: "%{count} Kontakte"
@@ -199,7 +199,7 @@ de:
       no_conversation_selected: "Keine Konversation ausgewählt"
       no_messages: "Keine Nachrichten"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Änderungen verwerfen?"
       send: "Senden"
       subject: "Betreff"
       to: "An"
@@ -482,7 +482,6 @@ de:
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
       original_post: "Ursprünglicher Beitrag"
-      permalink: "Permalink"
       update_photo: "Foto aktualisieren"
       view: "Anzeigen"
     update: 
@@ -492,7 +491,10 @@ de:
     update: 
       post_hidden: "%{name}s Beitrag wurde ausgeblendet."
   posts: 
-    doesnt_exist: "Dieser Post existiert nicht!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "Vorherige"
   profile: "Profil"
   profiles: 
@@ -515,7 +517,7 @@ de:
     update: 
       failed: "Fehler beim aktualisieren deines Profils"
       updated: "Profil aktualisiert"
-  public: "Public"
+  public: "Öffentlich"
   registrations: 
     closed: "Registrierungen sind auf diesem Pod geschlossen."
     create: 
@@ -578,7 +580,7 @@ de:
       disconnect: "Verbindung entfernen"
       edit_services: "Dienste bearbeiten"
       logged_in_as: "angemeldet als"
-      no_services: "You have not connected any services yet."
+      no_services: "Du hast noch keine Dienste verbunden."
       really_disconnect: "Verbindung mit %{service} entfernen?"
     inviter: 
       click_link_to_accept_invitation: "Öffne diesen Link um die Einladung zu akzeptieren"
@@ -635,10 +637,10 @@ de:
     stream_element: 
       dislike: "Gefällt mir nicht"
       like: "Gefällt mir"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Geteilt mit: %{aspect_names}"
       unlike: "Gefällt mir nicht mehr"
       via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Dieser Beitrag ist für jeden im Web sichtbar"
   status_messages: 
     create: 
       success: "Erfolgreich erwähnt: %{names}"
@@ -648,10 +650,6 @@ de:
       no_message_to_display: "Keine Nachricht zum Anzeigen."
     new: 
       mentioning: "Erwähnt: %{person}"
-    show: 
-      destroy: "Entfernen"
-      not_found: "Es tut uns Leid, aber wir konnten den Post nicht finden."
-      permalink: "Permalink"
     too_long: 
       few: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
       many: "Bitte kürze deinen Beitrag auf weniger als %{count} Zeichen."
@@ -670,12 +668,12 @@ de:
       success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "#%{tag} folgen"
+      following: "#%{tag} folgen"
       nobody_talking: "Niemand hat bereits etwas über %{tag} gesagt."
       people_tagged_with: "Personen die mit %{tag} getagt sind"
       posts_tagged_with: "Beiträge die mit #%{tag} getagt sind"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "#%{tag} nicht mehr folgen"
   tokens: 
     show: 
       connect_to_cubbies: "Mit Cubbi.es verbinden"

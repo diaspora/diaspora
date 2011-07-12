@@ -482,7 +482,6 @@ he:
       edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
       make_profile_photo: "יצירת תמונת פרופיל"
       original_post: "רשומה מקורית"
-      permalink: "קישור קבוע"
       update_photo: "עדכון התמונה"
       view: "צפייה"
     update: 
@@ -492,7 +491,10 @@ he:
     update: 
       post_hidden: "הרשומה של %{name} הוסתרה."
   posts: 
-    doesnt_exist: "רשומה זו אינה קיימת!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "הקודמת"
   profile: "פרופיל"
   profiles: 
@@ -648,10 +650,6 @@ he:
       no_message_to_display: "אין הודעה להצגה."
     new: 
       mentioning: "אזכור: %{person}"
-    show: 
-      destroy: "מחיקה"
-      not_found: "לא ניתן למצוא רשומה זו, עמך הסליחה."
-      permalink: "קישור קבוע"
     too_long: 
       few: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
       many: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"

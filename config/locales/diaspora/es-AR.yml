@@ -482,7 +482,6 @@ es-AR:
       edit_delete_photo: "Editar descripción de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Publicación original"
-      permalink: "enlace permanente"
       update_photo: "Actualizar foto"
       view: "ver"
     update: 
@@ -492,7 +491,10 @@ es-AR:
     update: 
       post_hidden: "La publicación de %{name} fue ocultada."
   posts: 
-    doesnt_exist: "¡Esa publicación no existe!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
@@ -648,10 +650,6 @@ es-AR:
       no_message_to_display: "No hay mensajes que mostrar."
     new: 
       mentioning: "Mencionar a: %{person}"
-    show: 
-      destroy: "Eliminar"
-      not_found: "Lo sentimos, no encontramos esa publicación."
-      permalink: "enlace permanente"
     too_long: 
       few: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"
       many: "Por favor, hacé tu mensaje de estado tenga menos de %{count} caracteres"

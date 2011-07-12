@@ -482,7 +482,6 @@ cy:
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "make profile photo"
       original_post: "Original Post"
-      permalink: "permalink"
       update_photo: "Update Photo"
       view: "view"
     update: 
@@ -492,7 +491,10 @@ cy:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "previous"
   profile: "Profile"
   profiles: 
@@ -648,10 +650,6 @@ cy:
       no_message_to_display: "No message to display."
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Destroy"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

@@ -107,9 +107,9 @@ cs:
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
+        content: "Můžete připojit následující služby na Diasporu:"
+        heading: "Připojit služby"
+      tags_following: "Následované značky"
       your_aspects: "Vaše aspekty"
     many: "%{count} aspektů"
     move_contact: 
@@ -165,7 +165,7 @@ cs:
       add_a_new_aspect: "Přidat nový aspekt"
       all_contacts: "Všechny kontakty"
       edit_aspect: "Upravit %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Jste si jisti, že chcete začít soukromý rozhovor s více než %{suggested_limit} kontakty? Posílání zpráv do tohoto aspektu může být lepší způsob, jak s nimi spojit."
       my_contacts: "Moje kontakty"
       no_contacts: "Žádné kontakty."
       only_sharing_with_me: "Pouze sdílení se mnou"
@@ -199,7 +199,7 @@ cs:
       no_conversation_selected: "není výbrána žádná konverzace"
       no_messages: "žádné zprávy"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Zamítnout změny?"
       send: "Poslat"
       subject: "předmět"
       to: "pro"
@@ -288,7 +288,7 @@ cs:
         one: "1 osobě se to líbí"
         other: "%{count} lidem se to líbí"
         zero: "žádná kladná hodnocení"
-  limited: "Limited"
+  limited: "Omezený"
   more: "Více"
   next: "další"
   no_results: "Nebyly nalezeny žádné výsledky"
@@ -482,7 +482,6 @@ cs:
       edit_delete_photo: "Upravit popis fotky / smazat fotku"
       make_profile_photo: "vytvořit profilovou fotku"
       original_post: "Původní příspěvek"
-      permalink: "trvalý odkaz"
       update_photo: "Aktualizovat fotku"
       view: "zobrazit"
     update: 
@@ -492,7 +491,10 @@ cs:
     update: 
       post_hidden: "Příspěvek od uživatele %{name} byl skryt."
   posts: 
-    doesnt_exist: "tento příspěvek neexistuje!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "předchozí"
   profile: "Profil"
   profiles: 
@@ -515,7 +517,7 @@ cs:
     update: 
       failed: "Nepodařilo se aktualizovat profil"
       updated: "Profil aktualizován"
-  public: "Public"
+  public: "Veřejné"
   registrations: 
     closed: "Zápisy jsou aktuálně uzavřeny na tomto Diasporu podu."
     create: 
@@ -578,7 +580,7 @@ cs:
       disconnect: "odpojit"
       edit_services: "Upravit služby"
       logged_in_as: "přihlášen jako"
-      no_services: "You have not connected any services yet."
+      no_services: "Nemáte připojenou žádnou službu."
       really_disconnect: "odpojit %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klikněte na tento odkaz, pokud chcete přijmout pozvání"
@@ -635,10 +637,10 @@ cs:
     stream_element: 
       dislike: "to se mi nelíbí"
       like: "to se mi líbí"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Sdíleno s: %{aspect_names}"
       unlike: "to se mi už nelíbí"
       via: "skrz %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Tento příspěvek je viditelný komukoli na webu"
   status_messages: 
     create: 
       success: "Úspěšně zmíněno: %{names}"
@@ -648,10 +650,6 @@ cs:
       no_message_to_display: "Není k zobrazení žádná zpráva."
     new: 
       mentioning: "Zmínka: %{person}"
-    show: 
-      destroy: "Smazat"
-      not_found: "Omlouváme se, ale nemůžeme najít tento příspěvek."
-      permalink: "trvalý odkaz"
     too_long: 
       few: "vaše stavové zprávy musí mít méně než %{count} znaků"
       many: "vaše stavové zprávy musí mít méně než %{count} znaků"
@@ -663,25 +661,25 @@ cs:
     show_more_comments: "Zobrazit %{number} dalších komentářů"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Nepodařilo se následovat: #%{name}"
+      success: "Úspěšně následujete: #%{name}"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Nepodařilo se zastavit následování: #%{name}"
+      success: "Úspěšně zastaveno následování: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Následovat #%{tag}"
+      following: "Následující #%{tag}"
       nobody_talking: "Nikdo dosud nemluví o %{tag}."
       people_tagged_with: "Lidé označeni %{tag}"
       posts_tagged_with: "Příspěvky označené #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Přestat následovat #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Připojit na Cubbi.es"
-      connecting_is_simple: "Připojení účtu na Diaspoře je tak jednoduché, jak vyplňovat dvě pole na vaší stránce účtu Cubbi.es."
+      connecting_is_simple: "Připojení účtu na Diaspoře je tak jednoduché! Zadejte vaše Diaspora ID (<b>%{diaspora_id}</b>) z nastavení cubbies a připojte se."
       daniels_account: "Daniel's Diaspora account"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Velice brzy se budete moci připojit na novou aplikaci bez nutnosti zakládat účet odděleně od účtu na Diaspoře."
       love_to_try: "Rádi bychom, aby jste to vyzkoušeli."
       making_the_connection: "Vytvoření spojení"
       screenshot_explanation: "%{link1}. Tato konkrétní cubby je připojena na %{link2}."

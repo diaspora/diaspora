@@ -63,9 +63,9 @@ da:
     aspect_contacts: 
       done_editing: "afslut redigering"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Tilføj et aspekt"
     aspect_stream: 
-      commented_on: "commented on"
+      commented_on: "kommenter på"
       posted: "posted"
       recently: "recently:"
       stream: "Stream"
@@ -99,7 +99,7 @@ da:
         heading: "Connect to Cubbi.es"
         learn_more: "Learn more"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
+        content_1: "Dit Diaspora ID er:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
@@ -110,7 +110,7 @@ da:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
-      your_aspects: "Your Aspects"
+      your_aspects: "Dine aspekter"
     many: "%{count} aspekter"
     move_contact: 
       error: "Kunne ikke flytte kontaktperson: %{inspect}"
@@ -128,9 +128,9 @@ da:
       family: "Familie"
       work: "Arbejde"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Administrer dine aspekter."
+      no_contacts: "Du har ingen kontakter her endnu."
+      view_all_contacts: "Vis alle kontakter"
     show: 
       edit_aspect: "redigér aspekt"
     update: 
@@ -162,12 +162,12 @@ da:
       failure: "Kunne ikke oprette kontakt"
     few: "%{count} kontaktpersoner"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
+      add_a_new_aspect: "Tilføj nyt aspekt"
+      all_contacts: "Alle kontakter"
       edit_aspect: "Edit %{name}"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
       my_contacts: "My Contacts"
-      no_contacts: "No contacts."
+      no_contacts: "Ingen kontakter."
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
       start_a_conversation: "Start a conversation"
@@ -218,7 +218,7 @@ da:
       correct_the_following_errors_and_try_again: "Ret følgende fejl og prøv igen."
       invalid_fields: "Ugyldige felter"
   fill_me_out: "Udfyld mig"
-  find_people: "Find people"
+  find_people: "Find venner"
   hide: "Skjul"
   home: 
     show: 
@@ -341,10 +341,10 @@ da:
       other: "%{actors} liked your deleted post."
       zero: "%{actors} liked your deleted post."
     mentioned: 
-      few: "%{actors} has mentioned you in a %{post_link}."
+      few: "%{actors} har nævnt dig i en %{post_link}."
       many: "%{actors} has mentioned you in a %{post_link}."
-      one: "%{actors} has mentioned you in a %{post_link}."
-      other: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} har nævnt dig i en besked %{post_link}."
+      other: "%{actors} har nævnt dig i en besked %{post_link}."
       zero: "%{actors} has mentioned you in a %{post_link}."
     mentioned_deleted: 
       few: "%{actors} mentioned you in a deleted post."
@@ -482,7 +482,6 @@ da:
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
       make_profile_photo: "Gør til profilbillede"
       original_post: "Original Post"
-      permalink: "permanentlink"
       update_photo: "Opdatér billede"
       view: "se"
     update: 
@@ -492,7 +491,10 @@ da:
     update: 
       post_hidden: "%{name}'s post er blevet skjult."
   posts: 
-    doesnt_exist: "den post eksisterer ikke!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "Forrige"
   profile: "Profil"
   profiles: 
@@ -628,7 +630,7 @@ da:
       publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"
-      upload_photos: "Upload photos"
+      upload_photos: "Upload fotos"
       whats_on_your_mind: "Hvad har du på hjertet?"
     reshare: 
       reshare: "Del igen"
@@ -648,19 +650,15 @@ da:
       no_message_to_display: "Ingen beskeder at vise."
     new: 
       mentioning: "Nævnt: %{person}"
-    show: 
-      destroy: "Slet"
-      not_found: "Desværre, vi kunne ikke finde den post."
-      permalink: "permanentlink"
     too_long: 
       few: "din status skal være mindre end %{count} tegn"
       many: "Din status besked skal være mindre en %{count} tegn"
-      one: "please make your status messages less than %{count} character"
-      other: "please make your status messages less than %{count} characters"
+      one: "Status opdateringen skal  være mindre end %{count} tegn"
+      other: "Lav venligst en meddelse på under %{count} tegn"
       zero: "please make your status messages less than %{count} characters"
   stream_helper: 
     hide_comments: "Skjul kommentarer"
-    show_more_comments: "Show %{number} more comments"
+    show_more_comments: "Vis %{number} kommentarer mere"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"

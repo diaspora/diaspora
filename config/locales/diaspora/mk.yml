@@ -482,7 +482,6 @@ mk:
       edit_delete_photo: "Уреди опис на слика/избриши слика"
       make_profile_photo: "направи ја профил слика"
       original_post: "Original Post"
-      permalink: "permalink"
       update_photo: "Ажурирај слика"
       view: "поглед"
     update: 
@@ -492,7 +491,10 @@ mk:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "previous"
   profile: "Профил"
   profiles: 
@@ -648,10 +650,6 @@ mk:
       no_message_to_display: "Нема пораки за прикажување."
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Уништи"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

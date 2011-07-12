@@ -482,7 +482,6 @@ zh-CN:
       edit_delete_photo: "编辑照片描述或删除照片"
       make_profile_photo: "选为个人头像"
       original_post: "原式内容"
-      permalink: "永久链接"
       update_photo: "更新照片"
       view: "查看"
     update: 
@@ -492,7 +491,10 @@ zh-CN:
     update: 
       post_hidden: "隐藏 %{name} 的内容成功"
   posts: 
-    doesnt_exist: "内容不存在！"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "上一步"
   profile: "个人档案"
   profiles: 
@@ -648,10 +650,6 @@ zh-CN:
       no_message_to_display: "没有信息可显示。"
     new: 
       mentioning: "提及发布中: %{person}"
-    show: 
-      destroy: "删除"
-      not_found: "抱歉，找不到该内容。"
-      permalink: "静态连接"
     too_long: 
       few: "请确认您的状态信息不超过%{count}个字符"
       many: "请确认您的状态信息不超过%{count}个字符"

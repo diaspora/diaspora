@@ -482,7 +482,6 @@ lt:
       edit_delete_photo: "Redaguoti nuotraukos aprašymą / pašalinti nuotrauką"
       make_profile_photo: "padaryti profilio nuotrauką"
       original_post: "Original Post"
-      permalink: "permalink"
       update_photo: "Atnaujinti nuotrauką"
       view: "rodyti"
     update: 
@@ -492,7 +491,10 @@ lt:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "previous"
   profile: "Profilis"
   profiles: 
@@ -648,10 +650,6 @@ lt:
       no_message_to_display: "Žinučių nėra."
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Sunaikinti"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

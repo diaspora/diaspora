@@ -165,7 +165,7 @@ nl:
       add_a_new_aspect: "Voeg een aspect toe"
       all_contacts: "Alle Contacten"
       edit_aspect: "Bewerk %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Weet je zeker dat je een privégesprek wil starten met meer dan %{suggested_limit} contacten? Een bericht plaatsen in dit aspect is waarschijnlijk een betere manier om met hen te communiceren."
       my_contacts: "Mijn Contacten"
       no_contacts: "Geen contacten."
       only_sharing_with_me: "Delen alleen met mij"
@@ -482,7 +482,6 @@ nl:
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
       original_post: "Originele post"
-      permalink: "permalink"
       update_photo: "Update foto"
       view: "bekijk"
     update: 
@@ -492,7 +491,10 @@ nl:
     update: 
       post_hidden: "%{name}'s post is verborgen."
   posts: 
-    doesnt_exist: "die post bestaat niet!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "vorige"
   profile: "Profiel"
   profiles: 
@@ -648,10 +650,6 @@ nl:
       no_message_to_display: "Geen bericht om te weergeven."
     new: 
       mentioning: "Noem: %{person}"
-    show: 
-      destroy: "Verwijderen"
-      not_found: "Sorry, we konden die post niet vinden."
-      permalink: "permalink"
     too_long: 
       few: "statusberichten mogen niet langer zijn dan %{count} tekens"
       many: "statusberichten mogen niet langer zijn dan %{count} tekens"
@@ -675,7 +673,7 @@ nl:
       nobody_talking: "Nog niemand heeft het over %{tag}."
       people_tagged_with: "Personen gemerkt met %{tag}"
       posts_tagged_with: "Berichten gemerkt met #%{tag}"
-      stop_following: "Stop met volgende van #%{tag}"
+      stop_following: "Stop met volgen van #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Verbind met Cubbi.es"

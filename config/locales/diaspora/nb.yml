@@ -482,7 +482,6 @@ nb:
       edit_delete_photo: "Rediger bildebeskrivelse / slett bilde"
       make_profile_photo: "gjør til profilbilde"
       original_post: "Orginalt Innlegg"
-      permalink: "permalink"
       update_photo: "Oppdater Bilde"
       view: "vis"
     update: 
@@ -492,7 +491,10 @@ nb:
     update: 
       post_hidden: "%{name}s innlegg har blitt skjult."
   posts: 
-    doesnt_exist: "det innlegget finnes ikke!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "forrige"
   profile: "Profil"
   profiles: 
@@ -648,10 +650,6 @@ nb:
       no_message_to_display: "Ingen melding å vise."
     new: 
       mentioning: "Nevner: %{person}"
-    show: 
-      destroy: "Utslett"
-      not_found: "Beklager, vi kunne ikke finne innlegget."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"
