@@ -296,6 +296,7 @@ describe PeopleController do
       contacts = contact.contacts
       get :contacts, :person_id => bob.person.id
       assigns(:contacts_of_contact).should == contacts
+      response.should be_success
     end
   end
 
