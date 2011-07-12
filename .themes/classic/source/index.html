@@ -2,6 +2,7 @@
 layout: default
 blog_index: true
 ---
+<div class="blog-index">
 {% assign index = true %}
 {% for post in paginator.posts %}
 {% assign content = post.content %}
@@ -13,7 +14,7 @@ blog_index: true
   {% if paginator.next_page %}
     <a href="/page{{paginator.next_page}}/">&larr; Older</a>
   {% endif %}
-  <a href="/blog/archives.html">Blog Archive</a>
+  <a href="/blog/archive.html">Blog Archive</a>
   {% if paginator.previous_page %}
     <a href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
   {% endif %}
@@ -29,3 +30,4 @@ blog_index: true
     }());
 </script>
 {% endif %}
+</div>

@@ -1,4 +1,4 @@
-#articles .blog-archives {
+#blog-archives {
   article {
     padding: 1em 0 1em;
     position: relative;
@@ -57,13 +57,11 @@
       padding:{left: 4.5em; bottom: .7em;}
     }
   a.category {
-    //text-align: right;
     line-height: 1.1em;
-    //float: right;
     }
   }
 }
-#articles .blog-archives.category {
+#content > .category {
   article {
     margin-left: 0;
     padding-left: 6.8em;

@@ -1,7 +1,7 @@
 .highlight, html .gist .gist-file .gist-syntax .gist-highlight {
   .line-numbers {
     text-align: right;
-    font-size: .8em;
+    font-size: 13px;
     line-height: 1.45em;
     background: $base02 $noise-bg !important;
     border-right: 1px solid darken($base03, 2) !important;
@@ -57,7 +57,7 @@ pre {
   @extend .mono;
   border: 1px solid $pre-border;
   line-height: 1.45em;
-  font-size: .8em;
+  font-size: 13px;
   margin-bottom: 1.5em;
   padding: .8em 1em;
   color: $pre-color;
@@ -73,7 +73,7 @@ p code {
   display: inline-block;
   white-space: no-wrap;
   background: #fff;
-  font-size: .9em;
+  font-size: .8em;
   line-height: 1.5em;
   color: #555;
   border: 1px solid #ddd;

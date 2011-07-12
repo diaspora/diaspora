@@ -1,16 +1,17 @@
-#articles {
-  overflow: hidden;
-  ul, ol { margin-left: 1.4em; }
+#content {
+  article { ul, ol { margin-left: 1.4em; }}
   @media only screen and (min-width: 768px) {
     ul, ol { margin-left: 0; }
   }
-  > article {
+  > article, > div > article {
+    overflow: hidden;
     padding-bottom: 1em;
     &:last-child { margin-bottom: 0;  }
     h2 {
       padding-top: 0.8em;
       background: $img-border top left repeat-x;
-      &:first-child { background: none; padding-top: 0; }
+      .entry-content &:first-child { padding-top: 0; }
+      &:first-child { background: none; }
     }
     .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
       @extend .separator;
@@ -80,24 +81,20 @@
       }
     }
   }
-  iframe.twitter-share-button {
-    position: relative;
-    top: .3em;
-    padding-left: .5em;
-  }
-  > article > footer {
-    margin-top: 2em;
-    padding-top: 1em;
+  > div > article > footer {
     margin-bottom: 1.5em;
     background: $img-border top left repeat-x;
+    margin-top: 2em;
+    padding-top: 1em;
     @extend .sans;
+    p.meta { display: inline-block; font-size: .8em; }
   }
 
 }
 article + article {
   background: $img-border top left repeat-x;
 }
-#articles.blog-index {
+#content .blog-index {
   article header { background: none; padding-bottom: 0; }
   article h1 {
     font-size: 2.2em;

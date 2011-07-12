@@ -19,7 +19,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #articles > article, #articles > nav {
+  > header, > nav, > footer, #content > article, #content > div > article {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
@@ -43,64 +43,77 @@ body {
   }
 }
 
-.toggle-sidebar { display: none; }
-#articles { width: 100%;
-  + aside {
+#content {
+  > div, > article { width: 100%; }
+  > aside {
     float: none;
     padding: 0 $pad-min 1px;
-    background-color: $sidebar-bg;
+    background-color: lighten($sidebar-bg, 2);
     border-top: 1px solid $sidebar-border;
   }
 }
 
+.toggle-sidebar { display: none; }
+
 @media only screen and (min-width: 550px) {
   body > header { font-size: 1em; }
+  #content aside {
+    @extend .group;
+    section {
+    &.odd, &.even { float: left; width: 48%; }
+    &.odd { margin-left: 0; }
+    &.even { margin-left: 4%; }
+   }
+  }
 }
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
   body > header { font-size: 1.2em; }
-  body > nav {
-    + div {
-      @extend .group;
-      padding: 0;
-      margin: 0 auto;
-      > div {
-        @extend .group;
-        margin-right: $sidebar-width-medium;
-      }
-    }
+  #main {
+    @extend .group;
+    padding: 0;
+    margin: 0 auto;
   }
-  #articles {
-    padding-top: $pad-medium/2;
-    padding-bottom: $pad-medium/2;
-    float: left;
-    + aside {
+  #content {
+    @extend .group;
+    margin-right: $sidebar-width-medium;
+    position: relative;
+    > div, > article {
+      padding-top: $pad-medium/2;
+      padding-bottom: $pad-medium/2;
+      float: left;
+    }
+    > aside {
       width: $sidebar-width-medium - $sidebar-pad-medium*2;
       padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
       background: none;
       float: left;
       margin: 0 -100% 0 0;
+      section, section.even { width: auto; margin: 0; }
+    }
+    .collapse-sidebar & {
+      margin-right: 10px;
+      > aside {
+        float: none;
+        clear: left;
+        width: auto;
+        margin: 0;
+        padding: 0 $pad-medium 1px;
+        background-color: lighten($sidebar-bg, 2);
+        border-top: 1px solid lighten($sidebar-border, 4);
+        section {
+          &.odd, &.even { float: left; width: 48%; }
+          &.odd { margin-left: 0; }
+          &.even { margin-left: 4%; }
+        }
+      }
+      > aside.thirds section {
+        width: 30%;
+        margin-left: 5%;
+        &.first { margin-left: 0; }
+      }
     }
   }
-  body > div > div { position: relative; }
-
-  .collapse-sidebar {
-    > div > div { margin-right: 10px; }
-    #articles + aside {
-      display: none;
-    }
-    .toggle-sidebar {
-      right: -1px;
-      background-color: $sidebar-bg;
-      border-right-width: 0;
-      text-indent: 2px;
-      border-left: 1px solid $sidebar-border;
-      @include border-bottom-right-radius(0);
-      @include border-bottom-left-radius(.3em);
-      @include link-colors(#aaa, #888);
-    }
-  }
-
   .toggle-sidebar {
     outline: none;
     position: absolute; right: -21px; top: 0;
@@ -117,18 +130,37 @@ body {
     border-bottom: 1px solid $sidebar-border;
     border-right: 1px solid $sidebar-border;
     display: inline-block;
+    .collapse-sidebar & {
+      right: -11px;
+      width: 24px;
+      bottom: 0;
+      background-color: $sidebar-bg;
+      border-right-width: 0;
+      text-indent: 0px;
+      border-left: 1px solid $sidebar-border;
+      @include link-colors(#aaa, #888);
+      &:hover {
+       background: $sidebar-border;
+      }
+    }
   }
 }
 
 @media only screen and (min-width: 992px) {
   body > header { font-size: 1.3em; }
-  body > nav + div > div { margin-right: $sidebar-width-wide; }
-  #articles {
-    padding-top: $pad-wide/2;
-    padding-bottom: $pad-wide/2;
-    + aside {
+  #content { margin-right: $sidebar-width-wide; }
+  #content {
+    > div, > article {
+      padding-top: $pad-wide/2;
+      padding-bottom: $pad-wide/2;
+    }
+    > aside {
       width: $sidebar-width-wide - $sidebar-pad-wide*2;
       padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
+    }
+    .collapse-sidebar & aside {
+      padding: { left: $pad-wide; right: $pad-wide; }
+      @extend .group;
     }
   }
 }

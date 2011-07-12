@@ -2,25 +2,14 @@
 <body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == 'none' %} class="no-sidebar" {% endif %}>
   <header>{% include header.html %}</header>
   <nav>{% include navigation.html %}</nav>
-  <div>
-    <div>
-      <div id="articles" {% if page.blog_index %} class="blog-index" {% endif %}>{{ content }}</div>
+  <div id="main">
+    <div id="content">
+      {{ content }}
       {% unless page.sidebar == 'none' %}
-        <aside>{% include sidebar.html %}</aside>
+        <aside role=sidebar>{% include sidebar.html %}</aside>
       {% endunless %}
     </div>
   </div>
   <footer>{% include footer.html %}</footer>
-  {% if site.twitter_follow_button or site.twitter_tweet_button %}
-    <script type="text/javascript">
-      (function(){
-        var twitterWidgets = document.createElement('script');
-        twitterWidgets.type = 'text/javascript';
-        twitterWidgets.async = true;
-        twitterWidgets.src = 'http://platform.twitter.com/widgets.js';
-        document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-      })();
-    </script>
-  {% endif %}
 </body>
 </html>

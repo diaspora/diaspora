@@ -3,22 +3,24 @@ layout: default
 single: true
 ---
 
+<div>
 <article class="hentry">
   {% include article.html %}
-  {% unless page.no_meta %}
   <footer>
     <p class="meta">
       {% include post_author.html %}
       {% include post_date.html %}
       {% include post_categories.html %}
-      {% include sharing.html %}
     </p>
+    {% unless page.no_sharing %}
+    {% include sharing.html %}
+    {% endunless %}
   </footer>
-  {% endunless %}
-  {% if site.disqus_short_name %}
+</article>
+{% if site.disqus_short_name and page.no_comments != true %}
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread">{% include disqus_thread.html %}</div>
   </section>
-  {% endif %}
-</article>
+{% endif %}
+</div>

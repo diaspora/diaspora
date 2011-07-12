@@ -1,6 +1,7 @@
 # Required configuration
 source: source
 destination: public
+plugins: plugins
 code_dir: downloads/code
 port: 4000
 
@@ -33,6 +34,10 @@ twitter_show_replies: false
 twitter_follow_button: true
 twitter_show_follower_count: false
 twitter_tweet_button: true
+
+# Google Plus
+google_plus_one: true
+google_plus_one_size: medium
 
 # Pinboard
 pinboard_user:

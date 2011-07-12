@@ -1,9 +1,10 @@
 ---
-layout: post
+layout: page
 title: Blog Archive
-no_meta: true
+no_footer: true
 ---
-<div class="blog-archives">
+
+<div id="blog-archives">
 {% for post in site.posts reverse %}
 {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 {% unless year == this_year %}

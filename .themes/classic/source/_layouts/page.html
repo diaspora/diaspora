@@ -1,5 +1,31 @@
 ---
-layout: post
+layout: default
 ---
 
-<!-- if you want a page layout -->
+<div>
+<article>
+  <header>
+    <h1 class="entry-title">{{ page.title | titlecase }}</h1>
+    {% unless page.no_meta or !index %}<p class="meta">{% include post_date.html %}</p>{% endunless %}
+  </header>
+  {{ content | smart_quotes }}
+  {% unless page.no_footer %}
+    <footer>
+      {% if page.date %}
+      <p class="meta">
+        {% include post_date.html %}
+      </p>
+      {% endif %}
+      {% unless page.no_sharing %}
+        {% include sharing.html %}
+      {% endunless %}
+    </footer>
+  {% endunless %}
+</article>
+{% if site.disqus_short_name and page.comments == true %}
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread">{% include disqus_thread.html %}</div>
+  </section>
+{% endif %}
+</div>

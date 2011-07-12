@@ -1,9 +1,9 @@
 .side-shadow-border {
   @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
 }
-#articles + aside {
+#content > aside {
   color: $sidebar-color;
-  padding-top: 1.2em;
+  //padding-top: 1.2em;
   text-shadow: lighten($sidebar-bg, 8) 0 1px;
   section {
     @extend .sans;
