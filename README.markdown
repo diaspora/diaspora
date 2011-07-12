@@ -18,9 +18,9 @@ repository is named `your_username.github.com` or `your_organization.github.com`
     git remote add origin (your repository url)
     git push origin master
 
-    # If you're using Github user or organization pages,
-    # rename the master branch to source and then push
-    git branch -m master source
+    # Next, if you're using Github user or organization pages,
+    # Create a source branch and push to origin source.
+    git branch source
     git push origin source
 
 
@@ -40,7 +40,7 @@ Next, setup an [RVM](http://beginrescueend.com/) and install dependencies.
 
     rake generate   # Generates your blog into the public directory
     rake watch      # Watches files for changes and regenerates your blog
-    rake preview    # Watches, regenerates, and mounts a webserver at http://localhost:4000
+    rake preview    # Watches, and mounts a webserver at http://localhost:4000
 
 Jekyll's built in webbrick server is handy, but if you're a [POW](http://pow.cx) user, you can set it up to work with Octopress like this.
 
@@ -48,29 +48,28 @@ Jekyll's built in webbrick server is handy, but if you're a [POW](http://pow.cx)
     ln -s /path/to/octopress
     cd -
 
-Now you'll just run `rake watch` and load up `http://octopress.dev` instead.
+Now that you're setup with POW, you'll just run `rake watch` and load up `http://octopress.dev` instead.
 
 ## Writing A Post
 
-While running `rake preview` or `rake watch`, open a new terminal session and start a Hello World post.
+Create your first post.
 
     rake post['hello world']
 
-This will create a new post named something like `2011-06-17-hello-world.markdown` in the `source/_posts` directory.
+This will put a new post in source/_posts with a name like like `2011-07-3-hello-world.markdown` in the `source/_posts` directory.
 Open that file in your favorite text editor and you'll see a block of [yaml front matter](https://github.com/mojombo/jekyll/wiki/yaml-front-matter)
 which tells Jekyll how to processes posts and pages.
 
     ---
     title: Hello World
-    date: 2011-06-17 14:34
+    date: 2011-07-03 5:59
     layout: post
     ---
 
-Now, go ahead and type up a sample post, or use some [inspired filler](http://baconipsum.com/). Save and refresh your browser, and you
+Now beneath the yaml block, go ahead and type up a sample post, or use some [inspired filler](http://baconipsum.com/). If you're running the watcher, save and refresh your browser and you
 should see the new post show up in your blog index.
 
-Octopress does more than this though. Check out [Blogging with Octopress](#include_link) to learn about cool features which
-help make blogging easier and more beautiful.
+Octopress does more than this though. Check out [Blogging with Octopress](#include_link) to learn about all the different ways Octopress makes blogging easier.
 
 ## Configuring Octopress
 
@@ -106,18 +105,18 @@ If you're using Github user or organization pages, clone the repository `git@git
 
     # For Github project pages:
     git clone git@github.com:username/project.git _deploy
-    rake init_deploy[gh-pages]
+    rake config_deploy[gh-pages]
 
     # For Github user/organization pages:
     git clone git@github.com:username/username.github.com _deploy
-    rake init_deploy[master]
+    rake config_deploy[master]
 
     # Now to deploy, you'll run
-    rake push
+    rake deploy
 
-The `init_deploy` rake task takes a branch name as an argument and creates a [new empty branch](http://book.git-scm.com/5_creating_new_empty_branches.html), adds an initial commit, and pushes it to the origin remote.
-This prepares your branch for easy deployment. The `rake push` task copies the generated blog from the `public` directory to the `_deploy` directory, adds new files, removes old files, sets a commit message, and pushes to Github.
-Then Github will queue your site for publishing (which usually occurs within minutes).
+The `config_deploy` rake task takes a branch name as an argument and creates a [new empty branch](http://book.git-scm.com/5_creating_new_empty_branches.html), and adds an initial commit.
+This prepares your branch for easy deployment. The `rake deploy` task copies the generated blog from the `public` directory to the `_deploy` directory, adds new files, removes old files, sets a commit message, and pushes to Github.
+Github will queue your site for publishing (which usually occurs instantly or within minutes if it's your first commit).
 
 ## License
 (The MIT License)
