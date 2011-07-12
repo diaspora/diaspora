@@ -482,7 +482,6 @@ sk:
       edit_delete_photo: "Upraviť popis fotky / zmazať fotku"
       make_profile_photo: "Zhotoviť profilovú fotku"
       original_post: "Pôvodný príspevok"
-      permalink: "permalink"
       update_photo: "Aktualizovať fotku"
       view: "Pozrieť"
     update: 
@@ -492,7 +491,10 @@ sk:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "Predchádzajúce"
   profile: "Profil"
   profiles: 
@@ -648,10 +650,6 @@ sk:
       no_message_to_display: "Žiadne správy k zobrazeniu."
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Zmazať"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

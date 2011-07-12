@@ -6,7 +6,7 @@
 fi: 
   _applications: "Sovellukset"
   _comments: "Kommentit"
-  _contacts: "Contacts"
+  _contacts: "Kontaktit"
   _home: "Etusivu"
   _photos: "kuvat"
   _services: "Ulkoiset palvelut"
@@ -65,9 +65,9 @@ fi:
     aspect_listings: 
       add_an_aspect: "+ Lisää näkymä"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
+      commented_on: "kommentoitu"
+      posted: "lähetetty"
+      recently: "äskettäin:"
       stream: "Stream"
     contacts_not_visible: "Kontaktit tässä näkymässä eivät voi nähdä toisiaan."
     contacts_visible: "Kontaktit tässä näkymässä voivat nähdä toisensa."
@@ -99,7 +99,7 @@ fi:
         heading: "Yhdistä Cubbi.es:iin"
         learn_more: "Learn more"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
+        content_1: "Diaspora ID:si on:"
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
@@ -109,7 +109,7 @@ fi:
       services: 
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
-      tags_following: "Followed Tags"
+      tags_following: "Seuratut Tagit"
       your_aspects: "Näkymäsi"
     many: "%{count} näkymää"
     move_contact: 
@@ -482,7 +482,6 @@ fi:
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "laita profiilikuvaksi"
       original_post: "Alkuperäinen viesti"
-      permalink: "pysyvä linkki"
       update_photo: "Päivitä kuva"
       view: "näytä"
     update: 
@@ -492,7 +491,10 @@ fi:
     update: 
       post_hidden: "Viesti käyttäjältä %{name} on piilotettu."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "edellinen"
   profile: "Profiili"
   profiles: 
@@ -648,10 +650,6 @@ fi:
       no_message_to_display: "Ei näytettäviä viestejä."
     new: 
       mentioning: "Mainitse: %{person}"
-    show: 
-      destroy: "Poista"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "pysyvä linkki"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "Ole hyvä ja kirjoita tilaasi vähemmän kuin %{count} merkkiä"

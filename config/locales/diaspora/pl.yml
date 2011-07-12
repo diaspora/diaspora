@@ -482,7 +482,6 @@ pl:
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
       make_profile_photo: "ustaw jako zdjęcie profilowe"
       original_post: "Pierwotny wpis"
-      permalink: "permalink"
       update_photo: "Aktualizuj zdjęcie"
       view: "podgląd"
     update: 
@@ -492,7 +491,10 @@ pl:
     update: 
       post_hidden: "wpis użytkownika %{name} został ukryty."
   posts: 
-    doesnt_exist: "ten wpis nie istnieje!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "poprzedni"
   profile: "Profil"
   profiles: 
@@ -648,10 +650,6 @@ pl:
       no_message_to_display: "Brak wiadomości."
     new: 
       mentioning: "Wspominasz o: %{person}"
-    show: 
-      destroy: "Usuń"
-      not_found: "Niestety, nie udało się nam znaleźć tego wpisu."
-      permalink: "odnośnik bezpośredni"
     too_long: 
       few: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"
       many: "skróć swoje wiadomości statusowe do mniej niż %{count} znaków"

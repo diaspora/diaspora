@@ -482,7 +482,6 @@ eo:
       edit_delete_photo: "Redakti bildpriskribon / forigi bildon"
       make_profile_photo: "estigi profilbildon"
       original_post: "Origina Afiŝo"
-      permalink: "malŝanĝantligilo"
       update_photo: "Ĝisdatigi Bildon"
       view: "vidi"
     update: 
@@ -492,7 +491,10 @@ eo:
     update: 
       post_hidden: "Afiŝo de %{name} kaŝiĝas."
   posts: 
-    doesnt_exist: "tiu afiŝo ne ekzistas!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "antaŭe"
   profile: "Profilo"
   profiles: 
@@ -648,10 +650,6 @@ eo:
       no_message_to_display: "Ne afiŝoj vidiĝi."
     new: 
       mentioning: "Mencianta: %{person}"
-    show: 
-      destroy: "Forigi"
-      not_found: "Bedaŭre, ne povis trovi tiun poŝton."
-      permalink: "malŝanĝantligilo"
     too_long: 
       few: "bonvolu farigi viajn afiŝojn malpli longajn ol %{count} signoj"
       many: "bonvolu farigi viajn afiŝojn malpli longajn ol %{count} signoj"

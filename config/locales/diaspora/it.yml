@@ -109,7 +109,7 @@ it:
       services: 
         content: "Puoi abbinare a Diaspora i seguenti servizi:"
         heading: "Servizi connessi"
-      tags_following: "Tag che stai seguendo"
+      tags_following: "Tag che segui"
       your_aspects: "I tuoi aspetti"
     many: "%{count} aspetti"
     move_contact: 
@@ -165,7 +165,7 @@ it:
       add_a_new_aspect: "Aggiungi un nuovo aspetto"
       all_contacts: "Tutti i contatti"
       edit_aspect: "Modifica %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Stai inviando un messaggio privato a più di %{suggested_limit} contatti. Vuoi farlo davvero? Forse potrebbe essere più opportuno pubblicarlo su un aspetto!"
       my_contacts: "I miei contatti"
       no_contacts: "Nessun contatto."
       only_sharing_with_me: "Condividono con me"
@@ -190,7 +190,7 @@ it:
         many: "%{count} nuovi messaggi"
         one: "un nuovo messaggio"
         other: "%{count} nuovi messaggi"
-        zero: "nessun nuovo messaggio"
+        zero: "Nessun nuovo messaggio"
     index: 
       create_a_new_message: "scrivi un nuovo messaggio"
       inbox: "In arrivo"
@@ -317,7 +317,7 @@ it:
         many: "%{count} nuove notifiche"
         one: "una nuova notifica"
         other: "%{count} nuove notifiche"
-        zero: "nessuna nuova notifica"
+        zero: "Nessuna nuova notifica"
     index: 
       and: "e"
       and_others: 
@@ -482,7 +482,6 @@ it:
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"
       make_profile_photo: "usa come immagine del profilo"
       original_post: "Post Originale"
-      permalink: "permalink"
       update_photo: "Aggiorna Foto"
       view: "guarda"
     update: 
@@ -492,7 +491,10 @@ it:
     update: 
       post_hidden: "Il post di %{name} è stato nascosto."
   posts: 
-    doesnt_exist: "questo post non esiste!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "precedente"
   profile: "Profilo"
   profiles: 
@@ -510,8 +512,8 @@ it:
       your_photo: "La tua foto"
       your_private_profile: "Il tuo profilo privato"
       your_public_profile: "Il tuo profilo pubblico"
-      your_tags: "Tu: in 5 #tags"
-      your_tags_placeholder: "per esempio #diaspora #stirare #gattini #musica"
+      your_tags: "Descriviti con 5 parole"
+      your_tags_placeholder: "per esempio #cinema #stirare #gattini #musica"
     update: 
       failed: "Aggiornamento del profilo non riuscito"
       updated: "Profilo aggiornato"
@@ -629,7 +631,7 @@ it:
       share: "Condividi"
       share_with: "condividi con"
       upload_photos: "Carica foto"
-      whats_on_your_mind: "cosa stai pensando?"
+      whats_on_your_mind: "A cosa stai pensando?"
     reshare: 
       reshare: "Ricondividi"
     stream_element: 
@@ -648,10 +650,6 @@ it:
       no_message_to_display: "Nessun messaggio da visualizzare."
     new: 
       mentioning: "Stai menzionando: %{person}"
-    show: 
-      destroy: "Elimina"
-      not_found: "Ci scusiamo, non possiamo trovare il post."
-      permalink: "permalink"
     too_long: 
       few: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
       many: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
@@ -659,7 +657,7 @@ it:
       other: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
       zero: "per favore scrivi i tuoi messaggi di stato con meno di %{count} caratteri"
   stream_helper: 
-    hide_comments: "nascondi i commenti"
+    hide_comments: "Nascondi i commenti"
     show_more_comments: "Mostra gli altri %{number} commenti"
   tag_followings: 
     create: 
@@ -679,7 +677,7 @@ it:
   tokens: 
     show: 
       connect_to_cubbies: "Connettiti a Cubbi.es"
-      connecting_is_simple: "Per connettere il tuo account Diaspora basta riempire due campi di testo nelle tue impostazioni su Cubbi.es."
+      connecting_is_simple: "Connettere il tuo account Diaspora è semplice! Inserisci il tuo ID (<b>%{diaspora_id}</b>) nella <a href='%{href_link}'>pagina delle impostazioni</a> di cubbies e premi <i>connect</i>."
       daniels_account: "account Diaspora di Daniel"
       log_in_with_diaspora_is_comming: "Presto potrai connetterti ad una nuova applicazione senza dover creare un account separato da quello che hai già su Diaspora."
       love_to_try: "Ci farebbe piacere che tu lo provassi."

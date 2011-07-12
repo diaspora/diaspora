@@ -165,7 +165,7 @@ ko:
       add_a_new_aspect: "새 애스펙 추가"
       all_contacts: "모든 컨택"
       edit_aspect: "%{name} 고치기"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "컨택 %{suggested_limit}명보다 많은 사람들에게 쪽지를 보내려 하십니까? 해당 애스펙에 공유물을 공유하는게 연락하기에 더 나은 방법입니다."
       my_contacts: "내 컨택"
       no_contacts: "컨택 없음."
       only_sharing_with_me: "나와만 공유하고 있는 사람들"
@@ -482,7 +482,6 @@ ko:
       edit_delete_photo: "사진 설명 고치기 / 사진 지우기"
       make_profile_photo: "프로필 사진 만들기"
       original_post: "원래 공유물"
-      permalink: "영구주소"
       update_photo: "사진 갱신"
       view: "보기"
     update: 
@@ -492,7 +491,10 @@ ko:
     update: 
       post_hidden: "%{name}님의 공유물을 감췄습니다."
   posts: 
-    doesnt_exist: "없는 공유물입니다!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "이전"
   profile: "프로필"
   profiles: 
@@ -648,10 +650,6 @@ ko:
       no_message_to_display: "보여줄 공유물이 없습니다."
     new: 
       mentioning: "%{person}님을 멘션합니다"
-    show: 
-      destroy: "지우기"
-      not_found: "공유물을 찾을 수 없습니다."
-      permalink: "영구주소"
     too_long: 
       few: "공유할 메시지를 %{count}자보다 적게 줄여주세요"
       many: "공유할 메시지를 %{count}자보다 적게 줄여주세요"

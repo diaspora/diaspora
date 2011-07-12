@@ -482,7 +482,6 @@ ru:
       edit_delete_photo: "Изменить описание фотографии / удалить фотографию"
       make_profile_photo: "сделать фотографией профиля"
       original_post: "Исходное сообщение"
-      permalink: "постоянная ссылка"
       update_photo: "Обновить фотографию"
       view: "смотреть"
     update: 
@@ -492,7 +491,10 @@ ru:
     update: 
       post_hidden: "сообщения %{name} скрыты."
   posts: 
-    doesnt_exist: "этого сообщения не существует!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "предыдущая"
   profile: "Профиль"
   profiles: 
@@ -648,10 +650,6 @@ ru:
       no_message_to_display: "Новых сообщений нет."
     new: 
       mentioning: "Упоминание: %{person}"
-    show: 
-      destroy: "Удалить"
-      not_found: "К сожалению мы не смогли найти это сообщение."
-      permalink: "постоянная ссылка"
     too_long: 
       few: "сократите пожалуйста ваше сообщение до %{count} символов"
       many: "сократите пожалуйста ваше сообщение до %{count} символов"

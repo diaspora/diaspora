@@ -482,7 +482,6 @@ ga:
       edit_delete_photo: "Athraigh tuarisc an pictiúr / scrios pictiúr"
       make_profile_photo: "Déan mar mo pictiúr prófíl"
       original_post: "Original Post"
-      permalink: "nasc-buan"
       update_photo: "Nuashonraigh Pictiúr"
       view: "féach ar"
     update: 
@@ -492,7 +491,10 @@ ga:
     update: 
       post_hidden: "%{name}'s post has been hidden."
   posts: 
-    doesnt_exist: "that post does not exist!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "roimhhe"
   profile: "Próifíl"
   profiles: 
@@ -648,10 +650,6 @@ ga:
       no_message_to_display: "Níl aon teachtaireacht chun taispeáint."
     new: 
       mentioning: "Mentioning: %{person}"
-    show: 
-      destroy: "Scrios"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "nasc-buan"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

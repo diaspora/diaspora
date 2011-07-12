@@ -482,7 +482,6 @@ ja:
       edit_delete_photo: "写真の説明を編集する／写真を削除する"
       make_profile_photo: "プロフィール写真にする"
       original_post: "元の投稿"
-      permalink: "パーマリンク"
       update_photo: "写真を更新する"
       view: "表示"
     update: 
@@ -492,7 +491,10 @@ ja:
     update: 
       post_hidden: "%{name}さんの投稿を非表示にしました。"
   posts: 
-    doesnt_exist: "投稿が存在しません。"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "前へ"
   profile: "プロフィール"
   profiles: 
@@ -648,10 +650,6 @@ ja:
       no_message_to_display: "表示するメッセージがありません。"
     new: 
       mentioning: "%{person}さんのメンション"
-    show: 
-      destroy: "削除"
-      not_found: "投稿が見つかりませんでした。"
-      permalink: "パーマリンク"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"

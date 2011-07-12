@@ -107,8 +107,8 @@ el:
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        content: "Μπορείτε να συνδέσετε τις παρακάτω υπηρεσίες στο Diaspora:"
+        heading: "Συνδέστε Υπηρεσίες"
       tags_following: "Followed Tags"
       your_aspects: "Οι Πτυχές σας"
     many: "%{count} πτυχές"
@@ -165,7 +165,7 @@ el:
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"
       all_contacts: "Όλες οι Επαφές"
       edit_aspect: "Επεξεργασία %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Είστε σίγουρος/η ότι θέλετε να ξεκινήσετε μια ιδιωτική συνομιλία με περισσότερες από %{suggested_limit} επαφές? Η δημοσίευση σε αυτή την πτυχή ίσως είναι ο καλύτερος τρόπος για να επικοινωνήσετε μαζί τους."
       my_contacts: "Οι Επαφές μου"
       no_contacts: "Καμία Επαφή"
       only_sharing_with_me: "Μοιράζονται μόνο με εμένα"
@@ -199,7 +199,7 @@ el:
       no_conversation_selected: "δεν επιλέχτηκε συζήτηση"
       no_messages: "κανένα μήνυμα"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Απόρριψη αλλαγών?"
       send: "Αποστολή"
       subject: "θέμα"
       to: "στον"
@@ -288,7 +288,7 @@ el:
         one: "Αρέσει σε 1 άτομο"
         other: "Αρέσει σε %{count} άτομα"
         zero: "δεν αρέσει σε κανέναν"
-  limited: "Limited"
+  limited: "Περιορισμένο"
   more: "Περισσότερα"
   next: "επόμενο"
   no_results: "Δεν βρέθηκαν αποτελέσματα"
@@ -482,7 +482,6 @@ el:
       edit_delete_photo: "Επεξεργασία περιγραφής φωτογραφίας / διαγραφή φωτογραφίας"
       make_profile_photo: "ορισμός ως φωτογραφίας προφίλ"
       original_post: "Αυθεντική Δημοσίευση"
-      permalink: "permalink"
       update_photo: "Ενημέρωση Φωτογραφίας"
       view: "προβολή"
     update: 
@@ -492,7 +491,10 @@ el:
     update: 
       post_hidden: "Στη δημοσίευση του χρήστη %{name} έχει γίνει απόκρυψη."
   posts: 
-    doesnt_exist: "η δημοσίευση δεν υπάρχει!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "προηγούμενο"
   profile: "Προφίλ"
   profiles: 
@@ -515,7 +517,7 @@ el:
     update: 
       failed: "Αποτυχία ενημέρωσης προφίλ"
       updated: "Το προφίλ ενημερώθηκε"
-  public: "Public"
+  public: "Δημόσιο"
   registrations: 
     closed: "Οι εγγραφές είναι κλειστές σε αυτό το pod του Diaspora."
     create: 
@@ -578,7 +580,7 @@ el:
       disconnect: "αποσύνδεση"
       edit_services: "Επεξεργασία υπηρεσιών"
       logged_in_as: "συνδεδεμένο ως"
-      no_services: "You have not connected any services yet."
+      no_services: "Δεν έχετε συνδέσει κάποια υπηρεσία ακόμα."
       really_disconnect: "αποσύνδεση %{service};"
     inviter: 
       click_link_to_accept_invitation: "Κάντε κλικ σ' αυτό το σύνδεσμο για να αποδεχθείτε την πρόσκλησή σας"
@@ -638,7 +640,7 @@ el:
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Δεν μου αρέσει"
       via: "μέσω %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Αυτή η δημοσίευση είναι εμφανής σε όλους στο διαδίκτυο"
   status_messages: 
     create: 
       success: "Αναφέρθηκαν επιτυχώς: %{names}"
@@ -648,10 +650,6 @@ el:
       no_message_to_display: "Κανένα μήνυμα"
     new: 
       mentioning: "Αναφορά σε: %{person}"
-    show: 
-      destroy: "Διαγραφή"
-      not_found: "Συγνώμη, δεν μπορέσαμε να βρούμε αυτή τη δημοσίευση."
-      permalink: "permalink"
     too_long: 
       few: "παρακαλώ μετατρέψτε τα μηνύματα κατάστασης σας σε λιγότερους από %{count} χαρακτήρες"
       many: "παρακαλώ ελαττώστε την κατάσταση σας σε λιγότερο από %{count} χαρακτήρες"
@@ -679,9 +677,9 @@ el:
   tokens: 
     show: 
       connect_to_cubbies: "Σύνδεση με Cubbi.es"
-      connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας γίνεται απλά με τη συμπλήρωση των δύο πεδίων στην σελίδα σύνδεσης του Cubbi.es."
+      connecting_is_simple: "Η σύνδεση του Diaspora λογαριασμού σας είναι απλούστατη! Απλά εισάγετε το Diaspora Αναγνωριστικό σας (ID) (<b>%{diaspora_id}</b>) από το cubbies <a href='%{href_link}'>settings page</a> και πατήστε Σύνδεση. "
       daniels_account: "Diaspora λογαριασμό του Daniel"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Σύντομα θα μπορείτε να συνδέεστε σε μια νέα εφαρμογή χωρίς να δημιουργείτε διαφορετικό λογαριασμό απ' αυτόν στο Diaspora."
       love_to_try: "Θα χαιρόμασταν αν το δοκιμάζατε."
       making_the_connection: "Σύνδεση"
       screenshot_explanation: "%{link1}.  Αυτό το συγκεκριμένο cubby συνδέεται στον %{link2}."

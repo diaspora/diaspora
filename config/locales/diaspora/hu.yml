@@ -104,7 +104,7 @@ hu:
         heading: "Diaspora ID"
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
       no_contacts: "Nincs ismerős"
-      people_sharing_with_you: "People sharing with you"
+      people_sharing_with_you: "Ismerőseid"
       post_a_message: "üzenet küldése >>"
       services: 
         content: "You can connect the following services to Diaspora:"
@@ -117,8 +117,8 @@ hu:
       failure: "nem működött: %{inspect}"
       success: "Más csoportba tett téged."
     new: 
-      create: "Create"
-      name: "Name"
+      create: "Létrehoz"
+      name: "Név"
     no_posts_message: 
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
       try_adding_some_more_contacts: "Try adding some more contacts."
@@ -377,9 +377,9 @@ hu:
     diaspora: "A diaspora email robot"
     hello: "Szia %{name}!"
     liked: 
-      liked: "%{name} has just liked your post: "
+      liked: "%{name} kedveli a bejegyzésedet:"
       sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
+      subject: "%{name} kedveli a bejegyzésed"
     love: "Szeretettel,"
     manage_your_email_settings: "Kezeld az email beállításaidat"
     mentioned: 
@@ -482,7 +482,6 @@ hu:
       edit_delete_photo: "Kép leírás szerkesztése / kép törlése"
       make_profile_photo: "beállítás profilképnek"
       original_post: "Eredeti bejegyzés"
-      permalink: "permalink"
       update_photo: "Kép frissítése"
       view: "nézet"
     update: 
@@ -492,7 +491,10 @@ hu:
     update: 
       post_hidden: "%{name} bejegyzése elrejtve."
   posts: 
-    doesnt_exist: "ez a bejegyzés nem létezik!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "előző"
   profile: "Profil"
   profiles: 
@@ -636,7 +638,7 @@ hu:
       dislike: "Nem tetszik"
       like: "Tetszik"
       shared_with: "Shared with: %{aspect_names}"
-      unlike: "Unlike"
+      unlike: "Nem tetszik"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
   status_messages: 
@@ -648,10 +650,6 @@ hu:
       no_message_to_display: "Nincs üzenet."
     new: 
       mentioning: "Megemlít: %{person}"
-    show: 
-      destroy: "Töröl"
-      not_found: "Bocsánat, nem találjuk a bejegyzést."
-      permalink: "permalink"
     too_long: 
       few: "please make your status messages less than %{count} characters"
       many: "please make your status messages less than %{count} characters"
@@ -705,7 +703,7 @@ hu:
       download_xml: "Saját XML letöltése"
       edit_account: "Fiók szerkesztése"
       export_data: "Adatok exportálása"
-      liked: "...someone likes your post?"
+      liked: "... valakinek tetszik a bejegyzésed?"
       mentioned: "...meg vagy említve egy bejegyzésben?"
       new_password: "Új jelszó"
       private_message: "...privát üzenetet kaptál?"

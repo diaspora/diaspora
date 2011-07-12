@@ -165,7 +165,7 @@ es-CL:
       add_a_new_aspect: "Agregar un nuevo aspecto"
       all_contacts: "Todos los Contactos"
       edit_aspect: "Editar %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Estas seguro que quieres iniciar una conversación privada con más de %{suggested_limit} contactos? Postear algo en este aspecto quizás sea una mejor manera de contactarte con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "Sin Contactos."
       only_sharing_with_me: "Solo compartiendo conmigo"
@@ -482,7 +482,6 @@ es-CL:
       edit_delete_photo: "Editar descripción de foto / borrar foto"
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Post original"
-      permalink: "permalink"
       update_photo: "Actualizar Foto"
       view: "ver"
     update: 
@@ -492,7 +491,10 @@ es-CL:
     update: 
       post_hidden: "El post de %{name} se ha ocultado."
   posts: 
-    doesnt_exist: "Ese post no existe!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "Anterior"
   profile: "Perfil"
   profiles: 
@@ -648,10 +650,6 @@ es-CL:
       no_message_to_display: "No hay mensaje que mostrar."
     new: 
       mentioning: "Mencionar a: %{person}"
-    show: 
-      destroy: "Eliminar"
-      not_found: "Perdón, no pudimos encontrar ese post."
-      permalink: "permalink"
     too_long: 
       few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
       many: "Tu mensaje de estado debe tener menos de %{count} caracteres"

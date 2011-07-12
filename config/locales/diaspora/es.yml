@@ -165,7 +165,7 @@ es:
       add_a_new_aspect: "Añadir un nuevo aspecto"
       all_contacts: "Todos los Contactos"
       edit_aspect: "Editar %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "¿Estás seguro de que quieres comenzar una conversación privada con más de %{suggested_limit} contactos? Comentarlo en sus aspectos puede que sea mejor para contactar con ellos."
       my_contacts: "Mis Contactos"
       no_contacts: "Sin contactos."
       only_sharing_with_me: "Solo compartiendo conmigo"
@@ -482,7 +482,6 @@ es:
       edit_delete_photo: "Editar pie de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
       original_post: "Publicación original"
-      permalink: "Enlace permanente"
       update_photo: "Actualizar foto"
       view: "ver"
     update: 
@@ -492,7 +491,10 @@ es:
     update: 
       post_hidden: "La publicación de %{name} se ha ocultado."
   posts: 
-    doesnt_exist: "esa publicación no existe!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "anterior"
   profile: "Perfil"
   profiles: 
@@ -648,10 +650,6 @@ es:
       no_message_to_display: "No hay mensajes que mostrar."
     new: 
       mentioning: "Mencionar a: %{person}"
-    show: 
-      destroy: "Eliminar"
-      not_found: "Lo sentimos, no pudimos encontrar esa publicación."
-      permalink: "Enlace permanente"
     too_long: 
       few: "Tu mensaje de estado debe tener menos de %{count} caracteres"
       many: "Tu mensaje de estado debe tener menos de %{count} caracteres"
@@ -679,9 +677,9 @@ es:
   tokens: 
     show: 
       connect_to_cubbies: "Conecta con Cubbi.es"
-      connecting_is_simple: "Enlazar tu cuenta de Diaspora* es sencillo. Solo introduce tu identificador de Diaspora*(<b>%{diaspora_id}</b>) en tu cuenta de Cubbi.es <a href='%{href_link}'>settings page</a> y darle a conectar."
+      connecting_is_simple: "Enlazar tu cuenta de Diaspora* es sencillo. Solo introduce tu identificador de Diaspora*(<b>%{diaspora_id}</b>) en la página de <a href='%{href_link}'>configuración</a> de tu cuenta cubbi.es y darle a conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
-      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a nuevas aplicaciones sin tener que crearte un nueva cuenta aparte de la de Diaspora*."
+      log_in_with_diaspora_is_comming: "Muy pronto podrás conectar a una nueva aplicación sin tener que crearte un nueva cuenta aparte de la de Diaspora*."
       love_to_try: "Nos encantaría que lo pruebes."
       making_the_connection: "Haciendo la conexión"
       screenshot_explanation: "%{link1}. Este cubby en particular está enlazado a %{link2}."

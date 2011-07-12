@@ -65,7 +65,7 @@ eu:
     aspect_listings: 
       add_an_aspect: "+ Alderdi berria sortu"
     aspect_stream: 
-      commented_on: "iruzkindua hemen:"
+      commented_on: "iruzkindua"
       posted: "bidalita"
       recently: "oraintsu:"
       stream: "Kronologia"
@@ -107,9 +107,9 @@ eu:
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
       services: 
-        content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
-      tags_following: "Followed Tags"
+        content: "Honako zerbitzuak lotu ditzakezu Diasporara:"
+        heading: "Zerbitzuak Lotu"
+      tags_following: "Jarraitutako Etiketak"
       your_aspects: "Zure Alderdiak"
     many: "%{count} alderdi"
     move_contact: 
@@ -165,7 +165,7 @@ eu:
       add_a_new_aspect: "Alderdi berria gehitu"
       all_contacts: "Adiskide Guztiak"
       edit_aspect: "Aldatu %{name}"
-      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      many_people_are_you_sure: "Ziur al zaude elkarrizketa pribatu bat hasi nahi duzula %{suggested_limit} baino adiskide gehiagorekin? Alderdi horretan mezu bat bidaltzea beharbada haiekin harremanetan egoteko modu hobea izan daiteke."
       my_contacts: "Nire Adiskideak"
       no_contacts: "Adiskiderik ez."
       only_sharing_with_me: "Bakarrik nirekin harremanetan"
@@ -199,7 +199,7 @@ eu:
       no_conversation_selected: "ez da aukeratu elkarrizketarik"
       no_messages: "mezurik ez"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Aldaketak bertan behera utzi?"
       send: "Bidali"
       subject: "gaia"
       to: "nori:"
@@ -273,7 +273,7 @@ eu:
       logout: "irten"
       profile: "profila"
       settings: "lehentasunak"
-      view_all: "View all"
+      view_all: "Guztiak ikusi"
   likes: 
     likes: 
       people_dislike_this: 
@@ -288,7 +288,7 @@ eu:
         one: "%{count}ek du gustoko"
         other: "%{count} pertsonek gustoko dute hau"
         zero: "oraindik ez du inork gustoko"
-  limited: "Limited"
+  limited: "Mugatua"
   more: "Gehiago"
   next: "hurrengoa"
   no_results: "Ez Da Ezer Aurkitu"
@@ -482,7 +482,6 @@ eu:
       edit_delete_photo: "Argazkiaren deskribapena aldatu / argazkia ezabatu"
       make_profile_photo: "profileko argazki bihurtu"
       original_post: "Jatorrizko mezua"
-      permalink: "permalink"
       update_photo: "Argazkia Eguneratu"
       view: "ikusi"
     update: 
@@ -492,7 +491,10 @@ eu:
     update: 
       post_hidden: "%{name}(r)en mezua ezkutatua izan da."
   posts: 
-    doesnt_exist: "mezu hori ez dago!"
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
   previous: "aurrekoa"
   profile: "Profila"
   profiles: 
@@ -515,7 +517,7 @@ eu:
     update: 
       failed: "Huts profila eguneratzean"
       updated: "Profila eguneratu duzu."
-  public: "Public"
+  public: "Publikoa"
   registrations: 
     closed: "Izen emateak itxirik daude Diaspora zerbitzari hontan."
     create: 
@@ -578,7 +580,7 @@ eu:
       disconnect: "irten"
       edit_services: "Aldatu zerbitzuak"
       logged_in_as: "Lotuta duzun kontua honakoa da:"
-      no_services: "You have not connected any services yet."
+      no_services: "Oraindik ez duzu zerbitzurik lotu."
       really_disconnect: "irten %{service}(e)tik?"
     inviter: 
       click_link_to_accept_invitation: "Jarraitu esteka hau zure gonbidapena onartzeko"
@@ -635,10 +637,10 @@ eu:
     stream_element: 
       dislike: "Ez dut gustoko"
       like: "Gustoko dut"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "%{aspect_names}(r)kin partekatua"
       unlike: "Ez dut gustoko"
       via: "%{link}(r)en bidez"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Mezu hau edonork ikusi dezake Interneten"
   status_messages: 
     create: 
       success: "Arrakastaz aipatu dituzu: %{names}"
@@ -648,10 +650,6 @@ eu:
       no_message_to_display: "Erakusteko mezurik ez."
     new: 
       mentioning: "Aipatzen: %{person}"
-    show: 
-      destroy: "Suntsitu"
-      not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
-      permalink: "permalink"
     too_long: 
       few: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
       many: "mesedez, egin itzazu zure mezuak %{count} karaktere baino motzagoak"
@@ -663,25 +661,25 @@ eu:
     show_more_comments: "Erakutsi %{number} iruzkin gehiago"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Huts #%{name} jarraitzean"
+      success: "Arrakastaz #%{name} jarraitzen"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Huts #%{name} ez jarraitzean"
+      success: "Arrakastaz #%{name} ez duzu jarraitzen"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Jarraitu #%{tag}"
+      following: "#%{tag} jarraitzen"
       nobody_talking: "Inor ez du %{tag}(r)i buruz hitz egin oraindik."
       people_tagged_with: "%{tag} etiketadun jendea"
       posts_tagged_with: "#%{tag} etiketadun mezuak"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Ez Jarraitu #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Cubbi.es-era lotu"
-      connecting_is_simple: "Diaspora kontua oso sinplea da: soilik bi eremu bete behar dituzu zure Cubbi.es erabiltzaile orrialdean."
+      connecting_is_simple: "Zure Diaspora kontua lotzea erraza da! Idatzi zure Diaspora IDa (<b>%{diaspora_id}</b>) zure cubbiesen <a href='%{href_link}'>ezarpenen orrialdetik</a> eta sakatu lotu."
       daniels_account: "Danielen Diaspora kontua"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Laster, aplikazio berri batera konektatu ahal izango zara, kontu berri bat sortu gabe zerbitzu horretan."
       love_to_try: "Zuk probatzea gustatuko litzaiguke."
       making_the_connection: "Lotura Ezartzen"
       screenshot_explanation: "%{link1}. Cubby hau %{link2}(r)ekin lotuta dago."
