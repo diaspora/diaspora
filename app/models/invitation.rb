@@ -92,4 +92,12 @@ class Invitation < ActiveRecord::Base
     destroy if contact
     contact
   end
+
+  def recipient_identifier
+    if recipient.invitation_service == 'email'
+      recipient.invitation_identifier
+    elsif recipient.invitation_service == 'facebook'
+      ServiceUser.where(:uid => recipient.invitation_identifier).first.name
+    end
+  end
 end

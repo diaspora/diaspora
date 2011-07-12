@@ -21,7 +21,7 @@ describe Invitation do
     end
     it 'is valid' do
       @invitation.sender.should == user
-      @invitation.recipient.should == eve 
+      @invitation.recipient.should == eve
       @invitation.aspect.should == aspect
       @invitation.should be_valid
     end
@@ -321,6 +321,21 @@ describe Invitation do
       lambda {
         @invitation.share_with!
       }.should change(Contact, :count).by(2)
+    end
+  end
+
+  describe '#recipient_identifier' do
+    it 'calls email if the invitation_service is email' do
+      alice.invite_user(aspect.id, 'email', "a@a.com", "")
+      invitation = alice.reload.invitations_from_me.first
+      invitation.recipient_identifier.should == 'a@a.com'
+    end
+    it 'gets the name if the invitation_service is facebook' do
+      alice.services << Services::Facebook.new(:uid => "13234895")
+      alice.reload.services(true).first.service_users.create(:uid => "23526464", :photo_url => 'url',  :name => "Remote User")
+      alice.invite_user(aspect.id, 'facebook', "23526464", '')
+      invitation = alice.reload.invitations_from_me.first
+      invitation.recipient_identifier.should == "Remote User"
     end
   end
 end
