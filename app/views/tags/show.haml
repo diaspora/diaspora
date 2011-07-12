@@ -13,6 +13,7 @@
   = include_javascripts :home
   :javascript
     $(document).ready(function(){
+      // Change the text and color of the "follow this tag" button on hover.
       $(".button.tag_following").hover(function(){
         $this = $(this);
         $this.removeClass("in_aspects");
@@ -24,6 +25,11 @@
         $this.val("#{t('.following', :tag => params[:name])}");
       });
     });
+    $(".people_stream .pagination a").live("click", function() {
+      $.getScript(this.href);
+      return false;
+    });
+
 
 - content_for :body_class do
   = "tags_show"
