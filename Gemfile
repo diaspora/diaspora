@@ -34,7 +34,8 @@ gem 'faraday-stack'
 gem 'haml', '3.0.25'
 gem 'will_paginate', '3.0.pre2'
 
-#Inflected translations
+#Localization
+gem 'rails-i18n'
 gem 'i18n-inflector-rails', '~> 1.0'
 
 #Tags

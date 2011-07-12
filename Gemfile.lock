@@ -334,6 +334,8 @@ GEM
       activesupport (= 3.0.3)
       bundler (~> 1.0)
       railties (= 3.0.3)
+    rails-i18n (0.1.0)
+      activesupport (~> 3)
     railties (3.0.3)
       actionpack (= 3.0.3)
       activesupport (= 3.0.3)
@@ -488,6 +490,7 @@ DEPENDENCIES
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
   rails (= 3.0.3)
+  rails-i18n
   rcov
   resque (= 1.10.0)
   resque-ensure-connected
