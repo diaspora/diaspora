@@ -95,7 +95,7 @@
       };
 
       if((typeof delayed === "boolean" && delayed) || (typeof delayed === "object" && delayed.type === "mouseleave")) {
-        self.hoverCardTimeout = setTimeout(callback, 200);
+        self.hoverCardTimeout = setTimeout(callback, 20);
       }
       else {
         callback();
