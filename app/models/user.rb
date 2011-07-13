@@ -343,7 +343,7 @@ class User < ActiveRecord::Base
 
   def self.generate_key
     key_size = (Rails.env == 'test' ? 512 : 4096)
-    OpenSSL::PKey::RSA::generate key_size
+    OpenSSL::PKey::RSA::generate(key_size)
   end
 
   def encryption_key

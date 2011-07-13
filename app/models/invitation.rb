@@ -1,6 +1,12 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
+#
+class OpenSSL::PKey::RSA
+  def to_yaml
+    self.to_s
+  end
+end
 
 class Invitation < ActiveRecord::Base
 
@@ -26,7 +32,6 @@ class Invitation < ActiveRecord::Base
         raise "You already invited this person"
       end
     end
-
     opts[:existing_user] = existing_user
     create_invitee(opts)
   end

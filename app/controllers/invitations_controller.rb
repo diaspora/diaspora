@@ -55,7 +55,6 @@ class InvitationsController < Devise::InvitationsController
       user.accept_invitation!(params[:user])
       user.seed_aspects
     rescue Exception => e #What exception is this trying to rescue?  If it is ActiveRecord::NotFound, we should say so.
-      raise e
       user = nil
       record = e.record
       record.errors.delete(:person)
