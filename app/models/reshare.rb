@@ -7,8 +7,6 @@ class Reshare < Post
     self.public = true
   end
 
-
-  delegate :photos, :text, :comments, :to => :root
   private
 
   def root_must_be_public

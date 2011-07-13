@@ -19,3 +19,6 @@ Given /^"([^"]*)" has a non public post with text "([^"]*)"$/ do |email, text|
   user.post(:status_message, :text => text, :public => false, :to => user.aspects)
 end
 
+When /^The user deletes their first post$/ do
+  @me.posts.first.destroy
+end

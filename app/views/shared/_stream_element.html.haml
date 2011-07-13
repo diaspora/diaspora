@@ -4,15 +4,13 @@
 
 .stream_element{:id => post.guid}
   - if current_user && post.author.owner_id == current_user.id
-    - if reshare
-      .reshare_attribution
-        = "reshared by #{reshare.author.name}"
     .right.controls
       = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
 
   - else
     .right.controls
-      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
+      = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
+
   .undo_text.hidden
     = t('post_visibilites.update.post_hidden', :name => post.author.name)
     = link_to t('undo'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete"
@@ -24,10 +22,7 @@
         %span.from
           = person_link(post.author, :class => 'hovercardable')
           %time.time.timeago{:datetime => post.created_at, :integer => time_for_sort(post).to_i}
-          - if reshare
-            %span.reshared
-              = "reshared by"
-              = person_link(reshare.author, :class => "hovercardable")
+
         %span.details
           –
           %span.timeago
@@ -35,6 +30,8 @@
 
       - if post.activity_streams?
         = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
+      - elsif reshare?(post)
+        = render 'reshares/reshare', :reshare => post, :post => post.root
       - else
         = render 'status_messages/status_message', :post => post, :photos => post.photos
 
@@ -61,7 +58,7 @@
           %span.like_action
             = like_action(post, current_user)
 
-          - unless(post.author_id == current_user.person.id) || (!post.public?)
+          - if (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
             ·
             %span.reshare_action
               = link_to "Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"

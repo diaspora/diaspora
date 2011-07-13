@@ -475,6 +475,7 @@ ul.as-selections
     .from
       a
         :color $blue
+
 .status_message_show
   .stream_element
     .content
@@ -554,7 +555,8 @@ ul.as-selections
 
 ul.comments,
 ul.show_comments,
-.likes_container
+.likes_container,
+.stream_element .reshare
 
   .avatar
     :width 30px
@@ -589,18 +591,18 @@ ul.show_comments,
       :height 250px
       :width 400px
 
-    .content
-      :margin
-        :top 0px
-        :bottom -2px
-      :padding
-        :left 36px
-        :right 10px
+  .content
+    :margin
+      :top 0px
+      :bottom -2px
+    :padding
+      :left 36px
+      :right 10px
 
-      p
-        :margin
-          :bottom 0
-          :top 0
+    p
+      :margin
+        :bottom 0
+        :top 0
 
     .right
       :right 4px
@@ -608,6 +610,10 @@ ul.show_comments,
     .avatar
       :position absolute
       :display inline
+
+.stream_element .reshare
+  :padding 10px
+  :border 1px solid #eee
 
 ul.show_comments
   :padding

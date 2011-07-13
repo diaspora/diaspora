@@ -17,4 +17,20 @@ describe Reshare do
   it 'forces public' do
     Factory(:reshare, :public => false).public.should be_true
   end
+
+  describe "#receive" do
+    before do
+      @reshare = Factory.build(:reshare, :root => Factory.build(:status_message, :public => false))
+      @root = @reshare.root
+      @reshare.receive(@root.author.owner, @reshare.author)
+    end
+
+    it 'increments the reshare count' do
+      @root.resharers.count.should == 1
+    end
+
+    it 'adds the resharer to the re-sharers of the post' do
+      @root.resharers.should include(@reshare.author)
+    end
+  end
 end

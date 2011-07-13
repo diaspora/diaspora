@@ -29,6 +29,11 @@ describe ResharesController do
         bob.should_receive(:add_to_streams)
         post :create, :format => :js, :root_id => @post_id
       end
+
+      it 'calls dispatch' do
+        bob.should_receive(:dispatch_post).with(anything, hash_including(:additional_subscribers))
+        post :create, :format => :js, :root_id => @post_id
+      end
     end
   end
 end

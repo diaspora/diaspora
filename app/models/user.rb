@@ -136,7 +136,8 @@ class User < ActiveRecord::Base
   end
 
   def dispatch_post(post, opts = {})
-    mailman = Postzord::Dispatch.new(self, post)
+    additional_people = opts.delete(:additional_subscribers)
+    mailman = Postzord::Dispatch.new(self, post, :additional_subscribers => additional_people)
     mailman.post(opts)
   end
 

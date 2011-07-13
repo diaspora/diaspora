@@ -1,0 +1,25 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+.reshare
+  - if post
+    = person_image_link(post.author, :size => :thumb_small)
+
+    .content
+      .right 
+        = link_to "Show Original", post_path(post)
+      %span.from
+        = person_link(post.author, :class => "hovercardable")
+
+      - if post.activity_streams?
+        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
+      - else
+        = render 'status_messages/status_message', :post => post, :photos => post.photos
+      - if (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
+        %span.reshare_action
+          = link_to "Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
+
+  - else
+    Original post deleted by author

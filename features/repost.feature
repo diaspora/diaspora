@@ -34,11 +34,9 @@ Feature: public repost
     And I wait for the ajax to finish
     And I wait for 2 seconds
 
-
-
     And I am on "alice@alice.alice"'s page
     Then I should see "reshare this!" 
-    Then I should see a ".reshared"
+    Then I should see a ".reshare"
     And I should see "Bob" 
 
   Scenario: shows up on the aspects page
@@ -49,9 +47,53 @@ Feature: public repost
     And I wait for the ajax to finish
 
     And I go to the home page
-    Then I should see a ".reshared"
+    Then I should see a ".reshare"
     And I follow "Your Aspects"
     Then I should see "reshare this!" 
-    Then I should see a ".reshared"
+    Then I should see a ".reshare"
     And I should see "Bob" 
 
+  Scenario: can be retracted
+    And "bob@bob.bob" has a public post with text "reshare this!"
+    And I sign in as "alice@alice.alice"
+    And I preemptively confirm the alert
+    And I follow "Reshare"
+    And I wait for the ajax to finish
+
+    And I go to the home page
+    Then I should see a ".reshare"
+    And I follow "Your Aspects"
+    Then I should see "reshare this!" 
+    Then I should see a ".reshare"
+    And I should see "Bob" 
+
+    And I go to the destroy user session page
+    And I sign in as "bob@bob.bob"
+
+    And The user deletes their first post
+
+    And I go to the destroy user session page
+    And I sign in as "alice@alice.alice"
+
+    And I go to the home page
+    Then I should see "Original post deleted by author"
+
+  Scenario: Keeps track of the number of reshares
+    And "bob@bob.bob" has a public post with text "reshare this!"
+    And I sign in as "alice@alice.alice"
+    And I preemptively confirm the alert
+    And I follow "Reshare"
+    And I wait for the ajax to finish
+
+    And I go to the home page
+    Then I should see a ".reshare"
+    And I follow "Your Aspects"
+    Then I should see "reshare this!" 
+    Then I should see a ".reshare"
+    And I should see "Bob" 
+
+    And I go to the destroy user session page
+    And I sign in as "bob@bob.bob"
+    And I should see "1 Reshare"
+
+  Scenario: Can have text
