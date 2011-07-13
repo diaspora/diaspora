@@ -12,7 +12,7 @@
         %b= service.nickname
         = link_to t('services.index.disconnect'), service_path(service), :confirm => t('services.index.really_disconnect', :service => service.provider), :method => :delete
   - else
-    = t('.no_services')
+    = t('services.index.no_services')
 
 - AppConfig.configured_services.each do |service|
   - unless @services.any?{|x| x.provider == service}
