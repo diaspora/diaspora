@@ -14,7 +14,6 @@ class VannaController < Vanna::Base
   include ActionController::Flash
   default_url_options[:host] = "localhost"
   include ActionController::MobileFu::InstanceMethods
-  include ActionController::RackDelegation
   helper_method :is_mobile_device?
 
   protect_from_forgery :except => :receive
