@@ -19,7 +19,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #content > article, #content > div > article {
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > nav {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
@@ -60,10 +60,10 @@ body {
   #content aside {
     @extend .group;
     section {
-    &.odd, &.even { float: left; width: 48%; }
-    &.odd { margin-left: 0; }
-    &.even { margin-left: 4%; }
-   }
+      &.odd, &.even { float: left; width: 48%; }
+      &.odd { margin-left: 0; }
+      &.even { margin-left: 4%; }
+    }
   }
 }
 @media only screen and (min-width: 768px) {
@@ -89,7 +89,10 @@ body {
       background: none;
       float: left;
       margin: 0 -100% 0 0;
-      section, section.even { width: auto; margin: 0; }
+      section {
+        width: auto; margin-left: 0;
+        &.odd, &.even { float: none; width: auto; margin-left: 0; }
+      }
     }
     .collapse-sidebar & {
       margin-right: 10px;

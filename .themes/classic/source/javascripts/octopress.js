@@ -21,14 +21,16 @@ function addSidebarToggler() {
     }
   });
   sections = $('aside[role=sidebar] > section')
+  if(sections.length > 1){
+    sections.each(function(section, index){
+      if ((sections.length >= 3) && index % 3 == 0) {
+        $(section).addClass("first");
+      }
+      count = ((index +1) % 2) ? "odd" : "even";
+      $(section).addClass(count);
+    });
+  }
   if(sections.length >= 3){ $('aside[role=sidebar]').addClass('thirds') }
-  sections.each(function(section, index){
-    if ((sections.length >= 3) && index % 3 == 0) {
-      $(section).addClass("first");
-    }
-    count = ((index +1) % 2) ? "odd" : "even";
-    $(section).addClass(count);
-  });
 }
 function testFeatures() {
   var features = ['maskImage'];
