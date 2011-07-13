@@ -9,7 +9,6 @@
       background: inline-image('bird_32_gray_fail.png') no-repeat center .5em;
     }
   }
-  a { color: $sidebar-link-color-subdued; @include hover-link; }
   p {
     position: relative;
     padding-right: 1em;
@@ -22,6 +21,7 @@
     text-shadow: #fff 0 1px;
     font-size: .7em;
     span { font-size: 1.5em; }
+    text-decoration: none;
     &:hover {
       color: $sidebar-link-color-subdued-hover;
       text-decoration: none;
@@ -29,5 +29,6 @@
   }
   a[href*='twitter.com/search']{
     @extend .aside-alt-link;
+    @include hover-link;
   }
 }

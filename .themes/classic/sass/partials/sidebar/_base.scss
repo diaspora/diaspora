@@ -1,9 +1,8 @@
 .side-shadow-border {
   @include box-shadow(lighten($sidebar-bg, 5) 0 1px);
 }
-#content > aside {
+aside[role=sidebar] {
   color: $sidebar-color;
-  //padding-top: 1.2em;
   text-shadow: lighten($sidebar-bg, 8) 0 1px;
   section {
     @extend .sans;
@@ -37,15 +36,9 @@
     color: inherit;
     @include transition(color, .5s);
   }
-  &:hover a, &:hover #tweets a { color: $sidebar-link-color;
+  &:hover a {
+    color: $sidebar-link-color;
     &:hover { color: $sidebar-link-color-hover; }
-  }
-  #recent_posts {
-    time {
-      text-transform: uppercase;
-      font-size: .9em;
-      color: #666;
-    }
   }
 }
 .aside-alt-link {

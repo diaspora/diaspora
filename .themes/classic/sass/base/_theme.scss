@@ -3,9 +3,9 @@ $img-border: inline-image('dotted-border.png');
 
 // Main Link Colors
 $link-color: lighten(#165b94, 3) !default;
-$link-color-hover: adjust-hue($link-color, -200) !default;
-$link-color-visited: darken(adjust_hue($link_color, 70), 10) !default;
-$link-color-active: darken($link-color-hover, 15) !default;
+$link-color-hover: adjust-color($link-color, $lightness: 10, $saturation: 25) !default;
+$link-color-visited: adjust-color($link-color, $hue: 80, $lightness: -2) !default;
+$link-color-active: adjust-color($link-color-hover, $lightness: -15) !default;
 
 // Main Section Colors
 $main-bg: #f8f8f8 !default;
@@ -64,7 +64,9 @@ $page-border-bottom: darken($footer-bg, 5) !default;
 article a, #articles + aside a {
   @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
 }
-a { @include transition(color, .5s); }
+a {
+  @include transition(color, .3s);
+}
 
 html {
   background: $page-bg image-url('line-tile.png') top left;
