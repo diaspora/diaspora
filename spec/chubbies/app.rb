@@ -2,6 +2,7 @@ module Chubbies
   require 'active_record'
   require 'jwt'
   require 'diaspora-client'
+  require 'haml'
 
   def self.reset_db
     `rm -f #{File.expand_path('../chubbies.sqlite3', __FILE__)}`
