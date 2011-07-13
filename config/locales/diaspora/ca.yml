@@ -294,7 +294,7 @@ ca:
       send_an_invitation: "Envia una invitació"
       send_invitation: "Envia una invitació"
       aspect: "Aspecte"
-      already_invited: "Ja convidat"
+      already_invited: "Les persones següents no han acceptat la vostra invitació:"
       resend: "Torna-la a enviar"
     check_token:
       not_found: "No s'ha trobat el testimoni de la invitació"
