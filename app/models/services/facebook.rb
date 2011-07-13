@@ -42,9 +42,10 @@ class Services::Facebook < Service
     url = "https://graph.facebook.com/me/friends?fields[]=name&fields[]=picture&access_token=#{URI.escape(self.access_token)}"
     response = Faraday.get(url)
     data = JSON.parse(response.body)['data']
-    data.each{ |p|
-      su = ServiceUser.find_or_initialize_by_service_id_and_uid(:service_id => self.id, :uid => p["id"])
-      su.update_attributes({:name => p["name"], :photo_url => p["picture"]})
+    ServiceUser.where(:service_id => self.id).delete_all
+    s_users = data.map{ |p|
+      ServiceUser.new(:service_id => self.id, :uid => p["id"], :photo_url => p["picture"], :name => p["name"])
     }
+    ServiceUser.import(s_users)
   end
 end
