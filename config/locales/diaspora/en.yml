@@ -389,12 +389,12 @@ en:
         other: "and %{count} others"
       and: 'and'
     helper:
-        new_notifications:
-          zero: "No new notifications"
-          one: "1 new notifications"
-          few: "%{count} new notifications"
-          many: "%{count} new notifications"
-          other: "%{count} new notifications"
+      new_notifications:
+        zero: "No new notifications"
+        one: "1 new notifications"
+        few: "%{count} new notifications"
+        many: "%{count} new notifications"
+        other: "%{count} new notifications"
 
   notifier:
     hello: "Hello %{name}!"
