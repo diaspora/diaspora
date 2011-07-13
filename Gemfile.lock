@@ -31,7 +31,7 @@ GIT
 
 GIT
   remote: git://github.com/diaspora/diaspora-client.git
-  revision: 7924e3cc576e54b5ade4014caea8b79e9f1d6343
+  revision: 1421deef3df1f7fd9e04d13cc4c86e0d08747f1a
   specs:
     diaspora-client (0.0.0)
       activerecord
