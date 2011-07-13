@@ -94,6 +94,8 @@ GEM
       activesupport (= 3.0.3)
       arel (~> 2.0.2)
       tzinfo (~> 0.3.23)
+    activerecord-import (0.2.7)
+      activerecord (~> 3.0.0)
     activeresource (3.0.3)
       activemodel (= 3.0.3)
       activesupport (= 3.0.3)
@@ -447,6 +449,7 @@ PLATFORMS
 
 DEPENDENCIES
   SystemTimer (= 1.2.1)
+  activerecord-import
   acts-as-taggable-on!
   addressable (= 2.2.4)
   aws (= 2.3.32)

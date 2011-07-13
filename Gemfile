@@ -5,6 +5,7 @@ gem 'mysql2', '0.2.6'
 #gem 'sqlite3'
 gem 'rails', '3.0.3'
 gem 'foreigner', '0.9.1'
+gem 'activerecord-import'
 
 gem 'bundler', '>= 1.0.0'
 gem 'chef', '0.9.12', :require => false
