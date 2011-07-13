@@ -100,6 +100,11 @@ describe AdminsController do
         AppConfig[:admins] = [@user.username]
       end
 
+      it 'succeeds' do
+        get :admin_inviter, :identifier => 'bob@moms.com'
+        response.should be_ok
+      end
+
       it 'invites a new user' do
         Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com')
         get :admin_inviter, :identifier => 'bob@moms.com'
