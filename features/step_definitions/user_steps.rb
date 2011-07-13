@@ -106,6 +106,7 @@ Given /^many posts from alice for bob$/ do
   end
 end
 
+
 Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
@@ -137,6 +138,11 @@ When /^I add the person to a new aspect called "([^\"]*)"$/ do |aspect_name|
     And I press the first ".toggle.button"
   }
 end
+
+When /^I post a status with the text "([^\"]*)"$/ do |text|
+  @me.post(:status_message, :text => text, :public => true, :to => 'all')
+end
+
 
 And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|
   doc = Nokogiri(Devise.mailer.deliveries.first.body.to_s)

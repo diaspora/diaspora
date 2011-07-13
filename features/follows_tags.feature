@@ -9,17 +9,9 @@ Feature: posting
     And a user with username "alice"
     When I sign in as "bob@bob.bob"
 
+    And I post a status with the text "I am da #boss"
     And I am on the home page
 
-    And I expand the publisher
-    And I fill in "status_message_fake_text" with "I am da #boss"
-    And I press the first ".public_icon" within "#publisher"
-    And I press "Share"
-    And I wait for the ajax to finish
-    And I wait for the ajax to finish
-
-    And I follow "#boss"
-    And I wait for the ajax to finish
     Then I should see "I am da #boss"
 
 
