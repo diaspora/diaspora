@@ -4,7 +4,7 @@
 
 class SessionsController < Devise::SessionsController
 
-  #after_filter :enqueue_update, :only => :create
+  after_filter :enqueue_update, :only => :create
 
   protected
   def enqueue_update
