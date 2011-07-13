@@ -6,7 +6,7 @@
   = render 'shared/author_info', :person => @post.author, :post => @post
 
   - if @post.activity_streams?
-    = image_tag @photo.image_url
+    = image_tag @post.image_url
   - else
     %p
       = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
