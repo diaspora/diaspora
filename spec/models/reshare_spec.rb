@@ -20,7 +20,7 @@ describe Reshare do
 
   describe "#receive" do
     before do
-      @reshare = Factory.build(:reshare, :root => Factory.build(:status_message, :public => false))
+      @reshare = Factory.create(:reshare, :root => Factory(:status_message, :author => bob.person, :public => true))
       @root = @reshare.root
       @reshare.receive(@root.author.owner, @reshare.author)
     end

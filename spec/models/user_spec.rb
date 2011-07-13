@@ -752,4 +752,49 @@ describe User do
       end
     end
   end
+
+  describe '#retract' do
+    before do
+      @retraction = mock
+    end
+
+    context "regular retractions" do
+      before do
+        Retraction.stub(:for).and_return(@retraction)
+        @retraction.stub(:perform)
+
+        @post = Factory(:status_message, :author => bob.person, :public => true)
+      end
+
+      it 'sends a retraction' do
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, anything()).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'adds resharers of target post as additional subsctibers' do
+        person = Factory(:person)
+        reshare = Factory(:reshare, :root => @post, :author => person)
+        @post.reshares << reshare
+
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'performs the retraction' do
+
+      end
+    end
+
+    context "relayable retractions" do
+      it 'sends a relayable retraction if the object is relayable' do
+
+      end
+    end
+  end
 end

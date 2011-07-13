@@ -7,6 +7,20 @@ class Reshare < Post
     self.public = true
   end
 
+  def receive(user, person)
+    local_reshare = Reshare.where(:guid => self.guid).first
+    if local_reshare.root.author_id == user.person.id
+      local_reshare.root.reshares << local_reshare
+      
+      if user.contact_for(person)
+        local_reshare.receive(user, person)
+      end
+
+    else
+      super(user, person)
+    end
+  end
+
   private
 
   def root_must_be_public
