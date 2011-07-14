@@ -11,7 +11,7 @@
       self.ajaxLoader = self.dropdown.find(".ajax_loader");
 
       self.badgeLink.toggle(function(evt) {
-	  evt.preventDefault();
+	  		evt.preventDefault();
           evt.stopPropagation();
 
           self.ajaxLoader.show();

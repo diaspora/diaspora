@@ -11,9 +11,9 @@
       nextSelector : ".paginate",
       itemSelector : ".stream_element",
       pathParse    : function( pathStr, nextPage ){
-        var newPath = pathStr.replace("?", "?only_posts=true&");
-        var last_time = $('#main_stream .stream_element').last().find('.time').attr('integer');
-        return newPath.replace( /max_time=\d+/, 'max_time=' + last_time);
+        var newPath = pathStr.replace("?", "?only_posts=true&"),
+        	lastTime = $('#main_stream .stream_element').last().find('.time').attr('integer');
+        return newPath.replace( /max_time=\d+/, 'max_time=' + lastTime);
       },
       bufferPx: 500,
       debug: false,
@@ -34,16 +34,16 @@
 
     this.initialize = function() {
       if($('#main_stream').length !== 0){
-	$('#main_stream').infinitescroll(this.options, function() {
-	  Diaspora.widgets.publish("stream/scrolled");
-	});
+				$('#main_stream').infinitescroll(this.options, function() {
+	  			Diaspora.widgets.publish("stream/scrolled");
+				});
       } else if($('#people_stream.contacts').length !== 0){
-	$("#people_stream.contacts").infinitescroll($.extend(self.options, {
-	  navSelector  : ".pagination",
-	  nextSelector : ".next_page",
-	}), function() {
-	  Diaspora.widgets.publish("stream/scrolled");
-	});
+				$("#people_stream.contacts").infinitescroll($.extend(self.options, {
+	  			navSelector  : ".pagination",
+	  			nextSelector : ".next_page",
+				}), function() {
+	  			Diaspora.widgets.publish("stream/scrolled");
+				});
       }
     };
 

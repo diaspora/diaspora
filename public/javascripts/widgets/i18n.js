@@ -15,16 +15,16 @@
    
     this.t = function(item, views) {
       var translatedMessage,
-	items = item.split(".");
+				items = item.split(".");
 
       while(nextNamespace = items.shift()) {
-	translatedMessage = (translatedMessage) 
-	  ? translatedMessage[nextNamespace]
-	  : self.locale[nextNamespace];
+				translatedMessage = (translatedMessage) 
+	  			? translatedMessage[nextNamespace]
+	  			: self.locale[nextNamespace];
 
-	if(typeof translatedMessage === "undefined") {
-	  return "";
-	}
+				if(typeof translatedMessage === "undefined") {
+	  			return "";
+				}
       }
       
       return $.mustache(translatedMessage, views || { });
