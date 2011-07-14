@@ -11,13 +11,17 @@ blog_index: true
   </article>
 {% endfor %}
 <nav role="pagination">
-  {% if paginator.next_page %}
-    <a href="/page{{paginator.next_page}}/">&larr; Older</a>
-  {% endif %}
-  <a href="/blog/archive.html">Blog Archive</a>
-  {% if paginator.previous_page %}
-    <a href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
-  {% endif %}
+  <div>
+    {% if paginator.next_page %}
+      <a class="prev" href="/page{{paginator.next_page}}/">&larr; Older</a>
+    {% endif %}
+    <a href="/blog/archives/index.html">Blog Archives</a>
+    {% if paginator.previous_page and paginator.previous_page > 1 %}
+      <a class="next" href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
+    {% elsif paginator.previous_page %}
+      <a class="next" href="/">Newer &rarr;</a>
+    {% endif %}
+  </div>
 </nav>
 {% if site.disqus_short_name %}
 <script type="text/javascript">

@@ -9,7 +9,7 @@ function getNav(){
   });
 }
 function addSidebarToggler() {
-  $('#content').prepend('<a href="#" class="toggle-sidebar">&raquo;</a>');
+  $('#content').append('<a href="#" class="toggle-sidebar">&raquo;</a>');
   $('.toggle-sidebar').bind('click', function(e){
     e.preventDefault();
     if($('body').hasClass('collapse-sidebar')){

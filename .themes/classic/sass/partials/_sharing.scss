@@ -1,7 +1,6 @@
-footer .sharing {
-  display: inline-block;
-  position: relative;
-  top: .3em;
-  padding-left: .5em;
-  &:first-child { padding-left: 0; }
+.sharing {
+  p.meta + & {
+    padding: { top: 1em; left: 0; }
+    background: $img-border top left repeat-x;
+  }
 }

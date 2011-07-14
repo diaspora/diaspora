@@ -19,7 +19,7 @@ body {
   max-width: $max-width;
   position: relative;
   margin: 0 auto;
-  > header, > nav, > footer, #content > article, #content > div > article, #content > div > nav {
+  > header, > nav, > footer, #content > article, #content > div > article, #content > div > section, nav[role=pagination] {
     @extend .group;
     padding-left: $pad-min;
     padding-right: $pad-min;
@@ -59,11 +59,6 @@ body {
   body > header { font-size: 1em; }
   #content aside {
     @extend .group;
-    section {
-      &.odd, &.even { float: left; width: 48%; }
-      &.odd { margin-left: 0; }
-      &.even { margin-left: 4%; }
-    }
   }
 }
 @media only screen and (min-width: 768px) {

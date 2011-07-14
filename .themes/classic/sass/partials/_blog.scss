@@ -5,8 +5,7 @@
   }
   > article, > div > article {
     overflow: hidden;
-    padding-bottom: 1em;
-    &:last-child { margin-bottom: 0;  }
+    padding-top: 1em;
     h2 {
       padding-top: 0.8em;
       background: $img-border top left repeat-x;
@@ -32,16 +31,16 @@
       font-size: .9em;
       color: $text-color-light;
       margin: 0;
-      @extend .sans;
       &.meta {
+        @extend .sans;
         text-transform: uppercase;
+        position: absolute; top: 0;
       }
     }
     @media only screen and (min-width: 768px) {
       margin-bottom: 1.5em;
       padding-bottom: 1em;
       background: $img-border bottom left repeat-x;
-      p.meta { position: absolute; top: 0; }
     }
   }
   .feature {
@@ -82,12 +81,13 @@
     }
   }
   > div > article > footer {
-    margin-bottom: 1.5em;
-    background: $img-border top left repeat-x;
+    padding-bottom: 2.5em;
     margin-top: 2em;
-    padding-top: 1em;
     @extend .sans;
-    p.meta { display: inline-block; font-size: .8em; }
+    p.meta {
+      margin-bottom: .8em;
+      font-size: .85em;
+    }
   }
 
 }
@@ -95,6 +95,8 @@ article + article {
   background: $img-border top left repeat-x;
 }
 #content .blog-index {
+  padding: { top: 0; bottom: 0; }
+  article { padding-top: 2em; }
   article header { background: none; padding-bottom: 0; }
   article h1 {
     font-size: 2.2em;
@@ -125,4 +127,24 @@ article + article {
   content: "\2022 ";
   padding: 0 .4em 0 .2em;
   display: inline-block;
+}
+
+nav[role=pagination] {
+  text-align: center;
+  font-size: .95em;
+  div {
+    position: relative;
+    background: $img-border top left repeat-x;
+    padding: {top: 1.5em; bottom: 1.5em;}
+  }
+  a {
+    text-decoration: none;
+    color: $text-color-light;
+    &.prev { position: absolute; left: 0; }
+    &.next { position: absolute; right: 0; }
+    &:hover { color: $link-color-hover; }
+    &[href*=archive] {
+      &:before, &:after { content: '\2014'; padding: 0 .3em; }
+    }
+  }
 }
