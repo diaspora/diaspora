@@ -1,25 +1,28 @@
 (function() {
   var Flashes = function() {
-    this.start = function() {
-      this.animateMessages();
-    };
+    var self = this;
+
+    this.subscribe("widget/ready", function() {
+      self.animateMessages();
+    });
 
     this.animateMessages = function() {
-      var $this = $("#flash_notice, #flash_error, #flash_alert");
-      $this.animate({
+      var flashMessages = $("#flash_notice, #flash_error, #flash_alert");
+      flashMessages.animate({
         top: 0
       }).delay(2000).animate({
         top: -100
-      }, $this.remove);
+      }, flashMessages.remove);
     };
 
     this.render = function(result) {
-      $("<div/>")
-        .attr("id", (result.success) ? "flash_notice" : "flash_error")
-        .prependTo(document.body)
-        .html(result.notice);
+      $("<div/>", {
+	id: (result.success) ? "flash_notice" : "flash_error"
+      })
+      .prependTo(document.body)
+      .html(result.notice);
 
-      this.animateMessages();
+      self.animateMessages();
     };
   };
 

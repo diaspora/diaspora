@@ -8,7 +8,7 @@
     var self = this;
     //timeago //set up ikes //comments //audio video links //embedder //
 
-    this.start = function() {
+    this.subscribe("widget/ready", function() {
       $.extend(self, {
         likes: {
           actions: $(".like_it, .dislike_it"),
@@ -16,7 +16,7 @@
         }
       });
       self.setUpLikes();
-    },
+    });
 
     this.setUpLikes = function() {
       self.likes.expanders.live("click", self.expandLikes);
