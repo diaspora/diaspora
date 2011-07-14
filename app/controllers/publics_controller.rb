@@ -66,7 +66,12 @@ class PublicsController < ApplicationController
   end
 
   def post
-    @post = Post.where(:guid => params[:guid], :public => true).includes(:author, :comments => :author).first
+
+    if params[:guid].to_s.length <= 8
+      @post = Post.where(:id => params[:guid], :public => true).includes(:author, :comments => :author).first
+    else
+      @post = Post.where(:guid => params[:guid], :public => true).includes(:author, :comments => :author).first
+    end
 
     #hax to upgrade logged in users who can comment
     if @post

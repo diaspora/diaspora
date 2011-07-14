@@ -9,7 +9,7 @@
 
   - else
     .right.controls
-      = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
+      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
 
   .undo_text.hidden
     = t('post_visibilites.update.post_hidden', :name => post.author.name)

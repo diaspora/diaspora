@@ -45,7 +45,6 @@ describe Reshare do
     before do
       @reshare = Factory(:reshare)
       @xml = @reshare.to_xml.to_s
-      pp @xml
     end
 
     context 'serialization' do
@@ -76,25 +75,34 @@ describe Reshare do
 
       context 'remote' do
         before do
-          @original_profile = @reshare.root.author.profile
-          @original_author = @reshare.root.author.delete
           @root_object = @reshare.root.delete
         end
 
         it 'fetches the root post from root_guid' do
-          @original_profile.save!
-          pp @original_profile
-          @original_author.save!
-          pp @original_author
-          Faraday.should_receive(:get).with(@original_author.url + public_post_path(:guid => @reshare.guid)).and_return(@root_object.to_diaspora_xml)
-          Reshare.from_xml(@xml).root.should == @root_object
+          response = mock
+          response.stub(:body).and_return(@root_object.to_diaspora_xml)
+          Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid)).and_return(response)
+
+          root = Reshare.from_xml(@xml).root
+
+          [:text, :guid, :diaspora_handle, :type].each do |attr|
+            root.send(attr).should == @reshare.root.send(attr)
+          end
         end
 
         it 'fetches the root author from root_diaspora_id' do
-          person = Factory.build(:person)
+          @original_profile = @reshare.root.author.profile
+          @original_author = @reshare.root.author.delete
+
           wf_prof_mock = mock
-          wf_prof_mock.should_receive(:fetch).and_return(person)
+          wf_prof_mock.should_receive(:fetch).and_return(@original_author)
           Webfinger.should_receive(:new).and_return(wf_prof_mock)
+
+          response = mock
+          response.stub(:body).and_return(@root_object.to_diaspora_xml)
+
+          Faraday.default_connection.should_receive(:get).with(@original_author.url + public_post_path(:guid => @root_object.guid)).and_return(response)
+
           Reshare.from_xml(@xml)
         end
       end
