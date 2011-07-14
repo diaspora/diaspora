@@ -18,7 +18,7 @@ Diaspora::Application.routes.draw do
     resources :likes, :only => [:create, :destroy, :index]
     resources :comments, :only => [:create, :destroy, :index]
   end
-  get 'p/:id' => 'publics#post', :as => 'public_post'
+  get 'p/:guid' => 'publics#post', :as => 'public_post'
 
   # roll up likes into a nested resource above
   resources :comments, :only => [:create, :destroy] do

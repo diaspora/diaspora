@@ -3,8 +3,30 @@ class Reshare < Post
   validate :root_must_be_public
   attr_accessible :root_id, :public
 
+  xml_attr :root_diaspora_id
+  xml_attr :root_guid
+
+  attr_accessible :root_diaspora_id, :root_guid
+
   before_validation do 
     self.public = true
+  end
+
+  def root_guid
+    self.root.guid  
+  end
+  def root_guid= rg
+    #self.root = Post.where(:guid => rg).first
+    debugger
+    person = Person.where(:diaspora_handle => self[:root_diaspora_id]).first
+    Faraday.get(person.url + public_post_path(:guid => rg))
+  end
+
+  def root_diaspora_id
+    self.root.author.diaspora_handle
+  end
+  def root_diaspora_id= id
+    Webfinger.new(id).fetch
   end
 
   def receive(user, person)
