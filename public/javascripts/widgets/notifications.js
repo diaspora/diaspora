@@ -5,13 +5,14 @@
 
 (function() {
   var Notifications = function() {
-    this.start = function() {
-      var self = this;
-      this.badge = $("#notification_badge .badge_count")
-      this.index_badge =  $(".notification_count");
-      this.on_index_page = this.index_badge.length > 0
-      this.notificationArea = $("#notifications");
-      this.count = parseInt(this.badge.html()) || 0;
+    var self = this;
+    
+    this.subscribe("widget/ready", function() {
+      self.badge = $("#notification_badge .badge_count")
+      self.indexBadge =  $(".notification_count");
+      self.onIndexPage = self.indexBadge.length > 0;
+      self.notificationArea = $("#notifications");
+      self.count = parseInt(self.badge.html()) || 0;
 
       $(".stream_element.unread").live("mousedown", function() {
         self.decrementCount();
@@ -31,47 +32,47 @@
           .next(".hidden")
           .removeClass("hidden");
       });
+    });
+    
+    this.showNotification = function(notification) {
+      $(notification.html).prependTo(this.notificationArea)
+	.fadeIn(200)
+	.delay(8000)
+	.fadeOut(200, function() {
+	  $(this).detach();
+	});
+
+      if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
+	this.incrementCount();
+      }
     };
-  };
 
-  Notifications.prototype.showNotification = function(notification) {
-    $(notification.html).prependTo(this.notificationArea)
-      .fadeIn(200)
-      .delay(8000)
-      .fadeOut(200, function() {
-        $(this).detach();
-      });
+    this.changeNotificationCount = function(change) {
+      this.count += change;
 
-    if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
-      this.incrementCount();
-    }
-  };
+      if(this.badge.text() !== "") {
+	this.badge.text(this.count);
+	if(this.on_index_page)
+	  this.index_badge.text(this.count + " ");
 
-  Notifications.prototype.changeNotificationCount = function(change) {
-    this.count += change;
-
-    if(this.badge.text() !== "") {
-      this.badge.text(this.count);
-      if(this.on_index_page)
-        this.index_badge.text(this.count + " ");
-
-      if(this.count === 0) {
-        this.badge.addClass("hidden");
-        if(this.on_index_page)
-          this.index_badge.removeClass('unread');
+	if(this.count === 0) {
+	  this.badge.addClass("hidden");
+	  if(this.on_index_page)
+	    this.index_badge.removeClass('unread');
+	}
+	else if(this.count === 1) {
+	  this.badge.removeClass("hidden");
+	}
       }
-      else if(this.count === 1) {
-        this.badge.removeClass("hidden");
-      }
-    }
-  };
+    };
 
-  Notifications.prototype.decrementCount = function() {
-    this.changeNotificationCount(-1);
-  };
+    this.decrementCount = function() {
+      self.changeNotificationCount(-1);
+    };
 
-  Notifications.prototype.incrementCount = function() {
-    this.changeNotificationCount(1);
+    this.incrementCount = function() {
+      self.changeNotificationCount(1);
+    };
   };
 
   Diaspora.widgets.add("notifications", Notifications);

@@ -12,7 +12,7 @@ describe("Diaspora", function() {
 
         it("is called when the DOM is ready", function() {
           spyOn(Diaspora.widgets.flashes, "animateMessages").andCallThrough();
-          Diaspora.widgets.flashes.start();
+          Diaspora.widgets.flashes.publish("widget/ready");
           expect(Diaspora.widgets.flashes.animateMessages).toHaveBeenCalled();
         });
       });
@@ -24,6 +24,7 @@ describe("Diaspora", function() {
             success: true,
             message: "success!"
           });
+	  expect($("#flash_notice").length).toEqual(1);
           expect(Diaspora.widgets.flashes.animateMessages).toHaveBeenCalled();
         });
       });

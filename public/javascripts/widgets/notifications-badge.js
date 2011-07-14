@@ -2,16 +2,16 @@
   var NotificationDropdown = function() {
     var self = this;
 
-    this.start = function() {
-      this.badge = $("#notification_badge");
-      this.badgeLink = this.badge.find("a");
-      this.documentBody = $(document.body);
-      this.dropdown = $("#notification_dropdown");
-      this.dropdownNotifications = this.dropdown.find(".notifications");
-      this.ajaxLoader = this.dropdown.find(".ajax_loader");
+    this.subscribe("widget/ready",function() {
+      self.badge = $("#notification_badge");
+      self.badgeLink = self.badge.find("a");
+      self.documentBody = $(document.body);
+      self.dropdown = $("#notification_dropdown");
+      self.dropdownNotifications = self.dropdown.find(".notifications");
+      self.ajaxLoader = self.dropdown.find(".ajax_loader");
 
-      this.badgeLink.toggle(function(evt) {
-          evt.preventDefault();
+      self.badgeLink.toggle(function(evt) {
+	  evt.preventDefault();
           evt.stopPropagation();
 
           self.ajaxLoader.show();
@@ -29,16 +29,16 @@
           self.dropdown.css("display", "none");
       });
 
-      this.dropdown.click(function(evt) {
+      self.dropdown.click(function(evt) {
         evt.stopPropagation();
       });
 
-      this.documentBody.click(function(evt) {
+      self.documentBody.click(function(evt) {
         if(self.dropdownShowing()) {
           self.badgeLink.click();
         }
       });
-    };
+    });
 
 
     this.dropdownShowing = function() {

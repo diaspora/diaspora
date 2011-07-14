@@ -8,9 +8,9 @@ describe("Diaspora", function() {
       var changeNotificationCountSpy;
 
       beforeEach(function() {
-         changeNotificationCountSpy = spyOn(Diaspora.widgets.notifications, "changeNotificationCount").andCallThrough();
+        changeNotificationCountSpy = spyOn(Diaspora.widgets.notifications, "changeNotificationCount").andCallThrough();
         $("#jasmine_content").html("<div id='notifications'></div>");
-        Diaspora.widgets.notifications.start();
+        Diaspora.widgets.notifications.publish("widget/ready");
         changeNotificationCountSpy.reset();
       });
 
