@@ -492,8 +492,8 @@ es-CL:
       post_hidden: "El post de %{name} se ha ocultado."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
+      destroy: "ELiminar"
+      not_found: "Lo sentimos, no pudimos encontrar ese post."
       permalink: "permalink"
   previous: "Anterior"
   profile: "Perfil"

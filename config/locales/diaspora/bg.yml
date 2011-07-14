@@ -247,7 +247,7 @@ bg:
     edit: 
       sign_up: "регистриране"
     new: 
-      already_invited: "Вече поканени"
+      already_invited: "Следните хора не са потвърдили паканата ви:"
       aspect: "Аспект"
       comma_seperated_plz: "Можете да въведете повече от една ел. поща като ги разделяте със запетаи."
       if_they_accept_info: "ако приемат поканата ще бъдат добавени към аспекта в който сте ги поканили."
@@ -492,9 +492,9 @@ bg:
       post_hidden: "Скрита е публикация на %{name}."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "Изтриване"
+      not_found: "За съжаление публикацията не може да бъде намерена."
+      permalink: "постоянен адрес"
   previous: "предишна"
   profile: "Профил"
   profiles: 
