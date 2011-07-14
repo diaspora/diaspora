@@ -59,8 +59,8 @@ gl:
       invitation_token_invalid: 'O código de confirmación da invitación non é correcto!'
       updated: 'O novo contrasinal gardouse correctamente, e xa está identificado con el.'
     mailer:
-      welcome: 'Benvido, %{email}!'
-      hello: 'Ola, %{email}!'
+      welcome: "Benvido, %{email}!"
+      hello: "Ola, %{email}!"
       confirmation_instructions:
         subject: 'Instrucións de confirmación'
         you_can_confirm: 'Pode confirmar a súa conta mediante a seguinte ligazón:'
@@ -82,9 +82,9 @@ gl:
         ignore: 'Se non quere aceptar a invitación, non ten máis que ignorar esta mensaxe.'
         no_account_till: 'A súa conta non se creará ata que prema a ligazón anterior e se rexistre.'
       inviters: 
-        has_invited_you: '%{name} invitouno a Diaspora'
-        have_invited_you: '%{names} invitárono a Diaspora'
-        accept_at: ', %{url}, para aceptar prema a seguinte ligazón:'
+        has_invited_you: "%{name} invitouno a Diaspora"
+        have_invited_you: "%{names} invitárono a Diaspora"
+        accept_at: ", %{url}, para aceptar prema a seguinte ligazón:"
     shared:
       mail_signup_form: 
         sign_up_for_an_invite: 'Solicitar unha invitación!'
