@@ -6,11 +6,9 @@
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
     {% unless page.no_meta %}
-      <p class="meta">{% include post_date.html %}</p>
+      <p class="meta">{% include post/date.html %}</p>
     {% endunless %}
   </header>
-  {% if index %}
-  {% endif %}
 {% endunless %}
 {% if index %}
   <div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
