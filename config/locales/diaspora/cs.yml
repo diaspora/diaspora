@@ -492,9 +492,9 @@ cs:
       post_hidden: "Příspěvek od uživatele %{name} byl skryt."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "Smazat"
+      not_found: "Tento příspěvek nelze bohužel najít."
+      permalink: "trvalý odkaz"
   previous: "předchozí"
   profile: "Profil"
   profiles: 

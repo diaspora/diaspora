@@ -63,12 +63,12 @@ it:
     aspect_contacts: 
       done_editing: "modifica eseguita"
     aspect_listings: 
-      add_an_aspect: "+ Aggiungi un aspetto"
+      add_an_aspect: "+ Aggiungi aspetto della vita"
     aspect_stream: 
       commented_on: "commenti"
       posted: "post"
       recently: "ordina per:"
-      stream: "Stream"
+      stream: "Ultime novità"
     contacts_not_visible: "I contatti in questo aspetto non potranno vedersi tra loro."
     contacts_visible: "I contatti in questo aspetto potranno vedersi tra loro."
     create: 
@@ -128,7 +128,7 @@ it:
       family: "Famiglia"
       work: "Lavoro"
     selected_contacts: 
-      manage_your_aspects: "Modifica gli aspetti."
+      manage_your_aspects: "Amministra gli aspetti della tua vita"
       no_contacts: "Ancora non hai contatti."
       view_all_contacts: "Visualizza tutti i contatti"
     show: 
@@ -162,7 +162,7 @@ it:
       failure: "Impossibile creare il contatto"
     few: "%{count} contatti"
     index: 
-      add_a_new_aspect: "Aggiungi un nuovo aspetto"
+      add_a_new_aspect: "Aggiungi aspetto della vita"
       all_contacts: "Tutti i contatti"
       edit_aspect: "Modifica %{name}"
       many_people_are_you_sure: "Stai inviando un messaggio privato a più di %{suggested_limit} contatti. Vuoi farlo davvero? Forse potrebbe essere più opportuno pubblicarlo su un aspetto!"
@@ -247,7 +247,7 @@ it:
     edit: 
       sign_up: "iscriviti"
     new: 
-      already_invited: "Già invitato"
+      already_invited: "Le seguenti persone non hanno accettato il tuo invito:"
       aspect: "Aspetto"
       comma_seperated_plz: "Puoi inserire più indirizzi email separati da virgole."
       if_they_accept_info: "se loro accettano, saranno aggiunti all'aspetto in cui li hai invitati."
@@ -323,14 +323,14 @@ it:
       and_others: 
         few: "e %{count} altri"
         many: "e %{count} altri"
-        one: "e uno di più"
+        one: "e uno in più"
         other: "e %{count} altri"
         zero: "e nessun altro"
       mark_all_as_read: "Segna tutti come letti"
       notifications: "Notifiche"
     liked: 
-      few: "%{actors} ha apprezzato il tuo %{post_link}."
-      many: "%{actors} ha apprezzato il tuo %{post_link}."
+      few: "%{actors} hanno apprezzato il tuo %{post_link}."
+      many: "%{actors} hanno apprezzato il tuo %{post_link}."
       one: "%{actors} ha apprezzato il tuo %{post_link}."
       other: "%{actors} ha apprezzato il tuo %{post_link}."
       zero: "%{actors} ha apprezzato il tuo %{post_link}."
@@ -347,15 +347,15 @@ it:
       other: "%{actors} ti ha menzionato in un %{post_link}."
       zero: "%{actors} ti ha menzionato in un %{post_link}."
     mentioned_deleted: 
-      few: "%{actors} ti ha menzionato in un post cancellato."
-      many: "%{actors} ti ha menzionato in un post cancellato."
+      few: "%{actors} ti hanno menzionato in un post cancellato."
+      many: "%{actors} ti hanno menzionato in un post cancellato."
       one: "%{actors} ti ha menzionato in un post cancellato."
       other: "%{actors} ti ha menzionato in un post cancellato."
       zero: "%{actors} ti ha menzionato in un post cancellato."
     post: "post"
     private_message: 
-      few: "%{actors} ti ha inviato un messaggio."
-      many: "%{actors} ti ha inviato un messaggio."
+      few: "%{actors} ti hanno inviato un messaggio."
+      many: "%{actors} ti hanno inviato un messaggio."
       one: "%{actors} ti ha inviato un messaggio."
       other: "%{actors} ti ha inviato un messaggio."
       zero: "%{actors} ti ha inviato un messaggio."
@@ -492,8 +492,8 @@ it:
       post_hidden: "Il post di %{name} è stato nascosto."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
+      destroy: "Elimina"
+      not_found: "Ci scusiamo, non possiamo trovare il post."
       permalink: "permalink"
   previous: "precedente"
   profile: "Profilo"

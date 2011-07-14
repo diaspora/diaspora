@@ -247,7 +247,7 @@ de:
     edit: 
       sign_up: "registrieren"
     new: 
-      already_invited: "Bereits eingeladen"
+      already_invited: "Die folgenden Personen haben deine Einladung nicht angenommen:"
       aspect: "Aspekt"
       comma_seperated_plz: "Du kannst mehrere E-Mail-Adressen eintragen. Trenne sie mit Kommata."
       if_they_accept_info: "Wenn sie akzeptieren, werden sie zu dem Aspekt hinzugefügt, in den du sie eingeladen hast."
@@ -288,7 +288,7 @@ de:
         one: "1 Person gefällt das"
         other: "%{count} Personen gefällt das"
         zero: "Keinem gefällt das"
-  limited: "Limited"
+  limited: "Begrenzt"
   more: "Mehr"
   next: "Nächste"
   no_results: "Du musst nach etwas suchen."
@@ -492,9 +492,9 @@ de:
       post_hidden: "%{name}s Beitrag wurde ausgeblendet."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "Löschen"
+      not_found: "Wir konnten den Beitrag leider nicht finden."
+      permalink: "Permanentlink"
   previous: "Vorherige"
   profile: "Profil"
   profiles: 
@@ -679,7 +679,7 @@ de:
       connect_to_cubbies: "Mit Cubbi.es verbinden"
       connecting_is_simple: "Um dein Diaspora Konto zu verbinden, kopiere einfach die zwei Felder in deine Cubbi.es Kontoseite."
       daniels_account: "Daniels Diaspora-Konto"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Schon bald wirst du in der Lage sein eine Verbindung zu einer neuen Anwendung herzustellen, ohne ein seperates Konto neben deinem Konto auf Diaspora anzulegen."
       love_to_try: "Es wäre toll wenn Du es ausprobieren würdest."
       making_the_connection: "Die Verbindung herstellen"
       screenshot_explanation: "%{link1}.  Dieses \"Cubby\" ist verlinkt auf %{link2}."
