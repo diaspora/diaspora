@@ -15,7 +15,7 @@ blog_index: true
     {% if paginator.next_page %}
       <a class="prev" href="/page{{paginator.next_page}}/">&larr; Older</a>
     {% endif %}
-    <a href="/blog/archives/index.html">Blog Archives</a>
+    <a href="/blog/archives">Blog Archives</a>
     {% if paginator.previous_page and paginator.previous_page > 1 %}
       <a class="next" href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
     {% elsif paginator.previous_page %}
