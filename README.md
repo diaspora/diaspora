@@ -16,7 +16,7 @@ Please report any bugs you see at [GitHub Issues](https://github.com/diaspora/di
 ## Contributing to Diaspora
 
 ###[An introduction to the source code](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source)
-###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues).
+###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues)
 ###[How to use git](http://github.com/diaspora/diaspora/wiki/Git-Workflow)
 
 Here are a few good places to start:
