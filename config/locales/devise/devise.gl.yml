@@ -44,7 +44,7 @@ gl:
       send_instructions: 'Nuns minutos recibirá un correo electrónico con instrucións para confirmar a súa conta.'
       confirmed: 'Confirmouse a súa conta, e xa está en Diaspora.'
       new: 
-        resend_confirmation: 'Volver enviar as instrucións de confirmación'_
+        resend_confirmation: 'Volver enviar as instrucións de confirmación'
     registrations: 
       signed_up: 'Rexistrouse correctamente. Envióuselle un correo electrónico de confirmación.'
       updated: 'A súa conta actualizouse correctamente.'
