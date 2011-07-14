@@ -33,13 +33,13 @@
     this.expandLikes = function(evt){
       evt.preventDefault();
       var likesList = $(this).siblings(".likes_list");
-      if(likesList.children().length == 0){
+      if(likesList.children().length == 0) {
         likesList.append("<img alt='loading' src='/images/ajax-loader.gif' />");
         $.ajax({
           url: this.href,
           success: function(data){
             likesList.html(data)
-                     .fadeToggle(100);
+            	.fadeToggle(100);
           }
         });
       }

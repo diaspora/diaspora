@@ -36,14 +36,14 @@
     
     this.showNotification = function(notification) {
       $(notification.html).prependTo(this.notificationArea)
-	.fadeIn(200)
-	.delay(8000)
-	.fadeOut(200, function() {
-	  $(this).detach();
-	});
+				.fadeIn(200)
+				.delay(8000)
+				.fadeOut(200, function() {
+	  			$(this).detach();
+				});
 
       if(typeof notification.incrementCount === "undefined" || notification.incrementCount) {
-	this.incrementCount();
+				this.incrementCount();
       }
     };
 
@@ -51,18 +51,18 @@
       this.count += change;
 
       if(this.badge.text() !== "") {
-	this.badge.text(this.count);
-	if(this.on_index_page)
-	  this.index_badge.text(this.count + " ");
+				this.badge.text(this.count);
+				if(this.onIndexPage)
+	  		this.indexBadge.text(this.count + " ");
 
-	if(this.count === 0) {
-	  this.badge.addClass("hidden");
-	  if(this.on_index_page)
-	    this.index_badge.removeClass('unread');
-	}
-	else if(this.count === 1) {
-	  this.badge.removeClass("hidden");
-	}
+				if(this.count === 0) {
+	  			this.badge.addClass("hidden");
+	  			if(this.onIndexPage)
+	    		this.indexBadge.removeClass('unread');
+				}
+				else if(this.count === 1) {
+	  			this.badge.removeClass("hidden");
+				}
       }
     };
 

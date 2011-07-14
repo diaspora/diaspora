@@ -13,49 +13,49 @@
       self.updateBinds();
     
       Diaspora.widgets.subscribe("stream/scrolled", function() {
-	self.updateBinds();
+				self.updateBinds();
       });
     });
 
     this.isRTL = function(str) {
       if(typeof str !== "string" || str.length < 1) {
-	return false;
+				return false;
       }
       
       var charCode = str.charCodeAt(0);
       if(charCode >= 1536 && charCode <= 1791) // Sarabic, Persian, ...
-	return true;
+				return true;
       
       else if(charCode >= 65136 && charCode <= 65279) // Arabic present 1
-	return true;
+				return true;
       
       else if(charCode >= 64336 && charCode <= 65023) // Arabic present 2
-	return true;
+				return true;
       
       else if(charCode>=1424 && charCode<=1535) // Hebrew
-	return true;
+				return true;
       
       else if(charCode>=64256 && charCode<=64335) // Hebrew present
-	return true;
+				return true;
       
       else if(charCode>=1792 && charCode<=1871) // Syriac
-	return true;
+				return true;
       
       else if(charCode>=1920 && charCode<=1983) // Thaana
-	return true;
+				return true;
       
       else if(charCode>=1984 && charCode<=2047) // NKo
-	return true;
+				return true;
       
       else if(charCode>=11568 && charCode<=11647) // Tifinagh
-	return true;
+				return true;
       
       return false;
     };
 
     this.updateBinds = function() {
       $.each(self.binds, function(index, bind) {
-	bind.unbind("keyup", self.updateDirection);
+				bind.unbind("keyup", self.updateDirection);
       });
 
       self.binds = [];
@@ -65,19 +65,19 @@
 
     this.bind = function() {
       self.binds.push(
-	$(this).bind("keyup", self.updateDirection)
+				$(this).bind("keyup", self.updateDirection)
       );
     };
 
     this.updateDirection = function() {
       var textArea = $(this),
-	cleaned = textArea.val().replace(self.cleaner, "").replace(/^[ ]+/, "");
+				cleaned = textArea.val().replace(self.cleaner, "").replace(/^[ ]+/, "");
     
       if(self.isRTL(cleaned)) {
-	textArea.css("direction", "rtl");
+				textArea.css("direction", "rtl");
       }
       else {
-	textArea.css("direction", "ltr");
+				textArea.css("direction", "ltr");
       }
     };
   };

@@ -12,9 +12,9 @@
       self.updateTimeAgo();
 
       if(Diaspora.widgets.i18n.language !== "en") {
-	$.each($.timeago.settings.strings, function(index) {
-	  $.timeago.settings.strings[index] = Diaspora.widgets.i18n.t("timeago." + index);
-	});
+				$.each($.timeago.settings.strings, function(index) {
+	  			$.timeago.settings.strings[index] = Diaspora.widgets.i18n.t("timeago." + index);
+				});
       }
     });
 

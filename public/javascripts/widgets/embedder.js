@@ -12,7 +12,7 @@
 
     self.subscribe("widget/ready", function() {
       $.extend(self, {
-	stream: $("#main_stream")
+				stream: $("#main_stream")
       });
  
       self.ensureDOMStructure();
@@ -23,7 +23,7 @@
     
     this.ensureDOMStructure = function() {
       var post = self.stream.children(".stream_element:first"),
-	content = post.children(".sm_body").children(".content").children("p");
+				content = post.children(".sm_body").children(".content").children("p");
 
       self.canEmbed = !!content.length;
     };
@@ -43,14 +43,15 @@
 
     this.embed = function(videoLink) {
       var host = videoLink.data("host"),
-	container = $("<div/>", { "class": "video-container" }),
-	videoContainer = videoLink.closest(".content").children(".video-container");
+				container = $("<div/>", { "class": "video-container" }),
+				videoContainer = videoLink.closest(".content").children(".video-container");
 
       if (videoContainer.length) {
-	videoContainer.slideUp("fast", function() { 
-	  $(this).detach();
-	});
-	return;
+				videoContainer.slideUp("fast", function() { 
+	  			$(this).detach();
+				});
+				
+				return;
       }
 
       if ($("div.video-container").length) {
@@ -62,20 +63,20 @@
       );
 
       container.hide()
-	.insertAfter(videoLink.parent())
-	.slideDown("fast");
+				.insertAfter(videoLink.parent())
+				.slideDown("fast");
 
       videoLink.click(function() {
-	videoContainer.slideUp("fast", function() {
-	  $(this).detach();
-	});
+				videoContainer.slideUp("fast", function() {
+	  			$(this).detach();
+				});	
       });  
     };
 
     this.onVideoLinkClicked = function(evt) {
       if(self.canEmbed) {
-	evt.preventDefault();
-	self.embed($(this));
+				evt.preventDefault();
+				self.embed($(this));
       }
     };
 
@@ -87,8 +88,8 @@
         '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}?wmode=opaque{{anchor}}"></iframe>');
 
       self.register("vimeo.com",
-	'<a href="http://vimeo.com/{{video-id}}">' + $.mustache(watchVideoOn, { provider: "Vimeo" }) + '</a><br />' +
-	'<iframe class="vimeo-player" src="http://player.vimeo.com/video/{{video-id}}"></iframe>');
+				'<a href="http://vimeo.com/{{video-id}}">' + $.mustache(watchVideoOn, { provider: "Vimeo" }) + '</a><br />' +
+				'<iframe class="vimeo-player" src="http://player.vimeo.com/video/{{video-id}}"></iframe>');
 
       self.register("undefined", '<p>' + Diaspora.widgets.i18n.t("videos.unknown") + ' - {{host}}</p>');
     };
