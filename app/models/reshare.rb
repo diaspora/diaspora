@@ -40,7 +40,7 @@ class Reshare < Post
     root_author.save!
 
     unless self.root = Post.where(:guid => @root_guid).first
-      self.root = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}").body)
+      self.root = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}.xml").body)
       self.root.save!
     end
     

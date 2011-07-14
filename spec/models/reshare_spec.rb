@@ -81,7 +81,7 @@ describe Reshare do
         it 'fetches the root post from root_guid' do
           response = mock
           response.stub(:body).and_return(@root_object.to_diaspora_xml)
-          Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid)).and_return(response)
+          Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
 
           root = Reshare.from_xml(@xml).root
 
@@ -101,7 +101,7 @@ describe Reshare do
           response = mock
           response.stub(:body).and_return(@root_object.to_diaspora_xml)
 
-          Faraday.default_connection.should_receive(:get).with(@original_author.url + public_post_path(:guid => @root_object.guid)).and_return(response)
+          Faraday.default_connection.should_receive(:get).with(@original_author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
 
           Reshare.from_xml(@xml)
         end

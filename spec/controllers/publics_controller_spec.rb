@@ -82,6 +82,12 @@ describe PublicsController do
       response.should be_redirect
     end
 
+    it 'responds with diaspora xml if format is xml' do
+      status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+      get :post, :guid => status.guid, :format => :xml
+      response.body.should == status.to_diaspora_xml
+    end
+
     # We want to be using guids from now on for this post route, but do not want to break
     # preexisiting permalinks.  We can assume a guid is 8 characters long as we have
     # guids set to hex(8) since we started using them.

@@ -12,6 +12,9 @@ class PublicsController < ApplicationController
   skip_before_filter :set_grammatical_gender
   before_filter :allow_cross_origin, :only => [:hcard, :host_meta, :webfinger]
 
+  respond_to :html
+  respond_to :xml, :only => :post
+
   def allow_cross_origin
     headers["Access-Control-Allow-Origin"] = "*"
   end
@@ -77,17 +80,20 @@ class PublicsController < ApplicationController
     if @post
       if user_signed_in? && current_user.find_visible_post_by_id(@post.id)
         redirect_to post_path(@post)
-        return
-      end
-
-      @landing_page = true
-      @person = @post.author
-      if @person.owner_id
-        I18n.locale = @person.owner.language
-        render "#{@post.class.to_s.underscore}", :layout => 'application'
       else
-        flash[:error] = I18n.t('posts.show.not_found')
-        redirect_to root_url
+        @landing_page = true
+        @person = @post.author
+        if @person.owner_id
+          I18n.locale = @person.owner.language
+
+          respond_to do |format|
+            format.all{ render "#{@post.class.to_s.underscore}", :layout => 'application'}
+            format.xml{ render :xml => @post.to_diaspora_xml }
+          end
+        else
+          flash[:error] = I18n.t('posts.show.not_found')
+          redirect_to root_url
+        end
       end
     else
       flash[:error] = I18n.t('posts.show.not_found')
