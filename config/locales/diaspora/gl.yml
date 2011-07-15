@@ -631,42 +631,42 @@ gl:
       click_to_share_with: 'Compartir con (prema o que proceda):'
       discard_post: 'Descartar a publicación'
     add_contact:
-      enter_a_diaspora_username: "Escriba un nome de usuario para Diaspora:"
+      enter_a_diaspora_username: 'Escriba un nome de usuario para Diaspora:'
       your_diaspora_username_is: "O seu nome de usuario en Diaspora é «%{diaspora_handle}»."
-      create_request: "Buscar por enderezo de Diaspora"
-      diaspora_handle: "diaspora@servidor.org"
-      know_email: "Se sabe os seus enderezos de correo electrónico, debería convidalos."
-      add_new_contact: "Engadir un novo contacto"
+      create_request: 'Buscar por enderezo de Diaspora'
+      diaspora_handle: 'diaspora@servidor.org'
+      know_email: 'Se sabe os seus enderezos de correo electrónico, debería convidalos.'
+      add_new_contact: 'Engadir un novo contacto'
     invitations:
-      invites: "Invitacións"
-      invite_someone: "Convidar a alguén"
+      invites: 'Invitacións'
+      invite_someone: 'Convidar a alguén'
       invitations_left: "(restan %{count})"
-      dont_have_now: "Non lle quedan, xa lle daremos máis."
-      invites_closed: "Este servidor de Diaspora non conta con invitacións nestes momentos."
-      invite_your_friends: "Convide aos seus contactos"
-      from_facebook: "Convidar a contactos de Facebook"
-      by_email: "Convidar a contactos por correo electrónico"
+      dont_have_now: 'Non lle quedan, xa lle daremos máis.'
+      invites_closed: 'Este servidor de Diaspora non conta con invitacións nestes momentos.'
+      invite_your_friends: 'Convide aos seus contactos'
+      from_facebook: 'Convidar a contactos de Facebook'
+      by_email: 'Convidar a contactos por correo electrónico'
     reshare: 
-      reshare: "Repetir"
+      reshare: 'Repetir'
     public_explain:
-      title: "Configurar os servizos conectados"
-      outside: "As mensaxes públicas as poderá ver xente sen conta en Diaspora."
+      title: 'Configurar os servizos conectados'
+      outside: 'As mensaxes públicas as poderá ver xente sen conta en Diaspora.'
       logged_in: "Conectado a «%{service}»."
-      manage: "Administrar os servizos conectados"
+      manage: 'Administrar os servizos conectados'
     notification: 
       new: "Nova %{type} de %{from}"
     contact_list: 
-      all_contacts: "Todos os contactos"
+      all_contacts: 'Todos os contactos'
     stream_element:
-      viewable_to_anyone: "Esta publicación pode vela calquera persoa, mesmo quen non teña conta en Diaspora."
+      viewable_to_anyone: 'Esta publicación pode vela calquera persoa, mesmo quen non teña conta en Diaspora.'
       via: "vía %{link}"
-      like: "Gústame"
-      unlike: "Xa non me gusta"
-      dislike: "Desagrádame"
+      like: 'Gústame'
+      unlike: 'Xa non me gusta'
+      dislike: 'Desagrádame'
       shared_with: "Compartido con: %{aspect_names}"
     footer: 
       logged_in_as: "Identificado como %{name}."
-      your_aspects: "Aspectos"
+      your_aspects: 'Aspectos'
 
   status_messages: 
     new: 
@@ -674,19 +674,19 @@ gl:
     create: 
       success: "Mencionouse a %{names} correctamente."
     helper: 
-      no_message_to_display: "Non hai mensaxes que amosar."
+      no_message_to_display: 'Non hai mensaxes que amosar.'
     destroy: 
-      failure: "Non se puido eliminar a publicación."
+      failure: 'Non se puido eliminar a publicación.'
     too_long:
-      zero: "As súas mensaxes de estado non poden ter ningún carácter. Raro, va que si?"
-      one: "As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!"
+      zero: 'As súas mensaxes de estado non poden ter ningún carácter. Raro, va que si?'
+      one: 'As súas mensaxes de estado non poden ter máis dun carácter. Elíxao ben!'
       few: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
       many: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
       other: "As súas mensaxes de estano non poden ter máis de %{count} caracteres."
 
   stream_helper: 
     show_more_comments: "Amosar %{number} comentarios máis"
-    hide_comments: "Agochar os comentarios"
+    hide_comments: 'Agochar os comentarios'
 
   tags: 
     show:
@@ -707,66 +707,66 @@ gl:
 
   tokens:
     show:
-      connect_to_cubbies: "Conectar a Cubbi.es"
-      what_is_cubbies: "Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede."
-      love_to_try: "Gustaríanos que o probase."
-      sign_up_today: "Rexístrese agora!"
+      connect_to_cubbies: 'Conectar a Cubbi.es'
+      what_is_cubbies: 'Cubbi.es é o primeiro aplicativo de Diaspora, e a mellor forma de recoller imaxes na rede.'
+      love_to_try: 'Gustaríanos que o probase.'
+      sign_up_today: 'Rexístrese agora!'
       screenshot_explanation: "%{link1}. Este faiado particular está ligado á %{link2}."
-      typical_userpage: "Unha páxina de usuario típica de cubbi.es"
-      daniels_account: "conta de Diaspora de Daniel"
-      making_the_connection: "Conectar"
+      typical_userpage: 'Unha páxina de usuario típica de cubbi.es'
+      daniels_account: 'conta de Diaspora de Daniel'
+      making_the_connection: 'Conectar'
       connecting_is_simple: "Conectar unha conta de Diaspora é moi sinxelo! Só ten que escribir o seu enderezo de Diaspora (<b>%{diaspora_id}</b>) na súa <a href='%{href_link}'>páxina de configuración</a> de cubbi.es e premer «Conectar»."
-      log_in_with_diaspora_is_comming: "Dentro de pouco poderá conectarse a novos aplicativos sen necesidade de crear unha conta nova separada da de Diaspora."
+      log_in_with_diaspora_is_comming: 'Dentro de pouco poderá conectarse a novos aplicativos sen necesidade de crear unha conta nova separada da de Diaspora.'
       via: "(vía %{link})"
 
   authorizations:
     index:
-      revoke_access: "Revogar o permiso de acceso"
+      revoke_access: 'Revogar o permiso de acceso'
 
   users:
     edit:
-      export_data: "Exportar os datos"
-      close_account: "Pechar a conta"
-      change_language: "Cambiar a lingua"
-      change_password: "Cambiar o contrasinal"
-      new_password: "Contrasinal novo"
-      current_password: "Contrasinal actual"
-      download_xml: "Descargar o ficheiro XML"
-      download_photos: "Descargar as imaxes"
-      your_handle: "Enderezo de Diaspora"
-      your_email: "Correo electrónico"
-      edit_account: "Modificar a conta"
-      receive_email_notifications: "Motivos de notificación por correo electrónico"
-      also_commented: "Comentarios nas publicacións dos contactos."
-      comment_on_post: "Comentarios nas publicacións propias."
-      mentioned: "Mencións en publicacións."
-      started_sharing: "Que alguén comece a compartir comigo."
-      private_message: "Recepción de mensaxes privadas."
-      liked: "Que a alguén lle guste unha das miñas publicacións."
-      change: "Gardar"
-    destroy: "Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a Diaspora."
+      export_data: 'Exportar os datos'
+      close_account: 'Pechar a conta'
+      change_language: 'Cambiar a lingua'
+      change_password: 'Cambiar o contrasinal'
+      new_password: 'Contrasinal novo'
+      current_password: 'Contrasinal actual'
+      download_xml: 'Descargar o ficheiro XML'
+      download_photos: 'Descargar as imaxes'
+      your_handle: 'Enderezo de Diaspora'
+      your_email: 'Correo electrónico'
+      edit_account: 'Modificar a conta'
+      receive_email_notifications: 'Motivos de notificación por correo electrónico'
+      also_commented: 'Comentarios nas publicacións dos contactos.'
+      comment_on_post: 'Comentarios nas publicacións propias.'
+      mentioned: 'Mencións en publicacións.'
+      started_sharing: 'Que alguén comece a compartir comigo.'
+      private_message: 'Recepción de mensaxes privadas.'
+      liked: 'Que a alguén lle guste unha das miñas publicacións.'
+      change: 'Gardar'
+    destroy: 'Bloqueouse a súa conta. Pode levar ata 20 minutos pechala completamente. Grazas por darlle unha oportunidade a Diaspora.'
     getting_started:
-      welcome: "Benvido a Diaspora!"
-      signup_steps: "Para completar o rexistro, siga estes tres pasos:"
-      edit_profile: "Modifique o seu perfil"
-      connect_on_diaspora: "Conectar a Diaspora"
-      connect_services: "Conectar os seus outros servizos"
-      finished: "Rematou!"
-      skip: "Saltarse a guía de inicio"
-      save_and_continue: "Gardar e continuar"
-      could_not_find_anyone: "Non se atoparon contactos seus en Diaspora*. Empregue o buscador de xente para atopalos."
+      welcome: 'Benvido a Diaspora!'
+      signup_steps: 'Para completar o rexistro, siga estes tres pasos:'
+      edit_profile: 'Modifique o seu perfil'
+      connect_on_diaspora: 'Conectar a Diaspora'
+      connect_services: 'Conectar os seus outros servizos'
+      finished: 'Rematou!'
+      skip: 'Saltarse a guía de inicio'
+      save_and_continue: 'Gardar e continuar'
+      could_not_find_anyone: 'Non se atoparon contactos seus en Diaspora*. Empregue o buscador de xente para atopalos.'
       step_3: 
-        finish: "Rematar"
-        people_already_on_diaspora: "Xente que xa está en Diaspora."
+        finish: 'Rematar'
+        people_already_on_diaspora: 'Xente que xa está en Diaspora.'
       step_2: 
-        find_your_friends_on_diaspora: "Gustaríalle buscar os seus contactos de Facebook en Diaspora?"
-        skip: "Saltarse este paso"
+        find_your_friends_on_diaspora: 'Gustaríalle buscar os seus contactos de Facebook en Diaspora?'
+        skip: 'Saltarse este paso'
     update:
-      password_changed: "Cambiouse o contrasinal."
-      password_not_changed: "Non se puido cambiar o contrasinal."
-      language_changed: "Cambiouse a lingua."
-      language_not_changed: "Non se puido cambiar a lingua."
-      email_notifications_changed: "Modificáronse as notificacións por correo electrónico."
+      password_changed: 'Cambiouse o contrasinal.'
+      password_not_changed: 'Non se puido cambiar o contrasinal.'
+      language_changed: 'Cambiouse a lingua.'
+      language_not_changed: 'Non se puido cambiar a lingua.'
+      email_notifications_changed: 'Modificáronse as notificacións por correo electrónico.'
     public: 
       does_not_exist: "O usuario «%{username}» non existe!"
 
@@ -775,4 +775,4 @@ gl:
     hcard_fetch_failed: "Non se puido obter a tarxeta “hcard” de «%{account}»."
     xrd_fetch_failed: "Non se puido obter o “xrd” de «%{account}»."
     not_enabled: "Parece que no servidor no que está a conta «%{account}» non está activado o “webfinger”."
-    no_person_constructed: "Non se puido configurar unha persoa a partir desta tarxeta “hcard”."
+    no_person_constructed: 'Non se puido configurar unha persoa a partir desta tarxeta “hcard”.'
