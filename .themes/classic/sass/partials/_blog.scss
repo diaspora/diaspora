@@ -1,20 +1,9 @@
-#content {
-  article { ul, ol { margin-left: 1.4em; }}
+article {
+  overflow: hidden;
+  padding-top: 1em;
+  ul, ol { margin-left: 1.4em; }
   @media only screen and (min-width: 768px) {
     ul, ol { margin-left: 0; }
-  }
-  > article, > div > article {
-    overflow: hidden;
-    padding-top: 1em;
-    h2 {
-      padding-top: 0.8em;
-      background: $img-border top left repeat-x;
-      .entry-content &:first-child { padding-top: 0; }
-      &:first-child { background: none; }
-    }
-    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
-      @extend .separator;
-    }
   }
   header {
     position: relative;
@@ -42,6 +31,12 @@
       padding-bottom: 1em;
       background: $img-border bottom left repeat-x;
     }
+  }
+  h2 {
+    padding-top: 0.8em;
+    background: $img-border top left repeat-x;
+    .entry-content &:first-child { padding-top: 0; }
+    &:first-child { background: none; }
   }
   .feature {
     padding-top: .5em;
@@ -80,13 +75,16 @@
       }
     }
   }
-  > div > article > footer {
+  > footer {
     padding-bottom: 2.5em;
     margin-top: 2em;
     @extend .sans;
     p.meta {
       margin-bottom: .8em;
       font-size: .85em;
+    }
+    .byline + time:before, time +time:before, .comments:before, .byline ~ .categories:before {
+      @extend .separator;
     }
   }
 
@@ -129,7 +127,7 @@ article + article {
   display: inline-block;
 }
 
-nav[role=pagination] {
+#content nav[role=pagination] {
   text-align: center;
   font-size: .95em;
   div {

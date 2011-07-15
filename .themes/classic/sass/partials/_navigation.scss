@@ -88,7 +88,6 @@ body > nav {
     fieldset[role=mobile-nav] { display: none; }
     fieldset[role=site-search]{ width: 99%; }
   }
-
   @media only screen and (min-width: 992px) {
     form {
       width: $sidebar-width-wide - $pad-wide - $sidebar-pad-wide*2 + 10px;

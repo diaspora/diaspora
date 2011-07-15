@@ -90,7 +90,7 @@ body {
       }
     }
     .collapse-sidebar & {
-      margin-right: 10px;
+      margin-right: 20px;
       > aside {
         float: none;
         clear: left;
@@ -114,31 +114,47 @@ body {
   }
   .toggle-sidebar {
     outline: none;
-    position: absolute; right: -21px; top: 0;
-    width: 20px;
-    font-size: 1.2em;
-    line-height: 1.1em;
-    padding-bottom: .1em;
-    text-indent: -1px;
-    text-decoration: none;
-    @include link-colors(#ccc, #999);
-    @include border-bottom-right-radius(.3em);
-    text-align: center;
-    background: $main-bg;
-    border-bottom: 1px solid $sidebar-border;
-    border-right: 1px solid $sidebar-border;
+    position: absolute; right: -10px; top: 0; bottom: 0;
     display: inline-block;
+    text-decoration: none;
+    color: mix($text-color-light, $sidebar-bg);
+    width: 9px;
+    cursor: pointer;
+    &:hover {
+      background: mix($sidebar-border, $sidebar-bg);
+      @include background(linear-gradient(left, rgba($sidebar-border, .5), rgba($sidebar-border, 0)));
+    }
+    &:after {
+      position: absolute; right: -11px; top: 0;
+      width: 20px;
+      font-size: 1.2em;
+      line-height: 1.1em;
+      padding-bottom: .15em;
+      @include border-bottom-right-radius(.3em);
+      text-align: center;
+      background: $main-bg $noise-bg;
+      border-bottom: 1px solid $sidebar-border;
+      border-right: 1px solid $sidebar-border;
+      content: "\00BB";
+      text-indent: -1px;
+    }
     .collapse-sidebar & {
-      right: -11px;
-      width: 24px;
-      bottom: 0;
-      background-color: $sidebar-bg;
-      border-right-width: 0;
       text-indent: 0px;
-      border-left: 1px solid $sidebar-border;
-      @include link-colors(#aaa, #888);
+      right: -20px;
+      width: 19px;
       &:hover {
-       background: $sidebar-border;
+        background: mix($sidebar-border, $sidebar-bg);
+      }
+      &:after {
+        border-left: 1px solid $sidebar-border;
+        text-shadow: #fff 0 1px;
+        content: "\00AB";
+        left: 0px; right: 0;
+        text-align: center;
+        text-indent: 0;
+        border: 0;
+        border-right-width: 0;
+        background: none;
       }
     }
   }

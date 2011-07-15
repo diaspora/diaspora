@@ -1,3 +1,6 @@
+#archive {
+  #content > div { &, > article { padding-top: 0; } }
+}
 #blog-archives {
   article {
     padding: 1em 0 1em;
@@ -6,12 +9,10 @@
     &:last-child {
       background: none;
     }
+    footer { padding: 0; margin: 0;}
   }
-  h2 {
-    background: none;
-    display: none;
-  }
-  h1, h2 { color: $text-color; margin-bottom: .3em; }
+  h1 { color: $text-color; margin-bottom: .3em; }
+  h2 { display: none; }
   h1 {
     font-size: 1.5em;
     a {
@@ -30,7 +31,7 @@
   .entry-content { display: none; }
   time {
     font-size: .9em;
-    line-height: 1em;
+    line-height: 1.2em;
     .month, .day { display: inline-block; }
     .month { text-transform: uppercase; }
   }
@@ -40,10 +41,11 @@
   @media only screen and (min-width: 550px) {
     article { margin-left: 5em; }
     h2 {
-      background: none;
+      margin-bottom: .3em;
+      font-weight: normal;
       display: inline-block;
+      position: relative; top: -1px;
       float: left;
-      padding-top: .75em;
       &:first-child { padding-top: .75em; }
     }
     time {

@@ -41,6 +41,7 @@ $nav-border-right: lighten($nav-bg, 7) !default;
 $sidebar-bg: #f2f2f2 !default;
 $sidebar-link-color: $link-color !default;
 $sidebar-link-color-hover: $link-color-hover !default;
+$sidebar-link-color-active: $link-color-active !default;
 $sidebar-color: change-color(mix($text-color, $sidebar-bg, 80), $hue: hue($sidebar-bg), $saturation: saturation($sidebar-bg)/2) !default;
 $sidebar-border: desaturate(darken($sidebar-bg, 7), 10) !default;
 $sidebar-border: darken($sidebar-bg, 7) !default;
@@ -61,8 +62,11 @@ $page-border-bottom: darken($footer-bg, 5) !default;
 
 /* Core theme application */
 
-article a, #articles + aside a {
+a {
   @include link-colors($link-color, $hover: $link-color-hover, $focus: $link-color-hover, $visited: $link-color-visited, $active: $link-color-active);
+}
+aside[role=sidebar] a {
+  @include link-colors($sidebar-link-color, $hover: $sidebar-link-color-hover, $focus: $sidebar-link-color-hover, $active: $sidebar-link-color-active);
 }
 a {
   @include transition(color, .3s);

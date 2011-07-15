@@ -9,15 +9,13 @@ function getNav(){
   });
 }
 function addSidebarToggler() {
-  $('#content').append('<a href="#" class="toggle-sidebar">&raquo;</a>');
+  $('#content').append('<span class="toggle-sidebar"></span>');
   $('.toggle-sidebar').bind('click', function(e){
     e.preventDefault();
     if($('body').hasClass('collapse-sidebar')){
       $('body').removeClass('collapse-sidebar');
-      e.target.innerHTML = '&raquo;';
     } else {
       $('body').addClass('collapse-sidebar');
-      e.target.innerHTML = '&laquo;';
     }
   });
   sections = $('aside[role=sidebar] > section')

@@ -13,7 +13,7 @@ body > footer {
   @include border-bottom-radius(.4em);
   z-index: 1;
   a {
-    @include link-colors($footer-link-color, $footer-link-color-hover);
+    @include link-colors($footer-link-color, $footer-link-color-hover, $visited: $footer-link-color);
   }
   p:last-child { margin-bottom: 0; }
 }
