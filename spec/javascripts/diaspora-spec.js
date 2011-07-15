@@ -56,21 +56,21 @@ describe("Diaspora", function() {
       });
 
       it("adds an events container to an object", function() {
-	expect(typeof Diaspora.EventBroker.extend(obj).eventsContainer).toEqual("object");
+	      expect(typeof Diaspora.EventBroker.extend(obj).eventsContainer).toEqual("object");
       });
 
       it("adds a publish method to an object", function() {
-	expect(typeof Diaspora.EventBroker.extend(obj).publish).toEqual("function");
+	      expect(typeof Diaspora.EventBroker.extend(obj).publish).toEqual("function");
       });
 
       it("adds a subscribe method to an object", function() {
-	expect(typeof Diaspora.EventBroker.extend(obj).subscribe).toEqual("function");
+	      expect(typeof Diaspora.EventBroker.extend(obj).subscribe).toEqual("function");
       });
     }); 
 
     describe("subscribe", function() {
       it("subscribes to an event specified by an id", function() {
-        expect(Diaspora.widgets.eventsContainer.data("events")).not.toBeDefined();
+        Diaspora.widgets.eventsContainer.data("events", undefined);
         Diaspora.widgets.subscribe("testing/event", function() { });
         expect(Diaspora.widgets.eventsContainer.data("events")["testing/event"]).toBeDefined();
       });
