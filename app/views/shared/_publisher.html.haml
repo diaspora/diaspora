@@ -12,8 +12,6 @@
 #publisher.closed{:class => ((aspect == :profile)? 'mention_popup' : nil )}
   .content_creation
     = form_for(StatusMessage.new, :remote => true, :html => {"data-type" => "json"}) do |status|
-      - if @selected_people
-        = hidden_field_tag :contact_json, @selected_people.to_json
       = status.error_messages
       %p
         %params
@@ -52,6 +50,8 @@
           .facebox_content
             #question_mark_pane
               = render 'shared/public_explain'
+    = link_to '', contacts_path(:aspect_ids => aspect_ids), :class => 'selected_contacts_link hidden'
+
 
     #publisher_photo_upload
       = render 'photos/new_photo', :aspect_ids => aspect_ids.join(',')

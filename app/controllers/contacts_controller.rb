@@ -11,6 +11,11 @@ class ContactsController < ApplicationController
     if params[:a_id]
       @aspect_ = current_user.aspects.find(params["a_id"])
       @contacts = @aspect_.contacts.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
+    elsif params[:aspect_ids] && request.format == "json"
+      @people = Person.joins(:contacts => :aspect_memberships).
+        where(:contacts => {:user_id => current_user.id},
+              :aspect_memberships => {:aspect_id => params[:aspect_ids]})
+      render :json => @people.to_json
     elsif params[:set] == "only_sharing"
       @contacts = current_user.contacts.only_sharing.includes(:aspects, :person => :profile).order('profiles.last_name ASC').paginate(:page => params[:page], :per_page => 25)
     elsif params[:set] != "all"

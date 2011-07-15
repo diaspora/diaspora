@@ -254,14 +254,15 @@ var Publisher = {
         return '';
       }
     },
-    contactsJSON: function(){
-      return $.parseJSON($('#contact_json').val());
-    },
     initialize: function(){
-      Publisher.input().autocomplete(Publisher.autocompletion.contactsJSON(),
-        Publisher.autocompletion.options());
-      Publisher.input().result(Publisher.autocompletion.selectItemCallback);
-      Publisher.oldInputContent = Publisher.input().val();
+      $.getJSON($("#publisher .selected_contacts_link").attr("href"), undefined ,
+        function(data){
+          Publisher.input().autocomplete(data,
+            Publisher.autocompletion.options());
+          Publisher.input().result(Publisher.autocompletion.selectItemCallback);
+          Publisher.oldInputContent = Publisher.input().val();
+        }
+      );
     }
   },
   determineSubmitAvailability: function(){
