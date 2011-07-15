@@ -157,13 +157,13 @@ describe MarkdownifyHelper do
       end
 
       it "replaces various things with (their) HTML entities" do
-        message = ":) :-) :( :-( ... <-> -> <- (tm) (r) (c)"
-        markdownify(message).should == "&#9786; &#9786; &#9785; &#9785; &hellip; &#8596; &rarr; &larr; &trade; &reg; &copy;"
+        message = "... <-> -> <- (tm) (r) (c)"
+        markdownify(message).should == "&hellip; &#8596; &rarr; &larr; &trade; &reg; &copy;"
       end
 
       it "skips doing it if you say so" do
-        message = ":) :-) :( :-( ... -> <-"
-        markdownify(message, :emoticons => false).should == ":) :-) :( :-( ... -&gt; &lt;-"
+        message = "... -> <-"
+        markdownify(message, :emoticons => false).should == "... -&gt; &lt;-"
       end
     end
 
