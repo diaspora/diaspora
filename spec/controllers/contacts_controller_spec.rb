@@ -62,6 +62,12 @@ describe ContactsController do
       contacts.to_set.should == bob.contacts.to_set
     end
 
+    it 'will return the contacts for multiple aspects' do
+      get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
+      assigns[:people].should == bob.contacts.map(&:person)
+      response.should be_success
+    end
+
     it "generates a jasmine fixture", :fixture => true do
       get :index
       save_fixture(html_for("body"), "aspects_manage")
