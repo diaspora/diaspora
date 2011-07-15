@@ -6,7 +6,8 @@ Feature: infinite scroll
     
     Background:
       Given many posts from alice for bob
-      When I sign in as "bob@bob.bob"
+      And I resize my window to 800x600
+      And I sign in as "bob@bob.bob"
 
     Scenario: on the main stream by activity
       Then I should see 15 posts

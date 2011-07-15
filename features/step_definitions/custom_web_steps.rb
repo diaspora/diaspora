@@ -180,3 +180,9 @@ end
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
 end
+
+When /^I resize my window to 800x600$/ do
+  page.execute_script <<-JS
+    window.resizeTo(800,600);
+  JS
+end
