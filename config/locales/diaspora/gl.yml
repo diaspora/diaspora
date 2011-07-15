@@ -15,7 +15,7 @@ gl:
   hide: 'Ocultar'
   undo: 'Desfacer?'
   or: 'ou'
-  ago: "Hai %{time}."
+  ago: "Hai %{time}"
   username: 'Nome de usuario'
   email: 'Correo electrónico'
   password: 'Contrasinal'
