@@ -2,32 +2,46 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-
 gl: 
-  javascripts: 
-    confirm_dialog: "Está seguro?"
-    publisher: 
-      at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
-    search_for: "Buscar a {{name}}"
-    shared: 
-      contact_list: 
-        cannot_remove: "Non pode quitar esta persoa do aspecto. Se non quere seguir compartindo con ela, elimínea como contacto."
+  javascripts:
+    confirm_dialog: 'Está seguro?'
     timeago: 
-      day: "un día"
-      days: "%d días"
-      hour: "arredor dunha hora"
-      hours: "arredor de %d horas"
-      minute: "arredor dun minuto"
-      minutes: "%d minutos"
-      month: "arredor dun mes"
-      months: "%d meses"
-      prefixAgo: "Hai"
-      prefixFromNow: ""
-      seconds: "menos dun minuto"
-      suffixAgo: ""
-      suffixFromNow: "dende agora"
-      year: "sobre un ano"
-      years: "%d anos"
+      prefixAgo: 'Hai'
+      prefixFromNow: 'Dentro de'
+      suffixAgo: ''
+      suffixFromNow: ''
+      seconds: 'menos dun minuto.'
+      minute: 'un minuto.'
+      minutes: "%d minutos."
+      hour: 'unha hora.'
+      hours: "%d horas."
+      day: 'un día.'
+      days: "%d días."
+      month: 'un mes.'
+      months: "%d meses."
+      year: 'un ano.'
+      years: "%d anos."
     videos: 
-      unknown: "Tipo de vídeo descoñecido"
       watch: "Ver o vídeo en {{provider}}"
+      unknown: 'Tipo de vídeo descoñecido'
+    search_for: "Buscar por «{{name}}»"
+    publisher: 
+      at_least_one_aspect: 'Ten que publicalo polo menos nun aspecto.'
+    infinite_scroll:
+      no_more: 'Non hai máis publicacións.'
+    web_sockets:
+      disconnected: 'Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen.'
+    aspect_dropdown:
+      add_to_aspect: 'Engadir a un aspecto'
+      toggle:
+        zero: 'Engadir a un aspecto'
+        one: 'Nun aspecto'
+        few: "En {{count}} aspectos"
+        many: "En {{count}} aspectos"
+        other: "En {{count}} aspectos"
+    show_more: 'Amosar máis'
+    failed_to_like: 'Non se puido indicar que lle gusta a publicación!'
+    failed_to_post_message: 'Non se puido publicar a mensaxe!'
+    comments:
+      show: 'Amosar todos os comentarios'
+      hide: 'Agochar os comentarios'
