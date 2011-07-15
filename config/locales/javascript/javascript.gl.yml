@@ -4,44 +4,44 @@
 
 gl: 
   javascripts:
-    confirm_dialog: "Está seguro?"
+    confirm_dialog: 'Está seguro?'
     timeago: 
-      prefixAgo: "Hai"
-      prefixFromNow: "Dentro de"
-      suffixAgo: ""
-      suffixFromNow: ""
-      seconds: "menos dun minuto."
-      minute: "un minuto."
+      prefixAgo: 'Hai'
+      prefixFromNow: 'Dentro de'
+      suffixAgo: ''
+      suffixFromNow: ''
+      seconds: 'menos dun minuto.'
+      minute: 'un minuto.'
       minutes: "%d minutos."
-      hour: "unha hora."
+      hour: 'unha hora.'
       hours: "%d horas."
-      day: "un día."
+      day: 'un día.'
       days: "%d días."
-      month: "un mes."
+      month: 'un mes.'
       months: "%d meses."
-      year: "un ano."
+      year: 'un ano.'
       years: "%d anos."
     videos: 
       watch: "Ver o vídeo en {{provider}}"
-      unknown: "Tipo de vídeo descoñecido"
+      unknown: 'Tipo de vídeo descoñecido'
     search_for: "Buscar por «{{name}}»"
     publisher: 
-      at_least_one_aspect: "Ten que publicalo polo menos nun aspecto."
+      at_least_one_aspect: 'Ten que publicalo polo menos nun aspecto.'
     infinite_scroll:
-      no_more: "Non hai máis publicacións."
+      no_more: 'Non hai máis publicacións.'
     web_sockets:
-      disconnected: "Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen."
+      disconnected: 'Pechouse o conector web, as publicacións deixarán de aparecer en canto se publiquen.'
     aspect_dropdown:
-      add_to_aspect: "Engadir a un aspecto"
+      add_to_aspect: 'Engadir a un aspecto'
       toggle:
-        zero: "Engadir a un aspecto"
-        one: "Nun aspecto"
+        zero: 'Engadir a un aspecto'
+        one: 'Nun aspecto'
         few: "En {{count}} aspectos"
         many: "En {{count}} aspectos"
         other: "En {{count}} aspectos"
-    show_more: "Amosar máis"
-    failed_to_like: "Non se puido indicar que lle gusta a publicación!"
-    failed_to_post_message: "Non se puido publicar a mensaxe!"
+    show_more: 'Amosar máis'
+    failed_to_like: 'Non se puido indicar que lle gusta a publicación!'
+    failed_to_post_message: 'Non se puido publicar a mensaxe!'
     comments:
-      show: "Amosar todos os comentarios"
-      hide: "Agochar os comentarios"
+      show: 'Amosar todos os comentarios'
+      hide: 'Agochar os comentarios'
