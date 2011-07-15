@@ -169,7 +169,6 @@ p code {
 }
 pre, .highlight, .gist-highlight {
   &::-webkit-scrollbar {  height: .5em; background: rgba(#fff, .15); }
-  //&::-webkit-scrollbar-track { -webkit-box-shadow: $base03 1px 1px 0 inset; }
   &::-webkit-scrollbar-thumb:horizontal { background: rgba(#fff, .2);  -webkit-border-radius: 4px; border-radius: 4px }
 }
 
