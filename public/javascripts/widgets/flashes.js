@@ -17,10 +17,10 @@
 
     this.render = function(result) {
       $("<div/>", {
-	id: (result.success) ? "flash_notice" : "flash_error"
+				id: (result.success) ? "flash_notice" : "flash_error"
       })
-      .prependTo(document.body)
-      .html(result.notice);
+      	.prependTo(document.body)
+      	.html(result.notice);
 
       self.animateMessages();
     };
