@@ -78,21 +78,11 @@ describe Reshare do
           @root_object = @reshare.root.delete
         end
 
-        it 'fetches the root post from root_guid' do
-          response = mock
-          response.stub(:body).and_return(@root_object.to_diaspora_xml)
-          Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
-
-          root = Reshare.from_xml(@xml).root
-
-          [:text, :guid, :diaspora_handle, :type].each do |attr|
-            root.send(attr).should == @reshare.root.send(attr)
-          end
-        end
-
         it 'fetches the root author from root_diaspora_id' do
-          @original_profile = @reshare.root.author.profile
-          @original_author = @reshare.root.author.delete
+          @original_profile = @reshare.root.author.profile.dup
+          @reshare.root.author.profile.delete
+          @original_author = @reshare.root.author.dup
+          @reshare.root.author.delete
 
           wf_prof_mock = mock
           wf_prof_mock.should_receive(:fetch).and_return(@original_author)
@@ -102,8 +92,31 @@ describe Reshare do
           response.stub(:body).and_return(@root_object.to_diaspora_xml)
 
           Faraday.default_connection.should_receive(:get).with(@original_author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
-
           Reshare.from_xml(@xml)
+        end
+
+        context 'saving the post' do
+          before do
+            response = mock
+            response.stub(:body).and_return(@root_object.to_diaspora_xml)
+            Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
+          end
+
+          it 'fetches the root post from root_guid' do
+            root = Reshare.from_xml(@xml).root
+
+            [:text, :guid, :diaspora_handle, :type, :public].each do |attr|
+              root.send(attr).should == @reshare.root.send(attr)
+            end
+          end
+
+          it 'correctly saves the type' do
+            Reshare.from_xml(@xml).root.reload.type.should == "StatusMessage"
+          end
+
+          it 'correctly sets the author' do
+            Reshare.from_xml(@xml).root.reload.author.reload.should == @original_author
+          end
         end
       end
     end

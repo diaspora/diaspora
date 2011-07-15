@@ -39,11 +39,17 @@ class Reshare < Post
     root_author = Webfinger.new(@root_diaspora_id).fetch
     root_author.save!
 
-    unless self.root = Post.where(:guid => @root_guid).first
-      self.root = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}.xml").body)
-      self.root.save!
+    local_post = Post.where(:guid => @root_guid).select('id').first
+
+    unless local_post && self.root_id = local_post.id
+      received_post = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}.xml").body)
+      unless post = received_post.class.where(:guid => received_post.guid).first
+        post = received_post
+        post.save
+      end
+
+      self.root_id = post.id
     end
-    
   end
 
   def root_must_be_public
