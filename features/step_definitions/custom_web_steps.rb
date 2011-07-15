@@ -160,7 +160,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  all("#main_stream .stream_element").length.should == n_posts.to_i
+  wait_until(10) { all("#main_stream .stream_element").length == n_posts.to_i }
 end
 
 And /^I scroll down$/ do
