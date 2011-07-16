@@ -20,7 +20,7 @@
 
       %br
       - if current_user.owns? @post
-        = link_to t('delete'), @post, :confirm => t('are_you_sure'), :method => :delete
+        = link_to t('delete'), post_path(@post), :confirm => t('are_you_sure'), :method => :delete
       - else
         = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
 
