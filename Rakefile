@@ -59,7 +59,7 @@ end
 # usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
 task :post, :filename do |t, args|
-  require './_plugins/titlecase.rb'
+  require './plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-post')
   open("#{source_dir}/_posts/#{Time.now.strftime('%Y-%m-%d')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
     system "mkdir -p #{source_dir}/#{posts_dir}";
