@@ -122,7 +122,7 @@ Github will queue your site for publishing (which usually occurs instantly or wi
 ### Deploying to a Subdirectory (Github Project Pages does this)
 
 If you're deploying to a subdirectory on your site, or if you're using Github's project pages, make sure you set up your urls correctly in your configs.
-You can do this automatically:
+You can do this *almost* automatically:
 
     rake set_root_dir[your/path]
 
@@ -131,10 +131,10 @@ You can do this automatically:
 
 Then update your `_config.yml` and `Rakefile` as follows:
 
-    # Change the url in _config.yml
+    # _config.yml
     url: http://yoursite.com/your/path
 
-    # If deploying with rsync, update your Rakefile path
+    # Rakefile (if deploying with rsync)
     document_root = "~/yoursite.com/your/path"
 
 To manually configure deployment to a subdirectory, you'll change `_config.yml`, `config.rb` and `Rakefile`
@@ -162,7 +162,7 @@ To manually configure deployment to a subdirectory, you'll change `_config.yml`,
 ## License
 (The MIT License)
 
-Copyright © 2009 Brandon Mathis
+Copyright © 2009-2011 Brandon Mathis
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the ‘Software’), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
