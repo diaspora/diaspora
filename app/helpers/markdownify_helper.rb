@@ -118,10 +118,6 @@ module MarkdownifyHelper
   def process_emoticons(message)
     map = [
       ["&lt;3", "&hearts;"],
-      [":(", "&#9785;"],
-      [":-(", "&#9785;"],
-      [":)", "&#9786;"],
-      [":-)", "&#9786;"],
       ["&lt;-&gt;", "&#8596;"],
       ["-&gt;", "&rarr;"],
       ["&lt;-", "&larr;"],
