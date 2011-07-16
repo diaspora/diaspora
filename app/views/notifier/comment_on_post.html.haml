@@ -1,15 +1,4 @@
 %p
-  = t('notifier.hello', :name => @receiver.profile.first_name)
+  = process_newlines(truncate(@comment.text, :length => 600))
 %p
-  = "#{@sender.name} (#{@sender.diaspora_handle})"
-  = t('.commented')
-
-  = @comment.text
-
-  %br
-  = link_to t('.sign_in'), post_url(@comment.post)
-
-  %br
-  = t('notifier.love')
-  %br
-  = t('notifier.diaspora')
+  = link_to t('notifier.comment_on_post.reply', :name => @comment.post.author.name), post_url(@comment.post)

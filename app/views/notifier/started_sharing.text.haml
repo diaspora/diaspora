@@ -1,8 +1,4 @@
-!= t('notifier.hello', :name => @receiver.profile.first_name)
-!= "#{@sender.name} (#{@sender.diaspora_handle})"
+!= "#{@sender.name}"
 != t('notifier.started_sharing.sharing')
-
-!= t('.sign_in')
-!= new_user_session_url
-!= "#{t('notifier.love')} \n"
-!= t('notifier.diaspora')
+!= t('.view_profile', :name => @sender.first_name)
+!= person_url(@sender)

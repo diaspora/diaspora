@@ -15,9 +15,13 @@ module MarkdownifyHelper
     message = process_youtube(message, options[:youtube_maps])
     message = process_vimeo(message, options[:vimeo_maps])
     message = process_emoticons(message) if options[:emoticons]
+    message = process_newlines(message) if options[:newlines]
 
-    message.gsub!(/\n+/, '<br />') if options[:newlines]
+    message
+  end
 
+  def process_newlines(message)
+    message.gsub!(/\n+/, '<br />')
     message
   end
 

@@ -1,15 +1,8 @@
 %p
-  = t('notifier.hello', :name => @receiver.profile.first_name)
-%p
-  = t('.liked', :name => "#{@sender.name} (#{@sender.diaspora_handle})")
+  = "#{t('.liked', :name => "#{@sender.name}")}:"
+
+%p{:style => "font-style:italic;color:#666"}
+  = process_newlines(truncate(@like.target.formatted_message(:plain_text => true), :length => 200))
 
 %p
-  = @like.target.formatted_message(:plain_text => true)
-%p
-
-  %br
-  = link_to t('.sign_in'), post_url(@like.target)
-  %br
-  = t('notifier.love')
-  %br
-  = t('notifier.diaspora')
+  = link_to t('.view_post'), post_url(@like.target)
