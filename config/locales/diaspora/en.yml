@@ -417,7 +417,7 @@ en:
     private_message:
         reply_to_or_view: "Reply to or view this conversation >"
     liked:
-        liked: "%{name} just liked your post:"
+        liked: "%{name} just liked your post"
         view_post: "View post >"
 
   people:
