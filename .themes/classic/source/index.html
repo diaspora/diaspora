@@ -13,13 +13,13 @@ blog_index: true
 <nav role="pagination">
   <div>
     {% if paginator.next_page %}
-      <a class="prev" href="/page{{paginator.next_page}}/">&larr; Older</a>
+      <a class="prev" href="{{ site.root }}/page{{paginator.next_page}}/">&larr; Older</a>
     {% endif %}
-    <a href="/blog/archives">Blog Archives</a>
+    <a href="{{ site.root }}/blog/archives">Blog Archives</a>
     {% if paginator.previous_page and paginator.previous_page > 1 %}
-      <a class="next" href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
+      <a class="next" href="{{ site.root }}/page{{paginator.previous_page}}/">Newer &rarr;</a>
     {% elsif paginator.previous_page %}
-      <a class="next" href="/">Newer &rarr;</a>
+      <a class="next" href="{{ site.root }}/">Newer &rarr;</a>
     {% endif %}
   </div>
 </nav>

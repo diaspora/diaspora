@@ -124,7 +124,40 @@ task :push do
   end
 end
 
-desc "setup _deploy folder and deploy branch"
+desc "Update configurations to support publishing to root or sub directory"
+task :set_root_dir, :dir do |t, args|
+  puts ">>> !! Please provide a directory, eg. rake config_dir[publishing/subdirectory]" unless args.dir
+  if args.dir
+    if args.dir == "/"
+      dir = ""
+    else
+      dir = "/" + args.dir.sub(/(\/*)(.+)/, "\\2").sub(/\/$/, '');
+    end
+    rakefile = IO.read(__FILE__)
+    rakefile.sub!(/public_dir(\s*)=(\s*)(["'])[\w\-\/]*["']/, "public_dir\\1=\\2\\3public#{dir}\\3")
+    File.open(__FILE__, 'w') do |f|
+      f.write rakefile
+    end
+    compass_config = IO.read('config.rb')
+    compass_config.sub!(/http_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_path\\1=\\2\\3#{dir}/\\3")
+    compass_config.sub!(/http_images_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_images_path\\1=\\2\\3#{dir}/images\\3")
+    compass_config.sub!(/http_fonts_path(\s*)=(\s*)(["'])[\w\-\/]*["']/, "http_fonts_path\\1=\\2\\3#{dir}/fonts\\3")
+    compass_config.sub!(/css_dir(\s*)=(\s*)(["'])[\w\-\/]*["']/, "css_dir\\1=\\2\\3public#{dir}/stylesheets\\3")
+    File.open('config.rb', 'w') do |f|
+      f.write compass_config
+    end
+    jekyll_config = IO.read('_config.yml')
+    jekyll_config.sub!(/^destination:.+$/, "destination: public#{dir}")
+    jekyll_config.sub!(/^subscribe_rss:.+$/, "subscribe_rss: #{dir}/atom.xml")
+    jekyll_config.sub!(/^root:.*$/, "root: #{dir}")
+    File.open('_config.yml', 'w') do |f|
+      f.write jekyll_config
+    end
+    mkdir_p "public#{dir}"
+  end
+end
+
+desc "Setup _deploy folder and deploy branch"
 task :config_deploy, :branch do |t, args|
   puts "!! Please provide a deploy branch, eg. rake init_deploy[gh-pages] !!" unless args.branch
   puts "## Creating a clean #{args.branch} branch in ./#{deploy_dir} for Github pages deployment"

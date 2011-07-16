@@ -118,22 +118,46 @@ The `config_deploy` rake task takes a branch name as an argument and creates a [
 This prepares your branch for easy deployment. The `rake deploy` task copies the generated blog from the `public` directory to the `_deploy` directory, adds new files, removes old files, sets a commit message, and pushes to Github.
 Github will queue your site for publishing (which usually occurs instantly or within minutes if it's your first commit).
 
-**Please note,** Github's project pages will be published to a subdirectory and you'll have to make sure you set up your urls correctly in your configs.
 
-For Octopress my cofigs would be set up like this:
+### Deploying to a Subdirectory (Github Project Pages does this)
 
-    # _config.yaml
+If you're deploying to a subdirectory on your site, or if you're using Github's project pages, make sure you set up your urls correctly in your configs.
+You can do this automatically:
+
+    rake set_root_dir[your/path]
+
+    # To go back to publishing to the document root
+    rake set_root_dir[/]
+
+Then update your `_config.yml` and `Rakefile` as follows:
+
+    # Change the url in _config.yml
+    url: http://yoursite.com/your/path
+
+    # If deploying with rsync, update your Rakefile path
+    document_root = "~/yoursite.com/your/path"
+
+To manually configure deployment to a subdirectory, you'll change `_config.yml`, `config.rb` and `Rakefile`
+
+    # Example for deploying to Octopress's Github Pages
+
+    # _config.yml
     destination: public/octopress
     url: http://imathis.github.com/octopress
     subscribe_rss: /octopress/atom.xml
     root: /octopress
 
-    # config.rb
+    # config.rb - for Compass & Sass
     http_path = "/octopress"
+    http_images_path = "/octopress/images"
+    http_fonts_path = "/octopress/fonts"
+    css_dir = "public/octopress/stylesheets"
+
 
     # Rakefile
     public_dir = "public/octopress"
-
+    # If deploying with rsync, update your Rakefile path
+    document_root = "~/yoursite.com/your/path"
 
 ## License
 (The MIT License)
