@@ -7,15 +7,14 @@ module MarkdownifyHelper
     message = h(message).html_safe
 
     options[:newlines] = true if !options.has_key?(:newlines)
-    options[:emoticons] = true if !options.has_key?(:emoticons)
 
     message = process_links(message)
     message = process_autolinks(message)
     message = process_emphasis(message)
     message = process_youtube(message, options[:youtube_maps])
     message = process_vimeo(message, options[:vimeo_maps])
-    message = process_emoticons(message) if options[:emoticons]
     message = process_newlines(message) if options[:newlines]
+    message = process_specialchars(message)
 
     message
   end
@@ -115,7 +114,7 @@ module MarkdownifyHelper
     processed_message
   end
 
-  def process_emoticons(message)
+  def process_specialchars(message)
     map = [
       ["&lt;3", "&hearts;"],
       ["&lt;-&gt;", "&#8596;"],
