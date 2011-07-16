@@ -14,11 +14,15 @@ describe PostsController do
     alice.add_to_streams(@message, [aspect])
     alice.dispatch_post @message, :to => aspect.id
   end
+
   describe '#show' do
-
-
     it 'succeeds' do
       get :show, "id" => @message.id.to_s
+      response.should be_success
+    end
+
+    it 'succeeds on mobile' do
+      get :show, "id" => @message.id.to_s, :format => :mobile
       response.should be_success
     end
 
