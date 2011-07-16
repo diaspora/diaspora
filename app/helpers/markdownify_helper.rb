@@ -7,6 +7,7 @@ module MarkdownifyHelper
     message = h(message).html_safe
 
     options[:newlines] = true if !options.has_key?(:newlines)
+    options[:specialchars] = true if !options.has_key?(:specialchars)
 
     message = process_links(message)
     message = process_autolinks(message)
@@ -14,7 +15,7 @@ module MarkdownifyHelper
     message = process_youtube(message, options[:youtube_maps])
     message = process_vimeo(message, options[:vimeo_maps])
     message = process_newlines(message) if options[:newlines]
-    message = process_specialchars(message)
+    message = process_specialchars(message) if options[:specialchars]
 
     message
   end

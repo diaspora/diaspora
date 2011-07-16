@@ -150,7 +150,7 @@ describe MarkdownifyHelper do
       end
     end
 
-    describe "emoticons" do
+    describe "specialchars" do
       it "replaces &lt;3 with &hearts;" do
         message = "i <3 you"
         markdownify(message).should == "i &hearts; you"
@@ -163,7 +163,7 @@ describe MarkdownifyHelper do
 
       it "skips doing it if you say so" do
         message = "... -> <-"
-        markdownify(message, :emoticons => false).should == "... -&gt; &lt;-"
+        markdownify(message, :specialchars => false).should == "... -&gt; &lt;-"
       end
     end
 
