@@ -1,10 +1,1 @@
-!= t('notifier.hello', :name => @receiver.profile.first_name)
-!= "#{@sender.name} (#{@sender.diaspora_handle})"
-!= t('notifier.comment_on_post.commented')
-
-!= @comment.text
-
-!= post_url(@comment.post)
-
-!= "#{t('notifier.love')} \n"
-!= t('notifier.diaspora')
+!= truncate(@comment.text, :length => 600)

@@ -1,8 +1,12 @@
 class Notifier < ActionMailer::Base
   helper :application
+  helper :markdownify
+
   default :from => AppConfig[:smtp_sender_address]
 
-  ATTACHMENT = File.read("#{Rails.root}/public/images/logo_caps.png")
+  include ActionView::Helpers::TextHelper
+
+  TRUNCATION_LEN = 70
 
   def self.admin(string, recipients, opts = {})
     mails = []
@@ -16,7 +20,6 @@ class Notifier < ActionMailer::Base
   def single_admin(string, recipient)
     @receiver = recipient
     @string = string.html_safe
-    attachments.inline['logo_caps.png'] = ATTACHMENT
     mail(:to => @receiver.email,
          :subject => I18n.t('notifier.single_admin.subject'), :host => AppConfig[:pod_uri].host)
   end
@@ -26,8 +29,6 @@ class Notifier < ActionMailer::Base
     @sender = Person.find_by_id(sender_id)
 
     log_mail(recipient_id, sender_id, 'started_sharing')
-
-    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     I18n.with_locale(@receiver.language) do
       mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
@@ -42,22 +43,18 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'liked')
 
-    attachments.inline['logo_caps.png'] = ATTACHMENT
-
     I18n.with_locale(@receiver.language) do
       mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.liked.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+           :subject => I18n.t('notifier.liked.liked', :name => @sender.name), :host => AppConfig[:pod_uri].host)
     end
   end
 
   def mentioned(recipient_id, sender_id, target_id)
     @receiver = User.find_by_id(recipient_id)
-    @sender   = Person.find_by_id(sender_id)
-    @post  = Mention.find_by_id(target_id).post
+    @sender = Person.find_by_id(sender_id)
+    @post = Mention.find_by_id(target_id).post
 
     log_mail(recipient_id, sender_id, 'mentioned')
-
-    attachments.inline['logo_caps.png'] = ATTACHMENT
 
     I18n.with_locale(@receiver.language) do
       mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
@@ -72,11 +69,10 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
-    attachments.inline['logo_caps.png'] = ATTACHMENT
-
     I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.comment_on_post.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
+           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => "Re: #{truncate(@comment.parent.formatted_message(:plain_text => true).strip, :length => TRUNCATION_LEN)}")
     end
   end
 
@@ -89,11 +85,10 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
-    attachments.inline['logo_caps.png'] = ATTACHMENT
-
     I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.also_commented.subject', :name => @sender.name, :post_author => @post_author_name ), :host => AppConfig[:pod_uri].host)
+      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
+           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => "Re: #{truncate(@comment.parent.formatted_message(:plain_text => true).strip, :length => TRUNCATION_LEN)}")
     end
   end
 
@@ -107,11 +102,14 @@ class Notifier < ActionMailer::Base
 
     log_mail(recipient_id, sender_id, 'private_message')
 
-    attachments.inline['logo_caps.png'] = ATTACHMENT
+    subject = @conversation.subject.strip
+    subject = "Re: #{subject}" if @conversation.messages.size > 1
+
 
     I18n.with_locale(@receiver.language) do
-      mail(:to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => I18n.t('notifier.private_message.subject', :name => @sender.name), :host => AppConfig[:pod_uri].host)
+      mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
+           :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
+           :subject => subject)
     end
   end
 
