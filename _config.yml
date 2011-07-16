@@ -22,7 +22,14 @@ recent_posts: 5
 category_dir: blog/categories
 simple_search: http://google.com/search
 
-# Optional configurations
+# ----------------------- #
+# Optional configurations #
+# ----------------------- #
+
+# If publishing to a subdirectory as in http://site.com/project set this:
+# root: /project
+# If left blank, urls will be mapped to '/'
+root:
 
 # RSS feeds can list your email address if you like
 email:

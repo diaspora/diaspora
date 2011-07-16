@@ -118,6 +118,23 @@ The `config_deploy` rake task takes a branch name as an argument and creates a [
 This prepares your branch for easy deployment. The `rake deploy` task copies the generated blog from the `public` directory to the `_deploy` directory, adds new files, removes old files, sets a commit message, and pushes to Github.
 Github will queue your site for publishing (which usually occurs instantly or within minutes if it's your first commit).
 
+**Please note,** Github's project pages will be published to a subdirectory and you'll have to make sure you set up your urls correctly in your configs.
+
+For Octopress my cofigs would be set up like this:
+
+    # _config.yaml
+    destination: public/octopress
+    url: http://imathis.github.com/octopress
+    subscribe_rss: /octopress/atom.xml
+    root: /octopress
+
+    # config.rb
+    http_path = "/octopress"
+
+    # Rakefile
+    public_dir = "public/octopress"
+
+
 ## License
 (The MIT License)
 
