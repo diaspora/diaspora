@@ -21,8 +21,6 @@
 module Jekyll
 
   class PullquoteTag < Liquid::Block
-    PullQuoteMarkup = /\{(.+)\}/i
-
     def initialize(tag_name, markup, tokens)
       super
     end
