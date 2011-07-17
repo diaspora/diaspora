@@ -47,7 +47,7 @@
         .header
           = link_to t('.view_all'), notifications_path, :id => "view_all_notifications"
           %h4
-            Recent notifications
+            = t('.recent_notifications')
         .notifications
           .ajax_loader
             = image_tag("ajax-loader.gif")
