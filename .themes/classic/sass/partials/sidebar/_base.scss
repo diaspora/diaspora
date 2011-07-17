@@ -34,7 +34,7 @@ aside[role=sidebar] {
   }
   a {
     color: inherit;
-    @include transition(color, .5s);
+    @include transition(color .5s);
   }
   &:hover a {
     color: $sidebar-link-color;
