@@ -30,8 +30,7 @@
 # {% endcodeblock %}
 #
 # <figure role=code>
-# <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm>
-# </code></pre>
+# <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm></code></pre>
 # </figure>
 #
 module Jekyll
