@@ -9,7 +9,7 @@ describe("Diaspora", function() {
       describe("start", function() {
         it("should set up like on initialize", function() {
           spyOn(Diaspora.widgets.post, "setUpLikes");
-          Diaspora.widgets.post.start();
+          Diaspora.widgets.post.publish("widget/ready");
           expect(Diaspora.widgets.post.setUpLikes).toHaveBeenCalled();
         });
       });

@@ -100,7 +100,7 @@ zh-TW:
         learn_more: "進一步了解"
       diaspora_id: 
         content_1: "你的 Diaspora 識別碼是:"
-        content_2: "給任何一個人, 讓他/她們可以在 Diaspora 找到你."
+        content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
@@ -428,7 +428,7 @@ zh-TW:
     profile_sidebar: 
       bio: "自我介紹"
       born: "生日"
-      edit_my_profile: "編輯我的個人檔案"
+      edit_my_profile: "編輯個人檔案"
       gender: "性別"
       in_aspects: "所屬面向"
       location: "位置"
@@ -492,9 +492,9 @@ zh-TW:
       post_hidden: "已隱藏 %{name} 的貼文"
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "刪除"
+      not_found: "抱歉,找不到該則貼文."
+      permalink: "靜態連結"
   previous: "前面"
   profile: "個人檔案"
   profiles: 
@@ -640,7 +640,7 @@ zh-TW:
       shared_with: "分享給: %{aspect_names}"
       unlike: "收回讚"
       via: "經由%{link}"
-      viewable_to_anyone: "任何網頁使用者都能看到這篇貼文"
+      viewable_to_anyone: "任何網頁使用者都能看到這則貼文"
   status_messages: 
     create: 
       success: "成功推薦了: %{names}"

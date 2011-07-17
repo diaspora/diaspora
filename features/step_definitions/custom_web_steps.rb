@@ -160,7 +160,7 @@ Then /^the "([^"]*)" field(?: within "([^"]*)")? should be filled with "([^"]*)"
 end
 
 Then /^I should see (\d+) posts$/ do |n_posts|
-  all("#main_stream .stream_element").length.should == n_posts.to_i
+  wait_until(10) { all("#main_stream .stream_element").length == n_posts.to_i }
 end
 
 And /^I scroll down$/ do
@@ -179,4 +179,10 @@ end
 
 Then /^the notification dropdown should be visible$/ do
   find(:css, "#notification_dropdown").should be_visible
+end
+
+When /^I resize my window to 800x600$/ do
+  page.execute_script <<-JS
+    window.resizeTo(800,600);
+  JS
 end

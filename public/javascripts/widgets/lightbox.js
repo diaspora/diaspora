@@ -20,7 +20,7 @@ jQuery.fn.center = (function() {
   var Lightbox = function() {
     var self = this;
 
-    this.start = function() {
+    this.subscribe("widget/ready", function() {
       $.extend(self, {
         lightbox: $("#lightbox"),
         imageset: $("#lightbox-imageset"),
@@ -62,7 +62,7 @@ jQuery.fn.center = (function() {
           break;
         }
       });
-    };
+    });
 
     this.nextImage = function(thumb){
       var next = thumb.next();

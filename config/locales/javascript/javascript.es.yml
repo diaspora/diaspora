@@ -33,7 +33,7 @@ es:
       minute: "un minuto"
       minutes: "%d minutos"
       month: "un mes aproximadamente"
-      months: "%d meses"
+      months: "%d meses aproximadamente"
       prefixAgo: "hace"
       prefixFromNow: "desde ahora"
       seconds: "menos de un minuto"

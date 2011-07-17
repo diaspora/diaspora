@@ -1,0 +1,36 @@
+<table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;color:#333;">
+  <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;color:#333;">
+    <tr width="100%">
+      <% if @sender %>
+        <td style="vertical-align:top;" width="80px">
+          <div style="background-color:#eee;height:70px;width:70px;">
+            <img alt="<%=@sender.name%>" src="<%=@sender.profile.image_url(:medium)%>" style="border:0;display:block;display:relative;top:0;left:0;" height="70px" width="70px">
+          </div>
+        </td>
+      <% end %>
+      <td style="vertical-align:top;">
+        <%= yield %>
+      </td>
+    </tr>
+  </table>
+
+  <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:12px;color:#999; padding-top:10px; margin-top:10px; border-top: 1px solid #ddd;">
+    <tr>
+      <td>
+        <%= t('notifier.email_sent_by_diaspora') %>
+        <a href="<%=edit_user_url%>">
+          <%= t('notifier.click_here') %>
+        </a>
+        <%=t('notifier.to_change_your_notification_settings')%>.
+      </td>
+    </tr>
+  </table>
+  <table cellspacing="0" cellpadding="0" border="0" align="center" width="100%" style="font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;font-size:14px;color:#333;">
+    <tr>
+      <td style="text-align:center;padding:30px;">
+        <img src="<%=AppConfig[:pod_url]%>images/logo_caps.png" alt="DIASPORA*" width="95px" height="14px"/>
+      </td>
+    </tr>
+  </table>
+</table>
+

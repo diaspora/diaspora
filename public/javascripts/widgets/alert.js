@@ -1,34 +1,37 @@
-Diaspora.widgets.add("alert", function() {
-  this.start = function() {
-    $(document).bind("close.facebox", function() {
-      if ($("#diaspora_alert").length) {
-        $("#diaspora_alert").detach();
-      }
-    });
+(function() {
+  var Alert = function() {
+    var self = this;
+
+    this.faceboxTemplate = '<div id="diaspora_alert" class="facebox_content">' +
+      '<div class="span-12 last">' +
+				'<div id="facebox_header">' +
+	  			'<h4>' +
+	    			'{{title}}' +
+	  			'</h4>' +
+				'</div>' +
+				'{{content}}' +
+      '</div>' +
+    '</div>';
+
+
+    this.subscribe("widget/ready", function() {
+      $(document).bind("close.facebox", function() {
+				$("#facebox, #diaspora_alert").remove();
+      });
+    }); 
+
+
+    this.alert = function(title, content) {
+      $($.mustache(self.faceboxTemplate, {
+				title: title,
+				content: content
+      })).appendTo(document.body);
+
+      $.facebox({
+        div: "#diaspora_alert"
+      }, "diaspora_alert");
+    }
   };
 
-  this.faceboxTemplate = '<div id="diaspora_alert" class="facebox_content">' +
-    '<div class="span-12 last">' +
-      '<div id="facebox_header">' +
-        '<h4>' +
-          '{{title}}' +
-        '</h4>' +
-      '</div>' +
-      '{{content}}' +
-    '</div>' +
-  '</div>';
-
-
-  this.alert = function(title, content) {
-    var template = $.mustache(this.faceboxTemplate, {
-      title: title,
-      content: content
-    });
-
-    $(template).appendTo(document.body);
-
-    $.facebox({
-      div: "#diaspora_alert"
-    }, 'diaspora_alert');
-  }
-});
+  Diaspora.widgets.add("alert", Alert);
+})();

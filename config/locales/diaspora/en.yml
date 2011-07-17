@@ -397,39 +397,28 @@ en:
         other: "%{count} new notifications"
 
   notifier:
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    click_here: "click here"
     hello: "Hello %{name}!"
-    love: "love,"
     thanks: "Thanks,"
-    diaspora: "the diaspora email robot"
-    manage_your_email_settings: "manage your email settings"
+    to_change_your_notification_settings: "to change your notification settings"
     single_admin:
         subject: "A message about your Diaspora account:"
         admin: "Your Diaspora administrator"
     started_sharing:
-        subject: "%{name} has started sharing with you on Diaspora*"
+        subject: "%{name} started sharing with you on Diaspora*"
         sharing: "has started sharing with you!"
-        sign_in: "Sign in here"
+        view_profile: "View %{name}'s profile"
     comment_on_post:
-        subject: "%{name} has commented on your post."
-        commented: "has commented on your post:"
-        sign_in: "Sign in to view it."
-    also_commented:
-        subject: "%{name} has also commented on %{post_author}'s post."
-        commented: "has also commented on %{post_author}'s post:"
-        sign_in: "Sign in to view it."
+        reply: "Reply or view %{name}'s post >"
     mentioned:
         subject: "%{name} has mentioned you on Diaspora*"
         mentioned: "mentioned you in a post:"
-        sign_in: "Sign in to view it."
     private_message:
-        subject: "%{name} has sent you a private message on Diaspora*"
-        private_message: "has sent you a private message:"
-        message_subject: "Subject: %{subject}"
-        sign_in: "Sign in to view it."
+        reply_to_or_view: "Reply to or view this conversation >"
     liked:
-        subject: "%{name} has just liked your post"
-        liked: "%{name} has just liked your post: "
-        sign_in: "Sign in to view it"
+        liked: "%{name} just liked your post"
+        view_post: "View post >"
 
   people:
     zero: "no people"

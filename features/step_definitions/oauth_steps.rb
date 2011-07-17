@@ -59,7 +59,7 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      Process.exec "cd #{Rails.root}/spec/chubbies/ && bundle exec rackup -p #{PORT} #{nullify}"
+      Process.exec "cd #{Rails.root}/spec/chubbies/ && bundle exec rackup -p #{PORT} 2> /dev/null 1> /dev/null"
     end
 
     at_exit do
@@ -73,10 +73,6 @@ class Chubbies
 
   def self.kill
     `kill -9 #{get_pid}`
-  end
-
-  def self.nullify
-    ENV["CI"] ? '' : "2> /dev/null 1> /dev/null"
   end
 
   def self.ensure_killed

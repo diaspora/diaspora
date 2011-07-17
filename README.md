@@ -6,6 +6,13 @@ network.
 **THIS IS ALPHA SOFTWARE AND SHOULD BE TREATED ACCORDINGLY.**
 **IT IS FUN TO GET RUNNING, BUT EXPECT THINGS TO BE BROKEN.**
 
+## Want an invite?
+
+Well, ok then!  Diaspora is decentralized. You don't need an invite to joindiaspora.com to fully participate. Just choose your pod for example at http://podup.sargodarya.de or http://dspr.tk/a If you still want one have a look at https://github.com/diaspora/diaspora/wiki/Invitations Or setup your own pod 
+
+Even if you're not a programmer, we'd love for you to give Diaspora a spin; all suggestions and comments welcome!
+
+
 ## Installation instructions
 
 Installation instructions are [here](http://github.com/diaspora/diaspora/wiki/Installing-and-Running-Diaspora).
@@ -16,7 +23,7 @@ Please report any bugs you see at [GitHub Issues](https://github.com/diaspora/di
 ## Contributing to Diaspora
 
 ###[An introduction to the source code](http://github.com/diaspora/diaspora/wiki/An-Introduction-to-the-Diaspora-Source)
-###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues).
+###[Issue tracker (bugs and features)](https://github.com/diaspora/diaspora/issues)
 ###[How to use git](http://github.com/diaspora/diaspora/wiki/Git-Workflow)
 
 Here are a few good places to start:

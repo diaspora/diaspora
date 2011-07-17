@@ -1,12 +1,5 @@
 %p
-  = t('notifier.hello', :name => @receiver.profile.first_name)
-%p
-  = "#{@sender.name} (#{@sender.diaspora_handle})"
+  = @sender.name
   = t('.sharing')
-
-  %br
-  = link_to t('.sign_in'), new_user_session_url
-  %br
-  = t('notifier.love') 
-  %br
-  = t('notifier.diaspora')
+%p
+  = link_to t('.view_profile', :name => @sender.first_name), person_url(@sender)

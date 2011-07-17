@@ -43,9 +43,9 @@ describe("Diaspora", function() {
               );
         });
 
-        it("attackes onVideoLinkClicked to a.video-link'", function() {
+        it("attaches onVideoLinkClicked to a.video-link'", function() {
           spyOn(Diaspora.widgets.embedder, "onVideoLinkClicked");
-          Diaspora.widgets.embedder.start();
+          Diaspora.widgets.embedder.publish("widget/ready");
           $("a.video-link:first").click();
           expect(Diaspora.widgets.embedder.onVideoLinkClicked).toHaveBeenCalled();
         });

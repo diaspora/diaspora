@@ -16,14 +16,10 @@ module Job
     end
     def self.create_visibilities(post, recipient_user_ids)
       contacts = Contact.where(:user_id => recipient_user_ids, :person_id => post.author_id)
-      contacts.each do |contact|
-        begin
-          PostVisibility.create(:contact_id => contact.id, :post_id => post.id)
-        rescue ActiveRecord::RecordNotUnique => e
-          Rails.logger.info(:event => :unexpected_pv, :contact_id => contact.id, :post_id => post.id)
-          #The post was already visible to that user
-        end
+      new_post_visibilities = contacts.map do |contact|
+        PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
       end
+      PostVisibility.import new_post_visibilities
     end
     def self.socket_to_users(post, recipient_user_ids)
       recipient_user_ids.each do |id|

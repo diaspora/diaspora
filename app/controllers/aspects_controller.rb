@@ -39,7 +39,7 @@ class AspectsController < ApplicationController
       all_selected_people = Person.joins(:contacts => :aspect_memberships).
         where(:contacts => {:user_id => current_user.id},
               :aspect_memberships => {:aspect_id => aspect_ids})
-      @selected_people = all_selected_people.select("DISTINCT people.*").includes(:profile)
+      @selected_people = all_selected_people.select("DISTINCT people.*").limit(20).includes(:profile)
     end
 
     @aspect_ids = @aspects.map { |a| a.id }

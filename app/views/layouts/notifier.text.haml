@@ -1,3 +1,4 @@
 != yield
-!= t('notifier.manage_your_email_settings')
-!= "#{AppConfig[:pod_uri].scheme}://#{AppConfig[:pod_uri].host}#{edit_user_path}"
+!= t('notifier.email_sent_by_diaspora')
+!= t('notifier.to_change_your_notification_settings')
+!= edit_user_url

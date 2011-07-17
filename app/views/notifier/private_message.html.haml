@@ -1,18 +1,4 @@
 %p
-  = t('notifier.hello', :name => @receiver.profile.first_name)
+  = markdownify(@message.text)
 %p
-  = "#{@sender.name} (#{@sender.diaspora_handle})"
-  = t('.private_message')
-%p 
-  = t('.message_subject', :subject => @conversation.subject)
-%p
-  = @message.text
-%p
-
-  %br
-  = link_to t('.sign_in'), conversations_url(:conversation_id => @conversation)
-
-  %br
-  = t('notifier.love') 
-  %br
-  = t('notifier.diaspora')
+  = link_to t('.reply_to_or_view'), conversations_url(:conversation_id => @conversation)

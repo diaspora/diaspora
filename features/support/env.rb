@@ -74,3 +74,21 @@ end
 After('@localserver') do
   CapybaraSettings.instance.restore
 end
+
+class Capybara::Driver::Selenium < Capybara::Driver::Base
+  class Node < Capybara::Node
+    def [](name)
+      node.attribute(name.to_s)
+    rescue Selenium::WebDriver::Error::WebDriverError
+      nil
+    end
+
+    def select(option)
+      option_node = node.find_element(:xpath, ".//option[normalize-space(text())=#{Capybara::XPath.escape(option)}]") || node.find_element(:xpath, ".//option[contains(.,#{Capybara::XPath.escape(option)})]")
+      option_node.click
+    rescue
+      options = node.find_elements(:xpath, "//option").map { |o| "'#{o.text}'" }.join(', ')
+      raise Capybara::OptionNotFound, "No such option '#{option}' in this select box. Available options: #{options}"
+    end
+  end
+end

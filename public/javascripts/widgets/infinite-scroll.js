@@ -4,16 +4,16 @@
 */
 
 (function() {
-  var InfiniteScroll = function() { };
-  InfiniteScroll.prototype.options =
-    {
+  var InfiniteScroll = function() {
+    var self = this;
+    this.options = {
       navSelector  : "#pagination",
       nextSelector : ".paginate",
       itemSelector : ".stream_element",
       pathParse    : function( pathStr, nextPage ){
-        var newPath = pathStr.replace("?", "?only_posts=true&");
-        var last_time = $('#main_stream .stream_element').last().find('.time').attr('integer');
-        return newPath.replace( /max_time=\d+/, 'max_time=' + last_time);
+        var newPath = pathStr.replace("?", "?only_posts=true&"),
+        	lastTime = $('#main_stream .stream_element').last().find('.time').attr('integer');
+        return newPath.replace( /max_time=\d+/, 'max_time=' + lastTime);
       },
       bufferPx: 500,
       debug: false,
@@ -22,38 +22,34 @@
       loadingImg: '/images/ajax-loader.gif'
     };
 
-  InfiniteScroll.prototype.reInitialize = function(){
-    this.clear();
-    this.initialize();
-  };
+    this.subscribe("widget/ready", function() {
+      Diaspora.widgets.subscribe("stream/reloaded", self.reInitialize, this);
+      self.initialize();
+    });
 
-  InfiniteScroll.prototype.initialize = function(){
-    if($('#main_stream').length !== 0){
-      $('#main_stream').infinitescroll(this.options, function() {
-        Diaspora.widgets.publish("stream/scrolled");
-      });
+    this.reInitialize = function() {
+      self.clear();
+      self.initialize();  
+    };
 
-    } else if($('#people_stream.contacts').length !== 0){
-      $("#people_stream.contacts").infinitescroll({
-        navSelector  : ".pagination",
-        nextSelector : ".next_page",
-        itemSelector : ".stream_element",
-        loadingText: "",
-        loadingImg: '/images/ajax-loader.gif',
-        bufferPx: 400
-      }, function(){
-        Diaspora.widgets.publish("stream/scrolled");
-      });
-    }
-  };
+    this.initialize = function() {
+      if($('#main_stream').length !== 0){
+				$('#main_stream').infinitescroll(this.options, function() {
+	  			Diaspora.widgets.publish("stream/scrolled");
+				});
+      } else if($('#people_stream.contacts').length !== 0){
+				$("#people_stream.contacts").infinitescroll($.extend(self.options, {
+	  			navSelector  : ".pagination",
+	  			nextSelector : ".next_page",
+				}), function() {
+	  			Diaspora.widgets.publish("stream/scrolled");
+				});
+      }
+    };
 
-  InfiniteScroll.prototype.start = function() {
-    Diaspora.widgets.subscribe("stream/reloaded", this.reInitialize, this);
-    this.initialize();
-  };
-
-  InfiniteScroll.prototype.clear = function() {
-    $('#main_stream').infinitescroll('destroy');
+    this.clear = function() {
+      $("#main_stream").infinitescroll("destroy");
+    };
   };
 
   Diaspora.widgets.add("infinitescroll", InfiniteScroll);
