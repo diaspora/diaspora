@@ -413,39 +413,28 @@ ca:
 
 
   notifier:
+    email_sent_by_diaspora: "Aquest correu electrònic ha sigut enviat per Diàspora. Si voleu deixar de rebre correus com aquest,"
+    click_here: "feu clic aquí"
     hello: "Hola %{name}!"
-    love: "Amb amor,"
     thanks: "Gràcies,"
-    diaspora: "el robot del correu del Diàspora"
-    manage_your_email_settings: "gestioneu els paràmetres del correu"
+    to_change_your_notification_settings: "per canviar els paràmetres del correu"
     single_admin:
       subject: "Un missatge sobre el vostre compte de Diàspora:"
       admin: "L'administrador de Diàspora"
     started_sharing:
       subject: "%{name} ha començat a compartir amb vosaltres al Diàspora*"
       sharing: "ha començat a compartir amb vosaltres!"
-      sign_in: "Identifiqueu-vos aquí"
+      view_profile: "Visualitza el perfil de %{name}"
     comment_on_post:
-      subject: "%{name} ha comentat la vostra publicació."
-      commented: "ha comentat la vostra publicació:"
-      sign_in: "Identifiqueu-vos per a mostrar-ho."
-    also_commented:
-      subject: "%{name} també ha comentat la publicació de %{post_author}."
-      commented: "també ha comentat la publicació de %{post_author}:"
-      sign_in: "Identifiqueu-vos per a mostrar-ho."
+      reply: "Contesta o visualitza la publicació de %{name} >"
     mentioned:
       subject: "%{name} t'ha mencionat al Diàspora*"
       mentioned: "t'ha mencionat en una publicació:"
-      sign_in: "Identifiqueu-vos per a mostrar-ho."
     private_message:
-      subject: "%{name} us ha enviat un missatge privat al Diàspora*"
-      private_message: "us ha enviat un missatge privat:"
-      message_subject: "Assumpte: %{subject}"
-      sign_in: "Identifiqueu-vos per a mostrar-ho."
+      reply_to_or_view: "Contesta o visualitza aquesta conversa >"
     liked:
-      subject: "A %{name} li ha agradat la vostra publicació"
-      liked: "A %{name} li ha agradat la vostra publicació: "
-      sign_in: "Entreu per a veure-ho"
+      liked: "A %{name} li ha agradat la vostra publicació"
+      view_post: "visualitza la publicació >"
 
 
   people:
