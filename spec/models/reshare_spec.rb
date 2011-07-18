@@ -75,7 +75,8 @@ describe Reshare do
 
       context 'remote' do
         before do
-          @root_object = @reshare.root.delete
+          @root_object = @reshare.root
+          @root_object.delete
         end
 
         it 'fetches the root author from root_diaspora_id' do
@@ -83,6 +84,8 @@ describe Reshare do
           @reshare.root.author.profile.delete
           @original_author = @reshare.root.author.dup
           @reshare.root.author.delete
+
+          @original_author.profile = @original_profile
 
           wf_prof_mock = mock
           wf_prof_mock.should_receive(:fetch).and_return(@original_author)
@@ -99,7 +102,7 @@ describe Reshare do
           before do
             response = mock
             response.stub(:body).and_return(@root_object.to_diaspora_xml)
-            Faraday.default_connection.should_receive(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
+            Faraday.default_connection.stub(:get).with(@reshare.root.author.url + public_post_path(:guid => @root_object.guid, :format => "xml")).and_return(response)
           end
 
           it 'fetches the root post from root_guid' do
@@ -115,7 +118,25 @@ describe Reshare do
           end
 
           it 'correctly sets the author' do
+            @original_author = @reshare.root.author
             Reshare.from_xml(@xml).root.reload.author.reload.should == @original_author
+          end
+
+          it 'verifies that the author of the post received is the same as the author in the reshare xml' do
+            @original_author = @reshare.root.author.dup
+            @xml = @reshare.to_xml.to_s
+
+            different_person = Factory.create(:person)
+
+            wf_prof_mock = mock
+            wf_prof_mock.should_receive(:fetch).and_return(different_person)
+            Webfinger.should_receive(:new).and_return(wf_prof_mock)
+
+            different_person.stub(:url).and_return(@original_author.url)
+
+            lambda{
+              Reshare.from_xml(@xml)
+            }.should raise_error /^Diaspora ID \(.+\) in the root does not match the Diaspora ID \(.+\) specified in the reshare!$/
           end
         end
       end

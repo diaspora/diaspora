@@ -45,7 +45,13 @@ class Reshare < Post
       received_post = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}.xml").body)
       unless post = received_post.class.where(:guid => received_post.guid).first
         post = received_post
-        post.save
+
+        if root_author.diaspora_handle != post.diaspora_handle
+          raise "Diaspora ID (#{post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
+        end
+
+        post.author_id = root_author.id
+        post.save!
       end
 
       self.root_id = post.id
