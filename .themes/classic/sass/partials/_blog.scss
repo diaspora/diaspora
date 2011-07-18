@@ -1,10 +1,6 @@
 article {
   overflow: hidden;
   padding-top: 1em;
-  ul, ol { margin-left: 1.4em; }
-  @media only screen and (min-width: 768px) {
-    ul, ol { margin-left: 0; }
-  }
   header {
     position: relative;
     padding-top: 2em;
@@ -35,9 +31,9 @@ article {
   h2 {
     padding-top: 0.8em;
     background: $img-border top left repeat-x;
-    .entry-content &:first-child { padding-top: 0; }
-    &:first-child { background: none; }
   }
+  .entry-content & h2:first-child, header + h2 { padding-top: 0; }
+  h2:first-child, header + h2 { background: none; }
   .feature {
     padding-top: .5em;
     margin-bottom: 1em;
@@ -90,7 +86,9 @@ article {
 
 }
 article + article {
-  background: $img-border top left repeat-x;
+  .blog-index & {
+    background: $img-border top left repeat-x;
+  }
 }
 #content .blog-index {
   padding: { top: 0; bottom: 0; }

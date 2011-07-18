@@ -175,6 +175,9 @@ pre, .highlight, .gist-highlight {
 
 .highlight code { @extend .pre-code; background: #000;}
 figure[role=code] {
+  background: none;
+  padding: 0;
+  border: 0;
   margin-bottom: 1.5em;
   figcaption {
     position: relative;

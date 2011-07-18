@@ -12,7 +12,29 @@ $sidebar-pad-medium: 15px !default;
 $sidebar-pad-wide: 20px !default;
 $sidebar-width-wide: 300px !default;
 
+$indented-lists: false !default;
+
 .group { @include pie-clearfix; }
+
+@mixin collapse-sidebar {
+  float: none;
+  width: auto;
+  clear: left;
+  margin: 0;
+  padding: 0 $pad-medium 1px;
+  background-color: lighten($sidebar-bg, 2);
+  border-top: 1px solid lighten($sidebar-border, 4);
+  section {
+    &.odd, &.even { float: left; width: 48%; }
+    &.odd { margin-left: 0; }
+    &.even { margin-left: 4%; }
+  }
+  &.thirds section {
+    width: 30%;
+    margin-left: 5%;
+    &.first { margin-left: 0; }
+  }
+}
 
 body {
   -webkit-text-size-adjust: none;
@@ -43,23 +65,31 @@ body {
   }
 }
 
-#content {
-  > div, > article { width: 100%; }
-  > aside {
-    float: none;
-    padding: 0 $pad-min 1px;
-    background-color: lighten($sidebar-bg, 2);
-    border-top: 1px solid $sidebar-border;
-  }
+#content { > div, > article { width: 100%; }}
+
+aside[role=sidebar] {
+  float: none;
+  padding: 0 $pad-min 1px;
+  background-color: lighten($sidebar-bg, 2);
+  border-top: 1px solid $sidebar-border;
+  @extend .group;
 }
 
-.toggle-sidebar { display: none; }
+.toggle-sidebar { &, .no-sidebar & { display: none; }}
+
+body.sidebar-footer {
+  @media only screen and (min-width: 750px) {
+    aside[role=sidebar]{ @include collapse-sidebar; }
+  }
+  #content { margin-right: 0px; }
+  .toggle-sidebar { display: none; }
+}
 
 @media only screen and (min-width: 550px) {
   body > header { font-size: 1em; }
-  #content aside {
-    @extend .group;
-  }
+}
+@media only screen and (min-width: 750px) {
+  aside[role=sidebar] { @include collapse-sidebar; }
 }
 @media only screen and (min-width: 768px) {
   body { -webkit-text-size-adjust: auto; }
@@ -73,89 +103,28 @@ body {
     @extend .group;
     margin-right: $sidebar-width-medium;
     position: relative;
+    .no-sidebar & { margin-right: 0; }
+    .collapse-sidebar & { margin-right: 20px; }
     > div, > article {
       padding-top: $pad-medium/2;
       padding-bottom: $pad-medium/2;
       float: left;
     }
-    > aside {
-      width: $sidebar-width-medium - $sidebar-pad-medium*2;
-      padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
-      background: none;
-      float: left;
-      margin: 0 -100% 0 0;
-      section {
-        width: auto; margin-left: 0;
-        &.odd, &.even { float: none; width: auto; margin-left: 0; }
-      }
-    }
-    .collapse-sidebar & {
-      margin-right: 20px;
-      > aside {
-        float: none;
-        clear: left;
-        width: auto;
-        margin: 0;
-        padding: 0 $pad-medium 1px;
-        background-color: lighten($sidebar-bg, 2);
-        border-top: 1px solid lighten($sidebar-border, 4);
-        section {
-          &.odd, &.even { float: left; width: 48%; }
-          &.odd { margin-left: 0; }
-          &.even { margin-left: 4%; }
-        }
-      }
-      > aside.thirds section {
-        width: 30%;
-        margin-left: 5%;
-        &.first { margin-left: 0; }
-      }
-    }
   }
-  .toggle-sidebar {
-    outline: none;
-    position: absolute; right: -10px; top: 0; bottom: 0;
-    display: inline-block;
-    text-decoration: none;
-    color: mix($text-color-light, $sidebar-bg);
-    width: 9px;
-    cursor: pointer;
-    &:hover {
-      background: mix($sidebar-border, $sidebar-bg);
-      @include background(linear-gradient(left, rgba($sidebar-border, .5), rgba($sidebar-border, 0)));
-    }
-    &:after {
-      position: absolute; right: -11px; top: 0;
-      width: 20px;
-      font-size: 1.2em;
-      line-height: 1.1em;
-      padding-bottom: .15em;
-      @include border-bottom-right-radius(.3em);
-      text-align: center;
-      background: $main-bg $noise-bg;
-      border-bottom: 1px solid $sidebar-border;
-      border-right: 1px solid $sidebar-border;
-      content: "\00BB";
-      text-indent: -1px;
+  aside[role=sidebar] {
+    @extend .group;
+    width: $sidebar-width-medium - $sidebar-pad-medium*2;
+    padding: 0 $sidebar-pad-medium $sidebar-pad-medium;
+    background: none;
+    clear: none;
+    float: left;
+    margin: 0 -100% 0 0;
+    section {
+      width: auto; margin-left: 0;
+      &.odd, &.even { float: none; width: auto; margin-left: 0; }
     }
     .collapse-sidebar & {
-      text-indent: 0px;
-      right: -20px;
-      width: 19px;
-      &:hover {
-        background: mix($sidebar-border, $sidebar-bg);
-      }
-      &:after {
-        border-left: 1px solid $sidebar-border;
-        text-shadow: #fff 0 1px;
-        content: "\00AB";
-        left: 0px; right: 0;
-        text-align: center;
-        text-indent: 0;
-        border: 0;
-        border-right-width: 0;
-        background: none;
-      }
+      @include collapse-sidebar;
     }
   }
 }
@@ -168,13 +137,19 @@ body {
       padding-top: $pad-wide/2;
       padding-bottom: $pad-wide/2;
     }
-    > aside {
-      width: $sidebar-width-wide - $sidebar-pad-wide*2;
-      padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
-    }
-    .collapse-sidebar & aside {
+  }
+  aside[role=sidebar] {
+    width: $sidebar-width-wide - $sidebar-pad-wide*2;
+    padding: 1.2em $sidebar-pad-wide $sidebar-pad-wide;
+    .collapse-sidebar & {
       padding: { left: $pad-wide; right: $pad-wide; }
       @extend .group;
     }
+  }
+}
+
+@if $indented-lists == false {
+  @media only screen and (min-width: 768px) {
+    ul, ol { margin-left: 0; }
   }
 }
