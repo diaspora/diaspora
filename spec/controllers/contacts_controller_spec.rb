@@ -33,11 +33,6 @@ describe ContactsController do
       response.should be_success
     end
 
-    it "assigns aspect to manage" do
-      get :index
-      assigns(:aspect).should == :manage
-    end
-
     it "assigns contacts" do
       get :index
       contacts = assigns(:contacts)
