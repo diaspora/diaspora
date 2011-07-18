@@ -312,6 +312,7 @@ ca:
       code: "codi"
       admin: "administra"
       view_all: "Mostra-ho tot"
+      recent_notifications: "Notificacions recents"
     application:
       powered_by: "FUNCIONA AMB DIÀSPORA*"
       whats_new: "què és nou?"
