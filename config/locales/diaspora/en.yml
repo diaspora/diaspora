@@ -316,6 +316,12 @@ en:
         few: "%{count} likes"
         many: "%{count} likes"
         other: "%{count} likes"
+      people_like_this_comment:
+        zero: "no likes"
+        one: "%{count} like"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        other: "%{count} likes"
       people_dislike_this:
         zero: "no dislikes"
         one: "%{count} dislike"
