@@ -29,7 +29,7 @@ module NotificationsHelper
       end
     elsif note.instance_of?(Notifications::Liked)
       post = note.target
-      post = post.post if post.is_a? Like
+      post = post.target if post.is_a? Like
       if post
         translation(target_type, :actors => actors, :count => actors_count, :post_author => h(post.author.name), :post_link => link_to(t('notifications.post'), post_path(post), 'data-ref' => post.id, :class => 'hard_object_link').html_safe)
       else
