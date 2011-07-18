@@ -1,11 +1,11 @@
 {% include head.html %}
-<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == 'none' %} class="no-sidebar" {% endif %}>
+<body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %}>
   <header>{% include header.html %}</header>
   <nav>{% include navigation.html %}</nav>
   <div id="main">
     <div id="content">
       {{ content }}
-      {% unless page.sidebar == 'none' %}
+      {% unless page.sidebar == false %}
         <aside role=sidebar>{% include sidebar.html %}</aside>
       {% endunless %}
     </div>

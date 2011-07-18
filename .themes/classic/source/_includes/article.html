@@ -5,7 +5,7 @@
     {% else %}
       <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% endif %}
-    {% unless page.no_meta %}
+    {% unless page.meta == false %}
       <p class="meta">{% include post/date.html %}</p>
     {% endunless %}
   </header>

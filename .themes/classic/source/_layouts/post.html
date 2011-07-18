@@ -12,12 +12,12 @@ single: true
       {% include post/date.html %}
       {% include post/categories.html %}
     </p>
-    {% unless page.no_sharing %}
-    {% include post/sharing.html %}
+    {% unless page.sharing == false %}
+      {% include post/sharing.html %}
     {% endunless %}
   </footer>
 </article>
-{% if site.disqus_short_name and page.no_comments != true %}
+{% if site.disqus_short_name and page.comments == true %}
   <section>
     <h1>Comments</h1>
     <div id="disqus_thread">{% include post/disqus_thread.html %}</div>
