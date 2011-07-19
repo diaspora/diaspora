@@ -12,13 +12,14 @@ deploy_branch  = "gh-pages"
 
 ## -- Misc Configs, you probably have no reason to changes these -- ##
 
-public_dir  = "public"    # compiled site directory
-source_dir  = "source"    # source file directory
-deploy_dir  = "_deploy"    # deploy directory (for Github pages deployment)
-stash_dir   = "_stash"    # directory to stash posts for speedy generation
-posts_dir   = "_posts"    # directory for blog files
-themes_dir  = ".themes"    # directory for blog files
-post_format = "markdown"  # file format for new posts when using the post rake task
+public_dir   = "public"    # compiled site directory
+source_dir   = "source"    # source file directory
+deploy_dir   = "_deploy"   # deploy directory (for Github pages deployment)
+stash_dir    = "_stash"    # directory to stash posts for speedy generation
+posts_dir    = "_posts"    # directory for blog files
+themes_dir   = ".themes"   # directory for blog files
+new_post_ext = "markdown"  # default new post file extension when using the new_post task
+new_page_ext = "markdown"  # default new page file extension when using the new_page task
 
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
@@ -54,19 +55,52 @@ task :preview do
   system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto --server & jekyllPid=$!; compass watch & compassPid=$!; wait"
 end
 
-# usage rake post[my-new-post] or rake post['my new post'] or rake post (defaults to "new-post")
+# usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
-task :post, :filename do |t, args|
+task :new_post, :title do |t, args|
   require './plugins/titlecase.rb'
-  args.with_defaults(:filename => 'new-post')
-  open("#{source_dir}/_posts/#{Time.now.strftime('%Y-%m-%d')}-#{args.filename.downcase.gsub(/[ _]/, '-')}.#{post_format}", 'w') do |post|
+  args.with_defaults(:title => 'new-post')
+  title = args.title
+  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.downcase.gsub(/&/,'and').gsub(/[,\.'":\(\)\[\]]/,'').gsub(/\W/, '-')}.#{new_post_ext}"
+  puts "Creating new post: #{filename}"
+  open(filename, 'w') do |post|
     system "mkdir -p #{source_dir}/#{posts_dir}";
     post.puts "---"
-    post.puts "title: #{args.filename.gsub(/[-_]/, ' ').titlecase}"
-    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "layout: post"
+    post.puts "title: #{title.gsub(/&/,'&amp;').titlecase}"
+    post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+    post.puts "comments: true"
     post.puts "categories: "
     post.puts "---"
+  end
+end
+
+# usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")
+desc "Begin a new post in #{source_dir}/#{posts_dir}"
+task :new_page, :filename do |t, args|
+  require './plugins/titlecase.rb'
+  args.with_defaults(:filename => 'new-page')
+  page_dir = source_dir
+  if args.filename =~ /(^.+\/)?(\w+)(\.)?(.+)?/
+    page_dir += "/#{$1}"
+    name = $2
+    extension = $4 || new_page_ext
+    filename = "#{name}.#{extension}"
+    mkdir_p page_dir
+    file = page_dir + filename
+    puts "Creating new page: #{file}"
+    open(file, 'w') do |page|
+      page.puts "---"
+      page.puts "layout: page"
+      page.puts "title: #{name.gsub(/[-_]/, ' ').titlecase}"
+      page.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
+      page.puts "comments: true"
+      page.puts "sharing: true"
+      page.puts "footer: true"
+      page.puts "---"
+    end
+  else
+    puts "Syntax error: #{args.filename} contains unsupported characters"
   end
 end
 
