@@ -21,7 +21,7 @@ Feature: Change password
     And I fill in "Email" with "forgetful@users.net"
     And I press "Send me reset password instructions"
     Then I should see "You will receive an email with instructions"
-    And I follow the "Change my password" link from the Devise.mailer
+    And I follow the "Change my password" link from the last sent email
     Then I should see "Change your password"
     And I fill in "Password" with "supersecret"
     And I fill in "Password confirmation" with "supersecret"
