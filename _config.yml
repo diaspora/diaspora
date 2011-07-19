@@ -1,38 +1,43 @@
-# Required configuration
-source: source
-destination: public
-plugins: plugins
-code_dir: downloads/code
-port: 4000
+# ----------------------- #
+#      Main Configs       #
+# ----------------------- #
 
 url: http://yoursite.com
 title: My Octopress Blog
-permalink: /blog/:year/:month/:day/:title
 subtitle: A blogging framework for hackers.
 author: Your Name
+simple_search: http://google.com/search
 
 # RSS / Email (optional) subscription links (change if using something like Feedburner)
 subscribe_rss: /atom.xml
 subscribe_email:
-
-markdown: rdiscount
-pygments: true
-paginate: 10
-recent_posts: 5
-category_dir: blog/categories
-simple_search: http://google.com/search
-
-# ----------------------- #
-# Optional configurations #
-# ----------------------- #
-
-# If publishing to a subdirectory as in http://site.com/project set this:
-# root: /project
-# If left blank, urls will be mapped to '/'
-root:
-
 # RSS feeds can list your email address if you like
 email:
+
+# ----------------------- #
+#    Jekyll & Plugins     #
+# ----------------------- #
+
+# If publishing to a subdirectory as in http://site.com/project set 'root: /project'
+# If blank, urls will be mapped to '/'
+root:
+
+port: 4000
+permalink: /blog/:year/:month/:day/:title
+source: source
+destination: public
+plugins: plugins
+code_dir: downloads/code
+category_dir: blog/categories
+markdown: rdiscount
+pygments: true
+
+paginate: 10 # Posts per page on the blog index
+recent_posts: 5 # Posts in the sidebar Recent Posts section
+
+# ----------------------- #
+#   3rd Party Settings    #
+# ----------------------- #
 
 # Twitter
 twitter_user: imathis
