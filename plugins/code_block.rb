@@ -45,10 +45,10 @@ module Jekyll
       @highlight = true
       if markup =~ CaptionUrlTitle
         @file = $1
-        @caption = "<figcaption><span>#{$1}</span><a href='#{$2 + $3}'>#{$4}</a</figcaption>"
+        @caption = "<figcaption><span>#{$1}</span><a href='#{$2 + $3}'>#{$4}</a></figcaption>"
       elsif markup =~ CaptionUrl
         @file = $1
-        @caption = "<figcaption><span>#{$1}</span><a href='#{$2 + $3}'>link</a</figcaption>"
+        @caption = "<figcaption><span>#{$1}</span><a href='#{$2 + $3}'>link</a></figcaption>"
       elsif markup =~ Caption
         @file = $1
         @caption = "<figcaption><span>#{$1}</span></figcaption>\n"
@@ -62,12 +62,12 @@ module Jekyll
     def render(context)
       output = super
       code = super.join
-      source = "<figure role=code>\n"
+      source = "<div><figure role=code>"
       source += @caption if @caption
       if @filetype
-        source += "{% highlight #{@filetype} %}\n" + code + "\n{% endhighlight %}\n</figure>"
+        source += "{% highlight #{@filetype} %}\n" + code + "\n{% endhighlight %}</figure></div>"
       else
-        source += "<pre><code>" + code.gsub!(/</,'&lt;') + "</code></pre>\n</figure>"
+        source += "<pre><code>" + code.gsub!(/</,'&lt;') + "</code></pre></figure></div>"
       end
       partial = Liquid::Template.parse(source)
       context.stack do
