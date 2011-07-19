@@ -21,17 +21,15 @@ themes_dir  = ".themes"    # directory for blog files
 post_format = "markdown"  # file format for new posts when using the post rake task
 
 
-desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
+desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
 task :install, :theme do |t, args|
   # copy theme into working Jekyll directories
   theme = args.theme || 'classic'
-  puts "## Copying "+theme+" theme into ./#{source_dir} ./sass and ./plugins "
+  puts "## Copying "+theme+" theme into ./#{source_dir} and ./sass"
   mkdir_p source_dir
   cp_r "#{themes_dir}/#{theme}/source/.", source_dir
   mkdir_p "sass"
   cp_r "#{themes_dir}/#{theme}/sass/.", "sass"
-  mkdir_p "plugins"
-  cp_r "#{themes_dir}/#{theme}/plugins/.", "plugins"
   mkdir_p "#{source_dir}/#{posts_dir}"
   mkdir_p public_dir
 end
@@ -67,7 +65,7 @@ task :post, :filename do |t, args|
     post.puts "title: #{args.filename.gsub(/[-_]/, ' ').titlecase}"
     post.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
     post.puts "layout: post"
-    post.puts "categories: []"
+    post.puts "categories: "
     post.puts "---"
   end
 end
