@@ -39,7 +39,7 @@ Install the default Octopress theme,
 
 and you should be all set up to begin blogging with Octopress.
 
-### Generating & Preview
+### Generate & Preview
 
     rake generate   # Generates your blog into the public directory
     rake watch      # Watches files for changes and regenerates your blog
@@ -57,16 +57,18 @@ Now that you're setup with POW, you'll just run `rake watch` and load up `http:/
 
 Create your first post.
 
-    rake post['hello world']
+    rake new_post["hello world"]
 
-This will put a new post in source/_posts with a name like like `2011-07-3-hello-world.markdown` in the `source/_posts` directory.
+This will put a new post with a name like like `2011-07-3-hello-world.markdown` in the `source/_posts` directory.
 Open that file in your favorite text editor and you'll see a block of [yaml front matter](https://github.com/mojombo/jekyll/wiki/yaml-front-matter)
 which tells Jekyll how to processes posts and pages.
 
     ---
-    title: Hello World
-    date: 2011-07-03 5:59
     layout: post
+    title: "Hello World"
+    date: 2011-07-03 5:59
+    comments: true
+    categories:
     ---
 
 Now beneath the yaml block, go ahead and type up a sample post, or use some [inspired filler](http://baconipsum.com/). If you're running the watcher, save and refresh your browser and you
