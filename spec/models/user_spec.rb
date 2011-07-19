@@ -756,14 +756,14 @@ describe User do
   describe '#retract' do
     before do
       @retraction = mock
+
+      @post = Factory(:status_message, :author => bob.person, :public => true)
     end
 
     context "regular retractions" do
       before do
         Retraction.stub(:for).and_return(@retraction)
         @retraction.stub(:perform)
-
-        @post = Factory(:status_message, :author => bob.person, :public => true)
       end
 
       it 'sends a retraction' do
@@ -787,13 +787,25 @@ describe User do
       end
 
       it 'performs the retraction' do
-
+        pending
       end
     end
 
     context "relayable retractions" do
-      it 'sends a relayable retraction if the object is relayable' do
+      before do
+        @post.reshares << Factory.create(:reshare, :author => remote_raphael)        
+        @post.save!
+      end
 
+      it 'sends a relayable retraction if the object is relayable' do
+        r_ret = RelayableRetraction.build(bob, @post)
+        RelayableRetraction.should_receive(:build).and_return(r_ret)
+        
+        dis = mock
+        dis.should_receive(:post)
+        Postzord::Dispatch.should_receive(:new).with(bob, r_ret).and_return(dis)
+
+        bob.retract(@post)
       end
     end
   end

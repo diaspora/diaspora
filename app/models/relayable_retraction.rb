@@ -51,7 +51,7 @@ class RelayableRetraction
     retraction.sender = sender
     retraction.target = target
     retraction.target_author_signature = retraction.sign_with_key(sender.encryption_key) if sender.person == target.author
-    retraction.parent_author_signature = retraction.sign_with_key(sender.encryption_key) if sender.person == target.parent.author
+    retraction.parent_author_signature = retraction.sign_with_key(sender.encryption_key) if defined?(target.parent) && sender.person == target.parent.author
     retraction
   end
 

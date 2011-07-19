@@ -61,7 +61,7 @@
           - if (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
             ·
             %span.reshare_action
-              = link_to "Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
+              = link_to "#{(post.reshares.size unless post.reshares.size == 0)} Reshare", reshares_path(:root_id => post.id), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
           ·
 
           = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'

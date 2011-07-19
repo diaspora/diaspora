@@ -91,9 +91,8 @@ Feature: public repost
     Then I should see "reshare this!" 
     Then I should see a ".reshare"
     And I should see "Bob" 
+    And I go to the home page
 
-    And I go to the destroy user session page
-    And I sign in as "bob@bob.bob"
     And I should see "1 Reshare"
 
   Scenario: Can have text
