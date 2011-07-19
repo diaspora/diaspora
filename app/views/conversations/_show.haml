@@ -20,8 +20,6 @@
 %br
 .span-15.last
   .stream
-    = render :partial => 'messages/message', :collection => conversation.messages
-
     .stream_element.new_message
       = owner_image_tag(:thumb_small)
 
@@ -31,3 +29,5 @@
           .right
             = message.submit t('cancel'), :name => "reset", :id => "reset_button", :type => "reset", :class => "button", :tabindex => 3
             = message.submit t('.reply').capitalize, :class => 'button creation', :tabindex => 2
+
+    = render :partial => 'messages/message', :collection => conversation.messages
