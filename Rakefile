@@ -81,7 +81,7 @@ task :new_page, :filename do |t, args|
   require './plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-page')
   page_dir = source_dir
-  if args.filename =~ /(^.+\/)?(\w+)(\.)?(.+)?/
+  if args.filename =~ /(^.+\/)?([\w_-]+)(\.)?(.+)?/
     page_dir += $4 ? "/#{$1}" : "/#{$1}#{$2}/"
     name = $4 ? $2 : "index"
     extension = $4 || "#{new_page_ext}"
