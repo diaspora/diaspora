@@ -154,3 +154,10 @@ test:
   open_invitations: false
 
 
+integration_1:
+  <<: *defaults
+  pod_url: "http://localhost:45789"
+  
+integration_2:
+  <<: *defaults
+  pod_url: "http://localhost:34658"

@@ -6,7 +6,7 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
-    if Rails.env == 'test' || ENV["CI"]
+    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration")
       File.join(Rails.root, "config", "application.yml.example")
     else
       File.join(Rails.root, "config", "application.yml")

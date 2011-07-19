@@ -15,6 +15,8 @@ class Retraction
   def subscribers(user)
     unless self.type == 'Person'
       @subscribers ||= self.object.subscribers(user)
+      @subscribers -= self.object.resharers
+      @subscribers
     else
       raise 'HAX: you must set the subscribers manaully before unfriending' if @subscribers.nil?
       @subscribers
