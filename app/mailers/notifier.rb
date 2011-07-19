@@ -113,6 +113,16 @@ class Notifier < ActionMailer::Base
     end
   end
 
+  def confirm_email(receiver_id)
+    @receiver = User.find_by_id(receiver_id)
+
+    I18n.with_locale(@receiver.language) do
+      mail(:to => "\"#{@receiver.name}\" <#{@receiver.unconfirmed_email}>",
+           :subject => I18n.t('notifier.confirm_email.subject', :unconfirmed_email => @receiver.unconfirmed_email),
+           :host => AppConfig[:pod_uri].host)
+    end
+  end
+
   private
   def log_mail recipient_id, sender_id, type
     log_string = "event=mail mail_type=#{type} recipient_id=#{recipient_id} sender_id=#{sender_id}"

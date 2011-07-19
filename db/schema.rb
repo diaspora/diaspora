@@ -391,6 +391,8 @@ ActiveRecord::Schema.define(:version => 20110707234802) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.string   "authentication_token",   :limit => 30
+    t.string   "unconfirmed_email"
+    t.string   "confirm_email_token",    :limit => 30
     t.datetime "locked_at"
   end
 

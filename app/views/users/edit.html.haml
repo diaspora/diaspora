@@ -19,8 +19,15 @@
   .span-5.last
     %h3
       = t('.your_email')
-    %p
-      = current_user.email
+    = form_for 'user', :url => user_path, :html => { :method => :put } do |f|
+      = f.error_messages
+      %p
+        = f.text_field :email, :value => @user.unconfirmed_email || @user.email
+        = f.submit t('.change_email')
+    %br
+    - if @user.unconfirmed_email.present?
+      %p= t('.email_awaiting_confirmation', :email => @user.email, :unconfirmed_email => @user.unconfirmed_email)
+    %br
 
   %br
   %br
