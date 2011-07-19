@@ -33,10 +33,13 @@ Next, setup an [RVM](http://beginrescueend.com/) and install dependencies.
     sudo easy_install pip
     sudo pip install pygments
 
-    # Install the default Octopress theme
+Install the default Octopress theme,
+
     rake install
 
-### Generating Your Blog
+and you should be all set up to begin blogging with Octopress.
+
+### Generating & Preview
 
     rake generate   # Generates your blog into the public directory
     rake watch      # Watches files for changes and regenerates your blog
