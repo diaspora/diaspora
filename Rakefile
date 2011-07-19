@@ -82,9 +82,9 @@ task :new_page, :filename do |t, args|
   args.with_defaults(:filename => 'new-page')
   page_dir = source_dir
   if args.filename =~ /(^.+\/)?(\w+)(\.)?(.+)?/
-    page_dir += "/#{$1}"
-    name = $2
-    extension = $4 || new_page_ext
+    page_dir += $4 ? "/#{$1}" : "/#{$1}#{$2}/"
+    name = $4 ? $2 : "index"
+    extension = $4 || "#{new_page_ext}"
     filename = "#{name}.#{extension}"
     mkdir_p page_dir
     file = page_dir + filename
@@ -92,7 +92,7 @@ task :new_page, :filename do |t, args|
     open(file, 'w') do |page|
       page.puts "---"
       page.puts "layout: page"
-      page.puts "title: \"#{name.gsub(/[-_]/, ' ').titlecase}\""
+      page.puts "title: \"#{$2.gsub(/[-_]/, ' ').titlecase}\""
       page.puts "date: #{Time.now.strftime('%Y-%m-%d %H:%M')}"
       page.puts "comments: true"
       page.puts "sharing: true"
