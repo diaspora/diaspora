@@ -4,7 +4,7 @@
 
 namespace :db do
   desc "rebuild and prepare test db"
-  task :rebuild => [:drop, :create, :migrate, :seed,'db:test:prepare']
+  task :rebuild => [:drop, :drop_integration, :create, :migrate, :seed, 'db:test:prepare']
 
   namespace :integration do
     # desc 'Check for pending migrations and load the integration schema'
@@ -80,6 +80,14 @@ namespace :db do
     require File.dirname(__FILE__) + '/../../db/seeds/add_user'
   end
   task :add_user => :environment
+
+  task :drop_integration do
+    ActiveRecord::Base.configurations.keys.select{ |k|
+      k.include?("integration")
+    }.each{ |k|
+      drop_database ActiveRecord::Base.configurations[k]
+    }
+  end
 
   task :fix_diaspora_handle do
     puts "fixing the people in this seed"
