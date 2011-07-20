@@ -67,7 +67,7 @@ module Jekyll
       if @filetype
         source += "{% highlight #{@filetype} %}\n" + code + "\n{% endhighlight %}</figure></div>"
       else
-        source += "<pre><code>" + code.gsub!(/</,'&lt;') + "</code></pre></figure></div>"
+        source += "<pre><code>" + code.lstrip.rstrip.gsub(/</,'&lt;') + "</code></pre></figure></div>"
       end
       partial = Liquid::Template.parse(source)
       context.stack do
