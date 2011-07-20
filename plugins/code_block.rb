@@ -2,11 +2,19 @@
 # Author: Brandon Mathis http://brandonmathis.com
 # Description: Write codeblocks with semantic HTML5 <figure> and <figcaption> elements and optional syntax highlighting — all with a simple, intuitive interface.
 #
-# Syntax: {% codeblock [title] [url] [link text] %}
+# Syntax:
+# {% codeblock [title] [url] [link text] %}
+# code snippet
+# {% endcodeblock %}
 #
 # For syntax highlighting, put a file extension somewhere in the title. examples:
 # {% codeblock file.sh %}
+# code snippet
+# {% endcodeblock %}
+#
 # {% codeblock Time to be Awesome! (awesome.rb) %}
+# code snippet
+# {% endcodeblock %}
 #
 # Example:
 #
