@@ -18,9 +18,14 @@ require 'pathname'
 module Jekyll
 
   class IncludeCodeTag < Liquid::Tag
-    def initialize(tag_name, file, tokens)
+    def initialize(tag_name, markup, tokens)
+      @title = nil
+      @file = nil
+      if markup.strip =~ /(.*)?(\s+|^)(\/*\S+)/i
+        @title = $1 || nil
+        @file = $3
+      end
       super
-      @file = file.strip
     end
 
     def render(context)
@@ -39,8 +44,9 @@ module Jekyll
       Dir.chdir(code_path) do
         code = file.read
         file_type = file.extname
+        title = @title ? "#{@title} (#{file.basename})" : file.basename
         url = "#{context.registers[:site].config['url']}/#{code_dir}/#{@file}"
-        source = "<div><figure role=code><figcaption><span>#{file.basename}</span> <a href='#{url}'>download</a></figcaption>\n"
+        source = "<div><figure role=code><figcaption><span>#{title}</span> <a href='#{url}'>download</a></figcaption>\n"
         source += "{% highlight #{file_type} %}\n" + code + "\n{% endhighlight %}</figure></div>"
         partial = Liquid::Template.parse(source)
         context.stack do
