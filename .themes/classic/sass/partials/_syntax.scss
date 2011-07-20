@@ -13,7 +13,7 @@
   }
 }
 html .gist .gist-file {
-  margin-bottom: 1.5em;
+  margin-bottom: 1.8em;
   position: relative;
   border: none;
   padding-top: image-height("code_bg.png") !important;
@@ -178,7 +178,7 @@ figure[role=code] {
   background: none;
   padding: 0;
   border: 0;
-  margin-bottom: 1.5em;
+  margin-bottom: 1.8em;
   figcaption {
     position: relative;
     @extend .code-title;
@@ -213,3 +213,4 @@ figure[role=code] {
   text-shadow: #cbcccc 0 1px 0;
   padding-left: 3em;
 }
+
