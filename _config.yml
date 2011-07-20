@@ -40,7 +40,7 @@ recent_posts: 5 # Posts in the sidebar Recent Posts section
 # ----------------------- #
 
 # Twitter
-twitter_user: imathis
+twitter_user:
 twitter_tweet_count: 4
 twitter_show_replies: false
 twitter_follow_button: true
@@ -52,7 +52,7 @@ google_plus_one: true
 google_plus_one_size: medium
 
 # Pinboard
-pinboard_user: imathis
+pinboard_user:
 pinboard_count: 3
 
 # Delicious
@@ -60,7 +60,7 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name: octopress
+disqus_short_name:
 
 # Google Analytics
 google_analytics_tracking_id:
