@@ -19,7 +19,7 @@ end
 
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
-  p.sequence(:url)  { |n| "http://google-#{n}#{r_str}.com/" }
+  p.sequence(:url)  { |n| AppConfig[:pod_url] }
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.after_build do |person|
     person.profile ||= Factory.build(:profile, :person => person)

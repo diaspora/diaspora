@@ -1,5 +1,10 @@
 #This class is for running servers in the background during integration testing.  This will not run on Windows.
 class Server
+
+  def self.[] index
+    self.all[index]
+  end
+
   def self.all
     @servers ||= ActiveRecord::Base.configurations.keys.select{
       |k| k.include?("integration")
@@ -29,7 +34,7 @@ class Server
 
   def run
     @pid = fork do
-      Process.exec "cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec #{run_command}"
+      Process.exec "cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec #{run_command} 2> /dev/null"
     end
   end
 
@@ -39,7 +44,7 @@ class Server
   end
 
   def run_command
-    "rails s thin -p #{@port}"
+    "rails s -p #{@port}"
   end
 
   def get_pid
@@ -78,15 +83,14 @@ class Server
 
   def in_scope
     pod_url = "http://localhost:#{@port}/"
-    AppConfig.stub!(:pod_url).and_return(pod_url)
-    AppConfig.stub!(:pod_uri).and_return(Addressable::URI.parse(pod_url))
+    old_pod_url = AppConfig[:pod_url]
+    AppConfig[:pod_url] = pod_url
     begin
       result = db do
          yield
       end
     ensure
-      AppConfig.unstub!(:pod_url)
-      AppConfig.unstub!(:pod_uri)
+      AppConfig[:pod_url] = old_pod_url
     end
     result
   end

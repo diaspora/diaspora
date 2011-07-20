@@ -157,7 +157,9 @@ test:
 integration_1:
   <<: *defaults
   pod_url: "http://localhost:45789"
+  enable_splunk_logging: false
   
 integration_2:
   <<: *defaults
   pod_url: "http://localhost:34658"
+  enable_splunk_logging: false

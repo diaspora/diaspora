@@ -1,4 +1,4 @@
-class Reshare < Post 
+class Reshare < Post
 
   belongs_to :root, :class_name => 'Post'
   validate :root_must_be_public
@@ -7,12 +7,12 @@ class Reshare < Post
   xml_attr :root_diaspora_id
   xml_attr :root_guid
 
-  before_validation do 
+  before_validation do
     self.public = true
   end
 
   def root_guid
-    self.root.guid  
+    self.root.guid
   end
 
   def root_diaspora_id
@@ -21,9 +21,9 @@ class Reshare < Post
 
   def receive(user, person)
     local_reshare = Reshare.where(:guid => self.guid).first
-    if local_reshare.root.author_id == user.person.id
+    if local_reshare && local_reshare.root.author_id == user.person.id
       local_reshare.root.reshares << local_reshare
-      
+
       if user.contact_for(person)
         local_reshare.receive(user, person)
       end
@@ -42,7 +42,9 @@ class Reshare < Post
     local_post = Post.where(:guid => @root_guid).select('id').first
 
     unless local_post && self.root_id = local_post.id
-      received_post = Diaspora::Parser.from_xml(Faraday.get(root_author.url + "/p/#{@root_guid}.xml").body)
+      response = Faraday.get(root_author.url + "/p/#{@root_guid}.xml")
+      received_post = Diaspora::Parser.from_xml(response.body)
+
       unless post = received_post.class.where(:guid => received_post.guid).first
         post = received_post
 
