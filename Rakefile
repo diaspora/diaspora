@@ -124,6 +124,27 @@ task :clean do
   system "rm -rf _code_cache/** _gist_cache/** .sass-cache/**"
 end
 
+desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
+task :update_style, :theme do |t, args|
+  theme = args.theme || 'classic'
+  system "mv sass sass.old"
+  puts "## Moved styles into sass.old/"
+  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
+  cp_r "sass.old/custom/.", "sass/custom"
+  puts "## Updated Sass ##"
+end
+
+desc "Move source to source.old, install source theme updates, replace source/_includes/navigation.html with source.old's navigation"
+task :update_source, :theme do |t, args|
+  theme = args.theme || 'classic'
+  system "mv #{source_dir} #{source_dir}.old"
+  puts "moved #{source_dir} into #{source_dir}.old/"
+  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
+  system "cp -Rn #{source_dir}.old/. #{source_dir}"
+  system "cp -f #{source_dir}.old/_includes/navigation.html #{source_dir}/_includes/navigation.html"
+  puts "## Updated #{source_dir} ##"
+end
+
 ##############
 # Deploying  #
 ##############
