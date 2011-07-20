@@ -9,7 +9,7 @@ class Server
   attr_reader :port, :env
   def initialize(env)
     @db_config = ActiveRecord::Base.configurations[env]
-    @app_config = (YAML.load_file AppConfig.source)[env] 
+    @app_config = (YAML.load_file AppConfig.source)[env]
     @port = URI::parse(@app_config["pod_url"]).port
     @env = env
     ensure_database_setup
@@ -18,7 +18,7 @@ class Server
   def ensure_database_setup
     `cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec rake db:create`
     tables_exist = self.db do
-      ActiveRecord::Base.connection.tables.include?("users") 
+      ActiveRecord::Base.connection.tables.include?("users")
     end
     if tables_exist
       truncate_database
@@ -49,7 +49,7 @@ class Server
       processes.first.split(" ").first
     }.call
   end
-  
+
   def running?
     begin
       RestClient.get("localhost:#{@port}/users/sign_in")
@@ -79,7 +79,7 @@ class Server
   def in_scope
     pod_url = "http://localhost:#{@port}/"
     AppConfig.stub!(:pod_url).and_return(pod_url)
-    AppConfig.stub!(:pod_uri).and_return(URI.parse(pod_url))
+    AppConfig.stub!(:pod_uri).and_return(Addressable::URI.parse(pod_url))
     begin
       result = db do
          yield

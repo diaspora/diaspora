@@ -125,7 +125,7 @@ HELP
   def self.pod_uri
     if @@pod_uri.nil?
       begin
-        @@pod_uri = URI.parse(self.pod_url)
+        @@pod_uri = Addressable::URI.parse(self.pod_url)
       rescue
         puts "WARNING: pod url " + self.pod_url + " is not a legal URI"
       end
