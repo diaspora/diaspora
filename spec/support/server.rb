@@ -62,8 +62,11 @@ class Server
   def db
     former_env = Rails.env
     ActiveRecord::Base.establish_connection(env)
-    result = yield
-    ActiveRecord::Base.establish_connection(former_env)
+    begin
+      result = yield
+    ensure
+      ActiveRecord::Base.establish_connection(former_env)
+    end
     result
   end
 
@@ -71,5 +74,20 @@ class Server
     db do
       DatabaseCleaner.clean_with(:truncation)
     end
+  end
+
+  def in_scope
+    pod_url = "http://localhost:#{@port}/"
+    AppConfig.stub!(:pod_url).and_return(pod_url)
+    AppConfig.stub!(:pod_uri).and_return(URI.parse(pod_url))
+    begin
+      result = db do
+         yield
+      end
+    ensure
+      AppConfig.unstub!(:pod_url)
+      AppConfig.unstub!(:pod_uri)
+    end
+    result
   end
 end

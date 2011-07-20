@@ -1,7 +1,6 @@
 #This is a spec for the class that runs the servers used in the other multi-server specs
 
 require 'spec_helper'
-WebMock::Config.instance.allow_localhost = true
 unless Server.all.empty?
   describe Server do
     before(:all) do
@@ -57,4 +56,3 @@ unless Server.all.empty?
     end
   end
 end
-WebMock::Config.instance.allow_localhost = false

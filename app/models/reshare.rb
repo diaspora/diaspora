@@ -59,7 +59,7 @@ class Reshare < Post
   end
 
   def root_must_be_public
-    if self.root.nil? || !self.root.public
+    if !self.root.public
       errors[:base] << "you must reshare public posts"
       return false
     end
