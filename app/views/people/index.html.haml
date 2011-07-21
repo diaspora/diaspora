@@ -20,16 +20,16 @@
         = params[:q]
 
 .span-15.append-1
-  - if @hashes.empty?
-    %p
-      =t('.no_one_found')
+  #people_stream.stream
+    - if @hashes.empty?
+      %p
+        =t('.no_one_found')
 
-  - else
-    #people_stream.stream
+    - else
       - for hash in @hashes
         = render :partial => 'people/person', :locals => hash
 
-    = will_paginate @people
+      = will_paginate @people
 
 .span-8.last
   %h4
