@@ -3,6 +3,7 @@ class Reshare < Post
   belongs_to :root, :class_name => 'Post'
   validate :root_must_be_public
   attr_accessible :root_id, :public
+  validates_presence_of :root, :on => :create
 
   xml_attr :root_diaspora_id
   xml_attr :root_guid
@@ -61,7 +62,7 @@ class Reshare < Post
   end
 
   def root_must_be_public
-    if !self.root.public
+    if self.root && !self.root.public
       errors[:base] << "you must reshare public posts"
       return false
     end

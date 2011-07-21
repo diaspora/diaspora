@@ -18,16 +18,16 @@ unless Server.all.empty?
       #Server.all.each{|s| puts "Server at port #{s.port} still running." if s.running?}
       WebMock::Config.instance.allow_localhost = false
     end
-
-    it 'fetches the original post from the root server' do
-      original_post = nil
+    before do
+      Server.all.each{|s| s.truncate_database; puts "Truncating database for server #{s}" }
+      @original_post = nil
       Server[0].in_scope do
         original_poster = Factory.create(:user_with_aspect, :username => "original_poster")
         resharer = Factory.create(:user_with_aspect, :username => "resharer")
 
         connect_users_with_aspects(original_poster, resharer)
 
-        original_post = original_poster.post(:status_message,
+        @original_post = original_poster.post(:status_message,
                                                :public => true,
                                                :text => "Awesome Sauce!",
                                                :to => 'all')
@@ -50,14 +50,28 @@ unless Server.all.empty?
 
       Server[0].in_scope do
         r = User.find_by_username("resharer")
-        r.post(:reshare, :root_id => original_post.id, :to => 'all')
-        debugger
+        r.post(:reshare, :root_id => @original_post.id, :to => 'all')
+      end
+    end
+
+    it 'fetches the original post from the root server' do
+      Server[1].in_scope do
+        Post.exists?(:guid => @original_post.guid).should be_true
+      end
+    end
+
+    it 'relays the retraction for the root post to recipients of the reshare' do
+      Server[0].in_scope do
+        poster = User.find_by_username 'original_poster'
+        fantasy_resque do
+          poster.retract @original_post
+        end
       end
 
       Server[1].in_scope do
-        Post.exists?(:guid => original_post.guid).should be_true
+        Post.exists?(:guid => @original_post.guid).should be_false
       end
-
     end
+
   end
 end

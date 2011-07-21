@@ -760,9 +760,9 @@ describe User do
       @post = Factory(:status_message, :author => bob.person, :public => true)
     end
 
-    context "regular retractions" do
+    context "posts" do
       before do
-        Retraction.stub(:for).and_return(@retraction)
+        SignedRetraction.stub(:build).and_return(@retraction)
         @retraction.stub(:perform)
       end
 
@@ -791,21 +791,25 @@ describe User do
       end
     end
 
-    context "relayable retractions" do
+    context "signed retractions" do
       before do
-        @post.reshares << Factory.create(:reshare, :author => remote_raphael)        
+        @post.reshares << Factory.create(:reshare,:root_id => @post.id, :author => Factory(:user).person)
         @post.save!
       end
 
-      it 'sends a relayable retraction if the object is relayable' do
-        r_ret = RelayableRetraction.build(bob, @post)
-        RelayableRetraction.should_receive(:build).and_return(r_ret)
-        
-        dis = mock
-        dis.should_receive(:post)
-        Postzord::Dispatch.should_receive(:new).with(bob, r_ret).and_return(dis)
+      it 'relays the signed retraction onwards to recipients of reshares' do
+        r_ret = SignedRetraction.build(bob, @post)
+        SignedRetraction.should_receive(:build).and_return(r_ret)
 
-        bob.retract(@post)
+        dis = mock
+        dis_2 = mock
+        dis.should_receive(:post)
+        dis_2.should_receive(:post)
+        Postzord::Dispatch.should_receive(:new).with(bob, r_ret, anything()).and_return(dis, dis_2)
+
+        fantasy_resque do
+          bob.retract(@post)
+        end
       end
     end
   end

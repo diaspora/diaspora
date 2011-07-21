@@ -233,25 +233,18 @@ class User < ActiveRecord::Base
   def retract(target, opts={})
     if target.respond_to?(:relayable?) && target.relayable?
       retraction = RelayableRetraction.build(self, target)
+    elsif target.is_a? Post
+      retraction = SignedRetraction.build(self, target)
     else
       retraction = Retraction.for(target)
     end
 
-    if target.is_a?(Post) && target.reshares.size != 0
-      reshare_retraction = RelayableRetraction.build(self, target)
-    end
-
-#   if target.is_a?(Post)
-#     opts[:additional_subscribers] = target.resharers
-#   end
+   if target.is_a?(Post)
+     opts[:additional_subscribers] = target.resharers
+   end
 
     mailman = Postzord::Dispatch.new(self, retraction, opts)
     mailman.post
-
-    if reshare_retraction
-      mailman = Postzord::Dispatch.new(self, reshare_retraction)
-      mailman.post
-    end
 
     retraction.perform(self)
 
