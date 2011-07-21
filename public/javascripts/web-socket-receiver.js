@@ -133,7 +133,7 @@ var WebSocketReceiver = {
 
   processPost: function(className, postId, html, aspectIds) {
     if(WebSocketReceiver.onPageForAspects(aspectIds)) {
-      ContentUpdater.addPostToStream(postId, html);
+      ContentUpdater.addPostToStream(html);
     }
   },
 
