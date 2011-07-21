@@ -35,6 +35,7 @@ class Postzord::Dispatch
       self.deliver_to_remote(remote_people)
     end
     self.deliver_to_services(opts[:url], opts[:services] || [])
+    @object.after_dispatch(@sender)
   end
 
   protected

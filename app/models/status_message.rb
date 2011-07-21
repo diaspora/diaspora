@@ -120,6 +120,18 @@ class StatusMessage < Post
     super(user_or_id, opts)
   end
 
+  def after_dispatch sender
+    unless self.photos.empty?
+      self.photos.update_all(:pending => false, :public => self.public)
+      for photo in self.photos
+        if photo.pending
+          sender.add_to_streams(photo, self.aspects)
+          sender.dispatch_post(photo)
+        end
+      end
+    end
+  end
+
   protected
 
   def message_or_photos_present?

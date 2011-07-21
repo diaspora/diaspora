@@ -11,17 +11,23 @@ module Diaspora
       xml += "<post>#{to_xml.to_s}</post>"
       xml += "</XML>"
     end
-  
+
     def x(input)
       input.to_s.to_xs
     end
 
+    # @abstract
     def subscribers(user)
       raise 'you must override subscribers in order to enable federation on this model'
     end
 
+    # @abstract
     def receive(user, person)
       raise 'you must override receive in order to enable federation on this model'
+    end
+
+    # @param [User] sender
+    def after_dispatch sender
     end
   end
 end

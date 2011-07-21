@@ -225,7 +225,7 @@ class User < ActiveRecord::Base
   def mail_confirm_email
     return false if unconfirmed_email.blank?
     Resque.enqueue(Job::MailConfirmEmail, id)
-    true 
+    true
   end
 
   ######### Posts and Such ###############
@@ -382,7 +382,7 @@ class User < ActiveRecord::Base
 
   def guard_unconfirmed_email
     self.unconfirmed_email = nil if unconfirmed_email.blank? || unconfirmed_email == email
-    
+
     if unconfirmed_email_changed?
       self.confirm_email_token = unconfirmed_email ? ActiveSupport::SecureRandom.hex(15) : nil
     end

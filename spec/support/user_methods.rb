@@ -13,6 +13,7 @@ class User
       p = build_post(class_name, opts)
       if p.save!
         self.aspects.reload
+
         aspects = self.aspects_from_ids(opts[:to])
         add_to_streams(p, aspects)
         dispatch_post(p, :to => opts[:to])
