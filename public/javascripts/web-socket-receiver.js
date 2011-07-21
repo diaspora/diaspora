@@ -44,7 +44,7 @@ var WebSocketReceiver = {
           WebSocketReceiver.processRetraction(obj.post_id);
 
         } else if (obj['class']=="comments") {
-          WebSocketReceiver.processComment(obj.post_id, obj.comment_id, obj.html, {
+          WebSocketReceiver.processComment(obj.post_guid, obj.comment_guid, obj.html, {
             'notification': obj.notification,
             'mine?': obj['mine?'],
             'my_post?': obj['my_post?']

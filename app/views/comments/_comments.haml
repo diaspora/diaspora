@@ -7,7 +7,7 @@
     %li
       = comment_toggle( post)
 
-%ul.comments{:id => post.id, :class => ('loaded' if post.comments.size <= 3)}
+%ul.comments{:class => ('loaded' if post.comments.size <= 3)}
   -if post.comments.size > 3 && !comments_expanded
     = render :partial => 'comments/comment', :collection => post.last_three_comments, :locals => {:post => post}
   -else
