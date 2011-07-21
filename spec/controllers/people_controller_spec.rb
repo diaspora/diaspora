@@ -39,7 +39,7 @@ describe PeopleController do
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w"))
       get :index, :q => "Eug"
-      assigns[:people].should =~ [@eugene, eugene2]
+      assigns[:people].map{|x| x.id}.should =~ [@eugene.id, eugene2.id]
     end
 
     it "excludes people that are not searchable" do
@@ -55,7 +55,7 @@ describe PeopleController do
                                :profile => Factory.build(:profile, :first_name => "Eugene",
                                                          :last_name => "w", :searchable => false))
       get :index, :q => "eugene@example.org"
-      assigns[:people].should =~ [eugene2]
+      assigns[:people][0].id.should == eugene2.id
     end
 
     it "does not redirect to person page if there is exactly one match" do

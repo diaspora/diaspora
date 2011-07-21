@@ -4,7 +4,7 @@
 
 module MarkdownifyHelper
   def markdownify(message, options={})
-    message = h(message).html_safe
+    message = h(message).to_str
 
     options[:newlines] = true if !options.has_key?(:newlines)
     options[:specialchars] = true if !options.has_key?(:specialchars)
@@ -17,7 +17,7 @@ module MarkdownifyHelper
     message = process_specialchars(message) if options[:specialchars]
     message = process_newlines(message) if options[:newlines]
 
-    message
+    message.html_safe
   end
 
   def process_newlines(message)

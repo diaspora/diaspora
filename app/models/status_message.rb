@@ -47,7 +47,7 @@ class StatusMessage < Post
 
   def format_mentions(text, opts = {})
     regex = /@\{([^;]+); ([^\}]+)\}/
-    form_message = text.gsub(regex) do |matched_string|
+    form_message = text.to_str.gsub(regex) do |matched_string|
       people = self.mentioned_people
       person = people.detect{ |p|
         p.diaspora_handle == $~[2] unless p.nil?

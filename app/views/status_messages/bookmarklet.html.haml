@@ -32,9 +32,7 @@
 
 #new_status_message_pane
   .span-15.last
-    #facebox_header
-      %h4
-        =t('bookmarklet.post_something')
-
+    %h4
+      =t('bookmarklet.post_something')
     = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :aspects_with_person => @aspects,  :aspect_ids => @aspect_ids}
 
