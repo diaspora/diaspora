@@ -2,7 +2,7 @@
 {% include head.html %}
 <body {% if page.body_id %} id="{{ page.body_id }}" {% endif %} {% if page.sidebar == false %} class="no-sidebar" {% endif %}>
   <header>{% include header.html %}</header>
-  <nav>{% include navigation.html %}</nav>
+  <nav role=navigation>{% include navigation.html %}</nav>
   <div id="main">
     <div id="content">
       {{ content | expand_urls: root_url | smart_quotes  }}

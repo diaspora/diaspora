@@ -1,7 +1,7 @@
 function getNav(){
-  var mobileNav = $('body > nav fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
+  var mobileNav = $('nav[role=navigation] fieldset[role=site-search]').after('<fieldset role="mobile-nav"></fieldset>').next().append('<select></select>');
   mobileNav.children('select').append('<option value="">Navigate&hellip;</option>');
-  $($('body > nav ul[role=main-nav] a')).each(function(link) {
+  $($('ul[role=main-navigation] a')).each(function(link) {
     mobileNav.children('select').append('<option value="'+link.href+'">&bull; '+link.text+'</option>')
   });
   mobileNav.children('select').bind('change', function(event){
