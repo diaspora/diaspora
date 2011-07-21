@@ -7,8 +7,8 @@ class SocketsController < ApplicationController
   include SocketsHelper
   include Rails.application.routes.url_helpers
   helper_method :all_aspects
-  
-  
+  helper_method :current_user
+
   def incoming(msg)
     Rails.logger.info("Socket received connection to: #{msg}")
   end
@@ -33,9 +33,12 @@ class SocketsController < ApplicationController
    @user ||= ((@params[:user_or_id].instance_of? User )? @params[:user_or_id] : User.find(user_id))
   end
 
-  helper_method :current_user
   def current_user
     user
+  end
+
+  def url_options
+    {:host => "#{AppConfig[:pod_uri].host}:#{AppConfig[:pod_uri].port}"}
   end
 
   def all_aspects
