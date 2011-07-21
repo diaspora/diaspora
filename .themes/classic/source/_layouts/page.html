@@ -8,7 +8,7 @@ layout: default
     <h1 class="entry-title">{{ page.title | titlecase }}</h1>
     {% if page.date %}<p class="meta">{% include post/date.html %}</p>{% endif %}
   </header>
-  {{ content | smart_quotes }}
+  {{ content | full_urls: site.root | smart_quotes }}
   {% unless page.footer == false %}
     <footer>
       {% if page.date %}<p class="meta">{% include post/date.html %}</p>{% endif %}

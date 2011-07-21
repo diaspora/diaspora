@@ -21,6 +21,7 @@ module OctopressFilters
 
   # Replaces relative urls with full urls
   def full_urls(input, url='')
+    url ||= ''
     input.gsub /(\s+(href|src)\s*=\s*["|']{1})(\/[^\"'>]+)/ do
       $1+url+$3
     end

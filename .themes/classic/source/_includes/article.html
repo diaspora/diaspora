@@ -11,10 +11,10 @@
   </header>
 {% endunless %}
 {% if index %}
-  <div class="entry-content">{{ content | exerpt | smart_quotes }}</div>
+  <div class="entry-content">{{ content | full_urls: site.root | exerpt | smart_quotes }}</div>
   <footer>
     <a rel="full-article" href="{{ site.root }}{{ post.url }}">Read on &rarr;</a>
   </footer>
 {% else %}
-<div class="entry-content">{{ content | smart_quotes }}</div>
+<div class="entry-content">{{ content | full_urls: site.root | smart_quotes }}</div>
 {% endif %}
