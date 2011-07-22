@@ -22,7 +22,7 @@ class SignedRetraction
       accessors = self.class.roxml_attrs.collect do |definition|
         definition.accessor
       end
-      accessors - ['target_author_signature']
+      accessors - ['target_author_signature', 'sender_handle']
   end
 
   def sender_handle= new_sender_handle
@@ -34,7 +34,7 @@ class SignedRetraction
   end
 
   def diaspora_handle
-    self.target.diaspora_handle
+    self.sender_handle
   end
 
   def subscribers(user)
@@ -64,9 +64,10 @@ class SignedRetraction
 
   def perform receiving_user
     Rails.logger.debug "Performing retraction for #{target_guid}"
-    puts "Performing retraction for #{target_guid}"
     if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_id => target.id).first
-      Postzord::Dispatch.new(receiving_user, self).post
+      onward_retraction = self.dup
+      onward_retraction.sender = receiving_user.person
+      Postzord::Dispatch.new(receiving_user, onward_retraction).post
     end
     self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
     self.target.destroy
@@ -81,7 +82,7 @@ class SignedRetraction
       #this is a retraction from the upstream owner
       self.perform(recipient)
     else
-      Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{recipient.diaspora_handle} sender=#{self.parent.author.diaspora_handle} payload_type=#{self.class} parent_id=#{self.parent.id}")
+      Rails.logger.info("event=receive status=abort reason='object signature not valid' recipient=#{recipient.diaspora_handle} sender=#{self.sender_handle} payload_type=#{self.class}")
       return
     end
     self

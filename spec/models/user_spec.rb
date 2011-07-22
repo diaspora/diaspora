@@ -790,27 +790,5 @@ describe User do
         pending
       end
     end
-
-    context "signed retractions" do
-      before do
-        @post.reshares << Factory.create(:reshare,:root_id => @post.id, :author => Factory(:user).person)
-        @post.save!
-      end
-
-      it 'relays the signed retraction onwards to recipients of reshares' do
-        r_ret = SignedRetraction.build(bob, @post)
-        SignedRetraction.should_receive(:build).and_return(r_ret)
-
-        dis = mock
-        dis_2 = mock
-        dis.should_receive(:post).and_return{ r_ret.perform(@post.reshares.first.author.owner)}
-        #dis_2.should_receive(:post)
-        Postzord::Dispatch.should_receive(:new).with(bob, r_ret, anything()).and_return(dis, dis_2)
-
-        fantasy_resque do
-          bob.retract(@post)
-        end
-      end
-    end
   end
 end
