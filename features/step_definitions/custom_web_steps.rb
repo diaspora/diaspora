@@ -11,6 +11,14 @@ And /^I expand the publisher$/ do
     ')
 end
 
+Then /^the publisher should be collapsed$/ do
+	find("#publisher")["class"].should include("closed")
+end
+
+Then /^the publisher should be expanded$/ do
+	find("#publisher")["class"].should_not include("closed")
+end
+
 When /^I append "([^"]*)" to the publisher$/ do |stuff|
   # Wait for the publisher to appear and all the elements to lay out
   wait_until { evaluate_script("$('#status_message_fake_text').focus().length == 1") }
@@ -50,6 +58,10 @@ end
 
 When /^I click to delete the first comment$/ do
   page.execute_script('$(".comment.posted").first().find(".comment_delete").click()')
+end
+
+When /^I click to delete the first uploaded photo$/ do
+  page.execute_script('$("#photodropzone").find(".x").first().click()')
 end
 
 And /^I click "([^"]*)" button$/ do |arg1|
