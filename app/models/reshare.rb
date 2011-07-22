@@ -40,23 +40,20 @@ class Reshare < Post
     root_author = Webfinger.new(@root_diaspora_id).fetch
     root_author.save!
 
-    local_post = Post.where(:guid => @root_guid).select('id').first
+    if local_post = Post.where(:guid => @root_guid).select('id').first
+      self.root_id = local_post.id
+      return
+    else
+      fetched_post = self.class.fetch_post(root_author, @root_guid)
 
-    unless local_post && self.root_id = local_post.id
-      received_post = self.class.fetch_post(root_author, @root_guid)
-
-      unless post = received_post.class.where(:guid => received_post.guid).first
-        post = received_post
-
-        if root_author.diaspora_handle != post.diaspora_handle
-          raise "Diaspora ID (#{post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
-        end
-
-        post.author_id = root_author.id
-        post.save!
+      if root_author.diaspora_handle != fetched_post.diaspora_handle
+        raise "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
       end
 
-      self.root_id = post.id
+      fetched_post.author_id = root_author.id
+      fetched_post.save!
+
+      self.root_id = fetched_post.id
     end
   end
 
@@ -65,7 +62,7 @@ class Reshare < Post
   # @param [String] guid the remote post's guid
   # @return [Post] an unsaved remote post
   def self.fetch_post author, guid
-    response = Faraday.get(root_author.url + "/p/#{@root_guid}.xml")
+    response = Faraday.get(author.url + "/p/#{guid}.xml")
     Diaspora::Parser.from_xml(response.body)
   end
 
