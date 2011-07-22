@@ -1,7 +1,7 @@
 # Title: Render Partial Tag for Jekyll
 # Author: Brandon Mathis http://brandonmathis.com
 # Description: Import files on your filesystem into any blog post and render them inline.
-# Note: Paths are relative to the source directory
+# Note: Paths are relative to the source directory, if you import a file with yaml front matter, the yaml will be stripped out.
 #
 # Syntax {% render_partial path/to/file %}
 #
@@ -18,6 +18,7 @@
 # You can use relative pathnames, to include files outside of the source directory.
 # This might be useful if you want to have a page for a project's README without having
 # to duplicated the contents
+#
 #
 
 require 'pathname'
@@ -40,7 +41,11 @@ module Jekyll
       end
 
       Dir.chdir(file_path) do
-        partial = Liquid::Template.parse(file.read)
+        contents = file.read
+        if contents =~ /\A-{3}.+[^\A]-{3}\n(.+)/m
+          contents = $1.lstrip
+        end
+        partial = Liquid::Template.parse(contents)
         context.stack do
           partial.render(context)
         end
