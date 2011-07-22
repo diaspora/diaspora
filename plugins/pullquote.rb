@@ -31,7 +31,7 @@ module Jekyll
         @quote = $1
         "<span class='has-pullquote' data-pullquote='#{@quote}'>#{output.join.gsub(/\{"\s*|\s*"\}/, '')}</span>"
       else
-        return "Surround your pullquote like this {! text to be quoted !}"
+        return "Surround your pullquote like this {\" text to be quoted \"}"
       end
     end
   end
