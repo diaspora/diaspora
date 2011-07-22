@@ -43,8 +43,7 @@ class Reshare < Post
     local_post = Post.where(:guid => @root_guid).select('id').first
 
     unless local_post && self.root_id = local_post.id
-      response = Faraday.get(root_author.url + "/p/#{@root_guid}.xml")
-      received_post = Diaspora::Parser.from_xml(response.body)
+      received_post = self.class.fetch_post(root_author, @root_guid)
 
       unless post = received_post.class.where(:guid => received_post.guid).first
         post = received_post
@@ -59,6 +58,15 @@ class Reshare < Post
 
       self.root_id = post.id
     end
+  end
+
+  # Fetch a remote public post, used for receiving reshares of unknown posts
+  # @param [Person] author the remote post's author
+  # @param [String] guid the remote post's guid
+  # @return [Post] an unsaved remote post
+  def self.fetch_post author, guid
+    response = Faraday.get(root_author.url + "/p/#{@root_guid}.xml")
+    Diaspora::Parser.from_xml(response.body)
   end
 
   def root_must_be_public

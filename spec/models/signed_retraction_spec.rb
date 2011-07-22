@@ -19,5 +19,29 @@ describe SignedRetraction do
 
       retraction.perform(@resharer)
     end
+    it 'relays the retraction onward even if the post does not exist' do
+      remote_post = Factory(:status_message, :public => true)
+      bob.post(:reshare, :root_id => remote_post.id)
+      alice.post(:reshare, :root_id => remote_post.id)
+
+      remote_retraction = SignedRetraction.new.tap{|r|
+        r.target_type = remote_post.type
+        r.target_guid = remote_post.guid
+        r.sender = remote_post.author
+        r.stub!(:target_author_signature_valid?).and_return(true)
+      }
+
+      remote_retraction.dup.perform(bob)
+      Post.exists?(:id => remote_post.id).should be_false
+
+      dis = mock
+      Postzord::Dispatch.should_receive(:new){ |sender, retraction|
+        sender.should == alice
+        retraction.sender.should == alice.person
+        dis
+      }
+      dis.should_receive(:post)
+      remote_retraction.perform(alice)
+    end
   end
 end

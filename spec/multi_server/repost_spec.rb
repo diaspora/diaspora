@@ -72,6 +72,5 @@ unless Server.all.empty?
         Post.exists?(:guid => @original_post.guid).should be_false
       end
     end
-
   end
 end
