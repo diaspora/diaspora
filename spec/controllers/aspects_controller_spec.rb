@@ -180,7 +180,7 @@ describe AspectsController do
       end
 
       it "posts include reshares" do
-        reshare = alice.post(:reshare, :public => true, :root_id => Factory(:status_message, :public => true).id, :to => alice.aspects)
+        reshare = alice.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
         get :index
         assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
       end

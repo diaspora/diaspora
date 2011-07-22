@@ -50,10 +50,12 @@ describe Reshare do
     context 'serialization' do
       it 'serializes root_diaspora_id' do
         @xml.should include("root_diaspora_id")
+        @xml.should include(@reshare.author.diaspora_handle)
       end
 
       it 'serializes root_guid' do
         @xml.should include("root_guid")
+        @xml.should include(@reshare.root.guid)
       end
     end
 
@@ -62,6 +64,10 @@ describe Reshare do
         before do
           @original_author = @reshare.root.author
           @root_object = @reshare.root
+        end
+
+        it 'marshals the guid' do
+          Reshare.from_xml(@xml).root_guid.should == @root_object.guid
         end
 
         it 'fetches the root post from root_guid' do

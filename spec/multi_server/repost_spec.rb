@@ -50,7 +50,7 @@ unless Server.all.empty?
 
       Server[0].in_scope do
         r = User.find_by_username("resharer")
-        r.post(:reshare, :root_id => @original_post.id, :to => 'all')
+        r.post(:reshare, :root_guid => @original_post.guid, :to => 'all')
       end
     end
 

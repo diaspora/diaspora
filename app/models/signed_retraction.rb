@@ -64,13 +64,15 @@ class SignedRetraction
 
   def perform receiving_user
     Rails.logger.debug "Performing retraction for #{target_guid}"
-    if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_id => target.id).first
+    if reshare = Reshare.where(:author_id => receiving_user.person.id, :root_guid => target_guid).first
       onward_retraction = self.dup
       onward_retraction.sender = receiving_user.person
       Postzord::Dispatch.new(receiving_user, onward_retraction).post
     end
-    self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
-    self.target.destroy
+    if target
+      self.target.unsocket_from_user receiving_user if target.respond_to? :unsocket_from_user
+      self.target.destroy
+    end
     Rails.logger.info(:event => :retraction, :status => :complete, :target_type => self.target_type, :guid => self.target_guid)
   end
 

@@ -33,7 +33,7 @@ describe Retraction do
 
       it 'does not return the authors of reshares' do
         @post.reshares << Factory.create(:reshare, :root => @post, :author => bob.person)
-        @post.save! 
+        @post.save!
 
         @wanted_subscribers -= [bob.person]
         @retraction.subscribers(alice).map(&:id).should =~ @wanted_subscribers.map(&:id)
