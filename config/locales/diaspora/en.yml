@@ -60,7 +60,7 @@ en:
         contact:
           attributes:
             person_id:
-              taken: "must be unique among this user's contacts."
+              taken: "must be unique among this user’s contacts."
         request:
           attributes:
             from_id:
@@ -115,7 +115,7 @@ en:
 
     selected_contacts:
       view_all_contacts: "View all contacts"
-      no_contacts: "You don't have any contacts here yet."
+      no_contacts: "You don’t have any contacts here yet."
       manage_your_aspects: "Manage your aspects."
 
     new:
@@ -131,7 +131,7 @@ en:
       success: "Your aspect, %{name}, has been successfully edited."
       failure: "Your aspect, %{name}, had too long name to be saved."
     move_contact:
-      failure: "didn't work %{inspect}"
+      failure: "didn’t work %{inspect}"
       success: "Person moved to new aspect"
       error: "Error moving contact: %{inspect}"
     add_to_aspect:
@@ -158,7 +158,7 @@ en:
       diaspora_id:
         heading: "Diaspora ID"
         content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        content_2: "Give it to anyone and they’ll be able to find you on Diaspora."
       services:
         heading: "Connect Services"
         content: "You can connect the following services to Diaspora:"
@@ -213,7 +213,7 @@ en:
       my_contacts: "My Contacts"
       all_contacts: "All Contacts"
       only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      remove_person_from_aspect: "Remove %{person_name} from “%{aspect_name}”"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." 
 
   conversations:
@@ -260,7 +260,7 @@ en:
       choice: "Choice"
       choice_explanation: "Diaspora lets you sort your connections into groups called aspects. Unique to Diaspora, aspects ensure that your photos, stories and jokes are shared only with the people you intend."
       ownership: "Ownership"
-      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it's distributed."
+      ownership_explanation: "You own your pictures, and you shouldn’t have to give that up just to share them. You maintain ownership of everything you share on Diaspora, giving you full control over how it’s distributed."
       simplicity: "Simplicity"
       simplicity_explanation: "Diaspora makes sharing clean and easy – and this goes for privacy too. Inherently private, Diaspora doesn’t make you wade through pages of settings and options just to keep your profile secure."
       learn_about_host: "Learn about how to host your own Diaspora server."
@@ -272,7 +272,7 @@ en:
       no_more: "You have no more invitations."
       already_sent: "You already invited this person."
       already_contacts: "You are already connected with this person"
-      own_address: "You can't send an invitation to your own address."
+      own_address: "You can’t send an invitation to your own address."
     new:
       invite_someone_to_join: "Invite someone to join Diaspora!"
       if_they_accept_info: "if they accept, they will be added to the aspect you invited them."
@@ -302,7 +302,7 @@ en:
       recent_notifications: "Recent notifications"
     application:
       powered_by: "POWERED BY DIASPORA*"
-      whats_new: "what's new?"
+      whats_new: "what’s new?"
       have_a_problem: "Have a problem? Find an answer here"
       toggle: "toggle mobile site"
       public_feed: "Public Diaspora Feed for %{name}"
@@ -343,11 +343,11 @@ en:
       many: "%{actors} commented on your %{post_link}."
       other: "%{actors} commented on your %{post_link}."
     also_commented:
-      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
-      one: "%{actors} also commented on %{post_author}'s %{post_link}."
-      few: "%{actors} also commented on %{post_author}'s %{post_link}."
-      many: "%{actors} also commented on %{post_author}'s %{post_link}."
-      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}’s %{post_link}."
+      one: "%{actors} also commented on %{post_author}’s %{post_link}."
+      few: "%{actors} also commented on %{post_author}’s %{post_link}."
+      many: "%{actors} also commented on %{post_author}’s %{post_link}."
+      other: "%{actors} also commented on %{post_author}’s %{post_link}."
     mentioned:
       zero: "%{actors} has mentioned you in a %{post_link}."
       one: "%{actors} has mentioned you in a %{post_link}."
@@ -398,7 +398,7 @@ en:
         other: "%{count} new notifications"
 
   notifier:
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you’d like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"
     thanks: "Thanks,"
@@ -409,9 +409,9 @@ en:
     started_sharing:
         subject: "%{name} started sharing with you on Diaspora*"
         sharing: "has started sharing with you!"
-        view_profile: "View %{name}'s profile"
+        view_profile: "View %{name}’s profile"
     comment_on_post:
-        reply: "Reply or view %{name}'s post >"
+        reply: "Reply or view %{name}’s post >"
     mentioned:
         subject: "%{name} has mentioned you on Diaspora*"
         mentioned: "mentioned you in a post:"
@@ -432,15 +432,15 @@ en:
     person:
       pending_request: "Pending request"
       already_connected: "Already connected"
-      thats_you: "That's you!"
+      thats_you: "That’s you!"
       add_contact: "add contact"
     index:
       results_for: "search results for"
       no_results: "Hey! You need to search for something."
-      couldnt_find_them_send_invite: "Couldn't find them?  Send an invite!"
+      couldnt_find_them_send_invite: "Couldn’t find them?  Send an invite!"
       no_one_found: "...and no one was found."
     webfinger:
-      fail: "Sorry, we couldn't find %{handle}."
+      fail: "Sorry, we couldn’t find %{handle}."
     show:
       no_posts: "no posts to display!"
       you_have_no_tags: "you have no tags!"
@@ -487,7 +487,7 @@ en:
     edit:
       editing: "Editing"
     photo:
-      view_all: "view all of %{name}'s photos"
+      view_all: "view all of %{name}’s photos"
     new:
       new_photo: "New Photo"
       back_to_list: "Back to List"
@@ -513,11 +513,11 @@ en:
     show:
       destroy: "Delete"
       permalink: "permalink"
-      not_found: "Sorry, we couldn't find that post."
+      not_found: "Sorry, we couldn’t find that post."
 
   post_visibilites:
     update:
-      post_hidden: "%{name}'s post has been hidden."
+      post_hidden: "%{name}’s post has been hidden."
 
   profiles:
     edit:
@@ -549,10 +549,10 @@ en:
       enter_password: "Enter a password"
       enter_password_again: "Enter the same password as before"
     create:
-      success: "You've joined Diaspora!"
+      success: "You’ve joined Diaspora!"
     edit:
       edit: "Edit %{name}"
-      leave_blank: "(leave blank if you don't want to change it)"
+      leave_blank: "(leave blank if you don’t want to change it)"
       password_to_confirm: "(we need your current password to confirm your changes)"
       unhappy: "Unhappy?"
       update: "Update"
@@ -569,7 +569,7 @@ en:
       ignore: "Ignored contact request."
     create:
       sending: "Sending"
-      sent: "You've asked to share with %{name}.  They should see it next time they log in to Diaspora."
+      sent: "You’ve asked to share with %{name}.  They should see it next time they log in to Diaspora."
     new_request_to_person:
       sent: "sent!"
     helper:
@@ -622,7 +622,7 @@ en:
       upload_photos: "Upload photos"
       all_contacts: "all contacts"
       share_with: "share with"
-      whats_on_your_mind: "What's on your mind?"
+      whats_on_your_mind: "What’s on your mind?"
       publishing_to: "publishing to: "
       public: "Public"
       click_to_share_with: "Click to share with: "
@@ -638,7 +638,7 @@ en:
       invites: "Invites"
       invite_someone: "Invite someone"
       invitations_left: "%{count} left"
-      dont_have_now: "You don't have any right now, but more invites are coming soon!"
+      dont_have_now: "You don’t have any right now, but more invites are coming soon!"
       invites_closed: "Invites are currently closed on this Diaspora pod"
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
@@ -704,15 +704,15 @@ en:
   tokens:
     show:
       connect_to_cubbies: "Connect to Cubbi.es"
-      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
-      love_to_try: "We'd love for you to try it out."
+      what_is_cubbies: "Cubbi.es is the world’s first Diaspora application.  It’s also the best way to collect photos online."
+      love_to_try: "We’d love for you to try it out."
       sign_up_today: "Sign up today!"
       screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
       typical_userpage: "A typical cubbi.es userpage"
-      daniels_account: "Daniel's Diaspora account"
+      daniels_account: "Daniel’s Diaspora account"
       making_the_connection: "Making the Connection"
       connecting_is_simple: "Connecting your Diaspora account is simple!  Just enter your Diaspora ID (<b>%{diaspora_id}</b>) from your cubbies <a href='%{href_link}'>settings page</a> and hit connect."
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Pretty soon, you’ll be able to connect to a new application without creating an account separate from your one on Diaspora."
       via: "(via %{link})"
 
   authorizations:
@@ -734,7 +734,7 @@ en:
       your_email: "Your email"
       edit_account: "Edit account"
       receive_email_notifications: "Receive email notifications when..."
-      also_commented: "...someone also comments on your contact's post?"
+      also_commented: "...someone also comments on your contact’s post?"
       comment_on_post: "...someone comments on your post?"
       mentioned: "...you are mentioned in a post?"
       started_sharing: "...someone starts sharing with you?"
@@ -777,5 +777,5 @@ en:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"
     xrd_fetch_failed: "there was an error getting the xrd from account %{account}"
-    not_enabled: "webfinger does not seem to be enabled for %{account}'s host"
+    not_enabled: "webfinger does not seem to be enabled for %{account}’s host"
     no_person_constructed: "No person could be constructed from this hcard."
