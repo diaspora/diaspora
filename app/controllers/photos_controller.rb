@@ -9,7 +9,6 @@ class PhotosController < ApplicationController
 
   respond_to :html, :json
 
-
   def index
     @post_type = :photos
     @person = Person.find_by_id(params[:person_id])
@@ -144,11 +143,7 @@ class PhotosController < ApplicationController
     if photo
       respond_with photo
     else
-      begin
-        redirect_to :back
-      rescue
-        redirect_to aspects_path
-      end
+      redirect_to :back
     end
   end
 
@@ -193,7 +188,6 @@ class PhotosController < ApplicationController
 
   def photo
     @photo ||= current_user.find_visible_post_by_id(params[:id], :type => 'Photo')
-    @photo
   end
 
   def additional_photos

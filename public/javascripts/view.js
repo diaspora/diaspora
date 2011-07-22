@@ -48,6 +48,12 @@ var View = {
     $(this.newRequest.selector)
       .live("submit", this.newRequest.submit);
 
+    /* Clear forms after successful submit */
+    $('form[data-remote]').live('ajax:success', function (e) {
+      $(this).clearForm();
+      $(this).focusout();
+    });
+
     /* Autoexpand textareas */
     var startAutoResize = function() {
       $('textarea')
