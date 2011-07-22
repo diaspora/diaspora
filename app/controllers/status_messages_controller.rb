@@ -40,13 +40,13 @@ class StatusMessagesController < ApplicationController
 
     @status_message = current_user.build_post(:status_message, params[:status_message])
 
+    photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
+    unless photos.empty?
+      @status_message.photos << photos
+    end
+
     if @status_message.save
       Rails.logger.info("event=create type=status_message chars=#{params[:status_message][:text].length}")
-
-      photos = Photo.where(:id => [*params[:photos]], :diaspora_handle => current_user.person.diaspora_handle)
-      if !photos.empty?
-        @status_message.photos << photos
-      end
 
       aspects = current_user.aspects_from_ids(params[:aspect_ids])
       current_user.add_to_streams(@status_message, aspects)
@@ -64,6 +64,9 @@ class StatusMessagesController < ApplicationController
         format.mobile{ redirect_to root_url}
       end
     else
+      unless photos.empty?
+        photos.update_all(:status_message_guid => nil)
+      end
 
       respond_to do |format|
         format.js {
