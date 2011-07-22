@@ -201,12 +201,14 @@ task :set_root_dir, :dir do |t, args|
     end
     jekyll_config = IO.read('_config.yml')
     jekyll_config.sub!(/^destination:.+$/, "destination: public#{dir}")
-    jekyll_config.sub!(/^subscribe_rss:.+$/, "subscribe_rss: #{dir}/atom.xml")
-    jekyll_config.sub!(/^root:.*$/, "root: #{dir}")
+    jekyll_config.sub!(/^subscribe_rss:\s*\/.+$/, "subscribe_rss: #{dir}/atom.xml")
+    jekyll_config.sub!(/^root:.*$/, "root: /#{dir.sub(/^\//, '')}")
     File.open('_config.yml', 'w') do |f|
       f.write jekyll_config
     end
-    mkdir_p "public#{dir}"
+    rm_rf public_dir
+    mkdir_p "#{public_dir}#{dir}"
+    puts "## Site's root directory is now '/#{dir.sub(/^\//, '')}' ##"
   end
 end
 
