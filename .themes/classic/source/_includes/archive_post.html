@@ -1,5 +1,5 @@
 {% capture category %}{{ post.categories | size }}{% endcapture %}
-<h1><a href="{{ site.root }}{{ post.url }}">{{post.title}}</a></h1>
+<h1><a href="{{ root_url }}{{ post.url }}">{{post.title}}</a></h1>
 <time datetime="{{ post.date | datetime }}" pubdate>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</time>
 {% if category != '0' %}
 <footer>

@@ -6,11 +6,11 @@
 </ul>
 <form action="{{ site.simple_search }}" method="get">
   <fieldset role="site-search">
-    <input type="hidden" name="q" value="site:{{ site.url | search_url }}" />
+    <input type="hidden" name="q" value="site:{{ site.url | shorthand_url }}" />
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
-<ul role="navigation">
-  <li><a href="{{ site.root }}/">Blog</a></li>
-  <li><a href="{{ site.root }}/blog/archives">Archives</a></li>
+<ul role=main-navigation>
+  <li><a href="{{ root_url }}/">Blog</a></li>
+  <li><a href="{{ root_url }}/blog/archives">Archives</a></li>
 </ul>
