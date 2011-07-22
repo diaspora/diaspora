@@ -19,9 +19,9 @@ require './plugins/titlecase.rb'
 module Jekyll
 
   class Blockquote < Liquid::Block
-    FullCiteWithTitle = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)\s+(.+)/i
-    FullCite = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)/i
-    Author =  /(\S[\S\s]*)/
+    FullCiteWithTitle = /(\S.*)\s+(https?:\/\/)(\S+)\s+(.+)/i
+    FullCite = /(\S.*)\s+(https?:\/\/)(\S+)/i
+    Author =  /(.+)/
 
     def initialize(tag_name, markup, tokens)
       @by = nil
@@ -35,7 +35,12 @@ module Jekyll
         @by = $1
         @source = $2 + $3
       elsif markup =~ Author
-        @by = $1
+        if $1 =~ /([^,]+),([^,]+)/
+          @by = $1
+          @title = $2.titlecase
+        else
+          @by = $1
+        end
       end
       super
     end
@@ -54,15 +59,19 @@ module Jekyll
         source = parts.join('/')
         source << '/&hellip;' unless source == @source
       end
-      cite = "<cite><a href='#{@source}'>#{(@title || source)}</a></cite>"
-      quote_only = if @by.nil?
+      if !@source.nil?
+        cite = "<cite><a href='#{@source}'>#{(@title || source)}</a></cite>"
+      elsif !@title.nil?
+        cite = "<cite>#{@title}</cite>"
+      end
+      blockquote = if @by.nil?
         quote
-      elsif !@source.nil?
+      elsif cite
         "#{quote}<footer>#{author + cite}</footer>"
       else
         "#{quote}<footer>#{author}</footer>"
       end
-      "<blockquote>#{quote_only}</blockquote>"
+      "<blockquote>#{blockquote}</blockquote>"
     end
 
     def paragraphize(input)
