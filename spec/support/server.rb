@@ -34,7 +34,7 @@ class Server
 
   def run
     @pid = fork do
-      Process.exec "cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec #{run_command} 2> /dev/null"
+      Process.exec "cd #{Rails.root} && RAILS_ENV=#{@env} bundle exec #{run_command}"# 2> /dev/null"
     end
   end
 

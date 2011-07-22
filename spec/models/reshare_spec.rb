@@ -49,19 +49,19 @@ describe Reshare do
 
     context 'serialization' do
       it 'serializes root_diaspora_id' do
-        @xml.should include("root_diaspora_id")  
+        @xml.should include("root_diaspora_id")
       end
 
       it 'serializes root_guid' do
-        @xml.should include("root_guid")  
+        @xml.should include("root_guid")
       end
     end
 
     context 'marshalling' do
       context 'local' do
         before do
-          @original_author = @reshare.root.author.dup
-          @root_object = @reshare.root.dup
+          @original_author = @reshare.root.author
+          @root_object = @reshare.root
         end
 
         it 'fetches the root post from root_guid' do

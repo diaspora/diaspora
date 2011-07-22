@@ -114,13 +114,13 @@ describe User do
         alice.email = eve.email
         alice.should_not be_valid
       end
-      
+
       it "requires a vaild email address" do
         alice.email = "somebody@anywhere"
         alice.should_not be_valid
       end
     end
-    
+
     describe "of unconfirmed_email" do
       it "unconfirmed_email address can be nil/blank" do
         alice.unconfirmed_email = nil
@@ -134,7 +134,7 @@ describe User do
         alice.unconfirmed_email = "new@email.com"
         alice.should be_valid
       end
-      
+
       it "requires a vaild unconfirmed_email address" do
         alice.unconfirmed_email = "somebody@anywhere"
         alice.should_not be_valid
@@ -679,7 +679,7 @@ describe User do
         user.confirm_email_token.size.should eql(30)
       end
     end
-    
+
     describe '#mail_confirm_email' do
       it 'enqueues a mail job on user with unconfirmed email' do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
@@ -712,14 +712,14 @@ describe User do
           user.unconfirmed_email.should_not eql(nil)
           user.confirm_email_token.should_not eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email("").should eql(false)
           user.email.should_not eql("alice@newmail.com")
           user.unconfirmed_email.should_not eql(nil)
           user.confirm_email_token.should_not eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email(nil).should eql(false)
           user.email.should_not eql("alice@newmail.com")
@@ -803,8 +803,8 @@ describe User do
 
         dis = mock
         dis_2 = mock
-        dis.should_receive(:post)
-        dis_2.should_receive(:post)
+        dis.should_receive(:post).and_return{ r_ret.perform(@post.reshares.first.author.owner)}
+        #dis_2.should_receive(:post)
         Postzord::Dispatch.should_receive(:new).with(bob, r_ret, anything()).and_return(dis, dis_2)
 
         fantasy_resque do

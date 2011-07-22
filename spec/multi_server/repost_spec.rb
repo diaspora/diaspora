@@ -19,7 +19,7 @@ unless Server.all.empty?
       WebMock::Config.instance.allow_localhost = false
     end
     before do
-      Server.all.each{|s| s.truncate_database; puts "Truncating database for server #{s}" }
+      Server.all.each{|s| s.truncate_database; }
       @original_post = nil
       Server[0].in_scope do
         original_poster = Factory.create(:user_with_aspect, :username => "original_poster")

@@ -85,7 +85,7 @@ namespace :db do
     ActiveRecord::Base.configurations.keys.select{ |k|
       k.include?("integration")
     }.each{ |k|
-      drop_database ActiveRecord::Base.configurations[k]
+      drop_database ActiveRecord::Base.configurations[k] rescue Mysql2::Error
     }
   end
 

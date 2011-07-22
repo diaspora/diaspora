@@ -71,6 +71,10 @@ class Chubbies
     end
   end
 
+  def self.nullify
+    "2> /dev/null > /dev/null"
+  end
+
   def self.kill
     `kill -9 #{get_pid}`
   end
