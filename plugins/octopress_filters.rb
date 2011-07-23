@@ -2,7 +2,7 @@
 
 module OctopressFilters
   # Used on the blog index to split posts on the <!--more--> marker
-  def exerpt(input)
+  def excerpt(input)
     if input.index(/<!--\s*more\s*-->/i)
       input.split(/<!--\s*more\s*-->/i)[0]
     else
