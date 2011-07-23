@@ -4,6 +4,7 @@ class Reshare < Post
   validate :root_must_be_public
   attr_accessible :root_guid, :public
   validates_presence_of :root, :on => :create
+  validates_uniqueness_of :root_guid, :scope => :author_id
 
   xml_attr :root_diaspora_id
   xml_attr :root_guid
@@ -40,12 +41,11 @@ class Reshare < Post
 
     fetched_post = self.class.fetch_post(root_author, self.root_guid)
 
+    #Why are we checking for this?
     if root_author.diaspora_handle != fetched_post.diaspora_handle
       raise "Diaspora ID (#{fetched_post.diaspora_handle}) in the root does not match the Diaspora ID (#{root_author.diaspora_handle}) specified in the reshare!"
     end
 
-    #Todo, this is a bug if it is necessary.  The marshalling process should set the author.
-    fetched_post.author_id = root_author.id
     fetched_post.save!
   end
 

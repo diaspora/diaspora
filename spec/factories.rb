@@ -41,6 +41,7 @@ Factory.define :like do |x|
 end
 
 Factory.define :user do |u|
+  u.getting_started false
   u.sequence(:username) { |n| "bob#{n}#{r_str}" }
   u.sequence(:email) { |n| "bob#{n}#{r_str}@pivotallabs.com" }
   u.password "bluepin7"
