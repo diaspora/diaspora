@@ -65,8 +65,10 @@ en:
           attributes:
             from_id:
               taken: "is a duplicate of a pre-existing request."
-
-
+        reshare:
+          attributes:
+            root_guid:
+              taken: "You've already reshared that post!"
   error_messages:
     helper:
       invalid_fields: "Invalid Fields"
@@ -579,7 +581,9 @@ en:
         few: "%{count} new requests!"
         many: "%{count} new requests!"
         other: "%{count} new requests!"
-
+  reshares:
+    create:
+      failure: "There was an error resharing this post."
   services:
     index:
       logged_in_as: "logged in as"
