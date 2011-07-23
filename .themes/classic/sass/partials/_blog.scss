@@ -1,7 +1,7 @@
 article {
   overflow: hidden;
   padding-top: 1em;
-  @extend force-wrap;
+  a { @extend .force-wrap; }
   header {
     position: relative;
     padding-top: 2em;

@@ -4,7 +4,7 @@
 aside[role=sidebar] {
   color: $sidebar-color;
   text-shadow: lighten($sidebar-bg, 8) 0 1px;
-  @extend .force-wrap;
+  a { @extend .force-wrap; }
   section {
     @extend .sans;
     font-size: .8em;
