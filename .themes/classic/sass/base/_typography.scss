@@ -134,4 +134,11 @@ blockquote {
   font-size: 1.4em;
   line-height: 1.45em;
 }
-
+/* @extend this to force long lines of continuous text to wrap */
+.force-wrap {
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
