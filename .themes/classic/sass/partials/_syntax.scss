@@ -58,7 +58,7 @@ pre {
   border: 1px solid $pre-border;
   line-height: 1.45em;
   font-size: 13px;
-  margin-bottom: 1.5em;
+  margin-bottom: 2.1em;
   padding: .8em 1em;
   color: $pre-color;
   overflow: auto;
@@ -163,7 +163,7 @@ p code {
 
 .highlight, .gist-highlight {
   pre { background: none; @include border-radius(none); border: none; padding: 0; margin-bottom: 0; }
-  margin-bottom: 1.5em;
+  margin-bottom: 1.8em;
   background: $base03;
   overflow-y: hidden;
   overflow-x: auto;
@@ -178,7 +178,8 @@ figure[role=code] {
   background: none;
   padding: 0;
   border: 0;
-  margin-bottom: 1.8em;
+  margin-bottom: 1.5em;
+  pre { margin-bottom: 0; }
   figcaption {
     position: relative;
     @extend .code-title;
