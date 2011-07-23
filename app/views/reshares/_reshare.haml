@@ -9,7 +9,7 @@
 
     .content
       .right
-        = link_to "Show Original", post_path(post)
+        = link_to t("show_original"), post_path(post)
       %span.from
         = person_link(post.author, :class => "hovercardable")
 
@@ -19,7 +19,7 @@
         = render 'status_messages/status_message', :post => post, :photos => post.photos
       - if defined?(current_user) && current_user && (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
         %span.reshare_action
-          = link_to "Reshare", reshares_path(:root_guid => post.guid), :method => :post, :remote => true, :confirm => "Reshare: #{post.author.name} - #{post.text}?"
+          = reshare_link(post)
 
   - else
-    Original post deleted by author
+    = t('.deleted')
