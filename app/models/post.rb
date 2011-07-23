@@ -24,6 +24,9 @@ class Post < ActiveRecord::Base
   has_many :contacts, :through => :post_visibilities
   has_many :mentions, :dependent => :destroy
 
+  has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
+  has_many :resharers, :class_name => 'Person', :through => :reshares, :source => :author
+
   belongs_to :author, :class_name => 'Person'
 
   def diaspora_handle

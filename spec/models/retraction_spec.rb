@@ -8,7 +8,7 @@ describe Retraction do
   before do
     @aspect = alice.aspects.first
     alice.contacts.create(:person => eve.person, :aspects => [@aspect])
-    @post = alice.post :status_message, :text => "Destroy!", :to => @aspect.id
+    @post = alice.post(:status_message, :public => true, :text => "Destroy!", :to => @aspect.id)
   end
 
   describe 'serialization' do
@@ -20,12 +20,24 @@ describe Retraction do
   end
 
   describe '#subscribers' do
-    it 'returns the subscribers to the post for all objects other than person' do
-      retraction = Retraction.for(@post)
-      obj = retraction.instance_variable_get(:@object)
-      wanted_subscribers = obj.subscribers(alice)
-      obj.should_receive(:subscribers).with(alice).and_return(wanted_subscribers)
-      retraction.subscribers(alice).map{|s| s.id}.should =~ wanted_subscribers.map{|s| s.id}
+    context 'posts' do
+      before do
+        @retraction = Retraction.for(@post)
+        @obj = @retraction.instance_variable_get(:@object)
+        @wanted_subscribers = @obj.subscribers(alice)
+      end
+
+      it 'returns the subscribers to the post for all objects other than person' do
+        @retraction.subscribers(alice).map(&:id).should =~ @wanted_subscribers.map(&:id)
+      end
+
+      it 'does not return the authors of reshares' do
+        @post.reshares << Factory.create(:reshare, :root => @post, :author => bob.person)
+        @post.save!
+
+        @wanted_subscribers -= [bob.person]
+        @retraction.subscribers(alice).map(&:id).should =~ @wanted_subscribers.map(&:id)
+      end
     end
 
     context 'setting subscribers' do

@@ -1,14 +1,18 @@
 #This is a spec for the class that runs the servers used in the other multi-server specs
 
 require 'spec_helper'
-WebMock::Config.instance.allow_localhost = true
-if Server.all && Server.all.first && Server.all.first.running?
+unless Server.all.empty?
   describe Server do
     before(:all) do
       WebMock::Config.instance.allow_localhost = true
+      #Server.all.each{|s| s.kill if s.running?}
+      #Server.all.each{|s| s.run}
     end
 
     after(:all) do
+      #Server.all.each{|s| s.kill if s.running?}
+      #sleep(1)
+      #Server.all.each{|s| puts "Server at port #{s.port} still running." if s.running?}
       WebMock::Config.instance.allow_localhost = false
     end
 
@@ -25,12 +29,12 @@ if Server.all && Server.all.first && Server.all.first.running?
       it 'takes an environment' do
         server = Server.new("integration_1")
         server.env.should == "integration_1"
-        server.port.should == ActiveRecord::Base.configurations["integration_1"]["app_server_port"]
       end
     end
     describe "#running?" do
       it "verifies that the server is running" do
-        Server.new("integration_1").running?.should be_true
+        server = Server.new("integration_1")
+        server.running?.should be_true
       end
     end
     describe '#db' do
@@ -52,4 +56,3 @@ if Server.all && Server.all.first && Server.all.first.running?
     end
   end
 end
-WebMock::Config.instance.allow_localhost = false

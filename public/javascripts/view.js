@@ -17,11 +17,11 @@ var View = {
     });
 
     Diaspora.widgets.subscribe("stream/scrolled", function() {
-      $('#main_stream .comments label').inFieldLabels();
+      $('#main_stream label').inFieldLabels();
     });
 
     Diaspora.widgets.subscribe("stream/reloaded", function() {
-      $('#main_stream .comments label').inFieldLabels();
+      $('#main_stream label').inFieldLabels();
     });
 
 

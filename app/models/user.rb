@@ -136,7 +136,8 @@ class User < ActiveRecord::Base
   end
 
   def dispatch_post(post, opts = {})
-    mailman = Postzord::Dispatch.new(self, post)
+    additional_people = opts.delete(:additional_subscribers)
+    mailman = Postzord::Dispatch.new(self, post, :additional_subscribers => additional_people)
     mailman.post(opts)
   end
 
@@ -229,14 +230,20 @@ class User < ActiveRecord::Base
   end
 
   ######### Posts and Such ###############
-  def retract(target)
+  def retract(target, opts={})
     if target.respond_to?(:relayable?) && target.relayable?
       retraction = RelayableRetraction.build(self, target)
+    elsif target.is_a? Post
+      retraction = SignedRetraction.build(self, target)
     else
       retraction = Retraction.for(target)
     end
 
-    mailman = Postzord::Dispatch.new(self, retraction)
+   if target.is_a?(Post)
+     opts[:additional_subscribers] = target.resharers
+   end
+
+    mailman = Postzord::Dispatch.new(self, retraction, opts)
     mailman.post
 
     retraction.perform(self)
@@ -326,7 +333,7 @@ class User < ActiveRecord::Base
     end
 
     self.person = Person.new(opts[:person])
-    self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].host}"
+    self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].authority}"
     self.person.url = AppConfig[:pod_url]
 
 

@@ -114,13 +114,13 @@ describe User do
         alice.email = eve.email
         alice.should_not be_valid
       end
-      
+
       it "requires a vaild email address" do
         alice.email = "somebody@anywhere"
         alice.should_not be_valid
       end
     end
-    
+
     describe "of unconfirmed_email" do
       it "unconfirmed_email address can be nil/blank" do
         alice.unconfirmed_email = nil
@@ -134,7 +134,7 @@ describe User do
         alice.unconfirmed_email = "new@email.com"
         alice.should be_valid
       end
-      
+
       it "requires a vaild unconfirmed_email address" do
         alice.unconfirmed_email = "somebody@anywhere"
         alice.should_not be_valid
@@ -679,7 +679,7 @@ describe User do
         user.confirm_email_token.size.should eql(30)
       end
     end
-    
+
     describe '#mail_confirm_email' do
       it 'enqueues a mail job on user with unconfirmed email' do
         user.update_attribute(:unconfirmed_email, "alice@newmail.com")
@@ -712,14 +712,14 @@ describe User do
           user.unconfirmed_email.should_not eql(nil)
           user.confirm_email_token.should_not eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email("").should eql(false)
           user.email.should_not eql("alice@newmail.com")
           user.unconfirmed_email.should_not eql(nil)
           user.confirm_email_token.should_not eql(nil)
         end
-        
+
         it 'returns false and does not change anything on blank token' do
           user.confirm_email(nil).should eql(false)
           user.email.should_not eql("alice@newmail.com")
@@ -749,6 +749,45 @@ describe User do
           user.unconfirmed_email.should eql(nil)
           user.confirm_email_token.should eql(nil)
         end
+      end
+    end
+  end
+
+  describe '#retract' do
+    before do
+      @retraction = mock
+
+      @post = Factory(:status_message, :author => bob.person, :public => true)
+    end
+
+    context "posts" do
+      before do
+        SignedRetraction.stub(:build).and_return(@retraction)
+        @retraction.stub(:perform)
+      end
+
+      it 'sends a retraction' do
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, anything()).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'adds resharers of target post as additional subsctibers' do
+        person = Factory(:person)
+        reshare = Factory(:reshare, :root => @post, :author => person)
+        @post.reshares << reshare
+
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'performs the retraction' do
+        pending
       end
     end
   end

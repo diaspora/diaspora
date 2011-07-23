@@ -65,21 +65,48 @@ describe PublicsController do
     it 'shows a public post' do
       status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
 
-      get :post, :id => status.id
+      get :post, :guid => status.id
       response.status= 200
     end
 
     it 'does not show a private post' do
       status = alice.post(:status_message, :text => "hello", :public => false, :to => 'all')
-      get :post, :id => status.id
+      get :post, :guid => status.id
       response.status = 302
     end
 
     it 'redirects to the proper show page if the user has visibility of the post' do
       status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
       sign_in bob
-      get :post, :id => status.id
+      get :post, :guid => status.id
       response.should be_redirect
+    end
+
+    it 'responds with diaspora xml if format is xml' do
+      status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+      get :post, :guid => status.guid, :format => :xml
+      response.body.should == status.to_diaspora_xml
+    end
+
+    # We want to be using guids from now on for this post route, but do not want to break
+    # preexisiting permalinks.  We can assume a guid is 8 characters long as we have
+    # guids set to hex(8) since we started using them.
+    context 'id/guid switch' do
+      before do
+        @status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+      end
+
+      it 'assumes guids less than 8 chars are ids and not guids' do
+        Post.should_receive(:where).with(hash_including(:id => @status.id)).and_return(Post)
+        get :post, :guid => @status.id
+        response.status= 200
+      end
+
+      it 'assumes guids more than (or equal to) 8 chars are actually guids' do
+        Post.should_receive(:where).with(hash_including(:guid => @status.guid)).and_return(Post)
+        get :post, :guid => @status.guid
+        response.status= 200
+      end
     end
   end
 

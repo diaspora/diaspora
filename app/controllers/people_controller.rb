@@ -96,12 +96,11 @@ class PeopleController < ApplicationController
           else
             @commenting_disabled = false
           end
-          @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
+          @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
         else
           @commenting_disabled = true
-          @posts = @person.posts.where(:type => ["StatusMessage", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
+          @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
         end
-
         @posts = PostsFake.new(@posts)
       end
 

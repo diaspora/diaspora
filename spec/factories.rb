@@ -19,7 +19,7 @@ end
 
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
-  p.sequence(:url)  { |n| "http://google-#{n}#{r_str}.com/" }
+  p.sequence(:url)  { |n| AppConfig[:pod_url] }
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.after_build do |person|
     person.profile ||= Factory.build(:profile, :person => person)
@@ -41,6 +41,7 @@ Factory.define :like do |x|
 end
 
 Factory.define :user do |u|
+  u.getting_started false
   u.sequence(:username) { |n| "bob#{n}#{r_str}" }
   u.sequence(:email) { |n| "bob#{n}#{r_str}@pivotallabs.com" }
   u.password "bluepin7"
@@ -89,6 +90,11 @@ Factory.define(:photo) do |p|
     p.process
     p.update_remote_path
   end
+end
+
+Factory.define :reshare do |r|
+  r.association(:root, :public => true, :factory => :status_message)
+  r.association(:author, :factory => :person)
 end
 
 Factory.define :service do |service|
