@@ -43,37 +43,23 @@ article {
     font-size: 2.0em; font-style: italic;
     line-height: 1.3em;
   }
-  img {
+  img, video, .flash-video {
     max-width: 100%;
+    height: auto;
     border: .5em solid #fff;
     @include border-radius(.3em);
     @include box-shadow(rgba(#000, .15) 0 1px 4px);
     @include box-sizing(border-box);
     display: block;
     margin: 0 auto 1.5em;
-    &.left {
-      float: left;
-      margin-right: 1.5em;
-    }
-    &.right {
-      float: right;
-      margin-left: 1.5em;
-    }
-    &.left, &.right {
-      margin-bottom: .8em;
-    }
   }
-  img, video { max-width: 100%; height: auto; }
-  video {
-    width: 100%; display: block; margin-bottom: 1.5em;
-    padding: .8em; background: #fff; border: 1px solid #eee;
-    @include box-sizing(border-box);
+  img {
+    &.left { float: left; margin-right: 1.5em; }
+    &.right { float: right; margin-left: 1.5em; }
+    &.left, &.right { margin-bottom: .8em; }
   }
+  video { display: block; margin-bottom: 1.5em; width: 100%; }
   .flash-video {
-    max-width: 100%;
-    margin-bottom: 1.5em;
-    @include box-sizing(border-box);
-    padding: .8em; background: #fff; border: 1px solid #eee;
     > div {
       position: relative;
       display: block;
