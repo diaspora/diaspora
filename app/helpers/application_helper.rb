@@ -49,14 +49,15 @@ module ApplicationHelper
 
   def person_link(person, opts={})
     opts[:class] ||= ""
+    opts[:class] << " draggable_person"
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
     remote_or_hovercard_link = "/people/#{person.id}".html_safe
     if person.local?
-          "<a data-hovercard='#{remote_or_hovercard_link}' href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+          "<a data-hovercard='#{remote_or_hovercard_link}' href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}' data-person_id='#{person.id}'>
         #{h(person.name)}
       </a>".html_safe
     else
-          "<a href='#{remote_or_hovercard_link}' data-hovercard='#{remote_or_hovercard_link}' class='#{opts[:class]}' >
+          "<a href='#{remote_or_hovercard_link}' data-hovercard='#{remote_or_hovercard_link}' class='#{opts[:class]}' data-person_id='#{person.id}'>
         #{h(person.name)}
       </a>".html_safe
     end
@@ -72,7 +73,7 @@ module ApplicationHelper
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
       if person.local?
-        "<a href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+        "<a href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]} draggable_person' data-person_id='#{person.id}'>
         #{person_image_tag(person, opts[:size])}
         </a>".html_safe
       else
