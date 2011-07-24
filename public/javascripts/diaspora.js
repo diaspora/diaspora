@@ -18,15 +18,15 @@
       obj.publish = Diaspora.EventBroker.publish;
 
       obj.publish = $.proxy(function(eventId, args) {
-	this.eventsContainer.trigger(eventId, args);
+        this.eventsContainer.trigger(eventId, args);
       }, obj);
 
       obj.subscribe = $.proxy(function(eventIds, callback, context) {
-	var eventIds = eventIds.split(" ");
-      
-	for(var eventId in eventIds) {
-	  this.eventsContainer.bind(eventIds[eventId], $.proxy(callback, context));
-	}
+	      var eventIds = eventIds.split(" ");
+            
+	      for(var eventId in eventIds) {
+	        this.eventsContainer.bind(eventIds[eventId], $.proxy(callback, context));
+	      }
       }, obj);
 
       return obj;
@@ -43,7 +43,7 @@
       Diaspora.EventBroker.extend(this);
 
       for(var widgetId in this.collection) {
-	this.collection[widgetId].publish("widget/ready");
+        this.collection[widgetId].publish("widget/ready");
       }
     },
 
@@ -52,8 +52,12 @@
 
       this[widgetId] = this.collection[widgetId] = new Widget();
       if(this.initialized) {
-	this.collection[widgetId].publish("widget/ready");
+        this.collection[widgetId].publish("widget/ready");
       }
+    },
+
+    get: function(widgetId) {
+      return this.collection[widgetId];
     },
 
     remove: function(widgetId) {

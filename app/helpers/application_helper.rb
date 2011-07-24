@@ -31,7 +31,6 @@ module ApplicationHelper
     link_to string, path, :rel => 'external'
   end
 
-
   def post_yield_tag(post)
     (':' + post.id.to_s).to_sym
   end
