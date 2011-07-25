@@ -23,6 +23,7 @@ da:
       no_more: "Ikke flere poster."
     publisher: 
       at_least_one_aspect: "Du skal dele med mindst et aspekt"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Søg efter {{name}}"
     show_more: "Vis mere"
     timeago: 

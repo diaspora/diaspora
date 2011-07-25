@@ -23,6 +23,7 @@ ar:
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
       at_least_one_aspect: "حدد فئة واحدة على الأقل"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
     timeago: 

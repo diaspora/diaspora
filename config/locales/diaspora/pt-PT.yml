@@ -26,6 +26,10 @@ pt-PT:
           attributes: 
             from_id: 
               taken: "é um duplicado de um pedido pré-existente."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ pt-PT:
       login: "iniciar sessão"
       logout: "Terminar sessão"
       profile: "perfil"
+      recent_notifications: "Recent notifications"
       settings: "definições"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ pt-PT:
       other: "%{actors} começaram a partilhar consigo."
       zero: "%{actors} começou a partilhar consigo."
   notifier: 
-    also_commented: 
-      commented: "também comentou na publicação de %{post_author}:"
-      sign_in: "Inicie sessão para ver."
-      subject: "%{name} também comentou na publicação de %{post_author}."
+    click_here: "click here"
     comment_on_post: 
-      commented: "comentou na sua publicação!"
-      sign_in: "Inicie sessão para ver."
-      subject: "%{name} comentou na sua publicação."
-    diaspora: "o robot de email do diaspora"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Olá %{name}!"
     liked: 
       liked: "%{name} gostou da sua publicação: "
-      sign_in: "Inicie sessão para ver"
-      subject: "%{name} gostou da sua publicação"
-    love: "com carinho,"
-    manage_your_email_settings: "gerir as suas definições de email"
+      view_post: "View post >"
     mentioned: 
       mentioned: "mencionou-o numa publicação:"
-      sign_in: "Inicie sessão para ver."
       subject: "%{name} mencionou-o no Diaspora*"
     private_message: 
-      message_subject: "Assunto: %{subject}"
-      private_message: "enviou-lhe uma mensagem privada:"
-      sign_in: "Inicie a sessão para ver."
-      subject: "%{name} enviou-lhe uma mensagem privada no Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "O seu administrador do Diaspora"
       subject: "Uma mensagem sobre a sua conta do Diaspora:"
     started_sharing: 
       sharing: "começou a partilhar consigo!"
-      sign_in: "Inicie a sessão aqui"
       subject: "%{name} começou a partilhar consigo no Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Obrigado,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "ou"
   password: "Palavra-passe"
@@ -556,6 +553,19 @@ pt-PT:
       manage_within: "Gerir contactos dentro de"
     new_request_to_person: 
       sent: "enviado!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Procurar"
   services: 
     create: 
@@ -690,10 +700,14 @@ pt-PT:
   undo: "Anular?"
   username: "Nome de utilizador"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "A sua conta foi encerrada. Pode demorar até 20 minutos para que terminemos o processo de encerramento da sua conta. Obrigado por experimentar o Diaspora."
     edit: 
       also_commented: "...alguém também comenta na publicação do seu contacto?"
       change: "Alterar"
+      change_email: "Change E-Mail"
       change_language: "Mudar de Idioma"
       change_password: "Alterar a Palavra-passe"
       close_account: "Encerrar a Conta"
@@ -702,6 +716,7 @@ pt-PT:
       download_photos: "descarregar as minhas fotografias"
       download_xml: "descarregar o meu xml"
       edit_account: "Editar conta"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportar Dados"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
@@ -735,6 +750,8 @@ pt-PT:
       language_not_changed: "Falha ao Alterar o Idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
       password_not_changed: "Falhou ao alterar a palavra-passe"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "erro a obter perfil webfinger profile para %{profile_url}"
     hcard_fetch_failed: "ocorreu um problema a obter a hcard para %{account}"

@@ -26,6 +26,10 @@ nl:
           attributes: 
             from_id: 
               taken: "is een duplicaat van een reeds bestaande aanvraag."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ nl:
       login: "inloggen"
       logout: "log uit"
       profile: "profiel"
+      recent_notifications: "Recent notifications"
       settings: "instellingen"
       view_all: "Bekijk alles"
   likes: 
@@ -366,39 +371,31 @@ nl:
       other: "%{actors} delen nu met jou."
       zero: "%{actors} deelt nu met jou."
   notifier: 
-    also_commented: 
-      commented: "heeft ook op %{post_author}'s post gereageerd:"
-      sign_in: "Log in om het te zien."
-      subject: "%{name} heeft ook gereageerd op %{post_author}'s post."
+    click_here: "click here"
     comment_on_post: 
-      commented: "heeft gereageerd op jouw post:"
-      sign_in: "Log in om het te zien."
-      subject: "%{name} heeft op jouw post gereageerd."
-    diaspora: "de diaspora email robot"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Hoi %{name}!"
     liked: 
       liked: "%{name} vind je post leuk: "
-      sign_in: "Sign to view it"
-      subject: "%{name} vindt jouw post leuk"
-    love: "liefs,"
-    manage_your_email_settings: "beheer je e-mail instellingen"
+      view_post: "View post >"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"
-      sign_in: "Log in om het te bekijken."
       subject: "%{name} heeft jou genoemd op Diaspora*"
     private_message: 
-      message_subject: "Onderwerp: %{subject}"
-      private_message: "heeft je een persoonlijk bericht gestuurd:"
-      sign_in: "Log in om het te zien."
-      subject: "%{name} heeft je een persoonlijk bericht gestuurd op Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Je Diaspora administrator"
       subject: "Een bericht over je Diaspora account:"
     started_sharing: 
       sharing: "deelt vanaf nu met jou!"
-      sign_in: "Log hier in"
       subject: "%{name} deelt vanaf nu met je op Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Bedankt,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "of"
   password: "Wachtwoord"
@@ -556,6 +553,19 @@ nl:
       manage_within: "Beheer contacten in"
     new_request_to_person: 
       sent: "verzonden!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Zoek"
   services: 
     create: 
@@ -690,10 +700,14 @@ nl:
   undo: "Ongedaan maken?"
   username: "Gebruikersnaam"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Je account is geblokkeerd. Het sluiten van je account kan twintig minuten in beslag nemen. Bedankt voor je interesse in Diaspora."
     edit: 
       also_commented: "...iemand na jou op de post van jouw contact reageert?"
       change: "Verander"
+      change_email: "Change E-Mail"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
@@ -702,6 +716,7 @@ nl:
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exporteer data"
       liked: "... iemand je post leuk vind?"
       mentioned: "...je genoemd word in een post?"
@@ -735,6 +750,8 @@ nl:
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd. Je kunt nu inloggen met je nieuwe wachtwoord."
       password_not_changed: "Wachtwoord wijzigen mislukt"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "ophalen van webfinger profiel is mislukt voor %{profile_url}"
     hcard_fetch_failed: "er was een probleem bij het ophalen van de hcard voor %{account}"

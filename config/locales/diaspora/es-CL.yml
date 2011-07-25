@@ -26,6 +26,10 @@ es-CL:
           attributes: 
             from_id: 
               taken: "es un duplicado de una solicitud que ya existe."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -247,7 +251,7 @@ es-CL:
     edit: 
       sign_up: "regístrate"
     new: 
-      already_invited: "Ya invitado"
+      already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
       comma_seperated_plz: "Puedes escribir varias direcciones de correo separadas por comas."
       if_they_accept_info: "Si aceptan, ellos se agregarán al aspecto que los invitaste."
@@ -272,6 +276,7 @@ es-CL:
       login: "entrar"
       logout: "salir"
       profile: "perfil"
+      recent_notifications: "Recent notifications"
       settings: "Configuración"
       view_all: "Ver todo"
   likes: 
@@ -366,39 +371,31 @@ es-CL:
       other: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier: 
-    also_commented: 
-      commented: "También comentó en el post de %{post_author}:"
-      sign_in: "Conéctate para verlo."
-      subject: "%{name} también comentó en el post de %{post_author}."
+    click_here: "click here"
     comment_on_post: 
-      commented: "Comentó en tu post!"
-      sign_in: "Conéctate para verlo."
-      subject: "%{name} comentó en tu post."
-    diaspora: "correo robot de diaspora"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "¡Hola %{name}!"
     liked: 
       liked: "a %{name} le gustó tu post: "
-      sign_in: "Entra para verlo"
-      subject: "a %{name} le gustó tu post"
-    love: "cariño,"
-    manage_your_email_settings: "maneja tus configuraciones de email"
+      view_post: "View post >"
     mentioned: 
       mentioned: "Te mencionó en un post:"
-      sign_in: "Conéctate para verlo."
       subject: "%{name} te mencionó en Diaspora*"
     private_message: 
-      message_subject: "Asunto: %{subject}"
-      private_message: "te envió un mensaje privado:"
-      sign_in: "Conéctate para verlo."
-      subject: "%{name} te envió un mensaje privado en Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Tu administrador de Diaspora"
       subject: "Un mensaje sobre tu cuenta de Diaspora:"
     started_sharing: 
       sharing: "Ha comenzado a compartir contigo!"
-      sign_in: "Conectate aqui"
       subject: "%{name} ha comenzado a compartir contigo en Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Gracias,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "o"
   password: "Contraseña"
@@ -556,6 +553,19 @@ es-CL:
       manage_within: "Manejar los contactos en"
     new_request_to_person: 
       sent: "¡enviado!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Buscar"
   services: 
     create: 
@@ -677,7 +687,7 @@ es-CL:
   tokens: 
     show: 
       connect_to_cubbies: "Conectarse a Cubbi.es"
-      connecting_is_simple: "Conectar la cuenta de diáspora es tan simple! Solo ingresa tu ID de Diaspora (<b>%{diaspora_id}</b>) de tu <a href='%{href_link}'>pagina de configuración</a> de cubbies y presiona conectar."
+      connecting_is_simple: "Conectar la cuenta de diáspora es simple! Solo ingresa tu ID de Diaspora (<b>%{diaspora_id}</b>) en la <a href='%{href_link}'>pagina de configuración</a> de cubbies y presiona conectar."
       daniels_account: "La cuenta de Diaspora de Daniel"
       log_in_with_diaspora_is_comming: "Muy pronto, podrás conectarte a nuevas aplicaciones sin crear una cuenta separada de la de Diaspora."
       love_to_try: "Nos encantaría que lo pruebes."
@@ -690,10 +700,14 @@ es-CL:
   undo: "Deshacer?"
   username: "Nombre de usuario"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Tu cuenta ha sido bloqueada. Nos puede tomar hasta 20 minutos cerrar tu cuenta. Gracias por probar Diaspora."
     edit: 
       also_commented: "...alguien comenta en el post de tu amigo?"
       change: "Modificar"
+      change_email: "Change E-Mail"
       change_language: "Cambiar Idioma"
       change_password: "Cambiar Contraseña"
       close_account: "Cerrar Cuenta"
@@ -702,6 +716,7 @@ es-CL:
       download_photos: "descargar mis fotos"
       download_xml: "descargar mi xml"
       edit_account: "Editar cuenta"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportar Datos"
       liked: "...a alguien le gusta tu post?"
       mentioned: "...te mencionan en un post?"
@@ -735,6 +750,8 @@ es-CL:
       language_not_changed: "Error al cambiar de idioma"
       password_changed: "Contraseña Cambiada. Ahora puedes conectarte con la nueva contraseña."
       password_not_changed: "Error al cambiar la contraseña"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "error al buscar el perfil webfinger para %{profile_url}"
     hcard_fetch_failed: "hubo un problema buscando la hcard de %{account}"

@@ -23,6 +23,7 @@ hu:
       no_more: "Nincs több bejegyzés."
     publisher: 
       at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "{{name}} keresése."
     show_more: "show more"
     timeago: 

@@ -23,6 +23,7 @@ tr:
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "You must publish to at least one aspect"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "{{name}}'i ara"
     show_more: "show more"
     timeago: 

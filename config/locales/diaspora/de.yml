@@ -26,6 +26,10 @@ de:
           attributes: 
             from_id: 
               taken: "wurde schon einmal angefordert."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -109,7 +113,7 @@ de:
       services: 
         content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
         heading: "Verbinde Dienste"
-      tags_following: "Followed Tags"
+      tags_following: "Tags, denen ich folge"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact: 
@@ -272,6 +276,7 @@ de:
       login: "Anmelden"
       logout: "Abmelden"
       profile: "Profil"
+      recent_notifications: "Recent notifications"
       settings: "Einstellungen"
       view_all: "alle anzeigen"
   likes: 
@@ -366,39 +371,31 @@ de:
       other: "%{actors} haben angefangen mit dir zu teilen."
       zero: "Niemand hat angefangen mit dir zu teilen."
   notifier: 
-    also_commented: 
-      commented: "hat den Beitrag von %{post_author} ebenfalls kommentiert:"
-      sign_in: "Melde dich an, um ihn anzuzeigen."
-      subject: "%{name} hat den Beitrag von %{post_author} auch kommentiert."
+    click_here: "click here"
     comment_on_post: 
-      commented: "hat deinen Beitrag kommentiert:"
-      sign_in: "Melde dich an, um ihn anzuzeigen."
-      subject: "%{name} hat deinen Beitrag kommentiert."
-    diaspora: "der Diaspora E-Mail-Roboter"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Hallo %{name}!"
     liked: 
       liked: "%{name} gefällt dein Beitrag: "
-      sign_in: "Melde dich an um es zu sehen"
-      subject: "%{name} gefällt dein Beitrag"
-    love: "Gruß,"
-    manage_your_email_settings: "E-Mail  Einstellungen"
+      view_post: "View post >"
     mentioned: 
       mentioned: "hat dich in einem Beitrag erwähnt:"
-      sign_in: "Melde dich an um sie zu sehen."
       subject: "%{name} hat dich auf Diaspora* erwähnt"
     private_message: 
-      message_subject: "Betreff: %{subject}"
-      private_message: "hat dir eine Private Nachricht gesendet."
-      sign_in: "Melde dich an um sie Anzuschauen"
-      subject: "%{name} hat dir eine Private Nachricht bei Diaspora* gesendet"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
       subject: "Eine Nachricht dein Diaspora*-Konto betreffend:"
     started_sharing: 
       sharing: "hat angefangen mit dir zu teilen!"
-      sign_in: "Hier anmelden"
       subject: "Auf Diaspora* hat %{name} angefangen mit dir zu teilen"
+      view_profile: "View %{name}'s profile"
     thanks: "Danke,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "oder"
   password: "Passwort"
@@ -556,6 +553,19 @@ de:
       manage_within: "Kontakte verwalten in"
     new_request_to_person: 
       sent: "Gesendet!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Suche"
   services: 
     create: 
@@ -661,11 +671,11 @@ de:
     show_more_comments: "Zeige %{number} weitere Kommentare"
   tag_followings: 
     create: 
-      failure: "Failed to follow: #%{name}"
-      success: "Successfully following: #%{name}"
+      failure: "Fehler beim Folgen von: #%{name}"
+      success: "Du folgst nun: #%{name}"
     destroy: 
-      failure: "Failed to stop following: #%{name}"
-      success: "Successfully stopped following: #%{name}"
+      failure: "Fehler beim Beenden des Folgens von: #%{name}"
+      success: "Du folgst #%{name} nicht mehr"
   tags: 
     show: 
       follow: "#%{tag} folgen"
@@ -677,7 +687,7 @@ de:
   tokens: 
     show: 
       connect_to_cubbies: "Mit Cubbi.es verbinden"
-      connecting_is_simple: "Um dein Diaspora Konto zu verbinden, kopiere einfach die zwei Felder in deine Cubbi.es Kontoseite."
+      connecting_is_simple: "Dein Diaspora-Konto mit Cubbi.es zu verbinden ist einfach! Trage einfach deine Diaspora-ID in der Cubbi.es <a href='%{href_link}'>Einstellungenseite</a> ein und verbinde die Konten!"
       daniels_account: "Daniels Diaspora-Konto"
       log_in_with_diaspora_is_comming: "Schon bald wirst du in der Lage sein eine Verbindung zu einer neuen Anwendung herzustellen, ohne ein seperates Konto neben deinem Konto auf Diaspora anzulegen."
       love_to_try: "Es wäre toll wenn Du es ausprobieren würdest."
@@ -690,10 +700,14 @@ de:
   undo: "Rückgängig machen?"
   username: "Benutzername"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Dein Konto wurde gesperrt. Es kann 20 Minuten dauern, bis wir die Schließung deines Kontos abgeschlossen haben. Vielen Dank, dass du Diaspora ausprobiert hast."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert hat?"
       change: "Ändern"
+      change_email: "Change E-Mail"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto schließen"
@@ -702,6 +716,7 @@ de:
       download_photos: "Fotos herunterladen"
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Daten exportieren"
       liked: "... wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
@@ -735,6 +750,8 @@ de:
       language_not_changed: "Ändern der Sprache fehlgeschlagen"
       password_changed: "Passwort geändert"
       password_not_changed: "Ändern des Passworts fehlgeschlagen"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "konnte Webfinger-Profil für %{profile_url} nicht laden"
     hcard_fetch_failed: "es gab Probleme beim Laden der hcard für %{account}"

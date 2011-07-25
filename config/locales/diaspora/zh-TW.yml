@@ -26,6 +26,10 @@ zh-TW:
           attributes: 
             from_id: 
               taken: "與已存在的請求重複."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -247,7 +251,7 @@ zh-TW:
     edit: 
       sign_up: "登記"
     new: 
-      already_invited: "已邀請了"
+      already_invited: "這些人尚未接受你的邀請:"
       aspect: "面向"
       comma_seperated_plz: "你可以輸入多個電子信箱, 只要以逗號分隔即可."
       if_they_accept_info: "如果他們接受, 就會被加入至你所邀請的面向中."
@@ -272,6 +276,7 @@ zh-TW:
       login: "登入"
       logout: "登出"
       profile: "個人檔案"
+      recent_notifications: "Recent notifications"
       settings: "設定"
       view_all: "檢視全部"
   likes: 
@@ -366,39 +371,31 @@ zh-TW:
       other: "%{actors}開始跟你分享了."
       zero: "%{actors}開始跟你分享了."
   notifier: 
-    also_commented: 
-      commented: "也對 %{post_author} 的貼文發表了意見:"
-      sign_in: "登入來看看."
-      subject: "%{name} 也對 %{post_author} 的貼文發表了意見."
+    click_here: "click here"
     comment_on_post: 
-      commented: "對你的貼文發表了意見:"
-      sign_in: "登入來看看."
-      subject: "%{name} 對你的貼文發表了意見."
-    diaspora: "diaspora 電郵機器人"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "%{name}你好!"
     liked: 
       liked: "%{name}剛剛說你的貼文讚: "
-      sign_in: "登入來看看"
-      subject: "%{name}剛剛說你的貼文讚"
-    love: "衷心祝福,"
-    manage_your_email_settings: "管理電郵設定"
+      view_post: "View post >"
     mentioned: 
       mentioned: "在貼文中提到你:"
-      sign_in: "登入來看看."
       subject: "%{name} 在 Diaspora* 提到你"
     private_message: 
-      message_subject: "主旨: %{subject}"
-      private_message: "已傳送私人訊息給你:"
-      sign_in: "登入來看看."
-      subject: "%{name} 在 Diaspora* 傳送私人訊息給你"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "為您服務的 Diaspora 管理員"
       subject: "關於你的 Diaspora 帳號的訊息:"
     started_sharing: 
       sharing: "開始跟你分享了!"
-      sign_in: "由此登入"
       subject: "%{name} 在 Diaspora* 開始跟你分享了"
+      view_profile: "View %{name}'s profile"
     thanks: "謝謝,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "好了"
   or: "或是"
   password: "密碼"
@@ -501,8 +498,8 @@ zh-TW:
     edit: 
       allow_search: "讓別人可以在 Diaspora 搜尋到你"
       edit_profile: "編輯個人檔案"
-      first_name: "First name"
-      last_name: "Last name"
+      first_name: "名字(前)"
+      last_name: "名字(後)"
       update_profile: "更新個人檔案"
       your_bio: "你的自我介紹"
       your_birthday: "你的生日"
@@ -556,6 +553,19 @@ zh-TW:
       manage_within: "管理聯繫:"
     new_request_to_person: 
       sent: "已送出!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "搜尋"
   services: 
     create: 
@@ -690,10 +700,14 @@ zh-TW:
   undo: "復原?"
   username: "用戶名稱"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "帳號已鎖定. 關閉帳號可能需要20分鐘才能完成. 感謝你試用 Diaspora."
     edit: 
       also_commented: "...當有人也對你的聯繫的貼文發表意見時?"
       change: "更改"
+      change_email: "Change E-Mail"
       change_language: "更改語言"
       change_password: "更改密碼"
       close_account: "關閉帳號"
@@ -702,6 +716,7 @@ zh-TW:
       download_photos: "下載我的相片"
       download_xml: "下載我的 xml"
       edit_account: "編輯帳號"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "資料匯出"
       liked: "...有人對你的貼文說讚時?"
       mentioned: "...當貼文中提到你時?"
@@ -735,6 +750,8 @@ zh-TW:
       language_not_changed: "語言更改失敗"
       password_changed: "密碼已變更. 現在起你可以用新密碼登入了."
       password_not_changed: "密碼更改失敗"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "擷取 %{profile_url} 的 webfinger 個人檔案失敗"
     hcard_fetch_failed: "擷取 %{account} 的 hcard 資料時發生錯誤"

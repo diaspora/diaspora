@@ -6,9 +6,15 @@
   - if likes_count > 0
     = image_tag('icons/heart.svg')
     - if defined?(likes_index_link) && likes_index_link
-      = link_to t('likes.likes.people_like_this', :count => likes_count), post_likes_path(target_id), :class => "expand_likes"
+      - if target_type == "Comment"
+        = link_to t('likes.likes.people_like_this_comment', :count => likes_count), post_likes_path(target_id), :class => "expand_likes"
+      - else
+        = link_to t('likes.likes.people_like_this', :count => likes_count), post_likes_path(target_id), :class => "expand_likes"
     - else
-      = t('likes.likes.people_like_this', :count => likes_count)
+      - if target_type == "Comment"
+        = t('likes.likes.people_like_this_comment', :count => likes_count)
+      - else
+        = t('likes.likes.people_like_this', :count => likes_count)
     %span.hidden.likes_list
       /= render 'likes/likes', :likes => likes
 

@@ -26,6 +26,10 @@ ja:
           attributes: 
             from_id: 
               taken: "既存のリクエストと重複しています。"
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ ja:
       login: "ログイン"
       logout: "ログアウト"
       profile: "プロフィール"
+      recent_notifications: "Recent notifications"
       settings: "設定"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ ja:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "も%{post_author}さんの投稿にコメントしました："
-      sign_in: "コメントを見るにはログインしてください。"
-      subject: "%{name}も%{post_author}さんの投稿にコメントしました。"
+    click_here: "click here"
     comment_on_post: 
-      commented: "は次の投稿にコメントしました："
-      sign_in: "見るにはログインしてください。"
-      subject: "%{name}は投稿にコメントしました。"
-    diaspora: "ダイアスポラ＊メールロボット"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "%{name}さん、こんにちは！"
     liked: 
       liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
-    love: "それでは、"
-    manage_your_email_settings: "メール設定を管理する"
+      view_post: "View post >"
     mentioned: 
       mentioned: "さんは投稿であなたをメンションしました。"
-      sign_in: "見るのにログインして下さい。"
       subject: "%{name}さんはダイアスポラ＊であなたをメンションしました。"
     private_message: 
-      message_subject: "件名：%{subject}"
-      private_message: "からメッセージが届いています。"
-      sign_in: "見るにはログインしてください。"
-      subject: "ダイアスポラ＊で%{name}さんからの非公開メッセージが届いています。"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "ダイアスポラ＊管理者"
       subject: "ダイアスポラ＊アカウントの重要なお知らせ："
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "ありがとうございます。"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "了解"
   or: "または"
   password: "パスワード"
@@ -556,6 +553,19 @@ ja:
       manage_within: "次のアスペクトの連絡先を管理："
     new_request_to_person: 
       sent: "送信しました！"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "検索"
   services: 
     create: 
@@ -690,10 +700,14 @@ ja:
   undo: "元に戻す"
   username: "ユーザ名"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "アカウント閉鎖に成功しました。"
     edit: 
       also_commented: "他の人も連絡先の投稿にコメントしたとき"
       change: "変更"
+      change_email: "Change E-Mail"
       change_language: "言語変更"
       change_password: "パスワード変更"
       close_account: "アカウント閉鎖"
@@ -702,6 +716,7 @@ ja:
       download_photos: "写真をダウンロードする"
       download_xml: "XMLをダウンロードする"
       edit_account: "アカウント編集"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "データ出力"
       liked: "...someone likes your post?"
       mentioned: "投稿に自分がメンションされたとき"
@@ -735,6 +750,8 @@ ja:
       language_not_changed: "言語の選択に失敗しました"
       password_changed: "パスワードを変更しました"
       password_not_changed: "パスワードの変更に失敗しました"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "%{profile_url} のwebfingerプロフィールの取得に失敗しました。"
     hcard_fetch_failed: "%{account}のhcard取得に問題が発生しました。"

@@ -26,6 +26,10 @@ da:
           attributes: 
             from_id: 
               taken: "er en kopi af en allerede eksisterende forespørgsel."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ da:
       login: "Log ind"
       logout: "Log ud"
       profile: "profil"
+      recent_notifications: "Recent notifications"
       settings: "indstillinger"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ da:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "har også kommenteret på %{post_author}'s post:"
-      sign_in: "Log in for at se det."
-      subject: "%{name} har også kommenteret på %{post_author}'s post."
+    click_here: "click here"
     comment_on_post: 
-      commented: "har kommenteret på din post:"
-      sign_in: "Log in for at se det."
-      subject: "%{name} har kommenteret på din post!"
-    diaspora: "Diaspora e-mail robotten"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Hej %{name}!"
     liked: 
       liked: "%{name} har lige syntes om din post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} synes godt om din post"
-    love: "Hilsen,"
-    manage_your_email_settings: "rediger dine email indstillinger"
+      view_post: "View post >"
     mentioned: 
       mentioned: "omtalte dig i en post:"
-      sign_in: "Log in for at se det."
       subject: "%{name} har omtalt dig på Diaspora*"
     private_message: 
-      message_subject: "Emne: %{subject}"
-      private_message: "har sendt dig en privat besked:"
-      sign_in: "Log in for at se."
-      subject: "%{name} har sendt dig en privat meddelelse på Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Din Diaspora administrator"
       subject: "En besked fra din Diaspora administrator:"
     started_sharing: 
       sharing: "er begyndt at dele med dig!"
-      sign_in: "Log in her"
       subject: "%{name} er begyndt at dele med dig på Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Tak,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "eller"
   password: "Adgangskode"
@@ -556,6 +553,19 @@ da:
       manage_within: "Administrér kontaktpersoner indenfor"
     new_request_to_person: 
       sent: "afsendt!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Søg"
   services: 
     create: 
@@ -690,10 +700,14 @@ da:
   undo: "Fortryd?"
   username: "Brugernavn"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Kontoen er nu lukket."
     edit: 
       also_commented: "...en eller anden har også kommenteret på din kontakts post?"
       change: "Skift"
+      change_email: "Change E-Mail"
       change_language: "Skift sprog"
       change_password: "Skift adgangskode"
       close_account: "Luk konto"
@@ -702,6 +716,7 @@ da:
       download_photos: "Download mine billeder"
       download_xml: "Download min XML"
       edit_account: "Rediger konto"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportér data"
       liked: "...nogen synes godt om din post?"
       mentioned: "...du er nævnt i en post?"
@@ -735,6 +750,8 @@ da:
       language_not_changed: "Kunne ikke ændre sprog"
       password_changed: "Adgangskode ændret"
       password_not_changed: "Kunne ikke ændre adgangskode"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "kunne ikke hente webfinger profil for %{profile_url}"
     hcard_fetch_failed: "der opstod et problem i forbindelse med hentning af hcard for %{account}"

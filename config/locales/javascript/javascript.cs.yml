@@ -23,6 +23,7 @@ cs:
       no_more: "Žádné další příspěvky."
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Hledat {{name}}"
     show_more: "zobrazit více"
     timeago: 

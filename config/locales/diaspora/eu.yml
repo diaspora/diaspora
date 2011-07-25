@@ -26,6 +26,10 @@ eu:
           attributes: 
             from_id: 
               taken: "lehenago egindako eskaera baten bikoizketa bat da."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -247,7 +251,7 @@ eu:
     edit: 
       sign_up: "izena_eman"
     new: 
-      already_invited: "Gonbidatuta jadanik"
+      already_invited: "Pertsona hauek ez dute zure gonbidapena onartu:"
       aspect: "Alderdia"
       comma_seperated_plz: "Nahi dituzun e-posta guztiak idatzi ditzakezu, koma batez bananduta."
       if_they_accept_info: "eskaera onartzen badute, gonbidatutako alderdira batuko dira"
@@ -272,6 +276,7 @@ eu:
       login: "sartu"
       logout: "irten"
       profile: "profila"
+      recent_notifications: "Recent notifications"
       settings: "lehentasunak"
       view_all: "Guztiak ikusi"
   likes: 
@@ -366,39 +371,31 @@ eu:
       other: "%{actors} zurekin harremanetan hasi d(ir)a"
       zero: "%{actors} zurekin harremanetan hasi d(ir)a"
   notifier: 
-    also_commented: 
-      commented: "(e)k ere iruzkindu du %{post_author}(r)en mezuan:"
-      sign_in: "Sartu zaitez ikusteko."
-      subject: "%{name}(e)k ere iruzkindu du."
+    click_here: "click here"
     comment_on_post: 
-      commented: "zure mezua iruzkindu du:"
-      sign_in: "Sartu zaitez ikusteko."
-      subject: "%{name}(e)k zure mezua iruzkindu du."
-    diaspora: "diasporaren e-posta robota"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Kaixo, %{name}!"
     liked: 
       liked: "%{name}(e)k zure mezua gustoko du:"
-      sign_in: "Sartu zaitez ikusteko"
-      subject: "%{name}(e)k zure mezua atsegin du"
-    love: "ikusi arte,"
-    manage_your_email_settings: "kudeatu zure e-posta ezarpenak"
+      view_post: "View post >"
     mentioned: 
       mentioned: "zu aipatu zaituzte mezu batean:"
-      sign_in: "Sartu ikusteko."
       subject: "%{name}(e)k Diasporan aipatu zaitu"
     private_message: 
-      message_subject: "Gaia: %{subject}"
-      private_message: "(e)k mezu pribatu bat bidali dizu:"
-      sign_in: "Sartu zaitez ikusteko."
-      subject: "%{name}(e)k mezu pribatu bat bidali dizu Diasporan"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Zure Diaspora administratzailea"
       subject: "Mezu bat zure Diaspora kontuari buruz:"
     started_sharing: 
       sharing: "zurekin harremanetan hasi da!"
-      sign_in: "Sartu hemen"
       subject: "%{name} zurekin harremanetan hasi da Diasporan"
+      view_profile: "View %{name}'s profile"
     thanks: "Milesker,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "Onartu"
   or: "edo"
   password: "Pasahitza"
@@ -492,8 +489,8 @@ eu:
       post_hidden: "%{name}(r)en mezua ezkutatua izan da."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
+      destroy: "Ezabatu"
+      not_found: "Barkatu, baina ezin izan dugu mezu hori aurkitu."
       permalink: "permalink"
   previous: "aurrekoa"
   profile: "Profila"
@@ -556,6 +553,19 @@ eu:
       manage_within: "Adiskideak kudeatu hemen:"
     new_request_to_person: 
       sent: "bidalia!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Bilatu"
   services: 
     create: 
@@ -690,10 +700,14 @@ eu:
   undo: "Desegin?"
   username: "Erabiltzailea"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Zure kontua giltzapetuta dago. 20 minutu eraman dezake kontua ezabatzeak. Eskerrik asko Diaspora erabiltzeagatik."
     edit: 
       also_commented: "...beste norbaitek zure adiskide baten mezua iruzkintzen duenean?"
       change: "Aldatu"
+      change_email: "Change E-Mail"
       change_language: "Hizkuntza Aldatu"
       change_password: "Pasahitza aldatu"
       close_account: "Kontua Ezabatu"
@@ -702,6 +716,7 @@ eu:
       download_photos: "nire argazkiak jaitsi"
       download_xml: "nire xml jaitsi"
       edit_account: "Kontua aldatu"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Datuak esportatu"
       liked: "...norbaitek zure mezu bat gustoko duenean?"
       mentioned: "...mezu batean aipatzen zaituztenean?"
@@ -735,6 +750,8 @@ eu:
       language_not_changed: "Hizkuntza aldaketak huts egin du"
       password_changed: "Pasahitza aldatu duzu. Orain zure pasahitz berria erabiliz sar zaitezke."
       password_not_changed: "Pasahitz Aldaketak Huts egin du"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "ezin izan da webfinger profila hartu %{profile_url} webgunetik"
     hcard_fetch_failed: "%{account} kontutik ezin izan da hcard sortu"

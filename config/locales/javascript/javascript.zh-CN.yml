@@ -23,6 +23,7 @@ zh-CN:
       no_more: "没有更多的内容了。"
     publisher: 
       at_least_one_aspect: "发布时请选择至少一个情景"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "搜索 {{name}}"
     show_more: "查看更多"
     timeago: 

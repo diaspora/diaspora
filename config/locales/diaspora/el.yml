@@ -26,6 +26,10 @@ el:
           attributes: 
             from_id: 
               taken: "είναι αντίγραφο ενός προϋπάρχοντος αιτήματος."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ el:
       login: "Είσοδος"
       logout: "αποσύνδεση"
       profile: "προφίλ"
+      recent_notifications: "Πρόσφατες ειδοποιήσεις"
       settings: "ρυθμίσεις"
       view_all: "Προβολή όλων"
   likes: 
@@ -366,39 +371,31 @@ el:
       other: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
       zero: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
   notifier: 
-    also_commented: 
-      commented: "σχολίασε επίσης τη δημοσίευση του χρήστη %{post_author} :"
-      sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο/Η %{name} επίσης σχολίασε τη δημοσίευση του χρήστη %{post_author}."
+    click_here: "πατήστε εδώ"
     comment_on_post: 
-      commented: "έχει σχολιάσει σε δημοσίευση σας:"
-      sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο χρήστης %{name} σχολίασε τη δημοσίευση σας."
-    diaspora: "το ρομποτάκι για τα email του δικτύου Diaspora.."
+      reply: "Απαντήστε ή δείτε τη δημοσίευση του χρήστη %{name} >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Γειά σου %{name}!"
     liked: 
       liked: "στο χρήστη %{name} αρέσει η δημοσίευση σας: "
-      sign_in: "Συνδεθείτε για να το δείτε"
-      subject: "στο χρήστη %{name} αρέσει η δημοσίευση σας"
-    love: "Με αγάπη,"
-    manage_your_email_settings: "διαχείριση των ρυθμίσεων ηλεκτρονικού ταχυδρομείου"
+      view_post: "View post >"
     mentioned: 
       mentioned: "αναφέρεται σε σας σε μια δημοσίευση:"
-      sign_in: "Συνδεθείτε για να το δείτε."
       subject: "Ο/Η %{name} σας αναφέρει στο Diaspora*"
     private_message: 
-      message_subject: "Θέμα: %{subject}"
-      private_message: "σας έστειλε ένα ιδιωτικό μήνυμα:"
-      sign_in: "Συνδεθείτε για να το δείτε."
-      subject: "Ο χρήστης %{name} σας έστειλε ένα ιδιωτικό μήνυμα στο Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Ο διαχειριστής Diaspora σας"
       subject: "Μήνυμα για τον Diaspora λογαριασμό σας:"
     started_sharing: 
       sharing: "ξεκίνησε το διαμοιρασμό μαζί σας!"
-      sign_in: "Συνδεθείτε εδώ"
       subject: "Ο χρήστης %{name} ξεκίνησε το διαμοιρασμό μαζί σας στο Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Ευχαριστώ,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "ή"
   password: "Κωδικός"
@@ -492,8 +489,8 @@ el:
       post_hidden: "Στη δημοσίευση του χρήστη %{name} έχει γίνει απόκρυψη."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
+      destroy: "Διαγραφή"
+      not_found: "Λυπούμαστε, δεν καταφέραμε να βρούμε αυτή τη δημοσίευση."
       permalink: "permalink"
   previous: "προηγούμενο"
   profile: "Προφίλ"
@@ -556,6 +553,19 @@ el:
       manage_within: "Διαχειριστείτε τις επαφές της πτυχής"
     new_request_to_person: 
       sent: "εστάλη!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Αναζήτηση"
   services: 
     create: 
@@ -690,10 +700,14 @@ el:
   undo: "Αναίρεση;"
   username: "Όνομα Χρήστη"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Ο λογαριασμός σας έχει κλειδωθεί. Μπορεί να διαρκέσει μέχρι και 20 λεπτά για να τελειώσουμε το κλείσιμο του λογαριασμού. Σας ευχαριστούμε που δοκιμάσατε το Diaspora."
     edit: 
       also_commented: "...κάποιος επίσης σχολίασε σε δημοσίευση επαφής σας;"
       change: "Αλλαγή"
+      change_email: "Change E-Mail"
       change_language: "Αλλαγή Γλώσσας"
       change_password: "Αλλαγή κωδικού πρόσβασης"
       close_account: "Κλείσιμο Λογαριασμού"
@@ -702,6 +716,7 @@ el:
       download_photos: "κατέβασε τις φωτογραφίες μου"
       download_xml: "κατέβασε το xml μου"
       edit_account: "Επεξεργασία λογαριασμού"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Εξαγωγή Δεδομένων"
       liked: "...σε κάποιον αρέσει η δημοσίευση σας;"
       mentioned: "...επισημανθήκατε σε μία φωτογραφία?"
@@ -735,6 +750,8 @@ el:
       language_not_changed: "Η αλλαγή γλώσσας απέτυχε"
       password_changed: "Ο κωδικός σας άλλαξε. Μπορείτε τώρα να συνδεθείτε με τον νέο κωδικό. "
       password_not_changed: "Η αλλαγή κωδικού απέτυχε"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

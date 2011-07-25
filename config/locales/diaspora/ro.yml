@@ -26,6 +26,10 @@ ro:
           attributes: 
             from_id: 
               taken: "is a duplicate of a pre-existing request."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ ro:
       login: "login"
       logout: "Ieşire"
       profile: "profile"
+      recent_notifications: "Recent notifications"
       settings: "settings"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ ro:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "has also commented on %{post_author}'s post:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has also commented."
+    click_here: "click here"
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has commented on your post."
-    diaspora: "robotul e-mail Diaspora"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Bună %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
-    love: "cu dragoste,"
-    manage_your_email_settings: "manage your email settings"
+      view_post: "View post >"
     mentioned: 
       mentioned: "te-a menţionat întrun post:  "
-      sign_in: "Sign in to view it."
       subject: "%{name} te-a menţionat pe Diaspora*"
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Your Diaspora administrator"
       subject: "A message from your Diaspora administrator:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Mulţumim,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "sau"
   password: "Parola"
@@ -556,6 +553,19 @@ ro:
       manage_within: "Manage contacts within"
     new_request_to_person: 
       sent: "trimis!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Caută"
   services: 
     create: 
@@ -690,10 +700,14 @@ ro:
   undo: "Undo?"
   username: "Nume de utilizator"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Contul a fost închis cu succes."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Modifică"
+      change_email: "Change E-Mail"
       change_language: "Modificare limbă"
       change_password: "Modificare parolă"
       close_account: "Închide cont"
@@ -702,6 +716,7 @@ ro:
       download_photos: "descarcă fotografiile mele"
       download_xml: "descarcă datele mele (xml)"
       edit_account: "Editează cont"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportare de date"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
@@ -735,6 +750,8 @@ ro:
       language_not_changed: "Nu sa putut modifica limba"
       password_changed: "S-a modificat parola"
       password_not_changed: "Nu sa putut schimba parola"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for #{@account}"

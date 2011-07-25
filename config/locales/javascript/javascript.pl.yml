@@ -23,6 +23,7 @@ pl:
       no_more: "No more posts."
     publisher: 
       at_least_one_aspect: "Musisz udostępnić dla co najmniej jednego aspektu"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Szukaj: {{name}}"
     show_more: "show more"
     timeago: 

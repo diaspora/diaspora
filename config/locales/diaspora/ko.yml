@@ -26,6 +26,10 @@ ko:
           attributes: 
             from_id: 
               taken: "이미 요청했습니다."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ ko:
       login: "로그인"
       logout: "로그아웃"
       profile: "프로필"
+      recent_notifications: "Recent notifications"
       settings: "설정"
       view_all: "모두 보기"
   likes: 
@@ -288,7 +293,7 @@ ko:
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
         zero: "아무도 좋아하지 않습니다"
-  limited: "Limited"
+  limited: "제한됨"
   more: "더"
   next: "다음"
   no_results: "결과 없음"
@@ -366,39 +371,31 @@ ko:
       other: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
-    also_commented: 
-      commented: "님도 %{post_author}님의 공유물에 댓글을 달았습니다:"
-      sign_in: "로그인하기"
-      subject: "%{name}님도 %{post_author}님의 공유물에 댓글을 달았습니다."
+    click_here: "click here"
     comment_on_post: 
-      commented: "님이 내 공유물에 댓글을 달았습니다:"
-      sign_in: "로그인하기"
-      subject: "%{name}님이 내 공유물에 댓글을 달았습니다."
-    diaspora: "디아스포라 자동 이메일"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "%{name}님!"
     liked: 
       liked: "%{name}님이 내 공유물을 좋아합니다:"
-      sign_in: "Sign to view it"
-      subject: "%{name}님이 내 공유물을 좋아합니다."
-    love: ""
-    manage_your_email_settings: "이메일 설정 관리"
+      view_post: "View post >"
     mentioned: 
       mentioned: "님이 공유물에서 나를 멘션했습니다:"
-      sign_in: "로그인하기"
       subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message: 
-      message_subject: "제목: %{subject}"
-      private_message: "님이 디아스포라*에서 쪽지를 보냈습니다:"
-      sign_in: "로그인하기"
-      subject: "%{name}님이 디아스포라*에서 쪽지를 보냈습니다"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "디아스포라 관리자"
       subject: "내 디아스포라 계정에 대한 메시지:"
     started_sharing: 
       sharing: "님이 나와 공유를 시작했습니다!"
-      sign_in: "여기서 로그인하세요"
       subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
+      view_profile: "View %{name}'s profile"
     thanks: "고맙습니다."
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "확인"
   or: "또는"
   password: "암호"
@@ -492,9 +489,9 @@ ko:
       post_hidden: "%{name}님의 공유물을 감췄습니다."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
-      permalink: "permalink"
+      destroy: "지우기"
+      not_found: "해당 공유물을 찾을 수 없습니다."
+      permalink: "영구 링크"
   previous: "이전"
   profile: "프로필"
   profiles: 
@@ -556,6 +553,19 @@ ko:
       manage_within: "컨택 관리하기:"
     new_request_to_person: 
       sent: "보냈습니다."
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "검색"
   services: 
     create: 
@@ -690,10 +700,14 @@ ko:
   undo: "돌이키겠습니까?"
   username: "사용자명"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "계정을 성공적으로 없앴습니다."
     edit: 
       also_commented: "댓글 달았던 공유물에 내 컨택도 댓글을 달았을 때"
       change: "바꾸기"
+      change_email: "Change E-Mail"
       change_language: "언어 바꾸기"
       change_password: "암호 바꾸기"
       close_account: "계정 없애기"
@@ -702,6 +716,7 @@ ko:
       download_photos: "내 사진 다운로드"
       download_xml: "내 xml 다운로드"
       edit_account: "계정 고치기"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "자료 뽑아내기"
       liked: "누군가가 내 공유물을 좋아할 때"
       mentioned: "내가 멘션되었을 때"
@@ -735,6 +750,8 @@ ko:
       language_not_changed: "언어를 바꿀 수 없습니다"
       password_changed: "암호를 바꿨습니다"
       password_not_changed: "암호를 바꿀 수 없습니다"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"

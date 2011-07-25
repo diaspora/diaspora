@@ -26,6 +26,10 @@ ru:
           attributes: 
             from_id: 
               taken: "дубликат ранних запросов."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ ru:
       login: "логин"
       logout: "выйти"
       profile: "профиль"
+      recent_notifications: "Recent notifications"
       settings: "настройки"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ ru:
       other: "%{actors} начали делиться с вами."
       zero: "%{actors} начали делиться с вами."
   notifier: 
-    also_commented: 
-      commented: "также прокомментировал %{post_author} сообщение:\n"
-      sign_in: "Войдите в систему, для дальнейшего просмотра."
-      subject: "%{name} прокомментировал сообщение от %{post_author}."
+    click_here: "click here"
     comment_on_post: 
-      commented: "прокомментировал ваше сообщение:"
-      sign_in: "Войдите в систему, для дальнейшего просмотра."
-      subject: "%{name} прокомментировал ваше сообщение."
-    diaspora: "почтовый робот Диаспоры"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Привет %{name}!"
     liked: 
       liked: "%{name} понравилось Ваше сообщение:"
-      sign_in: "Войдите в систему, чтобы увидеть это"
-      subject: "%{name} понравилось Ваше сообщение"
-    love: "С уважением,"
-    manage_your_email_settings: "администрировать настройки электронной почты"
+      view_post: "View post >"
     mentioned: 
       mentioned: "упомянул вас в сообщении:"
-      sign_in: "Войти в систему, чтобы посмотреть."
       subject: "% {name} упомянул вас в диаспоре*"
     private_message: 
-      message_subject: "Тема: %{subject}"
-      private_message: "отправил вам личное сообщение:"
-      sign_in: "Войдите в систему, чтобы посмотреть."
-      subject: "%{name} прислал вам личное сообщение в диаспоре*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Ваш администратор Диаспоры"
       subject: "Сообщение о вашем аккаунте Диаспоры:"
     started_sharing: 
       sharing: "начал делиться с вами!"
-      sign_in: "Войти сюда"
       subject: "%{name} начал делиться с вами в диаспоре*"
+      view_profile: "View %{name}'s profile"
     thanks: "Спасибо,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "Ок"
   or: "или"
   password: "Пароль"
@@ -556,6 +553,19 @@ ru:
       manage_within: "Управление контактами в"
     new_request_to_person: 
       sent: "отправлено!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Поиск"
   services: 
     create: 
@@ -690,10 +700,14 @@ ru:
   undo: "Отменить?"
   username: "Имя пользователя"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Ваш Аккаунт заблокирован. Примерно через 20 минут Аккаунт будет закрыт. Благодарим Вас."
     edit: 
       also_commented: "... кто-то комментировал сообщения ваших контактов?"
       change: "Изменение"
+      change_email: "Change E-Mail"
       change_language: "Изменить язык"
       change_password: "Сменить пароль"
       close_account: "Закрыть аккаунт"
@@ -702,6 +716,7 @@ ru:
       download_photos: "Скачать мои фотографии"
       download_xml: "Скачать мою информацию в xml"
       edit_account: "Редактировать аккаунт"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Экспорт информации"
       liked: "... кому-нибудь нравится ваше сообщение?"
       mentioned: "... Вы упомянуты в сообщении?"
@@ -735,6 +750,8 @@ ru:
       language_not_changed: "Не удалось изменить язык"
       password_changed: "Пароль изменён. Теперь вы можете войти в систему с новым паролем."
       password_not_changed: "Изменить пароль не удалось"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "Не удалось получить профиль для %{profile_url}"
     hcard_fetch_failed: "Возникла проблема при получении hcard для %{account}"

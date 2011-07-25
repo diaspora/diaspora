@@ -23,6 +23,7 @@ eu:
       no_more: "Mezu gehiagorik ez dago."
     publisher: 
       at_least_one_aspect: "Gutxienez alderdi batean partekatu behar duzu"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Bilatu {{name}}"
     show_more: "erakutsi gehiago"
     timeago: 
