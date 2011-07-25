@@ -1,6 +1,6 @@
 @javascript
 Feature: disconnecting users
-  In order to deal with life
+  In order to help users feel secure on Diaspora
   As a User
   I want to be able to disconnect from others
 

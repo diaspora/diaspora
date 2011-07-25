@@ -59,7 +59,7 @@ class Chubbies
 
   def self.run
     @pid = fork do
-      Process.exec "cd #{Rails.root}/spec/chubbies/ && bundle exec rackup -p #{PORT} 2> /dev/null 1> /dev/null"
+      Process.exec "cd #{Rails.root}/spec/chubbies/ && bundle exec #{run_command} #{nullify}"
     end
 
     at_exit do
@@ -69,6 +69,10 @@ class Chubbies
     while(!running?) do
       sleep(1)
     end
+  end
+
+  def self.nullify
+    "2> /dev/null > /dev/null"
   end
 
   def self.kill
@@ -94,9 +98,13 @@ class Chubbies
     end
   end
 
+  def self.run_command
+    "rackup -p #{PORT}"
+  end
+
   def self.get_pid
     @pid ||= lambda {
-      processes = `ps ax -o pid,command | grep "rackup -p #{PORT}"`.split("\n")
+      processes = `ps ax -o pid,command | grep "#{run_command}"`.split("\n")
       processes = processes.select{|p| !p.include?("grep") }
       processes.first.split(" ").first
     }.call

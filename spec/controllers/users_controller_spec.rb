@@ -89,6 +89,41 @@ describe UsersController do
       end
     end
 
+    describe 'email' do
+      before do
+        Resque.stub!(:enqueue)
+      end
+
+      it 'allow the user to change his (unconfirmed) email' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        @user.reload
+        @user.unconfirmed_email.should eql("my@newemail.com")
+      end
+
+      it 'informs the user about success' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+        request.flash[:notice].should eql(I18n.t('users.update.unconfirmed_email_changed'))
+        request.flash[:error].should be_blank
+      end
+
+      it 'informs the user about failure' do
+        put(:update, :id => @user.id, :user => { :email => "my@newemailcom"})
+        request.flash[:error].should eql(I18n.t('users.update.unconfirmed_email_not_changed'))
+        request.flash[:notice].should be_blank
+      end
+
+      it 'allow the user to change his (unconfirmed) email to blank (= abort confirmation)' do
+        put(:update, :id => @user.id, :user => { :email => ""})
+        @user.reload
+        @user.unconfirmed_email.should eql(nil)
+      end
+
+      it 'sends out activation email on success' do
+        Resque.should_receive(:enqueue).with(Job::MailConfirmEmail, @user.id).once
+        put(:update, :id => @user.id, :user => { :email => "my@newemail.com"})
+      end
+    end
+
     describe 'email settings' do
       it 'lets the user turn off mail' do
         par = {:id => @user.id, :user => {:email_preferences => {'mentioned' => 'true'}}}
@@ -136,6 +171,33 @@ describe UsersController do
     it 'locks the user out' do
       delete :destroy
       alice.reload.access_locked?.should be_true
+    end
+  end
+
+  describe '#confirm_email' do
+    before do
+      @user.update_attribute(:unconfirmed_email, 'my@newemail.com')
+    end
+
+    it 'redirects to to the user edit page' do
+      get 'confirm_email', :token => @user.confirm_email_token
+      response.should redirect_to edit_user_path
+    end
+
+    it 'confirms email' do
+      get 'confirm_email', :token => @user.confirm_email_token
+      @user.reload
+      @user.email.should eql('my@newemail.com')
+      request.flash[:notice].should eql(I18n.t('users.confirm_email.email_confirmed', :email => 'my@newemail.com'))
+      request.flash[:error].should be_blank
+    end
+
+    it 'does NOT confirm email with wrong token' do
+      get 'confirm_email', :token => @user.confirm_email_token.reverse
+      @user.reload
+      @user.email.should_not eql('my@newemail.com')
+      request.flash[:error].should eql(I18n.t('users.confirm_email.email_not_confirmed'))
+      request.flash[:notice].should be_blank
     end
   end
 end

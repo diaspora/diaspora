@@ -47,3 +47,5 @@ en:
       comments:
         show: "show all comments"
         hide: "hide comments"
+      reshares:
+        duplicate:"You've already reshared that post!"

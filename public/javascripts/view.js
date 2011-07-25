@@ -17,11 +17,11 @@ var View = {
     });
 
     Diaspora.widgets.subscribe("stream/scrolled", function() {
-      $('#main_stream .comments label').inFieldLabels();
+      $('#main_stream label').inFieldLabels();
     });
 
     Diaspora.widgets.subscribe("stream/reloaded", function() {
-      $('#main_stream .comments label').inFieldLabels();
+      $('#main_stream label').inFieldLabels();
     });
 
 
@@ -47,6 +47,12 @@ var View = {
     /* Sending a request message */
     $(this.newRequest.selector)
       .live("submit", this.newRequest.submit);
+
+    /* Clear forms after successful submit */
+    $('form[data-remote]').live('ajax:success', function (e) {
+      $(this).clearForm();
+      $(this).focusout();
+    });
 
     /* Autoexpand textareas */
     var startAutoResize = function() {

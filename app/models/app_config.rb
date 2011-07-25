@@ -6,7 +6,7 @@ require 'uri'
 class AppConfig < Settingslogic
 
   def self.source_file_name
-    if Rails.env == 'test' || ENV["CI"]
+    if Rails.env == 'test' || ENV["CI"] || Rails.env.include?("integration")
       File.join(Rails.root, "config", "application.yml.example")
     else
       File.join(Rails.root, "config", "application.yml")
@@ -125,7 +125,7 @@ HELP
   def self.pod_uri
     if @@pod_uri.nil?
       begin
-        @@pod_uri = URI.parse(self.pod_url)
+        @@pod_uri = Addressable::URI.parse(self.pod_url)
       rescue
         puts "WARNING: pod url " + self.pod_url + " is not a legal URI"
       end

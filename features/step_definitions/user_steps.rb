@@ -144,10 +144,13 @@ When /^I post a status with the text "([^\"]*)"$/ do |text|
 end
 
 
-And /^I follow the "([^\"]*)" link from the Devise.mailer$/ do |link_text|
-  doc = Nokogiri(Devise.mailer.deliveries.first.body.to_s)
+And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
+  email_text = Devise.mailer.deliveries.first.body.to_s
+  email_text = Devise.mailer.deliveries.first.html_part.body.raw_source if email_text.blank?
+  doc = Nokogiri(email_text)
   links = doc.css('a')
   link = links.detect{ |link| link.text == link_text }
+  link = links.detect{ |link| link.attributes["href"].value.include?(link_text)} unless link
   path = link.attributes["href"].value
   visit URI::parse(path).request_uri
 end
@@ -159,4 +162,8 @@ When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
     user.add_to_streams(p, user.aspects)
     user.dispatch_post(p)
   end
+end
+
+Then /^my "([^\"]*)" should be "([^\"]*)"$/ do |field, value|
+  @me.reload.send(field).should == value
 end

@@ -1,0 +1,9 @@
+<% if @reshare.persisted? %>
+  $('.stream_element#<%=params[:root_guid]%>').addClass('reshared');
+  ContentUpdater.addPostToStream(
+      "<%= escape_javascript(render(:partial => 'shared/stream_element', :locals => {:post => @reshare }))=%>"
+  );
+  <% else  %>
+  Diaspora.widgets.flashes.render({success:false,
+    notice: "<%= reshare_error_message(@reshare)  %>"});
+<% end %>

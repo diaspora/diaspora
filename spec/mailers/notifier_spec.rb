@@ -46,7 +46,7 @@ describe Notifier do
     end
 
     it 'has the layout' do
-      
+
       mail = Notifier.single_admin("Welcome to bureaucracy!", user)
       mail.body.encoded.should match /change your notification settings/
     end
@@ -215,6 +215,34 @@ describe Notifier do
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
         end
+      end
+    end
+
+    describe ".confirm_email" do
+      before do
+        user.update_attribute(:unconfirmed_email, "my@newemail.com")
+      end
+
+      let!(:confirm_email) { Notifier.confirm_email(user.id) }
+
+      it 'goes to the right person' do
+        confirm_email.to.should == [user.unconfirmed_email]
+      end
+
+      it 'has the unconfirmed emil in the subject' do
+        confirm_email.subject.should include(user.unconfirmed_email)
+      end
+
+      it 'has the unconfirmed emil in the body' do
+        confirm_email.body.encoded.should include(user.unconfirmed_email)
+      end
+
+      it 'has the receivers name in the body' do
+        confirm_email.body.encoded.should include(user.person.profile.first_name)
+      end
+
+      it 'has the activation link in the body' do
+        confirm_email.body.encoded.should include(confirm_email_url(:token => user.confirm_email_token))
       end
     end
   end

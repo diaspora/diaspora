@@ -23,10 +23,20 @@ describe Postzord::Dispatch do
       zord.instance_variable_get(:@object).should == @sm
     end
 
-    it 'sets @subscribers from object' do
-      @sm.should_receive(:subscribers).and_return(@subscribers)
-      zord = Postzord::Dispatch.new(alice, @sm)
-      zord.instance_variable_get(:@subscribers).should == @subscribers
+    context 'setting @subscribers' do 
+      it 'sets @subscribers from object' do
+        @sm.should_receive(:subscribers).and_return(@subscribers)
+        zord = Postzord::Dispatch.new(alice, @sm)
+        zord.instance_variable_get(:@subscribers).should == @subscribers
+      end
+
+      it 'accepts additional subscribers from opts' do
+        new_person = Factory(:person)
+
+        @sm.should_receive(:subscribers).and_return(@subscribers)
+        zord = Postzord::Dispatch.new(alice, @sm, :additional_subscribers => new_person)
+        zord.instance_variable_get(:@subscribers).should == @subscribers | [new_person]
+      end
     end
 
     it 'sets the @sender_person object' do

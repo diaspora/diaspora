@@ -1,7 +1,7 @@
 #   Copyright (c) 2010, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
-
+#
 class Invitation < ActiveRecord::Base
 
   belongs_to :sender, :class_name => 'User'
@@ -26,7 +26,6 @@ class Invitation < ActiveRecord::Base
         raise "You already invited this person"
       end
     end
-
     opts[:existing_user] = existing_user
     create_invitee(opts)
   end

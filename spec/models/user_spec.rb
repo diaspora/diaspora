@@ -5,9 +5,21 @@
 require 'spec_helper'
 
 describe User do
+
   it 'should have a key' do
     alice.encryption_key.should_not be nil
   end
+
+  it 'the key should marshall to and from the db correctly' do
+    user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+    user.save!
+
+    expect{
+      user.reload.encryption_key
+    }.should_not raise_error
+
+  end
+
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
@@ -112,6 +124,31 @@ describe User do
 
       it "requires a unique email address" do
         alice.email = eve.email
+        alice.should_not be_valid
+      end
+
+      it "requires a vaild email address" do
+        alice.email = "somebody@anywhere"
+        alice.should_not be_valid
+      end
+    end
+
+    describe "of unconfirmed_email" do
+      it "unconfirmed_email address can be nil/blank" do
+        alice.unconfirmed_email = nil
+        alice.should be_valid
+        alice.unconfirmed_email = ""
+        alice.should be_valid
+      end
+
+      it "does NOT require a unique unconfirmed_email address" do
+        eve.update_attribute :unconfirmed_email, "new@email.com"
+        alice.unconfirmed_email = "new@email.com"
+        alice.should be_valid
+      end
+
+      it "requires a vaild unconfirmed_email address" do
+        alice.unconfirmed_email = "somebody@anywhere"
         alice.should_not be_valid
       end
     end
@@ -592,6 +629,177 @@ describe User do
 
       it "returns false if there's no like" do
         alice.liked?(@message2).should be_false
+      end
+    end
+  end
+
+  context 'change email' do
+    let(:user){ alice }
+
+    describe "#unconfirmed_email" do
+      it "is nil by default" do
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "forces blank to nil" do
+        user.unconfirmed_email = ""
+        user.save!
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "is ignored if it equals email" do
+        user.unconfirmed_email = user.email
+        user.save!
+        user.unconfirmed_email.should eql(nil)
+      end
+
+      it "allows change to valid new email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.unconfirmed_email.should eql("alice@newmail.com")
+      end
+    end
+
+    describe "#confirm_email_token" do
+      it "is nil by default" do
+        user.confirm_email_token.should eql(nil)
+      end
+
+      it "is autofilled when unconfirmed_email is set to new email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.confirm_email_token.should_not be_blank
+        user.confirm_email_token.size.should eql(30)
+      end
+
+      it "is set back to nil when unconfirmed_email is empty" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        user.confirm_email_token.should_not be_blank
+        user.unconfirmed_email = nil
+        user.save!
+        user.confirm_email_token.should eql(nil)
+      end
+
+      it "generates new token on every new unconfirmed_email" do
+        user.unconfirmed_email = "alice@newmail.com"
+        user.save!
+        first_token = user.confirm_email_token
+        user.unconfirmed_email = "alice@andanotherone.com"
+        user.save!
+        user.confirm_email_token.should_not eql(first_token)
+        user.confirm_email_token.size.should eql(30)
+      end
+    end
+
+    describe '#mail_confirm_email' do
+      it 'enqueues a mail job on user with unconfirmed email' do
+        user.update_attribute(:unconfirmed_email, "alice@newmail.com")
+        Resque.should_receive(:enqueue).with(Job::MailConfirmEmail, alice.id).once
+        alice.mail_confirm_email.should eql(true)
+      end
+
+      it 'enqueues NO mail job on user without unconfirmed email' do
+        Resque.should_not_receive(:enqueue).with(Job::MailConfirmEmail, alice.id)
+        alice.mail_confirm_email.should eql(false)
+      end
+    end
+
+    describe '#confirm_email' do
+      context 'on user with unconfirmed email' do
+        before do
+          user.update_attribute(:unconfirmed_email, "alice@newmail.com")
+        end
+
+        it 'confirms email and set the unconfirmed_email to email on valid token' do
+          user.confirm_email(user.confirm_email_token).should eql(true)
+          user.email.should eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+
+        it 'returns false and does not change anything on wrong token' do
+          user.confirm_email(user.confirm_email_token.reverse).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email("").should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email(nil).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should_not eql(nil)
+          user.confirm_email_token.should_not eql(nil)
+        end
+      end
+
+      context 'on user without unconfirmed email' do
+        it 'returns false and does not change anything on any token' do
+          user.confirm_email("12345"*6).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email("").should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+
+        it 'returns false and does not change anything on blank token' do
+          user.confirm_email(nil).should eql(false)
+          user.email.should_not eql("alice@newmail.com")
+          user.unconfirmed_email.should eql(nil)
+          user.confirm_email_token.should eql(nil)
+        end
+      end
+    end
+  end
+
+  describe '#retract' do
+    before do
+      @retraction = mock
+
+      @post = Factory(:status_message, :author => bob.person, :public => true)
+    end
+
+    context "posts" do
+      before do
+        SignedRetraction.stub(:build).and_return(@retraction)
+        @retraction.stub(:perform)
+      end
+
+      it 'sends a retraction' do
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, anything()).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'adds resharers of target post as additional subsctibers' do
+        person = Factory(:person)
+        reshare = Factory(:reshare, :root => @post, :author => person)
+        @post.reshares << reshare
+
+        dispatcher = mock
+        Postzord::Dispatch.should_receive(:new).with(bob, @retraction, {:additional_subscribers => [person]}).and_return(dispatcher)
+        dispatcher.should_receive(:post)
+
+        bob.retract(@post)
+      end
+
+      it 'performs the retraction' do
+        pending
       end
     end
   end

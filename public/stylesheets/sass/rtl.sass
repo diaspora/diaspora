@@ -13,6 +13,24 @@ body
 
 #global_search
   :float right
+  
+#notification_badge, #message_inbox_badge 
+  :margin 0 10px 0 -5px
+
+#nav_badges 
+  :left auto
+  :right 460px
+  :margin-right -20px
+
+
+#notification_dropdown 
+  :left auto
+  :right 507px
+
+#view_all_notifications 
+  :float left
+  :margin-right 0
+  :margin-left 3px
 
 #notification_badge, #message_inbox_badge
   :margin 0 10px 0 -5px
@@ -32,6 +50,9 @@ footer ul#footer_nav
   :left 0
   :right auto
 
+.rightBar .right 
+  :margin-right 70px
+
 .stream .avatar
   :float right
 
@@ -43,8 +64,10 @@ footer ul#footer_nav
   :left auto
   :right -9999px
 
-#publisher #file-upload
-  :float left
+#publisher_textarea_wrapper #file-upload, #publisher_textarea_wrapper #hide_publisher, #facebox .close 
+  :right auto
+  :left 0
+  :margin-left 3px
 
 #publisher .options_and_submit .public_toggle
   :text-align left
@@ -88,6 +111,9 @@ header ul#user_menu a
 header ul#user_menu .right
   :right auto
   :left 5px
+  
+#sort_by 
+  :float left
 
 .stream_element .right
   :left 12px
@@ -173,6 +199,9 @@ ul.comments li form p, ul.show_comments li form p, div.likes li form p, div.disl
   :left auto
   :right 35px
 
+ul.comments li.posted .controls .delete 
+  :float left
+
 .stream .stream_element time
   :right auto
   :left 20px
@@ -208,7 +237,22 @@ ul.comments li form p, ul.show_comments li form p, div.likes li form p, div.disl
   :right auto
   :left 10px
 
-.conversation_participants .conversation_controls a
-  :margin-right 0
-  :margin-left 10px
+ul.left_nav .contact_count, ul.left_nav .edit 
+  :float left
+
+.conversation_participants .right, .stream .new_message .right
+  :right auto
+  :left 0
+
+.prepend-9 
+  :padding-left 0
+  :padding-right 361px
+
+.stream_container 
+  :border-left 0
+  :border-right 1px solid #DDDDDD
+
+.stream .new_message .right input[type=reset] 
+  :float left
+  :margin-right 10px
 

@@ -3,7 +3,9 @@
 #   the COPYRIGHT file.
 
 class Postzord::Dispatch
-  def initialize(user, object)
+
+  # @note Takes :additional_subscribers param to add to subscribers to dispatch to
+  def initialize(user, object, opts={})
     unless object.respond_to? :to_diaspora_xml
       raise 'this object does not respond_to? to_diaspora xml.  try including Diaspora::Webhooks into your object'
     end
@@ -12,6 +14,7 @@ class Postzord::Dispatch
     @object = object
     @xml = @object.to_diaspora_xml
     @subscribers = @object.subscribers(@sender)
+    @subscribers = @subscribers | [*opts[:additional_subscribers]] if opts[:additional_subscribers]
   end
 
   def salmon
@@ -35,6 +38,7 @@ class Postzord::Dispatch
       self.deliver_to_remote(remote_people)
     end
     self.deliver_to_services(opts[:url], opts[:services] || [])
+    @object.after_dispatch(@sender)
   end
 
   protected

@@ -41,20 +41,20 @@ var WebSocketReceiver = {
         WSR.debug(debug_string);
 
         if (obj['class']=="retractions") {
-          WebSocketReceiver.processRetraction(obj.post_id);
+          WebSocketReceiver.processRetraction(obj.post_guid);
 
         } else if (obj['class']=="comments") {
-          WebSocketReceiver.processComment(obj.post_id, obj.comment_id, obj.html, {
+          WebSocketReceiver.processComment(obj.post_guid, obj.comment_guid, obj.html, {
             'notification': obj.notification,
             'mine?': obj['mine?'],
             'my_post?': obj['my_post?']
           });
 
         } else if (obj['class']=="likes") {
-          WebSocketReceiver.processLike(obj.post_id, obj.html);
+          WebSocketReceiver.processLike(obj.post_guid, obj.html);
 
         } else {
-          WebSocketReceiver.processPost(obj['class'], obj.post_id, obj.html, obj.aspect_ids);
+          WebSocketReceiver.processPost(obj.html, obj.aspect_ids);
         }
       }
   },
@@ -67,7 +67,9 @@ var WebSocketReceiver = {
       result_ul.siblings('.error').show();
       result_ul.find('.error').text(response.response).show();
     } else {
-      $('#people_stream').prepend(response.html).slideDown('slow', function(){});
+      stream = $('#people_stream');
+      stream.find('p').remove();
+      stream.prepend(response.html).slideDown('slow', function(){});
       var first_li = result_ul.find('li:first');
       first_li.hide();
       first_li.after(response.html);
@@ -81,8 +83,8 @@ var WebSocketReceiver = {
     Diaspora.widgets.notifications.showNotification(notification);
   },
 
-  processRetraction: function(post_id){
-    $("#" + post_id).fadeOut(400, function() {
+  processRetraction: function(post_guid){
+    $("#" + post_guid).fadeOut(400, function() {
       $(this).remove();
     });
     if($("#main_stream")[0].childElementCount === 0) {
@@ -131,9 +133,9 @@ var WebSocketReceiver = {
     $('.likes', "#" + targetGUID).first().html(html);
   },
 
-  processPost: function(className, postId, html, aspectIds) {
+  processPost: function(html, aspectIds) {
     if(WebSocketReceiver.onPageForAspects(aspectIds)) {
-      ContentUpdater.addPostToStream(postId, html);
+      ContentUpdater.addPostToStream(html);
     }
   },
 
