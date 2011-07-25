@@ -334,6 +334,12 @@ ca:
         few: "li agrada a %{count} persones"
         many: "li agrada a %{count} persones"
         other: "li agrada a %{count} persones"
+      people_like_this_comment:
+        zero: "a cap persona li agrada"
+        one: "li agrada a 1 persona"
+        few: "li agrada a %{count} persones"
+        many: "li agrada a %{count} persones"
+        other: "li agrada a %{count} persones"
       people_dislike_this:
         zero: "a cap persona li desagrada"
         one: "li desagrada a 1 persona"
