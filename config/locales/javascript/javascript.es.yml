@@ -23,6 +23,7 @@ es:
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Buscar a {{name}}"
     show_more: "ver más"
     timeago: 

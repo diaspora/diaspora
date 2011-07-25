@@ -23,6 +23,7 @@ bg:
       no_more: "Няма повече публикации."
     publisher: 
       at_least_one_aspect: "Трябва да публикувате в поне един аспект"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Търсене за {{name}}"
     show_more: "покажи още"
     timeago: 

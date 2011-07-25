@@ -26,6 +26,10 @@ zh-CN:
           attributes: 
             from_id: 
               taken: "与已存在的请求重复。"
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ zh-CN:
       login: "登录"
       logout: "登出"
       profile: "个人档案"
+      recent_notifications: "Recent notifications"
       settings: "设置"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ zh-CN:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "也对 %{post_author} 的贴文发布了意见:"
-      sign_in: "登录后可以查看。"
-      subject: "%{name} 也评论了 %{post_author} 发布的内容。"
+    click_here: "click here"
     comment_on_post: 
-      commented: "对评论了您发布的内容："
-      sign_in: "登录后可以查看。"
-      subject: "%{name} 评论了您发布的内容。"
-    diaspora: "diaspora邮件机器人"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "您好 %{name}！"
     liked: 
       liked: "%{name}刚说喜欢您发布的内容："
-      sign_in: "Sign to view it"
-      subject: "%{name}刚说喜欢您发布的内容"
-    love: "衷心祝福，"
-    manage_your_email_settings: "管理邮件设置"
+      view_post: "View post >"
     mentioned: 
       mentioned: "在 Diaspora* 发布的内容中提到了您："
-      sign_in: "登录后可以查看。"
       subject: "%{name} 在 Diaspora* 上发布的内容中提到了您"
     private_message: 
-      message_subject: "主题: %{subject}"
-      private_message: "已发送了私人信息给您："
-      sign_in: "登录进来看看。"
-      subject: "%{name} 在 Diaspora* 给您发送了私人信息"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "为您服务的 Diaspora 管理员"
       subject: "关于您 Diaspora 帐号的信息:"
     started_sharing: 
       sharing: "刚开始与您分享！"
-      sign_in: "在这里登录"
       subject: "%{name}刚开始在Diaspora*与您分享"
+      view_profile: "View %{name}'s profile"
     thanks: "谢谢，"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "确定"
   or: "或"
   password: "密码"
@@ -556,6 +553,19 @@ zh-CN:
       manage_within: "管理好友："
     new_request_to_person: 
       sent: "发送成功！"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "搜索"
   services: 
     create: 
@@ -690,10 +700,14 @@ zh-CN:
   undo: "撤消？"
   username: "帐号"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "帐号关闭成功。"
     edit: 
       also_commented: "……当有人也对您的好友的内容发表评论时？"
       change: "更改"
+      change_email: "Change E-Mail"
       change_language: "更改语言"
       change_password: "更改密码"
       close_account: "关闭帐号"
@@ -702,6 +716,7 @@ zh-CN:
       download_photos: "下载我的照片"
       download_xml: "下载我的 xml"
       edit_account: "编辑帐号"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "资料导出"
       liked: "…有人喜欢您发布的内容？"
       mentioned: "……当贴文中提到您时？"
@@ -735,6 +750,8 @@ zh-CN:
       language_not_changed: "语言更改失败"
       password_changed: "密码更改成功"
       password_not_changed: "密码更改失败"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "获取 %{profile_url} 的 webfinger 个人档案失败"
     hcard_fetch_failed: "获取 %{account} 的 hcard 资料时发生错误"

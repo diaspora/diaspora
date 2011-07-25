@@ -23,6 +23,7 @@ fi:
       no_more: "Ei enempää viestejä."
     publisher: 
       at_least_one_aspect: "Sinun täytyy julkaista vähintään yhdelle näkymälle."
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Etsi nimellä {{name}}"
     show_more: "näytä lisää"
     timeago: 

@@ -23,6 +23,7 @@ he:
       no_more: "אין רשומות נוספות."
     publisher: 
       at_least_one_aspect: "עליך לפרסם היבט אחד לפחות"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "חיפוש אחר {{name}}"
     show_more: "הצגת עוד"
     timeago: 

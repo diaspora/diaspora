@@ -26,6 +26,10 @@ sk:
           attributes: 
             from_id: 
               taken: "je duplikát už existujúcej požiadavky."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ sk:
       login: "prihlásenie"
       logout: "odhlásiť sa"
       profile: "profile"
+      recent_notifications: "Recent notifications"
       settings: "settings"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ sk:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "tiež komentoval príspevok užívateľa %{post_author} :"
-      sign_in: "Pre zobrazenie musíte byť prihlásený."
-      subject: "%{name} tiež komentoval."
+    click_here: "click here"
     comment_on_post: 
-      commented: "has commented on your post!"
-      sign_in: "Pre zobrazenie musíte byť prihlásený."
-      subject: "Užívateľ %{name} komentoval Váš príspevok."
-    diaspora: "e-mail robot Diaspory"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Ahoj %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
-    love: "miluje,"
-    manage_your_email_settings: "manage your email settings"
+      view_post: "View post >"
     mentioned: 
       mentioned: "ťa spomenul v príspevku:"
-      sign_in: "K prezeraniu sa prihlás."
       subject: "%{name} ťa spomenul na Diaspore*"
     private_message: 
-      message_subject: "Predmet: %{subject}"
-      private_message: "ti poslal súkromnú správu:"
-      sign_in: "Sign in to view it."
-      subject: "%{name} has sent you a private message yon Diaspora*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Váš administrátor"
       subject: "A message from your Diaspora administrator:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Vďaka,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "alebo"
   password: "Heslo"
@@ -556,6 +553,19 @@ sk:
       manage_within: "Spravovať kontakty v rámci"
     new_request_to_person: 
       sent: "Poslané!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Hľadať"
   services: 
     create: 
@@ -690,10 +700,14 @@ sk:
   undo: "Undo?"
   username: "Užívateľské meno"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Účet bol úspešne zrušený."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Zmeniť"
+      change_email: "Change E-Mail"
       change_language: "Zmeniť jazyk"
       change_password: "Zmeniť heslo"
       close_account: "Zrušiť účet"
@@ -702,6 +716,7 @@ sk:
       download_photos: "Stiahnuť moje fotky"
       download_xml: "stiahnuť moje xml"
       edit_account: "Upraviť účet"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Exportovať dáta"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
@@ -735,6 +750,8 @@ sk:
       language_not_changed: "Zmena jazyka zlyhala"
       password_changed: "Heslo zmenené"
       password_not_changed: "Zmena hesla zlyhala"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "Nepodarilo sa získať webfinger profil pre %{profile_url}"
     hcard_fetch_failed: "Nepodarilo sa získať hcard pre %{@account}"

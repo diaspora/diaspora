@@ -26,6 +26,10 @@ sl:
           attributes: 
             from_id: 
               taken: "is a duplicate of a pre-existing request."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ sl:
       login: "prijava"
       logout: "odjavi me"
       profile: "profile"
+      recent_notifications: "Recent notifications"
       settings: "settings"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ sl:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "prav tako komentirano na objavo osebe %{post_author}:"
-      sign_in: "Za ogled se prijavite."
-      subject: "oseba %{name} je prav tako komentirala %{post_author}."
+    click_here: "click here"
     comment_on_post: 
-      commented: "oseba je komentirala na vašo objavo:"
-      sign_in: "Za ogled se prijavite."
-      subject: "Oseba %{name} je komentirala vašo objavo."
-    diaspora: "diaspora email robot"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Pozdravljeni %{name}!"
     liked: 
       liked: "%{name} has just liked your post: "
-      sign_in: "Sign to view it"
-      subject: "%{name} has just liked your post"
-    love: "vas pozdravlja,"
-    manage_your_email_settings: "manage your email settings"
+      view_post: "View post >"
     mentioned: 
       mentioned: "mentioned you in a post:"
-      sign_in: "Sign in to view it."
       subject: "%{name} has mentioned you on Diaspora*"
     private_message: 
-      message_subject: "Subject: %{subject}"
-      private_message: "has sent you a private message:"
-      sign_in: "Sign in to view it."
-      subject: "oseba %{name} vam je poslala privatno sporočilo v Diaspori*"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Vaš administrator Diaspore"
       subject: "Sporočilo o vašem Diaspora računu:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Sign in here"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Hvala,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "ali"
   password: "Geslo"
@@ -556,6 +553,19 @@ sl:
       manage_within: "Uredi stike znotraj"
     new_request_to_person: 
       sent: "poslano!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Najdi"
   services: 
     create: 
@@ -690,10 +700,14 @@ sl:
   undo: "Undo?"
   username: "Uporabniško ime"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Uporabniški račun je uspešno zaprt."
     edit: 
       also_commented: "...someone also comments on your contact's post?"
       change: "Spremeni"
+      change_email: "Change E-Mail"
       change_language: "Spremeni jezik"
       change_password: "Spremeni geslo"
       close_account: "Zapri uporabniški račun"
@@ -702,6 +716,7 @@ sl:
       download_photos: "prenesi slike"
       download_xml: "prenesi v xml"
       edit_account: "Uredi uporabniški račun"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Izvozi podatke"
       liked: "...someone likes your post?"
       mentioned: "...you are mentioned in a post?"
@@ -735,6 +750,8 @@ sl:
       language_not_changed: "Sprememba jezika ni uspela"
       password_changed: "Geslo spremenjeno"
       password_not_changed: "Sprememba gesla ni uspela"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "'webfinger' profil ni bilo mogoče prenesti za %{profile_url}"
     hcard_fetch_failed: "prišlo je do težave pri prenosu 'hCard' kartice za %{account}"

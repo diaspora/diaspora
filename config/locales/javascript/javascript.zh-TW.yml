@@ -23,6 +23,7 @@ zh-TW:
       no_more: "沒有貼文了."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "搜尋 {{name}}"
     show_more: "顯示更多"
     timeago: 

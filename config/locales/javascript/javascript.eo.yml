@@ -23,6 +23,7 @@ eo:
       no_more: "Ne pli afiŝoj."
     publisher: 
       at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Serĉi por {{name}}"
     show_more: "vidi plu"
     timeago: 

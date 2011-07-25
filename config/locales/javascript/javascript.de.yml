@@ -23,6 +23,7 @@ de:
       no_more: "Keine weiteren Beiträge."
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     timeago: 

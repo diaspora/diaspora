@@ -23,6 +23,7 @@ pt-PT:
       no_more: "Não há mais publicações."
     publisher: 
       at_least_one_aspect: "Tem de publicar para pelo menos um aspecto"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     timeago: 

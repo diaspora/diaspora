@@ -23,6 +23,7 @@ ko:
       no_more: "공유물이 더 없습니다."
     publisher: 
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "{{name}} 검색"
     show_more: "더 보기"
     timeago: 

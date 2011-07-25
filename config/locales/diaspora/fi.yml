@@ -26,6 +26,10 @@ fi:
           attributes: 
             from_id: 
               taken: "on jo tehdyn pyynnön kaksoiskappale."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
         user: 
           attributes: 
             email: 
@@ -272,6 +276,7 @@ fi:
       login: "kirjaudu sisään"
       logout: "kirjaudu ulos"
       profile: "Profiili"
+      recent_notifications: "Recent notifications"
       settings: "Asetukset"
       view_all: "View all"
   likes: 
@@ -366,39 +371,31 @@ fi:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
-    also_commented: 
-      commented: "kommentoi myös käyttäjän %{post_author} viestiin:"
-      sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on myös kommentoinut %{post_author}:n viestiin."
+    click_here: "click here"
     comment_on_post: 
-      commented: "on kommentoinut viestiisi:"
-      sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on kommentoinut viestiisi."
-    diaspora: "Diasporan sähköpostirobotti"
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Hei %{name}!"
     liked: 
       liked: "%{name} tykkäsi kirjoituksestasi: "
-      sign_in: "Kirjaudu sisään nähdäksesi"
-      subject: "%{name} tykkäsi juuri kirjoituksestasi"
-    love: "Terveisin,"
-    manage_your_email_settings: "manage your email settings"
+      view_post: "View post >"
     mentioned: 
       mentioned: "mainitsi sinut viestissään:"
-      sign_in: "Kirjaudu sisään nähdäksesi."
       subject: "%{name} on maininnut sinut Diaspora*:ssa"
     private_message: 
-      message_subject: "Aihe: %{subject}"
-      private_message: "on lähettänyt sinulle henkilökohtaisen viestin:"
-      sign_in: "Kirjaudu sisään nähdäksesi."
-      subject: "%{name} on lähettänyt sinulle henkilökohtaisen viestin Diaspora*:ssa"
+      reply_to_or_view: "Reply to or view this conversation >"
     single_admin: 
       admin: "Diasporasi ylläpitäjä"
       subject: "Viesti Diaspora-käyttäjätilistäsi:"
     started_sharing: 
       sharing: "has started sharing with you!"
-      sign_in: "Kirjaudu sisään täältä"
       subject: "%{name} has started sharing with you on Diaspora*"
+      view_profile: "View %{name}'s profile"
     thanks: "Kiitos,"
+    to_change_your_notification_settings: "to change your notification settings"
   ok: "OK"
   or: "tai"
   password: "Salasana"
@@ -556,6 +553,19 @@ fi:
       manage_within: "Muokkaa kontakteja näkymässä"
     new_request_to_person: 
       sent: "lähetetty!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      show_original: "Show Original"
   search: "Etsi"
   services: 
     create: 
@@ -690,10 +700,14 @@ fi:
   undo: "Peruuta?"
   username: "Käyttäjätunnus"
   users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
     destroy: "Käyttäjätilin sulkeminen onnistui."
     edit: 
       also_commented: "...joku myös kommentoi kontaktisi viestiin?"
       change: "Vaihda"
+      change_email: "Change E-Mail"
       change_language: "Vaihda kieli"
       change_password: "Vaihda salasana"
       close_account: "Sulje käyttäjätili"
@@ -702,6 +716,7 @@ fi:
       download_photos: "Lataa kaikki kuvat"
       download_xml: "Lataa tiedot XML-muodossa"
       edit_account: "Muokkaa käyttäjätiliä"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
       export_data: "Vie tietoja"
       liked: "...tykkää kirjoituksistasi?"
       mentioned: "...sinut mainitaan viestissä?"
@@ -735,6 +750,8 @@ fi:
       language_not_changed: "Kielen vaihtaminen epäonnistui"
       password_changed: "Salasana vaihdettu. Voit nyt kirjautua uudella salasanallasi."
       password_not_changed: "Salasanan vaihto epäonnistui"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "webfinger-profiilin %{profile_url} haku epäonnistui"
     hcard_fetch_failed: "tapahtui virhe haettaessa hcard:ia tilille %{account}"
