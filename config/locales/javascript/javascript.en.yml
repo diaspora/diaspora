@@ -48,4 +48,4 @@ en:
         show: "show all comments"
         hide: "hide comments"
       reshares:
-        duplicate:"You've already reshared that post!"
+        duplicate: "You've already reshared that post!"
