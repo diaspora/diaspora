@@ -2,12 +2,6 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 #
-class OpenSSL::PKey::RSA
-  def to_yaml
-    self.to_s
-  end
-end
-
 class Invitation < ActiveRecord::Base
 
   belongs_to :sender, :class_name => 'User'

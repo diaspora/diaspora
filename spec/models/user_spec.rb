@@ -5,9 +5,21 @@
 require 'spec_helper'
 
 describe User do
+
   it 'should have a key' do
     alice.encryption_key.should_not be nil
   end
+
+  it 'the key should marshall to and from the db correctly' do
+    user = User.build(:username => 'max', :email => 'foo@bar.com', :password => 'password', :password_confirmation => 'password')
+    user.save!
+
+    expect{
+      user.reload.encryption_key
+    }.should_not raise_error
+
+  end
+
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
