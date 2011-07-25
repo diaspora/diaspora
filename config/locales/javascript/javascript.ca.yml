@@ -49,3 +49,5 @@ ca:
       comments:
         show: "mostra tots els comentaris"
         hide: "amaga els comentaris"
+      reshares:
+        duplicate: "Ja heu tornat a compartir aquesta publicació!"
