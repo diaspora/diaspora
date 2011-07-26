@@ -73,6 +73,8 @@ module Jekyll
       source = "<div><figure role=code>"
       source += @caption if @caption
       if @filetype
+        @filetype = 'objc' if @filetype == 'm'
+        @filetype = 'perl' if @filetype == 'pl'
         source += "{% highlight #{@filetype} %}\n" + code + "\n{% endhighlight %}</figure></div>"
       else
         source += "<pre><code>" + code.lstrip.rstrip.gsub(/</,'&lt;') + "</code></pre></figure></div>"

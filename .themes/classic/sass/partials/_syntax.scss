@@ -126,9 +126,10 @@ p code {
   .n      { color: $blue !important; }
   .na     { color: $blue !important; }                                          /* Name.Attribute */
   .nb     { color: $green !important; }                                          /* Name.Builtin */
-  //.nc     { color: #445588; font-weight: bold }                       /* Name.Class */
+  .nc     { color: $magenta !important;}                                                   /* Name.Class */
   .no     { color: $yellow !important; }                                          /* Name.Constant */
   //.ni     { color: #800080 }                                          /* Name.Entity */
+  .nl     { color: $green !important; }
   .ne     { color: $blue !important; font-weight: bold !important; }                       /* Name.Exception */
   .nf     { color: $blue !important; font-weight: bold !important; }                       /* Name.Function */
   .nn     { color: $yellow !important; }                                          /* Name.Namespace */
@@ -214,4 +215,5 @@ figure[role=code] {
   text-shadow: #cbcccc 0 1px 0;
   padding-left: 3em;
 }
+
 
