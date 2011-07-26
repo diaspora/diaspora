@@ -23,7 +23,7 @@
                 = contact.person.diaspora_handle
 
             .right
-              = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => contact.person, :hang => 'right'
+              = aspectmembership_dropdown(contact, contact.person, 'right')
 
   %br
   %div{:style => "text-align:right;"}

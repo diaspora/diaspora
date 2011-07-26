@@ -1,0 +1,24 @@
+-#   Copyright (c) 2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.dropdown{:class => ["hang_#{hang}", defined?(dropdown_class) && dropdown_class]}
+  - selected_aspects = [selected_aspects] if selected_aspects.kind_of? Aspect
+  - if !selected_aspects.kind_of? Array
+    - selected_aspects = all_aspects
+  .button.toggle{:class => (button_class if defined?(button_class))}
+    - if selected_aspects.size == 1
+      = selected_aspects.first.name
+    - else
+      = t('.toggle', :count => selected_aspects.size)
+    &#9660;
+
+  .wrapper
+    %ul.dropdown_list{:unSelectable => 'on', 'data-person_id' => (person.id if defined?person && person)}
+      - for aspect in all_aspects
+        = aspect_dropdown_list_item(aspect, selected_aspects.include?(aspect) )
+
+      - if (defined?may_create_new_aspect && may_create_new_aspect) && (defined?person && person)
+        %li.newItem
+          .add_aspect
+            = link_to t('contacts.index.add_a_new_aspect'), new_aspect_path(:person_id => person.id), :rel => 'facebox'

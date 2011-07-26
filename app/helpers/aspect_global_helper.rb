@@ -65,8 +65,24 @@ module AspectGlobalHelper
     end
   end
 
-  def aspect_dropdown_list_item(aspect, contact, person)
-    checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
+  def aspectmembership_dropdown(contact, person, hang, aspect=nil)
+    @selected_aspects = []
+    if contact.persisted?
+      @selected_aspects = all_aspects.find_all{|aspect| contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id}}
+    end
+    @selected_aspects = [@selected_aspects] if @selected_aspects.kind_of? Aspect
+
+    render "shared/aspect_dropdown",
+      :contact => @contact,
+      :selected_aspects => @selected_aspects,
+      :person => person,
+      :hang => hang,
+      :dropdown_class => "aspect_membership",
+      :button_class => ("in_aspects" if @selected_aspects.size > 0),
+      :may_create_new_aspect => ( @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification)
+  end
+
+  def aspect_dropdown_list_item(aspect, checked)
     klass = checked ? "selected" : ""
 
     str = <<LISTITEM

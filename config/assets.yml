@@ -42,6 +42,7 @@ javascripts:
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
     - public/javascripts/search.js
+    - public/javascripts/aspects-dropdown.js
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js

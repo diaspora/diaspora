@@ -29,12 +29,6 @@
         = hidden_field_tag 'aspect_ids[]', aspect_id.to_s
 
       .options_and_submit
-        - if aspect == :profile
-          .mention_helper
-            .badges
-              %i= t('.publishing_to')
-              = aspect_badges(aspects_with_person, :link => false)
-
         .public_toggle
           %span#publisher_service_icons
             = t("shared.publisher.click_to_share_with")
@@ -45,6 +39,7 @@
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
             = link_to (image_tag "icons/monotone_wrench_settings.png"), "#question_mark_pane", :class => 'question_mark', :rel => 'facebox', :title => t('shared.public_explain.manage')
+          = render "shared/aspect_dropdown", :selected_aspects => Aspect.find(aspect_ids), :hang => 'left'
           = status.submit t('.share'), :disable_with => t('.posting'), :class => 'button creation', :tabindex => 2
 
           .facebox_content

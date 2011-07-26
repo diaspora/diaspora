@@ -24,7 +24,7 @@
             .stream_element{:data=>{:guid => note.id}, :class => "#{note.unread ? 'unread' : ''}"}
               - if note.type == "Notifications::StartedSharing" && contact = current_user.contact_for(note[:target])
                 .right
-                  = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => note[:target], :hang => 'left'
+                  = aspectmembership_dropdown(contact, note[:target], 'left')
 
               %span.from
                 = notification_message_for(note)

@@ -4,37 +4,11 @@
 
 var ContactEdit = {
   init: function(){
-    $('.dropdown .dropdown_list > li').live('click', function(evt){
+    $.extend(ContactEdit, AspectsDropdown);
+    $('.dropdown.aspect_membership .dropdown_list > li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
   },
-
-  updateNumber: function(dropdown, personId, number){
-    var button = dropdown.parents(".dropdown").children('.button.toggle'),
-        replacement;
-
-    if (number == 0) {
-      button.removeClass("in_aspects");
-      replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero");
-    }else if (number == 1) { 
-      button.addClass("in_aspects");
-      replacement = dropdown.find(".selected").first().text();
-    }else if (number < 3) {
-      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
-    }else if (number > 3) {
-      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
-    }else {
-      //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
-      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
-    }
-
-    button.html(replacement + ' ▼');
-  },
-  
-  toggleCheckbox: 
-    function(check){
-      check.parent('li').toggleClass('selected');
-    },
 
   processClick: function(li, evt){
     var button = li.find('.button');
@@ -50,13 +24,13 @@ var ContactEdit = {
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
       ContactEdit.toggleCheckbox(checkbox);
-      ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
+      ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length, 'in_aspect');
 
       Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
   },
 };
 
-  $(document).ready(function(){
-    ContactEdit.init();
-  });
+$(document).ready(function(){
+  ContactEdit.init();
+});
