@@ -66,6 +66,10 @@ ca:
           attributes:
             from_id:
               taken: "és un duplicat d'una petició ja existent."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Ja heu tornat a compartir aquesta publicació!"
 
 
   error_messages:
@@ -149,6 +153,7 @@ ca:
     index:
       your_aspects: "Els vostres aspectes"
       tags_following: "Etiquetes que seguiu"
+      no_tags: "Cap etiqueta"
       handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
       no_contacts: "Cap contacte"
       post_a_message: "publica un missatge »"
@@ -330,6 +335,12 @@ ca:
         few: "li agrada a %{count} persones"
         many: "li agrada a %{count} persones"
         other: "li agrada a %{count} persones"
+      people_like_this_comment:
+        zero: "a cap persona li agrada"
+        one: "li agrada a 1 persona"
+        few: "li agrada a %{count} persones"
+        many: "li agrada a %{count} persones"
+        other: "li agrada a %{count} persones"
       people_dislike_this:
         zero: "a cap persona li desagrada"
         one: "li desagrada a 1 persona"
@@ -436,6 +447,9 @@ ca:
     liked:
       liked: "A %{name} li ha agradat la vostra publicació"
       view_post: "visualitza la publicació >"
+    confirm_email:
+      subject: "Activeu la vostra adreça de correu electrònic %{unconfirmed_email}"
+      click_link: "Per activar la vostra adreça de correu electrònic %{unconfirmed_email}, seguiu aquest enllaç:"
 
 
   people:
@@ -602,6 +616,21 @@ ca:
         other: "%{count} peticions noves!"
 
 
+  reshares:
+    reshare:
+      reshare:
+        zero: "Torna a compartir"
+        one: "1 vegada tornat a compartir"
+        few: "%{count} vegades tornat a compartir"
+        many: "%{count} vegades tornat a compatir"
+        other: "%{count} vegades tornat a compatir"
+      show_original: "Mostra l'original"
+      reshare_confirmation: "Voleu tornat a compartir %{author} - %{text}?"
+      deleted: "Publicació original suprimida per l'autor."
+    create:
+      failure: "S'ha produït un error en tornar a compartir aquesta publicació."
+
+
   services:
     index:
       logged_in_as: "s'ha autenticat com a"
@@ -757,6 +786,7 @@ També és la millor forma de coŀleccionar fotos en línia."
       close_account: "Tanca el compte"
       change_language: "Canvia la llengua"
       change_password: "Canvia la contrasenya"
+      change_email: "Canvia el correu electrònic"
       new_password: "Contrasenya nova"
       current_password: "Contrasenya actual"
       download_xml: "baixa el meu XML"
@@ -772,6 +802,7 @@ També és la millor forma de coŀleccionar fotos en línia."
       private_message: "… rebeu un missatge privat?"
       liked: "… a algú li agradi una publicació vostra?"
       change: "Canvia"
+      email_awaiting_confirmation: "Us hem enviat un enllaç d'activació per a %{unconfirmed_email}. Fins que no seguiu aquest enllaç i activeu l'adreça nova, continuarem emprant la vostra adreça original %{email}."
     destroy: "S'ha blocat el vostre compte. Trigarem fins a 20 minuts en tancar el compte. Moltes gràcies per provar Diàspora."
     getting_started:
       welcome: "Benvingut/da al Diàspora!"
@@ -796,8 +827,13 @@ la contrasenya nova."
       language_changed: "S'ha canviat la llengua"
       language_not_changed: "Ha fallat el canvi de llengua"
       email_notifications_changed: "S'han canviat les notificacions per correu"
+      unconfirmed_email_changed: "S'ha canviat l'adreça de correu electrònic. Necessita activació."
+      unconfirmed_email_not_changed: "Ha fallat el canvi d'adreça de correu electrònic"
     public:
       does_not_exist: "L'usuari %{username} no existeix!"
+    confirm_email:
+      email_confirmed: "S'ha activat l'adreça de correu %{email}"
+      email_not_confirmed: "No s'ha pogut activar l'adreça de correu electrònic. Heu emprat un enllaç erroni?"
 
 
   webfinger:
