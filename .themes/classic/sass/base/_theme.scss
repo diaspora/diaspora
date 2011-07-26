@@ -21,11 +21,6 @@ $text-color: #222 !default;
 $text-color-light: #aaa !default;
 $type-border: #ddd !default;
 
-/* non highlighted code colors */
-$pre-bg: $base03 !default;
-$pre-border: $base02 !default;
-$pre-color: $base1 !default;
-
 /* Navigation */
 $nav-bg: #ccc !default;
 $nav-color: darken($nav-bg, 38) !default;
@@ -85,4 +80,3 @@ body {
     }
   }
 }
-
