@@ -293,6 +293,12 @@ br:
         one: "1 den zo bet plijet ganti"
         other: "%{count} den zo bet plijet ganti"
         zero: "den ebet zo bet plijet ganti"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Muioc'h"
   next: "next"

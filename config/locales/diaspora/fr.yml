@@ -293,6 +293,12 @@ fr:
         one: "%{count} personne aime"
         other: "%{count} personnes aiment"
         zero: "Personne n'aime ça"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Plus"
   next: "suivant"

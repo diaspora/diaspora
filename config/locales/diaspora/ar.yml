@@ -52,14 +52,14 @@ ar:
       add_to_aspect: "أضف إلى فئة"
       toggle: 
         few: "في %{count} فئات"
-        many: "في %{count} فئات"
-        one: "في %{count} فئات"
+        many: "في %{count} فئة"
+        one: "في فئة واحدة"
         other: "في %{count} فئات"
         zero: "أضف إلى فئة"
     destroy: 
       failure: "فشل في حذف عضو من الفئة"
       no_membership: "لم يتم إيجاد العضو المحدد في هذه الفئة"
-      success: "حذف العضو من الفئة بنجاح"
+      success: "حُذِفَ العضو من الفئة بنجاح"
   aspects: 
     add_to_aspect: 
       failure: "فشل في إضافة صديق إلى الفئة"
@@ -265,7 +265,7 @@ ar:
     application: 
       have_a_problem: "واجهت مشكلة؟ اعثر على حل هنا"
       powered_by: "بدعم DIASPORA*"
-      public_feed: "فيد دياسبرا العام لـ %{name}"
+      public_feed: "ملقم دياسبرا العام لـ %{name}"
       toggle: "التحول إلى الموقع الخاص بالهواتف المحمولة"
       whats_new: "ما الجديد؟"
       your_aspects: "فئاتك"
@@ -293,6 +293,12 @@ ar:
         one: "%{count} أعجبه هذا"
         other: "%{count} إعجابًا"
         zero: "لا إعجابات"
+      people_like_this_comment: 
+        few: "أعجب %{count} أشخاص هذا"
+        many: "أعجب %{count} شخص هذا"
+        one: "أعجب هذا %{count} شخصًا واحدًا"
+        other: "أعجب %{count} شخص بهذا"
+        zero: "لا أحد أعجبه هذا"
   limited: "محدود"
   more: "أكثر"
   next: "التالي"
@@ -497,15 +503,15 @@ ar:
   profiles: 
     edit: 
       allow_search: "السماح للجميع بالبحث عنك من خلال دياسبرا"
-      edit_profile: "تحرير الصفحة الشخصية"
+      edit_profile: "حَرِّر صفحتك الشخصية"
       first_name: "الإسم"
       last_name: "اللقب"
       update_profile: "تحديث الصفحة الشخصية"
       your_bio: "سيرتك الشخصية"
-      your_birthday: "تاريخ الميلاد"
+      your_birthday: "تاريخ مولدك"
       your_gender: "الجنس"
       your_location: "المكان"
-      your_name: "إسمك"
+      your_name: "اسمك"
       your_photo: "صورتك"
       your_private_profile: "صفحتك الخاصة"
       your_public_profile: "صفحتك العامة"
@@ -527,7 +533,7 @@ ar:
       unhappy: "غير راض?"
       update: "تحديث"
     new: 
-      enter_email: "أدخل بريد إلكتروني"
+      enter_email: "أدخل عنوان بريد إلكتروني"
       enter_password: "أدخل كلمة مرور"
       enter_password_again: "أعد إدخال كلمة المرور"
       enter_username: "اختر معرف (فقط حروف, أرقام, و الإشارات الخطية)"
@@ -613,7 +619,7 @@ ar:
       logged_in_as: "ولوج بـ %{name}"
       your_aspects: "الفئات خاصتك"
     invitations: 
-      by_email: "عبر البريد الإلكتروني"
+      by_email: "عبر رسالة بالبريد الإلكتروني"
       dont_have_now: "لا تملك دعوات حاليا، لكنها قادمة قريبا"
       from_facebook: "عبر فسبوك"
       invitations_left: "%{count} متبقية"
@@ -746,7 +752,7 @@ ar:
       does_not_exist: "هذا المستخدم %{username} غير موجود"
     update: 
       email_notifications_changed: "فشل تغيير اللغة"
-      language_changed: "تم تغيير اللغة"
+      language_changed: "غُيِّرت اللغة بنجاح"
       language_not_changed: "فشل تغيير اللغة"
       password_changed: "غُيِّرت كلمة المرور بنجاح. يمكنك الولوج بكلمة سرك الجديدة."
       password_not_changed: "فشل تغيير كلمة المرور"

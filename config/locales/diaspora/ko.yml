@@ -293,6 +293,12 @@ ko:
         one: "한 명이 좋아합니다"
         other: "%{count}명이 좋아합니다"
         zero: "아무도 좋아하지 않습니다"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "제한됨"
   more: "더"
   next: "다음"

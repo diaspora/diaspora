@@ -293,6 +293,12 @@ pl:
         one: "1 osoba to polubiła"
         other: "%{count} osób polubiło to"
         zero: "nikt tego nie polubił"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Więcej"
   next: "następny"

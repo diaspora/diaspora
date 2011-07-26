@@ -293,6 +293,12 @@ eu:
         one: "%{count}ek du gustoko"
         other: "%{count} pertsonek gustoko dute hau"
         zero: "oraindik ez du inork gustoko"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Mugatua"
   more: "Gehiago"
   next: "hurrengoa"

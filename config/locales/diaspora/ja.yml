@@ -293,6 +293,12 @@ ja:
         one: "これが好きな人：1人"
         other: "これが好きな人：%{count}人"
         zero: "これが好きな人：0人"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "続き"
   next: "次へ"

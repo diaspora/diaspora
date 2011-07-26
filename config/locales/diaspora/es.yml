@@ -293,6 +293,12 @@ es:
         one: "A 1 le gusta"
         other: "A %{count} les gusta"
         zero: "A nadie le gusta"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Restringido"
   more: "Más"
   next: "siguiente"

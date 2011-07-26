@@ -293,6 +293,12 @@ nl:
         one: "%{count} persoon vindt dit leuk"
         other: "%{count} mensen vinden dit leuk"
         zero: "niemand vindt dit leuk"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Beperkt"
   more: "Meer"
   next: "volgende"

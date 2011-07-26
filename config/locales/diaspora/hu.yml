@@ -293,6 +293,12 @@ hu:
         one: "1 személy kedveli"
         other: "%{count} személy kedveli"
         zero: "senki nem kedveli"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Bővebben"
   next: "következő"

@@ -293,6 +293,12 @@ pt-PT:
         one: "%{count} pessoa gosta"
         other: "%{count} pessoas gostam"
         zero: "ninguém gosta"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Mais"
   next: "próximo"

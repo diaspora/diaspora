@@ -293,6 +293,12 @@ zh-CN:
         one: "有1个人觉得好"
         other: "有%{count}个人觉得好"
         zero: "没有人觉得好"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "更多"
   next: "下一步"

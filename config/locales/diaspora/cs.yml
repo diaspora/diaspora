@@ -293,6 +293,12 @@ cs:
         one: "1 osobě se to líbí"
         other: "%{count} lidem se to líbí"
         zero: "žádná kladná hodnocení"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Omezený"
   more: "Více"
   next: "další"

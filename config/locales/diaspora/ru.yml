@@ -293,6 +293,12 @@ ru:
         one: "%{count} понравилось"
         other: "%{count} понравилось"
         zero: "никому не понравилось"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Подробнее"
   next: "далее"

@@ -293,6 +293,12 @@ bg:
         one: "харесана %{count} път"
         other: "харесана %{count} пъти"
         zero: "не е харесана"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Ограничено"
   more: "Още"
   next: "следваща"

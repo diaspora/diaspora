@@ -293,6 +293,12 @@ he:
         one: "אדם אחד אהב את זה"
         other: "%{count} אנשים אהבו את זה"
         zero: "אף אחד לא אהב את זה"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "המשך"
   next: "הבאה"

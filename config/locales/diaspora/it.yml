@@ -29,7 +29,7 @@ it:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Hai già condiviso quel post!"
         user: 
           attributes: 
             email: 
@@ -276,7 +276,7 @@ it:
       login: "accedi"
       logout: "esci"
       profile: "profilo"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Notifiche recenti"
       settings: "impostazioni"
       view_all: "Elenco completo"
   likes: 
@@ -293,6 +293,12 @@ it:
         one: "%{count} Mi piace"
         other: "%{count} Mi piace"
         zero: "0 Mi piace"
+      people_like_this_comment: 
+        few: "%{count} mi piace"
+        many: "%{count} mi piace"
+        one: "%{count} mi piace"
+        other: "%{count} mi piace"
+        zero: "0 mi piace"
   limited: "Non pubblico"
   more: "Altro"
   next: "successivo"
@@ -371,31 +377,31 @@ it:
       other: "%{actors} hanno iniziato a condividere con te."
       zero: "%{actors} ha iniziato a condividere con te."
   notifier: 
-    click_here: "click here"
+    click_here: "clicca qui"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Rispondi o leggi il post di %{name} >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+      click_link: "Per attivare il nuo nuovo indirizzo email %{unconfirmed_email}, per favore clicca su questo link:"
+      subject: "Per favore attiva il tuo nuovo indirizzo email %{unconfirmed_email}"
+    email_sent_by_diaspora: "Questo messaggio è stato spedito da Diaspora.  Se preferisci smettere di ricevere questo tipo di email,"
     hello: "Ciao %{name}!"
     liked: 
       liked: "%{name} ha appena apprezzato il tuo post: "
-      view_post: "View post >"
+      view_post: "Leggi il post >"
     mentioned: 
       mentioned: "ti ha menzionato in un post:"
       subject: "%{name} ti ha menzionato su Diaspora*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Rispondi o leggi questa conversazione >"
     single_admin: 
       admin: "Il tuo amministratore Diaspora"
       subject: "Un messaggio sul tuo account Diaspora:"
     started_sharing: 
       sharing: "ha iniziato a condividere con te!"
       subject: "%{name} ha iniziato a condividere con te su Diaspora*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Guarda il profilo di %{name}"
     thanks: "Grazie,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "per cambiare le opzioni delle notifiche"
   ok: "OK"
   or: "o"
   password: "Password"
@@ -527,7 +533,7 @@ it:
       unhappy: "Triste?"
       update: "Aggiorna"
     new: 
-      enter_email: "Inserisci un e-mail"
+      enter_email: "Inserisci un indirizzo email"
       enter_password: "Inserisci una password"
       enter_password_again: "Inserisci la stessa password di prima"
       enter_username: "Scegli un nome utente (inserisci solo lettere, numeri e trattino basso)"
@@ -555,17 +561,17 @@ it:
       sent: "richiesta inviata!"
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "C'è stato un errore nel ricondividere questo post."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "Il post originale è stato eliminato dall'autore."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      show_original: "Show Original"
+        few: "%{count} Ricondivisioni"
+        many: "%{count} Ricondivisioni"
+        one: "1 Ricondivisione"
+        other: "%{count} Ricondivisioni"
+        zero: "Ricondividi"
+      reshare_confirmation: "Vuoi ricondividere %{author} - %{text}?"
+      show_original: "Mostra l'originale"
   search: "Cerca"
   services: 
     create: 
@@ -613,7 +619,7 @@ it:
       logged_in_as: "accesso effettuato come %{name}"
       your_aspects: "i tuoi aspetti"
     invitations: 
-      by_email: "Via Email"
+      by_email: "Via email"
       dont_have_now: "Non ne hai alcuno per il momento, ma altri arriveranno presto!"
       from_facebook: "Da Facebook"
       invitations_left: "%{count} rimanenti"
@@ -701,26 +707,26 @@ it:
   username: "Nome Utente"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Email %{email} attivata"
+      email_not_confirmed: "L'email non è stata attivata. C'è un errore nel link?"
     destroy: "Il tuo account è stato bloccato. Potrebbero occorrerci 20 minuti per terminare la chiusura del tuo account. Grazie per aver provato Diaspora."
     edit: 
       also_commented: "...qualcun altro ha commentato il post del tuo contatto?"
       change: "Cambia"
-      change_email: "Change E-Mail"
+      change_email: "Cambia email"
       change_language: "Cambia lingua"
-      change_password: "Cambia Password"
+      change_password: "Cambia password"
       close_account: "Chiudi account"
       comment_on_post: "...qualcuno ha commentato il tuo post?"
       current_password: "Password attuale"
       download_photos: "scarica le mie foto"
       download_xml: "scarica il mio xml"
       edit_account: "Modifica account"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "È stato spedito su %{unconfirmed_email} un link di attivazione. Continueremo ad usare la tua email originale %{email} finché non cliccherai sul link e attiverai il nuovo indirizzo."
       export_data: "Esporta Dati"
       liked: "...a qualcuno piace il tuo post?"
       mentioned: "...sei menzionato in un post?"
-      new_password: "Nuova Password"
+      new_password: "Nuova password"
       private_message: "...hai ricevuto un messaggio privato?"
       receive_email_notifications: "Ricevi notifiche via email quando..."
       started_sharing: "...qualcuno vuole condividere con te?"
@@ -747,11 +753,11 @@ it:
     update: 
       email_notifications_changed: "Notifiche email modificate con successo"
       language_changed: "Lingua cambiata"
-      language_not_changed: "Cambio di lingua fallito"
+      language_not_changed: "Il cambio di lingua è fallito"
       password_changed: "Password cambiata. Ora puoi effettuare l'accesso con la tua nuova password."
-      password_not_changed: "Cambio di password fallito"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      password_not_changed: "Il cambio di password è fallito"
+      unconfirmed_email_changed: "L'email è cambiata. E' necessario attivare l'indirizzo."
+      unconfirmed_email_not_changed: "Il cambio di email è fallito"
   webfinger: 
     fetch_failed: "impossibile recuperare il profilo webfinger da %{profile_url}"
     hcard_fetch_failed: "impossibile recuperare l'hcard di %{account}"

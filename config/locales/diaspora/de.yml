@@ -29,7 +29,7 @@ de:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Due hast diesen Beitrag bereits wiederholt!"
         user: 
           attributes: 
             email: 
@@ -276,7 +276,7 @@ de:
       login: "Anmelden"
       logout: "Abmelden"
       profile: "Profil"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Kürzliche Benachrichtigungen"
       settings: "Einstellungen"
       view_all: "alle anzeigen"
   likes: 
@@ -293,6 +293,12 @@ de:
         one: "1 Person gefällt das"
         other: "%{count} Personen gefällt das"
         zero: "Keinem gefällt das"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Begrenzt"
   more: "Mehr"
   next: "Nächste"
@@ -371,31 +377,31 @@ de:
       other: "%{actors} haben angefangen mit dir zu teilen."
       zero: "Niemand hat angefangen mit dir zu teilen."
   notifier: 
-    click_here: "click here"
+    click_here: "hier klicken"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Antworte oder schau dir %{name}s Beitrag an >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+      click_link: "Um deine neue E-Mail-Adresse %{unconfirmed_email} zu aktivieren, klicke bitte auf diesen Link:"
+      subject: "Bitte aktiviere deine neue E-Mail-Adresse %{unconfirmed_email}"
+    email_sent_by_diaspora: "Diese E-Mail wurde von Diaspora verschickt. Falls du solche E-Mails nicht mehr erhalten willst,"
     hello: "Hallo %{name}!"
     liked: 
-      liked: "%{name} gefällt dein Beitrag: "
-      view_post: "View post >"
+      liked: "%{name} gefällt dein Beitrag"
+      view_post: "Beitrag betrachten >"
     mentioned: 
       mentioned: "hat dich in einem Beitrag erwähnt:"
       subject: "%{name} hat dich auf Diaspora* erwähnt"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Antworte oder sieh dir diese Unterhaltung an >"
     single_admin: 
       admin: "Dein Diaspora-Administrator"
       subject: "Eine Nachricht dein Diaspora*-Konto betreffend:"
     started_sharing: 
       sharing: "hat angefangen mit dir zu teilen!"
-      subject: "Auf Diaspora* hat %{name} angefangen mit dir zu teilen"
-      view_profile: "View %{name}'s profile"
+      subject: "%{name} hat angefangen auf Diaspora* mit dir zu teilen"
+      view_profile: "Schau dir %{name}s Profil an"
     thanks: "Danke,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "um deine Benachrichtigungs-Einstellungen zu ändern"
   ok: "OK"
   or: "oder"
   password: "Passwort"
@@ -555,17 +561,17 @@ de:
       sent: "Gesendet!"
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "Ein Fehler trat beim Wiederholen dieses Beitrags auf."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      show_original: "Show Original"
+        few: "%{count} Wiederholungen"
+        many: "%{count} Wiederholungen"
+        one: "1 Wiederholung"
+        other: "%{count} Wiederholungen"
+        zero: "Wiederholen"
+      reshare_confirmation: "%{author} - „%{text}“ wiederholen?"
+      show_original: "Original anzeigen"
   search: "Suche"
   services: 
     create: 
@@ -701,13 +707,13 @@ de:
   username: "Benutzername"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "E-Mail %{email} wurde aktiviert"
+      email_not_confirmed: "Die E-Mail-Adresse konnte nicht aktiviert werden. Falscher Link?"
     destroy: "Dein Konto wurde gesperrt. Es kann 20 Minuten dauern, bis wir die Schließung deines Kontos abgeschlossen haben. Vielen Dank, dass du Diaspora ausprobiert hast."
     edit: 
       also_commented: "… jemand ebenfalls den Beitrag eines Kontaktes kommentiert hat?"
       change: "Ändern"
-      change_email: "Change E-Mail"
+      change_email: "E-Mail-Adresse ändern"
       change_language: "Sprache ändern"
       change_password: "Passwort ändern"
       close_account: "Konto schließen"
@@ -716,7 +722,7 @@ de:
       download_photos: "Fotos herunterladen"
       download_xml: "Daten herunterladen (XML)"
       edit_account: "Konto bearbeiten"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "Wir haben dir einen Aktivierungslink zu %{unconfirmed_email} geschickt. Solange du dem Link nicht gefolgt bist und die neue Adresse aktiviert hast, werden wir weiterhin deine ursprüngliche E-Mail-Adresse %{email} verwenden."
       export_data: "Daten exportieren"
       liked: "... wenn jemandem dein Beitrag gefällt?"
       mentioned: "… du in einem Beitrag erwähnt wirst?"
@@ -750,8 +756,8 @@ de:
       language_not_changed: "Ändern der Sprache fehlgeschlagen"
       password_changed: "Passwort geändert"
       password_not_changed: "Ändern des Passworts fehlgeschlagen"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "E-Mail-Adresse geändert. Braucht Aktivierung."
+      unconfirmed_email_not_changed: "E-Mail-Adressen-Änderung fehlgeschlagen"
   webfinger: 
     fetch_failed: "konnte Webfinger-Profil für %{profile_url} nicht laden"
     hcard_fetch_failed: "es gab Probleme beim Laden der hcard für %{account}"

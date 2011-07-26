@@ -293,6 +293,12 @@ en_shaw:
         one: "%{count} 𐑤𐑲𐑒"
         other: "%{count} 𐑤𐑲𐑒𐑕"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "𐑤𐑦𐑥𐑦𐑑𐑩𐑛"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"

@@ -293,6 +293,12 @@ sv:
         one: "1 person gillar det här"
         other: "%{count} personer gillar det här"
         zero: "inga personer gillar det här"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
   limited: "Limited"
   more: "Mer"
   next: "nästa"
