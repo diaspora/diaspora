@@ -23,6 +23,7 @@ ru:
       no_more: "Сообщений больше нет."
     publisher: 
       at_least_one_aspect: "Вам надо минимум один аспект создать"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Искать {{name}}"
     show_more: "показать больше"
     timeago: 

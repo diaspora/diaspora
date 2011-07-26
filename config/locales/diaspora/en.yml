@@ -149,6 +149,7 @@ en:
     index: 
       your_aspects: "Your Aspects"
       tags_following: "Followed Tags"
+      no_tags: "No tags"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"
@@ -318,6 +319,12 @@ en:
         few: "%{count} likes"
         many: "%{count} likes"
         other: "%{count} likes"
+      people_like_this_comment:
+        zero: "no likes"
+        one: "%{count} like"
+        few: "%{count} likes"
+        many: "%{count} likes"
+        other: "%{count} likes"
       people_dislike_this:
         zero: "no dislikes"
         one: "%{count} dislike"
@@ -423,8 +430,8 @@ en:
         liked: "%{name} just liked your post"
         view_post: "View post >"
     confirm_email:
-        subject: "Please activate your new e-mail address %{unconfirmed_email}"
-        click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+        subject: "Please activate your new email address %{unconfirmed_email}"
+        click_link: "To activate your new email address %{unconfirmed_email}, please click this link:"
   people:
     zero: "no people"
     one: "1 person"
@@ -546,7 +553,7 @@ en:
     new:
       sign_up: "Sign up"
       sign_up_for_diaspora: "Sign up for Diaspora"
-      enter_email: "Enter an e-mail"
+      enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password"
       enter_password_again: "Enter the same password as before"
@@ -585,11 +592,11 @@ en:
     reshare:
       reshare:
         zero: "Reshare"
-        one: "1 Reshare"
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        other: "%{count} Reshares"
-      show_original: "Show Original"
+        one: "1 reshare"
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        other: "%{count} reshares"
+      show_original: "Show original"
       reshare_confirmation: "Reshare %{author} - %{text}?"
       deleted: "Original post deleted by author."
     create:
@@ -656,7 +663,7 @@ en:
       invites_closed: "Invites are currently closed on this Diaspora pod"
       invite_your_friends: "Invite your friends"
       from_facebook: "From Facebook"
-      by_email: "By Email"
+      by_email: "By email"
     reshare:
       reshare: "Reshare"
     public_explain:
@@ -737,10 +744,10 @@ en:
     edit:
       export_data: "Export Data"
       close_account: "Close Account"
-      change_language: "Change Language"
-      change_password: "Change Password"
-      change_email: "Change E-Mail"
-      new_password: "New Password"
+      change_language: "Change language"
+      change_password: "Change password"
+      change_email: "Change email"
+      new_password: "New password"
       current_password: "Current password"
       download_xml: "download my xml"
       download_photos: "download my photos"
@@ -755,7 +762,7 @@ en:
       private_message: "...you receive a private message?"
       liked: "...someone likes your post?"
       change: "Change"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
       welcome: "Welcome to Diaspora!"
@@ -774,18 +781,18 @@ en:
         find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
         skip: "Skip"
     update:
-      password_changed: "Password Changed.  You can now log in with your new password."
-      password_not_changed: "Password Change Failed"
-      language_changed: "Language Changed"
-      language_not_changed: "Language Change Failed"
+      password_changed: "Password changed.  You can now log in with your new password."
+      password_not_changed: "Password change failed"
+      language_changed: "Language changed"
+      language_not_changed: "Language change failed"
       email_notifications_changed: "Email notifications changed"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "Email changed. Needs activation."
+      unconfirmed_email_not_changed: "Email change failed"
     public:
       does_not_exist: "User %{username} does not exist!"
     confirm_email:
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Email %{email} activated"
+      email_not_confirmed: "Email could not be activated. Wrong link?"
 
   webfinger:
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"

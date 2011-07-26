@@ -21,7 +21,7 @@
         = comment.created_at ? timeago(comment.created_at) : timeago(Time.now)
 
       .likes
-        = render "likes/likes_container", :target_id => comment.id, :likes_count => comment.likes_count
+        = render "likes/likes_container", :target_id => comment.id, :likes_count => comment.likes_count, :target_type => "Comment"
 
       - unless (defined?(@commenting_disabled) && @commenting_disabled)
         %span.like_action

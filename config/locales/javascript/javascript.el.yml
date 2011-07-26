@@ -23,6 +23,7 @@ el:
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     publisher: 
       at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
     timeago: 

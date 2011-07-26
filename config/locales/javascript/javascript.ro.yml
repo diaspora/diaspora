@@ -23,6 +23,7 @@ ro:
       no_more: "Nu mai sunt posturi."
     publisher: 
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Caută {{name}}"
     show_more: "show more"
     timeago: 

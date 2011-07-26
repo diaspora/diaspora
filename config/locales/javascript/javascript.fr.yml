@@ -23,6 +23,7 @@ fr:
       no_more: "Pas d'autre messages."
     publisher: 
       at_least_one_aspect: "Vous devez créer au moins un aspect"
+    reshares: "duplicate:\"You've already reshared that post!\""
     search_for: "Chercher {{name}}"
     show_more: "voir plus"
     timeago: 
