@@ -75,16 +75,17 @@
       = t('.cubbies.explanation')
       = link_to t('.cubbies.learn_more'), token_path
 
-  .section
-    .title
-      = image_tag('/images/icons/monotone_wrench_settings.png')
-      %h5
-        = t('.services.heading')
-    .content
-      = t('.services.content')
-      - AppConfig.configured_services.each do |service|
-        - unless current_user.services.any?{|x| x.provider == service}
-          %br= link_to service.titleize, "/auth/#{service}" 
+  - unless AppConfig.configured_services.blank?
+    .section
+      .title
+        = image_tag('/images/icons/monotone_wrench_settings.png')
+        %h5
+          = t('.services.heading')
+      .content
+        = t('.services.content')
+        - AppConfig.configured_services.each do |service|
+          - unless current_user.services.any?{|x| x.provider == service}
+            %br= link_to service.titleize, "/auth/#{service}" 
 
   .section
     .title
