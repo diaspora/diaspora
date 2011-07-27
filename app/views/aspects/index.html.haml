@@ -53,13 +53,18 @@
       %br
       = t(".diaspora_id.content_2")
 
-  .section
-    .title
-      = image_tag('/images/icons/bookmark.png')
-      %h5
-        = t('bookmarklet.heading')
-    .content
-      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
+  - unless AppConfig[:invites_off]
+    .section
+      .title
+
+        = image_tag('/images/icons/plus.png')
+        %h5
+          - unless AppConfig[:open_invitations]
+            .right
+              = t('shared.invitations.invitations_left', :count => @invites)
+          = t('shared.invitations.invite_your_friends')
+      .content
+        = render "shared/invitations", :invites => @invites
 
   .section
     .title
@@ -81,17 +86,10 @@
         - unless current_user.services.any?{|x| x.provider == service}
           %br= link_to service.titleize, "/auth/#{service}" 
 
-
-  - unless AppConfig[:invites_off]
-    .section
-      .title
-
-        = image_tag('/images/icons/plus.png')
-        %h5
-          - unless AppConfig[:open_invitations]
-            .right
-              = t('shared.invitations.invitations_left', :count => @invites)
-          = t('shared.invitations.invite_your_friends')
-      .content
-        = render "shared/invitations", :invites => @invites
-
+  .section
+    .title
+      = image_tag('/images/icons/bookmark.png')
+      %h5
+        = t('bookmarklet.heading')
+    .content
+      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
