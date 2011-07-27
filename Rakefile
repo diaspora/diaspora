@@ -139,7 +139,7 @@ task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
   system "mv #{source_dir} #{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
-  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/*. #{source_dir}"
+  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -f #{source_dir}.old/_includes/navigation.html #{source_dir}/_includes/navigation.html"
   puts "## Updated #{source_dir} ##"
