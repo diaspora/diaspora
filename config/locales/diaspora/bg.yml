@@ -25,11 +25,11 @@ bg:
         request: 
           attributes: 
             from_id: 
-              taken: "is a duplicate of a pre-existing request."
+              taken: "е дубликат на вече съществуваща заявка."
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Вече сте споделили публикацията!"
         user: 
           attributes: 
             email: 
@@ -108,6 +108,7 @@ bg:
         heading: "Адрес в Diaspora"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       no_contacts: "Няма контакти"
+      no_tags: "Няма тагове"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
       services: 
@@ -276,7 +277,7 @@ bg:
       login: "вписване"
       logout: "отписване"
       profile: "профил"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Скорошни известия"
       settings: "настройки"
       view_all: "Показване на всички"
   likes: 
@@ -294,11 +295,11 @@ bg:
         other: "харесана %{count} пъти"
         zero: "не е харесана"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        zero: "no likes"
+        few: "харесан %{count} пъти"
+        many: "харесан %{count} пъти"
+        one: "харесан %{count} път"
+        other: "харесан %{count} пъти"
+        zero: "не е харесан"
   limited: "Ограничено"
   more: "Още"
   next: "следваща"
@@ -377,31 +378,31 @@ bg:
       other: "%{actors} започна да споделя с вас."
       zero: "%{actors} започна да споделя с вас."
   notifier: 
-    click_here: "click here"
+    click_here: "кликнете тук"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Отговорете или прегледайте публикацията на %{name} >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+      click_link: "За да активирате новия адрес (%{unconfirmed_email}) кликнете върху следната връзка:"
+      subject: "Моля, акивирайте новия адрес на ел. ви поща (%{unconfirmed_email})"
+    email_sent_by_diaspora: "Ел. писмо е изпратено от Diaspora.  Ако вече не желаете да получавате подобни писма,"
     hello: "Здравейте %{name}!"
     liked: 
-      liked: "току-що %{name} хареса вашата публикация:"
-      view_post: "View post >"
+      liked: "току-що %{name} хареса вашата публикация"
+      view_post: "Преглед на публикацията >"
     mentioned: 
       mentioned: "ви спомена в публикация:"
       subject: "%{name} ви спомена в Diaspora*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Отговорете или прегледайте разговора >"
     single_admin: 
       admin: "Вашият администратор на Diaspora"
       subject: "Съобщение относно акаунта ви в Diaspora:"
     started_sharing: 
       sharing: "започна да споделя с вас!"
       subject: "%{name} започна да споделя с вас в Diaspora*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Прегледайте профила на %{name}"
     thanks: "Благодаря,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "за да промените насройките за известяване"
   ok: "Добре"
   or: "или"
   password: "Парола"
@@ -561,17 +562,17 @@ bg:
       sent: "изпратена!"
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "Възникна грешка при споделянето на публикацията."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "Оригиналната публикация е изтрита от автора."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      show_original: "Show Original"
+        few: "%{count} споделяния"
+        many: "%{count} споделяния"
+        one: "1 споделяне"
+        other: "%{count} споделяния"
+        zero: "Споделяне"
+      reshare_confirmation: "Споделяне на \"%{text}\" от %{author}?"
+      show_original: "Оригиналът"
   search: "Търсене"
   services: 
     create: 
@@ -619,7 +620,7 @@ bg:
       logged_in_as: "вписани сте като %{name}"
       your_aspects: "вашите аспекти"
     invitations: 
-      by_email: "по ел. поща"
+      by_email: "По ел. поща"
       dont_have_now: "За момента не разполагате с покани, но скоро ще имате!"
       from_facebook: "от Facebook"
       invitations_left: "(имате %{count} покани)"
@@ -707,13 +708,13 @@ bg:
   username: "Потребителско име"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Ел. поща %{email} е активирана"
+      email_not_confirmed: "Ел. поща не може да бъде активирана. Грешна връзка?"
     destroy: "Акаунтът ви в Diaspora е заключен. Затварянето може да отнеме до 20 минути. Благодарим ви, че пробвахте Diaspora."
     edit: 
       also_commented: "...някой коментира публикация на ваш контакт?"
       change: "Промяна"
-      change_email: "Change E-Mail"
+      change_email: "Промяна на ел. поща"
       change_language: "Промяна на езика"
       change_password: "Промяна на паролата"
       close_account: "Затваряне на акаунта"
@@ -722,7 +723,7 @@ bg:
       download_photos: "снимките ви"
       download_xml: "данните ви (XML формат)"
       edit_account: "Редактиране на акаунта"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "Изпратена е връзка за активиране до %{unconfirmed_email}. Докато не я активирате ще бъде ползвана старата ел. поща (%{email})."
       export_data: "Сваляне на..."
       liked: "...някой хареса ваша публикация?"
       mentioned: "...бъдете споменат в публикация?"
@@ -753,11 +754,11 @@ bg:
     update: 
       email_notifications_changed: "Адресът за известяване е променен"
       language_changed: "Езикът е сменен"
-      language_not_changed: "Езикът не бе променен"
+      language_not_changed: "Езикът не бе сменен"
       password_changed: "Паролата е променена. Можете да се впишете с новата парола."
       password_not_changed: "Паролата не бе променена"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "Ел. поща е променена. Необходимо е да я активирате."
+      unconfirmed_email_not_changed: "Ел. поща не бе променена"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"

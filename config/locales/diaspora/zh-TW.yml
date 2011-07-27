@@ -108,6 +108,7 @@ zh-TW:
         heading: "Diaspora 識別碼"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       no_contacts: "沒有任何聯繫"
+      no_tags: "沒有標籤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
       services: 

@@ -108,6 +108,7 @@ da:
         heading: "Diaspora ID"
       handle_explanation: "Dette er dit diaspora handle. Som med en e-mail-adresse, kan du give denne til folk, så de kan kontakte dig."
       no_contacts: "Ingen kontakter"
+      no_tags: "No tags"
       people_sharing_with_you: "Personer der deler med dig"
       post_a_message: "post en besked >>"
       services: 

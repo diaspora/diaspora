@@ -108,6 +108,7 @@ cs:
         heading: "Diaspora ID"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
       no_contacts: "Žádné kontakty"
+      no_tags: "No tags"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
       post_a_message: "odeslat příspěvek >>"
       services: 

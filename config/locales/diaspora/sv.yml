@@ -108,6 +108,7 @@ sv:
         heading: "Diaspora ID"
       handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
       no_contacts: "Inga kontakter"
+      no_tags: "No tags"
       people_sharing_with_you: "Personer som delar med dig"
       post_a_message: "skriv ett inlägg >>"
       services: 

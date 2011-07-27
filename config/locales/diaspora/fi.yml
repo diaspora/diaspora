@@ -108,6 +108,7 @@ fi:
         heading: "Diaspora ID"
       handle_explanation: "Tämä on Diaspora-osoitteesi. Voit käyttää sitä kuten sähköpostiosoitettasi. Sen avulla sinut tavoitetaan Diasporasta."
       no_contacts: "Ei kontakteja"
+      no_tags: "No tags"
       people_sharing_with_you: "Ihmiset jotka jakavat kanssasi"
       post_a_message: "post a message >>"
       services: 

@@ -108,6 +108,7 @@ ja:
         heading: "Diaspora ID"
       handle_explanation: "これがあなたのハンドル名です。メールアドレスと同じようにほかの人に教えて、ダイアスポラで連絡を取り合うことができます。"
       no_contacts: "連絡先無し"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "投稿する"
       services: 

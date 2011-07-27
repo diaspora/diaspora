@@ -108,6 +108,7 @@ pl:
         heading: "Diaspora ID"
       handle_explanation: "To jest Twój identyfikator w Diasporze. Podobnie jak adresu e-mailowy, możesz podawać go innym, aby mogli się z Tobą skontaktować."
       no_contacts: "Brak kontaktów"
+      no_tags: "No tags"
       people_sharing_with_you: "Osoby dzielące się z tobą"
       post_a_message: "napisz wiadomość >>"
       services: 

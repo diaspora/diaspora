@@ -108,6 +108,7 @@ it:
         heading: "ID Diaspora"
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       no_contacts: "Nessun contatto"
+      no_tags: "Nessun tag"
       people_sharing_with_you: "Persone in condivisione con te"
       post_a_message: "invia un messaggio >>"
       services: 
@@ -156,7 +157,7 @@ it:
     few: "%{count} commenti"
     many: "%{count} commenti"
     new_comment: 
-      comment: "Commento"
+      comment: "Commenta"
       commenting: "Invio commento in corso..."
     one: "1 commento"
     other: "%{count} commenti"
@@ -565,10 +566,10 @@ it:
     reshare: 
       deleted: "Il post originale è stato eliminato dall'autore."
       reshare: 
-        few: "%{count} Ricondivisioni"
-        many: "%{count} Ricondivisioni"
-        one: "1 Ricondivisione"
-        other: "%{count} Ricondivisioni"
+        few: "%{count} condivisioni"
+        many: "%{count} condivisioni"
+        one: "1 condivisione"
+        other: "%{count} condivisioni"
         zero: "Ricondividi"
       reshare_confirmation: "Vuoi ricondividere %{author} - %{text}?"
       show_original: "Mostra l'originale"

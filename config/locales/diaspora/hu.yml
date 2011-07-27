@@ -108,6 +108,7 @@ hu:
         heading: "Diaspora ID"
       handle_explanation: "Ez a Te Diaspora felhasználóneved. Megadhatod elérhetőségként, mint egy email címet."
       no_contacts: "Nincs ismerős"
+      no_tags: "No tags"
       people_sharing_with_you: "Ismerőseid"
       post_a_message: "üzenet küldése >>"
       services: 

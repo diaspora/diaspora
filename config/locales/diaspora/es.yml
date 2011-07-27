@@ -108,6 +108,7 @@ es:
         heading: "Identidad Diaspora*"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentre."
       no_contacts: "No hay contactos"
+      no_tags: "No tags"
       people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
       services: 

@@ -108,6 +108,7 @@ eu:
         heading: "Diaspora IDa"
       handle_explanation: "Hau da zure Diaspora IDa. E-posta helbidea bezalakoa da, zure adiskideei emaiezu zu aurkitzearren."
       no_contacts: "Adiskiderik ez"
+      no_tags: "No tags"
       people_sharing_with_you: "Zurekin harremanetan dagoen jendea"
       post_a_message: "mezu bat bidali >>"
       services: 

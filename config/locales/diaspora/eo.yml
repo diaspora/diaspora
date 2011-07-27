@@ -108,6 +108,7 @@ eo:
         heading: "DIASPORA* uzantnomo"
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       no_contacts: "Nul kontaktoj"
+      no_tags: "No tags"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
       post_a_message: "Afiŝi mesaĝon »"
       services: 

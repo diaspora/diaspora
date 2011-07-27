@@ -108,6 +108,7 @@ ru:
         heading: "Diaspora ID"
       handle_explanation: "Это идентификатор вашей Диаспоры. Так же как адрес электронной почты, который вы можете дать людям, для связи с вами."
       no_contacts: "Контакты отсутствуют"
+      no_tags: "No tags"
       people_sharing_with_you: "Люди делятся с вами"
       post_a_message: "опубликовать сообщение>>"
       services: 
