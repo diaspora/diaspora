@@ -53,35 +53,6 @@
       %br
       = t(".diaspora_id.content_2")
 
-  .section
-    .title
-      = image_tag('/images/icons/bookmark.png')
-      %h5
-        = t('bookmarklet.heading')
-    .content
-      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
-
-  .section
-    .title
-      = image_tag('/images/icons/cubbies.png')
-      %h5
-        = t('.cubbies.heading')
-    .content
-      = t('.cubbies.explanation')
-      = link_to t('.cubbies.learn_more'), token_path
-
-  .section
-    .title
-      = image_tag('/images/icons/monotone_wrench_settings.png')
-      %h5
-        = t('.services.heading')
-    .content
-      = t('.services.content')
-      - AppConfig.configured_services.each do |service|
-        - unless current_user.services.any?{|x| x.provider == service}
-          %br= link_to service.titleize, "/auth/#{service}" 
-
-
   - unless AppConfig[:invites_off]
     .section
       .title
@@ -95,3 +66,31 @@
       .content
         = render "shared/invitations", :invites => @invites
 
+  .section
+    .title
+      = image_tag('/images/icons/cubbies.png')
+      %h5
+        = t('.cubbies.heading')
+    .content
+      = t('.cubbies.explanation')
+      = link_to t('.cubbies.learn_more'), token_path
+
+  - unless AppConfig.configured_services.blank?
+    .section
+      .title
+        = image_tag('/images/icons/monotone_wrench_settings.png')
+        %h5
+          = t('.services.heading')
+      .content
+        = t('.services.content')
+        - AppConfig.configured_services.each do |service|
+          - unless current_user.services.any?{|x| x.provider == service}
+            %br= link_to service.titleize, "/auth/#{service}" 
+
+  .section
+    .title
+      = image_tag('/images/icons/bookmark.png')
+      %h5
+        = t('bookmarklet.heading')
+    .content
+      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
