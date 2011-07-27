@@ -89,7 +89,7 @@ module ApplicationHelper
 
   def direction_for(string)
     return '' unless string.respond_to?(:cleaned_is_rtl?)
-    string.cleaned_is_rtl? ? 'rtl' : ''
+    string.cleaned_is_rtl? ? 'rtl' : 'ltr'
   end
 
   def rtl?
