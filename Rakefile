@@ -133,7 +133,7 @@ task :update_style, :theme do |t, args|
   end
   system "mv sass sass.old"
   puts "## Moved styles into sass.old/"
-  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/* sass/"
+  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
   cp_r "sass.old/custom/.", "sass/custom"
   puts "## Updated Sass ##"
 end
