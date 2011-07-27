@@ -28,7 +28,7 @@ module OctopressFilters
   def backtick_codeblock(input)
     input.gsub /<p>`{3}\s(\w+)<\/p>.+<pre><code>(.+)<\/code><\/pre>.+`{3}<\/p>/m do
       lang = $1
-      str  = $2.gsub(/^\s{4}/, '').gsub('&lt;','<').gsub('&gt;','>')
+      str  = $2.gsub('&lt;','<').gsub('&gt;','>')
       highlight(str, lang)
     end
   end
@@ -96,3 +96,4 @@ module OctopressFilters
   end
 end
 Liquid::Template.register_filter OctopressFilters
+
