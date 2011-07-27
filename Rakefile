@@ -61,7 +61,7 @@ task :new_post, :title do |t, args|
   require './plugins/titlecase.rb'
   args.with_defaults(:title => 'new-post')
   title = args.title
-  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.downcase.gsub(/&/,'and').gsub(/[,\.'":\(\)\[\]]/,'').gsub(/\W/, '-')}.#{new_post_ext}"
+  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.downcase.gsub(/&/,'and').gsub(/[,'":\?!\(\)\[\]]/,'').gsub(/[\W\.]/, '-').gsub(/-+$/,'')}.#{new_post_ext}"
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     system "mkdir -p #{source_dir}/#{posts_dir}";
@@ -129,7 +129,7 @@ task :update_style, :theme do |t, args|
   theme = args.theme || 'classic'
   system "mv sass sass.old"
   puts "## Moved styles into sass.old/"
-  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
+  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/* sass/"
   cp_r "sass.old/custom/.", "sass/custom"
   puts "## Updated Sass ##"
 end
@@ -139,7 +139,7 @@ task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
   system "mv #{source_dir} #{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
-  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
+  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/*. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -f #{source_dir}.old/_includes/navigation.html #{source_dir}/_includes/navigation.html"
   puts "## Updated #{source_dir} ##"
