@@ -23,7 +23,8 @@ ja:
       no_more: "投稿はこれ以上ありません。"
     publisher: 
       at_least_one_aspect: "アスペクトを選択してから投稿してください。"
-    reshares: "duplicate:\"You've already reshared that post!\""
+    reshares: 
+      duplicate: "You've already reshared that post!"
     search_for: "{{name}}を検索する"
     show_more: "show more"
     timeago: 

@@ -108,6 +108,7 @@ he:
         heading: "Diaspora ID"
       handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
       no_contacts: "אין אנשי קשר"
+      no_tags: "No tags"
       people_sharing_with_you: "אנשים המשתפים אתך"
       post_a_message: "פרסום הודעה >>"
       services: 

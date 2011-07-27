@@ -108,6 +108,7 @@ sk:
         heading: "Diaspora ID"
       handle_explanation: "Toto je Vaša adresa a slúži ako vizitka. Pomocou nej Vás môžu ostatní vyhľadať."
       no_contacts: "Žiadne kontakty"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
       services: 

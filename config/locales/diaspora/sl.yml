@@ -108,6 +108,7 @@ sl:
         heading: "Diaspora ID"
       handle_explanation: "To je vaš diaspora naslov. Tako kot vaš e-naslov, ga lahko uporabite kot naslov s pomočjo katerega drugi stopijo v stik z vami."
       no_contacts: "Ni kontaktov"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
       services: 

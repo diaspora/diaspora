@@ -29,7 +29,7 @@ ko:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "이미 재공유된 공유물입니다!"
         user: 
           attributes: 
             email: 
@@ -108,6 +108,7 @@ ko:
         heading: "디아스포라 ID"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       no_contacts: "컨택 없음"
+      no_tags: "태그 없음"
       people_sharing_with_you: "나와 공유하는 사람들"
       post_a_message: "새 메시지 올리기 >>"
       services: 
@@ -268,7 +269,7 @@ ko:
       public_feed: "%{name}님의 공개 디아스포라 피드"
       toggle: "모바일 사이트 전환"
       whats_new: "새로운 점"
-      your_aspects: "애스펙"
+      your_aspects: "내 애스펙"
     header: 
       admin: "관리자"
       blog: "블로그"
@@ -276,7 +277,7 @@ ko:
       login: "로그인"
       logout: "로그아웃"
       profile: "프로필"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "최근 알림"
       settings: "설정"
       view_all: "모두 보기"
   likes: 
@@ -294,11 +295,11 @@ ko:
         other: "%{count}명이 좋아합니다"
         zero: "아무도 좋아하지 않습니다"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        zero: "no likes"
+        few: "%{count}명이 좋아합니다"
+        many: "%{count}명이 좋아합니다"
+        one: "한 명이 좋아합니다"
+        other: "%{count}명이 좋아합니다"
+        zero: "아무도 좋아하지 않습니다"
   limited: "제한됨"
   more: "더"
   next: "다음"
@@ -377,31 +378,31 @@ ko:
       other: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
-    click_here: "click here"
+    click_here: "여기를 클릭하세요"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "%{name}님의 공유물에 댓글달기 >"
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "이 메일은 디아스포라가 보냈습니다. 앞으로 받고싶지 않다면"
     hello: "%{name}님!"
     liked: 
       liked: "%{name}님이 내 공유물을 좋아합니다:"
-      view_post: "View post >"
+      view_post: "공유물 보기 >"
     mentioned: 
       mentioned: "님이 공유물에서 나를 멘션했습니다:"
       subject: "%{name}님이 디아스포라*에서 나를 멘션했습니다"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "이 쪽지 답장 또는 보기 >"
     single_admin: 
       admin: "디아스포라 관리자"
       subject: "내 디아스포라 계정에 대한 메시지:"
     started_sharing: 
       sharing: "님이 나와 공유를 시작했습니다!"
       subject: "%{name}님이 디아스포라*에서 나와 공유를 시작했습니다."
-      view_profile: "View %{name}'s profile"
+      view_profile: "%{name}님의 프로필 보기"
     thanks: "고맙습니다."
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "내 알림 설정을 바꾸기 위해"
   ok: "확인"
   or: "또는"
   password: "암호"
@@ -502,10 +503,10 @@ ko:
   profile: "프로필"
   profiles: 
     edit: 
-      allow_search: "디아스포라에서 검색됩니다"
+      allow_search: "디아스포라에서 검색되겠습니다"
       edit_profile: "프로필 고치기"
       first_name: "이름"
-      last_name: "성씨"
+      last_name: "성"
       update_profile: "프로필 갱신"
       your_bio: "자기소개"
       your_birthday: "생년월일"
@@ -515,8 +516,8 @@ ko:
       your_photo: "사진"
       your_private_profile: "개인 프로필"
       your_public_profile: "공개 프로필"
-      your_tags: "태그 #tag"
-      your_tags_placeholder: "예) #diaspora #ironing #kittens #music"
+      your_tags: "다섯 또는 보다 적은 낱말로 나를 표현하세요"
+      your_tags_placeholder: "예) #movies #kittens #travel #teacher #newyork"
     update: 
       failed: "프로필 갱신 실패"
       updated: "프로필을 갱신했습니다"
@@ -561,16 +562,16 @@ ko:
       sent: "보냈습니다."
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "이 공유물을 재공유하는데 오류가 발생했습니다."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "주인이 원래 공유물을 지웠습니다."
       reshare: 
         few: "%{count} Reshares"
         many: "%{count} Reshares"
         one: "1 Reshare"
         other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
+        zero: "재공유"
+      reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
       show_original: "Show Original"
   search: "검색"
   services: 

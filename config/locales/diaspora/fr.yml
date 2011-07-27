@@ -108,6 +108,7 @@ fr:
         heading: "Identifiant Diaspora"
       handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
       no_contacts: "Aucun contact"
+      no_tags: "No tags"
       people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
       services: 

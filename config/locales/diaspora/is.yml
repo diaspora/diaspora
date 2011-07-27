@@ -108,6 +108,7 @@ is:
         heading: "Diaspora ID"
       handle_explanation: "Þetta er netfangið þitt hjá Díaspora. Eins og með venjulegt netfang, geturðu gefið fólki það svo þau geti haft samband við þig. "
       no_contacts: "Engir tengiliðir"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
       services: 

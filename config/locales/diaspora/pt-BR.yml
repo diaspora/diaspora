@@ -108,6 +108,7 @@ pt-BR:
         heading: "Diaspora ID"
       handle_explanation: "Este é o seu endereço na Diaspora*. Como um endereço de e-mail, pode ser usado por outras pessoas para contactar você."
       no_contacts: "Nenhum contato"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
       services: 

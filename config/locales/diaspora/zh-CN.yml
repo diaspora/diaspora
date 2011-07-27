@@ -108,6 +108,7 @@ zh-CN:
         heading: "Diaspora ID"
       handle_explanation: "这是您的 diaspora 帐号， 就像是邮箱一样，你可以把它提供给想好友您的人。"
       no_contacts: "没有任何好友"
+      no_tags: "No tags"
       people_sharing_with_you: "与您分享的人"
       post_a_message: "发布站内信>>"
       services: 

@@ -108,6 +108,7 @@ lt:
         heading: "Diaspora ID"
       handle_explanation: "Tai tavo vartotojo vardas Diasporoje. Kaip ir el. pašto adresas, jis leidžia sistemoje rasti pažįstamus."
       no_contacts: "No contacts"
+      no_tags: "No tags"
       people_sharing_with_you: "People sharing with you"
       post_a_message: "post a message >>"
       services: 

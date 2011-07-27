@@ -108,6 +108,7 @@ el:
         heading: "Αναγνωριστικό Diaspora (ID)"
       handle_explanation: "Αυτό είναι το αναγνωριστικό σας στο Diaspora (ID). Όπως και με μια διεύθυνση ηλεκτρονικού ταχυδρομείου, μπορείτε να το δώσετε σε άλλους για να σας βρουν."
       no_contacts: "Καμία επαφή"
+      no_tags: "No tags"
       people_sharing_with_you: "Άτομα που μοιράζονται μαζί σας"
       post_a_message: "δημοσιεύστε ένα μήνυμα >>"
       services: 
