@@ -9,8 +9,8 @@ Feature: Change password
     When I put in my password in "user_current_password" 
     And I fill in "user_password" with "newsecret"
     And I fill in "user_password_confirmation" with "newsecret"
-    And I press "Change Password"
-    Then I should see "Password Changed"
+    And I press "Change password"
+    Then I should see "Password changed"
     Then I should be on the new user session page
     When I sign in with password "newsecret"
     Then I should be on the aspects page
