@@ -26,7 +26,7 @@ module OctopressFilters
   #     code snippet
   # ```
   def backtick_codeblock(input)
-    input.gsub /<p>`{3}\s(\w+)<\/p>.+<pre><code>(.+)<\/code><\/pre>.+`{3}<\/p>/m do
+    input.gsub /<p>`{3}\s(\w+)<\/p>\n\n<pre><code>([^<]+)<\/code><\/pre>\n\n<p>`{3}<\/p>/m do
       lang = $1
       str  = $2.gsub('&lt;','<').gsub('&gt;','>')
       highlight(str, lang)
