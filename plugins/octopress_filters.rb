@@ -1,6 +1,8 @@
 #custom filters for Octopress
+require './plugins/pygments_code'
 
 module OctopressFilters
+  include HighlightCode
   # Used on the blog index to split posts on the <!--more--> marker
   def excerpt(input)
     if input.index(/<!--\s*more\s*-->/i)
@@ -16,6 +18,18 @@ module OctopressFilters
       input.split(/\n\n/)[0]
     else
       input
+    end
+  end
+
+  # for Github style codeblocks eg.
+  # ``` ruby
+  #     code snippet
+  # ```
+  def backtick_codeblock(input)
+    input.gsub /<p>`{3}\s(\w+)<\/p>.+<pre><code>(.+)<\/code><\/pre>.+`{3}<\/p>/m do
+      lang = $1
+      str  = $2.gsub(/^\s{4}/, '').gsub('&lt;','<').gsub('&gt;','>')
+      highlight(str, lang)
     end
   end
 
