@@ -48,8 +48,7 @@ function testFeatures() {
 
 function addCodeLineNumbers(){
   if (navigator.appName == 'Microsoft Internet Explorer') { return }
-  $('div.highlight pre code').each(function(el){ addDivLines(el); });
-  $('div.highlight, div.gist-highlight').each(function(code){
+  $('div.gist-highlight').each(function(code){
     var tableStart = '<table cellpadding="0" cellspacing="0"><tbody><tr><td class="gutter">';
     var lineNumbers = '<pre class="line-numbers">';
     var tableMiddle = '</pre></td><td class="code" width="100%">';
@@ -61,16 +60,6 @@ function addCodeLineNumbers(){
     table = tableStart + lineNumbers + tableMiddle + '<pre>'+$('pre', code).html()+'</pre>' + tableEnd;
     $(code).html(table);
   });
-}
-function addDivLines(el){
-  var content = $(el).html();
-  var lines = content.replace(/\s*$/g, '').split(/\n/);
-  var count = lines.length;
-  $(lines).each(function(line, index){
-    if(line == '') line = ' ';
-    lines[index] = '<div class="line">' + line + '</div>';
-  });
-  $(el).html(lines.join(''));
 }
 
 function flashVideoFallback(){

@@ -41,9 +41,12 @@
 # <pre><code>&lt;sarcasm> Ooooh, sarcasm... How original!&lt;/sarcasm></code></pre>
 # </figure>
 #
+require './plugins/pygments_code'
+
 module Jekyll
 
   class CodeBlock < Liquid::Block
+    include HighlightCode
     CaptionUrlTitle = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)\s+(.+)/i
     CaptionUrl = /(\S[\S\s]*)\s+(https?:\/\/)(\S+)/i
     Caption = /(\S[\S\s]*)/
@@ -75,7 +78,7 @@ module Jekyll
       if @filetype
         @filetype = 'objc' if @filetype == 'm'
         @filetype = 'perl' if @filetype == 'pl'
-        source += "{% highlight #{@filetype} %}\n" + code + "\n{% endhighlight %}</figure></div>"
+        source += " #{highlight(code, @filetype)}</figure></div>"
       else
         source += "<pre><code>" + code.lstrip.rstrip.gsub(/</,'&lt;') + "</code></pre></figure></div>"
       end

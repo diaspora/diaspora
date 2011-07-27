@@ -4,6 +4,7 @@ GEM
     RedCloth (4.2.7)
     albino (1.3.3)
       posix-spawn (>= 0.3.6)
+    blankslate (2.1.2.4)
     chunky_png (1.2.0)
     classifier (1.3.3)
       fast-stemmer (>= 1.0.0)
@@ -13,6 +14,7 @@ GEM
       sass (~> 3.1)
     directory_watcher (1.4.0)
     fast-stemmer (1.0.0)
+    ffi (1.0.9)
     fssm (0.2.7)
     haml (3.1.2)
     jekyll (0.11.0)
@@ -27,12 +29,17 @@ GEM
     maruku (0.6.0)
       syntax (>= 1.0.0)
     posix-spawn (0.3.6)
-    rack (1.3.1)
+    pygments.rb (0.1.2)
+      rubypython (>= 0.5.1)
+    rack (1.3.2)
     rake (0.9.2)
     rb-fsevent (0.4.1)
     rdiscount (1.6.8)
     rubypants (0.2.0)
-    sass (3.1.4)
+    rubypython (0.5.1)
+      blankslate (>= 2.1.2.3)
+      ffi (~> 1.0.7)
+    sass (3.1.5)
     syntax (1.0.0)
 
 PLATFORMS
@@ -43,6 +50,7 @@ DEPENDENCIES
   compass (>= 0.11)
   haml (>= 3.1)
   jekyll
+  pygments.rb
   rack
   rake
   rb-fsevent
