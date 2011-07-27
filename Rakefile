@@ -127,6 +127,10 @@ end
 desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
 task :update_style, :theme do |t, args|
   theme = args.theme || 'classic'
+  if File.directory?("sass.old")
+    puts "removed existing sass.old directory"
+    system "rm -r sass.old"
+  end
   system "mv sass sass.old"
   puts "## Moved styles into sass.old/"
   system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/* sass/"
@@ -137,6 +141,10 @@ end
 desc "Move source to source.old, install source theme updates, replace source/_includes/navigation.html with source.old's navigation"
 task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
+  if File.directory?("#{source_dir}.old")
+    puts "removed existing #{source_dir}.old directory"
+    system "rm -r #{source_dir}.old"
+  end
   system "mv #{source_dir} #{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
   system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
