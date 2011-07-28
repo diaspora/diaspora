@@ -44,6 +44,7 @@ javascripts:
     - public/javascripts/search.js
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
+    - public/javascripts/aspect-sorting.js
   login:
     - public/javascripts/login.js
   mobile:
