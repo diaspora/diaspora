@@ -35,7 +35,7 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe",
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 
-# Uncomment these and return out of Service::Facebook#save_friends 
+# Uncomment these and return out of Service::Facebook#save_friends
 #service = Service.new(:user_id => bob.id)
 #service.type = "Services::Facebook"
 #service.access_token = "abc123"
@@ -62,5 +62,4 @@ time_interval = 1000
     post.save
     time_interval += 1000
   end
-  puts "successfully seeded database with bob, alice and eve (password: evankorth)"
 end
