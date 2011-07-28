@@ -22,9 +22,9 @@ class UsersController < ApplicationController
 
   def update
     password_changed = false
-    if u = params[:user]
-      @user = current_user
+    @user = current_user
 
+    if u = params[:user]
       u.delete(:password) if u[:password].blank?
       u.delete(:password_confirmation) if u[:password].blank? and u[:password_confirmation].blank?
       u.delete(:language) if u[:language].blank?
@@ -57,6 +57,8 @@ class UsersController < ApplicationController
           flash[:error] = I18n.t 'users.update.unconfirmed_email_not_changed'
         end
       end
+    elsif aspect_order = params[:reorder_aspects]
+      @user.reorder_aspects(aspect_order)
     end
 
     respond_to do |format|

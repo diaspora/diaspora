@@ -11,7 +11,7 @@
 
     %ul.sub_nav
       - for aspect in all_aspects
-        %li{:class => ("active" if params["a_id"].to_i == aspect.id)}
+        %li{:id => aspect.id, :class => ("active" if params["a_id"].to_i == aspect.id)}
           .edit
             = link_to image_tag("icons/pencil.svg", :height => 12), edit_aspect_path(aspect), :rel => "facebox"
 
@@ -35,4 +35,16 @@
           .contact_count
             = only_sharing_count
           = t('contacts.index.only_sharing_with_me')
+
+  :javascript
+    $(document).ready(function() {
+      jQuery('#aspect_nav.left_nav .all_aspects .sub_nav').sortable({
+        items: 'li[id]',
+        update: function(event, ui) {
+          var order = jQuery(this).sortable('toArray');
+          var obj = { 'reorder_aspects': order, 'authenticity_token': '#{form_authenticity_token}', '_method': 'put' };
+          jQuery.ajax('/user', { type: 'post', dataType: 'script', data: obj });
+        }
+      });
+    });
 
