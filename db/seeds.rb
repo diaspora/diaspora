@@ -48,10 +48,19 @@ require 'spec/support/user_methods'
 time_interval = 1000
 (1..25).each do |n|
   [alice, bob, eve].each do |u|
-    post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
+    if(n%3==1)
+      post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
+    elsif(n%3==2)
+      post =u.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
+    else
+      post = Factory(:activity_streams_photo, :public => true, :author => u.person)
+      u.add_to_streams(post, u.aspects)
+    end
+
     post.created_at = post.created_at - time_interval
     post.updated_at = post.updated_at - time_interval
     post.save
     time_interval += 1000
   end
+  puts "successfully seeded database with bob, alice and eve (password: evankorth)"
 end

@@ -368,4 +368,26 @@ describe AspectsController do
       end
     end
   end
+
+  describe "mobile site" do
+    before do
+      ap = alice.person
+      posts = []
+      posts << alice.post(:reshare, :root_guid => Factory(:status_message, :public => true).guid, :to => 'all')
+      posts << alice.post(:status_message, :text => 'foo', :to => alice.aspects)
+      photo = Factory(:activity_streams_photo, :public => true, :author => ap)
+      posts << photo
+      posts.each do |p|
+        alice.build_like(:positive => true, :target => p).save
+      end
+      alice.add_to_streams(photo, alice.aspects)
+      sign_in alice
+    end
+
+    it 'should not 500' do
+      get :index, :format => :mobile
+      response.should be_success
+
+    end
+  end
 end
