@@ -206,6 +206,7 @@ ko:
     new: 
       abandon_changes: "변경을 포기할까요?"
       send: "보내기"
+      sending: "Sending..."
       subject: "제목"
       to: "받는이"
     show: 
@@ -572,6 +573,7 @@ ko:
         other: "%{count} Reshares"
         zero: "재공유"
       reshare_confirmation: "%{author}님의 %{text} 공유물을 재공유합니까?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "검색"
   services: 

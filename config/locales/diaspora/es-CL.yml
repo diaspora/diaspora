@@ -206,6 +206,7 @@ es-CL:
     new: 
       abandon_changes: "Descartar los cambios?"
       send: "Enviar"
+      sending: "Sending..."
       subject: "asunto"
       to: "para"
     show: 
@@ -572,6 +573,7 @@ es-CL:
         other: "Se ha compartido %{count} veces"
         zero: "Compartir"
       reshare_confirmation: "Compartir %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Mostrar Original"
   search: "Buscar"
   services: 

@@ -206,6 +206,7 @@ ga:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Send"
+      sending: "Sending..."
       subject: "subject"
       to: "to"
     show: 
@@ -572,6 +573,7 @@ ga:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Search"
   services: 

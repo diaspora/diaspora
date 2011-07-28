@@ -206,6 +206,7 @@ el:
     new: 
       abandon_changes: "Απόρριψη αλλαγών?"
       send: "Αποστολή"
+      sending: "Sending..."
       subject: "θέμα"
       to: "στον"
     show: 
@@ -572,6 +573,7 @@ el:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Αναζήτηση"
   services: 

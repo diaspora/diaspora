@@ -206,6 +206,7 @@ en_shaw:
     new: 
       abandon_changes: "𐑩𐑚𐑨𐑯𐑛𐑩𐑯 𐑗𐑱𐑯𐑡𐑩𐑟?"
       send: "𐑕𐑧𐑯𐑛"
+      sending: "Sending..."
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
     show: 
@@ -572,6 +573,7 @@ en_shaw:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "𐑕𐑻𐑗"
   services: 

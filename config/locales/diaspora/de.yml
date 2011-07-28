@@ -29,7 +29,7 @@ de:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "Due hast diesen Beitrag bereits wiederholt!"
+              taken: "Due hast diesen Beitrag bereits weitergesagt!"
         user: 
           attributes: 
             email: 
@@ -108,7 +108,7 @@ de:
         heading: "Diaspora ID"
       handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       no_contacts: "Keine Kontakte"
-      no_tags: "No tags"
+      no_tags: "Keine Tags"
       people_sharing_with_you: "Leute die mit dir teilen"
       post_a_message: "schreibe eine Nachricht >>"
       services: 
@@ -206,6 +206,7 @@ de:
     new: 
       abandon_changes: "Änderungen verwerfen?"
       send: "Senden"
+      sending: "Senden..."
       subject: "Betreff"
       to: "An"
     show: 
@@ -296,10 +297,10 @@ de:
         zero: "Keinem gefällt das"
       people_like_this_comment: 
         few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        zero: "no likes"
+        many: "Gefällt %{count}"
+        one: "Gefällt %{count}"
+        other: "Gefällt %{count}"
+        zero: "Gefällt niemanden"
   limited: "Begrenzt"
   more: "Mehr"
   next: "Nächste"
@@ -562,16 +563,17 @@ de:
       sent: "Gesendet!"
   reshares: 
     create: 
-      failure: "Ein Fehler trat beim Wiederholen dieses Beitrags auf."
+      failure: "Ein Fehler trat beim weitersagen dieses Beitrags auf."
     reshare: 
       deleted: "Originalbeitrag wurde vom Autor entfernt."
       reshare: 
-        few: "%{count} Wiederholungen"
-        many: "%{count} Wiederholungen"
-        one: "1 Wiederholung"
-        other: "%{count} Wiederholungen"
-        zero: "Wiederholen"
-      reshare_confirmation: "%{author} - „%{text}“ wiederholen?"
+        few: "%{count} mal weitergesagt"
+        many: "%{count} mal weitergesagt"
+        one: "Einmal weitergesagt"
+        other: "%{count} mal weitergesagt"
+        zero: "Weitersagen"
+      reshare_confirmation: "%{author}'s Beitrag weitersagen?"
+      reshare_original: "Original weitersagen"
       show_original: "Original anzeigen"
   search: "Suche"
   services: 
@@ -650,7 +652,7 @@ de:
       upload_photos: "Fotos hochladen"
       whats_on_your_mind: "Woran denkst du gerade?"
     reshare: 
-      reshare: "Erneut senden an"
+      reshare: "Weitersagen"
     stream_element: 
       dislike: "Gefällt mir nicht"
       like: "Gefällt mir"

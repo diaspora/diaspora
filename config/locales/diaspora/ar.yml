@@ -206,6 +206,7 @@ ar:
     new: 
       abandon_changes: "أأتجاهل التغييرات؟"
       send: "أَرْسِل"
+      sending: "Sending..."
       subject: "العنوان"
       to: "إلى"
     show: 
@@ -572,6 +573,7 @@ ar:
         other: "أُعِيدَ نشرها %{count} مرة"
         zero: "أَعِد النشر"
       reshare_confirmation: "هل أُعِد نشر مشاركة %{author} - ومحتواها: %{text} ?"
+      reshare_original: "Reshare orignial"
       show_original: "اعرض الأصلية"
   search: "بحث"
   services: 

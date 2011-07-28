@@ -206,6 +206,7 @@ es:
     new: 
       abandon_changes: "¿Descartar los cambios?"
       send: "Enviar"
+      sending: "Sending..."
       subject: "asunto"
       to: "para"
     show: 
@@ -572,6 +573,7 @@ es:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Buscar"
   services: 

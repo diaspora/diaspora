@@ -206,6 +206,7 @@ fr:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Envoyer"
+      sending: "Sending..."
       subject: "sujet"
       to: "pour"
     show: 
@@ -572,6 +573,7 @@ fr:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Rechercher"
   services: 

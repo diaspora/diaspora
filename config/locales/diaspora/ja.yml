@@ -206,6 +206,7 @@ ja:
     new: 
       abandon_changes: "Abandon changes?"
       send: "送信する"
+      sending: "Sending..."
       subject: "件名"
       to: "宛先"
     show: 
@@ -572,6 +573,7 @@ ja:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "検索"
   services: 

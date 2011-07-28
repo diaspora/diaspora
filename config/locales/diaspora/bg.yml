@@ -206,6 +206,7 @@ bg:
     new: 
       abandon_changes: "Отказвате се от промените?"
       send: "Изпращане"
+      sending: "Sending..."
       subject: "тема"
       to: "до"
     show: 
@@ -572,6 +573,7 @@ bg:
         other: "%{count} споделяния"
         zero: "Споделяне"
       reshare_confirmation: "Споделяне на \"%{text}\" от %{author}?"
+      reshare_original: "Reshare orignial"
       show_original: "Оригиналът"
   search: "Търсене"
   services: 

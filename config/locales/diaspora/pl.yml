@@ -206,6 +206,7 @@ pl:
     new: 
       abandon_changes: "Abandon changes?"
       send: "Wyślij"
+      sending: "Sending..."
       subject: "temat"
       to: "do"
     show: 
@@ -572,6 +573,7 @@ pl:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Szukaj"
   services: 

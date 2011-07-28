@@ -24,7 +24,7 @@ eo:
     publisher: 
       at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Vi jam repartoprenis tiun afiŝon!"
     search_for: "Serĉi por {{name}}"
     show_more: "vidi plu"
     timeago: 

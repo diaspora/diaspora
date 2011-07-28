@@ -206,6 +206,7 @@ eu:
     new: 
       abandon_changes: "Aldaketak bertan behera utzi?"
       send: "Bidali"
+      sending: "Sending..."
       subject: "gaia"
       to: "nori:"
     show: 
@@ -572,6 +573,7 @@ eu:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Bilatu"
   services: 

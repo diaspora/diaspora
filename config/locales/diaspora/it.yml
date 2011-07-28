@@ -206,6 +206,7 @@ it:
     new: 
       abandon_changes: "Annulla i cambiamenti?"
       send: "Invia"
+      sending: "Sending..."
       subject: "oggetto"
       to: "a"
     show: 
@@ -572,6 +573,7 @@ it:
         other: "%{count} condivisioni"
         zero: "Ricondividi"
       reshare_confirmation: "Vuoi ricondividere %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Mostra l'originale"
   search: "Cerca"
   services: 

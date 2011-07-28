@@ -206,6 +206,7 @@ he:
     new: 
       abandon_changes: "Abandon changes?"
       send: "שליחה"
+      sending: "Sending..."
       subject: "נושא"
       to: "אל"
     show: 
@@ -572,6 +573,7 @@ he:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "חיפוש"
   services: 

@@ -29,7 +29,7 @@ nl:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Je hebt deze post al opnieuw gedeeld!"
         user: 
           attributes: 
             email: 
@@ -108,7 +108,7 @@ nl:
         heading: "Diaspora ID"
       handle_explanation: "Dit is jouw Diaspora id. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       no_contacts: "Geen contacten"
-      no_tags: "No tags"
+      no_tags: "Geen tags"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
       services: 
@@ -206,6 +206,7 @@ nl:
     new: 
       abandon_changes: "Wijzigingen annuleren?"
       send: "Verstuur"
+      sending: "Sending..."
       subject: "onderwerp"
       to: "aan"
     show: 
@@ -277,7 +278,7 @@ nl:
       login: "inloggen"
       logout: "log uit"
       profile: "profiel"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "Recente notificaties"
       settings: "instellingen"
       view_all: "Bekijk alles"
   likes: 
@@ -378,31 +379,31 @@ nl:
       other: "%{actors} delen nu met jou."
       zero: "%{actors} deelt nu met jou."
   notifier: 
-    click_here: "click here"
+    click_here: "klik hier"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Reageer of bekijk %{name}'s post >"
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "Deze mail is gestuurd door Diaspora.  Als je dit soort email's niet meer wilt ontvangen,"
     hello: "Hoi %{name}!"
     liked: 
       liked: "%{name} vind je post leuk: "
-      view_post: "View post >"
+      view_post: "Bekijk post >"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"
       subject: "%{name} heeft jou genoemd op Diaspora*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Reageer op of bekijk deze conversatie >"
     single_admin: 
       admin: "Je Diaspora administrator"
       subject: "Een bericht over je Diaspora account:"
     started_sharing: 
       sharing: "deelt vanaf nu met jou!"
       subject: "%{name} deelt vanaf nu met je op Diaspora*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Bekijk %{name}'s profiel"
     thanks: "Bedankt,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "om je notificatie instellingen te wijzigen"
   ok: "OK"
   or: "of"
   password: "Wachtwoord"
@@ -496,8 +497,8 @@ nl:
       post_hidden: "%{name}'s post is verborgen."
   posts: 
     show: 
-      destroy: "Delete"
-      not_found: "Sorry, we couldn't find that post."
+      destroy: "Verwijder"
+      not_found: "Sorry, die post konden we niet vinden."
       permalink: "permalink"
   previous: "vorige"
   profile: "Profiel"
@@ -562,9 +563,9 @@ nl:
       sent: "verzonden!"
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "Er is een fout opgetreden bij het herdelen van deze post."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "De originele post is verwijderd door de auteur."
       reshare: 
         few: "%{count} Reshares"
         many: "%{count} Reshares"
@@ -572,6 +573,7 @@ nl:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Zoek"
   services: 

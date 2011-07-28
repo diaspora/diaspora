@@ -206,6 +206,7 @@ zh-TW:
     new: 
       abandon_changes: "放棄目前變動?"
       send: "傳送"
+      sending: "Sending..."
       subject: "主旨"
       to: "收件人"
     show: 
@@ -572,6 +573,7 @@ zh-TW:
         other: "被轉貼%{count}次"
         zero: "轉貼"
       reshare_confirmation: "要轉貼 %{author} - %{text} 嗎?"
+      reshare_original: "Reshare orignial"
       show_original: "顯示原文"
   search: "搜尋"
   services: 

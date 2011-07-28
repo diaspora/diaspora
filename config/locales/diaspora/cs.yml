@@ -206,6 +206,7 @@ cs:
     new: 
       abandon_changes: "Zamítnout změny?"
       send: "Poslat"
+      sending: "Sending..."
       subject: "předmět"
       to: "pro"
     show: 
@@ -572,6 +573,7 @@ cs:
         other: "%{count} Reshares"
         zero: "Reshare"
       reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
       show_original: "Show Original"
   search: "Hledat"
   services: 
