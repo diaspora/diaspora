@@ -1,2 +1,2 @@
 $(".like_action", "#<%=@like.target.guid%>").first().html("<%= escape_javascript(like_action(@like.target))%>");
-WebSocketReceiver.processLike("<%=@like.target.guid%>", "<%= escape_javascript(render("likes/likes_container", :target_id => @like.target_id, :likes_count => @like.target.likes_count)) %>");
+WebSocketReceiver.processLike("<%=@like.target.guid%>", "<%= escape_javascript(render("likes/likes_container", :target_id => @like.target_id, :likes_count => @like.target.likes_count, :target_type => @like.target_type)) %>");
