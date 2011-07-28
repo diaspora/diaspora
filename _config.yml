@@ -33,6 +33,9 @@ pygments: false
 paginate: 10 # Posts per page on the blog index
 recent_posts: 5 # Posts in the sidebar Recent Posts section
 
+# list each of the sidebar modules you want to include, in the order you want, here, adding your own in asides/custom/... if you'd like
+asides: [asides/recent_posts.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html]
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
