@@ -29,5 +29,4 @@
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5, :tabindex => 1
           .right
-            = message.submit t('cancel'), :name => "reset", :id => "reset_button", :type => "reset", :class => "button", :tabindex => 3
             = message.submit t('.reply').capitalize, :class => 'button creation', :tabindex => 2
