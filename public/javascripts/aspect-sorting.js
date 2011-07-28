@@ -5,9 +5,9 @@
 
 $(document).ready(function() {
   $('#aspect_nav.left_nav .all_aspects .sub_nav').sortable({
-    items: 'li[id]',
+    items: "li[data-aspect_id]",
     update: function(event, ui) {
-      var order = $(this).sortable('toArray'),
+      var order = $(this).sortable("toArray", {attribute: "data-aspect_id"}),
           obj = { 'reorder_aspects': order, '_method': 'put' };
       $.ajax('/user', { type: 'post', dataType: 'script', data: obj });
     },
