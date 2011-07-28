@@ -58,7 +58,7 @@
           %span.like_action
             = like_action(post, current_user)
 
-          - if (post.author_id != current_user.person.id) && (post.public?) && !reshare?(post)
+          - if (post.author_id != current_user.person.id) && (post.public?)
             ·
             %span.reshare_action
               = reshare_link(post)

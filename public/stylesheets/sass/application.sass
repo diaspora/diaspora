@@ -492,8 +492,12 @@ ul.as-selections
   :margin
     :bottom 5px
 
-.details
-  :color #aaa
+.from
+  .details,
+  .details *
+    :color #aaa
+    :font
+      :weight normal
 
 .post_scope
   :cursor default
@@ -612,8 +616,12 @@ ul.show_comments,
       :display inline
 
 .stream_element .reshare
-  :padding 10px
-  :border 1px solid #eee
+  :padding
+    :left 10px
+  :border-left 2px solid #ddd
+  :margin
+    :top 5px
+    :bottom 10px
 
 ul.show_comments
   :padding

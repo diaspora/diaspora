@@ -591,14 +591,15 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
+      reshare_original: "Reshare orignial"
       reshare:
         zero: "Reshare"
-        one: "1 reshare"
-        few: "%{count} reshares"
-        many: "%{count} reshares"
-        other: "%{count} reshares"
+        one: "1 Reshare"
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        other: "%{count} Reshares"
       show_original: "Show original"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_confirmation: "Reshare %{author}'s post?"
       deleted: "Original post deleted by author."
     create:
       failure: "There was an error resharing this post."
