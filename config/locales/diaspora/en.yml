@@ -234,6 +234,7 @@ en:
       to: "to"
       subject: "subject"
       send: "Send"
+      sending: "Sending..."
       abandon_changes: "Abandon changes?"
     helper:
       new_messages: 
