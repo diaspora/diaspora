@@ -7,6 +7,9 @@
     = person_image_tag(conversation.author)
 
     .subject
+      - if unread_counts[conversation.id].to_i > 0
+        .unread_message_count
+          = unread_counts[conversation.id].to_i
       .message_count
         = conversation.messages.size
 
