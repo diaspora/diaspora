@@ -81,3 +81,27 @@
         = t('bookmarklet.heading')
     .content
       != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
+
+  .section
+    .title
+      = image_tag('/images/icons/coffee.png')
+      %h5
+        Donate
+    .content
+      Keep JoinDiaspora running fast, buy our servers coffee
+      = form_tag "https://www.paypal.com/cgi-bin/webscr", :method => 'post' do
+        = hidden_field_tag "cmd", "_s-xclick"
+
+        = hidden_field_tag "hosted_button_id", "WPG875V39Y9RA"
+        = hidden_field_tag "on0", "Type"
+        = hidden_field_tag "modify" , "2"
+
+        What monthly amount
+        %br
+
+        = select_tag :os0, options_from_collection_for_select(["Caffee mocha : $3.00USD", "Caffee Americano : $5.00USD", "Box of Joe : $20.00USD"], "to_s", "to_s")
+        = hidden_field_tag "currency_code", "USD"
+        = submit_tag "Coffee!!"
+        / "https://www.paypalobjects.com/en_US/i/btn/btn_buynow_SM.gif"
+/<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">= hidden_field_tag "cmd", "_s-xclick"
+
