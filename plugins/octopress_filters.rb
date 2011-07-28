@@ -27,24 +27,36 @@ module OctopressFilters
   # ```
   def backtick_codeblock(input)
     # Markdown support
-    input = input.gsub /<p>`{3}\s(\w+)<\/p>\s*<pre><code>\s*(.+?)\s*<\/code><\/pre>\s*<p>`{3}<\/p>/m do
+    input = input.gsub /<p>`{3}\s*(\w+)?<\/p>\s*<pre><code>\s*(.+?)\s*<\/code><\/pre>\s*<p>`{3}<\/p>/m do
       lang = $1
-      str  = $2.gsub('&lt;','<').gsub('&gt;','>')
-      highlight(str, lang)
+      if lang != ''
+        str  = $2.gsub('&lt;','<').gsub('&gt;','>')
+        highlight(str, lang)
+      else
+        "<pre><code>#{$2}</code></pre>"
+      end
     end
 
     # Textile support
-    input = input.gsub /<p>`{3}\s(\w+)<br\s*\/>\n(.+?)`{3}<\/p>/m do
+    input = input.gsub /<p>`{3}\s*(\w+)?<br\s*\/>\n(.+?)`{3}<\/p>/m do
       lang = $1
       str  = $2.gsub('&lt;','<').gsub('&gt;','>').gsub(/^\s{4}/, '').gsub(/(<br\s\/>)?$/, '')
-      highlight(str, lang)
+      if lang != ''
+        highlight(str, lang)
+      else
+        "<pre><code>#{$2}</code></pre>"
+      end
     end
 
     # Regular HTML support
-    input.gsub /^`{3}\s(\w+)\n(.+?)\n`{3}/m do
+    input.gsub /^`{3}\s*(\w+)?\n(.+?)\n`{3}/m do
       lang = $1
       str  = $2.gsub(/^\s{4}/, '')
-      highlight(str, lang)
+      if lang != ''
+        highlight(str, lang)
+      else
+        "<pre><code>#{$2.gsub('<','&lt;').gsub('>','&gt;')}</code></pre>"
+      end
     end
   end
 
