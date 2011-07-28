@@ -36,10 +36,11 @@ module OctopressFilters
     # Textile support
     input = input.gsub /<p>`{3}\s(\w+)<br\s*\/>\n(.+?)`{3}<\/p>/m do
       lang = $1
-      str  = $2.gsub(/^\s{4}/, '').gsub(/<br\s*\/>$/, '')
+      str  = $2.gsub('&lt;','<').gsub('&gt;','>').gsub(/^\s{4}/, '').gsub(/(<br\s\/>)?$/, '')
       highlight(str, lang)
     end
 
+    # Regular HTML support
     input.gsub /^`{3}\s(\w+)\n(.+?)\n`{3}/m do
       lang = $1
       str  = $2.gsub(/^\s{4}/, '')
