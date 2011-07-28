@@ -124,9 +124,9 @@ end
 
 Factory.define(:activity_streams_photo, :class => ActivityStreams::Photo) do |p|
   p.association(:author, :factory => :person)
-  p.image_url "http://example.com/awesome.png"
-  p.image_height 900
-  p.image_width 400
+  p.image_url "#{AppConfig[:pod_url]}/images/asterisk.png"
+  p.image_height 154
+  p.image_width 154
   p.object_url "http://example.com/awesome_things.gif"
   p.objectId "http://example.com/awesome_things.gif"
   p.actor_url "http://notcubbi.es/cubber"
