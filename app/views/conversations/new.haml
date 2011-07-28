@@ -50,5 +50,4 @@
       .clearfix
 
       .bottom_submit_section
-        = submit_tag t('cancel'), :class => 'button', :type => :reset, :rel => "close", :confirm => t('.abandon_changes')
         = conversation.submit t('.send'), :disable_with => t('shared.publisher.posting'), :class => 'button creation'
