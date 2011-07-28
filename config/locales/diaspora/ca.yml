@@ -245,6 +245,7 @@ ca:
       to: "a"
       subject: "assumpte"
       send: "Envia"
+      sending: "S'està enviant…"
       abandon_changes: "Voleu descartar els canvis?"
     helper:
       new_messages:
