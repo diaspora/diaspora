@@ -26,9 +26,23 @@ module OctopressFilters
   #     code snippet
   # ```
   def backtick_codeblock(input)
-    input.gsub /<p>`{3}\s(\w+)<\/p>\n\n<pre><code>([^<]+)<\/code><\/pre>\n\n<p>`{3}<\/p>/m do
+    # Markdown support
+    input = input.gsub /<p>`{3}\s(\w+)<\/p>\s*<pre><code>\s*(.+?)\s*<\/code><\/pre>\s*<p>`{3}<\/p>/m do
       lang = $1
       str  = $2.gsub('&lt;','<').gsub('&gt;','>')
+      highlight(str, lang)
+    end
+
+    # Textile support
+    input = input.gsub /<p>`{3}\s(\w+)<br\s*\/>\n(.+?)`{3}<\/p>/m do
+      lang = $1
+      str  = $2.gsub(/^\s{4}/, '').gsub(/<br\s*\/>$/, '')
+      highlight(str, lang)
+    end
+
+    input.gsub /^`{3}\s(\w+)\n(.+?)\n`{3}/m do
+      lang = $1
+      str  = $2.gsub(/^\s{4}/, '')
       highlight(str, lang)
     end
   end
