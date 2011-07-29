@@ -106,7 +106,9 @@ zh-TW:
         content_1: "你的 Diaspora 識別碼是:"
         content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
+      donate: "Donate"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "沒有任何聯繫"
       no_tags: "沒有標籤"
       people_sharing_with_you: "跟你分享的人"
@@ -206,7 +208,7 @@ zh-TW:
     new: 
       abandon_changes: "放棄目前變動?"
       send: "傳送"
-      sending: "Sending..."
+      sending: "傳送中..."
       subject: "主旨"
       to: "收件人"
     show: 
@@ -572,8 +574,8 @@ zh-TW:
         one: "被轉貼1次"
         other: "被轉貼%{count}次"
         zero: "轉貼"
-      reshare_confirmation: "要轉貼 %{author} - %{text} 嗎?"
-      reshare_original: "Reshare orignial"
+      reshare_confirmation: "要轉貼 %{author} 的貼文嗎?"
+      reshare_original: "轉貼原文"
       show_original: "顯示原文"
   search: "搜尋"
   services: 

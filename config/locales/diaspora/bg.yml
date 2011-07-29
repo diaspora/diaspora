@@ -106,7 +106,9 @@ bg:
         content_1: "Вашият адрес в Diaspora е:"
         content_2: "Споделете го с който и да е и той ще ви намери в Diaspora."
         heading: "Адрес в Diaspora"
+      donate: "Donate"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Няма контакти"
       no_tags: "Няма тагове"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -206,7 +208,7 @@ bg:
     new: 
       abandon_changes: "Отказвате се от промените?"
       send: "Изпращане"
-      sending: "Sending..."
+      sending: "Изпращане..."
       subject: "тема"
       to: "до"
     show: 
@@ -572,8 +574,8 @@ bg:
         one: "1 споделяне"
         other: "%{count} споделяния"
         zero: "Споделяне"
-      reshare_confirmation: "Споделяне на \"%{text}\" от %{author}?"
-      reshare_original: "Reshare orignial"
+      reshare_confirmation: "Споделяне публикацията на %{author}?"
+      reshare_original: "Споделяне на оригинала"
       show_original: "Оригиналът"
   search: "Търсене"
   services: 
