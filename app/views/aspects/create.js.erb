@@ -2,9 +2,10 @@
 //   licensed under the Affero General Public License version 3 or later.  See
 //   the COPYRIGHT file.
 
-$('ul.dropdown_list[data-person_id=<%= @person.id %>] .newItem').before("<%= escape_javascript( render('aspect_memberships/aspect_dropdown_list_item', :aspect => @aspect, :person => @person, :contact => @contact)) %>");
+var dropdown = $("ul.dropdown_list[data-person_id=<%= @person.id %>]")
+$('.newItem', dropdown).before("<%= escape_javascript( render('aspect_memberships/aspect_dropdown_list_item', :aspect => @aspect, :person => @person, :contact => @contact)) %>");
 
-ContactEdit.updateNumber("<%= @person.id %>");
+ContactEdit.updateNumber(dropdown, "<%= @person.id %>", <%= @contact.aspects.size %>);
 $.facebox.close();
 $('#profile .dropdown').toggleClass("active");
 
