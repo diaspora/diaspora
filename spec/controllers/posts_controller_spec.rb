@@ -26,6 +26,11 @@ describe PostsController do
       response.should be_success
     end
 
+    it 'succeeds on mobile with a reshare' do
+      get :show, "id" => Factory(:reshare, :author => alice.person), :format => :mobile
+      response.should be_success
+    end
+
     it 'marks a corresponding notification as read' do
       alice.comment("comment after me", :post => @message)
       bob.comment("here you go", :post => @message)

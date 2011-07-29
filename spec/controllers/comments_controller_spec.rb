@@ -123,6 +123,11 @@ describe CommentsController do
       @message = bob.post(:status_message, :text => "hey", :to => bob.aspects.first.id)
       @comments = [alice, bob, eve].map{ |u| u.comment("hey", :post => @message) }
     end
+    it 'works for mobile' do
+      get :index, :post_id => @message.id, :format => 'mobile'
+      response.should be_success
+    end
+
     it 'returns all the comments for a post' do
       get :index, :post_id => @message.id, :format => 'js'
       assigns[:comments].should == @comments
