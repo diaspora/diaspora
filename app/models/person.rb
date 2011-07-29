@@ -45,6 +45,8 @@ class Person < ActiveRecord::Base
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
 
   def self.search_query_string(query)
+    query = query.downcase
+
     if postgres?
       where_clause = <<-SQL
         profiles.full_name ILIKE ? OR
@@ -57,7 +59,7 @@ class Person < ActiveRecord::Base
       SQL
     end
 
-    q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
+    q_tokens = query.to_s.strip.gsub(/(\s|$)/) { "%#{$1}" }
     [where_clause, [q_tokens, q_tokens]]
   end
 
@@ -65,6 +67,8 @@ class Person < ActiveRecord::Base
     return [] if query.to_s.blank? || query.to_s.length < 2
 
     sql, tokens = self.search_query_string(query)
+
+    pp tokens
 
     Person.searchable.where(sql, *tokens).joins(
       "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
