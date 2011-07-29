@@ -107,6 +107,8 @@ describe Contact do
 
     context 'on a contact for a local user' do
       before do
+        @alice.reload
+        @alice.aspects.reload
         @contact = @alice.contact_for(@bob.person)
       end
 

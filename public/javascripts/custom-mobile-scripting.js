@@ -6,6 +6,7 @@
 $(document).bind("mobileinit", function() {
    $.extend($.mobile, {
      ajaxLinksEnabled: false,
+     ajaxEnabled: false,
      ajaxFormsEnabled: false
 
    });

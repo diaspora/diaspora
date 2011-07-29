@@ -15,7 +15,7 @@
       :javascript
         Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
 
-    = stylesheet_link_tag 'vendor/jquery.mobile-1.0a4.min', 'mobile'
+    =include_stylesheets :mobile
     = csrf_meta_tag
     
     - if rtl?
