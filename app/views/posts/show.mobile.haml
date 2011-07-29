@@ -7,6 +7,8 @@
 
   - if @post.activity_streams?
     = image_tag @post.image_url
+  - elsif reshare?(@post)
+    = render 'reshares/reshare', :reshare => @post, :post => @post.root
   - else
     %p
       = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
