@@ -28,11 +28,11 @@ var Search = {
     }
   },
   options : function(){return {
-      minChars : 3,
+      minChars : 2,
       onSelect: Search.selectItemCallback,
       max : 5,
       scroll : false,
-      delay : 200,
+      delay : 100,
       cacheLength : 15,
       extraParams : {limit : 4},
       formatItem : Search.formatItem,

@@ -62,7 +62,7 @@ class Person < ActiveRecord::Base
   end
 
   def self.search(query, user)
-    return [] if query.to_s.blank? || query.to_s.length < 3
+    return [] if query.to_s.blank? || query.to_s.length < 2
 
     sql, tokens = self.search_query_string(query)
 
@@ -83,8 +83,6 @@ class Person < ActiveRecord::Base
       ["contacts.user_id #{order}", "profiles.last_name ASC", "profiles.first_name ASC"]
     }.call
   end
-
-
 
   def self.public_search(query, opts={})
     return [] if query.to_s.blank? || query.to_s.length < 3
