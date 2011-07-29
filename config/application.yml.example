@@ -130,6 +130,8 @@ defaults: &defaults
   # Set this to true if you want to do everything synchronously instead of using resque, our redis-backed queue system.
   single_process_mode: true
 
+  # Use paypal for recurring donations
+  paypal_hosted_button_id: ''
 
 # Use this section to override default settings in specific environments
 development:
