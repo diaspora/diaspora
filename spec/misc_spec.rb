@@ -62,4 +62,19 @@ describe 'making sure the spec runner works' do
     end
   end
 
+  describe I18n do
+    include ActionView::Helpers::TranslationHelper
+    it 'MissingInterpolationError in a non-english locale is not fatal' do
+      I18n.locale = 'it'
+      I18n.backend.should_receive(:lookup).ordered.
+        with(:it, 'bob', nil, :hey => "what", :fallback => true).
+        and_return("%{not_present} failure")
+      I18n.backend.should_receive(:lookup).ordered.
+        with(:en, 'bob', nil, :hey => "what", :fallback => true).
+        and_return("English translation")
+      translation = translate('bob', :hey => "what")
+      translation.should == "English translation"
+    end
+  end
+
 end

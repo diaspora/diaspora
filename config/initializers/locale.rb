@@ -14,3 +14,5 @@ AVAILABLE_LANGUAGE_CODES.each do |c|
     I18n.fallbacks[c.to_sym] = [c.to_sym, DEFAULT_LANGUAGE.to_sym, :en]
   end
 end
+require 'i18n_interpolation_fallbacks'
+I18n::Backend::Simple.send(:include, I18n::Backend::InterpolationFallbacks)
