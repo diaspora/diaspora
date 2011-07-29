@@ -5,6 +5,7 @@ module I18n
       def translate(locale, key, options = {})
         return super if options[:fallback]
         default = extract_string_or_lambda_default!(options) if options[:default]
+        options.merge!(:default => default) if default
 
         options[:fallback] = true
         I18n.fallbacks[locale].each do |fallback|
@@ -16,7 +17,7 @@ module I18n
         end
         options.delete(:fallback)
 
-        return super(locale, nil, options.merge(:default => default)) if default
+        return super(locale, nil, options) if default
         raise(I18n::MissingInterpolationArgument.new(options, "key: #{key} in locale: #{locale}"))
       end
     end
