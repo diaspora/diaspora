@@ -68,8 +68,6 @@ class Person < ActiveRecord::Base
 
     sql, tokens = self.search_query_string(query)
 
-    pp tokens
-
     Person.searchable.where(sql, *tokens).joins(
       "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
     ).includes(:profile
