@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110710102747) do
+ActiveRecord::Schema.define(:version => 20110729045734) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -295,11 +295,11 @@ ActiveRecord::Schema.define(:version => 20110710102747) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "location"
+    t.string   "full_name",        :limit => 70
   end
 
-  add_index "profiles", ["first_name", "last_name", "searchable"], :name => "index_profiles_on_first_name_and_last_name_and_searchable"
-  add_index "profiles", ["first_name", "searchable"], :name => "index_profiles_on_first_name_and_searchable"
-  add_index "profiles", ["last_name", "searchable"], :name => "index_profiles_on_last_name_and_searchable"
+  add_index "profiles", ["full_name", "searchable"], :name => "index_profiles_on_full_name_and_searchable"
+  add_index "profiles", ["full_name"], :name => "index_profiles_on_full_name"
   add_index "profiles", ["person_id"], :name => "index_profiles_on_person_id"
 
   create_table "service_users", :force => true do |t|

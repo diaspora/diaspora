@@ -45,6 +45,7 @@ class Profile < ActiveRecord::Base
   end
   before_save do
     self.build_tags
+    self.construct_full_name
   end
 
   def subscribers(user)
@@ -118,6 +119,13 @@ class Profile < ActiveRecord::Base
       rows = connection.select_rows( self.tags.scoped.to_sql )
       rows.inject(""){|string, row| string << "##{row[1]} " }
     end
+  end
+
+  # Constructs a full name by joining #first_name and #last_name
+  # @returns [String] A full name
+  def construct_full_name
+    self.full_name = [self.first_name, self.last_name].join(' ').downcase
+    self.full_name
   end
 
   protected

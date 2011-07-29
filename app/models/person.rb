@@ -47,39 +47,25 @@ class Person < ActiveRecord::Base
   def self.search_query_string(query)
     if postgres?
       where_clause = <<-SQL
-        profiles.first_name ILIKE ? OR
-        profiles.last_name ILIKE ? OR
-        people.diaspora_handle ILIKE ?
+        profiles.full_name ILIKE ? OR
+        profiles.diaspora_handle ILIKE ?
       SQL
     else
       where_clause = <<-SQL
-        profiles.first_name LIKE ? OR
-        profiles.last_name LIKE ? OR
-        people.diaspora_handle LIKE ? OR
-        profiles.first_name LIKE ? OR
-        profiles.last_name LIKE ?
+        profiles.full_name LIKE ? OR
+        people.diaspora_handle LIKE ?
       SQL
     end
 
-    sql = ""
-    tokens = []
-
-    query_tokens = query.to_s.strip.split(" ")
-    query_tokens.each_with_index do |raw_token, i|
-      token = "#{raw_token}%"
-      up_token = "#{raw_token.titleize}%"
-      sql << " OR " unless i == 0
-      sql << where_clause
-      tokens.concat([token, token, token])
-      tokens.concat([up_token, up_token]) unless postgres?
-    end
-    [sql, tokens]
+    q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
+    [where_clause, [q_tokens, q_tokens]]
   end
 
   def self.search(query, user)
     return [] if query.to_s.blank? || query.to_s.length < 3
 
     sql, tokens = self.search_query_string(query)
+
     Person.searchable.where(sql, *tokens).joins(
       "LEFT OUTER JOIN contacts ON contacts.user_id = #{user.id} AND contacts.person_id = people.id"
     ).includes(:profile

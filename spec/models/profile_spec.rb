@@ -29,6 +29,18 @@ describe Profile do
       end
     end
 
+    describe '#contruct_full_name' do
+      it 'generates a full name given first and last names' do
+        profile = Factory(:person).profile
+        profile.first_name = "casimiro"
+        profile.last_name = "grippi"
+
+        profile.full_name.should_not == "casimiro grippi"
+        profile.save
+        profile.full_name.should == "casimiro grippi"
+      end
+    end
+
     describe "of last_name" do
       it "strips leading and trailing whitespace" do
         profile = Factory.build(:profile, :last_name => "     Ohba    ")
