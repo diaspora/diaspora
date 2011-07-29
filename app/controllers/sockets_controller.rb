@@ -17,7 +17,7 @@ class SocketsController < ApplicationController
     #this should be the actual params of the controller
     @params = {:user_or_id => user_or_id, :object => object}.merge(opts)
     return unless Diaspora::WebSocket.is_connected?(user_id)
-    @_request = ActionDispatch::Request.new({})
+    @_request = SocketRequest.new({})
     Diaspora::WebSocket.queue_to_user(user_id, action_hash(user, object, opts))
   end
 
@@ -43,5 +43,11 @@ class SocketsController < ApplicationController
 
   def all_aspects
     @all_aspects ||= user.aspects
+  end
+
+  class SocketRequest < ActionDispatch::Request
+    def format
+      'socket'
+    end
   end
 end

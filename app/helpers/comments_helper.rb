@@ -22,4 +22,12 @@ module CommentsHelper
       :partial => 'comments/new_comment', :locals => {:post_id => GSUB_THIS, :current_user => current_user})
     @form.gsub(GSUB_THIS, post_id.to_s).html_safe
   end
+
+  def comment_form_wrapper_class(post)
+    if post.comments.empty? && request && request.format != 'mobile'
+      'hidden'
+    else
+      nil
+    end
+  end
 end
