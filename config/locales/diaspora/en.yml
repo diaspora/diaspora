@@ -147,6 +147,8 @@ en:
       family: "Family"
       work: "Work"
     index: 
+      donate: "Donate"
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       your_aspects: "Your Aspects"
       tags_following: "Followed Tags"
       no_tags: "No tags"
