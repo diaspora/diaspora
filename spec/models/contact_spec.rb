@@ -89,17 +89,18 @@ describe Contact do
       @bob = bob
       @eve = eve
       @bob.aspects.create(:name => 'next')
+      @bob.aspects(true)
       @people1 = []
       @people2 = []
 
       1.upto(5) do
         person = Factory(:person)
-        bob.contacts.create(:person => person, :aspects => [bob.aspects.first])
+        @bob.contacts.create(:person => person, :aspects => [@bob.aspects.first])
         @people1 << person
       end
       1.upto(5) do
         person = Factory(:person)
-        bob.contacts.create(:person => person, :aspects => [bob.aspects.last])
+        @bob.contacts.create(:person => person, :aspects => [@bob.aspects.last])
         @people2 << person
       end
     #eve <-> bob <-> alice
