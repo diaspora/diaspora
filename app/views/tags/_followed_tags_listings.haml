@@ -10,7 +10,9 @@
     %ul.sub_nav
       - if current_user.followed_tags.size > 0
         - for tg in current_user.followed_tags
-          %li
+          %li.unfollow{:id => tg.name}
+            .unfollow_icon.hidden
+              = link_to image_tag("icons/monotone_close_exit_delete.png", :height => 12), tag_tag_followings_path(:name => tg.name, :remote => true), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :id => "unfollow_" + tg.name
             =link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
       - else
         %li
