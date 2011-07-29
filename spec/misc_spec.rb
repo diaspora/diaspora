@@ -75,6 +75,14 @@ describe 'making sure the spec runner works' do
       translation = translate('bob', :hey => "what")
       translation.should == "English translation"
     end
+    it 'MissingInterpolationError with no fallback is fatal' do
+      I18n.backend.stub!(:lookup).
+        with(:en, 'bob', nil, :hey => "what", :fallback => true).
+        and_return("English translation %{that_will_fail}")
+      lambda {
+        translate('bob', :hey => "what")
+      }.should raise_error I18n::MissingInterpolationArgument
+    end
   end
 
 end

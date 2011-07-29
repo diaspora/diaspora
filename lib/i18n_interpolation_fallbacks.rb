@@ -17,7 +17,7 @@ module I18n
         options.delete(:fallback)
 
         return super(locale, nil, options.merge(:default => default)) if default
-        raise(I18n::MissingInterpolationError.new(locale, key, options))
+        raise(I18n::MissingInterpolationArgument.new(options, "key: #{key} in locale: #{locale}"))
       end
     end
   end
