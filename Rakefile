@@ -150,6 +150,7 @@ task :update_source, :theme do |t, args|
   system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -f #{source_dir}.old/_includes/navigation.html #{source_dir}/_includes/navigation.html"
+  system "cp -f #{source_dir}.old/_includes/footer.html #{source_dir}/_includes/footer.html"
   puts "## Updated #{source_dir} ##"
 end
 
