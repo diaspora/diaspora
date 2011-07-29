@@ -47,7 +47,7 @@
         = @person.diaspora_handle
       .description
         - if !@person.profile.tag_string.blank?
-          = Diapsora::Taggable.format_tags(@person.profile.tag_string)
+          = Diaspora::Taggable.format_tags(@person.profile.tag_string)
           - if user_signed_in? && @person == current_user.person
             %span.hover_edit
               = link_to t('people.show.edit'), edit_profile_path
