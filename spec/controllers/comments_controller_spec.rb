@@ -29,6 +29,10 @@ describe CommentsController do
         response.code.should == '201'
         response.body.should match comment_hash[:text]
       end
+      it 'responds to format mobile' do
+        post :create, comment_hash.merge(:format => 'mobile')
+        response.should be_redirect
+      end
     end
 
     context "on a post from a contact" do

@@ -28,7 +28,7 @@ class CommentsController < ApplicationController
         respond_to do |format|
           format.js{ render(:create, :status => 201)}
           format.html{ render :nothing => true, :status => 201 }
-          format.mobile{ redirect_to @comment.post }
+          format.mobile{ redirect_to post_url(@comment.post) }
         end
       else
         render :nothing => true, :status => 422
