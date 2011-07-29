@@ -17,12 +17,20 @@ module Jekyll
     @img = nil
     @title = nil
     @class = ''
+    @width = ''
+    @height = ''
 
     def initialize(tag_name, markup, tokens)
-      if markup =~ /(\S.*\s+)?(https?:\/\/|\/)(\S+)(\s+.+)?/i
-        @class = $1
+      if markup =~ /(\S.*\s+)?(https?:\/\/|\/)(\S+)(\s+\d+\s+\d+)?(\s+.+)?/i
+        @class = $1 || ''
         @img = $2 + $3
-        @title = $4
+        if $5
+          @title = $5.strip
+        end
+        if $4 =~ /\s*(\d+)\s+(\d+)/
+          @width = $1
+          @height = $2
+        end
       end
       super
     end
@@ -30,9 +38,9 @@ module Jekyll
     def render(context)
       output = super
       if @img
-        "<img class='#{@class}' src='#{@img}' alt='#{@title}' title='#{@title}'>"
+        "<img class='#{@class}' src='#{@img}' width='#{@width}' height='#{@height}' alt='#{@title}' title='#{@title}'>"
       else
-        "Error processing input, expected syntax: {% img [class name(s)] /url/to/image [title text] %}"
+        "Error processing input, expected syntax: {% img [class name(s)] /url/to/image [width height] [title text] %}"
       end
     end
   end
