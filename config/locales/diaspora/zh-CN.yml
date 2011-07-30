@@ -127,12 +127,17 @@ zh-CN:
       create: "创建"
       name: "名字"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "还没人发布过内容。你发布第一条吧！"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1个视图"
     other: "%{count}个视图"
     seed: 
+      acquaintances: "Acquaintances"
       family: "家人"
+      friends: "Friends"
       work: "同事"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ zh-CN:
   contacts: 
     create: 
       failure: "添加好友失败"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count}个好友"
     index: 
       add_a_new_aspect: "Add a new aspect"

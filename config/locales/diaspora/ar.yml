@@ -127,12 +127,17 @@ ar:
       create: "أنشئ"
       name: "إسم"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "لم يتحدث أحد بعد!"
       try_adding_some_more_contacts: "حاول إضافة المزيد من جهات الاتصال."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "فئة"
     other: "%{count} فئات"
     seed: 
+      acquaintances: "Acquaintances"
       family: "العائلة"
+      friends: "Friends"
       work: "العمل"
     selected_contacts: 
       manage_your_aspects: "أَدِر فئاتك."
@@ -167,6 +172,8 @@ ar:
   contacts: 
     create: 
       failure: "فشل في إنشاء الإتصال"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} أعضاء"
     index: 
       add_a_new_aspect: "أضف فئة جديدة"

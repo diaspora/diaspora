@@ -127,12 +127,17 @@ de:
       create: "Erstellen"
       name: "Name"
     no_posts_message: 
+      featured_users: "Besondere Leute"
+      or_featured: "Oder fang an mit %{link} zu teilen."
       start_talking: "Niemand hat bisher etwas gesagt!"
-      try_adding_some_more_contacts: "Versuche ein paar Kontakte hinzuzufügen."
+      try_adding_some_more_contacts: "Du kannst nach Kontakten suchen (oben) oder welche einladen (rechts)."
+      you_have_no_contacts: "Du hast noch keine Kontakte hinzugefügt!"
     one: "Ein Aspekt"
     other: "%{count} Aspekte"
     seed: 
+      acquaintances: "Bekannte"
       family: "Familie"
+      friends: "Freunde"
       work: "Arbeit"
     selected_contacts: 
       manage_your_aspects: "Verwalte deine Aspekte."
@@ -167,6 +172,8 @@ de:
   contacts: 
     create: 
       failure: "Konnte Kontakt nicht erstellen"
+    featured: 
+      featured_users: "Besondere Leute"
     few: "%{count} Kontakte"
     index: 
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"

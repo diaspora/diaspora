@@ -127,12 +127,17 @@ es-AR:
       create: "Crear"
       name: "Nombre"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Nadie dijo algo todavía. ¡Iniciá la conversación!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familia"
+      friends: "Friends"
       work: "Trabajo"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ es-AR:
   contacts: 
     create: 
       failure: "No pudo crearse el contacto"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} contactos"
     index: 
       add_a_new_aspect: "Add a new aspect"

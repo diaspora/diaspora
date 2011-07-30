@@ -127,12 +127,17 @@ ru:
       create: "Создать"
       name: "Имя"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Здесь ещё никто ничего не сказал.  Начните разговор!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 аспект"
     other: "%{count} аспект[-а, -ов]"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Семья"
+      friends: "Friends"
       work: "Работа"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ ru:
   contacts: 
     create: 
       failure: "Не удалось создать контакт"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} контакт[-а, -ов]"
     index: 
       add_a_new_aspect: "Добавить аспект"

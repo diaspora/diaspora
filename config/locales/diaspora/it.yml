@@ -63,16 +63,16 @@ it:
   aspects: 
     add_to_aspect: 
       failure: "Errore nell'aggiungere il contatto all'aspetto."
-      success: "Contatto aggiunto all'aspetto con successo."
+      success: "Contatto aggiunto con successo all'aspetto."
     aspect_contacts: 
       done_editing: "modifica eseguita"
     aspect_listings: 
-      add_an_aspect: "+ Aggiungi aspetto della vita"
+      add_an_aspect: "+ Aggiungi un aspetto"
     aspect_stream: 
       commented_on: "commenti"
       posted: "post"
       recently: "ordina per:"
-      stream: "Ultime novità"
+      stream: "Stream"
     contacts_not_visible: "I contatti in questo aspetto non potranno vedersi tra loro."
     contacts_visible: "I contatti in questo aspetto potranno vedersi tra loro."
     create: 
@@ -83,8 +83,8 @@ it:
       success: "%{name} è stato rimosso con successo."
     edit: 
       add_existing: "Aggiungi un contatto esistente"
-      aspect_list_is_not_visible: "l'elenco degli aspetti è nascosto agli altri nell'aspetto"
-      aspect_list_is_visible: "l'elenco degli aspetti è visibile agli altri nell'aspetto"
+      aspect_list_is_not_visible: "la lista dei contatti non è visibile a chi è nell'aspetto"
+      aspect_list_is_visible: "la lista dei contatti è visibile a chi è nell'aspetto"
       confirm_remove_aspect: "Sei sicuro di voler eliminare questo aspetto?"
       done: "Completato"
       make_aspect_list_visible: "rendi visibile la lista degli aspetti?"
@@ -106,9 +106,9 @@ it:
         content_1: "Il tuo ID è:"
         content_2: "Chi lo conosce potrà trovarti facilmente su Diaspora, spargi la voce!"
         heading: "ID Diaspora"
-      donate: "Donate"
+      donate: "Fai una donazione"
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Fai andare %{pod} veloce come un razzo, finanzia la razione mensile di caffè per i nostri server!"
       no_contacts: "Nessun contatto"
       no_tags: "Nessun tag"
       people_sharing_with_you: "Persone in condivisione con te"
@@ -127,12 +127,17 @@ it:
       create: "Crea"
       name: "Nome"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Ancora nessuno ha scritto nulla. Inizia la conversazione!"
       try_adding_some_more_contacts: "Prova ad aggiungere altri contatti."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "un aspetto"
     other: "%{count} aspetti"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Famiglia"
+      friends: "Friends"
       work: "Lavoro"
     selected_contacts: 
       manage_your_aspects: "Amministra gli aspetti della tua vita"
@@ -167,6 +172,8 @@ it:
   contacts: 
     create: 
       failure: "Impossibile creare il contatto"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} contatti"
     index: 
       add_a_new_aspect: "Aggiungi aspetto della vita"
@@ -208,7 +215,7 @@ it:
     new: 
       abandon_changes: "Annulla i cambiamenti?"
       send: "Invia"
-      sending: "Sending..."
+      sending: "Invio in corso..."
       subject: "oggetto"
       to: "a"
     show: 
@@ -565,17 +572,17 @@ it:
       sent: "richiesta inviata!"
   reshares: 
     create: 
-      failure: "C'è stato un errore nel ricondividere questo post."
+      failure: "C'è stato un errore nel condividere questo post."
     reshare: 
       deleted: "Il post originale è stato eliminato dall'autore."
       reshare: 
-        few: "%{count} condivisioni"
-        many: "%{count} condivisioni"
-        one: "1 condivisione"
-        other: "%{count} condivisioni"
-        zero: "Ricondividi"
-      reshare_confirmation: "Vuoi ricondividere %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
+        few: "%{count} Condivisioni"
+        many: "%{count} Condivisioni"
+        one: "1 Condivisione"
+        other: "%{count} Condivisioni"
+        zero: "Condividi"
+      reshare_confirmation: "Vuoi condividere il post di %{author} con i tuoi contatti?"
+      reshare_original: "Condividi l'originale"
       show_original: "Mostra l'originale"
   search: "Cerca"
   services: 
@@ -654,7 +661,7 @@ it:
       upload_photos: "Carica foto"
       whats_on_your_mind: "A cosa stai pensando?"
     reshare: 
-      reshare: "Ricondividi"
+      reshare: "Condividi"
     stream_element: 
       dislike: "Non mi piace"
       like: "Mi piace"

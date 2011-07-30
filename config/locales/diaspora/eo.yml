@@ -127,12 +127,17 @@ eo:
       create: "Krei"
       name: "Nomo"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Neniu jam diris iun ajn!"
       try_adding_some_more_contacts: "Aldonu pli kontaktojn."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspekto"
     other: "%{count} aspektoj"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familio"
+      friends: "Friends"
       work: "Verkejo"
     selected_contacts: 
       manage_your_aspects: "Redakti viajn aspektojn."
@@ -167,6 +172,8 @@ eo:
   contacts: 
     create: 
       failure: "Ne povis krei kontakton"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontaktoj"
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"

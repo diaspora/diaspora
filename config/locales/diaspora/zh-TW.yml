@@ -127,12 +127,17 @@ zh-TW:
       create: "建立"
       name: "名字"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "都還沒有人出聲!"
       try_adding_some_more_contacts: "試著加入更多聯絡人."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1個面向"
     other: "%{count}個面向"
     seed: 
+      acquaintances: "Acquaintances"
       family: "家人"
+      friends: "Friends"
       work: "工作"
     selected_contacts: 
       manage_your_aspects: "管理你的面向."
@@ -167,6 +172,8 @@ zh-TW:
   contacts: 
     create: 
       failure: "建立聯繫失敗"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count}個聯繫"
     index: 
       add_a_new_aspect: "加入新面向"

@@ -127,12 +127,17 @@ da:
       create: "Opret"
       name: "Navn"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Ingen har sagt noget endnu. Start samtalen!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familie"
+      friends: "Friends"
       work: "Arbejde"
     selected_contacts: 
       manage_your_aspects: "Administrer dine aspekter."
@@ -167,6 +172,8 @@ da:
   contacts: 
     create: 
       failure: "Kunne ikke oprette kontakt"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontaktpersoner"
     index: 
       add_a_new_aspect: "Tilføj nyt aspekt"

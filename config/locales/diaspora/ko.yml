@@ -127,12 +127,17 @@ ko:
       create: "만들기"
       name: "이름"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
       try_adding_some_more_contacts: "컨택을 더 추가해보세요."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 
+      acquaintances: "Acquaintances"
       family: "가족"
+      friends: "Friends"
       work: "직장"
     selected_contacts: 
       manage_your_aspects: "내 애스펙 관리하기."
@@ -167,6 +172,8 @@ ko:
   contacts: 
     create: 
       failure: "컨택을 만들 수 없습니다"
+    featured: 
+      featured_users: "Featured Users"
     few: "컨택 %{count}명"
     index: 
       add_a_new_aspect: "새 애스펙 추가"

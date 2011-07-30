@@ -127,12 +127,17 @@ cs:
       create: "Vytvořit"
       name: "Název"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Nikdo zatím ještě nic nesdělil!"
       try_adding_some_more_contacts: "Zkuste přidat další kontakty."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspekt"
     other: "%{count} aspektů"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Rodina"
+      friends: "Friends"
       work: "Práce"
     selected_contacts: 
       manage_your_aspects: "Spravovat vaše aspekty."
@@ -167,6 +172,8 @@ cs:
   contacts: 
     create: 
       failure: "Nepodařilo se vytvořit kontakt"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontaktů"
     index: 
       add_a_new_aspect: "Přidat nový aspekt"

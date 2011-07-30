@@ -127,12 +127,17 @@ en_shaw:
       create: "𐑒𐑮𐑦𐑱𐑑"
       name: "𐑯𐑱𐑥"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
       try_adding_some_more_contacts: "𐑑𐑮𐑲 𐑨𐑛𐑦𐑙 𐑕𐑳𐑥 𐑥𐑹 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
     other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed: 
+      acquaintances: "Acquaintances"
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
+      friends: "Friends"
       work: "𐑢𐑻𐑒"
     selected_contacts: 
       manage_your_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
@@ -167,6 +172,8 @@ en_shaw:
   contacts: 
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     index: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"

@@ -127,12 +127,17 @@ sv:
       create: "Skapa"
       name: "Namn"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Ingen har sagt något än. Bli först!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familj"
+      friends: "Friends"
       work: "Arbete"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ sv:
   contacts: 
     create: 
       failure: "Misslyckades med att skapa kontakt"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Add a new aspect"

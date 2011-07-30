@@ -127,12 +127,17 @@ sk:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Nikto nič nevraví. Začnite Vy!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Rodina"
+      friends: "Friends"
       work: "Práca"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ sk:
   contacts: 
     create: 
       failure: "Failed to create contact"
+    featured: 
+      featured_users: "Featured Users"
     few: "kontakty (%{count})"
     index: 
       add_a_new_aspect: "Add a new aspect"

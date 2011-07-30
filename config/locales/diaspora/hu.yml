@@ -127,12 +127,17 @@ hu:
       create: "Létrehoz"
       name: "Név"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Mindenki hallgat. Kezd el te a beszélgetést."
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
     one: "1 csoport"
     other: "%{count} csoport"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Család"
+      friends: "Friends"
       work: "Munka"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ hu:
   contacts: 
     create: 
       failure: "Kapcsolat létrehozása sikertelen"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} ismerős"
     index: 
       add_a_new_aspect: "Add a new aspect"
