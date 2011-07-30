@@ -345,10 +345,13 @@ class User < ActiveRecord::Base
 
   def seed_aspects
     self.aspects.create(:name => I18n.t('aspects.seed.family'))
-    work = self.aspects.create(:name => I18n.t('aspects.seed.work'))
+    self.aspects.create(:name => I18n.t('aspects.seed.friends'))
+    self.aspects.create(:name => I18n.t('aspects.seed.work'))
+    aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
+
     default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
-    self.share_with(default_account, work)
-    work
+    self.share_with(default_account, aq)
+    aq
   end
 
   def self.generate_key

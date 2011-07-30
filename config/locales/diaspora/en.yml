@@ -149,6 +149,8 @@ en:
     seed:
       family: "Family"
       work: "Work"
+      acquaintances: "Acquaintances"
+      friends: "Friends"
     index: 
       donate: "Donate"
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"

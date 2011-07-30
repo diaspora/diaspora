@@ -108,7 +108,7 @@ describe InvitationsController do
 
       it 'seeds the aspects' do
         put :update, @accept_params
-        invited.aspects.count.should == 2
+        invited.aspects.count.should == 4
       end
 
       it 'adds a contact' do
