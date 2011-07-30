@@ -29,21 +29,24 @@
 
     this.reInitialize = function() {
       self.clear();
-      self.initialize();  
+      self.initialize();
     };
 
     this.initialize = function() {
       if($('#main_stream').length !== 0){
-				$('#main_stream').infinitescroll(this.options, function() {
-	  			Diaspora.widgets.publish("stream/scrolled");
-				});
-      } else if($('#people_stream.contacts').length !== 0){
-				$("#people_stream.contacts").infinitescroll($.extend(self.options, {
-	  			navSelector  : ".pagination",
-	  			nextSelector : ".next_page",
-				}), function() {
-	  			Diaspora.widgets.publish("stream/scrolled");
-				});
+        $('#main_stream').infinitescroll(this.options, function() {
+          Diaspora.widgets.publish("stream/scrolled");
+        });
+      } else if($('#people_stream').length !== 0){
+        $("#people_stream").infinitescroll($.extend(self.options, {
+          navSelector  : ".pagination",
+          nextSelector : ".next_page",
+          pathParse : function( pathStr, nextPage){
+            return pathStr.replace("page=2", "page=" + nextPage);
+          }
+        }), function() {
+          Diaspora.widgets.publish("stream/scrolled");
+        });
       }
     };
 

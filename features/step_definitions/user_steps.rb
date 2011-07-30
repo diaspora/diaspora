@@ -167,3 +167,28 @@ end
 Then /^my "([^\"]*)" should be "([^\"]*)"$/ do |field, value|
   @me.reload.send(field).should == value
 end
+
+Given /^I have (\d+) contacts$/ do |n|
+  count = n.to_i - @me.contacts.count
+
+  people = []
+  contacts = []
+  aspect_memberships = []
+
+  count.times do
+    person = Factory.create(:person)
+    people << person
+  end
+
+  people.each do |person|
+    contacts << Contact.new(:person_id => person.id, :user_id => @me.id, :sharing => true, :receiving => true)
+  end
+  Contact.import(contacts)
+  contacts = @me.contacts.limit(n.to_i)
+
+  aspect_id = @me.aspects.first.id
+  contacts.each do |contact|
+    aspect_memberships << AspectMembership.new(:contact_id => contact.id, :aspect_id => @me.aspects.first.id)
+  end
+  AspectMembership.import(aspect_memberships)
+end

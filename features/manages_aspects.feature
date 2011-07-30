@@ -35,3 +35,14 @@ Feature: User manages contacts
     And I wait for the ajax to finish
     Then I should have 0 contacts in "Cat People"
 
+  Scenario: scrolling through contacts index
+    Given I am signed in
+    And I have 60 contacts
+    And I am on the contacts page
+    Then I should see 25 contacts
+
+    When I scroll down
+    Then I should see 50 contacts
+
+    When I scroll down
+    Then I should see 60 contacts
