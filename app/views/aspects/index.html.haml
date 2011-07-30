@@ -26,7 +26,7 @@
       :posts => @posts
 
 .span-5.rightBar.last
-  = render 'selected_contacts', :people => @selected_people[0..19], :count => @contact_count
+  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
 
   .section
     .title
