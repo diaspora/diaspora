@@ -111,13 +111,6 @@ Then /^I should have (\d) contacts? in "([^"]*)"$/ do |n_contacts, aspect_name|
   @me.aspects.where(:name => aspect_name).first.contacts.count.should == n_contacts.to_i
 end
 
-Given /^I have (\d) contacts?$/ do |count|
-  count.to_i.times do
-    u = Factory(:user_with_aspect)
-    u.share_with(@me.person, u.aspects.first)
-  end
-end
-
 When /^I (add|remove|toggle) the person (to|from) my ([\d])(nd|rd|st|th) aspect$/ do |word1, word2, aspect_number, nd|
   steps %Q{
     And I press the first ".toggle.button"
