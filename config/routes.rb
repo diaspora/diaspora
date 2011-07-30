@@ -154,7 +154,7 @@ Diaspora::Application.routes.draw do
 
   get 'mobile/toggle', :to => 'home#toggle_mobile', :as => 'toggle_mobile'
 
-  get ':username' => 'people#show', :as => 'user_profile'
+  get '/u/:username' => 'people#show', :as => 'user_profile'
   # Startpage
 
   root :to => 'home#show'
