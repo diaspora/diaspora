@@ -6,7 +6,7 @@
   - if current_user && (current_user.owns?(comment) || current_user.owns?(post))
     .right.controls
       = link_to image_tag('deletelabel.png'), post_comment_path(comment.post_id, comment), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete comment_delete", :title => t('delete')
-  = person_image_link(comment.author)
+  = person_image_link(comment.author, :size => :thumb_small)
   .content
     %span.from
       = person_link(comment.author, :class => "hovercardable")
