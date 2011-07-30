@@ -52,7 +52,7 @@ module ApplicationHelper
     opts[:class] ||= ""
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
     if person.local?
-          "<a href=/u/'#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+          "<a href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
         #{h(person.name)}
       </a>".html_safe
     else
