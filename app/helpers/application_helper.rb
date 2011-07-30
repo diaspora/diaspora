@@ -73,11 +73,11 @@ module ApplicationHelper
     else
       if person.local?
         "<a href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
-        #{person_image_tag(person)}
+        #{person_image_tag(person, opts[:size])}
         </a>".html_safe
       else
         "<a href='/people/#{person.id}'>
-        #{person_image_tag(person)}
+        #{person_image_tag(person, opts[:size])}
         </a>".html_safe
       end
     end

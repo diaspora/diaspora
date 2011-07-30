@@ -28,9 +28,8 @@
             = person.name
 
           .tags
-            - 5.times do |n|
-              - person.profile.tags.each do |tg|
-                = "##{tg}"
+            - person.profile.tags.each do |tg|
+              = "##{tg}"
 
           .add_user_to_aspect
             = render :partial => 'people/relationship_action',
