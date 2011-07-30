@@ -136,6 +136,7 @@ defaults: &defaults
   # Featured users
   # (expressed as an array of Diaspora IDs)
   featured_users:
+    - 'diasporahq@joindiaspora.com'
 
 # Use this section to override default settings in specific environments
 development:
