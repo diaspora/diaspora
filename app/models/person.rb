@@ -59,7 +59,7 @@ class Person < ActiveRecord::Base
       SQL
     end
 
-    q_tokens = query.to_s.strip.gsub(/(\s|$)/) { "%#{$1}" }
+    q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
     [where_clause, [q_tokens, q_tokens]]
   end
 
