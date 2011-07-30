@@ -30,10 +30,10 @@ module Diaspora
       def register_post_visibilities(contact)
         #should have select here, but proven hard to test
         posts = Post.where(:author_id => contact.person_id, :public => true).limit(100)
-        posts.map! do |post|
+        p = posts.map do |post|
           PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
         end
-        PostVisibility.import(posts) unless posts.empty?
+        PostVisibility.import(p) unless posts.empty?
         nil
       end
 
