@@ -18,7 +18,6 @@ class AspectsController < ApplicationController
       @aspects = current_user.aspects.where(:id => params[:a_ids])
     else
       @aspects = current_user.aspects
-      @contacts_sharing_with = current_user.contacts.sharing.includes(:person => :profile)
     end
 
     aspect_ids = @aspects.map{|a| a.id}
@@ -39,7 +38,7 @@ class AspectsController < ApplicationController
       all_selected_people = Person.joins(:contacts => :aspect_memberships).
         where(:contacts => {:user_id => current_user.id},
               :aspect_memberships => {:aspect_id => aspect_ids})
-      @selected_people = all_selected_people.select("DISTINCT people.*").limit(20).includes(:profile)
+      @selected_people = all_selected_people.select("DISTINCT people.*").order('RAND()').limit(20).includes(:profile)
     end
 
     @aspect_ids = @aspects.map { |a| a.id }
