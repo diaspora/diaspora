@@ -345,7 +345,10 @@ class User < ActiveRecord::Base
 
   def seed_aspects
     self.aspects.create(:name => I18n.t('aspects.seed.family'))
-    self.aspects.create(:name => I18n.t('aspects.seed.work'))
+    work = self.aspects.create(:name => I18n.t('aspects.seed.work'))
+    default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
+    self.share_with(default_account, work)
+    work
   end
 
   def self.generate_key

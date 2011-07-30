@@ -12,6 +12,7 @@ describe InvitationsController do
     @aspect = @user.aspects.first
 
     request.env["devise.mapping"] = Devise.mappings[:user]
+    Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
   end
 
   describe "#create" do

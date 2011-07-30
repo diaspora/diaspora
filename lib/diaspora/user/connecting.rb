@@ -22,8 +22,19 @@ module Diaspora
         if notification = Notification.where(:target_id => person.id).first
           notification.update_attributes(:unread=>false)
         end
-
+        
+        register_post_visibilities(contact)
         contact
+      end
+
+      def register_post_visibilities(contact)
+        #should have select here, but proven hard to test
+        posts = Post.where(:author_id => contact.person_id, :public => true).limit(100)
+        posts.map! do |post|
+          PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
+        end
+        PostVisibility.import(posts) unless posts.empty?
+        nil
       end
 
       def remove_contact(contact, opts={:force => false})

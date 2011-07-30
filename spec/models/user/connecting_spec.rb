@@ -76,6 +76,16 @@ describe Diaspora::UserModules::Connecting do
     end
   end
 
+  describe '#register_post_visibilities' do
+    it 'creates post visibilites for up to 100 posts' do
+      Post.stub_chain(:where, :limit).and_return([Factory(:status_message, :public => true)])
+      c = Contact.create!(:user_id => alice.id, :person_id => eve.person.id)
+      expect{
+        alice.register_post_visibilities(c)
+      }.to change(PostVisibility, :count).by(1)
+    end
+  end
+
   describe '#share_with' do
     it 'finds or creates a contact' do
       lambda {
@@ -102,6 +112,11 @@ describe Diaspora::UserModules::Connecting do
       lambda {
         alice.share_with(eve.person, alice.aspects.first)
       }.should change(contact.aspects, :count).by(1)
+    end
+
+    it 'calls #register_post_visibilities with a contact' do
+      eve.should_receive(:register_post_visibilities)
+      eve.share_with(alice.person, eve.aspects.first)
     end
 
     context 'dispatching' do
