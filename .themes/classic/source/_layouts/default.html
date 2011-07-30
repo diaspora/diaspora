@@ -6,9 +6,6 @@
   <div id="main">
     <div id="content">
       {{ content | expand_urls: root_url | backtick_codeblock | smart_quotes }}
-      {% unless page.sidebar == false %}
-        <aside role=sidebar>{% include sidebar.html %}</aside>
-      {% endunless %}
     </div>
   </div>
   <footer>{% include footer.html %}</footer>
