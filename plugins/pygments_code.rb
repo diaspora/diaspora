@@ -7,7 +7,7 @@ FileUtils.mkdir_p(PYGMENTS_CACHE_DIR)
 
 module HighlightCode
   def highlight(str, lang)
-    str = pygments(str, lang).match(/<pre>(.+)<\/pre>/m)[1].to_s.gsub(/\s*$/, '') #strip out divs <div class="highlight">
+    str = pygments(str, lang).match(/<pre>(.+)<\/pre>/m)[1].to_s.gsub(/ *$/, '') #strip out divs <div class="highlight">
     table = '<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers">'
     code = ''
     str.lines.each_with_index do |line,index|
