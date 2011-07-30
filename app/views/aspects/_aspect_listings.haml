@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 %ul#aspect_nav.left_nav
-  %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing")}
+  %li.all_aspects{:class => ("active" if params["set"] != "all" && params["set"] != "only_sharing" && !defined?(@featured))}
     %a.home_selector{:href => controller_index_path, :class => ("sub_selected" if params["a_id"])}
       .contact_count
         = my_contacts_count

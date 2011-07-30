@@ -111,7 +111,10 @@ en:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      you_have_no_contacts: "You haven't added any contacts yet!"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      or_featured:  "Or you can share with %{link}"
+      featured_users: "featured users"
     aspect_listings:
       add_an_aspect: "+ Add an aspect"
 
@@ -220,6 +223,8 @@ en:
       only_sharing_with_me: "Only sharing with me"
       remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them." 
+    featured:
+      featured_users: "Featured Users"
 
   conversations:
     index:

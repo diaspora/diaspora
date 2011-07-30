@@ -2870,7 +2870,8 @@ ul.left_nav
 
   a.aspect_selector,
   a.home_selector,
-  a.tag_selector
+  a.tag_selector,
+  a.element_selector
     &:active
       :cursor -webkit-grabbing
       :cursor -moz-grabbing
@@ -2879,6 +2880,7 @@ ul.left_nav
   a.aspect_selector,
   a.home_selector,
   a.tag_selector,
+  a.element_selector,
   .root_element
     :display block
     :width 100%
@@ -2889,7 +2891,8 @@ ul.left_nav
 
   a.aspect_selector,
   a.home_selector,
-  a.tag_selector
+  a.tag_selector,
+  a.element_selector
     &:hover
       @include border-radius(2px)
 
@@ -3154,3 +3157,44 @@ ul.left_nav
   :margin
     :top 30px
 
+#featured_users
+  .avatar
+    :height 140px
+    :width 140px
+
+.user_card
+  @include border-radius(3px)
+  @include box-shadow(0,1px,5px,#ccc)
+  :padding 10px
+    :bottom 30px
+  :margin
+    :bottom 15px
+    :right 10px
+
+  :position relative
+
+  :min-height 220px
+
+  :vertical-align top
+
+  :border 1px solid #ccc
+  :display inline-block
+
+  :width 140px
+
+  .tags
+    :color #999
+
+  h4
+    :margin
+      :bottom 0
+    :padding
+      :bottom 2px
+
+  .dropdown
+    :width 100%
+
+.add_user_to_aspect
+  :bottom 12px
+  :right 5px
+  :position absolute

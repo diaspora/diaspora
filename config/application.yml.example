@@ -131,7 +131,11 @@ defaults: &defaults
   single_process_mode: true
 
   # Use paypal for recurring donations
-  paypal_hosted_button_id: ''
+  paypal_hosted_button_id: ""
+
+  # Featured users
+  # (expressed as an array of Diaspora IDs)
+  featured_users:
 
 # Use this section to override default settings in specific environments
 development:

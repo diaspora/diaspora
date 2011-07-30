@@ -1,0 +1,17 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+.span-5.append-1
+  = render 'aspects/aspect_listings'
+
+  %hr
+
+  %ul.left_nav
+    - if AppConfig[:featured_users]
+      %li{:class => ("active" if defined?(@featured))}
+        = link_to t('contacts.featured.featured_users'), "/featured", :class => "element_selector"
+    /%li
+    /  = link_to "Invite friends", "#", :class => "element_selector"
+
+

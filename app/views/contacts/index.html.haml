@@ -2,21 +2,17 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-
 - content_for :page_title do
   = t('.title')
 
 - content_for :head do
   = include_javascripts :people
 
-
-
 #section_header
   %h2
     = t('.title')
 
-.span-5.append-1
-  = render 'aspects/aspect_listings'
+= render 'shared/contact_sidebar'
 
 .span-18.last
   #people_stream.stream.contacts

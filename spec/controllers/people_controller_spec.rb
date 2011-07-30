@@ -325,4 +325,28 @@ describe PeopleController do
       get :retrieve_remote, :diaspora_handle => @user.diaspora_handle
     end
   end
+
+  describe '#featued' do
+    it 'succeeds' do
+      get :featured
+      response.should be_success
+    end
+
+    it 'gets queries for users in the app config' do
+      AppConfig[:featured_users] = [alice.diaspora_handle]
+
+      get :featured
+      assigns[:people].should == [alice.person]
+    end
+
+    it 'fetches the webfinger profiles' do
+      AppConfig[:featured_users] = [alice.diaspora_handle]
+
+      wf = mock
+      wf.should_receive(:fetch)
+      Webfinger.should_receive(:new).with(alice.diaspora_handle).and_return(wf)
+
+      get :featured
+    end
+  end
 end

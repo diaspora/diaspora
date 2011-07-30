@@ -37,6 +37,17 @@ class ContactsController < ApplicationController
     render :layout => false
   end
 
+  def featured
+    @featured = true
+    @people = []
+    if diaspora_ids = AppConfig[:featured_users]
+      @people = diaspora_ids.inject [] do |people, id|
+        person = Webfinger.new(id).fetch
+        people << person unless person.blank?
+      end
+    end
+  end
+
   private
 
   def sort_and_paginate_profiles contacts

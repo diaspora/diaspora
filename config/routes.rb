@@ -101,6 +101,7 @@ Diaspora::Application.routes.draw do
   resources :aspect_memberships, :only   => [:destroy, :create, :update]
   resources :post_visibilities,  :only   => [:update]
 
+  get 'featured' => "contacts#featured"
   resources :people, :except => [:edit, :update] do
     resources :status_messages
     resources :photos
