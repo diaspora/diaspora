@@ -3,6 +3,9 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
+
+
+  
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
@@ -48,9 +51,15 @@ module ApplicationHelper
   def person_link(person, opts={})
     opts[:class] ||= ""
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
-    "<a href='/people/#{person.id}' class='#{opts[:class]}'>
-  #{h(person.name)}
-</a>".html_safe
+    if person.local?
+          "<a href='#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+        #{h(person.name)}
+      </a>".html_safe
+    else
+          "<a href='/people/#{person.id}'>
+        #{h(person.name)}
+      </a>".html_safe
+    end
   end
 
   def hard_link(string, path)
@@ -62,9 +71,15 @@ module ApplicationHelper
     if opts[:to] == :photos
       link_to person_image_tag(person, opts[:size]), person_photos_path(person)
     else
-      "<a href='/people/#{person.id}'>
-  #{person_image_tag(person)}
-</a>".html_safe
+      if person.local?
+        "<a href='#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+        #{person_image_tag(person)}
+        </a>".html_safe
+      else
+        "<a href='/people/#{person.id}'>
+        #{person_image_tag(person)}
+        </a>".html_safe
+      end
     end
   end
 

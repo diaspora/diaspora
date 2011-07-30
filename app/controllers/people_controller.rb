@@ -61,7 +61,7 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = Person.where(:id => params[:id]).first
+    @person = find_person_from_id_or_username
     if @person && @person.remote? && !user_signed_in?
       render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
       return
@@ -156,4 +156,13 @@ class PeopleController < ApplicationController
     Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
   end
 
+  def find_person_from_id_or_username
+    if params[:id].present?
+      Person.where(:id => params[:id]).first
+    elsif params[:username].present?
+      User.find_by_username(params[:username]).person
+    else
+      nil
+    end
+  end
 end
