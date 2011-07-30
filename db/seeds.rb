@@ -63,3 +63,4 @@ time_interval = 1000
     time_interval += 1000
   end
 end
+puts "successfully seed the db with users eve, bob, and alice (password: 'evankorth')"

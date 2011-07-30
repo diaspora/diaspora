@@ -85,7 +85,9 @@ group :development do
 end
 
 group :test, :development do
-  gem 'factory_girl_rails', :require => false
+  gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i  
+  gem 'guard-rspec' 
+   gem 'factory_girl_rails', :require => false
   unless ENV["TRAVIS"]
     gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
     gem 'ruby-debug19', :platforms => :ruby_19
