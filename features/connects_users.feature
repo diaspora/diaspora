@@ -73,7 +73,7 @@ Feature: sending and receiving requests
     And I press the first ".toggle.button"
     And I press the first "a" within ".add_aspect"
     And I wait for the ajax to finish
-    
+
     And I fill in "Name" with "Super People" in the modal window
     And I press "aspect_submit" in the modal window
     And I wait for the ajax to finish
@@ -102,8 +102,9 @@ Feature: sending and receiving requests
     And I should not see "Message"
 
     When I add the person to my 1st aspect
+    And I wait for the ajax to finish
     And I add the person to my 2nd aspect
-    # should wait for ajax to finish here, but infinite scroll is screwing that up.
+    And I wait for the ajax to finish
     When I go to "bob@bob.bob"'s page
     Then I should see "In 2 aspects"
     And I should see "Mention"
