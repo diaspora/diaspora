@@ -93,23 +93,18 @@ Feature: sending and receiving requests
     Then I should see "Mention"
     Then I should not see "Message"
 
-  Scenario: should see "Add to aspect" and not see mention if on a follower's page
-    When I sign in as "alice@alice.alice"
+  Scenario: interacting with a follower's profile page
+    Given I sign in as "alice@alice.alice"
     And I am on "bob@bob.bob"'s page
 
     Then I should see "Add to aspect"
-    Then I should not see "Mention"
-    Then I should not see "Message"
+    And I should not see "Mention"
+    And I should not see "Message"
 
-  Scenario: should see "Add to aspect" & mention & message on mutual contacts
-    When I sign in as "alice@alice.alice"
-    And I am on "bob@bob.bob"'s page
-
-    And I add the person to my 1st aspect
+    When I add the person to my 1st aspect
     And I add the person to my 2nd aspect
-
-    And I am on "bob@bob.bob"'s page
-
+    # should wait for ajax to finish here, but infinite scroll is screwing that up.
+    When I go to "bob@bob.bob"'s page
     Then I should see "In 2 aspects"
-    Then I should see "Mention"
-    Then I should see "Message"
+    And I should see "Mention"
+    And I should see "Message"
