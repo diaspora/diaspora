@@ -19,13 +19,16 @@ module YoutubeTitles
   end
 
   def get_youtube_title text
+    self.youtube_titles = {}
     youtube_match = text.enum_for(:scan, YOUTUBE_ID_REGEX).map { Regexp.last_match }
     return if youtube_match.empty?
 
-    self.youtube_titles ||= {}
+    matches = {}
     youtube_match.each do |match_data|
-      self.youtube_titles[match_data[1]] = CGI::escape(youtube_title_for(match_data[1]))
+      matches[match_data[1]] = CGI::escape(youtube_title_for(match_data[1]))
     end
+
+    self.youtube_titles = matches unless matches.empty?
   end
 
   YOUTUBE_ID_REGEX = /(?:https?:\/\/)(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#!|.+&|.+&amp;)v=)([\w-]{11})(?:\S*(#[^ ]+)|\S+)?/im unless defined? YOUTUBE_ID_REGEX

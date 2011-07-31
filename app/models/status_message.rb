@@ -21,7 +21,6 @@ class StatusMessage < Post
   validate :message_or_photos_present?
 
   attr_accessible :text
-
   serialize :youtube_titles, Hash
 
   after_create :create_mentions
