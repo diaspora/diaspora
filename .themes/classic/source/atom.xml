@@ -16,7 +16,7 @@ layout: nil
     {% endif %}
   </author>
 
-  {% for post in site.posts %}
+  {% for post in site.posts limit: 20 %}
   <entry>
     <title>{{ post.title }}</title>
     <link href="{{ site.url }}{{ post.url }}"/>
