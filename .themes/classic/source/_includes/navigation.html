@@ -10,7 +10,4 @@
     <input class="search" type="text" name="q" results="0" placeholder="Search"/>
   </fieldset>
 </form>
-<ul role=main-navigation>
-  <li><a href="{{ root_url }}/">Blog</a></li>
-  <li><a href="{{ root_url }}/blog/archives">Archives</a></li>
-</ul>
+{% include custom/navigation.html %}
