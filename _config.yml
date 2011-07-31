@@ -34,7 +34,7 @@ paginate: 10 # Posts per page on the blog index
 recent_posts: 5 # Posts in the sidebar Recent Posts section
 
 # list each of the sidebar modules you want to include, in the order you want them to appear.
-# To add custom asides, create files in /source/_includes/asides/custom/ and add them to the list like 'asides/custom/custom_aside_name.html'
+# To add custom asides, create files in /source/_includes/custom/asides/ and add them to the list like 'custom/asides/custom_aside_name.html'
 default_asides: [asides/recent_posts.html, asides/twitter.html, asides/delicious.html, asides/pinboard.html]
 
 # Each layout uses the default asides, but they can have their own asides instead. Simply uncomment the lines below
