@@ -19,6 +19,10 @@ vendor/bundle/*
 config/database.yml
 .rvmrc_custom
 
+#Mailing list stuff
+config/email_offset
+config/mailing_list.csv
+
 # Generated files
 log/*
 public/stylesheets/*.css
