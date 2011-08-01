@@ -600,7 +600,7 @@ en:
         other: "%{count} new requests!"
   reshares:
     reshare:
-      reshare_original: "Reshare orignial"
+      reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"
         one: "1 Reshare"
