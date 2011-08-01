@@ -21,7 +21,7 @@
               contact:
                   attributes:
                       person_id:
-                          taken: "must be unique among this user's contacts."
+                          taken: "must be unique among this user’s contacts."
               request:
                   attributes:
                       from_id:
