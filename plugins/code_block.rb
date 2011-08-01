@@ -79,6 +79,7 @@ module Jekyll
       if @filetype
         @filetype = 'objc' if @filetype == 'm'
         @filetype = 'perl' if @filetype == 'pl'
+        @filetype = 'yaml' if @filetype == 'yml'
         source += " #{highlight(code, @filetype)}</figure></div>"
       else
         source += "<pre><code>" + code.lstrip.rstrip.gsub(/</,'&lt;') + "</code></pre></figure></div>"
