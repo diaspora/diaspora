@@ -158,8 +158,8 @@ class PeopleController < ApplicationController
 
   def find_person_from_id_or_username
     if params[:id].present?
-      Person.where(:id => params[:id]).first
-    elsif params[:username].present?
+      Person.find_by_id(params[:id])
+    elsif params[:username].present? && User.find_by_username(params[:username])
       User.find_by_username(params[:username]).person
     else
       nil
