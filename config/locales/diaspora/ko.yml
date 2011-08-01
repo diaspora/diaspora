@@ -131,7 +131,7 @@ ko:
       or_featured: "Or you can share with %{link}"
       start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
       try_adding_some_more_contacts: "컨택을 더 추가해보세요."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 

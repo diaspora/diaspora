@@ -131,7 +131,7 @@ sv:
       or_featured: "Or you can share with %{link}"
       start_talking: "Ingen har sagt något än. Bli först!"
       try_adding_some_more_contacts: "Try adding some more contacts."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 

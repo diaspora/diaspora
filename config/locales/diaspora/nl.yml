@@ -131,7 +131,7 @@ nl:
       or_featured: "Or you can share with %{link}"
       start_talking: "Nog niemand heeft iets gezegd!"
       try_adding_some_more_contacts: "Voeg wat meer contacten toe."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspecten"
     seed: 

@@ -131,7 +131,7 @@ ro:
       or_featured: "Or you can share with %{link}"
       start_talking: "Nimeni nu a spus nimic deocamdată. Începe tu o conversaţie!"
       try_adding_some_more_contacts: "Try adding some more contacts."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 

@@ -131,7 +131,7 @@ zh-CN:
       or_featured: "Or you can share with %{link}"
       start_talking: "还没人发布过内容。你发布第一条吧！"
       try_adding_some_more_contacts: "Try adding some more contacts."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1个视图"
     other: "%{count}个视图"
     seed: 

@@ -131,7 +131,7 @@ he:
       or_featured: "Or you can share with %{link}"
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
       try_adding_some_more_contacts: "Try adding some more contacts."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "היבט אחד"
     other: "%{count} היבטים"
     seed: 

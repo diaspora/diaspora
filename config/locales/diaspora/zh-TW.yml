@@ -131,7 +131,7 @@ zh-TW:
       or_featured: "Or you can share with %{link}"
       start_talking: "都還沒有人出聲!"
       try_adding_some_more_contacts: "試著加入更多聯絡人."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1個面向"
     other: "%{count}個面向"
     seed: 

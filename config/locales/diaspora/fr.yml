@@ -131,7 +131,7 @@ fr:
       or_featured: "Or you can share with %{link}"
       start_talking: "Personne n’a encore rien dit !"
       try_adding_some_more_contacts: "Essayez d'ajouter d'autres contacts."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 

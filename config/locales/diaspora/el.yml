@@ -131,7 +131,7 @@ el:
       or_featured: "Or you can share with %{link}"
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα!"
       try_adding_some_more_contacts: "Προσπαθείστε να προσθέσετε περισσότερες επαφές."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 πτυχή"
     other: "%{count} πτυχές"
     seed: 

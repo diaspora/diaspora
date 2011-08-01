@@ -131,7 +131,7 @@ eu:
       or_featured: "Or you can share with %{link}"
       start_talking: "Oraindik inork ez du ezer esan!"
       try_adding_some_more_contacts: "Saiatu adiskide gehiago gehitzen."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "alderdi 1"
     other: "%{count} alderdi"
     seed: 

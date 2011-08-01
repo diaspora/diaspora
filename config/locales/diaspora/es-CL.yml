@@ -106,11 +106,11 @@ es-CL:
         content_1: "Tu ID de Diaspora es:"
         content_2: "Daselo a quien quieras y podrán encontrarte en Diaspora."
         heading: "ID de Diaspora "
-      donate: "Donate"
+      donate: "Donar"
       handle_explanation: "Este es tu ID de Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
       no_contacts: "No hay contactos"
-      no_tags: "No tags"
+      no_tags: "Sin tags"
       people_sharing_with_you: "Personas compartiendo contigo"
       post_a_message: "postea un mensaje >>"
       services: 
@@ -127,17 +127,17 @@ es-CL:
       create: "Crear"
       name: "Nombre"
     no_posts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      featured_users: "usuarios destacados"
+      or_featured: "o tu puedes compartirlo con %{link}"
       start_talking: "Nadie ha dicho nada aún!"
-      try_adding_some_more_contacts: "Prueba agregando algunos contactos más."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      try_adding_some_more_contacts: "Puedes buscar (top) o invitar (right) mas contactos."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Conocidos"
       family: "Familia"
-      friends: "Friends"
+      friends: "Amigos"
       work: "Trabajo"
     selected_contacts: 
       manage_your_aspects: "Organiza tus aspectos."
@@ -173,7 +173,7 @@ es-CL:
     create: 
       failure: "Error al crear contacto"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Usuarios Destacados"
     few: "%{count} contactos"
     index: 
       add_a_new_aspect: "Agregar un nuevo aspecto"
@@ -215,7 +215,7 @@ es-CL:
     new: 
       abandon_changes: "Descartar los cambios?"
       send: "Enviar"
-      sending: "Sending..."
+      sending: "Enviando..."
       subject: "asunto"
       to: "para"
     show: 
@@ -581,8 +581,8 @@ es-CL:
         one: "Se ha compartido 1 vez"
         other: "Se ha compartido %{count} veces"
         zero: "Compartir"
-      reshare_confirmation: "Compartir %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
+      reshare_confirmation: "Compartir el post de %{author}? "
+      reshare_original: "Compartir el original"
       show_original: "Mostrar Original"
   search: "Buscar"
   services: 

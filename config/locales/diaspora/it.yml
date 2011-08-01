@@ -127,17 +127,17 @@ it:
       create: "Crea"
       name: "Nome"
     no_posts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      featured_users: "Utenti consigliati"
+      or_featured: "Oppure puoi condividere i tuoi post con %{link}"
       start_talking: "Ancora nessuno ha scritto nulla. Inizia la conversazione!"
-      try_adding_some_more_contacts: "Prova ad aggiungere altri contatti."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      try_adding_some_more_contacts: "Puoi cercare altri contatti (in alto) oppure mandare inviti (a destra)."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "un aspetto"
     other: "%{count} aspetti"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Conoscenti"
       family: "Famiglia"
-      friends: "Friends"
+      friends: "Amici"
       work: "Lavoro"
     selected_contacts: 
       manage_your_aspects: "Amministra gli aspetti della tua vita"
@@ -173,7 +173,7 @@ it:
     create: 
       failure: "Impossibile creare il contatto"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Utenti Consigliati"
     few: "%{count} contatti"
     index: 
       add_a_new_aspect: "Aggiungi aspetto della vita"

@@ -127,17 +127,17 @@ bg:
       create: "Създаване"
       name: "Име"
     no_posts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      featured_users: "отличени потребители"
+      or_featured: "Или можете да споделите с %{link}"
       start_talking: "Няма публикации."
-      try_adding_some_more_contacts: "Пробвайте да добавите още контакти."
-      you_have_no_contacts: "You haven't added any contacts yet!"
+      try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 аспект"
     other: "%{count} аспекта"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Познати"
       family: "Семейство"
-      friends: "Friends"
+      friends: "Приятели"
       work: "Работа"
     selected_contacts: 
       manage_your_aspects: "Управление на аспектите."
@@ -173,7 +173,7 @@ bg:
     create: 
       failure: "Контактът не бе създаден"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Отличени потребители"
     few: "%{count} контакта"
     index: 
       add_a_new_aspect: "Създаване на аспект"
