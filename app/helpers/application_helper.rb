@@ -3,9 +3,6 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
-
-
-  
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
@@ -120,6 +117,14 @@ module ApplicationHelper
       t('contacts.index.my_contacts')
     else
       t('aspects.index.your_aspects')
+    end
+  end
+
+  def contacts_link
+    if current_user.contacts.size > 0
+      contacts_path
+    else
+      featured_users_path
     end
   end
 end
