@@ -9,8 +9,9 @@
       DIASPORA*
 
     %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-
     = include_javascripts :mobile
+    %meta{'name' =>'viewport', 'content' => 'width=device-width, initial-scale=scale1'}
+
     -if current_user
       :javascript
         Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
