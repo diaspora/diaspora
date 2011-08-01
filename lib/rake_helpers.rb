@@ -3,10 +3,6 @@
 #   the COPYRIGHT file.
 module RakeHelpers
 
-  def load_yaml
-
-  end
-
   def process_emails(csv, num_to_process, offset, test=true)
     if RUBY_VERSION.include? "1.8"
 
