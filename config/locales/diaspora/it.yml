@@ -131,7 +131,7 @@ it:
       or_featured: "Oppure puoi condividere i tuoi post con %{link}"
       start_talking: "Ancora nessuno ha scritto nulla. Inizia la conversazione!"
       try_adding_some_more_contacts: "Puoi cercare altri contatti (in alto) oppure mandare inviti (a destra)."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      you_should_add_some_more_contacts: "Dovresti aggiungere qualche altro contatto!"
     one: "un aspetto"
     other: "%{count} aspetti"
     seed: 
@@ -173,7 +173,7 @@ it:
     create: 
       failure: "Impossibile creare il contatto"
     featured: 
-      featured_users: "Utenti Consigliati"
+      featured_users: "Utenti consigliati"
     few: "%{count} contatti"
     index: 
       add_a_new_aspect: "Aggiungi aspetto della vita"
@@ -452,10 +452,10 @@ it:
       add_some: "aggiungine alcune"
       does_not_exist: "La persona non esiste!"
       edit: "modifica"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} vuole condividere con te"
       mention: "Menziona"
       message: "Messaggio"
-      no_posts: "nessun post da mostrare!"
       not_connected: "Non sei in contatto con %{name}"
       recent_posts: "Post Recenti"
       recent_public_posts: "Post Pubblici Recenti"

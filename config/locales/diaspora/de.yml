@@ -110,7 +110,7 @@ de:
       handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
       keep_us_running: "Hilf %{pod} schnell zu laufen und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
       no_contacts: "Keine Kontakte"
-      no_tags: "Keine Tags"
+      no_tags: "+ Finde einen Tag zum folgen"
       people_sharing_with_you: "Leute die mit dir teilen"
       post_a_message: "schreibe eine Nachricht >>"
       services: 
@@ -233,7 +233,7 @@ de:
       correct_the_following_errors_and_try_again: "Korrigiere die folgenden Fehler und versuche es erneut."
       invalid_fields: "Ungültige Felder"
   fill_me_out: "Fülle mich aus"
-  find_people: "Leute finden"
+  find_people: "Leute oder #tags finden"
   hide: "Ausblenden"
   home: 
     show: 
@@ -452,10 +452,10 @@ de:
       add_some: "Ein paar hinzufügen"
       does_not_exist: "Person existiert nicht!"
       edit: "Bearbeiten"
+      has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
       mention: "Erwähnen"
       message: "Nachricht"
-      no_posts: "Keine Beiträge zum Anzeigen!"
       not_connected: "Du teilst nicht mit dieser Person"
       recent_posts: "Neueste Beiträge"
       recent_public_posts: "Neueste öffentliche Beiträge"
