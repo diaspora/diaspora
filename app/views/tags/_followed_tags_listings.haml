@@ -14,5 +14,4 @@
             =link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
       - else
         %li
-          %span.new_aspect
-            = t('aspects.index.no_tags')
+          = link_to t('aspects.index.no_tags'), tags_path, :class => "new_aspect"
