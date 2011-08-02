@@ -461,7 +461,8 @@ en:
     webfinger:
       fail: "Sorry, we couldn't find %{handle}."
     show:
-      no_posts: "no posts to display!"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+
       you_have_no_tags: "you have no tags!"
       add_some: "add some"
       edit: "edit"
