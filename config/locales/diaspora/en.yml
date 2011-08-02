@@ -602,7 +602,7 @@ en:
     reshare:
       reshare_original: "Reshare original"
       reshare:
-        zero: "reshare"
+        zero: "Reshare"
         one: "1 reshare"
         few: "%{count} reshares"
         many: "%{count} reshares"
