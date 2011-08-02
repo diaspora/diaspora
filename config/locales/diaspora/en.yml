@@ -602,11 +602,11 @@ en:
     reshare:
       reshare_original: "Reshare original"
       reshare:
-        zero: "Reshare"
-        one: "1 Reshare"
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        other: "%{count} Reshares"
+        zero: "reshare"
+        one: "1 reshare"
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        other: "%{count} reshares"
       show_original: "Show original"
       reshare_confirmation: "Reshare %{author}'s post?"
       deleted: "Original post deleted by author."
