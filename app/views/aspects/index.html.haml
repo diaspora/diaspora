@@ -13,6 +13,9 @@
       = current_user.first_name
 
   .section
+    = link_to "Get Started", getting_started_path
+
+  .section
     = render 'aspects/aspect_listings'
 
   .section
@@ -28,67 +31,4 @@
 .span-5.rightBar.last
   = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
 
-  .section
-    .title
-      = image_tag('/images/icons/bookmark.png')
-      %h5
-        = t(".diaspora_id.heading")
-    .content
-      = t(".diaspora_id.content_1")
-      %b
-        = current_user.diaspora_handle
-      %br
-      = t(".diaspora_id.content_2")
-
-  - unless AppConfig[:invites_off]
-    .section
-      .title
-
-        = image_tag('/images/icons/plus.png')
-        %h5
-          - unless AppConfig[:open_invitations]
-            .right
-              = t('shared.invitations.invitations_left', :count => @invites)
-          = t('shared.invitations.invite_your_friends')
-      .content
-        = render "shared/invitations", :invites => @invites
-
-  .section
-    .title
-      = image_tag('/images/icons/cubbies.png')
-      %h5
-        = t('.cubbies.heading')
-    .content
-      = t('.cubbies.explanation')
-      = link_to t('.cubbies.learn_more'), token_path
-
-  - unless AppConfig.configured_services.blank?
-    .section
-      .title
-        = image_tag('/images/icons/monotone_wrench_settings.png')
-        %h5
-          = t('.services.heading')
-      .content
-        = t('.services.content')
-        - AppConfig.configured_services.each do |service|
-          - unless current_user.services.any?{|x| x.provider == service}
-            %br= link_to service.titleize, "/auth/#{service}" 
-
-  .section
-    .title
-      = image_tag('/images/icons/bookmark.png')
-      %h5
-        = t('bookmarklet.heading')
-    .content
-      != t('bookmarklet.explanation', :link => link_to(t('bookmarklet.explanation_link_text'), bookmarklet))
-
-  - unless AppConfig[:paypal_hosted_button_id].blank?
-    .section
-      .title
-        = image_tag('/images/icons/coffee.png')
-        %h5
-          = t('.donate')
-      .content
-        = t('.keep_us_running', :pod => URI.parse(AppConfig[:pod_url]).host)
-        %br
-        = render 'shared/donate'
+  = render 'shared/right_sections'

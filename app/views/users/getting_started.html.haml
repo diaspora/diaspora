@@ -2,36 +2,99 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+- content_for :head do
+  = include_javascripts :home
 
-= content_for :head do
-  :css
-    header{ display:none; }
+.span-5.leftNavBar
+  #home_user_badge
+    = owner_image_link
+    %h3
+      = current_user.first_name
 
-    #getting_started_logo.start{
-      -webkit-animation-name: fadeUp;
-      -webkit-animation-delay: 0s;
-      -webkit-animation-duration: 0.35s;
-    }
+  .section
+    = link_to "Get Started", getting_started_path
 
-    @media only screen {
-        #getting_started_logo { -webkit-transform: translateZ(0); }
-    }
-    @-webkit-keyframes fadeUp {
-        0% { opacity: 0; -webkit-transform: translate3d(0, 40px, 0); -webkit-animation-timing-function: ease-out; }
-        70% { opacity: 0; -webkit-transform: translate3d(0, 35px, 0); }
-        100% { opacity: 1; -webkit-transform: translate3d(0, 0, 0); -webkit-animation-timing-function: ease-out; }
-    }
+//.section
+//  = render 'aspects/aspect_listings'
 
-.span-15.prepend-4.last{:style => 'position:relative;'}
-  = image_tag 'logo_caps.png', :id => 'getting_started_logo', :width => 143, :height => 21, :class => ('start' if @step == 1)
-  %br
-  %br
-  .floating{:style=>"min-height:300px;"}
-    = render "users/getting_started/step_#{@step}", :current_user => current_user
+//.section
+//  = render 'tags/followed_tags_listings'
 
-    - if @step > 1
-      = link_to t('back'), getting_started_path(:step => @step-1), :class => "button", :id => "previous_step"
+.span-13.append-1
+  .stream_container
+    %h3
+      = "Welcome, #{current_user.first_name}!"
 
-- if @user.getting_started
-  .bottom_notification
-    = link_to "#{t('.skip')} →", getting_started_completed_path
+    %ul#getting_started
+      %li.profile
+        #getting_started_profile_photo
+          = person_image_link(current_user.person, :size => :thumb_medium)
+        %h4
+          %span.getting_started_number
+            1
+          Fill Out Your Profile
+        %p
+          Description of why you'd want to do this (or checks like g+)
+        .span-8
+          - ["Name", "Birthday", "Gender", "Bio", "Location", "Tags"].each do |attr|
+            .span-4.last
+              = attr
+
+        #edit_profile_button_div
+          = link_to "Edit Profile", edit_profile_path, :class => "button"
+
+      %li.services
+        %h4
+          %span.getting_started_number
+            2
+          Connect to your other social networks
+        #getting_started_service_icons
+          - AppConfig.configured_services.each do |service|
+            - unless current_user.services.any?{|x| x.provider == service}
+              = link_to(image_tag("social_media_logos/#{service.downcase}-48x48.png", :title => service.titleize), "/auth/#{service}")
+
+      %li
+        %h4
+          %span.getting_started_number
+            3
+          Connect with people
+
+        #diaspora_hq_pane
+          - person = Person.first
+          = person_image_link(Person.first)
+          .add_to_aspect
+            = render :partial => 'people/relationship_action',
+              :locals => { :person => Person.first,
+                            :contact => current_user.contact_for(Person.first),
+                            :current_user => current_user }
+
+          .name
+            = person_link(person)
+
+          .info
+            Get updates about the project.
+
+      %li
+        %h4
+          %span.getting_started_number
+            4
+          Follow your interests
+        %p
+          popular/curated tags?  person's tags?
+
+      %li
+        %h4
+          %span.getting_started_number
+            5
+          Connect to
+          = link_to "Cubbi.es", "http://cubbi.es/"
+        %p
+          = t('tokens.show.what_is_cubbies')
+
+        .cubbies_images
+          = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
+          = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
+
+.span-5.rightBar.last
+  /= render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
+  /= render 'shared/right_sections'
