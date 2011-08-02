@@ -3196,6 +3196,10 @@ ul#getting_started
       :top 25px
       :bottom 5px
 
+    .content
+      :padding
+        :left 30px
+
   .profile
     :min-height 170px
 
@@ -3207,7 +3211,8 @@ ul#getting_started
 
 #edit_profile_button_div
   :padding
-    :top 70px
+    :top 90px
+    :bottom 20px
 
 #getting_started_service_icons
   :text-align center
@@ -3249,12 +3254,25 @@ ul#getting_started
   :position absolute
   :left 250px
 
-
 .getting_started_number
-  :background
-    :color #eee
-  :padding 4px
-    :left 8px
+  :position absolute
+  :left 0
 
-  :margin
-    :right 8px
+  h4
+    :display inline
+    :background
+      :color #eee
+    :padding 3px 7px
+
+    :margin
+      :right 8px
+
+.completed
+  :background
+    :image url('/images/icons/check_yes_ok.png')
+    :position center right
+    :repeat no-repeat
+
+.profile .profile_field
+  :padding
+    :right 20px

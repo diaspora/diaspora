@@ -27,73 +27,84 @@
 
     %ul#getting_started
       %li.profile
-        #getting_started_profile_photo
-          = person_image_link(current_user.person, :size => :thumb_medium)
-        %h4
-          %span.getting_started_number
+        .getting_started_number
+          %h4
             1
-          Fill Out Your Profile
-        %p
-          Description of why you'd want to do this (or checks like g+)
-        .span-8
-          - ["Name", "Birthday", "Gender", "Bio", "Location", "Tags"].each do |attr|
-            .span-4.last
-              = attr
+        .content
+          #getting_started_profile_photo
+            = person_image_link(current_user.person, :size => :thumb_medium)
+          %h4
+            Fill Out Your Profile
+          %p
+            Description of why you'd want to do this (or checks like g+)
+          .span-8.fields
+            - [:full_name, :image_url, :birthday, :gender, :bio, :location, :tag_string].each do |attr|
+              .span-4.last
+                = profile_field_tag(current_user.person.profile, attr)
 
-        #edit_profile_button_div
-          = link_to "Edit Profile", edit_profile_path, :class => "button"
+          #edit_profile_button_div
+            = link_to "Edit Profile", edit_profile_path, :class => "button"
 
       %li.services
-        %h4
-          %span.getting_started_number
+        .getting_started_number
+          %h4
             2
-          Connect to your other social networks
+        .content
+          %h4
+            Connect to your other social networks
         #getting_started_service_icons
           - AppConfig.configured_services.each do |service|
             - unless current_user.services.any?{|x| x.provider == service}
               = link_to(image_tag("social_media_logos/#{service.downcase}-48x48.png", :title => service.titleize), "/auth/#{service}")
 
       %li
-        %h4
-          %span.getting_started_number
+        .getting_started_number
+          %h4
             3
-          Connect with people
+        .content
+          %h4
+            Connect with people
 
-        #diaspora_hq_pane
-          - person = Person.first
-          = person_image_link(Person.first)
-          .add_to_aspect
-            = render :partial => 'people/relationship_action',
-              :locals => { :person => Person.first,
-                            :contact => current_user.contact_for(Person.first),
-                            :current_user => current_user }
+          #diaspora_hq_pane
+            - person = Person.first
+            = person_image_link(Person.first)
+            .add_to_aspect
+              = render :partial => 'people/relationship_action',
+                :locals => { :person => Person.first,
+                              :contact => current_user.contact_for(Person.first),
+                              :current_user => current_user }
 
-          .name
-            = person_link(person)
+            .name
+              = person_link(person)
 
-          .info
-            Get updates about the project.
+            .info
+              Get updates about the project.
 
       %li
-        %h4
-          %span.getting_started_number
+        .getting_started_number
+          %h4
             4
-          Follow your interests
-        %p
-          popular/curated tags?  person's tags?
+        .content
+          %h4
+            Follow your interests
+
+          %p
+            popular/curated tags?  person's tags?
 
       %li
-        %h4
-          %span.getting_started_number
+        .getting_started_number
+          %h4
             5
-          Connect to
-          = link_to "Cubbi.es", "http://cubbi.es/"
-        %p
-          = t('tokens.show.what_is_cubbies')
+        .content
+          %h4
+            Connect to
+            = link_to "Cubbi.es", "http://cubbi.es/"
+          %p
+            = t('tokens.show.what_is_cubbies')
 
-        .cubbies_images
-          = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
-          = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
+          .cubbies_images
+            = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
+            = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
 
 .span-5.rightBar.last
   /= render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
