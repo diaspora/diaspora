@@ -86,30 +86,3 @@ module Rails
     end
   end
 end
-
-module ActiveRecord
-  class LogSubscriber
-    # This override logs in a format Splunk can more easily understand.
-    # @see ActionView::LogSubscriber#render_template
-    def sql(event)
-      self.class.runtime += event.duration
-      return unless logger.info?
-
-      payload = event.payload
-      sql     = payload[:sql].squeeze(' ')
-      binds   = nil
-
-      unless (payload[:binds] || []).empty?
-        binds = "  " + payload[:binds].map { |col,v|
-          [col.name, v]
-        }.inspect
-      end
-
-      log_string = "event=sql name='#{payload[:name]}' ms=#{event.duration} query='#{sql}'"
-      cleaned_trace = Rails.backtrace_cleaner.clean(caller)
-      log_string << "backtrace_hash=#{cleaned_trace.hash} binds='#{binds}' application_backtrace='#{cleaned_trace[0..2].inspect}'"
-      info log_string
-
-    end
-  end
-end
