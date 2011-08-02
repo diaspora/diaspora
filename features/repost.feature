@@ -13,24 +13,24 @@ Feature: public repost
   Scenario: does not show the reshare button on my own posts
     And "bob@bob.bob" has a non public post with text "reshare this!"
     And I sign in as "bob@bob.bob"
-    Then I should not see "Reshare" 
+    Then I should not see "reshare" 
 
   Scenario: does not show a reshare button on other private pots
     And "bob@bob.bob" has a non public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
-    Then I should not see "Reshare" 
+    Then I should not see "reshare" 
 
   Scenario: does shows the reshare button on my own posts
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
-    Then I should see "Reshare" 
+    Then I should see "reshare" 
 
   Scenario: shows up on the profile page
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
 
     And I preemptively confirm the alert
-    And I follow "Reshare"
+    And I follow "reshare"
     And I wait for the ajax to finish
     And I wait for 2 seconds
 
@@ -43,7 +43,7 @@ Feature: public repost
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
     And I preemptively confirm the alert
-    And I follow "Reshare"
+    And I follow "reshare"
     And I wait for the ajax to finish
 
     And I go to the home page
@@ -57,7 +57,7 @@ Feature: public repost
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
     And I preemptively confirm the alert
-    And I follow "Reshare"
+    And I follow "reshare"
     And I wait for the ajax to finish
 
     And I go to the home page
@@ -82,7 +82,7 @@ Feature: public repost
     And "bob@bob.bob" has a public post with text "reshare this!"
     And I sign in as "alice@alice.alice"
     And I preemptively confirm the alert
-    And I follow "Reshare"
+    And I follow "reshare"
     And I wait for the ajax to finish
 
     And I go to the home page
@@ -93,6 +93,6 @@ Feature: public repost
     And I should see "Bob" 
     And I go to the home page
 
-    And I should see "1 Reshare"
+    And I should see "1 reshare"
 
   Scenario: Can have text
