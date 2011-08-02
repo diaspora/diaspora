@@ -52,7 +52,7 @@
       self.hoverCard.tip.hide();
       self.hoverCard.tip.prependTo(self.target.parent());
 
-      self.personCache.get(self.target.attr("href") + ".json?includes=tags", function(person) {
+      self.personCache.get(self.target.attr("data-hovercard") + ".json?includes=tags", function(person) {
         self.populateHovercard(person);
       });
     };
@@ -78,7 +78,7 @@
         );
       });
 
-      self.dropdownCache.get(self.target.attr("href") + "/aspect_membership_button", function(dropdown) {
+      self.dropdownCache.get(self.target.attr("data-hovercard") + "/aspect_membership_button", function(dropdown) {
         self.hoverCard.dropdownContainer.html(dropdown);
         self.hoverCard.tip.fadeIn(140);
       });

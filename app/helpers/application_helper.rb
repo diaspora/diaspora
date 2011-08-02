@@ -48,12 +48,13 @@ module ApplicationHelper
   def person_link(person, opts={})
     opts[:class] ||= ""
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
+    remote_or_hovercard_link = "/people/#{person.id}".html_safe
     if person.local?
-          "<a href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
+          "<a data-hovercard='#{remote_or_hovercard_link}' href='/u/#{person.diaspora_handle.split('@')[0]}' class='#{opts[:class]}'>
         #{h(person.name)}
       </a>".html_safe
     else
-          "<a href='/people/#{person.id}'>
+          "<a href='#{remote_or_hovercard_link}' data-hovercard='#{remote_or_hovercard_link}'>
         #{h(person.name)}
       </a>".html_safe
     end
