@@ -34,9 +34,9 @@
           #getting_started_profile_photo
             = person_image_link(current_user.person, :size => :thumb_medium)
           %h4
-            Fill Out Your Profile
+            = t(".fill_out_your_profile")
           %p
-            Description of why you'd want to do this (or checks like g+)
+            = t(".profile_description")
           .span-8.fields
             - [:full_name, :image_url, :birthday, :gender, :bio, :location, :tag_string].each do |attr|
               .span-4.last
@@ -51,7 +51,7 @@
             2
         .content
           %h4
-            Connect to your other social networks
+            = t('.connect_to_your_other_social_networks')
         #getting_started_service_icons
           - AppConfig.configured_services.each do |service|
             - unless current_user.services.any?{|x| x.provider == service}
@@ -63,7 +63,7 @@
             3
         .content
           %h4
-            Connect with people
+            = t(".connect_with_people")
 
           #diaspora_hq_pane
             - person = Person.first
@@ -86,7 +86,7 @@
             4
         .content
           %h4
-            Follow your interests
+            = t(".follow_your_interests")
 
           %p
             popular/curated tags?  person's tags?
@@ -97,7 +97,7 @@
             5
         .content
           %h4
-            Connect to
+            = t(".connect_to")
             = link_to "Cubbi.es", "http://cubbi.es/"
           %p
             = t('tokens.show.what_is_cubbies')

@@ -21,7 +21,7 @@ module ProfilesHelper
             else
               field
             end
-    content_tag(:span, field.to_s.titleize, :class => klass)
+    content_tag(:span, t(".profile_fields.#{field.to_s}"), :class => klass)
   end
 
   private

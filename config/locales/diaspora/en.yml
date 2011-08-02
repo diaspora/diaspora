@@ -786,6 +786,23 @@ en:
       skip: "skip getting started"
       save_and_continue: "Save and continue"
       could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
+
+      fill_out_your_profile: "Fill Out Your Profile"
+      profile_description: "Description of why you'd want to do this"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with people"
+      follow_your_interests: "Follow your interests"
+      connect_to: "Connect to"
+
+      profile_fields:
+        name: "Name"
+        birthday: "Birthday"
+        bio: "Bio"
+        tags: "Tags"
+        photo: "Photo"
+        gender: "Gender"
+        location: "Location"
+
       step_3:
         finish: "Finish"
         people_already_on_diaspora: "People already on Diaspora"
