@@ -16,7 +16,6 @@ Feature: invitation acceptance
         | profile_last_name  | Hai           |
         | tags               | #beingawesome |
       And I press "Save and continue"
-      Then I should see "Profile updated"
 			And I should see "Would you like to find your Facebook friends on Diaspora?"
       And I should not see "Here are the people who are waiting for you:"
 
@@ -36,10 +35,7 @@ Feature: invitation acceptance
         | profile_last_name  | Hai   |
         | tags               | #tags |
       And I press "Save and continue"
-      Then I should see "Profile updated"
-      
 			And I should see "Would you like to find your Facebook friends on Diaspora?"
-
-		When I follow "Skip"
+		  When I follow "Skip"
 		  Then I should be on the aspects page
 

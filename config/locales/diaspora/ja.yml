@@ -127,12 +127,17 @@ ja:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "投稿がまだありません。会話を始めましょう！"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "アスペクト1集"
     other: "アスペクト%{count}集"
     seed: 
+      acquaintances: "Acquaintances"
       family: "家族"
+      friends: "Friends"
       work: "仕事"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ ja:
   contacts: 
     create: 
       failure: "連絡先を作成するのに失敗しました。"
+    featured: 
+      featured_users: "Featured Users"
     few: "連絡先%{count}件"
     index: 
       add_a_new_aspect: "Add a new aspect"

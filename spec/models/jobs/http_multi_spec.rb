@@ -14,8 +14,8 @@ describe Job::HttpMulti do
 
 
     @hydra = Typhoeus::Hydra.new
-    @response = Typhoeus::Response.new(:code => 200, :headers => "", :body => "", :time => 0.2)
-    @failed_response = Typhoeus::Response.new(:code => 504, :headers => "", :body => "", :time => 0.2)
+    @response = Typhoeus::Response.new(:code => 200, :headers => "", :body => "", :time => 0.2, :effective_url => 'http://foobar.com')
+    @failed_response = Typhoeus::Response.new(:code => 504, :headers => "", :body => "", :time => 0.2, :effective_url => 'http://foobar.com')
   end
 
   it 'POSTs to more than one person' do
@@ -71,7 +71,7 @@ describe Job::HttpMulti do
     person = @people.first
     person.url = 'http://remote.net/'
     person.save
-    response = Typhoeus::Response.new(:code => 301, :headers_hash => {"Location" => person.receive_url.sub('http://', 'https://')}, :body => "", :time => 0.2)
+    response = Typhoeus::Response.new(:code => 301,:effective_url => 'https://foobar.com', :headers_hash => {"Location" => person.receive_url.sub('http://', 'https://')}, :body => "", :time => 0.2)
     @hydra.stub(:post, person.receive_url).and_return(response)
 
     Typhoeus::Hydra.stub!(:new).and_return(@hydra)

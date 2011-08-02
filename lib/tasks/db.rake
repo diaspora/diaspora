@@ -21,32 +21,6 @@ namespace :db do
     end
   end
 
-  desc 'Seed the current RAILS_ENV database from db/seeds.rb'
-  namespace :seed do
-    task :tom do
-      puts "Seeding the database for #{Rails.env}..."
-      require File.dirname(__FILE__) + '/../../db/seeds/tom'
-    end
-
-    task :dev do
-      puts "Seeding the database for #{Rails.env}..."
-      require File.dirname(__FILE__) + '/../../db/seeds/dev'
-    end
-
-    task :backer do
-      puts "Seeding the database for #{Rails.env}..."
-      require File.dirname(__FILE__) + '/../../db/seeds/backer'
-      create
-    end
-
-    task :first_user, :username, :password, :email do |t, args|
-      puts "Setting up first user in #{Rails.env} database"
-      ARGS = args
-      require File.dirname(__FILE__) + '/../../db/seeds/add_user'
-    end
-
-  end
-
   desc 'Delete the collections in the current RAILS_ENV database'
   task :purge do
     require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
@@ -66,20 +40,6 @@ namespace :db do
     Rake::Task['db:seed'].invoke
     puts "Success!"
   end
-
-  desc "Purge database and then add the first user"
-  task :first_user, :username, :password, :email do |t, args|
-    Rake::Task['db:purge'].invoke
-    Rake::Task['db:seed:first_user'].invoke(args[:username], args[:password], args[:email])
-  end
-  task :first_user => :environment
-
-  desc "Add a new user to the database"
-  task :add_user, :username, :password do |t, args|
-    ARGS = args
-    require File.dirname(__FILE__) + '/../../db/seeds/add_user'
-  end
-  task :add_user => :environment
 
   task :drop_integration do
     ActiveRecord::Base.configurations.keys.select{ |k|

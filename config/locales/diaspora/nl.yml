@@ -106,9 +106,9 @@ nl:
         content_1: "Jou Diaspora ID is:"
         content_2: "Geef deze aan mensen zodat ze je op Diaspora kunnen vinden."
         heading: "Diaspora ID"
-      donate: "Donate"
+      donate: "Doneer"
       handle_explanation: "Dit is jouw Diaspora id. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Houd %{pod} snel door bij te dragen aan de maandelijkse koffie kosten!"
       no_contacts: "Geen contacten"
       no_tags: "Geen tags"
       people_sharing_with_you: "Mensen die met jou delen"
@@ -127,12 +127,17 @@ nl:
       create: "Aanmaken"
       name: "Naam"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Nog niemand heeft iets gezegd!"
       try_adding_some_more_contacts: "Voeg wat meer contacten toe."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspecten"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familie"
+      friends: "Friends"
       work: "Werk"
     selected_contacts: 
       manage_your_aspects: "Beheer je aspecten."
@@ -167,6 +172,8 @@ nl:
   contacts: 
     create: 
       failure: "Verbinding maken mislukt"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} contacten"
     index: 
       add_a_new_aspect: "Voeg een aspect toe"
@@ -208,7 +215,7 @@ nl:
     new: 
       abandon_changes: "Wijzigingen annuleren?"
       send: "Verstuur"
-      sending: "Sending..."
+      sending: "Verzenden..."
       subject: "onderwerp"
       to: "aan"
     show: 
@@ -255,7 +262,7 @@ nl:
     edit: 
       sign_up: "registreer"
     new: 
-      already_invited: "Al uitgenodigd"
+      already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
       aspect: "Aspect"
       comma_seperated_plz: "Je kunt meerdere e-mailadressen invullen, gescheiden door komma's."
       if_they_accept_info: "als hij of zij accepteert zal hij of zij toegevoegd worden aan het aspect waarvoor je hem of haar uitgenodigd hebt."
@@ -302,7 +309,7 @@ nl:
         many: "%{count} likes"
         one: "%{count} like"
         other: "%{count} likes"
-        zero: "no likes"
+        zero: "geen likes"
   limited: "Beperkt"
   more: "Meer"
   next: "volgende"
@@ -385,12 +392,12 @@ nl:
     comment_on_post: 
       reply: "Reageer of bekijk %{name}'s post >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Om je nieuwe e-mailadres te activeren %{unconfirmed_email}, klik op deze link:"
+      subject: "Activeer je nieuwe e-mailadres alstublieft %{unconfirmed_email}"
     email_sent_by_diaspora: "Deze mail is gestuurd door Diaspora.  Als je dit soort email's niet meer wilt ontvangen,"
     hello: "Hoi %{name}!"
     liked: 
-      liked: "%{name} vind je post leuk: "
+      liked: "%{name} vind je post leuk"
       view_post: "Bekijk post >"
     mentioned: 
       mentioned: "heeft jou genoemd in een post:"
@@ -569,14 +576,14 @@ nl:
     reshare: 
       deleted: "De originele post is verwijderd door de auteur."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+        few: "%{count}x doorgegeven"
+        many: "%{count}x doorgegeven"
+        one: "1x doorgegeven"
+        other: "%{count}x doorgegeven"
+        zero: "Doorgeven"
+      reshare_confirmation: "Geef %{author}'s post door?"
+      reshare_original: "Origineel doorgeven"
+      show_original: "Toon origineel"
   search: "Zoek"
   services: 
     create: 
@@ -624,7 +631,7 @@ nl:
       logged_in_as: "ingelogd als %{name}"
       your_aspects: "jouw aspecten"
     invitations: 
-      by_email: "via E-mail"
+      by_email: "Via e-mail"
       dont_have_now: "Momenteel heb je er geen, maar meer uitnodigingen volgen spoedig!"
       from_facebook: "Via Facebook"
       invitations_left: "%{count} over"
@@ -712,13 +719,13 @@ nl:
   username: "Gebruikersnaam"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "E-mail %{email} geactiveerd"
+      email_not_confirmed: "E-mail kon niet worden geactiveerd. Verkeerde link?"
     destroy: "Je account is geblokkeerd. Het sluiten van je account kan twintig minuten in beslag nemen. Bedankt voor je interesse in Diaspora."
     edit: 
       also_commented: "...iemand na jou op de post van jouw contact reageert?"
       change: "Verander"
-      change_email: "Change E-Mail"
+      change_email: "Verander e-mailadres"
       change_language: "Taal wijzigen"
       change_password: "Verander wachtwoord"
       close_account: "Verwijder account"
@@ -727,7 +734,7 @@ nl:
       download_photos: "download mijn foto's"
       download_xml: "download mijn xml"
       edit_account: "Bewerk account"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "We hebben een activatielink verzonden naar %{unconfirmed_email}. Totdat je het adres geactiveerd hebt zullen we je originele adress blijven gebruiken %{email}."
       export_data: "Exporteer data"
       liked: "... iemand je post leuk vind?"
       mentioned: "...je genoemd word in een post?"
@@ -761,8 +768,8 @@ nl:
       language_not_changed: "Taal wijzigen mislukt"
       password_changed: "Wachtwoord gewijzigd. Je kunt nu inloggen met je nieuwe wachtwoord."
       password_not_changed: "Wachtwoord wijzigen mislukt"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "E-mail gewijzigd. Nog te activeren."
+      unconfirmed_email_not_changed: "E-mail wijzigen mislukt"
   webfinger: 
     fetch_failed: "ophalen van webfinger profiel is mislukt voor %{profile_url}"
     hcard_fetch_failed: "er was een probleem bij het ophalen van de hcard voor %{account}"

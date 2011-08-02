@@ -127,12 +127,17 @@ pt-BR:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Ninguém postou ainda. Comece você! Diga algo!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Família"
+      friends: "Friends"
       work: "Trabalho"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ pt-BR:
   contacts: 
     create: 
       failure: "Failed to create contact"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} contatos"
     index: 
       add_a_new_aspect: "Add a new aspect"

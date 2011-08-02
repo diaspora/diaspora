@@ -59,4 +59,22 @@ describe ApplicationHelper do
       person_link(@person).should_not include("<h1>")
     end
   end
+
+  describe "#contacts_link" do
+    before do
+      def current_user
+        @current_user
+      end
+    end
+
+    it 'links to featured users' do
+      @current_user = Factory(:user)
+      contacts_link.should == featured_users_path
+    end
+
+    it 'links to contacts#index' do
+      @current_user = alice
+      contacts_link.should == contacts_path
+    end
+  end
 end

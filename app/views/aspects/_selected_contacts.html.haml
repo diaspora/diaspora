@@ -13,11 +13,11 @@
         = person_image_link person
 
       - if all_aspects_selected? || @aspect_ids.size > 1
-        = link_to t('.view_all_contacts'), contacts_path, :id => "view_all_contacts_link"
+        = link_to t('.view_all_contacts'), contacts_link, :id => "view_all_contacts_link"
       - else
         = link_to t('.view_all_contacts'), contacts_path(:a_id => @aspect.id), :id => "view_all_contacts_link"
 
     - else
       = t('.no_contacts')
-      = link_to t('.manage_your_aspects'), contacts_path
+      = link_to t('.manage_your_aspects'), contacts_link
 

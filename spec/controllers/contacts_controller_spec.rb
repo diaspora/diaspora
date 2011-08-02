@@ -69,7 +69,7 @@ describe ContactsController do
     end
   end
 
-  describe '#featued' do
+  describe '#featured' do
     it 'succeeds' do
       get :featured
       response.should be_success

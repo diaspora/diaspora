@@ -29,7 +29,7 @@ en_shaw:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "𐑿𐑝 𐑷𐑤𐑮𐑧𐑛𐑦 𐑮𐑦𐑖𐑺𐑛 𐑞𐑨𐑑 𐑐𐑴𐑕𐑑!"
         user: 
           attributes: 
             email: 
@@ -106,11 +106,11 @@ en_shaw:
         content_1: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑯 𐑦𐑟:"
         content_2: "𐑜𐑦𐑝 𐑦𐑑 𐑑 𐑧𐑯𐑦𐑢𐑩𐑯 𐑯 𐑞𐑱𐑤 𐑚𐑰 𐑱𐑚𐑩𐑤 𐑑 𐑓𐑲𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
         heading: "·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
-      donate: "Donate"
+      donate: "𐑛𐑴𐑯𐑱𐑑"
       handle_explanation: "𐑞𐑦𐑕 𐑦𐑟 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯. 𐑤𐑲𐑒 𐑩𐑯 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕, 𐑿 𐑒𐑨𐑯 𐑜𐑦𐑝 𐑞𐑦𐑕 𐑑 𐑐𐑰𐑐𐑩𐑤 𐑑 𐑮𐑰𐑗 𐑿."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "𐑒𐑰𐑐 %{pod} 𐑮𐑳𐑯𐑦𐑙 𐑓𐑨𐑕𐑑, 𐑚𐑲 𐑬𐑮 𐑕𐑻𐑝𐑼𐑟 𐑞𐑺 𐑥𐑳𐑯𐑔𐑤𐑦 𐑒𐑪𐑓𐑦 𐑓𐑦𐑒𐑕!"
       no_contacts: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
-      no_tags: "No tags"
+      no_tags: "𐑯𐑴 𐑑𐑨𐑜𐑟"
       people_sharing_with_you: "𐑐𐑰𐑐𐑩𐑤 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿"
       post_a_message: "𐑐𐑴𐑕𐑑 𐑩 𐑥𐑧𐑕𐑩𐑡 >>"
       services: 
@@ -127,12 +127,17 @@ en_shaw:
       create: "𐑒𐑮𐑦𐑱𐑑"
       name: "𐑯𐑱𐑥"
     no_posts_message: 
+      featured_users: "𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
+      or_featured: "𐑹 𐑿 𐑒𐑨𐑯 𐑖𐑺 𐑢𐑦𐑞 %{link}"
       start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
-      try_adding_some_more_contacts: "𐑑𐑮𐑲 𐑨𐑛𐑦𐑙 𐑕𐑳𐑥 𐑥𐑹 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+      try_adding_some_more_contacts: "𐑿 𐑒𐑨𐑯 𐑕𐑻𐑗 (𐑑𐑪𐑐) 𐑹 𐑦𐑯𐑝𐑲𐑑 (𐑮𐑲𐑑) 𐑥𐑹 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
     other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed: 
+      acquaintances: "𐑩𐑒𐑢𐑱𐑑𐑩𐑯𐑕𐑩𐑟"
       family: "𐑓𐑨𐑥𐑦𐑤𐑦"
+      friends: "𐑓𐑮𐑧𐑯𐑛𐑟"
       work: "𐑢𐑻𐑒"
     selected_contacts: 
       manage_your_aspects: "𐑥𐑨𐑯𐑩𐑡 𐑿𐑼 𐑨𐑕𐑐𐑧𐑒𐑑𐑕."
@@ -167,6 +172,8 @@ en_shaw:
   contacts: 
     create: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑒𐑮𐑦𐑱𐑑 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
+    featured: 
+      featured_users: "𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
     few: "%{count} 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     index: 
       add_a_new_aspect: "𐑨𐑛 𐑯𐑿 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -208,7 +215,7 @@ en_shaw:
     new: 
       abandon_changes: "𐑩𐑚𐑨𐑯𐑛𐑩𐑯 𐑗𐑱𐑯𐑡𐑩𐑟?"
       send: "𐑕𐑧𐑯𐑛"
-      sending: "Sending..."
+      sending: "𐑕𐑧𐑯𐑛𐑦𐑙..."
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
     show: 
@@ -280,7 +287,7 @@ en_shaw:
       login: "𐑤𐑪𐑜 𐑦𐑯"
       logout: "𐑤𐑪𐑜 𐑬𐑑"
       profile: "𐑐𐑮𐑴𐑓𐑲𐑤"
-      recent_notifications: "Recent notifications"
+      recent_notifications: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯𐑟"
       settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
       view_all: "𐑝𐑿 𐑷𐑤"
   likes: 
@@ -298,11 +305,11 @@ en_shaw:
         other: "%{count} 𐑤𐑲𐑒𐑕"
         zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
       people_like_this_comment: 
-        few: "%{count} likes"
-        many: "%{count} likes"
-        one: "%{count} like"
-        other: "%{count} likes"
-        zero: "no likes"
+        few: "%{count} 𐑤𐑲𐑒𐑕"
+        many: "%{count} 𐑤𐑲𐑒𐑕"
+        one: "%{count} 𐑤𐑲𐑒"
+        other: "%{count} 𐑤𐑲𐑒𐑕"
+        zero: "𐑯𐑴 𐑤𐑲𐑒𐑕"
   limited: "𐑤𐑦𐑥𐑦𐑑𐑩𐑛"
   more: "𐑥𐑹"
   next: "𐑯𐑧𐑒𐑕𐑑"
@@ -381,31 +388,31 @@ en_shaw:
       other: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
       zero: "%{actors} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿."
   notifier: 
-    click_here: "click here"
+    click_here: "𐑒𐑤𐑦𐑒 𐑣𐑽"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "𐑮𐑦𐑐𐑤𐑲 𐑹 𐑝𐑿 %{name}𐑟 𐑐𐑴𐑕𐑑 >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+      click_link: "𐑑 𐑨𐑒𐑑𐑦𐑝𐑱𐑑 𐑿𐑼 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕 %{unconfirmed_email}, 𐑐𐑤𐑰𐑟 𐑒𐑤𐑦𐑒 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒:"
+      subject: "𐑐𐑤𐑰𐑟 𐑨𐑒𐑑𐑦𐑝𐑱𐑑 𐑿𐑼 𐑯𐑿 𐑦-𐑥𐑱𐑤 𐑨𐑛𐑮𐑧𐑕 %{unconfirmed_email}"
+    email_sent_by_diaspora: "𐑞𐑦𐑕 𐑦-𐑥𐑱𐑤 𐑢𐑳𐑟 𐑕𐑧𐑯𐑑 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩.  𐑦𐑓 𐑿𐑛 𐑤𐑲𐑒 𐑑 𐑕𐑑𐑪𐑐 𐑜𐑧𐑑𐑦𐑙 𐑦-𐑥𐑱𐑤𐑟 𐑤𐑲𐑒 𐑞𐑦𐑕,"
     hello: "𐑣𐑧𐑤𐑴 %{name}!"
     liked: 
-      liked: "%{name} 𐑣𐑨𐑟 𐑡𐑳𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 𐑐𐑴𐑕𐑑: "
-      view_post: "View post >"
+      liked: "%{name} 𐑡𐑳𐑕𐑑 𐑤𐑲𐑒𐑑 𐑿𐑼 𐑐𐑴𐑕𐑑"
+      view_post: "𐑝𐑿 𐑐𐑴𐑕𐑑 >"
     mentioned: 
       mentioned: "𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑:"
       subject: "%{name} 𐑣𐑨𐑟 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "𐑮𐑦𐑐𐑤𐑲 𐑑 𐑹 𐑝𐑿 𐑞𐑦𐑕 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 >"
     single_admin: 
       admin: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑨𐑛𐑥𐑦𐑯𐑦𐑕𐑑𐑮𐑱𐑑𐑼"
       subject: "𐑩 𐑥𐑧𐑕𐑩𐑡 𐑑 𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑩𐑒𐑬𐑯𐑑:"
     started_sharing: 
       sharing: "𐑣𐑨𐑟 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿!"
-      subject: "%{name} 𐑣𐑨𐑟 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
-      view_profile: "View %{name}'s profile"
+      subject: "%{name} 𐑕𐑑𐑸𐑑𐑩𐑛 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑿 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
+      view_profile: "𐑝𐑿 %{name}𐑟 𐑐𐑮𐑴𐑓𐑲𐑤"
     thanks: "𐑔𐑱𐑙𐑒𐑕,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "𐑑 𐑗𐑱𐑯𐑡 𐑿𐑼 𐑯𐑴𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯 𐑕𐑧𐑑𐑦𐑙𐑟"
   ok: "𐑴𐑒𐑱"
   or: "𐑹"
   password: "Password"
@@ -565,18 +572,18 @@ en_shaw:
       sent: "𐑕𐑧𐑯𐑑!"
   reshares: 
     create: 
-      failure: "There was an error resharing this post."
+      failure: "𐑞𐑺 𐑢𐑳𐑟 𐑩𐑯 𐑺𐑼 𐑮𐑦𐑖𐑺𐑦𐑙 𐑞𐑦𐑕 𐑐𐑴𐑕𐑑."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤 𐑐𐑴𐑕𐑑 𐑛𐑦𐑤𐑰𐑑𐑩𐑛 𐑚𐑲 𐑞 𐑷𐑔𐑼."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
-        zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+        few: "%{count} 𐑮𐑦𐑖𐑺𐑟"
+        many: "%{count} 𐑮𐑦𐑖𐑺𐑟"
+        one: "1 𐑮𐑦𐑖𐑺"
+        other: "%{count} 𐑮𐑦𐑖𐑺𐑟"
+        zero: "𐑮𐑦𐑖𐑺"
+      reshare_confirmation: "𐑮𐑦𐑖𐑺 %{author} - %{text}?"
+      reshare_original: "𐑮𐑦𐑖𐑺 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
+      show_original: "𐑖𐑴 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤"
   search: "𐑕𐑻𐑗"
   services: 
     create: 
@@ -712,13 +719,13 @@ en_shaw:
   username: "𐑿𐑟𐑼𐑯𐑱𐑥"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "𐑦-𐑥𐑱𐑤 %{email} 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛"
+      email_not_confirmed: "𐑦-𐑥𐑱𐑤 𐑒𐑫𐑛 𐑯𐑪𐑑 𐑚𐑰 𐑨𐑒𐑑𐑦𐑝𐑱𐑑𐑩𐑛. 𐑮𐑪𐑙 𐑤𐑦𐑙𐑒?"
     destroy: "𐑿𐑼 𐑩𐑒𐑬𐑯𐑑 𐑣𐑨𐑟 𐑚𐑧𐑯 𐑤𐑪𐑒𐑑. 𐑦𐑑 𐑥𐑱 𐑑𐑱𐑒 20 𐑥𐑦𐑯𐑩𐑑𐑕 𐑓𐑹 𐑳𐑕 𐑑 𐑓𐑦𐑯𐑦𐑖 𐑒𐑤𐑴𐑟𐑦𐑙 𐑿𐑼 𐑩𐑒𐑬𐑯𐑑. 𐑔𐑱𐑙𐑒 𐑿 𐑓𐑹 𐑑𐑮𐑲𐑦𐑙 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩."
     edit: 
       also_commented: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑷𐑤𐑕𐑴 𐑒𐑪𐑥𐑩𐑯𐑑𐑕 𐑪𐑯 𐑿𐑼 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕 𐑐𐑴𐑕𐑑?"
       change: "𐑗𐑱𐑯𐑡"
-      change_email: "Change E-Mail"
+      change_email: "𐑗𐑱𐑯𐑡 𐑦-𐑥𐑱𐑤"
       change_language: "𐑗𐑱𐑯𐑡 𐑤𐑱𐑙𐑜𐑢𐑩𐑡"
       change_password: "𐑗𐑱𐑯𐑡 𐑐𐑨𐑕𐑢𐑼𐑛"
       close_account: "𐑒𐑤𐑴𐑟 𐑩𐑒𐑬𐑯𐑑"
@@ -727,7 +734,7 @@ en_shaw:
       download_photos: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑓𐑴𐑑𐑴𐑟"
       download_xml: "𐑛𐑬𐑯𐑤𐑴𐑛 𐑥𐑲 𐑧.𐑥.𐑤."
       edit_account: "𐑧𐑛𐑦𐑑 𐑩𐑒𐑬𐑯𐑑"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "𐑢𐑰 𐑣𐑨𐑝 𐑕𐑧𐑯𐑑 𐑿 𐑩𐑯 𐑨𐑒𐑑𐑦𐑝𐑱𐑖𐑩𐑯 𐑤𐑦𐑙𐑒 𐑑 %{unconfirmed_email}. 𐑩𐑯𐑑𐑦𐑤 𐑿 𐑓𐑪𐑤𐑴 𐑞𐑦𐑕 𐑤𐑦𐑙𐑒 𐑯 𐑨𐑒𐑑𐑦𐑝𐑱𐑑 𐑞 𐑯𐑿 𐑨𐑛𐑮𐑧𐑕, 𐑢𐑰 𐑢𐑦𐑤 𐑒𐑩𐑯𐑑𐑦𐑯𐑿 𐑑 𐑿𐑟 𐑿𐑼 𐑩𐑮𐑦𐑡𐑩𐑯𐑩𐑤 𐑨𐑛𐑮𐑧𐑕 %{email}."
       export_data: "𐑧𐑒𐑕𐑐𐑹𐑑 𐑛𐑱𐑑𐑩"
       liked: "...𐑕𐑳𐑥𐑢𐑩𐑯 𐑤𐑲𐑒𐑕 𐑿𐑼 𐑐𐑴𐑕𐑑?"
       mentioned: "...𐑿 𐑸 𐑥𐑧𐑯𐑖𐑩𐑯𐑛 𐑦𐑯 𐑩 𐑐𐑴𐑕𐑑?"
@@ -761,8 +768,8 @@ en_shaw:
       language_not_changed: "𐑤𐑱𐑙𐑜𐑢𐑩𐑡 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
       password_changed: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑗𐑱𐑯𐑡. 𐑿 𐑒𐑨𐑯 𐑯𐑬 𐑤𐑪𐑜 𐑦𐑯 𐑢𐑦𐑞 𐑿𐑼 𐑯𐑿 𐑐𐑨𐑕𐑢𐑼𐑛."
       password_not_changed: "𐑐𐑨𐑕𐑢𐑼𐑛 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "𐑦-𐑥𐑱𐑤 𐑗𐑱𐑯𐑡. 𐑯𐑰𐑛𐑟 𐑨𐑒𐑑𐑦𐑝𐑱𐑖𐑩𐑯."
+      unconfirmed_email_not_changed: "𐑦-𐑥𐑱𐑤 𐑗𐑱𐑯𐑡 𐑓𐑱𐑤𐑛"
   webfinger: 
     fetch_failed: "failed to fetch webfinger profile for %{profile_url}"
     hcard_fetch_failed: "there was a problem fetching the hcard for %{account}"

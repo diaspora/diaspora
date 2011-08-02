@@ -24,7 +24,7 @@ de:
     publisher: 
       at_least_one_aspect: "Du musst zumindest zu einem Aspekt posten"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Du hast diesen Beitrag bereits wiederholt!"
     search_for: "Nach {{name}} suchen"
     show_more: "Mehr zeigen"
     timeago: 

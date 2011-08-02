@@ -127,12 +127,17 @@ fi:
       create: "Luo"
       name: "Nimi"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 näkymä"
     other: "%{count} näkymää"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Perhe"
+      friends: "Friends"
       work: "Työ"
     selected_contacts: 
       manage_your_aspects: "Hallitse näkymiä."
@@ -167,6 +172,8 @@ fi:
   contacts: 
     create: 
       failure: "Kontaktin luonti epäonnistui"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontaktia"
     index: 
       add_a_new_aspect: "Add a new aspect"

@@ -24,7 +24,7 @@ nl:
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Je hebt deze post al doorgegeven!"
     search_for: "Zoek naar {{name}}"
     show_more: "laat meer zien"
     timeago: 

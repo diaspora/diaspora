@@ -106,9 +106,9 @@ bg:
         content_1: "Вашият адрес в Diaspora е:"
         content_2: "Споделете го с който и да е и той ще ви намери в Diaspora."
         heading: "Адрес в Diaspora"
-      donate: "Donate"
+      donate: "Дарете"
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза кафе!"
       no_contacts: "Няма контакти"
       no_tags: "Няма тагове"
       people_sharing_with_you: "Хора споделящи с вас"
@@ -127,12 +127,17 @@ bg:
       create: "Създаване"
       name: "Име"
     no_posts_message: 
+      featured_users: "отличени потребители"
+      or_featured: "Или можете да споделите с %{link}"
       start_talking: "Няма публикации."
-      try_adding_some_more_contacts: "Пробвайте да добавите още контакти."
+      try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 аспект"
     other: "%{count} аспекта"
     seed: 
+      acquaintances: "Познати"
       family: "Семейство"
+      friends: "Приятели"
       work: "Работа"
     selected_contacts: 
       manage_your_aspects: "Управление на аспектите."
@@ -167,6 +172,8 @@ bg:
   contacts: 
     create: 
       failure: "Контактът не бе създаден"
+    featured: 
+      featured_users: "Отличени потребители"
     few: "%{count} контакта"
     index: 
       add_a_new_aspect: "Създаване на аспект"
@@ -303,7 +310,7 @@ bg:
         one: "харесан %{count} път"
         other: "харесан %{count} пъти"
         zero: "не е харесан"
-  limited: "Ограничено"
+  limited: "Ограничена"
   more: "Още"
   next: "следваща"
   no_results: "Няма намерени резултати"
@@ -524,7 +531,7 @@ bg:
     update: 
       failed: "Профилът не бе обновен"
       updated: "Профилът е обновен"
-  public: "Публично"
+  public: "Публична"
   registrations: 
     closed: "Signups are closed on this Diaspora pod."
     create: 
@@ -624,7 +631,7 @@ bg:
       logged_in_as: "вписани сте като %{name}"
       your_aspects: "вашите аспекти"
     invitations: 
-      by_email: "По ел. поща"
+      by_email: "по ел. поща"
       dont_have_now: "За момента не разполагате с покани, но скоро ще имате!"
       from_facebook: "от Facebook"
       invitations_left: "(имате %{count} покани)"

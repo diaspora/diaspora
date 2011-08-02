@@ -127,12 +127,17 @@ el:
       create: "Δημιουργία"
       name: "Όνομα"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Κανένας δεν έχει δημοσιεύσει κάτι ακόμα!"
       try_adding_some_more_contacts: "Προσπαθείστε να προσθέσετε περισσότερες επαφές."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 πτυχή"
     other: "%{count} πτυχές"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Οικογένεια"
+      friends: "Friends"
       work: "Εργασία"
     selected_contacts: 
       manage_your_aspects: "Διαχείριση των πτυχών."
@@ -167,6 +172,8 @@ el:
   contacts: 
     create: 
       failure: "Αποτυχία δημιουργίας επαφής"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} επαφές"
     index: 
       add_a_new_aspect: "Προσθέστε μια νέα πτυχή"

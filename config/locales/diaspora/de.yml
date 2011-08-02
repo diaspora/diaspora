@@ -108,7 +108,7 @@ de:
         heading: "Diaspora ID"
       donate: "Spenden"
       handle_explanation: "Das ist deine Diaspora ID. Du kannst sie wie eine E-Mail-Adresse weitergeben, damit andere Nutzer mit dir Kontakt aufnehmen können."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Hilf %{pod} schnell zu laufen und kaufe unseren Servern ihren monatlichen Schuss Kaffee!"
       no_contacts: "Keine Kontakte"
       no_tags: "Keine Tags"
       people_sharing_with_you: "Leute die mit dir teilen"
@@ -127,12 +127,17 @@ de:
       create: "Erstellen"
       name: "Name"
     no_posts_message: 
+      featured_users: "Besondere Leute"
+      or_featured: "Oder fang an mit %{link} zu teilen."
       start_talking: "Niemand hat bisher etwas gesagt!"
-      try_adding_some_more_contacts: "Versuche ein paar Kontakte hinzuzufügen."
+      try_adding_some_more_contacts: "Du kannst nach Kontakten suchen (oben) oder welche einladen (rechts)."
+      you_should_add_some_more_contacts: "Du solltest ein paar mehr Kontakte hinzufügen!"
     one: "Ein Aspekt"
     other: "%{count} Aspekte"
     seed: 
+      acquaintances: "Bekannte"
       family: "Familie"
+      friends: "Freunde"
       work: "Arbeit"
     selected_contacts: 
       manage_your_aspects: "Verwalte deine Aspekte."
@@ -167,6 +172,8 @@ de:
   contacts: 
     create: 
       failure: "Konnte Kontakt nicht erstellen"
+    featured: 
+      featured_users: "Besondere Leute"
     few: "%{count} Kontakte"
     index: 
       add_a_new_aspect: "Einen neuen Aspekt hinzufügen"

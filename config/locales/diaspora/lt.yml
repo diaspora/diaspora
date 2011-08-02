@@ -127,12 +127,17 @@ lt:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Dar niekas nepasisakė. Pradėk pokalbį pats!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Šeima"
+      friends: "Friends"
       work: "Darbas"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ lt:
   contacts: 
     create: 
       failure: "Failed to create contact"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} contacts"
     index: 
       add_a_new_aspect: "Add a new aspect"

@@ -127,12 +127,17 @@ pl:
       create: "Stwórz"
       name: "Nazwa"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Nikt jeszcze nic nie powiedział. Rozkręć rozmowę!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspekt"
     other: "%{count} aspektów"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Rodzina"
+      friends: "Friends"
       work: "Praca"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ pl:
   contacts: 
     create: 
       failure: "Nie udało się utworzyć kontaktu"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontakty"
     index: 
       add_a_new_aspect: "Add a new aspect"

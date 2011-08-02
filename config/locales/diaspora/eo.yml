@@ -106,9 +106,9 @@ eo:
         content_1: "Via DIASPORA* uzantnomo estas:"
         content_2: "Donu ĝin al iu ajn, kaj tiu povos trovi vin ĉe DIASPORA*."
         heading: "DIASPORA* uzantnomo"
-      donate: "Donate"
+      donate: "Donaci"
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Helpu %{pod} bone funkcii; aĉetu por niaj servkomputiloj ilian ĉiumonatan kaforiparon!"
       no_contacts: "Nul kontaktoj"
       no_tags: "Neniu etikedigo"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
@@ -127,12 +127,17 @@ eo:
       create: "Krei"
       name: "Nomo"
     no_posts_message: 
+      featured_users: "mojosaj uzantoj"
+      or_featured: "Aŭ vi povas partopreni kun %{link}"
       start_talking: "Neniu jam diris iun ajn!"
-      try_adding_some_more_contacts: "Aldonu pli kontaktojn."
+      try_adding_some_more_contacts: "Vi povas serĉi (supre) aŭ inviti (dekstre) pli kontaktojn."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspekto"
     other: "%{count} aspektoj"
     seed: 
+      acquaintances: "Konatoj"
       family: "Familio"
+      friends: "Amikoj"
       work: "Verkejo"
     selected_contacts: 
       manage_your_aspects: "Redakti viajn aspektojn."
@@ -167,6 +172,8 @@ eo:
   contacts: 
     create: 
       failure: "Ne povis krei kontakton"
+    featured: 
+      featured_users: "Mojosaj Uzantoj"
     few: "%{count} kontaktoj"
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"
@@ -220,7 +227,7 @@ eo:
       birthday_with_year: "%B %d %Y"
       fullmonth_day: "%B %d"
   delete: "Forigi"
-  email: "Retpoŝti (?)"
+  email: "Retpoŝtadreso"
   error_messages: 
     helper: 
       correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
@@ -271,7 +278,7 @@ eo:
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
       toggle: "inversigi al poŝtelefona retpaĝaro"
-      whats_new: "kiu 'stas nova?"
+      whats_new: "Kio estas nova?"
       your_aspects: "viaj aspektoj"
     header: 
       admin: "administristo"
@@ -286,17 +293,17 @@ eo:
   likes: 
     likes: 
       people_dislike_this: 
-        few: "%{count} malŝatoj"
-        many: "%{count} malŝatoj"
-        one: "%{count} malŝato"
-        other: "%{count} malŝatoj"
-        zero: "nul ŝatoj"
+        few: "%{count} malŝatadoj"
+        many: "%{count} malŝatadoj"
+        one: "%{count} malŝatado"
+        other: "%{count} malŝatadoj"
+        zero: "neniu ŝatado"
       people_like_this: 
-        few: "%{count} ŝatoj"
-        many: "%{count} ŝatoj"
-        one: "%{count} ŝato"
-        other: "%{count} ŝatoj"
-        zero: "nul ŝatoj"
+        few: "%{count} ŝatadoj"
+        many: "%{count} ŝatadoj"
+        one: "%{count} ŝatado"
+        other: "%{count} ŝatadoj"
+        zero: "neniu ŝatado"
       people_like_this_comment: 
         few: "%{count} ŝatadoj"
         many: "%{count} ŝatadoj"
@@ -367,7 +374,7 @@ eo:
       one: "%{actors} menciis vin en forigita afiŝo."
       other: "%{actors} menciis vin en forigita afiŝo."
       zero: "%{actors} menciis vin en forigita afiŝo."
-    post: "afiŝi"
+    post: "afiŝo"
     private_message: 
       few: "%{actors} sendis al vi mesaĝon."
       many: "%{actors} sendis al vi mesaĝon."
@@ -657,7 +664,7 @@ eo:
       reshare: "Rekontigi"
     stream_element: 
       dislike: "Malŝati"
-      like: "ŝati"
+      like: "Ŝati"
       shared_with: "Partoprenita kun: %{aspect_names}"
       unlike: "Ne plu ŝati"
       via: "de %{link}"

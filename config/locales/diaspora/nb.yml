@@ -127,12 +127,17 @@ nb:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Ingen har sagt noe enda. Få samtalen i gang!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Familie"
+      friends: "Friends"
       work: "Jobb"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ nb:
   contacts: 
     create: 
       failure: "Kunne ikke opprette kontakt"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} kontakter"
     index: 
       add_a_new_aspect: "Add a new aspect"

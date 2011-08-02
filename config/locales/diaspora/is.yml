@@ -127,12 +127,17 @@ is:
       create: "Create"
       name: "Name"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "Enginn hefur sagt neitt enn.  Byrjaðu umræðurnar!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
+      acquaintances: "Acquaintances"
       family: "Fjölskylda"
+      friends: "Friends"
       work: "Vinna"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ is:
   contacts: 
     create: 
       failure: "Ekki tókst að mynda tengsl"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} tengsl"
     index: 
       add_a_new_aspect: "Add a new aspect"

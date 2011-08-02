@@ -48,7 +48,10 @@ module Job
             end
           end
           unless response.success?
-            Rails.logger.info("event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}' xml='#{Base64.decode64(enc_object_xml)}'")
+            pod = Pod.find_or_create_by_url(response.effective_url)
+            log_line = "event=http_multi_fail sender_id=#{user_id} recipient_id=#{person.id} url=#{response.effective_url} response_code='#{response.code}' xml='#{Base64.decode64(enc_object_xml)}'"
+            Rails.logger.info(log_line)
+            pod.pod_stats.create(:error_message => log_line, :person_id => person.id, :error_code => response.code.to_i)
             failed_request_people << person.id
           end
         end

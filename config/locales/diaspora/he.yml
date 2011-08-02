@@ -127,12 +127,17 @@ he:
       create: "יצירה"
       name: "שם"
     no_posts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
       start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
       try_adding_some_more_contacts: "Try adding some more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     one: "היבט אחד"
     other: "%{count} היבטים"
     seed: 
+      acquaintances: "Acquaintances"
       family: "משפחה"
+      friends: "Friends"
       work: "עבודה"
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
@@ -167,6 +172,8 @@ he:
   contacts: 
     create: 
       failure: "אירע כשל ביצירת איש קשר"
+    featured: 
+      featured_users: "Featured Users"
     few: "%{count} אנשי קשר"
     index: 
       add_a_new_aspect: "Add a new aspect"
