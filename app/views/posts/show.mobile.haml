@@ -27,4 +27,4 @@
         = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
 
 .stream.show{:data=>{:guid=>@post.id}}
-  = render "comments/comments", :post => @post, :comments => @post.comments, :always_expanded => true
+  = render "comments/comments", :post => @post, :comments => @post.comments, :comments_expanded => true
