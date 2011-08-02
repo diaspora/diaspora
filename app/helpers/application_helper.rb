@@ -54,7 +54,7 @@ module ApplicationHelper
         #{h(person.name)}
       </a>".html_safe
     else
-          "<a href='#{remote_or_hovercard_link}' data-hovercard='#{remote_or_hovercard_link}'>
+          "<a href='#{remote_or_hovercard_link}' data-hovercard='#{remote_or_hovercard_link}' class='#{opts[:class]}' >
         #{h(person.name)}
       </a>".html_safe
     end
