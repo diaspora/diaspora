@@ -12,28 +12,30 @@
       = current_user.first_name
 
   .section
-    = link_to "Get Started", getting_started_path
+    %ul.left_nav
+      %li
+        = link_to "Welcome", getting_started_path, :class => "home_selector active"
 
-//.section
-//  = render 'aspects/aspect_listings'
+  .section
+    = render 'aspects/aspect_listings'
 
-//.section
-//  = render 'tags/followed_tags_listings'
+  .section
+    = render 'tags/followed_tags_listings'
 
 .span-13.append-1
   .stream_container
-    %h3
+    %h2
       = "Welcome, #{current_user.first_name}!"
 
     %ul#getting_started
       %li.profile
         .getting_started_number
-          %h4
+          %h3
             1
         .content
           #getting_started_profile_photo
             = person_image_link(current_user.person, :size => :thumb_medium)
-          %h4
+          %h3
             = t(".fill_out_your_profile")
           %p
             = t(".profile_description")
@@ -47,10 +49,10 @@
 
       %li.services
         .getting_started_number
-          %h4
+          %h3
             2
         .content
-          %h4
+          %h3
             = t('.connect_to_your_other_social_networks')
         #getting_started_service_icons
           - AppConfig.configured_services.each do |service|
@@ -59,44 +61,96 @@
 
       %li
         .getting_started_number
-          %h4
+          %h3
             3
         .content
-          %h4
+          %h3
             = t(".connect_with_people")
 
+          %p
+            Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily.
+
           #diaspora_hq_pane
-            - person = Person.first
-            = person_image_link(Person.first)
-            .add_to_aspect
-              = render :partial => 'people/relationship_action',
-                :locals => { :person => Person.first,
-                              :contact => current_user.contact_for(Person.first),
-                              :current_user => current_user }
+            - person = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
+            = person_image_link(person, :size => :thumb_medium)
 
             .name
               = person_link(person)
 
             .info
-              Get updates about the project.
+              Get updates about the project from the core team.
+
+            .add_to_aspect
+              = render :partial => 'people/relationship_action',
+                :locals => { :person => person,
+                              :contact => current_user.contact_for(person),
+                              :current_user => current_user }
+
+          #featured_users_pane 
+            %h4
+              Featured users
+
+            %div
+              - Person.featured_users[0..5].each do |person|
+                .featured_user_card_small
+                  = person_image_link(person)
+                  = link_to person.name, person_path(person)
+                  - person.profile.tags[0..2].each do |tg|
+                    = "##{tg}"
+
+            = link_to "See all featured users ->", "#"
+
+          %br
+          #find_friends_pane
+            %h4
+              Find friends
+            .span-5.append-1
+              #global_search
+                = form_tag(people_path, :method => 'get', :id => "global_search_form") do
+                  = text_field_tag 'q', nil, :placeholder => "Search for people", :type => 'search', :results => 5
+            .span-5.last
+              %p
+                or
+                = link_to "find friends from Facebook", "#"
+            .clearfix
+            %br
 
       %li
         .getting_started_number
-          %h4
+          %h3
             4
         .content
-          %h4
+          %h3
             = t(".follow_your_interests")
 
           %p
-            popular/curated tags?  person's tags?
+            Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora.
+
+          .span-5.append-1
+            #global_search
+              = form_tag(people_path, :method => 'get', :id => "global_search_form") do
+                = text_field_tag 'q', nil, :placeholder => "Search for #hashtags", :type => 'search', :results => 5
+          .span-5.last
+            %h4
+              Featured tags
+            %p
+              = link_to "#diaspora", "#"
+              %br
+              = link_to "#kittens", "#"
+              %br
+              = link_to "#puppies", "#"
+              %br
+              = link_to "#maddog", "#"
+          .clearfix
+            %br
+          %br
 
       %li
         .getting_started_number
-          %h4
+          %h3
             5
         .content
-          %h4
+          %h3
             = t(".connect_to")
             = link_to "Cubbi.es", "http://cubbi.es/"
           %p

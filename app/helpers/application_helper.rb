@@ -111,7 +111,11 @@ module ApplicationHelper
   end
 
   def controller_index_path
-    self.send((request.filtered_parameters["controller"] + "_path").to_sym)
+    kontroller = request.filtered_parameters["controller"]
+    if kontroller.downcase != "contacts"
+      kontroller = "aspects"
+    end
+    self.send((kontroller + "_path").to_sym)
   end
 
   def left_nav_root

@@ -1109,7 +1109,7 @@ img.scaled_full
     img
       :height 140px
 
-#global_search
+header #global_search
   :display inline
   :position relative
 
@@ -3188,7 +3188,7 @@ ul#getting_started
   :padding 0
   :margin 0
 
-  li
+  > li
     :position relative
     :border
       :bottom 1px solid #ddd
@@ -3199,6 +3199,9 @@ ul#getting_started
     .content
       :padding
         :left 30px
+
+    input[type='search']
+      :width 210px
 
   .profile
     :min-height 170px
@@ -3232,33 +3235,36 @@ ul#getting_started
 
 #diaspora_hq_pane
   :padding
-    :top 10px
+    :bottom 20px
   :min-height 70px
 
   .add_to_aspect
-    :float right
+    :padding 10px 0 
 
   .avatar
     :float left
     :margin
       :right 10px
 
+    :height 70px
+    :width 70px
+
   .name
     :font
       :weight bold
 
 .cubbies_images
-  :margin-left 50px
+  :margin-left 15px
 
 .cubbies_user_page_small
   :position absolute
-  :left 250px
+  :left 270px
 
 .getting_started_number
   :position absolute
   :left 0
 
-  h4
+  h3
     :display inline
     :background
       :color #eee
@@ -3267,12 +3273,42 @@ ul#getting_started
     :margin
       :right 8px
 
-.completed
+.profile .profile_field
   :background
-    :image url('/images/icons/check_yes_ok.png')
-    :position center right
+    :image url('/images/icons/monotone_question.png')
+    :position center left 
     :repeat no-repeat
 
-.profile .profile_field
   :padding
-    :right 20px
+    :left 20px
+
+.completed
+  :background
+    :image url('/images/icons/check_yes_ok.png') !important
+
+#featured_users_pane
+  :padding 10px 0
+
+  .featured_user_card_small
+    :display inline-block
+
+    :width 140px
+    :height 30px
+
+    :vertical-align top
+    :position relative
+
+    :padding 5px
+    :margin
+      :bottom 10px
+
+    a
+      :font
+        :weight bold
+
+    .avatar
+      :height 30px
+      :width 30px
+      :margin
+        :right 5px
+      :float left
