@@ -1,0 +1,159 @@
+# Croatian translation for Ruby on Rails
+# by Marjan Vrban (mvrban@gmail.com)
+
+"hr":
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%B %e, %Y"
+      only_day: "%e"
+
+    day_names:
+      - Nedjelja
+      - Ponedjeljak
+      - Utorak
+      - Srijeda
+      - Četvrtak
+      - Petak
+      - Subota
+    abbr_day_names:
+      - Ned
+      - Pon
+      - Uto
+      - Sre
+      - Čet
+      - Pet
+      - Sub
+    month_names:
+      - ~
+      - Siječanj
+      - Veljača
+      - Ožujak
+      - Travanj
+      - Svibanj
+      - Lipanj
+      - Srpanj
+      - Kolovoz
+      - Rujan
+      - Listopad
+      - Studeni
+      - Prosinac
+    abbr_month_names:
+      - ~
+      - Sij
+      - Vel
+      - Ožu
+      - Tra
+      - Svi
+      - Lip
+      - Srp
+      - Kol
+      - Ruj
+      - Lis
+      - Stu
+      - Pro
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+
+      am: 'AM'
+      pm: 'PM'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'pola minute'
+      less_than_x_seconds:
+        zero: 'manje od 1 sekunde'
+        one: 'manje od 1 sekunde'
+        few: 'manje od %{count} sekunde'
+        other: 'manje od %{count} sekundi'
+      x_seconds:
+        one: '1 sekunda'
+        few: '%{count} sekunde'
+        other: '%{count} sekundi'
+      less_than_x_minutes:
+        zero: 'manje od minute'
+        one: 'manje od 1 minute'
+        other: 'manje od %{count} minuta'
+      x_minutes:
+        one: '1 minuta'
+        other: '%{count} minuta-e'
+      about_x_hours:
+        one: 'oko 1 sat'
+        few: 'oko %{count} sata'
+        other: 'oko %{count} sati'
+      x_days:
+        one: '1 dan'
+        other: '%{count} dana'
+      about_x_months:
+        one: 'oko 1 mjesec'
+        few: 'oko %{count} mjeseca'
+        other: 'oko %{count} mjeseci'
+      x_months:
+        one: '1 mjesec'
+        few: '%{count} mjeseca'
+        other: '%{count} mjeseci'
+      about_x_years:
+        one: 'oko 1 godine'
+        other: 'oko %{count} godine'
+      over_x_years:
+        one: 'preko 1 godine'
+        other: 'preko %{count} godine'
+
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'Kn'
+        precision: 2
+        format: '%n %u'
+
+  support:
+    array:
+      sentence_connector: "i"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: 'Nisam uspio spremiti %{model}: 1 greška'
+          few: 'Nisam uspio spremiti %{model}: %{count} greške.'
+          other: 'Nisam uspio spremiti %{model}: %{count} greški.'
+        body: "Molim Vas provjerite slijedeća polja:"
+      messages:
+        inclusion: "nije u listi"
+        exclusion: "nije dostupno"
+        invalid: "nije ispravan"
+        confirmation: "se ne slaže sa svojom potvrdom"
+        accepted: "mora biti prihvaćen"
+        empty: "mora biti ispunjen"
+        blank: "mora biti ispunjen"
+        too_long: "je predugačak (ne više od %{count} karaktera)"
+        too_short: "je prekratak (ne manje od %{count} karaktera)"
+        wrong_length: "nije odgovarajuće dužine (mora imati %{count} karaktera)"
+        taken: "je zauzeto"
+        not_a_number: "nije broj"
+        greater_than: "mora biti veće od %{count}"
+        greater_than_or_equal_to: "mora biti veće ili jednako %{count}"
+        equal_to: "mora biti jednako %{count}"
+        less_than: "mora biti manje od %{count}"
+        less_than_or_equal_to: "mora biti manje ili jednako %{count}"
+        odd: "mora biti neparno"
+        even: "mora biti parno"

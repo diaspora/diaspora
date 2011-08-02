@@ -1,0 +1,8 @@
+== Near future
+
+
+
+== Distant future
+
+* split interpolate_core and make it more reusable by raw data (e.g. pattern content)
+* allow different descriptions for aliases pointing to the same token, e.g.: now: @present ="description"

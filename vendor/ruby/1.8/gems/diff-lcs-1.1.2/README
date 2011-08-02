@@ -1,0 +1,76 @@
+Diff::LCS README
+================
+Diff::LCS is a port of Algorithm::Diff[1] that uses the McIlroy-Hunt
+longest common subsequence (LCS) algorithm to compute intelligent
+differences between two sequenced enumerable containers[2]. The
+implementation is based on Mario I. Wolczko's[3] Smalltalk version (1.2,
+1993)[4] and Ned Konz's[5] Perl version (Algorithm::Diff)[6].
+
+This release is version 1.1.2, fixing an htmldiff bug in 1.1.1. Version 1.1.0
+added new features, including the ability to #patch and #unpatch changes as
+well as a new contextual diff callback, Diff::LCS::ContextDiffCallbacks, that
+should improve the context sensitivity of patching.
+
+Using this module is quite simple. By default, Diff::LCS does not extend
+objects with the Diff::LCS interface, but will be called as if it were a
+function:
+
+  require 'diff/lcs'
+
+  seq1 = %w(a b c e h j l m n p)
+  seq2 = %w(b c d e f j k l m r s t)
+
+  lcs = Diff::LCS.LCS(seq1, seq2)
+  diffs = Diff::LCS.diff(seq1, seq2)
+  sdiff = Diff::LCS.sdiff(seq1, seq2)
+  seq = Diff::LCS.traverse_sequences(seq1, seq2, callback_obj)
+  bal = Diff::LCS.traverse_balanced(seq1, seq2, callback_obj)
+  seq2 == Diff::LCS.patch!(seq1, diffs)
+  seq1 == Diff::LCS.unpatch!(seq2, diffs)
+  seq2 == Diff::LCS.patch!(seq1, sdiff)
+  seq1 == Diff::LCS.unpatch!(seq2, sdiff)
+
+Objects can be extended with Diff::LCS:
+
+  seq1.extend(Diff::LCS)
+  lcs = seq1.lcs(seq2)
+  diffs = seq1.diff(seq2)
+  sdiff = seq1.sdiff(seq2)
+  seq = seq1.traverse_sequences(seq2, callback_obj)
+  bal = seq1.traverse_balanced(seq2, callback_obj)
+  seq2 == seq1.patch!(diffs)
+  seq1 == seq2.unpatch!(diffs)
+  seq2 == seq1.patch!(sdiff)
+  seq1 == seq2.unpatch!(sdiff)
+
+By requiring 'diff/lcs/array' or 'diff/lcs/string', Array or String will
+be extended for use this way.
+
+Copyright
+=========
+# Copyright 2004 Austin Ziegler <diff-lcs@halostatue.ca>
+#   adapted from:
+#     Algorithm::Diff (Perl) by Ned Konz <perl@bike-nomad.com>
+#     Smalltalk by Mario I. Wolczko <mario@wolczko.com>
+#   implements McIlroy-Hunt diff algorithm
+#
+# This program is free software. It may be redistributed and/or modified
+# under the terms of the GPL version 2 (or later), the Perl Artistic
+# licence, or the Ruby licence.
+# 
+# $Id: README,v 1.7 2004/10/17 20:31:10 austin Exp $
+
+Footnotes
+=========
+[1] This library is called Diff::LCS because there are multiple
+    Ruby libraries called Algorithm::Diff maintained by other authors.
+[2] By sequenced enumerable, I mean that the order of enumeration is
+    predictable and consistent for the same set of data. While it is
+    theoretically possible to generate a diff for unordereded hash, it
+    will only be meaningful if the enumeration of the hashes is
+    consistent. In general, this will mean that containers that behave
+    like String or Array will perform best.
+[3] mario@wolczko.com
+[4] ftp://st.cs.uiuc.edu/pub/Smalltalk/MANCHESTER/manchester/4.0/diff.st
+[5] perl@bike-nomad.com
+[6] http://search.cpan.org/~nedkonz/Algorithm-Diff-1.15/

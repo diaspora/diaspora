@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<relationship>
+  <target>
+    <followed_by type="boolean">true</followed_by>
+    <id_str>14100886</id_str>
+    <following type="boolean">true</following>
+    <screen_name>pengwynn</screen_name>
+    <id type="integer">14100886</id>
+  </target>
+  <source>
+    <marked_spam type="boolean">false</marked_spam>
+    <followed_by type="boolean">true</followed_by>
+    <notifications_enabled type="boolean">false</notifications_enabled>
+    <all_replies type="boolean">false</all_replies>
+    <id_str>7505382</id_str>
+    <want_retweets type="boolean">true</want_retweets>
+    <following type="boolean">true</following>
+    <screen_name>sferik</screen_name>
+    <id type="integer">7505382</id>
+    <blocking type="boolean">false</blocking>
+  </source>
+</relationship>

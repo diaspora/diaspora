@@ -1,0 +1,770 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="array">
+<user>
+  <id>80271961</id>
+  <name>Dave W Baldwin</name>
+  <screen_name>DaveWBaldwin</screen_name>
+  <location>Missouri</location>
+  <description>Co-Founder of start up (concept/business plan/funding)developing the true Virtual Assistant</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/1150037354/St._Louis_049_normal.JPG</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>44</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>103</friends_count>
+  <created_at>Tue Oct 06 10:47:39 +0000 2009</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset></utc_offset>
+  <time_zone></time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>642</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>3</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>139851727</id>
+  <name>Owen Pickford</name>
+  <screen_name>pickovven</screen_name>
+  <location>London</location>
+  <description>Crystal Corner Bar and Camden Crawl</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/1121583570/ProfilePic_normal.jpg</profile_image_url>
+  <url>http://last.fm/users/pickovven</url>
+  <protected>false</protected>
+  <followers_count>12</followers_count>
+  <profile_background_color>EBEBEB</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>03690f</profile_link_color>
+  <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+  <friends_count>30</friends_count>
+  <created_at>Mon May 03 21:42:47 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>0</utc_offset>
+  <time_zone>London</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme7/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>45</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>9508702</id>
+  <name>Chris Lammert</name>
+  <screen_name>ChrisLammert</screen_name>
+  <location>Austin/San Antonio/BCS , TX</location>
+  <description>Entrepreneur, Student, Dreamer. My passion is helping people and solving real problems.
+
+</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/800678090/n8373679_45152455_5250_normal.jpg</profile_image_url>
+  <url>http://chrislammert.com</url>
+  <protected>false</protected>
+  <followers_count>761</followers_count>
+  <profile_background_color>eeff03</profile_background_color>
+  <profile_text_color>000000</profile_text_color>
+  <profile_link_color>1722ed</profile_link_color>
+  <profile_sidebar_fill_color>e1ff00</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>000000</profile_sidebar_border_color>
+  <friends_count>993</friends_count>
+  <created_at>Wed Oct 17 22:15:22 +0000 2007</created_at>
+  <favourites_count>53</favourites_count>
+  <utc_offset>-21600</utc_offset>
+  <time_zone>Central Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/148884926/twilk_background_4c8fca87a2b74.jpg</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>2645</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>10</listed_count>
+  <show_all_inline_media>true</show_all_inline_media>
+  <status>
+    <created_at>Mon Oct 25 04:14:42 +0000 2010</created_at>
+    <id>28659721411</id>
+    <text>Groupon Reveals Its Future Lies In Self-Serve | Yipit Blog http://bit.ly/9XiCY7</text>
+    <source>&lt;a href=&quot;http://bit.ly&quot; rel=&quot;nofollow&quot;&gt;bitly&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>4814241</id>
+  <name>Peter Laudenslager</name>
+  <screen_name>peterl</screen_name>
+  <location>San Diego, CA, USA</location>
+  <description>Systems Engineer turned business mogul (well - in process, anyway)</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/36411442/Photo_4_normal.jpg</profile_image_url>
+  <url>http://plaudenslager.wordpress.com</url>
+  <protected>false</protected>
+  <followers_count>76</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>75</friends_count>
+  <created_at>Mon Apr 16 01:44:25 +0000 2007</created_at>
+  <favourites_count>45</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287420575/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>391</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>11</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>130815200</id>
+  <name>Minesh Bhindi</name>
+  <screen_name>MineshBhindi</screen_name>
+  <location>London,UK</location>
+  <description>Investor, Businessman, General Good Guy, Love Fast Cars, Love Making Money...</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/806707733/15833_196394771592_629426592_3146276_3990099_n_normal.jpg</profile_image_url>
+  <url>http://www.CashForLifeInvesting.com</url>
+  <protected>false</protected>
+  <followers_count>289</followers_count>
+  <profile_background_color>7f2f2f</profile_background_color>
+  <profile_text_color>a75a48</profile_text_color>
+  <profile_link_color>5e6d53</profile_link_color>
+  <profile_sidebar_fill_color>490708</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>210302</profile_sidebar_border_color>
+  <friends_count>40</friends_count>
+  <created_at>Thu Apr 08 11:55:42 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>0</utc_offset>
+  <time_zone>London</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/138454024/dragon_490_17724.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>450</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>3</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Mon Oct 25 00:41:27 +0000 2010</created_at>
+    <id>28644320816</id>
+    <text>You have to expect things of yourself before you can do them. Michael Jordan</text>
+    <source>&lt;a href=&quot;http://www.socialoomph.com&quot; rel=&quot;nofollow&quot;&gt;SocialOomph&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>14209775</id>
+  <name>Karen </name>
+  <screen_name>teamkaren</screen_name>
+  <location>Seattle </location>
+  <description></description>
+  <profile_image_url>http://a2.twimg.com/profile_images/1106570738/Untitled-2_normal.jpg</profile_image_url>
+  <url>http://www.karenmcaniff.com</url>
+  <protected>false</protected>
+  <followers_count>1187</followers_count>
+  <profile_background_color>6fc4a8</profile_background_color>
+  <profile_text_color>000000</profile_text_color>
+  <profile_link_color>999c9a</profile_link_color>
+  <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>FFFFFF</profile_sidebar_border_color>
+  <friends_count>341</friends_count>
+  <created_at>Mon Mar 24 19:00:51 +0000 2008</created_at>
+  <favourites_count>83</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/156544492/dot.jpg</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>false</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>1504</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>22</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 02:27:53 +0000 2010</created_at>
+    <id>28556049161</id>
+    <text>RT @SteveMartinToGo So great that alphabet already in alphabetical order. What a timesaver.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>106604703</id>
+  <name>Stephen Krings</name>
+  <screen_name>StephenKrings</screen_name>
+  <location></location>
+  <description></description>
+  <profile_image_url>http://a0.twimg.com/profile_images/839779276/pipe_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>4</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>22</friends_count>
+  <created_at>Wed Jan 20 02:47:47 +0000 2010</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset></utc_offset>
+  <time_zone></time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>12</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>35045741</id>
+  <name>yossi acrich</name>
+  <screen_name>yossiacrich</screen_name>
+  <location>California</location>
+  <description></description>
+  <profile_image_url>http://a0.twimg.com/profile_images/1144799016/IMG_6103s_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>36</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>75</friends_count>
+  <created_at>Fri Apr 24 21:25:53 +0000 2009</created_at>
+  <favourites_count>13</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>22</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>1827121</id>
+  <name>Michael Kingery</name>
+  <screen_name>MKingery</screen_name>
+  <location>Omaha Nebraska</location>
+  <description>Concept artist at a small iPhone dev!</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/30320562/MWK48_normal.png</profile_image_url>
+  <url>http://www.michaelkingery.com</url>
+  <protected>false</protected>
+  <followers_count>94</followers_count>
+  <profile_background_color>1A1B1F</profile_background_color>
+  <profile_text_color>666666</profile_text_color>
+  <profile_link_color>2FC2EF</profile_link_color>
+  <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+  <friends_count>78</friends_count>
+  <created_at>Thu Mar 22 02:39:19 +0000 2007</created_at>
+  <favourites_count>55</favourites_count>
+  <utc_offset>-21600</utc_offset>
+  <time_zone>Central Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1286487625/images/themes/theme9/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>759</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>5</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sat Oct 23 16:09:59 +0000 2010</created_at>
+    <id>28513639580</id>
+    <text>RT @davechensky: Mr. @mattzollerseitz writes on Mel Gibson, The Hangover 2, and Hollywood's double standard on public disgrace: http://b ...</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>true</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Sat Oct 23 13:17:05 +0000 2010</created_at>
+      <id>28499128242</id>
+      <text>Mr. @mattzollerseitz writes on Mel Gibson, The Hangover 2, and Hollywood's double standard on public disgrace: http://bit.ly/by5tD5</text>
+      <source>&lt;a href=&quot;http://www.echofon.com/&quot; rel=&quot;nofollow&quot;&gt;Echofon&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>146954359</id>
+  <name>Mika Kangas</name>
+  <screen_name>MPKangas</screen_name>
+  <location>FIN</location>
+  <description></description>
+  <profile_image_url>http://a2.twimg.com/profile_images/1149310938/03042010060_1__normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>11</followers_count>
+  <profile_background_color>76911E</profile_background_color>
+  <profile_text_color>827a82</profile_text_color>
+  <profile_link_color>7ECC0A</profile_link_color>
+  <profile_sidebar_fill_color>07090b</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>BFBFBF</profile_sidebar_border_color>
+  <friends_count>47</friends_count>
+  <created_at>Sat May 22 20:10:28 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>7200</utc_offset>
+  <time_zone>Helsinki</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/131871404/x0f6a27f7c1f828f40bda90396774bd2.png</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>231</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>3</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>14421765</id>
+  <name>Bill Cason</name>
+  <screen_name>wccason</screen_name>
+  <location>Austin</location>
+  <description>Seasoned geek</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/52923394/me_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>170</followers_count>
+  <profile_background_color>EDECE9</profile_background_color>
+  <profile_text_color>634047</profile_text_color>
+  <profile_link_color>088253</profile_link_color>
+  <profile_sidebar_fill_color>E3E2DE</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>D3D2CF</profile_sidebar_border_color>
+  <friends_count>156</friends_count>
+  <created_at>Thu Apr 17 15:12:26 +0000 2008</created_at>
+  <favourites_count>3</favourites_count>
+  <utc_offset>-21600</utc_offset>
+  <time_zone>Central Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/4502224/DSC03179.JPG</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>829</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>101843967</id>
+  <name>Matthew McCahey</name>
+  <screen_name>MatthewMcCahey</screen_name>
+  <location>London, UK</location>
+  <description></description>
+  <profile_image_url>http://a3.twimg.com/profile_images/849772075/mattmx_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>17</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>47</friends_count>
+  <created_at>Mon Jan 04 19:35:14 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>0</utc_offset>
+  <time_zone>London</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>25</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>1</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>15312242</id>
+  <name>Ugur Tarlig</name>
+  <screen_name>UgurTarlig</screen_name>
+  <location>&#220;T: 52.523458,13.404294</location>
+  <description>Entrepreneur from Berlin/Germany</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/1134038457/me_normal.PNG</profile_image_url>
+  <url>http://www.facebook.com/tarlig</url>
+  <protected>false</protected>
+  <followers_count>122</followers_count>
+  <profile_background_color>0099B9</profile_background_color>
+  <profile_text_color>3C3940</profile_text_color>
+  <profile_link_color>0099B9</profile_link_color>
+  <profile_sidebar_fill_color>95E8EC</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>5ED4DC</profile_sidebar_border_color>
+  <friends_count>137</friends_count>
+  <created_at>Thu Jul 03 20:28:03 +0000 2008</created_at>
+  <favourites_count>380</favourites_count>
+  <utc_offset>3600</utc_offset>
+  <time_zone>Berlin</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287774835/images/themes/theme4/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>1247</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>1</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Thu Oct 21 00:39:49 +0000 2010</created_at>
+    <id>27980403914</id>
+    <text>RT @tariqkrim: @martinvars Apple just launched the 1000 dollars netbook.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Wed Oct 20 22:03:45 +0000 2010</created_at>
+      <id>27968279294</id>
+      <text>@martinvars Apple just launched the 1000 dollars netbook.</text>
+      <source>&lt;a href=&quot;http://twitter.com&quot; rel=&quot;nofollow&quot;&gt;Tweetie for Mac&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id>27967337656</in_reply_to_status_id>
+      <in_reply_to_user_id>781293</in_reply_to_user_id>
+      <in_reply_to_screen_name>martinvars</in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>15230887</id>
+  <name>Dustin Clingman</name>
+  <screen_name>dclingman</screen_name>
+  <location>Orlando Florida</location>
+  <description>CEO IMI Labs. Game Developer. Space Nut. Keeper of inane trivia.</description>
+  <profile_image_url>http://a3.twimg.com/profile_images/904653483/cd94b06d-3434-4d54-bc23-0c50fd89de03_normal.png</profile_image_url>
+  <url>http://www.dustinclingman.com</url>
+  <protected>false</protected>
+  <followers_count>592</followers_count>
+  <profile_background_color>ACDED6</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>038543</profile_link_color>
+  <profile_sidebar_fill_color>F6F6F6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>EEEEEE</profile_sidebar_border_color>
+  <friends_count>107</friends_count>
+  <created_at>Wed Jun 25 13:28:55 +0000 2008</created_at>
+  <favourites_count>7</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Quito</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme18/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>3147</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>50</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>41068320</id>
+  <name>Ercan Turfan</name>
+  <screen_name>eturfan</screen_name>
+  <location></location>
+  <description>Owner &amp; CEO , SFS</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/1125515553/FotoSirket_normal.jpg</profile_image_url>
+  <url>http://www.sfsglobal.com</url>
+  <protected>false</protected>
+  <followers_count>8</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>23</friends_count>
+  <created_at>Tue May 19 06:25:23 +0000 2009</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>18</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>18013277</id>
+  <name>Jason Miller</name>
+  <screen_name>jreedmiller</screen_name>
+  <location>Venice, CA</location>
+  <description>airplanes, music, food</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/80850793/nnn_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>156</followers_count>
+  <profile_background_color>0b0e0f</profile_background_color>
+  <profile_text_color>7c4003</profile_text_color>
+  <profile_link_color>d22804</profile_link_color>
+  <profile_sidebar_fill_color>f0e58e</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>dfb734</profile_sidebar_border_color>
+  <friends_count>111</friends_count>
+  <created_at>Wed Dec 10 05:37:47 +0000 2008</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/3562206/saturnamaze.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>498</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>1</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 19:08:15 +0000 2010</created_at>
+    <id>28620478549</id>
+    <text>Taste of Abbott Kinney today 3-7pm see you there</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>163875308</id>
+  <name>Krista Rantasaari</name>
+  <screen_name>k_rantasaari</screen_name>
+  <location>Finland</location>
+  <description>Interested in VC, startups, CSR. </description>
+  <profile_image_url>http://a3.twimg.com/profile_images/1126111815/bigthumb-1_normal.jpeg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>49</followers_count>
+  <profile_background_color>131516</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>009999</profile_link_color>
+  <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+  <friends_count>172</friends_count>
+  <created_at>Wed Jul 07 14:02:59 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Quito</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme14/bg.gif</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>62</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>174408001</id>
+  <name>Alberto De Lucca</name>
+  <screen_name>mnmlgeek</screen_name>
+  <location>Caracas</location>
+  <description>Minimalist tweets on geekdom, mac, movies, design, productivity and business models.</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/1150566353/adldesign_new_normal.jpg</profile_image_url>
+  <url>http://www.albertodelucca.com</url>
+  <protected>false</protected>
+  <followers_count>105</followers_count>
+  <profile_background_color>022330</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>C0DFEC</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>a8c7f7</profile_sidebar_border_color>
+  <friends_count>59</friends_count>
+  <created_at>Tue Aug 03 21:26:06 +0000 2010</created_at>
+  <favourites_count>63</favourites_count>
+  <utc_offset>-16200</utc_offset>
+  <time_zone>Caracas</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287774835/images/themes/theme15/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications></notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following></following>
+  <statuses_count>649</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent></follow_request_sent>
+  <listed_count>6</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Mon Oct 25 06:29:43 +0000 2010</created_at>
+    <id>28666560276</id>
+    <text>@upgradereality Very good beginner's resource on affiliate marketing. Thanks for sharing mate.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id>28663587844</in_reply_to_status_id>
+    <in_reply_to_user_id>15535360</in_reply_to_user_id>
+    <in_reply_to_screen_name>upgradereality</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+</users>

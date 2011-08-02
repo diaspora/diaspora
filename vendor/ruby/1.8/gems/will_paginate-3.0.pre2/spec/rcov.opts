@@ -1,0 +1,2 @@
+--exclude ^\/,^spec\/,core_ext.rb,deprecation.rb
+--no-validator-links

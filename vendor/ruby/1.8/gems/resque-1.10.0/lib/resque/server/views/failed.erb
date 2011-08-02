@@ -1,0 +1,53 @@
+<%start = params[:start].to_i %>
+<%failed = Resque::Failure.all(start, 20)%>
+<% index = 0 %>
+
+<h1>Failed Jobs</h1>
+<%unless failed.empty?%>
+<form method="POST" action="<%=u 'failed/clear'%>" class='clear-failed'>
+  <input type='submit' name='' value='Clear Failed Jobs' />
+</form>
+<%end%>
+
+<p class='sub'>Showing <%=start%> to <%= start + 20 %> of <b><%= size = Resque::Failure.count %></b> jobs</p>
+
+<ul class='failed'>
+  <%for job in failed%>
+    <% index += 1 %>
+    <li>
+      <dl>
+        <dt>Worker</dt>
+        <dd>
+          <a href="<%= url(:workers, job['worker']) %>"><%= job['worker'].split(':')[0...2].join(':') %></a> on <b class='queue-tag'><%= job['queue'] %></b > at <b><span class="time"><%= job['failed_at'] %></span></b>
+          <div class='retry'>
+            <% if job['retried_at'] %>
+              Retried <b><span class="time"><%= job['retried_at'] %></span></b>
+            <% else %>
+              <a href="<%= u "failed/requeue/#{start + index - 1}" %>" rel="retry">Retry</a>
+            <% end %>
+          </div>
+        </dd>
+        <dt>Class</dt>
+        <dd><code><%= job['payload'] ? job['payload']['class'] : 'nil' %></code></dd>
+        <dt>Arguments</dt>
+        <dd><pre><%=h job['payload'] ? show_args(job['payload']['args']) : 'nil' %></pre></dd>
+        <dt>Exception</td>
+        <dd><code><%= job['exception'] %></code></dd>
+        <dt>Error</dt>
+        <dd class='error'>
+          <% if job['backtrace'] %>
+            <a href="#" class="backtrace"><%= h(job['error']) %></a>
+            <pre style='display:none'><%=h job['backtrace'].join("\n") %></pre>
+          <% else %>
+            <%=h job['error'] %>
+          <% end %>
+        </dd>
+      </dl>
+      <div class='r'>
+      </div>
+    </li>
+  <%end%>
+</ul>
+
+<%= partial :next_more, :start => start, :size => size %>
+

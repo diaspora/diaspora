@@ -1,0 +1,47 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xml:lang="en" lang="en">
+<head>
+<script type="text/javascript" src="/newrelic/file/javascript/jquery-1.4.2.js"></script>
+<title>New Relic Developer Mode</title>
+	<link href="/newrelic/file/stylesheets/style.css" 
+				media="screen" rel="stylesheet" type="text/css" />
+</head>
+<body>
+	<div id="header">
+		<img width="100%" height="4" src="/newrelic/file/images/blue_bar.gif" alt="spacer"/>
+		<table width="100%" height="60">
+			<tr>
+				<td valign="middle">
+					<a href='/newrelic'><img src="/newrelic/file/images/new_relic_rpm_desktop.gif" hspace="10" alt="New Relic"/></a>
+				</td>
+				<td class="top_nav" valign="bottom">
+					<ul id="navlist">
+						<li>&raquo; <a href='/newrelic'>Home</a></li>
+					</ul>
+				</td>
+			</tr>
+		</table>
+		<div id="page_nav">
+			<table width="100%" height="100%" background="/newrelic/file/images/gray_bar.gif">
+				<tr valign="middle">
+					<td>
+						<span class="application_title">Developer Mode</span>
+					</td>
+					<td class="title_bar_right">
+						Monitor your Rails Application in production. <%=link_to 'Learn more.', 'http://www.newrelic.com/dev-upgrade.html' %>
+					</td>
+				</tr>
+			</table>
+		</div>
+	</div>
+	<div id='content'>
+		<%= yield %>
+	</div>
+	<div id='footer'>
+		<img width="100%" height="4" src="/newrelic/file/images/blue_bar.gif" alt="spacer"/>
+		<p>
+		<a href="/newrelic">Home</a> | <a href="&#109;&#97;&#105;&#108;&#116;&#111;:&#x73;&#x75;&#x70;&#112;&#111;&#x72;&#116;&#x40;&#x6E;&#x65;&#119;&#114;&#x65;&#x6C;&#105;&#x63;&#x2E;&#99;&#x6F;&#109;?subject=&#70;&#101;&#x65;&#x64;&#x62;&#x61;&#x63;&#107;" title="">&#x46;&#x65;&#101;&#x64;&#98;&#97;&#x63;&#x6B;</a><br />
+		Monitor your Rails Application in Production. <a href="http://www.newrelic.com/dev-upgrade.html">Learn more. &raquo;</a><br />
+		&copy; 2008 - <%= Time.now.strftime('%Y') %> New Relic. All rights reserved.</p>
+	</div>
+</body>

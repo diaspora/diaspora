@@ -1,0 +1,215 @@
+Mon Jan 23 12:48:00 PST 2006  brian@janrain.com
+  * fixed bug in expiresIn.  added expired? method
+
+    M ./lib/openid/filestore.rb -1 +1
+    M ./lib/openid/stores.rb +4
+
+Mon Jan 23 12:46:37 PST 2006  brian@janrain.com
+  * removed deps section from INSTALL file.  deps are now included in lib because they are so small and to lower to bar of installing the library.
+
+    M ./INSTALL -9
+
+Tue Jan 17 14:45:57 PST 2006  brian@janrain.com
+  * added better handling of non-URL input
+
+    M ./lib/openid/consumer.rb -1 +5
+
+Sat Jan 14 19:39:57 PST 2006  brian@janrain.com
+  * added html and hmac deps into lib since they are so small
+
+    A ./lib/hmac-md5.rb
+    A ./lib/hmac-rmd160.rb
+    A ./lib/hmac-sha1.rb
+    A ./lib/hmac-sha2.rb
+    A ./lib/hmac.rb
+    A ./lib/html/
+    A ./lib/html/htmltokenizer.rb
+
+Mon Jan 16 15:04:05 PST 2006  Josh Hoyt <josh@janrain.com>
+  * Add script that will prepare the repository for release
+
+    A ./admin/fixperms
+    A ./admin/prepare-release
+
+Mon Jan 16 14:35:27 PST 2006  Josh Hoyt <josh@janrain.com>
+  * Add custom boring file
+
+    A ./admin/darcs-ignore
+
+Mon Jan 16 14:07:13 PST 2006  Josh Hoyt <josh@janrain.com>
+  * Put the build-docs script into the admin directory
+
+     ./build-docs -> ./admin/build-docs
+    A ./admin/
+
+Mon Jan 16 14:05:47 PST 2006  Josh Hoyt <josh@janrain.com>
+  * Add script to build documentation
+
+    A ./build-docs
+
+Wed Jan  4 16:06:41 PST 2006  brian@janrain.com
+  tagged ruby-openid-0.9.2
+
+
+Wed Jan  4 16:02:32 PST 2006  brian@janrain.com
+  * added openid_login_generator rails generator to examples
+
+    A ./examples/openid_login_generator/
+    A ./examples/openid_login_generator/USAGE
+    A ./examples/openid_login_generator/openid_login_generator.rb
+    A ./examples/openid_login_generator/templates/
+    A ./examples/openid_login_generator/templates/README
+    A ./examples/openid_login_generator/templates/controller.rb
+    A ./examples/openid_login_generator/templates/helper.rb
+    A ./examples/openid_login_generator/templates/login_system.rb
+    A ./examples/openid_login_generator/templates/user.rb
+    A ./examples/openid_login_generator/templates/view_login.rhtml
+    A ./examples/openid_login_generator/templates/view_logout.rhtml
+    A ./examples/openid_login_generator/templates/view_signup.rhtml
+    A ./examples/openid_login_generator/templates/view_welcome.rhtml
+
+Wed Jan  4 16:01:12 PST 2006  brian@janrain.com
+  * updated examples README to include openid_login_generator
+
+    M ./examples/README +11
+
+Wed Jan  4 14:58:24 PST 2006  brian@janrain.com
+  * added link to ruby library from consumer.rb example
+
+    M ./examples/consumer.rb -1 +1
+
+Wed Jan  4 10:56:45 PST 2006  brian@janrain.com
+  * ensure Content-type header is present for POSTs
+
+    M ./lib/openid/fetchers.rb -1 +2
+
+Fri Dec 30 17:05:25 PST 2005  brian@janrain.com
+  tagged ruby-openid-0.9.1
+
+
+Fri Dec 30 17:03:54 PST 2005  brian@janrain.com
+  * added Ruby on Rails example consumer
+
+    M ./examples/README -1 +14
+    A ./examples/openid_rails.tar.gz
+
+Thu Dec 29 16:00:20 PST 2005  brian@janrain.com
+  tagged ruby-openid-0.9.0
+
+
+Thu Dec 29 15:43:07 PST 2005  brian@janrain.com
+  * removed docs directory. generated rdoc html will be added manually to tarballs, and not be kept in repository
+
+    R ./docs/
+    R ./docs/README
+
+Thu Dec 29 15:21:21 PST 2005  brian@janrain.com
+  * added more docs for stores
+
+    M ./TODO -2 +4
+    M ./lib/openid/filestore.rb -16 +3
+    M ./lib/openid/stores.rb -9 +1
+
+Thu Dec 29 14:58:52 PST 2005  brian@janrain.com
+  * Huge documentation patch
+
+    M ./INSTALL -12 +22
+    M ./README -1 +1
+    M ./lib/openid/consumer.rb -24 +370
+    M ./lib/openid/fetchers.rb -2 +1
+    M ./lib/openid/filestore.rb -6 +4
+    M ./lib/openid/stores.rb -2 +1
+
+Thu Dec 29 10:59:54 PST 2005  brian@janrain.com
+  * added more info and rdoc formatting to README
+
+    M ./README -10 +26
+
+Thu Dec 29 09:45:51 PST 2005  brian@janrain.com
+  * fixed bad comment
+
+    M ./examples/consumer.rb -1 +1
+
+Wed Dec 28 17:59:48 PST 2005  brian@janrain.com
+  * added platform agnositc temp dir discovery
+
+    M ./examples/consumer.rb -1 +5
+
+Wed Dec 28 17:13:21 PST 2005  brian@janrain.com
+  * moved getOpenIDParamerters to util
+
+    M ./lib/openid/consumer.rb -10 +2
+    M ./lib/openid/util.rb +8
+
+Wed Dec 28 15:47:51 PST 2005  brian@janrain.com
+  * code cleanup
+
+    M ./lib/openid/consumer.rb -5
+
+Wed Dec 28 15:29:31 PST 2005  brian@janrain.com
+  * added linkparse to test suite script
+
+    M ./test/runtests -1 +1
+
+Wed Dec 28 15:29:07 PST 2005  brian@janrain.com
+  * added link parsing tests, lots of em
+
+    A ./test/linkparse.rb
+
+Wed Dec 28 15:28:07 PST 2005  brian@janrain.com
+  * link parsing more robust: handle non-html data, and make sure link tag is in head
+
+    M ./lib/openid/parse.rb -5 +13
+
+Tue Dec 27 16:11:09 PST 2005  brian@janrain.com
+  * added more tests for openid/util
+
+    M ./test/dh.rb -2 +1
+    M ./test/runtests +1
+    A ./test/util.rb
+
+Tue Dec 27 16:10:28 PST 2005  brian@janrain.com
+  * change util methods to use all use /dev/urandom if available
+
+    M ./lib/openid/util.rb -15 +35
+
+Tue Dec 27 16:09:53 PST 2005  brian@janrain.com
+  * changed tmp pathname to something more useful
+
+    M ./examples/consumer.rb -1 +1
+
+Fri Dec 16 09:04:59 PST 2005  Josh Hoyt <josh@janrain.com>
+  * Removed (now obsolete) interface.rb
+  
+  This has been subsumed by consumer.rb
+
+    R ./lib/openid/interface.rb
+
+Thu Dec 15 18:25:04 PST 2005  brian@janrain.com
+  * initial checkin
+
+    A ./COPYING
+    A ./INSTALL
+    A ./README
+    A ./TODO
+    A ./docs/
+    A ./docs/README
+    A ./examples/
+    A ./examples/README
+    A ./examples/consumer.rb
+    A ./lib/
+    A ./lib/openid/
+    A ./lib/openid/consumer.rb
+    A ./lib/openid/dh.rb
+    A ./lib/openid/fetchers.rb
+    A ./lib/openid/filestore.rb
+    A ./lib/openid/interface.rb
+    A ./lib/openid/parse.rb
+    A ./lib/openid/stores.rb
+    A ./lib/openid/util.rb
+    A ./setup.rb
+    A ./test/
+    A ./test/assoc.rb
+    A ./test/dh.rb
+    A ./test/runtests
+    A ./test/teststore.rb

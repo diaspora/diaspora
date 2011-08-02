@@ -1,0 +1,27 @@
+class Testing
+  def pub; end
+  
+  private
+
+  def priv; end
+  def notpriv; end
+  def notpriv2; end
+  def notpriv?; end
+
+  protected
+
+  def prot; end
+
+  public
+
+  def pub2; end
+
+  protected :notpriv, 'notpriv2', :notpriv?
+  
+  private name
+  private *argument
+  private *(method_call)
+  
+  def Foo; end
+  private :Foo
+end

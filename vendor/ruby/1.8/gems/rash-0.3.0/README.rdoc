@@ -1,0 +1,58 @@
+= rash
+
+Rash is an extension to Hashie ( http://github.com/intridea/hashie )
+
+Rash subclasses Hashie::Mash to convert all keys in the hash to underscore
+
+The purpose of this is when working w/ Java (or any other apis) that return hashes (including nested) that have camelCased keys
+
+You will now be able to access those keys through underscored key names (camelCase still available)
+
+== Usage
+
+  @rash = Hashie::Rash.new({
+    "varOne" => 1, 
+    "two" => 2, 
+    :three => 3, 
+    :varFour => 4, 
+    "fiveHumpHumps" => 5, 
+    :nested => {
+      "NestedOne" => "One", 
+      :two => "two",
+      "nested_three" => "three"
+    },
+    "nestedTwo" => {
+      "nested_two" => 22,
+      :nestedThree => 23
+    }
+  })
+  
+  @rash.var_one               # => 1
+  @rash.two                   # => 2
+  @rash.three                 # => 3
+  @rash.var_four              # => 4
+  @rash.five_hump_humps       # => 5
+  @rash.nested.nested_one     # => "One"
+  @rash.nested.two            # => "two"
+  @rash.nested.nested_three   # => "three"
+  @rash.nested_two.nested_two # => 22
+  @rash.nested_two            # => 23
+
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Copyright
+
+Copyright (c) 2010 Tom Cocca. See LICENSE for details.
+
+=== Acknowledgements
+
+http://github.com/intridea for Hashie
+http://github.com/mislav for contributions to Rash

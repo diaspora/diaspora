@@ -1,0 +1,19 @@
+
+IdentityFile ~/.ssh/id_dsa
+IdentityFile ~/.ssh/id_rsa
+Port 1980
+
+Host test.host
+  Port 1985
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

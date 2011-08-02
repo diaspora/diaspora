@@ -1,0 +1,12 @@
+#!/usr/bin/env ruby
+#
+#  Created on 2009-2-27.
+#  Copyright (c) 2009. All rights reserved.
+
+require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', 'lib','vegas.rb'))
+
+app = Proc.new {|env| 
+  [200, {'Content-Type' => 'text/plain'}, ["This is an app. #{env.inspect}"]]
+}
+
+vegas = Vegas::Runner.new(app, 'test_rack_app')

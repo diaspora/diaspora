@@ -1,0 +1,25 @@
+module A
+  class B
+	notaconstant = 2
+    SOMECONSTANT= "hello"
+
+    def method
+      SOMECONSTANT = "don't document this"
+    end
+
+    MYCONSTANT = A +
+      B +
+      C +
+      D
+  end
+end
+
+MyClass = Struct.new(:a, :b, :c)
+NotMyClass = Struct.new("NotMyClass2", :b, :c)
+MyEmptyStruct = Struct.new
+
+# A crazy struct.
+#
+# @attr [String] bar An attr
+# @attr [Number] baz Another attr
+DocstringStruct = Struct.new(:bar, :baz)

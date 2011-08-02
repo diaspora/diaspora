@@ -1,0 +1,57 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.dirname(__FILE__) + '/../lib'
+require 'resque'
+
+def kill(worker)
+  abort "** resque kill WORKER_ID" if worker.nil?
+  pid = worker.split(':')[1].to_i
+
+  begin
+    Process.kill("KILL", pid)
+    puts "** killed #{worker}"
+  rescue Errno::ESRCH
+    puts "** worker #{worker} not running"
+  end
+
+  remove worker
+end
+
+def remove(worker)
+  abort "** resque remove WORKER_ID" if worker.nil?
+
+  Resque.remove_worker(worker)
+  puts "** removed #{worker}"
+end
+
+def list
+  if Resque.workers.any?
+    Resque.workers.each do |worker|
+      puts "#{worker} (#{worker.state})"
+    end
+  else
+    puts "None"
+  end
+end
+
+if (i = ARGV.index('-r')) && ARGV[i+1]
+  Resque.redis = ARGV[i+1]
+  ARGV.delete_at(i)
+  ARGV.delete_at(i+1)
+end
+
+case ARGV[0]
+when 'kill'
+  kill ARGV[1]
+when 'remove'
+  remove ARGV[1]
+when 'list'
+  list
+else
+  puts "Usage: resque [-r redis_host:redis_port] COMMAND [option]"
+  puts
+  puts "Commands:"
+  puts "  remove WORKER   Removes a worker"
+  puts "  kill WORKER     Kills a worker"
+  puts "  list            Lists known workers"
+end

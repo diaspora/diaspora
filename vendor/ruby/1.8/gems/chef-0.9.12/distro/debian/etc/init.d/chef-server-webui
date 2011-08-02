@@ -1,0 +1,123 @@
+#! /bin/sh
+### BEGIN INIT INFO
+# Provides:           chef-server-webui
+# Required-Start:     $remote_fs $network chef-server
+# Required-Stop:      $remote_fs $network chef-server
+# Default-Start:      2 3 4 5
+# Default-Stop:       0 1 6
+# Short-Description:  Start a chef-server-webui
+### END INIT INFO
+#
+# Copyright (c) 2009-2010 Opscode, Inc <legal@opscode.com>
+#
+# chef-server-webui   Startup script for chef-server-webui.
+# chkconfig: - 95 02
+# description: starts up chef-server webui.
+
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+DAEMON=/usr/bin/chef-server-webui
+PIDFILE=/var/run/chef/server-webui.%s.pid
+MAINPID=/var/run/chef/server-webui.main.pid
+NAME=chef-server-webui
+DESC=chef-server-webui
+
+test -x $DAEMON || exit 0
+
+. /lib/lsb/init-functions
+
+[ -r /etc/default/$NAME ] && . /etc/default/$NAME
+
+if [ ! -d /var/run/chef ]; then
+  mkdir /var/run/chef
+  chown $USER:$GROUP /var/run/chef
+fi
+
+DAEMON_OPTS="-p $PORT -e production -d -a $ADAPTER -P $PIDFILE -L $LOGFILE -C $CONFIG -u $USER -G $GROUP"
+
+running() {
+  [ ! -f  "$MAINPID" ] &&  return 1
+  pid=`cat $MAINPID`
+  name=$WORKER
+  [ -z "$pid" ] && return 1
+  [ ! -d /proc/$pid ] && return 1
+  (ps -fp $pid | egrep -q "merb.*(merb : master|worker.*$PORT)") || return 1
+  return 0
+}
+
+start_server() {
+  $DAEMON $DAEMON_OPTS
+  errcode=$?
+  return $errcode
+}
+
+stop_server() {
+  $DAEMON -K all -P $PIDFILE
+  errcode=$?
+  return $errcode
+}
+
+reload_server() {
+  stop_server
+  [ -n "$DIETIME" ] && sleep $DIETIME
+  start_server
+  [ -n "$STARTTIME" ] && sleep $STARTTIME
+}
+
+case "$1" in
+  start)
+    log_daemon_msg "Starting $DESC "
+    if running ;  then
+        log_progress_msg "apparently already running"
+        log_end_msg 0
+        exit 0
+    fi
+    if start_server ; then
+        [ -n "$STARTTIME" ] && sleep $STARTTIME # Wait some time
+        if  running ;  then
+            log_end_msg 0
+        else
+            log_end_msg 1
+        fi
+    else
+        log_end_msg 1
+    fi
+    ;;
+  stop)
+    log_daemon_msg "Stopping $DESC"
+    if running ; then
+      errcode=0
+      stop_server || errcode=$?
+      log_end_msg $errcode
+    else
+      log_progress_msg "apparently not running"
+      log_end_msg 0
+      exit 0
+    fi
+    ;;
+  restart|force-reload)
+    log_daemon_msg "Restarting $DESC"
+    errcode=0
+    reload_server
+    running && errcode=$?
+    log_end_msg $errcode
+    ;;
+  status)
+    log_daemon_msg "Checking status of $DESC"
+    if running ;  then
+      log_progress_msg "running"
+      log_end_msg 0
+    else
+      log_progress_msg "apparently not running"
+      log_end_msg 1
+      exit 3
+    fi
+    ;;
+  *)
+    N=/etc/init.d/$NAME
+    echo "Usage: $N {start|stop|restart|status}" >&2
+    exit 1
+    ;;
+esac
+
+exit 0
+

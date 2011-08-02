@@ -1,0 +1,2 @@
+spec/gherkin/fixtures/dos_line_endings.feature -crlf
+spec/gherkin/fixtures/with_bom.feature -crlf

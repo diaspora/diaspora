@@ -1,0 +1,25 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    hoe (2.10.0)
+      rake (~> 0.8)
+    hoe-bundler (1.1.0)
+      hoe (>= 2.2.0)
+    hoe-yard (0.1.2)
+      yard (>= 0.2.3.1)
+    i18n (0.4.2)
+    rake (0.9.2)
+    test_declarative (0.0.5)
+    yard (0.7.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  bundler (>= 1.0.7)
+  hoe (>= 2.10.0)
+  hoe-bundler (>= 1.0.0)
+  hoe-yard (>= 0.1.2)
+  i18n (>= 0.4.1, < 0.5.0)
+  test_declarative (>= 0.0.4)
+  yard (>= 0.6.4)

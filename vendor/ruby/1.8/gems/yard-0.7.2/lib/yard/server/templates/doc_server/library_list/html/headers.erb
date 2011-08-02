@@ -1,0 +1,26 @@
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>YARD Documentation Server <%= YARD::VERSION %> - Library Listing</title>
+<link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8" />
+<link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen" charset="utf-8" />
+<script type="text/javascript" charset="utf-8" src="/js/jquery.js"></script>
+<script type="text/javascript">
+  function framesLinks() {
+    $('#framelink').toggle(function() {
+      $(this).text('links with frames');
+      $('ul li a').each(function() {
+        $(this).attr('href', $(this).attr('href').replace(/\/frames$/, ''));
+      });
+    }, function() {
+      $(this).text('links without frames');
+      $('ul li a').each(function() {
+        $(this).attr('href', $(this).attr('href') + '/frames');
+      });
+    })
+  }
+
+  $(framesLinks);
+</script>
+<style type="text/css" media="screen">
+  ul { list-style: circle inside none; padding: 0; }
+  li { font-size: 1.2em; line-height: 1.4em; padding: 3px 5px; }
+</style>

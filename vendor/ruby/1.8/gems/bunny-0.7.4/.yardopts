@@ -1,0 +1,9 @@
+--no-private
+--protected
+--markup="textile" lib/**/*.rb
+--main README.textile
+--asset examples:examples
+--hide-tag todo
+-
+LICENSE
+CHANGELOG

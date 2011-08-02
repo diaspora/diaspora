@@ -1,0 +1,53 @@
+
+<h2>Thread List</h2>
+<p><%= link_to 'Back', 'index' %></p>
+<table>
+    <thead><th class="title" colspan="5">Application Threads</th></thead>
+	<thead>
+		<th class="left">Name</th>
+		<th class="left">Status</th>
+		<th class="left">Group</th>
+		<th class="left">Priority</th>
+		<th class="left">Locals</th>
+	</thead>
+<%
+  main = Thread.main
+  threads = Thread.list - [ main ]
+  nr_threads = []
+  threads.delete_if { | thread | nr_threads << thread if thread.key? 'newrelic_label' }
+  ([ main ] + threads).each_with_index do | thread, i | %>
+<tr class="odd_row">
+  <td valign="top"><%= h(thread == main ? 'main' : thread.to_s) %></td>
+  <td valign="top"><%= h(thread.status || 'terminated with exception') %></td>
+  <td valign="top"><%= h(thread.group || 'none') %></td>
+  <td valign="top"><%= h thread.priority %></td>
+  <td class="locals">
+  	<%= thread.keys.map{|k| h k}.join("</br>") %>
+  </td>
+</tr>
+          <% end %>
+<% if nr_threads.size > 0 %>
+<tr><td>&nbsp;</td></tr>
+<thead><th class="title" colspan="5">New Relic Agent Threads</th></thead>
+	<thead>
+		<th class="left">Name</th>
+		<th class="left">Status</th>
+		<th class="left">Group</th>
+		<th class="left">Priority</th>
+		<th class="left">Locals</th>
+	</thead>
+
+<% nr_threads.each_with_index do | thread, i | %>
+<tr class="odd_row">
+  <td valign="top"><%= h thread['newrelic_label'] %></td>
+  <td valign="top"><%= h(thread.status || 'terminated with exception') %></td>
+  <td valign="top"><%= h(thread.group || 'none') %></td>
+  <td valign="top"><%= h thread.priority %></td>
+  <td class="locals">
+  	<%= (thread.keys - ['newrelic_label']).map{|k| h k}.join("</br>") %>
+  </td>
+</tr>
+<% end %>
+<% end %>
+
+</table>

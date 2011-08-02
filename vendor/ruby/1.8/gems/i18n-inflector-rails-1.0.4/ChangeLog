@@ -1,0 +1,300 @@
+commit b344f7d41c640ca75a274fb635a96ad969ae5fe3
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jul 10 03:35:29 2011 +0200
+
+    Release 1.0.4
+
+commit 7953d129789877ca248e7aa0771a587181853c4a
+Merge: 34f876d fff4d8c
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Jul 9 23:14:45 2011 +0200
+
+    Merge branch 'master' of github.com:siefca/i18n-inflector-rails
+
+commit 34f876d027f1fc49d8c63ec576bf4c8952c91d45
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Mar 5 14:30:04 2011 +0100
+
+    Added note about YAML parsing issues.
+
+commit 1aca5303d43bf300a8b802d6f69664f15522f699
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 23:23:33 2011 +0100
+
+    Release 1.0.3
+
+commit fff4d8c91fa4f9172b7336e12126ec43145f0cf6
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 23:23:33 2011 +0100
+
+    Release 1.0.3
+
+commit 1a7516470ddb82cde000188bb632e7e40166d594
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 23:23:04 2011 +0100
+
+    Requires bugfixed i18n-inflector
+
+commit 1360542f0cf6d3cbce6577a62330697ffb8e4dca
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 01:12:13 2011 +0100
+
+    Release 1.0.2
+
+commit 9ea4414d555a719cabb3521f0da66652ec3ee782
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Wed Feb 23 01:08:44 2011 +0100
+
+    Applied workaround for Ruby 1.8.x bug #734 in t() alias
+
+commit 696d8f4ef50ae54fd0017a96a3750af56ce2cb56
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 14:50:13 2011 +0100
+
+    Release 1.0.1
+
+commit 5ee55b3ea54cfa86e541a47f27cbe321932c3820
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:38:13 2011 +0100
+
+    Release 1.0.0
+
+commit 46377c25557637e0f576a637b6abd203555989da
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:09:46 2011 +0100
+
+    Documentation updated
+
+commit f3419fd70560927aec82813e25d6dd4d33e6e629
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:09:07 2011 +0100
+
+    Specification updated
+
+commit 8c2907f62a9273a66bc5be0e90da92c0299d1e72
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 01:07:53 2011 +0100
+
+    ClassMethods and InflectedTranslate refactored
+    
+    - There are no additional Procs support, but Inflector's inflection methods may take arguments.
+    - Translation method now makes use of lazy methods feature of I18n Inflector.
+    - The internal hash is now i18n_inflector_kinds and it's indexed by kinds.
+    - Rewritten argument parsing for inflection_method.
+    - Added no_inflection_method_for (aka no_inflection_kind).
+
+commit aee2f6f484bee1812ecf8765b28d910adc8412e5
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Feb 15 00:58:53 2011 +0100
+
+    New switches are now added by opening the InflectionOptions class, added new switch :lazy_methods
+
+commit 938f7bf971d8c00710b2202dc15e37929f8391dc
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Mon Jan 17 15:01:07 2011 +0100
+
+    Link in documentation fixed
+
+commit 15e330e957f34579fa95aa2036f0c06fd168ab54
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 07:06:57 2011 +0100
+
+    Documentation updated
+
+commit e10a3bbbc25c053529976d82a0304819b7235213
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 07:02:19 2011 +0100
+
+    additional_options.rb renamed to options.rb, HISTORY updated
+
+commit 097cc40da6bd9edec7231dd96a7b3197c5133888
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 16 06:46:28 2011 +0100
+
+    Added conditional checking if method to be called exists, dependencies fixed
+
+commit 807a61dea750e19bd52fb350d34609e259557bbd
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Fri Jan 14 18:05:40 2011 +0100
+
+    Version 0.1.0
+
+commit 5cd0488a4c5e4bab9f9719162af599984e83d71f
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Fri Jan 14 13:04:43 2011 +0100
+
+    Adapted to i18n-inflector v.2.0.0
+
+commit 20c389bbb9fcae1d216a22b6df39aebd90210767
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 14:17:45 2011 +0100
+
+    Requires stable i18n-inflector
+
+commit 01e743e18f55b8734107124303ed191c60937f99
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 14:04:05 2011 +0100
+
+    Version 0.1.0
+
+commit c985de4af92f1d1619cfb228ae378d5ca383babd
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 13:55:45 2011 +0100
+
+    Beta
+
+commit f338a6a56f36eed25f831d6fbc3fe0127a08931b
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 08:28:52 2011 +0100
+
+    Serious changes that are making it work in a real Rails 3 environment
+
+commit 528fcb11daee63711dae36fa6b3b97bd2ab25370
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Tue Jan 11 08:27:43 2011 +0100
+
+    Added no_inflection_method class method, each added method becomes a helper method
+
+commit 17d35aae4c269663b44277751e2d45260abb3c56
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 21:03:50 2011 +0100
+
+    Path fixed
+
+commit 289c85c00008b67584e30eb170ce173c35187e84
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 21:00:40 2011 +0100
+
+    Updated Manifest.txt and ChangeLog
+
+commit 75b492579a8d25ab3e48a7795a1f351f2f7b379c
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:58:49 2011 +0100
+
+    Moved gemspec to root
+
+commit c58191d99e80b28d045fd48e14689b0cf4bc49cb
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:56:04 2011 +0100
+
+    Added important note to gemspec
+
+commit 7fa840a3522b19bb2db9231acdb21faeaedcbfbd
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:46:16 2011 +0100
+
+    Specfile fixed: removed non-existent files
+
+commit b660e57b969cdb57248a111585278cd20ebbee7a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:13:29 2011 +0100
+
+    Specfile renamed
+
+commit 81cffc37a6b30fc7595bb26643588bce1db62da7
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 20:12:24 2011 +0100
+
+    Repository name changed to i18n-inflector-rails
+
+commit cda3edcffe9465e021af8380af3ceae0f98ef0a8
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 07:11:22 2011 +0100
+
+    Dependencies fixed
+
+commit c1ce77a843490b21233f0c60b35c64d4df731834
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:45:48 2011 +0100
+
+    Dependencies back to gemspec
+
+commit 745815d7047d7cc39ec48c9265714c110527fc1e
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:25:45 2011 +0100
+
+    Call it beta
+
+commit a3bf341ae100885b39e770d7cc91ebe7a9734a22
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 06:23:37 2011 +0100
+
+    Dependencies cleaned, gemspec and Rakefile independent from module code (added version.rb for that)
+
+commit 5583b7ac968d999ba2a74b3d8457c29df0afba9d
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 02:26:43 2011 +0100
+
+    Gemspec upgraded
+
+commit 2c754d88f34bb41b5a377c8f9108687157dca08a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 02:24:14 2011 +0100
+
+    Added gemspec for compatibility
+
+commit 2eebc9668e1b05ac65342ebf8ebb2ded0ac80589
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 01:37:12 2011 +0100
+
+    Deps fixed, Rakefile updated
+
+commit 84e8c52a61642a9d5d4f24aa354ea2384bfbf817
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 9 01:18:07 2011 +0100
+
+    Namespace changed (removed "Backend"), documentation updated
+
+commit 037edac820723b7c7452c2f0eae8f572558bb1ad
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sat Jan 8 16:48:21 2011 +0100
+
+    Deps updated
+
+commit 66c6be2be85b56e88fd27a0cdc0ee34dbbdb846b
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:15:05 2011 +0100
+
+    Unit tests stubs removed
+
+commit 41e9409414c75f5b5ef77e69ce62a291d321d04f
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:13:45 2011 +0100
+
+    Added Railtie, added common files for older Rails versions just in case
+
+commit 818027d17d91171499b410e2e7628422e61eb165
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:12:42 2011 +0100
+
+    Added rspec examples
+
+commit f564dc4c25060961b2838ddae03056fbb9f5fa2a
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:11:49 2011 +0100
+
+    Method names changed, inflection options extraction fixed, documentation updated.
+
+commit e0f0fd9086b00efec6e1e979c0a8ea2d03904371
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:09:46 2011 +0100
+
+    Fixed error reporting class: message is more generic
+
+commit fc1c7ea3aa2d4011075d05926fcc8baa5758f322
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Thu Jan 6 23:09:09 2011 +0100
+
+    Dependences changed: railties and rspec-rails added
+
+commit cf63e0e3b0cf0388c11143bbe67868b8fbd5bdd9
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 2 16:03:20 2011 +0100
+
+    Added ChangeLog and Manifest.txt
+
+commit 4dfee2aa8b56922e4bfc8bd8d2a64456cde256c6
+Author: Paweł Wilk <siefca@gnu.org>
+Date:   Sun Jan 2 16:01:46 2011 +0100
+
+    Initial revision

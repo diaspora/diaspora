@@ -1,0 +1,3 @@
+# This file was created automatically from data in ext/ruby_debug.c via:
+# 	rake :make_version_file. 
+0.10.4

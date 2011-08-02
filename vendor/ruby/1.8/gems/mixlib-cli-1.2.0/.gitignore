@@ -1,0 +1,6 @@
+*.sw?
+.DS_Store
+mixlib-cli.gemspec
+coverage
+rdoc
+pkg

@@ -1,0 +1,14 @@
+pm.rb:3
+def zero_div
+# # ******************************************************
+# # This tests running "next" over code that post-mortems
+# # ******************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# next 2
+pm.rb:8
+zero_div
+# next
+pm.rb:5
+1/0
+# quit

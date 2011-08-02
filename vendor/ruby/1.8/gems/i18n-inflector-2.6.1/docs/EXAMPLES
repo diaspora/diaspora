@@ -1,0 +1,311 @@
+
+== Configuring inflections
+
+This data will be used in any further example:
+
+=== YAML
+
+  en:
+    i18n:
+      inflections:
+        
+        @person:
+          i:          "i"
+          u:          "you"
+          he:         "he"
+          she:        "she"
+          it:         "it"
+          you:        @u
+        
+        gender:
+          m:          "male"
+          f:          "female"
+          n:          "neuter"
+          default:    n
+        
+      
+    welcome: "Dear @{f:Lady|m:Sir|n:You|All}!"  
+    sayit:   "@person{i:I|u:You|he:He|she:She|it:It}{ }{i:am|u:are|he,she,it:is}"
+    tobe:    "%{person} @person{i:am|u:are|he,she,it:is}"
+  
+
+=== Code
+
+  I18n.backend.store_translations(:en, :i18n => { :inflections => {
+    :gender => {
+      :m          => 'male',
+      :f          => 'female',
+      :n          => 'neuter',
+      :default    => :n
+      },
+    :@person => {
+      :i          => 'i',
+      :u          => 'you',
+      :he         => 'he',
+      :she        => 'she',
+      :it         => 'it',
+      :you        => :@u
+      }
+  }})
+  
+  I18n.backend.store_translations(:en, 'welcome' => 'Dear @{f:Lady|m:Sir|n:You|All}!')
+  I18n.backend.store_translations(:en, 'sayit'   => '@person{i:I|u:You|he:He|she:She|it:It}{ }{i:am|u:are|he,she,it:is}')
+  I18n.backend.store_translations(:en, 'tobe'    => '%{person} @person{i:am|u:are|he,she,it:is}')
+  I18n.locale = :en
+
+== Simple interpolation
+
+When no option, it falls back to default token (n):
+
+  I18n.translate('welcome')
+  #=> "Dear You!"
+
+When :m, it interpolates the m token's value:
+
+  I18n.translate('welcome', :gender => :m)
+  #=> "Dear Sir!"
+
+When unknown, it falls back to default token (n):
+
+  I18n.translate('welcome', :gender => :unknown)
+  #=> "Dear You!"
+
+When +nil+, it falls back to default token (n):
+
+  I18n.translate('welcome', :gender => nil)
+  #=> "Dear You!"
+
+=== <tt>inflector_unknown_defaults</tt>
+
+When <tt>:inflector_unknown_defaults</tt> is false, it falls back to free text:
+
+  I18n.translate('welcome', :gender => :unknown, :inflector_unknown_defaults => false)
+  #=> "Dear All!"
+
+It also falls back when an inflection option is nil or empty:
+
+  I18n.translate('welcome', :gender => nil, :inflector_unknown_defaults => false)
+  #=> "Dear All!"
+
+== Named pattern
+
+Regular inflection option will be used if there is no strict inflection option:
+
+  I18n.translate('sayit', :person => :i)
+  #=> "I am"
+
+Strict inflection option has precedence:
+
+  I18n.translate('sayit', :person => :i, :@person => :u)
+  #=> "You are"
+
+
+Strict inflection option has precedence even if the option's value is messy:
+ 
+  I18n.translate('sayit', :person => :i, :@person => :unknown)
+  #=> " "
+  
+=== Using with interpolation argument
+
+First part is interpolated using standard interpolation variable while
+second part of the sentence comes from interpolation of inflection pattern.
+The same option is feeding both engines.
+
+  I18n.translate('tobe', :person => :i)
+  #=> "i am"
+
+Note funny thing. The interpolation variable +test+ takes value (+i+) from
++:person+ while option +:@person+ takes precedence when it comes to inflections.
+Keep that in mind when combining regular interpolation variables with named patterns
+while using the same variable for controlling both. Choose non-strict notation
+for an option then.
+
+  I18n.translate('tobe', :person => :i, :@person => :u)
+  #=> "i are"
+
+No free text in 'tobe' so the empty string is interpolated when strict kind is unknown:
+
+  I18n.translate('tobe', :person => :i, :@person => :unknown)
+  #=> "i "
+
+== API
+
+=== Getting kinds
+
+Getting all known regular kinds:
+
+  I18n.inflector.kinds
+  #=> [:gender]
+
+Getting all known strict kinds:
+
+  I18n.inflector.strict.kinds
+  #=> [:person]
+
+Getting all known kinds for language 'pl':
+
+  I18n.inflector.kinds(:pl)
+  #=> []
+
+=== Listing all known options
+
+  I18n.inflector.options.known
+  #=> [:inflector_cache_aware, :inflector_raises, :inflector_aliased_patterns,
+  #    :inflector_unknown_defaults, :inflector_excluded_defaults]
+
+== Real-life example for Polish language
+
+Polish is highly inflected language. Additionally, position of a word in
+a sentence is mutually coupled with meaning. That makes it extreemly
+hard to create finite-state machine that would handle Polish grammar.
+However, flection means that the same cores are combined with suffixes
+and prefixes depending on many different kinds: gender, tense, form,
+animation, declination and more. That makes Polish (and other Slavic
+languages) alphabetically redundant. By interpolating common cores,
+prefixes and suffixes of words we're able make our patterns compact.
+
+=== YAML
+
+  pl:
+    are_you_sure: "@{m,f:Jesteś pew}{m:ien|f:na}{n:Na pewno}?"
+    
+    i18n:
+      inflections:
+        gender:
+          f:          "rodzaj żeński"
+          m:          "rodzaj męski"
+          n:          "forma bezosobowa"
+          masculine:  @m
+          facet:      @m
+          chłopak:    @m
+          feminine:   @f
+          pani:       @f
+          kobieta:    @f
+          k:          @f
+          dziewczyna: @f
+          impersonal: @n
+          default:    n
+
+=== Code
+
+  # Using shorter form than listed as YAML
+  
+  I18n.backend.store_translations(:pl, :i18n => { :inflections => { :gender =>
+                                  { :f => 'f', :m=>'m', :n=>'n', :kobieta=>:@f, :facet => :@m, :default=>:n }}})
+  
+  # Making use of commas makes it easy to implement DRY
+  # and re-use some parts of the words that are the same in two or more phrases
+  
+  I18n.backend.store_translations(:pl, :are_you_sure => "@{m,f:Jesteś pew}@{m:ien|f:na}@{n:Na pewno}?")
+    
+  I18n.locale = :pl
+  
+  I18n.translate('are_you_sure', :gender => :kobieta)
+  #=> "Jesteś pewna?"
+    
+  I18n.translate('are_you_sure', :gender => :facet)
+  #=> "Jesteś pewien?"  
+  
+  I18n.translate('are_you_sure')
+  #=> "Na pewno?"
+
+  # It would look like that without commas:
+  I18n.backend.store_translations(:pl, :are_you_sure => "@{m:Jesteś pewien|f:Jesteś pewna|n:Na pewno}?")
+
+  # That would also work but it's less readable.
+  # PS: Have you ever configured Sendmail? ;-)
+  I18n.backend.store_translations(:pl, :are_you_sure => "@{n:Na|m,f:Jesteś}{ pew}{m:ie}{n}{f:a|n:o}?")
+
+=== Complex pattern usage
+
+  # Store needed translations
+  I18n.backend.store_translations(:pl,
+    :i18n => { :inflections => {
+      :@gender =>
+          { :f       => 'f', :m     => 'm', :n       => 'n',
+            :kobieta => :@f, :facet => :@m, :default => :n },
+      :@tense =>
+          { :t     => 'teraz', :w       => 'przeszły', :j     => 'przyszły',
+            :teraz => :@t,     :wczoraj => :@w,        :jutro => :@j,
+            :default => :t }
+      }})
+  
+  I18n.backend.store_translations(:pl,
+    :msg_receive => "@gender+tense{n+w:Otrzymano|Dosta}{*+t:jesz|*+j:niesz|f+w:łaś|m+w:łeś} wiadomość")
+
+  I18n.locale = :pl
+
+  p I18n.translate('msg_receive', :gender => :kobieta)
+  #=> "Dostajesz wiadomość"
+
+  p I18n.translate('msg_receive', :gender => :facet)
+  #=> "Dostajesz wiadomość"
+
+  p I18n.translate('msg_receive')
+  #=> "Dostajesz wiadomość"
+
+  p I18n.translate('msg_receive', :gender => :kobieta, :tense => :wczoraj)
+  #=> "Dostałaś wiadomość"
+
+  p I18n.translate('msg_receive', :gender => :facet, :tense => :wczoraj)
+  #=> "Dostałeś wiadomość"
+  
+  p I18n.translate('msg_receive', :tense => :jutro)
+  #=> "Dostaniesz wiadomość"
+  
+  p I18n.translate('msg_receive', :tense => :wczoraj)
+  #=> "Otrzymano wiadomość"
+
+==== YAML for the example above
+
+The example above may use this YAML content instead of +store_translations+:
+
+  pl:
+    msg_receive: "@gender+tense{n+w:Otrzymano|Dosta}{*+t:jesz|*+j:niesz|f+w:łaś|m+w:łeś} wiadomość"
+    
+    i18n:
+      inflections:
+        @gender:
+          m:  'male'
+          f:  'female'
+          n:  'neuter'
+          kobieta:  @f
+          facet:    @m
+          default:  n
+        @tense:
+          t:        'teraźniejszy'
+          w:        'przeszły'
+          j:        'przyszły'
+          teraz:    @t
+          wczoraj:  @w
+          jutro:    @j
+          default:  @t
+
+===== Alternative for +msg_receive+ key
+
+The +msg_receive+ might also be expressed using two infleciton keys:
+
+  pl:
+    @msg_receive_1:
+      @kind:    gender+tense
+      @free:    'Dosta'
+      n+w:      'Otrzymano'
+  
+    @msg_receive_2:
+      @kind:    gender+tense
+      @suffix:  " wiadomość"
+      m,f,n+t:  "jesz"
+      m,f,n+j:  "niesz"
+      f+w:      "łaś"
+      m+w:      "łeś"
+
+But then you have to change the translation call too, e.g.:
+
+  p I18n.translate(['@msg_receive_1','@msg_receive_2'], :gender => :kobieta).join
+  #=> "Dostajesz wiadomość"
+
+The split is necessary because we have two patterns here and no way to express them
+as one inflection key.
+
+<i>to be continued…</i>
+

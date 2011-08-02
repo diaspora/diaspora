@@ -1,0 +1,14 @@
+# https://github.com/travis-ci/travis-ci/wiki/.travis.yml-options
+bundler_args: --without development
+script: "bundle exec rspec spec"
+rvm:
+  - 1.8.7
+  - 1.9.2
+  - ree
+  - 1.8.7-p174
+notifications:
+  recipients:
+    - celldee@gmail.com
+    - jakub@rabbitmq.com
+    - skaes@railsexpress.de
+    - eric@5stops.com

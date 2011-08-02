@@ -1,0 +1,83 @@
+class Foo
+  attr_accessor :ignoreme
+
+  # IMPLICIT METHOD!
+  # @return [String]
+  just_a_method_for :implicit0
+  
+  # Not recognized
+  just_a_method_for :implicit_invalid
+  
+  #
+  ## IS NOT RECOGNIZED!
+  just_a_method_for :implicit_invalid2
+
+  ##
+  # IS RECOGNIZED!
+  just_a_method_for 'implicit_valid'
+
+  # @attribute [r]
+  # @return [Numeric] a number
+  a_readable_attribute :attr1
+  
+  # @attribute [w]
+  a_writable_attribute :attr2, 'bar'
+
+  # @attribute
+  default_attribute :attr3
+  
+  # @attribute custom
+  default_attribute :attr4
+  
+  # @method xyz(a, b, c)
+  # The foo method
+  # @param [String] a
+  # @visibility protected
+  # @scope class
+  foo_bar
+
+  # @macro property
+  # @method $1(${3-})
+  # A $0 that is awesome.
+  # @param $3 first parameter
+  # @return [$2] the property $1
+  property :name, String, :a, :b, :c
+  
+  # @macro property
+  property :age, Fixnum, :value
+  
+  # This is just for x
+  # @macro [attach] parser
+  #   @method $1(opts = {})
+  #   @return NOTHING!
+  parser :x
+  
+  parser :c_parser
+  
+  # @macro [attach] none
+  # @method none(foo, bar)
+  none
+  
+  # @macro something
+  # @overload $1(a, b, c)
+  something :qux
+  
+  # @overload qux2(a, b, c)
+  something
+end
+
+class Bar
+  parser :x_parser
+end
+
+class Baz < Foo
+  parser :y_parser
+  none { }
+end
+
+# @method my_other_method
+# Docstring for method
+method_that_makes_a_method
+
+# @macro something
+foobarbaz :beep

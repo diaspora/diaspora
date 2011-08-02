@@ -1,0 +1,3 @@
+default: --format pretty --tags ~@pending,~@wip --strict --color features
+wip: --format pretty --tags @wip --wip features
+pending: --format pretty --tags @pending,~@native_lexer

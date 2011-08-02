@@ -1,0 +1,13 @@
+--title 'Simple Inflector for I18n'
+--protected
+--readme README.rdoc
+--no-private
+--hide-void-return
+-
+docs/USAGE
+docs/EXAMPLES
+docs/HISTORY
+ChangeLog
+docs/COPYING
+docs/LGPL
+docs/TODO

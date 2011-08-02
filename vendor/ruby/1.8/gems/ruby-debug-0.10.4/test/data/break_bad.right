@@ -1,0 +1,28 @@
+gcd.rb:4
+def gcd(a, b)
+# # ********************************************************
+# # This tests mostly invalid breakpoints.
+# # We have some valid ones too.
+# # ********************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# set callstyle last
+Frame call-display style is last.
+# set autoeval off
+autoeval is off.
+# # There aren't 100 lines in gcd.rb.
+# break 100
+*** There are only 18 lines in file "gcd.rb".
+# break gcd.rb:100
+*** There are only 18 lines in file "gcd.rb".
+# # Line one isn't a valid stopping point.
+# # It is a comment.
+# break gcd.rb:1
+*** Line 1 is not a stopping point in file "gcd.rb".
+# # This line is okay
+# break gcd.rb:4
+Breakpoint 1 file gcd.rb, line 4
+# # No class Foo.
+# break Foo.bar
+*** Unknown class Foo.
+# q

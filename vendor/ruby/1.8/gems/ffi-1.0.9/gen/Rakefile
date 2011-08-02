@@ -1,0 +1,14 @@
+require 'fileutils'
+require "#{File.join(File.dirname(__FILE__), '..', 'lib', 'ffi', 'tools', 'types_generator.rb')}"
+types_conf = File.join(File.dirname(__FILE__), '..', 'lib', 'ffi', 'types.conf')
+
+file types_conf do |task|
+  options = {}
+  FileUtils.mkdir_p(File.dirname(task.name), { :mode => 0755 })
+  File.open(task.name, File::CREAT|File::TRUNC|File::RDWR, 0644) do |f|
+    f.puts FFI::TypesGenerator.generate(options)
+  end
+end
+
+task :default => types_conf do
+end

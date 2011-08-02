@@ -1,0 +1,20 @@
+<% if key = params[:key] %>
+
+  <p class='sub'>
+    Showing <%= start = params[:start].to_i %> to <%= start + 20 %> of <b><%=size = redis_get_size(key) %></b>
+  </p>
+
+    
+  <h1>Key "<%= key %>" is a <%= resque.redis.type key %></h1>
+  <table>
+    <% for row in redis_get_value_as_array(key, start) %>
+    <tr>
+      <td>
+        <%= row %>
+      </td>
+    </tr>
+    <% end %>
+  </table>
+
+<%= partial :next_more, :start => start, :size => size %>
+<% end %>

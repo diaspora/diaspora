@@ -1,0 +1,6 @@
+require 'base64'
+require 'cgi'
+require 'openssl'
+require 'uri'
+require 'simple_oauth/core_ext/object'
+require 'simple_oauth/header'

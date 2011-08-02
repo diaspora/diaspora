@@ -1,0 +1,5 @@
+git://github.com/luislavena/rake-compiler.git v0.6.0
+git://github.com/tenderlove/rexical.git
+git://github.com/jimweirich/rake.git
+git://github.com/jmhodges/fakehoe.git
+git://github.com/tenderlove/racc.git

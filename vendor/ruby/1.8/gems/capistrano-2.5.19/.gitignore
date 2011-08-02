@@ -1,0 +1,9 @@
+coverage
+doc
+pkg
+*.swp
+*.patch
+*.gem
+*.sh
+.DS_Store
+capistrano.gemspec

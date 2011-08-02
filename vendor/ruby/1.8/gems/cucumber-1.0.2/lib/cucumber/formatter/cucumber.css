@@ -1,0 +1,279 @@
+/* cucumber.css is generated from cucumber.sass */
+/* Regenerate with rake sass */
+body {
+  font-size: 0px;
+  color: white;
+  margin: 0px;
+  padding: 0px;
+}
+
+.cucumber, td, th {
+  font: normal 11px "Lucida Grande", Helvetica, sans-serif;
+  background: white;
+  color: black;
+}
+.cucumber #cucumber-header, td #cucumber-header, th #cucumber-header {
+  background: #65c400;
+  color: white;
+  height: 6em;
+}
+.cucumber #cucumber-header #expand-collapse p, td #cucumber-header #expand-collapse p, th #cucumber-header #expand-collapse p {
+  float: right;
+  margin: 0 0 0 10px;
+}
+.cucumber .scenario h3, td .scenario h3, th .scenario h3 {
+  font-size: 11px;
+  padding: 3px;
+  margin: 0;
+  background: #65c400;
+  color: white;
+  font-weight: bold;
+}
+.cucumber h1, td h1, th h1 {
+  margin: 0px 10px 0px 10px;
+  padding: 10px;
+  font-family: "Lucida Grande", Helvetica, sans-serif;
+  font-size: 2em;
+  position: absolute;
+}
+.cucumber h4, td h4, th h4 {
+  margin-bottom: 2px;
+}
+.cucumber div.feature, td div.feature, th div.feature {
+  padding: 2px;
+  margin: 0px 10px 5px 10px;
+}
+.cucumber div.examples, td div.examples, th div.examples {
+  padding: 0em 0em 0em 1em;
+}
+.cucumber .stats, td .stats, th .stats {
+  margin: 2em;
+}
+.cucumber .summary ul.features li, td .summary ul.features li, th .summary ul.features li {
+  display: inline;
+}
+.cucumber .step_name, td .step_name, th .step_name {
+  float: left;
+}
+.cucumber .step_file, td .step_file, th .step_file {
+  text-align: right;
+  color: #999999;
+}
+.cucumber .step_file a, td .step_file a, th .step_file a {
+  color: #999999;
+}
+.cucumber .scenario_file, td .scenario_file, th .scenario_file {
+  float: right;
+  color: #999999;
+}
+.cucumber .tag, td .tag, th .tag {
+  font-weight: bold;
+  color: #246ac1;
+}
+.cucumber .backtrace, td .backtrace, th .backtrace {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: 1em;
+  color: black;
+}
+.cucumber a, td a, th a {
+  text-decoration: none;
+  color: #be5c00;
+}
+.cucumber a:hover, td a:hover, th a:hover {
+  text-decoration: underline;
+}
+.cucumber a:visited, td a:visited, th a:visited {
+  font-weight: normal;
+}
+.cucumber a div.examples, td a div.examples, th a div.examples {
+  margin: 5px 0px 5px 15px;
+  color: black;
+}
+.cucumber .outline table, td .outline table, th .outline table {
+  margin: 0px 0px 5px 10px;
+}
+.cucumber table, td table, th table {
+  border-collapse: collapse;
+}
+.cucumber table td, td table td, th table td {
+  padding: 3px 3px 3px 5px;
+}
+.cucumber table td.failed, .cucumber table td.passed, .cucumber table td.skipped, .cucumber table td.pending, .cucumber table td.undefined, td table td.failed, td table td.passed, td table td.skipped, td table td.pending, td table td.undefined, th table td.failed, th table td.passed, th table td.skipped, th table td.pending, th table td.undefined {
+  padding-left: 18px;
+  padding-right: 10px;
+}
+.cucumber table td.failed, td table td.failed, th table td.failed {
+  border-left: 5px solid #c20000;
+  border-bottom: 1px solid #c20000;
+  background: #fffbd3;
+  color: #c20000;
+}
+.cucumber table td.passed, td table td.passed, th table td.passed {
+  border-left: 5px solid #65c400;
+  border-bottom: 1px solid #65c400;
+  background: #dbffb4;
+  color: #3d7700;
+}
+.cucumber table td.skipped, td table td.skipped, th table td.skipped {
+  border-left: 5px solid aqua;
+  border-bottom: 1px solid aqua;
+  background: #e0ffff;
+  color: #001111;
+}
+.cucumber table td.pending, td table td.pending, th table td.pending {
+  border-left: 5px solid #faf834;
+  border-bottom: 1px solid #faf834;
+  background: #fcfb98;
+  color: #131313;
+}
+.cucumber table td.undefined, td table td.undefined, th table td.undefined {
+  border-left: 5px solid #faf834;
+  border-bottom: 1px solid #faf834;
+  background: #fcfb98;
+  color: #131313;
+}
+.cucumber table td.message, td table td.message, th table td.message {
+  border-left: 5px solid aqua;
+  border-bottom: 1px solid aqua;
+  background: #e0ffff;
+  color: #001111;
+}
+.cucumber ol, td ol, th ol {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+.cucumber ol li.step, td ol li.step, th ol li.step {
+  padding: 3px 3px 3px 18px;
+  margin: 5px 0px 5px 5px;
+}
+.cucumber ol li, td ol li, th ol li {
+  margin: 0em 0em 0em 1em;
+  padding: 0em 0em 0em 0.2em;
+}
+.cucumber ol li span.param, td ol li span.param, th ol li span.param {
+  font-weight: bold;
+}
+.cucumber ol li.failed, td ol li.failed, th ol li.failed {
+  border-left: 5px solid #c20000;
+  border-bottom: 1px solid #c20000;
+  background: #fffbd3;
+  color: #c20000;
+}
+.cucumber ol li.passed, td ol li.passed, th ol li.passed {
+  border-left: 5px solid #65c400;
+  border-bottom: 1px solid #65c400;
+  background: #dbffb4;
+  color: #3d7700;
+}
+.cucumber ol li.skipped, td ol li.skipped, th ol li.skipped {
+  border-left: 5px solid aqua;
+  border-bottom: 1px solid aqua;
+  background: #e0ffff;
+  color: #001111;
+}
+.cucumber ol li.pending, td ol li.pending, th ol li.pending {
+  border-left: 5px solid #faf834;
+  border-bottom: 1px solid #faf834;
+  background: #fcfb98;
+  color: #131313;
+}
+.cucumber ol li.undefined, td ol li.undefined, th ol li.undefined {
+  border-left: 5px solid #faf834;
+  border-bottom: 1px solid #faf834;
+  background: #fcfb98;
+  color: #131313;
+}
+.cucumber ol li.message, td ol li.message, th ol li.message {
+  border-left: 5px solid aqua;
+  border-bottom: 1px solid aqua;
+  background: #e0ffff;
+  color: #001111;
+  margin-left: 10px;
+}
+.cucumber #summary, td #summary, th #summary {
+  margin: 0px;
+  padding: 5px 10px;
+  text-align: right;
+  top: 0px;
+  right: 0px;
+  float: right;
+}
+.cucumber #summary p, td #summary p, th #summary p {
+  margin: 0 0 0 2px;
+}
+.cucumber #summary #totals, td #summary #totals, th #summary #totals {
+  font-size: 1.2em;
+}
+
+.ruby {
+  font-size: 12px;
+  font-family: monospace;
+  color: white;
+  background: black;
+  padding: 0.1em 0 0.2em 0;
+}
+.ruby .keyword {
+  color: #ff6600;
+}
+.ruby .constant {
+  color: #339999;
+}
+.ruby .attribute {
+  color: white;
+}
+.ruby .global {
+  color: white;
+}
+.ruby .module {
+  color: white;
+}
+.ruby .class {
+  color: white;
+}
+.ruby .string {
+  color: #66ff00;
+}
+.ruby .ident {
+  color: white;
+}
+.ruby .method {
+  color: #ffcc00;
+}
+.ruby .number {
+  color: white;
+}
+.ruby .char {
+  color: white;
+}
+.ruby .comment {
+  color: #9933cc;
+}
+.ruby .symbol {
+  color: white;
+}
+.ruby .regex {
+  color: #44b4cc;
+}
+.ruby .punct {
+  color: white;
+}
+.ruby .escape {
+  color: white;
+}
+.ruby .interp {
+  color: white;
+}
+.ruby .expr {
+  color: white;
+}
+.ruby .offending {
+  background: #333333;
+}
+.ruby .linenum {
+  width: 75px;
+  padding: 0.1em 1em 0.2em 0;
+  color: black;
+  background: #fffbd3;
+}

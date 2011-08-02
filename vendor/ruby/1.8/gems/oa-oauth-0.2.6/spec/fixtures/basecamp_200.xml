@@ -1,0 +1,24 @@
+<person>
+  <client-id type="integer">0</client-id>
+  <created-at type="datetime">2008-08-14T00:00:00Z</created-at>
+  <id type="integer">1827370</id>
+  <im-handle/>
+  <im-service>AOL</im-service>
+  <phone-number-fax/>
+  <phone-number-home/>
+  <phone-number-mobile/>
+  <phone-number-office/>
+  <phone-number-office-ext/>
+  <title/>
+  <token>5fc2ab4f6c2f9cdf12ed01b88e7554f8ad21bbfb</token>
+  <updated-at type="datetime">2010-05-24T11:59:34Z</updated-at>
+  <uuid>b11312ca-227d-36fd-e3b5-af2f419-a650</uuid>
+  <first-name>Sally</first-name>
+  <last-name>Fried</last-name>
+  <company-id type="integer">1042368</company-id>
+  <user-name/>
+  <email-address>sfried@example.org</email-address>
+  <avatar-url>
+    http://asset3.37img.com/75521bbf128b89b7ec2ab5fe98ad21b4f6ad21e/avatar.png?r=3
+  </avatar-url>
+</person>

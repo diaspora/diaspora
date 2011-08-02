@@ -1,0 +1,59 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activemodel (3.0.1)
+      activesupport (= 3.0.1)
+      builder (~> 2.1.2)
+      i18n (~> 0.4.1)
+    activerecord (3.0.1)
+      activemodel (= 3.0.1)
+      activesupport (= 3.0.1)
+      arel (~> 1.0.0)
+      tzinfo (~> 0.3.23)
+    activesupport (3.0.1)
+    arel (1.0.1)
+      activesupport (~> 3.0.0)
+    builder (2.1.2)
+    git (1.2.5)
+    i18n (0.4.1)
+    jeweler (1.5.1)
+      bundler (~> 1.0.0)
+      git (>= 1.2.5)
+      rake
+    json (1.4.6)
+    mocha (0.9.8)
+      rake
+    rack (1.2.1)
+    rake (0.8.7)
+    rcov (0.9.9)
+    redis (2.1.1)
+    redis-namespace (0.8.0)
+      redis (< 3.0.0)
+    resque (1.10.0)
+      json (~> 1.4.6)
+      redis-namespace (~> 0.8.0)
+      sinatra (>= 0.9.2)
+      vegas (~> 0.1.2)
+    resque_unit (0.3.1)
+      json (~> 1.4.6)
+    shoulda (2.11.3)
+    sinatra (1.1.0)
+      rack (~> 1.1)
+      tilt (~> 1.1)
+    tilt (1.1)
+    tzinfo (0.3.23)
+    vegas (0.1.8)
+      rack (>= 1.0.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activerecord (>= 2.3.5)
+  bundler (~> 1.0.0)
+  jeweler (~> 1.5.1)
+  mocha
+  rcov
+  resque (~> 1.10.0)
+  resque_unit
+  shoulda

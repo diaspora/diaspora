@@ -1,0 +1,20 @@
+<% sample = object %>
+<tr class="<%= cycle('even_row', 'odd_row') %>">
+<td align=right nowrap=true>
+  <%= Time.at(stripped_sample(sample).timestamp).strftime "%H:%M:%S" %>
+</td>
+<td align=right nowrap=true>
+  <%= colorize(stripped_sample(sample).duration, 1, 2) %> ms
+</td>
+<td>
+  <%= link_to "#{sample.params[:uri]}", "show_sample_summary?id=#{sample.sample_id}" %>
+</td>
+<td>
+  <% if sample.profile %>
+    <%= link_to "[Profile]", "show_sample_summary?id=#{sample.sample_id}" %>
+  <% else %>
+    <%= link_to "[Detail]", "show_sample_detail?id=#{sample.sample_id}" %><br/>
+    <%= link_to "[SQL (#{sample.sql_segments.size})]", "show_sample_sql?id=#{sample.sample_id}" %>
+  <% end %>
+</td>
+</tr>

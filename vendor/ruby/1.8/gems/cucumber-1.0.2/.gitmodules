@@ -1,0 +1,3 @@
+[submodule "features/cucumber-features"]
+	path = features/cucumber-features
+	url = https://github.com/cucumber/cucumber-features

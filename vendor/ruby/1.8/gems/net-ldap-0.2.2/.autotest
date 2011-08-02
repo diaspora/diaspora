@@ -1,0 +1,11 @@
+require 'rubygems'
+#require 'redgreen/autotest'
+require 'autotest/timestamp'
+
+Autotest.add_hook :initialize do |autotest|
+  %w{.git .hg .DS_Store ._* tmp log doc}.each do |exception|
+    autotest.add_exception(exception)
+  end
+end
+
+# vim: syntax=ruby

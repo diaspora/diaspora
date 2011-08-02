@@ -1,0 +1,9 @@
+This is a (very) basic app demonstrating the oauth2-provider library.  To get it going, cd to the app folder, then:
+
+1) Run `bundle install`
+2) Run `bundle exec rake db:reset db:seed`
+3) Run `bundle exec rails server`
+
+This should start the app on port 3000
+
+To try it out, you need an oauth client.  Luckily there's a (very very) simple one in the examples/client folder.  Keep this example running, follow the instructions to start the client, then have a play.

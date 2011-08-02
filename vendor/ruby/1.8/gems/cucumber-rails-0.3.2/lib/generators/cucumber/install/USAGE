@@ -1,0 +1,15 @@
+Description:
+    Sets up Cucumber in your Rails project. After running this generator you will
+    get a new rake task called features.
+    
+    This also generates the necessary files in the features directory.
+    
+    Also see the cucumber:feature generator.
+    
+Examples:
+    `script/rails generate cucumber:install`
+
+    `script/rails generate cucumber:install --help`
+
+    You can also provide a language argument for localized webrat_steps:
+    `script/rails generate cucumber:install de`

@@ -1,0 +1,169 @@
+NAME
+
+  systemu
+
+SYNOPSIS
+
+  univeral capture of stdout and stderr and handling of child process pid for windows, *nix, etc.
+
+URIS
+
+  http://github.com/ahoward/systemu
+  http://rubyforge.org/projects/codeforpeople/
+
+INSTALL
+
+  gem install systemu
+
+HISTORY
+  2.0.0
+    - versioning issue.  new gem release.
+
+  1.3.1
+    - updates for ruby 1.9.1
+
+  1.3.0
+    - move to github
+
+  1.2.0
+
+    - fixed handling of background thread management - needed
+      Thread.current.abort_on_exception = true
+
+    - fixed reporting of child pid, it was reported as the parent's pid before
+
+SAMPLES
+
+
+  <========< samples/a.rb >========>
+
+  ~ > cat samples/a.rb
+
+    #
+    # systemu can be used on any platform to return status, stdout, and stderr of
+    # any command.  unlike other methods like open3/popen4 there is zero danger of
+    # full pipes or threading issues hanging your process or subprocess.
+    #
+      require 'systemu'
+    
+      date = %q( ruby -e"  t = Time.now; STDOUT.puts t; STDERR.puts t  " )
+    
+      status, stdout, stderr = systemu date
+      p [ status, stdout, stderr ]
+
+  ~ > ruby samples/a.rb
+
+    [#<Process::Status: pid=44129,exited(0)>, "Tue Apr 12 21:43:07 -0600 2011\n", "Tue Apr 12 21:43:07 -0600 2011\n"]
+
+
+  <========< samples/b.rb >========>
+
+  ~ > cat samples/b.rb
+
+    #
+    # quite a few keys can be passed to the command to alter it's behaviour.  if
+    # either stdout or stderr is supplied those objects should respond_to? '<<'
+    # and only status will be returned
+    #
+      require 'systemu'
+    
+      date = %q( ruby -e"  t = Time.now; STDOUT.puts t; STDERR.puts t  " )
+    
+      stdout, stderr = '', ''
+      status = systemu date, 'stdout' => stdout, 'stderr' => stderr
+      p [ status, stdout, stderr ]
+
+  ~ > ruby samples/b.rb
+
+    [#<Process::Status: pid=44134,exited(0)>, "Tue Apr 12 21:43:07 -0600 2011\n", "Tue Apr 12 21:43:07 -0600 2011\n"]
+
+
+  <========< samples/c.rb >========>
+
+  ~ > cat samples/c.rb
+
+    #
+    # of course stdin can be supplied too.  synonyms for 'stdin' include '0' and
+    # 0.  the other stdio streams have similar shortcuts
+    #
+      require 'systemu'
+    
+      cat = %q( ruby -e"  ARGF.each{|line| puts line}  " )
+    
+      status = systemu cat, 0=>'the stdin for cat', 1=>stdout=''
+      puts stdout
+
+  ~ > ruby samples/c.rb
+
+    the stdin for cat
+
+
+  <========< samples/d.rb >========>
+
+  ~ > cat samples/d.rb
+
+    #
+    # the cwd can be supplied
+    #
+      require 'systemu'
+      require 'tmpdir'
+    
+      pwd = %q( ruby -e"  STDERR.puts Dir.pwd  " )
+    
+      status = systemu pwd, 2=>(stderr=''), :cwd=>Dir.tmpdir
+      puts stderr
+    
+
+  ~ > ruby samples/d.rb
+
+    /private/var/folders/nO/nOjBCb30ELegrm98Bhyvbk+++TM/-Tmp-
+
+
+  <========< samples/e.rb >========>
+
+  ~ > cat samples/e.rb
+
+    #
+    # any environment vars specified are merged into the child's environment
+    #
+      require 'systemu'
+    
+      env = %q( ruby -r yaml -e"  puts ENV[ 'answer' ] " )
+    
+      status = systemu env, 1=>stdout='', 'env'=>{ 'answer' => 0b101010 }
+      puts stdout
+
+  ~ > ruby samples/e.rb
+
+    42
+
+
+  <========< samples/f.rb >========>
+
+  ~ > cat samples/f.rb
+
+    #
+    # if a block is specified then it is passed the child pid and run in a
+    # background thread.  note that this thread will __not__ be blocked during the
+    # execution of the command so it may do useful work such as killing the child
+    # if execution time passes a certain threshold
+    #
+      require 'systemu'
+    
+      looper = %q( ruby -e" loop{ STDERR.puts Time.now.to_i; sleep 1 } " )
+    
+      status, stdout, stderr =
+        systemu looper do |cid|
+          sleep 3
+          Process.kill 9, cid
+        end
+    
+      p status
+      p stderr
+
+  ~ > ruby samples/f.rb
+
+    #<Process::Status: pid=44154,signaled(SIGKILL=9)>
+    "1302666187\n1302666188\n1302666189\n"
+
+

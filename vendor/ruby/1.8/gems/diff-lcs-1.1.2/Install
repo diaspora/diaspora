@@ -1,0 +1,6 @@
+Installing this package is as simple as:
+
+% ruby install.rb
+
+Alternatively, you can use the RubyGem version of Diff::LCS available as
+diff-lcs-1.1.2.gem from the usual sources.

@@ -1,0 +1,24 @@
+<script>
+	var EXPANDED_IMAGE = '<%=expanded_image_path%>';
+	var COLLAPSED_IMAGE = '<%= collapsed_image_path %>';
+	function Tip(tip) {}
+	function UnTip() {} 
+</script>
+<span>
+	<%= link_to_function("Expand All", 'expand_all_segments()') %>&nbsp;&nbsp;
+	<%= link_to_function("Collapse All", 'collapse_all_segments()') %>
+</span>
+<table id="trace_detail_table" class="light_background" width="800px">
+  <thead>
+  <tr>
+    <td>Metric</td>
+    <td>Timestamp<br/><small>seconds</small></td>
+    <td>Duration<br/><small>ms</small></td>
+    <td>Exclusive<br/><small>ms</small></td>
+    <td></td>
+  </tr>
+  </thead>
+  <%= render_sample_details(@sample) %>
+</table>
+
+<%= render :partial => 'segment_limit_message' if trace_row_display_limit_reached %>

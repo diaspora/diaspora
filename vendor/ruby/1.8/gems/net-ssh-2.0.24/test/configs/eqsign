@@ -1,0 +1,3 @@
+Host=test.test
+  Port =1234
+  Compression yes

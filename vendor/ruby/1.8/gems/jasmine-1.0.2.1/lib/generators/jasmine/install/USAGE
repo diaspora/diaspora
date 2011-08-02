@@ -1,0 +1,11 @@
+Description:
+    Install jasmine
+
+Example:
+    rails generate jasmine:install
+
+    This will create:
+        spec/javascripts/support/jasmine.yml
+        spec/javascripts/support/jasmine_config.rb
+        spec/javascripts/support/jasmine_runner.rb
+        spec/javascripts/helpers/.gitkeep

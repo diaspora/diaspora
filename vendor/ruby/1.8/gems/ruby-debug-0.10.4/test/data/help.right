@@ -1,0 +1,21 @@
+Currently testing the debugger is on.
+autoeval is off.
+width is 80.
+Undefined command: "foo".  Try "help".
+Set number of source lines to list by default.
+Show annotation level.
+0 == normal; 2 == output annotated suitably for use by programs that control 
+ruby-debug.
+Invalid 'show' subcommand 'foo'.
+Info about a particular file read in.
+
+After the file name is supplied, you can list file attributes that
+you wish to see.
+
+Attributes include: "all", "basic", "breakpoint", "lines", "mtime", "path" 
+and "sha1".
+Info about a particular file read in.
+All file information available - breakpoints, lines, mtime, path, and sha1.
+Info about a particular file read in.
+Show trace line numbers.
+File names and timestamps of files read in.

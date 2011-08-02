@@ -1,0 +1,173 @@
+el:
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d %b"
+      long: "%e %B %Y"
+      long_ordinal: "%e %B %Y"
+      only_day: "%e"
+
+    day_names:
+      - Κυριακή
+      - Δευτέρα
+      - Τρίτη
+      - Τετάρτη
+      - Πέμπτη
+      - Παρασκευή
+      - Σάββατο
+    abbr_day_names:
+      - Κυρ
+      - Δευ
+      - Τρι
+      - Τετ
+      - Πεμ
+      - Παρ
+      - Σαβ
+    month_names:
+      - ~
+      - Ιανουάριος
+      - Φεβρουάριος
+      - Μάρτιος
+      - Απρίλιος
+      - Μάιος
+      - Ιούνιος
+      - Ιούλιος
+      - Αύγουστος
+      - Σεπτέμβριος
+      - Οκτώβριος
+      - Νοέμβριος
+      - Δεκέμβριος
+    abbr_month_names:
+      - ~
+      - Ιαν.
+      - Φεβ.
+      - Μάρ.
+      - Απρ.
+      - Μαι.
+      - Ιουν.
+      - Ιούλ.
+      - Αυγ.
+      - Σεπ.
+      - Οκτ.
+      - Νοε.
+      - Δεκ.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M:%S %Z"
+      long_ordinal: "%A %d %B %Y %H:%M:%S %Z"
+      only_second: "%S"
+    am: 'πμ'
+    pm: 'μμ'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "μισό λεπτό"
+      less_than_x_seconds:
+        one: "λιγότερο από ένα δευτερόλεπτο"
+        other: "λιγότερο από %{count} δευτερόλεπτα"
+      x_seconds:
+        one: "1 δευτερόλεπτο"
+        other: "%{count} δευτερόλεπτα"
+      less_than_x_minutes:
+        one: "λιγότερο από ένα λεπτό"
+        other: "λιγότερο από %{count} λεπτά"
+      x_minutes:
+        one: "1 λεπτό"
+        other: "%{count} λεπτά"
+      about_x_hours:
+        one: "περίπου μία ώρα"
+        other: "περίπου %{count} ώρες"
+      x_days:
+        one: "1 ώρα"
+        other: "%{count} ώρες"
+      about_x_months:
+        one: "περίπου ένα μήνα"
+        other: "περίπου %{count} μήνες"
+      x_months:
+        one: "1 μήνα"
+        other: "%{count} μήνες"
+      about_x_years:
+        one: "περίπου ένα χρόνο"
+        other: "περίπου %{count} χρόνια"
+      over_x_years:
+        one: "πάνω από ένα χρόνο"
+        other: "πάνω από %{count} χρόνια"
+    prompts:
+      year: "Έτος"
+      month: "Μήνας"
+      day: "Ημέρα"
+      hour: "Ώρα"
+      minute: "Λεπτό"
+      second: "Δευτερόλεπτο"
+
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        precision: 2
+        format: '%n %u'
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "byte"
+            other: "bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      sentence_connector: ' και '
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " και "
+      last_word_connector: " και "
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "1 λάθος παρεμπόδισε αυτό το %{model} να αποθηκευθεί."
+          other: "%{count} λάθη εμπόδισαν αυτό το %{model} να αποθηκευθεί."
+        body: "Υπήρξαν προβλήματα με τα ακόλουθα πεδία:"
+      messages:
+        inclusion: "δεν συμπεριλαμβάνεται στη λίστα"
+        exclusion: "είναι δεσμευμένο"
+        invalid: "είναι άκυρο"
+        confirmation: "δεν ταιριάζει με την επικύρωση"
+        accepted: "πρέπει να είναι αποδεκτό"
+        empty: "δεν πρέπει να είναι άδειο"
+        blank: "δεν πρέπει να είναι κενό"
+        too_long: "είναι πολύ μεγάλο (το μέγιστο μήκος είναι %{count} χαρακτήρες)"
+        too_short: "είναι πολύ μικρό (το μικρότερο μήκος είναι %{count} χαρακτήρες)"
+        wrong_length: "έχει λανθασμένο μήκος (πρέπει να είναι %{count} χαρακτήρες)"
+        taken: "το έχουν ήδη χρησιμοποιήσει"
+        not_a_number: "δεν είναι ένας αριθμός"
+        greater_than: "πρέπει να είναι μεγαλύτερο από %{count}"
+        greater_than_or_equal_to: "πρέπει να είναι μεγαλύτερο ή ίσο με %{count}"
+        equal_to: "πρέπει να είναι ίσο με %{count}"
+        less_than: "πρέπει να είναι λιγότερο από %{count}"
+        less_than_or_equal_to: "πρέπει να είναι λιγότερο ή ίσο με %{count}"
+        odd: "πρέπει να είναι περιττός"
+        even: "πρέπει να είναι άρτιος"
+

@@ -1,0 +1,70 @@
+= Net::SSH::Gateway
+
+* http://net-ssh.rubyforge.org/gateway
+
+== DESCRIPTION:
+
+Net::SSH::Gateway is a library for programmatically tunneling connections to servers via a single "gateway" host. It is useful for establishing Net::SSH connections to servers behind firewalls, but can also be used to forward ports and establish connections of other types, like HTTP, to servers with restricted access.
+
+== FEATURES:
+
+* Easily manage forwarded ports
+* Establish Net::SSH connections through firewalls
+
+== SYNOPSIS:
+
+In a nutshell:
+
+  require 'net/ssh/gateway'
+
+  gateway = Net::SSH::Gateway.new('host', 'user')
+
+  gateway.ssh("host.private", "user") do |ssh|
+    puts ssh.exec!("hostname")
+  end
+
+  gateway.open("host.private", 80) do |port|
+    Net::HTTP.get_print("127.0.0.1", "/path", port)
+  end
+
+  gateway.shutdown!
+
+See Net::SSH::Gateway for more documentation.
+
+== REQUIREMENTS:
+
+* net-ssh (version 2)
+
+If you want to run the tests or use any of the Rake tasks, you'll need:
+
+* Echoe (for the Rakefile)
+* Mocha (for the tests)
+
+== INSTALL:
+
+* gem install net-ssh-gateway (might need sudo privileges)
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2008 Jamis Buck <jamis@37signals.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

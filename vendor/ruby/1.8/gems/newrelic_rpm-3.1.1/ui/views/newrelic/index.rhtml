@@ -1,0 +1,71 @@
+<table>
+    <tr>
+		<td valign=top>
+        <table class="transaction_list_table">
+            <thead>
+                <tr>
+                    <td>
+                        <%= link_to_if (params[:h] ||params[:u]), 'Timestamp' %>
+                    </td>
+                    <td>
+                        <%= link_to_unless_current('Resp. Time', :h => 'y') %>
+                    </td>
+                    <td>
+                        <%= link_to_unless_current('URL', :u =>'y') %>
+                    </td>
+                    <td/>
+                </tr>
+                </thead><% @samples.each do |sample| %>
+                  <%= render :partial => :sample, :object => sample %>
+                <% end %>
+        </table>
+		</td>
+		<td valign=top>
+                          <% if defined?(Unicorn) || defined?(Passenger) %>
+                          <div class="flash">
+                          <p id="errorExplanation">
+                            We've noticed you're running a forking web server, like Unicorn or Passenger. See Below</p><p> Developer mode may be unpredictable, 
+                            since those servers run many processes and developer mode is entirely in the process.</p><p> We suggest you try Thin, 
+                            Mongrel, or another single-process web server for development mode.</p><p>
+                            (You can ignore this message if you're sure that you're running only one process, and it's not being reaped when inactive.)
+                         </p>
+                          </div>
+                          <% end %>
+
+
+        <%= link_to_if @samples.size > 0, "Clear Transactions (#{@samples.size})", 'reset' %><br/>
+        <%= link_to "List Threads", 'threads' %><br/>
+		<% if NewRelic::Control.instance.profiling_available? %>
+		  <p><b>Profiling available:</b>
+		  <% if NewRelic::Control.instance.profiling? %>
+            <%= link_to "Stop Profiling", 'profile?stop=true'%>
+	      <% else %>
+            <%= link_to "Start Profiling", 'profile?start=true' %>
+		  <% end %>
+		  </p>
+		<% else %>
+		  <p>You can use the ruby-prof gem to display profiles of your actions with Developer Mode.  Just 
+		  install the ruby-prof gem and restart your app.</p>
+		<% end %>
+			<h3>Welcome</h3>
+			<p>
+			Welcome to <b>New Relic Developer Mode</b>.  This Rails extension traces the performance activity
+			of your 100 most recent controller actions in your rails application, and presents the performance
+			information for your analysis.
+			</p>
+			<p>
+			The url's of the most recent transactions are presented to the left, most-recent first.  Click
+			on any one of these to drill down and inspect its performance information.
+			</p>
+			<p>
+			The identical agent technology that provides this data is also capable of monitoring your application as it
+       runs in production.  For more information, visit <a href="http://www.newrelic.com">http://www.newrelic.com</a>.
+			</p>
+			<p>
+			Note, to increase the accuracy of our performance measurement, we automatically "strip out" any
+			time spent in application code loading, which will not happen when your application runs in 
+			production mode.
+			</p>
+		</td>
+	</tr>
+</table>

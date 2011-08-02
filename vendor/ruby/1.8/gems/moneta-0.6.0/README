@@ -1,0 +1,51 @@
+Moneta: A unified interface for key/value stores
+================================================
+
+Moneta provides a standard interface for interacting with various kinds of key/value stores.
+
+Out of the box, it supports:
+
+* File store for xattr
+* Basic File Store
+* Memcache store
+* In-memory store
+* The xattrs in a file system
+* DataMapper
+* S3
+* Berkeley DB
+* Redis
+* SDBM
+* Tokyo
+* CouchDB
+
+All stores support key expiration, but only memcache supports it natively. All other stores
+emulate expiration.
+
+The Moneta API is purposely extremely similar to the Hash API. In order so support an
+identical API across stores, it does not support iteration or partial matches, but that
+might come in a future release.
+
+The API:
+
+#initialize(options)::          options differs per-store, and is used to set up the store
+
+#[](key)::                      retrieve a key. if the key is not available, return nil
+
+#[]=(key, value)::              set a value for a key. if the key is already used, clobber it.
+                                keys set using []= will never expire
+
+#delete(key)::                  delete the key from the store and return the current value
+
+#key?(key)::                    true if the key exists, false if it does not
+
+#has_key?(key)::                alias for key?
+
+#store(key, value, options)::   same as []=, but you can supply an :expires_in option, 
+                                which will specify a number of seconds before the key
+                                should expire. In order to support the same features
+                                across all stores, only full seconds are supported
+
+#update_key(key, options)::     updates an existing key with a new :expires_in option.
+                                if the key has already expired, it will not be updated.
+
+#clear::                        clear all keys in this store

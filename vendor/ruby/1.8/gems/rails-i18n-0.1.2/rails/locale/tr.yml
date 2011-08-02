@@ -1,0 +1,181 @@
+# Turkish translations for Ruby on Rails
+# by Ozgun Ataman (ozataman@gmail.com)
+
+tr:
+  locale:
+    native_name: Türkçe
+    address_separator: " "
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      numeric: "%d.%m.%Y"
+      short: "%e %b"
+      long: "%e %B %Y, %A"
+      only_day: "%e"
+
+    day_names:
+      - Pazar
+      - Pazartesi
+      - Salı
+      - Çarşamba
+      - Perşembe
+      - Cuma
+      - Cumartesi
+    abbr_day_names:
+      - Pzr
+      - Pzt
+      - Sal
+      - Çrş
+      - Prş
+      - Cum
+      - Cts
+    month_names:
+      - ~
+      - Ocak
+      - Şubat
+      - Mart
+      - Nisan
+      - Mayıs
+      - Haziran
+      - Temmuz
+      - Ağustos
+      - Eylül
+      - Ekim
+      - Kasım
+      - Aralık
+    abbr_month_names:
+      - ~
+      - Oca
+      - Şub
+      - Mar
+      - Nis
+      - May
+      - Haz
+      - Tem
+      - Ağu
+      - Eyl
+      - Eki
+      - Kas
+      - Ara
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %d.%b.%y %H:%M"
+      numeric: "%d.%b.%y %H:%M"
+      short: "%e %B, %H:%M"
+      long: "%e %B %Y, %A, %H:%M"
+      time: "%H:%M"
+
+    am: "öğleden önce"
+    pm: "öğleden sonra"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'yarım dakika'
+      less_than_x_seconds:
+        zero: '1 saniyeden az'
+        one: '1 saniyeden az'
+        other: '%{count} saniyeden az'
+      x_seconds:
+        one: '1 saniye'
+        other: '%{count} saniye'
+      less_than_x_minutes:
+        zero: '1 dakikadan az'
+        one: '1 dakikadan az'
+        other: '%{count} dakikadan az'
+      x_minutes:
+        one: '1 dakika'
+        other: '%{count} dakika'
+      about_x_hours:
+        one: 'yaklaşık 1 saat'
+        other: 'yaklaşık %{count} saat'
+      x_days:
+        one: '1 gün'
+        other: '%{count} gün'
+      about_x_months:
+        one: 'yaklaşık 1 ay'
+        other: 'yaklaşık %{count} ay'
+      x_months:
+        one: '1 ay'
+        other: '%{count} ay'
+      about_x_years:
+        one: 'yaklaşık 1 yıl'
+        other: 'yaklaşık %{count} yıl'
+      over_x_years:
+        one: '1 yıldan fazla'
+        other: '%{count} yıldan fazla'
+      almost_x_years:
+        one:   "neredeyse 1 yıl"
+        other: "neredeyse %{count} yıl"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'TL'
+        format: '%n %u'
+        separator: ','
+        delimiter: '.'
+        precision: 2
+    percentage:
+      format:
+        delimiter: '.'
+        separator: ','
+        precision: 2
+    precision:
+      format:
+        delimiter: '.'
+        separator: ','
+    human:
+      format:
+        delimiter: '.'
+        separator: ','
+        precision: 2
+
+  support:
+    select:
+      # default value for :prompt => true in FormOptionsHelper
+      prompt: "Lütfen seçiniz"
+    array:
+      sentence_connector: "ve"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " ve "
+      last_word_connector: " ve "
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} girişi kaydedilemedi: 1 hata."
+          other:  "%{model} girişi kadedilemedi: %{count} hata."
+        body: "Lütfen aşağıdaki hataları düzeltiniz:"
+
+      messages:
+        inclusion: "kabul edilen bir kelime değil"
+        exclusion: "kullanılamaz"
+        invalid: "geçersiz"
+        confirmation: "teyidiyle uyuşmamakta"
+        accepted: "kabul edilmeli"
+        empty: "doldurulmalı"
+        blank: "doldurulmalı"
+        too_long: "çok uzun (en fazla %{count} karakter)"
+        too_short: "çok kısa (en az %{count} karakter)"
+        wrong_length: "yanlış uzunlukta (tam olarak %{count} karakter olmalı)"
+        taken: "hali hazırda kullanılmakta"
+        not_a_number: "geçerli bir sayı değil"
+        greater_than: "%{count} sayısından büyük olmalı"
+        greater_than_or_equal_to: "%{count} sayısına eşit veya büyük olmalı"
+        equal_to: "tam olarak %{count} olmalı"
+        less_than: "%{count} sayısından küçük olmalı"
+        less_than_or_equal_to: "%{count} sayısına eşit veya küçük olmalı"
+        odd: "tek olmalı"
+        even: "çift olmalı"
+        record_invalid: "Doğrulama başarısız oldu: %{errors}"

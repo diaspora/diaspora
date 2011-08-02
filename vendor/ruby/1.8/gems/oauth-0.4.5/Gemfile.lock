@@ -1,0 +1,46 @@
+GEM
+  remote: http://rubygems.org/
+  specs:
+    actionpack (2.3.8)
+      activesupport (= 2.3.8)
+      rack (~> 1.1.0)
+    activesupport (2.3.8)
+    addressable (2.2.0)
+    crack (0.1.8)
+    curb (0.7.7.1)
+    em-http-request (0.2.11)
+      addressable (>= 2.0.0)
+      eventmachine (>= 0.12.9)
+    eventmachine (0.12.10)
+    gemcutter (0.4.1)
+      json_pure
+    git (1.2.5)
+    jeweler (1.4.0)
+      gemcutter (>= 0.1.0)
+      git (>= 1.2.5)
+      rubyforge (>= 2.0.0)
+    json_pure (1.4.3)
+    mocha (0.9.8)
+      rake
+    rack (1.1.0)
+    rake (0.8.7)
+    rubyforge (2.0.4)
+      json_pure (>= 1.1.7)
+    typhoeus (0.1.31)
+      rack
+    webmock (1.3.5)
+      addressable (>= 2.1.1)
+      crack (>= 0.1.7)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  actionpack (~> 2.3.8)
+  curb (>= 0.6.6.0)
+  em-http-request (= 0.2.11)
+  jeweler
+  mocha (>= 0.9.8)
+  rake
+  typhoeus (>= 0.1.13)
+  webmock

@@ -1,0 +1,83 @@
+h1. polyglot
+
+h2. Poly => many, glot => languages
+
+
+h2. What
+
+Polyglot provides a registry of file types that can be loaded by
+calling its improved version of 'require'. Each file extension
+that can be handled by a custom loader is registered by calling
+Polyglot.register("ext", &lt;class&gt;), and then you can simply
+require "somefile", which will find and load "somefile.ext"
+using your custom loader.
+
+This supports the creation of DSLs having a syntax that is most
+appropriate to their purpose, instead of abusing the Ruby syntax.
+
+Required files are attempted first using the normal Ruby loader,
+and if that fails, Polyglot conducts a search for a file having
+a supported extension.
+
+h2. Installing
+
+<pre syntax="ruby">sudo gem install polyglot</pre>
+
+h2. Example
+
+Define and register your file type loader in file rubyglot.rb:
+
+<pre>    require 'polyglot'
+    class RubyglotLoader
+        def self.load(filename, options = nil, &block)
+            File.open(filename) {|file|
+                # Load the contents of file as Ruby code:
+                # Implement your parser here instead!
+                Kernel.eval(file.read)
+            }
+        end
+    end
+    Polyglot.register("rgl", RubyglotLoader)
+</pre>
+
+This file, hello.rgl, will be loaded (this simple example uses Ruby code):
+
+<pre>    puts "Initializing"
+    class Hello
+        def initialize()
+            puts "Hello, world\n"
+        end
+    end
+</pre>
+
+Call it from file test.rb:
+
+<pre>    require 'rubyglot'	# Create my file type handler
+    require 'hello'	# Can add extra options or even a block here
+    puts "Ready to go"
+    Hello.new
+</pre>
+
+Run:
+
+<pre>    $ ruby test.rb
+    Initializing
+    Ready to go
+    Hello, world
+    $
+</pre>
+
+
+h2. How to submit patches
+
+Read the "8 steps for fixing other people's code":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/ and for section "8z: Submit patch":http://drnicwilliams.com/2007/06/01/8-steps-for-fixing-other-peoples-code/#8z-email, email me on the link below.
+
+The trunk repository is <code>http://github.com/cjheath/polyglot</code>.
+
+h2. License
+
+This code is free to use under the terms of the MIT license. 
+
+h2. Contact
+
+Comments are welcome. Send an email to "Clifford Heath":http://github.com/cjheath

@@ -1,0 +1,31 @@
+# Mac OS X
+.DS_Store
+
+# TextMate
+*.tmproj
+tmtags
+
+# emails
+*~
+\#*
+.\#*
+
+# vim
+*.swp
+
+# General
+coverage
+rdoc
+doc
+log
+.yardoc
+
+# Bundler
+*.gem
+.bundle
+Gemfile.lock
+pkg
+*.gem
+
+# Rubinius
+*.rbc

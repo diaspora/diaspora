@@ -1,0 +1,12 @@
+
+================================================================================
+!!!!! Uncovered code introduced in assets/sample_05.rb
+
+### assets/sample_05.rb:1
+   def d(x)
+!!   4*x
+!! end
+   
+   def a
+     b 10
+   end

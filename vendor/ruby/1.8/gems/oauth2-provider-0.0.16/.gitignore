@@ -1,0 +1,8 @@
+/.bundle
+/log
+/pkg
+/spec/*.db
+/*.db
+/doc
+/Gemfile.lock
+.idea

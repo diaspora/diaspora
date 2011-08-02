@@ -1,0 +1,15 @@
+= Version 0.7.3
+
+  * AMQP connection URI parser now respects port
+
+= Version 0.7.2
+
+ * Fixes for irb tab completion
+
+= Version 0.7.0
+
+ * Added :content_type option to Exchange#publish
+ * Lots of minor fixes
+
+= Version 0.6.3
+  * Encoding of source files is set to UTF-8 on Ruby 1.9.

@@ -84,7 +84,7 @@
       %li= link_to t('.settings'), edit_user_path
       -if current_user.admin?
         %li= link_to t('.admin'), user_search_path
-      %li= link_to t('.logout'), destroy_user_session_path
+      %li= link_to t('.logout'), destroy_user_session_path, :id => 'logout'
 
     -unless @landing_page
       .facebox_content

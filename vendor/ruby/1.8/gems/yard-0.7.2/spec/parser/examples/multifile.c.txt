@@ -1,0 +1,6 @@
+void
+Init_Multifile(void)
+{
+    rb_cMultifile  = rb_define_class("Multifile", rb_cObject);
+    rb_define_method(rb_cMultifile, "extra", rb_extra, 1); /* in extra.c */
+}

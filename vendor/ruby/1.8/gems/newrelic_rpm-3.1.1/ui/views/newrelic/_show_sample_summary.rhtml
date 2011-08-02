@@ -1,0 +1,3 @@
+<h3>Performance Summary</h3>
+<%= summary_pie_chart(@sample, 800, 300) %>
+<%= render :partial => 'table', :object => @sample.breakdown_data(6) %>

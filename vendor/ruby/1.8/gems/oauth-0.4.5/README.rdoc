@@ -1,0 +1,75 @@
+= Ruby OAuth
+
+== What
+
+This is a RubyGem for implementing both OAuth clients and servers in Ruby applications.
+
+See the OAuth specs http://oauth.net/core/1.0/
+
+== Installing
+
+  sudo gem install oauth
+
+The source code is now hosted on the OAuth GitHub Project http://github.com/oauth/oauth-ruby
+
+== The basics
+
+This is a ruby library which is intended to be used in creating Ruby Consumer and Service Provider applications. It is NOT a Rails plugin, but could easily be used for the foundation for such a Rails plugin.
+
+As a matter of fact it has been pulled out from an OAuth Rails Plugin http://code.google.com/p/oauth-plugin/ which now requires this GEM.
+
+== Demonstration of usage
+
+We need to specify the oauth_callback url explicitly, otherwise it defaults to "oob" (Out of Band)
+
+  @callback_url = "http://127.0.0.1:3000/oauth/callback"
+
+Create a new consumer instance by passing it a configuration hash:
+
+  @consumer = OAuth::Consumer.new("key","secret", :site => "https://agree2")
+
+Start the process by requesting a token
+
+  @request_token = @consumer.get_request_token(:oauth_callback => @callback_url)
+  session[:request_token] = @request_token
+  redirect_to @request_token.authorize_url(:oauth_callback => @callback_url)
+
+When user returns create an access_token
+
+  @access_token = @request_token.get_access_token
+  @photos = @access_token.get('/photos.xml')
+
+Now that you have an access token, you can use Typhoeus to interact with the OAuth provider if you choose.
+
+  require 'oauth/request_proxy/typhoeus_request'
+  oauth_params = {:consumer => oauth_consumer, :token => access_token}
+  hydra = Typhoeus::Hydra.new
+  req = Typhoeus::Request.new(uri, options) 
+  oauth_helper = OAuth::Client::Helper.new(req, oauth_params.merge(:request_uri => uri))
+  req.headers.merge!({"Authorization" => oauth_helper.header}) # Signs the request
+  hydra.queue(req)
+  hydra.run
+  @response = req.response
+
+
+== More Information
+
+* RDoc: http://rdoc.info/projects/oauth/oauth-ruby/
+* Mailing List/Google Group: http://groups.google.com/group/oauth-ruby
+
+== How to submit patches
+
+The source code is now hosted on the OAuth GitHub Project http://github.com/oauth/oauth-ruby
+
+To submit a patch, please fork the oauth project and create a patch with tests. Once you're happy with it send a pull request and post a message to the google group.
+
+== License
+
+This code is free to use under the terms of the MIT license. 
+
+== Contact
+
+OAuth Ruby has been created and maintained by a large number of talented individuals. 
+The current maintainer is Aaron Quint (quirkey).
+
+Comments are welcome. Send an email to via the OAuth Ruby mailing list http://groups.google.com/group/oauth-ruby

@@ -1,0 +1,11 @@
+*.gem
+*.rbc
+.DS_Store
+.bundle
+.rvmrc
+.yardoc
+Gemfile.lock
+coverage/*
+doc/*
+log/*
+pkg/*

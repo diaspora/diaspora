@@ -1,0 +1,59 @@
+== UUIDTools 2.1.2
+ * fixed issue with frozen objects
+ * fixed issue with running specs in Ruby 1.9.2
+== UUIDTools 2.1.1
+ * fixed issue with Ruby 1.9 compatibility
+== UUIDTools 2.1.0
+ * completely reworked the MAC address detection code
+ * added additional parsing methods
+== UUIDTools 2.0.0
+ * moved to its own module to avoid collisions
+== UUIDTools 1.0.7
+ * fixed incompatible SecureRandom implementation
+== UUIDTools 1.0.6
+ * fixed Bignum hash issue
+ * added implicit to_str cast
+== UUIDTools 1.0.5
+ * improved specs
+ * fixed minor bugs
+ * better JRuby compatibility
+ * uses securerandom library
+ * updated rake tasks
+== UUIDTools 1.0.4
+ * calculates random node id with multicast bit if there is no MAC address
+ * uses RSpec instead of Test::Unit
+ * works in Ruby 1.9
+ * cleaned up some code
+ * removed deprecated methods
+ * changed version constant
+ * new gem file structure
+== UUIDTools 1.0.3
+ * improved code for obtaining a MAC address within JRuby
+== UUIDTools 1.0.2
+ * improved code for obtaining a MAC address for Solaris and OpenBSD
+ * added hash and eql? methods
+== UUIDTools 1.0.1
+ * improved code for obtaining a MAC address for Solaris and NetBSD
+ * MAC addresses can now be set manually
+ * replaced random number generator, less effective on Windows, but faster
+ * fixed inheritance issues
+ * changed UUID#to_uri method to return a string instead of a URI object
+ * removed UUID#to_uri_string
+== UUIDTools 1.0.0
+ * slight improvements to the random number generator
+ * fixed issue with failing to obtain mac address in certain environments
+== UUIDTools 0.1.4
+ * improved speed when generating timestamp-based uuids
+ * fixed bug with rapid generation of timestamp uuids leading to duplicates
+ * improved code for detection of mac address
+== UUIDTools 0.1.3
+ * fixed issue with UUID#raw attempting to call protected class methods
+== UUIDTools 0.1.2
+ * fixed variant method
+ * added valid? method
+ * changed timestamp_create method to allow creation of UUIDs from
+   arbitrary timestamps
+== UUIDTools 0.1.1
+ * changed helper methods to be protected like they should have been
+== UUIDTools 0.1.0
+ * parsing and generation of UUIDs implemented

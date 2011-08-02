@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<locations type="array">
+<location>
+  <woeid>23424803</woeid>
+  <name>Ireland</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="IE">Ireland</country>
+  <url>http://where.yahooapis.com/v1/place/23424803</url>
+</location>
+<location>
+  <woeid>23424975</woeid>
+  <name>United Kingdom</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="GB">United Kingdom</country>
+  <url>http://where.yahooapis.com/v1/place/23424975</url>
+</location>
+<location>
+  <woeid>23424900</woeid>
+  <name>Mexico</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="MX">Mexico</country>
+  <url>http://where.yahooapis.com/v1/place/23424900</url>
+</location>
+<location>
+  <woeid>2358820</woeid>
+  <name>Baltimore</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2358820</url>
+</location>
+<location>
+  <woeid>455827</woeid>
+  <name>Sao Paulo</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="BR">Brazil</country>
+  <url>http://where.yahooapis.com/v1/place/455827</url>
+</location>
+<location>
+  <woeid>2514815</woeid>
+  <name>Washington</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2514815</url>
+</location>
+<location>
+  <woeid>2367105</woeid>
+  <name>Boston</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2367105</url>
+</location>
+<location>
+  <woeid>1</woeid>
+  <name>Worldwide</name>
+  <placeTypeName code="19">Supername</placeTypeName>
+  <country/>
+  <url>http://where.yahooapis.com/v1/place/1</url>
+</location>
+<location>
+  <woeid>2459115</woeid>
+  <name>New York</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2459115</url>
+</location>
+<location>
+  <woeid>2487796</woeid>
+  <name>San Antonio</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2487796</url>
+</location>
+<location>
+  <woeid>23424977</woeid>
+  <name>United States</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/23424977</url>
+</location>
+<location>
+  <woeid>23424768</woeid>
+  <name>Brazil</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="BR">Brazil</country>
+  <url>http://where.yahooapis.com/v1/place/23424768</url>
+</location>
+<location>
+  <woeid>2379574</woeid>
+  <name>Chicago</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2379574</url>
+</location>
+<location>
+  <woeid>2471217</woeid>
+  <name>Philadelphia</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2471217</url>
+</location>
+<location>
+  <woeid>2424766</woeid>
+  <name>Houston</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2424766</url>
+</location>
+<location>
+  <woeid>2442047</woeid>
+  <name>Los Angeles</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2442047</url>
+</location>
+<location>
+  <woeid>2487956</woeid>
+  <name>San Francisco</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2487956</url>
+</location>
+<location>
+  <woeid>23424775</woeid>
+  <name>Canada</name>
+  <placeTypeName code="12">Country</placeTypeName>
+  <country type="Country" code="CA">Canada</country>
+  <url>http://where.yahooapis.com/v1/place/23424775</url>
+</location>
+<location>
+  <woeid>2357024</woeid>
+  <name>Atlanta</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2357024</url>
+</location>
+<location>
+  <woeid>2406080</woeid>
+  <name>Fort Worth</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2406080</url>
+</location>
+<location>
+  <woeid>2388929</woeid>
+  <name>Dallas</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2388929</url>
+</location>
+<location>
+  <woeid>2490383</woeid>
+  <name>Seattle</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="US">United States</country>
+  <url>http://where.yahooapis.com/v1/place/2490383</url>
+</location>
+<location>
+  <woeid>44418</woeid>
+  <name>London</name>
+  <placeTypeName code="7">Town</placeTypeName>
+  <country type="Country" code="GB">United Kingdom</country>
+  <url>http://where.yahooapis.com/v1/place/44418</url>
+</location>
+</locations>

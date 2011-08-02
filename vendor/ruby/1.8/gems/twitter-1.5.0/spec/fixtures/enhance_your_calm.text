@@ -1,0 +1,11 @@
+HTTP/1.1 420
+Location: https://search.twitter.com
+Content-Type: application/json; charset=UTF-8
+Date: Mon, 18 Oct 2010 10:20:23 GMT
+Expires: Wed, 17 Nov 2010 10:20:23 GMT
+Cache-Control: public, max-age=2592000
+Server: gws
+Content-Length: 219
+X-XSS-Protection: 1; mode=block
+Retry-After: 100
+

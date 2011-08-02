@@ -1,0 +1,6 @@
+h1. Self Test
+
+Cucumber's own features (ROOT_DIR/features) run the features in this directory and look at the output.
+
+Note that several of these fail intentionally. The purpose is to verify actual output against expected
+output.

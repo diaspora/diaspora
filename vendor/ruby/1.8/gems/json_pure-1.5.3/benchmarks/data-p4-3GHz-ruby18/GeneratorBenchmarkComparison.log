@@ -1,0 +1,52 @@
+========================== 2009-04-01T16:54:14 CEST ===========================
+
+Comparing times (call_time_mean):
+ 1 GeneratorBenchmarkExt#generator_fast    1000 repeats:
+       547.354332608 (  real) ->   15.090x 
+         0.001826970
+ 2 GeneratorBenchmarkExt#generator_safe    1000 repeats:
+       443.968212317 (  real) ->   12.240x 
+         0.002252414
+ 3 GeneratorBenchmarkExt#generator_pretty  900 repeats:
+       375.104545883 (  real) ->   10.341x 
+         0.002665923
+ 4 GeneratorBenchmarkPure#generator_fast   1000 repeats:
+        49.978706968 (  real) ->    1.378x 
+         0.020008521
+ 5 GeneratorBenchmarkRails#generator       1000 repeats:
+        38.531868759 (  real) ->    1.062x 
+         0.025952543
+ 6 GeneratorBenchmarkPure#generator_safe   1000 repeats:
+        36.927649925 (  real) ->    1.018x 7 (>=3859)
+         0.027079979
+ 7 GeneratorBenchmarkPure#generator_pretty 1000 repeats:
+        36.272134441 (  real) ->    1.000x 6 (>=3859)
+         0.027569373
+           calls/sec (  time) ->    speed  covers
+           secs/call
+
+Comparing times (call_time_median):
+ 1 GeneratorBenchmarkExt#generator_fast    1000 repeats:
+       708.258020939 (  real) ->   16.547x 
+         0.001411915
+ 2 GeneratorBenchmarkExt#generator_safe    1000 repeats:
+       569.105020353 (  real) ->   13.296x 
+         0.001757145
+ 3 GeneratorBenchmarkExt#generator_pretty  900 repeats:
+       482.825371244 (  real) ->   11.280x 
+         0.002071142
+ 4 GeneratorBenchmarkPure#generator_fast   1000 repeats:
+        62.717626652 (  real) ->    1.465x 
+         0.015944481
+ 5 GeneratorBenchmarkRails#generator       1000 repeats:
+        43.965681162 (  real) ->    1.027x 
+         0.022745013
+ 6 GeneratorBenchmarkPure#generator_safe   1000 repeats:
+        43.929073409 (  real) ->    1.026x 7 (>=3859)
+         0.022763968
+ 7 GeneratorBenchmarkPure#generator_pretty 1000 repeats:
+        42.802514491 (  real) ->    1.000x 6 (>=3859)
+         0.023363113
+           calls/sec (  time) ->    speed  covers
+           secs/call
+===============================================================================

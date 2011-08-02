@@ -1,0 +1,27 @@
+== 2.0.2 released 2009-08-22
+
+* Define methods during method_missing instead of during initialization. Allows for modification on the fly.
+
+== 2.0.0 released 2009-08-22
+
+* Less magic, instead of automatically defining a Settings constant, you should define your own constant. See the readme for an example.
+
+== 1.0.3 released 2009-04-23
+
+* Fix Settings initialized with a Hash to work with both symbol and string hash keys.
+
+== 1.0.2 released 2009-04-09
+
+* Call key? off of the self in the class level name method.
+
+== 1.0.1 released 2009-04-02
+
+* Inherit from hash.
+
+== 1.0.0 released 2008-12-05
+
+* Only define methods if we have settings.
+
+== 0.9.0 released 2008-10-30
+
+* Initial release

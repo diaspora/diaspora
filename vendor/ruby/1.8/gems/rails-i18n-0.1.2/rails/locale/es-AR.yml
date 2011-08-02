@@ -1,0 +1,219 @@
+# Corrected by Eloy Serra Labán: http://goo.gl/i9Kts, /nQ928, /XfKaX
+
+es-AR:
+  number:
+    percentage:
+      format:
+        delimiter: ","
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: "."
+        delimiter: ","
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    format:
+      delimiter: ","
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+      separator: "."
+    human:
+      format:
+        delimiter: ","
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million: "millón"
+          billion: "mil millones"
+          trillion: "billón"
+          quadrillion: "mil billones"
+    precision:
+      format:
+        delimiter: ","
+
+  date:
+    order:
+      - :day
+      - :month
+      - :year
+    abbr_day_names:
+      - dom
+      - lun
+      - mar
+      - mié
+      - jue
+      - vie
+      - sáb
+    abbr_month_names:
+      - ~
+      - ene
+      - feb
+      - mar
+      - abr
+      - may
+      - jun
+      - jul
+      - ago
+      - sep
+      - oct
+      - nov
+      - dic
+    day_names:
+      - domingo
+      - lunes
+      - martes
+      - miércoles
+      - jueves
+      - viernes
+      - sábado
+    month_names:
+      - ~
+      - enero
+      - febrero
+      - marzo
+      - abril
+      - mayo
+      - junio
+      - julio
+      - agosto
+      - septiembre
+      - octubre
+      - noviembre
+      - diciembre
+    formats:
+      short: "%d de %b"
+      default: "%d/%m/%Y"
+      long: "%A, %d de %B de %Y"
+  time:
+    formats:
+      short: "%d de %b a las %H:%M hrs"
+      default: "%a, %d de %b de %Y a las %H:%M:%S %Z"
+      long: "%A, %d de %B de %Y a las %I:%M %p"
+    am: "am"
+    pm: "pm"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: " y "
+
+    select:
+      prompt: "Por favor selecciona"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one: "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one: "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one: "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one: "cerca de 1 hora"
+        other: "cerca de %{count} horas"
+      x_days:
+        one: "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one: "cerca de 1 mes"
+        other: "cerca de %{count} meses"
+      x_months:
+        one: "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        other: "cerca de %{count} años"
+        one: "cerca de 1 año"
+      over_x_years:
+        one: "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one:   "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year: 'Año'
+      month: 'Mes'
+      day: 'Día'
+      hour: 'Hora'
+      minute: 'Minuto'
+      second: 'Segundos'
+
+  helpers:
+    select:
+      prompt: "Por favor selecciona"
+
+    submit:
+      create: 'Crear %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+
+  errors:
+      format: "%{attribute} %{message}"
+
+      messages: &errors_messages
+        inclusion: "no está incluído en la lista"
+        exclusion: "está reservado"
+        invalid: "es inválido"
+        confirmation: "no coincide con la confirmación"
+        blank: "no puede estar en blanco"
+        empty: "no puede estar vacío"
+        not_a_number: "no es un número"
+        not_an_integer: "debe ser un entero"
+        less_than: "debe ser menor que %{count}"
+        less_than_or_equal_to: "debe ser menor o igual que %{count}"
+        greater_than: "debe ser mayor que %{count}"
+        greater_than_or_equal_to: "debe ser mayor o igual que %{count}"
+        too_short:
+          one: "es demasiado corto (mínimo 1 caracter)"
+          other: "es demasiado corto (mínimo %{count} caracteres)"
+        too_long:
+          one: "es demasiado largo (máximo 1 caracter)"
+          other: "es demasiado largo (máximo %{count} caracteres)"
+        equal_to: "debe ser igual a %{count}"
+        wrong_length:
+          one: "longitud errónea (debe ser de 1 caracter)"
+          other: "longitud errónea (debe ser de %{count} caracteres)"
+        accepted: "debe ser aceptado"
+        even: "debe ser un número par"
+        odd: "debe ser un número non"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: "%{model} no pudo guardarse debido a 1 error"
+          other: "%{model} no pudo guardarse debido a %{count} errores"
+        body: "Revise que los siguientes campos sean válidos:"
+
+      messages:
+        taken: "ya ha sido tomado"
+        record_invalid: "La validación falló: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"

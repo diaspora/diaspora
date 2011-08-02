@@ -1,0 +1,16 @@
+cloudfiles.gemspec
+lib/cloudfiles/authentication.rb
+lib/cloudfiles/connection.rb
+lib/cloudfiles/container.rb
+lib/cloudfiles/storage_object.rb
+lib/cloudfiles.rb
+Manifest
+Rakefile
+README.rdoc
+test/cf-testunit.rb
+test/cloudfiles_authentication_test.rb
+test/cloudfiles_connection_test.rb
+test/cloudfiles_container_test.rb
+test/cloudfiles_storage_object_test.rb
+test/test_helper.rb
+TODO

@@ -1,0 +1,29 @@
+1.1.4 (November 28, 2008)
+  Factory.build now uses Factory.create for associations of the built object
+  Factory definitions are now detected in subdirectories, such as
+		factories/person_factory.rb (thanks to Josh Nichols)
+  Factory definitions are now loaded after the environment in a Rails project
+		(fixes some issues with dependencies being loaded too early) (thanks to
+		Josh Nichols)
+  Factory names ending in 's' no longer cause problems (thanks to Alex Sharp
+		and Josh Owens)
+  
+1.1.3 (September 12, 2008)
+  Automatically pull in definitions from factories.rb, test/factories.rb, or
+	spec/factories.rb
+1.1.2 (July 30, 2008)
+  Improved error handling for invalid and undefined factories/attributes
+	Improved handling of strings vs symbols vs classes
+	Added a prettier syntax for handling associations
+  Updated documentation and fixed compatibility with Rails 2.1
+
+1.1.1 (June 23, 2008)
+  The attribute "name" no longer requires using #add_attribute
+
+1.1.0 (June 3, 2008)
+	Added support for dependent attributes
+	Fixed the attributes_for build strategy to not build associations
+  Added support for sequences
+
+1.0.0 (May 31, 208)
+  First version

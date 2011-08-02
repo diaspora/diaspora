@@ -1,0 +1,5 @@
+--no-private
+--title Gherkin
+--exclude lib/gherkin/rb_lexer
+lib/**/*.rb -
+README.md History.md LICENSE

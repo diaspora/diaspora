@@ -1,0 +1,222 @@
+# Swiss German (Switzerland) translations for Ruby on Rails
+# by Florian Hanke (florian.hanke@gmail.com).
+#
+# Adapted from de-CH by Clemens Kofler (clemens@railway.at).
+
+gsw-CH:
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names:
+      - Sunntig
+      - Mäntig
+      - Ziischtig
+      - Mittwuch
+      - Dunnschtig
+      - Friitig
+      - Samschtig
+    abbr_day_names:
+      - Su
+      - Mä
+      - Zi
+      - Mi
+      - Du
+      - Fr
+      - Sa
+    month_names:
+      - ~
+      - Januar
+      - Februar
+      - März
+      - April
+      - Mai
+      - Juni
+      - Juli
+      - Auguscht
+      - Septämber
+      - Oktober
+      - Novämber
+      - Dezämber
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mär
+      - Apr
+      - Mai
+      - Jun
+      - Jul
+      - Aug
+      - Sep
+      - Okt
+      - Nov
+      - Dez
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M"
+      short: "%d. %B, %H:%M"
+      long: "%A, %d. %B %Y, %H:%M"
+      time: "%H:%M"
+
+    am: "am Vormittaag"
+    pm: "am Namitaag"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'ä halbi Minuutä'
+      less_than_x_seconds:
+        one: 'weniger als ä Sekundä'
+        other: 'weniger als %{count} Sekundä'
+      x_seconds:
+        one: 'ä Sekunde'
+        other: '%{count} Sekunde'
+      less_than_x_minutes:
+        one: 'weniger als ä Minuutä'
+        other: 'weniger als %{count} Minuutä'
+      x_minutes:
+        one: 'ä Minutä'
+        other: '%{count} Minutä'
+      about_x_hours:
+        one: 'öppe nä Schtund'
+        other: 'öppe nä %{count} Schtund'
+      x_days:
+        one: 'än Taag'
+        other: '%{count} Taag'
+      about_x_months:
+        one: 'öppe än Monät'
+        other: 'öppe %{count} Mönet'
+      x_months:
+        one: 'än Monät'
+        other: '%{count} Mönet'
+      almost_x_years:
+        one: 'fascht äs Jaar'
+        other: 'fascht %{count} Jaar'
+      about_x_years:
+        one: 'öppe näs Jaar'
+        other: 'öppe %{count} Jaar'
+      over_x_years:
+        one: 'meh als äs Jaar'
+        other: 'meh als %{count} Jaar'
+    prompts:
+      second: "Sekundä"
+      minute: "Minutä"
+      hour: "Schtund"
+      day: "Taag"
+      month: "Monät"
+      year: "Jaar"
+
+  number:
+    format:
+      precision: 2
+      separator: '.'
+      delimiter: "'"
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        unit: 'SFr.'
+        format: '%u %n'
+        separator: '.'
+        delimiter: "'"
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: "'"
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"  # Bäit
+            other: "Bytes" # Bäits
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: Tuusig
+          million: Milioon
+          billion: Bilioon
+          trillion: Trilioon
+          quadrillion: Quadrilioon
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+    select:
+      prompt: "Bitte wääle:"
+
+  helpers:
+    select:
+      prompt: "Bitte wääle"
+
+    submit:
+      create: '%{model} erschtele'
+      update: '%{model} ändere'
+      submit: '%{model} schpeichere'
+
+  errors:
+    format: "%{attribute} %{message}"
+
+    messages: &errors_messages
+      inclusion: "isch kän gültige Wert"
+      exclusion: "isch nöd ume"
+      invalid: "isch nöd gültig"
+      confirmation: "isch nöd gliich wie'd Beschtätigung"
+      accepted: "mues akzeptiert werdä"
+      empty: "mues uusgfüllt werdä"
+      blank: "mues uusgfüllt werdä"
+      too_long: "isch z'lang (nöd mee als %{count} Zeiche)"
+      too_short: "isch z'churz (nöd weniger als %{count} Zeiche)"
+      wrong_length: "hät di falsch Längi (mues genau %{count} Zeiche haa)"
+      not_a_number: "isch kä Nummerä"
+      not_an_integer: "isch kä Zaal"
+      greater_than: "mues grösser als %{count} sii"
+      greater_than_or_equal_to: "mues grösser oder gliich wi %{count} sii"
+      equal_to: "mues genau %{count} sii"
+      less_than: "mues chliiner als %{count} sii"
+      less_than_or_equal_to: "mues chliiner oder gliich %{count} sii"
+      odd: "mues ungraad sii"
+      even: "mues graad sii"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "Han's %{model} nöd schpeichere chönne: än Fehler."
+          other:  "Han's %{model} näd schpeichere chönne: %{count} Fehler."
+        body: "Bitte überprüefed Si die Felder:"
+
+      messages:
+        taken: "isch bereits vergää"
+        record_invalid: "Gültigkeitsprüefig hät fehlgschlage: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: "%{attribute} %{message}"

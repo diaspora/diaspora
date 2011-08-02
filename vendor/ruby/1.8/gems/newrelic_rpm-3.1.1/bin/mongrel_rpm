@@ -1,0 +1,33 @@
+#!/usr/bin/env ruby
+require 'rubygems'
+require 'rack'
+require 'rack/handler/mongrel'
+require 'optparse'
+
+port = 3000
+options = { }
+appname = nil
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{File.basename($0)} [options] [app_name]"
+  opts.on("-p", "--port=port", Integer, "default: #{port}") { | port | }
+  opts.on("--[no-]logging", "turn off request logging" ) { | l | options[:logging] = l }
+  opts.on("--license=license_key", "override license key" ) { | l | options[:license_key] = l }
+  opts.on("--install", "install a newrelic.yml template" ) { | l | options[:install] = true }
+  opts.separator ""
+  opts.separator "app_name is the name of the application where the metrics will be stored"
+  opts.separator ""
+  # The rackup file references this var
+  appname = opts.parse!(ARGV.clone).first
+end
+
+options[:app_name] = appname if appname
+
+ru_file = File.expand_path(File.join(File.dirname(__FILE__), "..", "lib", "new_relic", "rack", "mongrel_rpm.ru"))
+rackup_code = File.read ru_file
+builder = Rack::Builder.new { eval rackup_code, binding, ru_file }
+
+options = { :Host => '127.0.0.1', :Port => port }
+Rack::Handler::Mongrel.run(builder.to_app, options) do | server |
+  NewRelic::Control.instance.log! "Started Mongrel listening for '#{NewRelic::Control.instance.app_names.join(" and ")}' data at #{server.host}:#{server.port}" 
+end
+

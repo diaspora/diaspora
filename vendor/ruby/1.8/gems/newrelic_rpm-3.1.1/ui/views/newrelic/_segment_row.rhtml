@@ -1,0 +1,12 @@
+<tr class='<%= cycle('even_row', 'odd_row') %>'>
+	<td>
+			<%= write_summary_segment_label object %>
+
+	</td>
+	<td align=left> <%= object.call_count %></td>
+	<td align=right><%= with_delimiter(to_ms(object.exclusive_time)) %> ms</td>
+	<td align=right><%= to_percentage(object.exclusive_time_percentage) %>% </td>
+	<td>  </td>
+	<td align=right><%= with_delimiter(to_ms(object.total_time)) %> ms</td>
+	<td align=right><%= to_percentage(object.total_time_percentage) %>%</td>
+</tr>

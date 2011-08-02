@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suggestions type="array">
+<category>
+  <name>Art &amp; Design</name>
+  <slug>art-design</slug>
+  <size>56</size>
+</category>
+<category>
+  <name>Books</name>
+  <slug>books</slug>
+  <size>72</size>
+</category>
+<category>
+  <name>Business</name>
+  <slug>business</slug>
+  <size>65</size>
+</category>
+<category>
+  <name>Charity</name>
+  <slug>charity</slug>
+  <size>82</size>
+</category>
+<category>
+  <name>Deals &amp; Discounts</name>
+  <slug>deals-discounts</slug>
+  <size>32</size>
+</category>
+<category>
+  <name>Entertainment</name>
+  <slug>entertainment</slug>
+  <size>125</size>
+</category>
+<category>
+  <name>Family</name>
+  <slug>family</slug>
+  <size>55</size>
+</category>
+<category>
+  <name>Fashion</name>
+  <slug>fashion</slug>
+  <size>56</size>
+</category>
+<category>
+  <name>Food &amp; Drink</name>
+  <slug>food-drink</slug>
+  <size>81</size>
+</category>
+<category>
+  <name>Funny</name>
+  <slug>funny</slug>
+  <size>69</size>
+</category>
+<category>
+  <name>Health</name>
+  <slug>health</slug>
+  <size>51</size>
+</category>
+<category>
+  <name>Music</name>
+  <slug>music</slug>
+  <size>117</size>
+</category>
+<category>
+  <name>News</name>
+  <slug>news</slug>
+  <size>59</size>
+</category>
+<category>
+  <name>Politics</name>
+  <slug>politics</slug>
+  <size>81</size>
+</category>
+<category>
+  <name>Science</name>
+  <slug>science</slug>
+  <size>53</size>
+</category>
+<category>
+  <name>Sports</name>
+  <slug>sports</slug>
+  <size>114</size>
+</category>
+<category>
+  <name>Staff Picks</name>
+  <slug>staff-picks</slug>
+  <size>96</size>
+</category>
+<category>
+  <name>Technology</name>
+  <slug>technology</slug>
+  <size>60</size>
+</category>
+<category>
+  <name>Travel</name>
+  <slug>travel</slug>
+  <size>56</size>
+</category>
+<category>
+  <name>Twitter</name>
+  <slug>twitter</slug>
+  <size>16</size>
+</category>
+</suggestions>

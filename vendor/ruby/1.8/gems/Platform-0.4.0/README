@@ -1,0 +1,52 @@
+#
+# Platform
+#
+# author: Matt Mower <self@mattmower.com>
+# license: LGPL
+#
+#
+# The Platform library offers a simple, reliable, means of
+# determining what platform Ruby is running on.  Underlying
+# Platform is the RUBY_PLATFORM constant.  This library is
+# parsing this constant for information.  You could easily do
+# this yourself.  We've just taken the hassle out of it for
+# you and hopefully covered a few of the more unusual cases
+# you mightn't have thought of yourself.
+#
+# On the other hand, if you've got cases we haven't please
+# mail the authors.
+#
+# ==Use
+#
+# require 'platform'
+#
+# defines
+#
+# Platform::OS
+#  :unix
+#  :win32
+#  :vms
+#  :os2
+#  :unknown
+#
+# Platform::IMPL
+#  :macosx
+#  :linux
+#  :freebsd
+#  :netbsd
+#  :mswin
+#  :cygwin
+#  :mingw
+#  :bccwin
+#  :wince
+#  :vms
+#  :os2
+#  :unknown
+#
+# Platform::ARCH
+#  :x86
+#  :ia64
+#  :powerpc
+#  :alpha
+#  :unknown
+#

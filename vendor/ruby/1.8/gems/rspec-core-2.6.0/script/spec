@@ -1,0 +1,1 @@
+rvm 1.8.6,1.8.7,ree,1.9.1,1.9.2,jruby rake -f script/FullBuildRakeFile spec | tee tmp/spec.out

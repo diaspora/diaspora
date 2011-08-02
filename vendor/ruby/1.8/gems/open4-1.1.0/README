@@ -1,0 +1,365 @@
+URIS
+
+  http://rubyforge.org/projects/codeforpeople/
+  http://www.codeforpeople.com/lib/ruby/
+
+SYNOPSIS
+
+  open child process with handles on pid, stdin, stdout, and stderr: manage
+  child processes and their io handles easily.
+
+INSTALL
+
+  ~> gem install open4
+
+SAMPLES
+
+  ----------------------------------------------------------------------------
+  simple usage
+  ----------------------------------------------------------------------------
+
+    harp: > cat sample/simple.rb
+    require "open4"
+
+    pid, stdin, stdout, stderr = Open4::popen4 "sh"
+
+    stdin.puts "echo 42.out"
+    stdin.puts "echo 42.err 1>&2"
+    stdin.close
+
+    ignored, status = Process::waitpid2 pid
+
+    puts "pid        : #{ pid }"
+    puts "stdout     : #{ stdout.read.strip }"
+    puts "stderr     : #{ stderr.read.strip }"
+    puts "status     : #{ status.inspect }"
+    puts "exitstatus : #{ status.exitstatus }"
+
+
+    harp: > ruby sample/simple.rb
+    pid        : 17273
+    stdout     : 42.out
+    stderr     : 42.err
+    status     : #<Process::Status: pid=17273,exited(0)>
+    exitstatus : 0
+
+
+  ----------------------------------------------------------------------------
+  in block form - the child process is automatically waited for
+  ----------------------------------------------------------------------------
+
+    harp: > cat sample/block.rb
+    require 'open4'
+
+    status =
+      Open4::popen4("sh") do |pid, stdin, stdout, stderr|
+        stdin.puts "echo 42.out"
+        stdin.puts "echo 42.err 1>&2"
+        stdin.close
+
+        puts "pid        : #{ pid }"
+        puts "stdout     : #{ stdout.read.strip }"
+        puts "stderr     : #{ stderr.read.strip }"
+      end
+
+        puts "status     : #{ status.inspect }"
+        puts "exitstatus : #{ status.exitstatus }"
+
+
+    harp: > ruby sample/block.rb
+    pid        : 17295
+    stdout     : 42.out
+    stderr     : 42.err
+    status     : #<Process::Status: pid=17295,exited(0)>
+    exitstatus : 0
+
+  ----------------------------------------------------------------------------
+  exceptions are marshaled from child to parent if fork/exec fails
+  ----------------------------------------------------------------------------
+
+    harp: > cat sample/exception.rb
+    require "open4"
+    Open4::popen4 "noexist"
+
+
+    harp: > ruby sample/exception.rb
+    /dmsp/reference/ruby-1.8.1//lib/ruby/site_ruby/open4.rb:100:in `popen4': No such file or directory - noexist (Errno::ENOENT)
+            from sample/exception.rb:3
+
+  ----------------------------------------------------------------------------
+  the spawn method provides and even more convenient method of running a
+  process, allowing any object that supports 'each', 'read', or 'to_s' to be
+  given as stdin and any objects that support '<<' to be given as
+  stdout/stderr.  an exception is thrown if the exec'd cmd fails (nonzero
+  exitstatus) unless the option 'raise'=>false is given
+  ----------------------------------------------------------------------------
+  
+    harp: > cat sample/spawn.rb
+    require 'open4'
+    include Open4
+
+    cat = '  ruby -e"  ARGF.each{|line| STDOUT << line}  "  '
+
+    stdout, stderr = '', ''
+    status = spawn cat, 'stdin' => '42', 'stdout' => stdout, 'stderr' => stderr
+    p status
+    p stdout
+    p stderr
+
+    stdout, stderr = '', ''
+    status = spawn cat, 0=>'42', 1=>stdout, 2=>stderr
+    p status
+    p stdout
+    p stderr
+
+
+    harp: > RUBYLIB=lib ruby sample/spawn.rb
+    0
+    "42"
+    ""
+    0
+    "42"
+    ""
+
+
+  ----------------------------------------------------------------------------
+  the bg/background method is similar to spawn, but the process is
+  automatically set running in a thread.  the returned thread has several
+  methods added dynamically which return the pid and blocking calls to the
+  exitstatus.
+  ----------------------------------------------------------------------------
+
+    harp: > cat sample/bg.rb
+    require 'yaml'
+    require 'open4'
+    include Open4
+
+    stdin = '42'
+    stdout = ''
+    stderr = ''
+
+    t = bg 'ruby -e"sleep 4; puts ARGF.read"', 0=>stdin, 1=>stdout, 2=>stderr
+
+    waiter = Thread.new{ y t.pid => t.exitstatus } # t.exitstatus is a blocking call!
+
+    while((status = t.status))
+      y "status" => status
+      sleep 1
+    end
+
+    waiter.join
+
+    y "stdout" => stdout
+
+
+    harp: > ruby sample/bg.rb
+    ---
+    status: run
+    ---
+    status: sleep
+    ---
+    status: sleep
+    ---
+    status: sleep
+    ---
+    21357: 0
+    ---
+    stdout: "42\n"
+
+  ----------------------------------------------------------------------------
+  the timeout methods can be used to ensure execution is preceding at the
+  desired interval.  note also how to setup a 'pipeline'
+  ----------------------------------------------------------------------------
+
+    harp: > cat sample/stdin_timeout.rb
+    require 'open4'
+
+    producer = 'ruby -e" STDOUT.sync = true; loop{sleep(rand+rand) and puts 42} "'
+
+    consumer = 'ruby -e" STDOUT.sync = true; STDIN.each{|line| puts line} "'
+
+    open4(producer) do |pid, i, o, e|
+
+      open4.spawn consumer, :stdin=>o, :stdout=>STDOUT, :stdin_timeout => 1.4
+
+    end
+
+
+    harp: > ruby sample/stdin_timeout.rb
+    42
+    42
+    42
+    42
+    42
+    /dmsp/reference/ruby-1.8.1//lib/ruby/1.8/timeout.rb:42:in `relay': execution expired (Timeout::Error)
+
+HISTORY
+  1.0.0
+    - added ability for spawn to take a proc (respond_to?(:call))
+
+      cmd = ' ruby -e" 42.times{ puts 0b101010 } " '
+      include Open4
+      spawn cmd, :stdout => lambda{|buf| puts buf} 
+
+
+  0.9.5:
+    - another patch from Corey Jewett, this time dealing with ruby's handling
+      of chdir and threads.  basically the 'cwd' keyword to open4 cannot work
+      with multiple threads (aka background) because ruby cannot cause green
+      threads to have an actuall different working dir.  the moral is that the
+      :cwd/'cwd' keyword to spawn will work with 0 or 1 threads in effect.
+  
+  0.9.4:
+    - patch to #background from Corey Jewett
+
+
+  0.9.3:
+    - removed some debugging output accidentally left in 0.9.2.  arggh!
+
+  0.9.2:
+    - fixed a descriptor leak.  thanks Andre Nathan.
+
+  0.9.1:
+    - fixed warning with '-w' : @cid not initialized.  thanks blaise tarr.
+
+  0.9.0:
+    - added the ability for open4.spawn to take either an array of arguments
+      or multiple arguments in order to specify the argv for the command run.
+      for example
+
+        open4.spawn ['touch', 'difficult to "quote"'], :stdout=>STDOUT
+
+      same thing
+
+        open4.spawn 'touch', 'difficult to "quote"', :stdout=>STDOUT
+
+      thanks to jordan breeding for this suggestion
+
+
+    - added 'cwd'/:cwd keyword.  usage is pretty obivous
+
+        open4.spawn 'pwd', 1=>STDOUT, :cwd=>'/tmp'   #=> /tmp
+
+      this one also from jordan
+
+  0.8.0:
+
+    - fixed a critical bug whereby a process producing tons of stdout, but for
+      which the stdout was not handled, would cause the child process to
+      become blocked/hung writing to the pipe.  eg, this command would cause a
+      hang
+
+        include Open4
+
+        spawn 'ruby -e"  puts Array.new(65536){ 42 }  "'
+
+      whereas this one would not
+
+        include Open4
+
+        spawn 'ruby -e"  puts Array.new(65536){ 42 }  "', :stdout=>StringIO.new
+
+      this version handles the former by spawning a 'null' thread which reads,
+      but does not process stdout/stderr.  that way commands which generate
+      tons of output will never become blocked.
+
+  0.7.0:
+    - merged functionality of exitstatus/status keywords:
+
+        include Open4
+
+        spawn 'ruby -e "exit 42"'                 # raises 
+        spawn 'ruby -e "exit 42"', :status=>true  # ok, returns status
+        spawn 'ruby -e "exit 42"', :status=>42    # raises if status != 42
+        spawn 'ruby -e "exit 42"', :status=>0,42  # raises if status != 0||42
+
+    - the 0.6.0 was broken on rubyforge... this release fixes that (somehow!?)
+
+  0.6.0:
+    - added feature for exitstatus to be list of acceptable exit statuses
+
+        Open4.spawn 'ruby -e "exit 42"'                      # raises
+        Open4.spawn 'ruby -e "exit 42"', :exitstatus=>[0,42] # ok
+
+    - added :status switch, which will always simply return the status (no
+      error thrown for failure)
+
+        Open4.spawn 'ruby -e "exit 42"'                          # raises 
+        status = Open4.spawn 'ruby -e "exit 42"', :status=>true  # ok 
+
+      note, however, that any SpawnError does in fact contain the failed
+      status so, even when they are thrown, error status can be retrieved:
+
+        include Open4
+
+        status =
+          begin
+            spawn 'ruby -e "exit 42"'
+          rescue SpawnError => e
+            warn{ e }
+            e.status
+          end
+
+  0.5.1:
+    - fixes a __critical__ but in ThreadEnsemble class that had a race
+      condition that could cause thread deadlock.  sorry bout that folks.
+
+  0.5.0:
+    - on the suggestion of tim pease (thanks tim!), i added timeout features
+      to open4.  the command run may have an overall timeout and individual
+      timeouts set for each of the io handles.  for example
+
+        cmd = 'command_that_produce_out_at_one_second_intervals'
+
+        open4.spawn cmd, :stdout_timeout => 2 
+
+      or 
+
+        cmd = 'command_that_should_complete_in_about_one_minute'
+
+        open4.spawn cmd, :timeout => 60
+
+      or
+
+        cmd = 'consumes_input_at_one_line_per_second_rate'
+
+        input = %w( 42 forty-two 42.0 )
+
+        open4.spawn cmd, :stdin=>input, :stdin_timeout=>1
+
+    - added 'open4' alias so one can write
+
+        open4.spawn  vs Open4.spawn
+
+      or even
+
+        open4(cmd) do |pid,i,o,e|
+        end
+
+    - added signal info to SpawnError
+
+  0.4.0:
+    - improved error handling contributed by jordan breeding.
+    - introduction of background/bg method
+
+  0.3.0 :
+    - bug fix from jordan breeding.  general clean up.  added spawn method.
+
+  0.2.0 :
+    - added exception marshaled from child -> parent when exec fails.  thanks
+      to jordan breeding for a patch (yay!) and paul brannan for this most
+      excellent idea.
+
+  0.1.0 :
+    - fixed docs to correctly show return value of popen4 (pid first not last).
+      thanks Stefanie Tellex <stefie10@alum.mit.edu> for catching this. 
+  0.0.0 :
+    - initial version
+
+AUTHOR
+
+  ara.t.howard@gmail.com
+
+LICENSE
+
+  ruby's

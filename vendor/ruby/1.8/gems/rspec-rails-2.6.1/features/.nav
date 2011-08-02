@@ -1,0 +1,35 @@
+- GettingStarted.md (Start from scratch)
+- Generators.md (Generators)
+- transactional_examples.feature
+- Autotest.md (Autotest integration)
+- Changelog.md
+- Upgrade.md
+- RailsVersions.md (Rails versions)
+- request_specs:
+  - request_spec.feature
+- model_specs:
+  - errors_on.feature
+- controller_specs:
+  - controller_spec.feature
+  - isolation_from_views.feature
+  - render_views.feature
+  - anonymous_controller.feature
+- helper_specs:
+  - helper_spec.feature
+- mailer_specs:
+  - url_helpers.feature
+- routing_specs:
+  - route_to_matcher.feature
+  - be_routable_matcher.feature
+  - named_routes.feature
+- view_specs:
+  - view_spec.feature
+  - stub_template.feature
+  - inferred_controller_path.feature
+- matchers:
+  - new_record_matcher.feature
+  - render_template_matcher.feature
+  - redirect_to_matcher.feature
+- mocks:
+  - mock_model.feature
+  - stub_model.feature

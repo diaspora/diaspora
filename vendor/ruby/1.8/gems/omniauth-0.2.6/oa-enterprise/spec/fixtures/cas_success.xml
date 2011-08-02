@@ -1,0 +1,8 @@
+<cas:serviceResponse xmlns:cas='http://www.yale.edu/tp/cas'>
+  <cas:authenticationSuccess>
+    <cas:user>psegel</cas:user>
+    <cas:first-name>Peter</cas:first-name>
+    <cas:last-name>Segel</cas:last-name>
+    <hire-date>2004-07-13</hire-date>
+  </cas:authenticationSuccess>
+</cas:serviceResponse>

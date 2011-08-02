@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="screen" charset="utf-8" />
+    <link rel="stylesheet" href="/css/custom.css" type="text/css" media="screen" charset="utf-8" />
+    <script type="text/javascript" charset="utf-8" src="/js/jquery.js"></script>
+    <script type="text/javascript" charset="utf-8">
+      function checkPage(process) {
+        $.ajax({cache: false, url: "<%= @path %>" + (process ? "?process=true" : ""), success: function() { window.location = "<%= @path %>"; } });
+        setTimeout('checkPage()', 2000);
+      }
+      function setFade() {
+        centerMessage();
+        $(window).resize(function() { centerMessage(); });
+        $('#fade').fadeIn();
+        $('#processing').fadeIn();
+      }
+      function centerMessage() {
+        $('#fade').css('width', $(window).width() + 'px');
+        $('#fade').css('height', $(window).height() - parseInt($('#fade').css('top')) + 'px');
+        $('#processing').css('left', ($(window).width() / 2 - $('#processing').width() / 2) + 'px');
+        $('#processing').css('top', ($(window).height() / 2 - $('#processing').height() / 2) + 'px');
+      }
+      $(function() { checkPage(true); });
+      $(setFade);
+    </script>
+    <style type="text/css" media="screen">
+      body { overflow: hidden; }
+    </style>
+    <title>Processing <%= @library.to_s(false) %></title>
+  </head>
+  <body>
+    <div id="menu">
+      <% unless @single_library %>
+        <a href="/<%= router.docs_prefix %>" target="_top">Libraries</a> &raquo;
+        <span class="title"><%= @library.name %> <% if @library.version %><small>(<%= @library.version %>)</small><% end %></span>
+      <% end %>
+    </div>
+    <div id="fade"></div>
+    <div id="processing">
+      <h1>Processing <%= @library.name %></h1>
+      <p>
+        <strong><%= @library.name %></strong> <% if @library.version %>(<%= @library.version %>)<% end %> is being processed.
+        You'll be redirected when the pages are built, it shouldn't take much longer.
+      </p>
+      <img src="/images/processing.gif" align="center" />
+    </div>
+  </body>
+</html>

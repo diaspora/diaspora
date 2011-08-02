@@ -1,0 +1,25 @@
+= Ruby/NTLM -- NTLM Authentication Library for Ruby
+
+Ruby/NTLM provides message creator and parser for the NTLM authentication.
+
+Some features:
+* Independent from non-standard Ruby libraries.
+* Supports NTLM and NTLMv2 reponses.
+
+== Simple Example
+
+* Creating NTLM Type 1 message
+
+   t1 = NTLM::Message::Type1.new()
+
+* Parsing NTLM Type 2 message from server
+
+   t2 = NTLM::Message.parse(message_from_server)
+
+* Creating NTLM Type 3 message
+
+   t3 = t2.response({:user => 'user', :password => 'passwd'})
+
+== Support
+
+You can find Ruby/NTLM RubyForge page at http://rubyforge.org/projects/rubyntlm.

@@ -1,0 +1,210 @@
+;(function() {
+
+%%{
+  machine lexer;
+
+  action begin_content {
+    this.content_start = p;
+    this.current_line = this.line_number;
+    this.start_col = p - this.last_newline - (this.keyword+':').length;
+  }
+
+  action start_pystring {
+    this.current_line = this.line_number;
+    this.start_col = p - this.last_newline;
+  }
+  
+  action begin_pystring_content {
+    this.content_start = p;
+  }
+
+  action store_pystring_content {
+    var con = this.unindent(
+      this.start_col, 
+      this.bytesToString(data.slice(this.content_start, this.next_keyword_start-1)).replace(/(\r?\n)?([\t ])*$/, '').replace(/ESCAPED_TRIPLE_QUOTE/mg, '"""')
+    );
+    this.listener.doc_string(con, this.current_line); 
+  }
+
+  action store_feature_content {
+    p = this.store_keyword_content('feature', data, p, eof);
+  }
+
+  action store_background_content {
+    p = this.store_keyword_content('background', data, p, eof);
+  }
+
+  action store_scenario_content {
+    p = this.store_keyword_content('scenario', data, p, eof);
+  }
+
+  action store_scenario_outline_content {
+    p = this.store_keyword_content('scenario_outline', data, p, eof);
+  }
+
+  action store_examples_content {
+    p = this.store_keyword_content('examples', data, p, eof);
+  }
+
+  action store_step_content {
+    var con = this.bytesToString(data.slice(this.content_start, p)).trim();
+    this.listener.step(this.keyword, con, this.current_line);
+  }
+
+  action store_comment_content {
+    var con = this.bytesToString(data.slice(this.content_start, p)).trim();
+    this.listener.comment(con, this.line_number);
+    this.keyword_start = null;
+  }
+
+  action store_tag_content {
+    var con = this.bytesToString(data.slice(this.content_start, p)).trim();
+    this.listener.tag(con, this.line_number);
+    this.keyword_start = null;
+  }
+
+  action inc_line_number {
+    this.line_number++;
+  }
+
+  action last_newline {
+    this.last_newline = p + 1;
+  }
+
+  action start_keyword {
+    this.keyword_start = this.keyword_start || p;
+  }
+
+  action end_keyword {
+    this.keyword = this.bytesToString(data.slice(this.keyword_start, p)).replace(/:$/, '');
+    this.keyword_start = null;
+  }
+
+  action next_keyword_start {
+    this.next_keyword_start = p;
+  }
+
+  action start_row {
+    p = p - 1;
+    current_row = [];
+    this.current_line = this.line_number;
+  }
+
+  action begin_cell_content {
+    this.content_start = p;
+  }
+
+  action store_cell_content {
+    var con = this.bytesToString(data.slice(this.content_start, p)).trim();
+    current_row.push(con.replace(/\\\|/, "|").replace(/\\n/, "\n").replace(/\\\\/, "\\"));
+  }
+
+  action store_row {
+    this.listener.row(current_row, this.current_line);
+  }
+
+  action end_feature {
+    if(this.cs < lexer_first_final) {
+      var content = this.current_line_content(data, p);
+      throw "Lexing error on line " + this.line_number + ": '" + content + "'. See http://wiki.github.com/cucumber/gherkin/lexingerror for more information.";
+    } else {
+      this.listener.eof();
+    }
+    
+  }
+
+  include lexer_common "lexer_common.<%= @i18n.underscored_iso_code %>.rl"; 
+}%%
+
+%% write data;
+%% access this.;
+%% variable data data;
+
+var Lexer = function(listener) {
+  // Check that listener has the required functions
+  var events = ['comment', 'tag', 'feature', 'background', 'scenario', 'scenario_outline', 'examples', 'step', 'doc_string', 'row', 'eof'];
+  for(e in events) {
+    var event = events[e];
+    if(typeof listener[event] != 'function') {
+      "Error. No " + event + " function exists on " + JSON.stringify(listener);
+    }
+  }
+  this.listener = listener;  
+};
+
+Lexer.prototype.scan = function(data) {
+  var ending = "\n%_FEATURE_END_%";
+  if(typeof data == 'string') {
+    data = this.stringToBytes(data + ending);
+  } else if(typeof Buffer != 'undefined' && Buffer.isBuffer(data)) {
+    // Node.js
+    var buf = new Buffer(data.length + ending.length);
+    data.copy(buf, 0, 0);
+    new Buffer(ending).copy(buf, data.length, 0);
+    data = buf;
+  }
+  var eof = pe = data.length;
+  var p = 0;
+
+  this.line_number = 1;
+  this.last_newline = 0;
+
+  %% write init;
+  %% write exec;
+};
+
+Lexer.prototype.bytesToString = function(bytes) {
+  if(typeof bytes.write == 'function') {
+    // Node.js
+    return bytes.toString('utf-8');
+  } else {
+    var result = "";
+    for(var b in bytes) {
+      result += String.fromCharCode(bytes[b]);
+    }
+    return result;
+  }
+};
+
+Lexer.prototype.stringToBytes = function(string) {
+  var bytes = [];
+  for(var i = 0; i < string.length; i++) {
+    bytes[i] = string.charCodeAt(i);
+  }
+  return bytes;
+};
+
+Lexer.prototype.unindent = function(startcol, text) {
+  startcol = startcol || 0;
+  return text.replace(new RegExp('^[\t ]{0,' + startcol + '}', 'gm'), ''); 
+};
+
+Lexer.prototype.store_keyword_content = function(event, data, p, eof) {
+  var end_point = (!this.next_keyword_start || (p == eof)) ? p : this.next_keyword_start;
+  var content = this.unindent(this.start_col + 2, this.bytesToString(data.slice(this.content_start, end_point))).trimRight();
+  var content_lines = content.split("\n")
+  var name = content_lines.shift() || "";
+  name = name.trim();
+  var description = content_lines.join("\n");
+  this.listener[event](this.keyword, name, description, this.current_line);
+  var nks = this.next_keyword_start;
+  this.next_keyword_start = null;
+  return nks ? nks - 1 : p;
+};
+
+Lexer.prototype.current_line_content = function(data, p) {
+  var rest = data.slice(this.last_newline, -1);
+  var end = rest.indexOf(10) || -1;
+  return this.bytesToString(rest.slice(0, end)).trim();
+};
+
+// Node.js export
+if(typeof exports !== 'undefined') {
+  exports.Lexer = Lexer;
+}
+// Require.js export
+if (typeof define !== 'undefined' && define.amd) {
+  define('gherkin/lexer/<%= @i18n.underscored_iso_code %>', [], function() {return Lexer});
+}
+
+})();

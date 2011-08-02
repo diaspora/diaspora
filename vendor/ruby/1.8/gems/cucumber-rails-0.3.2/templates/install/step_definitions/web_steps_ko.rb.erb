@@ -1,0 +1,141 @@
+# encoding: utf-8
+<%= embed_file('support/edit_warning.txt') %>
+
+require File.expand_path(File.join(File.dirname(__FILE__), "..", "support", "paths"))
+
+조건 /^(.+)페이지에 있습니다$/ do |page_name|
+  Given %{I am on #{page_name}}
+end
+
+만일 /^(.+)페이지로 갑니다$/ do |page_name|
+  When %{I go to #{page_name}}
+end
+
+만일 /^"([^"]*)"버튼을 누릅니다$/ do |button|
+  When %{I press "#{button}"}
+end
+
+만일 /^"([^"]*)"링크를 클릭합니다$/ do |link|
+  When %{I follow "#{link}"}
+end
+
+만일 /^"([^"]*)"안에 있는 "([^"]*)"링크를 클릭합니다$/ do |parent, link|
+  When %{I follow "#{link}" within "#{parent}"}
+end
+
+만일 /^"([^"]*)"에 "([^"]*)"라고 적습니다$/ do |field, value|
+  When %{I fill in "#{field}" with "#{value}"}
+end
+
+만일 /^"([^"]*)"라고 "([^"]*)"에 적습니다$/ do |value, field|
+  When %{I fill in "#{value}" for "#{field}"}
+end
+
+만일 /^아레의 목록을 입력합니다$/ do |fields|
+  When %{I fill in the following:}, fields
+end
+
+만일 /^"([^"]*)"를 "([^"]*)"으로 합니다$/ do |field, value|
+  When %{I select "#{value}" from "#{field}"}
+end
+
+만일 /^날짜와 시간를 "([^"]*)"으로 합니다$/ do |time|
+  When %{I select "#{time}" as the date and time}
+end
+
+만일 /^"([^"]*)"의 날짜와 시간을 "([^"]*)"으로 합니다$/ do |datetime_label, datetime|
+  When %{I select "#{datetime}" as the "#{datetime_label}" date and time}
+end
+
+만일 /^시간을 "([^"]*)"으로 합니다$/ do |time|
+  When %{I select "#{time}" as the time}
+end
+
+만일 /^"([^"]*)"의 시간을 "([^"]*)"으로 합니다$/ do |time_label, time|
+  When %{I select "#{time}" as the "#{time_label}" time}
+end
+
+만일 /^날짜를 "([^"]*)"으로 합니다$/ do |date|
+  When %{I select "#{date}" as the date}
+end
+
+만일 /^"([^"]*)"의 날짜를 "([^"]*)"으로 합니다$/ do |date_label, date|
+  When %{I select "#{date}" as the "#{date_label}" date}
+end
+
+만일 /^"([^"]*)"를 체크합니다$/ do |field|
+  When %{I check "#{field}"}
+end
+
+만일 /^"([^"]*)"의 체크를 해제합니다$/ do |field|
+  When %{I uncheck "#{field}"}
+end
+
+만일 /^"([^"]*)"를 고릅니다$/ do |field|
+  When %{I choose "#{field}"}
+end
+
+만일 /^"([^"]*)"에 "([^"]*)"파일을 첨부합니다$/ do |field, path|
+  When %{I attach the file "#{path}" to "#{field}"}
+end
+
+그러면 /^"([^"]*)"가 보여야 합니다$/ do |text|
+  Then %{I should see "#{text}"}
+end
+
+그러면 /^"([^"]*)"안에 "([^"]*)"가 보여야 합니다$/ do |selector, text|
+  Then %{I should see "#{text}" within "#{selector}"}
+end
+
+그러면 /^\/([^\/]*)\/가 보여야 합니다$/ do |regexp|
+  Then %{I should see /#{regexp}/}
+end
+
+그러면 /^"([^"]*)"안에 \/([^\/]*)\/가 보여야 합니다$/ do |selector, regexp|
+  Then %{I should see /#{regexp}/ within "#{selector}"}
+end
+
+그러면 /^"([^"]*)"가 보이면 안됩니다$/ do |text|
+  Then %{I should not see "#{text}"}
+end
+
+그러면 /^"([^"]*)"안에 "([^"]*)"가 보이면 안됩니다$/ do |selector, text|
+  Then %{I should not see "#{text}" within "#{selector}"}
+end
+
+그러면 /^\/([^\/]*)\/가 보이면 안됩니다$/ do |regexp|
+  Then %{I should not see /#{regexp}/}
+end
+
+그러면 /^"([^"]*)"안에 \/([^\/]*)\/가 보이면 안됩니다$/ do |selector, regexp|
+  Then %{I should not see /#{regexp}/ within "#{selector}"}
+end
+
+그러면 /^"([^"]*)"는 "([^"]*)"이어야 합니다$/ do |field, value|
+  Then %{the "#{field}" field should contain "#{value}"}
+end
+
+그러면 /^"([^"]*)"는 "([^"]*)"이면 안됩니다$/ do |field, value|
+  Then %{the "#{field}" field should not contain "#{value}"}
+end
+
+그러면 /^"([^"]*)"는 체크되어 있어야 합니다$/ do |label|
+  Then %{the "#{label}" checkbox should be checked}
+end
+
+그러면 /^"([^"]*)"는 체크되어 있으면 안됩니다$/ do |label|
+  Then %{the "#{label}" checkbox should not be checked}
+end
+
+그러면 /^(.+)에 있어야 합니다$/ do |page_name|
+  Then %{I should be on #{page_name}}
+end
+
+그러면 /^다음 쿼리들이 나와야합니다:$/ do |expected_pairs|
+  Then %{I should have the following query string:}
+end
+
+그러면 /^페이지를 엽니다$/ do
+  Then %{show me the page}
+end
+

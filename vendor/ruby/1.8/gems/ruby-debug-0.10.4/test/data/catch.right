@@ -1,0 +1,39 @@
+pm.rb:3
+def zero_div
+# # ***************************************************
+# # Test catch
+# # ***************************************************
+# set debuggertesting on
+Currently testing the debugger is on.
+# set autoeval off
+autoeval is off.
+# set basename on
+basename is on.
+# info catch
+No exceptions set to be caught.
+# catch ZeroDivisionError off
+*** Catch for exception ZeroDivisionError not found.
+# catch ZeroDivisionError off afdasdf
+*** Unknown command: "catch ZeroDivisionError off afdasdf".  Try "help".
+# catch ZeroDivisionError
+Catch exception ZeroDivisionError.
+# info catch
+ZeroDivisionError
+# catch ZeroDivisionError off
+Catch for exception ZeroDivisionError removed.
+# info catch
+No exceptions set to be caught.
+# catch ZeroDivisionError
+Catch exception ZeroDivisionError.
+# c
+Catchpoint at pm.rb:5: `divided by 0' (ZeroDivisionError)
+	from ../rdbg.rb:23:in `runner'
+	from ../rdbg.rb:32
+pm.rb:5
+1/0
+# where
+--> #0 Object./ at line pm.rb:5
+    #1 at line pm.rb:8
+Warning: saved frames may be incomplete;
+compare debugger backtrace (bt) with Ruby caller(0).
+# quit

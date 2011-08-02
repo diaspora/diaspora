@@ -1,0 +1,5 @@
+require File.expand_path("../base.rb", __FILE__)
+
+extend GemfileBase
+
+gem "rails", :git => "git://github.com/rails/rails.git"

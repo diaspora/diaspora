@@ -1,0 +1,93 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title><%= "#{project_name} C0 Coverage Information - RCov" %></title>
+    <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="print.css" media="print" rel="stylesheet" type="text/css" />
+    <% if css %><link href="custom.css" media="all" rel="stylesheet" type="text/css" /><% end %>
+    <script type="text/javascript" src="jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="jquery.tablesorter.min.js"></script>
+    <script type="text/javascript" src="rcov.js"></script>
+  </head>
+  <body>
+    <h1><%= "#{project_name} C0 Coverage Information - RCov" %></h1>
+    <% if output_threshold != 101 %>
+      <!-- Note: 101 is the default threshold if you don't enter one -->
+      <p>Threshold: <%= output_threshold %>%</p>
+    <% end %>
+
+    <noscript><style type="text/css">.if_js { display:none; }</style></noscript>
+
+    <div class="filters if_js">
+      <fieldset>
+        <label>File Filter:</label>
+        <select id="file_filter" class="filter">
+          <option value="all_files">Show All</option>
+          <% files.map{|f| f.name.split('/')[0..-2]}.flatten.uniq.sort.each do |f| %><option value="<%= f %>"><%= f %>/</option><% end %>
+        </select>
+      </fieldset>
+      <fieldset>
+        <label>Code Coverage Threshold:</label>
+        <select id="coverage_filter" class="filter">
+          <option value="all_coverage">Show All</option>
+          <% (1..10).each do |i| %><option value="<%= i * 10 %>">&lt; <%= i * 10 %>% Coverage</option><% end %>
+          <option value="110">= 100% Coverage</option>
+        </select>
+      </fieldset>
+    </div>
+    
+    <div class="report_table_wrapper">
+      <table class='report' id='report_table'>
+        <thead>
+          <tr>
+            <th class="left_align">Name</th>
+            <th class="right_align">Total Lines</th>
+            <th class="right_align">Lines of Code</th>
+            <th class="left_align">Total Coverage</th>
+            <th class="left_align">Code Coverage</th>
+          </tr>
+        </thead>
+        <tfoot>
+          <tr>
+            <td class="left_align">TOTAL</td>
+            <td class='right_align'><tt><%= total.num_lines %></tt></td>
+            <td class='right_align'><tt><%= total.num_code_lines %></tt></td>
+            <td class="left_align"><%= code_coverage_html(total.total_coverage_for_report) %></td>
+            <td class="left_align"><%= code_coverage_html(total.code_coverage_for_report, true) %></td>
+          </tr>
+        </tfoot>
+        <tbody>
+          <% files.each_with_index do |f,i| %>
+            <tr class="all_files all_coverage <%= coverage_threshold_classes(f.code_coverage_for_report) %> <%= file_filter_classes(f.name) %> <%= i % 2 == 0 ? 'even' : 'odd' %>">
+              <td class="left_align"><a href="<%= CGI::escapeHTML(relative_filename(f.name)) %>"><%= CGI::escapeHTML(f.name) %></a></td>
+              <td class='right_align'><tt><%= f.num_lines %></tt></td>
+              <td class='right_align'><tt><%= f.num_code_lines %></tt></td>
+              <td class="left_align"><%= code_coverage_html(f.total_coverage_for_report) %></td>
+              <td class="left_align"><%= code_coverage_html(f.code_coverage_for_report) %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    
+    <p>Generated on <%= generated_on %> with <a href="<%= rcov::UPSTREAM_URL %>">rcov <%= rcov::VERSION %></a></p>
+
+    <script type="text/javascript">
+      $(document).ready(function(){$("#report_table").tablesorter({widgets: ['zebra'], textExtraction: 'complex'});});
+      $('.filter').change(function(){
+        ff = $('#file_filter').val();
+        cf = $('#coverage_filter').val();
+        $('table#report_table tbody tr').each(function(i){ 
+          if ((this.className.split(" ").indexOf(ff) > -1) && (this.className.split(" ").indexOf(cf) > -1)) {
+            this.style.display = "";
+          } else {
+            this.style.display = "none";
+          };
+          restripe();
+        })
+      })
+    </script>
+
+  </body>
+</html>

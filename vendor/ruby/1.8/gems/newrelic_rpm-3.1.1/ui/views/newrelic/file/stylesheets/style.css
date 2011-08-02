@@ -1,0 +1,490 @@
+
+
+/*  
+Originally based on the theme credited below.
+Tweaks by Lew Cirne and Victoria Wesson for New Relic
+
+Theme Name: Simpla
+Theme URI: http://ifelse.co.uk/simpla/
+Description: A clean, minimalist theme
+Version: 1.01
+Author: Phu Ly
+Author URI: http://ifelse.co.uk/
+*/
+
+/*****************************
+ * Profile
+ *****************************/
+
+table.profile {
+    border-collapse: collapse;
+    border: 1px solid #CCC;
+    font-size: 9pt;
+    line-height: normal;
+    padding: 0.3em;
+	width: 100%;
+}
+
+table.profile th {
+    text-align: left;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    background: #dddddd;  
+    border-left: 1px solid silver;
+}
+
+table.profile tr.break td {
+    border: 0;
+    border-top: 1px solid #aaaaaa;
+    border-bottom: 1px solid #aaaaaa;
+    padding: 4px;
+    margin: 0;
+}
+
+table.profile tr.method td {
+    font-weight: bold;
+}
+
+
+table.profile td:first-child {
+    width: 190px;
+}
+
+table.profile td
+{
+	border-left: 1px solid #CCC;
+    text-align: left;
+	vertical-align: top;
+}
+
+table.profile .method_name {
+    text-align: left;
+}
+
+
+
+/*************************************
++Containers
+*************************************/
+body{
+	color:#333;
+	min-width: 1004px;
+	font-family: "Lucida Grande","Lucida Sans Unicode", Verdana, Tahoma, Arial, Helvetica, sans-serif;
+	font-size:12px;
+	margin:0;
+	padding:0;
+	text-align:center;
+}
+#wrap{
+	margin:0 auto;
+	text-align:left;
+	width:76em;	
+}
+#content{
+	width: 984px;
+	margin: 10px auto;
+	text-align:left;
+}
+#header{
+	padding: 0px;
+}
+#footer
+{
+	color:#888;
+	clear:both;
+	font-size:smaller;
+	padding-top: 15px;
+	text-align: left;
+}
+#footer p
+{
+	margin-left: 15px;
+	margin-top: 10px;
+}
+
+/*************************************
+Navigation Bar (horizontal at top)
+*************************************/
+#navbar{
+	color:#00A;
+	font-size:1.2em;
+}
+
+/*************************************
++Hn and p
+*************************************/
+h1, h2, h3, p
+{
+	color:#333333;
+}
+
+h1, h2, h3
+{
+	margin: 10px 0px 10px 0px;
+    font-weight: normal;
+	letter-spacing: 0px;
+}
+
+p
+{
+	margin: 7px 0px 7px 0px;
+}
+
+
+#header h1{
+	font-size:1.2em;
+	font-weight:normal;
+}
+#header h1 a{
+	color:#E87830;
+}
+#header h1 a:hover{
+	color:#CC0000;
+}
+#header p{
+	font-size:1.1em;
+	margin:0;
+	margin-top:-0.1em;
+	margin-bottom:0.3em;
+}
+#header table
+{
+	padding: 0px 0px 0px 0px;
+}
+
+/*************************************
++Misc
+*************************************/
+a:link, a:visited, a:active {
+	color:#116677;
+	text-decoration:none;
+}
+a:hover{
+	color:#0055aa;
+	text-decoration:underline;
+}
+img{
+	border-style:none;
+}
+var{
+	font-family: Courier;
+	font-style: normal;
+	font-size: 1.1em;
+}
+
+/* regular tables use thead instead of th.  th is only used by name/value table layouts */
+th
+{
+	padding: 5px 5px 5px 5px;
+	text-align: right;
+}
+th.left
+{
+	text-align: left;
+}
+th.title 
+{
+	font-size: 1.2em;
+	text-align: left;
+	padding: 6px 5px 8px 5px;
+	color: #EEEEEE;
+}
+td.locals
+{
+	font-size: 0.9em;
+	text-align: left;
+    font-family: monospace;
+}
+ 
+/*************************************
++New Relic Specific - need to preserve
+*************************************/
+.light_background
+{
+	background-color: #FAFEFE;
+}
+div.flash, #errorExplanation 
+{
+	margin: 8px 10px 8px 10px;
+	border: 2px;
+	border-style: solid;
+}
+
+div.flash
+{
+	padding: 10px 5px 10px 20px;
+}
+
+#errorExplanation
+{
+	padding: 5px 5px 5px 20px;
+	color: #bb0011;
+}
+
+div.flash.error 
+{
+	border-color: #bb0011;
+	color: #bb0011;
+}
+
+div.flash.notice 
+{
+	border-color: #eeaa33;
+	color: #eeaa33;
+}
+
+#metricsummary{
+	background:#ddd;
+	border-top:1px solid #777;
+	clear:both;
+	font-size:0.9em;
+	padding:0.5em;
+}
+
+.application_title
+{
+	font-size: larger;
+}
+
+#navlist
+{
+	font-size: smaller;
+	margin: 0px;
+	padding: 0px 10px 15px 0px;
+	white-space: nowrap;
+	color: #333333;
+}
+
+#navlist li
+{
+	display: inline;
+	list-style-type: none;
+	padding: 0px 0px 0px 20px;
+	font-size: 12px;
+	color: #333333;
+}
+
+#navlist li a
+{
+	color: #333333;
+}
+
+#secondary_nav
+{
+	margin: 0px;
+	padding: 5px 5px 5px 5px;
+}
+
+#secondary_nav li
+{
+	display: inline;
+	list-style-type: none;
+	padding: 0px 20px 0px 0px;
+	font-size: .9em;
+}
+
+#pie_chart_image
+{
+	margin:  15px 0px 15px 0px;
+}
+
+#reset_transactions, #reset_transactions a
+{
+    color:red;
+    text-align:right;
+}
+
+
+.transaction_list_table
+{
+	width: 600px;
+	margin-right: 15px;
+}
+.transaction_list_table thead a:visited
+{
+	color: white;
+}
+.transaction_list_table thead a
+{
+	color: white;
+	text-decoration: underline;
+}
+
+.segment_list_table thead a
+{
+        color: white;
+        text-decoration: underline;
+}
+
+.application_stack_trace, .full_stack_trace
+{	
+	font-family: monospace;
+	margin-top: 10px;
+	margin-left: 20px;
+	max-width: 950px;
+	overflow: auto;
+}
+
+#summary_table
+{
+}
+
+.sql_statement
+{
+	width: 800px;
+	overflow: auto;
+}
+
+.plan
+{
+    font-family: monospace;
+    font-size: 0.8em;
+    white-space: pre;
+}
+#page_nav
+{
+	height: 42px;
+}
+
+#page_nav tr
+{
+	vertical-align: middle;
+}
+
+#page_nav td
+{
+	padding-left: 20px;
+	color:#333;
+	white-space: nowrap;
+}
+
+
+table
+{
+	font-size: 12px;
+	border-collapse: collapse;
+	border-spacing: 0px;
+	padding: 5px 5px 5px 5px;
+}
+
+
+thead
+{
+	text-align:left;
+	font-weight: normal;
+	line-height:100%;
+	background-color: #6688aa;
+	color: white;
+	padding: 5px 5px 5px 5px;
+}
+
+thead a, thead a:hover
+{
+    color: white;
+}
+
+tfoot
+{
+	background-color: #6688aa; 
+	color: #333;
+}
+
+tfoot td
+{
+	font-size: smaller;
+	text-align:right;
+}
+
+td.title_bar_right
+{
+	text-align:right;
+	font-size: 11px;
+}
+
+
+
+td.top_nav
+{
+	text-align: right;
+	vertical-align: bottom;
+	padding: 0px 0px 0px 0px;
+}
+
+td.time_nav
+{
+	text-align: right;
+}
+
+td
+{
+	text-align: left;
+	padding: 5px 5px 5px 5px;
+}
+
+ul.tab_list {
+	list-style-type: none;
+	padding: 0;
+}
+
+ul.tab_list li {
+	padding-left: 1em;	
+}
+.selected {
+	background: url(/newrelic/image?file=arrow-close.png) no-repeat;
+}
+
+.expand {
+	background-image:url(/newrelic/image?file=arrow-open.png);
+	width:16px;
+	background-position: top left;
+	padding-left: 20px;
+	background-repeat:no-repeat;
+	text-decoration: none;
+}
+
+.collapse {
+	background-image:url(/newrelic/image?file=arrow-close.png);
+	text-decoration: none;
+	width:16px;
+	padding-left: 20px;
+	background-position: top left;
+	background-repeat:no-repeat;
+}
+
+
+.clock {
+	margin-bottom: -5px;
+}
+
+.selected_source_line {
+  background: #bdf
+}
+
+.scrolling_container {
+	overflow: auto; 
+	padding-left: 5px;
+	max-height: 150px;		
+   border: 1px solid #898989;
+}
+
+.odd_row {
+	background-color: #eeeeee;
+}
+
+.even_row {
+	background-color: #ffffff;
+}
+
+.leaf_segment
+{
+	padding-left: 20px;
+}
+
+.help
+{
+	padding: 10px 5px 5px 5px;
+}
+
+.help p
+{
+}

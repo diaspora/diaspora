@@ -1,0 +1,48 @@
+# This is the config file loaded when running unit tests locally.
+common: &default_settings
+  transaction_tracer:
+    enabled: true
+    record_sql: raw
+
+test:
+  <<: *default_settings
+  host: localhost
+  port: 3000
+  log_level: info
+  capture_params: true
+  agent_enabled: false
+  monitor_mode: false
+  developer_mode: true
+  disable_samplers: true
+  api_host: 127.0.0.1
+  api_port: 443
+  message: '<%= generated_for_user %>'
+  license_key: '<%= license_key %>'
+  agent_enabled: auto
+  apdex_t: 1.1
+  app_name:
+    - a
+    - b
+    - c
+  log_file_path: <%= ::Rails::VERSION::MAJOR == 3 ? Rails.root : RAILS_ROOT %>/log
+
+  # Some fixtures for newrelic.yml parsing tests
+  erb_value: <%= 'hey'*3 %>
+  tval: true
+  tstring: 'true'
+  fval: false
+  yval: yes
+  sval: sure
+    
+  transaction_tracer:
+    record_sql: raw
+    transaction_threshold: Apdex_f # case insensitive
+    explain_threshold: 0.1
+    explain_enabled: true
+    stack_trace_threshold: 0.1
+    
+  error_collector:
+    enabled: true
+    capture_source: true
+    
+  

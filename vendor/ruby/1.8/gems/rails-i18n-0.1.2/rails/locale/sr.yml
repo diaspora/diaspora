@@ -1,0 +1,159 @@
+# Serbian default (Cyrillic) translations for Ruby on Rails
+# by Dejan Dimić (dejan.dimic@gmail.com)
+
+"sr":
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%e %b"
+      long: "%B %e, %Y"
+      only_day: "%e"
+
+    day_names:
+      - Недеља
+      - Понедељак
+      - Уторак
+      - Среда
+      - Четвртак
+      - Петак
+      - Субота
+    abbr_day_names:
+      - Нед
+      - Пон
+      - Уто
+      - Сре
+      - Чет
+      - Пет
+      - Суб
+    month_names:
+      - ~
+      - Јануар
+      - Фабруар
+      - Март
+      - Април
+      - Мај
+      - Јун
+      - Јул
+      - Август
+      - Септембар
+      - Октобар
+      - Новембар
+      - Децембар
+    abbr_month_names:
+      - ~
+      - Јан
+      - Феб
+      - Мар
+      - Апр
+      - Мај
+      - Јун
+      - Јул
+      - Авг
+      - Сеп
+      - Окт
+      - Нов
+      - Дец
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a %b %d %H:%M:%S %Z %Y"
+      time: "%H:%M"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+      only_second: "%S"
+
+      datetime:
+        formats:
+          default: "%Y-%m-%dT%H:%M:%S%Z"
+
+      am: 'АМ'
+      pm: 'ПМ'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'пола минуте'
+      less_than_x_seconds:
+        zero: 'мање од 1 секунде'
+        one: 'мање од 1 секунд'
+        few: 'мање од %{count} секунде'
+        other: 'мање од %{count} секунди'
+      x_seconds:
+        one: '1 секунда'
+        few: '%{count} секунде'
+        other: '%{count} секунди'
+      less_than_x_minutes:
+        zero: 'мање од минута'
+        one: 'мање од 1 минут'
+        other: 'мање од %{count} минута'
+      x_minutes:
+        one: '1 минут'
+        other: '%{count} минута'
+      about_x_hours:
+        one: 'око 1 сат'
+        few: 'око %{count} сата'
+        other: 'око %{count} сати'
+      x_days:
+        one: '1 дан'
+        other: '%{count} дана'
+      about_x_months:
+        one: 'око 1 месец'
+        few: 'око %{count} месеца'
+        other: 'око %{count} месеци'
+      x_months:
+        one: '1 месец'
+        few: '%{count} месеца'
+        other: '%{count} месеци'
+      about_x_years:
+        one: 'око 1 године'
+        other: 'око %{count} године'
+      over_x_years:
+        one: 'преко 1 године'
+        other: 'преко %{count} године'
+
+  number:
+    format:
+      precision: 3
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: 'ДИН'
+        precision: 2
+        format: '%n %u'
+
+  support:
+    array:
+      sentence_connector: "и"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: 'Нисам успео сачувати %{model}: 1 грешка.'
+          few: 'Нисам успео сачувати %{model}: %{count} грешке.'
+          other: 'Нисам успео сачувати %{model}: %{count} грешки.'
+        body: "Молим Вас да проверите следећа поља:"
+      messages:
+        inclusion: "није у листи"
+        exclusion: "није доступно"
+        invalid: "није исправан"
+        confirmation: "се не слаже са својом потврдом"
+        accepted: "мора бити прихваћено"
+        empty: "мора бити дат"
+        blank: "мора бити дат"
+        too_long: "је предугачак (не више од %{count} карактера)"
+        too_short: "је прекратак (не мање од %{count} карактера)"
+        wrong_length: "није одговарајуће дужине (мора имати %{count} карактера)"
+        taken: "је заузето"
+        not_a_number: "није број"
+        greater_than: "мора бити веће од %{count}"
+        greater_than_or_equal_to: "мора бити веће или једнако %{count}"
+        equal_to: "кора бити једнако %{count}"
+        less_than: "мора бити мање од %{count}"
+        less_than_or_equal_to: "мора бити мање или једнако %{count}"
+        odd: "мора бити непарно"
+        even: "мора бити парно"

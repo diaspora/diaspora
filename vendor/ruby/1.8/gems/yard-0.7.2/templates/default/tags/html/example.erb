@@ -1,0 +1,9 @@
+<% if object.has_tag?(:example) %>
+  <div class="examples">
+    <h3>Examples:</h3>
+    <% object.tags(:example).each do |tag| %>
+      <h4><%= htmlify_line(tag.name) %></h4>
+      <pre class="example code"><%= html_syntax_highlight(tag.text) %></pre>
+    <% end %>
+  </div>
+<% end %>

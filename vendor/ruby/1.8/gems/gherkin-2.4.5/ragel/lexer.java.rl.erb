@@ -1,0 +1,208 @@
+package gherkin.lexer.i18n;
+
+import java.io.UnsupportedEncodingException;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.regex.Pattern;
+import gherkin.lexer.Lexer;
+import gherkin.lexer.Listener;
+import gherkin.lexer.LexingError;
+
+public class <%= @i18n.underscored_iso_code.upcase %> implements Lexer {
+  %%{
+    machine lexer;
+    alphtype byte;
+
+    action begin_content {
+      contentStart = p;
+      currentLine = lineNumber;
+      if(keyword != null) {
+        startCol = p - lastNewline - (keyword.length() + 1);
+      }
+    }
+
+    action start_pystring {
+      currentLine = lineNumber;
+      startCol = p - lastNewline;
+    }
+    
+    action begin_pystring_content {
+      contentStart = p;
+    }
+
+    action store_pystring_content {
+      String con = unindent(startCol, substring(data, contentStart, nextKeywordStart-1).replaceFirst("(\\r?\\n)?([\\t ])*\\Z", "").replaceAll("\\\\\"\\\\\"\\\\\"", "\"\"\""));
+      listener.docString(con, currentLine);
+    }
+
+    action store_feature_content {
+      String[] nameDescription = nameAndUnindentedDescription(startCol, keywordContent(data, p, eof, nextKeywordStart, contentStart));
+      listener.feature(keyword, nameDescription[0], nameDescription[1], currentLine);
+      if(nextKeywordStart != -1) p = nextKeywordStart - 1;
+      nextKeywordStart = -1;
+    }
+
+    action store_background_content {
+      String[] nameDescription = nameAndUnindentedDescription(startCol, keywordContent(data, p, eof, nextKeywordStart, contentStart));
+      listener.background(keyword, nameDescription[0], nameDescription[1], currentLine);
+      if(nextKeywordStart != -1) p = nextKeywordStart - 1;
+      nextKeywordStart = -1;
+    }
+
+    action store_scenario_content {
+      String[] nameDescription = nameAndUnindentedDescription(startCol, keywordContent(data, p, eof, nextKeywordStart, contentStart));
+      listener.scenario(keyword, nameDescription[0], nameDescription[1], currentLine);
+      if(nextKeywordStart != -1) p = nextKeywordStart - 1;
+      nextKeywordStart = -1;
+    }
+
+    action store_scenario_outline_content {
+      String[] nameDescription = nameAndUnindentedDescription(startCol, keywordContent(data, p, eof, nextKeywordStart, contentStart));
+      listener.scenarioOutline(keyword, nameDescription[0], nameDescription[1], currentLine);
+      if(nextKeywordStart != -1) p = nextKeywordStart - 1;
+      nextKeywordStart = -1;
+    }
+
+    action store_examples_content {
+      String[] nameDescription = nameAndUnindentedDescription(startCol, keywordContent(data, p, eof, nextKeywordStart, contentStart));
+      listener.examples(keyword, nameDescription[0], nameDescription[1], currentLine);
+      if(nextKeywordStart != -1) p = nextKeywordStart - 1;
+      nextKeywordStart = -1;
+    }
+
+    action store_step_content {
+      listener.step(keyword, substring(data, contentStart, p).trim(), currentLine);
+    }
+
+    action store_comment_content {
+      listener.comment(substring(data, contentStart, p).trim(), lineNumber);
+      keywordStart = -1;
+    }
+
+    action store_tag_content {
+      listener.tag(substring(data, contentStart, p).trim(), currentLine);
+      keywordStart = -1;
+    }
+
+    action inc_line_number {
+      lineNumber++;
+    }
+
+    action last_newline {
+      lastNewline = p + 1;
+    }
+
+    action start_keyword {
+      if(keywordStart == -1) keywordStart = p;
+    }
+
+    action end_keyword {
+      keyword = substring(data, keywordStart, p).replaceFirst(":$","");
+      keywordStart = -1;
+    }
+
+    action next_keyword_start {
+      nextKeywordStart = p;
+    }
+
+    action start_row {
+      p = p - 1;
+      currentRow = new ArrayList<String>();
+      currentLine = lineNumber;
+    }
+
+    action begin_cell_content {
+      contentStart = p;
+    }
+
+    action store_cell_content {
+      String con = substring(data, contentStart, p).trim();
+      currentRow.add(con
+        .replaceAll("\\\\\\|", "|")
+        .replaceAll("\\\\n", "\n")
+        .replaceAll("\\\\\\\\", "\\\\")
+      );
+    }
+
+    action store_row {
+      listener.row(currentRow, currentLine);
+    }
+
+    action end_feature {
+      if(cs < lexer_first_final) {
+        String content = currentLineContent(data, lastNewline);
+        throw new LexingError("Lexing error on line " + lineNumber + ": '" + content + "'. See http://wiki.github.com/cucumber/gherkin/lexingerror for more information.");
+      } else {
+        listener.eof();
+      }
+    }
+
+    include lexer_common "lexer_common.<%= @i18n.underscored_iso_code %>.rl"; 
+  }%%
+
+  private final Listener listener;
+
+  public <%= @i18n.underscored_iso_code.upcase %>(Listener listener) {
+    this.listener = listener;
+  }
+
+  %% write data noerror;
+
+  public void scan(String source)  {
+    String input = source + "\n%_FEATURE_END_%";
+    byte[] data = null;
+    try {
+      data = input.getBytes("UTF-8");
+    } catch(UnsupportedEncodingException e) {
+      throw new RuntimeException(e);
+    }
+    int cs, p = 0, pe = data.length;
+    int eof = pe;
+
+    int lineNumber = 1;
+    int lastNewline = 0;
+
+    int contentStart = -1;
+    int currentLine = -1;
+    int startCol = -1;
+    int nextKeywordStart = -1;
+    int keywordStart = -1;
+    String keyword = null;
+    List<String> currentRow = null;
+
+    %% write init;
+    %% write exec;
+  }
+
+  private String keywordContent(byte[] data, int p, int eof, int nextKeywordStart, int contentStart) {
+    int endPoint = (nextKeywordStart == -1 || (p == eof)) ? p : nextKeywordStart;
+    return substring(data, contentStart, endPoint);
+  }
+
+  private String[] nameAndUnindentedDescription(int startCol, String text) {
+    String[] lines = text.split("\n");
+    String name = lines.length > 0 ? lines[0].trim() : "";
+    StringBuffer description = new StringBuffer();
+    for(int i = 1; i < lines.length; i++) {
+      description.append(lines[i]);
+      description.append("\n");
+    }
+    return new String[]{name, unindent(startCol+2, description.toString()).replaceAll("\\s+$", "")};
+  }
+
+  private String unindent(int startCol, String text) {
+    return Pattern.compile("^[\t ]{0," + startCol + "}", Pattern.MULTILINE).matcher(text).replaceAll("");
+  }
+
+  private String currentLineContent(byte[] data, int lastNewline) {
+    return substring(data, lastNewline, data.length).trim();
+  }
+
+  private String substring(byte[] data, int start, int end) {
+    try {
+      return new String(data, start, end-start, "utf-8");
+    } catch(java.io.UnsupportedEncodingException e) {
+      throw new RuntimeException("Internal error", e);
+    }
+  }
+}

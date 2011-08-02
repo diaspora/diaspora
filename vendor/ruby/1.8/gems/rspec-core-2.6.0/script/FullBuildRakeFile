@@ -1,0 +1,63 @@
+# this is in a separate rakefile because our main one depends on the bundled gems
+# already being installed.  This must be able to run w/o bundled gems installed.
+
+def rake(command = "")
+  sh "rake #{command}"
+end
+
+desc "Run a full build: install necessary gems with bundler, runs specs, run cukes"
+task :build => :bundle_install do
+  rake
+end
+
+desc "Install necessary gems with bundler and runs specs"
+task :spec => :bundle_install do
+  rake "spec"
+end
+
+desc "Install necessary gems with bundler and runs cukes"
+task :cucumber => :bundle_install do
+  rake "cucumber"
+end
+
+desc "Prints description of current ruby interpreter"
+task :print_ruby_description do
+  description = if defined?(RUBY_DESCRIPTION)
+    RUBY_DESCRIPTION
+  else
+    # RUBY_DESCRIPTION is undefined on 1.8.6
+    "ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE} patchlevel #{RUBY_PATCHLEVEL}) [#{RUBY_PLATFORM}]"
+  end
+
+  puts
+  puts "=" * 80
+  puts "Using #{description}"
+  puts "=" * 80
+  puts
+end
+
+task :bundle_install => :ensure_bundler_installed do
+  # Unfortunately, there is no version of ruby-debug that installs cleanly on 1.9.1 and 1.9.2.
+  # Our Gemfile specifies different versions using conditionals, but we still need to bundle update
+  # to get bundler to use the different versions.
+  if RUBY_VERSION =~ /^1\.9/
+    sh "bundle update ruby-debug-base19"
+  end
+
+  sh "bundle install"
+end
+
+task :ensure_bundler_installed => :print_ruby_description do
+  installed = begin
+    require 'rubygems'
+    require 'bundler'
+    true
+  rescue LoadError
+    false
+  end
+
+  unless installed
+    sh "gem install bundler"
+  end
+end
+

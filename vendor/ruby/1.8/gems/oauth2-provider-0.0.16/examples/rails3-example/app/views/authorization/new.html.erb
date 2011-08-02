@@ -1,0 +1,5 @@
+<%= form_for :authorization, :url => oauth_authorize_path(params.slice(:redirect_uri, :client_id, :client_secret)) do |form| %>
+Authorize
+<%= form.submit "Yes", :value => 'Yes'  %>
+<%= form.submit "No", :value => 'No'  %>
+<% end %>

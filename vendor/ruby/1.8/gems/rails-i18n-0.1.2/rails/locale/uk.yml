@@ -1,0 +1,351 @@
+# Ukrainian translations for Ruby on Rails
+# by Andrii Ponomarov (http://github.com/andrii)
+# improved (I hope) by Iwakura Taro
+# it is recomended to use russian rubygem to make i18n of your app
+
+uk:
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: ","
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: " "
+      # Number of decimals, behind the separator (the number 1 with a precision of 2 gives: 1.00)
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%n %u"
+        unit: "грн."
+        # These three are to override number.format and are optional
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 1
+        significant: false
+        strip_insignificant_zeros: false
+
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "байт"
+            few:   "байти"
+            many:  "байтів"
+            other: "байту"
+          kb: "кБ"
+          mb: "МБ"
+          gb: "ГБ"
+          tb: "ТБ"
+          # Rails 3
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand:
+            one: "Тисяча"
+            few: "Тисяч"
+            many: "Тисяч"
+            other: "Тисяч"
+          million:
+            one: "Мільйон"
+            few: "Мільйонів"
+            many: "Мільйонів"
+            other: "Мільйонів"
+          billion:
+            one: "Мільярд"
+            few: "Мільярдів"
+            many: "Мільярдів"
+            other: "Мільярдів"
+          trillion:
+            one: "Трильйон"
+            few: "Трильйонів"
+            many: "Трильйонів"
+            other: "Трильйонів"
+          quadrillion:
+            one: "Кквадрильйон"
+            few: "Квадрильйонів"
+            many: "Квадрильйонів"
+            other: "Квадрильйонів"
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "півхвилини"
+      less_than_x_seconds:
+        one:   "менше %{count} секунди"
+        few:   "менше %{count} секунд"
+        many:  "менше %{count} секунд"
+        other: "менше %{count} секунди"
+      x_seconds:
+        one:   "%{count} секунда"
+        few:   "%{count} секунди"
+        many:  "%{count} секунд"
+        other: "%{count} секунди"
+      less_than_x_minutes:
+        one:   "менше %{count} хвилини"
+        few:   "менше %{count} хвилин"
+        many:  "менше %{count} хвилин"
+        other: "менше %{count} хвилини"
+      x_minutes:
+        one:   "%{count} хвилина"
+        few:   "%{count} хвилини"
+        many:  "%{count} хвилин"
+        other: "%{count} хвилини"
+      about_x_hours:
+        one:   "близько %{count} година"
+        few:   "близько %{count} години"
+        many:  "близько %{count} годин"
+        other: "близько %{count} години"
+      x_days:
+        one:   "%{count} день"
+        few:   "%{count} дні"
+        many:  "%{count} днів"
+        other: "%{count} дня"
+      about_x_months:
+        one:   "близько %{count} місяця"
+        few:   "близько %{count} місяців"
+        many:  "близько %{count} місяців"
+        other: "близько %{count} місяця"
+      x_months:
+        one:   "%{count} місяць"
+        few:   "%{count} місяці"
+        many:  "%{count} місяців"
+        other: "%{count} місяця"
+      about_x_years:
+        one:   "близько %{count} року"
+        few:   "близько %{count} років"
+        many:  "близько %{count} років"
+        other: "близько %{count} року"
+      over_x_years:
+        one:   "більше %{count} року"
+        few:   "більше %{count} років"
+        many:  "більше %{count} років"
+        other: "більше %{count} року"
+      almost_x_years:
+        one:   "майже %{count} роки"
+        few:   "майже %{count} років"
+        many:  "майже %{count} років"
+        other: "майже %{count} років"
+
+    prompts:
+      year:   "Рік"
+      month:  "Місяць"
+      day:    "День"
+      hour:   "Година"
+      minute: "Хвилина"
+      second: "Секунда"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Оберіть: "
+
+    # Default translation keys for submit FormHelper
+    submit:
+      create: 'Створити %{model}'
+      update: 'Зберегти %{model}'
+      submit: 'Зберегти %{model}'
+
+
+  errors:
+    format: "%{attribute} %{message}"
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      inclusion: "не включено до переліку"
+      exclusion: "зарезервовано"
+      invalid: "недійсний"
+      confirmation: "не збігається з підтвердженням"
+      accepted: "має бути прийнятий"
+      empty: "не може бути порожнім"
+      blank: "не може бути пустим"
+      too_long:
+        one:    "занадто довгий (максимум %{count} знак)"
+        few:    "занадто довгий (максимум %{count} знаки)"
+        many:   "занадто довгий (максимум %{count} знаків)"
+        other:  "занадто довгий (максимум %{count} знаку)"
+      too_short:
+        one:    "занадто короткий (мінімум %{count} знак)"
+        few:    "занадто короткий (мінімум %{count} знаки)"
+        many:   "занадто короткий (мінімум %{count} знаків)"
+        other:  "занадто короткий (мінімум %{count} знаку)"
+      wrong_length:
+        one:    "неправильна довжина (має бути %{count} знак)"
+        few:    "неправильна довжина (має бути %{count} знаки)"
+        many:   "неправильна довжина (має бути %{count} знаків)"
+        other:  "неправильна довжина (має бути %{count} знаку)"
+      taken: "вже зайнятий"
+      not_a_number: "не число"
+      not_an_integer: "не э цілим числом"
+      greater_than: "має бути більше ніж %{count}"
+      greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
+      equal_to: "має дорівнювати %{count}"
+      less_than: "має бути менше ніж %{count}"
+      less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
+      odd: "має бути непарним"
+      even: "має бути парним"
+      record_invalid: "Виникли помилки: %{errors}"
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one:    "%{model} не збережено через %{count} помилку"
+          few:    "%{model} не збережено через %{count} помилки"
+          many:   "%{model} не збережено через %{count} помилок"
+          other:  "%{model} не збережено через %{count} помилки"
+        # The variable :count is also available
+        body: "Помилки виявлено в таких полях:"
+
+      full_messages:
+        format: "%{attribute} %{message}"
+      # The values :model, :attribute and :value are always available for interpolation
+      # The value :count is available when applicable. Can be used for pluralization.
+      messages:
+        inclusion: "не включено до переліку"
+        exclusion: "зарезервовано"
+        invalid: "недійсний"
+        confirmation: "не збігається з підтвердженням"
+        accepted: "має бути прийнятий"
+        empty: "не може бути порожнім"
+        blank: "не може бути пустим"
+        too_long:
+          one:    "занадто довгий (максимум %{count} знак)"
+          few:    "занадто довгий (максимум %{count} знаки)"
+          many:   "занадто довгий (максимум %{count} знаків)"
+          other:  "занадто довгий (максимум %{count} знаку)"
+        too_short:
+          one:    "занадто короткий (мінімум %{count} знак)"
+          few:    "занадто короткий (мінімум %{count} знаки)"
+          many:   "занадто короткий (мінімум %{count} знаків)"
+          other:  "занадто короткий (мінімум %{count} знаку)"
+        wrong_length:
+          one:    "неправильна довжина (має бути %{count} знак)"
+          few:    "неправильна довжина (має бути %{count} знаки)"
+          many:   "неправильна довжина (має бути %{count} знаків)"
+          other:  "неправильна довжина (має бути %{count} знаку)"
+        taken: "вже зайнятий"
+        not_a_number: "не число"
+        greater_than: "має бути більше ніж %{count}"
+        greater_than_or_equal_to: "має бути більше ніж або дорівнювати %{count}"
+        equal_to: "має дорівнювати %{count}"
+        less_than: "має бути менше ніж %{count}"
+        less_than_or_equal_to: "має бути менше ніж або дорівнювати %{count}"
+        odd: "має бути непарним"
+        even: "має бути парним"
+        record_invalid: "Виникли помилки: %{errors}"
+
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+
+    day_names:
+      - неділя
+      - понеділок
+      - вівторок
+      - середа
+      - четвер
+      - "п'ятниця"
+      - субота
+    abbr_day_names:
+      - нд.
+      - пн.
+      - вт.
+      - ср.
+      - чт.
+      - пт.
+      - сб.
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names:
+      - ~
+      - Січень
+      - Лютий
+      - Березень
+      - Квітень
+      - Травень
+      - Червень
+      - Липень
+      - Серпень
+      - Вересень
+      - Жовтень
+      - Листопад
+      - Грудень
+    abbr_month_names:
+      - ~
+      - січ.
+      - лют.
+      - бер.
+      - квіт.
+      - трав.
+      - черв.
+      - лип.
+      - серп.
+      - вер.
+      - жовт.
+      - лист.
+      - груд.
+    # Used in date_select and datime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+    am: "до полудня"
+    pm: "по полудні"
+
+  # Used in array.to_sentence.
+  support:
+    select:
+      prompt: "Оберіть:"
+    array:
+      sentence_connector: "і"
+      skip_last_comma: true
+      words_connector: ", "
+      two_words_connector: " і "
+      last_word_connector: " та "
+

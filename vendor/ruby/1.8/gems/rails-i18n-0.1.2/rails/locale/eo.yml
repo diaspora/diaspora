@@ -1,0 +1,222 @@
+# Esperanto translations for Ruby on Rails.
+# Contributors:
+# - Emmanuel Debanne (https://github.com/debanne)
+
+eo:
+  date:
+    formats:
+      default: "%Y/%m/%d"
+      short: "%e %b"
+      long: "%e %B %Y"
+
+    day_names:
+      - dimanĉo
+      - lundo
+      - mardo
+      - merkredo
+      - ĵaŭdo
+      - vendredo
+      - sabato
+    abbr_day_names:
+      - dim
+      - lun
+      - mar
+      - mer
+      - ĵaŭ
+      - ven
+      - sam
+    month_names:
+      - ~
+      - januaro
+      - februaro
+      - marto
+      - aprilo
+      - majo
+      - junio
+      - julio
+      - aŭgusto
+      - septembro
+      - oktobro
+      - novembro
+      - decembro
+    abbr_month_names:
+      - ~
+      - jan.
+      - feb.
+      - mar.
+      - apr.
+      - majo
+      - jun.
+      - jul.
+      - aŭg.
+      - sep.
+      - okt.
+      - nov.
+      - dec.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%d %B %Y %H:%M:%S"
+      short: "%d %b %H:%M"
+      long: "%A %d %B %Y %H:%M"
+    am: 'am'
+    pm: 'pm'
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "duona minuto"
+      less_than_x_seconds:
+        zero: "malpli ol unu sekundo"
+        one: "malpli ol unu sekundo"
+        other: "malpli ol %{count} sekundoj"
+      x_seconds:
+        one: "1 sekundo"
+        other: "%{count} sekundoj"
+      less_than_x_minutes:
+        zero: "malpli ol unu minuto"
+        one: "malpli ol unu minuto"
+        other: "malpli ol %{count} minutoj"
+      x_minutes:
+        one: "1 minuto"
+        other: "%{count} minutoj"
+      about_x_hours:
+        one: "ĉirkaŭ unu horo"
+        other: "ĉirkaŭ %{count} horoj"
+      x_days:
+        one: "1 tago"
+        other: "%{count} tagoj"
+      about_x_months:
+        one: "ĉirkaŭ unu monato"
+        other: "ĉirkaŭ %{count} monatoj"
+      x_months:
+        one: "1 monato"
+        other: "%{count} monatoj"
+      about_x_years:
+        one: "ĉirkaŭ uno jaro"
+        other: "ĉirkaŭ %{count} jaroj"
+      over_x_years:
+        one: "pli ol unu jaro"
+        other: "pli ol %{count} jaroj"
+      almost_x_years:
+        one:   "preskaŭ unu jaro"
+        other: "preskaŭ %{count} jaroj"
+    prompts:
+      year: "Jaro"
+      month: "Monato"
+      day: "Tago"
+      hour: "Horo"
+      minute: "Minuto"
+      second: "Sekundo"
+
+  number:
+    format:
+      separator: ","
+      delimiter: " "
+      precision: 3
+      significant: false
+      strip_insignificant_zeros: false
+    currency:
+      format:
+        format: "%n %u"
+        unit: "€"
+        separator: ","
+        delimiter: " "
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 2
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "bitoko"
+            other: "bitokoj"
+          kb: "kb"
+          mb: "Mb"
+          gb: "Gb"
+          tb: "Tb"
+      decimal_units:
+        format: "%n %u"
+        units:
+          unit: ""
+          thousand: "mil"
+          million: "miliono"
+          billion: "miliardo"
+          trillion: "mil miliardoj"
+          quadrillion: "miliono da miliardoj"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " kaj "
+      last_word_connector: " kaj "
+    select:
+      prompt: "Bonvolu elekti"
+
+  helpers:
+    select:
+      prompt: "Bonvolu elekti"
+    submit:
+      create: "Krei %{model}"
+      update: "Modifi tiun %{model}"
+      submit: "Registri tiun %{model}"
+
+  errors:
+    template: &errors_template
+      header:
+        one: "Ne eblas registri tiun %{model}: 1 eraro"
+        other: "Ne eblas registri tiun %{model}: %{count} eraroj"
+      body: "Kontrolu la jenajn kampojn: "
+
+  attributes:
+    created_at: "Kreita la"
+    updated_at: "Modifita la"
+
+  errors:
+    format: "%{attribute} %{message}"
+    messages: &errors_messages
+      inclusion: "ne estas inkluzivita de la listo"
+      exclusion: "ne estas disponebla"
+      invalid: "estas nevalida"
+      confirmation: "ne kongruas kun la konfirmo"
+      accepted: "devas esti akceptita"
+      empty: "devas esti kompletigita"
+      blank: "devas esti kompletigita"
+      too_long: "estas tro longa (maksimume %{count} karekteroj)"
+      too_short: "estas tro mallonga (minimume %{count} karakteroj)"
+      wrong_length: "ne estas je ĝusta longo (devas enhavi %{count} karakterojn)"
+      not_a_number: "ne estas nombro"
+      not_an_integer: "devas esti entjero"
+      greater_than: "devas superi %{count}"
+      greater_than_or_equal_to: "devas superi aŭ egali %{count}"
+      equal_to: "devas egali %{count}"
+      less_than: "devas malsuperi %{count}"
+      less_than_or_equal_to: "devas malsuperi aŭ egali %{count}"
+      odd: "devas esti nepara"
+      even: "devas esti para"
+
+  activerecord:
+    errors:
+      messages:
+        taken: "ne estas disponebla"
+        record_invalid: "Validado malsukcesis: %{errors}"
+        <<: *errors_messages
+      template:
+        <<: *errors_template
+      full_messages:
+        format: "%{attribute} %{message}"

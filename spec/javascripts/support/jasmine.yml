@@ -43,6 +43,10 @@ src_files:
   - public/javascripts/rails.js
   - public/javascripts/aspect-filters.js
   - public/javascripts/content-updater.js
+  - public/javascripts/xmpp.js
+  - public/javascripts/chatui.js
+  - public/javascripts/strophe.js
+  - public/javascripts/jingle-rtmfp.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

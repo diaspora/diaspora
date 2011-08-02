@@ -1,0 +1,8 @@
+= Lexers
+
+Gherkin support lexing of lots of natural languages, defined by gherkin/i18n.yml
+The lexers are generated with the following command:
+
+    rake ragel:i18n
+
+You have to run this command if you modify gherkin/i18n.yml

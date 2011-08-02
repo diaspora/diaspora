@@ -1,0 +1,35 @@
+= OmniAuth::OAuth
+
+OAuth 1.0 and 2.0 strategies for the OmniAuth gem.
+
+== Installation
+
+To get just OAuth functionality:
+
+    gem install oa-oauth
+    
+For the full auth suite:
+
+    gem install omniauth
+    
+== Stand-Alone Example
+
+Use the strategy as a middleware in your application:
+
+    require 'omniauth/oauth'
+    
+    use OmniAuth::Strategies::Twitter, 'consumer_key', 'consumer_secret'
+    
+Then simply direct users to '/auth/twitter' to have them authenticate via Twitter.
+
+== OmniAuth Builder
+
+If you want to allow multiple providers, use the OmniAuth Builder:
+
+    require 'omniauth/oauth'
+    
+    use OmniAuth::Builder do
+      provider :twitter, 'consumer_key', 'consumer_secret'
+      provider :facebook, 'client_id', 'client_secret'
+    end
+    

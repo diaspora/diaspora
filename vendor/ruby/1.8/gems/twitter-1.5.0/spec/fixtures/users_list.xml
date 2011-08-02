@@ -1,0 +1,1017 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users_list>
+<users type="array">
+<user>
+  <id>7505382</id>
+  <name>Erik Michaels-Ober</name>
+  <screen_name>sferik</screen_name>
+  <location>San Francisco</location>
+  <description>Adventures in hunger and foolishness.</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>897</followers_count>
+  <profile_background_color>000000</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>88</friends_count>
+  <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+  <favourites_count>727</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications></notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following></following>
+  <statuses_count>2964</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent></follow_request_sent>
+  <listed_count>28</listed_count>
+  <show_all_inline_media>true</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 03:55:53 +0000 2010</created_at>
+    <id>28562607814</id>
+    <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://www.echofon.com/&quot; rel=&quot;nofollow&quot;&gt;Echofon&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+      <id>28561922516</id>
+      <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+      <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>13604142</id>
+  <name>Chris Matthieu N7ICE</name>
+  <screen_name>chrismatthieu</screen_name>
+  <location>Phoenix, Arizona</location>
+  <description>Chief hamradio operator (N7ICE) &amp; creator of 73s.org. Founder of Teleku, SurfByTel, Numly, Gospelr, Chug'd, &amp; Spree.ly. Host of Rubyology and HamBrief.TV.</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/918916153/SuperChrisSmall_normal.jpg</profile_image_url>
+  <url>http://ChrisMatthieu.com</url>
+  <protected>false</protected>
+  <followers_count>1961</followers_count>
+  <profile_background_color>c4c4c4</profile_background_color>
+  <profile_text_color>422828</profile_text_color>
+  <profile_link_color>E81717</profile_link_color>
+  <profile_sidebar_fill_color>FFE15C</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>7E8279</profile_sidebar_border_color>
+  <friends_count>1019</friends_count>
+  <created_at>Mon Feb 18 01:30:03 +0000 2008</created_at>
+  <favourites_count>200</favourites_count>
+  <utc_offset>-25200</utc_offset>
+  <time_zone>Arizona</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/10843800/Chris_Superman2.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications></notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following></following>
+  <statuses_count>8877</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent></follow_request_sent>
+  <listed_count>158</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 05:17:26 +0000 2010</created_at>
+    <id>28568059801</id>
+    <text>RT @vivagrams: Today's design, coding &amp; biz dev brought to you by donuts - contributor to our happiness factor! http://bit.ly/aGeTNT #swphx</text>
+    <source>&lt;a href=&quot;http://www.tweetdeck.com&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>17505580</id>
+  <name>Mig Pggbee</name>
+  <screen_name>pggbee</screen_name>
+  <location>washington dc</location>
+  <description>i be mig</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/69434006/spudd_normal.jpg</profile_image_url>
+  <url>http://google.com</url>
+  <protected>false</protected>
+  <followers_count>0</followers_count>
+  <profile_background_color>25618e</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>edffcc</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>dcdbad</profile_sidebar_border_color>
+  <friends_count>0</friends_count>
+  <created_at>Thu Nov 20 05:46:54 +0000 2008</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>false</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>3</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Mon Jan 19 17:13:27 +0000 2009</created_at>
+    <id>1130874731</id>
+    <text>@drnic you are looking for http://github.com/potionfactory/potionstore/ no?</text>
+    <source>&lt;a href=&quot;http://splitweet.com&quot; rel=&quot;nofollow&quot;&gt;Splitweet&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id>1130221444</in_reply_to_status_id>
+    <in_reply_to_user_id>9885102</in_reply_to_user_id>
+    <in_reply_to_screen_name>drnic</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>1112241</id>
+  <name>Billy R Catherall</name>
+  <screen_name>bcatherall</screen_name>
+  <location>Houston, Texas</location>
+  <description>Entrepreneur, Rails Developer, Gamer, Single (divorced) guy in Houston</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/96813420/me-in-hat_normal.jpg</profile_image_url>
+  <url>http://bcatherall.blogspot.com/</url>
+  <protected>false</protected>
+  <followers_count>590</followers_count>
+  <profile_background_color>1A1B1F</profile_background_color>
+  <profile_text_color>666666</profile_text_color>
+  <profile_link_color>2FC2EF</profile_link_color>
+  <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+  <friends_count>679</friends_count>
+  <created_at>Tue Mar 13 20:09:00 +0000 2007</created_at>
+  <favourites_count>2</favourites_count>
+  <utc_offset>-21600</utc_offset>
+  <time_zone>Central Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1286563368/images/themes/theme9/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>336</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>13</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Aug 22 01:44:18 +0000 2010</created_at>
+    <id>21793039231</id>
+    <text>Gotta day the premier party is lots of fun. #GarbageMoguls</text>
+    <source>&lt;a href=&quot;http://twidroid.com&quot; rel=&quot;nofollow&quot;&gt;twidroid&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>8143072</id>
+  <name>Sur</name>
+  <screen_name>sur</screen_name>
+  <location>New Delhi, India</location>
+  <description>die before you are dead</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/1082656833/sur_at_seashore_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>true</protected>
+  <followers_count>198</followers_count>
+  <profile_background_color>0099B9</profile_background_color>
+  <profile_text_color>3C3940</profile_text_color>
+  <profile_link_color>0099B9</profile_link_color>
+  <profile_sidebar_fill_color>95E8EC</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>5ED4DC</profile_sidebar_border_color>
+  <friends_count>222</friends_count>
+  <created_at>Sun Aug 12 17:33:09 +0000 2007</created_at>
+  <favourites_count>2</favourites_count>
+  <utc_offset>19800</utc_offset>
+  <time_zone>New Delhi</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1285694546/images/themes/theme4/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>206</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>4</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>18958056</id>
+  <name>Angelo</name>
+  <screen_name>rubyblackbelt</screen_name>
+  <location>Toronto, Ontario, Canada</location>
+  <description>Senior Ruby/Javascript Developer/Consultant</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/747713188/profile_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>99</followers_count>
+  <profile_background_color>1A1B1F</profile_background_color>
+  <profile_text_color>666666</profile_text_color>
+  <profile_link_color>2FC2EF</profile_link_color>
+  <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+  <friends_count>139</friends_count>
+  <created_at>Tue Jan 13 23:14:33 +0000 2009</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme9/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>355</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>7</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Tue Oct 19 16:50:16 +0000 2010</created_at>
+    <id>27850500237</id>
+    <text>Some screen-like hotkeys for tmux http://bit.ly/bZCgsT</text>
+    <source>&lt;a href=&quot;http://seesmic.com/seesmic_mobile/android/&quot; rel=&quot;nofollow&quot;&gt;Seesmic for Android&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>14675249</id>
+  <name>Michael van Rooijen</name>
+  <screen_name>meskyanichi</screen_name>
+  <location>The Netherlands</location>
+  <description>I'm a Ruby (on Rails) (Web) Developer. Founder of Final Creation and StackFu. I'm a freelancer and I work with @webbynode.</description>
+  <profile_image_url>http://a3.twimg.com/profile_images/1102719219/Screen_shot_2010-08-14_at_10.14.35_PM_normal.png</profile_image_url>
+  <url>http://michaelvanrooijen.com/</url>
+  <protected>false</protected>
+  <followers_count>209</followers_count>
+  <profile_background_color>131516</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>009999</profile_link_color>
+  <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+  <friends_count>117</friends_count>
+  <created_at>Tue May 06 16:20:16 +0000 2008</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>3600</utc_offset>
+  <time_zone>Amsterdam</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme14/bg.gif</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>3981</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>17</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 01:58:51 +0000 2010</created_at>
+    <id>28553915461</id>
+    <text>@grahamt1 tooshay ;) this is true. At least, I try to avoid using it as much as possible!</text>
+    <source>&lt;a href=&quot;http://twitter.com&quot; rel=&quot;nofollow&quot;&gt;Tweetie for Mac&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id>28553104064</in_reply_to_status_id>
+    <in_reply_to_user_id>16086543</in_reply_to_user_id>
+    <in_reply_to_screen_name>grahamt1</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>40339213</id>
+  <name>For Madeleine McCann</name>
+  <screen_name>PrayMaddyMcCann</screen_name>
+  <location>Uk</location>
+  <description>&#9829; I Follow Back! &#9829;
+I'm Helping Find Madeleine McCann!
+
+~ Let's Make a difference to our World! ~
+(If you DM me please let me know by tweet!)</description>
+  <profile_image_url>http://a3.twimg.com/profile_images/981932263/mail-6-1-08-km_normal.jpg</profile_image_url>
+  <url>http://facebook.com/PrayMaddyMcCann</url>
+  <protected>false</protected>
+  <followers_count>45777</followers_count>
+  <profile_background_color>ff0808</profile_background_color>
+  <profile_text_color>000000</profile_text_color>
+  <profile_link_color>430082</profile_link_color>
+  <profile_sidebar_fill_color>ff7700</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>FFFFFF</profile_sidebar_border_color>
+  <friends_count>50325</friends_count>
+  <created_at>Fri May 15 21:33:52 +0000 2009</created_at>
+  <favourites_count>9</favourites_count>
+  <utc_offset>0</utc_offset>
+  <time_zone>London</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/70145334/MadeleineMcCann_.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>7528</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>2310</listed_count>
+  <show_all_inline_media>true</show_all_inline_media>
+  <status>
+    <created_at>Sat Oct 23 22:36:06 +0000 2010</created_at>
+    <id>28539747916</id>
+    <text>@msjanemarps Your email address isn't working, sorry do you have another or might you have spelt it wrong? Could you post the link by tweet?</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id>28495540934</in_reply_to_status_id>
+    <in_reply_to_user_id>204854823</in_reply_to_user_id>
+    <in_reply_to_screen_name>msjanemarps</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>76073923</id>
+  <name>Nikolai Lugovoi</name>
+  <screen_name>n_lugovoi</screen_name>
+  <location></location>
+  <description></description>
+  <profile_image_url>http://s.twimg.com/a/1286563368/images/default_profile_2_normal.png</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>0</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>0</friends_count>
+  <created_at>Mon Sep 21 16:48:22 +0000 2009</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset></utc_offset>
+  <time_zone></time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1286563368/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>17</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>120569549</id>
+  <name>Elite Coding</name>
+  <screen_name>elitecoding</screen_name>
+  <location>Ann Arbor, Michigan</location>
+  <description>def method_missing m; 
+print m; 
+end
+self.new.i.l.u.v.r.u.b.y</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/915216298/ruby_normal.png</profile_image_url>
+  <url>http://milandobrota.tumblr.com</url>
+  <protected>false</protected>
+  <followers_count>37</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>141</friends_count>
+  <created_at>Sat Mar 06 21:24:58 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset></utc_offset>
+  <time_zone></time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/81257060/4056385100_3a2470256b_o.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>100</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>5</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Tue Sep 07 06:27:29 +0000 2010</created_at>
+    <id>23214805288</id>
+    <text>rubyquicktips: http://tumblr.com/xg2huvtm0</text>
+    <source>&lt;a href=&quot;http://www.tumblr.com/&quot; rel=&quot;nofollow&quot;&gt;Tumblr&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>14857890</id>
+  <name>{ k.i.n.g }</name>
+  <screen_name>nkanthikiran</screen_name>
+  <location>India</location>
+  <description>Linux  Administrator from Hyderabad,India.</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/402524737/k3_normal.png</profile_image_url>
+  <url>http://www.kanthi.in</url>
+  <protected>false</protected>
+  <followers_count>0</followers_count>
+  <profile_background_color>1A1B1F</profile_background_color>
+  <profile_text_color>666666</profile_text_color>
+  <profile_link_color>2FC2EF</profile_link_color>
+  <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+  <friends_count>0</friends_count>
+  <created_at>Wed May 21 15:49:39 +0000 2008</created_at>
+  <favourites_count>412</favourites_count>
+  <utc_offset>19800</utc_offset>
+  <time_zone>New Delhi</time_zone>
+  <profile_background_image_url>http://a3.twimg.com/profile_background_images/35771977/king_twitter_wall.png</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>224</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>54925281</id>
+  <name>Scott Werner</name>
+  <screen_name>scottwisme</screen_name>
+  <location>Pittsburgh</location>
+  <description></description>
+  <profile_image_url>http://a3.twimg.com/profile_images/305051659/scott_normal.jpg</profile_image_url>
+  <url>http://stwerner.com</url>
+  <protected>false</protected>
+  <followers_count>67</followers_count>
+  <profile_background_color>352726</profile_background_color>
+  <profile_text_color>3E4415</profile_text_color>
+  <profile_link_color>D02B55</profile_link_color>
+  <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+  <friends_count>109</friends_count>
+  <created_at>Wed Jul 08 15:19:06 +0000 2009</created_at>
+  <favourites_count>9</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Quito</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme5/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications></notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following></following>
+  <statuses_count>188</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent></follow_request_sent>
+  <listed_count>8</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Tue Oct 19 16:10:31 +0000 2010</created_at>
+    <id>27847285170</id>
+    <text>RT @shoooesrb: A Rainbow of Shoes: Brown Shoes - It&#8217;s time to wrap up our rainbow with the last pair of Shoes: Brown Shoes.... http://tu ...</text>
+    <source>web</source>
+    <truncated>true</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Tue Oct 19 15:21:53 +0000 2010</created_at>
+      <id>27843044713</id>
+      <text>A Rainbow of Shoes: Brown Shoes - It&#8217;s time to wrap up our rainbow with the last pair of Shoes: Brown Shoes.... http://tumblr.com/xaumcrhf6</text>
+      <source>&lt;a href=&quot;http://www.tumblr.com/&quot; rel=&quot;nofollow&quot;&gt;Tumblr&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>112784958</id>
+  <name>Gregory Moeck</name>
+  <screen_name>gregmoeck</screen_name>
+  <location>Los Angeles, CA</location>
+  <description>Rails developer</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/685636564/greg_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>32</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>179</friends_count>
+  <created_at>Tue Feb 09 18:10:38 +0000 2010</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>81</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>11</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Wed Oct 20 17:45:04 +0000 2010</created_at>
+    <id>27951368992</id>
+    <text>@anutron The /Test directory is automated via your mootools-test-runner?</text>
+    <source>&lt;a href=&quot;http://twitter.com&quot; rel=&quot;nofollow&quot;&gt;Tweetie for Mac&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id>9555952</in_reply_to_user_id>
+    <in_reply_to_screen_name>anutron</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>101441401</id>
+  <name>kompostownik</name>
+  <screen_name>kompostownik</screen_name>
+  <location></location>
+  <description></description>
+  <profile_image_url>http://s.twimg.com/a/1287774835/images/default_profile_5_normal.png</profile_image_url>
+  <url>http://polecane.pl</url>
+  <protected>false</protected>
+  <followers_count>0</followers_count>
+  <profile_background_color>C0DEED</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>0</friends_count>
+  <created_at>Sun Jan 03 09:22:16 +0000 2010</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>-36000</utc_offset>
+  <time_zone>Hawaii</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287774835/images/themes/theme1/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>1</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>0</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+</user>
+<user>
+  <id>41731143</id>
+  <name>Marc Lavigne-Gagnon</name>
+  <screen_name>lavignegagnon</screen_name>
+  <location>Montreal, QC</location>
+  <description>Search architect, web developer, product manager, father, runner, DIY geek, Ruby on Rails, Java, Linux</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/383563406/profile-on-grass-square_normal.JPG</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>128</followers_count>
+  <profile_background_color>022330</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>C0DFEC</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>a8c7f7</profile_sidebar_border_color>
+  <friends_count>98</friends_count>
+  <created_at>Fri May 22 02:20:32 +0000 2009</created_at>
+  <favourites_count>0</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme15/bg.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>281</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>8</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Mon Oct 18 18:03:00 +0000 2010</created_at>
+    <id>27756969535</id>
+    <text>I knew updating my iTunes bloatware was a bad idea.  It is so much more bloated that it froze on me.  :(  #fb</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>894801</id>
+  <name>Mike Wadhera</name>
+  <screen_name>mikewadhera</screen_name>
+  <location>San Francisco</location>
+  <description>do what you love well</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/651329954/mug2_normal.jpg</profile_image_url>
+  <url>http://parameterized.net</url>
+  <protected>false</protected>
+  <followers_count>246</followers_count>
+  <profile_background_color>EBEBEB</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>990000</profile_link_color>
+  <profile_sidebar_fill_color>F3F3F3</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>DFDFDF</profile_sidebar_border_color>
+  <friends_count>286</friends_count>
+  <created_at>Sun Mar 11 01:42:58 +0000 2007</created_at>
+  <favourites_count>3</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/3808550/radiohead.14.jpg</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>false</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>false</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>1166</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>12</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 04:27:12 +0000 2010</created_at>
+    <id>28564806646</id>
+    <text>North Beach is on fire right now</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>781314</id>
+  <name>Raquel Hern&#225;ndez</name>
+  <screen_name>maggit</screen_name>
+  <location>New York, NY</location>
+  <description>Hacker, mathematician, creative developer of web applications. Interested in creating innovative apps. I tweet about #ruby, #coding, #tech, #music and #life. </description>
+  <profile_image_url>http://a3.twimg.com/profile_images/1136807699/IMG_0501_normal.JPG</profile_image_url>
+  <url>http://maggit.net</url>
+  <protected>false</protected>
+  <followers_count>1882</followers_count>
+  <profile_background_color>0099B9</profile_background_color>
+  <profile_text_color>3C3940</profile_text_color>
+  <profile_link_color>0099B9</profile_link_color>
+  <profile_sidebar_fill_color>95E8EC</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>5ED4DC</profile_sidebar_border_color>
+  <friends_count>1815</friends_count>
+  <created_at>Mon Feb 19 21:37:08 +0000 2007</created_at>
+  <favourites_count>348</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/28562826/music-1.jpg</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>9431</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>100</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 03:10:42 +0000 2010</created_at>
+    <id>28559252000</id>
+    <text>RT @MWilliams831: Tito all fucked up!! He looked like he got hit be a HAMMER!!!lol @ufc http://yfrog.com/c8ycnfj</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Sun Oct 24 03:08:23 +0000 2010</created_at>
+      <id>28559074728</id>
+      <text>Tito all fucked up!! He looked like he got hit be a HAMMER!!!lol @ufc http://yfrog.com/c8ycnfj</text>
+      <source>&lt;a href=&quot;http://blackberry.com/twitter&quot; rel=&quot;nofollow&quot;&gt;Twitter for BlackBerry&#174;&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>13943122</id>
+  <name>Scott Moe</name>
+  <screen_name>scotchmoose</screen_name>
+  <location>Miami, Florida</location>
+  <description>Old pro who likes new tools.</description>
+  <profile_image_url>http://a2.twimg.com/profile_images/574757590/oldhat_normal.jpg</profile_image_url>
+  <url>https://workbeast.com</url>
+  <protected>false</protected>
+  <followers_count>170</followers_count>
+  <profile_background_color>9ae4e8</profile_background_color>
+  <profile_text_color>000000</profile_text_color>
+  <profile_link_color>0000ff</profile_link_color>
+  <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+  <friends_count>280</friends_count>
+  <created_at>Mon Feb 25 15:13:21 +0000 2008</created_at>
+  <favourites_count>1</favourites_count>
+  <utc_offset>-18000</utc_offset>
+  <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a1.twimg.com/profile_background_images/32465356/peachleaf_and_turd.jpg</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>622</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>11</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Fri Oct 22 13:57:10 +0000 2010</created_at>
+    <id>28406803592</id>
+    <text>My body is still in the office but my mind is on US1 headed down to the keys.</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>6965262</id>
+  <name>Josep Jaume</name>
+  <screen_name>josepjaume</screen_name>
+  <location>Barcelona, Spain</location>
+  <description></description>
+  <profile_image_url>http://a2.twimg.com/profile_images/705579346/22157_298504914874_702129874_3297028_6073629_n_normal.jpg</profile_image_url>
+  <url>http://codegram.com</url>
+  <protected>false</protected>
+  <followers_count>69</followers_count>
+  <profile_background_color>131516</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>009999</profile_link_color>
+  <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+  <friends_count>95</friends_count>
+  <created_at>Wed Jun 20 13:00:41 +0000 2007</created_at>
+  <favourites_count>3</favourites_count>
+  <utc_offset>3600</utc_offset>
+  <time_zone>Madrid</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme14/bg.gif</profile_background_image_url>
+  <profile_background_tile>true</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>209</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>5</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sat Oct 23 08:01:27 +0000 2010</created_at>
+    <id>28482039882</id>
+    <text>@jyurek @elise_huard really enjoyed talking with you during the dinner. Still thinking about the best way to test Websockets... :)</text>
+    <source>web</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id>6505422</in_reply_to_user_id>
+    <in_reply_to_screen_name>jyurek</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+<user>
+  <id>12474212</id>
+  <name>Himanshu Chhetri</name>
+  <screen_name>himanshuc</screen_name>
+  <location>Mountain View, CA</location>
+  <description>In pursuit of the Unix philosophy : http://www.faqs.org/docs/artu/ch01s06.html</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/1112504408/profile_normal.jpeg</profile_image_url>
+  <url>http://nepcoder.com</url>
+  <protected>false</protected>
+  <followers_count>591</followers_count>
+  <profile_background_color>1A1B1F</profile_background_color>
+  <profile_text_color>666666</profile_text_color>
+  <profile_link_color>2FC2EF</profile_link_color>
+  <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+  <friends_count>1778</friends_count>
+  <created_at>Sun Jan 20 23:42:09 +0000 2008</created_at>
+  <favourites_count>395</favourites_count>
+  <utc_offset>-21600</utc_offset>
+  <time_zone>Central Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme9/bg.gif</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>3157</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>44</listed_count>
+  <show_all_inline_media>false</show_all_inline_media>
+  <status>
+    <created_at>Sun Oct 24 02:36:50 +0000 2010</created_at>
+    <id>28556716852</id>
+    <text>@jmettraux &quot; srm removes each specified file by overwriting, renaming, and truncating it before unlinking.&quot;</text>
+    <source>&lt;a href=&quot;http://sites.google.com/site/yorufukurou/&quot; rel=&quot;nofollow&quot;&gt;YoruFukurou&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id>28556641497</in_reply_to_status_id>
+    <in_reply_to_user_id>6614702</in_reply_to_user_id>
+    <in_reply_to_screen_name>jmettraux</in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+</users>
+<next_cursor>1322801608223717003</next_cursor>
+<previous_cursor>0</previous_cursor>
+</users_list>

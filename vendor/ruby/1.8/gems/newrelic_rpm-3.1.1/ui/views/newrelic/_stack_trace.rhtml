@@ -1,0 +1,15 @@
+<% trace = segment[:backtrace] %>
+
+<% unique_id = "_#{trace.object_id}_#{(rand * 100000).to_i}" %>
+<a id="show_rails_link<%=unique_id %>" href="#" onclick="show_rails('<%=unique_id %>'); return false">Show Rails</a>
+
+<a id="hide_rails_link<%=unique_id %>" href="#" onclick="hide_rails('<%=unique_id %>'); return false" style="display:none">Hide Rails</a>
+
+<div id='application_stack_trace<%=unique_id %>' class="application_stack_trace">
+  <%= application_stack_trace(trace, false).collect { |trace_line| write_stack_trace_line(trace_line)}.join("<br/>") %> 
+</div>
+
+<div id="full_stack_trace<%=unique_id %>" style="display: none;" class="full_stack_trace">
+  <%= application_stack_trace(trace, true).collect { |trace_line| write_stack_trace_line(trace_line)}.join("<br/>") %>
+</div>
+  

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<matching_trends type="array">
+  <trends as_of="2010-10-25T14:49:05Z" created_at="2010-10-25T14:41:13Z">
+    <locations>
+      <location>
+        <woeid>1</woeid>
+        <name>Worldwide</name>
+      </location>
+    </locations>
+    <trend query="%23sevenwordsaftersex" url="http://search.twitter.com/search?q=%23sevenwordsaftersex">#sevenwordsaftersex</trend>
+    <trend query="Isaacs" url="http://search.twitter.com/search?q=Isaacs">Isaacs</trend>
+    <trend query="%23speaknow" url="http://search.twitter.com/search?q=%23speaknow">#speaknow</trend>
+    <trend query="Walkman" url="http://search.twitter.com/search?q=Walkman">Walkman</trend>
+    <trend query="%23dia31vote13" url="http://search.twitter.com/search?q=%23dia31vote13">#dia31vote13</trend>
+    <trend query="RIP+Gregory" url="http://search.twitter.com/search?q=RIP+Gregory">RIP Gregory</trend>
+    <trend query="Allen+Iverson" url="http://search.twitter.com/search?q=Allen+Iverson">Allen Iverson</trend>
+    <trend query="Issacs" url="http://search.twitter.com/search?q=Issacs">Issacs</trend>
+    <trend query="Night+Nurse" url="http://search.twitter.com/search?q=Night+Nurse">Night Nurse</trend>
+    <trend query="Jay+Bum" url="http://search.twitter.com/search?q=Jay+Bum">Jay Bum</trend>
+  </trends>
+</matching_trends>

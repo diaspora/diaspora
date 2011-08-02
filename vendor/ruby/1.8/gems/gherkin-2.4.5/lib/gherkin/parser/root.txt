@@ -1,0 +1,11 @@
+ |                  | feature | background | scenario | scenario_outline | examples | step         | row            | doc_string    | eof | comment    | tag        |
+ | root             | feature | E          | E        | E                | E        | E            | E              | E            | eof | push(meta) | push(meta) |
+ | feature          | E       | background | scenario | scenario_outline | E        | E            | E              | E            | eof | push(meta) | push(meta) |
+ | step             | E       | E          | scenario | scenario_outline | E        | step         | step           | step         | eof | push(meta) | push(meta) |
+ | outline_step     | E       | E          | scenario | scenario_outline | examples | outline_step | outline_step   | outline_step | eof | push(meta) | push(meta) |
+ | background       | E       | E          | scenario | scenario_outline | E        | step         | E              | E            | eof | push(meta) | push(meta) |
+ | scenario         | E       | E          | scenario | scenario_outline | E        | step         | E              | E            | eof | push(meta) | push(meta) |
+ | scenario_outline | E       | E          | E        | E                | E        | outline_step | E              | E            | eof | push(meta) | push(meta) |
+ | examples         | E       | E          | E        | E                | E        | E            | examples_table | E            | eof | push(meta) | push(meta) |
+ | examples_table   | E       | E          | scenario | scenario_outline | examples | E            | examples_table | E            | eof | push(meta) | push(meta) |
+ | eof              | E       | E          | E        | E                | E        | E            | E              | E            | E   | E          | E          |

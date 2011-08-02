@@ -1,0 +1,43 @@
+<script type="text/javascript" src="/newrelic/file/javascript/transaction_sample.js"></script>
+<h3>Statement Analysis</h3>
+<table>
+<% colspan = @explanation ? @explanation.length : 1 %>
+<% if @sql %>
+	<tr>
+		<th align=right valign=top>
+		Query
+		</th>
+		<td colspan=<%= colspan %>><small>
+			<div class="sql_statement">
+				<%= line_wrap_sql(@sql) %>
+			</div>
+		</small></td>
+	</tr>
+<% end %>
+
+<% if @obfuscated_sql %>
+	<tr>
+		<th align=right valign=top>
+		Obfuscated Query
+		</th>
+		<td colspan=<%= colspan %>><small>
+			<div class="sql_statement">
+				<%= line_wrap_sql(@obfuscated_sql) %>
+			</div>
+		</small></td>
+	</tr>
+<% end %>
+
+<tr>
+	<th align=right>
+	Duration
+	</th>
+	<td><%= with_delimiter(to_ms(@segment.duration)) %> ms</td>
+</tr>
+<% if @explanation %>
+	<%= render :partial => 'explain_plans' %>
+<% end %>
+</table>
+
+<p/>
+<%= render_backtrace %>

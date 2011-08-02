@@ -1,0 +1,222 @@
+# Swahili translations for Ruby on Rails
+# - Initially sketched by Joachim Mangilima (joachimm3@gmail.com) and Matthew Todd (http://matthewtodd.org)
+# - Vastly improved by Joram (namtih58@gmail.com)
+
+sw:
+  date:
+    formats:
+      default: '%d-%m-%Y'
+      short: '%e %b'
+      long: '%e %B, %Y'
+
+    day_names:
+      - Jumpili
+      - Jumatatu
+      - Jumanne
+      - Jumatano
+      - Alhamisi
+      - Ijumaa
+      - Jumamosi
+    abbr_day_names:
+      - J2
+      - J3
+      - J4
+      - J5
+      - Al
+      - Ij
+      - J1
+
+    month_names:
+      - ~
+      - Mwezi wa kwanza
+      - Mwezi wa pili
+      - Mwezi wa tatu
+      - Mwezi wa nne
+      - Mwezi wa tano
+      - Mwezi wa sita
+      - Mwezi wa saba
+      - Mwezi wa nane
+      - Mwezi wa tisa
+      - Mwezi wa kumi
+      - Mwezi wa kumi na moja
+      - Mwezi wa kumi na mbili
+    abbr_month_names:
+      - ~
+      - Jan
+      - Feb
+      - Mac
+      - Apr
+      - Mei
+      - Jun
+      - Jul
+      - Ago
+      - Sep
+      - Okt
+      - Nov
+      - Des
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: '%a, %d %b %Y %H:%M:%S'
+      short: '%e %b %Y %H:%M'
+      long: '%A, %e. %B %Y, %H:%M:%S'
+    am: 'am'
+    pm: 'pm'
+
+  support:
+    array:
+      words_connector: ', '
+      two_words_connector: ' na '
+      last_word_connector: ', na '
+
+    select:
+      prompt: 'Tafadhali teua'
+
+  number:
+    format:
+      separator: ','
+      delimiter: '.'
+      precision: 2
+      significant: false
+      strip_insignificant_zeros: false
+
+    currency:
+      format:
+        format: '%n%u'
+        unit: '/='
+        separator: ','
+        delimiter: '.'
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    percentage:
+      format:
+        delimiter: ''
+
+    precision:
+      format:
+        delimiter: ''
+
+    human:
+      format:
+        delimiter: ''
+        precision: 3
+        significant: true
+        strip_insignificant_zeros: true
+      storage_units:
+        format: '%n %u'
+        units:
+          byte:
+            one: 'Byte'
+            other: 'Bytes'
+          kb: 'KB'
+          mb: 'MB'
+          gb: 'GB'
+          tb: 'TB'
+      decimal_units:
+        format: '%n %u'
+        units:
+          unit: ''
+          thousand: Elfu
+          million: Milioni
+          billion: Bilioni
+          trillion: Trilioni
+          quadrillion: Quadrillion
+
+  datetime:
+    distance_in_words:
+      half_a_minute: 'nusu dakika'
+      less_than_x_seconds:
+        one: 'chini ya sekunde 1'
+        other: 'chini ya sekunde %{count}'
+      x_seconds:
+        one: 'sekunde 1'
+        other: 'sekunde %{count}'
+      less_than_x_minutes:
+        one: 'chini ya dakika 1'
+        other: 'chini ya dakika %{count}'
+      x_minutes:
+        one: 'dakika 1'
+        other: 'dakika %{count}'
+      about_x_hours:
+        one: 'kama saa limoja'
+        other: 'kama masaa %{count}'
+      x_days:
+        one: 'siku 1'
+        other: 'siku %{count}'
+      about_x_months:
+        one: 'kama mwezi 1'
+        other: 'kama miezi %{count}'
+      x_months:
+        one: 'mwezi 1'
+        other: 'miezi %{count}'
+      about_x_years:
+        one: 'kama mwaka 1'
+        other: 'kama miaka %{count}'
+      over_x_years:
+        one: 'zaidi ya mwaka 1'
+        other: 'zaidi ya miaka %{count}'
+      almost_x_years:
+        one: 'karibia mwaka'
+        other: 'karibia miaka %{count}'
+    prompts:
+      year: 'Mwaka'
+      month: 'Mwezi'
+      day: 'Siku'
+      hour: 'Saa'
+      minute: 'Dakika'
+      second: 'Sekunde'
+
+  helpers:
+    select:
+        prompt: 'Tafadhali teua'
+
+    submit:
+        create: 'Unda %{model}'
+        update: 'Sasaisha %{model}'
+        submit: 'Akibisha %{model}'
+
+  errors:
+    format: '%{attribute} %{message}'
+
+    messages: &errors_messages
+      inclusion: 'haipo kwenye orodha'
+      exclusion: 'haiwezi kutumika'
+      invalid: 'haifai'
+      confirmation: 'haifanani na hapo chini'
+      accepted: 'lazima ikubaliwe'
+      empty: 'haitakiwi kuwa tupu'
+      blank: 'haitakiwi kuwa wazi'
+      too_long: 'ndefu sana (isizidi herufi %{count})'
+      too_short: 'fupi mno (isipungue herufi %{count})'
+      wrong_length: 'idadi ya herufi hazilingani (inatakiwa %{count})'
+      not_a_number: 'inaruhusiwa namba tu'
+      not_an_integer: 'inaruhusiwa namba tu'
+      greater_than: 'z/iwe zaidi ya {{count}}'
+      greater_than_or_equal_to: 'z/iwe sawa ama zaidi ya {{count}}'
+      equal_to: 'z/iwe sawa na {{count}}'
+      less_than: 'z/isizidi {{count}}'
+      less_than_or_equal_to: 'z/iwe sawa na, ama chini ya {{count}}'
+      odd: 'z/iwe witiri'
+      even: 'z/iwe shufwa'
+
+  activerecord:
+    errors:
+      template:
+        header:
+          one: '%{model} haikuhifadhiwa kwa sababu moja.'
+          other: '%{model} haikuhifadhiwa kwa sababu %{count}.'
+        body: 'Tafadhali kagua sehemu zifuatazo:'
+
+      messages:
+        taken: 'imesajiliwa'
+        record_invalid: "Uhalalishaji umeshindikana: %{errors}"
+        <<: *errors_messages
+
+      full_messages:
+        format: '%{attribute}%{message}'

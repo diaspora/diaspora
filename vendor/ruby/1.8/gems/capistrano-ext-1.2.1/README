@@ -1,0 +1,3 @@
+= Capistrano Extensions
+
+Capistrano Extensions is a collection of tasks and methods that developers may use in their own Capistrano recipe files. Although some may find the tasks and such useful in their own right, the collection is intended primarily as an example of how to write and package Capistrano extension libraries.

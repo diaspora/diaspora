@@ -1,0 +1,20 @@
+@import "rdoc_base.css";
+
+#documentation > ul:first-of-type {
+  padding-bottom: 2em;
+  padding-top: 1.5em;
+  background-position: 20em 0%;
+  background-repeat: no-repeat;
+  }
+
+#documentation .method-description > p:first-of-type + p {
+  margin-top: 0.5em;
+}
+
+#documentation .method-description > ul {
+  margin-left: 1.2em;
+}
+
+#documentation .method-description > p + ul {
+  margin-left: 1.8em;
+}

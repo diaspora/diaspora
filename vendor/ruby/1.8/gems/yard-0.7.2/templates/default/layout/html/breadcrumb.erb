@@ -1,0 +1,13 @@
+<div id="menu">
+  <% if object.is_a?(CodeObjects::Base) && @file.nil? %>
+    <a href="<%= url_for('_index.html') %>"><% if object.root? || object.type == :method %>Index<% else %>Index (<%= object.name.to_s[0,1] %>)<% end %></a> &raquo; 
+    <%= @breadcrumb.map {|obj| "<span class='title'>" + linkify(obj, obj.name) + "</span>" }.join(" &raquo; ") %>
+    <%= @breadcrumb.size > 0 ? " &raquo; " : "" %>
+    <span class="title"><%= object.root? ? "Top Level Namespace" : object.name(true) %></span>
+  <% else %>
+    <% if object != '_index.html' %><%= link_url('_index.html', 'Index') %> &raquo; <% end %>
+    <span class="title"><%= @breadcrumb_title %></span>
+  <% end %>
+  
+  <div class="noframes"><span class="title">(</span><a href="." target="_top">no frames</a><span class="title">)</span></div>
+</div>

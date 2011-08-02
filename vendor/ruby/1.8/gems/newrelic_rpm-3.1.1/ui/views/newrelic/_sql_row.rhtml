@@ -1,0 +1,16 @@
+<% segment = object %>
+<tr class='<%= cycle('even_row', 'odd_row') %>'>
+  <td align=right><%= timestamp(segment) %></td>
+	<td align=right><%= segment_duration_value(segment) %> </td>
+    <td> <%= link_to_source(segment[:backtrace]) %> </td>
+	<td align=left>
+		<div class="sql_statement">
+                  <small>
+                    <% if segment[:sql] %>
+                      <%= line_wrap_sql(segment[:sql] ) %>
+                    <% else %>
+                      Non-sql query: <%= segment.metric_name %> <%= line_wrap_sql(segment[:key]) %>
+                   <% end %></small>
+		</div>
+	</td>
+</tr>

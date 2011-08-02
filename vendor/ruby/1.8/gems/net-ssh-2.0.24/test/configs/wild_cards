@@ -1,0 +1,14 @@
+Host test.*
+  Port 1234
+  Compression no
+
+Host tes?.host
+  Port 4321
+  ForwardAgent yes
+
+Host *.hos?
+  IdentityFile ~/.ssh/id_dsa
+  Compression yes
+
+Host k*.host
+  RekeyLimit 1G

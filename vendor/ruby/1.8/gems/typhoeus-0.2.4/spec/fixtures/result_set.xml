@@ -1,0 +1,60 @@
+<result_set>
+  <ttl>20</ttl>
+  <result>
+    <id>1</id>
+    <name>hello</name>
+    <description>
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+    </description>
+  </result>
+  <result>
+    <id>2</id>
+    <name>hello</name>
+    <description>
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+    </description>
+  </result>
+  <result>
+    <id>3</id>
+    <name>hello</name>
+    <description>
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+      this is a long description for a text field of some kind.
+    </description>
+  </result>
+</result_set>

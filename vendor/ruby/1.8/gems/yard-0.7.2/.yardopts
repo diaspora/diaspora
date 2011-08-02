@@ -1,0 +1,18 @@
+--protected
+--no-private
+--exclude /server/templates/
+--exclude /yard/rubygems/
+--asset docs/images:images
+-
+docs/WhatsNew.md
+docs/GettingStarted.md
+docs/Overview.md
+docs/CodeObjects.md
+docs/Tags.md
+docs/Parser.md
+docs/Handlers.md
+docs/Templates.md
+docs/Glossary.md
+ChangeLog
+LICENSE
+LEGAL

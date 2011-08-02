@@ -1,0 +1,8 @@
+# Do not commit personal changes here back to the repository. Create
+# config.private.yaml which, if exists, is preferred to this one.
+
+# either should be on the $PATH or use full path
+ruby: ruby
+
+# possibility to specify interpreter parameters
+#ruby_params: -w

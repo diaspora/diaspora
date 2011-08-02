@@ -1,0 +1,8 @@
+Host other.host
+  Compression no
+  Port 1231
+
+Host test.host
+  Compression yes
+  ForwardAgent yes
+  Port 1234

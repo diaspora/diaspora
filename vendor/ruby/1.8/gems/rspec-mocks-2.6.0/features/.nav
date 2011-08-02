@@ -1,0 +1,17 @@
+- Upgrade.md
+- Changelog.md
+- method_stubs:
+  - simple_return_value.feature
+  - stub_implementation.feature
+  - stub_chain.feature
+  - any_instance.feature
+  - as_null_object.feature
+  - to_ary.feature
+- message_expectations:
+  - expect_message.feature
+  - any_instance.feature
+  - block_local_expectations.feature.pending
+  - warn_when_expectation_is_set_on_nil.feature
+- outside_rspec:
+  - configuration.feature
+  - standalone.feature

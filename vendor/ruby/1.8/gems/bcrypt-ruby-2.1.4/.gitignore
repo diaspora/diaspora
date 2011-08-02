@@ -1,0 +1,7 @@
+*.o
+*.bundle
+*.so
+ext/mri/Makefile
+doc
+pkg
+*.class

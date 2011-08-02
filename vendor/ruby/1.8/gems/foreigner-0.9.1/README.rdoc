@@ -1,0 +1,92 @@
+= Foreigner
+
+Rails does not come with methods to add foreign keys. Foreigner introduces a few
+methods to your migrations for adding and removing foreign key constraints.
+
+Since each adapter implements the API, migrations using Foreigner will continue to
+work on databases that do not support foreign keys, such as sqlite3.
+
+== Installation
+
+In Rails 2, install as a gem by adding the following to config/environment.rb:
+
+  config.gem 'foreigner'
+
+In Rails 3, install as a gem by adding the following to your Gemfile:
+
+  gem 'foreigner'
+
+== API
+
+An adapter implementing the Foreigner API implements three methods.
+(Options are documented in connection_adapters/abstract/schema_definitions.rb):
+
+  add_foreign_key(from_table, to_table, options)
+  remove_foreign_key(from_table, options)
+  foreign_keys(table_name)
+
+== Example
+
+The most common use of foreign keys is to reference a table that a model belongs to.
+For example, given the following model:
+
+  class Comment < ActiveRecord::Base
+    belongs_to :post
+  end
+  
+  class Post < ActiveRecord::Base
+    has_many :comments, :dependent => :delete_all
+  end
+  
+You should add a foreign key in your migration:
+
+  add_foreign_key(:comments, :posts)
+
+The :dependent option can be moved from the has_many definition to the foreign key:
+
+  add_foreign_key(:comments, :posts, :dependent => :delete)
+
+If the column is named article_id instead of post_id, use the :column option:
+
+  add_foreign_key(:comments, :posts, :column => 'article_id')
+  
+A name can be specified for the foreign key constraint:
+
+  add_foreign_key(:comments, :posts, :name => 'comment_article_foreign_key')
+
+== Change Table Shorthand
+
+Foreigner adds extra behavior to change_table, which lets you define foreign keys using shorthand.
+
+Add a missing foreign key to comments:
+
+  change_table :comments do |t|
+    t.foreign_key :posts, :dependent => :delete
+  end
+
+t.foreign_key accepts the same options as add_foreign_key.
+
+
+== Additional t.references option
+
+Foreigner extends table.references with the :foreign_key option. Pass true, and the default
+foreign key options are used:
+
+  change_table :comments do |t|
+    t.references :post, :foreign_key => true
+  end
+
+An options hash can also be passed. It accepts the same options as add_foreign_key:
+
+  change_table :comments do |t|
+    t.references :author, :foreign_key => {:dependent => :restrict}
+  end
+
+By default, t.references will not generate a foreign key.
+
+== schema.rb
+
+Similar to indexes, the foreign keys in your database are automatically dumped to schema.rb.
+This allows you to use foreign keys without switching to the :sql schema.
+
+Copyright (c) 2009 Matthew Higgins, released under the MIT license

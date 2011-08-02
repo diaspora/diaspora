@@ -1,0 +1,37 @@
+#!/usr/bin/env ruby
+
+load_path = false
+gems      = false
+redefined = false
+
+# these clauses are for installations which have RUBYOPT=-rubygems, etc.
+if Object.const_defined? "Gem"
+    redefined = true
+    module Kernel
+        alias gem_require require 
+        alias require gem_original_require
+    end
+end
+
+begin
+    require 'dbi'
+    load_path = true
+rescue LoadError => e
+end
+
+if Object.const_defined? "Gem" and redefined
+    module Kernel
+        alias gem_original_require require 
+        alias require gem_require
+    end
+end
+
+begin
+    require 'rubygems'
+    gem 'dbi'
+    gems = true
+rescue LoadError
+rescue Gem::LoadError
+end
+
+puts "Your installation of DBI is broken" if gems and load_path

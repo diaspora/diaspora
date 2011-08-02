@@ -1,0 +1,165 @@
+http://geemus.s3.amazonaws.com/fog.png
+
+fog is the Ruby cloud computing library.
+
+The quick and dirty, top to bottom:
+
+* Collections provide a simplified interface, making clouds easier to work with and switch between.
+* Requests allow power users to get the most out of the features of each individual cloud.
+* Mocks make testing and integrating a breeze.
+
+Put them together and you get a great cloud computing experience, but we are getting ahead of ourselves...
+
+== Getting Started
+
+  sudo gem install fog
+
+Now just type 'fog' to trying stuff out, confident that fog should let you know what you need to do. Here is an example of wading through server creation for Amazon Elastic Compute Cloud:
+
+  >> server = AWS.servers.create
+  ArgumentError: image_id is required for this operation
+
+  >> server = AWS.servers.create(:image_id => 'ami-5ee70037')
+  <Fog::AWS::EC2::Server [...]>
+
+  >> server.destroy # cleanup after yourself or regret it, trust me
+  true
+
+== Collections
+
+A high level interface to each cloud is provided through collections, such as images and servers.
+You can see a list of available collections by calling #collections on the connection object. You can try it out using the `fog` command:
+
+  >> server = AWS.collections
+  [:addresses, :directories, :files, :flavors, :images, :key_pairs, :security_groups, :servers, :snapshots, :volumes]
+
+Some of these collections are available across multiple providers. For example, all compute providers have +flavors+, +images+ and +servers+, and storage providers have +directory+ and +file+. 
+
+Collections share most of the basic CRUD type operations, such as:
+* +all+ - fetch every object of that type from the provider.
+* +create+ - initialize a new record locally and then persists it with the provider.
+* +get+ - fetch a single object by its identity from the provider.
+* +new+ - initialize a new record locally, but do not persist it to the provider.
+
+As an example, we'll try initializing and persisting a Rackspace Cloud server:
+
+  require 'fog'
+
+  # initialize a connection to Rackspace Cloud Servers
+  connection = Fog::Rackspace::Servers.new(
+    :rackspace_api_key => key,
+    :rackspace_username => username
+  )
+
+  # boot a gentoo server (flavor 1 = 256, image 3 = gentoo 2008.0)
+  server = connection.servers.create(:flavor_id => 1, :image_id => 3, :name => 'my_server')
+
+  # wait for it to be ready to do stuff
+  server.wait_for { ready? }
+
+  # DO STUFF
+
+  # shutdown the server
+  server.destroy
+
+== Models
+
+Many of the collection methods return individual objects, which also provide some common methods:
+* +destroy+ - will destroy the persisted object from the provider
+* +save+ - persist the object to the provider
+* +wait_for+ - takes a block and waits for either the block to return true for the object or for a timeout (defaults to 10 minutes)
+
+== Mocks
+
+As you might imagine, testing code using Fog could be feasibly slow and expensive to constantly be turning and and shutting down instances. Fortunately, fog includes support for mocking itself out.
+
+Mocking provides an in memory representation of the state of cloud resources as you make requests.
+Mocked calls to mimic the behavior of each provider while eliminating the cost and time needed to actually use cloud resources.
+Enabling mocking easy to use, before you run any other commands run:
+
+  Fog.mock!
+
+Then you can run other commands just like you always would.
+Some mocks are not implemented just yet, but fog will raise an error to let you know and contributions are always welcome!
+
+== Requests
+
+Requests allow you to dive deeper when the models just can't cut it.
+You can see a list of available requests by calling #requests on the connection object.
+For instance, ec2 provides methods related to reserved instances that don't have any models (yet).
+Here is how you can lookup your reserved instances:
+
+  $ fog
+  >> AWS[:ec2].describe_reserved_instances
+  #<Excon::Response [...]>
+
+It will return an {excon}[http://github.com/geemus/excon] response, which has #headers and #body. Both return nice hashes.
+
+== Go forth and conquer
+
+Play around and use the console to explore or check out the {getting started guide}[http://wiki.github.com/geemus/fog/getting-started-with-fog] for more details. Once you are reading to start scripting fog, here is a quick hint on how to make connections without the command line thing to help you.
+
+  # create a compute connection
+  compute = Fog::Compute.new(:provider => 'AWS', :aws_access_key_id => ACCESS_KEY_ID, :aws_secret_access_key => SECRET_ACCESS_KEY)
+  # compute operations go here
+
+  # create a storage connection
+  storage = Fog::Storage.new(:provider => 'AWS', :aws_access_key_id => ACCESS_KEY_ID, :aws_secret_access_key => SECRET_ACCESS_KEY)
+  # storage operations go here
+
+geemus says: "That should give you everything you need to get started, but let me know if there is anything I can do to help!"
+
+You should try out the (varying) support fog has for:
+* {AWS}[http://aws.amazon.com] [{Compute}[http://aws.amazon.com/ec2], {ELB}[http://aws.amazon.com/elasticloadbalancing], {Storage}[http://aws.amazon.com/s3], {SimpleDB}[http://aws.amazon.com/simpledb]]
+* {Blue Box Group}[http://www.blueboxgrp.com] [{Compute}[http://www.blueboxgrp.com/blocks]]
+* {Brightbox}[http://www.brightbox.co.uk] [{Compute}[http://beta.brightbox.com/]]
+* {Google}[http://www.google.com] [{Storage}[http://code.google.com/apis/storage]]
+* {Rackspace}[http://www.rackspace.com] [{Compute}[http://www.rackspacecloud.com/cloud_hosting_products/servers], {Storage}[http://www.rackspacecloud.com/cloud_hosting_products/files]]
+* {Slicehost}[http://www.slicehost.com] [{Compute}[http://www.slicehost.com]]
+* {Terremark}[http://www.terremark.com] [{vCloud Express}[http://vcloudexpress.terremark.com]]
+
+There are also the basics of these providers (that could use your love):
+* {GoGrid}[http://www.gogrid.com] [{Compute}[http://www.gogrid.com]]
+* {Linode}[http://www.linode.com] [{Compute}[http://www.linode.com]]
+* Local [Storage]
+* {New Servers}[http://www.newservers.com] [{Compute}[http://www.newservers.com]]
+
+Enjoy, and let me know what I can do to continue improving fog!
+
+* Follow {@fog}[http://twitter.com/fog] and/or {@geemus}[http://twitter.com/geemus] on Twitter
+* Discuss in irc on the {#ruby-fog}[irc://irc.freenode.net/ruby-fog] channel on Freenode
+* Discuss via email on the {mailing list}[http://groups.google.com/group/ruby-fog] (note: release notes appear on this list)
+* Report bugs or find stuff to work on in {issues}[http://github.com/geemus/fog/issues]
+* Learn about {contributing}[http://github.com/geemus/fog/wiki/contributor-guide] or find more info about the {Providers}[http://github.com/geemus/fog/wiki/Providers] (including some todo items)
+* See what already uses fog and add your own stuff to {the list}[http://wiki.github.com/geemus/fog/in-the-wild]
+
+== Sponsorship
+
+http://www.engineyard.com/images/logo.png
+
+All new work on fog is sponsored by {Engine Yard}[http://engineyard.com]
+
+== Copyright
+
+(The MIT License)
+
+Copyright (c) 2010 {geemus (Wesley Beary)}[http://github.com/geemus]
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

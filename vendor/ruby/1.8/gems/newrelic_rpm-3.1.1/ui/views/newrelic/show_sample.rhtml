@@ -1,0 +1,80 @@
+<script type="text/javascript" src="/newrelic/file/javascript/transaction_sample.js"></script>
+<div id='summary_table'>
+<table class="light_background">
+  <tr>
+    <th>URL:</th>
+    <td><%= @sample.params[:uri]%></td>
+  </tr>
+  <tr>
+    <th>Controller:</th>
+    <td><%= @sample_controller_name%></td>
+  </tr>
+  <tr>
+    <th>Action:</th>
+    <td><%= @sample_action_name%></td>
+  </tr>
+  <tr>
+    <th>Start Time:</th>
+    <td><%= format_timestamp(@sample.start_time) %></td>
+  </tr>
+  <tr>
+    <th>Duration:</th>
+    <td><%= colorize(@sample.duration, 1, 2) %> ms</td>
+  </tr>
+  <tr>
+    <th>CPU Burn:</th>
+    <td><%= to_ms(@sample.params[:cpu_time]) if @sample.params[:cpu_time] %> ms</td>
+  </tr>
+  
+  <% unless @custom_params.empty? %>
+    <tr>
+      <th valign="top">Custom Params:</th>
+      <td>
+      <small>
+        <% @custom_params.each do |k,v| %>
+          <b><%= h k %>: </b><%=h v%><br/>
+        <% end %>
+      </small>
+      </td>
+    </tr>
+  <% end %>
+  
+  <% unless @request_params.empty? %>
+    <tr>
+      <th valign="top">HTTP Params:</th>
+      <td>
+        <a href="#" onClick="show_request_params()" id="params_link"><%= @request_params.length %>...</a>
+
+          <div id='request_params' style="display: none;">
+          <small>
+            <% @request_params.each do |k,v| %>
+              <b><%= h k %>: </b><%=h v%><br/>
+            <% end %>
+          </small>
+        </div>
+      </td>
+    </tr>
+  <% end %>
+  
+</table>
+</div>
+
+<br/>
+<div id="view_sample">
+	<% if @sample.profile %>
+	  <%= profile_table(@sample.profile) %> 
+	<% else %>
+	<div align=center width="100%">
+		<%= show_view_link 'Summary', 'show_sample_summary' %>
+		<%= show_view_link 'Details', 'show_sample_detail' %>
+		<%= show_view_link 'SQL', 'show_sample_sql' %>
+	</div>
+	<br/>
+        
+	<%= %w[show_sample_summary show_sample_sql show_sample_detail].collect do |p|
+		options = {:align => 'center', :id => p}
+		options[:style] = 'display: none' unless @req.path.include?(p)
+		content_tag('div', render(:partial => p), options)
+	end.join(' ') %>
+	<% end %>
+</div>

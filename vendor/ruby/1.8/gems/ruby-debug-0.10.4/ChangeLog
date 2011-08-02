@@ -1,0 +1,5926 @@
+2010-10-27 12:58  Rocky Bernstein
+
+	* ChangeLog, ext/ruby_debug.c, lib/ChangeLog: Get ready for release
+	  0.10.4
+
+2010-10-21 21:03  Rocky Bernstein
+
+	* ext/ruby_debug.c: Remove gcc warning and redundant code.
+	  Rubyforge Issue #28654. Thanks to Mamoru Tasaka.
+
+2010-10-15 15:16  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/help.rb,
+	  cli/ruby-debug/commands/quit.rb: More rdoc work.
+
+2010-10-15 14:45  Rocky Bernstein
+
+	* CHANGES, ChangeLog, INSTALL.SVN, Rakefile,
+	  cli/ruby-debug/command.rb, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb, cross-compile.sh, ext/breakpoint.c,
+	  ext/ruby_debug.c, lib/ChangeLog, lib/ruby-debug-base.rb: Go over
+	  documentation (1st pass) including that created by rdoc.
+	  Better instructions for how to build on MS Windows and the
+	  include
+	  cross-compile.sh script I use.
+	  Update rubyforge URL's used to building ChangeLogs.
+
+2010-10-14 01:41  Rocky Bernstein
+
+	* CHANGES, ChangeLog, cli/ruby-debug/commands/list.rb,
+	  lib/ChangeLog, test/data/list.right: improve list and list -
+	  (backwards) handling when hitting end of file.
+
+2010-09-20 11:06  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog, test/test-init.rb: "rake
+	  test" of ruby-debug gem should now work without requiring or
+	  using ruby-debug-base code. Rubyforge tracker #28560.
+
+2010-09-20 09:33  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog: Make sure version file is
+	  closed. Thanks to Mamoru Tasaka. Tracker #28581.
+
+2010-09-16 06:56  Rocky Bernstein
+
+	* test/helper.rb: The EMACS environment variable(s) cause output to
+	  get prefaced with
+	  null which messes up file compares. So turn off EMACS output
+	  processing in testing.
+
+2010-09-15 16:58  Rocky Bernstein
+
+	* ChangeLog, Rakefile, ext/ruby_debug.c, lib/ChangeLog: Rakefile:
+	  make rake --prereqs work if only ruby-debug.tar.gz is used. Add
+	  test/config.yml to gem. See tracker #28560.
+	  ruby_debug.c: 10.0.4.rc2 now
+
+2010-09-12 01:30  Rocky Bernstein
+
+	* ChangeLog, doc/home-page.html, doc/rdebug-emacs.texi,
+	  lib/ChangeLog, test/pm.rb: pm.rb: spelling mistake
+
+2010-08-28 18:26  Rocky Bernstein
+
+	* cli/ruby-debug/commands/frame.rb: Spelling mistake:
+	  resyncronization -> resynchronization
+
+2010-08-13 05:32  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/helper.rb, cli/ruby-debug/processor.rb,
+	  ext/ruby_debug.c, lib/ChangeLog: Add Debugger.inside_emacs?
+	  Environment variable EMACS for inside Emacs is deprecated in
+	  favor of INSIDE_EMACS. Rubyforge #28465.
+
+2010-08-03 02:53  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el: Off by one on showing breakpoint
+	  positions
+
+2010-08-02 19:07  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi: More small document changes
+
+2010-08-02 18:03  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi: A couple more small emacs doc changes
+
+2010-08-02 17:45  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi, emacs/INSTALL, emacs/README: More small
+	  changes to docs.
+
+2010-08-02 12:51  Rocky Bernstein
+
+	* CHANGES, ChangeLog, INSTALL.SVN, configure.ac, emacs/AUTHORS,
+	  emacs/INSTALL, emacs/Makefile.am, emacs/README, emacs/rdebug.el,
+	  lib/ChangeLog: Go over installation instructions for Emacs.
+	  Add a basic files, README, INSTALL and AUTHORS.
+	  Change version from 0.10.4vc to 0.10.4rc1
+
+2010-05-26 20:11  Rocky Bernstein
+
+	* cli/ruby-debug/commands/eval.rb, cli/ruby-debug/commands/kill.rb,
+	  test/.cvsignore, test/data/except-bug1.cmd,
+	  test/data/except-bug1.right, test/except-bug1.rb,
+	  test/test-except-bug1.rb: Another bug in showing variables in
+	  post-mortem. Not sure if this is the best fix though.
+	  kill.rb: fix syntax bug
+
+2010-05-06 21:59  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb, lib/ChangeLog,
+	  test/data/catch.right: More explicit about incomplete saved
+	  frames. Now reads:
+	  Warning: saved frames may be incomplete;
+	  compare debugger backtrace (bt) with Ruby caller(0).
+
+2010-04-19 02:46  Rocky Bernstein
+
+	* CHANGES, ChangeLog: What's up.
+
+2010-04-19 02:40  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb, cli/ruby-debug/processor.rb:
+	  Document irb "dbgr" command. rbdbgr -> rdebug in irb variables.
+
+2010-04-18 14:52  Rocky Bernstein
+
+	* test/file with space.rb: Forgot to add file to test against
+
+2010-04-18 14:49  Rocky Bernstein
+
+	* CHANGES, bin/rdebug, test/data/file-with-space.cmd,
+	  test/data/file-with-space.right, test/tdebug.rb,
+	  test/test-file-with-space.rb: Add test for filename with embedded
+	  space.
+
+2010-04-18 13:49  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, cli/ruby-debug/interface.rb,
+	  test/data/setshow.cmd, test/data/setshow.right: Tolerate Ruby
+	  without readline better. Tracker #23925
+
+2010-04-18 07:18  Rocky Bernstein
+
+	* CHANGES, Rakefile, lib/ruby-debug-base.rb,
+	  test/base/reload_bug.rb: Fix bug in "reload" command. tracker
+	  #26130
+
+2010-04-15 18:48  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, test/data/info.cmd,
+	  test/data/info.right: Fix bug if info not given with any
+	  parameters. rubyforge bug #26895.
+
+2010-04-15 18:45  Rocky Bernstein
+
+	* test/brkpt-class-bug.rb: Had forgot to add Ruby file to test
+	  brkpt-class bug.
+
+2010-03-21 23:09  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug.rb, lib/ChangeLog: Add ability to start
+	  remote debugging on random ports and to query those ports.
+	  Tracker #27889 from Hongli Lai.
+
+2010-03-21 22:54  Rocky Bernstein
+
+	* ext/breakpoint.c, ext/ruby_debug.c, ext/ruby_debug.h,
+	  test/data/brkpt-class-bug.cmd, test/data/brkpt-class-bug.right,
+	  test/test-brkpt-class-bug.rb: Allow breakpoints at class methods.
+	  Patch #26987 from Mark Moseley. See also
+	  http://www.ruby-forum.com/topic/193901
+
+2010-03-16 04:23  Rocky Bernstein
+
+	* ChangeLog, ext/ruby_debug.c, lib/ChangeLog: Fix for what looks
+	  like an optimization bug on 64-bit gcc systems with optimization.
+	  The Symptom is that debugger "catch" causes the program to
+	  immediately terminate when the Ruby exception is raised. Possibly
+	  a problem in using INT2FIX(FIX2INT...)..) and/or possibly a bug
+	  in those macros.
+
+2010-03-12 20:27  Rocky Bernstein
+
+	* ChangeLog, Rakefile, cli/ruby-debug/commands/irb.rb,
+	  cli/ruby-debug/commands/kill.rb, cli/ruby-debug/processor.rb,
+	  lib/ChangeLog: irb.rb: Goodness backported from rbdbgr. Add IRB
+	  'q' for quit and ability to
+	  run debugger commands from inside irb via dbgr, e.g. >> dbgr
+	  'where'
+	  
+	  kill.rb: remove spurious debug output
+	  
+	  Rakefile: add install targets (backport from rbdbgr)
+
+2009-12-10 09:17  Rocky Bernstein
+
+	* Rakefile: Newer rake doesn't allow nested arrays in Filelists.
+	  But that's kind of beside the point since I meant += rather than
+	  <<.
+
+2009-11-30 19:13  Rocky Bernstein
+
+	* cli/ruby-debug/commands/frame.rb, test/data/frame.cmd,
+	  test/data/frame.right: Make sure we don't match more than 'down'
+	  or 'up' when not followed by a space. Tracker #26554
+
+2009-11-28 22:56  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-annotate.el, emacs/rdebug-breaks.el,
+	  emacs/rdebug-core.el, emacs/rdebug-info.el,
+	  emacs/rdebug-source.el, emacs/rdebug-track.el, lib/ChangeLog: Fix
+	  problem caused by gdb-ui renamed to gdb-mi. Rubyforge tracker
+	  #27152
+	  Remove all Emacs byte compile warning messages.
+	  
+	  Note however all of this code will eventually be phased out in
+	  favor
+	  of emacs-dbgr (on github).
+
+2009-09-24 20:37  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/info.rb, test/data/annotate.right,
+	  test/data/break_loop_bug.right, test/data/breakpoints.right,
+	  test/data/catch.right, test/data/condition.cmd,
+	  test/data/condition.right, test/data/display.right,
+	  test/data/emacs_basic.right, test/data/finish.right,
+	  test/data/info-var.right, test/data/info.right,
+	  test/data/method.right, test/data/save.right, test/test-catch.rb,
+	  test/test-condition.rb, test/test-raise.rb: Duplicate class names
+	  was masking tests from being run. Thanks to Mark Moseley for
+	  pointing out the bug.
+	  
+	  set basename now extends to breakpoint positions to facilitate
+	  testing.
+
+2009-04-12 00:42  Rocky Bernstein
+
+	* test/helper.rb, test/tdebug.rb: Track rdebug change -- really
+	  should remove tdebug.rb. Add -d ($DEBUG) option to helper
+
+2009-04-11 16:34  Rocky Bernstein
+
+	* bin/rdebug: Quote rdebug filenames before shelling to syntax
+	  check - tracker #23862
+
+2009-04-10 09:35  Rocky Bernstein
+
+	* configure.ac: Ooops - need to get my story straight.
+
+2009-04-04 14:11  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/data/save.right,
+	  test/test-save.rb: Make test-save less installation-specific
+
+2009-04-04 08:42  Kent Sibilev
+
+	* cli/ruby-debug/commands/irb.rb: fixed IRB initialization in Ruby
+	  1.8.7
+	  
+	  'irb' command blows up when debugger is started with
+	  ./script/server --debugger
+
+2009-03-31 09:49  Rocky Bernstein
+
+	* emacs/rdebug-locring.el: Comment change
+
+2009-03-29 03:00  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/breakpoints.rb, lib/ChangeLog,
+	  test/data/annotate.right, test/data/breakpoints.right,
+	  test/data/emacs_basic.right, test/data/info.right,
+	  test/data/save.right: Canonicalize breakpoint locations a little
+	  better. More work should be done and more work should be done on
+	  the testing side too.
+
+2009-03-17 10:35  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: Document irb additions old and
+	  new
+
+2009-03-17 10:33  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: irb "next" -> "n" since "next" is
+	  a reserved word.
+
+2009-03-17 10:30  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: Fix some irb -d breakage when set
+	  autoirb is in effect
+
+2009-03-17 10:22  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: Add "next" and "step" commands in
+	  irb
+
+2009-03-17 02:05  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb, cli/ruby-debug/processor.rb,
+	  configure.ac, test/data/ctrl.right, test/data/post-mortem.right,
+	  test/test-ctrl.rb: configure.ac: in 0.10.4vc now. Add -d in irb
+	  facilitate debugger testing via global $rdebug_state. Also set
+	  $rdebug_state in debuggertesting is set.
+	  "kill" is now allowed as a control command, this adjusts output.
+	  and this changes
+
+2009-03-11 23:42  Rocky Bernstein
+
+	* ChangeLog, doc/ruby-debug.texi, lib/ChangeLog: update texinfo for
+	  catch
+
+2009-03-11 18:57  Rocky Bernstein
+
+	* cli/ruby-debug/commands/catchpoint.rb, emacs/rdebug-core.el,
+	  emacs/rdebug-track.el, emacs/test/test-regexp.el: Update "catch"
+	  command help string. Reindent some emacs files to make tests
+	  happy.
+
+2009-02-10 04:32  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Remove the annoying disappearing command
+	  window when we there's an initial error in running the Ruby
+	  program
+
+2009-01-23 20:51  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Show how to add a new command
+
+2009-01-23 17:20  Rocky Bernstein
+
+	* cli/ruby-debug/commands/kill.rb, cli/ruby-debug/processor.rb: Add
+	  a kill command
+
+2008-12-24 03:32  Rocky Bernstein
+
+	* test/cli/commands/unit/regexp.rb: One more quit test.
+
+2008-12-24 03:21  Rocky Bernstein
+
+	* cli/ruby-debug/commands/quit.rb, doc/ruby-debug.texi,
+	  test/cli/commands/unit/regexp.rb, test/data/annotate.cmd,
+	  test/data/annotate.right, test/data/break_bad.cmd,
+	  test/data/break_bad.right, test/data/breakpoints.cmd,
+	  test/data/breakpoints.right: Allow ! suffix on {q{,uit},exit} to
+	  be the same as "unconditionally" #23299
+
+2008-11-25 02:43  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb, configure.ac,
+	  doc/ruby-debug.texi, ext/ruby_debug.c, lib/ChangeLog,
+	  test/data/frame.cmd, test/data/frame.right: Frame without a frame
+	  number means frame 0, same as gdb. We are now in 0.10.4 territory
+	  now.
+
+2008-11-17 07:34  Rocky Bernstein
+
+	* CHANGES: Last commit before release.
+
+2008-11-16 00:14  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, lib/ChangeLog: Add rdoc for rdebug script.
+
+2008-11-15 22:13  Rocky Bernstein
+
+	* Rakefile, ext/ruby_debug.c: Go over RDOC documentation.
+
+2008-11-15 21:51  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add one more reference to start with a block
+
+2008-11-15 21:23  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Remove hard-coded version number in example
+	  output
+
+2008-11-15 02:21  Rocky Bernstein
+
+	* ext/win32/.cvsignore: More administrivia
+
+2008-11-15 02:20  Rocky Bernstein
+
+	* ext/win32: More administrivia
+
+2008-11-15 02:18  Rocky Bernstein
+
+	* ., .cvsignore: More administrivia
+
+2008-11-14 19:39  Rocky Bernstein
+
+	* ., .cvsignore: More administrivia
+
+2008-11-14 19:38  Rocky Bernstein
+
+	* .cvsignore: Administrivia
+
+2008-11-14 19:37  Rocky Bernstein
+
+	* ., README, Rakefile, doc, doc/.cvsignore: Go over documentation
+	  for 0.10.3 release. rdoc creates files in doc/rdoc.
+
+2008-11-14 19:28  Rocky Bernstein
+
+	* README, configure.ac, doc/ruby-debug.texi,
+	  lib/ruby-debug-base.rb: Go over documentation and revise.
+
+2008-11-14 15:32  Rocky Bernstein
+
+	* CHANGES, ChangeLog, cli/ruby-debug.rb,
+	  cli/ruby-debug/commands/frame.rb, doc/ruby-debug.texi,
+	  ext/ruby_debug.c, lib/ChangeLog, lib/ruby-debug-base.rb: Move
+	  Debugger#debugger from base to cli. Revert code in ruby_debug.c
+	  and block parameter in debugger. cf. -> Compare with. Document
+	  Debugger.start better.
+
+2008-11-13 10:29  Rocky Bernstein
+
+	* ChangeLog, ext/ruby_debug.c, lib/ChangeLog: Make
+	  Debugger.start{block} work if Debugger.started? is false. Second
+	  try.
+
+2008-11-11 15:33  Rocky Bernstein
+
+	* ., Rakefile, test/cli/commands/catchpoint_test.rb,
+	  test/cli/commands/unit, test/cli/commands/unit/regexp.rb: Start
+	  unit test for command regular expressions. Much more willing out
+	  to be done later....
+
+2008-11-11 14:42  Rocky Bernstein
+
+	* test/data/raise.right: More line number changes in tdebug
+
+2008-11-11 14:40  Rocky Bernstein
+
+	* test/data/raise.right: tdebug lines have changed
+
+2008-11-11 02:07  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb, lib/ChangeLog,
+	  test/test-dollar-0.rb, test/test-frame.rb, test/trunc-call.rb:
+	  Tweak truncated stack test since Ruby's caller doesn't seem to
+	  include (tail?) recursive calls and we do. Get regression tests
+	  working in light of recent changes.
+
+2008-11-10 08:47  Kent Sibilev
+
+	* ext/ruby_debug.c: register debug_frame_t->arg_ary with GC
+
+2008-11-10 02:56  Kent Sibilev
+
+	* bin/rdebug, ext/ruby_debug.c: Trying to fix "if $0 == __FILE__"
+	  ruby's idiom. Apparently setting $0 to
+	  a new value doesn't work correctly. (Ruby's bug?)
+	  
+	  $ cat t3.rb
+	  p $0
+	  p File.expand_path $0
+	  $0 = File.expand_path $0
+	  p $0
+	  $ ruby t3.rb
+	  "t3.rb"
+	  "/Users/kent/Work/ruby-debug/trunk/t3.rb"
+	  "/Users/ke"
+
+2008-11-10 01:50  Kent Sibilev
+
+	* ext/ruby_debug.h: added declaration of
+	  check_breakpoints_by_method method to remove compiler warning
+
+2008-11-10 01:48  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: a little bit more readable
+
+2008-11-10 01:43  Kent Sibilev
+
+	* ext/ruby_debug.c: running at_exit hooks at the end of the
+	  debug_load method in order to fix test cases a chance to run
+
+2008-11-10 01:41  Kent Sibilev
+
+	* ext/ruby_debug.c: can't store a copy of the debug_context in the
+	  stack like that, it doesn't play along with garbage collector.
+
+2008-11-10 01:39  Kent Sibilev
+
+	* ext/ruby_debug.c: these two methods are unused
+
+2008-11-10 01:36  Kent Sibilev
+
+	* ext/breakpoint.c: fix the compiler warning
+
+2008-11-10 01:35  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: Debugger.start must always call the
+	  passed block
+
+2008-11-07 19:35  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb, lib/ChangeLog:
+	  Change truncated frame message.
+
+2008-11-07 10:39  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, cli/ruby-debug.rb,
+	  cli/ruby-debug/commands/frame.rb, lib/ChangeLog, test/tdebug.rb:
+	  Add check to "where" to see if the call stack is truncated; task
+	  #2354
+
+2008-11-06 16:17  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog: #22698 Allow ruby-debug-base
+	  0.x.y.z be compatible with ruby-debug 0.x.y.
+
+2008-11-02 21:59  Rocky Bernstein
+
+	* ChangeLog, ext/ruby_debug.c, lib/ChangeLog,
+	  lib/ruby-debug-base.rb: Debugger.start with a block now stops
+	  inside the block. Debugger.debugger with a block works like
+	  Debugger.start with a block.
+	  
+	  The whole interface is hopelessly kludgy and needs to be redone.
+
+2008-10-27 15:29  Rocky Bernstein
+
+	* ChangeLog, test/data/raise.right: tdebug.rb line numbers changed.
+	  Update test numbers -- I think this is right.
+
+2008-10-26 14:54  Rocky Bernstein
+
+	* ChangeLog, ext/extconf.rb, ext/ruby_debug.c, lib/ChangeLog: Doc
+	  typo. Add comment to remind me how to turn off optimizationin
+	  extconf.rb
+
+2008-10-25 18:10  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: Fix mismatched interface.
+
+2008-10-25 16:01  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb, ext/ruby_debug.c,
+	  lib/ChangeLog, test/data/annotate.right,
+	  test/data/breakpoints.right, test/data/emacs_basic.right,
+	  test/data/finish.right, test/test-finish.rb: Warn and add a
+	  "confirmation" when setting a breakpoint on a file that is not
+	  loaded. Regression tests no longer fail.
+
+2008-09-22 21:01  Rocky Bernstein
+
+	* cli/ruby-debug.rb: Remove a $DEBUG warning
+
+2008-09-22 00:07  Rocky Bernstein
+
+	* doc, doc/.cvsignore, lib/ruby-debug-base.rb,
+	  test/data/pm-bug.cmd, test/data/pm-bug.right,
+	  test/data/post-mortem.right, test/pm-bug.rb, test/test-pm.rb:
+	  #22118 bug in showing variables post mortem. Patch thanks to
+	  rubikitch.
+	  Update pm.rb integration test.
+
+2008-09-21 23:09  Rocky Bernstein
+
+	* CHANGES: In 0.10.3 territory now.
+
+2008-09-21 23:06  Rocky Bernstein
+
+	* ext/ruby_debug.c, test/tdebug.rb: tdebug.rb: modify frozen string
+	  taken from rdebug. Patch from Martin Krauskopf.
+	  ruby_debug.c: in 0.10.3 now.
+
+2008-09-03 17:33  Rocky Bernstein
+
+	* doc: Administrivia
+
+2008-09-03 17:29  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/helper.rb: Show line numbers when
+	  $DEBUG is set. Patch #21772 from Martin Krauskopf
+
+2008-08-28 05:43  Kent Sibilev
+
+	* ext/ruby_debug.c:
+
+2008-08-28 05:41  Kent Sibilev
+
+	* CHANGES: preparing version 0.10.2
+
+2008-08-15 17:36  Kent Sibilev
+
+	* cli/ruby-debug/commands/list.rb: Fixed an exception when calling
+	  Kernel#debugger method from the eval code
+
+2008-07-10 09:47  Kent Sibilev
+
+	* cli/ruby-debug/commands/continue.rb, cli/ruby-debug/processor.rb:
+	  allow 'continue' command from post-mortem
+	  
+	  here is an example where it is needed:
+	  
+	  ...
+	  Debugger.post_mortem do
+	  method_that_raises_an_exception()
+	  end
+	  ...
+	  
+	  I want to be able to inspect the post_mortem context and then to
+	  continue the program execution
+
+2008-07-10 08:55  Kent Sibilev
+
+	* ext/ruby_debug.c: fixed segfault and finish command
+
+2008-07-09 19:43  Kent Sibilev
+
+	* cli/ruby-debug/commands/breakpoints.rb: allow setting a
+	  breakpoint on a file that is not yet loaded
+
+2008-07-09 19:29  Kent Sibilev
+
+	* cli/ruby-debug/interface.rb: RemoteInterface should extend
+	  Interface class
+
+2008-07-09 19:25  Kent Sibilev
+
+	* bin/rdebug: $0 is frozen in Ruby 1.8.7
+
+2008-07-09 00:43  Rocky Bernstein
+
+	* cli/ruby-debug.rb, cli/ruby-debug/processor.rb: Some meager (and
+	  not complete) support for a verbose mode on
+	  source'ing a file. Some more print's turned to errmsg as
+	  appropriate.
+
+2008-07-07 07:11  Rocky Bernstein
+
+	* lib/ruby-debug-base.rb: Tracker [#20041] start erroneously moved
+	  to Kernel - should be in
+	  Debugger.start
+
+2008-07-03 16:03  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Document that backslash can escape debugger
+	  command separation.
+
+2008-06-20 06:46  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/trace.rb,
+	  lib/ruby-debug-base.rb: trace.rb: add "trace var"
+	  ruby-debug-base.rb: remove another undefined warning.
+
+2008-05-27 03:54  Rocky Bernstein
+
+	* cli/ruby-debug/commands/save.rb, cli/ruby-debug/interface.rb,
+	  test/data/save.cmd, test/data/save.right, test/test-save.rb: Add
+	  save test. save.rb: use pretty-printed regexp. Interface, for now
+	  add restart_file accessor like the others. The processor
+	  interface
+	  need revision though.
+
+2008-05-24 01:27  Rocky Bernstein
+
+	* ChangeLog, doc/ruby-debug.texi, lib/ChangeLog: Remove dup lines.
+
+2008-05-23 14:57  Rocky Bernstein
+
+	* cli/ruby-debug/commands/save.rb: Catchpoints have changed. Fix
+	  bug in saving them.
+
+2008-05-23 01:04  Rocky Bernstein
+
+	* cli/ruby-debug/commands/catchpoint.rb,
+	  cli/ruby-debug/commands/info.rb, ext/breakpoint.c,
+	  test/cli/commands/catchpoint_test.rb, test/data/catch.cmd,
+	  test/data/catch.right, test/test-catch.rb: Lots of bogosity fixed
+	  in catchpoint handling. Added "catch xxx off".
+	  Confirm when deleting all catchpoints. Correct C rdoc.
+	  #20237
+
+2008-05-20 07:20  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi, doc/ruby-debug.texi: Use a straight quote
+	  in the typewriter font.
+
+2008-05-17 22:11  Rocky Bernstein
+
+	* cli/ruby-debug/commands/save.rb: Wording a little closer to gdb's
+	  ;-)
+
+2008-05-17 11:35  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi, doc/ruby-debug.texi: e.g. -> e.g.@:
+
+2008-05-15 18:06  Rocky Bernstein
+
+	* test, test/.cvsignore: Ignore config.private.yaml which folks may
+	  use/customize to omit tests
+
+2008-05-15 17:52  Rocky Bernstein
+
+	* Rakefile, test/cli, test/cli/commands,
+	  test/cli/commands/catchpoint_test.rb: Regression test for recent
+	  "catch nn off" error. Again from Martin Krauskopf
+
+2008-05-15 16:05  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/catchpoint.rb, lib/ChangeLog:
+	  Handle "catch nnn off" Forgotten there during r656.
+	  From mkrauskopf [#20156].
+
+2008-05-12 03:21  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: Small doc fix.
+
+2008-05-11 15:25  Rocky Bernstein
+
+	* test/data/raise.right: tdebug.rb got a line shorter.
+
+2008-05-11 09:03  Rocky Bernstein
+
+	* test/helper.rb, test/test-init.rb: Patch #19934 multi-interpreter
+	  patch from Martin Krauskopf
+
+2008-05-11 08:38  Rocky Bernstein
+
+	* bin/rdebug, ext/ruby_debug.c, test/data/output.right,
+	  test/data/quit.right, test/tdebug.rb: Remove stop in debug_load
+	  due to Debugger.start getting called twice.
+	  The fix -- for now -- is to add another parameter to debug_load
+	  to
+	  indicate not to increment debug_count. We could also make that
+	  the
+	  default in debug_load as well, but debug_load might be useful in
+	  other
+	  situations and where control_threads are not relevant (which is
+	  why we
+	  need to call Debugger.start rather than let debug_load do it).
+	  
+	  Bug #19930
+
+2008-05-05 18:05  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/data/frame.right,
+	  test/test-frame.rb: make test-frame installation independent. Bug
+	  #19931
+
+2008-05-01 23:16  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Remove a Texism. texinfo does not do or need
+	  italic correction.
+
+2008-04-30 20:14  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Fix doc for binding_n().
+
+2008-04-29 14:00  Rocky Bernstein
+
+	* cli/ruby-debug/commands/method.rb, doc/ruby-debug.texi,
+	  test/classes.rb, test/data/methodsig.right: Small doc and test
+	  improvements on 'method signature'
+
+2008-04-29 13:37  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/continue.rb, lib/ChangeLog,
+	  test/data/frame.cmd, test/data/frame.right: Test line number in
+	  "continue" command for validity.
+
+2008-04-29 09:11  Rocky Bernstein
+
+	* cli/ruby-debug/commands/method.rb,
+	  cli/ruby-debug/commands/set.rb,
+	  cli/ruby-debug/commands/variables.rb, test/classes.rb,
+	  test/data/method.cmd, test/data/method.right,
+	  test/data/methodsig.cmd, test/data/methodsig.right,
+	  test/data/setshow.right, test/test-method.rb: Add "method
+	  signature" command to show a method's signature.
+
+2008-04-29 08:23  Rocky Bernstein
+
+	* test/config.yaml: Forgot to add this on last commit.
+
+2008-04-28 16:42  Rocky Bernstein
+
+	* cli/ruby-debug/commands/set.rb, test/data/setshow.cmd,
+	  test/data/setshow.right: Catch errors in improper set callstyle
+	  parameter. Bug #19792
+
+2008-04-28 16:16  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/helper.rb: From Martin Krauskopf
+	  via patch #19779
+	  
+	  Allow folks to configure Ruby used for CLI tests in the
+	  test/config.yaml. The defaults are for native Ruby, so nothing
+	  needs
+	  to be done for ruby-debug.
+	  
+	  Developers of interfaces other than cli might override
+	  config.yaml by
+	  customized config.private.yaml which is ignored. So there will be
+	  no
+	  trash in e.g. 'svn st' output when developer customize the Ruby
+	  to be
+	  used.
+	  
+	  Handy for alternative interface implementations using
+	  svn:externals.
+
+2008-04-27 08:28  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-track.el: Reduce spurious
+	  read-only setting when short-key is turned
+	  on/off in the command buffer.
+
+2008-04-25 02:54  Rocky Bernstein
+
+	* CHANGES, emacs/rdebug-cmd.el, emacs/rdebug-gud.el,
+	  emacs/rdebug-source.el, emacs/rdebug-track.el: Try to get
+	  rdebug-track under control again.
+	  Remove "<" in the command buffer as a local key setting.
+	  Make more checkdoc friendly.
+
+2008-04-22 02:49  Rocky Bernstein
+
+	* doc/ruby-debug.texi, lib/ruby-debug-base.rb: Experiment with
+	  debugger(steps=0). Puts us in the debugger call, but this may be
+	  the best we can do for now. See tracker
+	  #19639.
+
+2008-04-20 21:38  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi, doc/ruby-debug.texi: rdebug-emacs.texi:
+	  update nodes so makeinfo will work.
+	  rdebug-texi: Note slight preference for ruby -rtracer over rdebug
+	  --trace.
+
+2008-04-19 13:22  Rocky Bernstein
+
+	* ext/ruby_debug.c, test/bp_loop_issue.rb,
+	  test/data/break_loop_bug.cmd, test/data/break_loop_bug.right,
+	  test/data/breakpoints.cmd, test/data/breakpoints.right,
+	  test/data/emacs_basic.right, test/test-break-bad.rb,
+	  test/test-emacs-basic.rb: Change test for whether we have moved
+	  off a line or not for purposes
+	  of stopping at a breakpoint on a line. The line events for which
+	  there
+	  are normally two stops are on NODE if's before the if and after
+	  the
+	  expression evaluation. Tracker #19594.
+
+2008-04-16 01:11  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/show.rb,
+	  cli/ruby-debug/interface.rb, cli/ruby-debug/processor.rb,
+	  ext/ruby_debug.c, lib/ChangeLog, test/data/setshow.cmd,
+	  test/data/setshow.right: In 0.10.2 now. Some work to cope systems
+	  without readline. More work is needed.
+	  Add test of "set autoeval." Undefined command message more
+	  closely like gdb's.
+
+2008-04-15 23:56  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Note that Debugger.start is currently broken
+	  when used with a block.
+
+2008-04-11 22:24  Anders Lindgren
+
+	* doc/rdebug-emacs.texi: Section on 'customize' added.
+
+2008-04-10 08:49  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/command.rb, lib/ChangeLog: linecache is
+	  required by ruby-debug-base not ruby-debug. Thanks Martin!
+
+2008-04-10 08:00  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog: Last change before 0.10.1
+	  release.
+
+2008-04-10 02:03  Rocky Bernstein
+
+	* ChangeLog, doc/rdebug-emacs.texi, lib/ChangeLog: Cosmetic stuff:
+	  spelling corrections. Update node structure so texinfo
+	  doesn't complain.
+
+2008-04-09 21:22  Anders Lindgren
+
+	* doc/rdebug-emacs.texi: New chapter for multi-window debugging.
+	  Intro reworked. NOTE: Menu nodes not updated.
+
+2008-04-08 19:55  Anders Lindgren
+
+	* emacs/rdebug-shortkey.el, emacs/test/test-shortkey.el: Logic in
+	  rdebug-internal-short-key-mode reworked. Test case updated.
+
+2008-04-08 14:52  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog: autorequire is deprecated and
+	  presumably no longer needed
+	  http://blade.nagaokaut.ac.jp/cgi-bin/scat.rb/ruby/ruby-talk/182827
+
+2008-04-08 14:16  Rocky Bernstein
+
+	* test/data/raise.right: Another test data line number change
+
+2008-04-08 14:12  Rocky Bernstein
+
+	* test/tdebug.rb: tdebug.rb alignment with rdebug
+
+2008-04-08 14:02  Rocky Bernstein
+
+	* test/data/linetracep.cmd: Forgot to add this for the linetrace+
+	  test.
+
+2008-04-08 14:01  Rocky Bernstein
+
+	* emacs/rdebug-shortkey.el, emacs/test/test-shortkey.el: Attempt a
+	  fix at shortkey internal. There be dragons here. Not sure what's
+	  going on.
+
+2008-04-08 10:23  Rocky Bernstein
+
+	* test/data/linetracep.right, test/test-trace.rb: Another linetrace
+	  test. This time with linetrace+ set.
+
+2008-04-08 10:19  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, test/data/linetrace.cmd,
+	  test/data/linetrace.right, test/test-trace.rb: processor.rb:
+	  Silence possibly more warnings under $DEBUG
+	  test/*: another linetrace test using the linetrace command.
+
+2008-04-08 03:17  Rocky Bernstein
+
+	* test/data/output.right, test/data/quit.right: Test line numbers
+	  changed. Sigh
+
+2008-04-08 03:14  Rocky Bernstein
+
+	* test/tdebug.rb: Track rdebug.
+
+2008-04-08 03:10  Rocky Bernstein
+
+	* test/test-trace.rb: Oops forget this test
+
+2008-04-08 03:09  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/processor.rb, test/data/trace.right,
+	  test/tdebug.rb: Fix bug in --trace. Add regression test for that
+	  as well.
+	  Reduce (but alas not eliminate) extraneous line tracing.
+
+2008-04-07 00:36  Rocky Bernstein
+
+	* CHANGES, ChangeLog, emacs/Makefile.am, emacs/rdebug-shortkey.el,
+	  emacs/test/test-shortkey.el, lib/ChangeLog,
+	  lib/ruby-debug-base.rb: ruby-debug-base.rb: document
+	  Debugger.start parameters.
+	  CHANGES: Revise what's happened
+	  test-shortkey.el: A failing regression test because I think
+	  rdebug-shortkey-mode
+	  is not correct.
+
+2008-04-06 03:03  Rocky Bernstein
+
+	* bin/rdebug, test/data/test-init-cygwin.right, test/test-init.rb:
+	  Assigning $0 on cygwin seems weird. cygwin readline different too
+
+2008-04-06 02:13  Rocky Bernstein
+
+	* test/data/test-init-osx.right, test/test-init.rb: read_command on
+	  OSX seems to work differently. Punt for now.
+
+2008-04-04 19:22  Rocky Bernstein
+
+	* cli/ruby-debug/commands/eval.rb: Sometimes remove_method isn't
+	  defined.
+
+2008-04-03 19:13  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small typos.
+
+2008-04-03 19:01  Rocky Bernstein
+
+	* ChangeLog, doc/ruby-debug.texi, lib/ChangeLog,
+	  lib/ruby-debug-base.rb, test/pm-base.rb: Allow setting
+	  :post_mortem => true from Debugger.start.
+
+2008-04-03 14:22  Rocky Bernstein
+
+	* Rakefile: We'll require linecache 0.4 or better. (Use SVN for
+	  now. Will be released at same time as ruby-debug).
+
+2008-04-03 14:15  Rocky Bernstein
+
+	* test/data/annotate.cmd, test/data/annotate.right,
+	  test/data/post-mortem-osx.right, test/test-pm.rb: test-pm.rb,
+	  post-mortem-osx.right: Allow for tmate command on OSX.
+	  annotate.*: make sure 'set force on' doesn't happen.
+
+2008-04-03 12:06  Rocky Bernstein
+
+	* cli/ruby-debug/commands/irb.rb: irb is no longer 'experimental'.
+
+2008-04-02 00:50  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-core.el,
+	  emacs/rdebug-shortkey.el: Auto indent.
+
+2008-04-02 00:27  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-shortkey.el: Short-key mode is
+	  turning itself on rather than off sometimes. More control over
+	  trying to get rid of it when desired.
+
+2008-03-30 03:01  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Note that rdebug with test/unit might work.
+
+2008-03-28 13:53  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-annotate.el, lib/ChangeLog: Don't
+	  unconditionally turn on short-key mode when annotations are on.
+	  Use rdebug-short-key-mode setting to decide.
+
+2008-03-23 17:47  Rocky Bernstein
+
+	* ChangeLog, Rakefile, cli/ruby-debug/commands/set.rb,
+	  cli/ruby-debug/commands/settings.rb, lib/ChangeLog: set.rb ->
+	  settings.rb since it's already one command per file, and
+	  remove another :nodoc.
+	  Rakefile: split long line
+
+2008-03-23 04:12  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, emacs/rdebug-core.el:
+	  rdebug-core.el: allow rdebug-reset as an emasc command
+	  show.rb: remove one more :nodoc
+
+2008-03-21 19:04  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el,
+	  emacs/rdebug-gud.el, emacs/test/test-cmd.el: Regularize names a
+	  little bit. More work is needed though.
+
+2008-03-21 18:39  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-gud.el: Clear breakpoint
+	  icons when quitting the debugger.
+
+2008-03-19 19:56  Rocky Bernstein
+
+	* doc/ruby-debug.texi: more on --keep-frame-binding (for Martin)
+
+2008-03-19 15:07  Rocky Bernstein
+
+	* cli/ruby-debug/commands/list.rb, test/data/list.cmd,
+	  test/data/list.right, test/data/raise.right: Fix bug in "list -":
+	  was scrolling back to negative lines. Had also been skipping
+	  lines in forward list.
+
+2008-03-19 07:36  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb: remove 'nodoc' (and doc) from
+	  InfoCommand class
+
+2008-03-19 07:31  Rocky Bernstein
+
+	* doc/rdebug-emacs.texi: Spelling correction.
+
+2008-03-19 00:44  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Some more spelling corrections.
+
+2008-03-19 00:27  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Spell-checking corrections.
+
+2008-03-18 19:47  Rocky Bernstein
+
+	* CHANGES: Try to make more readible.
+
+2008-03-18 16:05  Rocky Bernstein
+
+	* CHANGES, ChangeLog, cli/ruby-debug/commands/list.rb,
+	  lib/ChangeLog, test/data/list.cmd, test/data/list.right,
+	  test/test-finish.rb, test/test-list.rb: Fix bug in 'list' command
+	  when wrapping off the end.
+	  test-finish.rb: tolerate buggy in Ruby versions <= 1.8.7.
+
+2008-03-18 00:43  Rocky Bernstein
+
+	* cli/ruby-debug/commands/list.rb,
+	  cli/ruby-debug/commands/reload.rb: Split off reload into its own
+	  file.
+
+2008-03-17 14:29  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-annotate.el, emacs/rdebug-cmd.el,
+	  emacs/rdebug-fns.el, emacs/rdebug-locring.el,
+	  emacs/rdebug-shortkey.el, emacs/rdebug-source.el,
+	  emacs/rdebug-track.el, emacs/rdebug-vars.el,
+	  emacs/test/test-fns.el: Regularize location ring function names.
+
+2008-03-17 04:03  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/stepping.rb,
+	  test/data/stepping.right: stepping.rb: don't step if invalid
+	  parameter
+	  command.rb: remove dupliate defined warning msg
+
+2008-03-17 03:34  Rocky Bernstein
+
+	* cli/ruby-debug/commands/stepping.rb: Small doc addition
+
+2008-03-17 03:17  Rocky Bernstein
+
+	* cli/ruby-debug/commands/source.rb: Make source file-not-found and
+	  error
+
+2008-03-17 03:07  Rocky Bernstein
+
+	* cli/ruby-debug/commands/source.rb: tidy regexp
+
+2008-03-17 03:05  Rocky Bernstein
+
+	* cli/ruby-debug/commands/script.rb,
+	  cli/ruby-debug/commands/source.rb: Rename to match command name.
+	  Add miniscule doc.
+
+2008-03-16 22:04  Rocky Bernstein
+
+	* cli/ruby-debug/commands/continue.rb,
+	  cli/ruby-debug/commands/frame.rb, doc/ruby-debug.texi: Doc
+	  changes
+
+2008-03-16 16:38  Rocky Bernstein
+
+	* doc/ruby-debug.texi, test/base/base.rb, test/base/catchpoint.rb,
+	  test/base/load.rb: Add debug_load test. Document
+	  Debugger::Context better. Small doc changes.
+
+2008-03-16 15:01  Rocky Bernstein
+
+	* bin/rdebug: Typo.
+
+2008-03-16 07:39  Rocky Bernstein
+
+	* cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/help.rb: Minor doc changes
+
+2008-03-16 06:50  Rocky Bernstein
+
+	* test/data/ctrl.cmd, test/data/ctrl.right: Make sure width is set
+	  explicitly so we don't have vagaries of the environment.
+
+2008-03-16 06:44  Rocky Bernstein
+
+	* test/data/stepping.cmd, test/data/stepping.right: Possibly patch
+	  change to upcoming 1.8.7. Punt for now.
+
+2008-03-16 04:03  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/finish.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/quit.rb, doc/ruby-debug.texi,
+	  test/data/breakpoints.cmd, test/data/breakpoints.right,
+	  test/data/finish.cmd, test/data/finish.right,
+	  test/test-finish.rb: Change finish with no args to finish out of
+	  the currently selected
+	  frame and document that.
+	  Add test for "finish" command.
+	  ruby-debug.texi: Note 2nd-hook eval bug in "if" statements.
+	  
+	  ruby-debug.texi:
+
+2008-03-13 02:15  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/finish.rb,
+	  cli/ruby-debug/processor.rb, doc/ruby-debug.texi,
+	  ext/ruby_debug.c, lib/ruby-debug-base.rb, rdbg.rb: INCOMPATIBLE
+	  CHANGE: "finish" works like gdb - stop just before the
+	  most recent method finishes. Will now accept a number which stops
+	  that
+	  many frames completed. (Note that return line numbers will be
+	  funny,
+	  the first line of the method until Ruby 1.8.7.)
+
+2008-03-11 03:53  Rocky Bernstein
+
+	* test/base/base.rb, test/base/catchpoint.rb: Reduce unnecessary
+	  dependencies and scope.
+
+2008-03-10 14:51  Rocky Bernstein
+
+	* cli/ruby-debug/commands/catchpoint.rb,
+	  cli/ruby-debug/commands/info.rb: "catch" is same as "info catch".
+	  Document better "catch" command.
+
+2008-03-10 13:28  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/data/raise.right: Dunno why we are
+	  now one line number less. So be it (for now).
+
+2008-03-10 11:42  Rocky Bernstein
+
+	* cli/ruby-debug/commands/continue.rb,
+	  cli/ruby-debug/commands/finish.rb,
+	  cli/ruby-debug/commands/stepping.rb, cli/ruby-debug/processor.rb:
+	  Break out finish.rb and continue.rb from stepping.rb
+
+2008-03-09 23:30  Rocky Bernstein
+
+	* CHANGES, ChangeLog, lib/ChangeLog, test/data/info.right: For now
+	  we require the duplicate numbers on conditionals.
+
+2008-03-09 23:25  Rocky Bernstein
+
+	* Rakefile: Need at least linecache 0.3 now. Probably 0.4 for
+	  release.
+
+2008-03-07 04:26  Rocky Bernstein
+
+	* Rakefile, bin/rdebug, doc/ruby-debug.texi, test/test-dollar-0.rb:
+	  Use ~/.rdboptrc (rdbopt.ini on MS Windows) to change default
+	  options.
+
+2008-03-03 04:14  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/quit.rb: Split off quit to it's own file
+	  since it doesn't share code with the
+	  reset of "control". Smaller is better and it helps deal with
+	  meeting
+	  in the middle for extending debug 1.9 code.
+
+2008-03-03 01:50  Rocky Bernstein
+
+	* cli/ruby-debug/commands/stepping.rb, test/data/stepping.cmd,
+	  test/data/stepping.right: Allow spaces at the end of step and
+	  next. Test ";" between commands.
+
+2008-03-02 16:45  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/threads.rb, doc/ruby-debug.texi,
+	  test/data/frame.cmd, test/data/frame.right: Add ability to
+	  specify a thread number in a "frame" command.
+
+2008-03-02 13:47  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add Instructions for building on Microsoft
+	  Windows.
+
+2008-03-02 13:07  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small typo.
+
+2008-03-02 04:20  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb, lib/ruby-debug-base.rb,
+	  test/base/base.rb, test/data/breakpoints.right,
+	  test/data/emacs_basic.right: Better error message for an invalid
+	  break command.
+
+2008-03-02 03:32  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el: Bug in wrapping to newest in
+	  rdebug-older-location.
+
+2008-03-02 02:48  Rocky Bernstein
+
+	* test/base/base.rb, test/base/binding.rb, test/gcd-dbg-nox.rb:
+	  Small changes. Use unshift instead of << and Remove from $: after
+	  done.
+	  base.rb: Debugger.start -> Debugger.start_
+
+2008-03-02 02:24  Rocky Bernstein
+
+	* doc/Makefile.am, doc/rdebug-emacs.texi, doc/ruby-debug.texi:
+	  Split emacs stuff into it's own document. Right now this makes
+	  things
+	  worse. Hopefully the benefit over time will outweigh this.
+
+2008-03-01 11:36  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Go over post-mortem section. Note the
+	  weirdness concerning breakpoint
+	  file names and how to scope out how to fix.
+
+2008-03-01 03:39  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el: Add message when wrapping source location
+	  position. Not sure if this is right. We'll see.
+
+2008-02-29 15:24  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-frames.el: Fix bug in
+	  rdebug-older-location when ring is empty - index -1.
+	  Set rdebug-frames-current-frame-number variable in comint buffer
+	  which is
+	  needed at least for source location history processing.
+
+2008-02-29 10:41  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el: Remove gud-gdb-complete command for now.
+
+2008-02-29 04:34  Rocky Bernstein
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-fns.el, emacs/rdebug-frames.el,
+	  emacs/rdebug-gud.el, emacs/rdebug-secondary.el,
+	  emacs/rdebug-source.el: Wrap when ad top stack frame and trying
+	  to go to a newer one. I think
+	  the bindings for "<" and ">" were reversed. Some checkdoc
+	  warnings addressed.
+
+2008-02-29 01:33  Rocky Bernstein
+
+	* emacs/rdebug-track.el: Try to make more like rdebug. Get
+	  M-up/M-down working.
+	  Need to revisit this code and rdebug-core to understand, unify,
+	  and simplify
+	  more.
+
+2008-02-28 20:04  Rocky Bernstein
+
+	* emacs/rdebug-core.el: For the bogus-buffer, use something less
+	  computationally intensive.
+
+2008-02-28 05:06  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-core.el, emacs/rdebug-fns.el,
+	  lib/ChangeLog, test/data/breakpoints.cmd,
+	  test/data/breakpoints.right: breakpoints.{cmd,right}: test for an
+	  invalid stopping line number
+	  rdebug-fns.el: move generic split-string-and-unquote from
+	  rdebug-core.
+	  rdebug-core.el: Add rdebug-common-init to replace
+	  gud-common-init. Is
+	  simpler, and finds files better via debugger output/annotations.
+	  Fix bug in rdebug-setup-windows: gud-find-file can return nil,
+	  and
+	  we still need to set buf.
+
+2008-02-27 04:04  Rocky Bernstein
+
+	* lib/ruby-debug-base.rb: Slightly more robust handle_post_mortem.
+
+2008-02-26 17:31  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-cmd.el, emacs/rdebug-fns.el,
+	  emacs/rdebug-source.el, emacs/rdebug-vars.el,
+	  emacs/test/test-fns.el, lib/ChangeLog: Go over source location
+	  positioning. 0 is now the oldest (first) position. Add M-S-down
+	  and M-S-up for first and last. More tests needed in test-fns.el
+	  and need to prompt on wrap around.
+
+2008-02-26 00:57  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/data/info.cmd, test/data/info.right: Fix bug in "info file
+	  xxx breakpoints".
+
+2008-02-25 12:39  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: File.exists? -> File.exist? for Ruby
+	  1.9
+
+2008-02-24 16:36  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, lib/ChangeLog: rdebug; make more Ruby 1.9
+	  compatible.
+
+2008-02-24 16:14  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, emacs/rdebug-regexp.el, lib/ChangeLog,
+	  rdbg.rb: Minor changes.
+	  rdbg.rb: don't need $DEBUG test any more
+	  rdebug-regexp.el: go over with checkdoc
+	  bin/rdebug: use PATH_SEPARATOR (for 'doze again)
+
+2008-02-24 04:51  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, doc/ruby-debug.texi,
+	  emacs/rdebug-fns.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-secondary.el, emacs/rdebug-track.el,
+	  emacs/test/test-fns.el, lib/ChangeLog, test/data/help.cmd,
+	  test/data/help.right, test/test-help.rb: CLI: Add long help for
+	  "info file".
+	  
+	  test/test-help.rb: Make test failures easier to fix and more like
+	  the
+	  other tests.
+	  
+	  emacs/test: finish testing all of the funcitons in rdebug-fns.el
+	  
+	  rdebug-layouts.el: Make checkdoc clean.
+	  rdebug-track.el: don't need to rename shell buffer. Do it as an
+	  option only.
+	  rdebug-secondary.el: get rid of hoaky buffer finding for at least
+	  gud-comint-buf. (Should probably do others as well)
+	  
+	  DOC: Note weird line stopping locations. Describe what "ctrl" in
+	  prompt means.
+
+2008-02-23 21:55  Rocky Bernstein
+
+	* emacs/rdebug-fns.el, emacs/test/test-fns.el: More stringent test
+	  on rdebug-data-process-p. Add a unit test of this too. At least a
+	  start at one.
+
+2008-02-22 12:57  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el: Make gud-last-frame buffer local to all
+	  secondary buffers.
+
+2008-02-22 12:44  Rocky Bernstein
+
+	* emacs/rdebug-frames.el: Set source frame arrow type (top or not)
+	  in processing the stack frame
+	  annotation. Even though there is another setting in the anotation
+	  filter hook, we can't remove it in main annotation filter because
+	  we
+	  can't assume annotate=3.
+
+2008-02-22 09:31  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Need to handle glob expansion
+	  in program script on restart.
+	  File.exists? -> File.exist?
+
+2008-02-22 06:50  Anders Lindgren
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-core.el,
+	  emacs/rdebug-vars.el: Process status is now in color. Renamed
+	  rdebug-mode-line-status to rdebug-inferior-status to be more like
+	  gdb-ui. Moved some complexity from rdebug-mode-line-process to a
+	  new function rdebug-display-inferior-status.
+
+2008-02-22 02:40  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-fns.el, emacs/rdebug-gud.el,
+	  emacs/rdebug-track.el, emacs/test/test-cmd.el: Add some error
+	  checking around gud-call - like dead or nonexistent process.
+	  Set gud-comint-buffer for rdebug-track
+	  rdebug-call -> rdebug-call-return. rdebug-call is just the call
+	  part.
+
+2008-02-21 19:26  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-cmd.el,
+	  emacs/rdebug-shortkey.el: A couple of (if .. (progn ...)) turned
+	  into (when ...).
+
+2008-02-21 19:00  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-fns.el,
+	  emacs/rdebug-track.el: More work on the simple rdebug-track mode
+	  with respect to location
+	  ring handling. A couple of out-and-out bugs removed.
+
+2008-02-21 16:27  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-cmd.el,
+	  emacs/rdebug-fns.el, emacs/rdebug-gud.el, emacs/rdebug-track.el:
+	  Bang on rdebug-track.el to get to work better. Basically added
+	  gud-call-frame,
+	  position tracking and more common initialization for key
+	  bindings.
+
+2008-02-21 02:56  Rocky Bernstein
+
+	* ChangeLog, emacs/Makefile.am, emacs/rdebug-annotate.el,
+	  emacs/rdebug-error.el, emacs/rdebug-fns.el,
+	  emacs/rdebug-frames.el, emacs/rdebug-vars.el,
+	  emacs/test/test-error.el, emacs/test/test-fns.el,
+	  emacs/test/test-indent.el, lib/ChangeLog: Fringe for frame buffer
+	  the same as in source code. Move
+	  miscellaneous small functions to a new file. Reduce duplication
+	  of
+	  "chomp" code.
+
+2008-02-20 17:16  Anders Lindgren
+
+	* emacs/rdebug-annotate.el: Process status is now 'running',
+	  'stopped', 'exited', and 'crashed'. (Detecting the crash
+	  situation is a hack, the prompt is checked if it contains
+	  'post-mortem'...)
+
+2008-02-20 07:09  Anders Lindgren
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-breaks.el,
+	  emacs/rdebug-core.el, emacs/rdebug-error.el,
+	  emacs/rdebug-frames.el, emacs/rdebug-help.el,
+	  emacs/rdebug-info.el, emacs/rdebug-output.el,
+	  emacs/rdebug-source.el, emacs/rdebug-varbuf.el,
+	  emacs/rdebug-vars.el, emacs/rdebug-watch.el: Debugger status is
+	  now displayed in the mode line of source and secondary buffers.
+
+2008-02-19 23:44  Rocky Bernstein
+
+	* CHANGES, ChangeLog, bin/rdebug, emacs/rdebug-cmd.el,
+	  lib/ChangeLog: rdebug-cmd.el: M-insert toggles shortkey mode in
+	  the command buffer
+	  rdebug: search for Ruby program if file is not found and no
+	  SEPARATOR
+	  chars in the filename
+
+2008-02-19 15:20  Rocky Bernstein
+
+	* cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, doc/ruby-debug.texi,
+	  test/data/ctrl.right: Add "show post-mortem". Note "show port"
+	  now requires 3 letters: "show por"
+	  to distinguish it from "show post-mortem".
+
+2008-02-19 13:56  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb, cli/ruby-debug/processor.rb,
+	  emacs/rdebug-track.el: remove annotate=2. Emacs code can now
+	  redirect output to command or to buffer.
+	  rdebug-track.el
+
+2008-02-18 19:56  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-annotate.el, lib/ChangeLog: Frame
+	  switching shouldn't be recorded in position history ring.
+
+2008-02-18 04:49  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-frames.el,
+	  emacs/rdebug-shortkey.el, emacs/rdebug-vars.el: Make
+	  gud-comint-buffer local in the source file.
+	  Frame indicator is hollow except when it's the top frame.
+
+2008-02-17 23:51  Rocky Bernstein
+
+	* doc/emacs-notes.txt: Note as to how some of the emacs code is
+	  structured.
+
+2008-02-17 22:45  Anders Lindgren
+
+	* emacs/test/test-annotate.el: Fixed broken case (rdebug-call-queue
+	  is now a list of lists).
+
+2008-02-17 22:42  Anders Lindgren
+
+	* emacs/rdebug-annotate.el: Exit messages now go to the echo area.
+	  New command kind supported in rdebug-call-queue, :message.
+
+2008-02-17 22:00  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-annotate.el, emacs/rdebug-dbg.el,
+	  emacs/rdebug-info.el, emacs/rdebug-shortkey.el,
+	  emacs/rdebug-source.el, emacs/test/test-annotate.el,
+	  emacs/test/test-filter.el, emacs/test/test-frames.el,
+	  emacs/test/test-regexp.el: test-filter.el -> test-annotate.el
+	  Reinstate the ";;; redebug-xxx.el ends here" and ;;;
+	  rdebug-xxx.el --- at the
+	  thop.
+
+2008-02-17 21:25  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-shortkey.el,
+	  emacs/rdebug-source.el: Move short-key mode from source into
+	  short-key.
+	  Makefile.am: reduce redundancy a tad.
+
+2008-02-17 17:52  Rocky Bernstein
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-breaks.el,
+	  emacs/rdebug-core.el, emacs/rdebug-frames.el,
+	  emacs/rdebug-help.el, emacs/rdebug-info.el,
+	  emacs/rdebug-output.el, emacs/rdebug-regexp.el,
+	  emacs/rdebug-varbuf.el, emacs/rdebug-watch.el: Replace
+	  rdebug--... with rdebug-. Run checkdoc and deal with some of
+	  those errors.
+
+2008-02-17 14:56  Anders Lindgren
+
+	* emacs/rdebug-annotate.el, emacs/rdebug-gud.el,
+	  emacs/rdebug-info.el, emacs/rdebug-vars.el: The rdebug-call-queue
+	  system reworked, each entry is now a list of the
+	  command and options telling the system what it should do with the
+	  output. Currently, :tooltip and :info are supported, but more can
+	  easily be added (including support for lambda-expression, if
+	  needed).
+	  
+	  The info buffer now only displays things if explicitly asked to
+	  do so.
+	  
+	  Two proof-of-concept functions added,
+	  rdebug-pretty-print-to-buffer
+	  and rdebug-pretty-print-region-to-buffer. Note that the user
+	  interface
+	  might differ in the future (we don't want too many user-level
+	  function.)
+	  
+	  The info buffer is no longer treated as accumulative, this
+	  simplifies
+	  the rdebug-cmd-XXX functions, but the user has to wait until the
+	  command has terminated until the output is displayed in the info
+	  buffer.
+
+2008-02-17 13:57  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/info.rb, doc/ruby-debug.texi,
+	  lib/ruby-debug-base.rb, test/data/post-mortem.right: Add
+	  Debugger.last_exception. Show exception in post-mortem when "info
+	  program"
+	  is issued. Reorganize list of major changes better.
+
+2008-02-17 10:35  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el: Improve comment.
+
+2008-02-17 10:32  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el: Remove rdebug-test-test which doesn't
+	  seem to be used.
+
+2008-02-17 03:57  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el: Move some
+	  breakpoint-related code from rdebug-core.el to rdebug-breaks.el
+
+2008-02-17 02:40  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-annotate.el,
+	  emacs/rdebug-breaks.el, emacs/rdebug-cmd.el,
+	  emacs/rdebug-core.el, emacs/rdebug-error.el,
+	  emacs/rdebug-info.el, emacs/rdebug-shortkey.el,
+	  emacs/rdebug-vars.el, emacs/test/test-error.el,
+	  emacs/test/test-filter.el, emacs/test/test-regexp.el: Create
+	  functions for showing temporary messages and error messages -
+	  don't call show-tooltip() or message() directy.
+	  
+	  Break out annotations and shortkeys from rdebug-core. Break out
+	  filter
+	  test from regular-expression tests. Add chomp test.
+
+2008-02-16 21:03  Anders Lindgren
+
+	* emacs/rdebug-core.el: The error buffer should work correctly
+	  again (untested)
+
+2008-02-16 20:56  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-info.el,
+	  emacs/test/test-regexp.el: Moved handling of command output out
+	  from gud-rdebug-marker-filter. It
+	  is now handled by rdebug-cmd-XXX (which used to be located in
+	  rdebug-info.el.) Tooltip handling is now more robust, e.g. it
+	  works
+	  when more than one annotation is received at once, or if the
+	  annotation arrives in split packages.
+	  
+	  In case the external process echoes the command, it is stipped
+	  away
+	  before it is presented as a tooltip.
+	  
+	  Test of filter function reworked. New cases added to handle
+	  command
+	  output. All filter tests are now tested twice, once when the
+	  entire
+	  block is sent at once, one where the block is sent in character
+	  by
+	  character.
+
+2008-02-16 17:38  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-cmd.el, emacs/rdebug-core.el,
+	  emacs/test/test-indent.el: Add routine to go to a particular
+	  history location. Break out command buffer
+	  things into its own file.
+
+2008-02-16 13:47  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Show ring number when moving positions.
+
+2008-02-16 04:18  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el,
+	  emacs/rdebug-vars.el, emacs/rdebug.el: Save stopping points and
+	  give a way to move around in them.
+
+2008-02-13 21:47  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/processor.rb, lib/ChangeLog:
+	  processor.rb: spelled "post-mortem" incorrectly in prompt.
+
+2008-02-13 17:58  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-regexp.el,
+	  emacs/rdebug-track.el: Use rdebug-input-prompt-regexp rather than
+	  duplicate strings. Set comint-next/previous-prompt
+
+2008-02-13 17:32  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-core.el, lib/ChangeLog: Set up keys for
+	  comint-next-prompt and comint-previous-prompt.
+
+2008-02-13 13:08  Rocky Bernstein
+
+	* Rakefile: Newer rubygems depricates Gem::Platform::WIN32
+
+2008-02-13 03:47  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-gud.el, emacs/rdebug-vars.el:
+	  Add ability to show print output as a tooltip. This is more a
+	  proof-of-concept than a finished product.
+
+2008-02-12 05:34  Anders Lindgren
+
+	* emacs/rdebug-core.el: Better documentation for
+	  rdebug-non-annotated-text-kind.
+
+2008-02-12 02:06  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/info.rb, doc/ruby-debug.texi,
+	  lib/ChangeLog, test/data/info-thread.right, test/thread1.rb: Fix
+	  bug in "info thread verbose" which wasn't showing full traceback.
+
+2008-02-11 02:29  Rocky Bernstein
+
+	* cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/threads.rb, doc/ruby-debug.texi,
+	  test/data/ctrl.right, test/data/info-thread.cmd,
+	  test/data/info-thread.right, test/data/info.right,
+	  test/test-info-thread.rb: Add "info thread". Pound on "info
+	  threads" to make it more like
+	  pydb. In particular we can give stack traces for the threads.
+	  Towards
+	  addressing issue #12663.
+
+2008-02-10 20:46  Rocky Bernstein
+
+	* emacs/rdebug-info.el, emacs/rdebug-source.el: Add key to get to
+	  Info buffer. Add "pl" to list of print commands.
+
+2008-02-10 17:46  Rocky Bernstein
+
+	* Rakefile, emacs/Makefile.am, emacs/rdebug-core.el: Makefile.am,
+	  rdebug-core.el: require/add rdebug-info.el
+	  Rakefile: some indentation
+
+2008-02-10 16:06  Anders Lindgren
+
+	* emacs/rdebug-info.el: Got rid of warning. (Had to disabled it the
+	  hard way since rdebug-info calls a function in rdebug-core, but
+	  can't require it because that would lead to cyclic requires.)
+
+2008-02-10 16:01  Anders Lindgren
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el,
+	  emacs/rdebug-info.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-output.el, emacs/rdebug-vars.el,
+	  emacs/test/test-indent.el: New secondary window 'info', which
+	  displays output of events and
+	  certain commands. The non-annotated-text system reworked to
+	  handle
+	  this. This should be seen as a proof of concept that we can pick
+	  up
+	  the output of, say, "pp". The end result could very well differ
+	  quite
+	  a lot from what we have now.
+	  
+	  New variable 'rdebug-accumulative-buffer', true for buffers that
+	  grow.
+	  Currently "output" and "info".
+
+2008-02-10 01:39  Rocky Bernstein
+
+	* emacs/rdebug-gud.el, emacs/rdebug-source.el,
+	  emacs/rdebug-varbuf.el: Add more variations of print commands:
+	  pl, ps, pp, and p.
+
+2008-02-09 22:20  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-source.el, emacs/rdebug.el: * New window layout "no
+	  shell". This is the "standard" layout with the
+	  "watch" window instead of the "debugger shell" window.
+	  
+	  * Fixed a problem where the Watch window was not initialized
+	  properly
+	  until the first annotation arrived.
+	  
+	  * Fixed a problem where we created far too many buffers, e.g
+	  *rdebug-stopping-test.rb* and *rdebug--test.rb*.
+
+2008-02-09 16:24  Anders Lindgren
+
+	* emacs/rdebug-frames.el, emacs/rdebug-layouts.el,
+	  emacs/test/test-indent.el: Indentation fixes, plus adding all
+	  rdebug-xxx.el files to the list of files to check.
+
+2008-02-09 15:48  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, test/data/break-bad.cmd,
+	  test/data/break-bad.right, test/data/break_bad.cmd,
+	  test/data/break_bad.right, test/data/emacs-basic.cmd,
+	  test/data/emacs-basic.right, test/data/emacs_basic.cmd,
+	  test/data/emacs_basic.right, test/helper.rb,
+	  test/test-break-bad.rb, test/test-emacs-basic.rb: helper.rb
+	  Failed attempt to DRY tests more. But save what we have
+	  which may someday in the future be used to go further. Minus to
+	  undercore in Data file names in preparation such time. (We'll use
+	  the
+	  filename as the test name).
+	  
+	  testing
+
+2008-02-09 11:55  Rocky Bernstein
+
+	* ext/ruby_debug.c, test/data/post-mortem-next.cmd,
+	  test/data/post-mortem-next.right, test/data/post-mortem.cmd,
+	  test/data/post-mortem.right, test/test-pm.rb: Fix bug where we
+	  entered debugger code if we "next" over code that
+	  goes raises an uncaught exception. Needed to reset stepping
+	  parameters. Added a routine to do so.
+
+2008-02-08 02:09  Rocky Bernstein
+
+	* INSTALL.SVN: Add instructions for building on MS Windows.
+
+2008-02-06 18:15  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el,
+	  emacs/rdebug-gud.el, emacs/rdebug-source.el,
+	  emacs/rdebug-varbuf.el: Add routines to print a marked expression
+	  or a variable in the
+	  variables buffer. Not perfect but it's a start in the right
+	  direction.
+	  Add key bindings for this and to print a region selected via the
+	  mouse.
+
+2008-02-06 16:15  Rocky Bernstein
+
+	* ChangeLog, emacs/Makefile.am, emacs/rdebug-gud.el,
+	  emacs/test/test-gud.el, lib/ChangeLog: Add 'nowarn to
+	  find-file-noselect and test that we don't get a warning.
+
+2008-02-05 16:30  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: Remove "* used as prefix argument"
+	  warning.
+
+2008-02-05 07:52  Anders Lindgren
+
+	* emacs/rdebug-layouts.el, emacs/rdebug-source.el: Added 'Separate
+	  I/O buffer' to options menu. The window layouts now create an
+	  output buffer only when separate io buffer is enabled.
+
+2008-02-05 01:41  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-track.el, emacs/rdebug.el, lib/ChangeLog,
+	  test/data/setshow.cmd, test/data/setshow.right: rdebug.el: Add a
+	  defgroup for rdebug so customization in Emacs 23 is possible.
+	  Some other minor doc fixes.
+	  setshow.* make sure we don't have an $Id line that we have to
+	  check against.
+
+2008-02-04 21:50  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: New variable
+	  'rdebug-use-separate-io-buffer' controls if output should go to
+	  shell window or the output window. Contiuous output can now be
+	  received from a running process. 'gud-rdebug-marker-filter'
+	  totally reworked (again) -- introduced the concept of one-liners
+	  and a new helper function.
+
+2008-02-03 20:26  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-regexp.el: Annotation filter
+	  reworked. comint-process-echoes is now set, so that the user
+	  commands aren't printed twice. 'quit' now works correcty, and the
+	  stack frame window shows the correct content when post-mortem is
+	  entered.
+
+2008-02-03 15:23  Rocky Bernstein
+
+	* ChangeLog, Rakefile, doc/ruby-debug.texi, lib/ChangeLog,
+	  test/annotate.cmd, test/annotate.right, test/break-bad.cmd,
+	  test/break-bad.right, test/breakpoints.cmd,
+	  test/breakpoints.right, test/condition.cmd, test/condition.right,
+	  test/ctrl.cmd, test/ctrl.right, test/data,
+	  test/data/annotate.cmd, test/data/annotate.right,
+	  test/data/break-bad.cmd, test/data/break-bad.right,
+	  test/data/breakpoints.cmd, test/data/breakpoints.right,
+	  test/data/condition.cmd, test/data/condition.right,
+	  test/data/ctrl.cmd, test/data/ctrl.right, test/data/display.cmd,
+	  test/data/display.right, test/data/dollar-0.right,
+	  test/data/dollar-0a.right, test/data/dollar-0b.right,
+	  test/data/edit.cmd, test/data/edit.right,
+	  test/data/emacs-basic.cmd, test/data/emacs-basic.right,
+	  test/data/enable.cmd, test/data/enable.right,
+	  test/data/frame.cmd, test/data/frame.right, test/data/help.cmd,
+	  test/data/help.right, test/data/history.right,
+	  test/data/info-var-bug2.cmd, test/data/info-var-bug2.right,
+	  test/data/info-var.cmd, test/data/info-var.right,
+	  test/data/info.cmd, test/data/info.right, test/data/noquit.right,
+	  test/data/output.cmd, test/data/output.right,
+	  test/data/post-mortem.cmd, test/data/post-mortem.right,
+	  test/data/quit.cmd, test/data/quit.right, test/data/raise.cmd,
+	  test/data/raise.right, test/data/setshow.cmd,
+	  test/data/setshow.right, test/data/source.cmd,
+	  test/data/source.right, test/data/stepping.cmd,
+	  test/data/stepping.right, test/data/test-init.right,
+	  test/display.cmd, test/display.right, test/dollar-0.right,
+	  test/dollar-0a.right, test/dollar-0b.right, test/edit.cmd,
+	  test/edit.right, test/emacs-basic.cmd, test/emacs-basic.right,
+	  test/enable.cmd, test/enable.right, test/frame.cmd,
+	  test/frame.right, test/help.cmd, test/help.right, test/helper.rb,
+	  test/history.right, test/info-var-bug2.cmd,
+	  test/info-var-bug2.right, test/info-var.cmd, test/info-var.right,
+	  test/info.cmd, test/info.right, test/noquit.right,
+	  test/output.cmd, test/output.right, test/post-mortem.cmd,
+	  test/post-mortem.right, test/quit.cmd, test/quit.right,
+	  test/raise.cmd, test/raise.right, test/setshow.cmd,
+	  test/setshow.right, test/source.cmd, test/source.right,
+	  test/stepping.cmd, test/stepping.right, test/test-annotate.rb,
+	  test/test-break-bad.rb, test/test-breakpoints.rb,
+	  test/test-condition.rb, test/test-ctrl.rb, test/test-display.rb,
+	  test/test-dollar-0.rb, test/test-edit.rb,
+	  test/test-emacs-basic.rb, test/test-enable.rb,
+	  test/test-frame.rb, test/test-help.rb, test/test-hist.rb,
+	  test/test-info-var.rb, test/test-info.rb, test/test-init.rb,
+	  test/test-init.right, test/test-output.rb, test/test-pm.rb,
+	  test/test-quit.rb, test/test-raise.rb, test/test-setshow.rb,
+	  test/test-source.rb, test/test-stepping.rb: Try to get testing a
+	  little more organized, although more work should
+	  be done: Create a data directory for comparison ("right") and
+	  script
+	  command ("cmd") files. Code is now more uniform (and should DRY'd
+	  a
+	  bit more).
+
+2008-02-03 12:34  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Remove Debugger.init. Expand Debugger.start,
+	  Debugger.stop and Debugger.started?
+
+2008-02-03 04:17  Rocky Bernstein
+
+	* cli/ruby-debug/commands/catchpoint.rb,
+	  cli/ruby-debug/commands/info.rb, test/raise.cmd,
+	  test/raise.right: Add some argument checking in setting
+	  catchpoints.
+	  Showing status on "info catch" is a little silly - we can't
+	  recover from
+	  an exception.
+
+2008-02-02 23:10  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/catchpoint.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/edit.rb, cli/ruby-debug/commands/eval.rb,
+	  cli/ruby-debug/commands/help.rb, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/list.rb, cli/ruby-debug/commands/save.rb,
+	  cli/ruby-debug/commands/script.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb,
+	  cli/ruby-debug/commands/stepping.rb,
+	  cli/ruby-debug/commands/threads.rb, cli/ruby-debug/processor.rb,
+	  lib/ChangeLog, test/breakpoints.right, test/emacs-basic.right,
+	  test/pm.rb, test/post-mortem.cmd, test/post-mortem.right,
+	  test/test-emacs-basic.rb, test/test-init.rb, test/test-pm.rb,
+	  test/test-quit.rb: Remove commands in post-mortem which are not
+	  applicable, e.g."step",
+	  "next", "continue"...
+	  
+	  "No breakpoints have been set" is now an error message when
+	  trying to
+	  set a breakpoint.
+	  
+	  Add post-mortem test.
+	  
+	  Debug.init no longer exists.
+
+2008-02-02 18:16  Anders Lindgren
+
+	* emacs/rdebug-core.el: Changing window layout no longer clears the
+	  secondary windows.
+
+2008-02-02 16:14  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el: All window layout
+	  menu items are not collected in one place. Comment fixes.
+
+2008-02-02 09:27  Rocky Bernstein
+
+	* CHANGES, ext/ruby_debug.c, lib/ruby-debug-base.rb,
+	  test/gcd-dbg.rb: Remove Debugger.init and fold options parameter
+	  into Debugger.start.
+	  Old Debugger.start has been renamed Deebugger.start_
+
+2008-02-01 03:09  Rocky Bernstein
+
+	* CHANGES, Rakefile, bin/rdebug,
+	  cli/ruby-debug/commands/catchpoint.rb,
+	  cli/ruby-debug/commands/info.rb, cli/ruby-debug/processor.rb,
+	  ext/breakpoint.c, ext/ruby_debug.c, ext/ruby_debug.h,
+	  test/base/base.rb, test/base/catchpoint.rb, test/ctrl.right,
+	  test/info.right: Allow multiple exceptions to be caught.
+	  
+	  INCOMPATIBLE CHANGE: varible Debugger.catchpoint a String was
+	  turned
+	  into Debugger.catchpoints, a Hash. Debugger.catchpoint= no longer
+	  exists. Debugger.set_catchpoint was turned into
+	  Debugger.add_catchpoint
+	  
+	  "info catch" added.
+	  
+	  INCOMPATIBLE CHANGE: variable Debugger.catchpoint is now
+	  Debugger.catchpoints
+	  which is a now hash rather than a String. Debugger.catchpoint= no
+	  longer exists.
+	  
+	  A catchpoint ruby-debug-base test added. use unshift in requires.
+	  
+	  rdebug: --post-mortem now really catches uncaught exceptions and
+	  brings you to post-mortem handling.
+
+2008-01-31 18:29  Anders Lindgren
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-frames.el: In the frames and
+	  breakpoint windows, the left mouse button simply sets the point.
+	  Double-clicking selects the item. The second and third mouse
+	  button also selects.
+
+2008-01-31 16:30  Rocky Bernstein
+
+	* ChangeLog, ext/ruby_debug.c, lib/ChangeLog: Leave ruby_debug.c
+	  this way for now.
+
+2008-01-31 16:24  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/processor.rb, ext/ruby_debug.c,
+	  lib/ChangeLog, test/raise.right, test/tdebug.rb: ruby_debug.c:
+	  more adventures in exception handling
+	  processor.rb: Removal of crash when annotate is on. Need to fix
+	  the source of the
+	  problem though.
+
+2008-01-31 15:16  Rocky Bernstein
+
+	* bin/rdebug, lib/ruby-debug-base.rb, test/output.right,
+	  test/quit.right, test/raise.rb, test/raise.right, test/tdebug.rb:
+	  Handle post-mortem and exception traceback reporting in
+	  ruby-debug
+
+2008-01-31 03:01  Rocky Bernstein
+
+	* bin/rdebug, ext/ruby_debug.c, test/helper.rb, test/quit.right,
+	  test/tdebug.rb, test/test-quit.rb, test/test-raise.rb: Have
+	  Debug.load recover from uncaught error raised in a debugged
+	  program.
+	  Go over regression tests.
+
+2008-01-30 21:33  Anders Lindgren
+
+	* test/raise.cmd, test/raise.rb, test/raise.right,
+	  test/test-raise.rb: Test case ensuring that an error in the user
+	  code doesn't cause the debugger to single step it's own code.
+	  (This is currently broken.)
+
+2008-01-30 17:13  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb: Add broken "info file"
+	  information.
+
+2008-01-30 17:01  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/enable.rb,
+	  cli/ruby-debug/commands/info.rb, cli/ruby-debug/commands/show.rb,
+	  lib/ChangeLog, test/condition.right: Add Command.find() to find a
+	  subcommand name.
+	  condition.right: correct for breakpoint hit counts.
+
+2008-01-30 11:33  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-output.el,
+	  emacs/rdebug-track.el: Add keybindings in shell, output and
+	  command buffers for going to a
+	  traceback line or a $! traceback line.
+	  
+	  rdebug-common-initialization -> rdebug-command-initialization and
+	  fix
+	  up docstring.
+	  
+	  rdebug-core.el: Bug in handling --emacs introduced when a
+	  parameter was added
+	  rdebug-track.el: start with annotate 2.
+
+2008-01-30 01:43  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/breakpoints.right, test/emacs-basic.right: Add number of
+	  times a breakpoint is hit like gdb does.
+
+2008-01-29 22:37  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog:
+	  Columnize breakpoint output.
+
+2008-01-29 22:19  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb, emacs/rdebug-frames.el,
+	  test/test-ctrl.rb: test-ctrl.rb: try to make it influenced less
+	  by environment.
+	  rdebug-frames.el remove unused local variable.
+
+2008-01-29 21:13  Anders Lindgren
+
+	* cli/ruby-debug/commands/frame.rb, emacs/rdebug-frames.el,
+	  emacs/rdebug-secondary.el: * Fixed a problem where the source
+	  buffer opened in the wrong window.
+	  Turned out that the Stack Frame buffer setup function tried to
+	  display the current frame itself, instead of letting the normal
+	  source annotations handle this.
+	  
+	  * Fixed a problem with an annotation turning up in the debugger
+	  shell
+	  buffer. The 'frame' command emitted a source annotation without
+	  the
+	  "source" part.
+	  
+	  * In the stack frame window, when selecting a frame to display,
+	  the
+	  point is now placed at the beginning of the line of the active
+	  frame.
+	  
+	  * Internal restructuring of the pick source window parts.
+
+2008-01-29 19:58  Rocky Bernstein
+
+	* emacs/rdebug-frames.el: In the frame secondary buffer, put point
+	  somewhere on the line with
+	  the active frame. (It had been at the end of the buffer.)
+
+2008-01-29 19:16  Rocky Bernstein
+
+	* emacs/rdebug-layouts.el: So for a layout with one less window and
+	  the command buffer on the bottom.
+
+2008-01-29 11:20  Rocky Bernstein
+
+	* CHANGES, ChangeLog, bin/rdebug, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb, doc/ruby-debug.texi,
+	  emacs/rdebug-core.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-source.el, emacs/rdebug.el, emacs/test/test-core.el,
+	  lib/ChangeLog: More annotate=2 fixes.
+
+2008-01-29 05:03  Anders Lindgren
+
+	* emacs/rdebug-core.el: In Emacs, the current directory of the
+	  debugger shell process is now the directory in which it was
+	  started.
+
+2008-01-28 21:11  Rocky Bernstein
+
+	* test/history.right, test/test-hist.rb: Disable for now.
+
+2008-01-28 16:18  Rocky Bernstein
+
+	* test/helper.rb, test/test-hist.rb: Some more work on test-hist.
+	  Not working yet completely though.
+
+2008-01-28 15:59  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/helper.rb, test/test-dollar-0.rb, test/test-hist.rb,
+	  test/test-output.rb: Add info file breakpoints to show lines
+	  which we can set a breakpoint on.
+	  Revise so we chdir into SRC_DIR.
+	  test-hist.rb is broken - will fix later.
+
+2008-01-28 15:50  Rocky Bernstein
+
+	* test/history.right: Comparison file for test-hist.rb
+
+2008-01-28 03:16  Rocky Bernstein
+
+	* doc/Makefile.am: Don't remove Unix manual page.
+
+2008-01-28 03:15  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, doc/ruby-debug.texi: Make show
+	  commands a little more like gdb. Document it too.
+
+2008-01-28 02:24  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, cli/ruby-debug/interface.rb,
+	  test/ctrl.right, test/test-enable.rb, test/test-hist.rb:
+	  interface.rb: Command history not saved between local rdebug
+	  sessions. Patch from Martin Krauskopf #17491.
+	  show.rb: add "show commands" so we can see the command history.
+	  test/* Add a history regression test.
+
+2008-01-26 17:12  Anders Lindgren
+
+	* emacs/rdebug-frames.el: debug--setup-frame-buffer rewritten from
+	  scratch, it's now a lot simpler since it no longer has to handle
+	  coloring.
+
+2008-01-26 17:10  Anders Lindgren
+
+	* emacs/rdebug-layouts.el: comment fix.
+
+2008-01-26 16:33  Anders Lindgren
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-frames.el: Coloring added to
+	  the Stack frames window
+
+2008-01-26 01:45  Rocky Bernstein
+
+	* test/test-annotate.rb, test/test-enable.rb, test/test-init.rb,
+	  test/test-init.right: Add test of new Debugger.init
+
+2008-01-25 21:02  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Document info subcommands and Debugger.init.
+	  Start Class, Module,
+	  method index. Order of index changed slightly.
+
+2008-01-25 12:11  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, lib/ChangeLog,
+	  lib/ruby-debug-base.rb, test/gcd-dbg-nox.rb, test/gcd-dbg.rb: Add
+	  Debugger.init which intializes things that rdebug does. This
+	  allows a restart even though rdebug wasn't called initially.
+
+2008-01-23 02:53  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/enable.rb,
+	  cli/ruby-debug/commands/help.rb, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, test/breakpoints.cmd,
+	  test/breakpoints.right, test/enable.cmd, test/enable.right,
+	  test/help.cmd, test/help.right, test/test-enable.rb,
+	  test/test-help.rb: Add subcommand/long help for enable, disable,
+	  set, and show. Put Subcommand structure in Command. More work is
+	  needed to reduce redundancy.
+
+2008-01-22 23:15  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/help.rb,
+	  cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/annotate.cmd, test/annotate.right, test/ctrl.right,
+	  test/info.cmd, test/info.right, test/test-edit.rb,
+	  test/test-source.rb: Allow "help info xxx". Add ability for long
+	  help on "info" command.
+	  Add "info break xx".
+	  
+	  test: remove test/unit class name conflicts. All the tests we
+	  wrote
+	  now get run.
+
+2008-01-22 18:48  Rocky Bernstein
+
+	* emacs/rdebug-secondary.el: A small comment spelling mistake.
+
+2008-01-20 22:01  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb, test/break-bad.cmd,
+	  test/break-bad.right, test/breakpoints.cmd,
+	  test/breakpoints.right, test/rdebug-save.1, test/source.right,
+	  test/test-break-bad.rb: We now only allow breakpoints on stopping
+	  lines. We get this via
+	  linecache which ultimately gets it from ParseTree.
+
+2008-01-19 19:28  Rocky Bernstein
+
+	* ChangeLog, Rakefile, lib/ChangeLog, test/base, test/base/base.rb,
+	  test/base/binding.rb, test/test-ruby-debug-base.rb: Move
+	  ruby-debug-base tests to base directory. Add a binding_n
+	  regression test.
+
+2008-01-17 22:29  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb: lines -> size.
+
+2008-01-17 20:28  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb, test/ctrl.right,
+	  test/info.right: Add "info file" in addition to "info files" Use
+	  some features in linecache 0.3
+	  which are in SVN only. Give SHA1, number of lines and timestamp
+	  on a specific
+	  file.
+
+2008-01-17 06:58  Rocky Bernstein
+
+	* test/ctrl.right: info file -> info files
+
+2008-01-17 03:33  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb, test/info.right: "info file" ->
+	  "info files" as per gdb.
+
+2008-01-16 18:42  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/breakpoints.rb, lib/ChangeLog,
+	  test/annotate.right, test/breakpoints.right,
+	  test/condition.right, test/display.right, test/emacs-basic.right,
+	  test/info-var.right: Need to present source filename (__FILE__)
+	  as Ruby and therefore breakpoint
+	  sees it.
+	  
+
+2008-01-16 12:30  Rocky Bernstein
+
+	* emacs/rdebug-track.el: Slightly better rdebug-track-attach
+	  initialization. Still has problems, but it's better.
+
+2008-01-16 02:19  Rocky Bernstein
+
+	* ChangeLog, Rakefile, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/list.rb, lib/ChangeLog,
+	  lib/ruby-debug-base.rb: Line caching moved to an external gem,
+	  linecache. We now require
+	  version 0.2 of that or greater.
+
+2008-01-16 01:14  Rocky Bernstein
+
+	* emacs/rdebug-source.el: Get insert working again.
+
+2008-01-16 01:13  Rocky Bernstein
+
+	* emacs/rdebug-secondary.el: Typo.
+
+2008-01-16 00:23  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Chomp error before message'ing.
+
+2008-01-15 23:41  Anders Lindgren
+
+	* emacs/rdebug-core.el: When starting 'rdebug' the first time, the
+	  file name of the current buffer is suggested as script name.
+
+2008-01-15 23:34  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el: Local short key
+	  mode renamed to internal short key mode. Original read-only
+	  status saved in local variable. Minor mode text 'ShortKey' added.
+
+2008-01-15 23:04  Anders Lindgren
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el,
+	  emacs/rdebug-dbg.el, emacs/rdebug-error.el,
+	  emacs/rdebug-frames.el, emacs/rdebug-gud.el,
+	  emacs/rdebug-help.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-output.el, emacs/rdebug-regexp.el,
+	  emacs/rdebug-secondary.el, emacs/rdebug-source.el,
+	  emacs/rdebug-track.el, emacs/rdebug-varbuf.el,
+	  emacs/rdebug-vars.el, emacs/rdebug-watch.el, emacs/rdebug.el:
+	  Comment fixes.
+
+2008-01-15 22:48  Anders Lindgren
+
+	* emacs/rdebug-breaks.el: Breakpoints font-lock rules even more
+	  generous, now all characters are matched.
+
+2008-01-15 22:44  Anders Lindgren
+
+	* emacs/rdebug-core.el: rdebug-get-script-name now skips ruby
+	  options, if present
+
+2008-01-15 07:56  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el: File names can have a - in them.
+
+2008-01-15 06:51  Anders Lindgren
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-core.el: The source
+	  breakpoint toggle and toggle enabled commands, when issued in the
+	  breakpoints window, do the right thing. In other non-file buffers
+	  they do nothing.
+
+2008-01-15 04:57  Rocky Bernstein
+
+	* emacs/test/test-core.el: indentation.
+
+2008-01-15 04:56  Rocky Bernstein
+
+	* emacs/test/test-core.el: More tests.
+
+2008-01-14 22:22  Anders Lindgren
+
+	* emacs/rdebug-breaks.el: Replaced code coloring breakpoint buffer
+	  with font-lock rules. Now coloring of breakpoints of kind
+	  'Type:function' works.
+
+2008-01-14 07:00  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/test/test-core.el:
+	  rdebug-get-script-name now handles something else than 'rdebug'
+	  as command name. Rewritten to get rid of unmaintanable recursive
+	  function.
+
+2008-01-14 06:58  Anders Lindgren
+
+	* emacs/test/test-cmd.el: Breakpoints are now parsed and cached
+	  when a new annotation arrives.
+
+2008-01-14 06:57  Anders Lindgren
+
+	* emacs/rdebug-breaks.el: Breakpoints are now parsed and cached
+	  when a new annotation arrives.
+
+2008-01-14 01:31  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/control.rb,
+	  emacs/rdebug-core.el, emacs/rdebug-track.el, lib/ChangeLog: Make
+	  rdebug-track work better in the face of prompt and error
+	  annotations.
+	  control.rb: need another test when rdebug not called initially.
+
+2008-01-13 22:03  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-layouts.el: A couple more
+	  stack -> frame spots missed
+
+2008-01-13 21:51  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/breakpoints.rb,
+	  emacs/rdebug-core.el, emacs/rdebug-frames.el,
+	  emacs/rdebug-source.el, ext/breakpoint.c, lib/ChangeLog: Some
+	  stack -> frame renaming
+	  ext/breakpoint.c: put methods in alpha order (to help with
+	  reference man)
+	  breakpoints.rb: one print -> errmsg
+
+2008-01-13 21:19  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add info about the 3 kinds of interfaces and
+	  give some
+	  Debugger::Breakpoint methods.
+
+2008-01-13 20:32  Rocky Bernstein
+
+	* test/test-output.rb: Seems we don't get a core dump any more.
+
+2008-01-13 18:13  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/condition.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/edit.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/help.rb, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/interface.rb, cli/ruby-debug/processor.rb,
+	  emacs/Makefile.am, emacs/rdebug-core.el, emacs/rdebug-error.el,
+	  emacs/rdebug-output.el, emacs/rdebug-source.el, lib/ChangeLog,
+	  test/annotate.cmd, test/annotate.right, test/breakpoints.right,
+	  test/condition.right, test/edit.right, test/emacs-basic.right,
+	  test/frame.right: Create errmsg routine for error output, start
+	  tagging error messages
+	  as errors. Under annotate 3, output errors similar to gdb
+	  --annotate
+	  does (although still simplified). Have Emacs pick up debugger
+	  error
+	  annotations.
+
+2008-01-13 04:05  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/enable.rb, cli/ruby-debug/helper.rb,
+	  cli/ruby-debug/interface.rb, cli/ruby-debug/processor.rb,
+	  lib/ChangeLog, test/condition.cmd, test/condition.right: Check
+	  validity of expressions in breakpoint conditions and don't allow
+	  enabling a syntactically invalid expression.
+	  
+	  Start noting messages which are errors via an errmsg routine.
+
+2008-01-12 13:35  Rocky Bernstein
+
+	* CHANGES: Typo.
+
+2008-01-12 13:22  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Typo.
+
+2008-01-12 12:45  Rocky Bernstein
+
+	* emacs/rdebug-breaks.el, emacs/rdebug-frames.el: breaks.el
+	  gdb-put-breakpoint-icon seems to want to string for a breakpoint
+	  number and our entries are
+	  numbers.
+	  frames.el: wasn't resetting search string to first line pattern
+	  (for subsequent testing of
+	  whether this is the current frame) after processing split entry
+	  with file/line position. Break out
+	  a common routine rdebug-stack-buffer-field which also seems to
+	  simplify it.
+
+2008-01-12 10:56  Anders Lindgren
+
+	* emacs/rdebug-breaks.el: Breakpoint icons are now displayed in the
+	  margin. This is a simple implementation that used gdb-ui to do
+	  the actual display.
+
+2008-01-11 18:04  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-frames.el,
+	  emacs/rdebug-regexp.el, emacs/test/test-frames.el: Process frames
+	  which are split across two lines. DRY a little
+	  and add the first frame test.
+
+2008-01-11 15:08  Rocky Bernstein
+
+	* emacs/Makefile.am: ELC typo.
+
+2008-01-11 14:01  Rocky Bernstein
+
+	* emacs/Makefile.am: Don't give an error on "make test" if emacs is
+	  not around.
+
+2008-01-11 10:26  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, doc/ruby-debug.texi, lib/ChangeLog:
+	  Document that ruby-debug resets $0. Align program options in ref
+	  manual and --help. Alphabetize better.
+
+2008-01-11 10:10  Rocky Bernstein
+
+	* CHANGES, bin/rdebug, test/output.right, test/quit.right,
+	  test/tdebug.rb, test/test-quit.rb: rdebug: do syntax checking
+	  when running as server as well as local interface. --no-quit
+	  intercepts Syntax Errors now
+	  (which shouldn't happen and means there's another bug in there to
+	  fix; but robustness is good.)
+	  Bring tdebug.rb more in line iwth rdebug until we can get rid of
+	  it altogether. Note some of the current weaknesses.
+
+2008-01-10 22:56  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, lib/ChangeLog, test/dollar-0.rb,
+	  test/dollar-0.right, test/dollar-0a.right, test/dollar-0b.right,
+	  test/test-dollar-0.rb: More correct $0 fix. Deal with the case ./
+	  is automatically added.
+	  However this might not be right in all cases.
+
+2008-01-10 22:25  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-core.el, emacs/test/test-core.el,
+	  lib/ChangeLog: Was gobbling arg in processing --emacs. Add test.
+
+2008-01-10 21:57  Rocky Bernstein
+
+	* bin/rdebug, emacs/rdebug-core.el, test/dollar-0.rb,
+	  test/dollar-0.right, test/helper.rb, test/test-dollar-0.rb: Fix
+	  for "if $0 == __FILE__" idiom. Bug #16038
+	  rdebug-core.el add '--'; -emacs -> --emacs
+	  rdebug: add subroutines for calling debugger and processing
+	  options.
+
+2008-01-10 10:34  Rocky Bernstein
+
+	* CHANGES, ChangeLog, cli/ruby-debug/commands/condition.rb,
+	  cli/ruby-debug/commands/enable.rb, cli/ruby-debug/processor.rb,
+	  doc/ruby-debug.texi, emacs/Makefile.am, emacs/rdebug-breaks.el,
+	  emacs/rdebug-regexp.el, emacs/test/test-regexp.el,
+	  ext/breakpoint.c, lib/ChangeLog, test/condition.cmd,
+	  test/condition.right, test/test-breakpoints.rb,
+	  test/test-condition.rb: Add condition command.
+
+2008-01-10 09:07  Rocky Bernstein
+
+	* emacs/rdebug-frames.el, emacs/rdebug-regexp.el,
+	  emacs/test/test-cmd.el: rdebug-frames.el: fix redisplay of source
+	  when frames change by running rdebug-display-line in creating
+	  frame buffer. require things we need to require to eval this
+	  file. set-local-variables.
+	  
+	  rdebug-regexp.el: add constants for file and line stack positions
+	  in regexp.
+	  
+	  test-cmd.el: rdebug-cmd -> rdebug-gud.
+
+2008-01-09 23:00  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-gud.el,
+	  emacs/test/test-indent.el: Some more GUD things moved to gud-el.
+
+2008-01-09 22:56  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-breaks.el, emacs/rdebug-cmd.el,
+	  emacs/rdebug-core.el, emacs/rdebug-gud.el,
+	  emacs/rdebug-regexp.el: rdebug-cmd.el -> rdebug-gud.el
+	  Move gud things from rdebug-core.el to rdebug-gud.el
+
+2008-01-09 22:37  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el: Allow [insert] to
+	  turn on/off short-key-mode.
+
+2008-01-09 19:10  Rocky Bernstein
+
+	* ChangeLog, Rakefile, emacs/rdebug-dbg.el, lib/ChangeLog:
+	  Rakefile: rdebug.rb -> rdbg.el
+	  rdebug-dbg.el: Add $Id$
+
+2008-01-09 19:03  Rocky Bernstein
+
+	* ChangeLog, emacs/Makefile.am, emacs/rdebug-breaks.el,
+	  emacs/rdebug-cmd.el, emacs/rdebug-core.el, emacs/rdebug-dbg.el,
+	  emacs/rdebug-frames.el, emacs/rdebug-help.el,
+	  emacs/rdebug-output.el, emacs/rdebug-secondary.el,
+	  emacs/rdebug-track.el, emacs/rdebug-varbuf.el,
+	  emacs/rdebug-watch.el, emacs/test/test-indent.el,
+	  emacs/test/test-regexp.el, lib/ChangeLog: Break out secondary
+	  buffer into their own file, and also internal
+	  debug code and general secondary commands. Secondary buffer code
+	  removed from rdebug-cmd and moved into the appropriate file.
+	  
+	  rdebug-edit-variables-value is not defined so comment out for
+	  now.
+
+2008-01-08 16:11  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Change indentation.
+
+2008-01-08 16:04  Rocky Bernstein
+
+	* ChangeLog, lib/ChangeLog, rdbg.rb: Restore $: to the value it was
+	  before rdebug call.
+
+2008-01-08 12:04  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-core.el, emacs/rdebug-layouts.el,
+	  emacs/rdebug-vars.el: rdebug-layouts.rb, Makefile.am: window
+	  layouts - split off from rdebug-core.el
+	  Add some output commands: command to add a marker line, clear the
+	  output window, and allow undo.
+
+2008-01-08 06:30  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el: New and old
+	  byte-compile warnings eliminated.
+
+2008-01-08 02:36  Rocky Bernstein
+
+	* INSTALL.SVN, Rakefile, rdbg.rb, test/helper.rb,
+	  test/test-breakpoints.rb, test/test-output.rb, test/test-quit.rb:
+	  Rewrite runner.sh in Ruby: rdbg.rb
+	  Were it not for a bug that needs to be fixed, we could
+	  remove runner.sh. test-output.rb hits this bug.
+
+2008-01-07 23:02  Rocky Bernstein
+
+	* README: Note need for VC6.
+
+2008-01-07 20:51  Rocky Bernstein
+
+	* CHANGES: What's changed.
+
+2008-01-07 20:38  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/variables.rb, lib/ChangeLog: Add "var
+	  class". This means "var const .." can no longer be abbreviated
+	  "var c"; use "var co" instead.
+	  (Or "var const" or "var constant"
+
+2008-01-07 19:57  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/info-var-bug.rb, test/info-var.cmd, test/info-var.right: Add
+	  class level variables to "info variables"
+
+2008-01-07 17:37  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/info.rb, lib/ChangeLog,
+	  test/annotate.right, test/info-var-bug2.right,
+	  test/info-var.right, test/output.right, test/test-info-var.rb:
+	  Add "self" to list "info variables" spits out.
+
+2008-01-07 10:36  Rocky Bernstein
+
+	* emacs/Makefile.am: Missing a backslash to continue a line.
+
+2008-01-07 10:21  Anders Lindgren
+
+	* emacs/rdebug-core.el: Fixed problem with byte-compile warning due
+	  to an extra comma.
+
+2008-01-07 09:59  Rocky Bernstein
+
+	* ChangeLog, Rakefile, bin/rdebug, emacs/rdebug-core.el,
+	  lib/ChangeLog: --emacs sets width to 120. rdebug-core.el will
+	  reset to 120 unless it's already that.
+
+2008-01-07 09:08  Rocky Bernstein
+
+	* README: Add Anders' instruction on how to compile in MS Windows
+	  (modified slightly).
+
+2008-01-07 04:29  Rocky Bernstein
+
+	* ChangeLog, Makefile.am, ext/ChangeLog, lib/ChangeLog: Split out
+	  ChangeLogs better (I hope).
+
+2008-01-06 21:16  Rocky Bernstein
+
+	* bin/rdebug: Syntax error.
+
+2008-01-06 20:56  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, cli/ruby-debug/processor.rb,
+	  emacs/rdebug-core.el, emacs/rdebug-regexp.el,
+	  emacs/test/test-regexp.el, ext/ChangeLog, lib/ChangeLog,
+	  test/emacs-basic.cmd, test/emacs-basic.right, test/quit.right,
+	  test/tdebug.rb, test/test-emacs-basic.rb: test/*-emacs-basic*,
+	  tdebug: Add test of running in Emacs without annotations.
+	  
+	  emacs/*.el: make regexp tests work again, move regexp to from
+	  core to regexp.
+	  Add an annotate regexp test.
+	  
+	  processor.rb: Remove some anotation print from bleeding into
+	  output
+	  when annotations are not wanted. Reinstate "Program finished" in
+	  annotations and outside (rdebug).
+
+2008-01-06 18:55  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/processor.rb, emacs/Makefile.am,
+	  emacs/rdebug-core.el, emacs/test/test-indent.el, ext/ChangeLog,
+	  lib/ChangeLog, test/annotate.right, test/output.right: Create
+	  Processor class and subclass that. Perhaps a mixin would be good.
+	  Remove annotation output bleanding when annotate is off.
+	  Try to reduce the mess annotations is adding to processor.rb
+	  rdebug-core.el: fix indentation to pass the regression test
+	  Anders added
+	  Makefile.am: Add rdebug-source.el to distribution.
+	  Make sure "rake test"
+
+2008-01-06 12:31  Anders Lindgren
+
+	* bin/rdebug, cli/ruby-debug/processor.rb, emacs/rdebug-core.el,
+	  emacs/rdebug-regexp.el: Emacs interface adopted to new
+	  annotations scheme.
+
+2008-01-06 06:46  Rocky Bernstein
+
+	* test/source.right: correct output for source test
+
+2008-01-06 06:44  Rocky Bernstein
+
+	* cli/ruby-debug/commands/save.rb,
+	  cli/ruby-debug/commands/script.rb, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb, test/rdebug-save.1, test/source.cmd,
+	  test/test-source.rb: The source command now allows us to read in
+	  breakpoint in the current
+	  context. More work is needed but this is a start.
+
+2008-01-06 02:15  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/save.rb,
+	  cli/ruby-debug/commands/script.rb, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb, ext/ChangeLog, lib/ChangeLog: Some
+	  work on saving state across a restart. More work is needed on the
+	  script command to get this working. The save-file name is now
+	  optional. save.rb split off from script.rb Display expressions
+	  and
+	  some settings are now captured in the save/restore file.
+	  Add interface.finalize - things that need to be done before quit
+	  or
+	  restart.
+
+2008-01-05 21:16  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb, ext/ChangeLog, lib/ChangeLog,
+	  test/annotate.right, test/output.cmd, test/output.right,
+	  test/quit.right, test/tdebug.rb, test/test-output.rb: More work
+	  to make annotate more like gdb's. starting/stopping/exiting
+	  should be more similar. Some code has been commented out until we
+	  get
+	  the Emacs interface to match. See "FIXME: ANNOTATE" in
+	  processor.rb.
+	  Also regression tests for output and annotate currently fail for
+	  this
+	  reason.
+
+2008-01-05 16:32  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-source.el, emacs/rdebug.el,
+	  emacs/test/test-indent.el: rdebug-source.el now spawned off from
+	  rdebug-core.el.
+
+2008-01-05 15:46  Anders Lindgren
+
+	* emacs/rdebug-source.el: Initial commit of split of
+	  rdebug-code.el. (Currently, rdebug-source.el is straight copy of
+	  rdebug-core.el.)
+
+2008-01-05 15:05  Anders Lindgren
+
+	* emacs/rdebug-core.el: New commands for displaying to the source
+	  buffer 'rdebug-display-source-buffer' and ...-resync'. The former
+	  is bound to S in the secondary buffers. Added View->Source to the
+	  menu bar.
+
+2008-01-05 13:46  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/edit.rb, cli/ruby-debug/helper.rb,
+	  doc/ruby-debug.texi, test/ctrl.right, test/edit.cmd,
+	  test/edit.right, test/test-edit.rb: Add edit command.
+	  breakpoints.rb/helper.rb: bad regular-expression separation.
+
+2008-01-05 13:24  Anders Lindgren
+
+	* test/output.cmd, test/output.rb, test/output.right,
+	  test/test-output.rb: Added test case for the 'starting'
+	  annotation. (It currently fails since the annotation is broken.)
+
+2008-01-05 10:40  Anders Lindgren
+
+	* emacs/rdebug-core.el: New selection algorithm for picking the
+	  best secondary window, as suggested in rubyforge issue 1950.
+
+2008-01-05 10:36  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb: Catch places were we
+	  can't set breakpoints or delete breakpoints because
+	  we don't have context set.
+
+2008-01-04 07:43  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: @history_save can sometimes be
+	  undefined. Test for it so we don't get a warning
+	  when $DEBUG/$WARING is true.
+
+2008-01-03 18:54  Anders Lindgren
+
+	* emacs/rdebug.el: When running 'make' (comp-elisp) an error was
+	  triggered. This is probably a problem in comp-elisp since nil is
+	  part of the initial load-path. A work-around was added in
+	  'rdebug-compare-directories'.
+
+2008-01-03 15:44  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Deal with a killed gud-comint-buffer.
+
+2008-01-03 10:34  Anders Lindgren
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-core.el,
+	  emacs/test/test-indent.el: Indentation: fixed problem with test
+	  case and some real minor indentation issues.
+
+2008-01-03 10:34  Rocky Bernstein
+
+	* emacs/Makefile.am: Filename typo.
+
+2008-01-03 07:33  Anders Lindgren
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-core.el, emacs/rdebug.el: The
+	  directory of rdebug.el is added to the load-path. (The trick to
+	  add . doesn't work since it referes to the current directory of
+	  the current user buffer, not the file being loaded.)
+
+2008-01-03 07:11  Anders Lindgren
+
+	* emacs/rdebug-core.el: Added a Options->Window Layout submenu. It
+	  sets and redisplays the window layout, so that the user can try
+	  out the available window layouts.
+
+2008-01-02 20:35  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/helper.rb, ext/ChangeLog, lib/ChangeLog:
+	  helper.rb: add regexp for a position. TODO: add parsing routine
+	  and use in
+	  various commands
+
+2008-01-02 17:39  Anders Lindgren
+
+	* emacs/rdebug-cmd.el, emacs/rdebug-core.el,
+	  emacs/rdebug-regexp.el, emacs/rdebug-track.el, emacs/rdebug.el:
+	  New comment headers added. Minor rearrangement of functions.
+
+2008-01-02 17:31  Rocky Bernstein
+
+	* test/test-ruby-debug-base.rb: A little more robust.
+
+2008-01-02 14:41  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/processor.rb, emacs/rdebug.el,
+	  ext/ChangeLog, lib/ChangeLog, test/annotate.right: processor.rb:
+	  Redo where starting/exiting annotations are done.
+	  rdebug.el: back off on setting output command for now.
+
+2008-01-02 04:17  Rocky Bernstein
+
+	* test/quit.cmd, test/quit.right, test/tdebug.rb,
+	  test/test-quit.rb: --no-quit bug fixed. But we don't know how to
+	  test it properly yet.
+
+2008-01-02 04:04  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/processor.rb, cli/ruby-debug/theend.rb,
+	  test/annotate.right, test/ctrl.cmd, test/ctrl.right,
+	  test/test-ctrl.rb, test/test-help.rb, test/test-info.rb: Redo how
+	  --no-quit is handled. We now go into a control state with
+	  limited commands.
+	  
+	  Add annotation for "exiting"
+	  
+	  Add regression test for ctrl debugger state. "info" commands are
+	  allowed this state although most don't do anything. Some tests
+	  comments corrected.
+
+2008-01-01 15:23  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, ext/ChangeLog, lib/ChangeLog: Fix --emacs
+	  to do --no-quit properly.
+
+2008-01-01 09:00  Rocky Bernstein
+
+	* ChangeLog, ext/ChangeLog, ext/breakpoint.c, ext/ruby_debug.c,
+	  ext/ruby_debug.h, lib/ChangeLog: Remove RDoc warnings caused
+	  because C files have been split up.
+
+2008-01-01 08:18  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: Add
+	  rdebug-user-separate-io-buffer to let folks decide where output
+	  should appear - similar to gdb-ui's
+	  rdebug-user-separate-io-buffer.
+	  Move customizable variables from rdebug-core.el to rdebug.el.
+
+2008-01-01 05:51  Rocky Bernstein
+
+	* ChangeLog, emacs/Makefile.am, emacs/test/test-indent.el,
+	  emacs/test/test-reindent.el, ext/ChangeLog, lib/ChangeLog:
+	  reindent -> indent. Makefile.am: wasn't including all test files.
+
+2008-01-01 05:45  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/elk-test.el, emacs/rdebug-test-cmd.el,
+	  emacs/rdebug-test-regexp.el, emacs/rdebug-test.el, emacs/test,
+	  emacs/test/elk-test.el, emacs/test/test-cmd.el,
+	  emacs/test/test-core.el, emacs/test/test-regexp.el,
+	  emacs/test/test-reindent.el: Create test directory and put
+	  regression tests in that.
+
+2007-12-31 15:38  Rocky Bernstein
+
+	* configure.ac: Now in 0.10.1
+
+2007-12-31 15:37  Rocky Bernstein
+
+	* doc/triangle.rb: Another example program used in documentation.
+
+2007-12-31 06:26  Rocky Bernstein
+
+	* ChangeLog, Rakefile, ext/ChangeLog, lib/ChangeLog: Rakefile: add
+	  spit-off C files to ruby-debug-base gem.
+
+2007-12-31 06:23  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-test-cmd.el, ext/ChangeLog,
+	  lib/ChangeLog: rdebug-test-cmd.el: Indentation
+
+2007-12-31 06:20  Rocky Bernstein
+
+	* ext/breakpoint.c: Was missing check_breakpoint_expression().
+
+2007-12-31 06:08  Rocky Bernstein
+
+	* CHANGES, ChangeLog, lib/ChangeLog: Changes and more changes.
+
+2007-12-31 06:06  Rocky Bernstein
+
+	* ext/ChangeLog, ext/breakpoint.c, ext/ruby_debug.c,
+	  ext/ruby_debug.h: Split off breakpoint code from ruby_debug.c;
+	  add common ruby_debug.h
+	  header Alas this means some statics are now externs and one
+	  inline was
+	  dropped. In some cases though moving static to extern might be
+	  desirable for other packages that want to hook into ruby_debug.
+	  Start to preface the global ruby_debug variables with rdebug.
+
+2007-12-31 05:55  Rocky Bernstein
+
+	* bin/rdebug, doc/rdebug.1, doc/ruby-debug.texi, emacs/Makefile.am,
+	  emacs/rdebug-core.el, emacs/rdebug-test-cmd.el,
+	  emacs/rdebug-test.el, test/runall: rdebug, emacs/* doc/*: --emacs
+	  is now --emacs-basic while --emacs now implies
+	  --emacs-basic --annotate=3 --post-mortem --no-control --no-start
+	  --no-quit
+	  runall: test-*.rb are tests
+	  rdebug-test-cmd.el: use 'require and add tests of
+	  rdebug-{step,next}.
+	  emacs/Makefile.am: break out individual test as separate targets.
+
+2007-12-30 10:54  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-test-cmd.el,
+	  emacs/rdebug-test-frame.el, emacs/rdebug-vars.el: rdebug-vars.el:
+	  remove cut-and-paste artifact
+	  rest: rdebug-test-frame.el -> rdebug-test-cmd.el
+
+2007-12-30 10:26  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-cmd.el, emacs/rdebug-core.el,
+	  emacs/rdebug-regexp.el, emacs/rdebug-track.el,
+	  emacs/rdebug-vars.el: Break up rdebug-core.el. Split out
+	  variables, regexps, and debugger commands.
+
+2007-12-30 10:13  Anders Lindgren
+
+	* emacs/rdebug-core.el: New function
+	  'rdebug-turn-on-short-key-mode', designed to be used in user
+	  hooks.
+
+2007-12-30 10:08  Anders Lindgren
+
+	* emacs/rdebug-core.el: C-x C-a C-q now toggles short key mode
+
+2007-12-29 23:04  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add subsection as to why no parameter values
+	  in a call stack.
+
+2007-12-29 22:05  Rocky Bernstein
+
+	* doc/rdebug.1, doc/ruby-debug.texi: Remove short -n option;
+	  --no-stop remains.
+
+2007-12-29 15:19  Anders Lindgren
+
+	* emacs/rdebug-core.el: Added 'Customize Rdebug' to the Options
+	  submenu.
+
+2007-12-29 13:31  Rocky Bernstein
+
+	* ChangeLog, bin/rdebug, cli/ruby-debug/command.rb, ext/ChangeLog,
+	  lib/ChangeLog, test/helper.rb, test/noquit.right, test/null.rb,
+	  test/quit.cmd, test/quit.right, test/tdebug.rb: Remove looping on
+	  quit. "-n" is broken so remove it for now.
+
+2007-12-29 12:27  Rocky Bernstein
+
+	* emacs/rdebug-core.el: -(require 'cl) needed for ignore-errors.
+	  -Short key bindings added: "b" for break "t" for toggle.
+	  -Common key bindings added/changed
+	  R (along with r) is restart. Restart prompts, like quit does.
+	  +, - and _ are now modifiers to step and next; _ takes the
+	  default.
+	  - Numeric argument on "continue" goes to that line, e.g. M-10
+	  continue is
+	  "continue 10", not "continue" 10 times.
+
+2007-12-29 10:50  Anders Lindgren
+
+	* bin/rdebug, cli/ruby-debug/theend.rb: * The 'theend.rb' script is
+	  now always loaded with the 'stop' flag.
+	  
+	  * The 'theend.rb' script is now loaded after the restarted print
+	  statement.
+	  
+	  * Removed an 'if' statement preventing restart when the no-stop
+	  flag
+	  was used.
+	  
+	  * Added end-of-line comment in 'theend.rb' on the same line as
+	  the
+	  single statement. This helps people that use the command-line
+	  debugger.
+
+2007-12-29 09:29  Anders Lindgren
+
+	* bin/rdebug, cli/ruby-debug/theend.rb: When the end of the program
+	  is reached and the --no-quit option is
+	  used, the user now steps into the file 'theend.rb'. This file
+	  contains
+	  a message telling the user that the end of the application has
+	  been
+	  reached. For a normal debug session this feels better. However,
+	  if the
+	  user file is empty, this prevents the debugger from going into an
+	  infinite loop.
+	  
+	  Note, an alternative implementation would be if the debugger
+	  itself
+	  would create an artificial step point at the of the the user
+	  program.
+
+2007-12-29 08:49  Anders Lindgren
+
+	* emacs/rdebug-core.el: New feature requested by Rocky: Source
+	  short key mode, in the source buffer that corresponds to the
+	  current frame read-only is activated and the plain secondary
+	  buffer keys are bound.
+
+2007-12-29 00:50  Rocky Bernstein
+
+	* emacs/rdebug-test-frame.el: Remove c: as that's not OS
+	  independent.
+
+2007-12-28 20:06  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Another misspelling.
+
+2007-12-28 20:04  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Another typo.
+
+2007-12-28 20:01  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Tag code/directory sections better.
+
+2007-12-28 15:33  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/info.rb, cli/ruby-debug/processor.rb,
+	  ext/ChangeLog, lib/ChangeLog, test/annotate.right,
+	  test/display.cmd, test/display.right: info.rb: Incorrect test for
+	  no display expressions.
+	  display.rb: Grammar thing.
+	  processor.rb: Slightly cleaner code
+	  test/* more/better tests.
+
+2007-12-28 15:04  Rocky Bernstein
+
+	* test/annotate.right, test/info-var-bug2.right: Forgot to check in
+	  these files when adding new tests
+
+2007-12-28 13:48  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, test/annotate.cmd: Reduce
+	  unneccessary display annotation output.
+
+2007-12-28 11:27  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-test-regexp.el,
+	  emacs/rdebug-test.el: Split off Emacs test which are regular
+	  expression oriented.
+
+2007-12-28 10:54  Rocky Bernstein
+
+	* test/test-annotate.rb: *** empty log message ***
+
+2007-12-28 10:54  Rocky Bernstein
+
+	* test/test-annotate.rb: Doc bug.
+
+2007-12-28 10:53  Rocky Bernstein
+
+	* test/test-annotate.rb: My old cut-and-paste error. Gotta get in
+	  my "method redefined" patch into rake's test/unit.
+
+2007-12-28 10:47  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/processor.rb, test/annotate.cmd,
+	  test/test-annotate.rb: Reduce unnecesary breakpoint, stack, and
+	  variable post-command annotations.
+	  Fix bug in not showing empty breakpoints when last one is
+	  deleted.
+
+2007-12-28 10:12  Anders Lindgren
+
+	* emacs/rdebug-test-frame.el, emacs/rdebug-test.el: Test cases for
+	  new source buffer breakpoint commands.
+
+2007-12-27 23:20  Anders Lindgren
+
+	* emacs/rdebug-core.el: Two new breakpoint commands for source
+	  buffers: toggle break point and toggle enable/disable. (The
+	  commands corresponds to F9 and C-F9 in common debuggers
+	  interfaces.)
+
+2007-12-27 21:05  Rocky Bernstein
+
+	* emacs/rdebug-track.el: Lacking a quote in the last commit.
+
+2007-12-27 21:03  Rocky Bernstein
+
+	* ChangeLog, emacs/rdebug-track.el, ext/ChangeLog, lib/ChangeLog:
+	  Be more agressive about resetting gud-last-frame and
+	  gud-last-last-frame. These foul up tracking when debugging is
+	  interrupted.
+	  We probably need a special "reset" command.
+
+2007-12-27 03:11  Rocky Bernstein
+
+	* Rakefile, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/enable.rb, cli/ruby-debug/helper.rb,
+	  doc/ruby-debug.texi, emacs/rdebug-test-frame.el,
+	  test/test-columnize.rb: Use columnize gem from rubyforge.
+	  Remove toggle since Anders can't use - easy come, easy go.
+	  rdebug-test-frame.el was broken.
+
+2007-12-26 22:31  Anders Lindgren
+
+	* emacs/rdebug-core.el: Fix for broken 'rdebug-goto-frame-n'.
+
+2007-12-26 21:20  Rocky Bernstein
+
+	* README: Note we (may) need "sudo" before installing. Also note
+	  the test options.
+
+2007-12-26 20:29  Rocky Bernstein
+
+	* CHANGES: *** empty log message ***
+
+2007-12-26 19:10  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-test-frame.el: Add regression
+	  tests for new code.
+
+2007-12-26 18:42  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Doc fixes.
+
+2007-12-26 18:35  Rocky Bernstein
+
+	* ChangeLog, ext/ChangeLog, ext/ruby_debug.c, lib/ChangeLog:
+	  Version number games - maybe 0.10.1 is better.
+
+2007-12-26 18:18  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Number keys should move the frame, not just
+	  position the cursor there.
+
+2007-12-26 10:41  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb, test/info-var-bug2.cmd,
+	  test/info-var-bug2.rb, test/test-info-var.rb: Need to escape
+	  escape (% -> %%) in "info variables"
+
+2007-12-26 00:04  Rocky Bernstein
+
+	* ext/ruby_debug.c: 2nd attempt to deal with *both* problems Timur
+	  reported.
+	  
+	  1. Catchpoint is never called when program raises an object of
+	  type
+	  Exception. So, my exceptional breakpoints doesn't work for
+	  Exception
+	  class.
+	  
+	  
+	  2. When SystemExit exception is raised debugger become stopped
+	  and
+	  stop method is called as many times, as a number of threads
+	  running in
+	  application. For example, in next code debugger become stopped in
+	  rescue block, but program continues its execution.
+
+2007-12-25 23:40  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/stepping.rb,
+	  doc/ruby-debug.texi, ext/ChangeLog, lib/ChangeLog,
+	  test/stepping.cmd, test/stepping.right: Add step- and step+.
+	  Document as well as the new toggle command.
+
+2007-12-25 23:39  Rocky Bernstein
+
+	* cli/ruby-debug/commands/enable.rb: Add toggle requested by Anders
+	  Lindgren.
+
+2007-12-25 23:36  Rocky Bernstein
+
+	* ext/ruby_debug.c: Expermimental patch to address a problems
+	  reported by Timur Shipilov,
+	  Software engineer, Xored Software Inc.:
+	  
+	  When SystemExit exception is raised debugger become stopped and
+	  stop method is called as many times, as a number of threads
+	  running in
+	  application. For example, in next code debugger become stopped in
+	  rescue block, but program continues its execution.
+	  
+	  Example:
+	  
+	  # Stuff to set up debugger
+	  begin
+	  # if you throw another Exception here, all will be fine
+	  exit
+	  sleep 20
+	  rescue Exception
+	  puts 'This line is not traced'
+	  end
+	  puts 'And this too'
+	  
+	  # Debugger.stop was implicitly called when SystemExit exception
+	  was thrown
+	  # So, there will be an runtime error
+	  Debugger.stop
+
+2007-12-25 09:55  Rocky Bernstein
+
+	* ChangeLog, cli/ruby-debug/commands/stepping.rb,
+	  doc/ruby-debug.texi, emacs/rdebug-core.el, ext/ChangeLog,
+	  lib/ChangeLog: Small doc fixes.
+
+2007-12-25 07:51  Rocky Bernstein
+
+	* ChangeLog, ext/ChangeLog, lib/ChangeLog: Last commit before
+	  0.10.0 release.
+
+2007-12-25 02:51  Rocky Bernstein
+
+	* AUTHORS, ChangeLog, README, ext/ChangeLog, lib/ChangeLog,
+	  test/breakpoints.cmd, test/breakpoints.right: breakpoints.*: main
+	  -> Object. Add bad Class name test
+	  AUTHOR: Add Anders
+	  README: note ruby-debug-extra. More precise (I think)
+
+2007-12-24 21:02  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/processor.rb, doc/ruby-debug.texi,
+	  test/breakpoints.cmd, test/breakpoints.right: Fix bug in stopping
+	  on a method name. Use this in the examples.
+
+2007-12-24 09:24  Rocky Bernstein
+
+	* doc/Makefile.am, doc/primes.rb, doc/ruby-debug.texi: Add iterator
+	  example.
+
+2007-12-24 04:12  Rocky Bernstein
+
+	* doc/hanoi.rb, doc/ruby-debug.texi, doc/test-tri2.rb, doc/tri3.rb:
+	  More work on reference guide. Correct spelling, add example
+	  showing
+	  scope frame (for Enumerable). Other small corrections.
+	  
+	  Check in programs used in documentation.
+
+2007-12-24 00:25  Rocky Bernstein
+
+	* ChangeLog, Rakefile, ext/ChangeLog, lib/ChangeLog: Rakefile: set
+	  up gem unit test for ruby-debug-base. Add file in test/
+	  so we could do the same for ruby-debug were it not for other
+	  mysterious
+	  problems.
+
+2007-12-23 22:19  Rocky Bernstein
+
+	* Rakefile, emacs/rdebug-core.el: Rakefile: don't add html or pdf
+	  to gem. Have to get from ruby-debug-extra.
+	  Since we can't build it, it will cause problems when rake is run.
+	  rdebug-core.el: remove gud control keys from secondary buffers.
+	  C-P, C-N, C-F
+	  should have their normal motion meanings.
+
+2007-12-23 17:33  Rocky Bernstein
+
+	* CHANGES, ChangeLog, Makefile.am, Rakefile, doc, ext/ChangeLog,
+	  lib/ChangeLog, svn2cl_usermap, test/test-columnize.rb,
+	  test/test-ruby-debug-base.rb, test/test-ruby-debug.rb: Go over
+	  packaging:
+	  ChangeLogs for ruby-debug-base (in ext and lib) separate from CLI
+	  ChangeLog
+	  ChangeLogs now map userid to names
+	  ruby-debug-base regression test included in ruby-debug-base
+	  Columnize test separated. (It will disappear when ruby-debug
+	  requires it
+	  as an external)
+
+2007-12-22 17:07  Rocky Bernstein
+
+	* CHANGES, doc/ruby-debug.texi: More typos.
+
+2007-12-22 16:14  Rocky Bernstein
+
+	* doc/ruby-debug.texi, emacs/rdebug-core.el: More doc changes.
+
+2007-12-22 11:18  Rocky Bernstein
+
+	* INSTALL.SVN, bin/rdebug, doc/rdebug.1, doc/ruby-debug.texi:
+	  Correct lots of little typographical and spelling errors.
+
+2007-12-22 04:02  Rocky Bernstein
+
+	* bin/rdebug, doc/rdebug.1, doc/ruby-debug.texi,
+	  emacs/rdebug-core.el, test/tdebug.rb: Sort options in
+	  alphabetical order.
+	  rdebug-core.el: docstring elaboration
+	  Revise Emacs section gain.
+
+2007-12-22 02:53  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Indentation.
+
+2007-12-21 23:01  Rocky Bernstein
+
+	* Rakefile, bin/rdebug, doc/rdebug.1, doc/ruby-debug.texi,
+	  test/tdebug.rb: Synchronize command options.
+
+2007-12-21 20:23  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Messed up on how to specify Ctrl-.
+
+2007-12-21 20:15  Rocky Bernstein
+
+	* emacs/rdebug-core.el: Make more compatible with gdb-key-prefix
+	  commands.
+
+2007-12-21 20:06  Rocky Bernstein
+
+	* bin/rdebug, doc/ruby-debug.texi, test/quit.cmd, test/quit.right,
+	  test/tdebug.rb, test/test-quit.rb: rdebug, tdebug: Prevent
+	  tracing in the debugger if --no-quit is in effect.
+	  rdebug, tdebug: --noquit => --no-quit, --nostop -> --no-stop
+	  test/*quit* Add quit test.
+	  ruby-debug.texi: Doc above changes, update --help lists (e.g.
+	  0.9.4 => 0.10.0)
+
+2007-12-21 14:19  Anders Lindgren
+
+	* emacs/rdebug-core.el: The disabled entries in the menu, finally,
+	  has got the right key bindings.
+
+2007-12-21 11:38  Rocky Bernstein
+
+	* doc/ruby-debug.texi, emacs/rdebug-core.el, emacs/rdebug.el:
+	  rdebug.el: correct file to autoload for rdebug-track-attach
+	  rdebug-core.el: remove free-variable warning
+	  ruby-debug.texi: Start Emacs Command section.
+
+2007-12-21 03:19  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug-track.el, emacs/rdebug.el:
+	  rdebug-set-window-name of rdebug-core.el -> rdebug-track-attach
+	  in
+	  rdebug-track.el.
+	  rdebug.el: add autoload.
+
+2007-12-20 18:17  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-test.el, emacs/rdebug.el:
+	  Regression test-case added that ensures that elisp files are
+	  properly indented, plus indentation fixes.
+
+2007-12-20 09:18  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: rdebug-core.el: Get gud
+	  commands in secondary buffer working by
+	  pulling things from gud.el's common initialization into
+	  rdebug-set-windows.
+	  
+	  rdebug.el had renamed *rdebugtrack* to rdebug-track
+
+2007-12-19 20:46  Anders Lindgren
+
+	* emacs/rdebug-core.el: Added 'stop debugger' to the menu. Moved
+	  common gud init code to new function
+	  'rdebug-common-initialization'.
+
+2007-12-19 18:04  Anders Lindgren
+
+	* emacs/rdebug-core.el: Simple 'if' typo caused the sentinel not to
+	  be added.
+
+2007-12-19 17:37  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug-test.el: rdebug-goto-entry-n
+	  failed to go to 10 if there was no entry 1. Fixed and regression
+	  test added for this.
+
+2007-12-19 13:09  Rocky Bernstein
+
+	* emacs/rdebug-test.el: Add \n's in rdebug-goto-entry-test. Doesn't
+	  change things though.
+
+2007-12-19 12:59  Rocky Bernstein
+
+	* emacs/rdebug-test.el: Add some tests for recent Emacs bugs found.
+
+2007-12-19 07:55  Anders Lindgren
+
+	* emacs/rdebug-core.el: rdebug-goto-entry-n didn't work in the
+	  watch window.
+
+2007-12-18 20:38  Anders Lindgren
+
+	* emacs/rdebug-core.el: Replaced all 'rdebug-goto-entry-<digit>'
+	  functions with a generic one. If several digits are pressed in
+	  sequence they are treated as a multi-digit number -- but only if
+	  such a number exist.
+
+2007-12-18 19:10  Anders Lindgren
+
+	* emacs/rdebug-core.el: New mechanism to pick the best window to
+	  display the source in.
+
+2007-12-18 17:58  Anders Lindgren
+
+	* emacs/rdebug-core.el: Split
+	  `rdebug-populate-secondary-buffer-map' into two functions, one
+	  simply sets the basic keys (named xxx-plain) and one defines the
+	  all keys, including the prefixed keys, and the menu.
+	  
+	  `gud-prefix-key' is used instead of C-x C-a.
+
+2007-12-18 17:09  Anders Lindgren
+
+	* emacs/rdebug-core.el: Output window (and all other secondary
+	  windows) are now created with the correct mode. Source window now
+	  has C-x C-a prefix.
+
+2007-12-18 08:39  Rocky Bernstein
+
+	* cli/ruby-debug/commands/enable.rb, emacs/rdebug-core.el,
+	  test/breakpoints.cmd, test/breakpoints.right: rdebug-core.el:
+	  Remember position in breakpoint window
+	  rest: Fix bugs in enable/disable commands and DRY code a little
+	  bit. Better regression tests
+	  (needed obviously)
+
+2007-12-18 06:58  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-core.el, emacs/rdebug-track.el,
+	  emacs/rdebug.el: Remove rdebugtrack from rdebug-core and put in
+	  its own file.
+
+2007-12-18 00:44  Rocky Bernstein
+
+	* INSTALL.SVN: Instructions for building, testing, and installing
+	  from Rubyforge's Subversion.
+
+2007-12-17 16:19  Rocky Bernstein
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: rdebug.el: move emacs test
+	  here from core
+	  rdebug-core.el: add C-x C-a common keys to all debugger buffers
+	  number keys are bound on display expressions.
+	  Watch expression -> Display expression
+
+2007-12-17 10:31  Rocky Bernstein
+
+	* emacs, emacs/rdebug-core.el, emacs/rdebug.el: rdebug-core.el,
+	  rdebug.el: adjust docstring to remove layout keys - there are
+	  too many of them and may change.
+	  rdebug.el: bind keys 0-9 to position to the corresponding line
+	  (which may
+	  adjusted for header offsets).
+
+2007-12-17 07:35  Anders Lindgren
+
+	* emacs/rdebug-core.el: * Menu handling: If a key in bound in the
+	  rdebug common map, that key
+	  binding is presented in the menu.
+	  
+	  * Windows bug fix: `gud-rdebug-marker-regexp' couldn't handle
+	  windows
+	  paths containing a drive letter.
+
+2007-12-17 05:43  Rocky Bernstein
+
+	* ext/ruby_debug.c: Doc typo.
+
+2007-12-17 05:40  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb, test/helper.rb,
+	  test/info-var-bug.rb, test/info-var.cmd, test/info-var.right,
+	  test/test-display.rb, test/test-info-var.rb,
+	  test/test-stepping.rb: Fix another "INTERNAL ERROR" bug in using
+	  inspect for local variables.
+	  Add a more thorough regression test here.
+	  
+	  Simplify regression tests by adding a filter Proc to the
+	  run_debugger helper.
+
+2007-12-16 21:47  Rocky Bernstein
+
+	* cli/ruby-debug/commands/variables.rb: Another place where we need
+	  to guard against a faulty "inspect" routine.
+
+2007-12-16 21:31  Rocky Bernstein
+
+	* ., ChangeLog, cli/ruby-debug/commands/info.rb, doc, emacs, ext,
+	  lib/ruby-debug-base.rb, test/helper.rb, test/info-var-bug.rb,
+	  test/info-var.cmd, test/info-var.right, test/runall,
+	  test/test-breakpoints.rb, test/test-display.rb,
+	  test/test-help.rb, test/test-info-var.rb: Add "info variables
+	  test".
+	  
+	  ruby-debug-base.rb: Not sure how test(?M, file) ever worked
+	  before but change
+	  to use File.stat(file).mtime
+	  info.rb: ignore debugger variables which are sometimes set.
+
+2007-12-16 17:01  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb: Guard against buggy "inspect"
+	  and "to_str" methods in "info variables".
+
+2007-12-16 12:10  Rocky Bernstein
+
+	* emacs/rdebug-test.el: Was broken by the splitting rdebug.el into
+	  rdebug.el and rdebug-core.el
+
+2007-12-16 12:02  Rocky Bernstein
+
+	* cli/ruby-debug.rb: Fix syntax error with last commit.
+
+2007-12-16 12:01  Rocky Bernstein
+
+	* cli/ruby-debug.rb: Make init file handling match gdb better and
+	  the comment in run_init_script.
+
+2007-12-16 11:50  Rocky Bernstein
+
+	* Makefile.am, cli/ruby-debug.rb, cli/ruby-debug/commands/info.rb,
+	  doc/ruby-debug.texi, test/info.right: ruby-debug.rb: The plague
+	  of MS Windows: HOMEDRIVE prepended to HOMEPATH. rdebug.ini used
+	  here instead of .rdebugrc.
+	  
+	  info documentation and help strings revised
+	  
+	  Makefile.am: "test" is the same as "check" (Even though Emacs
+	  testing is
+	  still broken)
+
+2007-12-16 04:09  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add "info" section. Rework Emacs section
+	  more.
+
+2007-12-16 01:12  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/command.rb, emacs/rdebug-core.el,
+	  test/helper.rb, test/tdebug.rb, test/test-breakpoints.rb,
+	  test/test-display.rb, test/test-stepping.rb: test/*: Be more
+	  precise about file paths rather than assume Unix conventions.
+	  More regular about use of SRC_DIR. Had broken tests previously in
+	  not
+	  reinitializing SRC_DIR.
+	  bin/rdebug: notstop misspelling.
+	  command.rb: Don't assume that Emacs implies are using
+	  annotations, or a specific
+	  line width
+	  rdebug-core.el: add variable to specify what you want the
+	  debugger line width
+	  to be
+
+2007-12-15 17:46  Anders Lindgren
+
+	* cli/ruby-debug/command.rb, emacs/rdebug-core.el: In Emacs mode,
+	  emit longer lines. The Variables and Watch windows no longer
+	  wraps around, so long lines look good.
+
+2007-12-15 17:38  Anders Lindgren
+
+	* emacs/rdebug-core.el: Font-lock support added in the Variables
+	  and Watch windows.
+
+2007-12-15 15:28  Anders Lindgren
+
+	* emacs/rdebug-core.el: Doc string and comment overhaul, including
+	  running a spell-checker.
+
+2007-12-15 15:23  Anders Lindgren
+
+	* emacs/Makefile.am: License refered to 'Bash', replaced it with
+	  'This program'.
+
+2007-12-15 14:24  Anders Lindgren
+
+	* emacs/rdebug-core.el: Reindented and adopted to Emacs
+	  conventions. (Now, 'indent-region' applied to the whole file
+	  considers the entire file to be correctly indented.)
+
+2007-12-15 13:50  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: * Added comments at the
+	  beginnig of the file, describing the package.
+	  
+	  * Added common key bindings for Eclipse and NetBeans
+	  compatibility, and
+	  `rdebug-populate-common-keys-function' for controlling this.
+	  
+	  * Fixed some `defcustom' stuff.
+	  
+	  * Renamed the `rdebug-many-windows-layout-xxx' to
+	  `rdebug-window-layout-xxx'
+	  
+	  * Removed unused variable `rdebug-temp-directory'
+	  
+	  * Added autoload of `turn-on-rdebugtrack-mode' to rdebug.el.
+
+2007-12-15 09:18  Rocky Bernstein
+
+	* emacs/Makefile.am: Install rdebug-core.el and put in package.
+
+2007-12-14 17:14  Anders Lindgren
+
+	* emacs/rdebug-core.el, emacs/rdebug.el: Renamed rdebug.el to
+	  rdebug-core.el. New file rdebug.el is now startup code.
+
+2007-12-14 17:08  Anders Lindgren
+
+	* emacs/rdebug.el: Updated the doc string of 'rdebug', plus other
+	  small fixes.
+
+2007-12-14 11:56  Rocky Bernstein
+
+	* configure.ac, doc/ruby-debug.texi, ext/ruby_debug.c: Change
+	  version to 0.10.0
+
+2007-12-14 09:03  Anders Lindgren
+
+	* bin/rdebug: Type 'stript' => 'script'
+
+2007-12-14 07:34  Anders Lindgren
+
+	* cli/ruby-debug/processor.rb: Fixed problem where debugger
+	  messages ended up in the 'output' buffer.
+
+2007-12-14 03:22  Rocky Bernstein
+
+	* CHANGES, configure.ac, doc/rdebug.1, doc/ruby-debug.texi,
+	  ext/ruby_debug.c: ruby-debug.c, configure.ac, ruby-debug.texi: Up
+	  version to 0.9.9
+	  rdebug.1: document --no-quit
+	  ruby-debu.texi: More work on Emacs section.
+
+2007-12-14 02:36  Rocky Bernstein
+
+	* emacs/rdebug.el: Mostly small typos.
+	  
+	  rdebug-set-window-configuration-state: Reduce use of 'debugger
+	  for
+	  rdebug-window-configuration-state, in case we want to expand
+	  values.
+	  
+	  debug--setup-secondary-window-help-buffer: More accurate
+	  single-letter
+	  command names. Fix typo.
+
+2007-12-13 20:27  Rocky Bernstein
+
+	* emacs/rdebug.el: A little closer to getting running from
+	  rdebug-track working. Set
+	  shell to be the command buffer. rdebug-set-windows probably
+	  should be
+	  more appropriately renamed.
+
+2007-12-13 20:03  Rocky Bernstein
+
+	* emacs/rdebug.el: Doc typo.
+
+2007-12-13 13:53  Rocky Bernstein
+
+	* bin/rdebug, emacs/rdebug.el: rdebug.el: Add --post-mortem option
+	  by default
+	  rdebug: Fix bug introduced in adding exception handling
+	  (--no-quit)
+
+2007-12-13 13:30  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/processor.rb, doc/ruby-debug.texi:
+	  ruby-debug.texi: Document --no-quit
+	  processor.rb: Annotations aren't an Emacs thing
+	  rdebug: handle exceptions even if --post-mortem not given (but
+	  --no-quit is)
+
+2007-12-13 12:57  Anders Lindgren
+
+	* emacs/rdebug.el: * The sub-menus specific to a secondary window
+	  is only shown when that
+	  window is active.
+	  * The menu item "Run" is renamed to "Continue" to avoid confusion
+	  for
+	  debugger shell users.
+	  * Break-point commands added to the menu.
+	  * In addition to tracking the original window layout, the
+	  debugger
+	  window layout is also tracked. This allows the user to switch
+	  between
+	  the window layouts. The menu now has three entries: Original,
+	  Debugger, and Initial debugger. The first two also have
+	  radio-buttons!
+	  (Internally, the function `rdebug-set-window-configuration-state'
+	  does
+	  most of the work, so it's easier for the functions that switch
+	  layouts.)
+	  * rdebug-quit now prompts, and uses the new "quit
+	  unconditionally" command.
+	  * The "display" window is now renamed to the "watch" window.
+	  * Some keys are rebound (toggle breakpoint is now "t" since "SPC"
+	  is step).
+
+2007-12-13 02:22  Rocky Bernstein
+
+	* emacs/rdebug.el: Add --no-quit option.
+
+2007-12-13 02:20  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/info.rb, doc/ruby-debug.texi,
+	  test/breakpoints.cmd, test/breakpoints.right, test/info.right,
+	  test/test-ruby-debug.rb: doc/ruby-debug.texi:
+	  *rdebug-display-program* -> rdebug-watch-program*
+	  note that you can run help info and list info subcommands
+	  control.rb: If unconditionally is given, no questions are asked
+	  info.rb: add "info program" to give program execution status
+	  rdebug: add --noquit which doesn't exit when the program
+	  terminates
+
+2007-12-12 17:20  Rocky Bernstein
+
+	* cli/ruby-debug/commands/eval.rb: Remove warning that appears when
+	  $VERBOSE is set because we are redefining (potentially) a method.
+
+2007-12-12 13:12  Rocky Bernstein
+
+	* doc/ruby-debug.texi, emacs/rdebug.el: rdebug.el: wasn't showing
+	  Stack buffer.
+	  ruby-debug.texi: update how to autoload
+
+2007-12-12 12:16  Rocky Bernstein
+
+	* emacs/rdebug.el: Interim changes from Anders Lindgren: Add
+	  debugger menu to Ruby
+	  buffers. Add Output buffer to standard display.
+
+2007-12-11 16:47  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Start to revise GNU Emacs section. More work
+	  is needed.
+
+2007-12-11 03:51  Rocky Bernstein
+
+	* emacs/rdebug.el: Proposed revised key bindings for secondary
+	  buffers.
+
+2007-12-10 18:53  Rocky Bernstein
+
+	* emacs/rdebug.el: Add key binding for stack motion
+
+2007-12-10 03:23  Rocky Bernstein
+
+	* doc/ruby-debug.texi, lib/ruby-debug-base.rb: doc changes.
+
+2007-12-07 21:30  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb: Don't always show "starting"
+	  annotation.
+
+2007-12-07 11:03  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, emacs/rdebug.el: processor.rb: Code
+	  for "starting"/output annotation
+	  rdebug.el: add my own style window
+
+2007-12-07 03:45  Rocky Bernstein
+
+	* emacs/rdebug.el: From Anders Lindgren:
+	  * Implemented new annotation, "starting", with a corresponding
+	  Emacs
+	  "output" buffer.
+	  
+	  * New variable `rdebug-many-windows-layout-function' makes the
+	  window
+	  layout user configurable. Three different layouts implemented,
+	  rdebug-many-windows-layout-default, -conservative, and
+	  -stack-of-secondary-windows.
+
+2007-12-06 01:14  Rocky Bernstein
+
+	* emacs/rdebug.el: From Anders Lindgren:
+	  * `gud-comint-buffer' is now buffer local in all secondary
+	  buffers,
+	  hopefully this will make `rdebug' more independent of other
+	  processes
+	  like `gdb'.
+	  
+	  * The restore window configuration variable now has three
+	  possible
+	  values, when set to :many (which is the new default) the window
+	  configuration is only restored when `rdebug-many-windows' is
+	  active.
+	  
+	  * The `edit variable' command, when reading from the minibuffer,
+	  uses
+	  the old value as the initial content. Mouse-1 is no longer bound
+	  to
+	  `edit' since that prevents a simple copy, instead mouse-2 and
+	  mouse-3
+	  is used.
+	  
+	  * More robust window configuration restore system. Trace support
+	  for
+	  window configuration state changes added.
+
+2007-12-05 08:42  Rocky Bernstein
+
+	* emacs/rdebug.el: Python->Ruby typos.
+
+2007-12-05 00:50  Rocky Bernstein
+
+	* cli/ruby-debug/commands/enable.rb, test/display.cmd,
+	  test/display.right, test/test-display.rb: Fix a couple of
+	  display/undisplay bugs caught by regression testing.
+
+2007-12-05 00:06  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/info.rb, cli/ruby-debug/processor.rb,
+	  emacs/rdebug.el: From Anders Lindgren:
+	  * Emacs primitive `window-configuration' used instead of
+	  `frame-configuration' since the latter caused (among other
+	  things) the
+	  frame title to freeze. (The workaround for the buffer-list crash
+	  is no
+	  longer needed.)
+	  
+	  * The user can now switch between the secondary windows using
+	  commands
+	  bound to the capital letters B, C, D, R, V. The key ? displays a
+	  help
+	  buffer.
+	  
+	  * Commands to add, delete, and edit display (watch) expressions.
+	  
+	  Breakpoint regexp position change which broke goto-breakpoint.
+	  display.rb, processor.rb: use nil for deleted displays, more
+	  display
+	  annotation
+
+2007-12-04 11:31  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/enable.rb, doc/ruby-debug.texi,
+	  test/breakpoints.cmd, test/breakpoints.right: enable/disable
+	  default to "breakpoint" when no subcommand specified.
+	  More rigorous test of the code.
+	  
+	  display.rb: Fix bug when Debugger.annotation not initially set.
+	  
+	  ruby-debug.texi: Document enable/disable and remove watchpoint
+	  references. Other small changes.
+
+2007-12-04 02:51  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb, emacs/rdebug.el: display.rb
+	  Don't show display if annotate > 1 since this goes in the
+	  annotation buffer.
+	  rdebug.el: remove minor-most-alist indicator.
+
+2007-12-02 22:39  Rocky Bernstein
+
+	* emacs/rdebug.el: * `rdebug' was added to the mode line of all
+	  rdebug buffers, a shell buffer
+	  where the mode was active will have `rdebug' twice in the mode
+	  line.
+	  
+	  * In `rdebug-setup-windows', use `gud-target-name' instead of
+	  variable
+	  `gud-last-last-frame'. Not completely sure about this.
+	  
+	  * Make `rdebug-display-original-frame-configuration' a command.
+	  
+	  * Call `gud-sentinel' from rdebug-process-sentinel.
+
+2007-12-02 21:56  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb: Show display values in display
+	  annotation.
+
+2007-12-02 21:47  Rocky Bernstein
+
+	* cli/ruby-debug/commands/enable.rb,
+	  cli/ruby-debug/commands/info.rb, emacs/rdebug-test.el,
+	  emacs/rdebug.el, ext/ruby_debug.c, test/breakpoints.cmd,
+	  test/breakpoints.right: Allow enabling/disabling breakpoints. Add
+	  unit test of enabling/disabling and
+	  emacs regexp checking. Adjust rdebug.el accordingly.
+
+2007-12-02 11:45  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/enable.rb,
+	  cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/variables.rb: Add enable/disable commands
+	  info: Show disabled display expressions (like gdb)
+	  display: update help text
+	  variables: remove _self from list of local variables.
+
+2007-12-02 11:00  Rocky Bernstein
+
+	* emacs/rdebug.el: If `rdebug-restore-original-frame-layout' is
+	  non-nil (on by default),
+	  the original frame layout is restored when the debugger process
+	  exits. If the user restarts `rdebug' several times, the first
+	  frame
+	  layout is restored.
+	  
+	  Fix the `rdebug-debug-enter' macro to make it possible to use
+	  edebug
+	  in its body. Workaround for a bug in list-buffers which could
+	  crash if
+	  the frame buffer list contained killed buffers.
+	  
+	  New feature and bug fixes from Anders Lindgren.
+
+2007-12-01 21:28  Rocky Bernstein
+
+	* emacs/rdebug-test.el, emacs/rdebug.el: Add a marker-filter test.
+	  From Anders Lindgren: some debugging instrumentation and a bug
+	  fix when
+	  editing instance variables.
+	  More python references removed.
+
+2007-11-30 09:21  Rocky Bernstein
+
+	* test/display.cmd, test/display.right: longer display test
+
+2007-11-30 09:15  Rocky Bernstein
+
+	* Rakefile: Include tests into package ruby-debug.
+
+2007-11-30 09:08  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/info.rb, cli/ruby-debug/processor.rb,
+	  test/display.cmd, test/display.right, test/info.cmd,
+	  test/info.right, test/test-display.rb: Correct "info display"
+	  command and make it look more like gdb.
+	  Show annotations on preloop even if they are empty.
+	  Create a regression test for "display" commands.
+
+2007-11-30 04:03  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/settings.rb, cli/ruby-debug/processor.rb,
+	  doc/ruby-debug.texi, test/info.right: Add "info display". Allow
+	  annotation level 3. (Both as gdb does)
+	  Reduce unnecessary breakpoint (and stack size) stack size output.
+
+2007-11-30 01:53  Rocky Bernstein
+
+	* emacs/rdebug.el: Was creating duplicate buffers. Patch courtesy
+	  of Anders Lindgren
+
+2007-11-29 02:55  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/variables.rb,
+	  cli/ruby-debug/processor.rb, doc/ruby-debug.texi,
+	  emacs/rdebug.el, test/info.right: The old "info variables" is now
+	  called "info global_variables"
+	  "info variables" shows local and instance_variables
+	  rdebug.el: "local"" buffer is now "variable" buffer
+	  Annotation buffer now show "info variables" rather than "info
+	  locals"
+
+2007-11-26 01:15  Rocky Bernstein
+
+	* doc/rdebug.1: Add "up", and "down"; delete "clear" and add an
+	  $Id$ line.
+
+2007-11-26 00:48  Rocky Bernstein
+
+	* emacs/rdebug.el: Make sure we ahve emacs 22 or greater.
+
+2007-11-25 17:49  Rocky Bernstein
+
+	* emacs/rdebug.el: Add $Id$ line
+
+2007-11-25 16:51  Rocky Bernstein
+
+	* emacs/rdebug.el: Improve breakpoints buffer handling slightly. Is
+	  now a major mode and
+	  more like gdb-ui.el.
+
+2007-11-25 11:14  Rocky Bernstein
+
+	* doc/ruby-debug.texi: typo step + => step+
+
+2007-11-25 11:04  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small corrections to Debugger.start section
+
+2007-11-24 11:01  Rocky Bernstein
+
+	* ext/ruby_debug.c: Some documentation typos.
+
+2007-11-24 11:00  Rocky Bernstein
+
+	* doc/rdebug.1, doc/ruby-debug.texi: *: Go over command options.
+	  document annotation
+	  ruby-debug.texi: Document Debugger.context
+
+2007-11-24 04:07  Rocky Bernstein
+
+	* ext/ruby_debug.c: Ooops, forgot to do frame_locals and update the
+	  rb_define_method
+	  argument count in a couple of places.
+
+2007-11-24 03:00  Rocky Bernstein
+
+	* Rakefile, doc/Makefile.am, doc/ruby-debug.texi, ext/ruby_debug.c,
+	  test/test-ruby-debug.rb: ruby_debug.c: context.frame things now
+	  allow the frame postion number to be optional. We'll assume 0
+	  (the top) as the default.
+	  
+	  test-ruby-debug.rb: add tests of the above an of these routines
+	  in general. Make this
+	  be able to run outside of rake.
+	  
+	  Rakefile: Removed emacs/elisp since that's now part of a
+	  different package.
+	  
+	  doc/Makefile.am: Make manual page
+	  
+	  doc/ruby-debug.texi: try to clarify blocks/frames. Redo incorrect
+	  frame passages as a result of vestiges of the bashdb manual.
+
+2007-11-23 02:43  Rocky Bernstein
+
+	* Makefile.am, doc/Makefile.am, doc/rdebug.1, emacs/Makefile.am:
+	  Make distcheck now works (tests building outside of source
+	  regression tests installing and uninstalling)
+	  rdebug.1: add manual page
+
+2007-11-22 13:49  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/rdebug-test.el: rdebug-test.el: regexp
+	  name changed. Fix test.
+
+2007-11-22 13:36  Rocky Bernstein
+
+	* Makefile.am: Top-level ruby-trunk-extra automake file
+
+2007-11-22 13:27  Rocky Bernstein
+
+	* autogen.sh: Make NEWS->CHANGES symlnk since NEWS is what
+	  autotools wants.
+
+2007-11-22 13:22  Rocky Bernstein
+
+	* autogen.sh, configure.ac, doc/Makefile.am, test/test-frame.rb:
+	  test-frame.rb: remove debugging
+	  rest - use autotools to configure a ruby-debug-extra package
+	  which includes
+	  documentation and GNU Emacs support.
+
+2007-11-22 13:00  Rocky Bernstein
+
+	* emacs/Makefile.am, emacs/elisp-comp: Pick up from autotools
+
+2007-11-21 00:16  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: Make sure @histfile is initialized
+	  before writing it. It could be uninitialized if entered via
+	  Debugger.start; debugger
+
+2007-11-20 19:42  Rocky Bernstein
+
+	* emacs/rdebug.el: define-minor-mode keymap doesn't work the way I
+	  thought it would. rdebugrack-mode-text typo.
+
+2007-11-17 18:09  Rocky Bernstein
+
+	* emacs/rdebug.el: Try using a define-minor-mode. (Not without some
+	  problems
+	  though). Shorten rdebug-rdebugtrack to rdebugtrack in case we
+	  ever do
+	  split out the emacs routines.
+
+2007-11-17 11:54  Rocky Bernstein
+
+	* emacs/rdebug.el: Set --annotate=3 which is what it is in gdba
+
+2007-11-17 11:46  Rocky Bernstein
+
+	* emacs/rdebug.el: Use and advise function to hook into gud-reset.
+
+2007-11-16 15:56  Rocky Bernstein
+
+	* emacs/rdebug.el: Handle stack frame lines that split across two
+	  lines. Make stack frame buffer have its own mode.
+
+2007-11-16 13:50  Rocky Bernstein
+
+	* cli/ruby-debug/commands/method.rb: And make sure to use "inspect"
+	  when showing instance variables as well.
+
+2007-11-16 13:48  Rocky Bernstein
+
+	* cli/ruby-debug/commands/method.rb: Sort instance variables.
+
+2007-11-15 19:03  Rocky Bernstein
+
+	* ext/ruby_debug.c: Fix misspelling of declared.
+
+2007-11-15 15:59  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/variables.rb, emacs/rdebug.el,
+	  test/helper.rb, test/setshow.right, test/test-setshow.rb:
+	  variables.rb: Add "self" to local variables (unless it's "main")
+	  #12782
+	  http://rubyforge.org/tracker/index.php?func=detail&aid=12782&group_id=1900&atid=7436
+	  
+	  info.rb: "info args" and "info locals" output should use inspect
+	  (for arrays and such)
+	  helper.rb: Show output lines if "$DEBUG" (ruby -d) is set.
+	  require "fileutils" since we use it.
+	  setshow.*: simplify test code using common helper.rb routine
+	  
+	  rdebug.el: Add key binding in comint buffer for the more common
+	  kind of traceback
+
+2007-11-15 00:40  Rocky Bernstein
+
+	* emacs/rdebug.el: Set point to current frame in stack window.
+
+2007-11-14 01:39  Rocky Bernstein
+
+	* cli/ruby-debug/commands/settings.rb, doc/ruby-debug.texi,
+	  test/setshow.cmd, test/setshow.right, test/test-setshow.rb: Add
+	  'set history save' and 'set history size'.
+
+2007-11-13 13:28  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: Make sure to convert string HISTSIZE
+	  to a number - This time for sure!
+
+2007-11-13 13:16  Rocky Bernstein
+
+	* test/setshow.cmd, test/setshow.right: Broke regression test
+	  (actually, it was slightly broken even before.)
+
+2007-11-13 13:12  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb: Follow gdb's history length setting
+	  just a little bit closer.
+
+2007-11-12 14:51  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, test/setshow.right: Use on/off
+	  to display history saving.
+
+2007-11-12 04:08  Rocky Bernstein
+
+	* test/setshow.right: Forgot to update output check.
+
+2007-11-12 03:03  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small change: Add a reference.
+
+2007-11-12 02:57  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Document "method iv" and "show history"
+	  commands.
+
+2007-11-12 01:27  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb, cli/ruby-debug/interface.rb,
+	  doc/ruby-debug.texi, test/setshow.cmd, test/setshow.right,
+	  test/test-setshow.rb: Add gdb-like "show history". We don't allow
+	  set yet though.
+
+2007-11-09 18:27  Rocky Bernstein
+
+	* cli/ruby-debug/commands/method.rb: Add "method iv"
+	  (instance_variables)
+
+2007-11-07 12:08  Rocky Bernstein
+
+	* Rakefile: DateTime -> Time. Patch #14983 Hiroshi NAKAMURA (nahi)
+
+2007-11-07 11:54  Rocky Bernstein
+
+	* emacs/rdebug-test.el: Typo - loading wrong file name.
+
+2007-11-07 11:52  Rocky Bernstein
+
+	* CHANGES, Rakefile, cli/ruby-debug/interface.rb, emacs/elisp-comp,
+	  emacs/rdebug-track.el, emacs/rdebug.el: Rakefile: add emacs
+	  compile task. Combine common package files into a variableg
+	  to improve DRYness.
+	  interface.rb: Apply Roger Pack's patch #12788 (add "." to
+	  .rdebugsavehist if
+	  other HOME and HOMEPATH aren't defined).
+	  rdebug-track.el is now folded into rdebug.el so it's no longer
+	  needed.
+	  rdebug.el: remove compiler-detected bug
+
+2007-11-07 02:55  Rocky Bernstein
+
+	* emacs/rdebug-test.el, emacs/rdebug.el: Add routine to goto a
+	  unit/test traceback line
+
+2007-11-06 12:33  Rocky Bernstein
+
+	* emacs/rdebug.el: rdebugtrack deletes annotations now. Other small
+	  improvements.
+
+2007-11-06 02:07  Rocky Bernstein
+
+	* emacs/rdebug-test.el, emacs/rdebug.el: Add routine to be parse
+	  traceback position and go to it.
+
+2007-11-06 00:03  Rocky Bernstein
+
+	* emacs/rdebug.el: cosmetic changes
+
+2007-11-05 19:12  Rocky Bernstein
+
+	* emacs/rdebug.el: Add ability to edit locals value. Make more like
+	  gud-ui.el
+
+2007-11-05 15:18  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, emacs/rdebug.el, test/test-help.rb:
+	  rdebug.el: not all Emacs have split-string-and-unquote.
+	  processor.rb, test-help.rb: Fix breakage from yesterday. Revert a
+	  change
+
+2007-11-04 15:05  Rocky Bernstein
+
+	* emacs/rdebug.el, test/test-help.rb: Expand/revise Emacs rdebug
+	  docstring
+	  test-help.rb: skip until we fix properly.
+
+2007-11-04 14:16  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, emacs/rdebug.el: Move prompt display
+	  after preloop.
+	  Make rdebugtrack work with annotations.
+
+2007-11-04 05:51  Rocky Bernstein
+
+	* emacs/rdebug.el: Small nesting bug.
+
+2007-11-04 04:15  Rocky Bernstein
+
+	* emacs/rdebug.el: Holdover from when three \032's are what we used
+	  for annotation. (It's two now.)
+
+2007-11-04 04:05  Rocky Bernstein
+
+	* emacs/rdebug-extra.el: rdebug-extra.el is no longer used. Has
+	  been folded into rdebug.el
+
+2007-11-04 04:04  Rocky Bernstein
+
+	* Rakefile, bin/rdebug, cli/ruby-debug.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, cli/ruby-debug/processor.rb,
+	  emacs/rdebug-extra.el, emacs/rdebug-test.el, emacs/rdebug.el:
+	  Debugger "annotation" mode. This is used for example in GNU Emacs
+	  to
+	  track the status of breakpoints, stack and local variables. But
+	  it can
+	  be used by other front-ends as well. The command-line option is
+	  --annotate (-A) and there are set/show commands.
+	  
+	  Add emacs files to the package now. More complete Emacs code.
+
+2007-11-03 21:20  Rocky Bernstein
+
+	* emacs/rdebug-test.el, emacs/rdebug.el, rdebug.el: Move to the
+	  right place (under emacs)
+
+2007-11-03 21:19  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb, rdebug.el: First attempt to
+	  update and redo the GNU Emacs-to-rdebug interface
+
+2007-10-31 03:15  Rocky Bernstein
+
+	* Rakefile: Add emacs files to package
+
+2007-10-31 03:12  Rocky Bernstein
+
+	* emacs/rdebug-extra.el, emacs/rdebug-test.el: Some test of emacs
+	  rdebug regular expressions.
+
+2007-10-31 02:19  Rocky Bernstein
+
+	* test/help.cmd: Can't handle "help info" this way. Ignore for now.
+
+2007-10-31 02:00  Rocky Bernstein
+
+	* test/help.cmd, test/info.cmd, test/info.right, test/test-info.rb:
+	  Add basic test of the info command. (Much more would be nice.)
+
+2007-10-28 04:29  Rocky Bernstein
+
+	* emacs/rdebug-track.el: We don't use rdebug-safe - remove.
+	  string-to-int -> string-to-number as
+	  elisp compiler suggests.
+
+2007-10-12 10:41  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add note regarding needing to specify the
+	  'main' class to set a breakpoint in a main routine. Some other
+	  small formatting changes.
+
+2007-10-12 10:15  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb, runner.sh, test/breakpoints.right,
+	  test/test-breakpoints.rb: interface.rb: print is really printf
+	  runner.sh: was using variable before setting it
+	  test/*breakpoints*: first integration test of breakpoints.
+
+2007-10-12 01:45  Rocky Bernstein
+
+	* ext/ruby_debug.c, test/breakpoints.cmd: Bug in setting a
+	  breakpoint at a main method (e.g. main.gcd). Inside
+	  breakpoint_by method we seem to get nil for the class name. The
+	  fix
+	  here is to change that to the string "main". Better might be to
+	  have
+	  that class name not be nil.
+	  
+	  test/breakpoints.cmd has a sequence of commands that when run on
+	  gcd.rb will show the problem.
+
+2007-10-11 08:59  Rocky Bernstein
+
+	* test/test-frame.rb: Name conflick in test class name.
+
+2007-10-11 01:07  Rocky Bernstein
+
+	* test/frame.cmd, test/frame.right, test/helper.rb,
+	  test/test-frame.rb: helper.rb: move out some common test routines
+	  *frame*: add test of frame commands: up, down, frame
+
+2007-10-03 01:46  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb, test/stepping.cmd,
+	  test/stepping.right, test/test-stepping.rb: interface.rb: remove
+	  trailing \n.
+	  test-stepping.rb: remove some bugs in cheap-diff
+	  test/stepping.*: don't need "next 1" or "step 1", check without
+	  parameter.
+
+2007-09-30 13:09  Rocky Bernstein
+
+	* test/test-stepping.rb: Simplify even more.
+
+2007-09-30 13:07  Rocky Bernstein
+
+	* test/test-stepping.rb: We're not using Diff::LCS so comment it
+	  out.
+
+2007-09-30 02:50  Rocky Bernstein
+
+	* cli/ruby-debug.rb: Avoid duplicate constants which happens when
+	  "rake test" is run.
+
+2007-09-30 02:48  Rocky Bernstein
+
+	* cli/ruby-debug/interface.rb, runner.sh, test/gcd.rb,
+	  test/stepping.cmd, test/stepping.right, test/tdebug.rb,
+	  test/test-setshow.rb, test/test-stepping.rb:
+	  cli/ruby-debug/interface.rb: add a verbose mode to show what
+	  commands are
+	  getting run.
+	  
+	  runner.sh: add the ability to set the rdebug script to run based
+	  on environment
+	  variable RDEBUG
+	  
+	  Both of the above are in support of adding the first integration
+	  test
+	  by running rdebug and comparing output produced. The first test
+	  is of
+	  commands in stepping.rb (step, next, finish). It is still a
+	  little
+	  hoaky and needs more work, but another step in the right
+	  direction.
+
+2007-09-07 04:30  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, test/test-help.rb,
+	  test/test-setshow.rb: control.rb: chdir back to directory where
+	  initial run came from.
+	  command.rb, settings.rb, show.rb info.rb: remove warnings when
+	  running
+	  regression tests (due to initializing constants more than once)
+	  
+	  test/*: Use File.join where appropriate
+
+2007-09-04 01:50  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Start filling out Debugger Module section.
+	  In particular the settings Array.
+
+2007-09-03 15:29  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Better wording of step+ n.
+
+2007-09-03 15:06  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Update doc for recent changes.
+
+2007-09-03 15:06  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/help.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, cli/ruby-debug/processor.rb,
+	  test/help.cmd, test/help.right, test/setshow.cmd,
+	  test/setshow.right, test/test-help.rb: help "foo" gives message
+	  "Undefined command "foo" rather than a list
+	  of help commands. (Message test is gdb's)
+	  
+	  Add set linetrace+ - similar step+ for linetrace. Don't show
+	  duplicate
+	  lines.
+
+2007-08-28 10:28  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Get "ruby" from Gem.ruby if
+	  that exists.
+
+2007-08-28 10:07  Rocky Bernstein
+
+	* test/cmdparse.cmd, test/cmdparse.right, test/setshow.cmd,
+	  test/setshow.right, test/test-cmd.rb, test/test-setshow.rb:
+	  cmdparse -> setshow
+
+2007-08-28 10:05  Rocky Bernstein
+
+	* Rakefile, test/cmdparse.cmd: Rakefile: Make test/check depend on
+	  lib. Make more ruby like and remove
+	  duplicate "clean" target.
+
+2007-08-28 03:07  Rocky Bernstein
+
+	* test/cmdparse.cmd: Testing svn propset.
+
+2007-08-28 03:06  Rocky Bernstein
+
+	* test/cmdparse.cmd: Add $Id$ line propset.
+
+2007-08-28 02:37  Rocky Bernstein
+
+	* test/cmdparse.cmd, test/cmdparse.right, test/test-cmd.rb: Yay!
+	  Start first real regression test. Here we are just trying out
+	  some set/show commands.
+
+2007-08-27 01:58  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add some command names on sample sessions.
+
+2007-08-27 00:48  Rocky Bernstein
+
+	* doc/ruby-debug.texi: More in tutorial section: Add
+	  Debugger.start, show step+ and mention
+	  set forcestep on.
+
+2007-08-22 13:00  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add note about putl running down rather than
+	  across.
+
+2007-08-22 08:28  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/commands/irb.rb,
+	  cli/ruby-debug/processor.rb, doc/ruby-debug.texi: leaving irb
+	  shows position same as entering debugger; "list" position
+	  is also cleared when leaving irb.
+	  
+	  Update documentation for the above but more generally to talk
+	  about
+	  the default position that is used in "list", And more
+	  specifically the
+	  frame command also resets the default position.
+
+2007-08-21 11:40  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add some notes about the programming
+	  examples.
+
+2007-08-18 14:57  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small typos:
+	  - add link to command files in .rdebugrc
+	  - Debugger.debugger -> debugger
+	  - help output is columnized
+	  - remove duplicate "var global"
+	  - Invode -> Invoke
+
+2007-08-14 03:19  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Make a stab at "var" and "method" commands.
+
+2007-08-08 09:28  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Start "ruby-debug/debugger" and unit test
+	  section. Elaboration on
+	  error messages when "set autoeval on"
+
+2007-08-08 07:58  Rocky Bernstein
+
+	* test/test-ruby-debug.rb: Remove duplicate "include"
+
+2007-08-07 17:58  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb: Better parsing of undisplay.
+	  This time for sure.
+
+2007-08-07 17:44  Rocky Bernstein
+
+	* cli/ruby-debug/commands/display.rb: Better parameters parsing for
+	  the "undisplay" command.
+
+2007-08-06 11:23  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Add ruby-debug version number to title. Add
+	  Example macro to allow for
+	  better customization and flexibility.
+
+2007-08-05 22:10  Rocky Bernstein
+
+	* ext/ruby_debug.c: Typo.
+
+2007-08-05 16:52  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb, doc/ruby-debug.texi: Work on
+	  bugs in restart command.
+	  Work on ruby-debug sample sessions. Much more work is still
+	  needed though.
+
+2007-08-04 13:36  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/eval.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb,
+	  cli/ruby-debug/commands/stepping.rb, cli/ruby-debug/processor.rb,
+	  doc/ruby-debug.texi, ext/ruby_debug.c: settings, processor, show:
+	  display expressions should be shown when line tracing. To this
+	  end change always_run from
+	  a boolean on integer "level" number.
+	  
+	  eval.rb pc -> putl
+	  
+	  ruby_debug.c: replace a non-word in a comment its equivalent
+	  ruby-debug.texi: document recent changes pc->putl, display
+	  expresions appear when line tracing
+
+2007-07-21 19:18  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Work more on sample session. Start to
+	  document ps and pc and set/show linetrace
+
+2007-07-21 14:50  Rocky Bernstein
+
+	* CHANGES: *** empty log message ***
+
+2007-07-21 13:54  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, ext/ruby_debug.c, runner.sh: Changes
+	  to make ruby-debug work for 1.9 (at least minimally).
+	  ruby_debug.c: parameter saving seems to have a bug in it. Don't
+	  turn on by default.
+	  runner.sh: set which ruby using environment variable RUBY.
+
+2007-07-19 03:08  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/eval.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, ext/ruby_debug.c: Add "set"
+	  option to save scalar values and class names on each call.
+	  Add pc (print columnized) and ps (print sorted columnized).
+
+2007-07-09 16:37  Rocky Bernstein
+
+	* cli/ruby-debug/commands/show.rb: Guard against unitialized argv
+	  setting - via Debugger.start?
+
+2007-07-02 15:34  Rocky Bernstein
+
+	* cli/ruby-debug/helper.rb: "," -> ", ". This looks nicer.
+
+2007-06-27 13:44  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Start section on GNU Emacs.
+
+2007-06-27 12:46  Rocky Bernstein
+
+	* cli/ruby-debug.rb, doc/ruby-debug.texi: Note recent change to run
+	  HOME *after* a local init file.
+
+2007-06-26 07:05  Rocky Bernstein
+
+	* CHANGES, bin/rdebug, cli/ruby-debug.rb, lib/ruby-debug-base.rb:
+	  Run .rdebugrc on Debugger.start. Look for this in the current
+	  directory and run that instead the one in $HOME if that exists.
+	  Again, inspired and compatible with gdb.
+	  
+	  rdebug: Check script for syntax errors before loading. We get
+	  more informative errors and it doesn't look like rdebug is at
+	  fault.
+
+2007-06-25 10:25  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Fill out more set/show commands.
+
+2007-06-21 11:30  Rocky Bernstein
+
+	* CHANGES: Node script->source.
+
+2007-06-21 11:25  Rocky Bernstein
+
+	* cli/ruby-debug/commands/script.rb: Some small changes missing
+	  from last update. script->source and change help
+	  wording slightly.
+
+2007-06-21 11:19  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Document source command and command files.
+	  Break out "Controlling the debugger" into separate sections. Go
+	  over
+	  command index entries.
+
+2007-06-21 10:39  Rocky Bernstein
+
+	* Rakefile, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/script.rb, doc/ruby-debug.texi,
+	  ext/ruby_debug.c, test/test-ruby-debug.rb: test-ruby-debug.rb,
+	  Rakefile: revise so "rake test" works with recent reorganization.
+	  ruby-debug.c: remove unused variable declaration (and compile
+	  warning)
+	  command.rb: remove a warning given when "$DEBUG" or warnings are
+	  set
+	  script.rb: rename "script" to "source" to be more in line with
+	  gdb
+	  ruby-debug.texi: document "source" command, .rdebugrc and how
+	  command files
+	  work.
+
+2007-06-05 18:54  Kent Sibilev
+
+	* cli/ruby-debug/helper.rb: moved utility modules to helper.rb
+
+2007-06-05 16:36  Kent Sibilev
+
+	* bin/rdebug, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/display.rb,
+	  cli/ruby-debug/commands/eval.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/help.rb, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/method.rb,
+	  cli/ruby-debug/commands/script.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb,
+	  cli/ruby-debug/commands/stepping.rb,
+	  cli/ruby-debug/commands/threads.rb,
+	  cli/ruby-debug/commands/variables.rb,
+	  cli/ruby-debug/interface.rb, cli/ruby-debug/processor.rb,
+	  ext/ruby_debug.c, lib/ruby-debug-base.rb: code reorganization.
+	  reverted 'run' command.
+
+2007-06-05 07:59  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: restore post_mortem
+
+2007-06-05 04:28  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb: Put back print statements the way
+	  they were. It seems important to use
+	  commas in print statments and not %.
+
+2007-06-05 03:48  Kent Sibilev
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/control.rb,
+	  ext/ruby_debug.c: tabs to spaces
+	  changed copy.args to play nicely with GC
+
+2007-06-04 14:52  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb: Fix bug: When line contains format
+	  strings like %s, print thinks there were too few arguments.
+	  Fix by expanding % to %% and creating a print1 routine which
+	  takes one parameter.
+	  Not sure if this is the best fix.
+	  
+	  Traceback:
+	  INTERNAL ERROR!!! too few arguments
+	  /usr/lib/ruby/gems/1.8/gems/ruby-debug-0.9.4/cli/ruby-debug/interface.rb:12:in
+	  `printf'
+	  /usr/lib/ruby/gems/1.8/gems/ruby-debug-0.9.4/cli/ruby-debug/interface.rb:12:in
+	  `print'
+	  /usr/lib/ruby/gems/1.8/gems/ruby-debug-0.9.4/cli/ruby-debug/processor.rb:104:in
+	  `print'
+	  /usr/lib/ruby/gems/1.8/gems/ruby-debug-0.9.4/cli/ruby-debug/processor.rb:96:in
+	  `__at_line'
+
+2007-06-04 11:52  Rocky Bernstein
+
+	* cli/ruby-debug/commands/settings.rb, doc/ruby-debug.texi:
+	  ruby-debug.texi: Start listing "set" commands.
+	  settings.rb: change basename help
+
+2007-06-04 00:06  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/control.rb: Small bug in
+	  setting ARGV on restart.
+
+2007-06-03 23:50  Rocky Bernstein
+
+	* bin/rdebug: Catch all uncaught exceptions in rdebug's top-level
+	  run loop.
+
+2007-06-03 11:50  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/interface.rb: Allow run when there is more than
+	  one thread.
+	  Disallow run unless called from rdebug.
+	  Reset ARGV on run.
+
+2007-06-03 02:44  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/processor.rb, ext/ruby_debug.c: Get warm restart
+	  working for one thread - it might even work on OSX ;-)
+
+2007-06-02 22:43  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb: Typo.
+
+2007-06-02 16:14  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb, cli/ruby-debug/processor.rb: Add
+	  routine to canonicalize file name. This also helps out Emacs.
+	  Independent it's useful to have a place to funnel how to show
+	  filenames. Add set basename to allow short filename setting which
+	  will be useful in regression tests.
+
+2007-06-02 15:01  Rocky Bernstein
+
+	* cli/ruby-debug/processor.rb, emacs/rdebug-track.el,
+	  lib/ruby-debug-base.rb: lib/ruby-debug-base.rb: add Quit and
+	  Restart exceptions which can reliably be used after the delayed
+	  exception handling bug is fixed
+	  emacs/rdebug-track.el and cli/ruby-debug/processor.rb: more
+	  accurate line tracking in EMACS. When not in emacs should be more
+	  like what was there.
+
+2007-06-01 21:57  Rocky Bernstein
+
+	* lib/ruby-debug-base.rb: parens around a print seems to give a
+	  warning. Remove.
+
+2007-05-31 02:21  Rocky Bernstein
+
+	* CHANGES: Typo.
+
+2007-05-31 02:15  Rocky Bernstein
+
+	* CHANGES, cli/ruby-debug/processor.rb: Add Emacs locations on
+	  breakpoints and catchpoints
+
+2007-05-30 16:21  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb: Debug statement creapt in.
+
+2007-05-30 16:15  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, runner.sh: runner.sh - allow running
+	  outside of trunk directory
+	  command.rb: do better about putting "at line" on another line
+	  when we overflow the line width.
+
+2007-05-30 06:05  Rocky Bernstein
+
+	* test/test-ruby-debug.rb: Columnize *has* been added.
+
+2007-05-30 05:50  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/settings.rb: Oops another bug
+	  if no "set" parameter has been given.
+	  "set autoirb on" seems to mess up syntax checking.
+
+2007-05-30 05:21  Rocky Bernstein
+
+	* cli/ruby-debug/commands/settings.rb: arg -> args
+
+2007-05-27 18:37  Rocky Bernstein
+
+	* bin/rdebug: Catch uncaught exceptions in main loop.
+
+2007-05-27 15:56  Rocky Bernstein
+
+	* runner.sh: Pass back $? from ruby-debug.
+
+2007-05-27 15:53  Rocky Bernstein
+
+	* bin/rdebug: Make sure Ruby script syntax checks okay. Otherwise
+	  we get a load
+	  message that looks like rdebug has a problem.
+
+2007-05-27 14:36  Rocky Bernstein
+
+	* bin/rdebug, runner.sh: Fix bug in ignoring "-r debug"
+
+2007-05-26 22:18  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/show.rb: Add
+	  show version.
+
+2007-05-26 22:00  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/list.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb: Add set args and set listsize.
+
+2007-05-26 20:38  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/control.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb: command.rb, show.rb: Add show
+	  args
+	  control.rb: back off on using AR
+
+2007-05-26 13:56  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb: Set now allows "on", "off", 1 or
+	  0.
+	  Add set/show linetrace
+	  Add show keep-frame-bindings, port, port-mortem.
+
+2007-05-26 04:54  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Document --keep-frame-binding better.
+
+2007-05-26 04:42  Rocky Bernstein
+
+	* cli/ruby-debug/commands/info.rb: Introduced bug after reworking
+	  "info args". make "local args" truncate
+	  output if it's too long same as info args.
+
+2007-05-26 04:17  Rocky Bernstein
+
+	* CHANGES: Recent batch of changes.
+
+2007-05-26 03:22  Rocky Bernstein
+
+	* bin/rdebug, cli/ruby-debug/commands/breakpoints.rb:
+	  breakpoints.rb: break with no arguments sets a breakpoint at the
+	  current line
+	  same as gdb
+	  rdebug: if there's a tty and no stop restart the program when it
+	  finishes
+
+2007-05-25 13:48  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Go over errror messages.
+
+2007-05-25 13:43  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: If prepending a ruby command
+	  on restart, add "-I" for each $:
+	  Check to see of Debugger::PROG_SCRIPT exists and is executable.
+
+2007-05-25 12:35  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Fix some small bugs. restart
+	  still has problems though.
+
+2007-05-25 12:21  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Fix small bug in restart
+	  parameter passing i introduced.
+
+2007-05-25 10:11  Rocky Bernstein
+
+	* cli/ruby-debug/commands/control.rb: Allow restart to work more
+	  often.
+
+2007-05-25 09:34  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb: Reduce the redundancy a little
+	  between set and show.
+
+2007-05-25 08:50  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, cli/ruby-debug/commands/info.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/show.rb: Add info and show commands with
+	  subcommands.
+	  Setting subcommands made to be more like info and show (and gdb).
+
+2007-05-25 07:48  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb, ext/ruby_debug.c: Have to back off
+	  from showing parameter values since we are showing the
+	  dynamic value. So instead we show the paramater class.
+	  
+	  It should be possible to show the value however if
+	  --keep-frame-bindings is
+	  true.
+
+2007-05-25 06:45  Rocky Bernstein
+
+	* Rakefile: rake check is a synonym for rake test
+
+2007-05-24 18:11  Rocky Bernstein
+
+	* cli/ruby-debug/command.rb: This Ruby, not Perl: "last" => "break"
+
+2007-05-24 13:03  Rocky Bernstein
+
+	* Rakefile, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/help.rb,
+	  cli/ruby-debug/commands/method.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/threads.rb,
+	  cli/ruby-debug/commands/variables.rb, ext/ruby_debug.c: Add
+	  sandbox for rocky to work in
+
+2007-05-23 16:43  Rocky Bernstein
+
+	* lib/ruby-debug-base.rb: post_mortem: to test $! *before* running
+	  debug_at_ext or else we may get an erroneous message:
+	  ruby-debug-base.rb:162:in `current_context': Debugger.start is
+	  not called yet. (RuntimeError)
+	  
+	  A simple test case to show the problem:
+	  
+	  "require rubygems"
+	  "require ruby-debug"
+	  Debugger.start
+	  Debugger.post_mortem
+	  exit # Causes us to incorrectly give the above error
+
+2007-05-23 02:46  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Slogging on with the doc - further with the
+	  example such as it is.
+
+2007-05-23 02:29  Rocky Bernstein
+
+	* emacs/elk-test.el: test/unit for emacs.
+
+2007-05-23 02:20  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb: Fix type conversion
+	  problem with comparing Fixnum with String. I
+	  really need to start pushing forward on the regression tests.
+
+2007-05-22 12:28  Rocky Bernstein
+
+	* test, test/test-ruby-debug.rb: Some rudimentary tests.
+
+2007-05-22 12:28  Rocky Bernstein
+
+	* emacs, emacs/rdebug-track.el: Tracks rdebug debugger in an Emacs
+	  shell window
+
+2007-05-22 02:17  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Make a stab at documenting the list command.
+
+2007-05-21 17:56  Rocky Bernstein
+
+	* doc/ruby-debug.texi: Small changes. Explain thread number in
+	  prompt. User input in examples
+	  is bold.
+
+2007-05-21 13:42  Rocky Bernstein
+
+	* bin/rdebug: Using long option --verbose without a script says you
+	  need a script.
+	  -v doesn't (same as --version).
+
+2007-05-20 17:17  Rocky Bernstein
+
+	* cli/ruby-debug/commands/threads.rb: Stray debug output got
+	  inserted accidentally.
+
+2007-05-20 17:01  Rocky Bernstein
+
+	* cli/ruby-debug/commands/stepping.rb: Wasn't returning on a bad
+	  continue argument.
+
+2007-05-20 16:45  Rocky Bernstein
+
+	* cli/ruby-debug/commands/breakpoints.rb, doc/ruby-debug.texi:
+	  breakpoints.rb: delete now will take a list
+	  of breakpoint numbers. We now check file and line numbers to make
+	  sure they
+	  exist before adding a breakpoint. Overall make more gdb
+	  compatible and use
+	  gdb-like wording in giving status and error output.
+	  
+	  ruby-debug.texi: document break, catch and delete. Extend sample
+	  session a little.
+
+2007-05-18 09:20  Rocky Bernstein
+
+	* CHANGES: What's up.
+
+2007-05-18 09:13  Rocky Bernstein
+
+	* cli/ruby-debug/commands/threads.rb, doc/ruby-debug.texi: More
+	  minor tweaks to thread regexps. Allows "thread" and "thread nnn"
+	  work
+
+2007-05-18 08:52  Rocky Bernstein
+
+	* cli/ruby-debug/commands/threads.rb, doc/ruby-debug.texi:
+	  threads.rb: hoist common thread number parse routines
+
+2007-05-18 02:34  Rocky Bernstein
+
+	* cli/ruby-debug/commands/threads.rb: Go over regexps to make
+	  errors make more sense. Use getint. Common
+	  code needs refactoring.
+
+2007-05-17 14:03  Rocky Bernstein
+
+	* bin/rdebug: -d option: turns on $DEBUG
+	  -v option: print version number, then turn on verbose mode
+	  ($VERBOSE)
+	  --verbose turns on verbose mode ($VERBOSE)
+	  --version works the same
+	  --verbose turns on verbose mode ($VERBOSE)
+
+2007-05-17 03:55  Kent Sibilev
+
+	* ext/ruby_debug.c: removed debug message
+
+2007-05-16 00:27  Kent Sibilev
+
+	* cli/ruby-debug/commands/stepping.rb: wrong module to include
+
+2007-05-15 20:22  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/breakpoints.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/stepping.rb,
+	  cli/ruby-debug/commands/threads.rb,
+	  cli/ruby-debug/commands/variables.rb, lib/ruby-debug-base.rb:
+	  various fixes
+
+2007-05-09 16:56  Kent Sibilev
+
+	* CHANGES, bin/rdebug, ext/ruby_debug.c: '-r' option can be used to
+	  require additional libraries
+
+2007-05-02 17:36  Kent Sibilev
+
+	* cli/ruby-debug.rb: expand path before running the script
+
+2007-04-28 00:32  Kent Sibilev
+
+	* CHANGES:
+
+2007-04-27 23:30  Kent Sibilev
+
+	* bin/rdebug: added option to not start control thread by default
+
+2007-04-27 23:21  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: ditto
+
+2007-04-27 23:20  Kent Sibilev
+
+	* CHANGES: ditto
+
+2007-04-27 23:19  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: add breakpoint method as an alias for
+	  debugger in case breakpoint method is not defined already
+
+2007-04-27 21:03  Kent Sibilev
+
+	* cli/ruby-debug/commands/irb.rb: better name
+
+2007-04-27 20:59  Kent Sibilev
+
+	* cli/ruby-debug/commands/irb.rb: make sure we dont throw in a
+	  wrong context
+
+2007-04-27 20:43  Kent Sibilev
+
+	* cli/ruby-debug.rb, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/eval.rb, cli/ruby-debug/commands/irb.rb:
+	  fixed rdoc
+
+2007-04-27 20:31  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/eval.rb,
+	  cli/ruby-debug/commands/frame.rb, cli/ruby-debug/commands/irb.rb,
+	  cli/ruby-debug/commands/list.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/stepping.rb: - irb 'cont' command
+	  continues execution without showing the debugger prompt.
+	  - added Debugger.settings method to programatically modify
+	  command settings
+
+2007-04-27 06:14  Kent Sibilev
+
+	* CHANGES: note the latest changes
+
+2007-04-27 06:12  Kent Sibilev
+
+	* bin/rdebug: Compatibility with Ruby-distributed debug module
+
+2007-04-27 06:07  Kent Sibilev
+
+	* ext/ruby_debug.c: Ctrl-C exits irb and continutes execution
+	  bypassing the debugger prompt
+
+2007-04-27 06:07  Kent Sibilev
+
+	* cli/ruby-debug/commands/irb.rb: Ctrl-C exits irb and continutes
+	  execution bypassing the debugger prompt
+
+2007-04-07 23:21  Kent Sibilev
+
+	* ext/ruby_debug.c: removed wrong if node check
+
+2007-04-04 20:23  Kent Sibilev
+
+	* CHANGES, ext/ruby_debug.c: added hit conditions to breakpoints
+
+2007-04-03 18:07  Kent Sibilev
+
+	* CHANGES: ditto
+
+2007-04-03 18:05  Kent Sibilev
+
+	* ext/ruby_debug.c: Fixed file comparision on Windows platform
+
+2007-04-03 02:58  Kent Sibilev
+
+	* CHANGES: typo
+
+2007-04-03 01:48  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/settings.rb,
+	  cli/ruby-debug/commands/stepping.rb, ext/ruby_debug.c: Added
+	  force parameter to stepping commands
+
+2007-04-03 01:16  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/commands/stepping.rb, ext/ruby_debug.c:
+	  added force option to Context#step_over
+
+2007-04-02 20:55  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/commands/breakpoints.rb,
+	  ext/ruby_debug.c: fixed incorrect stack calculation
+	  break help fix
+
+2007-04-01 17:15  Kent Sibilev
+
+	* cli/ruby-debug/commands/help.rb:
+
+2007-04-01 17:10  Kent Sibilev
+
+	* cli/ruby-debug/commands/eval.rb:
+
+2007-04-01 17:08  Kent Sibilev
+
+	* cli/ruby-debug/commands/eval.rb, cli/ruby-debug/interface.rb,
+	  cli/ruby-debug/processor.rb: expose two functions dbg_print and
+	  dbg_puts that might be useful in the remote mode
+
+2007-03-30 15:09  Kent Sibilev
+
+	* CHANGES:
+
+2007-03-30 08:03  Kent Sibilev
+
+	* ext/ruby_debug.c:
+
+2007-03-30 07:40  Kent Sibilev
+
+	* ext/ruby_debug.c:
+
+2007-03-30 07:39  Kent Sibilev
+
+	* ext/ruby_debug.c:
+
+2007-03-30 07:21  Kent Sibilev
+
+	* CHANGES, ext/ruby_debug.c: All Ruby's 'eval' and require/load
+	  methods create a new frame.
+
+2007-03-29 20:50  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/settings.rb: added frameclassname setting
+
+2007-03-29 02:50  Kent Sibilev
+
+	* cli/ruby-debug/commands/stepping.rb:
+
+2007-03-29 02:49  Kent Sibilev
+
+	* cli/ruby-debug/commands/stepping.rb:
+
+2007-03-29 02:09  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/command.rb,
+	  cli/ruby-debug/commands/frame.rb,
+	  cli/ruby-debug/commands/settings.rb, ext/ruby_debug.c: Added new
+	  Context.frame_class method
+	  
+	  'frame' command will display a class name along with method name
+	  
+	  Added new 'fullpath' setting.
+
+2007-03-29 00:45  Kent Sibilev
+
+	* CHANGES, ext/ruby_debug.c: too many internal changes require a
+	  new major release
+
+2007-03-29 00:27  Kent Sibilev
+
+	* ext/ruby_debug.c: remove useless stops when performing
+	  'step_over' operation
+
+2007-03-28 20:36  Kent Sibilev
+
+	* CHANGES, cli/ruby-debug/commands/stepping.rb, ext/ruby_debug.c:
+	  Added the possibility to add a temporary context-specific
+	  breakpoint.
+	  
+	  Context#breakpoint and Context#set_breakpoint methods are added.
+	  
+	  'cont' command now accepts a numerical parameter which implements
+	  'Continue until line' behavior.
+
+2007-03-27 23:26  Kent Sibilev
+
+	* ext/ruby_debug.c: fixed previous optimization for Proc objects
+
+2007-03-27 23:22  Kent Sibilev
+
+	* ext/ruby_debug.c: we don't need to create a new frame if there is
+	  no block for a c-call
+
+2007-03-27 23:08  Kent Sibilev
+
+	* CHANGES, ext/ruby_debug.c: Calling a method with a block will
+	  create a new frame. This changes the behavior of 'next' command.
+	  So in order to step into a block, 'step' command must be used.
+	  That fixes bug #9629.
+
+2007-03-27 22:50  Kent Sibilev
+
+	* ext/ruby_debug.c: step over shouldn't check that we moved to
+	  another line
+
+2007-03-26 14:27  Kent Sibilev
+
+	* ext/ruby_debug.c: ditto
+
+2007-03-26 04:51  Kent Sibilev
+
+	* CHANGES:
+
+2007-03-26 02:51  Kent Sibilev
+
+	* ext/ruby_debug.c: the frame must be captured when calling
+	  Proc#call method
+
+2007-03-25 01:03  Kent Sibilev
+
+	* lib/ruby-debug-base.rb: will start the debugger if necessary
+
+2007-03-24 18:23  Kent Sibilev
+
+	* CHANGES:
+
+2007-03-24 18:17  Kent Sibilev
+
+	* .: stable becomes the trunk
+
+2007-03-24 18:11  Kent Sibilev
+
+	* 
+
+2007-03-24 18:03  Kent Sibilev
+
+	* ported stop reason from the trunk
+
+2007-03-19 08:05  Kent Sibilev
+
+	* 
+
+2007-03-19 07:59  Kent Sibilev
+
+	* 
+
+2007-03-19 07:46  Kent Sibilev
+
+	* fixes processor to handler renaming
+	  added a shortcut module
+
+2007-03-15 04:00  Kent Sibilev
+
+	* 
+
+2007-03-15 02:59  Kent Sibilev
+
+	* 
+
+2007-03-15 02:58  Kent Sibilev
+
+	* added 'set autoirb' setting
+
+2007-03-15 02:46  Kent Sibilev
+
+	* 
+
+2007-03-15 02:39  Kent Sibilev
+
+	* 
+
+2007-03-15 02:32  Kent Sibilev
+
+	* 
+
+2007-03-15 02:32  Kent Sibilev
+
+	* fixed help command
+
+2007-03-13 17:06  Kent Sibilev
+
+	* missing file
+
+2007-03-13 17:06  Kent Sibilev
+
+	* fixed rdoc
+
+2007-03-06 22:15  Kent Sibilev
+
+	* updated help for list and eval commands
+
+2007-03-06 19:51  Kent Sibilev
+
+	* pass the current state to the interface object if it accepts it
+
+2007-03-01 23:44  Kent Sibilev
+
+	* fixed post-mortem
+
+2007-02-27 08:02  Kent Sibilev
+
+	* repackaging ruby-debug
+
+2007-02-23 20:56  Kent Sibilev
+
+	* added an option for Debugger.debug_load to stop at the first line
+	  of code
+
+2007-02-12 06:59  Kent Sibilev
+
+	* added --emacs option
+
+2007-02-09 16:56  Kent Sibilev
+
+	* in remote mode the debugger shouldn't stop inside of rdebug
+	  script
+
+2007-02-09 06:59  Kent Sibilev
+
+	* 
+
+2007-02-09 06:20  Kent Sibilev
+
+	* --
+
+2007-02-09 01:00  Kent Sibilev
+
+	* fixed code reloading
+	  made 'reload on' as a part of the 'set' command
+	  evaluate ~/.rdebugrc as an init script
+
+2007-02-07 02:42  Kent Sibilev
+
+	* should use ignored? method to check for the debugger's thread
+
+2007-02-06 22:21  Kent Sibilev
+
+	* 
+
+2007-02-05 22:48  Kent Sibilev
+
+	* --
+
+2007-02-05 22:11  Kent Sibilev
+
+	* fixed emacs integration
+
+2007-02-05 20:40  Kent Sibilev
+
+	* --
+
+2007-02-05 20:38  Kent Sibilev
+
+	* --
+
+2007-02-05 20:34  Kent Sibilev
+
+	* --
+
+2007-02-05 20:16  Kent Sibilev
+
+	* fixed another issue where a bogus frame is being left in the
+	  stack
+
+2007-02-05 08:08  Kent Sibilev
+
+	* should save frame id as well
+
+2007-02-05 07:55  Kent Sibilev
+
+	* fix stack corruption error
+
+2007-02-05 01:16  Kent Sibilev
+
+	* store frame's self and dyna_vars along with file/line information
+
+2007-02-04 23:36  Kent Sibilev
+
+	* seg fault bugfixes
+	  fixed suspend/resume
+
+2007-02-04 05:06  Kent Sibilev
+
+	* restore prev patch
+
+2007-02-04 03:49  Kent Sibilev
+
+	* --
+
+2007-02-04 03:49  Kent Sibilev
+
+	* A better fix for the segmentation fault
+
+2007-02-03 22:02  Kent Sibilev
+
+	* found a better patch
+
+2007-02-03 20:33  Kent Sibilev
+
+	* --
+
+2007-02-03 20:24  Kent Sibilev
+
+	* fix seg fault by avoiding ruby's bug
+	  fixed Context#resume
+	  when handling post-mortem all threads must be suspended
+
+2007-02-02 18:47  Kent Sibilev
+
+	* removed ambiguity with down command
+
+2007-02-01 23:48  Kent Sibilev
+
+	* typo
+
+2007-02-01 23:10  Kent Sibilev
+
+	* changes for build 0.7
+
+2007-02-01 22:15  Kent Sibilev
+
+	* made eval command available from the control thread
+
+2007-02-01 17:30  Kent Sibilev
+
+	* fixed dllexport for windows platform
+
+2007-02-01 15:49  Kent Sibilev
+
+	* ditto
+
+2007-02-01 07:22  Kent Sibilev
+
+	* added setting command
+	  added Context#suspended? method
+	  dispay suspended status in the thread list
+	  display frame starting from zero
+
+2007-01-31 22:12  Kent Sibilev
+
+	* store object ids in VALUE type
+
+2007-01-31 21:13  Kent Sibilev
+
+	* ditto
+
+2007-01-31 21:12  Kent Sibilev
+
+	* fixed help command
+
+2007-01-31 21:04  Kent Sibilev
+
+	* ditto
+
+2007-01-31 20:44  Kent Sibilev
+
+	* make a deep copy when capturing post mortem context
+
+2007-01-31 19:39  Kent Sibilev
+
+	* fixed frame count
+	  added frame_self method to context
+
+2007-01-31 16:48  Kent Sibilev
+
+	* removed all references to frames array
+	  fixed post-mortem debugging
+
+2007-01-31 00:51  Kent Sibilev
+
+	* removed obsolete frames usage
+
+2007-01-31 00:41  Kent Sibilev
+
+	* refactored out frame class and preallocate stack
+	  made local variable available even when bindings are not
+	  collected.
+
+2007-01-28 20:25  Kent Sibilev
+
+	* --
+
+2007-01-28 06:22  Kent Sibilev
+
+	* - Control thread is always started by rdebug script.
+	  - Ability to specify negative frame number to frame commands.
+	  Patch from R. Bernstein.
+
+2007-01-28 04:59  Kent Sibilev
+
+	* --
+
+2007-01-28 04:52  Kent Sibilev
+
+	* added top frame caching
+	  control thread is always started by rdebug script
+
+2007-01-28 01:21  Kent Sibilev
+
+	* 
+
+2007-01-27 02:21  Kent Sibilev
+
+	* --
+
+2007-01-27 01:43  Kent Sibilev
+
+	* another performance optimization
+
+2007-01-26 20:28  Kent Sibilev
+
+	* fixed #7484
+
+2007-01-26 19:31  Kent Sibilev
+
+	* --
+
+2007-01-26 17:59  Kent Sibilev
+
+	* revisited file name comparing procedure
+
+2007-01-26 09:03  Kent Sibilev
+
+	* performance improvements
+
+2007-01-26 03:12  Kent Sibilev
+
+	* added option to exclude collecting of frame bindings
+
+2007-01-25 01:41  Kent Sibilev
+
+	* small optimization
+
+2007-01-25 00:55  Kent Sibilev
+
+	* remove the live thread ref from locker structure as well
+
+2007-01-24 20:42  Kent Sibilev
+
+	* don't keep a ref to a live thread.
+	  check contexts that their threads are alive
+
+2007-01-24 18:47  Kent Sibilev
+
+	* ditto
+
+2007-01-24 18:33  Kent Sibilev
+
+	* disable tracing when in post-mortem
+	  added -x/--trace option to rdebug script
+
+2007-01-21 08:35  Kent Sibilev
+
+	* updated changelog
+
+2007-01-21 08:13  Kent Sibilev
+
+	* 
+
+2007-01-21 03:34  Kent Sibilev
+
+	* assign an id to the breakpoint
+
+2007-01-21 01:20  Kent Sibilev
+
+	* added post_mortem_method wrap method
+
+2006-12-21 20:30  Kent Sibilev
+
+	* fix of restart command for windows platform
+
+2006-12-21 20:16  Kent Sibilev
+
+	* added 'restart' command
+
+2006-12-21 14:24  Kent Sibilev
+
+	* update changelog
+
+2006-12-21 14:12  Kent Sibilev
+
+	* made 'exit' an alias to 'quit'
+	  fixed the interoperability problem with rspec
+
+2006-12-21 13:43  Kent Sibilev
+
+	* fixed trace command in post-mortem mode
+
+2006-12-21 02:00  Kent Sibilev
+
+	* updated changelog
+
+2006-12-21 01:59  Kent Sibilev
+
+	* initialize only once
+
+2006-12-21 01:08  Kent Sibilev
+
+	* fixes irb help command
+
+2006-12-20 21:19  Kent Sibilev
+
+	* check that debugger has been started
+
+2006-12-20 20:41  Kent Sibilev
+
+	* 
+
+2006-12-20 20:14  Kent Sibilev
+
+	* bumped version
+
+2006-12-20 20:08  Kent Sibilev
+
+	* added post-mortem option to rdebug
+
+2006-12-20 19:38  Kent Sibilev
+
+	* initial support for post-mortem debugging
+
+2006-12-19 06:13  Kent Sibilev
+
+	* removed 'run' alias
+
+2006-12-18 08:34  Kent Sibilev
+
+	* added irb command
+	  fixed source_for method
+
+2006-12-02 19:15  Kent Sibilev
+
+	* added reload command
+
+2006-12-02 18:32  Kent Sibilev
+
+	* fixed #6518 and #6545
+
+2006-12-01 06:49  Kent Sibilev
+
+	* 
+
+2006-12-01 06:47  Kent Sibilev
+
+	* 
+
+2006-11-21 23:29  Kent Sibilev
+
+	* ensure that on/off is the last on the line
+
+2006-11-16 00:04  Kent Sibilev
+
+	* fixed debug_method for assignment methods
+
+2006-11-16 00:01  Kent Sibilev
+
+	* added the new branch for the stable version
+
+2006-10-15 22:43  Kent Sibilev
+
+	* branching a stable version
+
+2006-10-15 22:26  Kent Sibilev
+
+	* ext/win32/ruby_debug.so, lib/ruby-debug.rb: remove unused require
+	  uploaded new windows binary
+
+2006-10-15 21:56  Kent Sibilev
+
+	* ext/ruby_debug.c: Debugger.start yields to the block even if it's
+	  already started
+
+2006-10-15 19:02  Kent Sibilev
+
+	* lib/ruby-debug/commands/display.rb: remove unused constructor
+
+2006-10-15 18:56  Kent Sibilev
+
+	* CHANGES: ditto
+
+2006-10-15 16:54  Kent Sibilev
+
+	* ext/ruby_debug.c, lib/ruby-debug.rb,
+	  lib/ruby-debug/commands/threads.rb: new logic of context
+	  suspend/resume
+
+2006-10-15 07:37  Kent Sibilev
+
+	* CHANGES: ditto
+
+2006-10-15 07:36  Kent Sibilev
+
+	* bin/rdebug, ext/ruby_debug.c, lib/ruby-debug.rb,
+	  lib/ruby-debug/lock.rb: fixed locking of debugger threads
+
+2006-10-14 19:11  Kent Sibilev
+
+	* Rakefile, ext/ruby_debug.c: make skip status local to a thread
+	  instead of globally disabling the debugger.
+
+2006-10-09 22:01  Kent Sibilev
+
+	* ext/ruby_debug.c, ext/win32/ruby_debug.so,
+	  lib/ruby-debug/interface.rb: fixes for windows version
+
+2006-10-09 19:06  Kent Sibilev
+
+	* CHANGES, ext/ruby_debug.c, lib/ruby-debug.rb,
+	  lib/ruby-debug/interface.rb: added Debugger.skip and
+	  Debugger.debug_at_exit methods
+
+2006-10-09 16:48  Kent Sibilev
+
+	* .gdb_history, ext/.gdb_history, ext/Makefile,
+	  ext/ruby_debug.bundle: remove intermediate files
+
+2006-10-09 16:44  Kent Sibilev
+
+	* ., .gdb_history, CHANGES, LICENSE, README, Rakefile, bin,
+	  bin/rdebug, doc, ext, ext/.gdb_history, ext/Makefile,
+	  ext/extconf.rb, ext/ruby_debug.bundle, ext/ruby_debug.c,
+	  ext/win32, ext/win32/ruby_debug.so, lib, lib/ruby-debug,
+	  lib/ruby-debug.rb, lib/ruby-debug/command.rb,
+	  lib/ruby-debug/commands, lib/ruby-debug/commands/breakpoints.rb,
+	  lib/ruby-debug/commands/catchpoint.rb,
+	  lib/ruby-debug/commands/control.rb,
+	  lib/ruby-debug/commands/display.rb,
+	  lib/ruby-debug/commands/eval.rb,
+	  lib/ruby-debug/commands/frame.rb,
+	  lib/ruby-debug/commands/help.rb, lib/ruby-debug/commands/list.rb,
+	  lib/ruby-debug/commands/method.rb,
+	  lib/ruby-debug/commands/script.rb,
+	  lib/ruby-debug/commands/stepping.rb,
+	  lib/ruby-debug/commands/threads.rb,
+	  lib/ruby-debug/commands/tmate.rb,
+	  lib/ruby-debug/commands/trace.rb,
+	  lib/ruby-debug/commands/variables.rb,
+	  lib/ruby-debug/interface.rb, lib/ruby-debug/lock.rb,
+	  lib/ruby-debug/processor.rb: initial import
+

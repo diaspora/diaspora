@@ -1,0 +1,60 @@
+== About
+
+Homepage::  Addressable[http://addressable.rubyforge.org/]
+Authors::   Bob Aman (mailto:bob@sporkmonger.com)
+Copyright:: Copyright 2010 Bob Aman
+License::   MIT
+
+Addressable is a replacement for the URI implementation that is part of
+Ruby's standard library. It more closely conforms to the relevant RFCs and
+adds support for IRIs and URI templates.  Additionally, it provides extensive
+support for URI templates.
+
+== Classes
+- {Addressable::URI}
+- {Addressable::Template}
+
+== Example usage
+  require "addressable/uri"
+
+  uri = Addressable::URI.parse("http://example.com/path/to/resource/")
+  uri.scheme
+  #=> "http"
+  uri.host
+  #=> "example.com"
+  uri.path
+  #=> "/path/to/resource/"
+
+  uri = Addressable::URI.parse("http://www.詹姆斯.com/")
+  uri.normalize
+  #=> #<Addressable::URI:0xc9a4c8 URI:http://www.xn--8ws00zhy3a.com/>
+
+  require "addressable/template"
+
+  template = Addressable::Template.new("http://example.com/{-list|+|query}/")
+  template.expand({
+    "query" => "an example query".split(" ")
+  })
+  #=> #<Addressable::URI:0xc9d95c URI:http://example.com/an+example+query/>
+
+  template = Addressable::Template.new(
+    "http://example.com/{-join|&|one,two,three}/"
+  )
+  template.partial_expand({"one" => "1", "three" => 3}).pattern
+  #=> "http://example.com/?one=1{-prefix|&two=|two}&three=3"
+
+  template = Addressable::Template.new(
+    "http://{host}/{-suffix|/|segments}?{-join|&|one,two,bogus}\#{fragment}"
+  )
+  uri = Addressable::URI.parse(
+    "http://example.com/a/b/c/?one=1&two=2#foo"
+  )
+  template.extract(uri)
+  #=>
+  # {
+  #   "host" => "example.com",
+  #   "segments" => ["a", "b", "c"],
+  #   "one" => "1",
+  #   "two" => "2",
+  #   "fragment" => "foo"
+  # }

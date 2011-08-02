@@ -1,0 +1,7 @@
+h1. WARNING - Experimental
+
+The Python support is experimental. Don't expect it to work.
+Please help fix it or head over to a more mature library:
+
+* http://github.com/gabrielfalcao/lettuce/
+* http://wiki.github.com/heynemann/pyccuracy/

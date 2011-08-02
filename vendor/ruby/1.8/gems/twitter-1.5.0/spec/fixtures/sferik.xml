@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<user>
+  <id>7505382</id>
+  <name>Erik Michaels-Ober</name>
+  <screen_name>sferik</screen_name>
+  <location>San Francisco</location>
+  <description>A mind forever voyaging through strange seas of thought, alone.</description>
+  <profile_image_url>http://a1.twimg.com/profile_images/1186912733/Github_Square_normal.jpg</profile_image_url>
+  <url>https://github.com/sferik</url>
+  <protected>false</protected>
+  <followers_count>1048</followers_count>
+  <profile_background_color>000000</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>197</friends_count>
+  <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+  <favourites_count>1040</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a2.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>3479</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>41</listed_count>
+  <show_all_inline_media>true</show_all_inline_media>
+  <is_translator>false</is_translator>
+  <status>
+    <created_at>Sun Jan 16 21:38:25 +0000 2011</created_at>
+    <id>26755176471724032</id>
+    <text>RT @tenderlove: [ANN] sqlite3-ruby =&amp;gt; sqlite3</text>
+    <source>&lt;a href=&quot;http://itunes.apple.com/us/app/twitter/id409789998?mt=12&quot; rel=&quot;nofollow&quot;&gt;Twitter for Mac&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count>9</retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Sun Jan 16 20:57:21 +0000 2011</created_at>
+      <id>26744838716133376</id>
+      <text>[ANN] sqlite3-ruby =&amp;gt; sqlite3</text>
+      <source>&lt;a href=&quot;http://www.echofon.com/&quot; rel=&quot;nofollow&quot;&gt;Echofon&lt;/a&gt;</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count>9</retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>

@@ -1,0 +1,18 @@
+brkpt-class-bug.rb:1
+class A
+# # Rubyforge Patch #26987
+# # http://www.ruby-forum.com/topic/193901
+# set debuggertesting on
+Currently testing the debugger is on.
+# set autoeval off
+autoeval is off.
+# next
+brkpt-class-bug.rb:6
+x = 1
+# break A.show
+Breakpoint 1 at A::show
+# c
+Breakpoint 1 at A:show
+brkpt-class-bug.rb:2
+def A.show
+# quit

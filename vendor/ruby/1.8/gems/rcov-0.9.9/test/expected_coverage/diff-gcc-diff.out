@@ -1,0 +1,11 @@
+
+================================================================================
+!!!!! Uncovered code introduced in assets/sample_05.rb
+
+assets/sample_05.rb-1-def d(x)
+assets/sample_05.rb:2:  4*x
+assets/sample_05.rb:3:end
+assets/sample_05.rb-4-
+assets/sample_05.rb-5-def a
+assets/sample_05.rb-6-  b 10
+assets/sample_05.rb-7-end

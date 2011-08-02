@@ -1,0 +1,21 @@
+Autotest.add_hook :initialize do |at|
+  ignore = %w[ .git log plugins script tasks bin CHANGELOG FAQ MIT-LICENSE QUICKLINKS README ]
+
+  ignore.each do |exception|
+    at.add_exception(exception)
+  end
+
+  at.clear_mappings
+
+  at.add_mapping(%r{^spec/.+_spec\.rb$}) do |filename,_|
+    filename
+  end
+
+  at.add_mapping(%r{^lib/extlib/(.+)\.rb$}) do |_,match|
+    [ "spec/#{match[1]}_spec.rb" ]
+  end
+
+  at.add_mapping(%r{^spec/spec_helper\.rb$}) do
+    at.files_matching(%r{^spec/.+_spec\.rb$})
+  end
+end

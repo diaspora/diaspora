@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby -rrubygems
+
+require "#{File.dirname(__FILE__)}/../lib/jammit/command_line.rb"
+
+Jammit::CommandLine.new

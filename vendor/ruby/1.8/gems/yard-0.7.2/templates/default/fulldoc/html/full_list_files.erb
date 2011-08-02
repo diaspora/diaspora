@@ -1,0 +1,5 @@
+<% n = 1 %>
+<% @items.each do |item| %>
+  <li class="r<%= n %>"><%= link_file item %></li>
+  <% n = n == 2 ? 1 : 2 %>
+<% end %>

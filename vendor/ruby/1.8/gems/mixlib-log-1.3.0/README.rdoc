@@ -1,0 +1,24 @@
+== Mixlib::Log
+
+Mixlib::Log provides a mixin for enabling a class based logger object, a-la Merb, Chef, and Nanite.  To use it:
+
+	require 'mixlib/log'
+	
+	class Log
+		extend Mixlib::Log
+	end
+	
+You can then do:
+
+	Log.debug("foo")
+	Log.info("bar")
+	Log.warn("baz")
+	Log.error("baz")
+	Log.fatal("wewt")
+	
+By default, Mixlib::Logger logs to STDOUT.  To alter this, you should call Log.init, passing any arguments to the standard Ruby Logger.  For example:
+
+	Log.init("/tmp/logfile")    # log to /tmp/logfile
+	Log.init("/tmp/logfile", 7) # log to /tmp/logfile, rotate every day
+	
+Enjoy!

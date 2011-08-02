@@ -1,0 +1,37 @@
+<% n = 1 %>
+<dl class="box">
+  <% if CodeObjects::ClassObject === object && object.superclass %>
+    <dt class="r<%=n%>">Inherits:</dt>
+    <dd class="r<%=n%>">
+      <span class="inheritName"><%= linkify object.superclass %></span>
+      <% if object.superclass.name != :BasicObject %>
+        <ul class="fullTree">
+          <li><%= linkify P(:Object) %></li>
+          <% object.inheritance_tree.reverse.each_with_index do |obj, i| %>
+            <li class="next"><%= obj == object ? obj.path : linkify(obj) %></li>
+          <% end %>
+        </ul>
+        <a href="#" class="inheritanceTree">show all</a>
+      <% end %>
+      </dd>
+    <% n = 2 %>
+  <% end %>
+  <% [[:class, "Extended by"], [:instance, "Includes"]].each do |scope, name| %>
+    <% if (mix = object.mixins(scope)).size > 0 %>
+      <dt class="r<%=n%>"><%= name %>:</dt>
+      <dd class="r<%=n%>"><%= mix.sort_by {|o| o.path }.map {|o| linkify(o) }.join(", ") %></dd>
+      <% n = n == 2 ? 1 : 2 %>
+    <% end %>
+  <% end %>
+  <% if (mixed_into = mixed_into(object)).size > 0 %>
+    <dt class="r<%=n%>">Included in:</dt>
+    <dd class="r<%=n%>"><%= mixed_into.sort_by {|o| o.path }.map {|o| linkify(o) }.join(", ") %></dd>
+    <% n = n == 2 ? 1 : 2 %>
+  <% end %>
+  <% unless object.root? %>
+    <dt class="r<%=n%> last">Defined in:</dt>
+    <dd class="r<%=n%> last"><%= erb(:defines) %></dd>
+  <% end %>
+</dl>
+<div class="clear"></div>
+

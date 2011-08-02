@@ -1,0 +1,22 @@
+<% if object.has_tag?(:option) %>
+  <% object.parameters.each do |param, default| %>
+    <% tags = object.tags(:option).select {|x| x.name.to_s == param.to_s } %>
+    <% next if tags.empty? %>
+    <h3>Options Hash (<tt><%= param %></tt>):</h3>
+    <ul class="option">
+      <% for tag in tags %>
+        <li>
+          <span class="name"><%= tag.pair.name %></span>
+          <span class="type"><%= format_types(tag.pair.types || ['Object']) %></span>
+          <span class="default">
+            <% if tag.pair.defaults %>
+              &mdash; default:
+              <%= tag.pair.defaults.map {|t| "<tt>#{h t}</tt>" }.join(", ") %>
+            <% end %>
+          </span>
+          <%= "&mdash; " + htmlify_line(tag.pair.text) if tag.pair.text %>
+        </tr>
+      <% end %>
+    </ul>
+  <% end %>
+<% end %>

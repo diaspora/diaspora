@@ -1,0 +1,1919 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<category>
+  <name>Art &amp; Design</name>
+  <slug>art-design</slug>
+  <categories type="array">
+  </categories>
+  <users type="array">
+    <user>
+      <id>949521</id>
+      <name>Doug Bowman</name>
+      <screen_name>stop</screen_name>
+      <location>San Francisco, CA</location>
+      <description>Designer, thinker, speaker, Creative Director at Twitter. Previously at Google, Stopdesign, and Wired.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/552708586/doug-profile_normal.jpg</profile_image_url>
+      <url>http://stopdesign.com</url>
+      <protected>false</protected>
+      <followers_count>87831</followers_count>
+      <profile_background_color>6092d2</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>3387cc</profile_link_color>
+      <profile_sidebar_fill_color>bddaf7</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+      <friends_count>351</friends_count>
+      <created_at>Sun Mar 11 19:50:16 +0000 2007</created_at>
+      <favourites_count>302</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/149914329/bg-stop.png</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>2533</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2454</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>78453</id>
+      <name>Khoi Vinh</name>
+      <screen_name>khoi</screen_name>
+      <location>New York, NY</location>
+      <description>Blogger at Subtraction.com, former design director at NYTimes.com.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/16896652/Adam_West_normal.jpg</profile_image_url>
+      <url>http://www.subtraction.com</url>
+      <protected>false</protected>
+      <followers_count>88340</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>0000ff</profile_link_color>
+      <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+      <friends_count>532</friends_count>
+      <created_at>Mon Dec 18 22:14:59 +0000 2006</created_at>
+      <favourites_count>22</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>true</verified>
+      <following>false</following>
+      <statuses_count>1683</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2292</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>16661296</id>
+      <name>dwell</name>
+      <screen_name>dwell</screen_name>
+      <location></location>
+      <description>Following our team around the modern world. See who's saying what at dwell.com/twitter</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/935810714/dwell_Twitter_Icon_normal.gif</profile_image_url>
+      <url>http://dwell.com</url>
+      <protected>false</protected>
+      <followers_count>114200</followers_count>
+      <profile_background_color>e7e8e9</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>4177b9</profile_link_color>
+      <profile_sidebar_fill_color>e9f2fd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>dee7f1</profile_sidebar_border_color>
+      <friends_count>586</friends_count>
+      <created_at>Thu Oct 09 03:09:57 +0000 2008</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/133995193/Twitter-Background-Final.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2355</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3356</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15414807</id>
+      <name>johnmaeda</name>
+      <screen_name>johnmaeda</screen_name>
+      <location>Providence, RI</location>
+      <description>President, Rhode Island School of Design, RISD, College, Museum, USA, 1877, Laws of Simplicity, MIT, Design, Art, Business, Technology, Life</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/1088325884/maedaicon2lg_normal.png</profile_image_url>
+      <url>http://our.risd.edu</url>
+      <protected>false</protected>
+      <followers_count>94360</followers_count>
+      <profile_background_color>C0DEED</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+      <friends_count>2054</friends_count>
+      <created_at>Sun Jul 13 13:51:22 +0000 2008</created_at>
+      <favourites_count>339</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>true</verified>
+      <following>false</following>
+      <statuses_count>1345</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3016</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15057943</id>
+      <name>Museum of Modern Art</name>
+      <screen_name>MuseumModernArt</screen_name>
+      <location>New York, New York</location>
+      <description>Victor Samra (aka @vsamra3) at the easel. Please send us questions or comments by placing @MuseumModernArt in your tweet.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/534697216/MoMA_Twitter_Icon4_normal.gif</profile_image_url>
+      <url>http://www.moma.org</url>
+      <protected>false</protected>
+      <followers_count>335206</followers_count>
+      <profile_background_color>ededed</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>ff3300</profile_link_color>
+      <profile_sidebar_fill_color>d9d9d9</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>1508</friends_count>
+      <created_at>Mon Jun 09 13:20:21 +0000 2008</created_at>
+      <favourites_count>123</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/54805196/MoMA_Twitter_Background.gif</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1556</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>12030</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>23585763</id>
+      <name>ARTINFO</name>
+      <screen_name>artinfodotcom</screen_name>
+      <location>New York, NY</location>
+      <description>The premier source for news about art and culture around the world. 
+
+
+facebook.com/artinfo
+foursquare.com/artinfo</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/91810842/AI_250x250_twit_normal.JPG</profile_image_url>
+      <url>http://www.artinfo.com</url>
+      <protected>false</protected>
+      <followers_count>114153</followers_count>
+      <profile_background_color>000000</profile_background_color>
+      <profile_text_color>080202</profile_text_color>
+      <profile_link_color>087196</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>b93d2d</profile_sidebar_border_color>
+      <friends_count>843</friends_count>
+      <created_at>Tue Mar 10 12:31:05 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1286818005/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>4636</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2615</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>60025762</id>
+      <name>Todd McFarlane</name>
+      <screen_name>Todd_McFarlane</screen_name>
+      <location>Phoenix, AZ</location>
+      <description>Artist. Writer. Director. Producer. Toy Company Founder</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/454370804/TODD_BLUEBACK_normal.jpg</profile_image_url>
+      <url>http://twitter.com/todd_mcfarlane</url>
+      <protected>false</protected>
+      <followers_count>397304</followers_count>
+      <profile_background_color>9AE4E8</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+      <friends_count>8</friends_count>
+      <created_at>Sat Jul 25 09:48:36 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/60142269/Haunt10.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>true</verified>
+      <following>false</following>
+      <statuses_count>355</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2572</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>16568227</id>
+      <name>J. Paul Getty Museum</name>
+      <screen_name>GettyMuseum</screen_name>
+      <location>Los Angeles, California</location>
+      <description>In my opinion, an individual without any love of the arts cannot be considered completely civilized. --J. Paul Getty</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/118308448/squareGettyWordmark_normal.jpg</profile_image_url>
+      <url>http://www.getty.edu</url>
+      <protected>false</protected>
+      <followers_count>123596</followers_count>
+      <profile_background_color>4fde57</profile_background_color>
+      <profile_text_color>170303</profile_text_color>
+      <profile_link_color>1a3bef</profile_link_color>
+      <profile_sidebar_fill_color>e3e3e3</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>101919</profile_sidebar_border_color>
+      <friends_count>21611</friends_count>
+      <created_at>Thu Oct 02 22:46:59 +0000 2008</created_at>
+      <favourites_count>14953</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3141663/getty_travertine.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2433</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4012</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>7614292</id>
+      <name>brooklynmuseum</name>
+      <screen_name>brooklynmuseum</screen_name>
+      <location>Brooklyn, New York</location>
+      <description>A gaggle of Brooklyn Museum staffers tweet here. Look for via @user at the end of tweets to get to know us.  Questions and comments via @replies are welcome. </description>
+      <profile_image_url>http://a0.twimg.com/profile_images/31784232/twitter_normal.png</profile_image_url>
+      <url>http://www.brooklynmuseum.org/</url>
+      <protected>false</protected>
+      <followers_count>125147</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>0099BC</profile_link_color>
+      <profile_sidebar_fill_color>B3E8FA</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>FFFFFF</profile_sidebar_border_color>
+      <friends_count>761</friends_count>
+      <created_at>Fri Jul 20 17:34:41 +0000 2007</created_at>
+      <favourites_count>91</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/109602159/Background-twitter7.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3463</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3137</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15446126</id>
+      <name>Design Milk</name>
+      <screen_name>designmilk</screen_name>
+      <location>Everywhere</location>
+      <description>Design Milk is a website dedicated to modern design.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/663607808/DMCartonLogo_alone-160SQ_normal.jpg</profile_image_url>
+      <url>http://design-milk.com</url>
+      <protected>false</protected>
+      <followers_count>168694</followers_count>
+      <profile_background_color>ffffff</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>000000</profile_link_color>
+      <profile_sidebar_fill_color>eeeeee</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>cccccc</profile_sidebar_border_color>
+      <friends_count>433</friends_count>
+      <created_at>Tue Jul 15 21:13:46 +0000 2008</created_at>
+      <favourites_count>3</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/21285181/stripe.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>7651</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5191</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>16536215</id>
+      <name>SFMOMA</name>
+      <screen_name>SFMOMA</screen_name>
+      <location>151 Third Street</location>
+      <description>SFMOMA's Twitter is done by Ian Padgham in Communications but many of our ideas come from the brilliant and passionate staff at SFMOMA.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/1148270393/sfmoma_giants_normal.jpg</profile_image_url>
+      <url>http://www.sfmoma.org</url>
+      <protected>false</protected>
+      <followers_count>105074</followers_count>
+      <profile_background_color>feda4d</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>000000</profile_link_color>
+      <profile_sidebar_fill_color>feda4d</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>feda4d</profile_sidebar_border_color>
+      <friends_count>105628</friends_count>
+      <created_at>Tue Sep 30 22:36:01 +0000 2008</created_at>
+      <favourites_count>3</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/160855517/twitter_bckgrnd3.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1395</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3640</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>774280</id>
+      <name>Dave Shea</name>
+      <screen_name>mezzoblue</screen_name>
+      <location>Vancouver</location>
+      <description>using Twitter for me, not for you.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/553504851/avatar-large2_normal.jpg</profile_image_url>
+      <url>http://www.mezzoblue.com/</url>
+      <protected>false</protected>
+      <followers_count>72326</followers_count>
+      <profile_background_color>000000</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>000000</profile_link_color>
+      <profile_sidebar_fill_color>291808</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>000000</profile_sidebar_border_color>
+      <friends_count>297</friends_count>
+      <created_at>Thu Feb 15 19:27:28 +0000 2007</created_at>
+      <favourites_count>58</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/115093920/twitter-background.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>6677</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1465</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>22061737</id>
+      <name>Art in America</name>
+      <screen_name>AiANews</screen_name>
+      <location>NY, NY</location>
+      <description>The World's Premier Art Magazine since 1913</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/86820236/TwitterLogo_normal.jpg</profile_image_url>
+      <url>http://www.ArtinAmericaMagazine.com</url>
+      <protected>false</protected>
+      <followers_count>118078</followers_count>
+      <profile_background_color>4a7182</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>ba2525</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>f5f0f2</profile_sidebar_border_color>
+      <friends_count>133</friends_count>
+      <created_at>Thu Feb 26 21:04:36 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-21600</utc_offset>
+      <time_zone>Central Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/19337056/AIA_Summer09.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1445</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1890</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>1765921</id>
+      <name>Hoefler+Frere-Jones</name>
+      <screen_name>H_FJ</screen_name>
+      <location>New York City</location>
+      <description>H&amp;FJ. We design fonts.
+http://www.typography.com.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/1142541284/hfj-2010_normal.png</profile_image_url>
+      <url>http://www.typography.com/</url>
+      <protected>false</protected>
+      <followers_count>86820</followers_count>
+      <profile_background_color>C0DEED</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+      <friends_count>193</friends_count>
+      <created_at>Wed Mar 21 16:31:32 +0000 2007</created_at>
+      <favourites_count>44</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/81577577/hfj_background2.png</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1992</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1794</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>5225991</id>
+      <name>Tate</name>
+      <screen_name>Tate</screen_name>
+      <location>London, Liverpool and St Ives</location>
+      <description>Family of 4 art galleries in the UK: Tate Britain, Tate Modern, Tate Liverpool &amp; Tate St Ives. Tweeting from Tate Media: Hannah, Selina, Kate, Becs &amp; Jesse.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/1147439411/muy_twitter_normal.jpg</profile_image_url>
+      <url>http://www.tate.org.uk</url>
+      <protected>false</protected>
+      <followers_count>180483</followers_count>
+      <profile_background_color>00B9B8</profile_background_color>
+      <profile_text_color>504343</profile_text_color>
+      <profile_link_color>00B9B8</profile_link_color>
+      <profile_sidebar_fill_color>FFFFFF</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>807D7D</profile_sidebar_border_color>
+      <friends_count>703</friends_count>
+      <created_at>Thu Apr 19 13:12:32 +0000 2007</created_at>
+      <favourites_count>7</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/162936452/muy_twitter2.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1089</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5881</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>14199378</id>
+      <name>Smithsonian</name>
+      <screen_name>smithsonian</screen_name>
+      <location>Washington, DC</location>
+      <description>The world's largest museum complex &amp; research organization composed of 19 museums, 9 research centers, and the National Zoo.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/524772602/logo_normal.gif</profile_image_url>
+      <url>http://www.si.edu</url>
+      <protected>false</protected>
+      <followers_count>196582</followers_count>
+      <profile_background_color>ffffff</profile_background_color>
+      <profile_text_color>01031a</profile_text_color>
+      <profile_link_color>0c0578</profile_link_color>
+      <profile_sidebar_fill_color>186ac2</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>110</friends_count>
+      <created_at>Sat Mar 22 22:26:03 +0000 2008</created_at>
+      <favourites_count>11</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/52765661/tweetbg.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3637</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5890</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>18084100</id>
+      <name>Herman Miller, Inc.</name>
+      <screen_name>hermanmiller</screen_name>
+      <location>Zeeland, MI</location>
+      <description>We work for a better world around you w/ inventive designs, technologies &amp; related services to improve the human experience where you work, heal, learn, &amp; live.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/508970979/HM_logo_twitter_normal.jpg</profile_image_url>
+      <url>http://www.hermanmiller.com</url>
+      <protected>false</protected>
+      <followers_count>81139</followers_count>
+      <profile_background_color>e6e6e6</profile_background_color>
+      <profile_text_color>262626</profile_text_color>
+      <profile_link_color>fa1815</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>dfdfdf</profile_sidebar_border_color>
+      <friends_count>430</friends_count>
+      <created_at>Fri Dec 12 19:50:03 +0000 2008</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/116161127/hm_bg.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1150</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1201</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>1504011</id>
+      <name>Tina Roth Eisenberg</name>
+      <screen_name>swissmiss</screen_name>
+      <location>Brooklyn, NY</location>
+      <description>swiss designer gone NYC</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/29450552/tina_normal.jpg</profile_image_url>
+      <url>http://www.swiss-miss.com</url>
+      <protected>false</protected>
+      <followers_count>117770</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>2f3737</profile_text_color>
+      <profile_link_color>030000</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>FFFFFF</profile_sidebar_border_color>
+      <friends_count>1039</friends_count>
+      <created_at>Mon Mar 19 13:40:08 +0000 2007</created_at>
+      <favourites_count>3923</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/58238631/swissmiss_twitter_background.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>5387</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3859</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>14677919</id>
+      <name>The New Yorker</name>
+      <screen_name>NewYorker</screen_name>
+      <location>New York, NY</location>
+      <description>The New Yorker is a weekly magazine with a mix of reporting of politics and culture, humor and cartoons, fiction and poetry, and reviews and criticism. </description>
+      <profile_image_url>http://a2.twimg.com/profile_images/553327850/Eustacewbutterfly_normal.png</profile_image_url>
+      <url>http://www.newyorker.com</url>
+      <protected>false</protected>
+      <followers_count>376072</followers_count>
+      <profile_background_color>9AE4E8</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+      <friends_count>177</friends_count>
+      <created_at>Tue May 06 19:36:33 +0000 2008</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/55790865/Twitter_BG_Final_final.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>true</verified>
+      <following>false</following>
+      <statuses_count>1845</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>12844</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>14694680</id>
+      <name>design:related</name>
+      <screen_name>designrelated</screen_name>
+      <location>New York, NY</location>
+      <description>Where design meets inspiration</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/653172121/d_128_normal.png</profile_image_url>
+      <url>http://designrelated.com</url>
+      <protected>false</protected>
+      <followers_count>125729</followers_count>
+      <profile_background_color>e5e5e5</profile_background_color>
+      <profile_text_color>323232</profile_text_color>
+      <profile_link_color>009ACD</profile_link_color>
+      <profile_sidebar_fill_color>f5f5f5</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>e5e5e5</profile_sidebar_border_color>
+      <friends_count>623</friends_count>
+      <created_at>Thu May 08 01:45:24 +0000 2008</created_at>
+      <favourites_count>29</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/40239586/dr-twitter-1280x1024.gif</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>5676</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2854</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>14991920</id>
+      <name>LACMA</name>
+      <screen_name>LACMA</screen_name>
+      <location>Los Angeles</location>
+      <description>Tweeting for Los Angeles County Museum of Art: Sr Editor SCOTT TENNENT ST/Amer Art Admin DEVI NOOR DN/Web Mangr ERIN SORENSEN ES/Comms Mangr C. CHOI CC</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/325538327/Twitter_Avatar8_normal.jpg</profile_image_url>
+      <url>http://www.lacma.org</url>
+      <protected>false</protected>
+      <followers_count>95398</followers_count>
+      <profile_background_color>b0c8eb</profile_background_color>
+      <profile_text_color>4d4d4d</profile_text_color>
+      <profile_link_color>d61717</profile_link_color>
+      <profile_sidebar_fill_color>bababa</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>d61717</profile_sidebar_border_color>
+      <friends_count>18184</friends_count>
+      <created_at>Tue Jun 03 11:55:29 +0000 2008</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/24670994/Twitter_BG11.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1326</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2269</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>87978312</id>
+      <name>pbsnewshourArtBeat</name>
+      <screen_name>NewsHourArtBeat</screen_name>
+      <location></location>
+      <description>The PBS NewsHour's Art Beat covers art and culture, and is brought to you by correspondent Jeffrey Brown and NewsHour reporters.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/577617056/logo_normal.jpg</profile_image_url>
+      <url>http://www.pbs.org/newshour/art/blog/</url>
+      <protected>false</protected>
+      <followers_count>77693</followers_count>
+      <profile_background_color>829aa6</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>c5c8c9</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5b686e</profile_sidebar_border_color>
+      <friends_count>262</friends_count>
+      <created_at>Fri Nov 06 16:39:58 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/77247206/IMG_5754.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>623</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>897</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15135958</id>
+      <name>eyemagazine</name>
+      <screen_name>eyemagazine</screen_name>
+      <location>London, UK</location>
+      <description>The International Review of Graphic Design</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/55524520/Avatar_01_normal.jpg</profile_image_url>
+      <url>http://blog.eyemagazine.com</url>
+      <protected>false</protected>
+      <followers_count>163348</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>645D5D</profile_text_color>
+      <profile_link_color>FF00FF</profile_link_color>
+      <profile_sidebar_fill_color>FFFFFF</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>CDCDCD</profile_sidebar_border_color>
+      <friends_count>1000</friends_count>
+      <created_at>Mon Jun 16 16:50:05 +0000 2008</created_at>
+      <favourites_count>4393</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/2638400/Twitter_bg.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3427</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3336</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>22997517</id>
+      <name>Light Stalking</name>
+      <screen_name>LightStalking</screen_name>
+      <location></location>
+      <description>Light Stalking is all about beautiful photography and getting the word out about the talented people that produce it. We try to impart a little knowledge too.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/517489725/cow_normal.jpg</profile_image_url>
+      <url>http://www.lightstalking.com</url>
+      <protected>false</protected>
+      <followers_count>127860</followers_count>
+      <profile_background_color>8B542B</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>9D582E</profile_link_color>
+      <profile_sidebar_fill_color>EADEAA</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>D9B17E</profile_sidebar_border_color>
+      <friends_count>28568</friends_count>
+      <created_at>Thu Mar 05 23:28:49 +0000 2009</created_at>
+      <favourites_count>85</favourites_count>
+      <utc_offset>-32400</utc_offset>
+      <time_zone>Alaska</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/71755559/lsbg3.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3548</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4071</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>17057271</id>
+      <name>metmuseum</name>
+      <screen_name>metmuseum</screen_name>
+      <location>New York, NY</location>
+      <description>The Metropolitan Museum of Art is one of the world's largest and finest art museums. Tweets by Jennette (Digital Media). I welcome your comments &amp; questions.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/63682065/met_podcast_logo2_normal.jpg</profile_image_url>
+      <url>http://www.metmuseum.org/</url>
+      <protected>false</protected>
+      <followers_count>133627</followers_count>
+      <profile_background_color>0370c5</profile_background_color>
+      <profile_text_color>3C3940</profile_text_color>
+      <profile_link_color>5ED4DC</profile_link_color>
+      <profile_sidebar_fill_color>408CC7</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5ED4DC</profile_sidebar_border_color>
+      <friends_count>296</friends_count>
+      <created_at>Thu Oct 30 01:31:07 +0000 2008</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/101492451/Background_Arches.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1834</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4542</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>61133</id>
+      <name>Jeffrey Zeldman</name>
+      <screen_name>zeldman</screen_name>
+      <location>New York, NY</location>
+      <description>Author, Designing With Web Standards. Founder, Happy Cog. Publisher, A List Apart, A Book Apart. Co-founder, An Event Apart, The Big Web Show. I'm your daddy.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/693932114/blue200_normal.gif</profile_image_url>
+      <url>http://www.zeldman.com/</url>
+      <protected>false</protected>
+      <followers_count>105003</followers_count>
+      <profile_background_color>FF6600</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>972200</profile_link_color>
+      <profile_sidebar_fill_color>FF6600</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>CD3300</profile_sidebar_border_color>
+      <friends_count>958</friends_count>
+      <created_at>Tue Dec 12 17:11:41 +0000 2006</created_at>
+      <favourites_count>1246</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/1422692/chancegarden1280.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>11953</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5346</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>17623957</id>
+      <name>DesignObserver</name>
+      <screen_name>DesignObserver</screen_name>
+      <location>New York (Falls Village CT)</location>
+      <description>Writings on Design and Culture. Edited by Michael Bierut, William Drenttel, Jessica Helfand, Julie Lasky and Nancy Levinson.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/340155402/twitter_profile_bigger_normal.gif</profile_image_url>
+      <url>http://www.designobserver.com</url>
+      <protected>false</protected>
+      <followers_count>157791</followers_count>
+      <profile_background_color>333333</profile_background_color>
+      <profile_text_color>fe6601</profile_text_color>
+      <profile_link_color>303934</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>303934</profile_sidebar_border_color>
+      <friends_count>400</friends_count>
+      <created_at>Tue Nov 25 16:51:54 +0000 2008</created_at>
+      <favourites_count>185</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/154531558/twitter_bkgd.gif</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>6579</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5820</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>16517711</id>
+      <name>Whitney Museum</name>
+      <screen_name>whitneymuseum</screen_name>
+      <location>New York City</location>
+      <description>The Whitney Museum houses one of the world's foremost collections of contemporary American art. Gretchen in the marketing dept. is the gal behind the tweets.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/520806383/twitter_icon_normal.jpg</profile_image_url>
+      <url>http://whitney.org/</url>
+      <protected>false</protected>
+      <followers_count>113142</followers_count>
+      <profile_background_color>000000</profile_background_color>
+      <profile_text_color>0b0a0a</profile_text_color>
+      <profile_link_color>0000ff</profile_link_color>
+      <profile_sidebar_fill_color>ffff00</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>1022</friends_count>
+      <created_at>Mon Sep 29 20:14:21 +0000 2008</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Quito</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/52959407/twitter2.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2145</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3356</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15594318</id>
+      <name>Walker Art Center</name>
+      <screen_name>walkerartcenter</screen_name>
+      <location>Minneapolis, MN</location>
+      <description>A catalyst for the creative expression of artists and active engagement of audiences, examines questions that shape and inspire us. Tweeting by KF + friends</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/57221222/bg2005exha0413_001_normal.jpg</profile_image_url>
+      <url>http://walkerart.org/</url>
+      <protected>false</protected>
+      <followers_count>104363</followers_count>
+      <profile_background_color>f2f6fd</profile_background_color>
+      <profile_text_color>3d3d3d</profile_text_color>
+      <profile_link_color>dd1d36</profile_link_color>
+      <profile_sidebar_fill_color>e9eafb</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>d9d9d9</profile_sidebar_border_color>
+      <friends_count>344</friends_count>
+      <created_at>Fri Jul 25 04:46:13 +0000 2008</created_at>
+      <favourites_count>3</favourites_count>
+      <utc_offset>-21600</utc_offset>
+      <time_zone>Central Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/157644731/walker_twitter_bg.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1914</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1850</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>17681513</id>
+      <name>Yoko Ono</name>
+      <screen_name>yokoono</screen_name>
+      <location>New York</location>
+      <description>I love dancing. I think it's better to dance than to march through life.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/1150179487/49889_522024050_6382420_n_normal.jpg</profile_image_url>
+      <url>http://www.IMAGINEPEACE.com</url>
+      <protected>false</protected>
+      <followers_count>1065542</followers_count>
+      <profile_background_color>0096db</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0096db</profile_link_color>
+      <profile_sidebar_fill_color>b7cff7</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>3c32c7</profile_sidebar_border_color>
+      <friends_count>440907</friends_count>
+      <created_at>Thu Nov 27 16:06:43 +0000 2008</created_at>
+      <favourites_count>8</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/164207256/l_f96c4ce8d2b14a8789a0302a925fb308.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>true</verified>
+      <following>false</following>
+      <statuses_count>1967</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>24048</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>20802277</id>
+      <name>Magnum Photos</name>
+      <screen_name>magnumphotos</screen_name>
+      <location>New York, London, Paris, Tokyo</location>
+      <description>Magnum Photos is a photographic cooperative of great diversity and distinction owned by its photographer members.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/78037758/Magnum_Logo_small_normal.jpg</profile_image_url>
+      <url>http://magnumphotos.com</url>
+      <protected>false</protected>
+      <followers_count>156002</followers_count>
+      <profile_background_color>1e201d</profile_background_color>
+      <profile_text_color>6e7269</profile_text_color>
+      <profile_link_color>2FC2EF</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>96</friends_count>
+      <created_at>Fri Feb 13 20:16:30 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/6478661/Twitter_BG.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1962</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4575</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>9313022</id>
+      <name>Behance</name>
+      <screen_name>Behance</screen_name>
+      <location>New York, New York</location>
+      <description>Behance is on a mission to organize and empower the creative world to make ideas happen.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/269846621/BehanceTwitter_normal.png</profile_image_url>
+      <url>http://www.behance.com</url>
+      <protected>false</protected>
+      <followers_count>131007</followers_count>
+      <profile_background_color>1A1B1F</profile_background_color>
+      <profile_text_color>525252</profile_text_color>
+      <profile_link_color>ed2f2f</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>cccccc</profile_sidebar_border_color>
+      <friends_count>1378</friends_count>
+      <created_at>Mon Oct 08 17:45:54 +0000 2007</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>-21600</utc_offset>
+      <time_zone>Central Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/28978111/BehanceTwitter.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3026</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5493</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>12998732</id>
+      <name>Drawn! </name>
+      <screen_name>drawn</screen_name>
+      <location>Canada</location>
+      <description>The Illustration &amp; Cartooning Weblog</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/1149940174/drawnavatar_normal.jpg</profile_image_url>
+      <url>http://drawn.ca</url>
+      <protected>false</protected>
+      <followers_count>126881</followers_count>
+      <profile_background_color>009cea</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>009cea</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>dceffa</profile_sidebar_border_color>
+      <friends_count>16</friends_count>
+      <created_at>Sun Feb 03 03:32:00 +0000 2008</created_at>
+      <favourites_count>8</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/164111313/greybg.png</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2008</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2487</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15370860</id>
+      <name>Project H Design</name>
+      <screen_name>ProjectHDesign</screen_name>
+      <location>Bertie County, NC</location>
+      <description>Product design initiatives for Humanity, Habitats, Health, and Happiness</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/544732942/LOGORgb2_justH_normal.png</profile_image_url>
+      <url>http://www.projecthdesign.org/</url>
+      <protected>false</protected>
+      <followers_count>143101</followers_count>
+      <profile_background_color>9ae4e8</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>9E0051</profile_link_color>
+      <profile_sidebar_fill_color>CDD0C7</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>2E302D</profile_sidebar_border_color>
+      <friends_count>193</friends_count>
+      <created_at>Wed Jul 09 21:49:48 +0000 2008</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/147963940/4885794574_b3962d232c_b.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1093</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1741</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>20622594</id>
+      <name>Artnet Magazine</name>
+      <screen_name>artnetdotcom</screen_name>
+      <location>New York, N.Y.</location>
+      <description>News and reviews from Artnet Magazine. Editor: Walter Robinson. Associate editor: Ben Davis</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/422462362/250x250_normal.jpg</profile_image_url>
+      <url>http://www.artnet.com/magazineus/frontpage.asp</url>
+      <protected>false</protected>
+      <followers_count>124371</followers_count>
+      <profile_background_color>F47321</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>f47321</profile_link_color>
+      <profile_sidebar_fill_color>D1D1B1</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>999999</profile_sidebar_border_color>
+      <friends_count>12344</friends_count>
+      <created_at>Wed Feb 11 20:13:22 +0000 2009</created_at>
+      <favourites_count>6</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287502835/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>8268</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2924</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>8223872</id>
+      <name>Wallpaper* magazine</name>
+      <screen_name>wallpapermag</screen_name>
+      <location>London</location>
+      <description>Wallpaper* magazine's official Twitter account: global news on design, interiors, fashion, art and lifestyle</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/110647184/wallpaper_asterix_normal.gif</profile_image_url>
+      <url>http://www.wallpaper.com</url>
+      <protected>false</protected>
+      <followers_count>225083</followers_count>
+      <profile_background_color>352726</profile_background_color>
+      <profile_text_color>3E4415</profile_text_color>
+      <profile_link_color>D02B55</profile_link_color>
+      <profile_sidebar_fill_color>fafcf7</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+      <friends_count>1237</friends_count>
+      <created_at>Thu Aug 16 13:52:19 +0000 2007</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/45137617/monsoon.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1992</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>6440</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>19639085</id>
+      <name>Architectural Record</name>
+      <screen_name>ArchRecord</screen_name>
+      <location>New York City</location>
+      <description>Architecture Design for Architects. Feed maintained by Architectural Record Web Producer, Laurie Meisel - @lauriemeisel - McGraw-Hill Construction</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/75078767/AR_73x73_normal.jpg</profile_image_url>
+      <url>http://archrecord.construction.com/</url>
+      <protected>false</protected>
+      <followers_count>113710</followers_count>
+      <profile_background_color>ffffff</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>f7942c</profile_link_color>
+      <profile_sidebar_fill_color>FFFFFF</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>f7942c</profile_sidebar_border_color>
+      <friends_count>6689</friends_count>
+      <created_at>Wed Jan 28 06:16:04 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/4108879/ARlogo_twitter.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2233</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2161</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>60273</id>
+      <name>Jason Santa Maria</name>
+      <screen_name>jasonsantamaria</screen_name>
+      <location>Brooklyn, NY</location>
+      <description>Designer by day, designer by night.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/827950949/stan_color_normal.jpg</profile_image_url>
+      <url>http://jasonsantamaria.com/</url>
+      <protected>false</protected>
+      <followers_count>101086</followers_count>
+      <profile_background_color>000000</profile_background_color>
+      <profile_text_color>3F2903</profile_text_color>
+      <profile_link_color>E65829</profile_link_color>
+      <profile_sidebar_fill_color>f3fafc</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>bbd5e7</profile_sidebar_border_color>
+      <friends_count>221</friends_count>
+      <created_at>Tue Dec 12 12:11:59 +0000 2006</created_at>
+      <favourites_count>69</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/2392335/6.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>4404</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3106</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>12804422</id>
+      <name>Guggenheim Museum</name>
+      <screen_name>Guggenheim</screen_name>
+      <location>New York City</location>
+      <description>Frank Lloyd Wright's architectural masterpiece home to a world-renowned collection of modern &amp; contemporary art. Tweets by Francesca &amp; JiaJia, External Affairs.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/1149536853/Twitter_normal.jpg</profile_image_url>
+      <url>http://www.guggenheim.org</url>
+      <protected>false</protected>
+      <followers_count>186181</followers_count>
+      <profile_background_color>ebebeb</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>cc3433</profile_link_color>
+      <profile_sidebar_fill_color>e1e1e1</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>cccccc</profile_sidebar_border_color>
+      <friends_count>2203</friends_count>
+      <created_at>Mon Jan 28 22:34:13 +0000 2008</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/102357358/TwitterFinal.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1673</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>6362</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>1440641</id>
+      <name>NYTimes Arts</name>
+      <screen_name>nytimesarts</screen_name>
+      <location>New York, NY</location>
+      <description>Arts and Entertainment News from NYTimes.com/Arts</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/278375516/arts_75_twitter_normal.gif</profile_image_url>
+      <url>http://www.nytimes.com/arts</url>
+      <protected>false</protected>
+      <followers_count>183702</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>004276</profile_link_color>
+      <profile_sidebar_fill_color>E7EFF8</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>323232</profile_sidebar_border_color>
+      <friends_count>139</friends_count>
+      <created_at>Sun Mar 18 20:30:33 +0000 2007</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/2800588/twitter.post.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>24176</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5615</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>15736190</id>
+      <name>Smashing Magazine</name>
+      <screen_name>smashingmag</screen_name>
+      <location>Freiburg, Germany</location>
+      <description>Get smashed with Vitaly Friedman, editor-in-chief of Smashing Magazine, an online magazine for designers and web developers.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/572829723/original_normal.jpg</profile_image_url>
+      <url>http://www.smashingmagazine.com</url>
+      <protected>false</protected>
+      <followers_count>275629</followers_count>
+      <profile_background_color>B2DFDA</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>f51616</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+      <friends_count>498</friends_count>
+      <created_at>Tue Aug 05 14:00:40 +0000 2008</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-10800</utc_offset>
+      <time_zone>Greenland</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme13/bg.gif</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>12536</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>22366</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>16336998</id>
+      <name>Print magazine</name>
+      <screen_name>printmag</screen_name>
+      <location>New York City</location>
+      <description>Dedicated to graphic design, technology, culture, and how it all fits together. Got something you want us to see? Tell us! http://imprint.printmag.com</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/1139587727/OCT2010_150_normal.jpg</profile_image_url>
+      <url>http://www.printmag.com</url>
+      <protected>false</protected>
+      <followers_count>180609</followers_count>
+      <profile_background_color>cccccc</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>00b8d9</profile_link_color>
+      <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+      <friends_count>1302</friends_count>
+      <created_at>Wed Sep 17 20:56:30 +0000 2008</created_at>
+      <favourites_count>222</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/153332722/OCT2010_500.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1905</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4859</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>61842249</id>
+      <name>Pictory</name>
+      <screen_name>Pictory</screen_name>
+      <location>San Francisco</location>
+      <description>View http://pictorymag.com for a curated collection of personal photo stories.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/497623612/pictorytweet_normal.png</profile_image_url>
+      <url>http://pictorymag.com</url>
+      <protected>false</protected>
+      <followers_count>84148</followers_count>
+      <profile_background_color>080808</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+      <friends_count>83</friends_count>
+      <created_at>Fri Jul 31 18:40:29 +0000 2009</created_at>
+      <favourites_count>17</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>605</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1378</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>19619047</id>
+      <name>AIGA</name>
+      <screen_name>AIGAdesign</screen_name>
+      <location>United States</location>
+      <description>AIGA, the professional association for design, is committed to advancing design as a professional craft, strategic tool and vital cultural force. </description>
+      <profile_image_url>http://a0.twimg.com/profile_images/74100932/aigaLogoWeb_normal.png</profile_image_url>
+      <url>http://www.aiga.org</url>
+      <protected>false</protected>
+      <followers_count>115876</followers_count>
+      <profile_background_color>C0DEED</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+      <friends_count>160</friends_count>
+      <created_at>Tue Jan 27 21:49:35 +0000 2009</created_at>
+      <favourites_count>11</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287502835/images/themes/theme1/bg.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1102</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3366</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>12815</id>
+      <name>Veerle Pieters</name>
+      <screen_name>vpieters</screen_name>
+      <location>Belgium</location>
+      <description>Belgian graphic &amp; web designer, author of Veerle's blog and founder of Duoh! Colorlover for life who loves to listen to deep house music while designing.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/889518005/avatar-me-short-hair-256x256_normal.jpg</profile_image_url>
+      <url>http://veerle.duoh.com</url>
+      <protected>false</protected>
+      <followers_count>99900</followers_count>
+      <profile_background_color>818176</profile_background_color>
+      <profile_text_color>666666</profile_text_color>
+      <profile_link_color>e3266b</profile_link_color>
+      <profile_sidebar_fill_color>eae3d4</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>cac2b2</profile_sidebar_border_color>
+      <friends_count>266</friends_count>
+      <created_at>Fri Nov 17 09:54:04 +0000 2006</created_at>
+      <favourites_count>22</favourites_count>
+      <utc_offset>3600</utc_offset>
+      <time_zone>Brussels</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/100247105/twitter-background.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3799</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2396</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>22009731</id>
+      <name>Design Museum</name>
+      <screen_name>DesignMuseum</screen_name>
+      <location>London</location>
+      <description>One of the world's leading museums devoted to contemporary design in every form from furniture, fashion graphics, architecture and industrial design.</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/1138718740/twitter_thumb_normal.jpg</profile_image_url>
+      <url>http://www.designmuseum.org</url>
+      <protected>false</protected>
+      <followers_count>176055</followers_count>
+      <profile_background_color>9AE4E8</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>000000</profile_link_color>
+      <profile_sidebar_fill_color>0fafff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>74</friends_count>
+      <created_at>Thu Feb 26 13:48:31 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/156276367/one_to_one.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>369</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3687</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>11250</id>
+      <name>Jeremy Keith</name>
+      <screen_name>adactio</screen_name>
+      <location>Brighton, East Sussex, England</location>
+      <description>An Irish web developer living and working in Brighton, England.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/551990159/jeremykeith_normal_normal.jpg</profile_image_url>
+      <url>http://adactio.com/</url>
+      <protected>false</protected>
+      <followers_count>68786</followers_count>
+      <profile_background_color>FFFFFF</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>113355</profile_link_color>
+      <profile_sidebar_fill_color>eeeeee</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>dddddd</profile_sidebar_border_color>
+      <friends_count>451</friends_count>
+      <created_at>Wed Nov 01 13:12:51 +0000 2006</created_at>
+      <favourites_count>277</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/5952/background.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>8901</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1600</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>19412366</id>
+      <name>Andy Warhol Museum</name>
+      <screen_name>TheWarholMuseum</screen_name>
+      <location>Pittsburgh, PA, USA</location>
+      <description>more than a museum</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/234545787/TwitterLittler_normal.jpg</profile_image_url>
+      <url>http://www.warhol.org</url>
+      <protected>false</protected>
+      <followers_count>157951</followers_count>
+      <profile_background_color>000000</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>5e5e5e</profile_link_color>
+      <profile_sidebar_fill_color>cccccc</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>bababa</profile_sidebar_border_color>
+      <friends_count>4097</friends_count>
+      <created_at>Fri Jan 23 20:35:38 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/159345568/NEWTwitter_Background_copy.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>733</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3198</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>19045458</id>
+      <name>erik spiekermann</name>
+      <screen_name>espiekermann</screen_name>
+      <location>iPhone: 52.511920,13.400244</location>
+      <description>Typomaniac</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/71414018/erik_closeup_bw_normal.jpg</profile_image_url>
+      <url>http://www.spiekermann.com/en/</url>
+      <protected>false</protected>
+      <followers_count>78616</followers_count>
+      <profile_background_color>9AE4E8</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>e2e7df</profile_sidebar_border_color>
+      <friends_count>88</friends_count>
+      <created_at>Thu Jan 15 23:38:46 +0000 2009</created_at>
+      <favourites_count>5</favourites_count>
+      <utc_offset>3600</utc_offset>
+      <time_zone>Berlin</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/160411373/es_typefaces_2010.png</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2791</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1830</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>17909625</id>
+      <name>COLOURlovers</name>
+      <screen_name>colourlovers</screen_name>
+      <location>Colorland (SF/NYC/PDX)</location>
+      <description>Color + Design Community | Creator of the Twitter Profile designer www.Themeleon.com</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/66497158/12233268832678686_normal.jpg</profile_image_url>
+      <url>http://www.colourlovers.com</url>
+      <protected>false</protected>
+      <followers_count>405342</followers_count>
+      <profile_background_color>07090b</profile_background_color>
+      <profile_text_color>1c1f23</profile_text_color>
+      <profile_link_color>c34242</profile_link_color>
+      <profile_sidebar_fill_color>c9c9c9</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>bfbfbf</profile_sidebar_border_color>
+      <friends_count>941</friends_count>
+      <created_at>Fri Dec 05 22:12:31 +0000 2008</created_at>
+      <favourites_count>6</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/54629758/x10e1f6a2456a574bb99f65f13395c7e.png</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2272</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>6575</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>34207681</id>
+      <name>Estria</name>
+      <screen_name>estria</screen_name>
+      <location>Honolulu Oakland</location>
+      <description>USA&#8217;s leading promoter of Graffiti ART FORM. Head of national Estria Invitational Graffiti Battle. West Coast OG. Art &amp; inspiration from the streets.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/541529457/Hawaii_15425_MarcoProsch_normal.jpg</profile_image_url>
+      <url>http://estria.com</url>
+      <protected>false</protected>
+      <followers_count>383127</followers_count>
+      <profile_background_color>ffffff</profile_background_color>
+      <profile_text_color>5e5d5c</profile_text_color>
+      <profile_link_color>ed5007</profile_link_color>
+      <profile_sidebar_fill_color>e6e6e3</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>636263</profile_sidebar_border_color>
+      <friends_count>269</friends_count>
+      <created_at>Wed Apr 22 06:35:49 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/55676209/mstr_template2.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3272</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>622</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>21661279</id>
+      <name>Creative Review</name>
+      <screen_name>CreativeReview</screen_name>
+      <location>London</location>
+      <description>Creative Review, advertising, design and visual culture: graphics, film, photography, illustration, digital, type, art, print... Tweets by Neil and Mark.</description>
+      <profile_image_url>http://a2.twimg.com/profile_images/787755994/CR-logo_Twitter_new_normal.png</profile_image_url>
+      <url>http://creativereview.co.uk</url>
+      <protected>false</protected>
+      <followers_count>196919</followers_count>
+      <profile_background_color>E3E2DE</profile_background_color>
+      <profile_text_color>656563</profile_text_color>
+      <profile_link_color>ff4301</profile_link_color>
+      <profile_sidebar_fill_color>E3E2DE</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>656563</profile_sidebar_border_color>
+      <friends_count>11485</friends_count>
+      <created_at>Mon Feb 23 15:40:08 +0000 2009</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>0</utc_offset>
+      <time_zone>London</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/163816562/creativereview_twittNov_app.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>3987</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>6521</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>24916429</id>
+      <name>Gary Hustwit</name>
+      <screen_name>gary_hustwit</screen_name>
+      <location>NYC</location>
+      <description>Director of the documentary films Helvetica, Objectified, and Urbanized.</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/101550009/gary.72_normal.jpg</profile_image_url>
+      <url>http://www.urbanizedfilm.com</url>
+      <protected>false</protected>
+      <followers_count>70949</followers_count>
+      <profile_background_color>9e9e9e</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+      <friends_count>149</friends_count>
+      <created_at>Tue Mar 17 17:23:57 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/128410088/urbanized_twitter5.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>928</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>1139</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>22413809</id>
+      <name>Scott McCloud</name>
+      <screen_name>scottmccloud</screen_name>
+      <location>So. California</location>
+      <description>I write things, draw things, and invent things</description>
+      <profile_image_url>http://a0.twimg.com/profile_images/556926220/selfport-small_normal.jpg</profile_image_url>
+      <url>http://www.scottmccloud.com</url>
+      <protected>false</protected>
+      <followers_count>94550</followers_count>
+      <profile_background_color>1A1B1F</profile_background_color>
+      <profile_text_color>666666</profile_text_color>
+      <profile_link_color>2FC2EF</profile_link_color>
+      <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+      <friends_count>147</friends_count>
+      <created_at>Sun Mar 01 22:12:45 +0000 2009</created_at>
+      <favourites_count>0</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme9/bg.gif</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>1850</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>2510</listed_count>
+      <show_all_inline_media>true</show_all_inline_media>
+    </user>
+    <user>
+      <id>25940364</id>
+      <name>Grace Bonney</name>
+      <screen_name>designsponge</screen_name>
+      <location>brooklyn, ny</location>
+      <description>design blogstress
+www.designsponge.com</description>
+      <profile_image_url>http://a1.twimg.com/profile_images/107186057/879249852_7830b767f0_o_normal.png</profile_image_url>
+      <url>http://www.designsponge.com</url>
+      <protected>false</protected>
+      <followers_count>126085</followers_count>
+      <profile_background_color>9AE4E8</profile_background_color>
+      <profile_text_color>333333</profile_text_color>
+      <profile_link_color>0084B4</profile_link_color>
+      <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+      <friends_count>219</friends_count>
+      <created_at>Mon Mar 23 02:59:40 +0000 2009</created_at>
+      <favourites_count>1</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a1.twimg.com/profile_background_images/6474848/Design_Sponge.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>true</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>11942</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>4032</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <user>
+      <id>11512342</id>
+      <name>frog design</name>
+      <screen_name>frogdesign</screen_name>
+      <location>Headquartered in San Francisco</location>
+      <description>Global innovation firm that helps create and bring to market meaningful products, services, and experiences.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/82779175/frogdesign_twitter_logo_75_normal.png</profile_image_url>
+      <url>http://www.frogdesign.com</url>
+      <protected>false</protected>
+      <followers_count>126891</followers_count>
+      <profile_background_color>1A1B1F</profile_background_color>
+      <profile_text_color>666666</profile_text_color>
+      <profile_link_color>2FC2EF</profile_link_color>
+      <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>ffffff</profile_sidebar_border_color>
+      <friends_count>2726</friends_count>
+      <created_at>Tue Dec 25 20:38:13 +0000 2007</created_at>
+      <favourites_count>2</favourites_count>
+      <utc_offset>-28800</utc_offset>
+      <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/6212089/collager2009_color2.jpg</profile_background_image_url>
+      <profile_background_tile>true</profile_background_tile>
+      <profile_use_background_image>true</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>2427</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>3121</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+  </users>
+</category>

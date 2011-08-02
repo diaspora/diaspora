@@ -1,0 +1,29 @@
+- Upgrade.md
+- Changelog.md
+- customized_message.feature
+- diffing.feature
+- implicit_docstrings.feature
+- built_in_matchers:
+  - be.feature
+  - be_within.feature
+  - equality.feature
+  - exist.feature
+  - expect_change.feature
+  - expect_error.feature
+  - have.feature
+  - include.feature
+  - match.feature
+  - operators.feature
+  - predicates.feature
+  - respond_to.feature
+  - satisfy.feature
+  - throw_symbol.feature
+  - types.feature
+- custom_matchers:
+  - define_matcher.feature
+  - define_diffable_matcher.feature
+  - define_matcher_with_fluent_interface.feature
+  - access_running_example.feature
+  - define_matcher_outside_rspec.feature
+- test_frameworks:
+  - test_unit.feature

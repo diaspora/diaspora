@@ -1,0 +1,11 @@
+%div
+  The response from the RESOURCE SERVER loading "/account.json :"
+  %h2 
+    Headers
+  %pre
+    =@resource_response.headers.inspect
+  %h2 
+    Body
+  %pre
+    =@resource_response.body.inspect
+      

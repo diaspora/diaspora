@@ -45,6 +45,9 @@ javascripts:
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js
+    - public/javascripts/strophe.js
+    - public/javascripts/xmpp.js
+    - public/javascripts/jingle-rtmfp.js
   login:
     - public/javascripts/login.js
   mobile:
@@ -80,7 +83,8 @@ javascripts:
     - public/javascripts/inbox.js
   profile:
     - public/javascripts/vendor/jquery.autoSuggest.custom.js
-
+  chat_ui:
+    - public/javascripts/chatui.js
 stylesheets:
   default:
     - public/stylesheets/application.css

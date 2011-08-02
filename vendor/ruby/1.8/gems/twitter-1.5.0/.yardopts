@@ -1,0 +1,9 @@
+--no-private
+--protected
+--tag format:"Supported formats"
+--tag authenticated:"Requires Authentication"
+--tag rate_limited:"Rate Limited"
+--markup markdown
+-
+HISTORY.md
+LICENSE.md

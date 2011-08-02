@@ -1,0 +1,32 @@
+bash -c '
+if [ ! -f /usr/bin/chef-client ]; then
+  echo "chef	chef/chef_server_url	string	<%= Chef::Config[:chef_server_url] %>" | debconf-set-selections 
+  [ -f /etc/apt/sources.list.d/opscode.list ] || echo "deb http://apt.opscode.com lucid main" > /etc/apt/sources.list.d/opscode.list
+  wget -O- http://apt.opscode.com/packages@opscode.com.gpg.key | apt-key add -
+fi
+apt-get update
+apt-get install -y chef
+
+<% unless Chef::Config[:validation_client_name] == "chef-validator" -%>
+[  `grep -qx "validation_client_name \"<%= Chef::Config[:validation_client_name] %>\"" /etc/chef/client.rb` ] || echo "validation_client_name \"<%= Chef::Config[:validation_client_name] %>\"" >> /etc/chef/client.rb
+<% end -%>
+
+(
+cat <<'EOP'
+<%= IO.read(Chef::Config[:validation_key]) %>
+EOP
+) > /tmp/validation.pem
+awk NF /tmp/validation.pem > /etc/chef/validation.pem
+rm /tmp/validation.pem
+
+<% if @config[:chef_node_name] %>
+[ `grep -qx "node_name \"<%= @config[:chef_node_name] %>\"" /etc/chef/client.rb` ] || echo "node_name \"<%= @config[:chef_node_name] %>\"" >> /etc/chef/client.rb
+<% end -%> 
+
+(
+cat <<'EOP'
+<%= { "run_list" => @run_list }.to_json %>
+EOP
+) > /etc/chef/first-boot.json
+
+/usr/bin/chef-client -j /etc/chef/first-boot.json'

@@ -1,0 +1,44 @@
+bash -c '
+if [ ! -f /usr/bin/chef-client ]; then
+  pacman -Syy
+  pacman -S --noconfirm ruby ntp
+  ntpdate pool.ntp.org
+  gem install ohai chef --no-rdoc --no-ri --verbose <%= '--prerelease' if @config[:prerelease] %>
+fi
+
+mkdir -p /etc/chef
+(
+cat <<'EOP'
+<%= IO.read(Chef::Config[:validation_key]) %>
+EOP
+) > /tmp/validation.pem
+awk NF /tmp/validation.pem > /etc/chef/validation.pem
+rm /tmp/validation.pem
+
+(
+cat <<'EOP'
+log_level        :info
+log_location     STDOUT
+chef_server_url  "<%= Chef::Config[:chef_server_url] %>"
+validation_client_name "<%= Chef::Config[:validation_client_name] %>"
+<% if @config[:chef_node_name] == nil %>
+# Using default node name (fqdn)
+<% else %>
+node_name "<%= @config[:chef_node_name] %>"
+<% end %> 
+# ArchLinux follows the Filesystem Hierarchy Standard
+file_cache_path    "/var/cache/chef"
+file_backup_path   "/var/lib/chef/backup"
+pid_file           "/var/run/chef/client.pid"
+cache_options({ :path => "/var/cache/chef/checksums", :skip_expires => true})
+EOP
+) > /etc/chef/client.rb
+
+(
+cat <<'EOP'
+<%= { "run_list" => @run_list }.to_json %>
+EOP
+) > /etc/chef/first-boot.json
+
+/usr/bin/chef-client -j /etc/chef/first-boot.json
+'

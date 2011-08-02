@@ -1,0 +1,55 @@
+PATH
+  remote: .
+  specs:
+    gherkin (2.4.5)
+      json (>= 1.4.6)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    awesome_print (0.4.0)
+    builder (3.0.0)
+    cucumber (1.0.0)
+      builder (>= 2.1.2)
+      diff-lcs (>= 1.1.2)
+      gherkin (~> 2.4.1)
+      json (>= 1.4.6)
+      term-ansicolor (>= 1.0.5)
+    diff-lcs (1.1.2)
+    json (1.5.3)
+    json (1.5.3-java)
+    libv8 (3.3.10.2)
+    rake (0.9.2)
+    rake-compiler (0.7.9)
+      rake
+    rdiscount (1.6.8)
+    rspec (2.6.0)
+      rspec-core (~> 2.6.0)
+      rspec-expectations (~> 2.6.0)
+      rspec-mocks (~> 2.6.0)
+    rspec-core (2.6.4)
+    rspec-expectations (2.6.0)
+      diff-lcs (~> 1.1.2)
+    rspec-mocks (2.6.0)
+    term-ansicolor (1.0.5)
+    therubyracer (0.9.2)
+      libv8 (~> 3.3.10)
+    yard (0.7.2)
+
+PLATFORMS
+  java
+  ruby
+
+DEPENDENCIES
+  awesome_print (>= 0.4.0)
+  builder (>= 2.1.2)
+  bundler (>= 1.0.15)
+  cucumber (>= 1.0.0)
+  gherkin!
+  rake (>= 0.9.2)
+  rake-compiler (>= 0.7.8)
+  rdiscount (>= 1.6.8)
+  rspec (>= 2.6.0)
+  term-ansicolor (>= 1.0.5)
+  therubyracer (>= 0.9.2)
+  yard (>= 0.7.2)

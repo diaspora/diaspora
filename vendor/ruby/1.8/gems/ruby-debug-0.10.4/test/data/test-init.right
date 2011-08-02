@@ -1,0 +1,5 @@
+gcd-dbg.rb:18
+if a > b
+(rdb:1) "./gcd-dbg.rb"
+(rdb:1) Argument list to give program being debugged when it is started is "5".
+(rdb:1) 

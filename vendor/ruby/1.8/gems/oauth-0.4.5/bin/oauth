@@ -1,0 +1,5 @@
+#!/usr/bin/env ruby
+
+require "oauth/cli"
+
+OAuth::CLI.execute(STDOUT, STDIN, STDERR, ARGV)

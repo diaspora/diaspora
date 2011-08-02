@@ -1,0 +1,1543 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<direct-messages type="array">
+<direct_message>
+  <id>1773478249</id>
+  <sender_id>7505382</sender_id>
+  <text>Sounds good. Meeting Tuesday is fine.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Sun Oct 17 20:48:55 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1769928706</id>
+  <sender_id>7505382</sender_id>
+  <text>if you want to add me to your GroupMe group, my phone number is 415-312-2382</text>
+  <recipient_id>780561</recipient_id>
+  <created_at>Sat Oct 16 19:15:50 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>technoweenie</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>780561</id>
+    <name>technow&#252;rst</name>
+    <screen_name>technoweenie</screen_name>
+    <location>sf</location>
+    <description>Relax, sweetheart. Tomorrow morning's hangover will be my own personal apocalypse.</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/1002166914/rick2_normal.jpg</profile_image_url>
+    <url>http://techno-weenie.net</url>
+    <protected>false</protected>
+    <followers_count>3961</followers_count>
+    <profile_background_color>FFFFFF</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>192</friends_count>
+    <created_at>Mon Feb 19 17:12:49 +0000 2007</created_at>
+    <favourites_count>80</favourites_count>
+    <utc_offset>-21600</utc_offset>
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/58852/bg-rgt.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>11450</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>446</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1762960771</id>
+  <sender_id>7505382</sender_id>
+  <text>That's great news! Let's plan to chat around 8 AM tomorrow Pacific time. Does that work for you? </text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Thu Oct 14 21:43:30 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1711812216</id>
+  <sender_id>7505382</sender_id>
+  <text>I asked Yehuda about the stipend. I believe it has already been sent. Glad you're feeling better. </text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Fri Oct 01 15:07:12 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1711417617</id>
+  <sender_id>7505382</sender_id>
+  <text>Just checking in. How's everything going?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Fri Oct 01 13:09:27 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1674941247</id>
+  <sender_id>7505382</sender_id>
+  <text>Any luck completing graphs this weekend? There have been lots of commits to RailsAdmin since summer ended but none from you. How's it going?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Wed Sep 22 04:01:59 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1653301471</id>
+  <sender_id>7505382</sender_id>
+  <text>Not sure about the payment. Feel free to ask Leah or Yehuda directly. Think you'll be able to finish up your work on graphs this weekend?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Thu Sep 16 16:13:27 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1646568725</id>
+  <sender_id>7505382</sender_id>
+  <text>Looks good to me. I'm going to pull in the change now. My only concern is that we don't have any tests for auth.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Wed Sep 15 01:17:31 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1645324992</id>
+  <sender_id>7505382</sender_id>
+  <text>How are the graph enhancements coming?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Tue Sep 14 18:44:10 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1638951325</id>
+  <sender_id>7505382</sender_id>
+  <text>Changes pushed. You should pull and re-bundle when you have a minute.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Mon Sep 13 06:35:29 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1638904422</id>
+  <sender_id>7505382</sender_id>
+  <text>Glad to hear the new graphs are coming along. Can't wait to see them!</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Mon Sep 13 06:13:33 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1638903478</id>
+  <sender_id>7505382</sender_id>
+  <text>I figured out what was wrong with the tests: I accidentally unbundled webrat. The problem had nothing to do with rspec-rails.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Mon Sep 13 06:13:08 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1638877375</id>
+  <sender_id>7505382</sender_id>
+  <text>After the upgrade 54/80 specs are failing. I'm working on fixing them now.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Mon Sep 13 06:01:54 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1638875895</id>
+  <sender_id>7505382</sender_id>
+  <text>a new version of rspec-rails just shipped with some nice features and fixes http://github.com/rspec/rspec-rails/blob/master/History.md</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Mon Sep 13 06:01:18 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1632933616</id>
+  <sender_id>7505382</sender_id>
+  <text>How are the graphs coming? I'm really looking forward to seeing what you do with Rapha&#235;l.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Sat Sep 11 17:45:46 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1629239903</id>
+  <sender_id>7505382</sender_id>
+  <text>Awesome! Any luck duplicating the Gemfile.lock error with Ruby 1.9.2 final?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Fri Sep 10 18:21:36 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1629166212</id>
+  <sender_id>7505382</sender_id>
+  <text>I just committed a bunch of cleanup and fixes to RailsAdmin that touched many of files. Make sure you pull to avoid conflicts.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Fri Sep 10 17:56:53 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1626403189</id>
+  <sender_id>7505382</sender_id>
+  <text>Can you try upgrading to 1.9.2 final, re-installing Bundler 1.0.0.rc.6 (don't remove 1.0.0) and see if you can reproduce the problem?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Fri Sep 10 02:05:16 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1624782206</id>
+  <sender_id>7505382</sender_id>
+  <text>I'm trying to debug the issue you were having with the Bundler Gemfile.lock shortref. What version of Ruby and RubyGems are you running?</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Thu Sep 09 18:11:48 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+<direct_message>
+  <id>1622306776</id>
+  <sender_id>7505382</sender_id>
+  <text>Let's try to debug that problem during our session in 1.5 hours. In the mean time, try working on the graphs or internationalization.</text>
+  <recipient_id>6238622</recipient_id>
+  <created_at>Thu Sep 09 03:32:59 +0000 2010</created_at>
+  <sender_screen_name>sferik</sender_screen_name>
+  <recipient_screen_name>hurrycane</recipient_screen_name>
+  <sender>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>729</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2970</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </sender>
+  <recipient>
+    <id>6238622</id>
+    <name>Bogdan Gaza</name>
+    <screen_name>hurrycane</screen_name>
+    <location>Lille, France</location>
+    <description>Erasmus @ Lille, FII  Student, Freelance web developer, Ruby &amp; Rails fan</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1099173727/DSC_0261_normal.png</profile_image_url>
+    <url>http://purl.org/net/bogdan.gaza</url>
+    <protected>false</protected>
+    <followers_count>275</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>196</friends_count>
+    <created_at>Tue May 22 17:13:45 +0000 2007</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>3600</utc_offset>
+    <time_zone>Paris</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286916367/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1448</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>11</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </recipient>
+</direct_message>
+</direct-messages>

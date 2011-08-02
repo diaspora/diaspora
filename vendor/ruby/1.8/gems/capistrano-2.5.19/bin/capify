@@ -1,0 +1,86 @@
+#!/usr/bin/env ruby
+
+require 'optparse'
+require 'fileutils'
+
+OptionParser.new do |opts|
+  opts.banner = "Usage: #{File.basename($0)} [path]"
+
+  opts.on("-h", "--help", "Displays this help info") do
+    puts opts
+    exit 0
+  end
+
+  begin
+    opts.parse!(ARGV)
+  rescue OptionParser::ParseError => e
+    warn e.message
+    puts opts
+    exit 1
+  end
+end
+
+if ARGV.empty?
+  abort "Please specify the directory to capify, e.g. `#{File.basename($0)} .'"
+elsif !File.exists?(ARGV.first)
+  abort "`#{ARGV.first}' does not exist."
+elsif !File.directory?(ARGV.first)
+  abort "`#{ARGV.first}' is not a directory."
+elsif ARGV.length > 1
+  abort "Too many arguments; please specify only the directory to capify."
+end
+
+def unindent(string)
+  indentation = string[/\A\s*/]
+  string.strip.gsub(/^#{indentation}/, "")
+end
+
+files = {
+  "Capfile" => unindent(<<-FILE),
+    load 'deploy' if respond_to?(:namespace) # cap2 differentiator
+    Dir['vendor/plugins/*/recipes/*.rb'].each { |plugin| load(plugin) }
+
+    load 'config/deploy' # remove this line to skip loading any of the default tasks
+  FILE
+
+  "config/deploy.rb" => 'set :application, "set your application name here"
+set :repository,  "set your repository location here"
+
+set :scm, :subversion
+# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
+
+role :web, "your web-server here"                          # Your HTTP server, Apache/etc
+role :app, "your app-server here"                          # This may be the same as your `Web` server
+role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
+role :db,  "your slave db-server here"
+
+# If you are using Passenger mod_rails uncomment this:
+# if you\'re still using the script/reapear helper you will need
+# these http://github.com/rails/irs_process_scripts
+
+# namespace :deploy do
+#   task :start do ; end
+#   task :stop do ; end
+#   task :restart, :roles => :app, :except => { :no_release => true } do
+#     run "#{try_sudo} touch #{File.join(current_path,\'tmp\',\'restart.txt\')}"
+#   end
+# end'}
+
+base = ARGV.shift
+files.each do |file, content|
+  file = File.join(base, file)
+  if File.exists?(file)
+    warn "[skip] '#{file}' already exists"
+  elsif File.exists?(file.downcase)
+    warn "[skip] '#{file.downcase}' exists, which could conflict with `#{file}'"
+  else
+    unless File.exists?(File.dirname(file))
+      puts "[add] making directory '#{File.dirname(file)}'"
+      FileUtils.mkdir(File.dirname(file))
+    end
+    puts "[add] writing '#{file}'"
+    File.open(file, "w") { |f| f.write(content) }
+  end
+end
+
+puts "[done] capified!"

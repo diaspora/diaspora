@@ -1,0 +1,1844 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<statuses type="array">
+<status>
+  <created_at>Mon Oct 25 07:39:31 +0000 2010</created_at>
+  <id>28669560363</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://apps.facebook.com/the-run-around/&quot; rel=&quot;nofollow&quot;&gt;The Run Around&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91398</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>7505382</id>
+    <name>Erik Michaels-Ober</name>
+    <screen_name>sferik</screen_name>
+    <location>San Francisco</location>
+    <description>Adventures in hunger and foolishness.</description>
+    <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>898</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>88</friends_count>
+    <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+    <favourites_count>727</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2968</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>28</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+  <new_id>608250239844884480</new_id>
+</status>
+<status>
+  <created_at>Sun Oct 24 21:03:54 +0000 2010</created_at>
+  <id>28628407808</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>15266837</id>
+    <name>Valerie</name>
+    <screen_name>valonthecoast</screen_name>
+    <location>Santa Barbara, CA</location>
+    <description>(R-Twitter)</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/1151376709/IMG_3380_normal.JPG</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>265</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>0900ff</profile_text_color>
+    <profile_link_color>ff0000</profile_link_color>
+    <profile_sidebar_fill_color>000000</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>0015ff</profile_sidebar_border_color>
+    <friends_count>47</friends_count>
+    <created_at>Sat Jun 28 23:33:52 +0000 2008</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/68504774/Twitter_background.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>4956</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>5</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 18:04:16 +0000 2010</created_at>
+  <id>28616037110</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91348</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>10483</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5070</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>20387473</id>
+    <name>Mike Ventre</name>
+    <screen_name>mikeventre</screen_name>
+    <location>Watertown, MA, USA</location>
+    <description>A loner on a mission to save those that can still be saved...</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/76539399/ventre_normal.jpg</profile_image_url>
+    <url>http://www.mikeventre.com</url>
+    <protected>false</protected>
+    <followers_count>76</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>2FC2EF</profile_link_color>
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+    <friends_count>146</friends_count>
+    <created_at>Sun Feb 08 19:45:34 +0000 2009</created_at>
+    <favourites_count>11</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286818005/images/themes/theme9/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>1069</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>4</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+  <new_id>608045074957209600</new_id>
+</status>
+<status>
+  <created_at>Sun Oct 24 17:33:25 +0000 2010</created_at>
+  <id>28613842727</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91334</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10483</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5071</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>14528563</id>
+    <name>Sam</name>
+    <screen_name>redgears</screen_name>
+    <location>Somerville, Mass</location>
+    <description>a many splendored thing</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/53327678/L1020938_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>127</followers_count>
+    <profile_background_color>B20505</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>5D4040</profile_link_color>
+    <profile_sidebar_fill_color>D01212</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>8C0707</profile_sidebar_border_color>
+    <friends_count>184</friends_count>
+    <created_at>Fri Apr 25 16:21:14 +0000 2008</created_at>
+    <favourites_count>75</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/2465301/twitterbg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2326</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>7</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+  <new_id>608037310025433088</new_id>
+</status>
+<status>
+  <created_at>Sun Oct 24 16:45:46 +0000 2010</created_at>
+  <id>28610549061</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91382</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5096</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>16927201</id>
+    <name>mikemead</name>
+    <screen_name>mikemead</screen_name>
+    <location>Philadelphia, PA</location>
+    <description></description>
+    <profile_image_url>http://a2.twimg.com/profile_images/70022634/ChrisFarleyDaBears_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>50</followers_count>
+    <profile_background_color>352726</profile_background_color>
+    <profile_text_color>3E4415</profile_text_color>
+    <profile_link_color>D02B55</profile_link_color>
+    <profile_sidebar_fill_color>99CC33</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>829D5E</profile_sidebar_border_color>
+    <friends_count>72</friends_count>
+    <created_at>Thu Oct 23 14:19:23 +0000 2008</created_at>
+    <favourites_count>3</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/4310881/punchout-night.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>933</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>4</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 15:32:12 +0000 2010</created_at>
+  <id>28605276175</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91355</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>10486</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5073</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>29557556</id>
+    <name>Robert Colorafi</name>
+    <screen_name>herbibore</screen_name>
+    <location>ON, NY, ETC, TBA</location>
+    <description>MBA Student, Philanthropist, Auteur</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/552452151/IMG_2142_normal.png</profile_image_url>
+    <url>http://colorafi.com</url>
+    <protected>false</protected>
+    <followers_count>58</followers_count>
+    <profile_background_color>000000</profile_background_color>
+    <profile_text_color>3D1957</profile_text_color>
+    <profile_link_color>FF0000</profile_link_color>
+    <profile_sidebar_fill_color>7AC3EE</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>65B0DA</profile_sidebar_border_color>
+    <friends_count>107</friends_count>
+    <created_at>Tue Apr 07 21:59:39 +0000 2009</created_at>
+    <favourites_count>3</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme13/bg.gif</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>1777</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>8</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 14:48:11 +0000 2010</created_at>
+  <id>28601509735</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91315</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8600</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10483</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5072</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>15909175</id>
+    <name>JD Matlock</name>
+    <screen_name>jdmatlock</screen_name>
+    <location>L5P, Atlanta, Georgia</location>
+    <description>This feed is rated NC-17. I'm a rude, loud and obnoxious twit who will lash out at anyone and everything. You've been warned. ;)</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/637954274/head_normal.jpg</profile_image_url>
+    <url>http://xtex404.com</url>
+    <protected>false</protected>
+    <followers_count>157</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>2FC2EF</profile_link_color>
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+    <friends_count>106</friends_count>
+    <created_at>Tue Aug 19 20:33:02 +0000 2008</created_at>
+    <favourites_count>80</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3203060/camo.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>4893</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>6</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+  <new_id>607995728706408448</new_id>
+</status>
+<status>
+  <created_at>Sun Oct 24 14:11:12 +0000 2010</created_at>
+  <id>28598327299</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91357</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>10487</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>14015462</id>
+    <name>Daniel Schaffer</name>
+    <screen_name>DanielSchaffer</screen_name>
+    <location>Portland, OR</location>
+    <description>I am a self-employed software consultant, and I love working with .NET.</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/109704486/n601599551_1548968_5665_normal.jpg</profile_image_url>
+    <url>http://dandoes.net</url>
+    <protected>false</protected>
+    <followers_count>160</followers_count>
+    <profile_background_color>022330</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>C0DFEC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>a8c7f7</profile_sidebar_border_color>
+    <friends_count>103</friends_count>
+    <created_at>Tue Feb 26 17:35:21 +0000 2008</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme15/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>704</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>15</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 14:09:06 +0000 2010</created_at>
+  <id>28598145627</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>10813</id>
+    <name>Ryan Cook</name>
+    <screen_name>ryancook</screen_name>
+    <location></location>
+    <description>shiftless layabout</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1105783659/flash_me_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>204</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>0000ff</profile_link_color>
+    <profile_sidebar_fill_color>e0ff92</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>87bc44</profile_sidebar_border_color>
+    <friends_count>202</friends_count>
+    <created_at>Fri Oct 27 15:39:37 +0000 2006</created_at>
+    <favourites_count>22</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3931310/black.png</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>3639</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>3</listed_count>
+    <show_all_inline_media>true</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 14:04:56 +0000 2010</created_at>
+  <id>28597778505</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>15429051</id>
+    <name>johnbutler</name>
+    <screen_name>johnbutler</screen_name>
+    <location>Minneapolis, MN</location>
+    <description>I am a biomedical engineer, tech enthusiast, cyclist, skier, snowboarder, recreational movie editor, and so much more.</description>
+    <profile_image_url>http://a2.twimg.com/profile_images/1137917918/IMG_0151_normal.jpg</profile_image_url>
+    <url>http://www.johndbutler.com</url>
+    <protected>false</protected>
+    <followers_count>36</followers_count>
+    <profile_background_color>131516</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>009999</profile_link_color>
+    <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+    <friends_count>56</friends_count>
+    <created_at>Mon Jul 14 17:03:06 +0000 2008</created_at>
+    <favourites_count>10</favourites_count>
+    <utc_offset>-21600</utc_offset>
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1286818005/images/themes/theme14/bg.gif</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>241</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>1</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 13:16:34 +0000 2010</created_at>
+  <id>28593967502</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91315</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8599</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10483</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5072</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>7604372</id>
+    <name>Steve Lim</name>
+    <screen_name>limster</screen_name>
+    <location>NYC</location>
+    <description>http://stevelim.info</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/119138669/hi_normal.png</profile_image_url>
+    <url>http://stevelim.info</url>
+    <protected>false</protected>
+    <followers_count>23</followers_count>
+    <profile_background_color>1A1B1F</profile_background_color>
+    <profile_text_color>666666</profile_text_color>
+    <profile_link_color>2FC2EF</profile_link_color>
+    <profile_sidebar_fill_color>252429</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>181A1E</profile_sidebar_border_color>
+    <friends_count>48</friends_count>
+    <created_at>Fri Jul 20 08:07:25 +0000 2007</created_at>
+    <favourites_count>34</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Quito</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1285780147/images/themes/theme9/bg.gif</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>317</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>1</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+  <new_id>607972670536941568</new_id>
+</status>
+<status>
+  <created_at>Sun Oct 24 12:59:54 +0000 2010</created_at>
+  <id>28592716957</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>web</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91305</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8599</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>false</following>
+      <statuses_count>10483</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5072</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>1705871</id>
+    <name>peter honeyman</name>
+    <screen_name>peterhoneyman</screen_name>
+    <location>ann arbor</location>
+    <description>college professor</description>
+    <profile_image_url>http://a3.twimg.com/profile_images/228143303/Photo_5_normal.jpg</profile_image_url>
+    <url>http://peter.honeyman.org/</url>
+    <protected>false</protected>
+    <followers_count>270</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>230</friends_count>
+    <created_at>Wed Mar 21 02:58:37 +0000 2007</created_at>
+    <favourites_count>17</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/161271833/tanspose.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>false</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>true</following>
+    <statuses_count>6626</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>29</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 12:50:33 +0000 2010</created_at>
+  <id>28592060615</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>100847902</id>
+    <name>Chris Vasilik</name>
+    <screen_name>ChrisVasilik</screen_name>
+    <location>GET THESE BALLZ</location>
+    <description>GET AT THESE BALLZ</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/704886761/image_normal.jpg</profile_image_url>
+    <url>http://YOUR ALL OVER THESE BALLZ</url>
+    <protected>false</protected>
+    <followers_count>16</followers_count>
+    <profile_background_color>C0DEED</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+    <friends_count>52</friends_count>
+    <created_at>Thu Dec 31 21:30:55 +0000 2009</created_at>
+    <favourites_count>12</favourites_count>
+    <utc_offset></utc_offset>
+    <time_zone></time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1287774835/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>102</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>0</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 12:02:04 +0000 2010</created_at>
+  <id>28588888640</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitterrific.com&quot; rel=&quot;nofollow&quot;&gt;Twitterrific&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>15224819</id>
+    <name>John T.</name>
+    <screen_name>xraydelta1</screen_name>
+    <location>Milwaukee, WI</location>
+    <description></description>
+    <profile_image_url>http://a3.twimg.com/profile_images/115047715/th_hal2_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>7</followers_count>
+    <profile_background_color>9ae4e8</profile_background_color>
+    <profile_text_color>000000</profile_text_color>
+    <profile_link_color>2117FF</profile_link_color>
+    <profile_sidebar_fill_color>ffffff</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>000000</profile_sidebar_border_color>
+    <friends_count>65</friends_count>
+    <created_at>Tue Jun 24 22:33:44 +0000 2008</created_at>
+    <favourites_count>13</favourites_count>
+    <utc_offset>-21600</utc_offset>
+    <time_zone>Central Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a1.twimg.com/profile_background_images/3135526/2001_hal_shutdown.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2044</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>2</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 11:39:21 +0000 2010</created_at>
+  <id>28587550180</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>16928337</id>
+    <name>maxwinkler</name>
+    <screen_name>maxwinkler</screen_name>
+    <location>NJ</location>
+    <description></description>
+    <profile_image_url>http://a3.twimg.com/profile_images/150390715/fu_yankke_game_lo_normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>14</followers_count>
+    <profile_background_color>5d862d</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+    <friends_count>197</friends_count>
+    <created_at>Thu Oct 23 15:17:01 +0000 2008</created_at>
+    <favourites_count>8</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1287010001/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>false</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>268</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>0</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 11:39:17 +0000 2010</created_at>
+  <id>28587546699</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://www.tweetdeck.com&quot; rel=&quot;nofollow&quot;&gt;TweetDeck&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>16903243</id>
+    <name>James Lynch III</name>
+    <screen_name>jlynch3</screen_name>
+    <location>iPhone: 34.152664,-118.418541</location>
+    <description>if you need to know, you probably do. Currently CTO of @ecoReserve, I've done online music, corporate tech, artist management, and other fun stuff... </description>
+    <profile_image_url>http://a3.twimg.com/profile_images/1101753935/headshot2_normal.jpg</profile_image_url>
+    <url>http://ecoreserve.org</url>
+    <protected>false</protected>
+    <followers_count>200</followers_count>
+    <profile_background_color>9AE4E8</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>0084B4</profile_link_color>
+    <profile_sidebar_fill_color>DDFFCC</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>BDDCAD</profile_sidebar_border_color>
+    <friends_count>284</friends_count>
+    <created_at>Wed Oct 22 10:17:51 +0000 2008</created_at>
+    <favourites_count>0</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/3309085/dudesleep.jpg</profile_background_image_url>
+    <profile_background_tile>true</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>true</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>2992</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>6</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 11:26:39 +0000 2010</created_at>
+  <id>28586847755</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>174534061</id>
+    <name>DoverPeterson</name>
+    <screen_name>DoveRoc</screen_name>
+    <location>Hell Bent, USA</location>
+    <description>Vanguard, Kosmic4, Def City Vets, Using The Imagination, Busting Loose Always, Top Choice Masterpieces.</description>
+    <profile_image_url>http://a1.twimg.com/profile_images/1095182701/DuvRoc_normal.jpg</profile_image_url>
+    <url>http://vanguardmovement.com</url>
+    <protected>false</protected>
+    <followers_count>34</followers_count>
+    <profile_background_color>131516</profile_background_color>
+    <profile_text_color>333333</profile_text_color>
+    <profile_link_color>009999</profile_link_color>
+    <profile_sidebar_fill_color>efefef</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>eeeeee</profile_sidebar_border_color>
+    <friends_count>47</friends_count>
+    <created_at>Wed Aug 04 04:32:45 +0000 2010</created_at>
+    <favourites_count>1</favourites_count>
+    <utc_offset>-18000</utc_offset>
+    <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://a3.twimg.com/profile_background_images/135928867/orion-nebula.jpg</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>true</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>369</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>1</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+<status>
+  <created_at>Sun Oct 24 10:27:34 +0000 2010</created_at>
+  <id>28583768789</id>
+  <text>RT @gruber: As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+  <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+  <truncated>false</truncated>
+  <favorited>false</favorited>
+  <in_reply_to_status_id></in_reply_to_status_id>
+  <in_reply_to_user_id></in_reply_to_user_id>
+  <in_reply_to_screen_name></in_reply_to_screen_name>
+  <retweet_count></retweet_count>
+  <retweeted>false</retweeted>
+  <retweeted_status>
+    <created_at>Sun Oct 24 03:46:25 +0000 2010</created_at>
+    <id>28561922516</id>
+    <text>As for the Series, I'm for the Giants. Fuck Texas, fuck Nolan Ryan, fuck George Bush.</text>
+    <source>&lt;a href=&quot;http://twitter.com/&quot; rel=&quot;nofollow&quot;&gt;Twitter for iPhone&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <user>
+      <id>33423</id>
+      <name>John Gruber</name>
+      <screen_name>gruber</screen_name>
+      <location>Philadelphia</location>
+      <description>Raconteur.</description>
+      <profile_image_url>http://a3.twimg.com/profile_images/546338003/gruber-sxsw-final_normal.png</profile_image_url>
+      <url>http://daringfireball.net</url>
+      <protected>false</protected>
+      <followers_count>91400</followers_count>
+      <profile_background_color>5D5D5D</profile_background_color>
+      <profile_text_color>000000</profile_text_color>
+      <profile_link_color>2626C3</profile_link_color>
+      <profile_sidebar_fill_color>dddddd</profile_sidebar_fill_color>
+      <profile_sidebar_border_color>5d5d5d</profile_sidebar_border_color>
+      <friends_count>452</friends_count>
+      <created_at>Fri Dec 01 02:52:40 +0000 2006</created_at>
+      <favourites_count>8601</favourites_count>
+      <utc_offset>-18000</utc_offset>
+      <time_zone>Eastern Time (US &amp; Canada)</time_zone>
+      <profile_background_image_url>http://a3.twimg.com/profile_background_images/3150433/Rumsfeld__Kissinger__Nixon_at_1974_NATO_meeting.jpg</profile_background_image_url>
+      <profile_background_tile>false</profile_background_tile>
+      <profile_use_background_image>false</profile_use_background_image>
+      <notifications>false</notifications>
+      <geo_enabled>false</geo_enabled>
+      <verified>false</verified>
+      <following>true</following>
+      <statuses_count>10488</statuses_count>
+      <lang>en</lang>
+      <contributors_enabled>false</contributors_enabled>
+      <follow_request_sent>false</follow_request_sent>
+      <listed_count>5095</listed_count>
+      <show_all_inline_media>false</show_all_inline_media>
+    </user>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </retweeted_status>
+  <user>
+    <id>36433</id>
+    <name>tumult</name>
+    <screen_name>tumult</screen_name>
+    <location>Bay Area, California</location>
+    <description></description>
+    <profile_image_url>http://a2.twimg.com/profile_images/436824810/eafe0b9a2b464ac4b0285da4f3ff2a43ce4b4130_full__1__normal.jpg</profile_image_url>
+    <url></url>
+    <protected>false</protected>
+    <followers_count>130</followers_count>
+    <profile_background_color>303030</profile_background_color>
+    <profile_text_color>0D0D0D</profile_text_color>
+    <profile_link_color>353A44</profile_link_color>
+    <profile_sidebar_fill_color>C6C6C6</profile_sidebar_fill_color>
+    <profile_sidebar_border_color>DFE4E6</profile_sidebar_border_color>
+    <friends_count>52</friends_count>
+    <created_at>Sat Dec 02 04:37:44 +0000 2006</created_at>
+    <favourites_count>70</favourites_count>
+    <utc_offset>-28800</utc_offset>
+    <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+    <profile_background_image_url>http://s.twimg.com/a/1287523226/images/themes/theme1/bg.png</profile_background_image_url>
+    <profile_background_tile>false</profile_background_tile>
+    <profile_use_background_image>false</profile_use_background_image>
+    <notifications>false</notifications>
+    <geo_enabled>false</geo_enabled>
+    <verified>false</verified>
+    <following>false</following>
+    <statuses_count>761</statuses_count>
+    <lang>en</lang>
+    <contributors_enabled>false</contributors_enabled>
+    <follow_request_sent>false</follow_request_sent>
+    <listed_count>9</listed_count>
+    <show_all_inline_media>false</show_all_inline_media>
+  </user>
+  <geo/>
+  <coordinates/>
+  <place/>
+  <contributors/>
+</status>
+</statuses>

@@ -1,0 +1,160 @@
+=== 0.4.5 2011-06-25
+
+* Add explicit require for rsa/sha1 (Juris Galang)
+* Use webmock to mock all http-requests in tests (Adrian Feldman)
+* Add gemtest support (Adrian Feldman)
+* Fix POST Requests with Typhoeus proxy (niedhui)
+* Mention Typhoeus require in the README (Kim Ahlström)
+* Fix incorrect hardcoded port (Ian Taylor)
+* Use Net::HTTPGenericRequest (Jakub Kuźma)
+
+=== 0.4.4 2010-10-31
+
+* Fix LoadError rescue in tests: return can't be used in this context (Hans de Graaff)
+* HTTP headers should be strings. (seancribbs)
+* ensure consumer uri gets set back to original config even if an error occurs (Brian Finney)
+* Yahoo uses & to split records in OAuth headers (Brian Finney)
+* Added support for Rails 3 in client/action_controller_request (Pelle)
+
+== 0.4.3 2010-09-01
+
+* Fix for em-http proxy (ichverstehe)
+
+== 0.4.2 2010-08-13
+
+* Fixed compatibility with Ruby 1.9.2 (ecavazos)
+* Fixed the em-http request proxy (Joshua Hull)
+* Fix for oauth proxy string manipulation (Jakub Suder)
+* Added Bundler (rc) Gemfile for easier dev/testing
+
+== 0.4.1 2010-06-16
+
+* Added support for using OAuth with proxies (Marsh Gardiner)
+* Rails 3 Compatibility fixes (Pelle Braendgaard)
+* Fixed load errors on tests for missing (non-required) libraries
+
+== 0.4.0 2010-04-22
+
+* Added computation of oauth_body_hash as per OAuth Request Body Hash 1.0
+  Draft 4 (Michael Reinsch)
+* Added the optional `oauth_session_handle` parameter for the Yahoo implementation (Will Bailey)
+* Better marshalling implementation (Yoan Blanc)
+* Added optional block to OAuth::Consumer.get_*_token (Neill Pearman)
+* Exclude `oauth_callback` with :exclude_callback (Neill Pearman)
+* Strip extraneous spaces and line breaks from access_token responses
+  (observed in the wild with Yahoo!'s OAuth+OpenID hybrid) (Eric Hartmann)
+* Stop double-escaping PLAINTEXT signatures (Jimmy Zimmerman)
+* OAuth::Client::Helper won't override the specified `oauth_version`
+  (Philip Kromer)
+* Support for Ruby 1.9 (Aaron Quint, Corey Donahoe, et al)
+* Fixed an encoding / multibyte issue (成田 一生)
+* Replaced hoe with Jeweler (Aaron Quint)
+* Support for Typhoeus (Bill Kocik)
+* Support for em-http (EventMachine) (Darcy Laycock)
+* Support for curb (André Luis Leal Cardoso Junior)
+* New website (Aaron Quint)
+
+== 0.3.6 2009-09-14
+
+* Added -B CLI option to use the :body authentication scheme (Seth)
+* Respect `--method` in `authorize` CLI command (Seth)
+* Support POST and PUT with raw bodies (Yu-Shan Fung et al)
+* Test clean-up (Xavier Shay, Hannes Tydén)
+* Added :ca_file consumer option to allow consumer specific certificate
+  override. (Pelle)
+
+== 0.3.5 2009-06-03
+
+* `query` CLI command to access protected resources (Seth)
+* Added -H, -Q CLI options for specifying the authentication scheme (Seth)
+* Added -O CLI option for specifying a file containing options (Seth)
+* Support streamable body contents for large request bodies (Seth Cousins)
+* Support for OAuth 1.0a (Seth)
+* Added proxy support to OAuth::Consumer (Marshall Huss)
+* Added --scope CLI option for Google's 'scope' parameter (Seth)
+
+== 0.3.4 2009-05-06
+
+* OAuth::Client::Helper uses OAuth::VERSION (chadisfaction)
+* Fix OAuth::RequestProxy::ActionControllerRequest's handling of params
+  (Tristan Groléat)
+
+== 0.3.3 2009-05-04
+
+* Corrected OAuth XMPP namespace (Seth)
+* Improved error handling for invalid Authorization headers (Matt Sanford)
+* Fixed signatures for non-ASCII under $KCODE other than 'u' (Matt Sanford)
+* Fixed edge cases in ActionControllerRequestProxy where params were being
+  incorrectly signed (Marcos Wright Kuhns)
+* Support for arguments in OAuth::Consumer#get_access_token (Matt Sanford)
+* Add gem version to user-agent header (Matt Sanford)
+* Handle input from aggressive form encoding libraries (Matt Wood)
+
+== 0.3.2 2009-03-23
+
+* 2xx statuses should be treated as success (Anders Conbere)
+* Support applications using the MethodOverride Rack middleware (László Bácsi)
+* `authorize` command for `oauth` CLI (Seth)
+* Initial support for Problem Reporting extension (Seth)
+* Verify SSL certificates if CA certificates are available (Seth)
+* Fixed ActionController parameter escaping behavior (Thiago Arrais, László
+  Bácsi, Brett Gibson, et al)
+* Fixed signature calculation when both options and a block were provided to
+  OAuth::Signature::Base#initialize (Seth)
+* Added help to the 'oauth' CLI (Seth)
+* Fixed a problem when attempting to normalize MockRequest URIs (Seth)
+
+== 0.3.1 2009-1-26
+
+* Fixed a problem with relative and absolute token request paths. (Michael
+  Wood)
+
+== 0.3.0 2009-1-25
+
+* Support ActionController::Request from Edge Rails (László Bácsi)
+* Correctly handle multi-valued parameters (Seth)
+* Added #normalized_parameters to OAuth::RequestProxy::Base (Pelle)
+* OAuth::Signature.sign and friends now yield the RequestProxy instead of the
+  token when the passed block's arity is 1. (Seth)
+* Token requests are made to the configured URL rather than generating a
+  potentially incorrect one.  (Kellan Elliott-McCrea)
+* Command-line app for generating signatures. (Seth)
+* Improved test-cases and compatibility for encoding issues. (Pelle)
+
+== 0.2.7 2008-9-10 The lets fix the last release release
+
+* Fixed plain text signatures (Andrew Arrow)
+* Fixed RSA requests using OAuthTokens. (Philip Lipu Tsai)
+
+== 0.2.6 2008-9-9 The lets RSA release
+
+* Improved support for Ruby 1.8.7 (Bill Kocik)
+* Fixed RSA verification to support RSA providers
+  now using Ruby and RSA
+* Improved RSA testing
+* Omit token when signing with RSA
+* Added support for 'private_key_file' option for RSA signatures (Chris Mear)
+* Fixed several edge cases where params were being incorrectly signed (Scott
+  Hill)
+* Fixed RSA signing (choonkeat)
+
+== 0.2.2 2008-2-22 Lets actually support SSL release
+
+* Use HTTPS when required.
+
+== 0.2 2008-1-19 All together now release
+
+This is a big release, where we have merged the efforts of various parties into one common library. 
+This means there are definitely some API changes you should be aware of. They should be minimal 
+but please have a look at the unit tests.
+
+== 0.1.2 2007-12-1
+
+* Fixed checks for missing OAuth params to improve performance
+* Includes Pat's fix for getting the realm out.
+
+== 0.1.1 2007-11-26
+
+* First release as a GEM
+* Moved all non-Rails functionality from the Rails plugin:
+  http://code.google.com/p/oauth-plugin/

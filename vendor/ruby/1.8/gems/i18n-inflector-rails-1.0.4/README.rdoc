@@ -1,0 +1,188 @@
+= Simple I18n Inflector for Rails
+
+<b>i18n-inflector-rails version <tt>1.0</tt></b> (<b><tt>Rain</tt></b>)
+
+
+
+* https://rubygems.org/gems/i18n-inflector-rails
+* https://github.com/siefca/i18n-inflector-rails/tree
+* mailto:pw@gnu.org
+
+== Summary
+
+This Rails plug-in contains bindings for the I18n Inflector module for Ruby's I18n.
+It overwrites the <tt>translate()</tt> method from Rails in a way that it will
+interpolate additional inflection tokens present in translations.
+These tokens may appear in *patterns* which are contained within
+<tt>@{</tt> and <tt>}</tt> symbols.
+
+== Why?
+
+It's intended to be used in a projects where tranlations are performed
+by many people, yet there is a need to inflect sentences or words by
+user's gender, person or other data.
+
+To achieve similar functionality lambdas can be used but including
+Proc objects in translations may be considered unsafe.
+
+If you have a troop of happy translators that shouldn't have the
+ability to execute any code yet you need some simple inflection
+then this plug-in might help you.
+
+== Synopsis
+
+  translate('.welcome')
+
+===== In a YAML file:
+
+  en:
+    welcome:  "Dear @{f:Lady|m:Sir|n:You|All}"
+  
+  en:
+    i18n:
+      inflections:
+        gender:
+          f:        "female"
+          m:        "male"
+          n:        "neuter"
+          female:   @f
+          male:     @m
+          neuter:   @n
+          man:      @male
+          woman:    @female
+          default:  n
+
+===== In a controller:
+
+  class ApplicationController < ActionController::Base
+    
+    inflection_method :gender
+    
+    # assuming that @gender is set somewhere
+    def gender
+      @gender || nil
+    end
+  
+  end
+
+  class UsersController < ApplicationController
+    
+    # t() will call method gender() from the current context
+    # to get the inflection token
+    def say_welcome
+      t('welcome')
+      # => "Dear Sir"
+    end
+  
+  end
+  
+== Description
+
+You can create your own kinds (gender, title, person, time, author, etc.)
+of tokens to group them in a meaningful, semantical sets.
+
+This plug-in adds {I18n::Inflector::Rails::ClassMethods#inflection_method inflection_method},
+{I18n::Inflector::Rails::ClassMethods#no_inflection_method no_inflection_method}
+and {I18n::Inflector::Rails::ClassMethods#no_inflection_method_for no_inflection_method_for} clauses
+that can be used in controllers and views. Using that clauses makes it easy to register
+methods that will be called to obtain certain inflection options.
+It is also possible to set up an inflection method for a so called
+strict kind commonly used in a so called named and complex patterns.
+
+This plug-in uses i18n-inflector[https://rubygems.org/gems/i18n-inflector]
+module which allows passing inflection options to the translate method.
+You may find I18n Inflector's API and a default object very helpful since
+they allow you to read inflection data in many different ways. You might,
+for example, use it to generate forms containing lists of languages that are using
+inflection, or to view all known inflection kinds or tokens assigned to them.
+
+To access the Inflector object bound to default I18n backend use:
+  I18n.inflector
+
+== Note about YAML parsing
+
+The previous example is not compatible with Psych parser, which is used
+by Rails 3. There are two ways to solve that problem.
+
+First is to change a YAML file and replace any value that has
+special meaning with a symbol:
+
+  en:
+    i18n:
+      inflections:
+        gender:
+          f:        "female"
+          m:        "male"
+          n:        "neuter"
+          female:   :@f
+          male:     :@m
+          neuter:   :@n
+          man:      :@male
+          woman:    :@female
+          default:  :n
+  
+Second way is to use other parser by adding to +config/boot.rb+:
+
+  require 'yaml'
+  YAML::ENGINE.yamler = 'syck'
+
+== Requirements
+
+* i18n-inflector[https://rubygems.org/gems/i18n-inflector]
+* actionpack[https://rubygems.org/gems/actionpack]
+* rake[https://rubygems.org/gems/rake]
+* rubygems[http://docs.rubygems.org/]
+
+== Download
+
+==== Source code
+
+* https://github.com/siefca/i18n-inflector-rails/tree
+* <tt>git clone git://github.com/siefca/i18n-inflector-rails.git</tt>
+
+==== Gem
+
+* https://rubygems.org/gems/i18n-inflector-rails
+
+== Installation
+
+* <tt>gem install i18n-inflector-rails</tt>
+
+== Specs
+
+You can run RSpec examples both with
+
+* <tt>rake spec</tt> or just <tt>rake</tt>
+* run a test file directly, e.g. <tt>ruby -Ilib -Ispec spec/inflector_spec.rb</tt>
+
+== More information
+
+See {I18n::Inflector::Rails::ClassMethods} to learn how to use +inflection_method+ and +no_inflection_method+.
+
+See {I18n::Inflector::Rails::InflectedTranslate} to learn about using the translation wrapper.
+
+See {I18n::Inflector::InflectionOptions} to know more about switches that can be used to control the engine.
+
+See the {whole documentation}[http://rubydoc.info/gems/i18n-inflector-rails/] for more information.
+
+To know how the basics and to learn more about Inflector that is used by this plug-in
+see {I18n Inflector documentation}[http://rubydoc.info/gems/i18n-inflector].
+
+== Credits
+
+{Heise Media Polska}[http://www.heise-online.pl/] supports Free Software and has
+contributed to this plug-in by paying for me to eat when I've been coding.
+
+== License
+
+Copyright (c) 2011 by Paweł Wilk.
+
+i18n-inflector-rails is copyrighted software owned by Paweł Wilk (pw@gnu.org).
+You may redistribute and/or modify this software as long as you
+comply with either the terms of the LGPL (see {file:LGPL-LICENSE}),
+or Ruby's license (see {file:COPYING}).
+
+THIS SOFTWARE IS PROVIDED "AS IS" AND WITHOUT ANY EXPRESS
+OR IMPLIED WARRANTIES, INCLUDING, WITHOUT LIMITATION,
+THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS
+FOR A PARTICULAR PURPOSE.

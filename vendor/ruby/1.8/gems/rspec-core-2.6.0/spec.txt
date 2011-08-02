@@ -1,0 +1,1126 @@
+autotest/discover.rb
+  with /.rspec present
+    adds 'rspec2' to the list of discoveries
+  with /.rspec absent
+    does not add 'rspec2' to the list of discoveries
+
+failed_results_re for autotest
+  output does not have color enabled
+    matches a failure
+  output has color enabled
+    matches a failure
+
+Autotest::Rspec2
+  uses autotest's prefix
+  commands
+    makes the appropriate test command
+    returns a blank command for no files
+    quotes the paths of files to test
+    gives '--tty' to /Users/david/projects/ruby/rspec2/repos/rspec-core/bin/rspec, not '--autotest'
+  mappings
+    finds the spec file for a given lib file
+    finds the spec file if given a spec file
+    ignores files in spec dir that aren't specs
+    ignores untracked files (in @file)
+  consolidating failures
+    returns no failures if no failures were given in the output
+    returns a hash with the spec filename => spec name for each failure or error
+    when subject file appears before the spec file in the backtrace
+      excludes the subject file
+      includes the spec file
+  normalizing file names
+    ensures that a single file appears in files_to_test only once
+
+RSpec::Core::CommandLineConfiguration
+  #run
+    given autotest command
+      calls Autotest.generate
+    given unsupported command
+      raises ArgumentError
+
+RSpec::Core::CommandLine
+  given an Array of options
+    assigns ConfigurationOptions built from Array to @options
+  given a ConfigurationOptions object
+    assigns it to @options
+  #run
+    configures streams before command line options
+    runs before suite hooks
+    runs after suite hooks
+    runs after suite hooks even after an error
+  #run with custom output
+    doesn't override output_stream
+
+RSpec::Core::ConfigurationOptions
+  #configure
+    sends libs before requires
+    sends requires before formatter
+  -c, --color, and --colour
+    sets :color_enabled => true
+  --no-color
+    sets :color_enabled => false
+  -I
+    adds to :libs
+    can be used more than once
+  --require
+    requires files
+    can be used more than once
+  --format, -f
+    sets :formatter
+    can accept a class name
+  --profile, -p
+    sets :profile_examples => true
+  --line_number
+    sets :line_number
+  --example
+    sets :full_description
+  --backtrace, -b
+    sets full_backtrace on config
+  --debug, -d
+    sets :debug => true
+  --fail-fast
+    defaults to false
+    sets fail_fast on config
+  --options
+    sets :custom_options_file
+  --drb, -X
+    does not send --drb back to the parser after parsing options
+    combined with --debug
+      turns off the debugger if --drb is specified first
+      turns off the debugger option if --drb is specified later
+      turns off the debugger option if --drb is specified in the options file
+      turns off the debugger option if --debug is specified in the options file
+  files_or_directories_to_run
+    parses files from '-c file.rb dir/file.rb'
+    parses dir from 'dir'
+    parses dir and files from 'spec/file1_spec.rb, spec/file2_spec.rb'
+    provides no files or directories if spec directory does not exist
+    parses dir and files from 'spec/file1_spec.rb, spec/file2_spec.rb'
+  #drb_argv
+    preserves extra arguments
+    includes --fail-fast
+    includes --options
+    with tags
+      includes the tags
+      leaves tags intact
+    with formatters
+      includes the formatters
+      leaves formatters intact
+      leaves output intact
+    --drb specified in ARGV
+      renders all the original arguments except --drb
+    --drb specified in the options file
+      renders all the original arguments except --drb
+    --drb specified in ARGV and the options file
+      renders all the original arguments except --drb
+    --drb specified in ARGV and in as ARGV-specified --options file
+      renders all the original arguments except --drb and --options
+  sources: ~/.rspec, ./.rspec, custom, CLI, and SPEC_OPTS
+    merges global, local, SPEC_OPTS, and CLI
+    prefers SPEC_OPTS over CLI
+    prefers CLI over file options
+    prefers local file options over global
+    with custom options file
+      ignores local and global options files
+
+RSpec::Core::Configuration
+  #load_spec_files
+    loads files using load
+    with rspec-1 loaded
+      raises with a helpful message
+  #treat_symbols_as_metadata_keys_with_true_values?
+    defaults to false
+    can be set to true
+  #mock_framework
+    defaults to :rspec
+  #mock_framework=
+    uses the null adapter when set to any unknown key
+    with rspec
+      requires the adapter for :rspec
+    with mocha
+      requires the adapter for :mocha
+    with rr
+      requires the adapter for :rr
+    with flexmock
+      requires the adapter for :flexmock
+    with a module
+      sets the mock_framework_adapter to that module
+  #mock_with
+    delegates to mock_framework=
+  #expectation_framework
+    defaults to :rspec
+  #expectation_framework=
+    delegates to expect_with=
+  #expect_with
+    raises ArgumentError if framework is not supported
+    with rspec
+      requires the adapter for :rspec
+    with stdlib
+      requires the adapter for :stdlib
+  #expecting_with_rspec?
+    returns false by default
+    returns true when `expect_with :rspec` has been configured
+    returns true when `expect_with :rspec, :stdlib` has been configured
+    returns true when `expect_with :stdlib, :rspec` has been configured
+    returns false when `expect_with :stdlib` has been configured
+  setting the files to run
+    loads files not following pattern if named explicitly
+    with default --pattern
+      loads files named _spec.rb
+      loads files in Windows
+    with explicit pattern (single)
+      loads files following pattern
+      loads files in directories following pattern
+      does not load files in directories not following pattern
+    with explicit pattern (comma,separated,values)
+      supports comma separated values
+      supports comma separated values with spaces
+    with line number
+      assigns the line number as the filter
+    with full_description
+      overrides :focused
+      assigns the example name as the filter on description
+  #include
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+    with no filter
+      includes the given module into each example group
+    with a filter
+      includes the given module into each matching example group
+  #extend
+    extends the given module into each matching example group
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  run_all_when_everything_filtered?
+    defaults to false
+    can be queried with question method
+  #color_enabled=
+    given true
+      with non-tty output and no autotest
+        does not set color_enabled
+      with tty output
+        does not set color_enabled
+      with tty set
+        does not set color_enabled
+      on windows
+        with ANSICON available
+          enables colors
+          leaves output stream intact
+        with ANSICON NOT available
+          warns to install ANSICON
+          sets color_enabled to false
+  formatter=
+    delegates to add_formatter (better API for user-facing configuration)
+  add_formatter
+    adds to the list of formatters
+    finds a formatter by name (w/ Symbol)
+    finds a formatter by name (w/ String)
+    finds a formatter by class
+    finds a formatter by class name
+    finds a formatter by class fully qualified name
+    requires a formatter file based on its fully qualified name
+    raises NameError if class is unresolvable
+    raises ArgumentError if formatter is unknown
+    with a 2nd arg defining the output
+      creates a file at that path and sets it as the output
+  #filter_run
+    sets the filter
+    merges with existing filters
+    warns if :line_number is already a filter
+    warns if :full_description is already a filter
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  #filter_run_excluding
+    sets the filter
+    merges with existing filters
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  #exclusion_filter
+    the default :if filter
+      does not exclude a spec with no :if metadata
+      does not exclude a spec with { :if => true } metadata
+      excludes a spec with { :if => false } metadata
+      excludes a spec with { :if => nil } metadata
+    the default :unless filter
+      excludes a spec with  { :unless => true } metadata
+      does not exclude a spec with { :unless => false } metadata
+      does not exclude a spec with { :unless => nil } metadata
+  line_number=
+    sets the line number
+    overrides :focused
+    prevents :focused
+  #full_backtrace=
+    clears the backtrace clean patterns
+    doesn't impact other instances of config
+  #debug=true
+    requires 'ruby-debug'
+    starts the debugger
+  #debug=false
+    does not require 'ruby-debug'
+  #output=
+    sets the output
+  #libs=
+    adds directories to the LOAD_PATH
+  #requires=
+    requires paths
+  #add_setting
+    with no modifiers
+      with no additional options
+        defaults to nil
+        adds a predicate
+        can be overridden
+      with :default => 'a value'
+        defaults to 'a value'
+        returns true for the predicate
+        can be overridden with a truthy value
+        can be overridden with nil
+        can be overridden with false
+    with :alias =>
+      delegates the getter to the other option
+      delegates the setter to the other option
+      delegates the predicate to the other option
+  #configure_group
+    extends with 'extend'
+    extends with 'module'
+    requires only one matching filter
+    includes each one before deciding whether to include the next
+  #alias_example_to
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+
+deprecations
+  Spec
+    is deprecated
+    returns RSpec
+    doesn't include backward compatibility in const_missing backtrace
+  RSpec::Core::ExampleGroup
+    running_example
+      is deprecated
+      delegates to example
+  Spec::Runner.configure
+    is deprecated
+  Spec::Rake::SpecTask
+    is deprecated
+    doesn't include backward compatibility in const_missing backtrace
+
+::DRbCommandLine
+  without server running
+    raises an error
+  --drb-port
+    without RSPEC_DRB environment variable set
+      defaults to 8989
+      sets the DRb port
+    with RSPEC_DRB environment variable set
+      without config variable set
+        uses RSPEC_DRB value
+      and config variable set
+        uses configured value
+  with server running
+    returns true
+    integrates via Runner.new.run
+    outputs green colorized text when running with --colour option (PENDING: figure out a way to properly sandbox this)
+    outputs red colorized text when running with -c option (PENDING: figure out a way to properly sandbox this)
+
+RSpec::Core::ExampleGroup
+  behaves like metadata hash builder
+    when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+      treats symbols as metadata keys with a true value
+      still processes hash values normally
+    when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+      prints a deprecation warning about any symbols given as arguments
+      does not treat symbols as metadata keys
+      does not print a warning if there are no symbol arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    processes string args as part of the description
+    processes symbol args as part of the description
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    does not treat the first argument as a metadata key even if it is a symbol
+    treats the first argument as part of the description when it is a symbol
+  top level group
+    runs its children
+    with a failure in the top level group
+      runs its children 
+    descendants
+      returns self + all descendants
+  child
+    is known by parent
+    is not registered in world
+  filtering
+    includes all examples in an explicitly included group
+    includes explicitly included examples
+    excludes all examples in an excluded group
+    filters out excluded examples
+    with no filters
+      returns all
+    with no examples or groups that match filters
+      returns none
+  #describes
+    with a constant as the first parameter
+      is that constant
+    with a string as the first parameter
+      is nil
+    with a constant in an outer group
+      and a string in an inner group
+        is the top level constant
+    in a nested group
+      inherits the described class/module from the outer group
+  #described_class
+    is the same as describes
+  #description
+    grabs the description from the metadata
+  #metadata
+    adds the third parameter to the metadata
+    adds the the file_path to metadata
+    has a reader for file_path
+    adds the line_number to metadata
+  #focus
+    defines an example that can be filtered with :focused => true
+    defines an example that can be filtered with :focus => true
+  #focused
+    defines an example that can be filtered with :focused => true
+    defines an example that can be filtered with :focus => true
+  #before, after, and around hooks
+    runs the before alls in order
+    runs the before eachs in order
+    runs the after eachs in reverse order
+    runs the after alls in reverse order
+    only runs before/after(:all) hooks from example groups that have specs that run
+    runs before_all_defined_in_config, before all, before each, example, after each, after all, after_all_defined_in_config in that order
+    treats an error in before(:each) as a failure
+    treats an error in before(:all) as a failure
+    treats an error in before(:all) as a failure for a spec in a nested group
+    has no 'running example' within before(:all)
+    has access to example options within before(:each)
+    has access to example options within after(:each)
+    has no 'running example' within after(:all)
+    after(:all)
+      has access to state defined before(:all)
+      cleans up ivars in after(:all)
+    when an error occurs in an after(:all) hook
+      allows the example to pass
+      rescues the error and prints it out
+  adding examples
+    allows adding an example using 'it'
+    allows adding a pending example using 'xit'
+    exposes all examples at examples
+    maintains the example order
+  Object describing nested example_groups
+    A sample nested group
+      sets the described class to the described class of the outer most group
+      sets the description to 'A sample nested describe'
+      has top level metadata from the example_group and its ancestors
+      exposes the parent metadata to the contained examples
+  #run_examples
+    returns true if all examples pass
+    returns false if any of the examples fail
+    runs all examples, regardless of any of them failing
+  how instance variables are inherited
+    can access a before each ivar at the same level
+    can access a before all ivar at the same level
+    can access the before all ivars in the before_all_ivars hash
+    but now I am nested
+      can access a parent example groups before each ivar at a nested level
+      can access a parent example groups before all ivar at a nested level
+      changes to before all ivars from within an example do not persist outside the current describe
+      accessing a before_all ivar that was changed in a parent example_group
+        does not have access to the modified version
+  ivars are not shared across examples
+    (first example)
+    (second example)
+  #top_level_description
+    returns the description from the outermost example group
+  #run
+    with fail_fast? => true
+      does not run examples after the failed example
+    with RSpec.wants_to_quit=true
+      returns without starting the group
+      at top level
+        purges remaining groups
+      in a nested group
+        does not purge remaining groups
+    with all examples passing
+      returns true
+    with top level example failing
+      returns false
+    with nested example failing
+      returns true
+  #include_context
+    includes the named context
+
+RSpec::Core::Example
+  behaves like metadata hash builder
+    when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+      treats symbols as metadata keys with a true value
+      still processes hash values normally
+    when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+      prints a deprecation warning about any symbols given as arguments
+      does not treat symbols as metadata keys
+      does not print a warning if there are no symbol arguments
+  auto-generated example descriptions
+    when `expect_with :rspec` is configured
+      generates a description for an example with no description
+    when `expect_with :rspec, :stdlib` is configured
+      generates a description for an example with no description
+    when `expect_with :stdlib` is configured
+      does not attempt to get the generated description from RSpec::Matchers
+      fails an example with no description
+  #described_class
+    returns the class (if any) of the outermost example group
+  accessing metadata within a running example
+    has a reference to itself when running
+    can access the example group's top level metadata as if it were its own
+  accessing options within a running example
+    can look up option values by key
+  #run
+    sets its reference to the example group instance to nil
+    runs after(:each) when the example passes
+    runs after(:each) when the example fails
+    runs after(:each) when the example raises an Exception
+    wraps before/after(:each) inside around
+    with an after(:each) that raises
+      runs subsequent after(:each)'s
+      stores the exception
+    clearing ivars
+      sets ivars to nil to prep them for GC
+      does not impact the before_all_ivars which are copied to each example
+  #pending
+    in the example
+      sets the example to pending
+      allows post-example processing in around hooks (see https://github.com/rspec/rspec-core/issues/322)
+    in before(:each)
+      sets each example to pending
+    in before(:all)
+      sets each example to pending
+    in around(:each)
+      sets the example to pending
+
+RSpec::Core::Formatters::BaseFormatter
+  backtrace_line
+    trims current working directory
+    leaves the original line intact
+  read_failed_line
+    deals gracefully with a heterogeneous language stack trace
+    when String alias to_int to_i
+      doesn't hang when file exists
+  #format_backtrace
+    removes lines from rspec and lines that come before the invocation of the at_exit autorun hook
+
+RSpec::Core::Formatters::BaseTextFormatter
+  #summary_line
+    with 0s
+      outputs pluralized (excluding pending)
+    with 1s
+      outputs singular (including pending)
+    with 2s
+      outputs pluralized (including pending)
+  #dump_failures
+    preserves formatting
+    with an exception without a message
+      does not throw NoMethodError
+    with an exception class other than RSpec
+      does not show the error class
+    with a failed expectation (rspec-expectations)
+      does not show the error class
+    with a failed message expectation (rspec-mocks)
+      does not show the error class
+    for #share_examples_for
+      outputs the name and location
+      that contains nested example groups
+        outputs the name and location
+    for #share_as
+      outputs the name and location
+      that contains nested example groups
+        outputs the name and location
+  #dump_profile
+    names the example
+    prints the time
+    prints the path
+
+RSpec::Core::Formatters::DocumentationFormatter
+  numbers the failures
+  represents nested group using hierarchy tree
+
+RSpec::Core::Formatters::Helpers
+  format seconds
+    sub second times
+      returns 5 digits of precision
+      strips off trailing zeroes beyond sub-second precision
+      0
+        strips off trailing zeroes
+      > 1
+        strips off trailing zeroes
+    second and greater times
+      returns 2 digits of precision
+      returns human friendly elasped time
+
+RSpec::Core::Formatters::HtmlFormatter
+  produces HTML identical to the one we designed manually
+
+RSpec::Core::Formatters::ProgressFormatter
+  produces line break on start dump
+  produces standard summary without pending when pending has a 0 count
+  pushes nothing on start
+
+RSpec::Core::Formatters::SnippetExtractor
+  falls back on a default message when it doesn't understand a line
+  falls back on a default message when it doesn't find the file
+
+RSpec::Core::Formatters::TextMateFormatter
+  produces HTML identical to the one we designed manually
+  has a backtrace line from the raw erb evaluation
+  has a backtrace line from a erb source file we forced to appear
+
+config block hook filtering
+  unfiltered hooks
+    should be ran
+  hooks with single filters
+    should be ran if the filter matches the example group's filter
+    runs before|after :all hooks on matching nested example groups
+    runs before|after :all hooks only on the highest level group that matches the filter
+    should not be ran if the filter doesn't match the example group's filter
+    with no scope specified
+      should be ran around|before|after :each if the filter matches the example group's filter
+    when the hook filters apply to individual examples instead of example groups
+      an example with matching metadata
+        runs the `:each` hooks
+        does not run the `:all` hooks
+      an example without matching metadata
+        does not run any of the hooks
+  hooks with multiple filters
+    should be ran if all hook filters match the group's filters
+    should not be ran if some hook filters don't match the group's filters
+
+RSpec::Core::Hooks
+  #before(each)
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  #before(all)
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #before(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #before(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  #after(each)
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  #after(all)
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #after(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #after(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  #around(each)
+    behaves like metadata hash builder
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+        treats symbols as metadata keys with a true value
+        still processes hash values normally
+      when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+        prints a deprecation warning about any symbols given as arguments
+        does not treat symbols as metadata keys
+        does not print a warning if there are no symbol arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #around(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #around(no scope)
+      defaults to :each scope if no arguments are given
+      defaults to :each scope if the only argument is a metadata hash
+      raises an error if only metadata symbols are given as arguments
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #before(:each)
+      does not make :each a metadata key
+      is scoped to :each
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #before(:each)
+      does not make :each a metadata key
+      is scoped to :each
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #before(:all)
+      does not make :all a metadata key
+      is scoped to :all
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #before(:all)
+      does not make :all a metadata key
+      is scoped to :all
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #before(:suite)
+      does not make :suite a metadata key
+      is scoped to :suite
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #before(:suite)
+      does not make :suite a metadata key
+      is scoped to :suite
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #after(:each)
+      does not make :each a metadata key
+      is scoped to :each
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #after(:each)
+      does not make :each a metadata key
+      is scoped to :each
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #after(:all)
+      does not make :all a metadata key
+      is scoped to :all
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #after(:all)
+      does not make :all a metadata key
+      is scoped to :all
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to true
+    #after(:suite)
+      does not make :suite a metadata key
+      is scoped to :suite
+  when RSpec.configuration.treat_symbols_as_metadata_keys_with_true_values is set to false
+    #after(:suite)
+      does not make :suite a metadata key
+      is scoped to :suite
+  #around
+    when not running the example within the around block
+      does not run the example
+    when running the example within the around block
+      runs the example
+    when running the example within a block passed to a method
+      runs the example
+    RSpec::Core::Hooks::Hook
+      requires a block
+
+extensions
+  debugger
+    is defined on Kernel
+
+#let
+  generates an instance method
+  caches the value
+
+#let!
+  evaluates the value non-lazily
+  does not interfere between tests
+
+RSpec::Core::Metadata
+  #process
+    prohibits :description as a hash key
+    prohibits :example_group as a hash key
+    prohibits :execution_result as a hash key
+    prohibits :file_path as a hash key
+    prohibits :full_description as a hash key
+    prohibits :line_number as a hash key
+    prohibits :location as a hash key
+    uses :caller if passed as part of the user metadata
+  #apply_condition
+    matches the group when the line_number is the example group line number
+    matches the example when the line_number is the grandparent example group line number
+    matches the example when the line_number is the parent example group line number
+    matches the example when the line_number is the example line number
+    matches when the line number is between this example and the next
+    does not match when the line number matches the next example
+    matches a proc that evaluates to true
+    does not match a proc that evaluates to false
+    passes the metadata hash as the second argument if a given proc expects 2 args
+  #for_example
+    stores the description
+    stores the full_description (group description + example description)
+    creates an empty execution result
+    extracts file path from caller
+    extracts line number from caller
+    extracts location from caller
+    uses :caller if passed as an option
+    merges arbitrary options
+    points :example_group to the same hash object
+  :describes
+    with a String
+      returns nil
+    with a Symbol
+      returns nil
+    with a class
+      returns the class
+    with describes from a superclass metadata
+      returns the superclass' described class
+  :description
+    just has the example description
+    with a string
+      provides the submitted description
+    with a non-string
+      provides the submitted description
+    with a non-string and a string
+      concats the args
+  :full_description
+    concats example group name and description
+    concats nested example group descriptions
+    with a 2nd arg starting with #
+      removes the space
+    with a 2nd arg starting with .
+      removes the space
+    with a 2nd arg starting with ::
+      removes the space
+    with a nested description starting with #
+      removes the space
+    with a nested description starting with .
+      removes the space
+    with a nested description starting with ::
+      removes the space
+  :file_path
+    finds the first non-rspec lib file in the caller array
+  :line_number
+    finds the line number with the first non-rspec lib file in the backtrace
+    finds the line number with the first spec file with drive letter
+    uses the number after the first : for ruby 1.9
+  child example group
+    nests the parent's example group metadata
+
+OptionParser
+  does not parse empty args
+  --formatter
+    is deprecated
+    gets converted to --format
+  --format
+    defines the formatter
+  -f
+    defines the formatter
+  --out
+    sets the output stream for the formatter
+    with multiple formatters
+      after last formatter
+        sets the output stream for the last formatter
+      after first formatter
+        sets the output stream for the first formatter
+  -o
+    sets the output stream for the formatter
+    with multiple formatters
+      after last formatter
+        sets the output stream for the last formatter
+      after first formatter
+        sets the output stream for the first formatter
+  --example
+    escapes the arg
+
+an example
+  with no block
+    is listed as pending with 'Not Yet Implemented'
+  with no args
+    is listed as pending with the default message
+  with no docstring
+    declared with the pending method
+      does not have an auto-generated description
+    after another example with some assertion
+      does not show any message
+  with a message
+    is listed as pending with the supplied message
+  with a block
+    that fails
+      when given no options
+        is listed as pending with the supplied message
+        is listed as pending with the default message when no message is given
+      when given a truthy :if option
+        is listed as pending with the supplied message
+        is listed as pending with the default message when no message is given
+      when given a falsey :if option
+        runs the example and fails
+      when given a truthy :unless option
+        runs the example and fails
+      when given a falsey :unless option
+        is listed as pending with the supplied message
+        is listed as pending with the default message when no message is given
+    that passes
+      when given no options
+        fails with a PendingExampleFixedError
+      when given a truthy :if option
+        fails with a PendingExampleFixedError
+      when given a falsey :if option
+        runs the example and it passes
+      when given a truthy :unless option
+        runs the example and it passes
+      when given a falsey :unless option
+        fails with a PendingExampleFixedError
+
+RSpec::Core::RakeTask
+  default
+    renders rspec
+  with bundler
+    with Gemfile
+      renders bundle exec rspec
+    with non-standard Gemfile
+      renders bundle exec rspec
+    without Gemfile
+      renders bundle exec rspec
+  with rcov
+    renders rcov
+  with bundler and rcov
+    renders bundle exec rcov
+  with ruby options
+    renders them before -S
+  with rcov_opts
+    with rcov=false (default)
+      does not add the rcov options to the command
+    with rcov=true
+      renders them after rcov
+      ensures that -Ispec:lib is in the resulting command
+  with rspec_opts
+    with rcov=true
+      adds the rspec_opts after the rcov_opts and files
+    with rcov=false (default)
+      adds the rspec_opts
+  with SPEC=path/to/file
+    sets files to run
+  with paths with quotes
+    escapes the quotes
+
+RSpec::Core::Reporter
+  abort
+    sends start_dump to the formatter(s)
+    sends dump_pending to the formatter(s)
+    sends dump_failures to the formatter(s)
+    sends dump_summary to the formatter(s)
+    sends close to the formatter(s)
+  given one formatter
+    passes messages to that formatter
+    passes example_group_started and example_group_finished messages to that formatter in that order
+  given an example group with no examples
+    does not pass example_group_started or example_group_finished to formatter
+  given multiple formatters
+    passes messages to all formatters
+
+RSpec::Matchers
+  behaves like a normal module with a method that supers
+    raises the expected error (and not SystemStackError)
+  when RSpec::Matchers has been included in an example group
+    behaves like a normal module with a method that supers
+      raises the expected error (and not SystemStackError)
+  when a module that includes RSpec::Matchers has been included in an example group
+    behaves like a normal module with a method that supers
+      raises the expected error (and not SystemStackError)
+  when RSpec::Matchers is included via configuration
+    behaves like a normal module with a method that supers
+      raises the expected error (and not SystemStackError)
+  when RSpec::Matchers is included in a module that is included via configuration
+    behaves like a normal module with a method that supers
+      raises the expected error (and not SystemStackError)
+
+RSpec::Core::RubyProject
+  #determine_root
+    with ancestor containing spec directory
+      returns ancestor containing the spec directory
+    without ancestor containing spec directory
+      returns current working directory
+
+RSpec::Core::Runner
+  at_exit
+    sets an at_exit hook if none is already set
+    does not set the at_exit hook if it is already set
+  #run
+    with --drb or -X
+      and a DRb server is running
+        builds a DRbCommandLine and runs the specs
+      and a DRb server is not running
+        outputs a message
+        builds a CommandLine and runs the specs
+
+RSpec::Core::SharedContext
+  hooks
+    creates a before hook
+
+RSpec::Core::SharedExampleGroup
+  share_examples_for
+    is exposed to the global namespace
+    raises an ArgumentError when adding a second shared example group with the same name
+    given a string
+      captures the given string and block in the World's collection of shared example groups
+    given a symbol
+      captures the given symbol and block in the World's collection of shared example groups
+    given a hash
+      delegates extend on configuration
+    given a string and a hash
+      captures the given string and block in the World's collection of shared example groups
+      delegates extend on configuration
+  shared_examples_for
+    is exposed to the global namespace
+    raises an ArgumentError when adding a second shared example group with the same name
+    given a string
+      captures the given string and block in the World's collection of shared example groups
+    given a symbol
+      captures the given symbol and block in the World's collection of shared example groups
+    given a hash
+      delegates extend on configuration
+    given a string and a hash
+      captures the given string and block in the World's collection of shared example groups
+      delegates extend on configuration
+  #it_should_behave_like
+    creates a nested group
+    adds shared examples to nested group
+    adds shared instance methods to nested group
+    adds shared class methods to nested group
+    raises when named shared example_group can not be found
+    given some parameters
+      passes the parameters to the shared example group
+      adds shared instance methods to nested group
+      evals the shared example group only once
+    given a block
+      evaluates the block in nested group
+  #share_as
+    is exposed to the global namespace
+    adds examples to current example_group using include
+
+RSpec::Core::Subject
+  implicit subject
+    with a class
+      returns an instance of the class
+    with a Module
+      returns the Module
+    with a string
+      return the string
+    with a number
+      returns the number
+  explicit subject
+    with a value of false
+      is evaluated once per example
+    with a value of nil
+      is evaluated once per example
+    defined in a top level group
+      replaces the implicit subject in that group
+    defined in a top level group
+      is available in a nested group (subclass)
+      is available in a doubly nested group (subclass)
+  using 'self' as an explicit subject
+    delegates matcher to the ExampleGroup
+  #its
+    with a call counter
+      call_count
+        should == 1
+    with nil value
+      nil_value
+        should be nil
+    with nested attributes
+      name
+        should == John
+      name.size
+        should == 4
+      name.size.class
+        should == Fixnum
+    when it responds to #[]
+      [:a]
+        should == "Symbol: a"
+      ["a"]
+        should == "String: a"
+      [:b, "c", 4]
+        should == "Symbol: b; String: c; Fixnum: 4"
+      name
+        
+      when referring to an attribute without the proper array syntax
+        it raises an error
+          age
+            should raise NoMethodError
+    when it does not respond to #[]
+      it raises an error
+        [:a]
+          should raise NoMethodError
+    calling and overriding super
+      calls to the subject defined in the parent group
+
+RSpec::Core::World
+  #example_groups
+    contains all registered example groups
+  #apply_inclusion_filters
+    finds no groups when given no search parameters
+    finds matching groups when filtering on :describes (described class or module)
+    finds matching groups when filtering on :description with text
+    finds matching groups when filtering on :description with a lambda
+    finds matching groups when filtering on :description with a regular expression
+    finds one group when searching for :pending => true
+    finds matching groups when filtering on arbitrary metadata with a number
+    finds matching groups when filtering on arbitrary metadata with an array
+    finds no groups when filtering on arbitrary metadata with an array but the arrays do not match
+    finds matching examples when filtering on arbitrary metadata
+    finds matching examples for example that match any of the filters
+  #apply_exclusion_filters
+    finds nothing if all describes match the exclusion filter
+    finds nothing if a regexp matches the exclusion filter
+  #preceding_declaration_line (again)
+    with one example
+      returns nil if no example or group precedes the line
+      returns the argument line number if a group starts on that line
+      returns the argument line number if an example starts on that line
+      returns line number of a group that immediately precedes the argument line
+      returns line number of an example that immediately precedes the argument line
+    with two exaples and the second example is registre first
+      return line number of group if a group start on that line
+
+RSpec::Core
+  #configuration
+    returns the same object every time
+  #configure
+    yields the current configuration
+    when an example group has already been defined
+      prints a deprecation warning
+    when no examples have been defined yet
+      does not print a deprecation warning
+  #world
+    returns the RSpec::Core::World instance the current run is using

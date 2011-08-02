@@ -1,0 +1,111 @@
+Overview
+========
+rcov is a code coverage tool for Ruby. It is commonly used for viewing overall
+test coverage of target code. It features:
+* fast execution: 20-300 times faster than previous tools
+* multiple analysis modes: standard, bogo-profile, "intentional testing",
+  dependency analysis...
+* detection of uncovered code introduced since the last run ("differential
+  code coverage")
+* fairly accurate coverage information through code linkage inference using 
+  simple heuristics
+* cross-referenced XHTML and several kinds of text reports
+* support for easy automation with Rake
+* colorblind-friendliness
+
+How do I use it?
+================
+
+In the common scenario, your tests are under test/ and the target code
+(whose coverage you want) is in lib/. In that case, all you have to do is
+use rcov to run the tests (instead of testrb), and a number of XHTML files
+with the code coverage information will be generated, e.g.
+
+    rcov -Ilib test/*.rb
+
+will execute all the .rb files under test/ and generate the code coverage
+report for the target code (i.e. for the files in lib/) under coverage/. The
+target code needs not be under lib/; rcov will detect is as long as it is
+require()d by the tests. rcov is smart enough to ignore "uninteresting"
+files: the tests themselves, files installed in Ruby's standard locations,
+etc.  See  rcov --help  for the list of regexps rcov matches filenames
+against.
+
+rcov can also be used from Rake; see readme_for_rake or the RDoc documentation
+for more information.
+
+rcov can output information in several formats, and perform different kinds
+of analyses in addition to plain code coverage.  See  rcov --help  for a
+description of the available options.
+
+Sample output
+=============
+
+The text report (also used by default in RcovTasks) resembles
+
+
++-----------------------------------------------------+-------+-------+--------+
+|                  File                               | Lines |  LOC  |  COV   |
++-----------------------------------------------------+-------+-------+--------+
+|lib/rcov.rb                                          |   572 |   358 |  91.3% |
++-----------------------------------------------------+-------+-------+--------+
+|Total                                                |   572 |   358 |  91.3% |
++-----------------------------------------------------+-------+-------+--------+
+91.3%   1 file(s)   572 Lines   358 LOC
+
+
+
+The (undecorated) textual output with execution count information looks like this:
+
+ $ rcov --no-html --text-counts b.rb 
+ ================================================================================
+ ./b.rb
+ ================================================================================
+                                                                       |      2
+ a, b, c = (1..3).to_a                                                 |      2
+ 10.times do                                                           |      1
+   a += 1                                                              |     10
+   20.times do |i|                                                     |     10
+     b += i                                                            |    200
+     b.times do                                                        |    200
+       c += (j = (b-a).abs) > 0 ? j : 0                                | 738800
+     end                                                               |      0
+   end                                                                 |      0
+ end                                                                   |      0
+
+
+rcov can detect when you've added code that was not covered by your unit
+tests:
+
+    $ rcov --text-coverage-diff --no-color test/*.rb
+    Started
+    .......................................
+    Finished in 1.163085 seconds.
+    
+    39 tests, 415 assertions, 0 failures, 0 errors
+    
+    ================================================================================
+    !!!!! Uncovered code introduced in lib/rcov.rb
+    
+    ### lib/rcov.rb:207
+       
+	 def precompute_coverage(comments_run_by_default = true)
+	   changed = false
+	   lastidx = lines.size - 1
+	   if (!is_code?(lastidx) || /^__END__$/ =~ @lines[-1]) && !@coverage[lastidx]
+    !!       # mark the last block of comments
+    !!       @coverage[lastidx] ||= :inferred
+    !!       (lastidx-1).downto(0) do |i|
+    !!         break if is_code?(i)
+    !!         @coverage[i] ||= :inferred
+    !!       end
+    !!     end
+	   (0...lines.size).each do |i|
+	     next if @coverage[i]
+	     line = @lines[i]
+
+
+
+License
+-------
+rcov is released under the terms of Ruby's license.

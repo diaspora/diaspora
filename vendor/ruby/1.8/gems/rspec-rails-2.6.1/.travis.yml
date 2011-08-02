@@ -1,0 +1,11 @@
+script: "gemfiles/bin/rake --trace 2>&1"
+rvm:
+  - 1.8.7
+  - 1.9.2
+gemfile:
+  - gemfiles/rails-3.0.7
+  - gemfiles/rails-3.1.0.rc1
+  - gemfiles/rails-master
+bundler_args: "--binstubs"
+env:
+  - CI=true

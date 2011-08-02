@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="array">
+<user>
+  <id>7505382</id>
+  <name>Erik Michaels-Ober</name>
+  <screen_name>sferik</screen_name>
+  <location>San Francisco</location>
+  <description>Adventures in hunger and foolishness.</description>
+  <profile_image_url>http://a0.twimg.com/profile_images/323331048/me_normal.jpg</profile_image_url>
+  <url></url>
+  <protected>false</protected>
+  <followers_count>898</followers_count>
+  <profile_background_color>000000</profile_background_color>
+  <profile_text_color>333333</profile_text_color>
+  <profile_link_color>0084B4</profile_link_color>
+  <profile_sidebar_fill_color>DDEEF6</profile_sidebar_fill_color>
+  <profile_sidebar_border_color>C0DEED</profile_sidebar_border_color>
+  <friends_count>88</friends_count>
+  <created_at>Mon Jul 16 12:59:01 +0000 2007</created_at>
+  <favourites_count>727</favourites_count>
+  <utc_offset>-28800</utc_offset>
+  <time_zone>Pacific Time (US &amp; Canada)</time_zone>
+  <profile_background_image_url>http://a3.twimg.com/profile_background_images/162641967/we_concept_bg2.png</profile_background_image_url>
+  <profile_background_tile>false</profile_background_tile>
+  <profile_use_background_image>true</profile_use_background_image>
+  <notifications>false</notifications>
+  <geo_enabled>true</geo_enabled>
+  <verified>false</verified>
+  <following>false</following>
+  <statuses_count>2962</statuses_count>
+  <lang>en</lang>
+  <contributors_enabled>false</contributors_enabled>
+  <follow_request_sent>false</follow_request_sent>
+  <listed_count>29</listed_count>
+  <show_all_inline_media>true</show_all_inline_media>
+  <status>
+    <created_at>Fri Oct 22 21:56:04 +0000 2010</created_at>
+    <id>28443146015</id>
+    <text>RT @mojombo: A release three years and three months in the making. I give you...Chronic 0.3.0! http://rubygems.org/gems/chronic</text>
+    <source>&lt;a href=&quot;http://www.echofon.com/&quot; rel=&quot;nofollow&quot;&gt;Echofon&lt;/a&gt;</source>
+    <truncated>false</truncated>
+    <favorited>false</favorited>
+    <in_reply_to_status_id></in_reply_to_status_id>
+    <in_reply_to_user_id></in_reply_to_user_id>
+    <in_reply_to_screen_name></in_reply_to_screen_name>
+    <retweet_count></retweet_count>
+    <retweeted>false</retweeted>
+    <retweeted_status>
+      <created_at>Fri Oct 22 21:34:32 +0000 2010</created_at>
+      <id>28441706055</id>
+      <text>A release three years and three months in the making. I give you...Chronic 0.3.0! http://rubygems.org/gems/chronic</text>
+      <source>web</source>
+      <truncated>false</truncated>
+      <favorited>false</favorited>
+      <in_reply_to_status_id></in_reply_to_status_id>
+      <in_reply_to_user_id></in_reply_to_user_id>
+      <in_reply_to_screen_name></in_reply_to_screen_name>
+      <retweet_count></retweet_count>
+      <retweeted>false</retweeted>
+      <geo/>
+      <coordinates/>
+      <place/>
+      <contributors/>
+    </retweeted_status>
+    <geo/>
+    <coordinates/>
+    <place/>
+    <contributors/>
+  </status>
+</user>
+</users>

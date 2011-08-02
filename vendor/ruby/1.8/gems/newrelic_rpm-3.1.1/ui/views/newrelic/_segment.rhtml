@@ -1,0 +1,28 @@
+<% segment, indent, repeat = object %>
+<tr style="<%= 'display:none' if indent > 1 %>" child_row_class="<%=segment_child_row_class(segment)%>" onmouseover="mouse_over_row(this)" onmouseout="mouse_out_row(this)" class='<%=segment_row_classes(segment, indent)%>'>
+	
+<td nowrap=true>
+<div class="segment_indent_level<%=indent%> <%='leaf_segment' if segment.called_segments.empty?%>">
+	<div style="display:inline;">
+		<%= expand_segment_image(segment, indent) %>
+	</div>
+	<%= write_segment_label segment%>
+</div>
+</td>
+
+<td nowrap=true align="right">
+  <%= timestamp(segment) %>
+</td>
+<td nowrap=true align="right">
+  <%= with_delimiter(to_ms(segment.duration)) %>
+</td>
+<td nowrap=true align="right">
+  <%= colorize(segment.exclusive_duration) %>
+</td>
+
+<td nowrap=true>
+  <small>
+  <%= explain_sql_links(segment) if indent > 0 %>
+  </small>
+</td>
+</tr>

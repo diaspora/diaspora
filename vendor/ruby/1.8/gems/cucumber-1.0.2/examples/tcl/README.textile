@@ -1,0 +1,11 @@
+h1. Cucumber goes Tcl
+
+h2. Prerequisites
+
+Install the ruby-tcl bindings:
+
+  [sudo] gem install tcl
+
+h2. Run the example:
+
+  rake cucumber

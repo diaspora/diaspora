@@ -1,0 +1,13 @@
+*.sw?
+*.rbc
+.DS_Store
+coverage
+rdoc
+pkg
+ext
+tmp
+release
+.bundle
+npm-debug.log
+doc/
+.yardoc

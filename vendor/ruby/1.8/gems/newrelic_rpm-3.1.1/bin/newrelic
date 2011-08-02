@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+# executes one of the commands in the new_relic/commands directory
+# pass the name of the command as an argument
+
+$LOAD_PATH << File.expand_path(File.join(File.dirname(__FILE__), '..','lib'))
+require 'new_relic/command'
+begin
+  NewRelic::Command.run
+rescue NewRelic::Command::CommandFailure => failure
+  STDERR.puts failure.message
+  STDERR.puts failure.options if failure.options
+  exit 1
+end

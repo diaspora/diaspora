@@ -1,0 +1,11 @@
+<% if key = params[:key] %>
+  <h1>Key "<%= key %>" is a <%= resque.redis.type key %></h1>
+  <h2>size: <%= redis_get_size(key) %></h2>
+  <table>
+    <tr>
+      <td>
+        <%= redis_get_value_as_array(key) %>
+      </td>
+    </tr>
+  </table>
+<% end %>

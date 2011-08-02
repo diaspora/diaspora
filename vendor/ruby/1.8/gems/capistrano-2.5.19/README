@@ -1,0 +1,102 @@
+= Capistrano
+
+Capistrano is a utility and framework for executing commands in parallel on multiple remote machines, via SSH. It uses a simple DSL (borrowed in part from Rake, http://rake.rubyforge.org/) that allows you to define _tasks_, which may be applied to machines in certain roles. It also supports tunneling connections via some gateway machine to allow operations to be performed behind VPN's and firewalls.
+
+Capistrano was originally designed to simplify and automate deployment of web applications to distributed environments, and originally came bundled with a set of tasks designed for deploying Rails applications. The deployment tasks are now (as of Capistrano 2.0) opt-in and require clients to explicitly put
+"load 'deploy'" in their recipes.
+
+== Documentation
+
+We know that documentation is something that really lets us down, that's why there is a repository for a handbook below, please open an issue on it if you would like something documented:
+
+* http://github.com/leehambley/capistrano-handbook
+
+If you prefer the wiki style of documentation, then please see our wiki
+
+* http://wiki.capify.org
+
+Due to a failure of MySQL with PHP, searches shorter than three characters are all but ignored, we're going to rectify this, but in the meantime, please do what you can, tickets opened on the handbook for the wiki will be answered too, so please let us know if you don't find something you needed.
+
+We take bug reports via lighthouse app, you can find that page here:
+
+* http://capistrano.lighthouseapp.com
+
+More documentation is on the way, if in doubt try opening the recipes that ship with capistrano.
+
+== DEPENDENCIES
+
+* Net::SSH v2 (http://net-ssh.rubyforge.org)
+* Net::SFTP v2 (http://net-ssh.rubyforge.org)
+* Net::SCP v1 (http://net-ssh.rubyforge.org)
+* Net::SSH::Gateway v1 (http://net-ssh.rubyforge.org)
+* HighLine (http://highline.rubyforge.org)
+
+If you want to run the tests, you'll also need to have the following dependencies installed:
+
+* Echoe (for the Rakefile)
+* Mocha (http://mocha.rubyforge.org)
+
+== ASSUMPTIONS
+
+Capistrano is "opinionated software", which means it has very firm ideas about how things ought to be done, and tries to force those ideas on you. Some of the assumptions behind these opinions are:
+
+* You are using SSH to access the remote servers.
+* You either have the same password to all target machines, or you have public keys in place to allow passwordless access to them.
+
+Do not expect these assumptions to change.
+
+== USAGE
+
+In general, you'll use Capistrano as follows:
+
+* Create a recipe file ("capfile" or "Capfile").
+* Use the +cap+ script to execute your recipe.
+
+Use the +cap+ script as follows:
+
+    cap sometask
+
+By default, the script will look for a file called one of +capfile+ or +Capfile+. The +someaction+ text indicates which task to execute. You can do "cap -h" to see all the available options and "cap -T" to see all the available tasks.
+
+== Capistrano Edge
+
+If you want to try Capistrano code that hasn't been formerly released yet, this repository now includes a gemspec that should build what you need, here's how to get a copy:
+
+    git clone git://github.com/capistrano/capistrano.git capistrano-capistrano
+    cd capistrano-capsitrano
+    rake package
+    sudo gem install pkg/capistrano-*.gem
+
+This will install the most recent version of capistrano and make it available for both cap, and capify.
+
+We recommend that you capify a new test application, as the resulting files are different to previous versions.
+
+If you have multiple versions of capistrano (or indeed any gem with a binary) installed, you can call `cap` like so to specify which version to use:
+
+    cap _2.5.5_ deploy
+    cap _2.5.6_ deploy:setup
+
+== LICENSE:
+
+(The MIT License)
+
+Copyright (c) 2005-2008 Jamis Buck <jamis@37signals.com>
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+'Software'), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
+CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

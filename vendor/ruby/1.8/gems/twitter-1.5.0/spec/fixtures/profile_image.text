@@ -1,0 +1,24 @@
+HTTP/1.1 302 Found
+Date: Sat, 23 Oct 2010 01:32:03 GMT
+Server: hi
+Status: 302 Found
+X-Transaction: 1287797523-85714-19805
+X-RateLimit-Limit: 150
+Last-Modified: Sun, 17 Oct 2010 18:53:30 GMT
+Location: http://a0.twimg.com/profile_images/323331048/me_normal.jpg
+X-RateLimit-Remaining: 145
+X-Runtime: 0.00758
+Content-Type: text/html; charset=utf-8
+Content-Length: 124
+X-RateLimit-Class: api
+X-Revision: DEV
+X-RateLimit-Reset: 1287800383
+Set-Cookie: k=208.66.28.252.1287797522982583; path=/; expires=Sat, 30-Oct-10 01:32:02 GMT; domain=.twitter.com
+Set-Cookie: guest_id=12877975230357499; path=/; expires=Mon, 22 Nov 2010 01:32:03 GMT
+Set-Cookie: _twitter_sess=BAh7CDoPY3JlYXRlZF9hdGwrCFzCttYrAToHaWQiJTZlMGJiYTk0YjhkNzEy%250AZDY4ZmU2MDI0ZDk1ZDNjOTY0IgpmbGFzaElDOidBY3Rpb25Db250cm9sbGVy%250AOjpGbGFzaDo6Rmxhc2hIYXNoewAGOgpAdXNlZHsA--a6b8c59df03cd8bc7ab1740fb8414664d904809c; domain=.twitter.com; path=/
+Cache-Control: max-age=300
+Expires: Sat, 23 Oct 2010 01:37:02 GMT
+Vary: Accept-Encoding
+Connection: close
+
+<html><body>You are being <a href="http://a0.twimg.com/profile_images/323331048/me_normal.jpg">redirected</a>.</body></html>
