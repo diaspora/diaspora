@@ -806,7 +806,7 @@ a.paginate, #infscr-loading
   h5
     :color #ccc
 
-input:not([type='submit']):not([type='reset']),
+input:not([type='submit']):not([type='reset']):not([type='hidden']),
 textarea
   @include border-radius(2px)
 
@@ -822,9 +822,6 @@ textarea
 
 input[type='checkbox']
   :width auto !important
-
-input[type='hidden']
-  :display none
 
 .submit_block
   :text
