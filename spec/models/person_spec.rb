@@ -390,4 +390,7 @@ describe Person do
         should == @person.as_json.merge(:tags =>  @person.profile.tags.map{|t| "##{t.name}"})
     end
   end
+
+  describe '.featured_users' do
+  end
 end
