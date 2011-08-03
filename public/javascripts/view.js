@@ -85,6 +85,10 @@ var View = {
       Diaspora.widgets.directionDetector.updateBinds();
     });
 
+    $("a.new_aspect").click(function(e){
+      $("input#aspect_name").focus()
+    });
+
     /* facebox 'done' buttons */
     $("*[rel*=close]").live('click', function(){ $.facebox.close(); });
 
