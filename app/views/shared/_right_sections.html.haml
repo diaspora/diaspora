@@ -3,14 +3,15 @@
 -#   the COPYRIGHT file.
 
 
-.section
-  .title
-    = image_tag('/images/icons/cubbies.png')
-    %h5
-      = t('aspects.index.cubbies.heading')
-  .content
-    = t('aspects.index.cubbies.explanation')
-    = link_to t('aspects.index.cubbies.learn_more'), token_path
+- unless has_connected_cubbies?
+  .section
+    .title
+      = image_tag('/images/icons/cubbies.png')
+      %h5
+        = t('aspects.index.cubbies.heading')
+    .content
+      = t('aspects.index.cubbies.explanation')
+      = link_to t('aspects.index.cubbies.learn_more'), token_path
 
 - unless AppConfig.configured_services.blank?
   .section
