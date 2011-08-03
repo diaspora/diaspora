@@ -158,6 +158,10 @@
             = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
             = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
 
+      %li{:style => 'text-align:center;'}
+        %p
+          = link_to t('.skip'), getting_started_completed_path
+
 /.span-5.rightBar.last
 /  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
 /  = render 'shared/right_sections'

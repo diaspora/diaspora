@@ -780,7 +780,7 @@ en:
       welcome: "Welcome!"
       welcome_with_name: "Welcome, %{name}!"
 
-      skip: "skip getting started"
+      skip: "Skip getting started"
 
       fill_out_your_profile: "Fill out your profile"
       profile_description: "Description of why you'd want to do this"
