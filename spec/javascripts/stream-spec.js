@@ -20,17 +20,21 @@ describe("Stream", function() {
     });
 
   });
-  describe("initialize", function() {
+  describe("collapseText", function() {
 
     it("adds a 'show more' links to long posts", function() {
       Diaspora.widgets.i18n.loadLocale(
         {show_more: 'Placeholder'}, 'en');
-      Stream.initialize();
+
       stream_element = $('#main_stream .stream_element:first');
+      Stream.collapseText('eventID', stream_element[0]);
+
       expect(stream_element.find("p .details").css('display')).toEqual('none');
       expect(stream_element.find(".read-more a").css('display')).toEqual('inline');
+
       stream_element.find(".read-more a").click();
       jasmine.Clock.tick(200);
+
       expect(stream_element.find(".read-more").css('display')).toEqual('none');
       expect(stream_element.find(".details").css('display')).toEqual('inline');
     });

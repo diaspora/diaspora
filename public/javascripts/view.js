@@ -17,7 +17,8 @@ var View = {
     });
 
     Diaspora.widgets.subscribe("stream/scrolled", function() {
-      $('#main_stream label').inFieldLabels();
+      new_elements = Array.prototype.slice.call(arguments,1)
+      $(new_elements).find('label').inFieldLabels();
     });
 
     Diaspora.widgets.subscribe("stream/reloaded", function() {
@@ -56,11 +57,15 @@ var View = {
 
     /* Autoexpand textareas */
     var startAutoResize = function() {
-      $('textarea')
-        .autoResize({
-          'animate': false,
-          'extraSpace': 5
-        });
+     if (arguments.length > 1){
+        target = $(Array.prototype.slice.call(arguments,1)).find('textarea');
+      }else{
+        target = $('textarea')
+      }
+      target.autoResize({
+                          'animate': false,
+                          'extraSpace': 5
+                        });
     }
     Diaspora.widgets.subscribe("stream/scrolled", startAutoResize)
     Diaspora.widgets.subscribe("stream/reloaded", startAutoResize)

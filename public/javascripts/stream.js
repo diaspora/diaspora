@@ -18,8 +18,12 @@ var Stream = {
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
 
+    Diaspora.widgets.subscribe("stream/scrolled", Stream.collapseText);
+  },
+  collapseText: function(){
+    elements = $(Array.prototype.slice.call(arguments,1));
     // collapse long posts
-    $(".content p", this.selector).expander({
+    $(".content p", elements).expander({
       slicePoint: 400,
       widow: 12,
       expandText: Diaspora.widgets.i18n.t("show_more"),
@@ -27,14 +31,13 @@ var Stream = {
     });
 
     // collapse long comments
-    $(".comment .content span", this.selector).expander({
+    $(".comment .content span", elements).expander({
       slicePoint: 200,
       widow: 400,
       expandText: Diaspora.widgets.i18n.t("show_more"),
       userCollapse: false
     });
   },
-
   initializeLives: function(){
     // reshare button action
     $(".reshare_button", this.selector).live("click", function(evt) {
@@ -152,7 +155,7 @@ var Stream = {
           toggle.html(Diaspora.widgets.i18n.t("comments.hide"));
           commentList.html(data)
                      .addClass('loaded');
-          Diaspora.widgets.publish("stream/scrolled")
+          Diaspora.widgets.publish("stream/scrolled", commentList);
         }
       });
     }
