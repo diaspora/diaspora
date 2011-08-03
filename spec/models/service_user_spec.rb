@@ -2,6 +2,40 @@ require 'spec_helper'
 
 describe ServiceUser do
 
+  context 'scope' do
+      before do
+        @user = alice
+        @service = Services::Facebook.new(:access_token => "yeah")
+        @user.services << @service
+        @user2 = Factory.create(:user_with_aspect)
+        @user2_fb_id = '820651'
+        @user2_fb_name = 'Maxwell Salzberg'
+        @user2_fb_photo_url = 'http://cdn.fn.com/pic1.jpg'
+        @user2_service = Services::Facebook.create(:uid => @user2_fb_id, :access_token => "yo", :user_id => @user2.id)
+
+        @su = ServiceUser.new(:service_id => @service.id, :uid => @user2_fb_id, :name => @user2_fb_name,:photo_url => @user2_fb_photo_url)
+        @su.person = @user2.person
+        @su.save
+      end
+    describe 'with_local_people' do
+      it 'returns services with local people' do
+        ServiceUser.with_local_people.count.should == 1
+        ServiceUser.with_remote_people.count.should == 0
+      end
+    end
+
+    describe 'with_remote_people' do
+      it 'returns services with remote people' do
+        @user2_service.delete
+        p = @user2.person
+        p.owner_id = nil
+        p.save
+        ServiceUser.with_local_people.count.should == 0
+        ServiceUser.with_remote_people.count.should == 1
+      end
+    end
+
+  end
   describe '#finder' do
     before do
       @user = alice
