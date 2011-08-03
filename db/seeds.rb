@@ -19,6 +19,7 @@ alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth
 bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth', :invites => 10)
 eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth', :invites => 10)
 
+print "Creating seeded users... "
 alice.person.profile.update_attributes(:first_name => "Alice", :last_name => "Smith",
   :image_url => "/images/user/uma.jpg",
   :image_url_small => "/images/user/uma.jpg",
@@ -31,9 +32,12 @@ eve.person.profile.update_attributes(:first_name => "Eve", :last_name => "Doe",
   :image_url => "/images/user/angela.jpg",
   :image_url_small => "/images/user/angela.jpg",
   :image_url_medium => "/images/user/angela.jpg")
+puts "done!"
 
+print "Connecting users... "
 connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
+puts "done!"
 
 # Uncomment these and return out of Service::Facebook#save_friends
 #service = Service.new(:user_id => bob.id)
@@ -45,9 +49,12 @@ connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 require 'spec/support/fake_resque'
 require 'spec/support/fake_redis'
 require 'spec/support/user_methods'
+
+print "Seeding post data..."
 time_interval = 1000
 (1..25).each do |n|
   [alice, bob, eve].each do |u|
+    print '.'
     if(n%3==1)
       post = u.post :status_message, :text => "#{u.username} - #{n} - #seeded", :to => u.aspects.first.id
     elsif(n%3==2)
@@ -63,4 +70,7 @@ time_interval = 1000
     time_interval += 1000
   end
 end
-puts "successfully seed the db with users eve, bob, and alice (password: 'evankorth')"
+puts " done!"
+puts "Successfully seeded the db with users eve, bob, and alice (password: 'evankorth')"
+puts ""
+
