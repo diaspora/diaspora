@@ -71,6 +71,18 @@ JSON
         @service.save_friends
         @service.service_users.first.person.should == @user2.person
       end
+
+      it 'overwrites local model information' do
+        @service.save_friends
+        su = @service.service_users.first
+        su.person.should == @user2.person
+        su.contact.should == nil
+
+        connect_users_with_aspects(alice, @user2)
+        @service.save_friends
+        su.person.should == @user2.person
+        su.reload.contact.should == alice.contact_for(@user2.person)
+      end
     end
 
     describe '#finder' do
