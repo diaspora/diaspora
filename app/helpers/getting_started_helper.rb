@@ -2,7 +2,7 @@
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
-module UsersHelper
+module GettingStartedHelper
   # @return [Boolean] The user has filled out all profile fields
   def has_completed_profile?
     profile = current_user.person.profile

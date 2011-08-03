@@ -3,7 +3,7 @@
 #   the COPYRIGHT file.
 require 'spec_helper'
 
-describe UsersHelper do
+describe GettingStartedHelper do
   before do
     @current_user = alice
   end
