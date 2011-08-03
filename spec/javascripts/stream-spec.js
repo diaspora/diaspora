@@ -40,6 +40,14 @@ describe("Stream", function() {
     });
   });
 
+  describe("initialize", function() {
+    it("calls collapseText",function(){
+      spyOn(Stream, "collapseText");
+      Stream.initialize();
+      expect(Stream.collapseText).toHaveBeenCalled();
+    })
+  });
+
   describe("toggleComments", function() {
     it("toggles class hidden on the comments ul", function () {
       link = $("a.toggle_post_comments");

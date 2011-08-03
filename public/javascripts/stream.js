@@ -19,6 +19,7 @@ var Stream = {
     //Stream.setUpImageLinks();
 
     Diaspora.widgets.subscribe("stream/scrolled", Stream.collapseText);
+    Stream.collapseText('eventID', Stream.selector);
   },
   collapseText: function(){
     elements = $(Array.prototype.slice.call(arguments,1));
