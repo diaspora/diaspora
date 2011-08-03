@@ -4,18 +4,105 @@
 require 'spec_helper'
 
 describe UsersHelper do
-  describe '#first_name_or_username' do
+  before do
+    @current_user = alice
+  end
+
+  def current_user
+    @current_user
+  end
+
+  describe "#has_completed_profile?" do
+    it 'returns true if the current user has filled out all 7 suggested fields (from getting started)' do
+      profile = @current_user.person.profile
+      profile.update_attributes!(
+        {:first_name => "alice", :last_name => "smith", :image_url => "abcd.jpg", :birthday => Date.new,
+         :gender => "cow", :location => "san fran", :tag_string => "#sup", :bio => "holler" })
+      has_completed_profile?.should be_true
+    end
+
+    it 'returns false if the current user has not filled out all 7 suggested fields (from getting started)' do
+      @current_user.update_attributes(:person => {:profile =>
+        {:first_name => nil, :last_name => nil, :birthday => nil, :gender => nil }})
+      has_completed_profile?.should be_false
+    end
+  end
+
+  describe "#has_connected_services?" do
     before do
-      @user = alice
+      AppConfig[:connected_services] = ['fake_service']
     end
 
-    it 'should display the first name if it is set' do
-      first_name_or_username(@user).should == @user.person.profile.first_name
+    it 'returns true if the current user has connected at least one service' do
+      @current_user.services << Factory.build(:service)
+      has_connected_services?.should be_true
     end
 
-    it 'should display the username if the first name is empty' do
-      @user.person.profile.first_name = ""
-      first_name_or_username(@user).should == @user.username
+    it 'returns true if the current user has zero connected services and the server has no services to connect' do
+      AppConfig[:connected_services] = []
+      @current_user.services.delete_all
+      has_connected_services?.should be_true
+    end
+
+    it 'returns false if the current user has not connected any service' do
+      @current_user.services.delete_all
+      has_connected_services?.should be_false
+    end
+  end
+
+  describe "#has_few_contacts?" do
+    it 'returns true if the current_user has more than 2 contacts' do
+      3.times do |n|
+        @current_user.contacts << Contact.new(:person => Factory(:person), :receiving => true)
+      end
+      has_few_contacts?.should be_true
+    end
+
+    it 'returns false if the current_user has less than 2 contacts (inclusive)' do
+      @current_user.contacts.delete_all
+      has_few_contacts?.should be_false
+    end
+  end
+
+  describe "has_few_followed_tags?" do
+    it 'returns true if the current_user has more than 2 contacts' do
+      3.times do |n|
+        @current_user.followed_tags << ActsAsTaggableOn::Tag.new(:name => "poodles_#{n}")
+      end
+      has_few_followed_tags?.should be_true
+    end
+
+    it 'returns false if the current_user has less than 2 contacts (inclusive)' do
+      @current_user.followed_tags.delete_all
+      has_few_followed_tags?.should be_false
+    end
+  end
+  
+  describe "#has_connected_cubbies?" do
+    before do
+      pending
+    end
+
+    it 'returns true if the current user has connected cubbies to their account' do
+      has_connected_cubbies?.should be_true
+    end
+
+    it 'returns false if the current user has not connected cubbies to their account' do
+      has_connected_cubbies?.should be_false
+    end
+  end
+
+  describe "#has_completed_getting_started?" do
+    it 'returns true if the current user has completed getting started' do
+      @current_user.getting_started = false
+      @current_user.save
+      has_completed_getting_started?.should be_true
+    end
+
+    it 'returns false if the current user has not completed getting started' do
+      @current_user.getting_started = true
+      @current_user.save
+      has_completed_getting_started?.should be_false
     end
   end
 end

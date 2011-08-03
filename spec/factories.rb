@@ -16,7 +16,6 @@ Factory.define :profile do |p|
   p.birthday Date.today
 end
 
-
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
   p.sequence(:url)  { |n| AppConfig[:pod_url] }

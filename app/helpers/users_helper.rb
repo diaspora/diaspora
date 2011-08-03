@@ -3,8 +3,40 @@
 #   the COPYRIGHT file.
 
 module UsersHelper
-  def first_name_or_username (user)
-    set_name = user.person.profile.first_name
-    (set_name.nil? || set_name.empty?) ? user.username : user.person.profile.first_name 
+  
+  # @return [Boolean] The user has filled out all profile fields
+  def has_completed_profile?
+    profile = current_user.person.profile
+    [:full_name, :image_url,
+     :birthday, :gender,
+     :bio, :location,
+     :tag_string].map! do |attr|
+      return false if profile.send(attr).blank?
+     end
+    true
+  end
+
+  # @return [Boolean] The user has connected at least one service
+  def has_connected_services?
+    AppConfig[:connected_services].blank? || current_user.services.size > 0
+  end
+
+  # @return [Boolean] The user has at least 3 contacts
+  def has_few_contacts?
+    current_user.contacts.receiving.size > 2
+  end
+
+  # @return [Boolean] The user has followed at least 3 tags
+  def has_few_followed_tags?
+    current_user.followed_tags.size > 2
+  end
+  
+  # @return [Boolean] The user has connected to cubbi.es
+  def has_connected_cubbies?
+  end
+
+  # @return [Boolean] The user has completed all steps in getting started
+  def has_completed_getting_started?
+    current_user.getting_started == false
   end
 end

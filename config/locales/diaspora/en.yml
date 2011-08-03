@@ -794,6 +794,8 @@ en:
       follow_your_interests: "Follow your interests"
       connect_to: "Connect to"
 
+      find_friends_from_facebook: "find friends from Facebook"
+
       profile_fields:
         name: "Name"
         birthday: "Birthday"

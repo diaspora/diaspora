@@ -2,19 +2,17 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
-- content_for :head do
-  = include_javascripts :home
-
 .span-5.leftNavBar
   #home_user_badge
     = owner_image_link
     %h3
       = current_user.first_name
 
-  .section
-    %ul.left_nav
-      %li
-        = link_to "Welcome", getting_started_path, :class => "home_selector active"
+  - unless has_completed_getting_started?
+    .section
+      %ul.left_nav
+        %li
+          = link_to "Welcome", getting_started_path, :class => "home_selector active"
 
   .section
     = render 'aspects/aspect_listings'
@@ -28,10 +26,10 @@
       = "Welcome, #{current_user.first_name}!"
 
     %ul#getting_started
-      %li.profile
+      %li.profile{:class => ("completed" if has_completed_profile?)}
         .getting_started_number
           %h3
-            1
+            = @step += 1
         .content
           #getting_started_profile_photo
             = person_image_link(current_user.person, :size => :thumb_medium)
@@ -47,22 +45,23 @@
           #edit_profile_button_div
             = link_to "Edit Profile", edit_profile_path, :class => "button"
 
-      %li.services
-        .getting_started_number
-          %h3
-            2
-        .content
-          %h3
-            = t('.connect_to_your_other_social_networks')
-        #getting_started_service_icons
-          - AppConfig.configured_services.each do |service|
-            - unless current_user.services.any?{|x| x.provider == service}
-              = link_to(image_tag("social_media_logos/#{service.downcase}-48x48.png", :title => service.titleize), "/auth/#{service}")
+      - unless AppConfig[:configured_services].blank?
+        %li.services{:class => ("completed" if has_connected_services?)}
+          .getting_started_number
+            %h3
+              = @step += 1
+          .content
+            %h3
+              = t('.connect_to_your_other_social_networks')
+          #getting_started_service_icons
+            - AppConfig.configured_services.each do |service|
+              - unless current_user.services.any?{|x| x.provider == service}
+                = link_to(image_tag("social_media_logos/#{service.downcase}-48x48.png", :title => service.titleize), "/auth/#{service}")
 
-      %li
+      %li.connect_with_people{:class => ("completed" if has_few_contacts?)}
         .getting_started_number
           %h3
-            3
+            = @step += 1
         .content
           %h3
             = t(".connect_with_people")
@@ -108,17 +107,16 @@
               #global_search
                 = form_tag(people_path, :method => 'get', :id => "global_search_form") do
                   = text_field_tag 'q', nil, :placeholder => "Search for people", :type => 'search', :results => 5
-            .span-5.last
-              %p
-                or
-                = link_to "find friends from Facebook", "#"
+            .span-5.last{:style => "height:30px;"}
+              or
+              = link_to t('.find_friends_from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
             .clearfix
             %br
 
-      %li
+      %li.follow_interests{:class => ("completed" if has_few_followed_tags?)}
         .getting_started_number
           %h3
-            4
+            = @step += 1
         .content
           %h3
             = t(".follow_your_interests")
@@ -134,21 +132,21 @@
             %h4
               Featured tags
             %p
-              = link_to "#diaspora", "#"
+              = link_to "#diaspora", tag_path('diaspora')
               %br
-              = link_to "#kittens", "#"
+              = link_to "#kittens", tag_path('kittens')
               %br
-              = link_to "#puppies", "#"
+              = link_to "#puppies", tag_path('puppies')
               %br
-              = link_to "#maddog", "#"
+              = link_to "#maddog", tag_path('maddog')
           .clearfix
             %br
           %br
 
-      %li
+      %li.cubbies
         .getting_started_number
           %h3
-            5
+            = @step += 1
         .content
           %h3
             = t(".connect_to")

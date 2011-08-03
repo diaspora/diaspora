@@ -3203,6 +3203,18 @@ ul#getting_started
     input[type='search']
       :width 210px
 
+    &.completed
+      @include opacity(0.4)
+      @include transition(opacity, 0.2s)
+
+      &:hover,
+      &:active
+        @include opacity(1)
+
+      .content h3
+        :text
+          :decoration line-through 
+
   .profile
     :min-height 170px
 
@@ -3282,9 +3294,9 @@ ul#getting_started
   :padding
     :left 20px
 
-.completed
-  :background
-    :image url('/images/icons/check_yes_ok.png') !important
+  &.completed
+    :background
+      :image url('/images/icons/check_yes_ok.png') !important
 
 #featured_users_pane
   :padding 10px 0
