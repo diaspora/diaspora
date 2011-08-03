@@ -63,7 +63,6 @@ class TagsController < ApplicationController
     @posts = @posts.includes(:comments, :photos).order('posts.created_at DESC').limit(15)
 
     @posts = PostsFake.new(@posts)
-    @commenting_disabled = true
 
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @posts}
