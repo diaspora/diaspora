@@ -783,7 +783,7 @@ en:
       skip: "Skip getting started"
 
       fill_out_your_profile: "Fill out your profile"
-      profile_description: "Description of why you'd want to do this"
+      profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields:
         name: "Name"
         birthday: "Birthday"

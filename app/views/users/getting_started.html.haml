@@ -31,10 +31,10 @@
           %h3
             = @step += 1
         .content
-          #getting_started_profile_photo
-            = person_image_link(current_user.person, :size => :thumb_medium)
           %h3
             = t(".fill_out_your_profile")
+          #getting_started_profile_photo
+            = person_image_link(current_user.person, :size => :thumb_medium)
           %p
             = t(".profile_description")
           .span-8.fields
