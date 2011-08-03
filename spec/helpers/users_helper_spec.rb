@@ -105,4 +105,19 @@ describe UsersHelper do
       has_completed_getting_started?.should be_false
     end
   end
+
+  describe "#welcome_text" do
+    it 'returns "Welcome" without a name if first_name is not set' do
+      profile = @current_user.person.profile
+      profile.first_name = ""
+      profile.save
+      @current_user.person.instance_variable_set(:@first_name, nil)
+      
+      welcome_text.should == "Welcome!"
+    end
+
+    it 'returns "Welcome, {first_name}" if first_name is set' do
+      welcome_text.should == "Welcome, #{current_user.first_name}!"
+    end
+  end
 end

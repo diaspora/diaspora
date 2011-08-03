@@ -23,7 +23,7 @@
 .span-13.append-1
   .stream_container
     %h2
-      = "Welcome, #{current_user.first_name}!"
+      = welcome_text
 
     %ul#getting_started
       %li.profile{:class => ("completed" if has_completed_profile?)}
@@ -64,10 +64,10 @@
             = @step += 1
         .content
           %h3
-            = t(".connect_with_people")
+            = t('.connect_with_people')
 
           %p
-            Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily.
+            = t('.connect_with_people_explanation')
 
           #diaspora_hq_pane
             - person = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
@@ -87,7 +87,7 @@
 
           #featured_users_pane 
             %h4
-              Featured users
+              = t('.featured_users')
 
             %div
               - Person.featured_users[0..5].each do |person|
@@ -97,12 +97,12 @@
                   - person.profile.tags[0..2].each do |tg|
                     = "##{tg}"
 
-            = link_to "See all featured users ->", "#"
+            = link_to "#{t('.see_all_featured_users')} ->", featured_users_path
 
           %br
           #find_friends_pane
             %h4
-              Find friends
+              = t('.find_friends')
             .span-5.append-1
               #global_search
                 = form_tag(people_path, :method => 'get', :id => "global_search_form") do
@@ -119,10 +119,10 @@
             = @step += 1
         .content
           %h3
-            = t(".follow_your_interests")
+            = t('.follow_your_interests')
 
           %p
-            Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora.
+            = t('.hashtag_explanation')
 
           .span-5.append-1
             #global_search
@@ -130,7 +130,7 @@
                 = text_field_tag 'q', nil, :placeholder => "Search for #hashtags", :type => 'search', :results => 5
           .span-5.last
             %h4
-              Featured tags
+              = t('.featured_tags')
             %p
               = link_to "#diaspora", tag_path('diaspora')
               %br
@@ -158,6 +158,6 @@
             = image_tag '/images/cubbies_collage.png', :width => 422, :height => 159, :class => "cubbies_collage_small"
             = image_tag '/images/cubbies_screenshot2.png', :height => 151, :width => 200, :class => "cubbies_user_page_small"
 
-.span-5.rightBar.last
-  /= render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
-  /= render 'shared/right_sections'
+/.span-5.rightBar.last
+/  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count
+/  = render 'shared/right_sections'

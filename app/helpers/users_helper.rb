@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 module UsersHelper
-  
   # @return [Boolean] The user has filled out all profile fields
   def has_completed_profile?
     profile = current_user.person.profile
@@ -38,5 +37,14 @@ module UsersHelper
   # @return [Boolean] The user has completed all steps in getting started
   def has_completed_getting_started?
     current_user.getting_started == false
+  end
+
+  # @return [String] Welcome text with or without the current_user's first_name
+  def welcome_text
+    if current_user.person.profile.first_name.present?
+      t('users.getting_started.welcome_with_name', :name => current_user.first_name)
+    else 
+      t('users.getting_started.welcome')
+    end
   end
 end
