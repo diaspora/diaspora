@@ -79,11 +79,8 @@ describe UsersHelper do
   end
   
   describe "#has_connected_cubbies?" do
-    before do
-      pending
-    end
-
     it 'returns true if the current user has connected cubbies to their account' do
+      @current_user.authorizations << Factory(:oauth_authorization)
       has_connected_cubbies?.should be_true
     end
 

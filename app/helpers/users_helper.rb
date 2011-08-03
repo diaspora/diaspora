@@ -32,6 +32,7 @@ module UsersHelper
   
   # @return [Boolean] The user has connected to cubbi.es
   def has_connected_cubbies?
+    current_user.authorizations.size > 0
   end
 
   # @return [Boolean] The user has completed all steps in getting started

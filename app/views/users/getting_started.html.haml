@@ -143,7 +143,7 @@
             %br
           %br
 
-      %li.cubbies
+      %li.cubbies{:class => ("completed" if has_connected_cubbies?)}
         .getting_started_number
           %h3
             = @step += 1
