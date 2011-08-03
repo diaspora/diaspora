@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   def update
     # upload and set new profile photo
     params[:profile] ||= {}
-    unless params[:profile][:tag_string].nil?
+    unless params[:profile][:tag_string].nil? #|| params[:profile][:tag_string] == I18n.t('profiles.edit.your_tags_placeholder')
       params[:profile][:tag_string].split( " " ).each do |extra_tag|
         extra_tag.strip!
         unless extra_tag == ""
