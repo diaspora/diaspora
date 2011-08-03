@@ -110,13 +110,13 @@ zh-TW:
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
       keep_us_running: "為了讓 %{pod} 高速奔馳, 提供些咖啡存量給我們的伺服器吧!"
       no_contacts: "沒有任何聯繫"
-      no_tags: "沒有標籤"
+      no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
-      tags_following: "追隨的標籤"
+      tags_following: "追蹤的標籤"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -233,7 +233,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
-  find_people: "找人"
+  find_people: "找人或\"#標籤\""
   hide: "隱藏"
   home: 
     show: 
@@ -452,7 +452,7 @@ zh-TW:
       add_some: "新增一些"
       does_not_exist: "聯絡人不存在!"
       edit: "編輯"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} 尚未跟你分享任何貼文!"
       incoming_request: "%{name} 希望能和你分享"
       mention: "提及"
       message: "送訊息"
@@ -689,19 +689,19 @@ zh-TW:
     show_more_comments: "顯示下面 %{number} 個意見"
   tag_followings: 
     create: 
-      failure: "追隨失敗: #%{name}"
-      success: "追隨成功: #%{name}"
+      failure: "追蹤失敗: #%{name}"
+      success: "追蹤成功: #%{name}"
     destroy: 
-      failure: "停止追隨失敗: #%{name}"
-      success: "停止追隨成功: #%{name}"
+      failure: "停止追蹤失敗: #%{name}"
+      success: "停止追蹤成功: #%{name}"
   tags: 
     show: 
-      follow: "追隨#%{tag}"
-      following: "正在追隨#%{tag}"
+      follow: "追蹤#%{tag}"
+      following: "正在追蹤#%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
-      stop_following: "停止追隨#%{tag}"
+      stop_following: "停止追蹤#%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"

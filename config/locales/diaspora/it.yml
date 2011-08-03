@@ -110,7 +110,7 @@ it:
       handle_explanation: "Questo è il tuo ID su Diaspora. Lo puoi dare alle persone per farti trovare, come un indirizzo email."
       keep_us_running: "Fai andare %{pod} veloce come un razzo, finanzia la razione mensile di caffè per i nostri server!"
       no_contacts: "Nessun contatto"
-      no_tags: "Nessun tag"
+      no_tags: "+ Cerca tag da seguire"
       people_sharing_with_you: "Persone in condivisione con te"
       post_a_message: "invia un messaggio >>"
       services: 
@@ -233,7 +233,7 @@ it:
       correct_the_following_errors_and_try_again: "Correggi i seguenti errori e riprova."
       invalid_fields: "Campi non validi"
   fill_me_out: "Scrivi qui"
-  find_people: "Cerca persone"
+  find_people: "Cerca persone o #tag"
   hide: "Nascondi"
   home: 
     show: 
@@ -452,7 +452,7 @@ it:
       add_some: "aggiungine alcune"
       does_not_exist: "La persona non esiste!"
       edit: "modifica"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} non ha ancora condiviso nessun post con te!"
       incoming_request: "%{name} vuole condividere con te"
       mention: "Menziona"
       message: "Messaggio"
@@ -576,10 +576,10 @@ it:
     reshare: 
       deleted: "Il post originale è stato eliminato dall'autore."
       reshare: 
-        few: "%{count} Condivisioni"
-        many: "%{count} Condivisioni"
-        one: "1 Condivisione"
-        other: "%{count} Condivisioni"
+        few: "%{count} condivisioni"
+        many: "%{count} condivisioni"
+        one: "1 condivisione"
+        other: "%{count} condivisioni"
         zero: "Condividi"
       reshare_confirmation: "Vuoi condividere il post di %{author} con i tuoi contatti?"
       reshare_original: "Condividi l'originale"

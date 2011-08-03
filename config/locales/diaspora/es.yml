@@ -108,9 +108,9 @@ es:
         heading: "Identidad Diaspora*"
       donate: "Donar"
       handle_explanation: "Ésta es tu dirección Diaspora*. Como una dirección de correo, puedes dársela a la gente para que te encuentre."
-      keep_us_running: "Mantén %{pod} ejecutándose rápido, ¡compra a nuestros servidores su dosis de café mensual!"
+      keep_us_running: "Haz que %{pod} vaya más rápido, ¡compra a nuestros servidores su dosis de café mensual!"
       no_contacts: "No hay contactos"
-      no_tags: "Sin etiquetas"
+      no_tags: "+ Encuentra una etiqueta a seguir"
       people_sharing_with_you: "Comparten contigo"
       post_a_message: "publica un mensaje >>"
       services: 
@@ -131,7 +131,7 @@ es:
       or_featured: "O puedes compartir con %{link}"
       start_talking: "Nadie dijo nada aún. ¡Sé el primero!"
       try_adding_some_more_contacts: "Puedes buscar (arriba) or invitar (derecha) a más contactos."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
@@ -233,7 +233,7 @@ es:
       correct_the_following_errors_and_try_again: "Corrija los siguientes errores e inténtelo de nuevo."
       invalid_fields: "Campos inválidos"
   fill_me_out: "Complétame"
-  find_people: "Encuentra personas"
+  find_people: "Encuentra gente o #etiquetas"
   hide: "Ocultar"
   home: 
     show: 
@@ -452,7 +452,7 @@ es:
       add_some: "añade"
       does_not_exist: "¡El usuario no existe!"
       edit: "editar"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
       incoming_request: "%{name} quisiera compartir contigo"
       mention: "Mención"
       message: "Mensaje"
@@ -576,13 +576,13 @@ es:
     reshare: 
       deleted: "El comentario original fue eliminado por su autor."
       reshare: 
-        few: "Compartido %{count} veces"
-        many: "Compartido %{count} veces"
-        one: "Compartido 1 vez"
-        other: "Compartido %{count} veces"
+        few: "compartido %{count} veces"
+        many: "compartido %{count} veces"
+        one: "compartido 1 vez"
+        other: "compartido %{count} veces"
         zero: "Vuelve a compartirlo"
       reshare_confirmation: "¿Quieres volver a compartir %{author} - %{text}?"
-      reshare_original: "Volver a compartir el original"
+      reshare_original: "Volver a compartir original"
       show_original: "Mostrar el original"
   search: "Buscar"
   services: 
