@@ -66,6 +66,11 @@ JSON
           @service.save_friends
         }.should change(ServiceUser, :count).by(2)
       end
+
+      it 'attaches local models' do
+        @service.save_friends
+        @service.service_users.first.person.should == @user2.person
+      end
     end
 
     describe '#finder' do

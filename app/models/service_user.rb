@@ -7,11 +7,10 @@ class ServiceUser < ActiveRecord::Base
 
   before_save :attach_local_models
 
-  private
   def attach_local_models
     service_for_uid = Services::Facebook.where(:type => service.type.to_s, :uid => self.uid).first
     if !service_for_uid.blank? && (service_for_uid.user.person.profile.searchable)
-      self.person = service_for_uid.user.person 
+      self.person = service_for_uid.user.person
     else
       self.person = nil
     end
