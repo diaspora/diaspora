@@ -108,8 +108,9 @@
                 = form_tag(people_path, :method => 'get', :id => "global_search_form") do
                   = text_field_tag 'q', nil, :placeholder => "Search for people", :type => 'search', :results => 5
             .span-5.last{:style => "height:30px;"}
-              or
-              = link_to t('.find_friends_from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
+              %h4{:style => "margin-top:7px;"}
+                or
+                = link_to t('.find_friends_from_facebook'), friend_finder_path('facebook'), :rel => 'facebox'
             .clearfix
             %br
 
@@ -129,7 +130,7 @@
               = form_tag(people_path, :method => 'get', :id => "global_search_form") do
                 = text_field_tag 'q', nil, :placeholder => "Search for #hashtags", :type => 'search', :results => 5
           .span-5.last
-            %h4
+            %h4{:style => "margin-top:7px;"}
               = t('.featured_tags')
             %p
               = link_to "#diaspora", tag_path('diaspora')

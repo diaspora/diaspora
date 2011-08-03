@@ -11,7 +11,7 @@ end
 
 Given /^(?:I am signed in|I sign in)$/ do
   When %(I try to sign in)
-  wait_until { page.has_content?(@me.diaspora_handle) }
+  wait_until { page.has_content?("#{@me.first_name} #{@me.last_name}") }
 end
 
 When /^I try to sign in$/ do
