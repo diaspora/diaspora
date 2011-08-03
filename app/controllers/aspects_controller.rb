@@ -42,13 +42,12 @@ class AspectsController < ApplicationController
     end
 
     @aspect_ids = @aspects.map { |a| a.id }
-    posts = current_user.visible_posts(:by_members_of => @aspect_ids,
+    @posts = current_user.visible_posts(:by_members_of => @aspect_ids,
                                            :type => ['StatusMessage','Reshare', 'ActivityStreams::Photo'],
                                            :order => session[:sort_order] + ' DESC',
                                            :max_time => params[:max_time].to_i
-                          ).includes(:mentions => {:person => :profile})
+                          ).includes(:mentions => {:person => :profile}, :author => :profile)
 
-    @posts = PostsFake.new(posts)
     if params[:only_posts]
       render :partial => 'shared/stream', :locals => {:posts => @posts}
     else

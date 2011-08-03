@@ -9,9 +9,6 @@ module LikesHelper
   end
 
   def like_action(target, current_user=current_user)
-
-    target = target.model if target.instance_of?(PostsFake::Fake)
-
     if target.instance_of?(Comment)
       if current_user.liked?(target)
         link_to t('shared.stream_element.unlike'), comment_like_path(target, current_user.like_for(target)), :method => :delete, :class => 'unlike', :remote => true

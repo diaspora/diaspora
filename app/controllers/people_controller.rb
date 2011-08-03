@@ -101,7 +101,7 @@ class PeopleController < ApplicationController
           @commenting_disabled = true
           @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
         end
-        @posts = PostsFake.new(@posts)
+        @posts.includes(:author => :profile)
       end
 
       if params[:only_posts]
