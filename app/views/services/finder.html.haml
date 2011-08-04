@@ -28,4 +28,4 @@
       %br
       %br
       %h4{:style => 'text-align:center;'}
-        = link_to t('services.index.connect_to_facebook'), "/auth/facebook" if SERVICES['facebook']['app_id'] !=""
+        = link_to t('services.index.connect_to_facebook'), "/auth/facebook" if AppConfig[:configured_services].include?('facebook')
