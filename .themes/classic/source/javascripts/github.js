@@ -18,8 +18,9 @@ github = (function(){
                 var repos = [];
                 var i;
                 for (i = 0; i < data.repositories.length; i++){
-                  if (!data.repositories[i].fork)
-                    repos.push(data.repositories[i]);
+                  if (options.skip_forks && !data.repositories[i].fork)
+                    continue;
+                  repos.push(data.repositories[i]);
                 }
                 repos.sort(function(a, b){
                     var a = new Date(a.pushed_at),
