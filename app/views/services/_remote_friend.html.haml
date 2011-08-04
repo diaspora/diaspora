@@ -5,8 +5,7 @@
       %br
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.on_diaspora?
-      %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
-        = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+      = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
     - else    
       = form_tag service_inviter_path(:provider => 'facebook') do
         = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
