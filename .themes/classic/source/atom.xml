@@ -4,7 +4,7 @@ layout: nil
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title>{{ site.blog_title }}</title>
+  <title>{{ site.title }}</title>
   <link href="{{ site.url }}/atom.xml" rel="self"/>
   <link href="{{ site.url }}/"/>
   <updated>{{ site.time | date_to_xmlschema }}</updated>
@@ -22,7 +22,7 @@ layout: nil
     <link href="{{ site.url }}{{ post.url }}"/>
     <updated>{{ post.date | date_to_xmlschema }}</updated>
     <id>{{ site.url }}{{ post.id }}</id>
-    <content type="html">{{ post.content | full_urls: site.url | xml_escape }}</content>
+    <content type="html">{{ post.content | expand_urls: site.url | xml_escape }}</content>
   </entry>
   {% endfor %}
 </feed>
