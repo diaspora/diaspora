@@ -57,6 +57,7 @@ twitter_tweet_button: true
 
 # github repositories
 github_user:
+github_repo_count: 0
 
 # Google Plus
 google_plus_one: true

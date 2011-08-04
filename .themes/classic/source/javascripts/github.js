@@ -8,10 +8,10 @@ github = (function(){
         t.innerHTML =  fragment;
     }
     return {
-        showRepos: function(user, target){
+        showRepos: function(options){
             var feed = new jXHR();
             feed.onerror = function (msg,url) {
-              $(target + ' li.loading').addClass('error').text("Error loading feed");
+              $(options.target + ' li.loading').addClass('error').text("Error loading feed");
             }
             feed.onreadystatechange = function(data){
               if (feed.readyState === 4) {
@@ -27,11 +27,15 @@ github = (function(){
 
                     if (a.valueOf() == b.valueOf()) return 0;
                     return a.valueOf() > b.valueOf() ? -1 : 1;
-                })
-                render(target, repos)
+                });
+
+                if (options.count)
+                    repos.splice(options.count);
+
+                render(options.target, repos)
               }
             };
-            feed.open("GET","http://github.com/api/v2/json/repos/show/"+user+"?callback=?");
+            feed.open("GET","http://github.com/api/v2/json/repos/show/"+options.user+"?callback=?");
             feed.send();
         }
     };
