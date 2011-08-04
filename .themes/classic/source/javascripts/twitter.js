@@ -1,13 +1,15 @@
 // JSON-P Twitter fetcher for Octopress
 // (c) Brandon Mathis // MIT Lisence
 function getTwitterFeed(user, count, replies) {
-  feed = new jXHR();
+  var feed = new jXHR();
+
   feed.onerror = function (msg,url) {
     $('#tweets li.loading').addClass('error').text("Twitter's busted");
   }
   feed.onreadystatechange = function(data){
     if (feed.readyState === 4) {
       var tweets = new Array();
+      var i = 0;
       for (i in data){
         if(tweets.length < count){
           if(replies || data[i].in_reply_to_user_id == null){
