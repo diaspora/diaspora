@@ -1,8 +1,6 @@
 %li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
   .right
     - if friend.already_invited?
-      = t('invitations.new.already_invited')
-      %br
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.on_diaspora?
       = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
