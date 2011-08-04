@@ -59,6 +59,7 @@ twitter_tweet_button: true
 github_user:
 github_repo_count: 0
 github_show_profile_link: true
+github_skip_forks: true
 
 # Google Plus
 google_plus_one: true

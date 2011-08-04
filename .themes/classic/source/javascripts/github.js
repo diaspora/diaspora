@@ -18,7 +18,7 @@ github = (function(){
                 var repos = [];
                 var i;
                 for (i = 0; i < data.repositories.length; i++){
-                  if (options.skip_forks && !data.repositories[i].fork)
+                  if (options.skip_forks && data.repositories[i].fork)
                     continue;
                   repos.push(data.repositories[i]);
                 }
