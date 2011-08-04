@@ -25,16 +25,11 @@ Feature: new user registration
     And I wait for the ajax to finish
     Then I should see "Profile updated"
     And I should see "Welcome"
-    And I follow "Skip getting started"
+    And I follow "Finished"
 
     Then I should be on the aspects page
-    And I should not see "Skip getting started"
+    And I should not see "Finished"
 
-  Scenario: new user skips the setup wizard and returns to the setup wizard
-    When I follow "Skip getting started"
-    And I go to the getting started page
-    Then I should not see "skip getting started"
-  
   Scenario: new user skips the setup wizard
-    When I follow "Skip getting started"
+    When I follow "Finished"
     Then I should be on the aspects page

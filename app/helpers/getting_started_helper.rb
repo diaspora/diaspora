@@ -17,7 +17,7 @@ module GettingStartedHelper
 
   # @return [Boolean] The user has connected at least one service
   def has_connected_services?
-    AppConfig[:connected_services].blank? || current_user.services.size > 0
+    AppConfig[:configured_services].blank? || current_user.services.size > 0
   end
 
   # @return [Boolean] The user has at least 3 contacts

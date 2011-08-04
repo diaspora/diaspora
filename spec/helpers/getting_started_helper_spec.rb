@@ -30,7 +30,7 @@ describe GettingStartedHelper do
 
   describe "#has_connected_services?" do
     before do
-      AppConfig[:connected_services] = ['fake_service']
+      AppConfig[:configured_services] = ['fake_service']
     end
 
     it 'returns true if the current user has connected at least one service' do
@@ -38,8 +38,8 @@ describe GettingStartedHelper do
       has_connected_services?.should be_true
     end
 
-    it 'returns true if the current user has zero connected services and the server has no services to connect' do
-      AppConfig[:connected_services] = []
+    it 'returns true if the current user has zero connected services and the server has no services configured' do
+      AppConfig[:configured_services] = []
       @current_user.services.delete_all
       has_connected_services?.should be_true
     end

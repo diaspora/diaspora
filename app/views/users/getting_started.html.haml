@@ -135,11 +135,11 @@
             %p
               = link_to "#diaspora", tag_path('diaspora')
               %br
-              = link_to "#kittens", tag_path('kittens')
+              = link_to "#art", tag_path('art')
               %br
-              = link_to "#puppies", tag_path('puppies')
+              = link_to "#gif", tag_path('gif')
               %br
-              = link_to "#maddog", tag_path('maddog')
+              = link_to "#french", tag_path('french')
           .clearfix
             %br
           %br
@@ -161,7 +161,7 @@
 
       %li{:style => 'text-align:center;'}
         %p
-          = link_to t('.skip'), getting_started_completed_path
+          = link_to t('.finished'), getting_started_completed_path, :class => "button"
 
 /.span-5.rightBar.last
 /  = render 'selected_contacts', :people => @selected_people.sample(20), :count => @contact_count

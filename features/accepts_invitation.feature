@@ -21,7 +21,7 @@ Feature: invitation acceptance
         | profile_gender     | diasporian    |
       And I press "Update Profile"
 			And I should see "Welcome"
-		  When I follow "Skip getting started"
+		  When I follow "Finished"
 		  Then I should be on the aspects page
 
     Scenario: accept invitation from user
@@ -45,6 +45,6 @@ Feature: invitation acceptance
         | profile_gender     | diasporian    |
       And I press "Update Profile"
 			And I should see "Welcome"
-		  When I follow "Skip getting started"
+		  When I follow "Finished"
 		  Then I should be on the aspects page
 
