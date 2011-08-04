@@ -5,12 +5,13 @@
       %br
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.on_diaspora?
-      = link_to(t('people.show.start_sharing'),'#', :class => 'button')
-
-    = form_tag service_inviter_path(:provider => 'facebook') do
-      = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
-      = hidden_field_tag :uid, friend.uid
-      = submit_tag t('.invite')
+      %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
+        = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+    - else    
+      = form_tag service_inviter_path(:provider => 'facebook') do
+        = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
+        = hidden_field_tag :uid, friend.uid
+        = submit_tag t('.invite')
 
   - if friend.on_diaspora?
     = person_image_link(friend.person)
@@ -23,6 +24,4 @@
     - else
       = friend.name
 
-- if friend.on_diaspora?
-  %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
-    = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+
