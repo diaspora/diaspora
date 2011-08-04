@@ -291,7 +291,15 @@ var Publisher = {
       $(this).toggleClass("dim");
       var public_field= $("#publisher #status_message_public");
 
-      (public_field.val() == 'false') ? (public_field.val('true')) : (public_field.val('false'));
+      if (public_field.val() == 'false') {
+        public_field.val('true');
+        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.public'));
+      } else {
+        public_field.val('false');
+        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.limited'));
+      }
+
+      $(this).mouseover();
     });
   },
   toggleServiceField: function(service){
