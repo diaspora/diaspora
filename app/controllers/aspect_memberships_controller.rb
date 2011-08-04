@@ -21,7 +21,7 @@ class AspectMembershipsController < ApplicationController
         @aspect = membership.aspect
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
-        respond_with do |format|
+         respond_with do |format|
           format.all{ }
           format.json{ render :json => {
             :person_id => @person_id,
@@ -76,4 +76,17 @@ class AspectMembershipsController < ApplicationController
     render :text => response_hash.to_json
   end
 
+  def index
+    @person_id = params[:person_id]
+    @contact = current_user.contact_for(Person.where(:id => @person_id).first)
+    aspects = @contact ? @contact.aspects.all() : { }
+
+    respond_with do |format|
+      format.all{ }
+      format.json{ render :json => {
+        :person_id => @person_id,
+        :aspect_ids => aspects.map{|a| a.id}
+      } }
+    end
+  end
 end

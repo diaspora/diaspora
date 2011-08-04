@@ -23,4 +23,10 @@ Diaspora.ajax = {
         Diaspora.widgets.publish("aspect/personRemoved", [aspect_id, person_id]);
       });
   },
+
+  get_persons_aspectmemberships: function(person_id){
+    return $.get("/aspect_memberships.json", {
+        "person_id": person_id,
+      });
+  },
 };
