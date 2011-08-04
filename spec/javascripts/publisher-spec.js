@@ -131,8 +131,13 @@ describe("Publisher", function() {
 
       $(".public_icon").click();
       expect($('#publisher #status_message_public').val()).toBe('true');
-
-
+    });
+    it('toggles the tooltip on the clicked icon', function(){
+      Publisher.bindPublicIcon();
+      $(".public_icon").click();
+      expect($(".public_icon")).toHaveAttr('title', Diaspora.widgets.i18n.t('javascripts.publisher.limited'));
+      $(".public_icon").click();
+      expect($(".public_icon")).toHaveAttr('title', Diaspora.widgets.i18n.t('javascripts.publisher.public'));
     });
   });
   describe("bindServiceIcons", function() {
