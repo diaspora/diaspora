@@ -141,14 +141,7 @@ describe ServicesController do
       }.should_not change(Invitation, :count)
     end
 
-    it' does not crete an invitation if the user has no invitations' do
-      @user.invites = 0
-      lambda {
-        put :inviter, @invite_params
-      }.should_not change(Invitation, :count)
-    end
-
-    it 'disregares the amount of invites if open_invitations are anabled' do
+    it 'disregares the amount of invites if open_invitations are enabled' do
       open_bit = AppConfig[:open_invitations]
       AppConfig[:open_invitations] = true
       @user.invites = 0

@@ -43,6 +43,8 @@ class Person < ActiveRecord::Base
   validates_uniqueness_of :diaspora_handle
 
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
+  scope :remote, where('people.owner_id IS NULL')
+  scope :local, where('people.owner_id IS NOT NULL')
 
   def self.search_query_string(query)
     query = query.downcase

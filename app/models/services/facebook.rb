@@ -21,18 +21,11 @@ class Services::Facebook < Service
 
   def finder(opts = {})
     Rails.logger.debug("event=friend_finder type=facebook sender_id=#{self.user_id}")
-    if self.service_users.blank?
-      self.save_friends
-      self.service_users.reload
-    else
-      Resque.enqueue(Job::UpdateServiceUsers, self.id)
-    end
-    person = Person.arel_table
-    service_user = ServiceUser.arel_table
+    prevent_service_users_from_being_empty
     if opts[:local]
-      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].not_eq(nil)).order(:name).all
+      self.service_users.with_local_people
     elsif opts[:remote]
-      ServiceUser.joins(:person).where(:service_id => self.id).where(person[:owner_id].eq(nil)).order(:name).all
+      self.service_users.with_remote_people
     else
       self.service_users
     end
@@ -48,5 +41,16 @@ class Services::Facebook < Service
       su
     }
     ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name])
+  end
+
+  private
+
+  def prevent_service_users_from_being_empty
+    if self.service_users.blank?
+      self.save_friends
+      self.service_users.reload
+    else
+      Resque.enqueue(Job::UpdateServiceUsers, self.id)
+    end
   end
 end

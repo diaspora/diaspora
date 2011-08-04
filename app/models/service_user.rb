@@ -6,6 +6,17 @@ class ServiceUser < ActiveRecord::Base
   belongs_to :invitation
 
   before_save :attach_local_models
+  scope :with_local_people, joins(:person).merge(Person.local)
+  scope :with_remote_people, joins(:person).merge(Person.remote)
+ 
+
+  def already_invited?
+    self.invitation_id.present?
+  end
+
+  def on_diaspora?
+    self.person_id.present?
+  end
 
   def attach_local_models
     service_for_uid = Services::Facebook.where(:type => service.type.to_s, :uid => self.uid).first
