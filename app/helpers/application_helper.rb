@@ -133,4 +133,8 @@ module ApplicationHelper
       featured_users_path
     end
   end
+
+  def all_services_connected?
+    current_user.services.size == AppConfig[:configured_services].size
+  end
 end

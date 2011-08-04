@@ -77,4 +77,25 @@ describe ApplicationHelper do
       contacts_link.should == contacts_path
     end
   end
+
+  describe "#all_services_connected?" do
+    before do
+      AppConfig[:configured_services] = [1, 2, 3]
+
+      def current_user
+        @current_user
+      end
+      @current_user = alice
+    end
+
+    it 'returns true if all networks are connected' do
+      3.times { |t| @current_user.services << Factory.build(:service) }
+      all_services_connected?.should be_true
+    end
+
+    it 'returns false if not all networks are connected' do
+      @current_user.services.delete_all
+      all_services_connected?.should be_false
+    end
+  end
 end
