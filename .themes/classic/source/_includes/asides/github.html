@@ -1,0 +1,21 @@
+{% if site.github_user %}
+<section>
+  <h1>Github Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  <script type="text/javascript">
+    $.domReady(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '{{ root_url}}/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+        github.showRepos('{{site.github_user}}', '#gh_repos');
+    });
+  </script>
+  <script src="{{ root_url }}/javascripts/github.js" type="text/javascript"> </script>
+</section>
+{% endif %}
