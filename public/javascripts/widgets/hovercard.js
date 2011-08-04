@@ -82,7 +82,7 @@
         self.populateHovercard(_person);
       });
       
-      self.hoverCard.tip.fadeTo('fast', 0.5);
+      self.hoverCard.tip.fadeTo('fast', 0.75);
     }
 
     this.stopDragging = function() {

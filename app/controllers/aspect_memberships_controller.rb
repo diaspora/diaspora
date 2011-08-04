@@ -80,4 +80,17 @@ class AspectMembershipsController < ApplicationController
     render :text => "Duplicate record rejected.", :status => 400
   end
 
+  def index
+    @person_id = params[:person_id]
+    @contact = current_user.contact_for(Person.where(:id => @person_id).first)
+    aspects = @contact ? @contact.aspects.all() : { }
+
+    respond_with do |format|
+      format.all{ }
+      format.json{ render :json => {
+        :person_id => @person_id,
+        :aspect_ids => aspects.map{|a| a.id}
+      } }
+    end
+  end
 end

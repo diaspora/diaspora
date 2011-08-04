@@ -2951,6 +2951,11 @@ ul.left_nav
         :left 15px
       :width 182px
 
+    li.acceptDrop
+      box-shadow: -5px 0 0 #ccc
+    li:hover.drophover
+      box-shadow: -5px 0 0 $blue
+
 .section
   .contact_count
     :display none !important
@@ -2970,6 +2975,9 @@ ul.left_nav
       a.tag_selector
         :width 140px
 
+      li:hover.drophover
+        .edit
+          :display none
       li:hover
         .edit
           :display inline-block
