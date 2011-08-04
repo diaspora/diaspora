@@ -39,13 +39,7 @@ class ContactsController < ApplicationController
 
   def featured
     @featured = true
-    @people = []
-    if diaspora_ids = AppConfig[:featured_users]
-      @people = diaspora_ids.inject [] do |people, id|
-        person = Webfinger.new(id).fetch
-        people << person unless person.blank?
-      end
-    end
+    @people = Person.featured_users
   end
 
   private

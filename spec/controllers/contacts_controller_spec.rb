@@ -81,15 +81,5 @@ describe ContactsController do
       get :featured
       assigns[:people].should == [alice.person]
     end
-
-    it 'fetches the webfinger profiles' do
-      AppConfig[:featured_users] = [alice.diaspora_handle]
-
-      wf = mock
-      wf.should_receive(:fetch)
-      Webfinger.should_receive(:new).with(alice.diaspora_handle).and_return(wf)
-
-      get :featured
-    end
   end
 end

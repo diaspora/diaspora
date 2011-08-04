@@ -1109,7 +1109,7 @@ img.scaled_full
     img
       :height 140px
 
-#global_search
+header #global_search
   :display inline
   :position relative
 
@@ -3183,3 +3183,146 @@ ul.left_nav
   :bottom 12px
   :right 5px
   :position absolute
+
+ul#getting_started
+  :padding 0
+  :margin 0
+
+  > li
+    :position relative
+    :border
+      :bottom 1px solid #ddd
+    :padding
+      :top 25px
+      :bottom 5px
+
+    .content
+      :padding
+        :left 30px
+
+    input[type='search']
+      :width 210px
+
+    &.completed
+      @include opacity(0.4)
+      @include transition(opacity, 0.2s)
+
+      &:hover,
+      &:active
+        @include opacity(1)
+
+      .content h3
+        :text
+          :decoration line-through 
+
+  .profile
+    :min-height 170px
+
+#getting_started_profile_photo
+  :float right
+  .avatar
+    :height 150px
+    :width 150px
+    :margin
+      :left 5px
+
+#edit_profile_button_div
+  :padding
+    :top 90px
+    :bottom 20px
+
+#getting_started_service_icons
+  :text-align center
+
+  img
+    :margin
+      :right 48px
+
+  :padding
+    :bottom 20px
+    :top 10px
+
+#right_service_icons
+  :text-align center
+  :padding 10px
+    :bottom 0
+
+#diaspora_hq_pane
+  :padding
+    :bottom 20px
+  :min-height 70px
+
+  .add_to_aspect
+    :padding 10px 0 
+
+  .avatar
+    :float left
+    :margin
+      :right 10px
+
+    :height 70px
+    :width 70px
+
+  .name
+    :font
+      :weight bold
+
+.cubbies_images
+  :margin-left 15px
+
+.cubbies_user_page_small
+  :position absolute
+  :left 270px
+
+.getting_started_number
+  :position absolute
+  :left 0
+
+  h3
+    :display inline
+    :background
+      :color #eee
+    :padding 3px 7px
+
+    :margin
+      :right 8px
+
+.profile .profile_field
+  :background
+    :image url('/images/icons/monotone_question.png')
+    :position center left 
+    :repeat no-repeat
+
+  :padding
+    :left 20px
+
+  &.completed
+    :background
+      :image url('/images/icons/check_yes_ok.png') !important
+
+#featured_users_pane
+  :padding 10px 0
+
+  .featured_user_card_small
+    :display inline-block
+
+    :width 140px
+    :height 30px
+
+    :vertical-align top
+    :position relative
+
+    :padding 5px
+    :margin
+      :bottom 10px
+
+    a
+      :font
+        :weight bold
+
+    .avatar
+      :height 30px
+      :width 30px
+      :margin
+        :right 5px
+      :float left

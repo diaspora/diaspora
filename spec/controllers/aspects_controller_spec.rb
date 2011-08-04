@@ -77,14 +77,12 @@ describe AspectsController do
         alice.getting_started = true
         alice.save
       end
-      it 'redirects to getting_started' do
-        get :index
-        response.should redirect_to getting_started_path
-      end
+      
       it 'does not redirect mobile users to getting_started' do
         get :index, :format => :mobile
         response.should_not be_redirect
       end
+
       it 'does not redirect ajax to getting_started' do
         get :index, :format => :js
         response.should_not be_redirect
