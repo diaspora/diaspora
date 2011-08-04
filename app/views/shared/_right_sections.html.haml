@@ -3,6 +3,15 @@
 -#   the COPYRIGHT file.
 
 
+- unless AppConfig[:invites_off]
+  .section
+    .title
+      = image_tag('/images/icons/plus.png')
+      %h5
+        = t('shared.invitations.invite_your_friends')
+    .content
+      = render "shared/invitations"
+
 - unless has_connected_cubbies?
   .section
     .title
