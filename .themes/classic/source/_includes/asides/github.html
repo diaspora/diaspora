@@ -4,6 +4,9 @@
   <ul id="gh_repos">
     <li class="loading">Status updating...</li>
   </ul>
+  {% if site.github_show_profile_link %}
+  <a href="https://github.com/{{site.github_user}}">@{{site.github_user}}</a> on Github
+  {% endif %}
   <script type="text/javascript">
     $.domReady(function(){
         if (!window.jXHR){
