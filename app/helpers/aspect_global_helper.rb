@@ -65,7 +65,7 @@ module AspectGlobalHelper
     end
   end
 
-  def aspectmembership_dropdown(contact, person, hang, aspect=nil)
+  def aspect_membership_dropdown(contact, person, hang, aspect=nil)
     @selected_aspects = []
     if contact.persisted?
       @selected_aspects = all_aspects.find_all{|aspect| contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id}}

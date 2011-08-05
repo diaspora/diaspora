@@ -1,7 +1,7 @@
 #author_info
   .right
     - if user_signed_in? && current_user.person != person
-      = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => person, :hang => 'left'
+      = aspect_memberhip_dropdown(contact, person, 'left')
     - elsif user_signed_in? && current_user.person == person
       = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path, :class => 'button creation'
 
