@@ -22,7 +22,6 @@ var Stream = {
     Stream.collapseText('eventID', $(Stream.selector)[0]);
   },
   collapseText: function(){
-    console.log(arguments);
     elements = $(Array.prototype.slice.call(arguments,1));
     // collapse long posts
     $(".content p", elements).expander({
