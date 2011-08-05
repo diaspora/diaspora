@@ -16,7 +16,7 @@
 
     this.subscribe("widget/ready", function() {
       $(document).bind("close.facebox", function() {
-				$("#facebox, #diaspora_alert").remove();
+				$("#diaspora_alert").remove();
       });
     }); 
 
