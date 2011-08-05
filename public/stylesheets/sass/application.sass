@@ -41,7 +41,7 @@ ul > li
 form
   :position relative
   input,
-  textarea,
+  textarea
   label
     :font
       :size auto
@@ -3329,3 +3329,33 @@ ul#getting_started
       :float left
 .action_item
   :padding-right 5px
+
+.accept_invitation_form,
+.sign_up_form
+  :min-height 350px
+  :font-size 16px
+  input[type='text'],
+  input[type='password'],
+  input[type='email']
+    :font-size 16px !important
+    :width 378px !important
+
+  p
+    :margin
+      :bottom 14px
+
+
+  .diaspora_id_text
+    :font-size 12px
+    :text-align right
+    :color #999
+    :margin
+      :top -8px
+    :padding 0
+
+  .submit_field
+    :text-align right
+
+.accept_invitation_text
+  :font
+    :weight lighter

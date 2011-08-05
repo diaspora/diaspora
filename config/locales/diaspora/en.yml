@@ -300,7 +300,8 @@ en:
     check_token:
       not_found: "Invitation token not found"
     edit:
-      sign_up: "sign_up"
+      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Accept your invitation"
 
   layouts:
     header:
@@ -562,8 +563,11 @@ en:
 
   registrations:
     new:
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      create_my_account: "Create my account"
+
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
+
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password"

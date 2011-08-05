@@ -8,7 +8,7 @@ Feature: invitation acceptance
         | Email                 | woot@sweet.com |
         | user_password         | secret         |
         | Password confirmation | secret         |
-      And I press "Sign up"
+      And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"
       Then I follow "Edit Profile"
@@ -32,7 +32,7 @@ Feature: invitation acceptance
         | Email                 | woot@sweet.com |
         | user_password         | secret         |
         | Password confirmation | secret         |
-      And I press "Sign up"
+      And I press "Create my account"
       Then I should be on the getting started page
       And I should see "Welcome"
       Then I follow "Edit Profile"

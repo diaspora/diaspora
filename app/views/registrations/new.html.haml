@@ -2,28 +2,38 @@
 
 :javascript
   $(function() {
-    $('#user_new [title]').tipsy({trigger: 'focus', gravity: ($('html').attr('dir') == 'rtl')? 'e' : 'w'});
     $("#user_username").focus();
   });
 
-.span-12.prepend-6.last
-  .floating
-    %h3
-      = t('.sign_up_for_diaspora')
-    = form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f|
-      %p
-        = f.label :username , t('username')
-        = f.text_field :username, :title => t('.enter_username')
-      %p  
-        = f.label :email , t('email')
-        = f.text_field :email, :title => t('.enter_email')
-      
-      %p
-        = f.label :password , t('password')
-        = f.password_field :password, :title => t('.enter_password') 
-      %p
-        = f.label :password_confirmation , t('password_confirmation')
-        = f.password_field :password_confirmation, :title => t('.enter_password_again') 
+.span-7.append-1.prepend-3
+  %br
+  %br
+  %br
+  %br
+  %h2
+    = t('.join_the_movement')
+  %h3.accept_invitation_text
+    = t('.sign_up_today')
 
-      = f.submit t('.sign_up')
+.span-10
+  %br
+  %br
+  %br
+  %br
+  = form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => {:class => 'sign_up_form'}) do |f|
+    %p
+      = f.label :username , t('username')
+      = f.text_field :username, :title => t('.enter_username')
+    %p  
+      = f.label :email , t('email')
+      = f.text_field :email, :title => t('.enter_email')
+    
+    %p
+      = f.label :password , t('password')
+      = f.password_field :password, :title => t('.enter_password') 
+    %p
+      = f.label :password_confirmation , t('password_confirmation')
+      = f.password_field :password_confirmation, :title => t('.enter_password_again') 
+
+    = f.submit t('.create_my_account')
 

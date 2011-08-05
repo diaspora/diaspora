@@ -1,50 +1,39 @@
 = javascript_include_tag "validation"
 :javascript
   $(function() {
-    $('#user_new [title]').tipsy({trigger: 'focus', gravity: ($('html').attr('dir') == 'rtl') ? 'e' : 'w'});
     $("#user_username").focus();
   });
 
-.span-12
-  .floating{:style =>"margin-top:50px"}
-    %h3
-      = t('registrations.new.sign_up_for_diaspora')
-    = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
-      %p
-        = f.label :username , t('username')
-        = f.text_field :username, :title => t('registrations.new.enter_username')
-      %p  
-        = f.label :email , t('email')
-        = f.text_field :email, :title => t('registrations.new.enter_email')
-      %p
-        = f.label :password , t('password')
-        = f.password_field :password, :title => t('registrations.new.enter_password') 
-      %p
-        = f.label :password_confirmation , t('password_confirmation')
-        = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
-        = f.hidden_field :invitation_token
+.span-7.append-1.prepend-3
+  %br
+  %br
+  %br
+  %br
+  %h2
+    = t('.your_account_awaits')
+  %h3.accept_invitation_text
+    = t('.accept_your_invitation')
 
-      = f.submit t('registrations.new.sign_up')
-      %br
-      = render :partial => "devise/shared/links"
-.span-10.prepend-2.last
-  .span-10.last
-    .info_pane
-      %h2
-        = t('home.show.choice')
-      %p
-        = t('home.show.choice_explanation')
-  .span-10.last
-    .info_pane
-      %h2
-        = t('home.show.ownership')
-      %p
-        = t('home.show.ownership_explanation')
-  .span-10.last
-    .info_pane
-      %h2
-        = t('home.show.simplicity')
-      %p
-        = t('home.show.simplicity_explanation')
+.span-10
+  %br
+  %br
+  %br
+  %br
+  = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put, :class => 'accept_invitation_form'}) do |f|
+    %p
+      = f.label :username , t('username')
+      = f.text_field :username, :title => t('registrations.new.enter_username')
+    %p  
+      = f.label :email , t('email')
+      = f.email_field :email, :title => t('registrations.new.enter_email')
+    %p
+      = f.label :password , t('password')
+      = f.password_field :password, :title => t('registrations.new.enter_password') 
+    %p
+      = f.label :password_confirmation , t('password_confirmation')
+      = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
+      = f.hidden_field :invitation_token
 
+    .submit_field
+      = f.submit t('registrations.new.create_my_account')
 
