@@ -51,7 +51,7 @@ class StatusMessagesController < ApplicationController
       aspects = current_user.aspects_from_ids(params[:aspect_ids])
       current_user.add_to_streams(@status_message, aspects)
       receiving_services = current_user.services.where( :type => params[:services].map{|s| "Services::"+s.titleize}) if params[:services]
-      current_user.dispatch_post(@status_message, :url => post_url(@status_message), :services => receiving_services)
+      current_user.dispatch_post(@status_message, :url => public_post_path(:guid => @status_message.guid), :services => receiving_services)
 
 
       if request.env['HTTP_REFERER'].include?("people") # if this is a post coming from a profile page
