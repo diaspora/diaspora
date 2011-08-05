@@ -12,7 +12,7 @@
 
   - if @contacts.count > 0
     .contact_list
-      = search_field_tag :contact_search, "", :class => 'contact_list_search', :results => 5, :placeholder => "People sharing with you"
+      = search_field_tag :contact_search, "", :id => 'contact_list_search', :class => 'contact_list_search', :results => 5, :placeholder => "People sharing with you"
       %ul
         - for contact in @contacts
           %li{:data=>{:contact_id=>contact.id}}
