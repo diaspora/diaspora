@@ -53,7 +53,8 @@ Before do
 end
 
 silence_warnings do
-  SERVICES['facebook'] = {'app_id' => :fake}
+  SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
+  AppConfig[:configured_services] << 'facebook'
 end
 
 require File.join(File.dirname(__FILE__), "..", "..", "spec", "support", "fake_resque")
