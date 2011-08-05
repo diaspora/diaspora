@@ -4,14 +4,11 @@
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.on_diaspora?
       = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
-    - else    
-      = form_tag service_inviter_path(:provider => 'facebook') do
-        = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
-        = hidden_field_tag :uid, friend.uid
-        = submit_tag t('.invite')
+    - else
+      = facebook_invite_form(friend)
 
   - if friend.on_diaspora?
-    = person_image_link(friend.person)
+    = person_image_link(friend.person, :size => :thumb_small)
   - else
     = image_tag(friend.photo_url, :class => 'avatar')
 
