@@ -110,7 +110,7 @@ eo:
       handle_explanation: "Tiu ĉi estas via DIASPORA* uzantnomo.  Kiel retpoŝtadreso, vi povas doni tiun ĉi al homoj, por ke ili vin kontaktu."
       keep_us_running: "Helpu %{pod} bone funkcii; aĉetu por niaj servkomputiloj ilian ĉiumonatan kaforiparon!"
       no_contacts: "Nul kontaktoj"
-      no_tags: "Neniu etikedigo"
+      no_tags: "+ Trovi etikedon aboni"
       people_sharing_with_you: "Homoj, kiuj konigas kun vi"
       post_a_message: "Afiŝi mesaĝon »"
       services: 
@@ -126,12 +126,13 @@ eo:
     new: 
       create: "Krei"
       name: "Nomo"
-    no_posts_message: 
-      featured_users: "mojosaj uzantoj"
-      or_featured: "Aŭ vi povas partopreni kun %{link}"
-      start_talking: "Neniu jam diris iun ajn!"
-      try_adding_some_more_contacts: "Vi povas serĉi (supre) aŭ inviti (dekstre) pli kontaktojn."
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Neniu jam diris iun ajn!"
     one: "1 aspekto"
     other: "%{count} aspektoj"
     seed: 
@@ -233,7 +234,7 @@ eo:
       correct_the_following_errors_and_try_again: "Ĝustigu la postajn erarojn kaj reprovu."
       invalid_fields: "Malvalidaj Kampoj"
   fill_me_out: "Kompletu min"
-  find_people: "Trovi homojn"
+  find_people: "Trovi homojn aŭ #etikedojn"
   hide: "Kaŝi"
   home: 
     show: 
@@ -260,7 +261,8 @@ eo:
       rejected: "La postaj retpoŝtadresoj estis problemaj:"
       sent: "Invitoj sendiĝis al: "
     edit: 
-      sign_up: "registriĝi"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Tiuj homoj ankoraŭ ne akceptis vian inviton:"
       aspect: "Aspekto"
@@ -452,7 +454,7 @@ eo:
       add_some: "aldoni iujn"
       does_not_exist: "Homo ne ekzistas!"
       edit: "redakti"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} ne jam partoprenis iuj ajn afiŝojn kun vi!"
       incoming_request: "%{name} volas konigi kun vi"
       mention: "Mencii"
       message: "Mesaĝo"
@@ -544,12 +546,13 @@ eo:
       unhappy: "ĉu malfeliĉas?"
       update: "Ĝisdatigi"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Enskribu retpoŝtadreson"
       enter_password: "Enskribu pasvorton"
       enter_password_again: "Enskribu la saman pasvorton, kiel antaŭe"
       enter_username: "Elekti uzantnomon (nur literojn, nombrojn, kaj substrekojn)"
-      sign_up: "Registriĝi"
-      sign_up_for_diaspora: "Registriĝi ĉe DIASPORA*"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Sendanta"
@@ -576,10 +579,10 @@ eo:
     reshare: 
       deleted: "Originala afiŝo forlasiĝis de afiŝinto."
       reshare: 
-        few: "%{count} Repartoprenadoj"
-        many: "%{count} Repartoprenadoj"
-        one: "1 Repartoprenado"
-        other: "%{count} Repartoprenadoj"
+        few: "%{count} repartoprenadoj"
+        many: "%{count} repartoprenadoj"
+        one: "1 repartoprenado"
+        other: "%{count} repartoprenadoj"
         zero: "Repartopreni"
       reshare_confirmation: "Ĉu repartopreni la afiŝon de %{author}?"
       reshare_original: "Repartopreni la originalan"
@@ -745,21 +748,30 @@ eo:
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
-      connect_on_diaspora: "Ligi per DIASPORA*"
-      connect_services: "Ligi viajn aliajn servojn"
-      could_not_find_anyone: "Ne povis trovi iujn amikojn ĉe DIASPORA*.  Uzu la amiktrovilo por invito ilin."
-      edit_profile: "Redakti vian profilon"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Finita!"
-      save_and_continue: "Finita!"
-      signup_steps: "Fini vian registrado, finu tiujn ĉi tri taskojn:"
-      skip: "preteriri komencado"
-      step_2: 
-        find_your_friends_on_diaspora: "Ĉu vi volas trovi viajn Facebook amikojn ĉe DIASPORA*?"
-        skip: "Preteriri"
-      step_3: 
-        finish: "Fini"
-        people_already_on_diaspora: "Homoj, kiuj jam estas ĉe DIASPORA*"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Bonvenon al DIASPORA*!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update: 

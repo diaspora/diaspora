@@ -110,7 +110,7 @@ nl:
       handle_explanation: "Dit is jouw Diaspora id. Deze kun je aan mensen geven zodat ze je kunnen bereiken, net als een e-mailadres."
       keep_us_running: "Houd %{pod} snel door bij te dragen aan de maandelijkse koffie kosten!"
       no_contacts: "Geen contacten"
-      no_tags: "Geen tags"
+      no_tags: "+ Vind een tag"
       people_sharing_with_you: "Mensen die met jou delen"
       post_a_message: "plaats een bericht >>"
       services: 
@@ -126,18 +126,19 @@ nl:
     new: 
       create: "Aanmaken"
       name: "Naam"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Nog niemand heeft iets gezegd!"
-      try_adding_some_more_contacts: "Voeg wat meer contacten toe."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Nog niemand heeft iets gezegd!"
     one: "1 aspect"
     other: "%{count} aspecten"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Kennissen"
       family: "Familie"
-      friends: "Friends"
+      friends: "Vrienden"
       work: "Werk"
     selected_contacts: 
       manage_your_aspects: "Beheer je aspecten."
@@ -173,7 +174,7 @@ nl:
     create: 
       failure: "Verbinding maken mislukt"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Aanbevolen gebruikers"
     few: "%{count} contacten"
     index: 
       add_a_new_aspect: "Voeg een aspect toe"
@@ -233,7 +234,7 @@ nl:
       correct_the_following_errors_and_try_again: "Corrigeer de volgende fouten en probeer opnieuw."
       invalid_fields: "Ongeldige velden"
   fill_me_out: "Vul me in!"
-  find_people: "Vind mensen"
+  find_people: "Vind mensen of #tags"
   hide: "Verbergen"
   home: 
     show: 
@@ -260,7 +261,8 @@ nl:
       rejected: "De volgende e-mailadressen gaven problemen: "
       sent: "Uitnodigingen zijn verzonden aan:"
     edit: 
-      sign_up: "registreer"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "De volgende mensen hebben je uitnodiging niet geaccepteerd:"
       aspect: "Aspect"
@@ -452,7 +454,7 @@ nl:
       add_some: "Voeg toe"
       does_not_exist: "Die persoon bestaat niet!"
       edit: "bewerk"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} heeft nog geen posts met je gedeeld!"
       incoming_request: "%{name} wil met je delen"
       mention: "Noemen"
       message: "Bericht"
@@ -544,12 +546,13 @@ nl:
       unhappy: "Ontevreden?"
       update: "Update"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Vul een e-mailadres in"
       enter_password: "Vul een wachtwoord in"
       enter_password_again: "Vul hetzelfde wachtwoord nogmaals in"
       enter_username: "Kies een gebruikersnaam (alleen letters, nummers, en underscores)"
-      sign_up: "Registreren"
-      sign_up_for_diaspora: "Registreer op Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Versturen..."
@@ -745,21 +748,30 @@ nl:
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora ID"
     getting_started: 
-      connect_on_diaspora: "Verbind op Diaspora"
-      connect_services: "Verbind met je andere services"
-      could_not_find_anyone: "Kon geen vrienden vinden op Diaspora*. Gebruik de Friend Finder om ze uit te nodigen."
-      edit_profile: "Bewerk je profiel"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Klaar!"
-      save_and_continue: "Sla op en ga verder"
-      signup_steps: "Voltooi je aanmelding door middel van de volgende drie stappen:"
-      skip: "sla 'getting started' over"
-      step_2: 
-        find_your_friends_on_diaspora: "Wil je jouw Facebook-vrienden vinden op Diaspora?"
-        skip: "Overslaan"
-      step_3: 
-        finish: "Voltooien"
-        people_already_on_diaspora: "Mensen reeds op Diaspora"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Welkom op Diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Gebruiker %{username} bestaat niet!"
     update: 

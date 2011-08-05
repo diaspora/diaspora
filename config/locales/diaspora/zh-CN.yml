@@ -126,12 +126,13 @@ zh-CN:
     new: 
       create: "创建"
       name: "名字"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "还没人发布过内容。你发布第一条吧！"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "还没人发布过内容。你发布第一条吧！"
     one: "1个视图"
     other: "%{count}个视图"
     seed: 
@@ -260,7 +261,8 @@ zh-CN:
       rejected: "下列电子信箱有问题: "
       sent: "邀请函已经寄给: "
     edit: 
-      sign_up: "注册"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "已邀请过"
       aspect: "视图"
@@ -544,12 +546,13 @@ zh-CN:
       unhappy: "不满意？"
       update: "更新"
     new: 
+      create_my_account: "Create my account"
       enter_email: "输入电子邮箱"
       enter_password: "输入密码"
       enter_password_again: "再输入一遍密码"
       enter_username: "选个帐号称(名称只能包含字母,数字和下划线“_”)"
-      sign_up: "注册"
-      sign_up_for_diaspora: "注册使用 Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "发送中"
@@ -745,21 +748,30 @@ zh-CN:
       your_email: "您的电子邮箱"
       your_handle: "您的 diaspora 帐号"
     getting_started: 
-      connect_on_diaspora: "连接 Diaspora"
-      connect_services: "连接至你使用的其他服务"
-      could_not_find_anyone: "在 Diaspora* 上找不到任何朋友？请使用朋友搜索器来邀请他们。"
-      edit_profile: "编辑个人档案"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "完成！"
-      save_and_continue: "保存并继续"
-      signup_steps: "完全下面三个步骤以完成注册:"
-      skip: "跳过使用入门"
-      step_2: 
-        find_your_friends_on_diaspora: "你想在 Diaspora 上联系 Facebook 上的朋友吗？"
-        skip: "跳过"
-      step_3: 
-        finish: "完成"
-        people_already_on_diaspora: "已使用 Diaspora 的人"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "欢迎来到 Diaspora！"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "不存在 %{username} 这个用户！"
     update: 

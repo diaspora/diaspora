@@ -126,12 +126,13 @@ sk:
     new: 
       create: "Create"
       name: "Name"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Nikto nič nevraví. Začnite Vy!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Nikto nič nevraví. Začnite Vy!"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
@@ -260,7 +261,8 @@ sk:
       rejected: "Problém s nasledujúcimi adresami: "
       sent: "Vaše pozvanie bolo odoslané."
     edit: 
-      sign_up: "Zaregistrovať sa"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Už pozvaný"
       aspect: "Aspekt"
@@ -544,12 +546,13 @@ sk:
       unhappy: "Nešťastný?"
       update: "Aktualizovať"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Zadajte e-mail"
       enter_password: "Zadajte heslo"
       enter_password_again: "Zadajte rovnaké heslo ako predtým"
       enter_username: "Zadajte užívateľské meno (môže sa skladať len z písmen, číslic a podtržníka)"
-      sign_up: "Zaregistruj sa"
-      sign_up_for_diaspora: "Pridaj sa k Diaspore"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Posielam..."
@@ -745,21 +748,30 @@ sk:
       your_email: "Váš e-mail"
       your_handle: "Príručka k Diaspore"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Pripojiť Vaše služby"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Upraviť Váš profil"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Dokončené!"
-      save_and_continue: "Uložiť a pokračovať"
-      signup_steps: "Dokončite svoju registráciu týmito troma krokmi:"
-      skip: "Preskočiť"
-      step_2: 
-        find_your_friends_on_diaspora: "Chceš nájsť svojich priateľov z Facebooku na Diaspore?"
-        skip: "Preskočiť"
-      step_3: 
-        finish: "Dokončiť"
-        people_already_on_diaspora: "Ľudia už na Diaspore"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Vitajte v Diaspore!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Užívateľ %{username} neexistuje!"
     update: 

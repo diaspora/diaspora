@@ -126,12 +126,13 @@ es:
     new: 
       create: "Crear"
       name: "Nombre"
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
-      featured_users: "usuarios destacados"
-      or_featured: "O puedes compartir con %{link}"
       start_talking: "Nadie dijo nada aún. ¡Sé el primero!"
-      try_adding_some_more_contacts: "Puedes buscar (arriba) or invitar (derecha) a más contactos."
-      you_should_add_some_more_contacts: "¡Deberías añadir algunos contactos!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
@@ -260,7 +261,8 @@ es:
       rejected: "Las siguientes direcciones de correo han tendido problemas:"
       sent: "Invitaciones enviadas a:"
     edit: 
-      sign_up: "registrarse"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "La siguiente persona no ha aceptado tu invitación:"
       aspect: "Aspecto"
@@ -544,12 +546,13 @@ es:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Escribe un correo electrónico"
       enter_password: "Escribe una contraseña"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elije un nombre de usuario (solo letras, números y guiones bajos)"
-      sign_up: "Regístrate"
-      sign_up_for_diaspora: "Regístrate en Diaspora*"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Enviando"
@@ -745,21 +748,30 @@ es:
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
-      connect_on_diaspora: "Conectar en Diaspora*"
-      connect_services: "Conecta tus otros servicios"
-      could_not_find_anyone: "No se pudo encontrar a ningún amigo en Diaspora*. Usa el buscador de contactos para invitarles."
-      edit_profile: "Edita tu perfil"
-      finished: "¡Terminado!"
-      save_and_continue: "Guardar y continuar"
-      signup_steps: "Termina tu registro en tres pasos:"
-      skip: "saltar inicio"
-      step_2: 
-        find_your_friends_on_diaspora: "¿Te gustaría encontrar en Diaspora* a tus amigos de Facebook?"
-        skip: "Saltar"
-      step_3: 
-        finish: "Terminar"
-        people_already_on_diaspora: "Ya están en Diaspora*"
-      welcome: "¡Bienvenido a Diaspora*!"
+      connect_to: "Conectar a"
+      connect_to_your_other_social_networks: "Conéctate a tus otras redes sociales"
+      connect_with_people: "Conectate con gente interesante"
+      connect_with_people_explanation: ""
+      featured_tags: "Etiquetas ofrecidas"
+      featured_users: "Usuarios ofrecidos"
+      fill_out_your_profile: ""
+      find_friends: "Busca amigos"
+      find_friends_from_facebook: "Busca amigos de Facebook"
+      finished: "Terminado"
+      follow_your_interests: ""
+      hashtag_explanation: ""
+      profile_description: ""
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Cumpleaños"
+        gender: "Sexo"
+        location: "Ubicación"
+        name: "Nombre"
+        photo: "Foto"
+        tags: "Etiquetas"
+      see_all_featured_users: ""
+      welcome: "¡Bienvenido!"
+      welcome_with_name: "¡Bienvenido, %{name}!"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
     update: 

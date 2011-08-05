@@ -126,12 +126,13 @@ nb:
     new: 
       create: "Create"
       name: "Name"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Ingen har sagt noe enda. Få samtalen i gang!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Ingen har sagt noe enda. Få samtalen i gang!"
     one: "1 aspekt"
     other: "%{count} aspekter"
     seed: 
@@ -260,7 +261,8 @@ nb:
       rejected: "Følgende e-postadresser hadde problemer:"
       sent: "Invitasjoner har blitt sendt til:"
     edit: 
-      sign_up: "registrer deg"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Allerede innvitert"
       aspect: "Aspekt"
@@ -544,12 +546,13 @@ nb:
       unhappy: "Ulykkelig?"
       update: "Oppdater"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Skriv en e-post"
       enter_password: "Skriv inn et passord"
       enter_password_again: "Skriv inn samme passord som før"
       enter_username: "Velg et brukernavn (kun bokstaver, nummer og understreker)"
-      sign_up: "Registrer deg"
-      sign_up_for_diaspora: "Registrer deg på Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Sending..."
@@ -745,21 +748,30 @@ nb:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora brukernavn"
     getting_started: 
-      connect_on_diaspora: "Kontakt på Diaspora"
-      connect_services: "Connect your services"
-      could_not_find_anyone: "Kunne ikke finne noen venner på Diaspora*. Bruk vennefinneren for å invitere dem."
-      edit_profile: "Rediger profilen"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Ferdig!"
-      save_and_continue: "Lagre og fortsett"
-      signup_steps: "Complete your sign-up by doing these things:"
-      skip: "hopp over introduskjonen"
-      step_2: 
-        find_your_friends_on_diaspora: "Vil du finne dine Facebook-venner på Diaspora?"
-        skip: "Hopp over"
-      step_3: 
-        finish: "Fullfør"
-        people_already_on_diaspora: "Personer allerede på Diaspora"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Velkommen til Diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Bruker %{username} finnes ikke!"
     update: 

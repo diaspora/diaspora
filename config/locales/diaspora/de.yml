@@ -126,12 +126,13 @@ de:
     new: 
       create: "Erstellen"
       name: "Name"
-    no_posts_message: 
-      featured_users: "Besondere Leute"
+    no_contacts_message: 
+      featured_users: "featured users"
       or_featured: "Oder fang an mit %{link} zu teilen."
-      start_talking: "Niemand hat bisher etwas gesagt!"
       try_adding_some_more_contacts: "Du kannst nach Kontakten suchen (oben) oder welche einladen (rechts)."
       you_should_add_some_more_contacts: "Du solltest ein paar mehr Kontakte hinzufügen!"
+    no_posts_message: 
+      start_talking: "Niemand hat bisher etwas gesagt!"
     one: "Ein Aspekt"
     other: "%{count} Aspekte"
     seed: 
@@ -260,7 +261,8 @@ de:
       rejected: "Mit dieser E-Mail-Adresse gab es Probleme:"
       sent: "Einladungen wurden verschickt an:"
     edit: 
-      sign_up: "registrieren"
+      accept_your_invitation: "Deine Einladung akzeptieren"
+      your_account_awaits: "Dein Konto wartet!"
     new: 
       already_invited: "Die folgenden Personen haben deine Einladung nicht angenommen:"
       aspect: "Aspekt"
@@ -544,12 +546,13 @@ de:
       unhappy: "Unglücklich?"
       update: "Aktualisieren"
     new: 
+      create_my_account: "Konto erstellen"
       enter_email: "Gib eine E-Mail-Adresse an"
       enter_password: "Gib ein Passwort ein"
       enter_password_again: "Gib das gleiche Passwort wie eben ein"
       enter_username: "Wähle einen Nutzernamen (nur Buchstaben, Nummern und Unterstriche)"
-      sign_up: "Anmelden"
-      sign_up_for_diaspora: "Bei Diaspora* registrieren"
+      join_the_movement: "Trete der Bewegung bei!"
+      sign_up_today: "Registriere dich heute"
   requests: 
     create: 
       sending: "Senden …"
@@ -745,21 +748,30 @@ de:
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
-      connect_on_diaspora: "Mit Diaspora* verbinden"
-      connect_services: "Mit deinen anderen Diensten verbinden"
-      could_not_find_anyone: "Es konnten keine Freunde auf Diaspora* gefunden werden. Benutze den Freundefinder, um diese einzuladen."
-      edit_profile: "Bearbeite dein Profil"
-      finished: "Fertig!"
-      save_and_continue: "Speichern und weiter"
-      signup_steps: "Erledige folgende drei Schritte, um deine Registrierung zu vervollständigen:"
-      skip: "Erste Schritte überspringen"
-      step_2: 
-        find_your_friends_on_diaspora: "Möchtest du deine Facebook-Freunde in Diaspora* finden?"
-        skip: "Überspringen"
-      step_3: 
-        finish: "Beenden"
-        people_already_on_diaspora: "Leute, die schon bei Diaspora* sind"
-      welcome: "Willkommen bei Diaspora*!"
+      connect_to: "Verbinde dich zu"
+      connect_to_your_other_social_networks: "Verbinde dich zu deinen anderen sozialen Netzwerken"
+      connect_with_people: "Kontaktiere tolle Leute"
+      connect_with_people_explanation: "Verbinde dich mit Leuten, indem du sie in einen oder mehrere Aspekte sortierst. Aspekte sind ein intuitiver Weg, um neue und altbekannte Gesichter in Gruppen zusammenzufassen, was dir ermöglicht, einfach Personen herauszusieben oder etwas nur mit einer Untermenge von Kontakten zu teilen."
+      featured_tags: "Empfohlene Tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fülle dein Profil aus"
+      find_friends: "Finde Freunde"
+      find_friends_from_facebook: "finde Freunde von Facebook"
+      finished: "Fertig"
+      follow_your_interests: "Folge deinen Interessen"
+      hashtag_explanation: "Hashtags ermöglichen dir, über deine Interessen zu reden und ihnen zu folgen. Sie sind auch ein guter Weg, neue Leute bei Diaspora zu treffen!"
+      profile_description: "Mach es anderen Leuten leichter, dich zu finden, indem du dein Profil ausfüllst."
+      profile_fields: 
+        bio: "Biographie"
+        birthday: "Geburtstag"
+        gender: "Geschlecht"
+        location: "Ort"
+        name: "Name"
+        photo: "Foto"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
+      welcome: "Herzlich willkommen!"
+      welcome_with_name: "Herzlich willkommen, %{name}!"
     public: 
       does_not_exist: "Benutzer %{username} existiert nicht!"
     update: 

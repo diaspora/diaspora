@@ -110,7 +110,7 @@ bg:
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза кафе!"
       no_contacts: "Няма контакти"
-      no_tags: "Няма тагове"
+      no_tags: "+ Намиране на тагове за следене"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
       services: 
@@ -126,12 +126,13 @@ bg:
     new: 
       create: "Създаване"
       name: "Име"
-    no_posts_message: 
-      featured_users: "отличени потребители"
-      or_featured: "Или можете да споделите с %{link}"
-      start_talking: "Няма публикации."
-      try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Няма публикации."
     one: "1 аспект"
     other: "%{count} аспекта"
     seed: 
@@ -233,7 +234,7 @@ bg:
       correct_the_following_errors_and_try_again: "Поправете следните грешки и опитайте отново."
       invalid_fields: "Невалидни полета"
   fill_me_out: "Попълнете ме"
-  find_people: "Намерете хора"
+  find_people: "Намерете хора или #тагове"
   hide: "Скриване"
   home: 
     show: 
@@ -260,7 +261,8 @@ bg:
       rejected: "Възникна проблем със следната ел. поща: "
       sent: "Покани са изпратени до: "
     edit: 
-      sign_up: "регистриране"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Следните хора не са потвърдили паканата ви:"
       aspect: "Аспект"
@@ -452,7 +454,7 @@ bg:
       add_some: "добавяне"
       does_not_exist: "Лицето не съществува!"
       edit: "редактиране"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} все още не е споделил нито една публикация с вас!"
       incoming_request: "%{name} желае да споделя с вас"
       mention: "Споменете"
       message: "Съобщение"
@@ -522,7 +524,7 @@ bg:
       your_birthday: "Дата на раждане"
       your_gender: "Пол"
       your_location: "Местоположение"
-      your_name: "Име"
+      your_name: "Вашето име"
       your_photo: "Снимка"
       your_private_profile: "Вашият личен профил"
       your_public_profile: "Вашият публичен профил"
@@ -544,12 +546,13 @@ bg:
       unhappy: "Не сте доволни?"
       update: "Обновяване"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Въведете ел. поща"
       enter_password: "Въведете парола"
       enter_password_again: "Въведете отново същата парола"
       enter_username: "Изберете си потребителско име (само букви, цифри и долна черта)"
-      sign_up: "Регистриране"
-      sign_up_for_diaspora: "Регистрирайте се в Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Изпращане"
@@ -745,21 +748,30 @@ bg:
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Свързване към други услуги"
-      could_not_find_anyone: "Не откривате никой ваш приятел в Diaspora*? Ползвайте търсачката, за да ги поканите."
-      edit_profile: "Редактирайте профилът си"
-      finished: "Готово!"
-      save_and_continue: "Запиши и продължи"
-      signup_steps: "Приключете регистрирането като извършите следните 3 стъпки:"
-      skip: "прескачане на страницата"
-      step_2: 
-        find_your_friends_on_diaspora: "Желаете ли да намерите приятелите си от Facebook в Diaspora?"
-        skip: "Пропускане"
-      step_3: 
-        finish: "Готово"
-        people_already_on_diaspora: "Хора, които вече са в Diaspora"
-      welcome: "Добре дошли в Diaspora!"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Отличени тагове"
+      featured_users: "Отличени потребители"
+      fill_out_your_profile: "Попълнете профила си"
+      find_friends: "Намерете приятели"
+      find_friends_from_facebook: "намерете приятелите си от Facebook"
+      finished: "Готово"
+      follow_your_interests: "Следете интересите си"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Улеснето хората, които ви търсят като попълните полетата на профила си."
+      profile_fields: 
+        bio: "Биографични данни"
+        birthday: "Дата на раждане"
+        gender: "Пол"
+        location: "Местоположение"
+        name: "Име"
+        photo: "Снимка"
+        tags: "Тагове"
+      see_all_featured_users: "Показване на всички отличени потребители"
+      welcome: "Добре дошли!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Потребителят %{username} не съществува!"
     update: 

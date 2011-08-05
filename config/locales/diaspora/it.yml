@@ -126,12 +126,13 @@ it:
     new: 
       create: "Crea"
       name: "Nome"
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
-      featured_users: "Utenti consigliati"
-      or_featured: "Oppure puoi condividere i tuoi post con %{link}"
       start_talking: "Ancora nessuno ha scritto nulla. Inizia la conversazione!"
-      try_adding_some_more_contacts: "Puoi cercare altri contatti (in alto) oppure mandare inviti (a destra)."
-      you_should_add_some_more_contacts: "Dovresti aggiungere qualche altro contatto!"
     one: "un aspetto"
     other: "%{count} aspetti"
     seed: 
@@ -260,7 +261,8 @@ it:
       rejected: "Questi indirizzi email hanno dei problemi:"
       sent: "Il tuoi inviti sono stati inviati a:"
     edit: 
-      sign_up: "iscriviti"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Le seguenti persone non hanno accettato il tuo invito:"
       aspect: "Aspetto"
@@ -544,12 +546,13 @@ it:
       unhappy: "Triste?"
       update: "Aggiorna"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Inserisci un indirizzo email"
       enter_password: "Inserisci una password"
       enter_password_again: "Inserisci la stessa password di prima"
       enter_username: "Scegli un nome utente (inserisci solo lettere, numeri e trattino basso)"
-      sign_up: "Iscriviti"
-      sign_up_for_diaspora: "Iscriviti a Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Invio in corso..."
@@ -745,21 +748,30 @@ it:
       your_email: "La tua email"
       your_handle: "Il tuo ID"
     getting_started: 
-      connect_on_diaspora: "Connetti su Diaspora"
-      connect_services: "Collega altri tuoi servizi"
-      could_not_find_anyone: "Non è possibile trovare neanche un tuo amico su Diaspora*. Usa la barra di ricerca amici per trovarli."
-      edit_profile: "Modifica il tuo profilo"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Finito!"
-      save_and_continue: "Salva e continua"
-      signup_steps: "Completa la tua iscrizione facendo quanto segue:"
-      skip: "salta l'introduzione"
-      step_2: 
-        find_your_friends_on_diaspora: "Vuoi trovare i tuoi amici di Facebook su Diaspora?"
-        skip: "Salta"
-      step_3: 
-        finish: "Completa"
-        people_already_on_diaspora: "Persone già su Diaspora"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Benvenuto su Diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "L'utente %{username} non esiste!"
     update: 
