@@ -9,50 +9,11 @@
 - content_for :page_title do
   = @person.name
 
-.span-8.append-1.last
+.span-6
   = render :partial => 'people/profile_sidebar', :locals => {:person => @person, :contact => @contact }
 
-.span-15.last
-  #author_info
-    - if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
-      .right
-        - if @incoming_request
-          = link_to t('people.show.incoming_request', :name => truncate(@person.name, :length => 20, :separator => ' ', :omission => '')),
-            {:controller => "contacts",
-            :action => "new",
-            :person_id => @person.id},
-            :class => 'share_with button',
-            :rel => 'facebox'
-        -else
-          = link_to t('people.show.start_sharing'),
-            {:controller => "contacts",
-            :action => "new",
-            :person_id => @person.id},
-            :class => 'share_with button',
-            :rel => 'facebox'
-        - if @share_with
-          = javascript_tag "$(document).ready(function() {jQuery.facebox({ ajax: '#{new_contact_path(:person_id => @person.id)}' });});"
-
-
-    - else
-      - if user_signed_in? && @contact.person && @contact.receiving?
-        .right
-          = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
-          - if @contact.mutual?
-            = link_to t('people.show.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name, :contact_id => @contact.id), :class => 'button', :rel => 'facebox'
-
-    %h3
-      = @person.name
-      %span.diaspora_handle
-        = @person.diaspora_handle
-      .description
-        - if !@person.profile.tag_string.blank?
-          = Diaspora::Taggable.format_tags(@person.profile.tag_string)
-          - if user_signed_in? && @person == current_user.person
-            %span.hover_edit
-              = link_to t('people.show.edit'), edit_profile_path
-
-  %hr
+.span-18.last
+  = render 'people/sub_header', :person => @person, :contact => @contact
 
   #people_stream.stream
     - for hash in @hashes
