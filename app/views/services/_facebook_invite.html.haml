@@ -1,0 +1,4 @@
+= form_tag service_inviter_path(:provider => 'facebook') do
+  = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
+  = hidden_field_tag :uid, uid
+  = submit_tag t('services.remote_friend.invite')
