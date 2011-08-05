@@ -68,8 +68,6 @@ describe AspectsController do
       3.times { bob.comment("what", :post => message) }
       get :index
       save_fixture(html_for("body"), "aspects_index_with_posts")
-
-      save_fixture(html_for(".stream_element:first"), "status_message_in_stream")
     end
 
     context 'with getting_started = true' do
@@ -77,7 +75,7 @@ describe AspectsController do
         alice.getting_started = true
         alice.save
       end
-      
+
       it 'does not redirect mobile users to getting_started' do
         get :index, :format => :mobile
         response.should_not be_redirect
