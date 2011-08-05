@@ -30,7 +30,7 @@ end
 
 Factory.define :searchable_person, :parent => :person do |p|
   p.after_build do |person|
-    person.profile.searchable = true
+    person.profile = Factory.build(:profile, :person => person, :searchable => true)
   end
 end
 
