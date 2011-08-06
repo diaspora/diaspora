@@ -299,7 +299,8 @@ var Publisher = {
         $(this).attr('title', Diaspora.widgets.i18n.t('publisher.limited'));
       }
 
-      $(this).mouseover();
+      $(this).tipsy(true).fixTitle();
+      $(this).tipsy(true).show();
     });
   },
   toggleServiceField: function(service){
