@@ -12,7 +12,7 @@
     .section
       %ul.left_nav
         %li
-          = link_to "Welcome", getting_started_path, :class => "home_selector active"
+          = link_to t(".welcome"), getting_started_path, :class => "home_selector active"
 
   .section
     = render 'aspects/aspect_listings'
@@ -85,7 +85,7 @@
                               :contact => current_user.contact_for(person),
                               :current_user => current_user }
 
-          #featured_users_pane 
+          #featured_users_pane
             %h4
               = t('.featured_users')
 
