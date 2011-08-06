@@ -70,20 +70,20 @@
             = t('.connect_with_people_explanation')
 
           #diaspora_hq_pane
-            - person = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
-            = person_image_link(person, :size => :thumb_medium)
+            - if diasporahq = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
+              = person_image_link(diasporahq, :size => :thumb_medium)
 
-            .name
-              = person_link(person)
+              .name
+                = person_link(diasporahq)
 
-            .info
-              Get updates about the project from the core team.
+              .info
+                Get updates about the project from the core team.
 
-            .add_to_aspect
-              = render :partial => 'people/relationship_action',
-                :locals => { :person => person,
-                              :contact => current_user.contact_for(person),
-                              :current_user => current_user }
+              .add_to_aspect
+                = render :partial => 'people/relationship_action',
+                  :locals => { :person => diasporahq,
+                                :contact => current_user.contact_for(diasporahq),
+                                :current_user => current_user }
 
           #featured_users_pane
             %h4
