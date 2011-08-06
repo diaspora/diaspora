@@ -82,8 +82,7 @@ class InvitationsController < Devise::InvitationsController
 
   def email
     @invs = []
-    @resource = User.find_by_invitation_token(params[:invitation_token]) || User.first
-    @resource.invitation_token = 'foobar'
+    @resource = User.find_by_invitation_token(params[:invitation_token]) 
     render 'devise/mailer/invitation_instructions', :layout => false
   end
   protected

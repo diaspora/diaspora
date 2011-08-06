@@ -82,7 +82,7 @@ Diaspora::Application.routes.draw do
                                       :sessions      => "sessions",
                                       :invitations   => "invitations"} do
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
-    get 'invitations/invite' => 'invitations#email', :as => 'invite_email'
+    get 'invitations/email' => 'invitations#email', :as => 'invite_email'
   end
 
   get 'login' => redirect('/users/sign_in')
