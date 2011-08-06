@@ -65,3 +65,4 @@ dump.rdb
 
 #Rubinius's JIT
 *.rbc
+script/ejabberd_migrate.rb
