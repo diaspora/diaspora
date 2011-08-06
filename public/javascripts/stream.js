@@ -24,6 +24,7 @@ var Stream = {
 
     Diaspora.widgets.subscribe("stream/scrolled", Stream.collapseText);
     Stream.collapseText('eventID', $(Stream.selector)[0]);
+    Stream.bindHideIcon();
   },
   collapseText: function(){
     elements = $(Array.prototype.slice.call(arguments,1));
@@ -188,6 +189,16 @@ var Stream = {
         textarea.focus();
       }
     }
+  },
+
+  bindHideIcon: function(){
+    $("a.stream_element_delete.vis_hide").live("click", function(evt){
+      $(this).toggleClass("hidden");
+      $(this).next("img.hide_loader").toggleClass("hidden");
+    });
+    $("a.stream_element_hide_undo").live("click", function(evt){
+      $("img.hide_loader").toggleClass("hidden");
+    });
   }
 };
 
