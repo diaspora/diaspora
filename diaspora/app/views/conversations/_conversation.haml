@@ -1,0 +1,26 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%a.conversation{:href => conversation_path(conversation)}
+  .stream_element.conversation{:data=>{:guid=>conversation.id}, :class => ('unread' if unread_counts[conversation.id].to_i > 0)}
+    = person_image_tag(conversation.author)
+
+    .subject
+      - if unread_counts[conversation.id].to_i > 0
+        .unread_message_count
+          = unread_counts[conversation.id].to_i
+      .message_count
+        = conversation.messages.size
+
+      %div{ :class => direction_for(conversation.subject) }
+        = conversation.subject[0..30]
+
+    .last_author
+      .timestamp
+        = time_ago_in_words(conversation.updated_at)
+      = authors[conversation.id].name
+
+      - if conversation.participants.size > 2
+        %span.participant_count
+          = "(+#{conversation.participants.size - 1})"

@@ -1,0 +1,37 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.featured_users')
+
+- content_for :head do
+  = include_javascripts :people
+
+#section_header
+  %h2
+    = t('contacts.index.title')
+
+= render 'shared/contact_sidebar'
+
+.span-18.last
+  %h3
+    = t('.featured_users')
+  %br
+
+  #featured_users
+    - unless @people.blank?
+      - @people.each do |person|
+        .user_card
+          = person_image_link(person, :size => :thumb_large)
+          %h4
+            = person.name
+
+          .tags
+            - person.profile.tags.each do |tg|
+              = "##{tg}"
+
+          .add_user_to_aspect
+            = render :partial => 'people/relationship_action',
+                     :locals => { :person => person, :contact => current_user.contact_for(person),
+                                  :current_user => current_user }

@@ -1,0 +1,31 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#aspect_stream_header
+  #sort_by
+    = t('.recently')
+    %span.controls
+      = link_to_if(session[:sort_order] == 'created_at', t('.commented_on'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'updated_at'))
+      ·
+      = link_to_if(session[:sort_order] == 'updated_at', t('.posted'), aspects_path(:a_ids => params[:a_ids], :sort_order => 'created_at' ))
+
+  %h3
+    - if all_aspects_selected?
+      = t('.stream')
+    - else
+      = @aspects.to_sentence
+
+= render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
+
+- if posts.length == 0
+  = render 'aspects/no_posts_message'
+
+- if current_user.contacts.size < 2
+  = render 'aspects/no_contacts_message'
+
+#main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
+  - if posts.length > 0
+    = render 'shared/stream', :posts => posts
+    #pagination
+      =link_to(t('more'), next_page_path, :class => 'paginate')

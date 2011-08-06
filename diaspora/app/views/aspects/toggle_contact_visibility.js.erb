@@ -1,0 +1,14 @@
+$(document).ready(function() {
+
+  var padlockImg = $("#contact_visibility_padlock");
+
+  if(padlockImg.hasClass('open')) {
+    padlockImg.attr('src', 'images/icons/padlock-closed.png');
+    padlockImg.attr('title', "<%= t('aspects.edit.aspect_list_is_not_visible') %>");
+  } else {
+    padlockImg.attr('src', 'images/icons/padlock-open.png');
+    padlockImg.attr('title', "<%= t('aspects.edit..aspect_list_is_visible') %>");
+  }
+  padlockImg.toggleClass('open');
+
+});

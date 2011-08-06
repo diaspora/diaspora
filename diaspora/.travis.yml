@@ -1,0 +1,15 @@
+bundler_args: "--without development production"
+rvm:
+  - ree
+#  - 1.9.2
+
+before_script:
+  - "sass --update public/stylesheets/sass/:public/stylesheets/"
+  - "cp config/database.yml.example config/database.yml"
+  - "rake db:create"
+  - "rake db:schema:load"
+  - "rspec spec --tag fixture"
+script: "bundle exec rake travis"
+env: "TRAVIS=true"
+notifications:
+  disable: true

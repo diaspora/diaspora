@@ -1,0 +1,26 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+.reshare
+  - if post
+    = person_image_link(post.author, :size => :thumb_small)
+
+    .content
+      .post_initial_info
+        %span.from
+          = person_link(post.author, :class => "hovercardable")
+          %span.details
+            –
+            %span.timeago
+              = link_to(how_long_ago(post), post_path(post))
+            –
+            = t("reshares.reshare.reshare", :count => post.reshares.size)
+
+      - if post.activity_streams?
+        = link_to image_tag(post.image_url, 'data-small-photo' => post.image_url, 'data-full-photo' => post.image_url, :class => 'stream-photo'), post.object_url, :class => "stream-photo-link"
+      - else
+        = render 'status_messages/status_message', :post => post, :photos => post.photos
+  - else
+    = t('.deleted')

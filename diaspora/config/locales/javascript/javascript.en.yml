@@ -1,0 +1,51 @@
+#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+en:
+  javascripts:
+
+      confirm_dialog: "Are you sure?"
+      timeago:
+        prefixAgo: ""
+        prefixFromNow: ""
+        suffixAgo: "ago"
+        suffixFromNow: "from now"
+        seconds: "less than a minute"
+        minute: "about a minute"
+        minutes: "%d minutes"
+        hour: "about an hour"
+        hours: "about %d hours"
+        day: "a day"
+        days: "%d days"
+        month: "about a month"
+        months: "%d months"
+        year: "about a year"
+        years: "%d years"
+      videos:
+          watch: "Watch this video on {{provider}}"
+          unknown: "Unknown video type"
+      search_for: "Search for {{name}}"
+      publisher:
+        at_least_one_aspect: "You must publish to at least one aspect"
+      infinite_scroll:
+        no_more: "No more posts."
+      web_sockets:
+        disconnected: "The websocket is closed; posts will no longer be streamed live."
+      aspect_dropdown:
+        add_to_aspect: "Add to aspect"
+        toggle:
+          zero: "Add to aspect"
+          one: "In {{count}} aspect"
+          few: "In {{count}} aspects"
+          many: "In {{count}} aspects"
+          other: "In {{count}} aspects"
+      show_more: "show more"
+      failed_to_like: "Failed to like!"
+      failed_to_post_message: "Failed to post message!"
+      comments:
+        show: "show all comments"
+        hide: "hide comments"
+      reshares:
+        duplicate: "You've already reshared that post!"

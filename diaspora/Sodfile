@@ -1,0 +1,6 @@
+production:
+  user: root
+  repo: git@github.com:diaspora/diaspora.git
+  app_dir: /usr/local/app
+  cookbook: centos
+  ruby_version: ree-1.8.7-2011.03

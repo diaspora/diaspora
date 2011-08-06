@@ -1,0 +1,53 @@
+#   Copyright © 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+# 
+#   Jordi Mallach <jordi@softcatala.org>, 2011.
+#   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
+#   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
+
+ca:
+  javascripts:
+      confirm_dialog: "N'esteu segur?"
+      timeago:
+        prefixAgo: "fa"
+        prefixFromNow: "fa"
+        suffixAgo: ""
+        suffixFromNow: ""
+        seconds: "menys d'un minut"
+        minute: "aproximadament un minut"
+        minutes: "%d minuts"
+        hour: "aproximadament una hora"
+        hours: "aproximadament %d hours"
+        day: "un dia"
+        days: "%d dies"
+        month: "aproximadament un mes"
+        months: "%d mesos"
+        year: "aproximadament un any"
+        years: "%d anys"
+      videos:
+          watch: "Visualitza aquest video a {{provider}}"
+          unknown: "El tipus de vídeo és desconegut"
+      search_for: "Cerca per {{name}}"
+      publisher:
+        at_least_one_aspect: "Heu de publicar en almenys un aspecte."
+      infinite_scroll:
+        no_more: "No hi ha més publicacions."
+      web_sockets:
+        disconnected: "S'ha tancat el sòcol web. Les publicacions ja no es mostraran en temps real."
+      aspect_dropdown:
+        add_to_aspect: "Afegeix a l'aspecte"
+        toggle:
+          zero: "Afegeix a aspectes"
+          one: "En {{count}} aspecte"
+          few: "En {{count}} aspectes"
+          many: "En {{count}} aspectes"
+          other: "En {{count}} aspectes"
+      show_more: "mostra'n més"
+      failed_to_like: "No s'ha pogut comunicar que us agrada!"
+      failed_to_post_message: "No s'ha pogut publicar el missatge!"
+      comments:
+        show: "mostra tots els comentaris"
+        hide: "amaga els comentaris"
+      reshares:
+        duplicate: "Ja heu tornat a compartir aquesta publicació!"

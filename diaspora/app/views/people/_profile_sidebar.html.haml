@@ -1,0 +1,46 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#profile
+  .profile_photo
+    = person_image_link(person, :size => :thumb_large, :to => :photos)
+
+  - if user_signed_in?
+    - if person != current_user.person
+      - if @contact && @contact.receiving?
+        %br
+        = link_to t('people.show.mention'), new_status_message_path(:person_id => @person.id), :class => 'button', :rel => 'facebox'
+        - if @contact.mutual?
+          = link_to t('people.show.message'), new_conversation_path(:contact_id => @contact.id, :name => @contact.person.name), :class => 'button', :rel => 'facebox'
+      %br
+      %br
+    -if contact.sharing? || person == current_user.person
+      %ul#profile_information
+        - unless person.profile.bio.blank?
+          %li
+            %h4
+              =t('.bio')
+            %div{ :class => direction_for(person.profile.bio) }
+              = markdownify(person.profile.bio, :newlines => true)
+        - unless person.profile.location.blank?
+          %li
+            %h4
+              =t('.location')
+            %div{ :class => direction_for(person.profile.location) }
+              = markdownify(person.profile.location, :newlines => true)
+
+        %li
+          - unless person.profile.gender.blank?
+            %h4
+              =t('.gender')
+            = person.profile.gender
+
+        %li
+          - unless person.profile.birthday.blank?
+            %h4
+              =t('.born')
+            = birthday_format(person.profile.birthday)
+
+          %br
+          %br

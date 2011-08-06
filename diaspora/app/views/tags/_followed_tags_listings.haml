@@ -1,0 +1,17 @@
+-#   Copyright (c) 2011, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%ul.left_nav
+  %li
+    %div.root_element
+      = t('aspects.index.tags_following')
+
+    %ul.sub_nav
+      - if current_user.followed_tags.size > 0
+        - for tg in current_user.followed_tags
+          %li
+            =link_to "##{tg.name}", tag_path(:name => tg.name), :class => "tag_selector"
+      - else
+        %li
+          = link_to t('aspects.index.no_tags'), tags_path, :class => "new_aspect"

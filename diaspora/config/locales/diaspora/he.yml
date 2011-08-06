@@ -1,0 +1,790 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+he: 
+  _applications: "Applications"
+  _comments: "תגובות"
+  _contacts: "Contacts"
+  _home: "בית"
+  _photos: "תמונות"
+  _services: "שירותים"
+  account: "חשבון"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "חייב להיות ייחודי בקרב אנשי הקשר של משתמש זה."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "כבר תפוס."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "הוא כפיל של בקשה שהתקבלה קודם לכן."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
+        user: 
+          attributes: 
+            email: 
+              taken: "כבר תפוס."
+            person: 
+              invalid: "שגוי."
+            username: 
+              taken: "כבר תפוס."
+  ago: "%{time} עברו"
+  all_aspects: "כל ההיבטים"
+  application: 
+    helper: 
+      diaspora_alpha: "דיאספורה* אלפא"
+      unknown_person: "אדם לא ידוע"
+      video_title: 
+        unknown: "כותרת הווידאו אינה ידועה"
+  are_you_sure: "בבטחה?"
+  aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "הוספה להיבט"
+      toggle: 
+        few: "ב־%{count} היבטים"
+        many: "ב־%{count} היבטים"
+        one: "בהיבט אחד"
+        other: "ב־%{count} היבטים"
+        zero: "הוספה להיבט"
+    destroy: 
+      failure: "אירע כשל בהסרת המשתמש מההיבט"
+      no_membership: "לא ניתן למצוא את איש הקשר הנבחר בהיבט זה"
+      success: "איש הקשר הוסר בהצלחה מההיבט"
+  aspects: 
+    add_to_aspect: 
+      failure: "אירע כשל בהוספת איש הקשר להיבט."
+      success: "איש הקשר נוסף בהצלחה להיבט."
+    aspect_contacts: 
+      done_editing: "סיום העריכה"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
+    aspect_stream: 
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
+    contacts_not_visible: "אנשי הקשר בהיבט זה לא יוכלו לראות אחד את השני."
+    contacts_visible: "אנשי קשר בהיבט זה יוכלו לראות זה את זה."
+    create: 
+      failure: "יצירת ההיבט נכשלה."
+      success: "ההיבט החדש שלך %{name} נוצר"
+    destroy: 
+      failure: "ההיבט %{name} אינו ריק ולא ניתן להסירו."
+      success: "%{name} הוסר בהצלחה."
+    edit: 
+      add_existing: "הוספת איש קשר קיים"
+      aspect_list_is_not_visible: "רשימת ההיבטים מוסתרת בפני אחרים בהיבט"
+      aspect_list_is_visible: "רשימת ההיבטים גלויה לאחרים בהיבט"
+      confirm_remove_aspect: "האם אכן ברצונך למחוק את ההיבט?"
+      done: "בוצע"
+      make_aspect_list_visible: "האם להפוך את רשימת ההיבטים לגלויה?"
+      remove_aspect: "מחיקת היבט זה"
+      rename: "שינוי שם"
+      update: "עדכון"
+      updating: "בעדכון"
+    few: "%{count} היבטים"
+    helper: 
+      are_you_sure: "האם אכן ברצונך למחוק היבט זה?"
+      aspect_not_empty: "ההיבט אינו ריק"
+      remove: "הסרה"
+    index: 
+      cubbies: 
+        explanation: "Cubbi.es הנו היישום הראשון תחת דיאספורה הנמצא בפיתוח."
+        heading: "התחברות ל־Cubbi.es"
+        learn_more: "מידע נוסף"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
+      donate: "Donate"
+      handle_explanation: "זהו שם המשתמש שלך בדיאספורה. כמו כתובת דואר אלקטרוני, ניתן לחלוק אותו עם אנשים כדי שיגיעו אליך."
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      no_contacts: "אין אנשי קשר"
+      no_tags: "No tags"
+      people_sharing_with_you: "אנשים המשתפים אתך"
+      post_a_message: "פרסום הודעה >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
+      your_aspects: "Your Aspects"
+    many: "%{count} היבטים"
+    move_contact: 
+      error: "שגיאה בהעברת איש הקשר: %{inspect}"
+      failure: "%{inspect} לא עבד"
+      success: "האדם הועבר להיבט חדש"
+    new: 
+      create: "יצירה"
+      name: "שם"
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "אף אחד לא דיבר עדיין. בואו נתחיל להתקשקש פה!"
+    one: "היבט אחד"
+    other: "%{count} היבטים"
+    seed: 
+      acquaintances: "Acquaintances"
+      family: "משפחה"
+      friends: "Friends"
+      work: "עבודה"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
+    show: 
+      edit_aspect: "עריכת היבט"
+    update: 
+      failure: "להיבט שלך, %{name}, היה שם ארוך מדי מכדי שיישמר."
+      success: "ההיבט שלך, %{name}, נערך בהצלחה."
+    zero: "אין היבטים"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
+  back: "חזרה"
+  bookmarklet: 
+    explanation: "פרסום ישירות לדיאספורה מכל מקום על ידי הוספת %{link} לסימניות."
+    explanation_link_text: "קישור זה"
+    heading: "סימנייה של דיאספורה"
+    post_something: "פרסום משהו לתוך דיאספורה"
+    post_success: "פורסם! נסגר!"
+  cancel: "ביטול"
+  comments: 
+    few: "%{count} תגובות"
+    many: "%{count} תגובות"
+    new_comment: 
+      comment: "תגובה"
+      commenting: "נוספת הערה..."
+    one: "תגובה אחת"
+    other: "%{count} תגובות"
+    zero: "אין תגובות"
+  contacts: 
+    create: 
+      failure: "אירע כשל ביצירת איש קשר"
+    featured: 
+      featured_users: "Featured Users"
+    few: "%{count} אנשי קשר"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
+      title: "Contacts"
+      your_contacts: "Your Contacts"
+    many: "%{count} אנשי קשר"
+    one: "איש קשר אחד"
+    other: "%{count} אנשי קשר"
+    sharing: 
+      people_sharing: "אנשים המשתפים אותך:"
+    zero: "אין אנשי קשר"
+  conversations: 
+    create: 
+      sent: "ההודעה נשלחה"
+    destroy: 
+      success: "הדיון הוסר בהצלחה"
+    helper: 
+      new_messages: 
+        few: "%{count} הודעות חדשות"
+        many: "%{count} הודעות חדשות"
+        one: "הודעה חדשה אחת"
+        other: "%{count} הודעות חדשות"
+        zero: "אין הודעות חדשות"
+    index: 
+      create_a_new_message: "כתיבת הודעה חדשה"
+      inbox: "דואר נכנס"
+      message_inbox: "תיבת הודעות נכנסות"
+      new_message: "הודעה חדשה"
+      no_conversation_selected: "לא נבחר דיון"
+      no_messages: "אין הודעות"
+    new: 
+      abandon_changes: "Abandon changes?"
+      send: "שליחה"
+      sending: "Sending..."
+      subject: "נושא"
+      to: "אל"
+    show: 
+      delete: "מחיקה וחסימת הדיון"
+      reply: "תגובה"
+  date: 
+    formats: 
+      birthday: "ה־%d ב%B"
+      birthday_with_year: "ה־%d ב%B %Y"
+      fullmonth_day: "ה־%d ב%B"
+  delete: "מחיקה"
+  email: "דוא״ל"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "יש לתקן את השגיאות הבאות ולנסות שוב."
+      invalid_fields: "שדות שגויים"
+  fill_me_out: "נא לרשום אותי"
+  find_people: "Find people"
+  hide: "הסתרה"
+  home: 
+    show: 
+      already_account: "כבר יש לך חשבון?"
+      choice: "בחירה"
+      choice_explanation: "מערכת דיאספורה מאפשרת לך לסדר את אנשי הקשר שלך לקבוצות הנקראות היבטים. תכונה זו הנה ייחודית לדיאספורה, היבטים מסייעים לך לוודא שהתמונות, הסיפורים והבדיחות שלך ישותפו רק עם אלו להם ייעדת אותם."
+      learn_about_host: "הסברים בנוגע לאחסון שרת דיאספורה משלך."
+      login_here: "הכניסה מכאן"
+      ownership: "בעלות"
+      ownership_explanation: "התמונות שלך הן בבעלותך, ואין עליך לוותר עליהן רק כדי לשתף אותן. הבעלות הבלעדית על מה שמשותף בדיאספורה על ידיך היא שלך, כך ניתנת לך השליטה על האופן בו מופץ המידע שלך."
+      share_what_you_want: "שיתוף מה שבא לך, עם מי שבא לך."
+      simplicity: "פשטות"
+      simplicity_explanation: "דיאספורה מאפשרת לך לשתף בצורה נקייה ונוחה - ואמרה זו נוגעת גם לשמירה על פרטיותך. דיאספורה מאפשרת להוריש את הגדרות הפרטיות בין הפריטים השונים ובכך נחסך ממך השיטוט בנבכי עמודי ההגדרות והאפשרויות רק כדי לדאוג שהפרופיל שלך יהיה מאובטח."
+      tagline_first_half: "שיתוף מה שבא לך,"
+      tagline_second_half: "עם מי שבא לך."
+  invitations: 
+    check_token: 
+      not_found: "אסימון ההזמנה לא נמצא"
+    create: 
+      already_contacts: "כבר יש לך קשר עם אדם זה"
+      already_sent: "כבר הזמנת אדם זה."
+      no_more: "אין לך עוד הזמנות."
+      own_address: "אין לך אפשרות לשלוח הזמנות לכתובת העצמית שלך."
+      rejected: "בכתובת הדוא״ל הבאה התגלו שגיאות:"
+      sent: "נשלחו הזמנות אל:"
+    edit: 
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
+    new: 
+      already_invited: "כבר נשלחה הזמנה"
+      aspect: "היבט"
+      comma_seperated_plz: "באפשרותך להזין מספר כתובות דוא״ל ולהפרידן בפסיקים."
+      if_they_accept_info: "אם הם יאשרו, הם יתווספו להיבט שאליו הזמנת אותם."
+      invite_someone_to_join: "להזמין מישהו להשתמש בדיאספורה!"
+      personal_message: "הודעה אישית"
+      resend: "שליחה חוזרת"
+      send_an_invitation: "שליחת הזמנה"
+      send_invitation: "שליחת הזמנה"
+      to: "אל"
+  layouts: 
+    application: 
+      have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה להלן"
+      powered_by: "מופעל על גבי דיאספורה*"
+      public_feed: "הזנת דיאספורה ציבורית עבור %{name}"
+      toggle: "הפעלה/נטרול האתר לניידים"
+      whats_new: "מה חדש?"
+      your_aspects: "ההיבטים שלך"
+    header: 
+      admin: "מנהל"
+      blog: "בלוג"
+      code: "קוד"
+      login: "כניסה"
+      logout: "יציאה"
+      profile: "פרופיל"
+      recent_notifications: "Recent notifications"
+      settings: "הגדרות"
+      view_all: "View all"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} אנשים לא אהבו את זה"
+        many: "%{count} אנשים לא אהבו את זה"
+        one: "אדם אחד לא אהב את זה"
+        other: "%{count} אנשים לא אוהבים את זה"
+        zero: "אין אנשים שלא אהבו את זה"
+      people_like_this: 
+        few: "%{count} אנשים אהבו את זה"
+        many: "%{count} אנשים אהבו את זה"
+        one: "אדם אחד אהב את זה"
+        other: "%{count} אנשים אהבו את זה"
+        zero: "אף אחד לא אהב את זה"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
+  limited: "Limited"
+  more: "המשך"
+  next: "הבאה"
+  no_results: "לא נמצאו תוצאות"
+  notifications: 
+    also_commented: 
+      few: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
+      many: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
+      one: "%{actors} %{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
+      other: "%{actors} גם כן הגיב/ה על ה%{post_link} של %{post_author}."
+      zero: "%{actors} גם כן הגיבו על ה%{post_link} של %{post_author}."
+    also_commented_deleted: 
+      few: "%{actors} הגיבו על הרשומה שמחקת."
+      many: "%{actors} הגיבו על הרשומה שמחקת."
+      one: "%{actors} הגיב/ה על הרשומה שמחקת."
+      other: "%{actors} הגיב/ה על הרשומה שמחקת."
+      zero: "%{actors} הגיבו על הרשומה שמחקת."
+    comment_on_post: 
+      few: "%{actors} הגיבו על ה%{post_link} שלך."
+      many: "%{actors} הגיבו על ה%{post_link} שלך."
+      one: "%{actors} הגיב/ה על ה%{post_link} שלך."
+      other: "%{actors} הגיב/ה על ה%{post_link} שלך."
+      zero: "%{actors} הגיבו על ה־%{post_link} שלך."
+    helper: 
+      new_notifications: 
+        few: "%{count} התרעות חדשות"
+        many: "%{count} התרעות חדשות"
+        one: "התרעה חדשה אחת"
+        other: "%{count} התרעות חדשות"
+        zero: "אין התרעות חדשות"
+    index: 
+      and: "וגם "
+      and_others: 
+        few: "ו־%{count} נוספים"
+        many: "ו־%{count} נוספים"
+        one: "ואחד/ת נוסף/ת"
+        other: "ו־%{count} נוספים"
+        zero: "ואף אחד אחר"
+      mark_all_as_read: "סימון הכול כלאחר קריאה"
+      notifications: "התרעות"
+    liked: 
+      few: "%{actors} סימנו כ'אהבתי' את ה%{post_link} שלך."
+      many: "%{actors} סימן ב'אהבתי' את ה%{post_link} שלך."
+      one: "%{actors} סימן/ה כ'אהבתי' את ה%{post_link} שלך."
+      other: "%{actors} סימן/ה כ'אהבתי' את ה%{post_link} שלך."
+      zero: "%{actors} סימנו כ'אהבתי' את ה%{post_link} שלך."
+    liked_post_deleted: 
+      few: "%{actors} אהבו את הרשומה שמחקת."
+      many: "%{actors} אהבו את הרשומה שמחקת."
+      one: "%{actors} אהב/ה את הרשומה שמחקת."
+      other: "%{actors} אהב/ה את הרשומה שמחקת."
+      zero: "%{actors} אהבו את הרשומה שמחקת."
+    mentioned: 
+      few: "%{actors} ציינו אותך ב%{post_link}."
+      many: "%{actors} ציינו אותך ב%{post_link}."
+      one: "%{actors} ציין/ה אותך ב%{post_link}."
+      other: "%{actors} ציין/ה אותך ב%{post_link}."
+      zero: "%{actors} ציינו אותך ב%{post_link}."
+    mentioned_deleted: 
+      few: "%{actors} ציינו אותך ברשומה שנמחקה."
+      many: "%{actors} ציינו אותך ברשומה שנמחקה."
+      one: "%{actors} ציין/ה אותך ברשומה שנמחקה."
+      other: "%{actors} ציין/ה אותך ברשומה שנמחקה."
+      zero: "%{actors} ציינו אותך ברשומה שנמחקה."
+    post: "רשומה"
+    private_message: 
+      few: "%{actors} שלחו לך הודעה."
+      many: "%{actors} שלחו לך הודעה."
+      one: "%{actors} שלח/ה לך הודעה."
+      other: "%{actors} שלח/ה לך הודעה."
+      zero: "%{actors} שלחו לך הודעה."
+    started_sharing: 
+      few: "%{actors} החלו לשתף אתך."
+      many: "%{actors} החלו לשתף אתך."
+      one: "%{actors} החל/ה לשתף אתך."
+      other: "%{actors} החל/ה לשתף אתך."
+      zero: "%{actors} החלו לשתף אתך."
+  notifier: 
+    click_here: "click here"
+    comment_on_post: 
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    hello: "שלום %{name}!"
+    liked: 
+      liked: "%{name} בדיוק עכשיו סימן/נה את הרשומה שלך כאהובה: "
+      view_post: "View post >"
+    mentioned: 
+      mentioned: "ציין/ה אותך ברשומה:"
+      subject: "הוזכרת על ידי %{name} בדיאספורה*"
+    private_message: 
+      reply_to_or_view: "Reply to or view this conversation >"
+    single_admin: 
+      admin: "מנהל הדיאספורה שלך"
+      subject: "הודעה בנוגע לחשבונך בדיאספורה:"
+    started_sharing: 
+      sharing: "החל/ה לשתף אתך!"
+      subject: "%{name} החל/ה לשתף אתך בדיאספורה*"
+      view_profile: "View %{name}'s profile"
+    thanks: "רב תודות,"
+    to_change_your_notification_settings: "to change your notification settings"
+  ok: "אישור"
+  or: "או"
+  password: "ססמה"
+  password_confirmation: "אישור הססמה"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "הוספת איש קשר מתגית"
+    aspect_list: 
+      edit_membership: "עריכת חברות בהיבט"
+    few: "%{count} אנשים"
+    helper: 
+      people_on_pod_are_aware_of: " האנשים בפוד מודעים לגבי"
+      results_for: " תוצאות עבור %{params}"
+    index: 
+      couldnt_find_them_send_invite: "לא נמצאים?  אפשר להזמין אותם!"
+      no_one_found: "...ולא נמצא אף אחד."
+      no_results: "הי! לא חיפשת שום דבר."
+      results_for: "תוצאות חיפוש עבור"
+    many: "%{count} אנשים"
+    one: "אדם אחד"
+    other: "%{count} אנשים"
+    person: 
+      add_contact: "הוספת איש קשר"
+      already_connected: "כבר קושרתם"
+      pending_request: "בקשה ממתינה"
+      thats_you: "מדובר בך!"
+    profile_sidebar: 
+      bio: "פרטים"
+      born: "תאריך הלידה"
+      edit_my_profile: "עריכת הפרופיל שלי"
+      gender: "מגדר"
+      in_aspects: "בהיבטים"
+      location: "מיקום"
+      remove_contact: "הסרת איש קשר"
+      remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
+    show: 
+      add_some: "הוספת אנשים"
+      does_not_exist: "אדם זה אינו קיים!"
+      edit: "עריכה"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      incoming_request: "ברצונו/ה של %{name} לשתף אתך"
+      mention: "אזכור"
+      message: "הודעה"
+      not_connected: "אין לך שיתוף עם אדם זה"
+      recent_posts: "רשומות אחרונות"
+      recent_public_posts: "הרשומות הציבוריות האחרונות"
+      return_to_aspects: "באפשרותך לחזור לעמוד ההיבטים שלך"
+      see_all: "צפייה בהכול"
+      start_sharing: "התחלת השיתוף"
+      to_accept_or_ignore: "כדי לקבל או לדחות אותה."
+      you_have_no_tags: "אין לך תגיות!"
+    webfinger: 
+      fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
+    zero: "אין אנשים"
+  photos: 
+    create: 
+      integrity_error: "העלאת התמונה נכשלה.  האם זו אכן הייתה תמונה?"
+      runtime_error: "העלאת התמונה נכשלה.  האם החגורה שלך אכן מהודקת??"
+      type_error: "העלאת התמונה נכשלה.  האם אכן נוספה תמונה?"
+    destroy: 
+      notice: "התמונה נמחקה."
+    edit: 
+      editing: "עריכה"
+    new: 
+      back_to_list: "חזרה לרשימה"
+      new_photo: "תמונה חדשה"
+      post_it: "פרסום!"
+    new_photo: 
+      empty: "הקובץ {file} ריק, נא לבחור שוב קבצים אבל בלעדיו."
+      invalid_ext: "לקובץ {file} יש סיומת בלתי מוכרת. רק הסיומות {extensions} מותרות לשימוש."
+      size_error: "הקובץ {file} גדול מדי, גודל הקובץ המרבי הוא {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "או לבחור באחת הקיימות"
+      upload: "העלאת תמונת פרופיל חדש!"
+    photo: 
+      view_all: "צפייה בכל התמונות של %{name}"
+    show: 
+      collection_permalink: "קישור קבוע לאוסף"
+      delete_photo: "מחיקת תמונה"
+      edit: "עריכה"
+      edit_delete_photo: "עריכת תיאור תמונה / מחיקת תמונה"
+      make_profile_photo: "יצירת תמונת פרופיל"
+      original_post: "רשומה מקורית"
+      update_photo: "עדכון התמונה"
+      view: "צפייה"
+    update: 
+      error: "אירע כשל בעריכת התמונה."
+      notice: "התמונה עודכנה בהצלחה."
+  post_visibilites: 
+    update: 
+      post_hidden: "הרשומה של %{name} הוסתרה."
+  posts: 
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
+  previous: "הקודמת"
+  profile: "פרופיל"
+  profiles: 
+    edit: 
+      allow_search: "מתן אישור לאנשים לחפש אחריך ברשת דיאספורה"
+      edit_profile: "עריכת הפרופיל"
+      first_name: "שם פרטי"
+      last_name: "שם משפחה"
+      update_profile: "עדכון הפרופיל"
+      your_bio: "הביוגרפיה שלך"
+      your_birthday: "יום ההולדת שלך"
+      your_gender: "המגדר שלך"
+      your_location: "המיקום שלך"
+      your_name: "שמך"
+      your_photo: "התמונה שלך"
+      your_private_profile: "הפרופיל הפרטי שלך"
+      your_public_profile: "הפרופיל הציבורי שלך"
+      your_tags: "את/ה: ב־5 #תגיות"
+      your_tags_placeholder: "לדוגמה: #לדיאספורה #גיהוץ #חתלתולים #מוזיקה"
+    update: 
+      failed: "אירע כשל בעדכון הפרופיל"
+      updated: "הפרופיל עודכן"
+  public: "Public"
+  registrations: 
+    closed: "אפשרות ההרשמה סגורה בפוד זה של דיאספורה."
+    create: 
+      success: "הצטרפת לדיאספורה!"
+    edit: 
+      cancel_my_account: "ביטול החשבון שלי"
+      edit: "עריכת %{name}"
+      leave_blank: "(יש להשאיר ריק אם אין ברצונך לשנות זאת)"
+      password_to_confirm: "(נזדקק לססמה הנוכחית שלך כדי לאמת את השינויים)"
+      unhappy: "בבאסה?"
+      update: "עדכון"
+    new: 
+      create_my_account: "Create my account"
+      enter_email: "נא להזין כתובת דוא״ל"
+      enter_password: "נא להזין ססמה"
+      enter_password_again: "להזין את אותה הססמה כמקודם"
+      enter_username: "נא לבחור שם משתמש (אותיות, מספרים וקווים תחתונים בלבד)"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
+  requests: 
+    create: 
+      sending: "בשליחה"
+      sent: "ביקשת לשתף עם %{name}.  הם אמורים לראות זאת בפעם הבאה שייכנסו לדיאספורה."
+    destroy: 
+      error: "נא לבחור בהיבט!"
+      ignore: "התעלמת מבקשת החברות."
+      success: "את/ה משתף/ת כעת."
+    helper: 
+      new_requests: 
+        few: "%{count} בקשות חדשות!"
+        many: "%{count} בקשות חדשות!"
+        one: "בקשה חדשה!"
+        other: "%{count} בקשות חדשות!"
+        zero: "אין בקשות חדשות"
+    manage_aspect_contacts: 
+      existing: "אנשי הקשר הקיימים"
+      manage_within: "ניהול אנשי קשר בתוך"
+    new_request_to_person: 
+      sent: "נשלחה!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
+      show_original: "Show Original"
+  search: "חיפוש"
+  services: 
+    create: 
+      success: "האימות הצליח."
+    destroy: 
+      success: "האימות נמחק בהצלחה."
+    failure: 
+      error: "אירעה שגיאה בעת ההתחברות לשירות זה"
+    finder: 
+      friends: 
+        few: "%{count} חברים"
+        many: "%{count} חברים"
+        one: "חבר אחד"
+        other: "%{count} חברים"
+        zero: "אין חברים"
+      invite_your_friends_from: "הזמנת החברים שלך מ־%{service}"
+      not_connected: "לא מחובר"
+    index: 
+      connect_to_facebook: "התחברות לפייסבוק"
+      connect_to_tumblr: "התחברות ל־Tumblr"
+      connect_to_twitter: "התחברות לטוויטר"
+      disconnect: "ניתוק"
+      edit_services: "עריכת שירותים"
+      logged_in_as: "נכנסת בשם"
+      no_services: "You have not connected any services yet."
+      really_disconnect: "האם לנתק את %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "יש ללחוץ על קישור זה כדי לקבל את ההזמנה שלך"
+      join_me_on_diaspora: "למה שלא להצטרף אלי ב־DIASPORA*"
+    remote_friend: 
+      invite: "הזמנה"
+      resend: "שליחה שוב"
+  settings: "הגדרות"
+  shared: 
+    add_contact: 
+      add_new_contact: "Add a new contact"
+      create_request: "חיפוש לפי שם משתמש בדיאספורה"
+      diaspora_handle: "diaspora@handle.org"
+      enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
+      know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
+      your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "כל אנשי הקשר"
+    footer: 
+      logged_in_as: "נכנסת בשם %{name}"
+      your_aspects: "ההיבטים שלך"
+    invitations: 
+      by_email: "בדוא״ל"
+      dont_have_now: "אין לך כרגע, אך יתווספו לך הזמנות בקרוב!"
+      from_facebook: "מ־Facebook"
+      invitations_left: "%{count} נותרו"
+      invite_someone: "שליחת הזמנה"
+      invite_your_friends: "הזמנת החברים שלך"
+      invites: "הזמנות"
+      invites_closed: "נכון לעכשיו ההזמנות לפוד זה של דיאספורה סגורות"
+    notification: 
+      new: "%{type} חדש מאת %{from}"
+    public_explain: 
+      logged_in: "נכנסת אל %{service}"
+      manage: "ניהול השירותים המקושרים"
+      outside: "ההודעות הציבוריות יהיו זמינות לצפייה חיצונית גם מחוץ לרשת דיאספורה."
+      title: "הגדרת שירותים מקושרים"
+    publisher: 
+      all: "הכול"
+      all_contacts: "כל אנשי הקשר"
+      click_to_share_with: "יש ללחוץ כדי לשתף עם:"
+      discard_post: "Discard post"
+      make_public: "הפיכה לציבורי"
+      post_a_message_to: "פרסום הודעה אל %{aspect}"
+      posting: "פרסום..."
+      public: "ציבורי"
+      publishing_to: "פרסום אל:"
+      share: "שיתוף"
+      share_with: "שיתוף עם"
+      upload_photos: "Upload photos"
+      whats_on_your_mind: "מה עובר לך בראש?"
+    reshare: 
+      reshare: "שיתוף מחדש"
+    stream_element: 
+      dislike: "לא אהבתי את זה"
+      like: "אהבתי"
+      shared_with: "Shared with: %{aspect_names}"
+      unlike: "לא אהבתי"
+      via: "באמצעות %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
+  status_messages: 
+    create: 
+      success: "אוזכרו בהצלחה: %{names}"
+    destroy: 
+      failure: "אירע כשל במחיקת הרשומה"
+    helper: 
+      no_message_to_display: "אין הודעה להצגה."
+    new: 
+      mentioning: "אזכור: %{person}"
+    too_long: 
+      few: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
+      many: "נא לוודא שהודעת המצב שלך אינה עולה על %{count} תווים"
+      one: "נא לוודא שהודעת המצב שלך אינה עולה על תו אחד"
+      other: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
+      zero: "נא לוודא שהודעות המצב שלך אינן עולות על %{count} תווים"
+  stream_helper: 
+    hide_comments: "הסתרת הערות"
+    show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
+  tags: 
+    show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
+      nobody_talking: "אף אחד עדיין לא דיבר על %{tag}."
+      people_tagged_with: "אנשים תויגו ב־%{tag}"
+      posts_tagged_with: "אנשים תויגו ב־%{tag}"
+      stop_following: "Stop Following #%{tag}"
+  tokens: 
+    show: 
+      connect_to_cubbies: "התחברות ל־Cubbi.es"
+      connecting_is_simple: "חיבור חשבון הדיאספורה שלך הנה משימה פשוטה של מילוי שני שדות בחשבון ה־Cubbi.es שלך."
+      daniels_account: "חשבון הדיאספורה של דניאל"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      love_to_try: "נשמח אם תנסו זאת."
+      making_the_connection: "יצירת הקשר"
+      screenshot_explanation: "%{link1}.  ה־cubby המסוים הזה מקושר שלך %{link2}."
+      sign_up_today: "הירשמו עוד היום!"
+      typical_userpage: "דף משתמש טיפוסי ב־cubbi.es"
+      via: "(באמצעות %{link})"
+      what_is_cubbies: "Cubbi.es הנו היישום הראשון לדיאספורה אי פעם. זוהי גם הדרך הטובה ביותר לאסוף תמונות באופן מקוון."
+  undo: "האם לבטל?"
+  username: "שם משתמש"
+  users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+    destroy: "חשבונך ננעל. סגירת חשבונך עלולה להימשך כ־20 דקות. תודה על שהתנסית בדיאספורה."
+    edit: 
+      also_commented: "...מישהו הגיב גם על הרשומה של איש הקשר שלך?"
+      change: "שינוי"
+      change_email: "Change E-Mail"
+      change_language: "החלפת השפה"
+      change_password: "החלפת הססמה"
+      close_account: "סגירת החשבון"
+      comment_on_post: "...מישהו הגיב על הרשומה שלך?"
+      current_password: "הססמה הנוכחית"
+      download_photos: "הורדת התמונות שלי"
+      download_xml: "הורדת ה־xml שלי"
+      edit_account: "עריכת החשבון"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      export_data: "יצוא הנתונים"
+      liked: "...מישהו אהב את הרשומה שלך?"
+      mentioned: "...מישהו ציין אותך ברשומה?"
+      new_password: "ססמה חדשה"
+      private_message: "...קיבלת הודעה פרטית?"
+      receive_email_notifications: "לקבל התרעות בדוא״ל כאשר..."
+      started_sharing: "...מישהו התחיל לשתף אתך?"
+      your_email: "כתובת הדוא״ל שלך"
+      your_handle: "שם המשתמש שלך בדיאספורה"
+    getting_started: 
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
+      finished: "סיימת!"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
+      welcome: "ברוך בואך לדיאספורה!"
+      welcome_with_name: "Welcome, %{name}!"
+    public: 
+      does_not_exist: "המשתמש %{username} אינו קיים!"
+    update: 
+      email_notifications_changed: "ההתרעות בדוא״ל השתנו"
+      language_changed: "השפה הוחלפה"
+      language_not_changed: "החלפת השפה נכשלה"
+      password_changed: "הססמה הוחלפה. כעת באפשרותך להיכנס עם הססמה החדשה שלך."
+      password_not_changed: "החלפת הססמה נכשלה"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
+  webfinger: 
+    fetch_failed: "אירע כשל בקבלת פרופיל ה־webfinger שלך ל־%{profile_url}"
+    hcard_fetch_failed: "אירעה שגיאה בעת קבלת ה־hcard לחשבון %{account}"
+    no_person_constructed: "לא ניתן להרכיב איש קשר מ־hcard זה."
+    not_enabled: "נראה כי webfinger אינו פעיל עבור המארח של %{account}"
+    xrd_fetch_failed: "אירעה שגיאה בקבלת ה־xrd מהחשבון %{account}"

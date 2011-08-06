@@ -1,0 +1,7 @@
+youtube_titles,pending,created_at,public,updated_at,status_message_mongo_id,caption,remote_photo_path,remote_photo_name,random_string,image,mongo_id,type,diaspora_handle,person_mongo_id,message
+"",false,1294692030000,false,1294692030000,,,,,,,4d2b6ebecc8cb43cc2000027,StatusMessage,bob1d2f837@localhost,4d2b6eb6cc8cb43cc200000a,User2 can see this
+"",false,1294692030000,false,1294692030000,,,,,,,4d2b6ebecc8cb43cc2000029,StatusMessage,bob3c6c46f@localhost,4d2b6eb7cc8cb43cc2000017,User3 can see this
+,false,1294692030000,false,1294692030000,4d2b6ebecc8cb43cc2000027,,,,mUKUIxkYlV,mUKUIxkYlV4d2b6ebfcc8cb43cc200002d.png,4d2b6ebfcc8cb43cc200002d,Photo,bob2f66ee4@localhost,4d2b6eb7cc8cb43cc200000e,
+,false,1294692034000,false,1294692034000,,,,,AtwSOhcrt0,AtwSOhcrt04d2b6ec1cc8cb43cc200002f.png,4d2b6ec1cc8cb43cc200002f,Photo,bob3c6c46f@localhost,4d2b6eb7cc8cb43cc2000017,
+,false,1294692036000,false,1294692036000,,,/uploads/images,3jcOyI5M444d2b6ec2cc8cb43cc2000036.png,,,4d2b6ec2cc8cb43cc2000036,Photo,bob5aa0fd5@localhost,4d2b6ec2cc8cb43cc2000034,
+"",false,1294692036000,false,1294692036000,,,,,,,4d2b6ec4cc8cb43cc2000037,StatusMessage,bob5aa0fd5@localhost,4d2b6ec2cc8cb43cc2000034,from another server!

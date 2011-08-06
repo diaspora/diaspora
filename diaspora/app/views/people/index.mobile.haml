@@ -1,0 +1,36 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('search')
+
+
+%div{:style => 'text-align:center;'}
+  = form_tag(people_path, :method => 'get') do
+    %div{:data => {:role => 'fieldcontain', :inline => 'true'}}
+      = search_field_tag :q
+      = submit_tag t('search'), 'data-inline' => 'true'
+
+
+- if params[:q].blank?
+  %h4
+    =t('.no_results')
+- else
+  %h4#search_title
+    =t('.results_for')
+    %span.term
+      = params[:q]
+
+
+  - if @hashes.empty?
+    %p
+      =t('.no_one_found')
+
+  - else
+    #people_stream.stream
+      - for hash in @hashes
+        = render :partial => 'people/person', :locals => hash
+
+    = will_paginate @people
+

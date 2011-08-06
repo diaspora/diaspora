@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+fr: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Ajouter à l'aspect"
+      toggle: 
+        few: "Dans {{count}} aspects"
+        many: "Dans {{count}} aspects"
+        one: "Dans {{count}} aspect"
+        other: "Dans {{count}} aspects"
+        zero: "Ajouter à l'aspect"
+    comments: 
+      hide: "cacher les commentaires"
+      show: "afficher tous les commentaires"
+    confirm_dialog: "Êtes-vous sûr ?"
+    failed_to_like: "Impossible d'aimer !"
+    failed_to_post_message: "Impossible de partager le message !"
+    infinite_scroll: 
+      no_more: "Pas d'autre messages."
+    publisher: 
+      at_least_one_aspect: "Vous devez créer au moins un aspect"
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "Chercher {{name}}"
+    show_more: "voir plus"
+    timeago: 
+      day: "environ un jour"
+      days: "environ %d jours"
+      hour: "environ une heure"
+      hours: "environ %d heures"
+      minute: "environ une minute"
+      minutes: "environ %d minutes"
+      month: "environ un mois"
+      months: "environ %d mois"
+      prefixAgo: "il y a"
+      prefixFromNow: "d'ici"
+      seconds: "moins d'une minute"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "un an"
+      years: "%d ans"
+    videos: 
+      unknown: "Type de vidéo inconnu"
+      watch: "Voir cette vidéo sur {{provider}}"
+    web_sockets: 
+      disconnected: "Le WebSocket est fermé, les messages ne seront plus diffusées en direct."

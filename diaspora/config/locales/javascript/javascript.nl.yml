@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+nl: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Voeg toe aan aspect"
+      toggle: 
+        few: "In {{count}} aspecten"
+        many: "In {{count}} aspecten"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspecten"
+        zero: "Voeg toe aan aspect"
+    comments: 
+      hide: "verberg reacties"
+      show: "laat reacties zien"
+    confirm_dialog: "Weet je het zeker?"
+    failed_to_like: "Leuk vinden mislukt!"
+    failed_to_post_message: "Bericht plaatsen mislukt!"
+    infinite_scroll: 
+      no_more: "Geen posts meer."
+    publisher: 
+      at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
+    reshares: 
+      duplicate: "Je hebt deze post al doorgegeven!"
+    search_for: "Zoek naar {{name}}"
+    show_more: "laat meer zien"
+    timeago: 
+      day: "een dag"
+      days: "%d dagen"
+      hour: "ongeveer een uur"
+      hours: "ongeveer %d uur"
+      minute: "ongeveer een minuut"
+      minutes: "%d minuten"
+      month: "ongeveer een maand"
+      months: "%d maanden"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "iets minder dan een minuut"
+      suffixAgo: "geleden"
+      suffixFromNow: "vanaf nu"
+      year: "ongeveer een jaar"
+      years: "%d jaar"
+    videos: 
+      unknown: "Onbekend video type"
+      watch: "Bekijk deze video op {{provider}}"
+    web_sockets: 
+      disconnected: "De websocket is gesloten; posts worden niet langer live gestreamd."

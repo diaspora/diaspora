@@ -1,0 +1,60 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.title')
+
+- content_for :head do
+  = include_javascripts :people
+
+#section_header
+  %h2
+    = t('.title')
+
+= render 'shared/contact_sidebar'
+
+.span-18.last
+  #people_stream.stream.contacts
+    - if @aspect
+      #aspect_controls
+        - suggested_limit = 16
+        - conv_opts = { :class => "button conversation_button", :rel => "facebox"}
+        - conv_opts[:title] = t('.many_people_are_you_sure', :suggested_limit => suggested_limit) if @contacts.size > suggested_limit
+
+        = link_to t('.start_a_conversation'), new_conversation_path(:aspect_id => @aspect.id, :name => @aspect.name), conv_opts
+        - if @contacts.size > suggested_limit
+          = javascript_tag "$('.conversation_button').tipsy({trigger: 'hover', gravity: 'n'});"
+        = link_to t('.edit_aspect', :name => @aspect.name), edit_aspect_path(@aspect), :rel => "facebox"
+
+    - if @contacts.size > 0
+      - for contact in @contacts
+        .stream_element{:id => contact.person.id}
+          .right
+            - if @aspect
+              = link_to(image_tag('/images/icons/monotone_close_exit_delete.png', :height => 20, :width => 20),
+                  {:controller => "aspect_memberships",
+                    :action => 'destroy',
+                    :id => 42,
+                    :aspect_id => @aspect.id,
+                    :person_id => contact.person.id},
+                  :title => t('.remove_person_from_aspect', :person_name => contact.person.first_name, :aspect_name => @aspect.name),
+                  :method => 'delete')
+
+            - else
+              = render :partial => 'people/relationship_action',
+                       :locals => { :person => contact.person, :contact => contact,
+                                    :current_user => current_user }
+
+          = person_image_link(contact.person)
+          .content
+            %span.from
+              =person_link(contact.person)
+            .info
+              = contact.person.diaspora_handle
+
+      = will_paginate @contacts
+    - else
+      %h3.no_contacts
+        = t('.no_contacts')
+

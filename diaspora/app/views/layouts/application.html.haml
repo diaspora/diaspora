@@ -1,0 +1,126 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+!!!
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
+  %head
+    %meta{:charset => 'utf-8'}
+
+    %title
+      = page_title yield(:page_title)
+
+    %meta{'http-equiv' => 'X-UA-Compatible', :content => 'IE=edge,chrome=1'}
+
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+
+    %link{:rel => 'shortcut icon', :href => '/favicon.png'}
+    %link{:rel => 'apple-touch-icon', :href => '/apple-touch-icon.png'}
+
+    / Social Media Icons are by Paul Robert Lloyd @ http://paulrobertlloyd.com/2009/06/social_media_icons
+
+    = stylesheet_link_tag "blueprint/screen", :media => 'screen'
+    = stylesheet_link_tag "blueprint/print", :media => 'print'
+
+    = stylesheet_link_tag "login", :media => 'screen'
+
+    = include_stylesheets :default, :media => 'all'
+    - if rtl?
+      = include_stylesheets :rtl, :media => 'all'
+
+    = csrf_meta_tag
+    <!--[if IE]>
+    = javascript_include_tag "/javascripts/ie.js"
+    <![endif]-->
+
+    = include_javascripts :jquery
+    :javascript
+      !window.jQuery && document.write(unescape('%3Cscript src="//ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"%3E%3C/script%3E'))
+
+    - unless @landing_page
+      = include_javascripts :main
+      -if current_user
+        :javascript
+          Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+
+    - if current_user
+      = include_javascripts :flash_socket #unless modern_browser?
+      = javascript_include_tag 'web-socket-receiver'
+      = render 'js/websocket_js'
+      = include_javascripts :chat_ui
+
+
+    = yield(:head)
+
+    -if AppConfig[:google_a_site]
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    -if AppConfig[:piwik_id]
+      :javascript
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+      :javascript
+        try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+
+
+    - if @person
+      %link{:rel => "alternate", :href => "#{@person.public_url}.atom", :type => "application/atom+xml", :title => "#{t('.public_feed', :name => @person.name)}"}
+
+  %body{:class => "#{yield(:body_class)}"}
+    - unless @landing_page
+      #notifications
+
+      - flash.each do |name, msg|
+        = content_tag :div, msg, :id => "flash_#{name}"
+
+    %header{:class=>('landing' unless current_user)}
+      = render 'layouts/header'
+
+    .container{:style=> "#{yield(:break_the_mold)}"}
+      .span-24.last{:style=> "#{yield(:break_the_mold)}"}
+        = yield
+
+      /=render :partial => 'layouts/debug.haml'
+
+    %footer
+      .container
+        %ul#footer_nav
+          %li= link_to '@joindiaspora', "http://twitter.com/joindiaspora"
+          %li= link_to 'github', "https://github.com/diaspora/diaspora"
+          %li= link_to t('layouts.header.blog'), "http://blog.joindiaspora.com"
+          %li= link_to t('layouts.header.code'), "#{root_url.chomp('/')}/source.tar.gz" unless request.url.match(/joindiaspora.com/)
+          %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
+          %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)  if is_mobile_device?
+        = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
+        %br
+        = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
+
+    -if !@landing_page && request.url.match(/joindiaspora.com/)
+      :javascript
+          var is_ssl = ("https:" == document.location.protocol);
+          var asset_host = is_ssl ? "https://s3.amazonaws.com/getsatisfaction.com/" : "http://s3.amazonaws.com/getsatisfaction.com/";
+          document.write(unescape("%3Cscript src='" + asset_host + "javascripts/feedback-v2.js' type='text/javascript'%3E%3C/script%3E"));
+
+      :javascript
+          var feedback_widget_options = {};
+
+          feedback_widget_options.display = "overlay";
+          feedback_widget_options.company = "diaspora";
+          feedback_widget_options.placement = "right";
+          feedback_widget_options.color = "#222";
+          feedback_widget_options.style = "idea";
+          var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
+

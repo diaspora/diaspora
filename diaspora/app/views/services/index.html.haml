@@ -1,0 +1,15 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.edit_services')
+
+#section_header
+  %h2
+    = t('settings')
+  = render 'shared/settings_nav'
+
+.span-19.prepend-5.last
+  = render 'shared/add_remove_services'
+
