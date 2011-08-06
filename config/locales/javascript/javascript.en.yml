@@ -29,6 +29,8 @@ en:
       search_for: "Search for {{name}}"
       publisher:
         at_least_one_aspect: "You must publish to at least one aspect"
+        limited: "Limited - your post will only be seen by people you are sharing with"
+        public: "Public - your post will be visible to everyone and found by search engines"
       infinite_scroll:
         no_more: "No more posts."
       web_sockets:
