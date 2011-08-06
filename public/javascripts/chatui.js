@@ -3,9 +3,6 @@ var username = 'Me'; // TO CHANGE: User.name
 var originalTitle;
 var blinkOrder = 0;
 
-var HTML_ID  = 'msgbox'
-var my_jid   = 'bob@diaspora.eigenlab.org';   // TO CHANGE
-var my_pass  = 'bob';  // TO CHANGE
 var chatboxFocus = new Array();
 var newMessages = new Array();
 var newMessagesWin = new Array();
@@ -29,10 +26,28 @@ $(window).unload(function() {
     }
 });
 
+$(window).bind('beforeunload', function(){
+    checkCall();
+    Chat.send($pres({
+        'type':'unavailable'
+    }));
+    Chat.bosh.flush();
+})
+
+
+function checkCall(){
+    if(Jingle.callstatus != 0)
+        Jingle.terminateCall();
+}
+
 // Page loaded
 $(document).ready(function(){
 
-    $("#logout").click(function(event){
+    $('a').click(function() {
+        window.onbeforeunload = checkCall();
+    });
+
+    $("#logout").click(function(){
         logout = 1;
     });
 
@@ -63,14 +78,16 @@ $(document).ready(function(){
 
     // Check if connection state is valid
     if (sid != null && rid != null && jid != null)
-    {
+    {   
         Chat.attach(jid, sid, rid);
         // get last opened chatboxes
         chatBoxes = $.makeArray(JSON.parse(localStorage.getItem("chatboxes")));
+        
         // get last rosters
         Chat.rosters = $.makeArray(JSON.parse(localStorage.getItem("roster")));
         if (Chat.rosters.length > 0)
             restoreRosters();
+        
         if (chatBoxes.length > 0)
             restoreChatBoxes();
         $("#chatrosters").hide();
@@ -83,31 +100,6 @@ $(document).ready(function(){
     }
 });
 
-function storeConnectionInfo()
-{
-    // Storing chat History
-    for (i = 0; i < chatBoxes.length; i++){
-        chatBoxes[i].text = document.getElementById("chatbox_"+chatBoxes[i].name).innerHTML;
-    }
-    // Storing Connection state + opened Chatboxes + Rosters
-    localStorage.setItem("sid", Chat.bosh.sid);
-    localStorage.setItem("rid", Chat.bosh.rid);
-    localStorage.setItem("jid", Chat.bosh.jid);
-    localStorage.setItem("presence", Chat.presence);
-    localStorage.setItem("chatboxes", JSON.stringify(chatBoxes));
-    localStorage.setItem("roster", JSON.stringify(Chat.rosters));
-}
-
-function clearConnectionInfo()
-{
-    localStorage.removeItem("sid");
-    localStorage.removeItem("rid");
-    localStorage.removeItem("jid");
-    localStorage.removeItem("presence");
-    localStorage.removeItem("chatboxes");
-    localStorage.removeItem("roster");
-
-}
 // Re-organize Chatboxes
 function restructureChatBoxes() {
     var align = 0;
@@ -249,8 +241,8 @@ function hideAV(){
 }
 
 function startAV(farId, farStream, nearStream){
-        //alert(farId + "###" + farStream + "###" + nearStream);
-        document.getElementById( "chatFlash" ).callMe(farId, farStream, nearStream);
+    //alert(farId + "###" + farStream + "###" + nearStream);
+    document.getElementById( "chatFlash" ).callMe(farId, farStream, nearStream);
 //$.facebox({ div: '#chatFlashcontainer' });
 }
 
@@ -330,6 +322,7 @@ function closeChatBox(id) {
     chatBoxes.splice(i, 1);
     restructureChatBoxes();
 }
+
 // Minimize Chatbox
 function toggleChatBoxGrowth(chatboxtitle) {
   
@@ -366,7 +359,7 @@ function checkChatBoxInputKey(event,chatboxtextarea,chatboxtitle) {
         if (message != '') { // If is not an empty message
             // Recipient Jid
             var friendjid = Id2Jid(chatboxtitle);
-            Chat.send_message(friendjid, message); // Send message
+            Chat.sendMessage(friendjid, message); // Send message
             // Replaces < > " with html codes
             message = message.replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/\"/g,"&quot;");
             $("#chatbox_"+chatboxtitle+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+username+':&nbsp;&nbsp;</span><span class="chatboxmessagecontent">'+message+'</span></div>');
@@ -398,14 +391,7 @@ function Jid2Id (jid){
 function Id2Jid (id){
     return id.replace('_','@').replace(/-/g,'.');
 }
-// return index of a roster
-function searchJid (jid){
-    for (i = 0; i < Chat.rosters.length; i++){
-        if (jid == Chat.rosters[i].jid)
-            return i;
-    }
-    return -1;
-}
+
 // return index of a chatbox
 function searchCB (id){
     for (i = 0; i < chatBoxes.length; i++){
@@ -428,11 +414,10 @@ function loginButton (){
 
 function videoButton (id){
     if ( Jingle.callstatus == 0 ){
-        Jingle.make_call(id)
+        Jingle.makeCall(id)
     }else{
         if ($("#chatFlashcontainer").is(":visible")){
-            Jingle.terminate_call();
-            hideAV();
+            Jingle.terminateCall();
         }
     }
 }

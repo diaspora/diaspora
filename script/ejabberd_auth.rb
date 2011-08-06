@@ -1,5 +1,4 @@
 
-
 class EjabberdAuthentication
 
   require 'rubygems'

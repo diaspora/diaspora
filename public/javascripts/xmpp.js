@@ -1,5 +1,5 @@
 
-var BOSH_URL = 'http://82.59.139.8:5280/http-bind'; // TO CHANGE
+var BOSH_URL = 'http://80.181.193.130:5280/http-bind'; // TO CHANGE
 
 // Object to manage Rosters
 function rosterState(jid, nick, resource) {
@@ -22,6 +22,37 @@ function jidToNick(jid) {
     return -1;
 }
 
+// return index of a roster
+function searchJid (jid){
+    for (i = 0; i < Chat.rosters.length; i++){
+        if (jid == Chat.rosters[i].jid)
+            return i;
+    }
+    return -1;
+}
+
+function storeConnectionInfo() {
+    // Storing chat History
+    for (i = 0; i < chatBoxes.length; i++){
+        chatBoxes[i].text = document.getElementById("chatbox_"+chatBoxes[i].name).innerHTML;
+    }
+    // Storing Connection state + opened Chatboxes + Rosters
+    localStorage.setItem("sid", Chat.bosh.sid);
+    localStorage.setItem("rid", Chat.bosh.rid);
+    localStorage.setItem("jid", Chat.bosh.jid);
+    localStorage.setItem("presence", Chat.presence);
+    localStorage.setItem("chatboxes", JSON.stringify(chatBoxes));
+    localStorage.setItem("roster", JSON.stringify(Chat.rosters));
+}
+
+function clearConnectionInfo() {
+    localStorage.removeItem("sid");
+    localStorage.removeItem("rid");
+    localStorage.removeItem("jid");
+    localStorage.removeItem("presence");
+    localStorage.removeItem("chatboxes");
+    localStorage.removeItem("roster");
+}
 
 // Object to manage Connection State
 var Chat = {
@@ -35,23 +66,19 @@ var Chat = {
 
     // Start the connection
     start: function (jid, pass) {
-        //        if (Chat.bosh == null || Chat.bosh.connected == false){
-        //Chat.presence = localStorage.getItem("presence");
         Chat.bosh = new Strophe.Connection(BOSH_URL);
-        Chat.bosh.connect(jid, pass, Chat.connect_callback);
-    //        }
-    //        else{ // Manage "Chat" button
-    //            loginButton();
-    //        }
+        Chat.bosh.connect(jid, pass, Chat.connectCallback);
     },
+
     // Attach existing connection
     attach: function (jid, sid, rid) {
         if (Chat.bosh == null || Chat.bosh.connected == false){
             Chat.presence = localStorage.getItem("presence");
             Chat.bosh = new Strophe.Connection(BOSH_URL);
-            Chat.bosh.attach(jid, sid, rid, Chat.connect_callback);
+            Chat.bosh.attach(jid, sid, rid, Chat.connectCallback);
         }
     },
+
     // Pause actual connection
     pause: function(){
         Chat.bosh.pause();
@@ -60,14 +87,17 @@ var Chat = {
     // Disconnect actual connection
     disconnect: function () {
         clearConnectionInfo();
+        Chat.bosh.sync = true;
+        Chat.bosh.flush();
         Chat.bosh.disconnect();
     },
 
     offline: function() {
-        Chat.send($pres().c('show').t('unavailable'));
+        Chat.send($pres({
+            'type':'unavailable'
+        }));
         Chat.presence = 1;
         manageUI("disconnected");
-        Chat.append_on_top("Current status: offline<br />");
     },
 
     online: function() {
@@ -75,9 +105,9 @@ var Chat = {
         Chat.presence = 0;
         manageUI("connected");
     },
-    
+
     // Send a message
-    send_message: function (to, msg) {
+    sendMessage: function (to, msg) {
         Chat.send($msg({
             'to': to,
             'type': 'chat'
@@ -86,10 +116,8 @@ var Chat = {
             ).t(msg));
     },
 
- 
-
     // Handler to receive message
-    recv_message: function (msg) {
+    recvMessage: function (msg) {
         var from = msg.getAttribute('from').split('/')[0];
         var i = searchJid(from);
         if (i > -1){    // If message is received from a roster
@@ -114,7 +142,7 @@ var Chat = {
     },
 
     // Ask for rosters
-    get_roster: function(){
+    getRoster: function(){
         var id = Chat.bosh.getUniqueId('roster');
         var rosteriq = $iq({
             'id':id,
@@ -123,30 +151,35 @@ var Chat = {
         ).c('query', {
             'xmlns':Strophe.NS.ROSTER
         });
-        Chat.bosh.addHandler(Chat.recv_roster, null, 'iq', 'result', id);
+        Chat.bosh.addHandler(Chat.recvRoster, null, 'iq', 'result', id);
         Chat.bosh.send(rosteriq.tree());
     },
 
     // Handler for rosters
-    recv_roster: function(e){
+    recvRoster: function(e){
         var query = e.getElementsByTagName('query')[0];
         var entries = query.getElementsByTagName('item');
-        //Chat.rosters = new Array();
+        var temprost = [];
         for (var item=0; item<entries.length; item++) {
             var nick = entries[item].getAttribute('name');
             var jid =  Strophe.getBareJidFromJid(entries[item].getAttribute('jid'));
             if (!nick) { // If the roster has no nickname
                 nick = jid.split('@')[0];
             }
-            // If is a new Roster
-            if (searchJid(jid) == -1){
-                Chat.rosters.push(new rosterState(jid, nick, ""));
+
+            var i = searchJid(jid);
+            if (i == -1){ // If is a new Roster
+                temprost.push(new rosterState(jid, nick, ""));
+            } else {
+                temprost.push(new rosterState(jid, nick, Chat.rosters[i].resource));
             }
         }
-        //Chat.send($pres().tree()); // Send our presence
+        Chat.rosters = temprost.slice(0);
+        temprost.length = 0;
+        (Chat.presence == 1) ? Chat.offline() : Chat.online();
         hideDiv("chatloader");
         showDiv("chatrosters");
-        return false;
+        return true;
     },
 
     // Handler for Presence
@@ -164,7 +197,6 @@ var Chat = {
                 var show = presence.getElementsByTagName('show').length ? Strophe.getText(presence.getElementsByTagName('show')[0]) : type;
                 var status = presence.getElementsByTagName('status').length ? Strophe.getText(presence.getElementsByTagName('status')[0]) : '';
 
-                //alert(from + " / " + show);
                 if (show == 'unavailable'){
                     Chat.rosters[i].resource = "";
                     manageUI("removeroster", id, null, nick);
@@ -172,20 +204,12 @@ var Chat = {
                     Chat.rosters[i].resource = resource;
                     manageUI("addroster",id, from, nick, show, status);
                 }
-            //                if (type == 'unavailable' || status == 'unavailable') { // If is disconnected
-            //                    Chat.rosters[i].resource = "";
-            //                    manageUI("removeroster", id, null, nick);
-            //                } else {
-            //                    Chat.rosters[i].resource = resource;
-            //                    manageUI("addroster",id, jid, nick);
-            //                }
-
             }
         }
         return true;
     },
 
-    connect_callback: function (status) {
+    connectCallback: function (status) {
         switch (status) {
             case Strophe.Status.ERROR :
                 Chat.append_on_top("Error...<br />");
@@ -200,29 +224,23 @@ var Chat = {
                 manageUI("connecting");
                 break;
             case Strophe.Status.CONNECTED :
-                //                Chat.pause();
-                //                localStorage.setItem("sid", Chat.bosh.sid);
-                //                localStorage.setItem("rid", Chat.bosh.rid);
-                //                localStorage.setItem("jid", Chat.bosh.jid);
-                //alert(Chat.bosh.sid);
-                //showAV();
-                Chat.get_roster();
-                (Chat.presence == 1) ? Chat.offline() : Chat.online();
-                //(Chat.presence == 1) ? Chat.offline() : Chat.online();
+                Chat.getRoster();
+                //Chat.send($pres().tree());
+
                 // Subscribe handlers for Messages, Presences and Calls
-                Chat.bosh.addHandler(Chat.recv_message, null, 'message');
+                Chat.bosh.addHandler(Chat.recvMessage, null, 'message');
                 Chat.bosh.addHandler(Chat.handlerPresence, null, 'presence');
-                Chat.bosh.addHandler(Jingle.recv_call, null, 'iq', 'set');
+                Chat.bosh.addHandler(Jingle.recvCall, null, 'iq', 'set');
                 (Chat.presence == 1) ? manageUI("offline") : manageUI("connected");
                 break;
             case Strophe.Status.ATTACHED :
-                //showAV();
-                Chat.get_roster();
+                Chat.getRoster();
                 (Chat.presence == 1) ? Chat.offline() : Chat.online();
+
                 // Subscribe handlers for Messages, Presences and Calls
-                Chat.bosh.addHandler(Chat.recv_message, null, 'message');
+                Chat.bosh.addHandler(Chat.recvMessage, null, 'message');
                 Chat.bosh.addHandler(Chat.handlerPresence, null, 'presence');
-                Chat.bosh.addHandler(Jingle.recv_call, null, 'iq', 'set');
+                Chat.bosh.addHandler(Jingle.recvCall, null, 'iq', 'set');
                 (Chat.presence == 1) ? manageUI("offline") : manageUI("connected");
                 break;
             case Strophe.Status.DISCONNECTED :

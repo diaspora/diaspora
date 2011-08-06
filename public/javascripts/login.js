@@ -31,6 +31,7 @@ $(document).ready( function(){
   username.focus();
   $("form").submit(function(){
     $('#asterisk').addClass('rideSpinners');
+    clearConnectionInfo();
     juser = username.val() + "@localhost"; //TODO
     jpass = password.val();
     localStorage.setItem("user", juser);
