@@ -47,9 +47,7 @@ class Person < ActiveRecord::Base
   scope :local, where('people.owner_id IS NOT NULL')
 
   def self.featured_users
-    if AppConfig[:featured_users].present?
-      Person.where(:diaspora_handle => AppConfig[:featured_users])
-    end
+    AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
   end
   
   def self.search_query_string(query)
