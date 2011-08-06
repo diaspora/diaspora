@@ -1,7 +1,0 @@
-list
-step
-show args
-show commands
-set history save on
-show history
-quit unconditionally

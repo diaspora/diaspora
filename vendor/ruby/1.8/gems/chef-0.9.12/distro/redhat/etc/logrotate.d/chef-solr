@@ -1,8 +1,0 @@
-/var/log/chef/solr.log {
-  rotate 12
-  weekly
-  compress
-  postrotate
-    /etc/init.d/chef-solr condrestart >/dev/null || :
-  endscript
-}

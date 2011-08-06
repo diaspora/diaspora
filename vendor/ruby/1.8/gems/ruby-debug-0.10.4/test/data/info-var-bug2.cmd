@@ -1,5 +1,0 @@
-step
-info variables
-quit
-
-
