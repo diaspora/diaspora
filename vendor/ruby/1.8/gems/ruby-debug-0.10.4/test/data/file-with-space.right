@@ -1,9 +1,0 @@
-file with space.rb:1
-puts 'Ha!'
-# # *********************************************************
-# # This is run on a file with an embedded space in the name 
-# # ********************************************************
-# set debuggertesting on
-Currently testing the debugger is on.
-# step
-Ha!

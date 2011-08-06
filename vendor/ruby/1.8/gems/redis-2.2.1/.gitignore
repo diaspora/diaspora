@@ -1,8 +1,0 @@
-nohup.out
-redis/*
-rdsrv
-pkg/*
-coverage/*
-.idea
-*.rdb
-*.swp

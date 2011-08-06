@@ -1,3 +1,0 @@
-[submodule "js/example/ace"]
-	path = js/example/ace
-	url = git://github.com/cucumber/ace.git

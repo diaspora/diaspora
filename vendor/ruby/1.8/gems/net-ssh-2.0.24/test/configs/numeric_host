@@ -1,4 +1,0 @@
-Host 1234
-  Compression yes
-  Port 1980
-  RekeyLimit 2G

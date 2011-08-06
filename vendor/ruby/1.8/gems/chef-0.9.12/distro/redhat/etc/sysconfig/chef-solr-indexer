@@ -1,7 +1,0 @@
-# Configuration file for the chef-solr-indexer service
-
-#PIDFILE=/var/run/chef/solr-indexer.pid
-#CONFIG=/etc/chef/solr-indexer.rb
-#LOGFILE=/var/log/chef/solr-indexer.log
-# Any additional chef-solr-indexer options.
-#OPTIONS=

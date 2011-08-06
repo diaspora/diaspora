@@ -1,1 +1,0 @@
-require 'faraday_stack'

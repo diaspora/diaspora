@@ -110,7 +110,7 @@ bg:
       handle_explanation: "Това е вашият адрес в Diaspora. Наподобява адрес на ел. поща - давате го на хора, за да се свържат с вас."
       keep_us_running: "Помогнете за бързата и надеждна работа на %{pod} като осигурите на сървърите месечната им доза кафе!"
       no_contacts: "Няма контакти"
-      no_tags: "+ Намиране на тагове за следене"
+      no_tags: "+ Намиране на тагове"
       people_sharing_with_you: "Хора споделящи с вас"
       post_a_message: "публикуване на съобщение >>"
       services: 
@@ -127,10 +127,10 @@ bg:
       create: "Създаване"
       name: "Име"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "отличените потребители"
+      or_featured: "Пожелаете ли можете да започнете да споделяте с %{link}"
+      try_adding_some_more_contacts: "Можете да търсите (в кутията отгоре) или да поканите хора (отдясно)."
+      you_should_add_some_more_contacts: "Добавете няколко контакта!"
     no_posts_message: 
       start_talking: "Няма публикации."
     one: "1 аспект"
@@ -262,7 +262,7 @@ bg:
       sent: "Покани са изпратени до: "
     edit: 
       accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      your_account_awaits: "Вашият акаунт ви очаква!"
     new: 
       already_invited: "Следните хора не са потвърдили паканата ви:"
       aspect: "Аспект"
@@ -462,7 +462,7 @@ bg:
       recent_posts: "Скорошни публикации"
       recent_public_posts: "Скорошни публични публикации"
       return_to_aspects: "Назад към страницата с аспекти"
-      see_all: "Вижте всички"
+      see_all: "Показване на всички"
       start_sharing: "започнете да споделяте"
       to_accept_or_ignore: "to accept or ignore it."
       you_have_no_tags: "не сте се описали с марки!"
@@ -546,13 +546,13 @@ bg:
       unhappy: "Не сте доволни?"
       update: "Обновяване"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Създаване на акаунт"
       enter_email: "Въведете ел. поща"
       enter_password: "Въведете парола"
       enter_password_again: "Въведете отново същата парола"
       enter_username: "Изберете си потребителско име (само букви, цифри и долна черта)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "Присъединете се към движението!"
+      sign_up_today: "Регистрирайте се днес"
   requests: 
     create: 
       sending: "Изпращане"
@@ -748,10 +748,10 @@ bg:
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
-      connect_to: "Connect to"
+      connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people: "Свържете се с интересни хора"
+      connect_with_people_explanation: "Свържете се като поставяте хората в един или няколко аспекта.  Аспектите са начин за групиране контактите ви, който позволява лесно филтриране/споделяне само с точно определена подгрупа."
       featured_tags: "Отличени тагове"
       featured_users: "Отличени потребители"
       fill_out_your_profile: "Попълнете профила си"
@@ -759,7 +759,7 @@ bg:
       find_friends_from_facebook: "намерете приятелите си от Facebook"
       finished: "Готово"
       follow_your_interests: "Следете интересите си"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      hashtag_explanation: "Диез таговете (#име–на-тага) ви позволяват да коментирате и следите интересни за вас теми.  Улесняват и откриване на хора със сходни интереси в Diaspora."
       profile_description: "Улеснето хората, които ви търсят като попълните полетата на профила си."
       profile_fields: 
         bio: "Биографични данни"
