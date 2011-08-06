@@ -10,6 +10,7 @@ available:
   de: "Deutsch"
   el: "Ελληνικά"
   en: "English"
+  en_pirate: "English (Pirate)"
   en_shaw: "𐑦𐑙𐑤𐑦𐑖"
   eo: "Esperanto"
   es: "Español"
@@ -49,6 +50,10 @@ fallbacks:
   en-US:
     - :en
   en_shaw:
+    - :en
+    - :en-GB
+    - :en-US
+  en_pirate:
     - :en
     - :en-GB
     - :en-US
