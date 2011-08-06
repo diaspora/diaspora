@@ -80,6 +80,12 @@ class InvitationsController < Devise::InvitationsController
     redirect_to :back
   end
 
+  def email
+    @invs = []
+    @resource = User.find_by_invitation_token(params[:invitation_token]) || User.first
+    @resource.invitation_token = 'foobar'
+    render 'devise/mailer/invitation_instructions', :layout => false
+  end
   protected
 
   def check_token
