@@ -44,8 +44,9 @@ class String
   end
 
   def starts_with_rtl_char?(string = self)
-    return false if string.strip.empty?
-    char = string.strip.unpack('U*').first
+    stripped = string.strip
+    return false if stripped.empty?
+    char = stripped.unpack('U*').first
     RTL_RANGES.each do |limit|
       return true if char >= limit[0] && char <= limit[1]
     end
