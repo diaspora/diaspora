@@ -110,6 +110,9 @@ describe("Publisher", function() {
   describe("bindPublicIcon", function() {
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');
+      Diaspora.widgets.i18n.loadLocale(
+        { 'publisher' :
+          { 'public' : 'is public', 'limited' : 'is limited' } }, 'en');
     });
 
     it('gets called on initialize', function(){
@@ -131,8 +134,13 @@ describe("Publisher", function() {
 
       $(".public_icon").click();
       expect($('#publisher #status_message_public').val()).toBe('true');
-
-
+    });
+    it('toggles the tooltip on the clicked icon', function(){
+      Publisher.bindPublicIcon();
+      $(".public_icon").click();
+      expect($(".public_icon")).toHaveAttr('original-title', 'is public');
+      $(".public_icon").click();
+      expect($(".public_icon")).toHaveAttr('original-title', 'is limited');
     });
   });
   describe("bindServiceIcons", function() {

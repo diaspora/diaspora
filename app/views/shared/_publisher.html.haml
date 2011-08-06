@@ -40,7 +40,7 @@
             = t("shared.publisher.click_to_share_with")
             - if aspect == :all || aspect == :profile
               = status.hidden_field(:public)
-              = image_tag "icons/globe.png", :title => t('.public'), :class => 'public_icon dim', :width => 16, :height => 16
+              = image_tag "icons/globe.png", :title => t('javascripts.publisher.limited'), :class => 'public_icon dim', :width => 16, :height => 16
             - if current_user.services
               - for service in current_user.services
                 = image_tag "social_media_logos/#{service.provider}-16x16.png", :title => service.provider.titleize, :class => "service_icon dim", :id =>"#{service.provider}", :maxchar => "#{service.class::MAX_CHARACTERS}"
