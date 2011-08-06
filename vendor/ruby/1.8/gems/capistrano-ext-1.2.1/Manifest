@@ -1,9 +1,0 @@
-CHANGELOG.rdoc
-lib/capistrano/ext/assets/request-counter.rb
-lib/capistrano/ext/monitor.rb
-lib/capistrano/ext/multistage.rb
-lib/capistrano/ext/version.rb
-MIT-LICENSE
-README
-setup.rb
-Manifest

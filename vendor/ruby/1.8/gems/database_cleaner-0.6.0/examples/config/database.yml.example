@@ -1,8 +1,0 @@
-#This is an example of what database.yml *should* look like (when I wrote it)
-#The real database.yml is generated automatically by the active record model lib (so it can be correct)
-two: 
-  adapter: sqlite3
-  database: /path/to/examples/features/support/../../db/activerecord_two.db
-one: 
-  adapter: sqlite3
-  database: /path/to/examples/features/support/../../db/activerecord_one.db

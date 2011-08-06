@@ -1,9 +1,0 @@
-.DS_Store
-.*.swp
-*.class
-*.rbc
-*.gem
-/doc/
-.yardoc
-.rvmrc
-Gemfile.lock

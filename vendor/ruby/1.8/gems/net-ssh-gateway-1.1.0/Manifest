@@ -1,7 +1,0 @@
-CHANGELOG.rdoc
-lib/net/ssh/gateway.rb
-Manifest
-Rakefile
-README.rdoc
-setup.rb
-test/gateway_test.rb

@@ -1,7 +1,0 @@
-LOGFILE=/var/log/chef/solr-indexer.log
-CONFIG=/etc/chef/solr.rb
-USER=chef
-GROUP=chef
-# Sleep to give daemon enough time to fully start or stop.
-DIETIME=5
-STARTTIME=5
