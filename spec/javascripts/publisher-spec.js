@@ -110,6 +110,9 @@ describe("Publisher", function() {
   describe("bindPublicIcon", function() {
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');
+      Diaspora.widgets.i18n.loadLocale(
+        { 'publisher' :
+          { 'public' : 'is public', 'limited' : 'is limited' } }, 'en');
     });
 
     it('gets called on initialize', function(){
@@ -134,10 +137,12 @@ describe("Publisher", function() {
     });
     it('toggles the tooltip on the clicked icon', function(){
       Publisher.bindPublicIcon();
+      expect($(".public_icon")).toHaveAttr('title', 'is public');
+
       $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('title', Diaspora.widgets.i18n.t('javascripts.publisher.limited'));
+      expect($(".public_icon")).toHaveAttr('title', 'is limited');
       $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('title', Diaspora.widgets.i18n.t('javascripts.publisher.public'));
+      expect($(".public_icon")).toHaveAttr('title', 'is public');
     });
   });
   describe("bindServiceIcons", function() {

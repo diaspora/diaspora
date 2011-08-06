@@ -289,7 +289,7 @@ var Publisher = {
   bindPublicIcon: function(){
     $(".public_icon").bind("click", function(evt){
       $(this).toggleClass("dim");
-      var public_field= $("#publisher #status_message_public");
+      var public_field = $("#publisher #status_message_public");
 
       if (public_field.val() == 'false') {
         public_field.val('true');
