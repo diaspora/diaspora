@@ -45,7 +45,7 @@ src_files:
   - public/javascripts/content-updater.js
   - public/javascripts/xmpp.js
   - public/javascripts/chatui.js
-  - public/javascripts/strophe.js
+  - public/javascripts/strophe.min.js
   - public/javascripts/jingle-rtmfp.js
 # stylesheets
 #

@@ -35,6 +35,9 @@ coverage/*
 .yardoc/
 doc/
 
+#Gems
+vendor/ruby/*
+
 # Uploaded files and local files
 public/uploads/*
 public/assets/*
