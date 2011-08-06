@@ -53,10 +53,6 @@ module Diaspora
         Post.where(:id => post_ids).select('DISTINCT posts.*').limit(opts[:limit]).order(order_with_table)
       end
 
-      def visible_photos(opts = {})
-        visible_posts(opts.merge(:type => 'Photo'))
-      end
-
       def contact_for(person)
         return nil unless person
         contact_for_person_id(person.id)
