@@ -24,32 +24,7 @@
 
 .span-18.last
   .stream_container
-    #author_info
-      .right
-        - if user_signed_in? && current_user.person != @person
-          = render 'aspect_memberships/aspect_dropdown', :contact => @contact, :person => @person, :hang => 'left'
-        - elsif user_signed_in? && current_user.person == @person
-          = link_to t('people.profile_sidebar.edit_my_profile'), edit_profile_path, :class => 'button creation'
-
-      %h2
-        = @person.name
-      %span.diaspora_handle
-        = @person.diaspora_handle
-
-        .description
-          - if !@person.profile.tag_string.blank? && user_signed_in? && (@contact.persisted? || @person == current_user.person || @incoming_request)
-            = Diaspora::Taggable.format_tags(@person.profile.tag_string)
-            - if user_signed_in? && @person == current_user.person
-              %span.hover_edit
-                = link_to t('.edit'), edit_profile_path
-          - else
-            - if user_signed_in? && @person == current_user.person
-              %i
-                = t('.you_have_no_tags')
-                %span.add_tags
-                  = link_to t('.add_some'), edit_profile_path
-
-    %hr
+    = render 'people/sub_header', :person => @person, :contact => @contact
 
     - if @posts.length > 0
       -if @post_type == :photos
@@ -61,7 +36,7 @@
             =link_to(t('more'), next_page_path, :class => 'paginate')
 
     - else
-      #stream
-        %li{:style=>"text-align:center;"}
-          .dull= t('.no_posts')
+      #main_stream
+        %div{:style=>"text-align:center;", :class => "dull"}
+          = t('.has_not_shared_with_you_yet', :name => @person.first_name)
 

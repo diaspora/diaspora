@@ -13,21 +13,21 @@ describe("ContentUpdater", function() {
 
     it("adds a post to the stream", function() {
       var originalPostCount = $(".stream_element").length;
-      ContentUpdater.addPostToStream(spec.fixtureHtml("status_message_in_stream"));
+      ContentUpdater.addPostToStream(spec.fixtureHtml("created_status_message"));
       expect($(".stream_element").length).toEqual(originalPostCount + 1);
     });
 
     it("does not add duplicate posts", function() {
       var originalPostCount = $(".stream_element").length;
-      ContentUpdater.addPostToStream(spec.fixtureHtml("status_message_in_stream"));
+      ContentUpdater.addPostToStream(spec.fixtureHtml("created_status_message"));
       expect($(".stream_element").length).toEqual(originalPostCount + 1);
-      ContentUpdater.addPostToStream(spec.fixtureHtml("status_message_in_stream"));
+      ContentUpdater.addPostToStream(spec.fixtureHtml("created_status_message"));
       expect($(".stream_element").length).toEqual(originalPostCount + 1);
     });
 
     it("removes the div that says you have no posts if it exists", function() {
       expect($("#no_posts").length).toEqual(1);
-      ContentUpdater.addPostToStream(spec.fixtureHtml("status_message_in_stream"));
+      ContentUpdater.addPostToStream(spec.fixtureHtml("created_status_message"));
       expect($("#no_posts").length).toEqual(0);
     });
   });

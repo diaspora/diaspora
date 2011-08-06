@@ -174,7 +174,7 @@ GEM
     eventmachine (0.12.10)
     excon (0.2.4)
     extlib (0.9.15)
-    factory_girl (2.0.2)
+    factory_girl (2.0.3)
     factory_girl_rails (1.1.0)
       factory_girl (~> 2.0.0)
       railties (>= 3.0.0)

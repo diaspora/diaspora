@@ -61,6 +61,13 @@ describe StatusMessagesController do
         json['html'].should_not be_nil
       end
 
+      it 'saves the html as a fixture', :fixture => true do
+        post :create, status_message_hash.merge(:format => 'js')
+        json = JSON.parse(response.body)
+        save_fixture(json['html'], "created_status_message")
+
+      end
+
       it 'escapes XSS' do
         xss = "<script> alert('hi browser') </script>"
         post :create, status_message_hash.merge(:format => 'js', :text => xss)

@@ -37,6 +37,38 @@ Feature: posting
       And I go to "bob@bob.bob"'s page
       Then I should see a "img" within ".stream_element div.photo_attachments"
 
+    Scenario: back out of posting a photo-only post
+      Given I expand the publisher
+      And I have turned off jQuery effects
+      When I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I wait for the ajax to finish
+      And I click to delete the first uploaded photo
+      And I wait for the ajax to finish
+      Then I should not see an uploaded image within the photo drop zone
+      And the publisher should be collapsed
+
+    Scenario: back out of uploading a picture to a post with text
+      Given I expand the publisher
+      And I have turned off jQuery effects
+      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I wait for the ajax to finish
+      And I click to delete the first uploaded photo
+      And I wait for the ajax to finish
+      Then I should not see an uploaded image within the photo drop zone
+      And the publisher should be expanded
+
+    Scenario: back out of uploading a picture when another has been attached
+      Given I expand the publisher
+      And I have turned off jQuery effects
+      When I fill in "status_message_fake_text" with "I am eating a yogurt"
+      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
+      And I wait for the ajax to finish
+      And I click to delete the first uploaded photo
+      And I wait for the ajax to finish
+      Then I should see an uploaded image within the photo drop zone
+      And the publisher should be expanded
 
     Scenario: post a photo with text
       Given I expand the publisher

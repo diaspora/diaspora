@@ -264,7 +264,7 @@ describe Invitation do
     context 'with no inviter' do
       it 'sends an email that includes the right things' do
         Invitation.create_invitee(:service => 'email', :identifier => @email)
-        Devise.mailer.deliveries.first.to_s.should include("Welcome #{@email}")
+        Devise.mailer.deliveries.first.to_s.should include("Email not displaying correctly?")
       end
       it 'creates a user' do
         expect {

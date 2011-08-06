@@ -126,12 +126,13 @@ br:
     new: 
       create: "Create"
       name: "Name"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Nobody has said anything yet.  Get the conversation started!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Nobody has said anything yet.  Get the conversation started!"
     one: "1 arvez"
     other: "%{count} arvez"
     seed: 
@@ -260,7 +261,8 @@ br:
       rejected: "The following email addresses had problems: "
       sent: "Invitations have been sent to: "
     edit: 
-      sign_up: "sign_up"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Already invited"
       aspect: "Aspect"
@@ -452,10 +454,10 @@ br:
       add_some: "add some"
       does_not_exist: "Person does not exist!"
       edit: "edit"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} wants to share with you"
       mention: "Mention"
       message: "Kemmenadenn"
-      no_posts: "no posts to display!"
       not_connected: "You are not sharing with this person"
       recent_posts: "Recent Posts"
       recent_public_posts: "Recent Public Posts"
@@ -544,12 +546,13 @@ br:
       unhappy: "Unhappy?"
       update: "Update"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Skrivit ur postel"
       enter_password: "Skrivit ur ger-kuzh"
       enter_password_again: "Skrivit ar memes ger-kuzh hag a-raok"
       enter_username: "Dibabit un anv-implijer (lizherennoù, niverennoù hag isbarennoù nemetken)"
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "O kas"
@@ -745,21 +748,30 @@ br:
       your_email: "Ho postel"
       your_handle: "Ho skor diaspora"
     getting_started: 
-      connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Connect your other services"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Edit your profile"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Echu!"
-      save_and_continue: "Save and continue"
-      signup_steps: "Finish your sign up by completing these three steps:"
-      skip: "skip getting started"
-      step_2: 
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Tremen e-biou"
-      step_3: 
-        finish: "Echuiñ"
-        people_already_on_diaspora: "People already on Diaspora"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Degemer mat e-barzh Diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "User %{username} does not exist!"
     update: 

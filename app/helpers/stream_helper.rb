@@ -30,6 +30,6 @@ module StreamHelper
   end
 
   def reshare?(post)
-    (defined?(post.model) && post.model.is_a?(Reshare)) || post.instance_of?(Reshare)
+    post.instance_of?(Reshare)
   end
 end

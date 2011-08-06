@@ -13,8 +13,8 @@ module Diaspora
 
     # @return [Integer]
     def update_likes_counter
-      self.likes_count = self.likes.count
-      self.save
+      self.class.where(:id => self.id).
+        update_all(:likes_count => self.likes.count)
     end
   end
 end

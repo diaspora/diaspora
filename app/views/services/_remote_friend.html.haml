@@ -1,37 +1,20 @@
 %li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
-  .right
-    -if friend.contact
-      / TODO(*) add following method in Contact
-      sharing
-    - elsif friend.invitation_id
-      = t('invitations.new.already_invited')
-      %br
-      = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
-    - elsif friend.person
-      = link_to t('people.show.start_sharing'),
-        '#',
-        :class => 'button'
-
-    - elsif current_user.invites > 0
-      = form_tag service_inviter_path(:provider => 'facebook') do
-        = select_tag(:aspect_id, options_from_collection_for_select(all_aspects, 'id', 'name'))
-        = hidden_field_tag :uid, friend.uid
-        = submit_tag t('.invite')
-
-  - if friend.person
-    = person_image_link(friend.person)
+  - if friend.on_diaspora?
+    = person_image_link(friend.person, :size => :thumb_small)
   - else
     = image_tag(friend.photo_url, :class => 'avatar')
 
   %h4.name
-    - if friend.person
+    - if friend.on_diaspora?
       = link_to friend.name, person_path(friend.person)
     - else
       = friend.name
 
-- unless friend.person.nil?
+  - if friend.already_invited?
+    = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
+  - elsif friend.on_diaspora?
+    = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+  - else
+    = facebook_invite_form(friend)
 
-  %li{:id => "options_" + friend.uid, :class => "share_with hidden", :style => "height:auto"}
-    - contact = friend.contact
-    - contact ||= Contact.new(:person => friend.person)
-    = render 'aspect_memberships/aspect_dropdown', :contact => contact, :person => friend.person, :hang => 'left'
+

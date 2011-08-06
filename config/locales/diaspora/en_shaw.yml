@@ -126,12 +126,13 @@ en_shaw:
     new: 
       create: "𐑒𐑮𐑦𐑱𐑑"
       name: "𐑯𐑱𐑥"
-    no_posts_message: 
-      featured_users: "𐑓𐑰𐑗𐑼𐑛 𐑿𐑟𐑼𐑟"
-      or_featured: "𐑹 𐑿 𐑒𐑨𐑯 𐑖𐑺 𐑢𐑦𐑞 %{link}"
-      start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
-      try_adding_some_more_contacts: "𐑿 𐑒𐑨𐑯 𐑕𐑻𐑗 (𐑑𐑪𐑐) 𐑹 𐑦𐑯𐑝𐑲𐑑 (𐑮𐑲𐑑) 𐑥𐑹 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕."
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "𐑯𐑴𐑚𐑩𐑛𐑦 𐑣𐑨𐑟 𐑕𐑧𐑛 𐑧𐑯𐑦𐑔𐑦𐑙 𐑘𐑧𐑑!"
     one: "1 𐑨𐑕𐑐𐑧𐑒𐑑"
     other: "%{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
     seed: 
@@ -260,7 +261,8 @@ en_shaw:
       rejected: "𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕 𐑣𐑨𐑛 𐑐𐑮𐑪𐑚𐑤𐑩𐑥𐑟: "
       sent: "𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯𐑟 𐑣𐑨𐑝 𐑚𐑧𐑯 𐑕𐑧𐑯𐑑 𐑑: "
     edit: 
-      sign_up: "𐑕𐑲𐑯_𐑳𐑐"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "𐑞 𐑓𐑪𐑤𐑴𐑦𐑙 𐑐𐑰𐑐𐑩𐑤 𐑣𐑨𐑝 𐑯𐑪𐑑 𐑩𐑒𐑕𐑧𐑐𐑑𐑩𐑛 𐑿𐑼 𐑦𐑯𐑝𐑦𐑑𐑱𐑖𐑩𐑯:"
       aspect: "𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -452,10 +454,10 @@ en_shaw:
       add_some: "𐑨𐑛 𐑕𐑳𐑥"
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
       edit: "𐑧𐑛𐑦𐑑"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
       mention: "𐑥𐑧𐑯𐑖𐑩𐑯"
       message: "𐑥𐑧𐑕𐑩𐑡"
-      no_posts: "𐑯𐑴 𐑐𐑴𐑕𐑑𐑕 𐑑 𐑛𐑦𐑕𐑐𐑤𐑱!"
       not_connected: "𐑿 𐑸 𐑯𐑪𐑑 𐑖𐑺𐑦𐑙 𐑢𐑦𐑞 𐑞𐑦𐑕 𐑐𐑻𐑕𐑩𐑯 %{name}"
       recent_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑴𐑕𐑑𐑕"
       recent_public_posts: "𐑮𐑰𐑕𐑩𐑯𐑑 𐑐𐑳𐑚𐑤𐑦𐑒 𐑐𐑴𐑕𐑑𐑕"
@@ -544,12 +546,13 @@ en_shaw:
       unhappy: "𐑩𐑯𐑣𐑨𐑐𐑦?"
       update: "𐑳𐑐𐑛𐑱𐑑"
     new: 
+      create_my_account: "Create my account"
       enter_email: "𐑧𐑯𐑑𐑼 𐑩𐑯 𐑦-𐑥𐑱𐑤"
       enter_password: "𐑧𐑯𐑑𐑼 𐑩 𐑐𐑨𐑕𐑢𐑼𐑛"
       enter_password_again: "𐑧𐑯𐑑𐑼 𐑞 𐑕𐑱𐑥 𐑐𐑨𐑕𐑢𐑼𐑛 𐑨𐑟 𐑚𐑦𐑓𐑹"
       enter_username: "𐑐𐑦𐑒 𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 (𐑴𐑯𐑤𐑦 𐑤𐑧𐑑𐑼𐑟, 𐑯𐑳𐑥𐑚𐑼𐑟, 𐑯 𐑳𐑯𐑛𐑼𐑕𐑒𐑹𐑟)"
-      sign_up: "𐑕𐑲𐑯 𐑳𐑐"
-      sign_up_for_diaspora: "𐑕𐑲𐑯 𐑳𐑐 𐑓𐑹 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "𐑕𐑧𐑯𐑛𐑦𐑙"
@@ -745,21 +748,30 @@ en_shaw:
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
     getting_started: 
-      connect_on_diaspora: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
-      connect_services: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑿𐑼 𐑳𐑞𐑼 𐑕𐑻𐑝𐑦𐑕𐑩𐑟"
-      could_not_find_anyone: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑨𐑯𐑦 𐑓𐑮𐑧𐑯𐑛𐑟 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*. 𐑿𐑟 𐑞 𐑓𐑮𐑧𐑯𐑛 𐑓𐑲𐑯𐑛𐑼 𐑑 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥."
-      edit_profile: "𐑧𐑛𐑦𐑑 𐑿𐑼 𐑐𐑮𐑴𐑓𐑲𐑤"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "𐑓𐑦𐑯𐑦𐑖𐑑!"
-      save_and_continue: "𐑕𐑱𐑝 𐑯 𐑒𐑩𐑯𐑑𐑦𐑯𐑿"
-      signup_steps: "𐑓𐑦𐑯𐑦𐑖 𐑿𐑼 𐑕𐑲𐑯 𐑳𐑐 𐑚𐑲 𐑒𐑩𐑥𐑐𐑤𐑰𐑑𐑦𐑙 𐑞𐑰𐑟 𐑔𐑮𐑰 𐑕𐑑𐑧𐑐𐑕:"
-      skip: "𐑕𐑒𐑦𐑐 𐑜𐑧𐑑𐑦𐑙 𐑕𐑑𐑸𐑑𐑩𐑛"
-      step_2: 
-        find_your_friends_on_diaspora: "𐑢𐑫𐑛 𐑿 𐑤𐑲𐑒 𐑑 𐑓𐑲𐑯𐑛 𐑿𐑼 ·𐑓𐑱𐑕𐑚𐑫𐑒 𐑓𐑮𐑧𐑯𐑛𐑟 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩?"
-        skip: "𐑕𐑒𐑦𐑐"
-      step_3: 
-        finish: "𐑓𐑦𐑯𐑦𐑖"
-        people_already_on_diaspora: "𐑐𐑰𐑐𐑤 𐑷𐑤𐑮𐑧𐑛𐑦 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "𐑢𐑧𐑤𐑒𐑩𐑥 𐑑 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "𐑿𐑟𐑼 %{username} 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
     update: 

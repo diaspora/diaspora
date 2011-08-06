@@ -82,6 +82,7 @@ Diaspora::Application.routes.draw do
                                       :sessions      => "sessions",
                                       :invitations   => "invitations"} do
     get 'invitations/resend/:id' => 'invitations#resend', :as => 'invitation_resend'
+    get 'invitations/email' => 'invitations#email', :as => 'invite_email'
   end
 
   get 'login' => redirect('/users/sign_in')
@@ -93,7 +94,7 @@ Diaspora::Application.routes.draw do
     get   :stats, :as => 'pod_stats'
   end
 
-  resource :profile
+  resource :profile, :only => [:edit, :update]
 
   resources :contacts,           :except => [:update, :create] do
     get :sharing, :on => :collection

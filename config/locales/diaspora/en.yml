@@ -111,6 +111,7 @@ en:
       edit_aspect: "edit aspect"
     no_posts_message:
       start_talking: "Nobody has said anything yet!"
+    no_contacts_message:
       you_should_add_some_more_contacts: "You should add some more contacts!"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       or_featured:  "Or you can share with %{link}"
@@ -300,7 +301,8 @@ en:
     check_token:
       not_found: "Invitation token not found"
     edit:
-      sign_up: "sign_up"
+      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Accept your invitation"
 
   layouts:
     header:
@@ -461,7 +463,8 @@ en:
     webfinger:
       fail: "Sorry, we couldn't find %{handle}."
     show:
-      no_posts: "no posts to display!"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+
       you_have_no_tags: "you have no tags!"
       add_some: "add some"
       edit: "edit"
@@ -561,8 +564,11 @@ en:
 
   registrations:
     new:
-      sign_up: "Sign up"
-      sign_up_for_diaspora: "Sign up for Diaspora"
+      create_my_account: "Create my account"
+
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
+
       enter_email: "Enter an email"
       enter_username: "Pick a username (only letters, numbers, and underscores)"
       enter_password: "Enter a password"
@@ -603,10 +609,10 @@ en:
       reshare_original: "Reshare original"
       reshare:
         zero: "Reshare"
-        one: "1 Reshare"
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        other: "%{count} Reshares"
+        one: "1 reshare"
+        few: "%{count} reshares"
+        many: "%{count} reshares"
+        other: "%{count} reshares"
       show_original: "Show original"
       reshare_confirmation: "Reshare %{author}'s post?"
       deleted: "Original post deleted by author."
@@ -776,21 +782,37 @@ en:
       email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Until you follow this link and activate the new address, we will continue to use your original address %{email}."
     destroy: "Your account has been locked.  It may take 20 minutes for us to finish closing your account.  Thank you for trying Diaspora."
     getting_started:
-      welcome: "Welcome to Diaspora!"
-      signup_steps: "Finish your sign up by completing these three steps:"
-      edit_profile: "Edit your profile"
-      connect_on_diaspora: "Connect on Diaspora"
-      connect_services: "Connect your other services"
-      finished: "Finished!"
-      skip: "skip getting started"
-      save_and_continue: "Save and continue"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      step_3:
-        finish: "Finish"
-        people_already_on_diaspora: "People already on Diaspora"
-      step_2:
-        find_your_friends_on_diaspora: "Would you like to find your Facebook friends on Diaspora?"
-        skip: "Skip"
+      welcome: "Welcome!"
+      welcome_with_name: "Welcome, %{name}!"
+
+      finished: "Finished"
+
+      fill_out_your_profile: "Fill out your profile"
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields:
+        name: "Name"
+        birthday: "Birthday"
+        bio: "Bio"
+        tags: "Tags"
+        photo: "Photo"
+        gender: "Gender"
+        location: "Location"
+
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_users: "Featured users"
+
+      follow_your_interests: "Follow your interests"
+      connect_to: "Connect to"
+
+      find_friends_from_facebook: "find friends from Facebook"
+      featured_tags: "Featured tags"
+      find_friends: "Find friends"
+      see_all_featured_users: "See all featured users"
+
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+
     update:
       password_changed: "Password changed.  You can now log in with your new password."
       password_not_changed: "Password change failed"

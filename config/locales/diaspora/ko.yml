@@ -126,12 +126,13 @@ ko:
     new: 
       create: "만들기"
       name: "이름"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
-      try_adding_some_more_contacts: "컨택을 더 추가해보세요."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 
@@ -260,7 +261,8 @@ ko:
       rejected: "아래의 이메일 주소는 문제가 있습니다: "
       sent: "초대장이 보내진 이메일 주소: "
     edit: 
-      sign_up: "로그인"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "초대한 친구들"
       aspect: "애스펙"
@@ -452,10 +454,10 @@ ko:
       add_some: "태그 달기"
       does_not_exist: "없는 사람입니다!"
       edit: "고치기"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
-      no_posts: "보여줄 공유물이 없습니다!"
       not_connected: "열결되지 않은 사람입니다"
       recent_posts: "최근 공유물"
       recent_public_posts: "최근 공개 공유물"
@@ -544,12 +546,13 @@ ko:
       unhappy: "무슨 문제라도?"
       update: "갱신하기"
     new: 
+      create_my_account: "Create my account"
       enter_email: "이메일 주소를 입력하세요"
       enter_password: "암호를 입력하세요"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자명을 선택하세요 (로마자, 아라비아 숫자, 언더스코어만)"
-      sign_up: "가입하기"
-      sign_up_for_diaspora: "디아스포라에 가입하기"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "공유를 요청하고 있습니다."
@@ -745,21 +748,30 @@ ko:
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 
-      connect_on_diaspora: "디아스포라에서 공유를 요청하세요"
-      connect_services: "다른 서비스와 연결하세요"
-      could_not_find_anyone: "디아스포라*에서 친구를 찾을 수 없습니다. 친구를 초대하세요!"
-      edit_profile: "프로필을 고치세요"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "완료!"
-      save_and_continue: "저장하고 다음으로"
-      signup_steps: "세 단계를 더 거치면 가입을 마칠 수 있습니다."
-      skip: "넘기기"
-      step_2: 
-        find_your_friends_on_diaspora: "페이스북 친구들을 디아스포라로 초대하세요!"
-        skip: "넘기기"
-      step_3: 
-        finish: "마치기"
-        people_already_on_diaspora: "디아스포라에 가입한 사람들"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "디아스포라에 오신걸 환영합니다!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update: 

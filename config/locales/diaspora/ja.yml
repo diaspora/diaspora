@@ -126,12 +126,13 @@ ja:
     new: 
       create: "Create"
       name: "Name"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "投稿がまだありません。会話を始めましょう！"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "投稿がまだありません。会話を始めましょう！"
     one: "アスペクト1集"
     other: "アスペクト%{count}集"
     seed: 
@@ -260,7 +261,8 @@ ja:
       rejected: "次のメールアドレスに問題が発生しました："
       sent: "次の人々に招待を送信しました："
     edit: 
-      sign_up: "新規登録"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "招待済み"
       aspect: "アスペクト"
@@ -452,10 +454,10 @@ ja:
       add_some: "追加する"
       does_not_exist: "存在しない連絡先です！"
       edit: "編集"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name}さんは共有の許可を求めています"
       mention: "メンション"
       message: "メッセージ"
-      no_posts: "表示する投稿はありません！"
       not_connected: "この連絡先と共有していません"
       recent_posts: "最近の投稿"
       recent_public_posts: "最近の公開投稿"
@@ -544,12 +546,13 @@ ja:
       unhappy: "何かご不満ですか。"
       update: "更新"
     new: 
+      create_my_account: "Create my account"
       enter_email: "メールアドレスを入力してください。"
       enter_password: "パスワードを入力してください。"
       enter_password_again: "もう一度同じパスワードを入力してください。"
       enter_username: "ユーザ名を選択してください。（半角英数字とアンダーバーのみ）"
-      sign_up: "新規登録"
-      sign_up_for_diaspora: "ダイアスポラに新規登録する"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "送信中"
@@ -745,21 +748,30 @@ ja:
       your_email: "メールアドレス"
       your_handle: "ダイアスポラのユーザ名"
     getting_started: 
-      connect_on_diaspora: "ダイアスポラでつながる"
-      connect_services: "他のサービスへ接続する"
-      could_not_find_anyone: "既にダイアスポラ＊を使っている知り合いが見つかりません。招待してみませんか。"
-      edit_profile: "プロフィールを編集する"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "完了！"
-      save_and_continue: "保存して次へ"
-      signup_steps: "次の3ステップで登録を完成しましょう"
-      skip: "初期設定をスキップする"
-      step_2: 
-        find_your_friends_on_diaspora: "ダイアスポラ＊を使っているFacebook友達を検索してみませんか。"
-        skip: "スキップ"
-      step_3: 
-        finish: "終了"
-        people_already_on_diaspora: "ダイアスポラを既に使っている連絡先"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "ダイアスポラへようこそ！"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "ユーザ名「%{username}」は存在しません。"
     update: 

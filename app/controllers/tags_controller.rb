@@ -3,7 +3,6 @@
 #   the COPYRIGHT file.
 
 class TagsController < ApplicationController
-  skip_before_filter :set_invites
   skip_before_filter :which_action_and_user
   skip_before_filter :set_grammatical_gender
   before_filter :ensure_page, :only => :show
@@ -60,9 +59,8 @@ class TagsController < ApplicationController
 
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
     @posts = @posts.where(StatusMessage.arel_table[:created_at].lt(max_time))
-    @posts = @posts.includes(:comments, :photos).order('posts.created_at DESC').limit(15)
+    @posts = @posts.includes({:author => :profile}, :comments, :photos).order('posts.created_at DESC').limit(15)
 
-    @posts = PostsFake.new(@posts)
     @commenting_disabled = true
 
     if params[:only_posts]

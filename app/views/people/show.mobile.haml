@@ -33,7 +33,7 @@
       #pagination
         =link_to(t('more'), next_page_path, :class => 'paginate')
 - else
-  #stream
-    %li{:style=>"text-align:center;"}
-      .dull= t('.no_posts')
+  #main_stream
+    %div{:style=>"text-align:center;", :class => "dull"}
+      = t('.has_not_shared_with_you_yet', :name => @person.first_name)
 

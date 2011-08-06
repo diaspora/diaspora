@@ -126,12 +126,13 @@ fi:
     new: 
       create: "Luo"
       name: "Nimi"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
-      try_adding_some_more_contacts: "Try adding some more contacts."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Kukaan ei ole sanonut vielä mitään. Aloita keskustelu!"
     one: "1 näkymä"
     other: "%{count} näkymää"
     seed: 
@@ -260,7 +261,8 @@ fi:
       rejected: "Seuraavissa sähköpostiosoitteissa oli ongelmia: "
       sent: "Kutsut on lähetetty seuraaviin osoitteisiin:"
     edit: 
-      sign_up: "rekisteröidy"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "On jo kutsuttu"
       aspect: "Näkymä"
@@ -452,10 +454,10 @@ fi:
       add_some: "add some"
       does_not_exist: "Henkilöä ei ole olemassa!"
       edit: "muokkaa"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "Tämä henkilö on lähettänyt sinulle pyynnön."
       mention: "Mainitse"
       message: "Viesti"
-      no_posts: "Ei näytettäviä viestejä!"
       not_connected: "Et ole yhteydessä tähän henkilöön "
       recent_posts: "Viimeisimmät tapahtumat"
       recent_public_posts: "Viimeisimmät julkiset tapahtumat"
@@ -544,12 +546,13 @@ fi:
       unhappy: "Epäonnellinen?"
       update: "Päivitä"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Syötä sähköpostiosoite"
       enter_password: "Syötä salasana"
       enter_password_again: "Syötä sama salasana kuin edellä"
       enter_username: "Valitse käyttäjänimi (vain kirjaimet, numerot ja alaviivat sallittuja)"
-      sign_up: "Rekisteröidy"
-      sign_up_for_diaspora: "Rekisteröidy Diasporaan"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Lähetetään..."
@@ -745,21 +748,30 @@ fi:
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 
-      connect_on_diaspora: "Yhdistä Diasporaan"
-      connect_services: "Yhdistä muut palvelusi"
-      could_not_find_anyone: "Could not find any friends on Diaspora*. Use the friend finder to invite them."
-      edit_profile: "Muokkaa profiiliasi"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Valmis!"
-      save_and_continue: "Tallenna ja jatka"
-      signup_steps: "Viimeistele rekisteröitymisesi näiden kolmen vaiheen kautta:"
-      skip: "ohita aloitusohjeet"
-      step_2: 
-        find_your_friends_on_diaspora: "Haluatko löytää Facebook kaverisi Diasporassa?"
-        skip: "Ohita"
-      step_3: 
-        finish: "Viimeistely"
-        people_already_on_diaspora: "Diasporassa jo olevat henkilöt"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Tervetuloa Diasporaan!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "Käyttäjää %{username} ei ole olemassa!"
     update: 

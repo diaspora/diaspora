@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery :except => :receive
   before_filter :ensure_http_referer_is_set
   before_filter :set_header_data, :except => [:create, :update]
-  before_filter :set_invites
   before_filter :set_locale
   before_filter :set_git_header if (AppConfig[:git_update] && AppConfig[:git_revision])
   before_filter :which_action_and_user
@@ -52,12 +51,6 @@ class ApplicationController < ActionController::Base
 
   def ensure_page
     params[:page] = params[:page] ? params[:page].to_i : 1
-  end
-
-  def set_invites
-    if user_signed_in?
-      @invites = current_user.invites
-    end
   end
 
   def set_git_header
@@ -122,6 +115,6 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-      stored_location_for(:user) || aspects_path
+    stored_location_for(:user) || (current_user.getting_started? ? getting_started_path : aspects_path)
   end
 end

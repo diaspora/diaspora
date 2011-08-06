@@ -106,17 +106,17 @@ zh-TW:
         content_1: "你的 Diaspora 識別碼是:"
         content_2: "把它給任何人,讓他/她們可以在 Diaspora 找到你."
         heading: "Diaspora 識別碼"
-      donate: "Donate"
+      donate: "捐獻"
       handle_explanation: "這是你的 diaspora 識別碼. 就像電子信箱一樣, 你可以把它給想聯絡你的人."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "為了讓 %{pod} 高速奔馳, 提供些咖啡存量給我們的伺服器吧!"
       no_contacts: "沒有任何聯繫"
-      no_tags: "沒有標籤"
+      no_tags: "+ 找個標籤來追蹤"
       people_sharing_with_you: "跟你分享的人"
       post_a_message: "發表訊息 >>"
       services: 
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
-      tags_following: "追隨的標籤"
+      tags_following: "追蹤的標籤"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -126,18 +126,19 @@ zh-TW:
     new: 
       create: "建立"
       name: "名字"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "都還沒有人出聲!"
-      try_adding_some_more_contacts: "試著加入更多聯絡人."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "都還沒有人出聲!"
     one: "1個面向"
     other: "%{count}個面向"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "認識的人"
       family: "家人"
-      friends: "Friends"
+      friends: "朋友"
       work: "工作"
     selected_contacts: 
       manage_your_aspects: "管理你的面向."
@@ -173,7 +174,7 @@ zh-TW:
     create: 
       failure: "建立聯繫失敗"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "特色使用者"
     few: "%{count}個聯繫"
     index: 
       add_a_new_aspect: "加入新面向"
@@ -233,7 +234,7 @@ zh-TW:
       correct_the_following_errors_and_try_again: "修正以下錯誤後再試一次."
       invalid_fields: "欄位無效"
   fill_me_out: "填寫我"
-  find_people: "找人"
+  find_people: "找人或\"#標籤\""
   hide: "隱藏"
   home: 
     show: 
@@ -260,7 +261,8 @@ zh-TW:
       rejected: "下列電子信箱有問題: "
       sent: "邀請函已經寄給: "
     edit: 
-      sign_up: "登記"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "這些人尚未接受你的邀請:"
       aspect: "面向"
@@ -452,10 +454,10 @@ zh-TW:
       add_some: "新增一些"
       does_not_exist: "聯絡人不存在!"
       edit: "編輯"
+      has_not_shared_with_you_yet: "%{name} 尚未跟你分享任何貼文!"
       incoming_request: "%{name} 希望能和你分享"
       mention: "提及"
       message: "送訊息"
-      no_posts: "沒有貼文可顯示!"
       not_connected: "你不跟這個人分享"
       recent_posts: "最近貼文"
       recent_public_posts: "最近公開貼文"
@@ -544,12 +546,13 @@ zh-TW:
       unhappy: "不滿意?"
       update: "更新"
     new: 
+      create_my_account: "Create my account"
       enter_email: "輸入電子信箱"
       enter_password: "輸入密碼"
       enter_password_again: "輸入與前面相同的密碼"
       enter_username: "選個用戶名稱(名稱只能包含拉丁字母,數字,以及底線字元)"
-      sign_up: "登記"
-      sign_up_for_diaspora: "登記使用 Diaspora"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "傳送中"
@@ -689,19 +692,19 @@ zh-TW:
     show_more_comments: "顯示下面 %{number} 個意見"
   tag_followings: 
     create: 
-      failure: "追隨失敗: #%{name}"
-      success: "追隨成功: #%{name}"
+      failure: "追蹤失敗: #%{name}"
+      success: "追蹤成功: #%{name}"
     destroy: 
-      failure: "停止追隨失敗: #%{name}"
-      success: "停止追隨成功: #%{name}"
+      failure: "停止追蹤失敗: #%{name}"
+      success: "停止追蹤成功: #%{name}"
   tags: 
     show: 
-      follow: "追隨#%{tag}"
-      following: "正在追隨#%{tag}"
+      follow: "追蹤#%{tag}"
+      following: "正在追蹤#%{tag}"
       nobody_talking: "尚還沒有人在討論 %{tag}."
       people_tagged_with: "標記為 %{tag} 的人"
       posts_tagged_with: "標記為 #%{tag} 的貼文"
-      stop_following: "停止追隨#%{tag}"
+      stop_following: "停止追蹤#%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "與 Cubbi.es 連結"
@@ -745,21 +748,30 @@ zh-TW:
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
-      connect_on_diaspora: "連上 Diaspora"
-      connect_services: "連結至你使用的其他服務"
-      could_not_find_anyone: "在 Diaspora* 上找不到任何朋友. 請使用朋友搜尋器來邀請他/她們."
-      edit_profile: "編輯個人檔案"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "完成!"
-      save_and_continue: "儲存並繼續"
-      signup_steps: "做完這三個步驟以完成登記:"
-      skip: "跳過使用入門"
-      step_2: 
-        find_your_friends_on_diaspora: "你想在 Diaspora 聯絡 Facebook 上的朋友嗎?"
-        skip: "跳過"
-      step_3: 
-        finish: "完成"
-        people_already_on_diaspora: "已使用 Diaspora 的人"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "歡迎來到 Diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "不存在 %{username} 這個用戶!"
     update: 

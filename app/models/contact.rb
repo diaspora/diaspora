@@ -19,10 +19,12 @@ class Contact < ActiveRecord::Base
 
   validates_uniqueness_of :person_id, :scope => :user_id
 
+  # contact.sharing is true when contact.person is sharing with contact.user
   scope :sharing, lambda {
     where(:sharing => true)
   }
 
+  # contact.receiving is true when contact.user is sharing with contact.person
   scope :receiving, lambda {
     where(:receiving => true)
   }

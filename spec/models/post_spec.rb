@@ -62,4 +62,18 @@ describe Post do
       post.last_three_comments.map{|c| c.id}.should == comments[1,3].map{|c| c.id}
     end
   end
+
+  describe 'Likeable#update_likes_counter' do
+    before do
+      @post = bob.post :status_message, :text => "hello", :to => 'all'
+      bob.like(1, :target => @post)
+    end
+    it 'does not update updated_at' do
+      old_time = Time.zone.now - 10000
+      Post.where(:id => @post.id).update_all(:updated_at => old_time)
+      @post.reload.updated_at.to_i.should == old_time.to_i
+      @post.update_likes_counter
+      @post.reload.updated_at.to_i.should == old_time.to_i
+    end
+  end
 end

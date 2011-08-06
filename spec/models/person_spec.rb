@@ -11,6 +11,19 @@ describe Person do
     @person  = Factory.create(:person)
   end
 
+  context 'scopes' do
+    describe '.local' do
+      it 'returns only local people' do
+        Person.local =~ [@person]
+      end
+    end
+
+    describe '.remote' do
+      it 'returns only local people' do
+        Person.remote =~ [@user.person]
+      end
+    end
+  end
   describe "delegating" do
     it "delegates last_name to the profile" do
       @person.last_name.should == @person.profile.last_name
@@ -376,5 +389,8 @@ describe Person do
       @person.as_json(:includes => "tags").
         should == @person.as_json.merge(:tags =>  @person.profile.tags.map{|t| "##{t.name}"})
     end
+  end
+
+  describe '.featured_users' do
   end
 end

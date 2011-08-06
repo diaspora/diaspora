@@ -3,6 +3,7 @@
 #   the COPYRIGHT file.
 
 module ApplicationHelper
+
   def how_long_ago(obj)
     timeago(obj.created_at)
   end
@@ -41,7 +42,8 @@ module ApplicationHelper
     person_image_link(current_user.person)
   end
 
-  def person_image_tag(person, size=:thumb_small)
+  def person_image_tag(person, size=nil)
+    size ||= :thumb_small
     "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)} (#{h(person.diaspora_handle)})\">".html_safe
   end
 
@@ -110,7 +112,11 @@ module ApplicationHelper
   end
 
   def controller_index_path
-    self.send((request.filtered_parameters["controller"] + "_path").to_sym)
+    kontroller = request.filtered_parameters["controller"]
+    if kontroller.downcase != "contacts"
+      kontroller = "aspects"
+    end
+    self.send((kontroller + "_path").to_sym)
   end
 
   def left_nav_root
@@ -127,5 +133,9 @@ module ApplicationHelper
     else
       featured_users_path
     end
+  end
+
+  def all_services_connected?
+    current_user.services.size == AppConfig[:configured_services].size
   end
 end

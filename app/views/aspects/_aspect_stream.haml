@@ -18,10 +18,13 @@
 
 = render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
 
-#main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
-  - if current_user.contacts.size < 2
-    = render 'aspects/no_posts_message'
+- if posts.length == 0
+  = render 'aspects/no_posts_message'
 
+- if current_user.contacts.size < 2
+  = render 'aspects/no_contacts_message'
+
+#main_stream.stream{:data => {:guids => aspect_ids.join(',')}}
   - if posts.length > 0
     = render 'shared/stream', :posts => posts
     #pagination

@@ -20,7 +20,7 @@ class ProfilesController < ApplicationController
   def update
     # upload and set new profile photo
     params[:profile] ||= {}
-    unless params[:profile][:tag_string].nil?
+    unless params[:profile][:tag_string].nil? || params[:profile][:tag_string] == I18n.t('profiles.edit.your_tags_placeholder')
       params[:profile][:tag_string].split( " " ).each do |extra_tag|
         extra_tag.strip!
         unless extra_tag == ""
@@ -36,8 +36,8 @@ class ProfilesController < ApplicationController
 
     if current_user.update_profile params[:profile]
       flash[:notice] = I18n.t 'profiles.update.updated'
-      if params[:getting_started]
-        redirect_to getting_started_path(:step => params[:getting_started].to_i+1)
+      if current_user.getting_started?
+        redirect_to getting_started_path
       else
         redirect_to edit_profile_path
       end

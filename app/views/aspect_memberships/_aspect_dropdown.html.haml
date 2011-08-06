@@ -15,7 +15,7 @@
       - for aspect in all_aspects
         = aspect_dropdown_list_item(aspect, contact, person)
 
-      - if defined?(@aspect) && ( @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification)
+      - if defined?(@aspect) && ( @aspect == :profile || @aspect == :getting_started || @aspect == :tag || @aspect == :search || @aspect == :notification)
         %li.newItem
           .add_aspect
-            = link_to t('contacts.index.add_a_new_aspect'), new_aspect_path(:person_id => person.id), :rel => 'facebox'
+            = link_to t('contacts.index.add_a_new_aspect'), new_aspect_path(:person_id => person.id), :rel => 'facebox', :class => 'new_aspect'

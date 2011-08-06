@@ -17,7 +17,7 @@
 
       self.ensureDOMStructure();
 
-      self.stream.delegate("a.video-link", "click", self.onVideoLinkClicked);
+      $('a.video-link').live('click', self.onVideoLinkClicked);
       self.registerServices();
     });
 

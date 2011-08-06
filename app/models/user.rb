@@ -190,7 +190,7 @@ class User < ActiveRecord::Base
     build_relayable(Like, options)
   end
 
-  # Check whether the user has liked a post.  Extremely inefficient if the post's likes are not loaded.
+  # Check whether the user has liked a post.
   # @param [Post] post
   def liked?(target)
     if target.likes.loaded?
@@ -204,7 +204,7 @@ class User < ActiveRecord::Base
     end
   end
 
-  # Get the user's like of a post, if there is one.  Extremely inefficient if the post's likes are not loaded.
+  # Get the user's like of a post, if there is one.
   # @param [Post] post
   # @return [Like]
   def like_for(target)

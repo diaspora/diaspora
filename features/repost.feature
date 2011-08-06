@@ -93,6 +93,6 @@ Feature: public repost
     And I should see "Bob" 
     And I go to the home page
 
-    And I should see "1 Reshare"
+    And I should see "1 reshare"
 
   Scenario: Can have text

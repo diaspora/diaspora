@@ -1,4 +1,4 @@
--if AppConfig[:open_invitations] || (invites > 0)
+-if AppConfig[:open_invitations]
   - if SERVICES['facebook']['app_id'] !=""
     - if defined? remote
       = link_to t('.from_facebook'), friend_finder_path('facebook', :remote => remote), :rel => 'facebox'

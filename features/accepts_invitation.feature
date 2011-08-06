@@ -8,16 +8,21 @@ Feature: invitation acceptance
         | Email                 | woot@sweet.com |
         | user_password         | secret         |
         | Password confirmation | secret         |
-      And I press "Sign up"
+      And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "getting_started_logo"
+      And I should see "Welcome"
+      Then I follow "Edit Profile"
       And I fill in the following:
         | profile_first_name | O             |
         | profile_last_name  | Hai           |
         | tags               | #beingawesome |
-      And I press "Save and continue"
-			And I should see "Would you like to find your Facebook friends on Diaspora?"
-      And I should not see "Here are the people who are waiting for you:"
+        | profile_bio        | swagger       |
+        | profile_location   | new york, ny  |
+        | profile_gender     | diasporian    |
+      And I press "Update Profile"
+			And I should see "Welcome"
+		  When I follow "Finished"
+		  Then I should be on the aspects page
 
     Scenario: accept invitation from user
       Given I have been invited by a user
@@ -27,15 +32,19 @@ Feature: invitation acceptance
         | Email                 | woot@sweet.com |
         | user_password         | secret         |
         | Password confirmation | secret         |
-      And I press "Sign up"
+      And I press "Create my account"
       Then I should be on the getting started page
-      And I should see "getting_started_logo"
+      And I should see "Welcome"
+      Then I follow "Edit Profile"
       And I fill in the following:
-        | profile_first_name | O     |
-        | profile_last_name  | Hai   |
-        | tags               | #tags |
-      And I press "Save and continue"
-			And I should see "Would you like to find your Facebook friends on Diaspora?"
-		  When I follow "Skip"
+        | profile_first_name | O             |
+        | profile_last_name  | Hai           |
+        | tags               | #beingawesome |
+        | profile_bio        | swagger       |
+        | profile_location   | new york, ny  |
+        | profile_gender     | diasporian    |
+      And I press "Update Profile"
+			And I should see "Welcome"
+		  When I follow "Finished"
 		  Then I should be on the aspects page
 

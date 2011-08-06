@@ -23,7 +23,12 @@
     };
 
     this.updateTimeAgo = function() {
-      self.timeAgoElement().timeago();
+      if (arguments.length > 1){
+        new_elements = Array.prototype.slice.call(arguments,1);
+        $(new_elements).find(self.selector).timeago();
+      }else{
+        self.timeAgoElement().timeago();
+      }
     };
   };
   Diaspora.widgets.add("timeago", TimeAgo);

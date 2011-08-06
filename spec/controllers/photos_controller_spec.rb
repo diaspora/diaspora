@@ -65,17 +65,24 @@ describe PhotosController do
     end
 
     context "private photo user can see" do
-      before do
-        get :show, :id => @bobs_photo.id
-      end
-
       it "succeeds" do
+        get :show, :id => @bobs_photo.id
         response.should be_success
       end
 
       it "assigns the photo" do
+        get :show, :id => @bobs_photo.id
         assigns[:photo].should == @bobs_photo
         @controller.ownership.should be_false
+      end
+
+      it 'succeeds with a like present' do
+        sm = bob.post(:status_message, :text => 'parent post', :to => 'all')
+        @bobs_photo.status_message_guid = sm.guid
+        @bobs_photo.save!
+        alice.like(1, :target => @bobs_photo.status_message)
+        get :show, :id => @bobs_photo.id
+        response.should be_success
       end
     end
 

@@ -126,12 +126,13 @@ eu:
     new: 
       create: "Sortu"
       name: "Izena"
-    no_posts_message: 
+    no_contacts_message: 
       featured_users: "featured users"
       or_featured: "Or you can share with %{link}"
-      start_talking: "Oraindik inork ez du ezer esan!"
-      try_adding_some_more_contacts: "Saiatu adiskide gehiago gehitzen."
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Oraindik inork ez du ezer esan!"
     one: "alderdi 1"
     other: "%{count} alderdi"
     seed: 
@@ -260,7 +261,8 @@ eu:
       rejected: "Hurrengo e-posta hauek arazoak sortu dituzte:"
       sent: "Gonbidapenen jasotzaileak hauek izan dira:"
     edit: 
-      sign_up: "izena_eman"
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
     new: 
       already_invited: "Pertsona hauek ez dute zure gonbidapena onartu:"
       aspect: "Alderdia"
@@ -452,10 +454,10 @@ eu:
       add_some: "gehitu batzuk"
       does_not_exist: "Pertsona hau ez dago!"
       edit: "aldatu"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
       mention: "Aipatu"
       message: "Mezu pribatua bidali"
-      no_posts: "erakusteko sarrerarik ez dago!"
       not_connected: "Ez zaude harremanetan pertsona honekin"
       recent_posts: "Mezu Berrienak"
       recent_public_posts: "Azken berri publikoak"
@@ -544,12 +546,13 @@ eu:
       unhappy: "Goibel?"
       update: "Eguneratu"
     new: 
+      create_my_account: "Create my account"
       enter_email: "Idatzi zure e-posta"
       enter_password: "Pasahitz bat aukeratu"
       enter_password_again: "Lehengo pasahitz berdina idatzi"
       enter_username: "Aukeratu erabiltzaile izen bat (hizkiak, zenbakiak eta gidoibaxuak soilik)"
-      sign_up: "Izena eman"
-      sign_up_for_diaspora: "Izena eman Diasporan"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
   requests: 
     create: 
       sending: "Bidaltzen"
@@ -745,21 +748,30 @@ eu:
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora IDa"
     getting_started: 
-      connect_on_diaspora: "Konektatu Diasporan"
-      connect_services: "Beste zerbitzu batzuekin lotu"
-      could_not_find_anyone: "Ezin izan da adiskiderik aurkitu Diasporan. Erabili adiskide bilatzailea norbait gonbidatzeko."
-      edit_profile: "Zure profila aldatu"
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
       finished: "Bukatua!"
-      save_and_continue: "Gorde eta jarraitu"
-      signup_steps: "Zure izen ematea bukatu ezazu hiru pauso hauek emanez:"
-      skip: "jauzi hastapenak"
-      step_2: 
-        find_your_friends_on_diaspora: "Gustatuko litzaizuke Facebookeko lagunak Diasporan aurkitzea?"
-        skip: "Utzi"
-      step_3: 
-        finish: "Bukatu"
-        people_already_on_diaspora: "Diasporako jendea"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
       welcome: "Ongi Etorri Diasporara!"
+      welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "%{username} erabiltzailerik ez dago!"
     update: 

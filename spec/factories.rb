@@ -16,7 +16,6 @@ Factory.define :profile do |p|
   p.birthday Date.today
 end
 
-
 Factory.define :person do |p|
   p.sequence(:diaspora_handle) { |n| "bob-person-#{n}#{r_str}@aol.com" }
   p.sequence(:url)  { |n| AppConfig[:pod_url] }
@@ -31,7 +30,7 @@ end
 
 Factory.define :searchable_person, :parent => :person do |p|
   p.after_build do |person|
-    person.profile.searchable = true
+    person.profile = Factory.build(:profile, :person => person, :searchable => true)
   end
 end
 

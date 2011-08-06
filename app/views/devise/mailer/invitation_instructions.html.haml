@@ -1,22 +1,22 @@
-!!!
-%html
-  %head
-    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
-    = render :partial => 'notifier/notifier_css'
-  %body
-    %header
-      = image_tag AppConfig[:pod_url] + 'images/logo_caps.png'
-    #container
-      - @invs = @resource.invitations_to_me
-      %p
-        = t('devise.mailer.welcome', :email => @resource.email)
-      -if @invs.count > 0
+- @invs = @resource.invitations_to_me
+-if @invs.count > 0
+  !!!
+  %html
+    %head
+      %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+      = render :partial => 'notifier/notifier_css'
+    %body
+      %header
+        = image_tag AppConfig[:pod_url] + 'images/logo_caps.png'
+      #container
+        %p
+          = t('devise.mailer.welcome', :email => @resource.email)
         = render :partial => 'inviters'
 
-      -else
-        = render :partial => 'batch_invites'
-      %p= link_to t('.accept'), accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :class => "large_text"
-      %p.small
-        = t('.ignore')
-        %br/
-        = t('.no_account_till')
+        %p= link_to t('.accept'), accept_invitation_url(@resource, :invitation_token => @resource.invitation_token), :class => "large_text"
+        %p.small
+          = t('.ignore')
+          %br/
+          = t('.no_account_till')
+-else
+  = render :partial => 'devise/mailer/batch_invites'

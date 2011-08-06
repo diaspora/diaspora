@@ -13,6 +13,6 @@
     = f.password_field :password_confirmation, :title => t('registrations.new.enter_password_again') 
     = f.hidden_field :invitation_token
 
-  = f.submit t('registrations.new.sign_up')
+  = f.submit t('registrations.new.create_my_account')
   %br
   = render :partial => "devise/shared/links"

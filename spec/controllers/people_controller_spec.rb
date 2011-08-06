@@ -161,7 +161,7 @@ describe PeopleController do
         @user.post(:status_message, :text => "public", :to => 'all', :public => true)
         @user.reload.posts.length.should == 3
         get :show, :id => @user.person.to_param
-        assigns(:posts).models.should =~ @user.posts
+        assigns(:posts).map(&:id).should =~ @user.posts.map(&:id)
       end
 
       it "renders the comments on the user's posts" do
@@ -208,17 +208,17 @@ describe PeopleController do
         it "posts include reshares" do
           reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
           get :show, :id => @user.person.id
-          assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+          assigns[:posts].map{|x| x.id}.should include(reshare.id)
         end
 
         it "assigns only public posts" do
           get :show, :id => @person.id
-          assigns[:posts].models.should =~ @public_posts
+          assigns[:posts].map(&:id).should =~ @public_posts.map(&:id)
         end
 
         it 'is sorted by created_at desc' do
           get :show, :id => @person.id
-          assigns[:posts].models.should == @public_posts.sort_by{|p| p.created_at}.reverse
+          assigns[:posts].should == @public_posts.sort_by{|p| p.created_at}.reverse
         end
       end
 
@@ -255,13 +255,13 @@ describe PeopleController do
         bob.reload.posts.length.should == 4
 
         get :show, :id => @person.id
-        assigns(:posts).models.should =~ posts_user_can_see
+        assigns(:posts).map(&:id).should =~ posts_user_can_see.map(&:id)
       end
 
       it "posts include reshares" do
         reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
         get :show, :id => @user.person.id
-        assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+        assigns[:posts].map{|x| x.id}.should include(reshare.id)
       end
 
       it 'sets @commenting_disabled to true' do
@@ -293,13 +293,13 @@ describe PeopleController do
         eve.reload.posts.length.should == 3
 
         get :show, :id => @person.id
-        assigns[:posts].models.should =~ [public_post]
+        assigns[:posts].map(&:id).should =~ [public_post].map(&:id)
       end
 
         it "posts include reshares" do
           reshare = @user.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
           get :show, :id => @user.person.id
-          assigns[:posts].post_fakes.map{|x| x.id}.should include(reshare.id)
+          assigns[:posts].map{|x| x.id}.should include(reshare.id)
         end
 
       it 'sets @commenting_disabled to true' do

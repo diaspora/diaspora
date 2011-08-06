@@ -66,6 +66,23 @@ JSON
           @service.save_friends
         }.should change(ServiceUser, :count).by(2)
       end
+
+      it 'attaches local models' do
+        @service.save_friends
+        @service.service_users.first.person.should == @user2.person
+      end
+
+      it 'overwrites local model information' do
+        @service.save_friends
+        su = @service.service_users.first
+        su.person.should == @user2.person
+        su.contact.should == nil
+
+        connect_users_with_aspects(alice, @user2)
+        @service.save_friends
+        su.person.should == @user2.person
+        su.reload.contact.should == alice.contact_for(@user2.person)
+      end
     end
 
     describe '#finder' do
@@ -82,20 +99,20 @@ JSON
       context 'opts' do
         it 'only local does not return people who are remote' do
           @service.save_friends
-          @service.finder(:local => true).each{|su| su.person.should == @user2.person}
+          @service.finder(:local => true).all.each{|su| su.person.should == @user2.person}
         end
 
         it 'does not return people who are remote' do
           @service.save_friends
-          @service.finder(:remote => true).each{|su| su.person.should be_nil}
+          @service.finder(:remote => true).all.each{|su| su.person.should be_nil}
         end
 
         it 'does not return wrong service objects' do
           su2 = ServiceUser.create(:service => @user2_service, :uid => @user2_fb_id, :name => @user2_fb_name, :photo_url => @user2_fb_photo_url)
           su2.person.should == @user2.person
 
-          @service.finder(:local => true).each{|su| su.service.should == @service}
-          @service.finder(:remote => true).each{|su| su.service.should == @service}
+          @service.finder(:local => true).all.each{|su| su.service.should == @service}
+          @service.finder(:remote => true).all.each{|su| su.service.should == @service}
           @service.finder.each{|su| su.service.should == @service}
         end
       end
