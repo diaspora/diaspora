@@ -137,12 +137,10 @@ describe("Publisher", function() {
     });
     it('toggles the tooltip on the clicked icon', function(){
       Publisher.bindPublicIcon();
-      expect($(".public_icon")).toHaveAttr('title', 'is public');
-
       $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('title', 'is limited');
+      expect($(".public_icon")).toHaveAttr('original-title', 'is public');
       $(".public_icon").click();
-      expect($(".public_icon")).toHaveAttr('title', 'is public');
+      expect($(".public_icon")).toHaveAttr('original-title', 'is limited');
     });
   });
   describe("bindServiceIcons", function() {
