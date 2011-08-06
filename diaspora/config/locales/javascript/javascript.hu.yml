@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+hu: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
+    confirm_dialog: "Biztos vagy benne?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
+    infinite_scroll: 
+      no_more: "Nincs több bejegyzés."
+    publisher: 
+      at_least_one_aspect: "Minimum 1 csoportnak meg kell osztanod!"
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "{{name}} keresése."
+    show_more: "show more"
+    timeago: 
+      day: "egy nappal"
+      days: "%d nappal"
+      hour: "körülbelül egy órával"
+      hours: "körülbelül %d órával"
+      minute: "körülbelül egy perccel"
+      minutes: "%d perccel"
+      month: "körülbelül egy hónappal"
+      months: "%d hónappal"
+      prefixAgo: ""
+      prefixFromNow: ""
+      seconds: "kevesebb mint egy perccel"
+      suffixAgo: "ezelőtt"
+      suffixFromNow: "mostantól"
+      year: "körülbelül egy évvel"
+      years: "%d évvel"
+    videos: 
+      unknown: "Ismeretlen videó tipus"
+      watch: "Videó megtekintése itt: {{provider}}"
+    web_sockets: 
+      disconnected: "A websocket zárolva van. A bejegyzések nem lesznek előben stream-elve."

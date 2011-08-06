@@ -1,0 +1,100 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+!!!
+%html{:lang => I18n.locale.to_s, :dir => (rtl?) ? 'rtl' : 'ltr'}
+  %head
+    %title
+      DIASPORA*
+
+    %meta{"http-equiv"=>"Content-Type", :content=>"text/html; charset=utf-8"}/
+    = include_javascripts :mobile
+    %meta{'name' =>'viewport', 'content' => "width=device-width, minimum-scale=1, maximum-scale=1"}
+
+    -if current_user
+      :javascript
+        Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+
+    =include_stylesheets :mobile
+    = csrf_meta_tag
+    
+    - if rtl?
+      = include_stylesheets :rtl, :media => 'all'
+
+    = yield(:head)
+
+    -if AppConfig[:google_a_site]
+      :javascript
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', '#{AppConfig[:google_a_site]}']);
+        _gaq.push(['_trackPageview']);
+
+        (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+
+    -if AppConfig[:piwik_id]
+      :javascript
+        var pkBaseURL = (("https:" == document.location.protocol) ? "https://#{AppConfig[:piwik_url]}/" : "http://#{AppConfig[:piwik_url]}/");
+        document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+      :javascript
+        try {
+        var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", #{AppConfig[:piwik_id]});
+        piwikTracker.trackPageView();
+        piwikTracker.enableLinkTracking();
+        } catch( err ) {}
+
+
+  %body
+    #content{:data => {:role => 'page', :theme => 'c'}}
+      #header
+        - if current_user
+          .right
+            = link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
+            = link_to(image_tag('icons/search_white.png'), people_path)
+        = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
+
+      = yield
+
+      = render :partial =>'shared/footer' if user_signed_in?
+
+    -if current_user
+      #menu{:data => {:role => 'page', :theme => 'c'}}
+        #header
+          .right
+            = link_to(image_tag('icons/search_white.png'), people_path)
+          = link_to(image_tag('white.png'), aspects_path)
+
+        #content{:data => {:role => 'content'}}
+
+          %h2
+            = current_user.name
+
+          %ul{:data => {:role => 'listview', :inset => 'true'}}
+            %li
+              = link_to t('notifications.index.notifications'), notifications_path
+              .ui-li-count
+                = @notification_count
+            %li
+              = link_to t('conversations.index.message_inbox'), conversations_path
+              .ui-li-count
+                = @unread_message_count
+                
+          %h4
+            = t('.your_aspects')
+
+          %ul{:data => {:role => 'listview', :inset => 'true'}}
+            %li
+              = link_to t('all_aspects'), aspects_path
+            - for aspect in all_aspects
+              %li
+                = link_to aspect, aspects_path('a_ids[]' => aspect.id)
+
+
+        = render :partial =>'shared/footer'
+
+  = yield :subpages
+

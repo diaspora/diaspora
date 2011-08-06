@@ -1,0 +1,790 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+sv: 
+  _applications: "Applications"
+  _comments: "Kommentarer"
+  _contacts: "Contacts"
+  _home: "Hem"
+  _photos: "foton"
+  _services: "Tjänster"
+  account: "Konto"
+  activerecord: 
+    errors: 
+      models: 
+        contact: 
+          attributes: 
+            person_id: 
+              taken: "måste vara unik i den här användarens kontakter."
+        person: 
+          attributes: 
+            diaspora_handle: 
+              taken: "är upptaget."
+        request: 
+          attributes: 
+            from_id: 
+              taken: "är en kopia av en redan existerande förfrågan."
+        reshare: 
+          attributes: 
+            root_guid: 
+              taken: "You've already reshared that post!"
+        user: 
+          attributes: 
+            email: 
+              taken: "är redan tagen."
+            person: 
+              invalid: "är ogiltig."
+            username: 
+              taken: "är redan taget."
+  ago: "%{time} sedan"
+  all_aspects: "Alla Aspekter"
+  application: 
+    helper: 
+      diaspora_alpha: "DIASPORA* ALPHA"
+      unknown_person: "okänd person"
+      video_title: 
+        unknown: "Okänd videotitel"
+  are_you_sure: "Är du säker?"
+  aspect_memberships: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
+    destroy: 
+      failure: "Misslyckades med att ta bort personen från aspekten"
+      no_membership: "Kunde inte hitta den valda personen i aspekten"
+      success: "Lyckades att ta bort personen från aspekten"
+  aspects: 
+    add_to_aspect: 
+      failure: "Personen kunde inte läggas till på aspekten."
+      success: "Personen tillagd på aspekten."
+    aspect_contacts: 
+      done_editing: "dölj"
+    aspect_listings: 
+      add_an_aspect: "+ Add an aspect"
+    aspect_stream: 
+      commented_on: "commented on"
+      posted: "posted"
+      recently: "recently:"
+      stream: "Stream"
+    contacts_not_visible: "Kontakterna på den här aspekten kommer inte kunna se varandra."
+    contacts_visible: "Kontakterna på den här aspekten kommer kunna se varandra."
+    create: 
+      failure: "Aspekten kunde inte skapas."
+      success: "Din nya aspekt %{name} har skapats"
+    destroy: 
+      failure: "%{name} är inte tom och kunde då inte tas bort"
+      success: "%{name} är nu borttagen."
+    edit: 
+      add_existing: "Lägg till en befintlig kontakt"
+      aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
+      aspect_list_is_visible: "aspektlistan är synlig för andra i aspekten"
+      confirm_remove_aspect: "Är du säker på att du vill ta bort den här aspekten?"
+      done: "Färdigt"
+      make_aspect_list_visible: "gör en aspektlista synlig?"
+      remove_aspect: "Ta bort den här aspekten"
+      rename: "byt namn"
+      update: "uppdatera"
+      updating: "uppdaterar"
+    few: "%{count} aspekter"
+    helper: 
+      are_you_sure: "Är du säker på att du vill ta bort den här aspekten?"
+      aspect_not_empty: "Aspekten är inte tom"
+      remove: "ta bort"
+    index: 
+      cubbies: 
+        explanation: "Cubbi.es is the first Diaspora application under development."
+        heading: "Connect to Cubbi.es"
+        learn_more: "Learn more"
+      diaspora_id: 
+        content_1: "Your Diaspora ID is:"
+        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
+        heading: "Diaspora ID"
+      donate: "Donate"
+      handle_explanation: "Det här är ditt Diaspora-användarnamn. Det är den här du ska ge till dina vänner om du vill att de ska lägga till dig på Diaspora."
+      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      no_contacts: "Inga kontakter"
+      no_tags: "No tags"
+      people_sharing_with_you: "Personer som delar med dig"
+      post_a_message: "skriv ett inlägg >>"
+      services: 
+        content: "You can connect the following services to Diaspora:"
+        heading: "Connect Services"
+      tags_following: "Followed Tags"
+      your_aspects: "Your Aspects"
+    many: "%{count} aspekter"
+    move_contact: 
+      error: "Kunde inte flytta kontakt: %{inspect}"
+      failure: "fungerade inte %{inspect}"
+      success: "Personen flyttades till den nya aspekten"
+    new: 
+      create: "Skapa"
+      name: "Namn"
+    no_contacts_message: 
+      featured_users: "featured users"
+      or_featured: "Or you can share with %{link}"
+      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
+      you_should_add_some_more_contacts: "You should add some more contacts!"
+    no_posts_message: 
+      start_talking: "Ingen har sagt något än. Bli först!"
+    one: "1 aspekt"
+    other: "%{count} aspekter"
+    seed: 
+      acquaintances: "Acquaintances"
+      family: "Familj"
+      friends: "Friends"
+      work: "Arbete"
+    selected_contacts: 
+      manage_your_aspects: "Manage your aspects."
+      no_contacts: "You don't have any contacts here yet."
+      view_all_contacts: "View all contacts"
+    show: 
+      edit_aspect: "ändra aspekt"
+    update: 
+      failure: "Din aspekt, %{name}, hade ett för långt namn för att kunna sparas."
+      success: "Din aspekt %{name} är nu ändrad."
+    zero: "inga aspekter"
+  authorizations: 
+    index: 
+      revoke_access: "Revoke Access"
+  back: "Tillbaka"
+  bookmarklet: 
+    explanation: "%{link} från var som helst genom att lägga till den här länken som bokmärke."
+    explanation_link_text: "Posta på Diaspora"
+    heading: "Diaspora Bookmarklet"
+    post_something: "Posta något till Diaspora"
+    post_success: "Postat! Stänger!"
+  cancel: "Avbryt"
+  comments: 
+    few: "%{count} kommentarer"
+    many: "%{count} kommentarer"
+    new_comment: 
+      comment: "Kommentera"
+      commenting: "Kommenterar..."
+    one: "1 kommentar"
+    other: "%{count} kommentarer"
+    zero: "inga kommentarer"
+  contacts: 
+    create: 
+      failure: "Misslyckades med att skapa kontakt"
+    featured: 
+      featured_users: "Featured Users"
+    few: "%{count} kontakter"
+    index: 
+      add_a_new_aspect: "Add a new aspect"
+      all_contacts: "All Contacts"
+      edit_aspect: "Edit %{name}"
+      many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
+      my_contacts: "My Contacts"
+      no_contacts: "No contacts."
+      only_sharing_with_me: "Only sharing with me"
+      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
+      start_a_conversation: "Start a conversation"
+      title: "Contacts"
+      your_contacts: "Your Contacts"
+    many: "%{count} kontakter"
+    one: "1 kontakt"
+    other: "%{count} kontakter"
+    sharing: 
+      people_sharing: "Personer delar med dig:"
+    zero: "inga kontakter"
+  conversations: 
+    create: 
+      sent: "Meddelande skickat"
+    destroy: 
+      success: "Konversation borttagen"
+    helper: 
+      new_messages: 
+        few: "%{count} nya meddelanden"
+        many: "%{count} nya meddelanden"
+        one: "1 nytt meddelande"
+        other: "%{count} nya meddelanden"
+        zero: "inga nya meddelanden"
+    index: 
+      create_a_new_message: "skapa ett nytt meddelande"
+      inbox: "Inlåda"
+      message_inbox: "Meddelande Inkorg"
+      new_message: "Nytt Meddelande"
+      no_conversation_selected: "ingen konversation vald"
+      no_messages: "inga meddelanden"
+    new: 
+      abandon_changes: "Abandon changes?"
+      send: "Skicka"
+      sending: "Sending..."
+      subject: "ämne"
+      to: "till"
+    show: 
+      delete: "ta bort och blockera konversation"
+      reply: "svara"
+  date: 
+    formats: 
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+      fullmonth_day: "%B %d"
+  delete: "Ta bort"
+  email: "E-post"
+  error_messages: 
+    helper: 
+      correct_the_following_errors_and_try_again: "Rätta till följande fel och försök igen."
+      invalid_fields: "Ogiltiga uppgifter"
+  fill_me_out: "Fyll i mig"
+  find_people: "Find people"
+  hide: "Göm"
+  home: 
+    show: 
+      already_account: "har du redan ett konto?"
+      choice: "Valfrihet"
+      choice_explanation: "Diaspora låter dig dela in dina kontakter i grupper som kallas Sidor. Det unika med sidor är att dina foton, meddelanden och skämt endast kan ses av de personer som du valt ska se meddelandet."
+      learn_about_host: "Lär dig hur du sätter upp en egen Diaspora server."
+      login_here: "logga in här"
+      ownership: "Ägandeskap"
+      ownership_explanation: "Du äger dina bilder, och du ska inte behöva frångå det när vill dela med dig av dem. Du behåller äganderätten till allt du delar med dig av på Diaspora, vilket ger dig full kontroll över hur det distribueras."
+      share_what_you_want: "Dela vad du vill, med vem du vill."
+      simplicity: "Enkelhet"
+      simplicity_explanation: "Diaspora gör det lätt att att dela meddelanden och bilder med rätt personer. Lika lätt är det att behålla den personliga integriteten, med Diaspora tvingas du inte vada igenom sidor av inställningar och alternativ bara för att hålla din profil säker."
+      tagline_first_half: "Dela vad du vill,"
+      tagline_second_half: "med vem du vill."
+  invitations: 
+    check_token: 
+      not_found: "Inbjudan inte funnen"
+    create: 
+      already_contacts: "Du är redan ansluten med denna personen"
+      already_sent: "Du har redan bjudit in denna personen."
+      no_more: "Du har inga fler inbjudningar."
+      own_address: "You can't send an invitation to your own address."
+      rejected: "Det var problem med följande e-postadresser: "
+      sent: "Inbjudningar har skickats till:"
+    edit: 
+      accept_your_invitation: "Accept your invitation"
+      your_account_awaits: "Your account awaits!"
+    new: 
+      already_invited: "Redan inbjuden"
+      aspect: "Aspekt"
+      comma_seperated_plz: "Du kan ange flera e-postadresser separerade av kommatecken."
+      if_they_accept_info: "om de accepterar, kommer de bli med på den sida du har bjudit in dem till."
+      invite_someone_to_join: "Bjud in en vän till Diaspora!"
+      personal_message: "Personligt meddelande"
+      resend: "Skicka igen"
+      send_an_invitation: "Skicka en inbjudan"
+      send_invitation: "Skicka inbjudan"
+      to: "Till"
+  layouts: 
+    application: 
+      have_a_problem: "Stött på problem? Hitta lösningen här"
+      powered_by: "POWERED BY DIASPORA*"
+      public_feed: "Offentligt Diaspora flöde för %{name}"
+      toggle: "byt till mobil version"
+      whats_new: "några nyheter?"
+      your_aspects: "dina aspekter"
+    header: 
+      admin: "admin"
+      blog: "Blogg"
+      code: "källkod"
+      login: "Logga in"
+      logout: "Logga ut"
+      profile: "profil"
+      recent_notifications: "Recent notifications"
+      settings: "Inställningar"
+      view_all: "View all"
+  likes: 
+    likes: 
+      people_dislike_this: 
+        few: "%{count} personer ogillar"
+        many: "%{count} personer ogillar det här"
+        one: "1 person ogillar det här"
+        other: "%{count} personer ogillar det här"
+        zero: "inga personer ogillar det här"
+      people_like_this: 
+        few: "%{count} personer gillar det här"
+        many: "%{count} personer gillar det här"
+        one: "1 person gillar det här"
+        other: "%{count} personer gillar det här"
+        zero: "inga personer gillar det här"
+      people_like_this_comment: 
+        few: "%{count} likes"
+        many: "%{count} likes"
+        one: "%{count} like"
+        other: "%{count} likes"
+        zero: "no likes"
+  limited: "Limited"
+  more: "Mer"
+  next: "nästa"
+  no_results: "Inga Resultat Funna"
+  notifications: 
+    also_commented: 
+      few: "%{actors} also commented on %{post_author}'s %{post_link}."
+      many: "%{actors} also commented on %{post_author}'s %{post_link}."
+      one: "%{actors} also commented on %{post_author}'s %{post_link}."
+      other: "%{actors} also commented on %{post_author}'s %{post_link}."
+      zero: "%{actors} also commented on %{post_author}'s %{post_link}."
+    also_commented_deleted: 
+      few: "%{actors} commented on a deleted post."
+      many: "%{actors} commented on a deleted post."
+      one: "%{actors} commented on a deleted post."
+      other: "%{actors} commented on a deleted post."
+      zero: "%{actors} commented on a deleted post."
+    comment_on_post: 
+      few: "%{actors} commented on your %{post_link}."
+      many: "%{actors} commented on your %{post_link}."
+      one: "%{actors} commented on your %{post_link}."
+      other: "%{actors} commented on your %{post_link}."
+      zero: "%{actors} commented on your %{post_link}."
+    helper: 
+      new_notifications: 
+        few: "%{count} nya meddelanden"
+        many: "%{count} nya meddelanden"
+        one: "1 nya meddelanden"
+        other: "%{count} nya meddelanden"
+        zero: "inga nya meddelanden"
+    index: 
+      and: "och"
+      and_others: 
+        few: "and %{count} others"
+        many: "and %{count} others"
+        one: "and one more"
+        other: "and %{count} others"
+        zero: "and nobody else"
+      mark_all_as_read: "Markera alla som läst"
+      notifications: "Notifieringar"
+    liked: 
+      few: "%{actors} has just liked your %{post_link}."
+      many: "%{actors} has just liked your %{post_link}."
+      one: "%{actors} has just liked your %{post_link}."
+      other: "%{actors} has just liked your %{post_link}."
+      zero: "%{actors} has just liked your %{post_link}."
+    liked_post_deleted: 
+      few: "%{actors} liked your deleted post."
+      many: "%{actors} liked your deleted post."
+      one: "%{actors} liked your deleted post."
+      other: "%{actors} liked your deleted post."
+      zero: "%{actors} liked your deleted post."
+    mentioned: 
+      few: "%{actors} has mentioned you in a %{post_link}."
+      many: "%{actors} has mentioned you in a %{post_link}."
+      one: "%{actors} has mentioned you in a %{post_link}."
+      other: "%{actors} has mentioned you in a %{post_link}."
+      zero: "%{actors} has mentioned you in a %{post_link}."
+    mentioned_deleted: 
+      few: "%{actors} mentioned you in a deleted post."
+      many: "%{actors} mentioned you in a deleted post."
+      one: "%{actors} mentioned you in a deleted post."
+      other: "%{actors} mentioned you in a deleted post."
+      zero: "%{actors} mentioned you in a deleted post."
+    post: "inlägg."
+    private_message: 
+      few: "%{actors} sent you a message."
+      many: "%{actors} sent you a message."
+      one: "%{actors} sent you a message."
+      other: "%{actors} sent you a message."
+      zero: "%{actors} sent you a message."
+    started_sharing: 
+      few: "%{actors} started sharing with you."
+      many: "%{actors} started sharing with you."
+      one: "%{actors} started sharing with you."
+      other: "%{actors} started sharing with you."
+      zero: "%{actors} started sharing with you."
+  notifier: 
+    click_here: "click here"
+    comment_on_post: 
+      reply: "Reply or view %{name}'s post >"
+    confirm_email: 
+      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
+      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    hello: "Hej %{name}!"
+    liked: 
+      liked: "%{name} har precis gillat ditt inlägg: "
+      view_post: "View post >"
+    mentioned: 
+      mentioned: "nämnde dig i ett inlägg:"
+      subject: "%{name} har nämnt dig på Diaspora*"
+    private_message: 
+      reply_to_or_view: "Reply to or view this conversation >"
+    single_admin: 
+      admin: "Din Diaspora administratör"
+      subject: "Ett meddelande gällande ditt Diaspora-konto:"
+    started_sharing: 
+      sharing: "har börjat dela med dig!"
+      subject: "%{name} har börjat dela med dig på Diaspora*"
+      view_profile: "View %{name}'s profile"
+    thanks: "Tack,"
+    to_change_your_notification_settings: "to change your notification settings"
+  ok: "OK"
+  or: "eller"
+  password: "Lösenord"
+  password_confirmation: "Bekräfta lösenord"
+  people: 
+    add_contact_small: 
+      add_contact_from_tag: "lägg till kontakt från tagg"
+    aspect_list: 
+      edit_membership: "redigera medlemskap för aspekt"
+    few: "%{count} människor"
+    helper: 
+      people_on_pod_are_aware_of: " personer på denna plats är medvetna om att"
+      results_for: " resultat för %{params}"
+    index: 
+      couldnt_find_them_send_invite: "Fanns de inte här?  Skicka en inbjudan!"
+      no_one_found: "...och ingen hittades."
+      no_results: "Du måste söka efter något."
+      results_for: "Sökresultat för"
+    many: "%{count} människor"
+    one: "1 person"
+    other: "%{count} personer"
+    person: 
+      add_contact: "lägg till kontakt"
+      already_connected: "Redan ansluten"
+      pending_request: "Väntande förfrågningar"
+      thats_you: "Detta är du!"
+    profile_sidebar: 
+      bio: "bio"
+      born: "födelsedag"
+      edit_my_profile: "Ändra min profil"
+      gender: "kön"
+      in_aspects: "i aspekter"
+      location: "plats"
+      remove_contact: "remove contact"
+      remove_from: "Ta bort %{name} från %{aspect}?"
+    show: 
+      add_some: "lägg till några"
+      does_not_exist: "Den här personen finns inte!"
+      edit: "redigera"
+      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      incoming_request: "%{name} vill dela med dig"
+      mention: "Nämna"
+      message: "Meddelande"
+      not_connected: "Du delar inte med dig till den här personen"
+      recent_posts: "Postat nyligen"
+      recent_public_posts: "Senaste publika inlägg"
+      return_to_aspects: "Återgå till översikten"
+      see_all: "Visa alla"
+      start_sharing: "börja dela"
+      to_accept_or_ignore: "for att acceptera eller ignorera."
+      you_have_no_tags: "du har inga taggar!"
+    webfinger: 
+      fail: "Förlåt, vi kunde inte hitta %{handle}."
+    zero: "inga personer"
+  photos: 
+    create: 
+      integrity_error: "Fotouppladdning misslyckades. Är du säker på att det var en bild?"
+      runtime_error: "Fotouppladdning misslyckades. Har du på dig ditt säkerhetsbälte?"
+      type_error: "Fotouppladdning misslyckades. Är du säker på att en bild blev tillagd?"
+    destroy: 
+      notice: "Fotot borttaget."
+    edit: 
+      editing: "Ändrar"
+    new: 
+      back_to_list: "Tillbaka till listan"
+      new_photo: "Nytt foto"
+      post_it: "skicka!"
+    new_photo: 
+      empty: "{file} är tom, välj om filerna utan att välja denna."
+      invalid_ext: "{file} har en ogiltig filändelse. Endast {extensions} är tillåtna."
+      size_error: "{file} är för stor, maximal tillåten filstorlek är {sizeLimit}."
+    new_profile_photo: 
+      or_select_one: "eller välj en av dina befintliga"
+      upload: "Ladda upp en ny profilbild!"
+    photo: 
+      view_all: "visa alla foton som %{name} laddat upp"
+    show: 
+      collection_permalink: "permanent samlingslänk"
+      delete_photo: "Ta bort foto"
+      edit: "ändra"
+      edit_delete_photo: "Ändra beskrivning / ta bort bild"
+      make_profile_photo: "använd som profilbild"
+      original_post: "Ursprungligt inlägg"
+      update_photo: "Uppdatera foto"
+      view: "visa"
+    update: 
+      error: "Misslyckades med att ändra fotot."
+      notice: "Fotot är nu uppdaterat."
+  post_visibilites: 
+    update: 
+      post_hidden: "%{name}s post har gömts."
+  posts: 
+    show: 
+      destroy: "Delete"
+      not_found: "Sorry, we couldn't find that post."
+      permalink: "permalink"
+  previous: "föregående"
+  profile: "Profil"
+  profiles: 
+    edit: 
+      allow_search: "Tillåter andra att söka efter dig inom Diaspora"
+      edit_profile: "Redigera profil"
+      first_name: "Förnamn"
+      last_name: "Efternamn"
+      update_profile: "Uppdatera profil"
+      your_bio: "Din biografi"
+      your_birthday: "Din födelsedag"
+      your_gender: "Ditt kön"
+      your_location: "Din plats"
+      your_name: "Ditt namn"
+      your_photo: "Ditt foto"
+      your_private_profile: "Din privata profil"
+      your_public_profile: "Din publika profil"
+      your_tags: "Du: i 5 #taggar"
+      your_tags_placeholder: "t.ex. #diaspora #stryka #katter #musik"
+    update: 
+      failed: "Misslyckades att uppdatera profil"
+      updated: "Profilen uppdaterades"
+  public: "Public"
+  registrations: 
+    closed: "Registreringsformuläret är stäng på den här poden."
+    create: 
+      success: "Du har nu gått med i Diaspora!"
+    edit: 
+      cancel_my_account: "Avsluta mitt konto"
+      edit: "Ändra %{name}"
+      leave_blank: "(lämna tomt om du inte vill ändra det)"
+      password_to_confirm: "(det nuvarande lösenordet krävs för att bekräfta ändringarna)"
+      unhappy: "Missnöjd?"
+      update: "Uppdatera"
+    new: 
+      create_my_account: "Create my account"
+      enter_email: "Skriv in en e-post"
+      enter_password: "Skriv in ett lösenord"
+      enter_password_again: "Skriv in samma lösenord som tidigare"
+      enter_username: "Välj ett användarnamn (endast bokstäver, nummer eller understreck)"
+      join_the_movement: "Join the movement!"
+      sign_up_today: "Sign up today"
+  requests: 
+    create: 
+      sending: "Skickar"
+      sent: "Du har bett att dela med %{name}.  Dom kommer att se det nästa gång dom loggar in på Diaspora."
+    destroy: 
+      error: "Var god välj en sida!"
+      ignore: "Ignorerade kontaktförfrågan."
+      success: "Kontakten är nu tillagd."
+    helper: 
+      new_requests: 
+        few: "%{count} nya förfrågningar!"
+        many: "%{count} nya förfrågningar!"
+        one: "ny förfrågan!"
+        other: "%{count} nya förfrågningar!"
+        zero: "inga nya förfrågningar"
+    manage_aspect_contacts: 
+      existing: "Befintliga kontakter"
+      manage_within: "Hantera kontakter i "
+    new_request_to_person: 
+      sent: "skickat!"
+  reshares: 
+    create: 
+      failure: "There was an error resharing this post."
+    reshare: 
+      deleted: "Original post deleted by author."
+      reshare: 
+        few: "%{count} Reshares"
+        many: "%{count} Reshares"
+        one: "1 Reshare"
+        other: "%{count} Reshares"
+        zero: "Reshare"
+      reshare_confirmation: "Reshare %{author} - %{text}?"
+      reshare_original: "Reshare orignial"
+      show_original: "Show Original"
+  search: "Sök"
+  services: 
+    create: 
+      success: "Autentiering lyckades."
+    destroy: 
+      success: "Du har nu kopplat bort tjänsten."
+    failure: 
+      error: "Det blev ett fel vid anslutning till tjänsten"
+    finder: 
+      friends: 
+        few: "%{count} vänner"
+        many: "%{count} vänner"
+        one: "1 vän"
+        other: "%{count} vänner"
+        zero: "inga vänner"
+      invite_your_friends_from: "Bjud in dina vänner från %{service}"
+      not_connected: "inte ansluten"
+    index: 
+      connect_to_facebook: "Anslut till facebook"
+      connect_to_tumblr: "Connect to Tumblr"
+      connect_to_twitter: "Anslut till twitter"
+      disconnect: "koppla från"
+      edit_services: "Anslutna tjänster"
+      logged_in_as: "inloggad som"
+      no_services: "You have not connected any services yet."
+      really_disconnect: "koppla från %{service}?"
+    inviter: 
+      click_link_to_accept_invitation: "Klicka på den här länken för att acceptera din inbjudan"
+      join_me_on_diaspora: "Join me on DIASPORA*"
+    remote_friend: 
+      invite: "bjud in"
+      resend: "skicka igen"
+  settings: "Inställningar"
+  shared: 
+    add_contact: 
+      add_new_contact: "Add a new contact"
+      create_request: "Sök på Diaspora-användarnamn"
+      diaspora_handle: "Diaspora-användarnamn"
+      enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
+      know_email: "Vet du deras e-post adress? Du borde bjuda in dom"
+      your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
+    contact_list: 
+      all_contacts: "Alla kontakter"
+    footer: 
+      logged_in_as: "inloggad som %{name}"
+      your_aspects: "dina aspekter"
+    invitations: 
+      by_email: "by Emaila"
+      dont_have_now: "Du har inga inbjudningar just nu, men fler kommer delas ut inom kort!"
+      from_facebook: "från Facebook"
+      invitations_left: "(%{count} kvar)"
+      invite_someone: "Bjud in en kontakt"
+      invite_your_friends: "Bjud in dina vänner"
+      invites: "Inbjudningar"
+      invites_closed: "Inbjudningar är för närvarande stängd på denna Diaspora server"
+    notification: 
+      new: "Ny %{type} från %{from}"
+    public_explain: 
+      logged_in: "inloggad på %{service}"
+      manage: "hantera anslutna tjänster"
+      outside: "Publika meddelanden kan läsas av användare utanför Diaspora."
+      title: "Du är på väg att skicka ett publikt meddelande!"
+    publisher: 
+      all: "alla"
+      all_contacts: "alla kontakter"
+      click_to_share_with: "Klicka för att dela med: "
+      discard_post: "Discard post"
+      make_public: "gör publik"
+      post_a_message_to: "Skicka ett meddelande till %{aspect}"
+      posting: "Skickar..."
+      public: "Publik"
+      publishing_to: "publicerar till: "
+      share: "Dela"
+      share_with: "dela med"
+      upload_photos: "Upload photos"
+      whats_on_your_mind: "Vad har du på hjärtat?"
+    reshare: 
+      reshare: "Återdela"
+    stream_element: 
+      dislike: "Jag ogillar det här"
+      like: "Jag gillar det här"
+      shared_with: "Shared with: %{aspect_names}"
+      unlike: "Sluta gilla"
+      via: "via %{link}"
+      viewable_to_anyone: "This post is viewable to anyone on the web"
+  status_messages: 
+    create: 
+      success: "Lyckades omnämna: %{names}"
+    destroy: 
+      failure: "Misslyckades att ta bort inlägg"
+    helper: 
+      no_message_to_display: "Inget meddelande att visa."
+    new: 
+      mentioning: "Omnämner: %{person}"
+    too_long: 
+      few: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      many: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      one: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      other: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+      zero: "ditt statusmeddelande får inte vara längre än %{count} bokstäver"
+  stream_helper: 
+    hide_comments: "dölj kommentarer"
+    show_more_comments: "Show %{number} more comments"
+  tag_followings: 
+    create: 
+      failure: "Failed to follow: #%{name}"
+      success: "Successfully following: #%{name}"
+    destroy: 
+      failure: "Failed to stop following: #%{name}"
+      success: "Successfully stopped following: #%{name}"
+  tags: 
+    show: 
+      follow: "Follow #%{tag}"
+      following: "Following #%{tag}"
+      nobody_talking: "Ingen talar om %{tag} än."
+      people_tagged_with: "Personer taggade med %{tag}"
+      posts_tagged_with: "Poster taggade med #%{tag}"
+      stop_following: "Stop Following #%{tag}"
+  tokens: 
+    show: 
+      connect_to_cubbies: "Connect to Cubbi.es"
+      connecting_is_simple: "Connecting your Diaspora account is as simple as filling out two fields on your Cubbi.es account page."
+      daniels_account: "Daniel's Diaspora account"
+      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      love_to_try: "We'd love for you to try it out."
+      making_the_connection: "Making the Connection"
+      screenshot_explanation: "%{link1}.  This particular cubby is linked to %{link2}."
+      sign_up_today: "Sign up today!"
+      typical_userpage: "A typical cubbi.es userpage"
+      via: "(via %{link})"
+      what_is_cubbies: "Cubbi.es is the world's first Diaspora application.  It's also the best way to collect photos online."
+  undo: "Ångra?"
+  username: "Användarnamn"
+  users: 
+    confirm_email: 
+      email_confirmed: "E-Mail %{email} activated"
+      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+    destroy: "Ditt konto är nu stängt."
+    edit: 
+      also_commented: "...någon har också kommenterat på din kontakts post?"
+      change: "Ändra"
+      change_email: "Change E-Mail"
+      change_language: "Ändra språk"
+      change_password: "Ändra lösenord"
+      close_account: "Stäng kontot"
+      comment_on_post: "...någon kommenterar på din post?"
+      current_password: "Nuvarande lösenord"
+      download_photos: "Ladda ner mina foton"
+      download_xml: "Ladda ner min xml"
+      edit_account: "Ändra konto"
+      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      export_data: "Exportera data"
+      liked: "...någon gillar ditt inlägg?"
+      mentioned: "...du är omnämnd i en post?"
+      new_password: "Nytt lösenord"
+      private_message: "...du mottar ett privat meddelande?"
+      receive_email_notifications: "Skicka meddelanden via e-post när..."
+      started_sharing: "...någon börjar dela med dig?"
+      your_email: "Din epost"
+      your_handle: "Ditt Diaspora-användarnamn"
+    getting_started: 
+      connect_to: "Connect to"
+      connect_to_your_other_social_networks: "Connect to your other social networks"
+      connect_with_people: "Connect with cool people"
+      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Featured tags"
+      featured_users: "Featured users"
+      fill_out_your_profile: "Fill out your profile"
+      find_friends: "Find friends"
+      find_friends_from_facebook: "find friends from Facebook"
+      finished: "Slutfört!"
+      follow_your_interests: "Follow your interests"
+      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_fields: 
+        bio: "Bio"
+        birthday: "Birthday"
+        gender: "Gender"
+        location: "Location"
+        name: "Name"
+        photo: "Photo"
+        tags: "Tags"
+      see_all_featured_users: "See all featured users"
+      welcome: "Välkommen till diaspora!"
+      welcome_with_name: "Welcome, %{name}!"
+    public: 
+      does_not_exist: "Användaren %{username} finns inte!"
+    update: 
+      email_notifications_changed: "E-post-notifieringar har ändrats"
+      language_changed: "Språk är nu ändrat"
+      language_not_changed: "Språket kunde inte ändras"
+      password_changed: "Lösenordet är nu ändrat."
+      password_not_changed: "Lösenordet kunde inte ändras"
+      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_not_changed: "E-Mail Change Failed"
+  webfinger: 
+    fetch_failed: "Kunde inte hämta webfinger-profil för %{profile_url}"
+    hcard_fetch_failed: "Kunde inte hämta hcard för #{@account}"
+    no_person_constructed: "Den här personen kunde inte hittas (hcard-fel)."
+    not_enabled: "Webfinger verkar inte vara påslaget på %{account}'s server"
+    xrd_fetch_failed: "kunde inte hämta xrd-fil från kontot %{account}"

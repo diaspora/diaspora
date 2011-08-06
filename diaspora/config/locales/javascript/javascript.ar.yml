@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ar: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "أضف إلى فئة"
+      toggle: 
+        few: "في {{count}} فئات"
+        many: "في {{count}} فئات"
+        one: "في {{count}} فئة"
+        other: "في {{count}} فئات"
+        zero: "أضف إلى فئة"
+    comments: 
+      hide: "أخفِ التعليقات"
+      show: "إعرض جميع التعليقات"
+    confirm_dialog: "هل أنت متأكد؟"
+    failed_to_like: "فشل في [أعجبني]"
+    failed_to_post_message: "فشل في نشر رسالة!"
+    infinite_scroll: 
+      no_more: "لا توجد أية رسائل أخرى"
+    publisher: 
+      at_least_one_aspect: "حدد فئة واحدة على الأقل"
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "إبحث عن {{name}}"
+    show_more: "المزيد"
+    timeago: 
+      day: "منذ يوم"
+      days: "منذ %d أيام"
+      hour: "منذ ساعة"
+      hours: "منذ %d ساعات"
+      minute: "منذ دقيقة"
+      minutes: "منذ %d دقائق"
+      month: "منذ شهر"
+      months: "منذ %d شهور"
+      prefixAgo: ""
+      prefixFromNow: "من الآن"
+      seconds: "منذ ثواني"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "منذ عام"
+      years: "منذ %d أعوام"
+    videos: 
+      unknown: "نوع فيديو غير معروف"
+      watch: "شاهد هذا الفيديو عبر {{provider}}"
+    web_sockets: 
+      disconnected: "الـ websocket مغلق; الرسائل لن تنشر بعد الآن"

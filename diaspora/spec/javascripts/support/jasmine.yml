@@ -1,0 +1,110 @@
+# src_files
+#
+# Return an array of filepaths relative to src_dir to include before jasmine specs.
+# Default: []
+#
+# EXAMPLE:
+#
+# src_files:
+#   - lib/source1.js
+#   - lib/source2.js
+#   - dist/**/*.js
+#
+src_files:
+  - public/javascripts/vendor/jquery152.min.js
+  - public/javascripts/vendor/jquery-ui-1.8.9.custom.min.js
+  - public/javascripts/vendor/jquery.tipsy.js
+  - public/javascripts/jquery.infieldlabel-custom.js
+  - public/javascripts/vendor/jquery.autoresize.min.js
+  - public/javascripts/vendor/jquery.expander.js
+  - public/javascripts/vendor/Mustache.js
+  - public/javascripts/vendor/charCount.js
+  - public/javascripts/vendor/timeago.js
+  - public/javascripts/jquery.autocomplete-custom.js
+  - public/javascripts/facebox-custom.js
+  - public/javascripts/diaspora.js
+  - public/javascripts/keycodes.js
+  - public/javascripts/widgets/alert.js
+  - public/javascripts/widgets/embedder.js
+  - public/javascripts/widgets/i18n.js
+  - public/javascripts/widgets/timeago.js
+  - public/javascripts/widgets/directionDetector.js
+  - public/javascripts/widgets/infinite-scroll.js
+  - public/javascripts/widgets/notifications.js
+  - public/javascripts/widgets/flashes.js
+  - public/javascripts/widgets/post.js
+  - public/javascripts/mobile.js
+  - public/javascripts/contact-list.js
+  - public/javascripts/web-socket-receiver.js
+  - public/javascripts/view.js
+  - public/javascripts/publisher.js
+  - public/javascripts/stream.js
+  - public/javascripts/validation.js
+  - public/javascripts/rails.js
+  - public/javascripts/aspect-filters.js
+  - public/javascripts/content-updater.js
+  - public/javascripts/xmpp.js
+  - public/javascripts/chatui.js
+  - public/javascripts/strophe.js
+  - public/javascripts/jingle-rtmfp.js
+# stylesheets
+#
+# Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.
+# Default: []
+#
+# EXAMPLE:
+#
+# stylesheets:
+#   - css/style.css
+#   - stylesheets/*.css
+#
+stylesheets:
+  - stylesheets/**/*.css
+
+# helpers
+#
+# Return an array of filepaths relative to spec_dir to include before jasmine specs.
+# Default: ["helpers/**/*.js"]
+#
+# EXAMPLE:
+#
+# helpers:
+#   - helpers/**/*.js
+#
+helpers:
+  - helpers/**/*.js
+
+# spec_files
+#
+# Return an array of filepaths relative to spec_dir to include.
+# Default: ["**/*[sS]pec.js"]
+#
+# EXAMPLE:
+#
+# spec_files:
+#   - **/*[sS]pec.js
+#
+spec_files:
+  - **/*[sS]pec.js
+
+# src_dir
+#
+# Source directory path. Your src_files must be returned relative to this path. Will use root if left blank.
+# Default: project root
+#
+# EXAMPLE:
+#
+# src_dir: public
+#
+src_dir:
+
+# spec_dir
+#
+# Spec directory path. Your spec_files must be returned relative to this path.
+# Default: spec/javascripts
+#
+# EXAMPLE:
+#
+# spec_dir: spec/javascripts
+#
+spec_dir: spec/javascripts

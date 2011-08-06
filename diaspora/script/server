@@ -1,0 +1,179 @@
+#!/bin/bash
+#
+# Start diaspora websocket and main services
+#
+
+realpath=$( ruby -e "puts File.expand_path(\"$0\")")
+cd $( dirname $realpath)/..
+OS=`uname -s`
+
+
+export RAILS_ENV=$(./script/get_config.rb rails_env script_server)
+THIN_PORT=$(./script/get_config.rb thin_port script_server)
+eval "DEFAULT_THIN_ARGS=\"$(./script/get_config.rb default_thin_args script_server)\""
+SOCKET_PORT=$(./script/get_config.rb socket_port $RAILS_ENV)
+
+# Backward compatibillity, overide default settings
+[ -e config/server.sh ] && source config/server.sh
+
+function init_public
+# Create all dynamically generated files in public/ folder
+{
+    bundle exec thin \
+         -d --pid log/thin.pid --address localhost --port $THIN_PORT \
+         start
+    for ((i = 0; i < 30; i += 1)) do
+        sleep 2
+        wget -q -O tmp/server.html http://localhost:$THIN_PORT && \
+            rm tmp/server.html && break
+    done
+    if [ -e 'log/thin.pid' ]; then
+        bundle exec thin --pid log/thin.pid stop
+    else
+        echo "Warning: Something is wrong in your installation, thin didn't come up for the first time initialization!" >&2
+        echo "Try starting it manually with bundle exec thin start and look at the output." >&2
+    fi
+    if [ -e tmp/server.html ]; then
+        echo "Cannot get index.html from web server (aborted)" >&2
+        return 2
+    fi
+    bundle exec jammit
+}
+
+
+function chk_service
+{
+    port=${1:?Missing port}
+    case $OS in
+    *[Bb][Ss][Dd]*|Darwin)
+        ## checks ipv[46]
+        netstat -anL | awk '{print $2}' | grep "\.$1$"
+    ;;
+    *)
+        # Is someone listening on the ports already? (ipv4 only test ?)
+        netstat -nl | grep '[^:]:'$port'[ \t]'
+    ;;
+    esac
+}
+
+
+function redis_config
+# Create/update the local redis.conf file from /etc master
+{
+    if [ ! -w config ]; then
+        # read-only installation, should be OK
+        return
+    fi
+
+    if [ -r "/etc/redis.conf" ]; then
+        redis_conf="/etc/redis.conf"
+    elif [ -r "/etc/redis/redis.conf" ]; then
+        redis_conf="/etc/redis/redis.conf"
+    elif [ -r "/opt/local/etc/redis.conf" ]; then
+        # MacPorts location
+        redis_conf="/opt/local/etc/redis.conf"
+    elif [ -r "/usr/local/etc/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis.conf"
+    elif [ -r "/usr/local/etc/redis/redis.conf" ]; then
+        redis_conf="/usr/local/etc/redis/redis.conf"
+    else
+        echo "Don't know how to configure redis for this platform. Copy the configuration file redis.conf to the config directory and patch it manually. In particular, don't daemonize." >&2
+        return
+    fi
+
+    if [ config/redis.conf -nt $redis_conf ]
+    then
+        return
+    fi
+
+    cp $redis_conf config/redis.conf
+    sed -i -e '/^[^#]*daemonize/s/yes/no/'                               \
+           -e '/^[^#]*logfile/s|.*|logfile /var/log/diaspora/redis.log|' \
+        config/redis.conf
+}
+
+
+# Scan for -p, find out what port thin is about to use.
+args="$DEFAULT_THIN_ARGS $@"
+prev_arg=''
+for arg in $( echo $args | awk '{ for (i = 1; i <= NF; i++) print $i}')
+do
+    [ "$prev_arg" = '-p' ] && THIN_PORT="$arg"
+    prev_arg="$arg"
+done
+
+
+# Is someone listening on the ports already? (ipv4 only test ?)
+services=$( chk_service $THIN_PORT )
+if [ -n "$services" ]; then
+    echo "FATAL: Error: thin port $THIN_PORT is already in use. Exiting" >&2
+    echo "     $services"
+    exit 64
+fi
+
+services=$( chk_service $SOCKET_PORT )
+if [ -n "$services" ]; then
+    echo "FATAL: Error: websocket port $SOCKET_PORT is already in use. Exiting" >&2
+    echo "     $services"
+    exit 64
+fi
+
+# See http://bugs.joindiaspora.com/issues/722
+services=$( chk_service 5379 )
+if [ -n "$services" ]; then
+    echo "FATAL: Error:  Someone (another redis server?) is using redis port 5379" >&2
+    echo "     $services"
+    exit 64
+fi
+
+# Force AGPL
+if [ -w public -a ! -e  public/source.tar.gz ]; then
+    branch=$( git branch | awk '/^[*]/ {print $2}')
+    tar czf public/source.tar.gz  `git ls-tree -r $branch | awk '{print $4}'`
+fi
+if [ ! -e public/source.tar.gz ]; then
+    echo "FATAL: Error: Can't find, or even create, public/source.tar.gz. Exiting" >&2
+    exit 65
+fi
+
+
+# Check if database.yml exists
+if [ ! -e 'config/database.yml' ]; then
+    echo 'FATAL: config/database.yml is missing! Copy over config/database.yml.example to config/database.yml and edit it properly!' >&2
+    exit 68
+fi
+
+
+# Precache jammit assets
+#if [[ -w public  && ! -e 'public/stylesheets/application.css' ]]; then
+#    if [ "$INIT_PUBLIC" != 'no' ]; then
+#        echo "Making first-time server initialization."
+#        init_public
+#    fi
+#fi
+
+#if [ ! -e 'public/stylesheets/application.css' ]; then
+#    echo 'WARNING: Jammit precache error (now or at install)' >&2
+#fi
+
+if [ ! -e 'public/assets/default.css' ]; then
+    if [ "$RAILS_ENV" == 'production' ]; then
+        echo "INFO: If you want further performance improvements," >&2
+        echo "after the first request to the page after each git pull, run:" >&2
+        echo "bundle exec jammit" >&2
+    fi
+fi
+
+mkdir -p -v log/thin/
+if [ "$(./script/get_config.rb single_process_mode $RAILS_ENV)" = "false" ]; then
+    redis_config
+    redis-server config/redis.conf &>log/redis-console.log &
+
+    QUEUE=* bundle exec rake resque:work&
+    
+    bundle exec ruby ./script/websocket_server.rb&
+fi
+
+if [ "$(./script/get_config.rb enable_thin script_server)" = "true" ]; then
+    bundle exec thin start $args
+fi

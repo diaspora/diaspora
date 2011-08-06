@@ -1,0 +1,21 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#author_info
+  = person_image_link(@person)
+  .from
+    %h2
+      = @person.name
+
+.span-14.append-1.last
+  #show_text
+    %p
+      = markdownify(@post.text, :youtube_maps => @post[:youtube_titles])
+
+    - for photo in @post.photos
+      .thumb_small= link_to (image_tag photo.url(:thumb_small)), public_post_path(photo)
+
+  .time
+    = how_long_ago(@post)
+  = link_to t('posts.show.permalink'), public_post_path(@post)

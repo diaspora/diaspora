@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ro: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Adaugă la aspect"
+      toggle: 
+        few: "În {{count}} aspecte"
+        many: "În {{count}} aspecte"
+        one: "În {{count}} aspect"
+        other: "În {{count}} aspecte"
+        zero: "Adaugă la aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
+    confirm_dialog: "Sunteţi sigur?"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
+    infinite_scroll: 
+      no_more: "Nu mai sunt posturi."
+    publisher: 
+      at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "Caută {{name}}"
+    show_more: "show more"
+    timeago: 
+      day: "o zi"
+      days: "%d zile"
+      hour: "o ora"
+      hours: "%d ore"
+      minute: "un minut"
+      minutes: "%d minute"
+      month: "o luna"
+      months: "%d luni"
+      prefixAgo: "acum"
+      prefixFromNow: "in timp de"
+      seconds: "mai putin de un minut"
+      suffixAgo: ""
+      suffixFromNow: ""
+      year: "un an"
+      years: "%d ani"
+    videos: 
+      unknown: "Format de video necunoscut"
+      watch: "Vizualizează acest video pe {{provider}}"
+    web_sockets: 
+      disconnected: "Websocket-ul e închis; posturile nu vor mai fi transmise în direct."

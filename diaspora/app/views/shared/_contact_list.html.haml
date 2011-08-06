@@ -1,0 +1,21 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+
+.contact_list_controls
+  = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
+  = t('contacts', :count =>@aspect_contacts_count)
+
+.contact_list
+  %ul
+    - for contact in contacts
+      %li{:data=>{:contact_id=>contact.id}}
+        = person_image_tag contact.person
+        .name
+          = link_to contact.person.name, contact.person
+          .diaspora_id
+            = contact.person.diaspora_handle
+        .right
+          = aspect_membership_button(aspect, contact, contact.person)
+

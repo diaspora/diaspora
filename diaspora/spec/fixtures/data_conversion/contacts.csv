@@ -1,0 +1,7 @@
+mongo_id,user_mongo_id,person_mongo_id,pending,created_at,updated_at
+4d2b6eb7cc8cb43cc200000f,4d2b6eb6cc8cb43cc2000007,4d2b6eb7cc8cb43cc200000e,false,,
+4d2b6eb7cc8cb43cc2000010,4d2b6eb6cc8cb43cc200000b,4d2b6eb6cc8cb43cc200000a,false,,
+4d2b6eb7cc8cb43cc2000013,4d2b6eb6cc8cb43cc200000b,4d2b6eb7cc8cb43cc2000011,false,,
+4d2b6eb7cc8cb43cc200001c,4d2b6eb7cc8cb43cc2000014,4d2b6eb7cc8cb43cc200001b,true,,
+4d2b6eb8cc8cb43cc2000022,4d2b6eb7cc8cb43cc2000014,4d2b6eb8cc8cb43cc2000020,true,,
+4d2b6ec2cc8cb43cc2000035,4d2b6eb7cc8cb43cc2000018,4d2b6ec2cc8cb43cc2000034,false,,

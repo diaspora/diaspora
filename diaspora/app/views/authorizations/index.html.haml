@@ -1,0 +1,27 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+#section_header
+  %h2
+    = t('settings')
+  = render 'shared/settings_nav'
+
+.span-19.prepend-5.last
+  #applications_stream.stream
+    - if @applications.count > 0
+      - for app in @applications
+        .stream_element{:id => app.id}
+          .right
+            = link_to t('.revoke_access'), authorization_path(:id => app.id), :method => :delete, :confirm => 'are you sure?', :class => "button"
+
+          - if app.icon_url
+            = image_tag(app.application_base_url + app.icon_url, :class => "avatar")
+
+          .content
+            %div.from
+              = link_to app.name, app.application_base_url
+            = app.description
+
+    - else
+      You haven't registered any applications yet.

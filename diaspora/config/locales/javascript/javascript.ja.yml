@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+ja: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In {{count}} aspects"
+        many: "In {{count}} aspects"
+        one: "In {{count}} aspect"
+        other: "In {{count}} aspects"
+        zero: "Add to aspect"
+    comments: 
+      hide: "hide comments"
+      show: "show all comments"
+    confirm_dialog: "本当にいいですか。"
+    failed_to_like: "Failed to like!"
+    failed_to_post_message: "Failed to post message!"
+    infinite_scroll: 
+      no_more: "投稿はこれ以上ありません。"
+    publisher: 
+      at_least_one_aspect: "アスペクトを選択してから投稿してください。"
+    reshares: 
+      duplicate: "You've already reshared that post!"
+    search_for: "{{name}}を検索する"
+    show_more: "show more"
+    timeago: 
+      day: "1日"
+      days: "%d日"
+      hour: "大体1時間"
+      hours: "大体%d時間"
+      minute: "約1分"
+      minutes: "%d分"
+      month: "大体1ヶ月"
+      months: "%dヶ月"
+      prefixAgo: ""
+      prefixFromNow: "今から"
+      seconds: "1分未満"
+      suffixAgo: "前"
+      suffixFromNow: "後"
+      year: "大体1年"
+      years: "%d年"
+    videos: 
+      unknown: "動画の種類が不明です"
+      watch: "{{provider}}で動画を視聴する"
+    web_sockets: 
+      disconnected: "接続が解除されました。投稿のリアルタイム更新を中断します。"

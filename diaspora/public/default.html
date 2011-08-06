@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Diaspora: Getting Started</title>
+    <style type="text/css">
+      ol {
+        padding: 0;
+      }
+      h1, h2, h3 {
+        letter-spacing: -1px;
+      }
+      h1 {
+        color: #111;
+        text-shadow: 2px 0 0 white;
+      }
+
+      h2 {
+        color: #444;
+      }
+
+      h3 {
+        color: #777;
+      }
+
+      #steps li{
+        display: inline-block;
+        width: 30%;
+        padding: 1%;
+        text-align: center;
+        vertical-align: top;
+      }
+
+      p{
+        font-family: 'helvetica';
+      }
+
+      #links {
+        margin: 0;
+        padding: 0;
+      }
+      #links .section {
+        margin: 0;
+        padding: 0;
+        display: inline-block;
+        vertical-align: top;
+        width: 24%;
+        max-width: 24%;
+      }
+
+      code {
+        background-color: #D9FFA9;
+      }
+
+      #login-link {
+        float: right;
+        padding: 3px 5px;
+        background: #f0f0f0;
+        border: 1px solid #ddd;
+        border-radius: 3px;
+        font-weight: bold;
+      }
+
+      #login-link:hover{
+        text-decoration: none;
+        background-color: #fff;
+      }
+
+      #change-page {
+        color: #999;
+        text-align: center;
+        font-style: italic;
+      }
+
+      #change-page code {
+        background: none;
+      }
+
+      footer .container {
+        margin-top: 15px;
+      }
+
+      .helpful {
+        cursor: help;
+      }
+
+    </style>
+  </head>
+
+  <body>
+    <div id="page">
+      <div id="contentr">
+        <div id="header" style="margin-bottom:24px;">
+          <a id="login-link" href="login">Log In</a>
+          <img src='images/logo_caps.png'/>
+        </div>
+
+        <div id="about" style='display:none;'>
+          <h3><a href="rails/info/properties" onclick="about(); return false;">About your pod&rsquo;s environment</a></h3>
+          <div id="about-content" style="display: none"></div>
+        </div>
+
+        <hr>
+        <div id="getting-started">
+          <h1>Welcome, friend.</h1>
+          <h3>You're about to change the Internet.  Let's get you set up, shall we?</h3>
+
+          <hr>
+          <br>
+          <br>
+
+          <ol id="steps">
+            <li>
+              <h2>Configure your <abbr class="helpful" title="A Diaspora installation">pod</abbr></h2>
+              <img src='images/icons/cog.png'/>
+              <p>Look at <code class="helpful" title='General pod configuration (location to upload photos, SSL certs, etc.)'>config/application.yml.example</code> and <code class="helpful" title="mySQL username/password">config/database.yml.example</code> for help.</p>
+            </li>
+
+            <li>
+              <h2>Try it out</h2>
+              <img src='images/icons/smiley_laughing.png'/>
+              <p>Start by <a href="users/sign_up">creating an account</a>.</p>
+            </li>
+
+            <li>
+              <h2>Make a contribution!</h2>
+              <img src='images/icons/pen_write.png'/>
+              <p>Make Diaspora even better!  Fork the project on <a href="http://github.com/diaspora/diaspora/" title="github">github</a>, make some changes, and submit a pull request.</p>
+            </li>
+          </ol>
+        </div>
+      </div>
+
+      <br>
+      <br>
+
+      <hr>
+
+      <br>
+
+
+      <h3>Useful Resources</h3>
+      <ul id="links">
+        <ul class="section">
+          <li><strong><a href="http://github.com/diaspora/diaspora/" title="Git repository">Codebase</a></strong></li>
+          <li><strong><a href="http://github.com/diaspora/diaspora/wiki" title="Wiki on github">Documentation</a></strong></li>
+          <br>
+          <li><a href="http://bugs.joindiaspora.com/" title="Bug tracker">Find & Report bugs</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://webchat.freenode.net/?channels=diaspora" title="#diaspora">IRC - General</a></li>
+          <li><a href="http://webchat.freenode.net/?channels=diaspora-dev" title="#diaspora-dev">IRC - Development</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://groups.google.com/group/diaspora-discuss" title="General discussion mailing list">Discussion - General</a></li>
+          <li><a href="http://groups.google.com/group/diaspora-dev" title="Dev mailing list">Discussion - Development</a></li>
+        </ul>
+        <ul class="section">
+          <li><a href="http://getsatisfaction.com/diaspora/" title="Get Satisfaction">User Feedback</a></li>
+          <li><a href="http://guides.rubyonrails.org/">Learn more about Ruby On Rails!</a></li>
+        </ul>
+      </ul>
+    </div>
+
+    <br>
+    <br>
+
+    <hr>
+
+    <div id="change-page">
+      This page can be changed to a custom landing page by creating <code>app/views/home/_show.html.haml</code>
+    </div>
+  </body>
+</html>

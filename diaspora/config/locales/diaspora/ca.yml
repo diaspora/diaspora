@@ -1,0 +1,845 @@
+#   Copyright © 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+#
+#   Catalan translation of Diaspora.
+#   Jordi Mallach <jordi@softcatala.org>, 2011.
+#   Abans d'actualitzar aquesta traducció, si us plau poseu-vos en contacte
+#   amb Jordi Mallach o Softcatalà <info@softcatala.org>.
+
+
+ca:
+  settings: "Paràmetres"
+  profile: "Perfil"
+  account: "Compte"
+  _services: "Serveis"
+  _applications: "Aplicacions"
+  _photos: "fotos"
+  ok: "D'acord"
+  cancel: "Canceŀla"
+  delete: "Suprimeix"
+  hide: "Amaga"
+  undo: "Voleu desfer-ho?"
+  or: "o"
+  ago: "fa %{time}"
+  username: "Nom d'usuari"
+  email: "Correu electrònic"
+  password: "Contrasenya"
+  password_confirmation: "Confirmació de la contrasenya"
+  are_you_sure: "N'esteu segur?"
+  fill_me_out: "Emplena'm"
+  back: "Enrere"
+  public: "Públic"
+  limited: "Limitat"
+  search: "Cerca"
+  find_people: "Cerqueu gent"
+  _home: "Inici"
+  more: "Més"
+  next: "següent"
+  previous: "anterior"
+  _comments: "Comentaris"
+  all_aspects: "Tots els aspectes"
+  no_results: "No s'ha trobat cap resultat"
+  _contacts: "Contactes"
+
+
+  activerecord:
+    errors:
+      models:
+        user:
+          attributes:
+            person:
+              invalid: "és invàlid."
+            username:
+              taken: "ja és en ús."
+            email:
+              taken: "ja és en ús."
+        person:
+          attributes:
+            diaspora_handle:
+              taken: "ja és en ús."
+        contact:
+          attributes:
+            person_id:
+              taken: "ha de ser únic entre els contactes d'aquest usuari."
+        request:
+          attributes:
+            from_id:
+              taken: "és un duplicat d'una petició ja existent."
+        reshare:
+          attributes:
+            root_guid:
+              taken: "Ja heu tornat a compartir aquesta publicació!"
+
+
+  error_messages:
+    helper:
+      invalid_fields: "Camps invàlids"
+      correct_the_following_errors_and_try_again: "Corregiu els errors següents i torneu-ho a provar."
+
+
+  application:
+    helper:
+      unknown_person: "persona desconeguda"
+      video_title:
+        unknown: "Títol del vídeo desconegut"
+      diaspora_alpha: "DIÀSPORA* ALFA"
+
+
+  aspects:
+    zero: "cap aspecte"
+    one: "1 aspecte"
+    few: "%{count} aspectes"
+    many: "%{count} aspectes"
+    other: "%{count} aspectes"
+    contacts_visible: "Els contactes en aquest aspecte es podran veure entre ells."
+    contacts_not_visible: "Els contactes en aquest aspecte no es podran veure entre ells."
+    edit:
+      make_aspect_list_visible: "voleu fer visible aquest aspecte?"
+      remove_aspect: "Suprimeix aquest aspecte"
+      confirm_remove_aspect: "Esteu segur de voler suprimir aquest aspecte?"
+      add_existing: "Afegeix un contacte existent"
+      done: "Fet"
+      rename: "canvia el nom"
+      aspect_list_is_visible: "la llista de l'aspecte és visible a tots els membres de l'aspecte"
+      aspect_list_is_not_visible: "la llista de l'aspecte està amagada per a tots els membres de l'aspecte"
+      update: "actualitza"
+      updating: "s'està actualitzant"
+    aspect_contacts:
+      done_editing: "finalitza l'edició"
+    aspect_stream:
+      stream: "Flux"
+      recently: "recentment:"
+      commented_on: "comentat"
+      posted: "publicat"
+    show:
+      edit_aspect: "edita l'aspecte"
+    no_posts_message:
+      start_talking:  "Ningú no ha dit res encara!"
+      try_adding_some_more_contacts: "Proveu d'afegir alguns contactes més."
+    aspect_listings:
+      add_an_aspect: "+ Afegeix un aspecte"
+
+    selected_contacts:
+      view_all_contacts: "Mostra tots els contactes"
+      no_contacts: "Encara no teniu cap contacte aquí."
+      manage_your_aspects: "Gestioneu els vostres aspectes."
+    new:
+      name: "Nom"
+      create: "Crea'l"
+    create:
+      success: "S'ha creat el vostre aspecte nou %{name}"
+      failure: "Ha fallat la creació de l'aspecte."
+    destroy:
+      success: "S'ha suprimit %{name} amb èxit."
+      failure: "%{name} no és buit i no es pot suprimir."
+    update:
+      success: "S'ha editat l'aspecte %{name} amb èxit."
+      failure: "El nom de l'aspecte %{name} és massa llarg i no es pot desar."
+    move_contact:
+      failure: "no ha funcionat %{inspect}"
+      success: "La persona s'ha mogut a l'aspecte nou"
+      error: "S'ha produït un error en moure el contacte: %{inspect}"
+    add_to_aspect:
+      failure: "No s'ha pogut afegir el contacte a l'aspecte."
+      success: "S'ha afegit el contacte a l'aspecte amb èxit."
+    helper:
+      remove: "suprimeix"
+      aspect_not_empty: "L'aspecte no és buit"
+      are_you_sure: "Esteu segur de voler suprimir aquest aspecte?"
+    seed:
+      family: "Família"
+      work: "Feina"
+    index:
+      your_aspects: "Els vostres aspectes"
+      tags_following: "Etiquetes que seguiu"
+      no_tags: "Cap etiqueta"
+      handle_explanation: "Aquest és el vostre identificador de Diàspora. Com les adreces de correu, podeu donar això a la gent per a que us contacte."
+      no_contacts: "Cap contacte"
+      post_a_message: "publica un missatge »"
+      people_sharing_with_you: "Gent amb qui compartiu"
+      cubbies:
+        heading: "Connecteu a Cubbi.es"
+        explanation: "Cubbi.es és la primera aplicació Diàspora sota desenvolupament."
+        learn_more: "Més informació"
+      diaspora_id:
+        heading: "ID de Diàspora"
+        content_1: "El vostre identificador de Diàspora és:"
+        content_2: "Compartiu-lo amb tothom qui vulgueu que us pugui trobar al Diàspora."
+      services:
+        heading: "Connecteu serveis"
+        content: "Podeu connectar els serveis següents al Diàspora:"
+
+
+  aspect_memberships:
+    destroy:
+      success: "S'ha suprimit a la persona de l'aspecte amb èxit"
+      failure: "No s'ha pogut suprimir a la persona de l'aspecte"
+      no_membership: "No s'ha trobat a la persona seleccionada a l'aspecte"
+    aspect_dropdown:
+      add_to_aspect: "Afegeix a un aspecte"
+      toggle:
+        zero: "Afegeix a aspectes"
+        one: "En %{count} aspecte"
+        few: "En %{count} aspectes"
+        many: "En %{count} aspectes"
+        other: "En %{count} aspectes"
+
+
+  bookmarklet:
+    # XXX: Miniaplicació enllaçada és simplement horrible (TERMCAT). jm
+    heading: "Miniaplicació enllaçada"
+    post_success: "S'ha publicat! S'està tancant!"
+    post_something: "Publiqueu alguna cosa al Diàspora"
+    explanation: "%{link} des de qualsevol lloc afegint aquest enllaç a les adreces d'interès."
+    explanation_link_text: "Publiqueu al Diàspora"
+
+
+  comments:
+    zero: "cap comentari"
+    one: "1 comentari"
+    few: "%{count} comentaris"
+    many: "%{count} comentaris"
+    other: "%{count} comentaris"
+    new_comment:
+      comment: "Comenta"
+      commenting: "S'està comentant…"
+
+
+  contacts:
+    zero: "cap contacte"
+    one: "1 contacte"
+    few: "%{count} contactes"
+    many: "%{count} contactes"
+    other: "%{count} contactes"
+    create:
+      failure: "No s'ha pogut crear el contacte"
+    sharing:
+      people_sharing: "Gent que comparteix amb vosaltres:"
+    index:
+      edit_aspect: "Edita %{name}"
+      start_a_conversation: "Inicia una conversa nova"
+      add_a_new_aspect: "Afegeix un aspecte nou"
+      title: "Contactes"
+      your_contacts: "Els vostres contactes"
+      no_contacts: "Cap contacte."
+      my_contacts: "Els meus contactes"
+      all_contacts: "Tots els contactes"
+      only_sharing_with_me: "Només compartint amb mi"
+      remove_person_from_aspect: "Suprimeix a %{person_name} de l'aspecte «%{aspect_name}»"
+      many_people_are_you_sure: "Esteu segur que voleu iniciar una conversa privada amb més de %{suggested_limit} contactes? Publicar a aquest aspecte pot ser una forma millor de contactar amb ells."
+
+
+  conversations:
+    index:
+      message_inbox: "Bústia d'entrada"
+      new_message: "Missatge nou"
+      no_conversation_selected: "no hi ha cap conversa seleccionada"
+      create_a_new_message: "crea un missatge nou"
+      no_messages: "no hi ha missatges"
+      inbox: "Bústia d'entrada"
+    show:
+      reply: "respon"
+      delete: "suprimeix i bloca la conversa"
+    new:
+      to: "a"
+      subject: "assumpte"
+      send: "Envia"
+      sending: "S'està enviant…"
+      abandon_changes: "Voleu descartar els canvis?"
+    helper:
+      new_messages:
+        zero: "Cap missatge nou"
+        one: "1 missatge nou"
+        few: "%{count} missatges nous"
+        many: "%{count} missatges nous"
+        other: "%{count} missatges nous"
+    create:
+      sent: "S'ha enviat el missatge"
+    destroy:
+      success: "S'ha suprimit la conversa amb èxit"
+
+
+  date:
+    formats:
+      fullmonth_day: "%B %d"
+      birthday: "%B %d"
+      birthday_with_year: "%B %d %Y"
+
+
+  home:
+    show:
+      share_what_you_want: "Compartiu el que vulgueu, amb qui vulgueu."
+      tagline_first_half: "Compartiu el que vulgueu,"
+      tagline_second_half: "amb qui vulgueu."
+      already_account: "ja teniu un compte?"
+      login_here: "Identifiqueu-vos aquí"
+      choice: "Elecció"
+      choice_explanation: "El Diàspora us permet ordenar les vostres connexions en grups anomenats aspectes. Únics al Diàspora, els aspectes asseguren que les vostres fotos, històries i acudits només són compartits amb les persones que vosaltres voleu."
+      ownership: "Pertinença"
+      ownership_explanation: "Les vostres imatges us pertanyen, i no hauríeu de renunciar a això només per poder compartir-les. Conserveu la propietat de tot el que compartiu al Diàspora, i això us dona control total sobre la seva distribució."
+      simplicity: "Simplicitat"
+      simplicity_explanation: "El Diàspora fa que compartir siga net i fàcil – i això també s'aplica a la privacitat. Inherentment privat, el Diàspora no fa que us hagueu de perdre entre pàgines de paràmetres i opcions només per mantenir el vostre perfil segur."
+      learn_about_host: "Aprengueu com hostatjar el vostre servidor de Diàspora propi."
+
+
+  invitations:
+    create:
+      sent: "S'ha enviat invitacions a: "
+      rejected: "Les adreces següents han tingut problemes: "
+      no_more: "No teniu més invitacions."
+      already_sent: "Ja heu convidat aquesta persona."
+      already_contacts: "Ja esteu connectat a aquesta persona"
+      own_address: "No podeu enviar una invitació a la vostra pròpia adreça."
+    new:
+      invite_someone_to_join: "Convideu algú a unir-se al Diàspora!"
+      if_they_accept_info: "si accepten, seran afegits a l'aspecte al qual l'heu convidat."
+      comma_seperated_plz: "Podeu introduir múltiples adreces de correu separades per comes."
+      to: "A"
+      personal_message: "Missatge personal"
+      send_an_invitation: "Envia una invitació"
+      send_invitation: "Envia una invitació"
+      aspect: "Aspecte"
+      already_invited: "Les persones següents no han acceptat la vostra invitació:"
+      resend: "Torna-la a enviar"
+    check_token:
+      not_found: "No s'ha trobat el testimoni de la invitació"
+    edit:
+      sign_up: "registreu-vos"
+
+
+  layouts:
+    header:
+      profile: "perfil"
+      settings: "paràmetres"
+      logout: "surt"
+      blog: "bloc"
+      login: "entra"
+      code: "codi"
+      admin: "administra"
+      view_all: "Mostra-ho tot"
+      recent_notifications: "Notificacions recents"
+    application:
+      powered_by: "FUNCIONA AMB DIÀSPORA*"
+      whats_new: "què és nou?"
+      have_a_problem: "Teniu un problema? Trobeu aquí una resposta"
+      toggle: "commuta el lloc per a mòbils"
+      public_feed: "Canal públic del Diàspora per a %{name}"
+      your_aspects: "els vostres aspectes"
+
+
+  likes:
+    likes:
+      people_like_this:
+        zero: "a cap persona li agrada"
+        one: "li agrada a 1 persona"
+        few: "li agrada a %{count} persones"
+        many: "li agrada a %{count} persones"
+        other: "li agrada a %{count} persones"
+      people_like_this_comment:
+        zero: "a cap persona li agrada"
+        one: "li agrada a 1 persona"
+        few: "li agrada a %{count} persones"
+        many: "li agrada a %{count} persones"
+        other: "li agrada a %{count} persones"
+      people_dislike_this:
+        zero: "a cap persona li desagrada"
+        one: "li desagrada a 1 persona"
+        few: "li desagrada a %{count} persones"
+        many: "li desagrada a %{count} persones"
+        other: "li desagrada a %{count} persones"
+
+
+  notifications:
+    started_sharing:
+      zero: "%{actors} han començat a compartir amb vosaltres."
+      one: "%{actors} ha començat a compartir amb vosaltres."
+      few: "%{actors} ha començat a compartir amb vosaltres."
+      many: "%{actors} ha començat a compartir amb vosaltres."
+      other: "%{actors} ha començat a compartir amb vosaltres."
+    private_message:
+      zero: "%{actors} t'han enviat un missatge."
+      one: "%{actors} t'ha enviat un missatge."
+      few: "%{actors} t'han enviat un missatge."
+      many: "%{actors} t'han enviat un missatge."
+      other: "%{actors} t'han enviat un missatge."
+    comment_on_post:
+      zero: "%{actors} han comentat la vostra %{post_link}."
+      one: "%{actors} ha comentat la vostra %{post_link}."
+      few: "%{actors} han comentat la vostra %{post_link}."
+      many: "%{actors} han comentat la vostra %{post_link}."
+      other: "%{actors} han comentat la vostra %{post_link}."
+    also_commented:
+      zero: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      one: "%{actors} també ha comentat la %{post_link} de %{post_author}."
+      few: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      many: "%{actors} també han comentat la %{post_link} de %{post_author}."
+      other: "%{actors} també han comentat la %{post_link} de %{post_author}."
+    mentioned:
+      zero: "%{actors} us han mencionat en una %{post_link}."
+      one: "%{actors} us ha mencionat en una %{post_link}."
+      few: "%{actors} us han mencionat en una %{post_link}."
+      many: "%{actors} us han mencionat en una %{post_link}."
+      other: "%{actors} us han mencionat en una %{post_link}."
+    liked:
+      zero: "A %{actors} els acaba d'agradar la vostra %{post_link}."
+      one: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      few: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      many: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+      other: "A %{actors} li acaba d'agradar la vostra %{post_link}."
+    post: "publicació"
+    also_commented_deleted:
+      zero: "%{actors} han comentat una publicació suprimida."
+      one: "%{actors} ha comentat una publicació suprimida."
+      few: "%{actors} han comentat una publicació suprimida."
+      many: "%{actors} han comentat una publicació suprimida."
+      other: "%{actors} han comentat una publicació suprimida."
+    liked_post_deleted:
+      zero: "A %{actors} els agradava la vostra publicació suprimida."
+      one: "A %{actors} li agradava la vostra publicació suprimida."
+      few: "A %{actors} els agradava la vostra publicació suprimida."
+      many: "A %{actors} els agradava la vostra publicació suprimida."
+      other: "A %{actors} els agradava la vostra publicació suprimida."
+    mentioned_deleted:
+      zero: "%{actors} us han mencionat en una publicació suprimida."
+      one: "%{actors} us ha mencionat en una publicació suprimida."
+      few: "%{actors} us han mencionat en una publicació suprimida."
+      many: "%{actors} us han mencionat en una publicació suprimida."
+      other: "%{actors} us han mencionat en una publicació suprimida."
+    index:
+      notifications: "Notificacions"
+      mark_all_as_read: "Marca-les totes com a llegides"
+      and_others:
+        zero: "i ningú més"
+        one: "i una persona més"
+        few: "i %{count} més"
+        many: "i %{count} més"
+        other: "i %{count} més"
+      and: "i"
+    helper:
+      new_notifications:
+        zero: "Cap notificació nova"
+        one: "1 notificació nova"
+        few: "%{count} notificacions noves"
+        many: "%{count} notificacions noves"
+        other: "%{count} notificacions noves"
+
+
+  notifier:
+    email_sent_by_diaspora: "Aquest correu electrònic ha sigut enviat per Diàspora. Si voleu deixar de rebre correus com aquest,"
+    click_here: "feu clic aquí"
+    hello: "Hola %{name}!"
+    thanks: "Gràcies,"
+    to_change_your_notification_settings: "per canviar els paràmetres del correu"
+    single_admin:
+      subject: "Un missatge sobre el vostre compte de Diàspora:"
+      admin: "L'administrador de Diàspora"
+    started_sharing:
+      subject: "%{name} ha començat a compartir amb vosaltres al Diàspora*"
+      sharing: "ha començat a compartir amb vosaltres!"
+      view_profile: "Visualitza el perfil de %{name}"
+    comment_on_post:
+      reply: "Contesta o visualitza la publicació de %{name} >"
+    mentioned:
+      subject: "%{name} t'ha mencionat al Diàspora*"
+      mentioned: "t'ha mencionat en una publicació:"
+    private_message:
+      reply_to_or_view: "Contesta o visualitza aquesta conversa >"
+    liked:
+      liked: "A %{name} li ha agradat la vostra publicació"
+      view_post: "visualitza la publicació >"
+    confirm_email:
+      subject: "Activeu la vostra adreça de correu electrònic %{unconfirmed_email}"
+      click_link: "Per activar la vostra adreça de correu electrònic %{unconfirmed_email}, seguiu aquest enllaç:"
+
+
+  people:
+    zero: "cap persona"
+    one: "1 persona"
+    few: "%{count} persones"
+    many: "%{count} persones"
+    other: "%{count} persones"
+    person:
+      pending_request: "Petició pendent"
+      already_connected: "Ja connectat"
+      thats_you: "Sou vosaltres!"
+      add_contact: "afegeix un contacte"
+    index:
+      results_for: "resultats de la cerca per a"
+      no_results: "Ep! Heu de cercar alguna cosa."
+      couldnt_find_them_send_invite: "No l'heu trobat? Envieu-li una invitació!"
+      no_one_found: "… i no s'ha trobat ningú."
+    webfinger:
+      fail: "No s'ha trobat a %{handle}."
+    show:
+      no_posts: "no hi ha publicacions a mostrar!"
+      you_have_no_tags: "no teniu cap etiqueta!"
+      add_some: "afegiu-ne alguna"
+      edit: "edita"
+      incoming_request: "%{name} vol compartir amb vosaltres"
+      return_to_aspects: "Torneu a la pàgina d'aspectes"
+      to_accept_or_ignore: "per a acceptar-ho o descartar-ho."
+      does_not_exist: "Aquesta persona no existeix!"
+      not_connected: "No esteu compartint amb aquesta persona"
+      recent_posts: "Publicacions recents"
+      recent_public_posts: "Publicacions públiques recents"
+      see_all: "Visualitza'ls tots"
+      start_sharing: "comença a compartir"
+      message: "Envia-li un missatge"
+      mention: "Menciona'l"
+    profile_sidebar:
+      remove_contact: "suprimeix el contacte"
+      edit_my_profile: "Edita el meu perfil"
+      bio: "biografia"
+      location: "Ubicació"
+      gender: "gènere"
+      born: "aniversari"
+      in_aspects: "als aspectes"
+      remove_from: "Voleu suprimir a %{name} de l'aspecte %{aspect}?"
+    helper:
+      results_for: " resultats per a %{params}"
+      people_on_pod_are_aware_of: " persones a la beina són conscients de"
+    aspect_list:
+      edit_membership: "edita la pertinença de l'aspecte"
+    add_contact_small:
+      add_contact_from_tag: "afegeix un contacte d'una etiqueta"
+
+
+  photos:
+    show:
+      delete_photo: "Suprimeix la foto"
+      make_profile_photo: "fes-la la foto del perfil"
+      update_photo: "Actualitza la foto"
+      view: "mostra"
+      edit: "edita"
+      edit_delete_photo: "Edita la descripció de la foto / suprimeix la foto"
+      collection_permalink: "enllaç permanent a la colecció"
+      original_post: "Publicació original"
+    edit:
+      editing: "S'està editant"
+    photo:
+      view_all: "mostra totes les fotos de %{name}"
+    new:
+      new_photo: "Foto nova"
+      back_to_list: "Torna a la llista"
+      post_it: "publica-ho!"
+    create:
+      runtime_error: "Ha fallat la pujada de la foto. Heu comprovat que porteu el cinturó de seguretat?"
+      integrity_error: "Ha fallat la pujada de la foto. Esteu segur que això era una imatge?"
+      type_error: "Ha fallat la pujada de la foto. Esteu segur d'haver afegit una imatge?"
+    update:
+      notice: "S'ha actualitzat la foto amb èxit."
+      error:  "No s'ha pogut editar la foto."
+    destroy:
+      notice: "S'ha suprimit la foto."
+    new_photo:
+      invalid_ext: "{file} té una extensió invàlida. Només es permeten les extensions {extensions}."
+      size_error: "{file} és massa gran. La mida màxima dels fitxers és {sizeLimit}."
+      empty: "{file} és buit. Seleccioneu els fitxers de nou, sense incloure aquest."
+    new_profile_photo:
+      upload: "Pengeu una foto de perfil nova!"
+      or_select_one: "o seleccioneu una de les ja existents"
+
+
+  posts:
+    show:
+      destroy: "Suprimeix"
+      permalink: "enllaç permanent"
+      not_found: "No s'ha trobat aquesta publicació."
+
+
+  post_visibilites:
+    update:
+      post_hidden: "S'ha amagat la publicació de %{name}."
+
+
+  profiles:
+    edit:
+      your_public_profile: "El vostre perfil públic"
+      your_private_profile: "El vostre perfil privat"
+      your_name: "El vostre nom"
+      first_name: "Nom"
+      last_name: "Cognom"
+      your_gender: "El vostre gènere"
+      your_birthday: "El vostre aniversari"
+      your_tags: "Descriviu-vos en 5 paraules"
+      your_tags_placeholder: "P. ex. #cinema #gats #infermer #viatjar #barcelona"
+      your_bio: "La vostra biografia"
+      your_location: "La vostra ubicació"
+      your_photo: "La vostra foto"
+      update_profile: "Actualitza el perfil"
+      allow_search: "Permet que la gent em cerqui dins del Diàspora"
+      edit_profile: "Edita el perfil"
+    update:
+      updated: "S'ha actualitzat el perfil"
+      failed: "No s'ha pogut actualitzar el perfil"
+
+
+  registrations:
+    new:
+      sign_up: "Registreu-vos"
+      sign_up_for_diaspora: "Registreu-vos al Diàspora"
+      enter_email: "Introduïu una adreça de correu electrònic"
+      enter_username: "Trieu un nom d'usuari (només amb lletres, números i subratllats)"
+      enter_password: "Introduïu una contrasenya"
+      enter_password_again: "Introduïu la mateixa contrasenya de nou"
+    create:
+      success: "Us heu unit al Diàspora!"
+    edit:
+      edit: "Edita %{name}"
+      leave_blank: "(deixeu-ho en blanc si no ho voleu canviar)"
+      password_to_confirm: "(és necessària la vostra contrasenya actual per a confirmar els canvis)"
+      unhappy: "No esteu content?"
+      update: "Actualitza"
+      cancel_my_account: "Canceŀla el meu compte"
+    closed: "Els registres són tancats en aquesta beina del Diàspora."
+
+
+  requests:
+    manage_aspect_contacts:
+      manage_within: "Gestiona els contactes inclosos"
+      existing: "Existing contacts"
+    destroy:
+      success: "Ara esteu compartint."
+      error: "Seleccioneu un aspecte!"
+      ignore: "S'ha omès la petició de contacte."
+    create:
+      sending: "S'està enviant"
+      sent: "Heu demanat compartir amb %{name}. Hauria de veure la petició la pròxima vegada que entri al Diàspora."
+    new_request_to_person:
+      sent: "enviat!"
+    helper:
+      new_requests:
+        zero: "no hi ha peticions noves"
+        one: "1 petició nova!"
+        few: "%{count} peticions noves!"
+        many: "%{count} peticions noves!"
+        other: "%{count} peticions noves!"
+
+
+  reshares:
+    reshare:
+      reshare:
+        zero: "Torna a compartir"
+        one: "1 vegada tornat a compartir"
+        few: "%{count} vegades tornat a compartir"
+        many: "%{count} vegades tornat a compatir"
+        other: "%{count} vegades tornat a compatir"
+      show_original: "Mostra l'original"
+      reshare_confirmation: "Voleu tornat a compartir %{author} - %{text}?"
+      deleted: "Publicació original suprimida per l'autor."
+    create:
+      failure: "S'ha produït un error en tornar a compartir aquesta publicació."
+
+
+  services:
+    index:
+      logged_in_as: "s'ha autenticat com a"
+      disconnect: "desconnecta"
+      really_disconnect: "desconnecta del %{service}?"
+      connect_to_twitter: "Connect al Twitter"
+      connect_to_facebook: "Connecta al Facebook"
+      connect_to_tumblr: "Connecta al Tumblr"
+      edit_services: "Edita els serveis"
+      no_services: "Encara no heu connectat cap servei."
+    create:
+      success: "S'ha autenticat amb èxit."
+    destroy:
+      success: "S'ha suprimit l'autenticació amb èxit."
+    failure:
+      error: "s'ha produït un error en connectar a aquell servei"
+    inviter:
+      join_me_on_diaspora: "Uneix-te a mi al DIÀSPORA*"
+      click_link_to_accept_invitation: "Feu clic en aquest enllaç per a acceptar la invitació"
+    finder:
+      invite_your_friends_from: "Convideu els vostres amics del %{service}"
+      friends:
+        zero: "cap amic"
+        one: "1 amic"
+        few: "%{count} amics"
+        many: "%{count} amics"
+        other: "%{count} amics"
+      not_connected: "no connectat"
+    remote_friend:
+      resend: "torna a enviar"
+      invite: "convida"
+
+
+  shared:
+    publisher:
+      posting: "S'està publicant…"
+      share: "Comparteix"
+      post_a_message_to: "Publica un missatge a %{aspect}"
+      make_public: "fes públic"
+      all: "tot"
+      upload_photos: "Pengeu fotos"
+      all_contacts: "tots els contactes"
+      share_with: "comparteix amb"
+      whats_on_your_mind: "Què us passa pel cap?"
+      publishing_to: "s'està publicant a: "
+      public: "Públic"
+      click_to_share_with: "Feu clic per compartir amb: "
+      discard_post: "Descarta la publicació"
+    add_contact:
+      enter_a_diaspora_username: "Introduïu un nom d'usuari de Diàspora:"
+      your_diaspora_username_is: "El vostre nom d'usuari de Diàspora és: %{diaspora_handle}"
+      create_request: "Cerca per identificador de Diàspora"
+      diaspora_handle: "diaspora@identificador.cat"
+      know_email: "Coneixeu el seu correu electrònic? L'hauríeu de convidar"
+      add_new_contact: "Afegeix un contacte nou"
+    invitations:
+      invites: "Invitacions"
+      invite_someone: "Convideu algú"
+      invitations_left: "en queden %{count}"
+      dont_have_now: "No en teniu cap ara mateix, però aviat arribaran més invitacions!"
+      invites_closed: "Actualment, les invitacions són tancades a aquesta beina de Diàspora"
+      invite_your_friends: "Convideu el vostres amics"
+      from_facebook: "Des del Facebook"
+      by_email: "Per correu electrònic"
+    reshare:
+      reshare: "Torna a compartir"
+    public_explain:
+      title: "Configureu els serveis connectats"
+      outside: "Els missatges públics seran visibles per qualsevol des de fora del Diàspora."
+      logged_in: "s'ha entrat en %{service}"
+      manage: "gestiona els serveis connectats"
+    notification:
+      new: "Nou %{type} de %{from}"
+    contact_list:
+      all_contacts: "Tots els contactes"
+    stream_element:
+      viewable_to_anyone: "Aquesta publicació és visible per tothom al web"
+      via: "via %{link}"
+      like: "M'agrada"
+      unlike: "Ja no m'agrada"
+      dislike: "No m'agrada"
+      shared_with: "Compartit amb %{aspect_names}"
+    footer:
+      logged_in_as: "autenticat com a %{name}"
+      your_aspects: "els vostres aspectes"
+
+
+  status_messages:
+    new:
+      mentioning: "S'està mencionant: %{person}"
+    create:
+      success: "S'ha mencionat amb èxit: %{names}"
+    helper:
+      no_message_to_display: "No hi ha missatges a mostrar."
+    destroy:
+      failure: "No s'ha pogut suprimir la publicació"
+    too_long:
+      zero: "Feu el vostre missatge d'estat menor que %{count} caràcters"
+      one: "Feu el vostre missatge d'estat menor que %{count} caràcter"
+      few: "Feu el vostre missatge d'estat menor que %{count} caràcters"
+      many: "Feu el vostre missatge d'estat menor que %{count} caràcters"
+      other: "Feu el vostre missatge d'estat menor que %{count} caràcters"
+
+
+  stream_helper:
+    show_more_comments: "Mostra %{number} comentaris més"
+    hide_comments: "Amaga els comentaris"
+
+
+  tags:
+    show:
+      posts_tagged_with: "Publicacions etiquetades amb #%{tag}"
+      nobody_talking: "Ningú ha parlat de %{tag} encara."
+      people_tagged_with: "Gent etiquetada amb %{tag}"
+      follow: "Segueix #%{tag}"
+      following: "Esteu seguint #%{tag}"
+      stop_following: "Deixa de seguir #%{tag}"
+
+
+  tag_followings:
+    create:
+      success: "S'ha començat a seguir #%{name} amb èxit"
+      failure: "No s'ha pogut seguir #%{name}"
+    destroy:
+      success: "S'ha deixat de seguir #%{name} amb èxit"
+      failure: "No s'ha pogut deixar de seguir #%{name}"
+
+
+  tokens:
+    show:
+      connect_to_cubbies: "Connecta a Cubbi.es"
+      what_is_cubbies: "Cubbi.es és la primera aplicació Diàspora del món.
+També és la millor forma de coŀleccionar fotos en línia."
+      love_to_try: "Ens agradaria que ho provàreu."
+      sign_up_today: "Registreu-vos ara!"
+      screenshot_explanation: "%{link1}. Aquest cubby en concret està enllaçat a %{link2}."
+      typical_userpage: "Una pàgina d'usuari de cubbi.es típica"
+      daniels_account: "El compte de Diàspora d'en Daniel"
+      making_the_connection: "Fent la connexió"
+      connecting_is_simple: "Connectar el vostre compte de Diàspora és simple! Introduïu el vostre ID de Diàspora (<b>%{diaspora_id}</b> a la <a href='%{href_link}'>pàgina de preferències</a> de Cubbies i feu clic en «Connecta»."
+      log_in_with_diaspora_is_comming: "Aviat podreu connectar a una aplicació nova sense haver de crear un compte accessori del vostre compte de Diàspora."
+      via: "(via %{link})"
+
+
+  authorizations:
+    index:
+      revoke_access: "Revoca l'accés"
+
+
+  users:
+    edit:
+      export_data: "Exporta les dades"
+      close_account: "Tanca el compte"
+      change_language: "Canvia la llengua"
+      change_password: "Canvia la contrasenya"
+      change_email: "Canvia el correu electrònic"
+      new_password: "Contrasenya nova"
+      current_password: "Contrasenya actual"
+      download_xml: "baixa el meu XML"
+      download_photos: "baixa les meues fotos"
+      your_handle: "El vostre identificador de diàspora"
+      your_email: "El vostre correu electrònic"
+      edit_account: "Edita el compte"
+      receive_email_notifications: "Voleu rebre notificacions per correu quan…"
+      also_commented: "… algú també comenti la publicació del vostre contacte?"
+      comment_on_post: "… algú comenti la vostra publicació?"
+      mentioned: "… us mencionin a una publicació?"
+      started_sharing: "… algú comenci a compartir amb vosaltres?"
+      private_message: "… rebeu un missatge privat?"
+      liked: "… a algú li agradi una publicació vostra?"
+      change: "Canvia"
+      email_awaiting_confirmation: "Us hem enviat un enllaç d'activació per a %{unconfirmed_email}. Fins que no seguiu aquest enllaç i activeu l'adreça nova, continuarem emprant la vostra adreça original %{email}."
+    destroy: "S'ha blocat el vostre compte. Trigarem fins a 20 minuts en tancar el compte. Moltes gràcies per provar Diàspora."
+    getting_started:
+      welcome: "Benvingut/da al Diàspora!"
+      signup_steps: "Acabeu el registre completant aquests tres pasos:"
+      edit_profile: "Editeu el vostre perfil"
+      connect_on_diaspora: "Connecta al Diàspora"
+      connect_services: "Connecta els vostres altres serveis"
+      finished: "Finalitzat!"
+      skip: "omet la configuració inicial"
+      save_and_continue: "Desa i continua"
+      could_not_find_anyone: "No s'ha trobat cap dels vostres amics al Diàspora*. Empreu el cercador d'amics per convidar-los."
+      step_3:
+        finish: "Finalitza"
+        people_already_on_diaspora: "Gent que ja és al Diàspora"
+      step_2:
+        find_your_friends_on_diaspora: "Voleu cercar els vostres amics del Facebook al Diàspora?"
+        skip: "Omet"
+    update:
+      password_changed: "S'ha canviat la contrasenya. Ara podeu entrar amb
+la contrasenya nova."
+      password_not_changed: "Ha fallat el canvi de contrasenya"
+      language_changed: "S'ha canviat la llengua"
+      language_not_changed: "Ha fallat el canvi de llengua"
+      email_notifications_changed: "S'han canviat les notificacions per correu"
+      unconfirmed_email_changed: "S'ha canviat l'adreça de correu electrònic. Necessita activació."
+      unconfirmed_email_not_changed: "Ha fallat el canvi d'adreça de correu electrònic"
+    public:
+      does_not_exist: "L'usuari %{username} no existeix!"
+    confirm_email:
+      email_confirmed: "S'ha activat l'adreça de correu %{email}"
+      email_not_confirmed: "No s'ha pogut activar l'adreça de correu electrònic. Heu emprat un enllaç erroni?"
+
+
+  webfinger:
+    fetch_failed: "no s'ha pogut obtenir el perfil webfinger per a %{profile_url}"
+    hcard_fetch_failed: "s'ha produït un problema en obtenir l'hcard per a %{account}"
+    xrd_fetch_failed: "s'ha produït un error en obtenir l'xrd del compte %{account}"
+    not_enabled: "sembla que el webfinger no és habilitat al servidor de %{account}"
+    no_person_constructed: "No s'ha pogut construir ningú a partir d'aquesta hcard."

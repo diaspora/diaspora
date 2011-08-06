@@ -1,0 +1,9 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+%li{:data=>{:guid=>aspect.id}}
+  %span.name
+    = link_to aspect.name, aspect
+  .right
+    = aspect_membership_button(aspect, contact, person)

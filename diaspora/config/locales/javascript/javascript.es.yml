@@ -1,0 +1,50 @@
+#   Copyright (c) 2011, Diaspora Inc.  This file is
+#   licensed under the Affero General Public License version 3 or later.  See
+#   the COPYRIGHT file.
+
+
+es: 
+  javascripts: 
+    aspect_dropdown: 
+      add_to_aspect: "Añadir al aspecto"
+      toggle: 
+        few: "En {{count}} aspectos"
+        many: "En {{count}} aspectos"
+        one: "En {{count}} aspecto"
+        other: "En {{count}} aspectos"
+        zero: "Añadir al aspecto"
+    comments: 
+      hide: "ocultar comentarios"
+      show: "ver todos los comentarios"
+    confirm_dialog: "¿Estás seguro?"
+    failed_to_like: "¡Ha fallado tu aprobación!"
+    failed_to_post_message: "¡Fallo al publicar el mensaje!"
+    infinite_scroll: 
+      no_more: "No hay más publicaciones."
+    publisher: 
+      at_least_one_aspect: "Debes publicarlo en al menos un aspecto"
+    reshares: 
+      duplicate: "¡Ya has vuelto a compartir esa publicación!"
+    search_for: "Buscar a {{name}}"
+    show_more: "ver más"
+    timeago: 
+      day: "un día"
+      days: "%d días"
+      hour: "una hora aproximadamente"
+      hours: "%d horas aproximadamente"
+      minute: "un minuto"
+      minutes: "%d minutos"
+      month: "un mes aproximadamente"
+      months: "%d meses aproximadamente"
+      prefixAgo: "hace"
+      prefixFromNow: "desde ahora"
+      seconds: "menos de un minuto"
+      suffixAgo: ""
+      suffixFromNow: "desde ahora"
+      year: "un año aproximadamente"
+      years: "%d años"
+    videos: 
+      unknown: "Tipo de video desconocido"
+      watch: "Ver este video con {{provider}}"
+    web_sockets: 
+      disconnected: "El canal está cerrado; los comentarios no serán actualizados al momento."

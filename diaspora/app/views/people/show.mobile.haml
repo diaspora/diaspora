@@ -1,0 +1,39 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  %h1
+    DIASPORA*
+
+#author_info.profile
+  = person_image_tag @person, :thumb_medium
+
+  .content
+    %h3
+      = @person.name
+      .description
+        = @person.diaspora_handle
+
+- if user_signed_in? && !(@contact.persisted? || current_user.person == @person)
+  - if @incoming_request
+    .floating
+      %h3
+        = t('.incoming_request', :name => @person.name)
+      %h4
+        = link_to t('.return_to_aspects'), aspects_manage_path
+        = t('.to_accept_or_ignore')
+
+- if @posts.length > 0
+  -if @post_type == :photos
+    = render 'photos/index', :photos => @posts
+  - else
+    #main_stream.stream
+      = render 'shared/stream', :posts => @posts
+      #pagination
+        =link_to(t('more'), next_page_path, :class => 'paginate')
+- else
+  #main_stream
+    %div{:style=>"text-align:center;", :class => "dull"}
+      = t('.has_not_shared_with_you_yet', :name => @person.first_name)
+
