@@ -1,12 +1,12 @@
 
-var CUMULUS_URL = 'rtmfp://82.59.139.8:1935/c74f9b068350210a650e08de4c46bfe5eb709dff435059e89a2592ac89b853ce'; // TO CHANGE
+var CUMULUS_URL = 'rtmfp://80.181.193.130:1935/c74f9b068350210a650e08de4c46bfe5eb709dff435059e89a2592ac89b853ce'; // TO CHANGE
 
 Strophe.addNamespace('JINGLE', 'urn:xmpp:jingle:1');
-Strophe.addNamespace('JINGLE_RTMFP', 'urn:xmpp:jingle:apps:rtmfp');
+Strophe.addNamespace('JINGLE_RTMFP', 'urn:xmpp:jingle:apps:rtmp');
 
 var Jingle = {
 
-    callstatus: 0, // 0 - no_call | 1 - make_call | 2 - receive_call
+    callstatus: 0, // 0 - no_call | 1 - makeCall | 2 - receive_call
     myId: null, // My_Id with VoIP Server
     myStream: null,
     farId: null,
@@ -17,16 +17,15 @@ var Jingle = {
 
     
     // After connecting to VoIP server
-    connect_call: function(myId){
+    connectCall: function(myId){
         var calliq;
         var id = Chat.bosh.getUniqueId('jingle');
-
         Jingle.myId = myId;
         Jingle.myStream = MD5.hexdigest(Chat.bosh.jid);
 
         if (Jingle.callstatus == 1){
-
-            var sid = Base64.random(16);
+            var sid = Base64.encode(myId.substring(0,11));
+            
             calliq = $iq({
                 'to': Jingle.other,
                 'from':Chat.bosh.jid,
@@ -46,7 +45,7 @@ var Jingle = {
                 'xmlns':Strophe.NS.JINGLE_RTMFP
             }).c('candidate', {
                 'id': Jingle.myId,
-                'url': CUMULUS_URL,// TODO : Change
+                'url': CUMULUS_URL,
                 'pubid': Jingle.myStream
             });
 
@@ -79,7 +78,7 @@ var Jingle = {
     },
 
     // Make a call
-    make_call: function (to){
+    makeCall: function (to){
         showAV(to, CUMULUS_URL);
         Jingle.other = fullJid(Id2Jid(to));
         Jingle.callstatus = 1;
@@ -87,14 +86,14 @@ var Jingle = {
     },
 
     // Send call termination
-    terminate_call: function (){
+    terminateCall: function (){
         var id =  Chat.bosh.getUniqueId('jingle');
-        Chat.bosh.addHandler(Jingle.end_call, null, 'iq', 'result', id);
-        Jingle.send_termination(id, 'success');
+        Chat.bosh.addHandler(Jingle.endCall, null, 'iq', 'result', id);
+        Jingle.sendTermination(id, 'success');
         hideAV();
     },
 
-    send_termination: function(id, reason) {
+    sendTermination: function(id, reason) {
         var calliq = $iq({
             'from':Chat.bosh.jid,
             'id': id,
@@ -111,13 +110,13 @@ var Jingle = {
     },
 
     // Terminate call
-    end_call: function (){
+    endCall: function (){
         Jingle.callstatus = 0;
         return true;
     },
 
     // Handler to receive a call
-    recv_call: function (iq){
+    recvCall: function (iq){
         var from = iq.getAttribute('from');
         var jid = from.split('/')[0];
         var id = iq.getAttribute('id');
@@ -135,7 +134,7 @@ var Jingle = {
         // Received a positive call reply
         if (iq.getElementsByTagName("jingle")[0].getAttribute('action') == 'session-accept'){
             //alert("you got a response from "+ from);
-            Jingle.call_response (iq);
+            Jingle.callResponse (iq);
             // start webcam & audio
             startAV(Jingle.farId, Jingle.farStream, Jingle.myStream);
             return true;
@@ -163,20 +162,20 @@ var Jingle = {
                 chatWith(jid, nick);
                 showAV(Jid2Id(jid), url);
                 Jingle.callstatus = 2;
-                Jingle.call_response(iq);
+                Jingle.callResponse(iq);
             }
             else{ // Reject call
-                Jingle.send_termination(id, 'decline');
+                Jingle.sendTermination(id, 'decline');
             }
         } else {
             // Can't accept call (busy with another call)
-            Jingle.send_termination(id, 'busy');
+            Jingle.sendTermination(id, 'busy');
         }
         return true;
     },
 
     // Initiate call
-    call_response: function (iq) {
+    callResponse: function (iq) {
         var candidate = iq.getElementsByTagName("candidate")[0];
         Jingle.farId = candidate.getAttribute('id');
         Jingle.farStream = candidate.getAttribute('pubid');
