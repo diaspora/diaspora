@@ -255,6 +255,7 @@ GEM
     multi_json (1.0.3)
     multi_xml (0.2.2)
     multipart-post (1.1.3)
+    mysql (2.8.1)
     mysql2 (0.2.6)
     net-ldap (0.2.2)
     net-scp (1.0.4)
@@ -333,6 +334,10 @@ GEM
       activesupport (= 3.0.9)
       bundler (~> 1.0)
       railties (= 3.0.9)
+    rails-dbd-mysql (0.1.0)
+      mysql
+      rails-dbi (>= 0.1.2)
+    rails-dbi (0.1.2)
     rails-i18n (0.1.2)
       activesupport (~> 3)
     railties (3.0.9)
@@ -494,8 +499,11 @@ DEPENDENCIES
   ohai (= 0.5.8)
   omniauth (= 0.2.6)
   rails (= 3.0.9)
+  rails-dbd-mysql
+  rails-dbi
   rails-i18n
   rcov
+  rdoc
   resque (= 1.10.0)
   resque-ensure-connected
   rest-client (= 1.6.1)
