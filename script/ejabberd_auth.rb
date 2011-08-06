@@ -8,7 +8,7 @@ class EjabberdAuthentication
   
   def initialize
 
-    path = "../log/ejabberd_auth.log"
+    path = "/path/to/diaspora/log/ejabberd_auth.log"
     file = File.open(path, File::WRONLY | File::APPEND | File::CREAT)
     file.sync = true
     logger = Logger.new(file)
