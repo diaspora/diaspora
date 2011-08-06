@@ -7,7 +7,7 @@ common: &common
   password: ""
   charset: utf8
   collation: utf8_bin
-
+  ejabbdb: ejabberd
 
 development:
   <<: *common
