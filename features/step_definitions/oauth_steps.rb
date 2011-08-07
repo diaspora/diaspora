@@ -76,14 +76,12 @@ class Chubbies
   end
 
   def self.kill
-    `kill -9 #{get_pid}`
+    pid = self.get_pid
+    `kill -9 #{pid}` if pid.present?
   end
 
   def self.ensure_killed
-    if !(@killed) && self.running?
-      self.kill
-      @killed = true
-    end
+    self.kill if self.running?
   end
 
   def self.running?
@@ -103,10 +101,12 @@ class Chubbies
   end
 
   def self.get_pid
-    @pid ||= lambda {
-      processes = `ps ax -o pid,command | grep "#{run_command}"`.split("\n")
-      processes = processes.select{|p| !p.include?("grep") }
+    processes = `ps ax -o pid,command | grep "#{run_command}"`.split("\n")
+    processes = processes.select{|p| !p.include?("grep") }
+    if processes.any?
       processes.first.split(" ").first
-    }.call
+    else
+      nil
+    end
   end
 end
