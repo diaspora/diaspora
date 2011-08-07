@@ -21,7 +21,7 @@ class EjabberdViewsCreator
     jdb_con = "DBI:Mysql:#{ejabbdb}:#{host}"
     @jdb = DBI.connect jdb_con, user , pwd
 
-    @jdb.do("CREATE VIEW rosterusers AS SELECT username, SUBSTRING_INDEX(c.diaspora_handle,':',1) jid, IF(LENGTH(CONCAT(first_name, last_name))>0, CONCAT(first_name, last_name), SUBSTRING_INDEX(c.diaspora_handle,'@',1)) nick, 'B' subscription, 'N' ask, '' askmessage, 'N' server, '' subscribe, 'item' type, b.created_at FROM #{diaspdb}.users AS a JOIN #{diaspdb}.contacts AS b ON a.id = b.user_id JOIN #{diaspdb}.people AS c ON b.person_id = c.id JOIN #{diaspdb}.profiles AS d ON c.id = d.id WHERE b.sharing = 1 AND b.receiving = 1;")
+    @jdb.do("CREATE VIEW rosterusers AS SELECT username, SUBSTRING_INDEX(c.diaspora_handle,':',1) jid, IF(LENGTH(CONCAT(first_name, last_name))>0, CONCAT(first_name, ' ' ,last_name), SUBSTRING_INDEX(c.diaspora_handle,'@',1)) nick, 'B' subscription, 'N' ask, '' askmessage, 'N' server, '' subscribe, 'item' type, b.created_at FROM #{diaspdb}.users AS a JOIN #{diaspdb}.contacts AS b ON a.id = b.user_id JOIN #{diaspdb}.people AS c ON b.person_id = c.id JOIN #{diaspdb}.profiles AS d ON c.id = d.id WHERE b.sharing = 1 AND b.receiving = 1;")
 
     printf "View rosterusers created.\n"
 

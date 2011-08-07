@@ -108,12 +108,8 @@ function restructureChatBoxes() {
         var chatboxtitle = chatBoxes[i].name;
 
         if ($("#chatbox_"+chatboxtitle).css('display') != 'none') {
-            //            if (align == 0) {
-            //                $("#chatbox_"+chatboxtitle).css('right', '190px');
-            //            } else {
             var width = (align)*(225+7)+190;
             $("#chatbox_"+chatboxtitle).css('right', width+'px');
-            //            }
             align++;
         }
 
@@ -159,13 +155,14 @@ function restoreRosters(){
             var jid = Chat.rosters[i].jid;
             var id = Jid2Id(jid);
             var nick = Chat.rosters[i].nick;
-            $('#chatrosters').append('<div class="friend" id="status_'+id+'"><a class="nick" href="javascript:void(0)" onclick="javascript:chatWith(\''+jid+'\',\''+nick+'\')">'+nick+'</a></div>');
+            $('#chatrosters').append('<div class="friend" id="status_'+id+'"><a class="nick" href="javascript:void(0)" onclick="javascript:chatWith(\''+jid+'\')">'+nick+'</a></div>');
         }
     }
 }
 
 // Create a Chatbox with a Roster
-function chatWith(chatuser, nick) {
+function chatWith(chatuser) {
+    var nick = jidToNick(chatuser);
     var id = Jid2Id(chatuser);
     createChatBox(id, nick);
     $("#chatbox_"+id+" .chatboxtextarea").focus();
@@ -220,20 +217,15 @@ function createChatBox(id, nick) {
 }
 
 function showAV(id, url){
-    //http://eigenlab.org/~lasek/hxmpptry/hxmpp.examples/jingle.rtmfp.videochat/www/user.swf
-
     $('<div id = "chatFlashcontainer" style="width:1px; height:1px">')
-    .html('<object type="application/x-shockwave-flash" data="../user.swf" id="chatFlash" width="100%" height="100%">\n\
+    .html('<object type="application/x-shockwave-flash" data="../videochat.swf" id="chatFlash" width="100%" height="100%">\n\
 <param name=FlashVars value="url='+ url +'" >\n\
 <param name="allowScriptAccess" value="always">\n\
 <param name="allowFullScreen" value="true" />\n\
-<embed src="../user.swf?url=\'+ url +\'" type="application/x-shockwave-flash" allowScriptAccess="always" allowFullScreen="true" width="100%" height="100%" FlashVars="url='+ url +'"></embed></object>')
+<embed src="../videochat.swf?url=\'+ url +\'" type="application/x-shockwave-flash" allowScriptAccess="always" allowFullScreen="true" width="100%" height="100%" FlashVars="url='+ url +'"></embed></object>')
     .appendTo($('#chatbox_' + id +' .chatboxhead'));
     document.getElementById("chatFlashcontainer").style.height = "150px";
     document.getElementById("chatFlashcontainer").style.width = "215px";
-//$("#chatFlashcontainer").appendTo($('#chatbox_' + id +' .chatboxhead'));
-
-// $("#chatFlashcontainer").hide();
 }
 
 function hideAV(){
@@ -241,18 +233,14 @@ function hideAV(){
 }
 
 function startAV(farId, farStream, nearStream){
-    //alert(farId + "###" + farStream + "###" + nearStream);
     document.getElementById( "chatFlash" ).callMe(farId, farStream, nearStream);
-//$.facebox({ div: '#chatFlashcontainer' });
 }
 
 // When message is received
 function receivedMsg(from, nick, text){
     var id = Jid2Id(from.split('/')[0]);
 
-    // If we're on other site (e.g. Google.com)
     if (windowFocus == false) {
-    
         newMessagesWin[id] = true;
         newMessages[id] = true;
         // TODO : Check blinking
@@ -295,10 +283,6 @@ function receivedMsg(from, nick, text){
         restructureChatBoxes();
     }
 
-    //    if ($("#chatbox_"+id).length <= 0) {
-    //        createChatBox(id, nick);
-    //        restructureChatBoxes();
-    //    }
     // If message from hidden chatbox, show it
     if ($("#chatbox_"+id).css('display') == 'none') {
         $("#chatbox_"+id).css('display','block');
@@ -448,7 +432,7 @@ function manageUI(event, id, jid, nick, state, status){
         case "addroster":
             nameinthelist = document.getElementById('status_'+id);
             if (nameinthelist == null)
-                $('#chatrosters').append('<div class="friend" id="status_'+id+'"><a class="nick" href="javascript:void(0)" onclick="javascript:chatWith(\''+jid+'\',\''+nick+'\')">'+nick+'</a></div>');
+                $('#chatrosters').append('<div class="friend" id="status_'+id+'"><a class="nick" href="javascript:void(0)" onclick="javascript:chatWith(\''+jid+'\')">'+nick+'</a></div>');
             if (searchCB(id) != -1){
                 if (state != "chat" && state != "available"){
                     $("#chatbox_"+id+" .chatboxcontent").append('<div class="chatboxmessage"><span class="chatboxmessagefrom">'+nick+' is '+state+'</span></div>');
