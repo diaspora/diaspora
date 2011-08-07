@@ -127,10 +127,10 @@ es:
       create: "Crear"
       name: "Nombre"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "usuarios destacados"
+      or_featured: "O puedes compartir con %{link}"
+      try_adding_some_more_contacts: "Puedes buscar (arriba) o invitar (derecha) a más contactos."
+      you_should_add_some_more_contacts: "¡Debes añadir algunos contactos más!"
     no_posts_message: 
       start_talking: "Nadie dijo nada aún. ¡Sé el primero!"
     one: "1 aspecto"
@@ -261,8 +261,8 @@ es:
       rejected: "Las siguientes direcciones de correo han tendido problemas:"
       sent: "Invitaciones enviadas a:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Acepta tu invitación"
+      your_account_awaits: "¡Tu cuenta te está esperando!"
     new: 
       already_invited: "La siguiente persona no ha aceptado tu invitación:"
       aspect: "Aspecto"
@@ -546,13 +546,13 @@ es:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Crear mi cuenta"
       enter_email: "Escribe un correo electrónico"
       enter_password: "Escribe una contraseña"
       enter_password_again: "Escribe la misma contraseña como antes"
       enter_username: "Elije un nombre de usuario (solo letras, números y guiones bajos)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "¡Únete al movimiento!"
+      sign_up_today: "Regístrate hoy"
   requests: 
     create: 
       sending: "Enviando"
