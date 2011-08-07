@@ -178,14 +178,6 @@ en:
       success: "Successfully removed person from aspect"
       failure: "Failed to remove person from aspect"
       no_membership: "Could not find the selected person in that aspect"
-    aspect_dropdown:
-      add_to_aspect: "Add to aspect"
-      toggle:
-        zero: "Add to aspect"
-        one: "In %{count} aspect"
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        other: "In %{count} aspects"
 
   bookmarklet:
     heading: "Bookmarklet"
@@ -651,6 +643,14 @@ en:
       invite: "invite"
 
   shared:
+    aspect_dropdown:
+      add_to_aspect: "Add to aspect"
+      toggle:
+        zero: "Add to aspect"
+        one: "In %{count} aspect"
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        other: "In %{count} aspects"
     publisher:
       posting: "Posting..."
       share: "Share"
