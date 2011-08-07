@@ -1,4 +1,0 @@
-%p
-  = process_newlines(truncate(@comment.text, :length => 600))
-%p
-  = link_to t('notifier.comment_on_post.reply', :name => @comment.post.author.first_name), post_url(@comment.post)

@@ -1,5 +1,0 @@
-include_recipe "debian::image_magick"
-include_recipe "debian::mysql"
-include_recipe "common::main"
-include_recipe "debian::nginx"
-include_recipe "debian::redis"
