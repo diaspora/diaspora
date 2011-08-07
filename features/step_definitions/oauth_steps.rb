@@ -3,7 +3,7 @@ Given /^Chubbies is running$/ do
 end
 
 Given /^Chubbies has been killed$/ do
-  Chubbies.ensure_killed
+  Chubbies.kill
 end
 
 Given /^Chubbies is registered on my pod$/ do
@@ -80,10 +80,6 @@ class Chubbies
     `kill -9 #{pid}` if pid.present?
   end
 
-  def self.ensure_killed
-    self.kill if self.running?
-  end
-
   def self.running?
     begin
       begin
@@ -91,7 +87,7 @@ class Chubbies
       rescue RestClient::ResourceNotFound
       end
       true
-    rescue Errno::ECONNREFUSED
+    rescue Errno::ECONNREFUSED, Errno::ECONNRESET
       false
     end
   end
