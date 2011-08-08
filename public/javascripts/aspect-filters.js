@@ -168,7 +168,25 @@ var AspectFilters = {
   fadeOut: function(){
     $("#aspect_stream_container").fadeTo(100, 0.4);
     $("#aspect_contact_pictures").fadeTo(100, 0.4);
-  }
+  },
+  hideMembershipIndicators: function(){
+    if(this._loadingIndicators)
+      this._loadingIndicators.abort();
+    $("#aspect_nav li[data-aspect_id] .aspect_selector img.in_aspect").each(function(){
+      $(this).remove();
+    });
+  },
+  showMembershipIndicators: function(person_id){
+    this._loadingIndicators = Diaspora.ajax.get_persons_aspectmemberships(person_id).success(function(data){
+      $("#aspect_nav li[data-aspect_id] .aspect_selector").each(function(){
+        var $this = $(this),
+          aspect_id = parseInt($this.parent().attr('data-aspect_id'));
+        if($.inArray(aspect_id, data['aspect_ids'])>-1)
+          $('<img class="in_aspect" src="/images/icons/monotone_check_yes.png" style="float: right" />').appendTo($this);
+      });
+    });
+    return this._loadingIndicators;
+  },
 }
 $(document).ready(function(){
   AspectFilters.initialize();

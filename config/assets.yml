@@ -26,6 +26,10 @@ javascripts:
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
     - public/javascripts/diaspora.js
+    - public/javascripts/aspect-filters.js
+    - public/javascripts/diaspora-ajax.js
+    - public/javascripts/draganddrop.js
+    - public/javascripts/aspect-list.js
     - public/javascripts/widgets/i18n.js
     - public/javascripts/widgets/alert.js
     - public/javascripts/widgets/embedder.js
@@ -68,7 +72,6 @@ javascripts:
     - public/javascripts/friend-finder.js
   home:
     - public/javascripts/publisher.js
-    - public/javascripts/aspect-filters.js
     - public/javascripts/aspect-edit-pane.js
     - public/javascripts/fileuploader-custom.js
   people:
