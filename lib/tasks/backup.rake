@@ -22,15 +22,17 @@ namespace :backup do
     cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
     mysql_container = cf.container("MySQL Backup")
 
-    puts "Dumping Mysql"
+    puts "Dumping Mysql at #{Time.now.to_s}"
     `mkdir -p /tmp/backup/mysql`
     `nice mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
+    puts "Gzipping dump at #{Time.now.to_s}"
     tar_name = "mysql_#{Time.now.to_i}.tar"
     `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
 
     file = mysql_container.create_object(tar_name)
 
+    puts "Uploading archive at #{Time.now.to_s}"
     if file.write File.open("/tmp/backup/" + tar_name)
       puts("event=backup status=success type=mysql")
       `rm /tmp/backup/#{tar_name}`
