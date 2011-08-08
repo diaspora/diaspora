@@ -104,15 +104,12 @@ $(document).ready(function(){
 function restructureChatBoxes() {
     var align = 0;
     for (i = 0; i < chatBoxes.length; i++) {
-
         var chatboxtitle = chatBoxes[i].name;
-
         if ($("#chatbox_"+chatboxtitle).css('display') != 'none') {
             var width = (align)*(225+7)+190;
             $("#chatbox_"+chatboxtitle).css('right', width+'px');
             align++;
         }
-
     }
     return;
 }
@@ -143,13 +140,11 @@ function restoreChatBoxes() {
         $("#chatbox_"+chatboxtitle).css('right', width+'px');
         $("#chatbox_"+chatboxtitle).css('bottom', '0px');
         $("#chatbox_"+chatboxtitle).show();
-        
     }
 }
 
 // Restore Rosters list with Presences (after attach not able to retrieve presences)
 function restoreRosters(){
-
     for (i = 0; i < Chat.rosters.length; i++){
         if (Chat.rosters[i].resource != ""){
             var jid = Chat.rosters[i].jid;

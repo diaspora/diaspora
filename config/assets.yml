@@ -45,7 +45,7 @@ javascripts:
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js
-    - public/javascripts/strophe.min.js
+    - public/javascripts/vendor/strophe.min.js
     - public/javascripts/xmpp.js
     - public/javascripts/jingle-rtmfp.js
   login:
