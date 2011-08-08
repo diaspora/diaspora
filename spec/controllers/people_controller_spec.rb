@@ -127,6 +127,11 @@ describe PeopleController do
       response.should redirect_to people_path
     end
 
+    it "redirects to #index if no person is found via username" do
+      get :show, :username => 'delicious'
+      response.should redirect_to people_path
+    end
+
     it 'does not allow xss attacks' do
       user2 = bob
       profile = user2.profile
