@@ -7,39 +7,42 @@ namespace :backup do
     NUMBER_OF_DAYS = 3
     puts("event=backup status=start type=mysql")
     db = YAML::load(File.open(File.join(File.dirname(__FILE__), '..','..', 'config', 'database.yml')))
-    user = db['production']['user']
+    user = db['production']['username']
     password = db['production']['password']
     database = db['production']['database']
-    if AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
-      puts "Logging into Cloud Files"
+    unless AppConfig[:cloudfiles_username] && AppConfig[:cloudfiles_api_key] && !user.blank?
+      puts "Cloudfiles username needed" unless AppConfig[:cloudfiles_username]
+      puts "Cloudfiles api_key needed" unless AppConfig[:cloudfiles_api_key]
+      puts "DB auth data needed" if user.blank?
+      Process.exit
+    end
 
-      cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
-      mysql_container = cf.container("MySQL Backup")
+    puts "Logging into Cloud Files"
 
-      puts "Dumping Mysql"
-      `mkdir -p /tmp/backup/mysql`
-      `mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
+    cf = CloudFiles::Connection.new(:username => AppConfig[:cloudfiles_username], :api_key => AppConfig[:cloudfiles_api_key])
+    mysql_container = cf.container("MySQL Backup")
 
-      tar_name = "mysql_#{Time.now.to_i}.tar"
-      `tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
+    puts "Dumping Mysql"
+    `mkdir -p /tmp/backup/mysql`
+    `nice mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
-      file = mysql_container.create_object(tar_name)
+    tar_name = "mysql_#{Time.now.to_i}.tar"
+    `tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
 
-      if file.write File.open("/tmp/backup/" + tar_name)
-        puts("event=backup status=success type=mysql")
-        `rm /tmp/backup/#{tar_name}`
-        `rm -rf /tmp/backup/mysql/`
+    file = mysql_container.create_object(tar_name)
 
-        files = mysql_container.objects
-        files.sort!.pop(NUMBER_OF_DAYS * 24)
-        files.each do |file|
-          mysql_container.delete_object(file)
-        end
-      else
-        puts("event=backup status=failure type=mysql")
+    if file.write File.open("/tmp/backup/" + tar_name)
+      puts("event=backup status=success type=mysql")
+      `rm /tmp/backup/#{tar_name}`
+      `rm -rf /tmp/backup/mysql/`
+
+      files = mysql_container.objects
+      files.sort!.pop(NUMBER_OF_DAYS * 24)
+      files.each do |file|
+        mysql_container.delete_object(file)
       end
     else
-      puts "Cloudfiles username and api key needed"
+      puts("event=backup status=failure type=mysql")
     end
   end
 
