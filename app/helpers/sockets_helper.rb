@@ -48,7 +48,7 @@ module SocketsHelper
         v = render_to_string(:partial => 'comments/comment', :locals => {:post => object.post, :comment => object, :person => object.author})
 
       elsif object.is_a? Like
-        v = render_to_string(:partial => 'likes/likes', :locals => {:likes => object.post.likes})
+        v = render_to_string(:partial => 'likes/likes', :locals => {:likes => object.target.likes.includes(:author => :profile)})
 
       elsif object.is_a? Notification
         v = render_to_string(:partial => 'notifications/popup', :locals => {:note => object, :person => opts[:actor]})
