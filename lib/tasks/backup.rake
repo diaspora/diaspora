@@ -27,7 +27,7 @@ namespace :backup do
     `nice mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
     tar_name = "mysql_#{Time.now.to_i}.tar"
-    `tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
+    `nice tar cfPz /tmp/backup/#{tar_name} /tmp/backup/mysql`
 
     file = mysql_container.create_object(tar_name)
 
