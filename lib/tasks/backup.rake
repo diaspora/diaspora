@@ -24,7 +24,7 @@ namespace :backup do
 
     puts "Dumping Mysql at #{Time.now.to_s}"
     `mkdir -p /tmp/backup/mysql`
-    `nice mysqldump --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
+    `nice mysqldump --single-transaction --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
 
     puts "Gzipping dump at #{Time.now.to_s}"
     tar_name = "mysql_#{Time.now.to_i}.tar"
