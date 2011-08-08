@@ -91,6 +91,38 @@ var View = {
         $('html, body').animate({scrollTop: parseInt(lastComment.offset().top)-80 }, 'fast');
       }
     });
+    
+    /* Desktop notifications */
+  if( !window.webkitNotifications ) {
+    $('#desktop_notifications_status')
+      .html(
+        '<em>'+
+        Diaspora.widgets.i18n.t('users.edit.desktop_notifications.unsupported')
+        +'</em>'
+      );
+  }
+  else {
+    $('#desktop_notifications_status .button')
+      .click(function(e){
+        window.webkitNotifications.requestPermission();
+        $('#desktop_notifications_status')
+          .html(
+            '<em>'+
+            Diaspora.widgets.i18n.t('users.edit.desktop_notifications.progress')
+            +'</em>'
+          );
+        return false;
+      });
+    
+    if( window.webkitNotifications.checkPermission() == 0 ) {
+      $('#desktop_notifications_status')
+        .html(
+          '<em>'+
+          Diaspora.widgets.i18n.t('users.edit.desktop_notifications.active')
+          +'</em>'
+        );
+    }
+  }
   },
 
   search: {
