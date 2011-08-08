@@ -7,11 +7,11 @@
     = person_image_tag(conversation.author)
 
     .subject
+      .message_count
+        = conversation.messages.size
       - if unread_counts[conversation.id].to_i > 0
         .unread_message_count
           = unread_counts[conversation.id].to_i
-      .message_count
-        = conversation.messages.size
 
       %div{ :class => direction_for(conversation.subject) }
         = conversation.subject[0..30]
