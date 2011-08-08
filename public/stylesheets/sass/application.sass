@@ -2498,12 +2498,13 @@ ul.show_comments,
   .message_count
     @include border-radius(5px)
 
-    :right 10px
+    :float right
+    :right 0px
+    :padding 0 5px
+    :position relative
     :background
       :color #999
     :color #eee
-    :position absolute
-    :padding 0 5px
     :font
       :size 12px
       :weight normal
@@ -2511,12 +2512,13 @@ ul.show_comments,
   .unread_message_count
     @include border-radius(5px)
 
-    :right 30px
+    :float right
+    :right 5px
+    :padding 0 5px
+    :position relative
     :background
       :color #b11
     :color #eee
-    :position absolute
-    :padding 0 5px
     :font
       :size 12px
       :weight normal
