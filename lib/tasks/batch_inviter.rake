@@ -11,7 +11,7 @@ namespace :invites do
   task :send, :number, :test do |t, args|
    require File.join(File.dirname(__FILE__), '..', '..', 'config', 'environment')
 
-    filename = Rails.root  + '/config/mailing_list.csv'
+    filename = File.join(Rails.root, 'config', 'mailing_list.csv')
     offset_filename = File.join(Rails.root, 'config', 'email_offset')
     number_of_backers = args[:number] ? args[:number].to_i : 1000
 
