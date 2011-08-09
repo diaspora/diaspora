@@ -11,18 +11,6 @@ $(document).ready( function(){
       forgotPass = $("#forgot_password_link"),
       controls = $("#controls");
 
-  var contentFilled = function(){
-    return($('#user_username').val() != "" && $('#user_password').val() != "");
-  }
-
-  var checkSubmitAvailability = function() {
-    if(contentFilled()){
-      controls.removeClass('hidden');
-    }else{
-      controls.addClass('hidden');
-    }
-  }
-
   $("#login").center();
   $(window).resize(function(){
     $("#login").center();
@@ -34,13 +22,5 @@ $(document).ready( function(){
     forgotPass.addClass('hidden');
     controls.addClass('hidden');
   });
-
-  $(document).keyup(checkSubmitAvailability);
-
-  // Check if the browser has pre-filled the form
-  checkSubmitAvailability();
-
-  // Check it again
-  setTimeout(checkSubmitAvailability, 1000);
 });
 
