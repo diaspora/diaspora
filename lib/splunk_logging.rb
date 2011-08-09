@@ -5,9 +5,13 @@ module SplunkLogging
     end
   end
   def add_with_splunk(arg1, log_hash = nil, arg3 = nil, &block)
-    string = format_hash(log_hash).dup
-    string << " pid=#{Process.pid} "
-    string << " time=#{Time.now.to_i} "
+    if log_hash
+      string = format_hash(log_hash).dup
+      string << " pid=#{Process.pid} "
+      string << " time=#{Time.now.to_i} "
+    else
+      string = log_hash
+    end
     add_without_splunk(arg1, string, arg3, &block)
   end
   def format_hash(hash)
