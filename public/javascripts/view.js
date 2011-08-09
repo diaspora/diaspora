@@ -29,7 +29,7 @@ var View = {
      jQuery(window).scroll(function(){
       if(jQuery(window).scrollTop() > 1000){
         // show back to top
-        jQuery('#back-to-top').stop().animate({opacity: 1});
+        jQuery('#back-to-top').stop().animate({opacity: .5});
       }
       else{
         // hide back to top
