@@ -657,7 +657,6 @@ lt:
       make_public: "paviešinti"
       post_a_message_to: "Parašyti žinutę į aspektą \"%{aspect}\""
       posting: "Rašoma..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Skelbti"
       share_with: "Skelbti aspekte \"%{aspect}\""

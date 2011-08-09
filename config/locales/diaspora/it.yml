@@ -657,7 +657,6 @@ it:
       make_public: "rendi pubblico"
       post_a_message_to: "Invia un messaggio a %{aspect}"
       posting: "Invio in corso..."
-      public: "Pubblico"
       publishing_to: "stai condividendo con: "
       share: "Condividi"
       share_with: "condividi con"

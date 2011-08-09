@@ -657,7 +657,6 @@ ja:
       make_public: "公開にする"
       post_a_message_to: "%{aspect}に投稿する"
       posting: "投稿中"
-      public: "公開"
       publishing_to: "公開先："
       share: "共有"
       share_with: "共有先："

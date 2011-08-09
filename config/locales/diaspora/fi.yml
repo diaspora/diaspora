@@ -657,7 +657,6 @@ fi:
       make_public: "tee julkiseksi"
       post_a_message_to: "Lähetä viesti näkymään %{aspect}"
       posting: "Lähetetään..."
-      public: "Julkinen"
       publishing_to: "Julkaistaan: "
       share: "Jaa"
       share_with: "Jaa"

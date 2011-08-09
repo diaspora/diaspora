@@ -657,7 +657,6 @@ ru:
       make_public: "сделать публичным"
       post_a_message_to: "Опубликовать сообщение для %{aspect}"
       posting: "Отправка..."
-      public: "Общее"
       publishing_to: "публикация в:"
       share: "Поделиться"
       share_with: "поделиться с"

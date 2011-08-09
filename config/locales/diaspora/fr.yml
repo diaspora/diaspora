@@ -657,7 +657,6 @@ fr:
       make_public: "rendre public"
       post_a_message_to: "Publier un message dans %{aspect}"
       posting: "Publication…"
-      public: "Public"
       publishing_to: "publication vers : "
       share: "Partager"
       share_with: "Partager avec"

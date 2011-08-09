@@ -23,6 +23,8 @@ es-AR:
       no_more: "No hay más publicaciones."
     publisher: 
       at_least_one_aspect: "Tenés que publicarlo en, por lo menos, un aspecto"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Buscar a {{name}}"

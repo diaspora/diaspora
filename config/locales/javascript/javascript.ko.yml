@@ -23,6 +23,8 @@ ko:
       no_more: "공유물이 더 없습니다."
     publisher: 
       at_least_one_aspect: "공유하려면 적어도 한 애스펙을 골라야 합니다."
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "이미 재공유된 공유물입니다!"
     search_for: "{{name}} 검색"

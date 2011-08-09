@@ -657,7 +657,6 @@ nb:
       make_public: "gjør offentlig"
       post_a_message_to: "Post et innlegg til %{aspect}"
       posting: "Poster..."
-      public: "Offentlig"
       publishing_to: "publiserer til:"
       share: "Del"
       share_with: "del med"

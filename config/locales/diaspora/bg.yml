@@ -657,7 +657,6 @@ bg:
       make_public: "направете публично"
       post_a_message_to: "Публикувайте публично съобщение в %{aspect}"
       posting: "Публикуване..."
-      public: "Публично"
       publishing_to: "публикуване в: "
       share: "Споделете"
       share_with: "споделяне с"

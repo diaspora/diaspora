@@ -657,7 +657,6 @@ sv:
       make_public: "gör publik"
       post_a_message_to: "Skicka ett meddelande till %{aspect}"
       posting: "Skickar..."
-      public: "Publik"
       publishing_to: "publicerar till: "
       share: "Dela"
       share_with: "dela med"

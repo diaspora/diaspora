@@ -23,6 +23,8 @@ zh-TW:
       no_more: "沒有貼文了."
     publisher: 
       at_least_one_aspect: "發表時請至少選擇一個面向"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "你已經轉貼過該篇貼文了!"
     search_for: "搜尋 {{name}}"

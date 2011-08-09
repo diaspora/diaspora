@@ -657,7 +657,6 @@ nl:
       make_public: "maak openbaar"
       post_a_message_to: "Plaats een bericht aan %{aspect}"
       posting: "Plaatsen..."
-      public: "Openbaar"
       publishing_to: "delen met: "
       share: "Delen"
       share_with: "deel met"

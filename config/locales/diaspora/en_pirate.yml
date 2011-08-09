@@ -657,7 +657,6 @@ en_pirate:
       make_public: "make public"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "Posting..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Fire!"
       share_with: "share with"

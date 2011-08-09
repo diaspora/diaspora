@@ -14,17 +14,19 @@ el:
         other: "Σε {{count}} πτυχές"
         zero: "Προσθήκη σε πτυχή"
     comments: 
-      hide: "Απόκρυψη σχολίων"
-      show: "προβολή σχολίων"
+      hide: "απόκρυψη σχολίων"
+      show: "προβολή όλων των σχολίων"
     confirm_dialog: "Είστε σίγουρος/η;"
     failed_to_like: "Αποτυχία!"
     failed_to_post_message: "Αποτυχία δημοσίευσης μηνύματος!"
     infinite_scroll: 
       no_more: "Δεν υπάρχουν άλλες δημοσιεύσεις."
     publisher: 
-      at_least_one_aspect: "πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
+      at_least_one_aspect: "Πρέπει να κάνετε δημοσίευση σε τουλάχιστον μια πτυχή"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Έχετε ήδη κοινοποιήσει αυτή τη δημοσίευση!"
     search_for: "Αναζήτηση για {{name}}"
     show_more: "Προβολή περισσότερων"
     timeago: 
@@ -36,8 +38,8 @@ el:
       minutes: "%d λεπτά"
       month: "περίπου ένα μήνα"
       months: "%d μήνες"
-      prefixAgo: ""
-      prefixFromNow: "σε"
+      prefixAgo: "javascripts:timeago:prefixAgo"
+      prefixFromNow: "javascripts:timeago:prefixFromNow"
       seconds: "λιγότερο από ένα λεπτό"
       suffixAgo: "πριν"
       suffixFromNow: "από τώρα"

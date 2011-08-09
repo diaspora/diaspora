@@ -657,7 +657,6 @@ eo:
       make_public: "publikigi"
       post_a_message_to: "Afiŝi al %{aspect}"
       posting: "Afiŝanta..."
-      public: "Publika"
       publishing_to: "eldonanta al: "
       share: "Partopreni"
       share_with: "kontigi kun"

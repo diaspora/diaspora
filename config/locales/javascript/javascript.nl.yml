@@ -23,6 +23,8 @@ nl:
       no_more: "Geen posts meer."
     publisher: 
       at_least_one_aspect: "Je moet op zijn minst één aspect publiceren"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "Je hebt deze post al doorgegeven!"
     search_for: "Zoek naar {{name}}"

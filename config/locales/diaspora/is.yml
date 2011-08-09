@@ -657,7 +657,6 @@ is:
       make_public: "gera almennt"
       post_a_message_to: "Skrifa skilaboð til %{aspect}"
       posting: "Senda..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Deila"
       share_with: "deila með"

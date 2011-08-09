@@ -657,7 +657,6 @@ eu:
       make_public: "publikoa egin"
       post_a_message_to: "%{aspect}(e)n mezu bat partekatu"
       posting: "Partekatzen..."
-      public: "Publikoa"
       publishing_to: "hemen partekatzen:"
       share: "Partekatu"
       share_with: "honekin partekatu:"

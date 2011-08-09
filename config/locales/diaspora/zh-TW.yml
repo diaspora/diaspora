@@ -657,7 +657,6 @@ zh-TW:
       make_public: "公開"
       post_a_message_to: "在 %{aspect} 發表訊息"
       posting: "發表中..."
-      public: "公開"
       publishing_to: "發表至: "
       share: "分享"
       share_with: "跟他/她分享:"

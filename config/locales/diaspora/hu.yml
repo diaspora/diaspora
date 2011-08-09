@@ -657,7 +657,6 @@ hu:
       make_public: "nyilvánossá tesz"
       post_a_message_to: "Bejegyzés küldése ennek a csoportnak: %{aspect}"
       posting: "Küldés..."
-      public: "Nyilvános"
       publishing_to: "Publikálás:"
       share: "Megosztás"
       share_with: "megosztás vele"

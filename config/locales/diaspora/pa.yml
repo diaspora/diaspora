@@ -657,7 +657,6 @@ pa:
       make_public: "ਪਬਲਿਕ ਬਣਾਓ"
       post_a_message_to: "Post a message to %{aspect}"
       posting: "ਪੋਸਟ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Share"
       share_with: "share with"

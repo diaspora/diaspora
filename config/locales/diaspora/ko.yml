@@ -657,7 +657,6 @@ ko:
       make_public: "공개하기"
       post_a_message_to: "%{aspect}에 공유물 올리기"
       posting: "올리는 중···"
-      public: "공개"
       publishing_to: "올릴 곳: "
       share: "공유"
       share_with: "공유하기: "

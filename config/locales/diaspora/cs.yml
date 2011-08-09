@@ -657,7 +657,6 @@ cs:
       make_public: "vytvořit veřejnou"
       post_a_message_to: "Poslat zprávu do %{aspect}"
       posting: "Odesílání..."
-      public: "Veřejné"
       publishing_to: "publikování na:"
       share: "Sdělit"
       share_with: "sdílet s"

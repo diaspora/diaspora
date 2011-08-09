@@ -23,6 +23,8 @@ ro:
       no_more: "Nu mai sunt posturi."
     publisher: 
       at_least_one_aspect: "Trebuie sa publici pe cel puţin un aspect"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "You've already reshared that post!"
     search_for: "Caută {{name}}"

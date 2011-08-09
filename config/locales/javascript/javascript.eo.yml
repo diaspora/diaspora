@@ -23,6 +23,8 @@ eo:
       no_more: "Ne pli afiŝoj."
     publisher: 
       at_least_one_aspect: "Vi devus eldoni al almenaŭ unu aspekto"
+      limited: "Limited - your post will only be seen by people you are sharing with"
+      public: "Public - your post will be visible to everyone and found by search engines"
     reshares: 
       duplicate: "Vi jam repartoprenis tiun afiŝon!"
     search_for: "Serĉi por {{name}}"

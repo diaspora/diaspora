@@ -657,7 +657,6 @@ sl:
       make_public: "objavi kot javno"
       post_a_message_to: "Objavi sporočilo v %{aspect}"
       posting: "Objavljam..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Objavi"
       share_with: "deli s/z"

@@ -657,7 +657,6 @@ ar:
       make_public: "عَمِّمْهَا"
       post_a_message_to: "انشر رسالة إلى %{aspect}"
       posting: "يَنشُر ..."
-      public: "العالم"
       publishing_to: "نشر إلى: "
       share: "شَارِك"
       share_with: "شارِك مع %{aspect}"

@@ -657,7 +657,6 @@ sk:
       make_public: "Zverejniť"
       post_a_message_to: "Poslať správu na aspekt %{aspect}"
       posting: "Posielam..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Zdieľať"
       share_with: "Zdieľať s aspektom %{aspect}"

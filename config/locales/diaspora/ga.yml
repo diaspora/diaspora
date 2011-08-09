@@ -657,7 +657,6 @@ ga:
       make_public: "dean phoiblí"
       post_a_message_to: "Chuir teachtaireach chuig %{aspect}"
       posting: "Póstáil..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Roinn"
       share_with: "Roinn le %{aspect}"

@@ -657,7 +657,6 @@ da:
       make_public: "offentliggør"
       post_a_message_to: "Send en besked til %{aspect}"
       posting: "Sender..."
-      public: "Offentlig"
       publishing_to: "del med: "
       share: "Del"
       share_with: "Del med"

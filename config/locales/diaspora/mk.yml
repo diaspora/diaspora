@@ -657,7 +657,6 @@ mk:
       make_public: "направи јавен"
       post_a_message_to: "Додај порака во %{aspect}"
       posting: "Објавување..."
-      public: "Public"
       publishing_to: "publishing to: "
       share: "Сподели"
       share_with: "Сподели со %{aspect}"
