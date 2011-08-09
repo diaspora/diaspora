@@ -36,8 +36,10 @@
         %p
           = invite.submit t('.send_an_invitation')
 
+  %br
+  %br
   - unless @sent_invitations.empty?
-    .span-6.last
+    .span-6.prepend-6.last
       #already_invited_pane
         %h4
           = t('.already_invited')
