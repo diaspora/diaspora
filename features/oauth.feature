@@ -77,3 +77,19 @@ Feature: oauth
     Then I should be on "/account" on Chubbies
     And I should see my "profile.birthday"
     And I should see my "name"
+
+  Scenario: Login in with Chubbies when you already authorized it
+    Given Chubbies is registered on my pod
+    When I try to authorize Chubbies
+    When I press "Authorize"
+    Then I should be on "/account" on Chubbies
+    And I should see my "profile.birthday"
+    And I should see my "name"
+
+    Then I visit "/new" on Chubbies
+    And I fill in "Diaspora Handle" with "#{@me.diaspora_handle}"
+    And I press "Connect to Diaspora"
+
+    And I debug
+    Then I should be on "/account" on Chubbies
+
