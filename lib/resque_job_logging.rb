@@ -23,7 +23,20 @@ module ResqueJobLogging
     args.each_with_index{|arg,idx| log_string += "arg#{idx.succ}=\"#{arg.to_s[0..30]}\" "}
 
     Rails.logger.info(log_string)
-    raise error if error
+    if error
+      notify_hoptoad(error) if AppConfig[:hoptoad_api_key].present? && Rails.env.production?
+      raise error
+    end
+  end
+
+  def notify_hoptoad error
+    Hoptoad.notify(
+      :error_class => error.class,
+      :error_message => error.message,
+      :parameters => {
+        :job_class => self.name
+      }
+    )
   end
 
   def application_trace(error) #copied from ActionDispatch::ShowExceptions
