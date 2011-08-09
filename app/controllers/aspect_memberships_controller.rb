@@ -17,7 +17,7 @@ class AspectMembershipsController < ApplicationController
     @contact = current_user.contact_for(Person.where(:id => @person_id).first)
     membership = @contact ? @contact.aspect_memberships.where(:aspect_id => @aspect_id).first : nil
 
-    if membership && membership.destroy 
+    if membership && membership.destroy
         @aspect = membership.aspect
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
@@ -74,6 +74,10 @@ class AspectMembershipsController < ApplicationController
     end
 
     render :text => response_hash.to_json
+  end
+
+  rescue_from ActiveRecord::RecordNotUnique do
+    render :text => "Duplicate record rejected.", :status => 400
   end
 
 end

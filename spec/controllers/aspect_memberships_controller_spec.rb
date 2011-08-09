@@ -13,7 +13,7 @@ describe AspectMembershipsController do
     @contact = alice.contact_for(bob.person)
     alice.getting_started = false
     alice.save
-    sign_in :user, alice 
+    sign_in :user, alice
     @controller.stub(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
   end
@@ -60,6 +60,13 @@ describe AspectMembershipsController do
         :person_id => @person.id,
         :aspect_id => @aspect0.id
       flash[:error].should_not be_empty
+    end
+
+    it 'does not 500 on a duplicate key error' do
+      params = {:format => 'js', :person_id => @person.id, :aspect_id => @aspect0.id}
+      post :create, params
+      post :create, params
+      response.status.should == 400
     end
 
     context 'json' do
