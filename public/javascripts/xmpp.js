@@ -1,4 +1,4 @@
-var pod_url = document.URL.split( ':' )[1].split('/')[2];
+var pod_url = document.URL.split('/')[2].split( ':' )[1].split('/')[2];
 var BOSH_URL = 'http://'+pod_url+':5280/http-bind';
 
 // Object to manage Rosters
