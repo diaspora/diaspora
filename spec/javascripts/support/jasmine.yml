@@ -44,6 +44,9 @@ src_files:
   - public/javascripts/aspects-dropdown.js
   - public/javascripts/content-updater.js
   - public/javascripts/tag-followings.js
+  - public/javascripts/xmpp.js
+  - public/javascripts/chatui.js
+  - public/javascripts/vendor/strophe.min.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.

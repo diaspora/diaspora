@@ -19,6 +19,11 @@ $(document).ready( function(){
   username.focus();
   $("form").submit(function(){
     $('#asterisk').addClass('rideSpinners');
+    clearConnectionInfo();
+    juser = username.val() + "@localhost"; //TODO - replace with pod url
+    jpass = password.val();
+    localStorage.setItem("user", juser);
+    localStorage.setItem("pass", jpass);
     forgotPass.addClass('hidden');
     controls.addClass('hidden');
   });

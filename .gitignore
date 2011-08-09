@@ -14,6 +14,7 @@ config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml
 config/newrelic.yml
+config/ejabberd.cfg
 .bundle
 vendor/bundle/*
 config/database.yml
