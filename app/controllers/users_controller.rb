@@ -85,7 +85,7 @@ class UsersController < ApplicationController
           render :xml => director.build(ostatus_builder), :content_type => 'application/atom+xml'
         end
 
-        format.html { redirect_to person_path(user.person.id) }
+        format.any { redirect_to person_path(user.person.id) }
       end
     else
       redirect_to root_url, :error => I18n.t('users.public.does_not_exist', :username => params[:username])
