@@ -25,6 +25,17 @@ var View = {
       $('#main_stream label').inFieldLabels();
     });
 
+    /*scroll to top */
+     jQuery(window).scroll(function(){
+      if(jQuery(window).scrollTop() > 1000){
+        // show back to top
+        jQuery('#back-to-top').stop().animate({opacity: 1});
+      }
+      else{
+        // hide back to top
+        jQuery('#back-to-top').stop().animate({opacity: 0});
+      }
+    }); 
 
     /* Showing debug messages  */
     $(this.debug.selector)

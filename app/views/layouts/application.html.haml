@@ -107,6 +107,9 @@
         %br
         = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
 
+        %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
+          &#8679;
+
     -if !@landing_page && request.url.match(/joindiaspora.com/)
       :javascript
           var is_ssl = ("https:" == document.location.protocol);
@@ -122,4 +125,3 @@
           feedback_widget_options.color = "#222";
           feedback_widget_options.style = "idea";
           var feedback_widget = new GSFN.feedback_widget(feedback_widget_options);
-
