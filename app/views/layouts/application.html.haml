@@ -80,6 +80,9 @@
 
   %body{:class => "#{yield(:body_class)}"}
     - unless @landing_page
+      %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
+        &#8679;
+
       #notifications
 
       - flash.each do |name, msg|
@@ -106,9 +109,6 @@
         = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
         %br
         = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
-
-        %a{:id=>"back-to-top", :title=>"Back to top", :href=>"#"}
-          &#8679;
 
     -if !@landing_page && request.url.match(/joindiaspora.com/)
       :javascript
