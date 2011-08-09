@@ -31,5 +31,16 @@ module YoutubeTitles
     self.youtube_titles = matches unless matches.empty?
   end
 
+  def unserialize_attribute attr_name
+    if attr_name == "youtube_titles"
+      begin
+        super
+      rescue ActiveRecord::SerializationTypeMismatch
+        {}
+      end
+    else
+      super
+    end
+  end
   YOUTUBE_ID_REGEX = /(?:https?:\/\/)(?:youtu\.be\/|(?:[a-z]{2,3}\.)?youtube\.com\/watch(?:\?|#!|.+&|.+&amp;)v=)([\w-]{11})(?:\S*(#[^ ]+)|\S+)?/im unless defined? YOUTUBE_ID_REGEX
 end

@@ -131,18 +131,6 @@ class StatusMessage < Post
     end
   end
 
-  def unserialize_attribute attr_name
-    if attr_name == "youtube_titles"
-      begin
-        super
-      rescue ActiveRecord::SerializationTypeMismatch
-        {}
-      end
-    else
-      super
-    end
-  end
-
   protected
 
   def message_or_photos_present?
