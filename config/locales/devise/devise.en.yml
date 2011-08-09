@@ -80,7 +80,7 @@ en:
       inviters:
         has_invited_you: "%{name} has invited you to join Diaspora"
         have_invited_you: "%{names} have invited you to join Diaspora"
-        accept_at: ", at %{url}, you can accept it through the link below."
+        accept_at: "at %{url}, you can accept it through the link below."
     shared:
       mail_signup_form:
         sign_up_for_an_invite: "Sign up for an invite!"
