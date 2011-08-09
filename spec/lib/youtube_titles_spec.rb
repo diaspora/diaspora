@@ -45,6 +45,12 @@ describe YoutubeTitles do
         StatusMessage.find(@post.id).youtube_titles
       }.should_not raise_error
     end
+    it 'can be re-marshalled if it is serializaed incorrectly' do
+      StatusMessage.where(:id => @post.id).update_all(:youtube_titles => "this is not yaml")
+      lambda {
+        StatusMessage.find(@post.id).youtube_titles
+      }.should_not raise_error
+    end
   end
 
   describe "YOUTUBE_ID_REGEX" do
