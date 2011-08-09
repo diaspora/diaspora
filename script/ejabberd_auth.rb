@@ -21,7 +21,7 @@ class EjabberdAuthentication
 
       operation, username, domain, password = STDIN.sysread(length).split(':')
 
-      `echo "#{[operation, username, domain, password].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
+      #`echo "#{[operation, username, domain, password].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
 
 
       response = case operation
