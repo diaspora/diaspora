@@ -9,6 +9,7 @@ module ResharesHelper
 
   def reshare_link(post)
     if reshare?(post)
+      return unless post.root
       link_to t("reshares.reshare.reshare_original"),
         reshares_path(:root_guid => post.root.guid),
         :method => :post,

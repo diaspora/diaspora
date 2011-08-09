@@ -11,5 +11,14 @@ require 'spec_helper'
 #   end
 # end
 describe ResharesHelper do
-  pending "add some examples to (or delete) #{__FILE__}"
+  include StreamHelper
+
+  describe 'reshare_link' do
+    it 'does not display a reshare for a post that does not exist' do
+      reshare = Factory.build(:reshare, :root => nil)
+      lambda {
+        reshare_link(reshare)
+      }.should_not raise_error
+    end
+  end
 end
