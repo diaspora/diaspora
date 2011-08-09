@@ -1,6 +1,11 @@
 source 'http://rubygems.org'
 
 gem 'rails', '3.0.10'
+gem 'mysql2', '0.2.6'
+#gem 'pg'
+#gem 'sqlite3'
+gem 'rails-dbi', :require => 'dbi'
+gem 'rails-dbd-mysql'
 
 gem 'bundler', '>= 1.0.0'
 gem 'foreman'

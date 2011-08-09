@@ -22,7 +22,6 @@ common: &common
   <<: *mysql
   #<<: *postgres
 
-
 development:
   <<: *common
   database: diaspora_development
