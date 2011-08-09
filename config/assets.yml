@@ -47,7 +47,6 @@ javascripts:
     - public/javascripts/aspect-sorting.js
     - public/javascripts/vendor/strophe.min.js
     - public/javascripts/xmpp.js
-    - public/javascripts/jingle-rtmfp.js
   login:
     - public/javascripts/login.js
   mobile:
