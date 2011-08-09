@@ -5,6 +5,9 @@
 class VannaController < Vanna::Base
   include Devise::Controllers::Helpers
   include AspectGlobalHelper
+  include PeopleHelper
+  include UsersHelper
+
   helper :layout
   helper_method :current_user
   helper_method :all_aspects

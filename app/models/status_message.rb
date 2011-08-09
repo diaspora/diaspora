@@ -9,6 +9,7 @@ class StatusMessage < Post
   include YoutubeTitles
   require File.join(Rails.root, 'lib/youtube_titles')
   include ActionView::Helpers::TextHelper
+  include PeopleHelper
 
   acts_as_taggable_on :tags
   extract_tags_from :raw_message
@@ -55,7 +56,7 @@ class StatusMessage < Post
       if opts[:plain_text]
         person ? ERB::Util.h(person.name) : ERB::Util.h($~[1])
       else
-        person ? "<a href=\"/people/#{person.id}\" class=\"mention hovercardable\">@#{ERB::Util.h(person.name)}</a>" : ERB::Util.h($~[1])
+        person ? person_link(person, :class => 'mention hovercardable') : ERB::Util.h($~[1])
       end
     end
     form_message

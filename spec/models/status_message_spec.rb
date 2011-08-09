@@ -6,6 +6,7 @@ require 'spec_helper'
 
 describe StatusMessage do
   include ActionView::Helpers::UrlHelper
+  include PeopleHelper
   include Rails.application.routes.url_helpers
   def controller
     mock()
@@ -86,10 +87,10 @@ STR
 
     describe '#format_mentions' do
       it 'adds the links in the formated message text' do
-        @sm.format_mentions(@sm.raw_message).should == <<-STR
-#{link_to('@' << @people[0].name, person_path(@people[0]), :class => 'mention hovercardable')} can mention people like Raphael #{link_to('@' << @people[1].name, person_path(@people[1]), :class => 'mention hovercardable')}
-can mention people like Raphaellike Raphael #{link_to('@' << @people[2].name, person_path(@people[2]), :class => 'mention hovercardable')} can mention people like Raph
-STR
+        message = @sm.format_mentions(@sm.raw_message)
+        message.should include(person_link(@people[0], :class => 'mention hovercardable'))
+        message.should include(person_link(@people[1], :class => 'mention hovercardable'))
+        message.should include(person_link(@people[2], :class => 'mention hovercardable'))
       end
 
       context 'with :plain_text option' do
