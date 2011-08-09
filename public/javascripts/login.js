@@ -20,7 +20,7 @@ $(document).ready( function(){
   $("form").submit(function(){
     $('#asterisk').addClass('rideSpinners');
     clearConnectionInfo();
-    juser = username.val() + pod_url;
+    juser = username.val() + "@" + pod_url;
     jpass = password.val();
     localStorage.setItem("user", juser);
     localStorage.setItem("pass", jpass);
