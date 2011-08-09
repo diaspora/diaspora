@@ -34,5 +34,10 @@ Feature: posting
     And I go to the home page
     Then I should not see "#boss" within ".left_nav"
 
-
-
+  Scenario:
+    When I go to the home page
+    And I preemptively confirm the alert
+    And I hover over the ".tag_selector"
+    And I follow "unfollow_boss"
+    And I wait for the ajax to finish
+    Then I should not see "#boss" within ".left_nav"
