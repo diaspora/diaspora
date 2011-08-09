@@ -27,17 +27,24 @@ $(window).unload(function() {
 });
 
 $(window).bind('beforeunload', function(){
+    checkCall();
     Chat.send($pres({
         'type':'unavailable'
     }));
     Chat.bosh.flush();
 })
 
+
+function checkCall(){
+    if(Jingle.callstatus != 0)
+        Jingle.terminateCall();
+}
+
 // Page loaded
 $(document).ready(function(){
 
     $('a').click(function() {
-        window.onbeforeunload = null;
+        window.onbeforeunload = checkCall();
     });
 
     $("#logout").click(function(){
@@ -173,7 +180,7 @@ function createChatBox(id, nick) {
     // Create HTML for the Chatbox
     $(" <div />" ).attr("id","chatbox_"+id)
     .addClass("chatbox")
-    .html('<div class="chatboxhead"><div class="chatboxtitle"><a href="javascript:void(0)" onclick="javascript:toggleChatBoxGrowth(\''+id+'\')">'+nick+'</a></div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+id+'\')">X</a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onkeydown="javascript:return checkChatBoxInputKey(event,this,\''+id+'\');"></textarea></div>')
+    .html('<div class="chatboxhead"><div class="chatboxtitle"><a href="javascript:void(0)" onclick="javascript:toggleChatBoxGrowth(\''+id+'\')">'+nick+'</a></div><div class="chatboxoptions"><a href="javascript:void(0)" onclick="javascript:videoButton(\''+id+'\')">O</a><a href="javascript:void(0)" onclick="javascript:closeChatBox(\''+id+'\')">X</a></div><br clear="all"/></div><div class="chatboxcontent"></div><div class="chatboxinput"><textarea class="chatboxtextarea" onkeydown="javascript:return checkChatBoxInputKey(event,this,\''+id+'\');"></textarea></div>')
     .appendTo($( "body" ));
 
     $("#chatbox_"+id).css('bottom', '0px');
@@ -202,6 +209,26 @@ function createChatBox(id, nick) {
     });
     // Show created chatbox
     $("#chatbox_"+id).show();
+}
+
+function showAV(id, url){
+    $('<div id = "chatFlashcontainer" style="width:1px; height:1px">')
+    .html('<object type="application/x-shockwave-flash" data="../videochat.swf" id="chatFlash" width="100%" height="100%">\n\
+<param name=FlashVars value="url='+ url +'" >\n\
+<param name="allowScriptAccess" value="always">\n\
+<param name="allowFullScreen" value="true" />\n\
+<embed src="../videochat.swf?url=\'+ url +\'" type="application/x-shockwave-flash" allowScriptAccess="always" allowFullScreen="true" width="100%" height="100%" FlashVars="url='+ url +'"></embed></object>')
+    .appendTo($('#chatbox_' + id +' .chatboxhead'));
+    document.getElementById("chatFlashcontainer").style.height = "150px";
+    document.getElementById("chatFlashcontainer").style.width = "215px";
+}
+
+function hideAV(){
+    $("#chatFlashcontainer").remove();
+}
+
+function startAV(farId, farStream, nearStream){
+    document.getElementById( "chatFlash" ).callMe(farId, farStream, nearStream);
 }
 
 // When message is received
@@ -281,6 +308,7 @@ function toggleChatBoxGrowth(chatboxtitle) {
     var i  = searchCB (chatboxtitle);
 
     // If chatbox is already minimized, show it
+
     if ($('#chatbox_'+chatboxtitle+' .chatboxcontent').css('display') == 'none') {
 
         chatBoxes[i].minimized = false;
@@ -360,6 +388,16 @@ function loginButton (){
             $("#chatrosters").hide();
         else
             $("#chatrosters").show();
+    }
+}
+
+function videoButton (id){
+    if ( Jingle.callstatus == 0 ){
+        Jingle.makeCall(id)
+    }else{
+        if ($("#chatFlashcontainer").is(":visible")){
+            Jingle.terminateCall();
+        }
     }
 }
 

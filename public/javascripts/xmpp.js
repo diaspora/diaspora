@@ -230,6 +230,7 @@ var Chat = {
                 // Subscribe handlers for Messages, Presences and Calls
                 Chat.bosh.addHandler(Chat.recvMessage, null, 'message');
                 Chat.bosh.addHandler(Chat.handlerPresence, null, 'presence');
+                Chat.bosh.addHandler(Jingle.recvCall, null, 'iq', 'set');
                 (Chat.presence == 1) ? manageUI("offline") : manageUI("connected");
                 break;
             case Strophe.Status.ATTACHED :
@@ -239,6 +240,7 @@ var Chat = {
                 // Subscribe handlers for Messages, Presences and Calls
                 Chat.bosh.addHandler(Chat.recvMessage, null, 'message');
                 Chat.bosh.addHandler(Chat.handlerPresence, null, 'presence');
+                Chat.bosh.addHandler(Jingle.recvCall, null, 'iq', 'set');
                 (Chat.presence == 1) ? manageUI("offline") : manageUI("connected");
                 break;
             case Strophe.Status.DISCONNECTED :

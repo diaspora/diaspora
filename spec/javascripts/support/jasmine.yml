@@ -20,8 +20,8 @@ src_files:
   - public/javascripts/vendor/Mustache.js
   - public/javascripts/vendor/charCount.js
   - public/javascripts/vendor/timeago.js
-  - public/javascripts/vendor/facebox.js
   - public/javascripts/jquery.autocomplete-custom.js
+  - public/javascripts/facebox-custom.js
   - public/javascripts/diaspora.js
   - public/javascripts/keycodes.js
   - public/javascripts/widgets/alert.js
@@ -45,7 +45,8 @@ src_files:
   - public/javascripts/content-updater.js
   - public/javascripts/xmpp.js
   - public/javascripts/chatui.js
-  - public/javascripts/vendor/strophe.min.js
+  - public/javascripts/strophe.min.js
+  - public/javascripts/jingle-rtmfp.js
 # stylesheets
 #
 # Return an array of stylesheet filepaths relative to src_dir to include before jasmine specs.
@@ -68,7 +69,7 @@ stylesheets:
 # EXAMPLE:
 #
 # helpers:
-#   - helpers/**/*.jsview
+#   - helpers/**/*.js
 #
 helpers:
   - helpers/**/*.js
