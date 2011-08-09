@@ -269,7 +269,7 @@
 %% LDAP manager:
 %%{ldap_rootdn, "dc=example,dc=com"}.
 %%
-%% Password of LDAP manager:
+%% Password to LDAP manager:
 %%{ldap_password, "******"}.
 %%
 %% Search base of LDAP directory:
