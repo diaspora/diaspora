@@ -47,6 +47,7 @@
       = include_javascripts :flash_socket #unless modern_browser?
       = javascript_include_tag 'web-socket-receiver'
       = render 'js/websocket_js'
+      = include_javascripts :chat_ui
 
 
     = yield(:head)

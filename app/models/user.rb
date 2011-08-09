@@ -339,7 +339,7 @@ class User < ActiveRecord::Base
 
     self.serialized_private_key = User.generate_key if self.serialized_private_key.blank?
     self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
-
+    
     self
   end
 

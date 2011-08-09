@@ -3,10 +3,12 @@ source 'http://rubygems.org'
 gem 'mysql2', '0.2.6'
 #gem 'pg'
 #gem 'sqlite3'
+gem 'rails-dbi', :require => 'dbi'
+gem 'rails-dbd-mysql'
 gem 'rails', '3.0.9'
 gem 'foreigner', '0.9.1'
 gem 'activerecord-import'
-
+gem 'rdoc'
 gem 'bundler', '>= 1.0.0'
 gem 'chef', '0.9.12', :require => false
 gem 'ohai', '0.5.8', :require => false #Chef dependency

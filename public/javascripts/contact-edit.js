@@ -54,7 +54,7 @@ var ContactEdit = {
 
       Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
-  },
+  }
 };
 
   $(document).ready(function(){

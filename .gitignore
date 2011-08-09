@@ -14,6 +14,7 @@ config/initializers/secret_token.rb
 config/redis.conf
 config/deploy_config.yml
 config/newrelic.yml
+config/ejabberd.cfg
 .bundle
 vendor/bundle/*
 config/database.yml
@@ -25,6 +26,7 @@ config/mailing_list.csv
 
 # Generated files
 log/*
+logs/*
 public/stylesheets/*.css
 public/diaspora
 spec/fixtures/*.y*ml
@@ -34,6 +36,9 @@ coverage/*
 #Documentation
 .yardoc/
 doc/
+
+#Gems
+vendor/ruby/*
 
 # Uploaded files and local files
 public/uploads/*
