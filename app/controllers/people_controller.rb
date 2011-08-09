@@ -9,6 +9,10 @@ class PeopleController < ApplicationController
   respond_to :json, :only => [:index, :show]
   respond_to :js, :only => [:tag_index]
 
+  rescue_from ActiveRecord::RecordNotFound do
+    render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
+  end
+
   def index
     @aspect = :search
     params[:q] ||= params[:term] || ''
@@ -61,10 +65,10 @@ class PeopleController < ApplicationController
   end
 
   def show
-    @person = find_person_from_id_or_username
-    if @person && @person.remote? && !user_signed_in?
-      render :file => "#{Rails.root}/public/404.html", :layout => false, :status => 404
-      return
+    @person = Person.find_from_id_or_username(params)
+
+    if remote_profile_with_no_user_session?
+      raise ActiveRecord::RecordNotFound 
     end
 
     @post_type = :all
@@ -72,53 +76,48 @@ class PeopleController < ApplicationController
     @share_with = (params[:share_with] == 'true')
 
     max_time = params[:max_time] ? Time.at(params[:max_time].to_i) : Time.now
-    if @person
-      @profile = @person.profile
+    @profile = @person.profile
 
-      unless params[:format] == "json" # hovercard
-        if current_user
-          @contact = current_user.contact_for(@person)
-          @aspects_with_person = []
-          if @contact && !params[:only_posts]
-            @aspects_with_person = @contact.aspects
-            @aspect_ids = @aspects_with_person.map(&:id)
-            @contacts_of_contact_count = @contact.contacts.count
-            @contacts_of_contact = @contact.contacts.limit(8)
+    unless params[:format] == "json" # hovercard
+      if current_user
+        @contact = current_user.contact_for(@person)
+        @aspects_with_person = []
+        if @contact && !params[:only_posts]
+          @aspects_with_person = @contact.aspects
+          @aspect_ids = @aspects_with_person.map(&:id)
+          @contacts_of_contact_count = @contact.contacts.count
+          @contacts_of_contact = @contact.contacts.limit(8)
 
-          else
-            @contact ||= Contact.new
-            @contacts_of_contact_count = 0
-            @contacts_of_contact = []
-          end
-
-          if (@person != current_user.person) && !@contact.persisted?
-            @commenting_disabled = true
-          else
-            @commenting_disabled = false
-          end
-          @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
         else
+          @contact ||= Contact.new
+          @contacts_of_contact_count = 0
+          @contacts_of_contact = []
+        end
+
+        if (@person != current_user.person) && !@contact.persisted?
           @commenting_disabled = true
-          @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
+        else
+          @commenting_disabled = false
         end
-        @posts.includes(:author => :profile)
-      end
-
-      if params[:only_posts]
-        render :partial => 'shared/stream', :locals => {:posts => @posts}
+        @posts = current_user.posts_from(@person).where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"]).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time))
       else
-        respond_to do |format|
-          format.all { respond_with @person, :locals => {:post_type => :all} }
-          format.json {
-            render :json => @person.to_json(:includes => params[:includes])
-          }
-        end
+        @commenting_disabled = true
+        @posts = @person.posts.where(:type => ["StatusMessage", "Reshare", "ActivityStreams::Photo"], :public => true).includes(:comments).limit(15).where(StatusMessage.arel_table[:created_at].lt(max_time)).order('posts.created_at DESC')
       end
-
-    else
-      flash[:error] = I18n.t 'people.show.does_not_exist'
-      redirect_to people_path
+      @posts.includes(:author => :profile)
     end
+
+    if params[:only_posts]
+      render :partial => 'shared/stream', :locals => {:posts => @posts}
+    else
+      respond_to do |format|
+        format.all { respond_with @person, :locals => {:post_type => :all} }
+        format.json {
+          render :json => @person.to_json(:includes => params[:includes])
+        }
+      end
+    end
+
   end
 
   def retrieve_remote
@@ -156,13 +155,8 @@ class PeopleController < ApplicationController
     Resque.enqueue(Job::SocketWebfinger, current_user.id, account, opts)
   end
 
-  def find_person_from_id_or_username
-    if params[:id].present?
-      Person.where(:id => params[:id]).first
-    elsif params[:username].present?
-      User.find_by_username(params[:username]).person
-    else
-      nil
-    end
+
+  def remote_profile_with_no_user_session?
+    @person && @person.remote? && !user_signed_in?
   end
 end

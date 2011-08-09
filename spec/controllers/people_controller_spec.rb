@@ -117,14 +117,14 @@ describe PeopleController do
   end
 
   describe '#show' do
-    it "redirects to #index if the id is invalid" do
+    it "404s if the id is invalid" do
       get :show, :id => 'delicious'
-      response.should redirect_to people_path
+      response.code.should == "404"
     end
 
-    it "redirects to #index if no person is found" do
+    it "404s if no person is found" do
       get :show, :id => 3920397846
-      response.should redirect_to people_path
+      response.code.should == "404"
     end
 
     it 'does not allow xss attacks' do

@@ -49,6 +49,20 @@ class Person < ActiveRecord::Base
   def self.featured_users
     AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
   end
+
+
+  def self.find_from_id_or_username(params)
+    p =   if params[:id].present?
+            Person.where(:id => params[:id]).first
+          elsif params[:username].present? && u = User.find_by_username(params[:username])
+            u.person
+          else
+            nil
+          end
+    raise ActiveRecord::RecordNotFound unless p.present?
+    p
+  end
+
   
   def self.search_query_string(query)
     query = query.downcase

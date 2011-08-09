@@ -23,6 +23,28 @@ describe Person do
         Person.remote =~ [@user.person]
       end
     end
+
+    describe '.find_person_from_id_or_username' do
+      it 'searchs for a person if id is passed' do
+        Person.find_from_id_or_username(:id => @person.id).id.should == @person.id
+      end
+      
+      it 'searchs a person from a user if username is passed' do
+        Person.find_from_id_or_username(:username => @user.username).id.should == @user.person.id
+      end
+
+      it 'throws active record not found exceptions if no person is found via id' do
+        expect{
+          Person.find_from_id_or_username(:id => 213123)
+        }.to raise_error ActiveRecord::RecordNotFound
+      end
+
+      it 'throws active record not found exceptions if no person is found via username' do
+        expect{
+          Person.find_from_id_or_username(:username => 'michael_jackson')
+        }.to raise_error ActiveRecord::RecordNotFound
+      end
+    end
   end
   describe "delegating" do
     it "delegates last_name to the profile" do
