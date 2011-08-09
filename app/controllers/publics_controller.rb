@@ -75,8 +75,8 @@ class PublicsController < ApplicationController
       @post = Post.where(:guid => params[:guid], :public => true).includes(:author, :comments => :author).first
     end
 
-    #hax to upgrade logged in users who can comment
     if @post
+      #hax to upgrade logged in users who can comment
       if user_signed_in? && current_user.find_visible_post_by_id(@post.id)
         redirect_to post_path(@post)
       else
@@ -86,8 +86,8 @@ class PublicsController < ApplicationController
           I18n.locale = @person.owner.language
 
           respond_to do |format|
-            format.all{ render "#{@post.class.to_s.underscore}", :layout => 'application'}
             format.xml{ render :xml => @post.to_diaspora_xml }
+            format.any{ render "#{@post.class.to_s.underscore}", :layout => 'application'}
           end
         else
           flash[:error] = I18n.t('posts.show.not_found')

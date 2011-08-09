@@ -78,7 +78,7 @@ end
 Factory.define(:status_message_with_photo, :parent => :status_message) do |m|
   m.sequence(:text) { |n| "There are #{n} ninjas in this photo." }
   m.after_build do |m|
-    p = Factory(:photo, :author => m.author, :status_message => m, :pending => false)
+    p = Factory(:photo, :author => m.author, :status_message => m, :pending => false, :public => m.public)
   end
 end
 

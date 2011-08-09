@@ -66,7 +66,14 @@ describe PublicsController do
       status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
 
       get :post, :guid => status.id
-      response.status= 200
+      response.status.should == 200
+    end
+
+    it 'shows a public photo' do
+      status = Factory(:status_message_with_photo, :public => true, :author => alice.person)
+      photo = status.photos.first
+      get :post, :guid => photo.id
+      response.status.should == 200
     end
 
     it 'does not show a private post' do
