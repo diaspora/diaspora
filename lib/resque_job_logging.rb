@@ -24,7 +24,7 @@ module ResqueJobLogging
 
     Rails.logger.info(log_string)
     if error
-      notify_hoptoad(error, args) if AppConfig[:hoptoad_api_key].present?
+      notify_hoptoad(error, args) if AppConfig[:hoptoad_api_key].present? && Rails.env.production?
       raise error
     end
   end
@@ -35,7 +35,7 @@ module ResqueJobLogging
       :error_message => error.message,
       :parameters => {
         :job_class => self.name,
-        :arguments => args}
+        :arguments => args
       }
     )
   end
