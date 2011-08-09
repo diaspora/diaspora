@@ -67,6 +67,8 @@ gem 'jammit', '0.5.4'
 gem 'rest-client', '1.6.1'
 gem 'typhoeus'
 
+#Reporting
+gem 'hoptoad_notifier'
 gem 'newrelic_rpm', :require => false
 
 #Backups

@@ -138,6 +138,9 @@ defaults: &defaults
   featured_users:
     - 'diasporahq@joindiaspora.com'
 
+  #Hoptoad api key
+  hoptoad_api_key: ''
+
 # Use this section to override default settings in specific environments
 development:
   <<: *defaults

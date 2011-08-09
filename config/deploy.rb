@@ -81,3 +81,6 @@ namespace :deploy do
 end
 
 after "deploy:symlink", "deploy:symlink_config_files", "deploy:symlink_cookie_secret", "deploy:bundle_static_assets"
+
+        require './config/boot'
+        require 'hoptoad_notifier/capistrano'
