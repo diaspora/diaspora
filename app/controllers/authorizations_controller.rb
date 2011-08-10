@@ -12,9 +12,10 @@ class AuthorizationsController < ApplicationController
     @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
 
-    if current_user.applications.present?
-      tokens = current_user.authorizations.first.access_tokens.first
-      redirect_to "#{params[:redirect_uri]}&access_token=#{tokens.access_token}&refresh_token=#{tokens.refresh_token}"
+    if authorization = current_user.authorizations.where(:client_id => @client.id).first
+      ac = authorization.authorization_codes.create(:redirect_uri => params[:redirect_uri])
+      #tokens = current_user.authorizations.first.access_tokens.first
+      redirect_to "#{params[:redirect_uri]}&code=#{ac.code}"
     end
   end
 

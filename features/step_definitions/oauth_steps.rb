@@ -80,7 +80,7 @@ class Chubbies
   end
 
   def self.nullify
-    "2> /dev/null > /dev/null"
+   # "2> /dev/null > /dev/null"
   end
 
   def self.kill

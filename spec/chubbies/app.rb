@@ -75,8 +75,8 @@ module Chubbies
     def account_const
       User
     end
-    def create_account(*args)
-      account_const.create(args)
+    def create_account(hash)
+      account_const.create(hash)
     end
 
     get '/account' do

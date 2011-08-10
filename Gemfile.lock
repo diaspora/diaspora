@@ -59,7 +59,7 @@ PATH
       activerecord
       faraday
       jwt (>= 0.1.3)
-      oauth2
+      oauth2 (= 0.4.1)
       sinatra
 
 GEM
