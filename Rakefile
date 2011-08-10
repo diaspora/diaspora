@@ -1,6 +1,10 @@
 require "rubygems"
 require "bundler/setup"
 
+# If you customize your site's index page setting custom_index to true
+# will preserve your changes when running `rake update_source`
+custom_index = false
+
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
@@ -150,6 +154,7 @@ task :update_source, :theme do |t, args|
   system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -Rf #{source_dir}.old/_includes/custom/. #{source_dir}/_includes/custom/"
+  system "cp -Rf #{source_dir}.old/index.html #{source_dir}" if custom_index
   puts "## Updated #{source_dir} ##"
 end
 

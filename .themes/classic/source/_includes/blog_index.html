@@ -1,0 +1,40 @@
+<div class="blog-index">
+{% assign index = true %}
+{% for post in paginator.posts %}
+{% assign content = post.content %}
+  <article>
+    {% include article.html %}
+  </article>
+{% endfor %}
+<nav role="pagination">
+  <div>
+    {% if paginator.next_page %}
+      <a class="prev" href="/page{{paginator.next_page}}/">&larr; Older</a>
+    {% endif %}
+    <a href="/blog/archives">Blog Archives</a>
+    {% if paginator.previous_page and paginator.previous_page > 1 %}
+      <a class="next" href="/page{{paginator.previous_page}}/">Newer &rarr;</a>
+    {% elsif paginator.previous_page %}
+      <a class="next" href="/">Newer &rarr;</a>
+    {% endif %}
+  </div>
+</nav>
+{% if site.disqus_short_name %}
+<script type="text/javascript">
+    var disqus_shortname = '{{ site.disqus_short_name }}';
+    (function () {
+      var s = document.createElement('script'); s.async = true;
+      s.type = 'text/javascript';
+      s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
+      (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+{% endif %}
+</div>
+<aside role=sidebar>
+  {% if site.blog_index_asides.size %}
+    {% include_array blog_index_asides %}
+  {% else %}
+    {% include_array default_asides %}
+  {% endif %}
+</aside>
