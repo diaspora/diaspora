@@ -21,7 +21,7 @@ module ResqueJobLogging
       log_string << "annotated_source='#{error.annoted_source_code.to_s}' " if error.respond_to?(:annoted_source_code)
       backtrace = application_trace(error)
       log_string << "app_backtrace='#{backtrace.join(";")}' "
-      notify_hoptoad(error, args, backtrace) if AppConfig[:hoptoad_api_key].present?
+      notify_hoptoad(error, args) if AppConfig[:hoptoad_api_key].present?
     else
       log_string += "status=complete "
     end
@@ -30,11 +30,11 @@ module ResqueJobLogging
     raise error if error
   end
 
-  def notify_hoptoad(error, job_arguments, backtrace)
+  def notify_hoptoad(error, job_arguments)
     HoptoadNotifier.notify(
       :error_class => error.class,
       :error_message => error.message,
-      :backtrace => backtrace,
+      :backtrace => error.backtrace,
       :parameters => {
         :job_class => self.name,
         :arguments => job_arguments.map!{|a| a.to_s[0..30]},
