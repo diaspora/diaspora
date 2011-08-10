@@ -5,7 +5,7 @@ module NotifierHelper
       message = process_newlines(message) if opts[:process_newlines]
       message
     else
-      I18n.translate 'notificer.a_post'
+      I18n.translate 'notifier.a_post_you_shared'
     end
   end
 end
