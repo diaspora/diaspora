@@ -41,8 +41,8 @@
             = t('public')
             ·
         - else
-          - aspects = aspects_with_post(all_aspects, post)
           - if post.author.owner_id == current_user.id
+            - aspects = aspects_with_post(all_aspects, post)
             %span.post_scope{:title => t('.shared_with', :aspect_names => aspects.map!{|a| a.name}.join(', '))}
               - if aspects.size == 1
                 = aspects.first
@@ -51,11 +51,7 @@
                 (#{aspects.size})
           - else
             %span.post_scope
-              - if aspects.size == 1
-                = aspects.first
-              - else
-                = t('limited')
-                (#{aspects.size})
+              = t('limited')
           ·
 
         %span.via
