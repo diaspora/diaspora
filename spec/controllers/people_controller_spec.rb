@@ -122,8 +122,13 @@ describe PeopleController do
       response.code.should == "404"
     end
 
-    it "404s if no person is found" do
+    it "404s if no person is found via id" do
       get :show, :id => 3920397846
+      response.code.should == "404"
+    end
+
+    it "404s if no person is found via username" do
+      get :show, :username => 'delicious'
       response.code.should == "404"
     end
 
