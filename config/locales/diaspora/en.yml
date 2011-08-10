@@ -305,6 +305,7 @@ en:
     edit:
       your_account_awaits: "Your account awaits!"
       accept_your_invitation: "Accept your invitation"
+    a_facebook_user: "A Facebook user"
 
   layouts:
     header:

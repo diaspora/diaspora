@@ -96,7 +96,11 @@ class Invitation < ActiveRecord::Base
     if recipient.invitation_service == 'email'
       recipient.invitation_identifier
     elsif recipient.invitation_service == 'facebook'
-      ServiceUser.where(:uid => recipient.invitation_identifier).first.name
+      if su = ServiceUser.where(:uid => recipient.invitation_identifier).first
+        su.name
+      else
+        I18n.t('invitations.a_facebook_user')
+      end
     end
   end
 end

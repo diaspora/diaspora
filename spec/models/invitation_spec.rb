@@ -337,6 +337,14 @@ describe Invitation do
       invitation = alice.reload.invitations_from_me.first
       invitation.recipient_identifier.should == "Remote User"
     end
+    it 'does not error if the facebook user is not recorded' do
+      alice.services << Services::Facebook.new(:uid => "13234895")
+      alice.reload.services(true).first.service_users.create(:uid => "23526464", :photo_url => 'url',  :name => "Remote User")
+      alice.invite_user(aspect.id, 'facebook', "23526464", '')
+      alice.services.first.service_users.delete_all
+      invitation = alice.reload.invitations_from_me.first
+      invitation.recipient_identifier.should == "A Facebook user"
+    end
   end
 end
 
