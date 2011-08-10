@@ -56,7 +56,7 @@
           #getting_started_service_icons
             - AppConfig.configured_services.each do |service|
               - unless current_user.services.any?{|x| x.provider == service}
-                = link_to(image_tag("social_media_logos/#{service.downcase}-48x48.png", :title => service.titleize), "/auth/#{service}")
+                = link_to(image_tag("social_media_logos/#{service.to_s.downcase}-48x48.png", :title => service.to_s.titleize), "/auth/#{service}")
 
       %li.connect_with_people{:class => ("completed" if has_few_contacts?)}
         .getting_started_number
