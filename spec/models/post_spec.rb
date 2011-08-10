@@ -10,6 +10,13 @@ describe Post do
     @aspect = @user.aspects.create(:name => "winners")
   end
 
+  describe 'validations' do
+    it 'validates uniqueness of guid and does not throw a db error' do
+      message = Factory(:status_message)
+      Factory.build(:status_message, :guid => message.guid).should_not be_valid
+    end
+  end
+
   describe 'deletion' do
     it 'should delete a posts comments on delete' do
       post = Factory.create(:status_message, :author => @user.person)

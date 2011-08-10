@@ -29,6 +29,8 @@ class Post < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
 
+  validates_uniqueness_of :guid
+
   def diaspora_handle
     read_attribute(:diaspora_handle) || self.author.diaspora_handle
   end
