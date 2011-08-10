@@ -67,7 +67,10 @@
             = t('.connect_with_people')
 
           %p
-            = t('.connect_with_people_explanation')
+
+            = t('.connect_with_people_explanation_pt1')
+            %b= "#{t('.aspects')}."
+            = t('.connect_with_people_explanation_pt2')
 
           #diaspora_hq_pane
             - if diasporahq = Person.find_by_diaspora_handle("diasporahq@joindiaspora.com")
