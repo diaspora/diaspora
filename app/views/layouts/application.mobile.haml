@@ -56,6 +56,9 @@
             = link_to(image_tag('icons/list_white.png'), '#menu', :id => "menu_button")
             = link_to(image_tag('icons/search_white.png'), people_path)
         = link_to(image_tag('white@2x.png', :height => 22, :width => 136, :id => 'header_title'), aspects_path)
+      %p
+        - flash.each do |name, msg|
+          = content_tag :div, msg, :id => "flash_#{name}"
 
       = yield
 

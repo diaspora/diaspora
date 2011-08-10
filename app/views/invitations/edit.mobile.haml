@@ -2,7 +2,10 @@
 -#   licensed under the Affero General Public License version 3 or later.  See
 -#   the COPYRIGHT file.
 
+
 #login_form
+  %h3
+    = t('.your_account_awaits')
   = form_for(resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :put }) do |f|
     %p
       = f.label :username , t('username')

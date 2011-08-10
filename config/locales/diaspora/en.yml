@@ -51,6 +51,7 @@ en:
               invalid: "is invalid."
             username:
               taken: "is already taken."
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
             email:
               taken: "is already taken."
         person:
