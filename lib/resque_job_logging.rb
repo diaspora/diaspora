@@ -31,7 +31,6 @@ module ResqueJobLogging
   end
 
   def notify_hoptoad(error, job_arguments, backtrace)
-    puts "Notifying hoptoad"
     HoptoadNotifier.notify(
       :error_class => error.class,
       :error_message => error.message,
