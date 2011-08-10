@@ -1,1 +1,1 @@
-!= @post.formatted_message(:plain_text => true)
+!= post_message(@post, :process_newlines => true, :length => 600)
