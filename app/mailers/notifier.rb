@@ -6,6 +6,7 @@ class Notifier < ActionMailer::Base
   default :from => AppConfig[:smtp_sender_address]
 
   include ActionView::Helpers::TextHelper
+  include NotifierHelper
 
   TRUNCATION_LEN = 70
 
@@ -73,7 +74,7 @@ class Notifier < ActionMailer::Base
     I18n.with_locale(@receiver.language) do
       mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
            :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => "Re: #{truncate(@comment.parent.formatted_message(:plain_text => true).strip, :length => TRUNCATION_LEN)}")
+           :subject => "Re: #{post_message(@comment.parent, :length => TRUNCATION_LEN)}")
     end
   end
 

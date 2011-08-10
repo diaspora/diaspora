@@ -172,12 +172,12 @@ describe Notifier do
   end
 
   context "comments" do
-    let!(:connect) { connect_users(user, aspect, user2, aspect2)}
-    let!(:sm) {user.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
-    let!(:comment) { user2.comment("Totally is", :post => sm )}
+    let(:connect) { connect_users(user, aspect, user2, aspect2)}
+    let(:commented_post) {user.post(:status_message, :text => "It's really sunny outside today, and this is a super long status message!  #notreally", :to => :all)}
+    let(:comment) { user2.comment("Totally is", :post => commented_post)}
 
     describe ".comment_on_post" do
-      let!(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
+      let(:comment_mail) {Notifier.comment_on_post(user.id, person.id, comment.id).deliver}
 
       it 'TO: goes to the right person' do
         comment_mail.to.should == [user.email]
@@ -189,7 +189,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(sm.text, :length => 70)}"
+        comment_mail.subject.should == "Re: #{truncate(commented_post.text, :length => 70)}"
       end
 
       context 'BODY' do
@@ -199,6 +199,17 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+      end
+
+      [:reshare, :activity_streams_photo].each do |post_type|
+        context post_type.to_s do
+          let(:commented_post) { Factory(post_type, :author => user.person) }
+          it 'succeeds' do
+            proc {
+              comment_mail
+            }.should_not raise_error
+          end
         end
       end
     end
@@ -216,7 +227,7 @@ describe Notifier do
       end
 
       it 'SUBJECT: has a snippet of the post contents' do
-        comment_mail.subject.should == "Re: #{truncate(sm.text, :length => 70)}"
+        comment_mail.subject.should == "Re: #{truncate(commented_post.text, :length => 70)}"
       end
 
       context 'BODY' do
