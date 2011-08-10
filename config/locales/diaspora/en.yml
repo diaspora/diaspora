@@ -159,6 +159,7 @@ en:
       your_aspects: "Your Aspects"
       tags_following: "Followed Tags"
       no_tags: "+ Find a tag to follow"
+      unfollow_tag: "Stop following #%{tag}"
       handle_explanation: "This is your diaspora id. Like an email address, you can give this to people to reach you."
       no_contacts: "No contacts"
       post_a_message: "post a message >>"

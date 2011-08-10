@@ -70,6 +70,13 @@ describe AspectsController do
       save_fixture(html_for("body"), "aspects_index_with_posts")
     end
 
+    it 'generates a jasmine fixture with a followed tag' do
+      @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
+      TagFollowing.create!(:tag => @tag, :user => alice )
+      get :index
+      save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
+    end
+
     context 'with getting_started = true' do
       before do
         alice.getting_started = true
