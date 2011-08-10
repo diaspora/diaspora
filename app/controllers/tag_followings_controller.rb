@@ -22,11 +22,23 @@ class TagFollowingsController < ApplicationController
     @tag = ActsAsTaggableOn::Tag.find_by_name(params[:name])
     @tag_following = current_user.tag_followings.where(:tag_id => @tag.id).first
     if @tag_following && @tag_following.destroy
-      flash[:notice] = I18n.t('tag_followings.destroy.success', :name => params[:name])
+      @tag_unfollowed = true
     else
-      flash[:error] = I18n.t('tag_followings.destroy.failure', :name => params[:name])
+      @tag_unfollowed = false
     end
 
-    redirect_to tag_path(:name => params[:name])
+    if params[:remote]
+      respond_to do |format|
+        format.all{}
+        format.js{ render 'tags/update' }
+      end
+    else
+      if @tag_unfollowed
+        flash[:notice] = I18n.t('tag_followings.destroy.success', :name => params[:name])
+      else
+        flash[:error] = I18n.t('tag_followings.destroy.failure', :name => params[:name])
+      end
+      redirect_to tag_path(:name => params[:name])
+    end
   end
 end
