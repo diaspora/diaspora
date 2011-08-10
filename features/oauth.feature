@@ -16,12 +16,21 @@ Feature: oauth
     And I should see my "profile.birthday"
     And I should see my "name"
 
+  Scenario: Signup+login (Diaspora Connect) with Chubbies
+    When I visit "/reset" on Chubbies
+    And I should have 0 user on Chubbies
+    And I try to authorize Chubbies
+    And I press "Authorize"
+    Then I should be on "/account" on Chubbies
+
+    And I should have 1 user on Chubbies
+  
   Scenario: Not authorize Chubbies
     When I try to authorize Chubbies
 
     When I press "No"
     Then I should be on "/account" on Chubbies
-    Then I should see "No access token."
+    And I should have 0 user on Chubbies
 
   Scenario: Authorize Chubbies when Chubbies is already connected
     Given Chubbies is registered on my pod
@@ -80,16 +89,18 @@ Feature: oauth
 
   Scenario: Login in with Chubbies when you already authorized it
     Given Chubbies is registered on my pod
+    And I should have 0 user on Chubbies
+
     When I try to authorize Chubbies
     When I press "Authorize"
     Then I should be on "/account" on Chubbies
-    And I should see my "profile.birthday"
-    And I should see my "name"
 
+    And I should have 1 user on Chubbies
     Then I visit "/new" on Chubbies
-    And I fill in "Diaspora Handle" with "#{@me.diaspora_handle}"
+    And I fill in my Diaspora ID to connect
     And I press "Connect to Diaspora"
 
-    And I debug
     Then I should be on "/account" on Chubbies
+    And I should have 1 user on Chubbies
+
 

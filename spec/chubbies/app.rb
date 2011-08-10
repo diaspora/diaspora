@@ -31,6 +31,7 @@ module Chubbies
       end
       add_index :access_tokens, :user_id, :unique => true
       create_table :users do |t|
+        t.string :username, :limit => 127
         t.timestamps
       end
     end
@@ -60,7 +61,7 @@ module Chubbies
 
   class App < DiasporaClient::App
     def current_user
-      User.first
+      @user = User.first
     end
 
     def redirect_path
@@ -69,6 +70,13 @@ module Chubbies
 
     def after_oauth_redirect_path
       '/account?id=1'
+    end
+
+    def account_const
+      User
+    end
+    def create_account(*args)
+      account_const.create(args)
     end
 
     get '/account' do
@@ -89,7 +97,6 @@ module Chubbies
     end
 
     get '/new' do
-      @user = User.create
       haml :home
     end
 
@@ -103,6 +110,10 @@ module Chubbies
 
     post '/register' do
       DiasporaClient::ResourceServer.create!(params)
+    end
+
+    get '/user_count' do
+      User.count.to_s
     end
   end
 end

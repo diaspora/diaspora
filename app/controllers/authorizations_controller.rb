@@ -11,7 +11,11 @@ class AuthorizationsController < ApplicationController
   def new
     @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
-    #render :layout => "popup" if params[:popup]
+
+    if current_user.applications.present?
+      tokens = current_user.authorizations.first.access_tokens.first
+      redirect_to "#{params[:redirect_uri]}&access_token=#{tokens.access_token}&refresh_token=#{tokens.refresh_token}"
+    end
   end
 
   def create

@@ -30,17 +30,6 @@ GIT
       rails (>= 3.0)
 
 GIT
-  remote: git://github.com/diaspora/diaspora-client.git
-  revision: 9dc2c29495c7bf040ceceecdf88800f4c91f870c
-  specs:
-    diaspora-client (0.0.0)
-      activerecord
-      faraday
-      jwt (>= 0.1.3)
-      oauth2
-      sinatra
-
-GIT
   remote: git://github.com/iain/http_accept_language.git
   revision: 0b78aa7849fc90cf9e12586af162fa4c408a795d
   ref: 0b78aa7849fc90cf9e12
@@ -62,6 +51,16 @@ GIT
   specs:
     jwt (0.1.3)
       json (>= 1.2.4)
+
+PATH
+  remote: ~/workspace/diaspora-client
+  specs:
+    diaspora-client (0.0.0)
+      activerecord
+      faraday
+      jwt (>= 0.1.3)
+      oauth2
+      sinatra
 
 GEM
   remote: http://rubygems.org/

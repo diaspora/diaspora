@@ -35,7 +35,7 @@ When /^I try to authorize Chubbies$/ do
   # as we are clearing the Diaspora DB every scenario
   Then 'I visit "/new" on Chubbies'
   ###
-  And "I fill in \"Diaspora Handle\" with \"#{@me.diaspora_handle}\""
+  And "I fill in my Diaspora ID to connect"
   And 'I press "Connect to Diaspora"'
   Then 'I should be on the new user session page'
   And "I fill in \"Username\" with \"#{@me.username}\""
@@ -46,8 +46,16 @@ When /^I try to authorize Chubbies$/ do
   And 'I should see "The best way to chub."'
 end
 
-When /^I visit "([^"]+)" on Chubbies$/ do |path|
+And /^I fill in my Diaspora ID to connect$/ do
+  And "I fill in \"Diaspora Handle\" with \"#{@me.diaspora_handle}\""
+end
 
+And /^I should have (\d) user on Chubbies$/ do |num|
+  When "I visit \"/user_count\" on Chubbies"
+  Then "I should see \"#{num}\""
+end
+
+When /^I visit "([^"]+)" on Chubbies$/ do |path|
   former_host = Capybara.app_host
   Capybara.app_host = "localhost:#{Chubbies::PORT}"
   visit(path)
