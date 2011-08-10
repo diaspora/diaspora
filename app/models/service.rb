@@ -6,6 +6,7 @@ class Service < ActiveRecord::Base
   include ActionView::Helpers::TextHelper
 
   belongs_to :user
+  validates_uniqueness_of :uid, :scope => :type
   has_many :service_users, :dependent => :destroy
 
   def public_message(post, length, url = "")

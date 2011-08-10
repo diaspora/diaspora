@@ -9,6 +9,13 @@ describe Service do
     @user.services << @service
   end
 
+  it 'is unique to a user by service type and uid' do
+    @service.save
+    @user.services << Services::Facebook.new(:access_token => "yeah")
+    @user.services[1].valid?.should be_false
+
+  end
+
   it 'destroys the associated service_user' do
     @service.service_users = [ServiceUser.create(:service_id => @service.id,
                                                  :uid => "abc123",
