@@ -40,6 +40,21 @@ describe("Stream", function() {
     });
   });
 
+  describe("streamElement", function() {
+    it("makes sure that ajax spinner appears when hiding a post", function() {
+      Stream.bindHideIcon();
+      link = $("a.stream_element_delete.vis_hide");
+      spinner = link.next("img.hide_loader");
+      expect(link).not.toHaveClass("hidden");
+      expect(spinner).toHaveClass("hidden");
+      spyOn($, "ajax");
+      link.click();
+      expect($.ajax).toHaveBeenCalled();
+      expect(link).toHaveClass("hidden");
+      expect(spinner).not.toHaveClass("hidden");
+    });
+  });
+
   describe("initialize", function() {
     it("calls collapseText",function(){
       spyOn(Stream, "collapseText");
@@ -71,4 +86,5 @@ describe("Stream", function() {
       expect(link.text()).toEqual("comments.show pl");
     });
   });
+
 });
