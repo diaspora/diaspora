@@ -475,7 +475,7 @@ DEPENDENCIES
   faraday
   faraday-stack
   fastercsv (= 1.5.4)
-  fixture_builder (~> 0.2.0)
+  fixture_builder (= 0.2.2)
   fog (= 0.3.25)
   foreigner (= 0.9.1)
   fuubar

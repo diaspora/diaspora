@@ -87,8 +87,8 @@ group :development do
 end
 
 group :test, :development do
-  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i  
-  #gem 'guard-rspec' 
+  #gem 'rb-fsevent', :require => false if RUBY_PLATFORM =~ /darwin/i
+  #gem 'guard-rspec'
    gem 'factory_girl_rails', :require => false
   unless ENV["TRAVIS"]
     gem 'ruby-debug-base19', '0.11.23' if RUBY_VERSION.include? '1.9.1'
@@ -102,7 +102,7 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  gem 'fixture_builder', '~> 0.2.0'
+  gem 'fixture_builder', '0.2.2'
   gem 'selenium-webdriver', '0.2.2'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
