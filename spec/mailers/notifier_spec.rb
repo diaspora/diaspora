@@ -215,7 +215,7 @@ describe Notifier do
     end
 
     describe ".also_commented" do
-      let!(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
+      let(:comment_mail) {Notifier.also_commented(user.id, person.id, comment.id)}
 
       it 'TO: goes to the right person' do
         comment_mail.to.should == [user.email]
@@ -237,6 +237,16 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+      end
+      [:reshare, :activity_streams_photo].each do |post_type|
+        context post_type.to_s do
+          let(:commented_post) { Factory(post_type, :author => user.person) }
+          it 'succeeds' do
+            proc {
+              comment_mail
+            }.should_not raise_error
+          end
         end
       end
     end
