@@ -4,7 +4,7 @@
 
 require 'spec_helper'
 
-describe Job::MailPrivateMessage do
+describe Job::Mail::PrivateMessage do
   describe '#perfom_delegate' do
     it 'should call .deliver on the notifier object' do
       user1 = alice
@@ -14,14 +14,14 @@ describe Job::MailPrivateMessage do
       create_hash = { :author => user1.person, :participant_ids => participant_ids ,
                        :subject => "cool stuff", :text => 'hey'}
 
-      cnv     = Conversation.create(create_hash)
+      cnv = Conversation.create(create_hash)
       message = cnv.messages.first
 
       mail_mock = mock()
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user2.id, user1.person.id, message.id).and_return(mail_mock)
 
-      Job::MailMentioned.perform(user2.id, user1.person.id, message.id)
+      Job::Mail::Mentioned.perform(user2.id, user1.person.id, message.id)
     end
   end
 end

@@ -4,18 +4,18 @@
 
 require 'spec_helper'
 
-describe Job::MailMentioned do
+describe Job::Mail::Mentioned do
   describe '#perfom' do
     it 'should call .deliver on the notifier object' do
       user = alice
-      sm =  Factory(:status_message)
-      m  = Mention.new(:person => user.person, :post=> sm)
+      sm = Factory(:status_message)
+      m = Mention.new(:person => user.person, :post=> sm)
 
       mail_mock = mock()
       mail_mock.should_receive(:deliver)
       Notifier.should_receive(:mentioned).with(user.id, sm.author.id, m.id).and_return(mail_mock)
 
-      Job::MailMentioned.perform(user.id, sm.author.id, m.id)
+      Job::Mail::Mentioned.perform(user.id, sm.author.id, m.id)
     end
   end
 end

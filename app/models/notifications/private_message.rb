@@ -1,6 +1,6 @@
 class Notifications::PrivateMessage < Notification
   def mail_job
-    Job::MailPrivateMessage
+    Job::Mail::PrivateMessage
   end
   def popup_translation_key
     'notifications.private_message'
