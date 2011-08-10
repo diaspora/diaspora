@@ -115,6 +115,19 @@ describe Notifier do
     it 'should not include translation missing' do
       @mail.body.encoded.should_not include("missing")
     end
+
+    it 'can handle a reshare' do
+      reshare = Factory(:reshare)
+      like = reshare.likes.create!(:author => bob.person)
+      mail = Notifier.liked(alice.id, like.author.id, like.id)
+    end
+
+    it 'can handle a activity streams photo' do
+      puts "boner"
+      reshare = Factory(:activity_streams_photo)
+      like = reshare.likes.create!(:author => bob.person)
+      mail = Notifier.liked(alice.id, like.author.id, like.id)
+    end
   end
 
   describe ".private_message" do

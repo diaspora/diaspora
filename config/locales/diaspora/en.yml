@@ -421,6 +421,7 @@ en:
         other: "%{count} new notifications"
 
   notifier:
+    a_post_you_shared: "a post."
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     click_here: "click here"
     hello: "Hello %{name}!"

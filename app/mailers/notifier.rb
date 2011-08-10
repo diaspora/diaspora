@@ -1,6 +1,7 @@
 class Notifier < ActionMailer::Base
   helper :application
   helper :markdownify
+  helper :notifier
 
   default :from => AppConfig[:smtp_sender_address]
 
@@ -80,6 +81,7 @@ class Notifier < ActionMailer::Base
     @receiver = User.find_by_id(recipient_id)
     @sender   = Person.find_by_id(sender_id)
     @comment  = Comment.find_by_id(comment_id)
+
     @post_author_name = @comment.post.author.name
 
 
@@ -122,6 +124,7 @@ class Notifier < ActionMailer::Base
            :host => AppConfig[:pod_uri].host)
     end
   end
+
 
   private
   def log_mail recipient_id, sender_id, type
