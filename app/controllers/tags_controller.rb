@@ -13,22 +13,27 @@ class TagsController < ApplicationController
   respond_to :json, :only => [:index]
 
   def index
-    if params[:q] && params[:q].length > 1
+    if params[:q] && params[:q].length > 1 && request.format.json?
       params[:q].gsub!("#", "")
       params[:limit] = !params[:limit].blank? ? params[:limit].to_i : 10
       @tags = ActsAsTaggableOn::Tag.named_like(params[:q]).limit(params[:limit] - 1)
-      @array = []
-      @tags.each do |obj|
-        @array << { :name => ("#"+obj.name),
-          :value => ("#"+obj.name)}
+      @tags.map! do |obj|
+        { :name => ("#"+obj.name),
+          :value => ("#"+obj.name),
+          :url => tag_path(obj.name)
+        }
       end
 
-      @array << { :name => ('#' + params[:q]), :value => ("#" + params[:q])}
-      @array.uniq!
+      @tags << {
+        :name => ('#' + params[:q]),
+        :value => ("#" + params[:q]),
+        :url => tag_path(params[:q].downcase)
+      }
+      @tags.uniq!
 
       respond_to do |format|
         format.json{
-          render(:json => @array.to_json, :status => 200)
+          render(:json => @tags.to_json, :status => 200)
         }
       end
     else

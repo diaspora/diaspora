@@ -18,7 +18,7 @@
 
   - elsif (current_user || !@landing_page)
     #global_search
-      = form_tag(people_path, :method => 'get', :id => "global_search_form") do
+      = form_tag(people_path, :method => 'get', :class => "search_form") do
         = text_field_tag 'q', nil, :placeholder => t('find_people'), :type => 'search', :results => 5
 
     - if @notification_count
@@ -68,10 +68,10 @@
           = link_to "[x] close", '#', :id => 'lightbox-close-link'
           %img#lightbox-image
           #lightbox-imageset
-            
+
 
       #lightbox-backdrop
-        
+
     %ul#user_menu.dropdown
       %li
         .right

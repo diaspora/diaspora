@@ -1,10 +1,9 @@
 var Search = {
-  source : '/people.json',
-
-  selector : '#global_search input#q',
+  selector : '.search_form input[type="search"]',
   formatItem: function(row){
     if(row['search']) {
-      return $.mustache(Diaspora.widgets.i18n.t('search_for'), { name: row['name'] });
+      var data = { name: this.element.val() }
+      return Diaspora.widgets.i18n.t('search_for', data);
     } else {
       return "<img src='"+ row['avatar'] +"' class='avatar'/>" + row['name'];
     }
@@ -16,18 +15,19 @@ var Search = {
     results =  data.map(function(person){
       return {data : person, value : person['name']}
     });
-    results.push(Search.searchLinkli());
+    results.push(Search.searchLinkli.apply(this));
     return results;
   },
-  selectItemCallback :  function(event, data, formatted) {
-    if (data['id'] !== undefined) { // actual result
-      $(Search.selector).val(formatted);
+  selectItemCallback :  function(element, data, formatted) {
+    if (data['search'] === true) { // The placeholder "search for" result
+      window.location = this.element.parents("form").attr("action") + '?' + this.element.attr("name") +'=' + data['name'];
+    } else { // The actual result
+      element.val(formatted);
       window.location = data['url'];
-    } else { //use form val to eliminate timing issue
-      window.location = '/people?q='+$(Search.selector).val();
     }
   },
-  options : function(){return {
+  options : function(element){return {
+      element: element,
       minChars : 2,
       onSelect: Search.selectItemCallback,
       max : 5,
@@ -41,11 +41,14 @@ var Search = {
   };},
 
   searchLinkli : function() {
-    var searchTerm = $(Search.selector).val();
+    var searchTerm = this.element.val();
+    if(searchTerm[0] === "#"){
+      searchTerm = searchTerm.slice(1);
+    }
     return {
       data : {
         'search' : true,
-        'url' : '/people?q=' + searchTerm,
+        'url' : this.element.parents("form").attr("action") + '?' + this.element.attr("name") +'=' + searchTerm,
         'name' : searchTerm
       },
       value : searchTerm
@@ -53,7 +56,11 @@ var Search = {
   },
 
   initialize : function() {
-    $(Search.selector).autocomplete(Search.source, Search.options());
+    $(Search.selector).each(function(index, element){
+      var $element = $(element);
+      var action = $element.parents("form").attr("action") + '.json';
+      $element.autocomplete(action, Search.options($element));
+    });
   }
 }
 
