@@ -36,7 +36,7 @@ module ResqueJobLogging
       :error_message => error.message,
       :parameters => {
         :job_class => self.name,
-        :arguments => job_arguments
+        :arguments => job_arguments.map!{|a| a.to_s[0..30]}
       }
     ) if Rails.env.production?
   end

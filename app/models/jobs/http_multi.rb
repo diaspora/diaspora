@@ -32,7 +32,7 @@ module Job
           next
         end
 
-        Rails.logger.info("event=http_multi_send sender_id=#{user_id} recipient_id=#{person.id} url=#{url} xml='#{xml}'")
+        Rails.logger.info("event=http_multi_send sender_id=#{user_id} recipient_id=#{person.id} url=#{url}")
 
         request = Request.new(url, OPTS.merge(:params => {:xml => CGI::escape(xml)}))
 
