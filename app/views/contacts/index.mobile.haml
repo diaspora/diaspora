@@ -1,0 +1,24 @@
+-#   Copyright (c) 2010, Diaspora Inc.  This file is
+-#   licensed under the Affero General Public License version 3 or later.  See
+-#   the COPYRIGHT file.
+
+- content_for :page_title do
+  = t('.title')
+
+- content_for :head do
+  = include_javascripts :people
+
+#section_header
+  %h2
+    = t('.title')
+
+.span-18.last
+  #people_stream.stream.contacts
+    - if @contacts.size > 0
+      - for contact in @contacts
+        = render 'people/person', :person => contact.person, :contact => contact
+      = will_paginate @contacts
+    - else
+      %h3.no_contacts
+        = t('.no_contacts')
+

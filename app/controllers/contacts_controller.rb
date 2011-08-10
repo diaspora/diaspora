@@ -22,6 +22,7 @@ class ContactsController < ApplicationController
 
     respond_to do |format|
       format.html { @contacts = sort_and_paginate_profiles(@contacts) }
+      format.mobile { @contacts = sort_and_paginate_profiles(@contacts) }
       format.json {
         @people = Person.joins(:contacts => :aspect_memberships).
           where(:contacts => { :user_id => current_user.id },

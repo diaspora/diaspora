@@ -3,11 +3,6 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:id => person.id}
-
-  .right{:style=>"display:inline;"}
-    = render :partial => 'people/relationship_action',
-             :locals => { :person => person, :contact => contact, :request => request}
-    
   = person_image_link(person)
 
   .content
@@ -15,5 +10,4 @@
       =person_link(person)
 
     .info
-      = person.diaspora_handle
-
+      = link_to person.diaspora_handle, person_path(person), :class => 'black'
