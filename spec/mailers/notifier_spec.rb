@@ -123,7 +123,6 @@ describe Notifier do
     end
 
     it 'can handle a activity streams photo' do
-      puts "boner"
       reshare = Factory(:activity_streams_photo)
       like = reshare.likes.create!(:author => bob.person)
       mail = Notifier.liked(alice.id, like.author.id, like.id)
