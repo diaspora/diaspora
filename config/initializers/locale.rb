@@ -20,3 +20,14 @@ AVAILABLE_LANGUAGE_CODES.each do |c|
   end
 end
 
+# There's almost certainly a better way to do this.
+# Maybe by loading our paths in the initializer hooks, they'll end up after the gem paths?
+class I18n::Railtie
+  class << self
+    def initialize_i18n_with_path_cleanup *args
+      initialize_i18n_without_path_cleanup *args
+      I18n.load_path.reject!{|path| path.match(/devise_invitable/) }
+    end
+    alias_method_chain :initialize_i18n, :path_cleanup
+  end
+end
