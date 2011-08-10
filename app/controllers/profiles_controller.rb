@@ -37,7 +37,7 @@ class ProfilesController < ApplicationController
     if current_user.update_profile params[:profile]
       flash[:notice] = I18n.t 'profiles.update.updated'
       if current_user.getting_started?
-        redirect_to getting_started_path, :notice => flash[:notice]
+        redirect_to getting_started_path
       else
         redirect_to edit_profile_path
       end
