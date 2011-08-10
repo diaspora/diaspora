@@ -87,7 +87,7 @@ class PublicsController < ApplicationController
 
           respond_to do |format|
             format.xml{ render :xml => @post.to_diaspora_xml }
-            format.any{ render "#{@post.class.to_s.underscore}", :layout => 'application'}
+            format.any{ render "publics/#{@post.class.to_s.underscore}", :layout => 'application'}
           end
         else
           flash[:error] = I18n.t('posts.show.not_found')
