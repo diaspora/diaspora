@@ -32,9 +32,9 @@ describe ResqueJobLogging do
 
   it 'notifies hoptoad if the hoptoad api key is set' do
     Rails.logger.should_receive(:info)
-    AppConfig.should_receive(:[]).with(:hoptoad_api_key).and_return "what"
+    AppConfig.should_receive(:[]).with(:hoptoad_api_key).and_return("what")
     error = RuntimeError.new("GRAAAAAAAAAGH")
-    ResqueJobLoggingDummy.should_receive(:notify_hoptoad).with(error)
+    ResqueJobLoggingDummy.should_receive(:notify_hoptoad).with(error, ["stuff"])
     proc {
       ResqueJobLoggingDummy.around_perform_log_job("stuff"){raise error }
     }.should raise_error
