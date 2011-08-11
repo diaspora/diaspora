@@ -53,5 +53,9 @@ class ActivityStreams::Photo < Post
   # A better solution is needed.
   # @return [Boolean] true
   def activity_streams?; true; end
+
+  def comment_email_subject
+    I18n.t("photos.comment_email_subject", :name => author.name)
+  end
 end
 

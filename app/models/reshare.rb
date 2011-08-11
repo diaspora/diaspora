@@ -31,6 +31,9 @@ class Reshare < Post
     end
   end
 
+  def comment_email_subject
+    I18n.t('reshares.comment_email_subject', :resharer => author.name, :author => root.author.name)
+  end
   private
 
   def after_parse

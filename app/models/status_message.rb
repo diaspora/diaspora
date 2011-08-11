@@ -132,6 +132,10 @@ class StatusMessage < Post
     end
   end
 
+  def comment_email_subject
+    formatted_message(:plain_text => true)
+  end
+
   protected
 
   def message_or_photos_present?

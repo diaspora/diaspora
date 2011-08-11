@@ -117,6 +117,10 @@ class Post < ActiveRecord::Base
     false
   end
 
+  def comment_email_subject
+    I18n.t('notifier.a_post_you_shared')
+  end
+
   # @return [Array<Comment>]
   def last_three_comments
     self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse

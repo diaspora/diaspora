@@ -533,6 +533,7 @@ en:
     new_profile_photo:
       upload: "Upload a new profile photo!"
       or_select_one: "or select one from your already existing"
+    comment_email_subject: "%{name}'s photo"
 
   posts:
     show:
@@ -621,6 +622,7 @@ en:
       deleted: "Original post deleted by author."
     create:
       failure: "There was an error resharing this post."
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
   services:
     index:
       logged_in_as: "logged in as"
