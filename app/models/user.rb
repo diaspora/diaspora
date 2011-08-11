@@ -349,8 +349,10 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
-    self.share_with(default_account, aq) if default_account
+    unless AppConfig[:no_follow_diasporahq]
+      default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
+      self.share_with(default_account, aq) if default_account
+    end
     aq
   end
 
