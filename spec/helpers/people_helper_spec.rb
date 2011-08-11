@@ -58,6 +58,29 @@ describe PeopleHelper do
       person_link(@person).should_not include("<h1>")
     end
   end
-  
+
+  describe '#person_href' do
+    before do
+      @user = Factory(:user)
+    end
+    it "links by id if there is a period in the user's username" do
+      @user.username = "invalid.username"
+      @user.save(:validate => false).should == true
+      person = @user.person
+      person.diaspora_handle = "#{@user.username}@#{AppConfig[:pod_uri].authority}"
+      person.save!
+
+      person_href(@user.person).should include("href='/people/#{@user.person.id}'")
+    end
+
+    it 'links by username for a local user' do
+      person_href(@user.person).should include(@user.username)
+    end
+    it 'links by id for a remote person' do
+      person = Factory(:person)
+      person_href(person).should include("/people/#{person.id}")
+    end
+  end
+
 end
 
