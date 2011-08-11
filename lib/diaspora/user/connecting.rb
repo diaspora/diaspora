@@ -22,11 +22,14 @@ module Diaspora
         if notification = Notification.where(:target_id => person.id).first
           notification.update_attributes(:unread=>false)
         end
-        
+
         register_post_visibilities(contact)
         contact
       end
 
+      # This puts the last 100 public posts by the passed in contact into the user's stream.
+      # @param [Contact] contact
+      # @return [void]
       def register_post_visibilities(contact)
         #should have select here, but proven hard to test
         posts = Post.where(:author_id => contact.person_id, :public => true).limit(100)
