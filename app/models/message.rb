@@ -1,3 +1,4 @@
+class NotVisibleError < RuntimeError; end
 class Message < ActiveRecord::Base
   include ROXML
 
@@ -63,7 +64,7 @@ class Message < ActiveRecord::Base
       vis.save
       self
     else
-      raise NotVisibleException("Attempting to access a ConversationVisibility that does not exist!")
+      raise NotVisibleError.new("User #{user.id} with person #{user.person.id} is not allowed to see conversation #{conversation.id}!")
     end
   end
 
