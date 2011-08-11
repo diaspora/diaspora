@@ -19,7 +19,7 @@ $(document).ready(function() {
   });
 
   $('.edit_photo').bind('ajax:failure', function(data, json, xhr) {
-    Diaspora.widgets.alert.alert("Failed to delete photo.", "Are you sure you own this?");
+    Diaspora.Alert.show("Failed to delete photo.", "Are you sure you own this?");
     $("#show_photo").find("img").fadeTo(200,1);
     $("#photo_spinner").hide();
   });
@@ -47,7 +47,7 @@ $(document).ready(function() {
 
   $('.make_profile_photo').bind('ajax:failure', function(data, json, xhr) {
     var person_id = $(this).closest(".photo_options").attr('data-actor_person');
-    Diaspora.widgets.alert.alert("Failed to update profile photo!");
+    Diaspora.Alert.show("Failed to update profile photo!");
     $("img[data-person_id='" + person_id + "']").fadeTo(200, 1);
   });
 

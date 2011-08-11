@@ -26,22 +26,30 @@ javascripts:
     - public/javascripts/keycodes.js
     - public/javascripts/fileuploader-custom.js
     - public/javascripts/diaspora.js
-    - public/javascripts/widgets/i18n.js
-    - public/javascripts/widgets/alert.js
+    - public/javascripts/pages/*.js
+    - public/javascripts/helpers/i18n.js
+    - public/javascripts/helpers/alert.js
+    - public/javascripts/widgets/header.js
+    - public/javascripts/widgets/search.js
+    - public/javascripts/widgets/user-dropdown.js
     - public/javascripts/widgets/embedder.js
     - public/javascripts/widgets/timeago.js
     - public/javascripts/widgets/infinite-scroll.js
-    - public/javascripts/widgets/directionDetector.js
+    - public/javascripts/widgets/direction-detector.js
     - public/javascripts/widgets/notifications.js
-    - public/javascripts/widgets/flashes.js
-    - public/javascripts/widgets/post.js
+    - public/javascripts/widgets/flash-messages.js
+    - public/javascripts/widgets/stream.js
+    - public/javascripts/widgets/stream-element.js
+    - public/javascripts/widgets/comment-stream.js
+    - public/javascripts/widgets/comment-toggler.js
+    - public/javascripts/widgets/comment.js
+    - public/javascripts/widgets/likes.js
     - public/javascripts/widgets/hovercard.js
     - public/javascripts/widgets/lightbox.js
     - public/javascripts/widgets/notifications-badge.js
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
-    - public/javascripts/search.js
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js
@@ -55,7 +63,7 @@ javascripts:
     - public/javascripts/jquery.infinitescroll-custom.js
     
     - public/javascripts/diaspora.js
-    - public/javascripts/widgets/i18n.js
+    - public/javascripts/helpers/i18n.js
 
     - public/javascripts/widgets/infinite-scroll.js
     - public/javascripts/rails.js

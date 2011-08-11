@@ -1,5 +1,5 @@
 (function() {
-  var Flashes = function() {
+  var FlashMessages = function() {
     var self = this;
 
     this.subscribe("widget/ready", function() {
@@ -26,5 +26,5 @@
     };
   };
 
-  Diaspora.widgets.add("flashes", Flashes);
+  Diaspora.Widgets.FlashMessages = FlashMessages;
 })();

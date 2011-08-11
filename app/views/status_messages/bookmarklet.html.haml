@@ -9,7 +9,7 @@
 = javascript_include_tag "publisher.js"
 
 :javascript
-  Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+  Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
   $(document).ready(function() 
     {
       Publisher.open();

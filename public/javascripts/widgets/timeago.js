@@ -6,14 +6,14 @@
   var TimeAgo = function() {
     var self = this;
     this.selector = "abbr.timeago";
-    this.subscribe("widget/ready", function() {
-      Diaspora.widgets.subscribe("stream/scrolled stream/reloaded", self.updateTimeAgo, this);
 
+    this.subscribe("widget/ready", function(evt, element) {
+      self.element = element;
       self.updateTimeAgo();
 
-      if(Diaspora.widgets.i18n.language !== "en") {
+      if(Diaspora.I18n.language !== "en") {
 				$.each($.timeago.settings.strings, function(index) {
-	  			$.timeago.settings.strings[index] = Diaspora.widgets.i18n.t("timeago." + index);
+	  			$.timeago.settings.strings[index] = Diaspora.I18n.t("timeago." + index);
 				});
       }
     });
@@ -23,13 +23,17 @@
     };
 
     this.updateTimeAgo = function() {
-      if (arguments.length > 1){
-        new_elements = Array.prototype.slice.call(arguments,1);
-        $(new_elements).find(self.selector).timeago();
-      }else{
+      if (arguments.length > 1) {
+        var newElements = Array.prototype.slice.call(arguments,1);
+        $(newElements).find(self.selector).timeago();
+      }
+      else {
         self.timeAgoElement().timeago();
       }
     };
+
+    this.globalSubscribe("stream/scrolled stream/reloaded", self.updateTimeAgo);
   };
-  Diaspora.widgets.add("timeago", TimeAgo);
+
+  Diaspora.Widgets.TimeAgo = TimeAgo;
 })();

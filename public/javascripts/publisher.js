@@ -293,10 +293,10 @@ var Publisher = {
 
       if (public_field.val() == 'false') {
         public_field.val('true');
-        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.public'));
+        $(this).attr('title', Diaspora.I18n.t('publisher.public'));
       } else {
         public_field.val('false');
-        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.limited'));
+        $(this).attr('title', Diaspora.I18n.t('publisher.limited'));
       }
 
       $(this).tipsy(true).fixTitle();
@@ -343,7 +343,7 @@ var Publisher = {
     $('#publisher .aspect_badge').bind("click", function(){
       var unremovedAspects = $(this).parent().children('.aspect_badge').length - $(this).parent().children(".aspect_badge.removed").length;
       if(!$(this).hasClass('removed') && ( unremovedAspects == 1 )){
-        alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'));
+        alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       }else{
         Publisher.toggleAspectIds($(this).children('a').attr('data-guid'));
         $(this).toggleClass("removed");
@@ -357,9 +357,9 @@ var Publisher = {
   onFailure: function(data, json, xhr){
     json = $.parseJSON(json.responseText);
     if(json.errors.length !== 0){
-      Diaspora.widgets.alert.alert(json.errors);
+      Diaspora.Alert.show(json.errors);
     }else{
-      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t('failed_to_post_message'));
+      Diaspora.Alert.show(Diaspora.I18n.t('failed_to_post_message'));
     }
   },
   onSuccess: function(data, json, xhr){
@@ -404,5 +404,5 @@ var Publisher = {
 
 $(document).ready(function() {
   Publisher.initialize();
-  Diaspora.widgets.subscribe("stream/reloaded", Publisher.initialize);
+//  Diaspora.Page.subscribe("stream/reloaded", Publisher.initialize);
 });

@@ -11,8 +11,8 @@
 
     this.subscribe("widget/ready", function() {
       self.updateBinds();
-
-      Diaspora.widgets.subscribe("stream/scrolled", function(eventID, new_elements) {
+    
+      self.globalSubscribe("stream/scrolled", function() {
 				self.updateBinds();
       });
     });
@@ -31,7 +31,7 @@
 
       else if(charCode >= 64336 && charCode <= 65023) // Arabic present 2
 				return true;
-
+      
       else if(charCode>=1424 && charCode<=1535) // Hebrew
 				return true;
 
@@ -82,5 +82,5 @@
     };
   };
 
-  Diaspora.widgets.add("directionDetector", DirectionDetector);
+  Diaspora.Widgets.DirectionDetector = DirectionDetector;
 })();

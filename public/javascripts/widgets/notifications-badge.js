@@ -2,32 +2,19 @@
   var NotificationDropdown = function() {
     var self = this;
 
-    this.subscribe("widget/ready",function() {
-      self.badge = $("#notification_badge");
-      self.badgeLink = self.badge.find("a");
-      self.documentBody = $(document.body);
-      self.dropdown = $("#notification_dropdown");
-      self.dropdownNotifications = self.dropdown.find(".notifications");
-      self.ajaxLoader = self.dropdown.find(".ajax_loader");
-
-      self.badgeLink.toggle(function(evt) {
-	  		evt.preventDefault();
-          evt.stopPropagation();
-
-          self.ajaxLoader.show();
-          self.badge.addClass("active");
-          self.dropdown.css("display", "block");
-
-          self.getNotifications(function() {
-            self.renderNotifications();
-          });
-        },  function(evt) {
-          evt.preventDefault();
-          evt.stopPropagation();
-
-          self.badge.removeClass("active");
-          self.dropdown.css("display", "none");
+    this.subscribe("widget/ready",function(evt, badge, dropdown) {
+      $.extend(self, {
+        badge: badge,
+        badgeLink: badge.find("a"),
+        documentBody: $(document.body),
+        dropdown: dropdown,
+        dropdownNotifications: dropdown.find(".notifications"),
+        ajaxLoader: dropdown.find(".ajax_loader")
       });
+
+      self.timeago = self.instantiate("TimeAgo");
+
+      self.badgeLink.toggle(self.showDropdown, self.hideDropdown);
 
       self.dropdown.click(function(evt) {
         evt.stopPropagation();
@@ -45,10 +32,27 @@
       return this.dropdown.css("display") === "block";
     };
 
-    this.getNotifications = function(callback) {
+    this.showDropdown = function(evt) {
+      evt.preventDefault();
+
+      self.ajaxLoader.show();
+      self.badge.addClass("active");
+      self.dropdown.css("display", "block");
+
+      self.getNotifications();
+    };
+
+    this.hideDropdown = function(evt) {
+      evt.preventDefault();
+
+      self.badge.removeClass("active");
+      self.dropdown.css("display", "none");
+    };
+
+    this.getNotifications = function() {
       $.getJSON("/notifications?per_page=5", function(notifications) {
         self.notifications = notifications;
-        callback.apply(self, []);
+        self.renderNotifications();
       });
     };
 
@@ -68,7 +72,7 @@
             }))
             .appendTo(self.dropdownNotifications);
 
-          Diaspora.widgets.timeago.updateTimeAgo(".notification_element time.timeago");
+          self.timeago.updateTimeAgo(".notification_element abbr.timeago");
 
           if(notification.unread) {
             notificationElement.addClass("unread");
@@ -76,17 +80,16 @@
               url: "/notifications/" + notification.id,
               type: "PUT",
               success: function() {
-                Diaspora.widgets.notifications.decrementCount();
+                Diaspora.Page.notifications.decrementCount();
               }
             });
           }
         });
       });
 
-
       self.ajaxLoader.hide();
     };
   };
 
-  Diaspora.widgets.add("notificationDropdown", NotificationDropdown);
+  Diaspora.Widgets.NotificationsDropdown = NotificationDropdown;
 })();

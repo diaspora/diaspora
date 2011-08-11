@@ -3,4 +3,4 @@ $('#conversation_show').html("<%= escape_javascript(render('conversations/show',
 $(".stream_element", "#conversation_inbox").removeClass('selected');
 $(".stream_element[data-guid='<%= @conversation.id %>']", "#conversation_inbox").addClass('selected');
 
-Diaspora.widgets.timeago.updateTimeAgo();
+Diaspora.Page.timeAgo.updateTimeAgo();

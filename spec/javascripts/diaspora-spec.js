@@ -1,104 +1,151 @@
 /*   Copyright (c) 2010, Diaspora Inc.  This file is
-*   licensed under the Affero General Public License version 3 or later.  See
-*   the COPYRIGHT file.
-*/
+ *   licensed under the Affero General Public License version 3 or later.  See
+ *   the COPYRIGHT file.
+ */
+
+
+Diaspora.Pages.TestPage = function() { };
+Diaspora.Page = "TestPage"; 
 
 describe("Diaspora", function() {
-  describe("widgets", function() { 
-    describe("add", function() {
-      it("adds a widget to the collection", function() {
-        expect(Diaspora.widgets.collection["nameOfWidget"]).not.toBeDefined();
-        Diaspora.widgets.add("nameOfWidget", function() { });
-        expect(Diaspora.widgets.collection["nameOfWidget"]).toBeDefined();
-      });
-
-      it("sets a shortcut by referencing the object on Diaspora.widgetCollection", function() {
-        expect(Diaspora.widgets.sup).toBeFalsy();
-        Diaspora.widgets.add("sup", function() { });
-        expect(Diaspora.widgets.sup).toEqual(Diaspora.widgets.collection.sup);
-      });
-    });
-
-    describe("remove", function() {
-      it("removes a widget from the collection", function() {
-        Diaspora.widgets.add("nameOfWidget", function() { });
-        expect(Diaspora.widgets.collection["nameOfWidget"]).toBeDefined();
-        Diaspora.widgets.remove("nameOfWidget");
-        expect(Diaspora.widgets.collection["nameOfWidget"]).not.toBeDefined();
-      });
-    });
-
-    describe("init", function() {
-      it("publishes the widget/ready event on all of the present widgets", function() {
-        Diaspora.widgets.add("nameOfWidget", function() {
-	  var self = this;
-          this.subscribe("widget/ready", function() {
-	    self.called = true;
-	  });
-        });
-
-        Diaspora.widgets.initialize();
-        expect(Diaspora.widgets.collection.nameOfWidget.called).toBeTruthy();
-      });
-
-      it("changes the initialized property to true", function() {
-	Diaspora.widgets.initialized = false;
-        Diaspora.widgets.initialize();
-        expect(Diaspora.widgets.initialized).toBeTruthy();
-      });
-    });
-  });
   describe("EventBroker", function() {
     describe("extend", function() {
-      var obj;
+      var klass;
       beforeEach(function() {
-	obj = {};
+        klass = new function() {
+        };
       });
 
-      it("adds an events container to an object", function() {
-	      expect(typeof Diaspora.EventBroker.extend(obj).eventsContainer).toEqual("object");
+      it("should add a subscribe method to the class", function() {
+        Diaspora.EventBroker.extend(klass);
+
+        expect(typeof klass.subscribe).toEqual("function");
       });
 
-      it("adds a publish method to an object", function() {
-	      expect(typeof Diaspora.EventBroker.extend(obj).publish).toEqual("function");
+      it("should add a publish method to the class", function() {
+        Diaspora.EventBroker.extend(klass);
+
+        expect(typeof klass.publish).toEqual("function");
       });
 
-      it("adds a subscribe method to an object", function() {
-	      expect(typeof Diaspora.EventBroker.extend(obj).subscribe).toEqual("function");
-      });
-    }); 
+      it("should add an events container to the class", function() {
+        Diaspora.EventBroker.extend(klass);
 
-    describe("subscribe", function() {
-      it("subscribes to an event specified by an id", function() {
-        Diaspora.widgets.eventsContainer.data("events", undefined);
-        Diaspora.widgets.subscribe("testing/event", function() { });
-        expect(Diaspora.widgets.eventsContainer.data("events")["testing/event"]).toBeDefined();
+        expect(typeof klass.eventsContainer).toEqual("object");
       });
 
-      it("accepts a context in which the function will always be called", function() {
-        var foo = "bar";
+      it("knows what to extend", function() {
+        var Klass = function() {
+        };
 
-        Diaspora.widgets.subscribe("testing/context", function() { foo = this.foo; });
-        Diaspora.widgets.publish("testing/context");
-        expect(foo).toEqual(undefined);
+        Diaspora.EventBroker.extend(Klass);
 
-        Diaspora.widgets.subscribe("testing/context_", function() { foo = this.foo;  }, { foo: "hello" });
-        Diaspora.widgets.publish("testing/context_");
-        expect(foo).toEqual("hello");
+        expect(typeof Klass.prototype.publish).toEqual("function");
+        expect(typeof Klass.prototype.subscribe).toEqual("function");
+        expect(typeof Klass.prototype.eventsContainer).toEqual("object");
       });
-    });
 
-    describe("publish", function() {
-      it("triggers events that are related to the specified id", function() {
+      it("adds basic pub/sub functionality to an object", function() {
+        Diaspora.EventBroker.extend(klass);
         var called = false;
 
-        Diaspora.widgets.subscribe("testing/event", function() {
+        klass.subscribe("events/event", function() {
           called = true;
         });
 
-        Diaspora.widgets.publish("testing/event");
+        klass.publish("events/event");
 
         expect(called).toBeTruthy();
+      });
+
+      describe("subscribe", function() {
+        it("will subscribe to multiple events", function() {
+          var firstEventCalled = false,
+                  secondEventCalled = false
+          events = Diaspora.EventBroker.extend({});
+
+          events.subscribe("first/event second/event", function() {
+            if (firstEventCalled) {
+              secondEventCalled = true;
+            } else {
+              firstEventCalled = true;
+            }
+          });
+
+          events.publish("first/event second/event");
+
+          expect(firstEventCalled).toBeTruthy();
+          expect(secondEventCalled).toBeTruthy();
+        });
+      });
+
+      describe("publish", function() {
+        it("will publish multiple events", function() {
+          var firstEventCalled = false,
+                  secondEventCalled = false
+          events = Diaspora.EventBroker.extend({});
+
+          events.subscribe("first/event second/event", function() {
+            if (firstEventCalled) {
+              secondEventCalled = true;
+            } else {
+              firstEventCalled = true;
+            }
+          });
+
+          events.publish("first/event second/event");
+
+          expect(firstEventCalled).toBeTruthy();
+          expect(secondEventCalled).toBeTruthy();
+        });
+      });
+    });
+  });
+
+  describe("BaseWidget", function() {
+    var MyWidget = function() {
+      var self = this;
+      this.ready = false;
+
+      this.subscribe("widget/ready", function(evt, element) {
+        self.ready = true;
+        self.element = element;
+      });
+    };
+
+    beforeEach(function() {
+      Diaspora.Widgets.MyWidget = MyWidget;
+    });
+
+    describe("instantiate", function() {
+      it("instantiates a widget and calls widget/ready with an element", function() {
+        var element = $("foo bar baz"),
+          myWidget = Diaspora.BaseWidget.instantiate("MyWidget", element);
+
+        expect(myWidget.ready).toBeTruthy();
+        expect(myWidget.element.selector).toEqual(element.selector);
+      });
+    });
+
+    describe("globalSubscribe", function() {
+      it("calls subscribe on Diaspora.page", function() {
+        var spy = spyOn(Diaspora.page, "subscribe");
+
+        var myWidget = Diaspora.BaseWidget.instantiate("MyWidget", null);
+        myWidget.globalSubscribe("myEvent", $.noop);
+
+        expect(spy).toHaveBeenCalled();
+      });
+    });
+
+    describe("globalPublish", function() {
+      it("calls publish on Diaspora.Page", function() {
+        var spy = spyOn(Diaspora.page, "publish");
+
+        var myWidget = Diaspora.BaseWidget.instantiate("MyWidget", null);
+        myWidget.globalPublish();
+
+        expect(spy).toHaveBeenCalled();
       });
     });
   });

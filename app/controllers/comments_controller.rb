@@ -43,8 +43,8 @@ class CommentsController < ApplicationController
     if current_user.owns?(@comment) || current_user.owns?(@comment.parent)
       current_user.retract(@comment)
       respond_to do |format|
+        format.js { render :nothing => true, :status => 204 }
         format.mobile{ redirect_to @comment.post }
-        format.js {render :nothing => true, :status => 204}
       end
     else
       respond_to do |format|

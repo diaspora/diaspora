@@ -47,9 +47,9 @@ Feature: commenting
     And I press "Comment"
     And I wait for the ajax to finish
     When I hover over the ".comment.posted"
-    And I preemptively confirm the alert
     And I click to delete the first comment
     And I wait for the ajax to finish
+    And I wait for 2 seconds
     Then I should not see "is that a poodle?"
 
   Scenario: expand the comment form

@@ -14,7 +14,7 @@
 
     -if current_user
       :javascript
-        Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+        Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
 
     =include_stylesheets :mobile
     = csrf_meta_tag

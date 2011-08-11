@@ -7,7 +7,7 @@ $(document).ready(function(){
 
   $('a.conversation').live('click', function(){
     $.getScript(this.href, function() {
-      Diaspora.widgets.directionDetector.updateBinds();
+      Diaspora.Page.directionDetector.updateBinds();
     });
     history.pushState(null, "", this.href);
 
@@ -32,7 +32,7 @@ $(document).ready(function(){
   $(window).bind("popstate", function(){
     if (location.href.match(/conversations\/\d+/) !== null) {
 	  $.getScript(location.href, function() {
-        Diaspora.widgets.directionDetector.updateBinds();
+        Diaspora.Page.directionDetector.updateBinds();
       });
       return false;
     }
