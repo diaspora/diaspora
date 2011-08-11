@@ -20,12 +20,9 @@ class Reshare < Post
   def receive(recipient, sender)
     local_reshare = Reshare.where(:guid => self.guid).first
     if local_reshare && local_reshare.root.author_id == recipient.person.id
-      local_reshare.root.reshares << local_reshare
-
       if recipient.contact_for(sender)
         local_reshare.receive(recipient, sender)
       end
-
     else
       super(recipient, sender)
     end
