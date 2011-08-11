@@ -25,6 +25,7 @@ class ContactsController < ApplicationController
       format.mobile { @contacts = sort_and_paginate_profiles(@contacts) }
       format.json {
         @people = Person.joins(:contacts => :aspect_memberships).
+          select('DISTINCT people.*').
           where(:contacts => { :user_id => current_user.id },
                 :aspect_memberships => { :aspect_id => params[:aspect_ids] })
 

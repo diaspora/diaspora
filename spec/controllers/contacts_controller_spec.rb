@@ -67,6 +67,14 @@ describe ContactsController do
       get :index
       save_fixture(html_for("body"), "aspects_manage")
     end
+
+    it 'does not select duplicate contacts' do
+      aspect = bob.aspects.create(:name => 'hilarious people')
+      aspect.contacts << bob.contact_for(eve.person)
+      get :index, :format => 'json', :aspect_ids => bob.aspect_ids
+      assigns[:people].map{|p| p.id}.uniq.should == assigns[:people].map{|p| p.id}
+      assigns[:people].should == bob.contacts.map(&:person)
+    end
   end
 
   describe '#featured' do
