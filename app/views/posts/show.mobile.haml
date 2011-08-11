@@ -21,10 +21,11 @@
       = t('ago', :time => time_ago_in_words(@post.created_at))
 
       %br
-      - if current_user.owns? @post
-        = link_to t('delete'), post_path(@post), :confirm => t('are_you_sure'), :method => :delete
-      - else
-        = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
+      - if user_signed_in?
+        - if current_user.owns? @post
+          = link_to t('delete'), post_path(@post), :confirm => t('are_you_sure'), :method => :delete
+        - else
+          = link_to t('hide'), post_visibility_path(:id => "42", :post_id => @post.id), :confirm => t('are_you_sure'), :method => :put, :remote => true
 
 .stream.show{:data=>{:guid=>@post.id}}
   = render "comments/comments", :post => @post, :comments => @post.comments, :comments_expanded => true
