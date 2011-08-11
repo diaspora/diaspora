@@ -20,7 +20,6 @@ email:
 
 # If publishing to a subdirectory as in http://site.com/project set 'root: /project'
 root: /
-server_port: 4000
 permalink: /blog/:year/:month/:day/:title/
 source: source
 destination: public
