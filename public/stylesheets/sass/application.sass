@@ -2901,10 +2901,17 @@ ul.left_nav
           :weight 700
         :color #666
 
-  .contact_count,
+  .contact_count
+    :float right
+
   .edit,
   .unfollow_icon
+    @include transition(opacity)
+    @include opacity(0.3)
     :float right
+
+    &:hover
+      @include opacity(1)
 
   .unfollow_icon
     :margin-top 4px
