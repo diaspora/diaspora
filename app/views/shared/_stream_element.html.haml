@@ -3,13 +3,14 @@
 -#   the COPYRIGHT file.
 
 .stream_element{:id => post.guid}
-  - if current_user && post.author.owner_id == current_user.id
-    .right.controls
-      = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
+  - if user_signed_in?
+    - if  post.author.owner_id == current_user.id
+      .right.controls
+        = link_to image_tag('deletelabel.png'), post_path(post), :confirm => t('are_you_sure'), :method => :delete, :remote => true, :class => "delete stream_element_delete", :title => t('delete')
 
-  - else
-    .right.controls
-      = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
+    - else
+      .right.controls
+        = link_to image_tag('deletelabel.png'), post_visibility_path(:id => "42", :post_id => post.id), :method => :put, :remote => true, :class => "delete stream_element_delete", :title => t('hide')
 
   .undo_text.hidden
     = t('post_visibilites.update.post_hidden', :name => post.author.name)
@@ -41,7 +42,7 @@
             = t('public')
             ·
         - else
-          - if post.author.owner_id == current_user.id
+          - if user_signed_in? && post.author.owner_id == current_user.id
             - aspects = aspects_with_post(all_aspects, post)
             %span.post_scope{:title => t('.shared_with', :aspect_names => aspects.map!{|a| a.name}.join(', '))}
               - if aspects.size == 1
@@ -59,17 +60,18 @@
             = t('.via', :link => link_to("#{post.provider_display_name}", post.actor_url)).html_safe
             ·
 
-        - unless @commenting_disabled
-          %span.like_action
-            = like_action(post, current_user)
+        - if user_signed_in?
+          - unless @commenting_disabled
+            %span.like_action
+              = like_action(post, current_user)
 
-          - if (post.author_id != current_user.person.id) && (post.public?)
+            - if (post.author_id != current_user.person.id) && (post.public?)
+              ·
+              %span.reshare_action
+                = reshare_link(post)
             ·
-            %span.reshare_action
-              = reshare_link(post)
-          ·
 
-          = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
+            = link_to t('comments.new_comment.comment'), '#', :class => 'focus_comment_textarea'
 
       .likes.on_post
         = render "likes/likes_container", :target_id => post.id, :likes_count => post.likes_count, :current_user => current_user, :target_type => "Post"

@@ -505,11 +505,10 @@ en:
       delete_photo: "Delete Photo"
       make_profile_photo: "make profile photo"
       update_photo: "Update Photo"
-      view: "view"
       edit: "edit"
       edit_delete_photo: "Edit photo description / delete photo"
       collection_permalink: "collection permalink"
-      original_post: "Original Post"
+      show_original_post: "Show original post"
     edit:
       editing: "Editing"
     photo:

@@ -23,7 +23,7 @@
       .likes
         = render "likes/likes_container", :target_id => comment.id, :likes_count => comment.likes_count, :target_type => "Comment"
 
-      - unless (defined?(@commenting_disabled) && @commenting_disabled)
+      - unless !user_signed_in? || @commenting_disabled
         %span.like_action
           = like_action(comment, current_user)
 

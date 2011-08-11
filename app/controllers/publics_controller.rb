@@ -66,37 +66,4 @@ class PublicsController < ApplicationController
 
     render :nothing => true, :status => 202
   end
-
-  def post
-
-    if params[:guid].to_s.length <= 8
-      @post = Post.where(:id => params[:guid], :public => true).includes(:author, :comments => :author).first
-    else
-      @post = Post.where(:guid => params[:guid], :public => true).includes(:author, :comments => :author).first
-    end
-
-    if @post
-      #hax to upgrade logged in users who can comment
-      if user_signed_in? && current_user.find_visible_post_by_id(@post.id)
-        redirect_to post_path(@post)
-      else
-        @landing_page = true
-        @person = @post.author
-        if @person.owner_id
-          I18n.locale = @person.owner.language
-
-          respond_to do |format|
-            format.xml{ render :xml => @post.to_diaspora_xml }
-            format.any{ render "publics/#{@post.class.to_s.underscore}", :layout => 'application'}
-          end
-        else
-          flash[:error] = I18n.t('posts.show.not_found')
-          redirect_to root_url
-        end
-      end
-    else
-      flash[:error] = I18n.t('posts.show.not_found')
-      redirect_to root_url
-    end
-  end
 end

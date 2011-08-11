@@ -3,23 +3,37 @@
 #   the COPYRIGHT file.
 
 class PostsController < ApplicationController
-  before_filter :authenticate_user!
-  respond_to :html
-  respond_to :mobile
-  respond_to :json
-  def show
-    @post = current_user.find_visible_post_by_id params[:id]
-    if @post
+  before_filter :authenticate_user!, :except => :show
 
+  respond_to :html,
+             :mobile,
+             :json,
+             :xml
+
+  def show
+    key = params[:id].to_s.length <= 8 ? :id : :guid
+
+    if user_signed_in?
+      @post = current_user.find_visible_post_by_id(params[:id], :key => key)
+    else
+      @post = Post.where(key => params[:id], :public => true).includes(:author, :comments => :author).first
+    end
+
+    if @post
       # mark corresponding notification as read
-      if notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
+      if user_signed_in? && notification = Notification.where(:recipient_id => current_user.id, :target_id => @post.id).first
         notification.unread = false
         notification.save
       end
 
-      respond_with @post
+      respond_to do |format|
+        format.all{ }
+        format.xml{ render :xml => @post.to_diaspora_xml }
+      end
+
     else
-      Rails.logger.info(:event => :link_to_nonexistent_post, :ref => request.env['HTTP_REFERER'], :user_id => current_user.id, :post_id => params[:id])
+      user_id = (user_signed_in? ? current_user : nil)
+      Rails.logger.info(:event => :link_to_nonexistent_post, :ref => request.env['HTTP_REFERER'], :user_id => user_id, :post_id => params[:id])
       flash[:error] = I18n.t('posts.show.not_found')
       redirect_to :back
     end
