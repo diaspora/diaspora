@@ -22,7 +22,7 @@ module RakeHelpers
       backer_name = backers[n+offset][1].to_s.strip
       backer_email = backers[n+offset][0].to_s.strip
       unless User.find_by_email(backer_email) || User.find_by_invitation_identifier(backer_email)
-        puts "sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
+        puts "#{n}: sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
         Invitation.create_invitee(:service => 'email', :identifier => backer_email, :name => backer_name ) unless test
       else
         puts "user with the email exists: #{backer_email} ,  #{backer_name} " unless Rails.env == 'test'
