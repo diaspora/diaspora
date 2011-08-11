@@ -37,6 +37,7 @@ de:
             person: 
               invalid: "ist nicht gültig."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "wird schon benutzt."
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
@@ -117,6 +118,7 @@ de:
         content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
         heading: "Verbinde Dienste"
       tags_following: "Tags, denen ich folge"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact: 
@@ -251,6 +253,7 @@ de:
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
     create: 
@@ -390,6 +393,7 @@ de:
       other: "%{actors} haben angefangen mit dir zu teilen."
       zero: "Niemand hat angefangen mit dir zu teilen."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "hier klicken"
     comment_on_post: 
       reply: "Antworte oder schau dir %{name}s Beitrag an >"
@@ -470,6 +474,7 @@ de:
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
     zero: "Keine Personen"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass es eine Bilddatei war?"
       runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du deinen Morgenkaffee hattest?"
@@ -497,9 +502,8 @@ de:
       edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
-      original_post: "Ursprünglicher Beitrag"
+      show_original_post: "Show original post"
       update_photo: "Foto aktualisieren"
-      view: "Anzeigen"
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
       notice: "Foto erfolgreich aktualisiert."
@@ -574,6 +578,7 @@ de:
     new_request_to_person: 
       sent: "Gesendet!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Ein Fehler trat beim weitersagen dieses Beitrags auf."
     reshare: 
@@ -747,10 +752,12 @@ de:
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Verbinde dich zu"
       connect_to_your_other_social_networks: "Verbinde dich zu deinen anderen sozialen Netzwerken"
       connect_with_people: "Kontaktiere tolle Leute"
-      connect_with_people_explanation: "Verbinde dich mit Leuten, indem du sie in einen oder mehrere Aspekte sortierst. Aspekte sind ein intuitiver Weg, um neue und altbekannte Gesichter in Gruppen zusammenzufassen, was dir ermöglicht, einfach Personen herauszusieben oder etwas nur mit einer Untermenge von Kontakten zu teilen."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Empfohlene Tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fülle dein Profil aus"

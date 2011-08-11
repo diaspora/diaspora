@@ -37,6 +37,7 @@ zh-TW:
             person: 
               invalid: "不合格."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "已被使用."
   ago: "%{time}前"
   all_aspects: "所有面向"
@@ -117,6 +118,7 @@ zh-TW:
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
       tags_following: "追蹤的標籤"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -251,6 +253,7 @@ zh-TW:
       tagline_first_half: "分享你想分享的東西,"
       tagline_second_half: "給你想分享的人."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "找不到該邀請信物"
     create: 
@@ -312,7 +315,7 @@ zh-TW:
         one: "有%{count}個人說讚"
         other: "有%{count}個人說讚"
         zero: "沒人說讚"
-  limited: "有限分享"
+  limited: "限制"
   more: "更多"
   next: "後面"
   no_results: "搜尋沒有結果"
@@ -390,6 +393,7 @@ zh-TW:
       other: "%{actors}開始跟你分享了."
       zero: "%{actors}開始跟你分享了."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "按這裡"
     comment_on_post: 
       reply: "回或看 %{name} 的貼文 >"
@@ -470,6 +474,7 @@ zh-TW:
       fail: "抱歉, 找不到 %{handle}."
     zero: "沒有聯絡人"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
       runtime_error: "相片上傳失敗. 你確定有扣安全帶嗎?"
@@ -497,9 +502,8 @@ zh-TW:
       edit: "編輯"
       edit_delete_photo: "編輯相片敘述或刪除相片"
       make_profile_photo: "選為個人照"
-      original_post: "原貼文"
+      show_original_post: "Show original post"
       update_photo: "更新相片"
-      view: "檢視"
     update: 
       error: "相片編輯失敗."
       notice: "相片更新成功."
@@ -574,6 +578,7 @@ zh-TW:
     new_request_to_person: 
       sent: "已送出!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "轉貼這篇貼文時發生錯誤."
     reshare: 
@@ -747,10 +752,12 @@ zh-TW:
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
+      aspects: "aspects"
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
       connect_with_people: "與酷咖連結"
-      connect_with_people_explanation: "將別人放進你的任何一個或多個面向中, 來和他們連結. 面向是區分新人或熟人的直覺方法, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "特色標籤"
       featured_users: "特色使用者"
       fill_out_your_profile: "填寫個人檔案"

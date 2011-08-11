@@ -37,6 +37,7 @@ fi:
             person: 
               invalid: "ei ole kelvollinen."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "on jo varattu."
   ago: "%{time} sitten"
   all_aspects: "Kaikki näkymät"
@@ -117,6 +118,7 @@ fi:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Seuratut Tagit"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Näkymäsi"
     many: "%{count} näkymää"
     move_contact: 
@@ -251,6 +253,7 @@ fi:
       tagline_first_half: "Jaa mitä haluat,"
       tagline_second_half: "kenen kanssa haluat."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Kutsun tunnusta ei löytynyt"
     create: 
@@ -390,6 +393,7 @@ fi:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +474,7 @@ fi:
       fail: "Valitettavasti tunnusta %{handle} ei löytynyt."
     zero: "no people"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Kuvan lataus epäonnistui. Oletko varma, että se oli kuva?"
       runtime_error: "Kuvan lataus epäonnistui. Onhan turvavyösi kiinni?"
@@ -497,9 +502,8 @@ fi:
       edit: "muokkaa"
       edit_delete_photo: "Muokkaa kuvan kuvausta / poista kuva"
       make_profile_photo: "laita profiilikuvaksi"
-      original_post: "Alkuperäinen viesti"
+      show_original_post: "Show original post"
       update_photo: "Päivitä kuva"
-      view: "näytä"
     update: 
       error: "Kuvan muokkaus epäonnistui."
       notice: "Kuva päivitettiin onnistuneesti."
@@ -574,6 +578,7 @@ fi:
     new_request_to_person: 
       sent: "lähetetty!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -747,10 +752,12 @@ fi:
       your_email: "Sähköpostiosoitteesi"
       your_handle: "Diaspora-tunnuksesi"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

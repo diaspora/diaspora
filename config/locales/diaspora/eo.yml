@@ -37,6 +37,7 @@ eo:
             person: 
               invalid: "ne estas valida."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "jam okupiĝis."
   ago: "antaŭ %{time}"
   all_aspects: "Ĉiuj Aspektoj"
@@ -117,6 +118,7 @@ eo:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
       tags_following: "Abonitaj Etikedoj"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Viaj Aspektoj"
     many: "%{count} aspektoj"
     move_contact: 
@@ -251,6 +253,7 @@ eo:
       tagline_first_half: "Konigi tio, kio vi volas,"
       tagline_second_half: "kun kiu vi volas."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Ne povis trovi invitan ĵetonon"
     create: 
@@ -390,6 +393,7 @@ eo:
       other: "%{actors} komencis konigi kun vi."
       zero: "%{actors} komencis konigi kun vi."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "kliku tie ĉi"
     comment_on_post: 
       reply: "Respondi aŭ vidi afiŝon de %{name} >"
@@ -470,6 +474,7 @@ eo:
       fail: "Ni bedaŭras, sed ni ne povis trovi je %{handle}."
     zero: "neniu homo"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Ne povis alŝuti bildon.  Ĉu vi certas, ke tiu estis bilda doseiro?"
       runtime_error: "Ne povis alŝuti bildon.  Probable estis la farado de unu el tiuj Volapukistoj."
@@ -497,9 +502,8 @@ eo:
       edit: "redakti"
       edit_delete_photo: "Redakti bildpriskribon / forigi bildon"
       make_profile_photo: "estigi profilbildon"
-      original_post: "Origina Afiŝo"
+      show_original_post: "Show original post"
       update_photo: "Ĝisdatigi Bildon"
-      view: "vidi"
     update: 
       error: "Ne povis redakti bildon."
       notice: "Bildo sukcese ĝisdatiĝis."
@@ -574,6 +578,7 @@ eo:
     new_request_to_person: 
       sent: "sendita!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Estis eraro, kiam repartoprenanta tiun ĉi afiŝon."
     reshare: 
@@ -747,10 +752,12 @@ eo:
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

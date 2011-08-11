@@ -37,6 +37,7 @@ nb:
             person: 
               invalid: "er invalid."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "er allerede tatt."
   ago: "%{time} siden"
   all_aspects: "Alle aspekter"
@@ -117,6 +118,7 @@ nb:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Your Aspects"
     many: "%{count} aspekter"
     move_contact: 
@@ -251,6 +253,7 @@ nb:
       tagline_first_half: "Del hva du vil,"
       tagline_second_half: "med hvem du vil."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Invitation token not found"
     create: 
@@ -390,6 +393,7 @@ nb:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +474,7 @@ nb:
       fail: "Beklager, vi kunne ikke finne %{handle}."
     zero: "ingen personer"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Bildeopplastning mislyktes. Er du sikker på det var et bilde?"
       runtime_error: "Bildeopplastning mislyktes. Har du festet sikkerhetsbeltet?"
@@ -497,9 +502,8 @@ nb:
       edit: "rediger"
       edit_delete_photo: "Rediger bildebeskrivelse / slett bilde"
       make_profile_photo: "gjør til profilbilde"
-      original_post: "Orginalt Innlegg"
+      show_original_post: "Show original post"
       update_photo: "Oppdater Bilde"
-      view: "vis"
     update: 
       error: "Greide ikke å endre bildet."
       notice: "Bildet er oppdatert."
@@ -574,6 +578,7 @@ nb:
     new_request_to_person: 
       sent: "sendt!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -747,10 +752,12 @@ nb:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora brukernavn"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

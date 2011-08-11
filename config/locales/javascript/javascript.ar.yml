@@ -23,10 +23,10 @@ ar:
       no_more: "لا توجد أية رسائل أخرى"
     publisher: 
       at_least_one_aspect: "حدد فئة واحدة على الأقل"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "محدودة - مشاركتك ستكون متاحة لجهات إتصالك فقط"
+      public: "عام - مشاركتك ستكون متاحة للجميع ومفهرسة في محركات البحث"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "أعدت نشر هذه المشاركة مسبقا!"
     search_for: "إبحث عن {{name}}"
     show_more: "المزيد"
     timeago: 

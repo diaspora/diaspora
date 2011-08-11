@@ -37,6 +37,7 @@ it:
             person: 
               invalid: "non è valido."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "è già stato preso."
   ago: "%{time} fa"
   all_aspects: "Tutti gli aspetti"
@@ -117,6 +118,7 @@ it:
         content: "Puoi abbinare a Diaspora i seguenti servizi:"
         heading: "Servizi connessi"
       tags_following: "Tag che segui"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "I tuoi aspetti"
     many: "%{count} aspetti"
     move_contact: 
@@ -177,7 +179,7 @@ it:
       featured_users: "Utenti consigliati"
     few: "%{count} contatti"
     index: 
-      add_a_new_aspect: "Aggiungi aspetto della vita"
+      add_a_new_aspect: "Aggiungi un aspetto"
       all_contacts: "Tutti i contatti"
       edit_aspect: "Modifica %{name}"
       many_people_are_you_sure: "Stai inviando un messaggio privato a più di %{suggested_limit} contatti. Vuoi farlo davvero? Forse potrebbe essere più opportuno pubblicarlo su un aspetto!"
@@ -241,7 +243,7 @@ it:
       already_account: "hai già un account?"
       choice: "Scelta"
       choice_explanation: "Diaspora ti permette di suddividere i tuoi contatti in gruppi chiamati aspetti. Solo su Diaspora, gli aspetti fanno sì che le foto, i racconti e gli scherzi siano condivisi solamente con le persone che desideri."
-      learn_about_host: "Impara come ospitare il tuo server Diaspora."
+      learn_about_host: "Impara come creare il tuo server Diaspora."
       login_here: "accedi qui"
       ownership: "Proprietà"
       ownership_explanation: "Su Diaspora possiedi le tue foto, se le vuoi condividere non hai l'obbligo di cedere i diritti d'uso a nessun altro. Tutto ciò che pubblichi rimane tuo ed hai il controllo sulla sua diffusione."
@@ -251,6 +253,7 @@ it:
       tagline_first_half: "Condividi ciò che desideri,"
       tagline_second_half: "con chi vuoi."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Token di invito non trovato"
     create: 
@@ -390,6 +393,7 @@ it:
       other: "%{actors} hanno iniziato a condividere con te."
       zero: "%{actors} ha iniziato a condividere con te."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "clicca qui"
     comment_on_post: 
       reply: "Rispondi o leggi il post di %{name} >"
@@ -470,6 +474,7 @@ it:
       fail: "Spiacenti, non possiamo trovare %{handle}."
     zero: "nessuna persona"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Il caricamento della foto non è riuscito. Sei sicuro che fosse un'immagine?"
       runtime_error: "La fotografia non si è caricata. Hai dimenticato forse di allacciare la cintura?"
@@ -497,9 +502,8 @@ it:
       edit: "modifica"
       edit_delete_photo: "Modifica descrizione della foto / elimina foto"
       make_profile_photo: "usa come immagine del profilo"
-      original_post: "Post Originale"
+      show_original_post: "Show original post"
       update_photo: "Aggiorna Foto"
-      view: "guarda"
     update: 
       error: "Modifica della foto fallita."
       notice: "Foto aggiornata con successo."
@@ -574,6 +578,7 @@ it:
     new_request_to_person: 
       sent: "richiesta inviata!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "C'è stato un errore nel condividere questo post."
     reshare: 
@@ -747,10 +752,12 @@ it:
       your_email: "La tua email"
       your_handle: "Il tuo ID"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connettiti a"
       connect_to_your_other_social_networks: "Connetti altri social network"
       connect_with_people: "Connettiti con gente speciale"
-      connect_with_people_explanation: "Connettiti con altre persone mettendole in uno o più aspetti. Gli aspetti sono un modo intuitivo per raggruppare vecchie e nuove conoscenze, così per te sarà facile filtrare o condividere i messaggi solo con chi vuoi."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Tag consigliati"
       featured_users: "Utenti consigliati"
       fill_out_your_profile: "Riempi il tuo profilo"

@@ -37,6 +37,7 @@ es:
             person: 
               invalid: "no es válido."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "ya está ocupado."
   ago: "hace %{time} "
   all_aspects: "Todos los aspectos"
@@ -117,6 +118,7 @@ es:
         content: "Ahora puedes enlazar los siguientes servicios a Diaspora*:"
         heading: "Servicios enlazados"
       tags_following: "Etiquetas"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -251,6 +253,7 @@ es:
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Identificación de invitación no encontrada"
     create: 
@@ -390,6 +393,7 @@ es:
       other: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "pulsa aquí"
     comment_on_post: 
       reply: "Responder o ver los comentarios de %{name} >"
@@ -470,6 +474,7 @@ es:
       fail: "Perdona, no pudimos encontrar %{handle}"
     zero: "ninguna persona"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Error subiendo la foto. ¿Seguro que era una imagen?"
       runtime_error: "Error subiendo la foto. ¿Alguna restricción de seguridad?"
@@ -497,9 +502,8 @@ es:
       edit: "editar"
       edit_delete_photo: "Editar pie de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
-      original_post: "Publicación original"
+      show_original_post: "Show original post"
       update_photo: "Actualizar foto"
-      view: "ver"
     update: 
       error: "Error editando la foto."
       notice: "Foto actualizada con éxito."
@@ -574,6 +578,7 @@ es:
     new_request_to_person: 
       sent: "¡Enviado!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Ocurrió un error al volver a compartir este comentario."
     reshare: 
@@ -747,10 +752,12 @@ es:
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conéctate a tus otras redes sociales"
       connect_with_people: "Conectate con gente interesante"
-      connect_with_people_explanation: ""
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Etiquetas ofrecidas"
       featured_users: "Usuarios ofrecidos"
       fill_out_your_profile: ""
