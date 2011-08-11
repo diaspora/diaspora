@@ -22,11 +22,11 @@ class AspectMembershipsController < ApplicationController
         flash.now[:notice] = I18n.t 'aspect_memberships.destroy.success'
 
         respond_with do |format|
-          format.all{ }
           format.json{ render :json => {
             :person_id => @person_id,
             :aspect_ids => @contact.aspects.map{|a| a.id}
           } }
+          format.html{ redirect_to :back }
         end
 
       else
