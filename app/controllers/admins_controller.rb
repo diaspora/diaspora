@@ -49,10 +49,11 @@ class AdminsController < ApplicationController
     plural = model.to_s.underscore.pluralize
     eval(<<DATA
       @#{plural} = {
+        :day_before => #{model}.where(:created_at => ((Time.now.midnight - 2.days)..Time.now.midnight - 1.day)).count,
         :yesterday => #{model}.where(:created_at => ((Time.now.midnight - 1.day)..Time.now.midnight)).count,
         :today => #{model}.where(:created_at => ((Time.now.midnight)..Time.now)).count
       }
-      @#{plural}[:change] = percent_change(@#{plural}[:today], @#{plural}[:yesterday])
+      @#{plural}[:change] = percent_change(@#{plural}[:yesterday], @#{plural}[:day_before])
 DATA
     )
   end

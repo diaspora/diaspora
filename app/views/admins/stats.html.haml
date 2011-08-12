@@ -14,7 +14,7 @@
 .span-24.last
 
   %h3
-    New Today
+    Yesterday's results
   
   - [:posts, :comments, :aspect_memberships, :users].each do |name|
     - model = eval("@#{name.to_s}")
@@ -23,11 +23,10 @@
 
     .span-6{:class => ('last' if name == :users)}
       %h2{:style => 'font-weight:bold;'}
-        = model[:today]
+        = model[:yesterday]
         = name.to_s
       %h4
-        = model[:yesterday]
-
+        = model[:day_before]
         %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
           = "(#{model[:change]}%)"
 
