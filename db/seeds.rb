@@ -39,12 +39,10 @@ connect_users(bob, bob.aspects.first, alice, alice.aspects.first)
 connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 puts "done!"
 
-# Uncomment these and return out of Service::Facebook#save_friends
-#service = Service.new(:user_id => bob.id)
-#service.type = "Services::Facebook"
-#service.access_token = "abc123"
-#service.save!
-#su = ServiceUser.create!(:service_id => service.id, :photo_url => "/images/user/angela.jpg", :uid => "abc123", :name => "Angelica")
+print "Adding Facebook contacts... "
+facebook = Factory(:service, :type => 'Services::Facebook', :user_id => bob.id)
+ServiceUser.import((1..10).map{|n| Factory.build(:service_user, :service => facebook) })
+puts "done!"
 
 require 'spec/support/fake_resque'
 require 'spec/support/fake_redis'
