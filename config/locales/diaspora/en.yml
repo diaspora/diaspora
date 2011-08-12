@@ -642,14 +642,8 @@ en:
       join_me_on_diaspora: "Join me on DIASPORA*"
       click_link_to_accept_invitation: "Click this link to accept your invitation"
     finder:
-      invite_your_friends_from: "Invite your friends from %{service}"
-      friends:
-        zero: "no friends"
-        one: "1 friend"
-        few: "%{count} friends"
-        many: "%{count} friends"
-        other: "%{count} friends"
-      not_connected: "not connected"
+      service_friends: "%{service} Friends"
+      no_friends: "No Facebook friends found."
     remote_friend:
       resend: "resend"
       invite: "invite"

@@ -5,27 +5,49 @@
 - content_for :head do
   = include_javascripts :finder
 
-#aspect_edit_pane.larger.friend_finder
-  #facebox_header
-    %h4
-      = t('.invite_your_friends_from', :service => params[:provider].titleize)
-      .description
-        - if @friends.size > 0
-          = t('.friends', :count => @friends.size)
-        - else
-          %i= t('.not_connected')
+#section_header
+  %h2
+    = t('contacts.index.title')
 
+= render 'shared/contact_sidebar'
 
-  .contact_list
+.span-18.last
+  %h3
+    = t('.service_friends', :service => params[:provider].titleize)
+  #people_stream.stream.contacts
     - if @friends.size > 0
-      = render :partial => 'services/finder', :locals => {:friends => @friends}
+      - for friend in @friends
+        .stream_element{:id => friend.id}
+          .right
+
+            - if friend.already_invited?
+              = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
+            - elsif friend.on_diaspora?
+              = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+            - else
+              = facebook_invite_form(friend)
+
+          - if friend.on_diaspora?
+            = person_image_link(friend.person, :size => :thumb_small)
+          - else
+            = image_tag(friend.photo_url, :class => 'avatar')
+
+          .content
+            %span.from
+              - if friend.on_diaspora?
+                = link_to friend.name, person_path(friend.person)
+              - else
+                = friend.name
+
+              
+            .info
+              - if friend.person
+                = friend.person.diaspora_handle
+              - else
+                not yet on diaspora
+
+      /= will_paginate @friends
     - else
-      %br
-      %br
-      %br
-      %br
-      %br
-      %br
-      %br
-      %h4{:style => 'text-align:center;'}
-        = link_to t('services.index.connect_to_facebook'), "/auth/facebook" if AppConfig[:configured_services].include?('facebook')
+      %h3.no_contacts
+        = t('.no_friends')
+

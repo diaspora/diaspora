@@ -47,7 +47,7 @@ class ServicesController < ApplicationController
   def finder
     service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
     @friends = service ? service.finder(:remote => params[:remote]) : []
-    render :layout => false
+ #   render :layout => false
   end
 
   def inviter
