@@ -32,8 +32,19 @@ class AdminsController < ApplicationController
   def stats
     @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag).limit(15).count(:group => :tag, :order => 'count(taggings.id) DESC')
 
+    case params[:range]
+    when "week"
+      range = 1.week
+    when "2weeks"
+      range = 2.weeks
+    when "month"
+      range = 1.month
+    else
+      range = 1.day
+    end
+
     [Post, Comment, AspectMembership, User].each do |model|
-      create_hash(model)
+      create_hash(model, :range => range)
     end
 
     @posts_per_day = Post.count(:group => "DATE(created_at)", :conditions => ["created_at >= ?", Date.today - 21.days], :order => "DATE(created_at) ASC")
@@ -49,13 +60,13 @@ class AdminsController < ApplicationController
     sprintf( "%0.02f", ((today-yesterday) / yesterday.to_f)*100).to_f
   end
 
-  def create_hash(model)
+  def create_hash(model, opts={})
+    opts[:range] ||= 1.day
     plural = model.to_s.underscore.pluralize
     eval(<<DATA
       @#{plural} = {
-        :day_before => #{model}.where(:created_at => ((Time.now.midnight - 2.days)..Time.now.midnight - 1.day)).count,
-        :yesterday => #{model}.where(:created_at => ((Time.now.midnight - 1.day)..Time.now.midnight)).count,
-        :today => #{model}.where(:created_at => ((Time.now.midnight)..Time.now)).count
+        :day_before => #{model}.where(:created_at => ((Time.now.midnight - #{opts[:range]*2})..Time.now.midnight - #{opts[:range]})).count,
+        :yesterday => #{model}.where(:created_at => ((Time.now.midnight - #{opts[:range]})..Time.now.midnight)).count
       }
       @#{plural}[:change] = percent_change(@#{plural}[:yesterday], @#{plural}[:day_before])
 DATA
