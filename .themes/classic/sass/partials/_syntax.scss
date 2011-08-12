@@ -85,7 +85,8 @@ h3.filename {
   + pre { @include border-top-radius(0px); }
 }
 
-p code {
+p code,
+li code {
   @extend .mono;
   display: inline-block;
   white-space: no-wrap;
