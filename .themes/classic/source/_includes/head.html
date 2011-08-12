@@ -25,8 +25,7 @@
   <script src="{{ root_url }}/javascripts/modernizr-2.0.js"></script>
   <script src="http://s3.amazonaws.com/ender-js/jeesh.min.js"></script>
   <script src="{{ root_url }}/javascripts/octopress.js" type="text/javascript"></script>
-  {% capture rss_url %}{% if site.subscribe_rss contains ':' %}{{ site.subscribe_rss }}{% else %}{{ root_url }}{{ site.subscribe_rss }}{% endif %}{% endcapture %}
-  <link href="{{ rss_url }}" rel="alternate" title="{{site.title}}" type="application/atom+xml"/>
+  <link href="{{ site.subscribe_rss }}" rel="alternate" title="{{site.title}}" type="application/atom+xml"/>
   {% include google_analytics.html %}
   {% include google_plus_one.html %}
   {% include twitter_sharing.html %}
