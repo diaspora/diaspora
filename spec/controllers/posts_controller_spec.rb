@@ -30,6 +30,7 @@ describe PostsController do
         response.should be_success
       end
 
+
       it 'succeeds on mobile with a reshare' do
         get :show, "id" => Factory(:reshare, :author => alice.person).id, :format => :mobile
         response.should be_success
@@ -58,6 +59,14 @@ describe PostsController do
 
         get :show, :id => status.id
         response.status.should == 200
+      end
+
+      it 'succeeds for statusnet' do
+        pending "StatusNet send a weird ACCEPT header"
+        status = alice.post(:status_message, :text => "hello", :public => true, :to => 'all')
+        @request.env["HTTP_ACCEPT"] = "application/html+xml,text/html"
+        get :show, :id => status.id
+        response.should be_success
       end
 
       it 'shows a public photo' do
