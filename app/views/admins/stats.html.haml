@@ -1,4 +1,62 @@
+
 .span-24.last
+  %br
+  %br
+  %h1
+    Usage Statistics
+  %br
+  %br
+  %br
+
+%hr
+.clearfix
+
+.span-24.last
+
+  %h3
+    New Today
+  
+  - [:posts, :comments, :aspect_memberships, :users].each do |name|
+    - model = eval("@#{name.to_s}")
+    - if name == :aspect_memberships
+      - name = :shares
+
+    .span-6{:class => ('last' if name == :users)}
+      %h2{:style => 'font-weight:bold;'}
+        = model[:today]
+        = name.to_s
+      %h4
+        = model[:yesterday]
+
+        %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
+          = "(#{model[:change]}%)"
+
+  %br
+  %br
+  %br
+  %br
+  %br
+%hr
+    
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+
+.span-24.last
+  %h2
+    Misc Stuff
+  %br
+  %br
+
   %h3
     = for tg in @popular_tags
       = link_to tg, tags_path(tg)
@@ -10,7 +68,7 @@
   %h3
     New public posts
   .stream
-    = render 'shared/stream', :posts => @new_posts
+    = render 'shared/stream', :posts => @new_public_posts
 
 .span-12.last
   %h3

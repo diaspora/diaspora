@@ -31,7 +31,29 @@ class AdminsController < ApplicationController
 
   def stats
     @popular_tags = ActsAsTaggableOn::Tagging.joins(:tag).limit(15).count(:group => :tag, :order => 'count(taggings.id) DESC')
-    @new_posts = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
-                            :public => true).order('created_at DESC').limit(15).all
+
+    [Post, Comment, AspectMembership, User].each do |model|
+      create_hash(model)
+    end
+
+    @posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
+                                     :public => true).order('created_at DESC').limit(15).all
+  end
+
+  private
+  def percent_change(today, yesterday)
+    sprintf( "%0.02f", ((today-yesterday) / yesterday.to_f)*100).to_f
+  end
+
+  def create_hash(model)
+    plural = model.to_s.underscore.pluralize
+    eval(<<DATA
+      @#{plural} = {
+        :yesterday => #{model}.where(:created_at => ((Time.now.midnight - 1.day)..Time.now.midnight)).count,
+        :today => #{model}.where(:created_at => ((Time.now.midnight)..Time.now)).count
+      }
+      @#{plural}[:change] = percent_change(@#{plural}[:today], @#{plural}[:yesterday])
+DATA
+    )
   end
 end
