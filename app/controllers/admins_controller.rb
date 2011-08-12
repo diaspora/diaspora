@@ -36,8 +36,12 @@ class AdminsController < ApplicationController
       create_hash(model)
     end
 
-    @posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
-                                     :public => true).order('created_at DESC').limit(15).all
+    @posts_per_day = Post.count(:group => "DATE(created_at)", :conditions => ["created_at >= ?", Date.today - 21.days], :order => "DATE(created_at) ASC")
+    @most_posts_within = @posts_per_day.values.max.to_f
+
+    #@posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
+    #                                 :public => true).order('created_at DESC').limit(15).all
+
   end
 
   private

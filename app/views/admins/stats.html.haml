@@ -35,9 +35,34 @@
   %br
   %br
   %br
-%hr
+  %hr
+
+  %br
+  %br
+
+  %h3
+    Posts over time
+
+  #stats_graph{:style => "text-align:right;position:relative;vertical-align:bottom;background-color:#eee;"}
+    - @posts_per_day.each do |key, val|
+      .asdo{:style => "display:inline-block;width:35px;vertical-align:bottom;background-color:#666;height:#{(val/@most_posts_within)*200}px;"}
+           
+
+  %br
+  %br
+  %br
+  %br
+    
     
 
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
 %br
 %br
 %br
@@ -66,8 +91,8 @@
 .span-12
   %h3
     New public posts
-  .stream
-    = render 'shared/stream', :posts => @new_public_posts
+  /.stream
+  /  /= render 'shared/stream', :posts => @new_public_posts
 
 .span-12.last
   %h3
