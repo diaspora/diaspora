@@ -35,12 +35,16 @@ class AdminsController < ApplicationController
     case params[:range]
     when "week"
       range = 1.week
+      @segment = "week"
     when "2weeks"
       range = 2.weeks
+      @segment = "2 week"
     when "month"
       range = 1.month
+      @segment = "month"
     else
       range = 1.day
+      @segment = "daily"
     end
 
     [Post, Comment, AspectMembership, User].each do |model|
@@ -49,6 +53,8 @@ class AdminsController < ApplicationController
 
     @posts_per_day = Post.count(:group => "DATE(created_at)", :conditions => ["created_at >= ?", Date.today - 21.days], :order => "DATE(created_at) ASC")
     @most_posts_within = @posts_per_day.values.max.to_f
+
+    @user_count = User.count
 
     #@posts[:new_public] = Post.where(:type => ['StatusMessage','ActivityStreams::Photo'],
     #                                 :public => true).order('created_at DESC').limit(15).all

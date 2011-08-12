@@ -4,6 +4,26 @@
   %br
   %h1
     Usage Statistics
+    %div{:style => "float:right;"}
+      = form_tag('/admins/stats', :method => 'get') do
+        %select{:name => 'range'}
+          %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
+            Daily
+          %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
+            Week
+          %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
+            2 Weeks
+          %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
+            Month
+
+        = submit_tag 'go'
+  %br
+  %h3
+    Displaying results from the
+    %b
+      = @segment
+    segment
+  
   %br
   %br
   %br
@@ -12,27 +32,6 @@
 .clearfix
 
 .span-24.last
-
-  %div{:style => "float:right;"}
-    = form_tag('/admins/stats', :method => 'get') do
-      %select{:name => 'range'}
-        %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
-          Daily
-        %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
-          Week
-        %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
-          2 Weeks
-        %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
-          Month
-
-      = submit_tag 'go'
-
-  %h3
-    Results from the
-    %b
-      = params[:range]
-    segment
-  
   - [:posts, :comments, :aspect_memberships, :users].each do |name|
     - model = eval("@#{name.to_s}")
     - if name == :aspect_memberships
@@ -54,8 +53,14 @@
   %br
   %hr
 
-  %br
-  %br
+
+  %p{:style => "text-align:center;"}
+    The current segment is averaging
+    %b
+      #{@posts[:yesterday]/@user_count.to_f}
+    posts per user, from
+    %b
+      #{@posts[:day_before]/@user_count.to_f}
 
   /%h3
   /  Posts over time
