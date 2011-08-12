@@ -45,6 +45,7 @@ class Person < ActiveRecord::Base
   scope :searchable, joins(:profile).where(:profiles => {:searchable => true})
   scope :remote, where('people.owner_id IS NULL')
   scope :local, where('people.owner_id IS NOT NULL')
+  scope :for_json, select('DISTINCT people.id, people.diaspora_handle').includes(:profile)
 
   def self.featured_users
     AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
@@ -63,7 +64,7 @@ class Person < ActiveRecord::Base
     p
   end
 
-  
+
   def self.search_query_string(query)
     query = query.downcase
 

@@ -12,6 +12,25 @@ describe Person do
   end
 
   context 'scopes' do
+    describe '.for_json' do
+      it 'does not select public keys' do
+        proc {
+          Person.for_json.first.serialized_public_key
+        }.should raise_error ActiveModel::MissingAttributeError
+      end
+      it 'eager loads profiles' do
+        Person.for_json.first.loaded_profile?.should be_true
+      end
+      it 'selects distinct people' do
+        aspect = bob.aspects.create(:name => 'hilarious people')
+        aspect.contacts << bob.contact_for(eve.person)
+        person_ids = Person.for_json.joins(:contacts => :aspect_memberships).
+          where(:contacts => {:user_id => bob.id},
+               :aspect_memberships => {:aspect_id => bob.aspect_ids}).map{|p| p.id}
+
+        person_ids.uniq.should == person_ids
+      end
+    end
     describe '.local' do
       it 'returns only local people' do
         Person.local =~ [@person]
@@ -28,7 +47,7 @@ describe Person do
       it 'searchs for a person if id is passed' do
         Person.find_from_id_or_username(:id => @person.id).id.should == @person.id
       end
-      
+
       it 'searchs a person from a user if username is passed' do
         Person.find_from_id_or_username(:username => @user.username).id.should == @user.person.id
       end
