@@ -10,17 +10,8 @@ Feature: private messages
     When I sign in as "bob@bob.bob"
     And a user with username "bob" is connected with "Alice_Awesome"
 
-    And I am on the conversations page
-
   Scenario: send a message
-    Given I follow "New Message"
-    And I wait for the ajax to finish
-    And I fill in "contact_autocomplete" with "Alice" in the modal window
-    And I press the first ".as-result-item" within ".as-results" in the modal window
-    And I fill in "conversation_subject" with "Greetings" in the modal window
-    And I fill in "conversation_text" with "hello, alice!" in the modal window
-    And I press "Send" in the modal window
-    And I wait for the ajax to finish
+    Given I send a message with subject "Greetings" and text "hello, alice!" to "Alice Awesome"
     Then I should see "Greetings" within "#conversation_inbox"
     And I should see "Greetings" within "#conversation_show"
     And "Alice Awesome" should be part of active conversation
