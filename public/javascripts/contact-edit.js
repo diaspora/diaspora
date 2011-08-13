@@ -11,6 +11,7 @@ var ContactEdit = {
 
   processClick: function(li, evt){
     var dropdown = li.closest('.dropdown');
+    li.addClass('loading');
     if (dropdown.hasClass('inviter')) {
       ContactEdit.inviteFriend(li, evt);
     }
@@ -22,8 +23,9 @@ var ContactEdit = {
   inviteFriend: function(li, evt) {
     $.post('/services/inviter/facebook.json', {
       "aspect_id" : li.data("aspect_id"),
-      "uid" : li.parent().data("service_uid") 
+      "uid" : li.parent().data("service_uid")
     }, function(data){
+      li.removeClass('loading')
       window.location = data.url;
     });
   },
@@ -41,6 +43,7 @@ var ContactEdit = {
       "person_id": li.parent().data("person_id"),
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
+      li.removeClass('loading')
       li.toggleClass("selected");
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
       Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
@@ -54,7 +57,7 @@ var ContactEdit = {
     if (number == 0) {
       button.removeClass("in_aspects");
       replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero");
-    }else if (number == 1) { 
+    }else if (number == 1) {
       button.addClass("in_aspects");
       replacement = dropdown.find(".selected").first().text();
     }else if (number < 3) {
