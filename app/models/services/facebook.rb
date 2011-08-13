@@ -29,7 +29,7 @@ class Services::Facebook < Service
              else
                self.service_users
              end
-    result.order('service_users.person_id DESC, service_users.name')
+    result.includes(:contact => :aspects, :person => :profile).order('service_users.person_id DESC, service_users.name')
   end
 
   def save_friends

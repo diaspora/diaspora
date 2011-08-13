@@ -66,7 +66,7 @@ module AspectGlobalHelper
   end
 
   def aspect_dropdown_list_item(aspect, contact, person)
-    checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
+    checked = (contact.persisted? && contact.in_aspect?(aspect))
     klass = checked ? "selected" : ""
 
     str = <<LISTITEM
