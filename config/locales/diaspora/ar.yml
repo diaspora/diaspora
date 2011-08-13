@@ -279,7 +279,6 @@ ar:
       to: "إلى"
   layouts: 
     application: 
-      have_a_problem: "واجهت مشكلة؟ اعثر على حل هنا"
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
       toggle: "حَوِّل لموقع الهواتف المحمولة"
@@ -601,14 +600,8 @@ ar:
     failure: 
       error: "خطأ خلال محاولة الإتصال بالخدمة"
     finder: 
-      friends: 
-        few: "%{count} أصدقاء"
-        many: "%{count} أصدقاء"
-        one: "1 أصدقاء"
-        other: "%{count} أصدقاء"
-        zero: "لا أصدقاء"
-      invite_your_friends_from: "دعوة أصدقائك من %{service}"
-      not_connected: "غير متصل"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "إتصل بـ فيسبوك"
       connect_to_tumblr: "صل حسابك بـ Tumblr"
@@ -623,6 +616,7 @@ ar:
       join_me_on_diaspora: "انضم إلي في DIASPORA*"
     remote_friend: 
       invite: "دعوة"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "إعادة إرسال"
   settings: "إعدادات"
   shared: 

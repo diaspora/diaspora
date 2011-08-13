@@ -279,7 +279,6 @@ bg:
       to: "До"
   layouts: 
     application: 
-      have_a_problem: "Имате проблем? Открийте решението тук"
       powered_by: "Благодарение на DIASPORA*"
       public_feed: "Публична емисия от Diaspora за %{name}"
       toggle: "вкл./изкл. на мобилния изглед"
@@ -601,14 +600,8 @@ bg:
     failure: 
       error: "възникна грешка при свързването с услугата"
     finder: 
-      friends: 
-        few: "%{count} приятеля"
-        many: "%{count} приятеля"
-        one: "1 приятел"
-        other: "%{count} приятеля"
-        zero: "няма приятели"
-      invite_your_friends_from: "Поканете приятелите си от %{service}"
-      not_connected: "не съществува връзка"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Свързване с facebook"
       connect_to_tumblr: "Свързване с tumblr"
@@ -623,6 +616,7 @@ bg:
       join_me_on_diaspora: "Присъединете се към мен в DIASPORA*"
     remote_friend: 
       invite: "покани"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "повторно изпращане"
   settings: "Настройки"
   shared: 

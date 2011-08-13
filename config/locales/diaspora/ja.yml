@@ -279,7 +279,6 @@ ja:
       to: "宛先："
   layouts: 
     application: 
-      have_a_problem: "質問がありましたら、ここからアンサーを"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "%{name}さんの公開ダイアスポラフィード"
       toggle: "携帯サイトを切替える"
@@ -601,14 +600,8 @@ ja:
     failure: 
       error: "サービスへ接続中にエラーが発生しました。"
     finder: 
-      friends: 
-        few: "%{count}人の連絡先"
-        many: "%{count}人の連絡先"
-        one: "1人の連絡先"
-        other: "%{count}人の連絡先"
-        zero: "連絡先無し"
-      invite_your_friends_from: "%{service}の連絡先を招待する"
-      not_connected: "未接続"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Facebookに接続する"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ ja:
       join_me_on_diaspora: "ダイアスポラ＊に参加しませんか。"
     remote_friend: 
       invite: "招待"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "再送"
   settings: "設定"
   shared: 

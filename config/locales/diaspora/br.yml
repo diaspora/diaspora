@@ -279,7 +279,6 @@ br:
       to: "Da"
   layouts: 
     application: 
-      have_a_problem: "Ur gudenn? Klaskit respontoù amañ"
       powered_by: "DEGASET GANT DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -601,14 +600,8 @@ br:
     failure: 
       error: "there was an error connecting that service"
     finder: 
-      friends: 
-        few: "%{count} friends"
-        many: "%{count} friends"
-        one: "1 mignon"
-        other: "%{count} mignon"
-        zero: "mignon ebet"
-      invite_your_friends_from: "Kasit pedadennoù d'ho mignoned diwar %{service}"
-      not_connected: "not connected"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Connect to facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ br:
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "invite"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "resend"
   settings: "Settings"
   shared: 

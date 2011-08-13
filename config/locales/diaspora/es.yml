@@ -37,7 +37,7 @@ es:
             person: 
               invalid: "no es válido."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "no es válido. Solo se permiten letras, números y guiones bajos"
               taken: "ya está ocupado."
   ago: "hace %{time} "
   all_aspects: "Todos los aspectos"
@@ -118,7 +118,7 @@ es:
         content: "Ahora puedes enlazar los siguientes servicios a Diaspora*:"
         heading: "Servicios enlazados"
       tags_following: "Etiquetas"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Dejar de seguir a #%{tag}"
       your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -253,7 +253,7 @@ es:
       tagline_first_half: "Comparte lo que quieras, "
       tagline_second_half: "con quien te gustaría"
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Un usuario de Facebook"
     check_token: 
       not_found: "Identificación de invitación no encontrada"
     create: 
@@ -279,7 +279,6 @@ es:
       to: "Para"
   layouts: 
     application: 
-      have_a_problem: "¿Algún problema? Encuentra una solución aquí"
       powered_by: "IMPULSADO POR DIASPORA*"
       public_feed: "Canal público de %{name} "
       toggle: "cambiar al sitio móvil"
@@ -393,7 +392,7 @@ es:
       other: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "una publicación."
     click_here: "pulsa aquí"
     comment_on_post: 
       reply: "Responder o ver los comentarios de %{name} >"
@@ -474,7 +473,7 @@ es:
       fail: "Perdona, no pudimos encontrar %{handle}"
     zero: "ninguna persona"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "fotografía de %{name}"
     create: 
       integrity_error: "Error subiendo la foto. ¿Seguro que era una imagen?"
       runtime_error: "Error subiendo la foto. ¿Alguna restricción de seguridad?"
@@ -502,7 +501,7 @@ es:
       edit: "editar"
       edit_delete_photo: "Editar pie de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
-      show_original_post: "Show original post"
+      show_original_post: "Muestra el comentario original"
       update_photo: "Actualizar foto"
     update: 
       error: "Error editando la foto."
@@ -578,7 +577,7 @@ es:
     new_request_to_person: 
       sent: "¡Enviado!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "%{resharer} a vuelto a compartir la publicación de %{author}"
     create: 
       failure: "Ocurrió un error al volver a compartir este comentario."
     reshare: 
@@ -601,14 +600,8 @@ es:
     failure: 
       error: "hubo un error conectando ese servicio"
     finder: 
-      friends: 
-        few: "%{count} amigos"
-        many: "%{count} amigos"
-        one: "1 amigo"
-        other: "%{count} amigos"
-        zero: "no hay amigos"
-      invite_your_friends_from: "Invita a tus amigos desde %{service}"
-      not_connected: "no conectado"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Conecta con Facebook"
       connect_to_tumblr: "Conecta con Tumblr"
@@ -623,6 +616,7 @@ es:
       join_me_on_diaspora: "Comparte conmigo en DIASPORA*."
     remote_friend: 
       invite: "invitar"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "reenviar"
   settings: "Configuración"
   shared: 
@@ -752,12 +746,12 @@ es:
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
-      aspects: "aspects"
+      aspects: "aspectos"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conéctate a tus otras redes sociales"
       connect_with_people: "Conectate con gente interesante"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Comparte con gente añadiéndola en uno o más de tus"
+      connect_with_people_explanation_pt2: "Los Aspectos son una manera intuitiva de agrupar contactos nuevos o caras familiares, de forma privada, permitiéndote el filtrado o compartir cosas con subgrupos de entre tus contactos muy fácilmente."
       featured_tags: "Etiquetas ofrecidas"
       featured_users: "Usuarios ofrecidos"
       fill_out_your_profile: ""

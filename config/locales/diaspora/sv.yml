@@ -279,7 +279,6 @@ sv:
       to: "Till"
   layouts: 
     application: 
-      have_a_problem: "Stött på problem? Hitta lösningen här"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Offentligt Diaspora flöde för %{name}"
       toggle: "byt till mobil version"
@@ -601,14 +600,8 @@ sv:
     failure: 
       error: "Det blev ett fel vid anslutning till tjänsten"
     finder: 
-      friends: 
-        few: "%{count} vänner"
-        many: "%{count} vänner"
-        one: "1 vän"
-        other: "%{count} vänner"
-        zero: "inga vänner"
-      invite_your_friends_from: "Bjud in dina vänner från %{service}"
-      not_connected: "inte ansluten"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Anslut till facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ sv:
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "bjud in"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "skicka igen"
   settings: "Inställningar"
   shared: 

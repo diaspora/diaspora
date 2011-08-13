@@ -279,7 +279,6 @@ is:
       to: "Til"
   layouts: 
     application: 
-      have_a_problem: "Have a problem? Find an answer here"
       powered_by: "DÍASPORA* STJÓRNAR HÉR"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -601,14 +600,8 @@ is:
     failure: 
       error: "villa kom upp við að tengjast þeirri þjónustu"
     finder: 
-      friends: 
-        few: "%{count} vinir"
-        many: "%{count} friends"
-        one: "1 vinur"
-        other: "%{count} vinir"
-        zero: "engir vinir"
-      invite_your_friends_from: "Bjóddu vinum þínum frá %{service}"
-      not_connected: "ekki tengt"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Tengja við facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ is:
       join_me_on_diaspora: "Tengstu mér á DIASPORA*"
     remote_friend: 
       invite: "bjóða"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "endursenda"
   settings: "Stillingar"
   shared: 

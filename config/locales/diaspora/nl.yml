@@ -279,7 +279,6 @@ nl:
       to: "Aan"
   layouts: 
     application: 
-      have_a_problem: "Probleem? Vind hier een antwoord"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Publieke Diaspora Feed van %{name}"
       toggle: "switch mobiele versie"
@@ -601,14 +600,8 @@ nl:
     failure: 
       error: "er ging iets mis bij het verbinden met die service"
     finder: 
-      friends: 
-        few: "%{count} contacten"
-        many: "%{count} vrienden"
-        one: "1 contact"
-        other: "%{count} contacten"
-        zero: "geen contacten"
-      invite_your_friends_from: "Nodig je %{service} contacten uit"
-      not_connected: "niet verbonden"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Verbind met Facebook"
       connect_to_tumblr: "Verbind met Tumblr"
@@ -623,6 +616,7 @@ nl:
       join_me_on_diaspora: "Volg me op DIASPORA*"
     remote_friend: 
       invite: "uitnodigen"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "herstuur"
   settings: "Instellingen"
   shared: 

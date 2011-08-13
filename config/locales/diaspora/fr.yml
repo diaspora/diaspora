@@ -279,7 +279,6 @@ fr:
       to: "À"
   layouts: 
     application: 
-      have_a_problem: "Un problème ? Trouvez une réponse ici"
       powered_by: "PROPULSÉ PAR DIASPORA*"
       public_feed: "Flux Diaspora public pour %{name}"
       toggle: "activer/désactiver le site mobile"
@@ -601,14 +600,8 @@ fr:
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
     finder: 
-      friends: 
-        few: "%{count} amis"
-        many: "%{count} amis"
-        one: "1 ami"
-        other: "%{count} amis"
-        zero: "aucun ami"
-      invite_your_friends_from: "Inviter vos amis depuis %{service}"
-      not_connected: "non connecté"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Connecter à Facebook"
       connect_to_tumblr: "Connecter à Tumblr"
@@ -623,6 +616,7 @@ fr:
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
     remote_friend: 
       invite: "inviter"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "envoyer à nouveau"
   settings: "Options"
   shared: 

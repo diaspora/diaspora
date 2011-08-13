@@ -279,7 +279,6 @@ es-CL:
       to: "A"
   layouts: 
     application: 
-      have_a_problem: "¿Tienes un problema? Encuentra la respuesta aquí"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Canal publico de %{name}"
       toggle: "cambiar sitio móvil"
@@ -601,14 +600,8 @@ es-CL:
     failure: 
       error: "ocurrió un error al conectarse con ese servicio"
     finder: 
-      friends: 
-        few: "%{count} amigo/s"
-        many: "%{count} amigos"
-        one: "1 Amigo"
-        other: "%{count} Amigos"
-        zero: "No tiene amigos"
-      invite_your_friends_from: "Invita a tus amigos de %{service}"
-      not_connected: "No Conectado"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Conectar a facebook"
       connect_to_tumblr: "Conectar a Tumblr"
@@ -623,6 +616,7 @@ es-CL:
       join_me_on_diaspora: "Únete a mi en DIASPORA*"
     remote_friend: 
       invite: "invitar"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "reenviar"
   settings: "Configuración"
   shared: 

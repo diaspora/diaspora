@@ -279,7 +279,6 @@ eu:
       to: "Jasotzailea:"
   layouts: 
     application: 
-      have_a_problem: "Arazoren bat? Aurkitu erantzuna hemen"
       powered_by: "DIASPORAK ESKAINIA"
       public_feed: "%{name}(r)en Diaspora Feed publikoa"
       toggle: "aldatu mugikorreko orrialdera"
@@ -601,14 +600,8 @@ eu:
     failure: 
       error: "huts zerbitzu hori konektatzean"
     finder: 
-      friends: 
-        few: "%{count} adiskide"
-        many: "%{count} adiskide"
-        one: "adiskide 1"
-        other: "%{count} adiskide"
-        zero: "adiskiderik ez"
-      invite_your_friends_from: "Gonbidatu lagunak %{service}(e)tik"
-      not_connected: "harremanik ez"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Facebookera lotu"
       connect_to_tumblr: "Tumblrera lotu"
@@ -623,6 +616,7 @@ eu:
       join_me_on_diaspora: "Bat egin nirekin DIASPORAN"
     remote_friend: 
       invite: "gonbidapena"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "berbidali"
   settings: "Lehentasunak"
   shared: 

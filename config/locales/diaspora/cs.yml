@@ -279,7 +279,6 @@ cs:
       to: "Pro"
   layouts: 
     application: 
-      have_a_problem: "Máte problém? Zde najdete odpověď"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Veřejný Diaspora feed %{name}"
       toggle: "přepnout mobilní stránku"
@@ -601,14 +600,8 @@ cs:
     failure: 
       error: "nastala chyba při připojení ke službě"
     finder: 
-      friends: 
-        few: "%{count} přátele"
-        many: "%{count} přátel"
-        one: "1 přítel"
-        other: "%{count} přátel"
-        zero: "žádní přátelé"
-      invite_your_friends_from: "Pozvěte vaše přátele z %{service}"
-      not_connected: "nepřipojen"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Připojit na Facebook"
       connect_to_tumblr: "Připojit na Tumblr"
@@ -623,6 +616,7 @@ cs:
       join_me_on_diaspora: "Připoj se ke mě na DIASPORU*"
     remote_friend: 
       invite: "pozvat"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "přeposlat"
   settings: "Nastavení"
   shared: 

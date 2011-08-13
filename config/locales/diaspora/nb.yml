@@ -279,7 +279,6 @@ nb:
       to: "Til"
   layouts: 
     application: 
-      have_a_problem: "Har du et problem? Få svar her"
       powered_by: "DREVET AV DIASPORA*"
       public_feed: "Offentlig Diaspora feed for %{name}"
       toggle: "vis mobilsiden"
@@ -601,14 +600,8 @@ nb:
     failure: 
       error: "feil under tilkobling av tjenesten"
     finder: 
-      friends: 
-        few: "%{count} venner"
-        many: "%{count} venner"
-        one: "1 venn"
-        other: "%{count} venner"
-        zero: "ingen venner"
-      invite_your_friends_from: "Inviter dine venner fra  %{service}"
-      not_connected: "ikke tilkoblet"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Koble til facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ nb:
       join_me_on_diaspora: "Bli med meg på DIASPORA*"
     remote_friend: 
       invite: "inviter"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "send på nytt"
   settings: "Innstillinger"
   shared: 

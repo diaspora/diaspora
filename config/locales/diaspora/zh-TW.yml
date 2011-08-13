@@ -279,7 +279,6 @@ zh-TW:
       to: "收件人"
   layouts: 
     application: 
-      have_a_problem: "有問題嗎? 這裡有解答"
       powered_by: "強力配置 DIASPORA*"
       public_feed: "%{name} 的 Diaspora 公開資訊源"
       toggle: "行動網站切換"
@@ -601,14 +600,8 @@ zh-TW:
     failure: 
       error: "與該服務連結時有錯誤"
     finder: 
-      friends: 
-        few: "%{count}個朋友"
-        many: "%{count}個朋友"
-        one: "1個朋友"
-        other: "%{count}個朋友"
-        zero: "沒有朋友"
-      invite_your_friends_from: "邀請你在 %{service} 的朋友"
-      not_connected: "未連結"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "與 Facebook 連結"
       connect_to_tumblr: "與 Tumblr 連結"
@@ -623,6 +616,7 @@ zh-TW:
       join_me_on_diaspora: "跟我一起加入 DIASPORA*"
     remote_friend: 
       invite: "邀請"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "重送"
   settings: "設定"
   shared: 
