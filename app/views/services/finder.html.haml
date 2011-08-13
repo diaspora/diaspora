@@ -11,13 +11,14 @@
 
 = render 'shared/contact_sidebar'
 
-.span-18.last
+.span-18.last.searchable
+  = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('search')
   %h3
     = t('.service_friends', :service => params[:provider].titleize)
   #people_stream.stream.contacts
     - if @friends.size > 0
       - for friend in @friends
-        .stream_element{:id => friend.id}
+        .stream_element.contact{:id => friend.id}
           .right
 
             - if friend.already_invited?
@@ -25,7 +26,7 @@
             - elsif friend.on_diaspora?
               = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
             - else
-              = facebook_invite_form(friend)
+              = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left', :extra_class => 'inviter', :service_uid => friend.uid
 
           - if friend.on_diaspora?
             = person_image_link(friend.person, :size => :thumb_small)
@@ -33,7 +34,7 @@
             = image_tag(friend.photo_url, :class => 'avatar')
 
           .content
-            %span.from
+            %span.from.name
               - if friend.on_diaspora?
                 = link_to friend.name, person_path(friend.person)
               - else
@@ -48,6 +49,10 @@
 
       /= will_paginate @friends
     - else
-      %h3.no_contacts
-        = t('.no_friends')
+      .no_contacts
+        = link_to(image_tag("social_media_logos/facebook-48x48.png"), "/auth/facebook")
+        %br
+        %br
+        %h4
+          = link_to t('services.index.connect_to_facebook'), '/auth/facebook'
 

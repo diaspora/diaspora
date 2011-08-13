@@ -9,8 +9,8 @@
 
   %ul.left_nav
     - if AppConfig[:featured_users]
-      %li{:class => ("active" if defined?(@featured))}
+      %li{:class => ("active" if @featured)}
         = link_to t('contacts.featured.featured_users'), "/featured", :class => "element_selector"
-    %li
+    %li{:class => ("active" if @finder)}
       = link_to "Facebook Friends", friend_finder_path('facebook'), :class => "element_selector"
 

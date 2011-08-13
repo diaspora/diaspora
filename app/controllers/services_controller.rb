@@ -4,6 +4,9 @@
 class ServicesController < ApplicationController
   before_filter :authenticate_user!
 
+  respond_to :html
+  respond_to :json, :only => :inviter
+
   def index
     @services = current_user.services
   end
@@ -45,9 +48,9 @@ class ServicesController < ApplicationController
   end
 
   def finder
+    @finder = true
     service = current_user.services.where(:type => "Services::#{params[:provider].titleize}").first
     @friends = service ? service.finder(:remote => params[:remote]) : []
- #   render :layout => false
   end
 
   def inviter
@@ -66,6 +69,11 @@ class ServicesController < ApplicationController
 \n
 #{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
 MSG
-    redirect_to "https://www.facebook.com/?compose=1&id=#{@uid}&subject=#{@subject}&message=#{@message}&sk=messages"
+
+    url = "https://www.facebook.com/?compose=1&id=#{@uid}&subject=#{@subject}&message=#{@message}&sk=messages"
+    respond_to do |format|
+      format.html{ redirect_to url }
+      format.json{ render :json => {:url => url} }
+    end
   end
 end

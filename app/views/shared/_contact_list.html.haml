@@ -7,10 +7,10 @@
   = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('.all_contacts')
   = t('contacts', :count =>@aspect_contacts_count)
 
-.contact_list
-  %ul
+.contact_list.searchable
+  %ul.contacts
     - for contact in contacts
-      %li{:data=>{:contact_id=>contact.id}}
+      %li.contact{:data=>{:contact_id=>contact.id}}
         = person_image_tag contact.person
         .name
           = link_to contact.person.name, contact.person
