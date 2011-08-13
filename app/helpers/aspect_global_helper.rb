@@ -71,8 +71,6 @@ module AspectGlobalHelper
 
     str = <<LISTITEM
 <li data-aspect_id=#{aspect.id} class='#{klass}'>
-  <img src='/images/icons/check_yes_ok.png' width=18 height=18 class='check'/>
-  <img src='/images/icons/check_yes_ok_white.png' width=18 height=18 class='checkWhite'/>
   #{aspect.name}
 </li>
 LISTITEM

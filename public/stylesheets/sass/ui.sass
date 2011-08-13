@@ -136,15 +136,17 @@
         :position relative
         :color #222
 
-        .check,
-        .checkWhite
-          :position absolute
-          :left 4px
-          :top 1px
+        &.selected
+          :background
+            :image url('/images/icons/check_yes_ok.png')
+            :position 3px 1px
+            :repeat no-repeat
 
-        .checkWhite
-          :display none
-          :top 0px
+        &.selected:hover
+          :background
+            :image url('/images/icons/check_yes_ok_white.png')
+            /* bump top position up 1px to compensate for the 1px added top border */
+            :position 3px 0px
 
         &.newItem
           a
@@ -153,10 +155,6 @@
 
             &:hover
               :text-decoration none
-
-        &:not(.selected)
-          .check
-            :display none
 
   &.hang_right
     .wrapper
@@ -180,9 +178,13 @@
     .selected
       :font-weight bold
 
+    .button
+      :background #666
+    
     .button,
     .wrapper ul > li:hover
-      :background #666
+      :background
+        :color #666
       :color #fff
       :text-shadow none
 
@@ -201,11 +203,4 @@
     .wrapper ul > li,
     .wrapper ul > li *
       :cursor pointer
-
-    .selected:hover .checkWhite
-      :display block
-
-    .selected:hover .check
-      :display none
-
 

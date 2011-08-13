@@ -11,7 +11,6 @@ var ContactEdit = {
 
   processClick: function(li, evt){
     var dropdown = li.closest('.dropdown');
-
     if (dropdown.hasClass('inviter')) {
       ContactEdit.inviteFriend(li, evt);
     }
@@ -42,9 +41,8 @@ var ContactEdit = {
       "person_id": li.parent().data("person_id"),
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
-      ContactEdit.toggleCheckbox(checkbox);
+      li.toggleClass("selected");
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
-
       Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
   },
@@ -70,11 +68,6 @@ var ContactEdit = {
 
     button.html(replacement + ' ▼');
   },
-  
-  toggleCheckbox: 
-    function(check){
-      check.parent('li').toggleClass('selected');
-    }
 };
 
 $(document).ready(function(){
