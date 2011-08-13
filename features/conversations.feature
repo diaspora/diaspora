@@ -15,12 +15,13 @@ Feature: private messages
   Scenario: send a message
     Given I follow "New Message"
     And I wait for the ajax to finish
-    And I fill in "contact_autocomplete" with "Alice"
-    And I press the first ".as-result-item" within ".as-results"
-    And I fill in "conversation_subject" with "Greetings"
-    And I fill in "conversation_text" with "hello, alice!"
-    And I press "Send"
+    And I fill in "contact_autocomplete" with "Alice" in the modal window
+    And I press the first ".as-result-item" within ".as-results" in the modal window
+    And I fill in "conversation_subject" with "Greetings" in the modal window
+    And I fill in "conversation_text" with "hello, alice!" in the modal window
+    And I press "Send" in the modal window
     And I wait for the ajax to finish
     Then I should see "Greetings" within "#conversation_inbox"
     And I should see "Greetings" within "#conversation_show"
+    And "Alice Awesome" should be part of active conversation
     And I should see "hello, alice!" within ".stream"
