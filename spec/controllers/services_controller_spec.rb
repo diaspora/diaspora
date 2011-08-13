@@ -38,7 +38,7 @@ describe ServicesController do
   end
 
   describe '#create' do
-    it 'creates a new OmniauthService' do 
+    it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
       lambda{
         post :create, :provider => 'twitter'
@@ -105,9 +105,12 @@ describe ServicesController do
     end
   end
 
-  describe '#invite' do
+  describe '#inviter' do
     before do
       @uid = "abc"
+      fb = Factory(:service, :type => "Services::Facebook", :user => @user)
+      fb = Services::Facebook.find(fb.id)
+      @su = Factory(:service_user, :service => fb, :uid => @uid)
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
     end
 
@@ -130,6 +133,11 @@ describe ServicesController do
       lambda {
         put :inviter, @invite_params
       }.should change(Invitation, :count).by(1)
+    end
+
+    it 'sets the invitation_id on the service_user' do
+      post :inviter, @invite_params
+      @su.reload.invitation.should_not be_nil
     end
 
     it 'does not create a duplicate invitation' do

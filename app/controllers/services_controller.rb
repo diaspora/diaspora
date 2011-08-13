@@ -70,6 +70,11 @@ class ServicesController < ApplicationController
 #{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
 MSG
 
+    service = current_user.services.where(:type => "Services::Facebook").first
+    su = ServiceUser.where(:service_id => service.id, :uid => @uid).first
+    su.attach_local_models
+    su.save
+
     url = "https://www.facebook.com/?compose=1&id=#{@uid}&subject=#{@subject}&message=#{@message}&sk=messages"
     respond_to do |format|
       format.html{ redirect_to url }
