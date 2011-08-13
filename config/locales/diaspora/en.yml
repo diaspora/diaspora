@@ -647,6 +647,7 @@ en:
     remote_friend:
       resend: "resend"
       invite: "invite"
+      not_on_diaspora: "Not yet on Diaspora"
 
   shared:
     publisher:
