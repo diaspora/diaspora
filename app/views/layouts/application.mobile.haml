@@ -87,11 +87,14 @@
                 = @unread_message_count
 
 
-          %h4
-            = t('shared.invitations.invite_your_friends')
-          %ul{:data => {:role => 'listview', :inset => 'true'}}
-            %li
-              = link_to t('.by_email'), new_user_invitation_path                  
+
+          - if AppConfig[:open_invitations]
+            %h4
+              = t('shared.invitations.invite_your_friends')
+            %ul{:data => {:role => 'listview', :inset => 'true'}}
+              %li
+                = link_to t('.by_email'), new_user_invitation_path                  
+
           %h4
             = t('.your_aspects')
 
