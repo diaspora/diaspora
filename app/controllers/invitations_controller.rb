@@ -8,7 +8,11 @@ class InvitationsController < Devise::InvitationsController
 
   def new
     @sent_invitations = current_user.invitations_from_me.includes(:recipient)
-    render :layout => false
+    respond_to do |format|
+      format.html do
+        render :layout => false
+      end
+    end
   end
 
   def create
