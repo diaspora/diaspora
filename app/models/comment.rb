@@ -23,7 +23,7 @@ class Comment < ActiveRecord::Base
   xml_attr :text
   xml_attr :diaspora_handle
 
-  belongs_to :post, :touch => true
+  belongs_to :post, :touch => true, :foreign_key => :post_guid, :primary_key => :guid
   belongs_to :author, :class_name => 'Person'
 
   validates_presence_of :text, :post

@@ -13,6 +13,10 @@ module Diaspora
         post ||= Post.where(key => id, :public => true).where(opts).first
       end
 
+      def find_visible_post_by_guid( guid, opts={} )
+        find_visible_post_by_id( guid, opts={:key => :guid} )
+      end
+
       def visible_posts(opts = {})
         defaults = {
           :type => ['StatusMessage', 'Photo'],
