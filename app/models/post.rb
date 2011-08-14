@@ -122,8 +122,14 @@ class Post < ActiveRecord::Base
   end
 
   # @return [Array<Comment>]
-  def last_three_comments
-    self.comments.order('created_at DESC').limit(3).includes(:author => :profile).reverse
+  def last_three_or_four_comments
+    last_comments = self.comments.order('created_at DESC').limit(5).includes(:author => :profile).reverse
+    
+    if last_comments.length>4
+      last_comments.last(3)
+    else
+      last_comments.last(4)
+    end
   end
 end
 
