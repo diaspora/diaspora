@@ -8,7 +8,7 @@
 
 %ul.comments{:class => ('loaded' if post.comments.size <= 3)}
   -if post.comments.size > 3 && !comments_expanded
-    = render :partial => 'comments/comment', :collection => post.last_three_comments, :locals => {:post => post}
+    = render :partial => 'comments/comment', :collection => post.last_three_or_four_comments, :locals => {:post => post}
   -else
     = render :partial => 'comments/comment', :collection => post.comments, :locals => {:post => post}
 

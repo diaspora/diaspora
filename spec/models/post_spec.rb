@@ -62,11 +62,23 @@ describe Post do
     it 'returns the last three comments of a post' do
       post = bob.post :status_message, :text => "hello", :to => 'all'
       created_at = Time.now - 100
+      comments = [alice, eve, bob, alice, eve].map do |u|
+        created_at = created_at + 10
+        u.comment("hey", :post => post, :created_at => created_at)
+      end
+      post.last_three_or_four_comments.map{|c| c.id}.should == comments.last(3).map{|c| c.id}
+    end
+  end
+
+  describe '#last_four_comments' do
+    it 'returns the last four comments of a post (if there are only four comments)' do
+      post = bob.post :status_message, :text => "hello", :to => 'all'
+      created_at = Time.now - 100
       comments = [alice, eve, bob, alice].map do |u|
         created_at = created_at + 10
         u.comment("hey", :post => post, :created_at => created_at)
       end
-      post.last_three_comments.map{|c| c.id}.should == comments[1,3].map{|c| c.id}
+      post.last_three_or_four_comments.map{|c| c.id}.should == comments.last(4).map{|c| c.id}
     end
   end
 
