@@ -81,7 +81,7 @@ sk:
       success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
       failure: "%{name} is not empty and could not be removed."
-      success: "Užívateľ %{name} bol úspešne odstránený."
+      success: "%{name} bol úspešne odstránený."
     edit: 
       add_existing: "Pridať existujúci kontakt"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
@@ -145,7 +145,7 @@ sk:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      view_all_contacts: "Zobraziť všetky kontakty"
     show: 
       edit_aspect: "upraviť aspekt"
     update: 

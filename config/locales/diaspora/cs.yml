@@ -29,7 +29,7 @@ cs:
         reshare: 
           attributes: 
             root_guid: 
-              taken: "You've already reshared that post!"
+              taken: "Toto zprávu už sdílíte."
         user: 
           attributes: 
             email: 
@@ -37,7 +37,7 @@ cs:
             person: 
               invalid: "je neplatný."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "je neplatné. Povolené znaky jsou pouze písmena, číslice a podtržítko"
               taken: "je již obsazeno."
   ago: "před %{time}"
   all_aspects: "Všechny aspekty"
@@ -107,9 +107,9 @@ cs:
         content_1: "Vaše Diaspora ID je:"
         content_2: "Dejte to někomu a bude vás moci najít na Diaspoře."
         heading: "Diaspora ID"
-      donate: "Donate"
+      donate: "Přispět"
       handle_explanation: "Toto je vaše Diaspora ID. Podobně jako e-mailovou adresu ho můžete dál lidem a budete na něm dostupní."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Pomozte %{pod} udržet rychlý, kupte našim serverům dávku kávy."
       no_contacts: "Žádné kontakty"
       no_tags: "No tags"
       people_sharing_with_you: "Lidé, kteří s vámi sdílí"
@@ -118,7 +118,7 @@ cs:
         content: "Můžete připojit následující služby na Diasporu:"
         heading: "Připojit služby"
       tags_following: "Následované značky"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Přestat sledovat #%{tag}"
       your_aspects: "Vaše aspekty"
     many: "%{count} aspektů"
     move_contact: 
@@ -130,7 +130,7 @@ cs:
       name: "Název"
     no_contacts_message: 
       featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
+      or_featured: "Nebo můžete sdílet s %{link}"
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
@@ -140,7 +140,7 @@ cs:
     seed: 
       acquaintances: "Acquaintances"
       family: "Rodina"
-      friends: "Friends"
+      friends: "Přátelé"
       work: "Práce"
     selected_contacts: 
       manage_your_aspects: "Spravovat vaše aspekty."
@@ -218,7 +218,7 @@ cs:
     new: 
       abandon_changes: "Zamítnout změny?"
       send: "Poslat"
-      sending: "Sending..."
+      sending: "Posílám..."
       subject: "předmět"
       to: "pro"
     show: 
@@ -253,7 +253,7 @@ cs:
       tagline_first_half: "Sdílejte co chcete,"
       tagline_second_half: "s kým chcete."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Uživatel Facebooku"
     check_token: 
       not_found: "Pozvánkový tiket nebyl nalezen"
     create: 
@@ -264,8 +264,8 @@ cs:
       rejected: "Následující emailové adresy mají problémy: "
       sent: "Pozvánky byly poslány pro:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Přijměte pozvání"
+      your_account_awaits: "Váš účet čeká!"
     new: 
       already_invited: "Následující lidé nepřijali vaše pozvání:"
       aspect: "Aspekt"
@@ -393,31 +393,31 @@ cs:
       zero: "%{actors} s vámi začali sdílet."
   notifier: 
     a_post_you_shared: "a post."
-    click_here: "click here"
+    click_here: "klikněte zde"
     comment_on_post: 
-      reply: "Reply or view %{name}'s post >"
+      reply: "Zobrazit zprávu od %{name} nebo na ni odpovědět >"
     confirm_email: 
       click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
       subject: "Please activate your new e-mail address %{unconfirmed_email}"
-    email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
+    email_sent_by_diaspora: "Tento email odeslala Diaspora. Pokud si nepřejete nadále dostávat takovéto emaily,"
     hello: "Vítej %{name}!"
     liked: 
       liked: "%{name} si právě oblíbil váš příspěvek: "
-      view_post: "View post >"
+      view_post: "Zobrazit zprávu >"
     mentioned: 
       mentioned: "zmínil jste v příspěvku:"
       subject: "%{name} vás zmínil na Diaspoře*"
     private_message: 
-      reply_to_or_view: "Reply to or view this conversation >"
+      reply_to_or_view: "Zobrazit konverzaci nebo na ni odpovědět >"
     single_admin: 
       admin: "Váš Diaspora administrátor"
       subject: "Zpráva o vašem účtu na Diaspoře:"
     started_sharing: 
       sharing: "s vámi začal sdílet!"
       subject: "%{name} s vámi začal sdílet na Diaspoře*"
-      view_profile: "View %{name}'s profile"
+      view_profile: "Zobrazit profil %{name}"
     thanks: "Díky,"
-    to_change_your_notification_settings: "to change your notification settings"
+    to_change_your_notification_settings: "upravte si nastavení oznámení."
   ok: "OK"
   or: "nebo"
   password: "Heslo"
@@ -457,7 +457,7 @@ cs:
       add_some: "přidat nějaké"
       does_not_exist: "Osoba neexistuje!"
       edit: "upravit"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} s vámi zatím žádnou zprávu nesdílí!"
       incoming_request: "%{name} s vámi chce sdílet"
       mention: "Zmínka"
       message: "Zpráva"
@@ -501,7 +501,7 @@ cs:
       edit: "upravit"
       edit_delete_photo: "Upravit popis fotky / smazat fotku"
       make_profile_photo: "vytvořit profilovou fotku"
-      show_original_post: "Show original post"
+      show_original_post: "Zobrazit původní zprávu"
       update_photo: "Aktualizovat fotku"
     update: 
       error: "Nepodařilo se upravit fotku."
@@ -581,7 +581,7 @@ cs:
     create: 
       failure: "There was an error resharing this post."
     reshare: 
-      deleted: "Original post deleted by author."
+      deleted: "Původní zpráva byla autorem odstraněna."
       reshare: 
         few: "%{count} Reshares"
         many: "%{count} Reshares"
@@ -600,7 +600,7 @@ cs:
     failure: 
       error: "nastala chyba při připojení ke službě"
     finder: 
-      no_friends: "No Facebook friends found."
+      no_friends: "Žádní přátelé z Facebooku nenalezeni."
       service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Připojit na Facebook"
@@ -616,7 +616,7 @@ cs:
       join_me_on_diaspora: "Připoj se ke mě na DIASPORU*"
     remote_friend: 
       invite: "pozvat"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Ještě není na Diaspoře"
       resend: "přeposlat"
   settings: "Nastavení"
   shared: 
@@ -746,32 +746,32 @@ cs:
       your_email: "Váš email"
       your_handle: "Vaše Diaspora ID"
     getting_started: 
-      aspects: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
+      aspects: "aspektů"
+      connect_to: "Připojit k"
+      connect_to_your_other_social_networks: "Připojit k dalším sociálním sítím"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Spojte se s lidmi jejich umístěním do jednoho nebo více z vašich"
+      connect_with_people_explanation_pt2: "Apekty jsou snadný způsob, jak seskupovat nové a známé tváře. Dovolují jednoduše sdílet s podmnožinami vašich kontaktů."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
+      fill_out_your_profile: "Vyplňte si svůj profil"
       find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      find_friends_from_facebook: "najít přátele z Facebooku"
       finished: "Dokončeno!"
       follow_your_interests: "Follow your interests"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_description: "Zjednodušte ostatním vás najít vyplněním informací ve vašem profilu."
       profile_fields: 
         bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
+        birthday: "Datum narození"
+        gender: "Pohlaví"
+        location: "Bydliště"
+        name: "Jméno"
+        photo: "Fotografie"
         tags: "Tags"
       see_all_featured_users: "See all featured users"
       welcome: "Vítejte na Diaspoře!"
-      welcome_with_name: "Welcome, %{name}!"
+      welcome_with_name: "Vítej, %{name}!"
     public: 
       does_not_exist: "Uživatel %{username} neexistuje!"
     update: 

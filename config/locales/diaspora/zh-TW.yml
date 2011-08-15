@@ -37,7 +37,7 @@ zh-TW:
             person: 
               invalid: "不合格."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "不被接受. 只能夠使用字母, 數字, 以及底線符號"
               taken: "已被使用."
   ago: "%{time}前"
   all_aspects: "所有面向"
@@ -118,7 +118,7 @@ zh-TW:
         content: "你可以連結以下服務至 Diaspora:"
         heading: "連結服務"
       tags_following: "追蹤的標籤"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "停止追隨#%{tag}"
       your_aspects: "你的面向"
     many: "%{count}個面向"
     move_contact: 
@@ -253,7 +253,7 @@ zh-TW:
       tagline_first_half: "分享你想分享的東西,"
       tagline_second_half: "給你想分享的人."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Facebook 使用者"
     check_token: 
       not_found: "找不到該邀請信物"
     create: 
@@ -392,7 +392,7 @@ zh-TW:
       other: "%{actors}開始跟你分享了."
       zero: "%{actors}開始跟你分享了."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "一則貼文."
     click_here: "按這裡"
     comment_on_post: 
       reply: "回或看 %{name} 的貼文 >"
@@ -473,7 +473,7 @@ zh-TW:
       fail: "抱歉, 找不到 %{handle}."
     zero: "沒有聯絡人"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "%{name} 的相片"
     create: 
       integrity_error: "相片上傳失敗. 你確定它是圖片嗎?"
       runtime_error: "相片上傳失敗. 你確定有扣安全帶嗎?"
@@ -501,7 +501,7 @@ zh-TW:
       edit: "編輯"
       edit_delete_photo: "編輯相片敘述或刪除相片"
       make_profile_photo: "選為個人照"
-      show_original_post: "Show original post"
+      show_original_post: "顯示原文"
       update_photo: "更新相片"
     update: 
       error: "相片編輯失敗."
@@ -577,7 +577,7 @@ zh-TW:
     new_request_to_person: 
       sent: "已送出!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "%{resharer} 轉貼了 %{author} 的貼文"
     create: 
       failure: "轉貼這篇貼文時發生錯誤."
     reshare: 
@@ -600,8 +600,8 @@ zh-TW:
     failure: 
       error: "與該服務連結時有錯誤"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "沒有 Facebook 朋友."
+      service_friends: "%{service} 朋友"
     index: 
       connect_to_facebook: "與 Facebook 連結"
       connect_to_tumblr: "與 Tumblr 連結"
@@ -616,7 +616,7 @@ zh-TW:
       join_me_on_diaspora: "跟我一起加入 DIASPORA*"
     remote_friend: 
       invite: "邀請"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "還沒來 Diaspora"
       resend: "重送"
   settings: "設定"
   shared: 
@@ -746,7 +746,7 @@ zh-TW:
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
-      aspects: "aspects"
+      aspects: "面向"
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
       connect_with_people: "與酷咖連結"

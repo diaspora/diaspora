@@ -118,7 +118,7 @@ bg:
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
       tags_following: "Тагове, които следите"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Прекратяване следенето на #%{tag}"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact: 
@@ -253,7 +253,7 @@ bg:
       tagline_first_half: "Споделете каквото желаете,"
       tagline_second_half: "с когото пожелаете."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Потребител на Facebook"
     check_token: 
       not_found: "Данните за поканата не са намерени"
     create: 
@@ -501,7 +501,7 @@ bg:
       edit: "редактиране"
       edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "ползване като профилна снимка"
-      show_original_post: "Show original post"
+      show_original_post: "Оригиналната публикация"
       update_photo: "Update Photo"
     update: 
       error: "Снимката не бе изтрита."
@@ -600,8 +600,8 @@ bg:
     failure: 
       error: "възникна грешка при свързването с услугата"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "Няма намерени приятели от Facebook."
+      service_friends: "Приятели от %{service}"
     index: 
       connect_to_facebook: "Свързване с facebook"
       connect_to_tumblr: "Свързване с tumblr"
@@ -616,7 +616,7 @@ bg:
       join_me_on_diaspora: "Присъединете се към мен в DIASPORA*"
     remote_friend: 
       invite: "покани"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Все още не е в Diaspora"
       resend: "повторно изпращане"
   settings: "Настройки"
   shared: 
@@ -746,12 +746,12 @@ bg:
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
-      aspects: "aspects"
+      aspects: "аспекти"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
       connect_with_people: "Свържете се с интересни хора"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите"
+      connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филрирате информация само с/от определена подгрупа от контактите ви."
       featured_tags: "Отличени тагове"
       featured_users: "Отличени потребители"
       fill_out_your_profile: "Попълнете профила си"

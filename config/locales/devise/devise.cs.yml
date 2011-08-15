@@ -12,7 +12,7 @@ cs:
       send_instructions: "Během několika minut obdržíte email s instrukcemi k potvrzení vašeho účtu."
     failure: 
       inactive: "Váš účet ještě nebyl aktivován."
-      invalid: "Neplatný email nebo heslo."
+      invalid: "Neplatné uživatelské jméno nebo heslo."
       invalid_token: "Neplatný autentizační token."
       locked: "Váš účet je uzamčen."
       timeout: "Vaše sezení vypršelo, pro pokračování se prosím přihlašte znovu."
@@ -34,7 +34,7 @@ cs:
         no_account_till: "Váš účet nebude vytvořen dokud nepřistoupíte na uvedený odkaz a zaregistrujete se."
         subject: "Byli jste pozváni na Diasporu!"
       inviters: 
-        accept_at: ", na %{url}, akceptujte kliknutím na odkaz."
+        accept_at: ", na %{url}, pozvánku můžete přijmout kliknutím na odkaz níže.\n"
         has_invited_you: "%{name} Vás pozval na Diasporu"
         have_invited_you: "%{names} Vás pozvali na Diasporu"
       reset_password_instructions: 

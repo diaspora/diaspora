@@ -669,7 +669,7 @@ fr:
       shared_with: "Shared with: %{aspect_names}"
       unlike: "Je n'aime pas"
       via: "via %{link}"
-      viewable_to_anyone: "This post is viewable to anyone on the web"
+      viewable_to_anyone: "Publication visible par n'importe qui sur le web"
   status_messages: 
     create: 
       success: "Mention de : %{names}"
@@ -697,7 +697,7 @@ fr:
       success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
+      follow: "Suivre #%{tag}"
       following: "Following #%{tag}"
       nobody_talking: "Personne ne parle encore de %{tag}."
       people_tagged_with: "Personnes taguées avec %{tag}"
