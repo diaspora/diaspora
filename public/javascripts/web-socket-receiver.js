@@ -108,8 +108,9 @@ var WebSocketReceiver = {
         );
       }
 
-      var toggler = $('.toggle_post_comments', post);
+      var toggler = $('.toggle_post_comments', post).parent();
 
+      if(toggler.length > 0){
         if( !$(".comments", post).is(':visible') ) {
           toggler.click();
         }
