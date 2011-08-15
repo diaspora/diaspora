@@ -76,6 +76,7 @@ module Chubbies
       User
     end
     def create_account(hash)
+      hash[:username] = hash.delete(:diaspora_id)
       account_const.create(hash)
     end
 
