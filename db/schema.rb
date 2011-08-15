@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110812175614) do
+ActiveRecord::Schema.define(:version => 20110815210933) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -386,7 +386,6 @@ ActiveRecord::Schema.define(:version => 20110812175614) do
   create_table "users", :force => true do |t|
     t.string   "username"
     t.text     "serialized_private_key"
-    t.integer  "invites",                               :default => 0,     :null => false
     t.boolean  "getting_started",                       :default => true,  :null => false
     t.boolean  "disable_mail",                          :default => false, :null => false
     t.string   "language"

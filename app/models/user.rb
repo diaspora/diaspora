@@ -269,8 +269,7 @@ class User < ActiveRecord::Base
 
   ###Invitations############
   def invite_user(aspect_id, service, identifier, invite_message = "")
-    aspect = aspects.find(aspect_id)
-    if aspect
+    if aspect = aspects.find(aspect_id)
       Invitation.invite(:service => service,
                         :identifier => identifier,
                         :from => self,

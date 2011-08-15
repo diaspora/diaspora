@@ -12,6 +12,7 @@ class Invitation < ActiveRecord::Base
 
   def self.invite(opts = {})
     opts[:identifier].downcase! if opts[:identifier]
+    # return if the current user is trying to invite himself via email
     return false if opts[:identifier] == opts[:from].email
 
     existing_user = self.find_existing_user(opts[:service], opts[:identifier])
@@ -51,10 +52,11 @@ class Invitation < ActiveRecord::Base
     result
   end
 
-  def self.create_invitee(opts = {})
+  # @params opts [Hash] Takes :from, :existing_user, :service, :identifier, :message
+  # @return [User]
+  def self.create_invitee(opts={})
     invitee = opts[:existing_user] || new_user_by_service_and_identifier(opts[:service], opts[:identifier])
     return invitee if opts[:service] == 'email' && !opts[:identifier].match(Devise.email_regexp)
-    invitee.invites = opts[:invites] || 10
     if invitee.new_record?
       invitee.errors.clear
       invitee.serialized_private_key = User.generate_key if invitee.serialized_private_key.blank?
@@ -69,9 +71,6 @@ class Invitation < ActiveRecord::Base
                          :recipient => invitee,
                          :aspect => opts[:into],
                          :message => opts[:message])
-
-      opts[:from].invites -= 1 unless opts[:from].invites == 0
-      opts[:from].save!
       invitee.reload
     end
     invitee.skip_invitation = (opts[:service] != 'email')

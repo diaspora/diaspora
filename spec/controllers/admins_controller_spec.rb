@@ -60,33 +60,6 @@ describe AdminsController do
     end
   end
 
-  describe '#add_invites' do
-    context 'admin not signed in' do
-      it 'is behind redirect_unless_admin' do
-        get :add_invites
-        response.should redirect_to root_url
-      end
-    end
-
-    context 'admin signed in' do
-      before do
-        AppConfig[:admins] = [@user.username]
-      end
-
-      it "redirects to :back with user id" do
-        get :add_invites, :user_id => @user.id
-        response.should redirect_to user_search_path(:user => { :id => @user.id })
-      end
-
-      it "increases user's invite by 10" do
-        expect {
-          get :add_invites, :user_id => @user.id
-        }.to change { @user.reload.invites }.by(10)
-        flash.notice.should include('Great Job')
-      end
-    end
-  end
-
   describe '#admin_inviter' do
     context 'admin not signed in' do
       it 'is behind redirect_unless_admin' do
@@ -110,6 +83,7 @@ describe AdminsController do
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should be_redirect
       end
+
       it 'invites a new user' do
         Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com')
         get :admin_inviter, :identifier => 'bob@moms.com'

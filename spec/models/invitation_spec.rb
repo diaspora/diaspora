@@ -9,8 +9,6 @@ describe Invitation do
   let(:aspect) { user.aspects.first }
 
   before do
-    user.invites = 20
-    user.save
     @email = 'maggie@example.com'
     Devise.mailer.deliveries = []
   end
@@ -163,22 +161,6 @@ describe Invitation do
     it 'sends a contact request to a user with that email into the aspect' do
       user.should_receive(:share_with).with(eve.person, aspect)
       Invitation.invite(:from => user, :service => 'email', :identifier => eve.email, :into => aspect)
-    end
-
-    it 'decrements the invite count of the from user' do
-      message = "How've you been?"
-      lambda {
-        new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
-      }.should change(user, :invites).by(-1)
-    end
-
-    it "doesn't decrement counter past zero" do
-      user.invites = 0
-      user.save!
-      message = "How've you been?"
-      lambda {
-        Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
-      }.should_not change(user, :invites)
     end
 
     context 'invalid email' do
