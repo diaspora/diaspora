@@ -395,7 +395,7 @@ ml:
     mentioned: 
       mentioned: "താങ്കളെ ഒരു കുറിപ്പില്‍ സൂചിപ്പിച്ചു:"
       subject: "%{name} താങ്കളെ ഡയസ്പോറയില്‍* സൂചിപ്പിച്ചു"
-     liked:
+    liked:
         liked: "%{name} just liked your post"
         view_post: "View post >"
     confirm_email:
