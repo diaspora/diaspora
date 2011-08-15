@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe Job::InviteUserByEmail do
+describe Job::Mail::InviteUserByEmail do
   before do
     @sender = alice
     @email = 'bob@bob.com'
@@ -18,6 +18,6 @@ describe Job::InviteUserByEmail do
 
   it 'calls invite_user with email param' do
     @sender.should_receive(:invite_user).with(@aspect_id, 'email', @email, @message)
-    Job::InviteUserByEmail.perform(@sender.id, @email, @aspect_id, @message)
+    Job::Mail::InviteUserByEmail.perform(@sender.id, @email, @aspect_id, @message)
   end
 end
