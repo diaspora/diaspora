@@ -46,12 +46,36 @@ class User < ActiveRecord::Base
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
 
-  before_save do
-    person.save if person && person.changed?
-  end
-  before_save :guard_unconfirmed_email
+  before_save :guard_unconfirmed_email,
+              :save_person!
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
+  before_create :infer_email_from_invitation_provider
+
+  attr_accessible :getting_started,
+                  :password,
+                  :password_confirmation,
+                  :language,
+                  :disable_mail,
+                  :invitation_service,
+                  :invitation_identifier
+
+  # Sometimes we access the person in a strange way and need to do this
+  # @note we should make this method depricated.
+  #
+  # @return [Person]
+  def save_person!
+    self.person.save if self.person && self.person.changed?
+    self.person
+  end
+
+  # Set the User's email to the one they've been invited at, if the user
+  # is being created via an invitation.
+  #
+  # @return [User]
+  def infer_email_from_invitation_provider
+    self.email = self.invitation_identifier if self.invitation_service == 'email'
+    self
+  end
 
   def update_user_preferences(pref_hash)
     if self.disable_mail

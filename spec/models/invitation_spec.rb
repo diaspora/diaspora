@@ -43,32 +43,6 @@ describe Invitation do
     @invitation.message.should == "!"
   end
 
-  describe '.new_user_by_service_and_identifier' do
-    let(:inv) { Invitation.new_user_by_service_and_identifier(@type, @identifier) }
-
-    it 'returns User.new for a non-existent user for email' do
-      @type = "email"
-      @identifier = "maggie@example.org"
-      inv.invitation_identifier.should == @identifier
-      inv.invitation_service.should == 'email'
-      inv.should_not be_persisted
-      lambda {
-        inv.reload
-      }.should raise_error ActiveRecord::RecordNotFound
-    end
-
-    it 'returns User.new for a non-existent user' do
-      @type = "facebook"
-      @identifier = "1234892323"
-      inv.invitation_identifier.should == @identifier
-      inv.invitation_service.should == @type
-      inv.persisted?.should be_false
-      lambda {
-        inv.reload
-      }.should raise_error ActiveRecord::RecordNotFound
-    end
-  end
-
   describe '.find_existing_user' do
     let(:inv) { Invitation.find_existing_user(@type, @identifier) }
 
