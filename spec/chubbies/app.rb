@@ -51,7 +51,7 @@ module Chubbies
 
     d.manifest_field(:name, "Chubbies")
     d.manifest_field(:description, "The best way to chub.")
-    d.manifest_field(:icon_url, "#")
+    d.manifest_field(:icon_url, "chubbies.jpeg")
 
     d.manifest_field(:permissions_overview, "Chubbi.es wants to post photos to your stream.")
 
