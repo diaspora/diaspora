@@ -10,7 +10,7 @@
 
 :javascript
   Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-  $(document).ready(function() 
+  $(document).ready(function()
     {
       Publisher.open();
       $("#publisher").bind('ajax:success', function(){
@@ -24,7 +24,7 @@
       if ("#{params[:notes]}".length > 0){
         contents = contents + " - #{params[:notes]}";
       }
-      
+
       $("#publisher #status_message_fake_text").val(contents);
       $("#publisher #status_message_text").val(contents);
       $('input.button')[0].removeAttribute('disabled');
@@ -34,5 +34,5 @@
   .span-15.last
     %h4
       =t('bookmarklet.post_something')
-    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :aspects_with_person => @aspects,  :aspect_ids => @aspect_ids}
+    = render :partial => 'shared/publisher', :locals => { :aspect => :profile, :selected_aspects => @aspects,  :aspect_ids => @aspect_ids }
 

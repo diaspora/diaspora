@@ -4,9 +4,9 @@
     - if friend.already_invited?
       = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
     - elsif friend.on_diaspora?
-      = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
+      = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left'
     - else
-      = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left', :extra_class => 'inviter', :service_uid => friend.uid
+      = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left', :dropdown_class => 'inviter', :service_uid => friend.uid
 
   - if friend.on_diaspora?
     = person_image_link(friend.person, :size => :thumb_small)
