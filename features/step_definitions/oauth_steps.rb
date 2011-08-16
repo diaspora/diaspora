@@ -47,7 +47,7 @@ When /^I try to authorize Chubbies$/ do
 end
 
 And /^I fill in my Diaspora ID to connect$/ do
-  And "I fill in \"Diaspora Handle\" with \"#{@me.diaspora_handle}\""
+  And "I fill in \"Diaspora ID\" with \"#{@me.diaspora_handle}\""
 end
 
 And /^I should have (\d) user on Chubbies$/ do |num|

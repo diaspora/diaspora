@@ -24,6 +24,14 @@ Feature: oauth
     Then I should be on "/account" on Chubbies
 
     And I should have 1 user on Chubbies
+
+  Scenario: Signing up as a user while someone else is logged into Diaspora
+    Given a user with username "alice"
+    When I sign in as "alice@alice.alice"
+    Then I visit "/new" on Chubbies
+    And I fill in "Diaspora ID" with "bob@localhost:9887"
+    And I press "Connect to Diaspora"
+    Then I should be on the new user session page
   
   Scenario: Not authorize Chubbies
     When I try to authorize Chubbies

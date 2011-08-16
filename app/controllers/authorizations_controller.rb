@@ -9,16 +9,17 @@ class AuthorizationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :token
 
   def new
-    if params[:uid] && params[:uid] != current_user.username
+    if params[:uid].present? && params[:uid] != current_user.username
       sign_out current_user
-      redirect_to request.url
+      redirect_url = Addressable::URI.parse(request.url)
+      redirect_url.query_values = redirect_url.query_values.merge("uid" => nil)
+      redirect_to redirect_url.to_s
     end
     @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
 
     if authorization = current_user.authorizations.where(:client_id => @client.id).first
       ac = authorization.authorization_codes.create(:redirect_uri => params[:redirect_uri])
-      #tokens = current_user.authorizations.first.access_tokens.first
       redirect_to "#{params[:redirect_uri]}&code=#{ac.code}"
     end
   end
