@@ -7,7 +7,9 @@ require 'lib/diaspora/markdownify'
 module MarkdownifyHelper
   def markdownify(message, render_options={})
     markdown_options = {
-      :autolink => true,
+      :autolink            => true,
+      :fenced_code_blocks  => true,
+      :space_after_headers => true
     }
 
     render_options[:filter_html] = true
