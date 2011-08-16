@@ -8,13 +8,7 @@ FileUtils.mkdir_p(PYGMENTS_CACHE_DIR)
 module HighlightCode
   def highlight(str, lang)
     str = pygments(str, lang).match(/<pre>(.+)<\/pre>/m)[1].to_s.gsub(/ *$/, '') #strip out divs <div class="highlight">
-    table = '<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers">'
-    code = ''
-    str.lines.each_with_index do |line,index|
-      table += "<span class='line'>#{index+1}</span>\n"
-      code  += "<div class='line'>#{line}</div>"
-    end
-    table += "</pre></td><td class='code' width='100%'><pre><code class='#{lang}'>#{code}</code></pre></td></tr></table></div>"
+    tableize_code(str, lang)
   end
 
   def pygments(code, lang)
@@ -30,5 +24,14 @@ module HighlightCode
       highlighted_code = Pygments.highlight(code, :lexer => lang, :formatter => 'html')
     end
     highlighted_code
+  end
+  def tableize_code (str, lang = '')
+    table = '<div class="highlight"><table cellpadding="0" cellspacing="0"><tr><td class="gutter"><pre class="line-numbers">'
+    code = ''
+    str.lines.each_with_index do |line,index|
+      table += "<span class='line'>#{index+1}</span>\n"
+      code  += "<div class='line'>#{line}</div>"
+    end
+    table += "</pre></td><td class='code' width='100%'><pre><code class='#{lang}'>#{code}</code></pre></td></tr></table></div>"
   end
 end

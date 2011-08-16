@@ -64,7 +64,7 @@ module Jekyll
         @file = $1
         @caption = "<figcaption><span>#{$1}</span></figcaption>\n"
       end
-      if @file =~ /\S[\S\s]*\.(\w+)/
+      if @file =~ /\S[\S\s]*\w+\.(\w+)/
         @filetype = $1
       end
       super
@@ -82,7 +82,7 @@ module Jekyll
         @filetype = 'yaml' if @filetype == 'yml'
         source += " #{highlight(code, @filetype)}</figure></div>"
       else
-        source += "<pre><code>" + code.lstrip.rstrip.gsub(/</,'&lt;') + "</code></pre></figure></div>"
+        source += "#{tableize_code(code.lstrip.rstrip.gsub(/</,'&lt;'))}</figure></div>"
       end
       source = source + context['pygments_suffix'] if context['pygments_suffix']
     end

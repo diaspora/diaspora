@@ -26,14 +26,17 @@ module OctopressFilters
   #     code snippet
   # ```
   def backtick_codeblock(input)
+    code = nil
     # Markdown support
     input = input.gsub /<p>`{3}\s*(\w+)?<\/p>\s*<pre><code>\s*(.+?)\s*<\/code><\/pre>\s*<p>`{3}<\/p>/m do
       lang = $1
       if lang != ''
         str  = $2.gsub('&lt;','<').gsub('&gt;','>').gsub('&amp;','&')
-        highlight(str, lang)
+        code = highlight(str, lang)
+        "<figure role=code>#{code}</figure>"
       else
-        "<pre><code>#{$2}</code></pre>"
+        code = tableize_code($2)
+        "<figure role=code>#{code}</figure>"
       end
     end
 
@@ -48,9 +51,11 @@ module OctopressFilters
       lang = $1
       str  = $2.gsub(/^\s{4}/, '')
       if lang != ''
-        highlight(str, lang)
+        code = highlight(str, lang)
+        "<figure role=code>#{code}</figure>"
       else
-        "<pre><code>#{$2.gsub('<','&lt;').gsub('>','&gt;')}</code></pre>"
+        code = tableize_code($2.gsub('<','&lt;').gsub('>','&gt;'))
+        "<figure role=code>#{code}</figure>"
       end
     end
   end
