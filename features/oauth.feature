@@ -32,8 +32,7 @@ Feature: oauth
     And I fill in "Diaspora ID" with "bob@localhost:9887"
     And I press "Connect to Diaspora"
     Then I should be on the new user session page
-    And I debug
-    And I should see "bob" within "#user_username"
+    And the "Username" field within "#user_new" should contain "bob"
   
   Scenario: Not authorize Chubbies
     When I try to authorize Chubbies
