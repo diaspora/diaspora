@@ -10,21 +10,98 @@ class Invitation < ActiveRecord::Base
 
   validates_presence_of :sender,
                         :recipient,
-                        :aspect
+                        :aspect,
+                        :identifier,
+                        :service
+
+  attr_accessible :sender, :recipient, :aspect, :service, :identifier
+
+  before_validation :attach_recipent, :on => :create
+  before_create :ensure_not_inviting_self
+
+  validate :valid_identifier?
+  validates_uniqueness_of :sender, :scope => :recipient
+
+
+  def identifier=(ident)
+    ident.downcase! if ident
+    ident
+  end
+
+  def not_inviting_yourself
+    if self.identifier == self.sender.email
+      errors[:base] << 'You can not invite yourself'
+    end
+  end  
+  
+  def attach_recipient
+    self.recipient = User.find_or_create_by_invitation(self)
+  end
+
+  def skip_invitation?
+  
+  end
+
+  def valid_identifier?
+    if self.service == 'email'
+      unless self.identifier.match(Devise.email_regexp)
+        errors[:base] << 'You can not invite yourself'
+      end
+    end
+  end
+end
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   # @param opts [Hash] Takes :identifier, :service, :idenfitier, :from, :message
   # @return [User]
   def self.invite(opts={})
-    opts[:identifier].downcase! if opts[:identifier]
     # return if the current user is trying to invite himself via email
     return false if opts[:identifier] == opts[:from].email
 
     if existing_user = self.find_existing_user(opts[:service], opts[:identifier])
-      # If the sender of the invitation is already connected to the person
-      # he is inviting, raise an error.
-      if opts[:from].contact_for(opts[:from].person)
-        raise "You are already connceted to this person"
-
       # Check whether or not the existing User has already been invited;
       # and if so, start sharing with the Person.
       elsif not existing_user.invited?
@@ -48,18 +125,6 @@ class Invitation < ActiveRecord::Base
   # @param service [String] String representation of the service invitation provider (i.e. facebook, email)
   # @param identifier [String] String representation of the reciepients identity on the provider (i.e. 'bob.smith', bob@aol.com)
   # @return [User]
-  def self.find_existing_user(service, identifier)
-    unless existing_user = User.where(:invitation_service => service,
-                                      :invitation_identifier => identifier).first
-      if service == 'email'
-        existing_user ||= User.where(:email => identifier).first
-      else
-        existing_user ||= User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
-      end
-    end
-
-    existing_user
-  end
 
   # @params opts [Hash] Takes :from, :existing_user, :service, :identifier, :message
   # @return [User]
@@ -71,25 +136,9 @@ class Invitation < ActiveRecord::Base
     invitee.valid?
 
     # Return a User immediately if an invalid email is passed in
-    return invitee if opts[:service] == 'email' && !opts[:identifier].match(Devise.email_regexp)
-
-    if invitee.new_record?
-      invitee.errors.clear
-      invitee.serialized_private_key = User.generate_key if invitee.serialized_private_key.blank?
-      invitee.send(:generate_invitation_token)
-    elsif invitee.invitation_token.nil?
-      return invitee
-    end
 
     # Logic if there is an explicit sender
-    if opts[:from]
-      invitee.save(:validate => false)
-      Invitation.create!(:sender => opts[:from],
-                         :recipient => invitee,
-                         :aspect => opts[:into],
-                         :message => opts[:message])
-      invitee.reload
-    end
+
     invitee.skip_invitation = (opts[:service] != 'email')
     invitee.invite!
 

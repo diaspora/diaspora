@@ -59,23 +59,39 @@ class User < ActiveRecord::Base
                   :invitation_service,
                   :invitation_identifier
 
-  # Sometimes we access the person in a strange way and need to do this
-  # @note we should make this method depricated.
-  #
-  # @return [Person]
-  def save_person!
-    self.person.save if self.person && self.person.changed?
-    self.person
+
+
+  def self.find_or_create_by_invitation(invitation)
+    service = invitation.service
+    identifier = invitation.identifier
+
+    unless existing_user = User.joins(:invitations)
+                               .where(:invitation_service => service,
+                                      :invitation_identifier => identifier).first
+      if service == 'email'
+        existing_user = User.where(:email => identifier).first
+      else
+        existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
+      end
+    end
+
+    if existing_user
+      return existing_user
+    else
+      
+    end
   end
 
-  # Set the User's email to the one they've been invited at, if the user
-  # is being created via an invitation.
-  #
-  # @return [User]
-  def infer_email_from_invitation_provider
-    self.email = self.invitation_identifier if self.invitation_service == 'email'
-    self
+  def self.create_from_invitation!
+    user = User.new
+    user.generate_keys
+    user.generate_invitation_token 
+
+    # we need to make a custom validator here to make this safer
+    user.save(:validate => false)
+    user
   end
+
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
@@ -291,6 +307,8 @@ class User < ActiveRecord::Base
     end
   end
 
+
+
   ###Invitations############
   def invite_user(aspect_id, service, identifier, invite_message = "")
     if aspect = aspects.find(aspect_id)
@@ -355,13 +373,12 @@ class User < ActiveRecord::Base
       opts[:person][:profile] = Profile.new(opts[:person][:profile])
     end
 
+    #TODO make this User#person=
     self.person = Person.new(opts[:person])
     self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].authority}"
     self.person.url = AppConfig[:pod_url]
 
-
-    self.serialized_private_key = User.generate_key if self.serialized_private_key.blank?
-    self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+    self.generate_keys
 
     self
   end
@@ -379,10 +396,6 @@ class User < ActiveRecord::Base
     aq
   end
 
-  def self.generate_key
-    key_size = (Rails.env == 'test' ? 512 : 4096)
-    OpenSSL::PKey::RSA::generate(key_size)
-  end
 
   def encryption_key
     OpenSSL::PKey::RSA.new(serialized_private_key)
@@ -432,5 +445,35 @@ class User < ActiveRecord::Base
       self.aspects.find(id).update_attributes({ :order_id => i })
       i += 1
     end
+  end
+
+
+  # Generate public/private keys for User and associated Person
+  def generate_keys
+    key_size = (Rails.env == 'test' ? 512 : 4096)
+
+    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size) if self.serialized_private_key.blank?
+
+    if self.person && self.person.serialized_public_key.blank?
+      self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+    end
+  end
+
+  # Sometimes we access the person in a strange way and need to do this
+  # @note we should make this method depricated.
+  #
+  # @return [Person]
+  def save_person!
+    self.person.save if self.person && self.person.changed?
+    self.person
+  end
+
+  # Set the User's email to the one they've been invited at, if the user
+  # is being created via an invitation.
+  #
+  # @return [User]
+  def infer_email_from_invitation_provider
+    self.email = self.invitation_identifier if self.invitation_service == 'email'
+    self
   end
 end
