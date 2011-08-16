@@ -9,6 +9,10 @@ class AuthorizationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :token
 
   def new
+    if params[:uid] && params[:uid] != current_user.username
+      sign_out current_user
+      redirect_to request.url
+    end
     @requested_scopes = params["scope"].split(',')
     @client = oauth2_authorization_request.client
 
