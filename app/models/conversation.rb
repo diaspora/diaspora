@@ -15,15 +15,7 @@ class Conversation < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
 
-  def self.create(opts={})
-    opts = opts.dup
-    msg_opts = {:author => opts[:author], :text => opts.delete(:text)}
-
-    cnv = super(opts)
-    message = Message.new(msg_opts.merge({:conversation_id => cnv.id}))
-    message.save
-    cnv
-  end
+  accepts_nested_attributes_for :messages
 
   def recipients
     self.participants - [self.author]

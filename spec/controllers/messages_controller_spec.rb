@@ -17,8 +17,12 @@ describe MessagesController do
 
   describe '#create' do
     before do
-      @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-                       :subject => "cool stuff", :text => "stuff"}
+      @create_hash = {
+        :author => @user1.person,
+        :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+        :subject => 'cool stuff',
+        :messages_attributes => [ {:author => @user1.person, :text => 'stuff'} ]
+      }
     end
 
     context "on my own post" do
