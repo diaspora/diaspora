@@ -17,4 +17,4 @@
       %a.more-link.paginate{:href => next_page_path}
         %h2= t("more")
 - content_for :subpages do
-  = render 'shared/publisher', :aspect_ids => @aspect_ids
+  = render 'shared/publisher', :aspect_ids => @aspect_ids, :selected_aspects => @aspects, :aspect => @aspect

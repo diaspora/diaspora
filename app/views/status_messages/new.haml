@@ -6,7 +6,7 @@
 = javascript_include_tag "publisher.js"
 
 :javascript
-  $(document).ready(function() 
+  $(document).ready(function()
     {
       var person = {name: '#{@person.name}', handle: '#{@person.diaspora_handle}' };
       Publisher.autocompletion.onSelect($("#status_message_fake_text"),person,'#{@person.name}');
@@ -21,5 +21,5 @@
       %h3
         = t('.mentioning', :person => @person.name)
 
-    = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :aspects_with_person => @aspects_with_person, :person => @person}
+    = render :partial => 'shared/publisher', :locals => { :aspect => @aspect, :aspect_ids => @aspect_ids, :selected_aspects => @aspects_with_person, :person => @person}
 
