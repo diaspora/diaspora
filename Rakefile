@@ -1,10 +1,6 @@
 require "rubygems"
 require "bundler/setup"
 
-# If you customize your site's index page setting custom_index to true
-# will preserve your changes when running `rake update_source`
-custom_index = false
-
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
 ssh_user       = "user@domain.com"
@@ -14,17 +10,18 @@ deploy_default = "rsync"
 # This will be configured for you when you run config_deploy
 deploy_branch  = "gh-pages"
 
-## -- Misc Configs, you probably have no reason to changes these -- ##
+## -- Misc Configs -- ##
 
-public_dir   = "public"    # compiled site directory
-source_dir   = "source"    # source file directory
-deploy_dir   = "_deploy"   # deploy directory (for Github pages deployment)
-stash_dir    = "_stash"    # directory to stash posts for speedy generation
-posts_dir    = "_posts"    # directory for blog files
-themes_dir   = ".themes"   # directory for blog files
-new_post_ext = "markdown"  # default new post file extension when using the new_post task
-new_page_ext = "markdown"  # default new page file extension when using the new_page task
-server_port  = "4000"      # port for preview server eg. localhost:4000
+public_dir      = "public"    # compiled site directory
+source_dir      = "source"    # source file directory
+blog_index_dir  = 'source'    # directory for your blog's index page (if you put your index in source/blog/index.html, set this to 'source/blog')
+deploy_dir      = "_deploy"   # deploy directory (for Github pages deployment)
+stash_dir       = "_stash"    # directory to stash posts for speedy generation
+posts_dir       = "_posts"    # directory for blog files
+themes_dir      = ".themes"   # directory for blog files
+new_post_ext    = "markdown"  # default new post file extension when using the new_post task
+new_page_ext    = "markdown"  # default new page file extension when using the new_page task
+server_port     = "4000"      # port for preview server eg. localhost:4000
 
 
 desc "Initial setup for Octopress: copies the default theme into the path of Jekyll's generator. Rake install defaults to rake install[classic] to install a different theme run rake install[some_theme_name]"
@@ -126,7 +123,7 @@ end
 
 desc "Clean out caches: _code_cache, _gist_cache, .sass-cache"
 task :clean do
-  system "rm -rf _code_cache/** _gist_cache/** .sass-cache/**"
+  system "rm -rf _code_cache/** _gist_cache/** .sass-cache/** source/stylesheets/screen.css"
 end
 
 desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
@@ -155,7 +152,8 @@ task :update_source, :theme do |t, args|
   system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -Rf #{source_dir}.old/_includes/custom/. #{source_dir}/_includes/custom/"
-  system "cp -Rf #{source_dir}.old/index.html #{source_dir}" if custom_index
+  system "mv -f #{source_dir}/index.html #{blog_index_dir}" if blog_index_dir != source_dir
+  system "cp -f #{source_dir}.old/index.html #{source_dir}" if blog_index_dir != source_dir
   puts "## Updated #{source_dir} ##"
 end
 
