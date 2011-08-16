@@ -134,8 +134,12 @@ describe Notifier do
       @user2 = bob
       @participant_ids = @user2.contacts.map{|c| c.person.id} + [ @user2.person.id]
 
-      @create_hash = { :author => @user2.person, :participant_ids => @participant_ids ,
-                       :subject => "cool stuff", :text => 'hey'}
+      @create_hash = {
+        :author => @user2.person,
+        :participant_ids => @participant_ids,
+        :subject => "cool stuff",
+        :messages_attributes => [ {:author => @user2.person, :text => 'hey'} ]
+      }
 
       @cnv = Conversation.create(@create_hash)
 

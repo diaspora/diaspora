@@ -9,8 +9,12 @@ describe ConversationVisibilitiesController do
     @user1 = alice
     sign_in :user, @user1
 
-    hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-             :subject => 'not spam', :text => 'cool stuff'}
+    hash = {
+      :author => @user1.person,
+      :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+      :subject => 'not spam',
+      :messages_attributes => [ {:author => @user1.person, :text => 'cool stuff'} ]
+    }
     @conversation = Conversation.create(hash)
   end
 

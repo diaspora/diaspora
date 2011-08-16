@@ -10,8 +10,12 @@ describe Conversation do
     @user2 = bob
     @participant_ids = [@user1.contacts.first.person.id, @user1.person.id]
 
-    @create_hash = { :author => @user1.person, :participant_ids => @participant_ids ,
-                     :subject => "cool stuff", :text => 'hey'}
+    @create_hash = {
+      :author => @user1.person,
+      :participant_ids => @participant_ids,
+      :subject => "cool stuff",
+      :messages_attributes => [ {:author => @user1.person, :text => 'hey'} ]
+    }
   end
 
   it 'creates a message on create' do
@@ -60,8 +64,8 @@ describe Conversation do
 
     describe '#receive' do
       before do
-        Conversation.destroy_all
         Message.destroy_all
+        Conversation.destroy_all
       end
 
       it 'creates a message' do

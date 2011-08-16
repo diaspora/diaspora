@@ -40,8 +40,12 @@ describe ConversationsController do
     end
 
     it 'retrieves all conversations for a user' do
-      hash = {:author => alice.person, :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-              :subject => 'not spam', :text => 'cool stuff'}
+      hash = {
+        :author => alice.person,
+        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+        :subject => 'not spam',
+        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+      }
       3.times { Conversation.create(hash) }
 
       get :index
@@ -80,8 +84,13 @@ describe ConversationsController do
 
     it 'dispatches the conversation' do
       cnv = Conversation.create(
-        @hash[:conversation].merge({:author => alice.person, :participant_ids => [alice.contacts.first.person.id]}))
-
+        {
+          :author => alice.person,
+          :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+          :subject => 'not spam',
+          :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+        }
+      )
       p = Postzord::Dispatch.new(alice, cnv)
       Postzord::Dispatch.stub!(:new).and_return(p)
       p.should_receive(:post)
@@ -91,8 +100,12 @@ describe ConversationsController do
 
   describe '#show' do
     before do
-      hash = {:author => alice.person, :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-              :subject => 'not spam', :text => 'cool stuff'}
+      hash = {
+        :author => alice.person,
+        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+        :subject => 'not spam',
+        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+      }
       @conversation = Conversation.create(hash)
     end
 
