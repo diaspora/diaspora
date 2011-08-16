@@ -65,28 +65,31 @@ class User < ActiveRecord::Base
     service = invitation.service
     identifier = invitation.identifier
 
-    unless existing_user = User.joins(:invitations)
-                               .where(:invitation_service => service,
-                                      :invitation_identifier => identifier).first
-      if service == 'email'
-        existing_user = User.where(:email => identifier).first
-      else
-        existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
-      end
+    #find users that may already exsist
+    #1.
+    if service == 'email'
+      existing_user = User.where(:email => identifier).first 
+    else
+      existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
     end
+   
+   if existing_user.nil? 
+    i = Invitation.where(:service => service, :identifier => identifier).first
+    existing_user = i.recipient if i
+   end
 
     if existing_user
       return existing_user
     else
-      
+     self.create_from_invitation!(invitation)
     end
   end
 
-  def self.create_from_invitation!
+  def self.create_from_invitation!(invitation)
     user = User.new
     user.generate_keys
-    user.generate_invitation_token 
-
+    user.send(:generate_invitation_token)
+    #user.invitations << invitation
     # we need to make a custom validator here to make this safer
     user.save(:validate => false)
     user
