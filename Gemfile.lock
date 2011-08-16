@@ -57,6 +57,12 @@ GIT
       eventmachine (>= 0.12.9)
 
 GIT
+  remote: git://github.com/tanoku/redcarpet
+  revision: 6b43f042305eb63620e3771a977f45e24ea7b576
+  specs:
+    redcarpet (2.0.0b3)
+
+GIT
   remote: git://github.com/zhitomirskiyi/ruby-jwt.git
   revision: fa7f46b5ac3653e30cf60abc78de9ffb3319dc0c
   specs:
@@ -500,6 +506,7 @@ DEPENDENCIES
   rails (= 3.0.9)
   rails-i18n
   rcov
+  redcarpet!
   resque (= 1.10.0)
   resque-ensure-connected
   rest-client (= 1.6.1)

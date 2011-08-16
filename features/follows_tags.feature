@@ -25,7 +25,7 @@ Feature: posting
   Scenario: see a tag that I am following
     When I go to the home page
     And I follow "#boss"
-    Then I should see "I am da #boss"
+    Then I should see "I am da #boss" within "body"
 
   Scenario: can stop following a particular tag
     When I hover over the ".button.tag_following"
