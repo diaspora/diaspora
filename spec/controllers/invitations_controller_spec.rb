@@ -8,6 +8,7 @@ describe InvitationsController do
   include Devise::TestHelpers
 
   before do
+    AppConfig[:open_invitations] = true
     @user   = alice
     @aspect = @user.aspects.first
 
@@ -17,8 +18,6 @@ describe InvitationsController do
 
   describe "#create" do
     before do
-      @user.invites = 5
-
       sign_in :user, @user
       @invite = {:invite_message=>"test", :aspect_id=> @aspect.id.to_s, :email=>"abc@example.com"}
       @controller.stub!(:current_user).and_return(@user)
@@ -50,19 +49,9 @@ describe InvitationsController do
       flash[:error].should =~ /lala@foo/
     end
 
-    it "doesn't invite anyone if you have 0 invites" do
-      @user.invites = 0
-      @user.save!
-
-      Resque.should_not_receive(:enqueue)
-      post :create, :user => @invite.merge(:email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
-    end
-
-    it "allows invitations without limit if invitations are open" do
+    it "allows invitations without if invitations are open" do
       open_bit = AppConfig[:open_invitations]
       AppConfig[:open_invitations] = true
-      @user.invites = 0
-      @user.save!
 
       Resque.should_receive(:enqueue).once
       post :create, :user => @invite
@@ -87,7 +76,6 @@ describe InvitationsController do
 
   describe "#update" do
     before do
-      @user.invites = 5
       @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com")
       @accept_params = {:user=>
         {:password_confirmation =>"password",
@@ -145,8 +133,6 @@ describe InvitationsController do
 
   describe '#resend' do
     before do
-      @user.invites = 5
-
       sign_in :user, @user
       @controller.stub!(:current_user).and_return(@user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'

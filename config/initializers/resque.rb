@@ -1,6 +1,3 @@
-require File.join(Rails.root, 'app', 'models', 'jobs', 'base')
-Dir[File.join(Rails.root, 'app', 'models', 'jobs', '*.rb')].each { |file| require file }
-
 require 'resque'
 
 begin

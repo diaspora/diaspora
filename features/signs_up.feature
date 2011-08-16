@@ -23,7 +23,7 @@ Feature: new user registration
     And I fill in "tags" with "#tags"
     And I press "Update Profile"
     And I wait for the ajax to finish
-    Then I should see "Profile updated"
+    Then I should see "O Hai" within "#user_menu"
     And I should see "Welcome"
     And I follow "Finished"
 

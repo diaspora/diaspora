@@ -279,7 +279,6 @@ sl:
       to: "Za"
   layouts: 
     application: 
-      have_a_problem: "Ste naleteli na težavo? Tukaj poiščite odgovor"
       powered_by: "STRAN POGANJA DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -601,14 +600,8 @@ sl:
     failure: 
       error: "pri povezovanju s servisom je prišlo do napake"
     finder: 
-      friends: 
-        few: "%{count} prijateljev"
-        many: "%{count} friends"
-        one: "1 prijatelj"
-        other: "%{count} prijateljev"
-        zero: "brez prijateljev"
-      invite_your_friends_from: "Povabi prijatelje iz %{service}"
-      not_connected: "ni povezano"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Poveži se s facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ sl:
       join_me_on_diaspora: "Pridruži se mi na DIASPORI*"
     remote_friend: 
       invite: "povabi"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "pošlji ponovno"
   settings: "Nastavitve"
   shared: 

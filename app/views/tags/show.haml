@@ -41,6 +41,11 @@
   .side_stream.stream
     = render :partial => 'people/index', :locals => {:people => @people}
 
+  %br
+
+  .section
+    = render "tags/followed_tags_listings"
+
 .span-15.last
   .stream_container
     #author_info

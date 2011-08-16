@@ -8,18 +8,6 @@ class AdminsController < ApplicationController
     @users = params[:user].empty? ? [] : User.where(params[:user])
   end
 
-  def add_invites
-    user = User.find(params[:user_id])
-
-    if user.increment(:invites, 10).save
-      flash[:notice] = "Great Job!"
-    else
-      flash[:alert] = "there was a problem adding invites"
-    end
-
-    redirect_to user_search_path(:user => { :id => user.id })
-  end
-
   def admin_inviter
     opts = {:service => 'email', :identifier => params[:identifier]}
     existing_user = Invitation.find_existing_user('email', params[:identifier])

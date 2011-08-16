@@ -105,6 +105,13 @@ Factory.define :service do |service|
   service.sequence(:access_secret) { |token| "98765#{token}" }
 end
 
+Factory.define :service_user do |s_user|
+  s_user.sequence(:uid) { |id| "a#{id}"}
+  s_user.sequence(:name) { |num| "Rob Fergus the #{num.ordinalize}" }
+  s_user.association :service
+  s_user.photo_url "/images/user/adams.jpg"
+end
+
 Factory.define(:comment) do |comment|
   comment.sequence(:text) {|n| "#{n} cats"}
   comment.association(:author, :factory => :person)

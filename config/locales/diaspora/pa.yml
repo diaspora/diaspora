@@ -279,7 +279,6 @@ pa:
       to: "To"
   layouts: 
     application: 
-      have_a_problem: "ਕੋਈ ਸਮੱਸਿਆ ਹੈ? ਹੱਲ਼ ਇੱਥੇ ਲੱਭੋ।"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -601,14 +600,8 @@ pa:
     failure: 
       error: "there was an error connecting that service"
     finder: 
-      friends: 
-        few: "%{count} friends"
-        many: "%{count} friends"
-        one: "1 friend"
-        other: "%{count} friends"
-        zero: "no friends"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "not connected"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "ਫੇਸਬੁੱਕ ਨਾਲ ਕੁਨੈਕਟ ਕਰੋ"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ pa:
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "ਸੱਦਾ"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "ਮੁੜ-ਭੇਜੋ"
   settings: "Settings"
   shared: 

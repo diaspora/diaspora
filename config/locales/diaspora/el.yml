@@ -279,7 +279,6 @@ el:
       to: "Στον"
   layouts: 
     application: 
-      have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ!"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
@@ -601,14 +600,8 @@ el:
     failure: 
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
     finder: 
-      friends: 
-        few: "%{count} φίλοι"
-        many: "%{count} φίλοι"
-        one: "1 φίλος"
-        other: "%{count} φίλοι"
-        zero: "κανένας φίλος"
-      invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
-      not_connected: "δεν είναι συνδεδεμένο"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Σύνδεση με Facebook"
       connect_to_tumblr: "Σύνδεση με το Tumblr"
@@ -623,6 +616,7 @@ el:
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
     remote_friend: 
       invite: "πρόσκληση"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "αποστολή ξανά"
   settings: "Ρυθμίσεις"
   shared: 

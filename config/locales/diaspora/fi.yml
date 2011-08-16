@@ -279,7 +279,6 @@ fi:
       to: "Vastaanottaja"
   layouts: 
     application: 
-      have_a_problem: "Ongelmia? Löydä ratkaisu täältä"
       powered_by: "PALVELUN TARJOAA DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "vaihda mobiili sivustoon"
@@ -601,14 +600,8 @@ fi:
     failure: 
       error: "palvelun yhdistämisessä tapahtui virhe"
     finder: 
-      friends: 
-        few: "%{count} ystävää"
-        many: "%{count} kaveria"
-        one: "1 ystävä"
-        other: "%{count} ystävää"
-        zero: "ei ystäviä"
-      invite_your_friends_from: "Kutsu ystäväsi palvelusta %{service}"
-      not_connected: "ei yhdistetty"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Yhdistä palveluun facebook"
       connect_to_tumblr: "Yhdistä Tumblr:iin"
@@ -623,6 +616,7 @@ fi:
       join_me_on_diaspora: "DIASPORA* kutsuu!"
     remote_friend: 
       invite: "kutsu"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "lähetä uudelleen"
   settings: "Asetukset"
   shared: 

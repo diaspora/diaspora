@@ -9,8 +9,6 @@ describe Invitation do
   let(:aspect) { user.aspects.first }
 
   before do
-    user.invites = 20
-    user.save
     @email = 'maggie@example.com'
     Devise.mailer.deliveries = []
   end
@@ -43,32 +41,6 @@ describe Invitation do
     @invitation = Invitation.new(:sender => user, :recipient => eve, :aspect => aspect)
     @invitation.message = "!"
     @invitation.message.should == "!"
-  end
-
-  describe '.new_user_by_service_and_identifier' do
-    let(:inv) { Invitation.new_user_by_service_and_identifier(@type, @identifier) }
-
-    it 'returns User.new for a non-existent user for email' do
-      @type = "email"
-      @identifier = "maggie@example.org"
-      inv.invitation_identifier.should == @identifier
-      inv.invitation_service.should == 'email'
-      inv.should_not be_persisted
-      lambda {
-        inv.reload
-      }.should raise_error ActiveRecord::RecordNotFound
-    end
-
-    it 'returns User.new for a non-existent user' do
-      @type = "facebook"
-      @identifier = "1234892323"
-      inv.invitation_identifier.should == @identifier
-      inv.invitation_service.should == @type
-      inv.persisted?.should be_false
-      lambda {
-        inv.reload
-      }.should raise_error ActiveRecord::RecordNotFound
-    end
   end
 
   describe '.find_existing_user' do
@@ -163,22 +135,6 @@ describe Invitation do
     it 'sends a contact request to a user with that email into the aspect' do
       user.should_receive(:share_with).with(eve.person, aspect)
       Invitation.invite(:from => user, :service => 'email', :identifier => eve.email, :into => aspect)
-    end
-
-    it 'decrements the invite count of the from user' do
-      message = "How've you been?"
-      lambda {
-        new_user = Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
-      }.should change(user, :invites).by(-1)
-    end
-
-    it "doesn't decrement counter past zero" do
-      user.invites = 0
-      user.save!
-      message = "How've you been?"
-      lambda {
-        Invitation.invite(:from => user, :service => 'email', :identifier => @email, :into => aspect, :message => message)
-      }.should_not change(user, :invites)
     end
 
     context 'invalid email' do

@@ -73,6 +73,16 @@ class Contact < ActiveRecord::Base
     self.sharing && self.receiving
   end
 
+  def in_aspect? aspect
+    if aspect_memberships.loaded?
+      aspect_memberships.detect{ |am| am.aspect_id == aspect.id }
+    elsif aspects.loaded?
+      aspects.detect{ |a| a.id == aspect.id }
+    else
+      AspectMembership.exists?(:contact_id => self.id, :aspect_id => aspect.id)
+    end
+  end
+
   private
   def not_contact_for_self
     if person_id && person.owner == user

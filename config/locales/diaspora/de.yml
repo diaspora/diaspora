@@ -37,7 +37,7 @@ de:
             person: 
               invalid: "ist nicht gültig."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "ist ungültig. Wir erlauben nur Buchstaben, Zahlen und Unterstriche"
               taken: "wird schon benutzt."
   ago: "Vor %{time}"
   all_aspects: "Alle Aspekte"
@@ -253,7 +253,7 @@ de:
       tagline_first_half: "Teile was du willst,"
       tagline_second_half: "mit wem du willst."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Ein Facebook-Nutzer"
     check_token: 
       not_found: "Einladungstoken nicht gefunden"
     create: 
@@ -279,7 +279,6 @@ de:
       to: "An"
   layouts: 
     application: 
-      have_a_problem: "Du hast ein Problem? Finde hier eine Antwort (Englisch)"
       powered_by: "BETRIEBEN MIT DIASPORA*"
       public_feed: "Öffentlicher Diaspora Feed von %{name}"
       toggle: "Mobile Ansicht umschalten"
@@ -393,7 +392,7 @@ de:
       other: "%{actors} haben angefangen mit dir zu teilen."
       zero: "Niemand hat angefangen mit dir zu teilen."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "ein Beitrag."
     click_here: "hier klicken"
     comment_on_post: 
       reply: "Antworte oder schau dir %{name}s Beitrag an >"
@@ -474,7 +473,7 @@ de:
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
     zero: "Keine Personen"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "%{name}s Foto"
     create: 
       integrity_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass es eine Bilddatei war?"
       runtime_error: "Hochladen des Fotos fehlgeschlagen. Bist du sicher, dass du deinen Morgenkaffee hattest?"
@@ -502,7 +501,7 @@ de:
       edit: "Bearbeiten"
       edit_delete_photo: "Fotobeschreibung bearbeiten / Foto löschen"
       make_profile_photo: "Als Profilbild verwenden"
-      show_original_post: "Show original post"
+      show_original_post: "Zeige ursprünglichen Beitrag"
       update_photo: "Foto aktualisieren"
     update: 
       error: "Bearbeiten des Fotos fehlgeschlagen."
@@ -601,14 +600,8 @@ de:
     failure: 
       error: "es gab einen Fehler beim Verbinden mit diesem Dienst"
     finder: 
-      friends: 
-        few: "%{count} Freunde"
-        many: "%{count} Freunde"
-        one: "Ein Freund"
-        other: "%{count} Freunde"
-        zero: "Keine Freunde"
-      invite_your_friends_from: "Lade deine Freunde von %{service} ein"
-      not_connected: "nicht verbunden"
+      no_friends: "Keine Facebook-Freunde gefunden."
+      service_friends: "%{service} Freunde"
     index: 
       connect_to_facebook: "Mit Facebook verbinden"
       connect_to_tumblr: "Mit Tumblr verbinden"
@@ -623,6 +616,7 @@ de:
       join_me_on_diaspora: "Folge mir auf DIASPORA*"
     remote_friend: 
       invite: "Einladen"
+      not_on_diaspora: "Noch nicht auf Diaspora"
       resend: "Erneut senden"
   settings: "Einstellungen"
   shared: 
@@ -752,7 +746,7 @@ de:
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
-      aspects: "aspects"
+      aspects: "Aspekte"
       connect_to: "Verbinde dich zu"
       connect_to_your_other_social_networks: "Verbinde dich zu deinen anderen sozialen Netzwerken"
       connect_with_people: "Kontaktiere tolle Leute"

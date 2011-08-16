@@ -23,10 +23,10 @@ fr:
       no_more: "Pas d'autre messages."
     publisher: 
       at_least_one_aspect: "Vous devez créer au moins un aspect"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Limité - votre message ne sera vu par des gens avec qui vous partagez"
+      public: "Public - votre message sera visible de tous et trouvé par les moteurs de recherche"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Vous avez déjà repartagé ce post !"
     search_for: "Chercher {{name}}"
     show_more: "voir plus"
     timeago: 

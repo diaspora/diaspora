@@ -3,7 +3,7 @@
 -#   the COPYRIGHT file.
 
 
-- unless AppConfig[:invites_off]
+- if AppConfig[:open_invitations]
   .section
     .title
       = image_tag('/images/icons/plus.png')

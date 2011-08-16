@@ -81,7 +81,7 @@ sk:
       success: "Váš nový aspekt %{name} bol vytvorený"
     destroy: 
       failure: "%{name} is not empty and could not be removed."
-      success: "Užívateľ %{name} bol úspešne odstránený."
+      success: "%{name} bol úspešne odstránený."
     edit: 
       add_existing: "Pridať existujúci kontakt"
       aspect_list_is_not_visible: "aspect list is hidden to others in aspect"
@@ -145,7 +145,7 @@ sk:
     selected_contacts: 
       manage_your_aspects: "Manage your aspects."
       no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      view_all_contacts: "Zobraziť všetky kontakty"
     show: 
       edit_aspect: "upraviť aspekt"
     update: 
@@ -279,7 +279,6 @@ sk:
       to: "Komu"
   layouts: 
     application: 
-      have_a_problem: "Máte problém? Nájdite odpoveď tu"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "Zapnúť mobilné zobrazenie"
@@ -601,14 +600,8 @@ sk:
     failure: 
       error: "Pripojenie k službe zlyhalo."
     finder: 
-      friends: 
-        few: "Počet priateľov %{count}"
-        many: "%{count} friends"
-        one: "1 priateľ"
-        other: "Počet priateľov : %{count} "
-        zero: "žiadni priatelia"
-      invite_your_friends_from: "Pozvite svojich priateľov z %{service}"
-      not_connected: "nepripojený"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Pripojiť k Facebooku"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ sk:
       join_me_on_diaspora: "Pridať sa k službe DIASPORA*"
     remote_friend: 
       invite: "pozvať"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "preposlať"
   settings: "Nastavenia"
   shared: 

@@ -29,7 +29,7 @@ class Services::Facebook < Service
              else
                self.service_users
              end
-    result.order('service_users.person_id DESC, service_users.name')
+    result.includes(:contact => :aspects, :person => :profile).order('service_users.person_id DESC, service_users.name')
   end
 
   def save_friends
@@ -38,11 +38,11 @@ class Services::Facebook < Service
     data = JSON.parse(response.body)['data']
     return unless data
     data.map!{ |p|
-      su = ServiceUser.new(:service_id => self.id, :uid => p["id"], :photo_url => p["picture"], :name => p["name"])
+      su = ServiceUser.new(:service_id => self.id, :uid => p["id"], :photo_url => p["picture"], :name => p["name"], :username => p["username"])
       su.attach_local_models
       su
     }
-    ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name])
+    ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username])
   end
 
   private

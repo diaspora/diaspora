@@ -34,7 +34,7 @@ fr:
         no_account_till: "Votre compte ne sera pas que lorsque vous irez sur le lien ci-dessus et que vous vous inscrirez."
         subject: "Vous avez été invité à rejoindre Diaspora!"
       inviters: 
-        accept_at: ", sur %{url}, vous pouvez accepter à travers le lien ci-dessous."
+        accept_at: "sur %{url}, vous pouvez accepter à travers le lien ci-dessous."
         has_invited_you: "%{name} vous a invité à rejoindre Diaspora"
         have_invited_you: "%{names} vous ont invité à rejoindre Diaspora"
       reset_password_instructions: 

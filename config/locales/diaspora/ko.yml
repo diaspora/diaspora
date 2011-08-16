@@ -37,7 +37,7 @@ ko:
             person: 
               invalid: "유효하지 않습니다."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: ": 유효하지 않은 사용자명입니다. 로마자, 아라비아 숫자, 언더스코어만 쓸 수 있습니다"
               taken: "이미 쓰이고 있습니다."
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
@@ -118,7 +118,7 @@ ko:
         content: "다음의 여러 서비스를 디아스포라에 연결할 수 있습니다"
         heading: "서비스 연결"
       tags_following: "팔로우된 태그들"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "#%{tag} 태그 팔로우 멈추기"
       your_aspects: "내 애스펙"
     many: "애스펙 %{count}개"
     move_contact: 
@@ -253,7 +253,7 @@ ko:
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "페이스북 사욤자"
     check_token: 
       not_found: "초대장 토큰을 찾을 수 없습니다"
     create: 
@@ -279,7 +279,6 @@ ko:
       to: "받는이"
   layouts: 
     application: 
-      have_a_problem: "문제가 있습니까? 여기서 해결하세요"
       powered_by: "디아스포라* 제공"
       public_feed: "%{name}님의 공개 디아스포라 피드"
       toggle: "모바일 사이트 전환"
@@ -393,7 +392,7 @@ ko:
       other: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "공유물"
     click_here: "여기를 클릭하세요"
     comment_on_post: 
       reply: "%{name}님의 공유물에 댓글달기 >"
@@ -474,7 +473,7 @@ ko:
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "%{name}님의 사진"
     create: 
       integrity_error: "사진 업로드할 수 없습니다. 이미지가 맞습니까?"
       runtime_error: "사진을 업로드할 수 없습니다. 안전벨트를 확인하셨습니까?"
@@ -502,7 +501,7 @@ ko:
       edit: "고치기"
       edit_delete_photo: "사진 설명 고치기 / 사진 지우기"
       make_profile_photo: "프로필 사진 만들기"
-      show_original_post: "Show original post"
+      show_original_post: "원래 공유물 보기"
       update_photo: "사진 갱신"
     update: 
       error: "사진 고치기 실패."
@@ -578,7 +577,7 @@ ko:
     new_request_to_person: 
       sent: "보냈습니다."
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "%{resharer}님이 재공유한 %{author}님의 공유물"
     create: 
       failure: "이 공유물을 재공유하는데 오류가 발생했습니다."
     reshare: 
@@ -601,14 +600,8 @@ ko:
     failure: 
       error: "서비스 연결중 에러가 발생했습니다."
     finder: 
-      friends: 
-        few: "친구 %{count}명"
-        many: "친구 %{count}명"
-        one: "친구 한 명"
-        other: "친구 %{count}명"
-        zero: "친구 없음"
-      invite_your_friends_from: "%{service} 서비스에서 친구 초대하기"
-      not_connected: "연결 없음"
+      no_friends: "페이스북 친구를 찾을 수 없습니다."
+      service_friends: "%{service} 친구"
     index: 
       connect_to_facebook: "페이스북에 연결"
       connect_to_tumblr: "Tumblr에 연결하기"
@@ -623,6 +616,7 @@ ko:
       join_me_on_diaspora: "디아스포라*에서 만나요!"
     remote_friend: 
       invite: "초대하기"
+      not_on_diaspora: "아직 디아스포라에 없습니다"
       resend: "다시 보내기"
   settings: "설정"
   shared: 
@@ -752,7 +746,7 @@ ko:
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 
-      aspects: "aspects"
+      aspects: "애스펙"
       connect_to: "연결하기:"
       connect_to_your_other_social_networks: "내 다른 소셜네트워크와 연결하기"
       connect_with_people: "멋진 사람들과 연결하기"

@@ -279,7 +279,6 @@ en_shaw:
       to: "𐑑"
   layouts: 
     application: 
-      have_a_problem: "𐑣𐑨𐑝 𐑩 𐑐𐑮𐑪𐑚𐑤𐑩𐑥, 𐑓𐑲𐑯𐑛 𐑩𐑯 𐑨𐑯𐑕𐑼 𐑣𐑽"
       powered_by: "𐑐𐑬𐑮𐑛 𐑚𐑲 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
       public_feed: "𐑐𐑳𐑚𐑤𐑦𐑒 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑓𐑰𐑛 𐑓𐑹 %{name}"
       toggle: "𐑑𐑪𐑜𐑩𐑤 𐑥𐑴𐑚𐑩𐑤 𐑕𐑲𐑑"
@@ -601,14 +600,8 @@ en_shaw:
     failure: 
       error: "𐑞𐑺 𐑢𐑪𐑟 𐑩𐑯 𐑺𐑼 𐑒𐑩𐑯𐑧𐑒𐑑𐑦𐑙 𐑞𐑨𐑑 𐑕𐑻𐑝𐑩𐑕"
     finder: 
-      friends: 
-        few: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
-        many: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
-        one: "1 𐑓𐑮𐑧𐑯𐑛"
-        other: "%{count} 𐑓𐑮𐑧𐑯𐑛𐑟"
-        zero: "𐑯𐑴 𐑓𐑮𐑧𐑯𐑛𐑟"
-      invite_your_friends_from: "𐑦𐑯𐑝𐑲𐑑 𐑿𐑼 𐑓𐑮𐑧𐑯𐑛𐑟 𐑓𐑮𐑪𐑥 %{service}"
-      not_connected: "𐑯𐑪𐑑 𐑒𐑩𐑯𐑧𐑒𐑑𐑩𐑛"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Facebook"
       connect_to_tumblr: "𐑒𐑩𐑯𐑧𐑒𐑑 𐑑 Tumblr"
@@ -623,6 +616,7 @@ en_shaw:
       join_me_on_diaspora: "𐑡𐑶𐑯 𐑥𐑰 𐑪𐑯 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩*"
     remote_friend: 
       invite: "𐑦𐑯𐑝𐑲𐑑"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "𐑮𐑦𐑕𐑧𐑯𐑛"
   settings: "𐑕𐑧𐑑𐑦𐑙𐑟"
   shared: 

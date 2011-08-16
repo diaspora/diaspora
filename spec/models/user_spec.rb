@@ -20,6 +20,42 @@ describe User do
 
   end
 
+  context 'callbacks' do
+    describe '#save_person!' do
+      it 'saves the corresponding user if it has changed' do
+        alice.person.url = "http://stuff.com"
+        Person.any_instance.should_receive(:save)
+        alice.save
+      end
+
+      it 'does not save the corresponding user if it has not changed' do
+        Person.any_instance.should_not_receive(:save)
+        alice.save
+      end
+    end
+
+    describe '#infer_email_from_invitation_provider' do
+      it 'sets corresponding email if invitation_service is email' do
+        addr = '12345@alice.com'
+        alice.invitation_service = 'email'
+        alice.invitation_identifier = addr
+        
+        lambda {
+          alice.infer_email_from_invitation_provider
+        }.should change(alice, :email)
+      end
+
+      it 'does not set an email if invitation_service is not email' do
+        addr = '1233123'
+        alice.invitation_service = 'facebook'
+        alice.invitation_identifier = addr
+        
+        lambda {
+          alice.infer_email_from_invitation_provider
+        }.should_not change(alice, :email)
+      end
+    end
+  end
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do

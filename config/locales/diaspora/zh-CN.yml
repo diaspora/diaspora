@@ -279,7 +279,6 @@ zh-CN:
       to: "收件人"
   layouts: 
     application: 
-      have_a_problem: "遇到问题？在这里可以找到解决方案"
       powered_by: "Powered by DIASPORA*"
       public_feed: "%{name} 的 Diaspora RSS Feed"
       toggle: "切换为手机网页"
@@ -601,14 +600,8 @@ zh-CN:
     failure: 
       error: "与该服务连接时有错误"
     finder: 
-      friends: 
-        few: "%{count}个朋友"
-        many: "%{count}个朋友"
-        one: "1个朋友"
-        other: "%{count}个朋友"
-        zero: "没有朋友"
-      invite_your_friends_from: "邀请您在 %{service} 的朋友"
-      not_connected: "未连接"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "与 facebook 连接"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ zh-CN:
       join_me_on_diaspora: "跟我一起加入 DIASPORA*"
     remote_friend: 
       invite: "邀请"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "重新发送"
   settings: "设置"
   shared: 

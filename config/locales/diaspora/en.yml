@@ -321,7 +321,6 @@ en:
     application:
       powered_by: "POWERED BY DIASPORA*"
       whats_new: "what's new?"
-      have_a_problem: "Have a problem? Find an answer here"
       toggle: "toggle mobile site"
       public_feed: "Public Diaspora Feed for %{name}"
       your_aspects: "your aspects"
@@ -643,17 +642,12 @@ en:
       join_me_on_diaspora: "Join me on DIASPORA*"
       click_link_to_accept_invitation: "Click this link to accept your invitation"
     finder:
-      invite_your_friends_from: "Invite your friends from %{service}"
-      friends:
-        zero: "no friends"
-        one: "1 friend"
-        few: "%{count} friends"
-        many: "%{count} friends"
-        other: "%{count} friends"
-      not_connected: "not connected"
+      service_friends: "%{service} Friends"
+      no_friends: "No Facebook friends found."
     remote_friend:
       resend: "resend"
       invite: "invite"
+      not_on_diaspora: "Not yet on Diaspora"
 
   shared:
     publisher:

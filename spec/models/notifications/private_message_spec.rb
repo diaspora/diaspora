@@ -9,8 +9,12 @@ describe Notifications::PrivateMessage do
       @user1 = alice
       @user2 = bob
 
-      @create_hash = { :author => @user1.person, :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
-                       :subject => "cool stuff", :text => "stuff"}
+      @create_hash = {
+        :author => @user1.person,
+        :participant_ids => [@user1.contacts.first.person.id, @user1.person.id],
+        :subject => 'cool stuff',
+        :messages_attributes => [ {:author => @user1.person, :text => 'stuff'} ]
+      }
 
       @cnv = Conversation.create(@create_hash)
       @msg = @cnv.messages.first

@@ -279,7 +279,6 @@ hu:
       to: "Címzett"
   layouts: 
     application: 
-      have_a_problem: "Problémád van?"
       powered_by: "DIASPORA* fordította ADAMEX"
       public_feed: "Nyílvános Diaspora hírfolyam neki: %{name}"
       toggle: "mobil változat"
@@ -601,14 +600,8 @@ hu:
     failure: 
       error: "Hiba történt a szolgáltatáshoz kapcsolódás közben"
     finder: 
-      friends: 
-        few: "%{count} barát"
-        many: "%{count} barát"
-        one: "1 barát"
-        other: "%{count} barát"
-        zero: "itt nincs barátod"
-      invite_your_friends_from: "Hívd meg a barátaidat innen: %{service}"
-      not_connected: "nem kapcsolódik"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Csatlakozás facebook-hoz"
       connect_to_tumblr: "Connect to Tumblr"
@@ -623,6 +616,7 @@ hu:
       join_me_on_diaspora: "Találkozzunk a DIASPORA*-n"
     remote_friend: 
       invite: "meghív"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "újraküld"
   settings: "Beállítások"
   shared: 

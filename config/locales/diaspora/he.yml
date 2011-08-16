@@ -279,7 +279,6 @@ he:
       to: "אל"
   layouts: 
     application: 
-      have_a_problem: "נתקלת בבעיות? ניתן למצוא את התשובה להלן"
       powered_by: "מופעל על גבי דיאספורה*"
       public_feed: "הזנת דיאספורה ציבורית עבור %{name}"
       toggle: "הפעלה/נטרול האתר לניידים"
@@ -601,14 +600,8 @@ he:
     failure: 
       error: "אירעה שגיאה בעת ההתחברות לשירות זה"
     finder: 
-      friends: 
-        few: "%{count} חברים"
-        many: "%{count} חברים"
-        one: "חבר אחד"
-        other: "%{count} חברים"
-        zero: "אין חברים"
-      invite_your_friends_from: "הזמנת החברים שלך מ־%{service}"
-      not_connected: "לא מחובר"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "התחברות לפייסבוק"
       connect_to_tumblr: "התחברות ל־Tumblr"
@@ -623,6 +616,7 @@ he:
       join_me_on_diaspora: "למה שלא להצטרף אלי ב־DIASPORA*"
     remote_friend: 
       invite: "הזמנה"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "שליחה שוב"
   settings: "הגדרות"
   shared: 

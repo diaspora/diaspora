@@ -279,7 +279,6 @@ ru:
       to: "Для"
   layouts: 
     application: 
-      have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
       toggle: "переключить на мобильный сайт"
@@ -601,14 +600,8 @@ ru:
     failure: 
       error: "Произошла ошибка при подключении этого сервиса"
     finder: 
-      friends: 
-        few: "%{count} друг[-а, -зей]"
-        many: "%{count} друга[-зей]"
-        one: "1 друг"
-        other: "%{count} друг[-а, -зей]"
-        zero: "нет друзей"
-      invite_your_friends_from: "Пригласить своих друзей из %{service}"
-      not_connected: "не соединён"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_tumblr: "Подключение к Tumblr"
@@ -623,6 +616,7 @@ ru:
       join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORЕ*"
     remote_friend: 
       invite: "приглашение"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "отправить повторно"
   settings: "Настройки"
   shared: 

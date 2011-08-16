@@ -111,10 +111,6 @@ var WebSocketReceiver = {
       var toggler = $('.toggle_post_comments', post).parent();
 
       if(toggler.length > 0){
-        toggler.html(
-          toggler.html().replace(/\d+/,$('.comments', post).find('li').length)
-        );
-
         if( !$(".comments", post).is(':visible') ) {
           toggler.click();
         }

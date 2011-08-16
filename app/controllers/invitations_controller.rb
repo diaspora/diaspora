@@ -8,39 +8,43 @@ class InvitationsController < Devise::InvitationsController
 
   def new
     @sent_invitations = current_user.invitations_from_me.includes(:recipient)
-    render :layout => false
+    respond_to do |format|
+      format.html do
+        render :layout => false
+      end
+    end
   end
 
   def create
-    if !AppConfig[:open_invitations] && current_user.invites == 0
-        flash[:error] = I18n.t 'invitations.create.no_more'
+    unless AppConfig[:open_invitations]
+      flash[:error] = I18n.t 'invitations.create.no_more'
+      redirect_to :back
+      return
+    end
+    aspect = params[:user].delete(:aspects)
+    message = params[:user].delete(:invite_messages)
+    emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
+
+    good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
+
+    if good_emails.include?(current_user.email)
+      if good_emails.length == 1
+        flash[:error] = I18n.t 'invitations.create.own_address'
         redirect_to :back
         return
-      end
-      aspect = params[:user].delete(:aspects)
-      message = params[:user].delete(:invite_messages)
-      emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
-
-      good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
-
-      if good_emails.include?(current_user.email)
-        if good_emails.length == 1
-          flash[:error] = I18n.t 'invitations.create.own_address'
-          redirect_to :back
-          return
-        else
-          bad_emails.push(current_user.email)
-          good_emails.delete(current_user.email)
-        end
-      end
-
-      good_emails.each{|e| Resque.enqueue(Job::InviteUserByEmail, current_user.id, e, aspect, message)}
-
-      if bad_emails.any?
-        flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')
       else
-        flash[:notice] = I18n.t('invitations.create.sent') + good_emails.join(', ')
+        bad_emails.push(current_user.email)
+        good_emails.delete(current_user.email)
       end
+    end
+
+    good_emails.each{|e| Resque.enqueue(Job::Mail::InviteUserByEmail, current_user.id, e, aspect, message)}
+
+    if bad_emails.any?
+      flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')
+    else
+      flash[:notice] = I18n.t('invitations.create.sent') + good_emails.join(', ')
+    end
 
     redirect_to :back
   end
