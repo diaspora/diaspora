@@ -600,8 +600,8 @@ ko:
     failure: 
       error: "서비스 연결중 에러가 발생했습니다."
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "페이스북 친구를 찾을 수 없습니다."
+      service_friends: "%{service} 친구"
     index: 
       connect_to_facebook: "페이스북에 연결"
       connect_to_tumblr: "Tumblr에 연결하기"
@@ -616,7 +616,7 @@ ko:
       join_me_on_diaspora: "디아스포라*에서 만나요!"
     remote_friend: 
       invite: "초대하기"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "아직 디아스포라에 없습니다"
       resend: "다시 보내기"
   settings: "설정"
   shared: 

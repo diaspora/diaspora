@@ -600,8 +600,8 @@ it:
     failure: 
       error: "si è verificato un errore durante la connessione a quel servizio"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "Non ho trovato amici su Facebook."
+      service_friends: "Amici su %{service}"
     index: 
       connect_to_facebook: "Connettiti a Facebook"
       connect_to_tumblr: "Connettiti a Tumblr"
@@ -616,7 +616,7 @@ it:
       join_me_on_diaspora: "Vieni anche tu su DIASPORA*"
     remote_friend: 
       invite: "invita"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Non ancora su Diaspora"
       resend: "reinvia"
   settings: "Impostazioni"
   shared: 
