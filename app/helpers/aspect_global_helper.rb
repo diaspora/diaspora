@@ -66,7 +66,7 @@ module AspectGlobalHelper
   end
 
   def aspect_membership_dropdown(contact, person, hang, aspect=nil)
-    selected_aspects = all_aspects.select{|aspect| contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id } }
+    selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect.id) }
 
     render "shared/aspect_dropdown",
       :selected_aspects => selected_aspects,
