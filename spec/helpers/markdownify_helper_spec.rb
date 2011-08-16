@@ -39,6 +39,13 @@ describe MarkdownifyHelper do
         markdownify(full_url).should == %Q{<p><a target="_blank" href="#{full_url}">#{url}</a></p>}
       end
 
+      it "doesn't muck up code text" do
+        message = %{`puts "Hello"`}
+        markdownify(message).should =~ %r{<p><code>puts &quot;Hello&quot;</code></p>}
+        message = %Q{~~~\nA\nB\n~~~\n}
+        markdownify(message).should =~ %r{<pre><code>\nA\nB\n</code></pre>}
+      end
+
       it "doesn't double parse video links" do
         message = "http://www.vimeo.com/17449557
                    http://www.youtube.com/watch?v=0x__dDWdf23&a=GxdCwVVULXdvEBKmx_f5ywvZ0zZHHHDU&list=ML&playnext=1

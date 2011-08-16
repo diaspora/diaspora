@@ -1,3 +1,4 @@
+require 'erb'
 require 'uri'
 
 module Diaspora
@@ -36,13 +37,14 @@ module Diaspora
         if link =~ regex
           video_id = $1
           if @vimeo_maps[video_id]
-            title = h(CGI::unescape(@vimeo_maps[video_id]))
+            title = ERB::Util.h(CGI::unescape(@vimeo_maps[video_id]))
           else
             title = I18n.t 'application.helper.video_title.unknown'
           end
           return ' <a class="video-link" data-host="vimeo.com" data-video-id="' + 
             video_id + '" href="' + link + '" target="_blank">Vimeo: ' + title + '</a>'
         end
+        return
       end
 
       def autolink_youtube(link)
@@ -51,7 +53,7 @@ module Diaspora
           anchor = $2 || ''
 
           if @youtube_maps[video_id]
-            title = h(CGI::unescape(@youtube_maps[video_id]))
+            title = ERB::Util.h(CGI::unescape(@youtube_maps[video_id]))
           else
             title = I18n.t 'application.helper.video_title.unknown'
           end
@@ -59,6 +61,11 @@ module Diaspora
             video_id + '" data-anchor="' + anchor + 
             '" href="'+ link + '" target="_blank">Youtube: ' + title + '</a>'
         end
+        return
+      end
+
+      def block_code(text, language)
+        "<pre><code>\n#{text}</code></pre>"
       end
 
       def double_emphasis(text)
@@ -95,9 +102,18 @@ module Diaspora
           text =  Diaspora::Taggable.format_tags(text, :no_escape => true)
         end
 
+        if @newlines
+          br = linebreak
+
+          # in very clear cases, let newlines become <br /> tags
+          # Grabbed from Github flavored Markdown
+          text = text.gsub(/^[\w\<][^\n]*\n+/) do |x|
+            x =~ /\n{2}/ ? x : (x = x.strip; x << br)
+          end
+        end
+
         return "<p>#{text}</p>"
       end
-
 
       def preprocess(full_document)
         if @specialchars
@@ -123,16 +139,10 @@ module Diaspora
           %Q{[#{content}](#{link}#{title_chunk})}
         end
 
-        if @newlines
-          # in very clear cases, let newlines become <br /> tags
-          # Grabbed from Github flavored Markdown
-          full_document = full_document.gsub(/^[\w\<][^\n]*\n+/) do |x|
-            x =~ /\n{2}/ ? x : (x.strip!; x << "  \n")
-          end
-        end
 
         return full_document
       end
+
 
       def single_emphasis(text)
         "<em>#{text}</em>"
