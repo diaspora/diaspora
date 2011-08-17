@@ -9,7 +9,10 @@ module MarkdownifyHelper
     markdown_options = {
       :autolink            => true,
       :fenced_code_blocks  => true,
-      :space_after_headers => true
+      :space_after_headers => true,
+      :strikethrough       => true,
+      :superscript         => true,
+      :tables              => true
     }
 
     render_options[:filter_html] = true
