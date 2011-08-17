@@ -103,7 +103,7 @@ end
 group :test do
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.2.2'
-  gem 'selenium-webdriver', '0.2.2'
+  gem 'selenium-webdriver', '2.4'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'
