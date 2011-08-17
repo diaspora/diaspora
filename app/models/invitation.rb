@@ -71,7 +71,8 @@ class Invitation < ActiveRecord::Base
   # @return [Invitation] self
   def send!
     self.attach_recipient!
-    
+   puts self.recipient.inspect
+
     # Sets an instance variable in User (set by devise invitable)
     # This determines whether an email should be sent to the recipient.
     recipient.skip_invitation = self.skip_email?

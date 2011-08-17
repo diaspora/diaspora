@@ -92,7 +92,7 @@ class User < ActiveRecord::Base
     user = User.new
     user.generate_keys
     user.send(:generate_invitation_token)
-    #user.invitations_to_me << invitation
+    user.email = invitation.identifier if invitation.service == 'email'
     # we need to make a custom validator here to make this safer
     user.save(:validate => false)
     user

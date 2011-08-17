@@ -367,6 +367,27 @@ describe User do
     end
   end
 
+  describe '.find_or_create_by_invitation' do
+    
+  end
+
+  describe '.create_from_invitation!' do
+    before do
+      @identifier = 'max@foobar.com'
+      @inv = Factory.build(:invitation, :admin => true, :service => 'email', :identifier => @identifier)
+      @user = User.create_from_invitation!(@inv) 
+    end
+
+    it 'creates a persisted user' do
+      @user.should be_persisted
+    end
+
+    it 'sets the email if the service is email' do
+      @user.email.should == @inv.identifier
+    end
+
+  end
+
   describe 'update_user_preferences' do
     before do
       @pref_count = UserPreference::VALID_EMAIL_TYPES.count
