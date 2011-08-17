@@ -15,9 +15,9 @@ require 'factory_girl_rails'
 require File.join(File.dirname(__FILE__), "..", "spec", "helper_methods")
 include HelperMethods
 
-alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth', :invites => 10)
-bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth', :invites => 10)
-eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth', :invites => 10)
+alice = Factory(:user_with_aspect, :username => "alice", :password => 'evankorth')
+bob   = Factory(:user_with_aspect, :username => "bob", :password => 'evankorth')
+eve   = Factory(:user_with_aspect, :username => "eve", :password => 'evankorth')
 
 print "Creating seeded users... "
 alice.person.profile.update_attributes(:first_name => "Alice", :last_name => "Smith",
