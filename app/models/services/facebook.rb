@@ -42,7 +42,16 @@ class Services::Facebook < Service
       su.attach_local_models
       su
     }
-    ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username])
+
+
+    if postgres?
+      # Take the naive approach to inserting our new visibilities for now.
+      data.each do |su|
+        su.save
+      end
+    else
+      ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username])
+    end
   end
 
   private

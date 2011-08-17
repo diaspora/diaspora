@@ -67,18 +67,12 @@ class Person < ActiveRecord::Base
 
   def self.search_query_string(query)
     query = query.downcase
+    like_operator = postgres? ? "ILIKE" : "LIKE"
 
-    if postgres?
-      where_clause = <<-SQL
-        profiles.full_name ILIKE ? OR
-        profiles.diaspora_handle ILIKE ?
-      SQL
-    else
-      where_clause = <<-SQL
-        profiles.full_name LIKE ? OR
-        people.diaspora_handle LIKE ?
-      SQL
-    end
+    where_clause = <<-SQL
+      profiles.full_name #{like_operator} ? OR
+      people.diaspora_handle #{like_operator} ?
+    SQL
 
     q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
     [where_clause, [q_tokens, q_tokens]]

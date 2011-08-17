@@ -18,10 +18,12 @@ SQL
 SQL
 
     #There are some duplicate likes.
-    keeper_likes = Like.group(:target_id, :author_id, :target_type).having('COUNT(*) > 1')
-    keeper_likes.each do |like|
-      l = Like.arel_table
-      Like.where(:target_id => like.target_id, :author_id => like.author_id, :target_type => like.target_type).where(l[:id].not_eq(like.id)).delete_all
+    if Like.count > 0
+      keeper_likes = Like.group(:target_id, :author_id, :target_type).having('COUNT(*) > 1')
+      keeper_likes.each do |like|
+        l = Like.arel_table
+        Like.where(:target_id => like.target_id, :author_id => like.author_id, :target_type => like.target_type).where(l[:id].not_eq(like.id)).delete_all
+      end
     end
     add_index :likes, [:target_id, :author_id, :target_type], :unique => true
   end
