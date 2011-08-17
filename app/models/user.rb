@@ -328,7 +328,9 @@ class User < ActiveRecord::Base
       self.invitation_token = nil
       self.password              = opts[:password]
       self.password_confirmation = opts[:password_confirmation]
-      self.save!
+      
+      self.save
+      return unless self.errors.empty?
 
       # moved old Invitation#share_with! logic into here,
       # but i don't think we want to destroy the invitation
@@ -341,8 +343,6 @@ class User < ActiveRecord::Base
 
       log_hash[:status] = "success"
       Rails.logger.info(log_hash)
-
-      self.reload # Because to_request adds a request and saves elsewhere
       self
     end
   end
@@ -362,21 +362,15 @@ class User < ActiveRecord::Base
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
-
-    opts[:person] ||= {}
-    unless opts[:person][:profile].is_a?(Profile)
-      opts[:person][:profile] ||= Profile.new
-      opts[:person][:profile] = Profile.new(opts[:person][:profile])
-    end
-
-    #TODO make this User#person=
-    self.person = Person.new(opts[:person])
-    self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].authority}"
-    self.person.url = AppConfig[:pod_url]
-
+    self.set_person(Person.new(opts[:person] || {} ))
     self.generate_keys
-
     self
+  end
+
+  def set_person(person)
+    person.url = AppConfig[:pod_url]
+    person.diaspora_handle = "#{self.username}@#{AppConfig[:pod_uri].authority}"
+    self.person = person
   end
 
   def seed_aspects

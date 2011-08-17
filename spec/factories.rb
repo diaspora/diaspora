@@ -21,7 +21,7 @@ Factory.define :person do |p|
   p.sequence(:url)  { |n| AppConfig[:pod_url] }
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.after_build do |person|
-    person.profile ||= Factory.build(:profile, :person => person)
+    person.profile = Factory.build(:profile, :person => person) unless person.profile.first_name.present?
   end
   p.after_create do |person|
     person.profile.save

@@ -21,7 +21,7 @@ class InvitationsController < Devise::InvitationsController
     message = params[:user].delete(:invite_messages)
     emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
     #NOTE should we try and find users by email here? probs
-    aspect = Aspect.find(aspect_id)
+    aspect = current_user.aspects.find(aspect_id)
     invites = Invitation.batch_build(:sender => current_user, :aspect => aspect, :emails => emails, :service => 'email')
 
     flash[:notice] = extract_messages(invites)
@@ -30,29 +30,22 @@ class InvitationsController < Devise::InvitationsController
   end
 
   def update
-    begin
       invitation_token = params[:user][:invitation_token]
+
       if invitation_token.nil? || invitation_token.blank?
         raise I18n.t('invitations.check_token.not_found')
       end
-      user = User.find_by_invitation_token(params[:user][:invitation_token])
+
+      user = User.find_by_invitation_token!(invitation_token)
+      
       user.accept_invitation!(params[:user])
-      user.seed_aspects
-    rescue Exception => e #What exception is this trying to rescue?  If it is ActiveRecord::NotFound, we should say so.
-      raise e 
-      user = nil
-      record = e.record
-      record.errors.delete(:person)
 
-      flash[:error] = record.errors.full_messages.join(", ")
-    end
-
-    if user
-      flash[:notice] = I18n.t 'registrations.create.success'
-      sign_in_and_redirect(:user, user)
+      if user.persisted? && user.person && user.person.persisted?
+        user.seed_aspects
+        flash[:notice] = I18n.t 'registrations.create.success'
+        sign_in_and_redirect(:user, user)
     else
-      redirect_to accept_user_invitation_path(
-        :invitation_token => params[:user][:invitation_token])
+      redirect_to accept_user_invitation_path(:invitation_token => params[:user][:invitation_token]), :error => user.errors.full_messages.join(", ")
     end
   end
 

@@ -1,4 +1,4 @@
-#   Copyright (c) 2010, Diaspora Inc.  This file is
+#   Copyright (c) 2011, Diaspora Inc.  This file is
 #   licensed under the Affero General Public License version 3 or later.  See
 #   the COPYRIGHT file.
 
@@ -14,10 +14,10 @@ class Invitation < ActiveRecord::Base
   attr_accessible :sender, :recipient, :aspect, :service, :identifier, :admin
 
   before_validation :set_email_as_default_service
-  validate :ensure_not_inviting_self, :on => :create
+  validate :ensure_not_inviting_self, :on => :create, :unless => :admin?
 
   validate :valid_identifier?
-  validate :sender_owns_aspect?
+  validate :sender_owns_aspect?, :unless => :admin?
   validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
 
   after_create :queue_send! #TODO make this after_commit :queue_saved!, :on => :create
@@ -117,15 +117,15 @@ class Invitation < ActiveRecord::Base
 
   # @note Validation
   def ensure_not_inviting_self
-    if !self.admin? && self.identifier == self.sender.email
-      errors[:base] << 'You can not invite yourself'
+    if self.identifier == self.sender.email
+      errors[:base] << 'You can not invite yourself.'
     end
   end  
 
   # @note Validation
   def sender_owns_aspect?
-    unless(self.sender && (self.sender_id == self.aspect.user_id))
-      errors[:base] << 'You do not own that aspect'
+    if self.sender_id != self.aspect.user_id
+      errors[:base] << 'You do not own that aspect.'
     end
   end
 
