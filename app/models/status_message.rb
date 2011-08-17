@@ -134,14 +134,19 @@ class StatusMessage < Post
 
   def comment_email_subject
     formatted_message(:plain_text => true)
+	end
+
+  def empty?
+    self.text.blank? && self.photos == []
   end
 
   protected
 
   def message_or_photos_present?
-    if self.text.blank? && self.photos == []
+    if self.blank?
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end
+
 end
 
