@@ -12,13 +12,14 @@ class AuthorizationsController < ApplicationController
     if params[:uid].present? && params[:uid] != current_user.username
       sign_out current_user
       redirect_to url_with_prefilled_session_form
-    end
-    @requested_scopes = params["scope"].split(',')
-    @client = oauth2_authorization_request.client
+    else
+      @requested_scopes = params["scope"].split(',')
+      @client = oauth2_authorization_request.client
 
-    if authorization = current_user.authorizations.where(:client_id => @client.id).first
-      ac = authorization.authorization_codes.create(:redirect_uri => params[:redirect_uri])
-      redirect_to "#{params[:redirect_uri]}&code=#{ac.code}"
+      if authorization = current_user.authorizations.where(:client_id => @client.id).first
+        ac = authorization.authorization_codes.create(:redirect_uri => params[:redirect_uri])
+        redirect_to "#{params[:redirect_uri]}&code=#{ac.code}"
+      end
     end
   end
 
