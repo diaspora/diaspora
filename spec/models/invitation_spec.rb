@@ -24,7 +24,8 @@ describe Invitation do
     end
 
     it 'ensures the sender is placing the recipient into one of his aspects' do
-      pending
+      @invitation.aspect = Factory(:aspect)
+      @invitation.should_not be_valid
     end
   end
 
@@ -33,6 +34,7 @@ describe Invitation do
     @invitation.message = "!"
     @invitation.message.should == "!"
   end
+
 
 
   describe 'the invite process' do
@@ -61,13 +63,17 @@ describe Invitation do
         invite.send!
       }.should_not change(User, :count)
     end
-    it 'is able to resend an invite' do
-    end
 
     it 'handles the case when that user has an invite but not a user' do
+      pending
     end
 
     it 'handles the case where that user has an invite but has not yet accepted' do
+      pending
+    end
+
+    it 'generate the invitation token and pass it to the user' do
+
     end
   end
  

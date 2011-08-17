@@ -17,6 +17,7 @@ class Invitation < ActiveRecord::Base
   validate :ensure_not_inviting_self, :on => :create
 
   validate :valid_identifier?
+  validate :sender_owns_aspect?
   validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
 
   after_create :queue_send! #TODO make this after_commit :queue_saved!, :on => :create
@@ -120,6 +121,14 @@ class Invitation < ActiveRecord::Base
       errors[:base] << 'You can not invite yourself'
     end
   end  
+
+  # @note Validation
+  def sender_owns_aspect?
+    unless(self.sender && (self.sender_id == self.aspect.user_id))
+      errors[:base] << 'You do not own that aspect'
+    end
+  end
+
 
   # @note Validation
   def valid_identifier?
