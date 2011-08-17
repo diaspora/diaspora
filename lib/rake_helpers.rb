@@ -21,9 +21,17 @@ module RakeHelpers
       churn_through = n
       backer_name = backers[n+offset][1].to_s.strip
       backer_email = backers[n+offset][0].to_s.strip
-      unless User.find_by_email(backer_email) || User.find_by_invitation_identifier(backer_email)
+      
+      possible_user = User.find_by_email(backer_email)
+      possible_invite = Invitation.find_by_identifier(backer_email)
+      possible_user ||= possible_invite.recipient if possible_invite.present?
+
+      unless possible_user
         puts "#{n}: sending email to: #{backer_name} #{backer_email}" unless Rails.env == 'test'
-        Invitation.create_invitee(:service => 'email', :identifier => backer_email, :name => backer_name ) unless test
+        unless test
+          i = Invitation.new(:service => 'email', :identifier => backer_email, :admin => true) 
+          i.send!
+        end
       else
         puts "user with the email exists: #{backer_email} ,  #{backer_name} " unless Rails.env == 'test'
       end

@@ -21,7 +21,7 @@ Factory.define :person do |p|
   p.sequence(:url)  { |n| AppConfig[:pod_url] }
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.after_build do |person|
-    person.profile ||= Factory.build(:profile, :person => person)
+    person.profile = Factory.build(:profile, :person => person) unless person.profile.first_name.present?
   end
   p.after_create do |person|
     person.profile.save
@@ -94,6 +94,15 @@ end
 Factory.define :reshare do |r|
   r.association(:root, :public => true, :factory => :status_message)
   r.association(:author, :factory => :person)
+end
+
+Factory.define :invitation do |i|
+  i.service "email"
+  i.identifier "bob.smith@smith.com"
+  i.association :sender, :factory => :user_with_aspect
+  i.after_build do |i|
+    i.aspect = i.sender.aspects.first
+  end
 end
 
 Factory.define :service do |service|

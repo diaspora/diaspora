@@ -59,7 +59,8 @@ class ServicesController < ApplicationController
     if i_id = params[:invitation_id]
       invited_user = Invitation.find(i_id).recipient
     else
-      invited_user = current_user.invite_user(params[:aspect_id], params[:provider], @uid)
+      invite = Invitation.create(:service => params[:provider], :identifier => @uid, :sender => current_user, :aspect => current_user.aspects.find(params[:aspect_id]))
+      invited_user = invite.attach_recipient!
     end
 
     @subject = t('services.inviter.join_me_on_diaspora')

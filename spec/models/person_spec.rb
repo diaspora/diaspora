@@ -11,6 +11,15 @@ describe Person do
     @person = Factory.create(:person)
   end
 
+  it 'always has a profile' do
+    Person.new.profile.should_not be_nil
+  end
+
+  it 'does not save automatically' do
+    Person.new.persisted?.should be_false
+    Person.new.profile.persisted?.should be_false
+  end
+
   context 'scopes' do
     describe '.for_json' do
       it 'does not select public keys' do
@@ -144,7 +153,7 @@ describe Person do
     end
   end
 
-  describe 'xml' do
+  describe 'XML' do
     before do
       @xml = @person.to_xml.to_s
     end
