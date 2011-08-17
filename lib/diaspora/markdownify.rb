@@ -138,10 +138,6 @@ module Diaspora
           %Q{[#{content}](#{link}#{title_chunk})}
         end
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 6b34a2611da25c7af1c2bcd41c3f8cb326df01a7
         return full_document
       end
 
