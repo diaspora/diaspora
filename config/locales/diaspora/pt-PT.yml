@@ -108,7 +108,7 @@ pt-PT:
         content_2: "Give it to anyone and they'll be able to find you on Diaspora."
         heading: "Diaspora ID"
       donate: "Donate"
-      handle_explanation: "Este é o seu endereço do Diaspora. Tal como um endereço de email, pode dá-lo a quem deseja que o contacte."
+      handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Não há contactos"
       no_tags: "No tags"
@@ -134,7 +134,7 @@ pt-PT:
       try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
       you_should_add_some_more_contacts: "You should add some more contacts!"
     no_posts_message: 
-      start_talking: "Ainda ninguém disse nada. Dê início à conversa!"
+      start_talking: "Ainda ninguém disse nada!"
     one: "1 aspecto"
     other: "%{count} aspectos"
     seed: 
@@ -207,7 +207,7 @@ pt-PT:
         many: "%{count} novas mensagens"
         one: "1 nova mensagem"
         other: "%{count} novas mensagens"
-        zero: "não há novas mensagens"
+        zero: "Não há novas mensagens"
     index: 
       create_a_new_message: "criar uma nova mensagem"
       inbox: "Caixa de Entrada"
@@ -267,7 +267,7 @@ pt-PT:
       accept_your_invitation: "Accept your invitation"
       your_account_awaits: "Your account awaits!"
     new: 
-      already_invited: "Já foi convidado"
+      already_invited: "As pessoas seguintes não aceitaram o seu convite:"
       aspect: "Aspecto"
       comma_seperated_plz: "Pode inserir vários endereços de email separados por vírgulas."
       if_they_accept_info: "se aceitarem, serão adicionados ao aspecto para o qual os convidou."
@@ -343,7 +343,7 @@ pt-PT:
         many: "%{count} novas notificações"
         one: "1 nova notificação"
         other: "%{count} novas notificações"
-        zero: "não há novas notificações"
+        zero: "Não há novas notificações"
     index: 
       and: "e"
       and_others: 
@@ -531,8 +531,8 @@ pt-PT:
       your_photo: "A sua fotografia"
       your_private_profile: "O seu perfil privado"
       your_public_profile: "O seu perfil público"
-      your_tags: "Você: em 5 #tags"
-      your_tags_placeholder: "p.ex. #diaspora #varrer #gatos #música"
+      your_tags: "Descreva-se em 5 palavras"
+      your_tags_placeholder: "como #filmes #gatos #viagens #professor #novaiorque"
     update: 
       failed: "Falhou ao actualizar o perfil"
       updated: "Perfil actualizado"
@@ -550,7 +550,7 @@ pt-PT:
       update: "Actualizar"
     new: 
       create_my_account: "Create my account"
-      enter_email: "Introduza um  endereço de e-mail"
+      enter_email: "Introduza um  endereço de email"
       enter_password: "Introduza uma palavra-passe"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e underscores)"
@@ -622,8 +622,8 @@ pt-PT:
   shared: 
     add_contact: 
       add_new_contact: "Add a new contact"
-      create_request: "Encontrar através do endereço do Diaspora"
-      diaspora_handle: "diaspora@handle.org"
+      create_request: "Encontrar através da identificação do Diaspora"
+      diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Introduza um nome de utilizador do Diaspora:"
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O seu nome de utilizador do Diaspora é: %{diaspora_handle}"
@@ -633,7 +633,7 @@ pt-PT:
       logged_in_as: "iniciou sessão como %{name}"
       your_aspects: "os seus aspectos"
     invitations: 
-      by_email: "Por Email"
+      by_email: "Por email"
       dont_have_now: "Não tem nenhum agora, mas terá mais convites brevemente!"
       from_facebook: "do Facebook"
       invitations_left: "ainda tem %{count}"
@@ -660,7 +660,7 @@ pt-PT:
       share: "Partilhar"
       share_with: "partilhar com"
       upload_photos: "Upload photos"
-      whats_on_your_mind: "em que está a pensar?"
+      whats_on_your_mind: "Em que está a pensar?"
     reshare: 
       reshare: "Voltar a partilhar"
     stream_element: 
@@ -686,7 +686,7 @@ pt-PT:
       other: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
       zero: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
   stream_helper: 
-    hide_comments: "ocultar comentários"
+    hide_comments: "Ocultar todos comentários"
     show_more_comments: "Show %{number} more comments"
   tag_followings: 
     create: 
@@ -727,8 +727,8 @@ pt-PT:
       also_commented: "...alguém também comenta na publicação do seu contacto?"
       change: "Alterar"
       change_email: "Change E-Mail"
-      change_language: "Mudar de Idioma"
-      change_password: "Alterar a Palavra-passe"
+      change_language: "Mudar de idioma"
+      change_password: "Alterar a palavra-passe"
       close_account: "Encerrar a Conta"
       comment_on_post: "...alguém comenta as suas publicações?"
       current_password: "Palavra-passe actual"
@@ -739,12 +739,12 @@ pt-PT:
       export_data: "Exportar Dados"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
-      new_password: "Nova Palavra-passe"
+      new_password: "Nova palavra-passe"
       private_message: "...recebe uma mensagem privada?"
       receive_email_notifications: "Receber notificações por email quando..."
       started_sharing: "...alguém começa a partilhar consigo?"
       your_email: "O seu endereço de email"
-      your_handle: "O seu endereço do Diaspora"
+      your_handle: "A sua identificação do Diaspora"
     getting_started: 
       aspects: "aspects"
       connect_to: "Connect to"
@@ -757,7 +757,7 @@ pt-PT:
       fill_out_your_profile: "Fill out your profile"
       find_friends: "Find friends"
       find_friends_from_facebook: "find friends from Facebook"
-      finished: "Terminado!"
+      finished: "Terminado"
       follow_your_interests: "Follow your interests"
       hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
       profile_description: "Make it easier for people to find you by filling out your profile information."
@@ -770,17 +770,17 @@ pt-PT:
         photo: "Photo"
         tags: "Tags"
       see_all_featured_users: "See all featured users"
-      welcome: "Bem-vindo(a) ao Diaspora!"
+      welcome: "Bem-vindo(a)!"
       welcome_with_name: "Welcome, %{name}!"
     public: 
       does_not_exist: "O utilizador %{username} não existe!"
     update: 
       email_notifications_changed: "As notificações por email foram alteradas"
-      language_changed: "O Idioma Foi Alterado"
-      language_not_changed: "Falha ao Alterar o Idioma"
+      language_changed: "O idioma foi alterado"
+      language_not_changed: "Falha ao alterar o idioma"
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
       password_not_changed: "Falhou ao alterar a palavra-passe"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
+      unconfirmed_email_changed: "O endereço de email foi alterado. É necessária activação."
       unconfirmed_email_not_changed: "E-Mail Change Failed"
   webfinger: 
     fetch_failed: "erro a obter perfil webfinger profile para %{profile_url}"
