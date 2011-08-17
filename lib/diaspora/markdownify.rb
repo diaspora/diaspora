@@ -141,6 +141,7 @@ module Diaspora
         return full_document
       end
 
+
       def single_emphasis(text)
         "<em>#{text}</em>"
       end
