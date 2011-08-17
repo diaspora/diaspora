@@ -17,7 +17,7 @@ class InvitationsController < Devise::InvitationsController
   end
 
   def create
-    aspect_id = params[:user].delete(:aspect_id)
+    aspect_id = params[:user].delete(:aspects)
     message = params[:user].delete(:invite_messages)
     emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
     #NOTE should we try and find users by email here? probs
