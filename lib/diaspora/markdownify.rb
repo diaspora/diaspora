@@ -1,5 +1,4 @@
 require 'erb'
-require 'uri'
 
 module Diaspora
   module Markdownify
@@ -139,10 +138,8 @@ module Diaspora
           %Q{[#{content}](#{link}#{title_chunk})}
         end
 
-
         return full_document
       end
-
 
       def single_emphasis(text)
         "<em>#{text}</em>"
