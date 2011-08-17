@@ -11,7 +11,7 @@ describe InvitationsController do
     AppConfig[:open_invitations] = true
     @user   = alice
     @aspect = @user.aspects.first
-    @invite = {:invite_message=>"test", :aspect_id=> @aspect.id.to_s, :email=>"abc@example.com"}
+    @invite = {:invite_message=>"test", :aspects=> @aspect.id.to_s, :email=>"abc@example.com"}
 
     request.env["devise.mapping"] = Devise.mappings[:user]
     Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))

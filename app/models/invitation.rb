@@ -8,15 +8,14 @@ class Invitation < ActiveRecord::Base
   belongs_to :recipient, :class_name => 'User'
   belongs_to :aspect
 
-  validates_presence_of :identifier, :service
-
-  validates_presence_of :sender, :aspect, :unless => :admin?
   attr_accessible :sender, :recipient, :aspect, :service, :identifier, :admin
 
   before_validation :set_email_as_default_service
-  validate :ensure_not_inviting_self, :on => :create, :unless => :admin?
 
+  validates_presence_of :identifier, :service
   validate :valid_identifier?
+  validates_presence_of :sender, :aspect, :unless => :admin?
+  validate :ensure_not_inviting_self, :on => :create, :unless => :admin?
   validate :sender_owns_aspect?, :unless => :admin?
   validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
 
@@ -26,10 +25,20 @@ class Invitation < ActiveRecord::Base
   # @note options hash is passed through to [Invitation.new]
   # @see [Invitation.new]
   #
-  # @option opts [Array<String>] :emails
-  # @return [Array<Invitation>] An array of initialized [Invitation] models.
-  def self.batch_build(opts)
-    emails = opts.delete(:emails)
+  # @param [Array<String>] emails
+  # @option opts [User] :sender
+  # @option opts [Aspect] :aspect
+  # @option opts [String] :service
+  # @return [Array<Invitation>] An array of [Invitation] models
+  #   the valid ones are saved, and the invalid ones are not.
+  def self.batch_invite(emails, opts)
+
+    users_on_pod = User.where(:email => emails, :invitation_token => nil)
+
+    #share with anyone whose email you entered who is on the pod
+    emails = emails - users_on_pod.map{|u| u.email}
+    users_on_pod.each{|u| opts[:sender].share_with(u.person, opts[:aspect])}
+
     emails.map! do |e|
       Invitation.create(opts.merge(:identifier => e))
     end
@@ -71,7 +80,6 @@ class Invitation < ActiveRecord::Base
   # @return [Invitation] self
   def send!
     self.attach_recipient!
-   puts self.recipient.inspect
 
     # Sets an instance variable in User (set by devise invitable)
     # This determines whether an email should be sent to the recipient.
@@ -94,9 +102,10 @@ class Invitation < ActiveRecord::Base
 
   # @return [String]
   def recipient_identifier
-    if self.service == 'email'
+    case self.service
+    when 'email'
       self.identifier
-    elsif self.service == 'facebook'
+    when'facebook'
       if su = ServiceUser.where(:uid => self.identifier).first
         su.name
       else

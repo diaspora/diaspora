@@ -77,7 +77,30 @@ describe Invitation do
     end
   end
  
-  describe '.resend' do
+  describe '.batch_invite' do
+    before do
+      @emails = ['max@foo.com', 'bob@mom.com']
+      @opts = {:aspect => eve.aspects.first, :sender => eve, :service => 'email'}
+    end
+
+    it 'returns an array of invites based on the emails passed in' do
+      invites = Invitation.batch_invite(@emails, @opts)
+      invites.count.should be 2
+      invites.all?{|x| x.persisted?}.should be_true
+    end
+
+    it 'shares with people who are already on the pod and does not create an invite for them' do
+      Factory(:user, :email => @emails.first)
+      invites = nil
+      expect{
+        invites = Invitation.batch_invite(@emails, @opts)
+      }.to change(eve.contacts, :count).by(1)
+      invites.count.should be 1
+
+    end
+  end
+
+  describe '#resend' do
     before do
       @invitation = Factory(:invitation, :sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'a@a.com')
     end
