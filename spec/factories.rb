@@ -96,6 +96,15 @@ Factory.define :reshare do |r|
   r.association(:author, :factory => :person)
 end
 
+Factory.define :invitation do |i|
+  i.service "email"
+  i.identifier "bob.smith@smith.com"
+  i.association :sender, :factory => :user_with_aspect
+  i.after_build do |i|
+    i.aspect = i.sender.aspects.first
+  end
+end
+
 Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.type "Services::Twitter"

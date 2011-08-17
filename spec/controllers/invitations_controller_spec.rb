@@ -11,6 +11,7 @@ describe InvitationsController do
     AppConfig[:open_invitations] = true
     @user   = alice
     @aspect = @user.aspects.first
+    @invite = {:invite_message=>"test", :aspect_id=> @aspect.id.to_s, :email=>"abc@example.com"}
 
     request.env["devise.mapping"] = Devise.mappings[:user]
     Webfinger.stub_chain(:new, :fetch).and_return(Factory(:person))
@@ -19,43 +20,37 @@ describe InvitationsController do
   describe "#create" do
     before do
       sign_in :user, @user
-      @invite = {:invite_message=>"test", :aspect_id=> @aspect.id.to_s, :email=>"abc@example.com"}
       @controller.stub!(:current_user).and_return(@user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
     end
 
-    it 'calls the resque job Job::InviteUser'  do
-      Resque.should_receive(:enqueue)
-      post :create,  :user => @invite
+    it 'saves and invitation'  do
+      expect {
+        post :create,  :user => @invite
+      }.should change(Invitation, :count).by(1)
     end
 
     it 'handles a comma seperated list of emails' do
-      Resque.should_receive(:enqueue).twice()
-      post :create, :user => @invite.merge(
+      expect{
+        post :create, :user => @invite.merge(
         :email => "foofoofoofoo@example.com, mbs@gmail.com")
+      }.should change(Invitation, :count).by(2)
     end
 
     it 'handles a comma seperated list of emails with whitespace' do
-      Resque.should_receive(:enqueue).twice()
-      post :create, :user => @invite.merge(
-        :email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
-    end
-
-    it 'displays a message that tells the user how many invites were sent, and which REJECTED' do
-      post :create, :user => @invite.merge(
-        :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
-      flash[:error].should_not be_empty
-      flash[:error].should =~ /foo\.com/
-      flash[:error].should =~ /lala@foo/
+      expect {
+        post :create, :user => @invite.merge(
+          :email => "foofoofoofoo@example.com   ,        mbs@gmail.com")
+          }.should change(Invitation, :count).by(2)
     end
 
     it "allows invitations without if invitations are open" do
       open_bit = AppConfig[:open_invitations]
       AppConfig[:open_invitations] = true
 
-      Resque.should_receive(:enqueue).once
-      post :create, :user => @invite
-
+      expect{
+        post :create, :user => @invite
+      }.to change(Invitation, :count).by(1)
       AppConfig[:open_invitations] = open_bit
     end
 
@@ -67,16 +62,19 @@ describe InvitationsController do
     it 'strips out your own email' do
       lambda {
         post :create, :user => @invite.merge(:email => @user.email)
-      }.should_not change(User, :count)
+      }.should_not change(Invitation, :count)
 
-      Resque.should_receive(:enqueue).once
-      post :create, :user => @invite.merge(:email => "hello@example.org, #{@user.email}")
+      expect{
+        post :create, :user => @invite.merge(:email => "hello@example.org, #{@user.email}")
+      }.should change(Invitation, :count).by(1)
     end
   end
 
   describe "#update" do
     before do
-      @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com")
+      invite = Factory(:invitation, :sender => @user, :service => 'email', :identifier => "a@a.com")
+      @invited_user = invite.attach_recipient!
+
       @accept_params = {:user=>
         {:password_confirmation =>"password",
          :email => "a@a.com", 
@@ -137,7 +135,8 @@ describe InvitationsController do
       @controller.stub!(:current_user).and_return(@user)
       request.env["HTTP_REFERER"]= 'http://test.host/cats/foo'
 
-      @invited_user = @user.invite_user(@aspect.id, 'email', "a@a.com", "")
+      invite = Factory(:invitation, :sender => @user, :service => 'email', :identifier => "a@a.com")
+      @invited_user = invite.attach_recipient!
     end
 
     it 'calls resend invitation if one exists' do
@@ -148,12 +147,24 @@ describe InvitationsController do
     end
 
     it 'does not send an invitation for a different user' do
-      @user2 = bob
-      @aspect2 = @user2.aspects.create(:name => "cats")
-      @user2.invite_user(@aspect2.id, 'email', "b@b.com", "")
-      invitation2 = @user2.reload.invitations_from_me.first
+      invitation2 = Factory(:invitation, :sender => bob, :service => 'email', :identifier => "a@a.com")
+
       Resque.should_not_receive(:enqueue)
-      put :resend, :id => invitation2.id 
+      put :resend, :id => invitation2.id
+    end
+  end
+
+
+  describe '#extract_messages' do
+    before do
+      sign_in alice
+    end
+    it 'displays a message that tells the user how many invites were sent, and which REJECTED' do
+      post :create, :user => @invite.merge(
+        :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
+      flash[:notice].should_not be_empty
+      flash[:notice].should =~ /foo\.com/
+      flash[:notice].should =~ /lala@foo/
     end
   end
 end

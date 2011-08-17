@@ -5,6 +5,7 @@
 class InvitationsController < Devise::InvitationsController
 
   before_filter :check_token, :only => [:edit]
+  before_filter :check_if_invites_open, :only =>[:create]
 
   def new
     @sent_invitations = current_user.invitations_from_me.includes(:recipient)
@@ -16,35 +17,14 @@ class InvitationsController < Devise::InvitationsController
   end
 
   def create
-    unless AppConfig[:open_invitations]
-      flash[:error] = I18n.t 'invitations.create.no_more'
-      redirect_to :back
-      return
-    end
-    aspect = params[:user].delete(:aspects)
+    aspect_id = params[:user].delete(:aspect_id)
     message = params[:user].delete(:invite_messages)
     emails = params[:user][:email].to_s.gsub(/\s/, '').split(/, */)
+    #NOTE should we try and find users by email here? probs
+    aspect = Aspect.find(aspect_id)
+    invites = Invitation.batch_build(:sender => current_user, :aspect => aspect, :emails => emails, :service => 'email')
 
-    good_emails, bad_emails = emails.partition{|e| e.try(:match, Devise.email_regexp)}
-
-    if good_emails.include?(current_user.email)
-      if good_emails.length == 1
-        flash[:error] = I18n.t 'invitations.create.own_address'
-        redirect_to :back
-        return
-      else
-        bad_emails.push(current_user.email)
-        good_emails.delete(current_user.email)
-      end
-    end
-
-    good_emails.each{|e| Resque.enqueue(Job::Mail::InviteUserByEmail, current_user.id, e, aspect, message)}
-
-    if bad_emails.any?
-      flash[:error] = I18n.t('invitations.create.sent') + good_emails.join(', ') + " "+ I18n.t('invitations.create.rejected') + bad_emails.join(', ')
-    else
-      flash[:notice] = I18n.t('invitations.create.sent') + good_emails.join(', ')
-    end
+    flash[:notice] = extract_messages(invites)
 
     redirect_to :back
   end
@@ -59,7 +39,7 @@ class InvitationsController < Devise::InvitationsController
       user.accept_invitation!(params[:user])
       user.seed_aspects
     rescue Exception => e #What exception is this trying to rescue?  If it is ActiveRecord::NotFound, we should say so.
-      raise e unless e.respond_to?(:record)
+      raise e 
       user = nil
       record = e.record
       record.errors.delete(:person)
@@ -90,12 +70,37 @@ class InvitationsController < Devise::InvitationsController
     @resource = User.find_by_invitation_token(params[:invitation_token])
     render 'devise/mailer/invitation_instructions', :layout => false
   end
-  protected
 
+  protected
   def check_token
     if User.find_by_invitation_token(params[:invitation_token]).nil?
       flash[:error] = I18n.t 'invitations.check_token.not_found'
       redirect_to root_url
     end
+  end
+
+  def check_if_invites_open
+    unless AppConfig[:open_invitations]
+      flash[:error] = I18n.t 'invitations.create.no_more'
+      redirect_to :back
+      return
+    end
+  end
+
+  # @param invites [Array<Invitation>] Invitations to be sent.
+  # @return [String] A full list of success and error messages.
+  def extract_messages(invites)
+    success_message = "Invites Successfully Sent to: "
+    failure_message = "There was a problem with: "
+    successes, failures = invites.partition{|x| x.persisted? }
+
+    success_message += successes.map{|k| k.identifier }.join(', ')
+    failure_message += failures.map{|k| k.identifier }.join(', ')
+
+    messages = []
+    messages << success_message if successes.present?
+    messages << failure_message if failures.present?
+
+    messages.join('\n')
   end
 end

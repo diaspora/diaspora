@@ -30,8 +30,8 @@ class ServiceUser < ActiveRecord::Base
       self.contact = self.service.user.contact_for(self.person)
     end
 
-    self.invitation = Invitation.joins(:recipient).where(:sender_id => self.service.user_id,
-                                                            :users => {:invitation_service => self.service.provider,
-                                                                       :invitation_identifier => self.uid}).first
+    self.invitation = Invitation.where(:sender_id => self.service.user_id,
+                                       :service => self.service.provider,
+                                       :identifier => self.uid).first
   end
 end

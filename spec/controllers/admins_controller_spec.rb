@@ -85,18 +85,10 @@ describe AdminsController do
       end
 
       it 'invites a new user' do
-        Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com')
+        Invitation.should_receive(:create)
         get :admin_inviter, :identifier => 'bob@moms.com'
         response.should redirect_to user_search_path
         flash.notice.should include("invitation sent")
-      end
-
-      it 'passes an existing user to create_invitee' do
-        Factory.create(:user, :email => 'bob@moms.com')
-        bob = User.where(:email => 'bob@moms.com').first
-        Invitation.should_receive(:find_existing_user).with('email', 'bob@moms.com').and_return(bob)
-        Invitation.should_receive(:create_invitee).with(:service => 'email', :identifier => 'bob@moms.com', :existing_user => bob)
-        get :admin_inviter, :identifier => 'bob@moms.com'
       end
     end
   end

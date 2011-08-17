@@ -14,8 +14,9 @@ describe RakeHelpers do
       Devise.mailer.deliveries = []
     end
     it 'should send emails to each backer' do
-      Invitation.should_receive(:create_invitee).exactly(3).times
-      process_emails(@csv, 100, 1, false)
+      expect{
+        process_emails(@csv, 100, 1, false)
+        }.to change(User, :count).by(3)
     end
 
     it 'should not send the email to the same email twice' do

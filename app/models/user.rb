@@ -60,13 +60,11 @@ class User < ActiveRecord::Base
                   :invitation_identifier
 
 
-
-  def self.find_or_create_by_invitation(invitation)
+  # @return [User]
+  def self.find_by_invitation(invitation)
     service = invitation.service
     identifier = invitation.identifier
 
-    #find users that may already exsist
-    #1.
     if service == 'email'
       existing_user = User.where(:email => identifier).first 
     else
@@ -78,8 +76,13 @@ class User < ActiveRecord::Base
     existing_user = i.recipient if i
    end
 
-    if existing_user
-      return existing_user
+   existing_user
+  end
+
+  # @return [User]
+  def self.find_or_create_by_invitation(invitation)
+    if existing_user = self.find_by_invitation(invitation)
+      existing_user
     else
      self.create_from_invitation!(invitation)
     end
@@ -89,7 +92,7 @@ class User < ActiveRecord::Base
     user = User.new
     user.generate_keys
     user.send(:generate_invitation_token)
-    #user.invitations << invitation
+    #user.invitations_to_me << invitation
     # we need to make a custom validator here to make this safer
     user.save(:validate => false)
     user
@@ -310,21 +313,6 @@ class User < ActiveRecord::Base
     end
   end
 
-
-
-  ###Invitations############
-  def invite_user(aspect_id, service, identifier, invite_message = "")
-    if aspect = aspects.find(aspect_id)
-      Invitation.invite(:service => service,
-                        :identifier => identifier,
-                        :from => self,
-                        :into => aspect,
-                        :message => invite_message)
-    else
-      false
-    end
-  end
-
   # This method is called when an invited user accepts his invitation
   #
   # @param [Hash] opts the options to accept the invitation with
@@ -333,25 +321,29 @@ class User < ActiveRecord::Base
   # @option opts [String] :password_confirmation
   def accept_invitation!(opts = {})
     log_hash = {:event => :invitation_accepted, :username => opts[:username], :uid => self.id}
-    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first
-    begin
-      if self.invited?
-        self.setup(opts)
-        self.invitation_token = nil
-        self.password              = opts[:password]
-        self.password_confirmation = opts[:password_confirmation]
-        self.save!
-        invitations_to_me.each{|invitation| invitation.share_with!}
-        log_hash[:status] = "success"
-        Rails.logger.info log_hash
+    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first && invitations_to_me.first.sender
 
-        self.reload # Because to_request adds a request and saves elsewhere
-        self
+    if self.invited?
+      self.setup(opts)
+      self.invitation_token = nil
+      self.password              = opts[:password]
+      self.password_confirmation = opts[:password_confirmation]
+      self.save!
+
+      # moved old Invitation#share_with! logic into here,
+      # but i don't think we want to destroy the invitation
+      # anymore.  we may want to just call self.share_with
+      invitations_to_me.each do |invitation|
+        if !invitation.admin? && invitation.sender.share_with(self.person, invitation.aspect)
+          invitation.destroy
+        end
       end
-    rescue Exception => e
-      log_hash[:status] =  "failure"
-      Rails.logger.info log_hash
-      raise e
+
+      log_hash[:status] = "success"
+      Rails.logger.info(log_hash)
+
+      self.reload # Because to_request adds a request and saves elsewhere
+      self
     end
   end
 
@@ -365,6 +357,7 @@ class User < ActiveRecord::Base
   def setup(opts)
     self.username = opts[:username]
     self.email = opts[:email]
+    self.language ||= 'en'
     self.valid?
     errors = self.errors
     errors.delete :person

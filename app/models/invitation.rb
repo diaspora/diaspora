@@ -8,54 +8,73 @@ class Invitation < ActiveRecord::Base
   belongs_to :recipient, :class_name => 'User'
   belongs_to :aspect
 
-  validates_presence_of :sender,
-                        :recipient,
-                        :aspect,
-                        :identifier,
-                        :service
+  validates_presence_of :identifier, :service
 
-  attr_accessible :sender, :recipient, :aspect, :service, :identifier
+  validates_presence_of :sender, :aspect, :unless => :admin?
+  attr_accessible :sender, :recipient, :aspect, :service, :identifier, :admin
 
   before_validation :set_email_as_default_service
-  before_validation :attach_recipient, :on => :create
-  before_create :ensure_not_inviting_self
+  validate :ensure_not_inviting_self, :on => :create
 
   validate :valid_identifier?
-  validates_uniqueness_of :sender, :scope => :recipient
+  validates_uniqueness_of :sender_id, :scope => [:identifier, :service], :unless => :admin?
 
-  def set_email_as_default_service
-    self.service ||='email'
+  after_create :queue_send! #TODO make this after_commit :queue_saved!, :on => :create
+
+
+  # @note options hash is passed through to [Invitation.new]
+  # @see [Invitation.new]
+  #
+  # @option opts [Array<String>] :emails
+  # @return [Array<Invitation>] An array of initialized [Invitation] models.
+  def self.batch_build(opts)
+    emails = opts.delete(:emails)
+    emails.map! do |e|
+      Invitation.create(opts.merge(:identifier => e))
+    end
+    emails
   end
 
+  # Downcases the incoming service identifier and assigns it
+  #
+  # @param ident [String] Service identifier
+  # @see super
   def identifier=(ident)
     ident.downcase! if ident
     super
   end
 
-  def not_inviting_yourself
-    if self.identifier == self.sender.email
-      errors[:base] << 'You can not invite yourself'
-    end
-  end  
-  
-  def attach_recipient
-    self.recipient = User.find_or_create_by_invitation(self)
-  end
-
-  def skip_invitation?
+  # Determine if we want to skip emailing the recipient.
+  #
+  # @return [Boolean]
+  # @return [void]
+  def skip_email?
     self.service != 'email'
   end
 
-  # @return Contact
-  def share_with!
-    if contact = sender.share_with(recipient.person, aspect)
-      self.destroy
+  # Attach a recipient [User] to the [Invitation] unless
+  # there is one already present.
+  #
+  # @return [User] The recipient.
+  def attach_recipient!
+    unless self.recipient.present?
+      self.recipient = User.find_or_create_by_invitation(self) 
+      self.save
     end
-    contact
+    self.recipient
   end
 
-  def invite!
-    recipient.skip_invitation = self.skip_invitation?
+  # Find or create user, and send that resultant User an
+  # invitation.
+  #
+  # @return [Invitation] self
+  def send!
+    self.attach_recipient!
+    
+    # Sets an instance variable in User (set by devise invitable)
+    # This determines whether an email should be sent to the recipient.
+    recipient.skip_invitation = self.skip_email?
+
     recipient.invite!
 
     # Logging the invitation action
@@ -63,11 +82,12 @@ class Invitation < ActiveRecord::Base
     log_hash.merge({:inviter => self.sender.diaspora_handle, :invitier_uid => self.sender.id, :inviter_created_at_unix => self.sender.created_at.to_i}) if self.sender
     Rails.logger.info(log_hash)
 
-    recipient
+    self
   end
 
+  # @return [Invitation] self
   def resend
-    self.invite!
+    self.send!
   end
 
   # @return [String]
@@ -83,7 +103,27 @@ class Invitation < ActiveRecord::Base
     end
   end
 
+  def queue_send!
+    unless self.recipient.present?
+      Resque.enqueue(Job::Mail::InviteUserByEmail, self.id) 
+    end
+  end
+
+  # @note before_save
+  def set_email_as_default_service
+    self.service ||= 'email'
+  end
+
+  # @note Validation
+  def ensure_not_inviting_self
+    if !self.admin? && self.identifier == self.sender.email
+      errors[:base] << 'You can not invite yourself'
+    end
+  end  
+
+  # @note Validation
   def valid_identifier?
+    return false unless self.identifier
     if self.service == 'email'
       unless self.identifier.match(Devise.email_regexp)
         errors[:base] << 'invalid email'

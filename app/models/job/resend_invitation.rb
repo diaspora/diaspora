@@ -7,7 +7,7 @@ module Job
   class ResendInvitation < Base
     @queue = :mail
     def self.perform(invitation_id)
-      inv = Invitation.where(:id => invitation_id).first
+      inv = Invitation.find(invitation_id)
       inv.resend
     end
   end

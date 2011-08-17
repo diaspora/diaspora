@@ -1,5 +1,5 @@
 - @invs = @resource.invitations_to_me
--if @invs.count > 0
+-unless @invs.first.admin? 
   !!!
   %html
     %head
