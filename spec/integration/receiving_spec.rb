@@ -272,6 +272,7 @@ describe 'a user receives a post' do
         post_in_db.comments.should == []
 
         receive_with_zord(bob, alice.person, @xml)
+
         post_in_db.comments(true).first.author.should == remote_person
       end
     end

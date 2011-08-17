@@ -59,7 +59,7 @@ describe ContactsController do
 
     it 'will return the contacts for multiple aspects' do
       get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
-      assigns[:people].should == bob.contacts.map(&:person)
+      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
       response.should be_success
     end
 
@@ -73,7 +73,7 @@ describe ContactsController do
       aspect.contacts << bob.contact_for(eve.person)
       get :index, :format => 'json', :aspect_ids => bob.aspect_ids
       assigns[:people].map{|p| p.id}.uniq.should == assigns[:people].map{|p| p.id}
-      assigns[:people].should == bob.contacts.map(&:person)
+      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
     end
   end
 

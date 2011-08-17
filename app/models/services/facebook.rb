@@ -47,14 +47,25 @@ class Services::Facebook < Service
     if postgres?
       # Take the naive approach to inserting our new visibilities for now.
       data.each do |su|
-        su.save
+        if existing = ServiceUser.find_by_uid(su.uid)
+          update_hash = OVERRIDE_FIELDS_ON_FB_UPDATE.inject({}) do |acc, element|
+            acc[element] = su.send(element)
+            acc
+          end
+
+          existing.update_attributes(update_hash)
+        else
+          su.save
+        end
       end
     else
-      ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username])
+      ServiceUser.import(data, :on_duplicate_key_update => OVERRIDE_FIELDS_ON_FB_UPDATE + [:updated_at])
     end
   end
 
   private
+
+  OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
 
   def prevent_service_users_from_being_empty
     if self.service_users.blank?
