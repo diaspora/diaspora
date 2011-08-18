@@ -65,7 +65,7 @@ describe("Stream", function() {
 
   describe("toggleComments", function() {
     it("toggles class hidden on the comments ul", function () {
-      link = $("a.toggle_post_comments");
+      link = $("a.toggle_post_comments").first();
       expect(jQuery('ul.comments')).not.toHaveClass("hidden");
       Stream.toggleComments.call(
         link, {preventDefault: function(){} }
@@ -75,7 +75,7 @@ describe("Stream", function() {
     });
 
     it("changes the text on the show comments link", function() {
-      link = $("a.toggle_post_comments");
+      link = $("a.toggle_post_comments").first();
       Diaspora.widgets.i18n.loadLocale(
         {'comments' : {'show': 'comments.show pl'}}, 'en');
       expect(link.text()).toEqual("Hide all comments");
