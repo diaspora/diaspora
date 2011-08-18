@@ -52,13 +52,6 @@ Before do
   Devise.mailer.deliveries = []
 end
 
-After do
-  # Rollback any images created during the features.
-  `rm -rf #{Rails.root}/tmp/uploads/*`
-  `rm -rf #{Rails.root}/public/uploads/images/*-test.png`
-  `rm -rf #{Rails.root}/public/uploads/tmp/`
-end
-
 silence_warnings do
   SERVICES['facebook'] = {'app_id' => :fake, 'app_secret' => 'sdoigjosdfijg'}
   AppConfig[:configured_services] << 'facebook'
