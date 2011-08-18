@@ -41,7 +41,10 @@ RSpec.configure do |config|
   end
 
   config.after(:all) do
+    # Rollback any images created during the specs
     `rm -rf #{Rails.root}/tmp/uploads/*`
+    `rm -rf #{Rails.root}/public/uploads/images/*-test.png`
+    `rm -rf #{Rails.root}/public/uploads/tmp/`
   end
 end
 
