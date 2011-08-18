@@ -34,7 +34,8 @@ class InvitationsController < Devise::InvitationsController
       invitation_token = params[:user][:invitation_token]
 
       if invitation_token.nil? || invitation_token.blank?
-        raise I18n.t('invitations.check_token.not_found')
+        redirect_to :back, :error => I18n.t('invitations.check_token.not_found')
+        return
       end
 
       user = User.find_by_invitation_token!(invitation_token)
