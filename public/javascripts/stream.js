@@ -10,12 +10,13 @@ var Stream = {
     Diaspora.widgets.timeago.updateTimeAgo();
     Diaspora.widgets.directionDetector.updateBinds();
 
-    $.each([".stream_element_delete", "span.post_scope"], function(idx, el){
+    $.each(["a.stream_element_delete", "span.post_scope"], function(idx, el){
       $(el).tipsy({
         trigger: "hover",
         gravity: "n"
       });
     });
+
     //audio links
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();
