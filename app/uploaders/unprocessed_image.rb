@@ -14,10 +14,7 @@ class UnprocessedImage < CarrierWave::Uploader::Base
   end
 
   def filename
-    fn = model.random_string
-    fn += "-test" if Rails.env == 'test'
-    fn += File.extname(@filename) if @filename
-    fn
+    model.random_string + File.extname(@filename) if @filename
   end
 
   version :thumb_small
