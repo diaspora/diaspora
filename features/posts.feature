@@ -154,8 +154,7 @@ Feature: posting
         And I click "Mention" button
         And I expand the publisher in the modal window
         And I append "I am eating a yogurt" to the publisher
-        And I press the aspect dropdown in the modal window
-        And I toggle the aspect "DidntPostTo" in the modal window
+        And I follow "DidntPostTo" within "#publisher" in the modal window
         And I press "Share" in the modal window
         And I am on the aspects page
         And I follow "<aspect>" within "#aspect_nav"

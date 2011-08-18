@@ -16,7 +16,7 @@
     - else
       = @aspects.to_sentence
 
-= render 'shared/publisher', :selected_aspects => @aspects, :aspect_ids => aspect_ids, :aspect => @aspect
+= render 'shared/publisher', :aspect => aspect, :aspect_ids => aspect_ids
 
 - if posts.length == 0
   = render 'aspects/no_posts_message'

@@ -315,12 +315,6 @@ var Publisher = {
       '<input id="services_" name="services[]" type="hidden" value="'+provider+'">');
     }
   },
-  selectedAspectIds: function() {
-    var aspects = $('#publisher [name="aspect_ids[]"]');
-    var aspectIds = [];
-    aspects.each(function() { aspectIds.push( parseInt($(this).attr('value'))); });
-    return aspectIds;
-  },
   toggleAspectIds: function(aspectId) {
     var hidden_field = $('#publisher [name="aspect_ids[]"][value="'+aspectId+'"]');
     if(hidden_field.length > 0){
@@ -344,24 +338,17 @@ var Publisher = {
       $('#status_message_fake_text').charCount({allowed: min, warning: min/10 });
     }
   },
+
   bindAspectToggles: function() {
-    $('#publisher .dropdown .dropdown_list li').bind("click", function(evt){
-      var li = $(this),
-          button = li.find('.button'),
-          checkbox = li.find('img.check');
-      if(button.hasClass('disabled')) { return; }
-
-      AspectsDropdown.toggleCheckbox(checkbox);
-      AspectsDropdown.updateNumber(li.closest(".dropdown_list"), null, li.parent().find('li.selected').length, '');
-
-      Publisher.toggleAspectIds(li.attr('data-aspect_id'));
+    $('#publisher .aspect_badge').bind("click", function(){
+      var unremovedAspects = $(this).parent().children('.aspect_badge').length - $(this).parent().children(".aspect_badge.removed").length;
+      if(!$(this).hasClass('removed') && ( unremovedAspects == 1 )){
+        alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'));
+      }else{
+        Publisher.toggleAspectIds($(this).children('a').attr('data-guid'));
+        $(this).toggleClass("removed");
+      }
     });
-  },
-  beforeSubmit: function(){
-    if($("#publisher .content_creation form #aspect_ids_").length == 0){
-      alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'));
-      return false;
-    }
   },
   onSubmit: function(data, json, xhr){
     $("#photodropzone").find('li').remove();
@@ -376,21 +363,7 @@ var Publisher = {
     }
   },
   onSuccess: function(data, json, xhr){
-    var isPostVisible = false;
-    var postedTo = Publisher.selectedAspectIds();
-    $.each(AspectFilters.selectedGUIDS, function(index, value){
-      if(postedTo.indexOf(parseInt(value))>-1)
-        isPostVisible = true;
-    });
-
-    if(isPostVisible)
-      ContentUpdater.addPostToStream(json.html);
-    else
-      Diaspora.widgets.flashes.render({
-        success: true,
-        message: Diaspora.widgets.i18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
-      });
-
+    ContentUpdater.addPostToStream(json.html);
     //collapse publisher
     Publisher.close();
     Publisher.clear();
@@ -398,7 +371,6 @@ var Publisher = {
     Stream.setUpAudioLinks();
   },
   bindAjax: function(){
-    Publisher.form().bind('submit', Publisher.beforeSubmit);
     Publisher.form().bind('ajax:loading', Publisher.onSubmit);
     Publisher.form().bind('ajax:failure', Publisher.onFailure);
     Publisher.form().bind('ajax:success', Publisher.onSuccess);
