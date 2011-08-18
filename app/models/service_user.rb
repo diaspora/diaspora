@@ -18,6 +18,14 @@ class ServiceUser < ActiveRecord::Base
     self.person_id.present?
   end
 
+  def self.username_of_service_user_by_uid(uid)
+     if su = ServiceUser.find_by_uid(uid)
+      su.username
+    else
+      nil
+    end
+  end
+
   def attach_local_models
     service_for_uid = Services::Facebook.where(:type => service.type.to_s, :uid => self.uid).first
     if !service_for_uid.blank? && (service_for_uid.user.person.profile.searchable)

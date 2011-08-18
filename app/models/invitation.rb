@@ -61,7 +61,7 @@ class Invitation < ActiveRecord::Base
   # @return [Boolean]
   # @return [void]
   def skip_email?
-    self.service != 'email'
+    !email_like_identifer
   end
 
   # Attach a recipient [User] to the [Invitation] unless
@@ -112,6 +112,22 @@ class Invitation < ActiveRecord::Base
         su.name
       else
         I18n.t('invitations.a_facebook_user')
+      end
+    end
+  end
+  
+  # @return [String]
+  def email_like_identifer
+    case self.service
+    when 'email'
+      self.identifier
+    when 'facebook'
+      if username = ServiceUser.username_of_service_user_by_uid(self.identifier) 
+        unless username.include?('profile.php?')
+          "#{username}@facebook.com"
+        else
+          nil
+        end
       end
     end
   end

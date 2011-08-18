@@ -57,29 +57,40 @@ class ServicesController < ApplicationController
     @uid = params[:uid]
 
     if i_id = params[:invitation_id]
-      invited_user = Invitation.find(i_id).recipient
+      invite = Invitation.find(i_id)
+      invited_user = invite.recipient
     else
       invite = Invitation.create(:service => params[:provider], :identifier => @uid, :sender => current_user, :aspect => current_user.aspects.find(params[:aspect_id]))
       invited_user = invite.attach_recipient!
     end
 
-    @subject = t('services.inviter.join_me_on_diaspora')
-    @message = <<MSG
-#{t('services.inviter.click_link_to_accept_invitation')}:
-\n
-\n
-#{accept_invitation_url(invited_user, :invitation_token => invited_user.invitation_token)}
-MSG
-
+    #to make sure a friend you just invited from facebook shows up as invited
     service = current_user.services.where(:type => "Services::Facebook").first
     su = ServiceUser.where(:service_id => service.id, :uid => @uid).first
     su.attach_local_models
     su.save
 
-    url = "https://www.facebook.com/?compose=1&id=#{@uid}&subject=#{@subject}&message=#{@message}&sk=messages"
     respond_to do |format|
-      format.html{ redirect_to url }
-      format.json{ render :json => {:url => url} }
+      format.json{ render :json => invite_redirect_url(invite, invited_user, su) }
+    end
+  end
+
+  def facebook_message_url(user, facebook_uid)
+    subject = t('services.inviter.join_me_on_diaspora')
+    message = <<MSG
+#{t('services.inviter.click_link_to_accept_invitation')}:
+\n
+\n
+#{accept_invitation_url(user, :invitation_token => user.invitation_token)}
+MSG
+    "https://www.facebook.com/?compose=1&id=#{facebook_uid}&subject=#{subject}&message=#{message}&sk=messages"
+  end
+
+  def invite_redirect_url(invite, user, service_user)
+    if invite.email_like_identifer
+      {:message => t("invitations.create.sent") + service_user.name }
+    else
+      {:url => facebook_message_url(user, service_user.uid)}
     end
   end
 end

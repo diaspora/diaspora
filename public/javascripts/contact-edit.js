@@ -8,6 +8,14 @@ var ContactEdit = {
     $('.dropdown.aspect_membership .dropdown_list > li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
+    $('.button.resend').live('click', function(evt){
+      evt.preventDefault();
+      $.post($(this).href, {}, 
+             function(data){ 
+               console.log(data);
+               ContactEdit.processSuccess($(this), evt, data)
+             });
+    });
   },
 
   processClick: function(li, evt){
@@ -26,9 +34,20 @@ var ContactEdit = {
       "aspect_id" : li.data("aspect_id"),
       "uid" : li.parent().data("service_uid")
     }, function(data){
-      li.removeClass('loading')
-      window.location = data.url;
+      processSuccess(li, evt, data);
     });
+  },
+
+  processSuccess: function(element, evt, data) {
+    element.removeClass('loading')
+
+    if (data.url != undefined) {
+      window.location = data.url;
+    } else {
+      element.toggleClass("selected");
+
+      Diaspora.widgets.flashes.render({'success':true, 'notice':data.message});
+    }
   },
 
   toggleAspectMembership: function(li, evt) {
