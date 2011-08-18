@@ -4,20 +4,14 @@ describe Job::Mail::InviteUserByEmail do
   before do
     @sender = alice
     @email = 'bob@bob.com'
-    @aspect_id = alice.aspects.first.id
+    @aspect = alice.aspects.first
     @message = 'invite message'
-
-    User.stub(:find){ |id|
-      if id == @sender.id
-        @sender
-      else
-        nil
-      end
-    }
   end
 
   it 'calls invite_user with email param' do
-    @sender.should_receive(:invite_user).with(@aspect_id, 'email', @email, @message)
-    Job::Mail::InviteUserByEmail.perform(@sender.id, @email, @aspect_id, @message)
+    invitation = Invitation.create(:sender => @sender, :identifier => @email, :service => "email", :aspect => @aspect, :message => @message)
+    invitation.should_receive(:send!)
+    Invitation.stub(:find).and_return(invitation)
+    Job::Mail::InviteUserByEmail.perform(invitation.id)
   end
 end

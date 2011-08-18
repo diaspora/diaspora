@@ -33,7 +33,7 @@ class NotificationsController < VannaController
     end
     notifications.each do |n|
       n[:actors] = n.actors
-      n[:translation] = object_link(n, n.actors.map { |a| person_link(a) })
+      n[:translation] = notification_message_for(n)
       n[:translation_key] = n.popup_translation_key
       n[:target] = n.translation_key == "notifications.mentioned" ? n.target.post : n.target
     end

@@ -23,10 +23,10 @@ pt-PT:
       no_more: "Não há mais publicações."
     publisher: 
       at_least_one_aspect: "Tem de publicar para pelo menos um aspecto"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Limitado - a sua publicação só será vista pelas pessoas com as quais a está partilhar"
+      public: "Público - A sua publicação vai ser visível para todos e encontrada por motores de busca"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Já republicou essa publicação!"
     search_for: "Procurar por {{name}}"
     show_more: "mostrar mais"
     timeago: 

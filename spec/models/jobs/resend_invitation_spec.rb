@@ -5,17 +5,13 @@
 require 'spec_helper'
 
 describe Job::ResendInvitation do
-  describe '#perfom_delegate' do
+  describe '#perfom' do
     it 'should call .resend on the object' do
-      user = alice
-      aspect = user.aspects.create(:name => "cats")
-      user.invite_user(aspect.id, 'email', "a@a.com", "")
-      invitation = user.reload.invitations_from_me.first
+      invite = Factory(:invitation, :service => 'email', :identifier => 'foo@bar.com')
 
-      #Notification.should_receive(:notify).with(instance_of(User), instance_of(StatusMessage), instance_of(Person))
-      Invitation.stub(:where).with(:id => invitation.id ).and_return([invitation])
-      invitation.should_receive(:resend)
-      Job::ResendInvitation.perform(invitation.id)
+      Invitation.stub(:find).and_return(invite)
+      invite.should_receive(:resend)
+      Job::ResendInvitation.perform(invite.id)
     end
   end
 end

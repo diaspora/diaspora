@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110815210933) do
+ActiveRecord::Schema.define(:version => 20110816061820) do
 
   create_table "aspect_memberships", :force => true do |t|
     t.integer  "aspect_id",  :null => false
@@ -99,11 +99,14 @@ ActiveRecord::Schema.define(:version => 20110815210933) do
 
   create_table "invitations", :force => true do |t|
     t.text     "message"
-    t.integer  "sender_id",    :null => false
-    t.integer  "recipient_id", :null => false
+    t.integer  "sender_id"
+    t.integer  "recipient_id"
     t.integer  "aspect_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "service"
+    t.string   "identifier"
+    t.boolean  "admin",        :default => false
   end
 
   add_index "invitations", ["aspect_id"], :name => "index_invitations_on_aspect_id"

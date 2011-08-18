@@ -5,7 +5,7 @@
 
 var AspectFilters = {
   selectedGUIDS: [],
-  requests: 0,
+  activeRequest: null,
   initialize: function(){
     AspectFilters.initializeSelectedGUIDS();
     AspectFilters.interceptAspectLinks();
@@ -39,8 +39,6 @@ var AspectFilters = {
     $('html, body').animate({scrollTop:0}, 'fast');
   },
   switchToAspect: function(aspectLi){
-    AspectFilters.requests++;
-
     var guid = aspectLi.attr('data-guid');
 
     // select correct aspect in filter list & deselect others
@@ -54,8 +52,6 @@ var AspectFilters = {
   interceptAspectNavLinks: function(){
     $("#aspect_nav a.aspect_selector").click(function(e){
       e.preventDefault();
-
-      AspectFilters.requests++;
 
       // loading animation
       AspectFilters.fadeOut();
@@ -128,11 +124,15 @@ var AspectFilters = {
       history.pushState(null, document.title, newURL);
     }
 
-    $.ajax({
+    try {
+      AspectFilters.activeRequest.abort();
+    } catch(e) {} finally {
+      AspectFilters.activeRequest = null;
+    }
+    AspectFilters.activeRequest = $.ajax({
       url : newURL,
       dataType : 'script',
       success  : function(data){
-        AspectFilters.requests--;
         // fill in publisher
         // (not cached because this element changes)
 
@@ -155,9 +155,7 @@ var AspectFilters = {
         Diaspora.widgets.publish("stream/reloaded");
 
         // fade contents back in
-        if(AspectFilters.requests === 0){
-          AspectFilters.fadeIn();
-        }
+        AspectFilters.fadeIn();
       }
     });
   },

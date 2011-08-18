@@ -143,7 +143,7 @@ GEM
       ohai (>= 0.5.7)
       rest-client (< 1.7.0, >= 1.0.4)
       uuidtools
-    childprocess (0.2.0)
+    childprocess (0.2.1)
       ffi (~> 1.0.6)
     closure-compiler (1.1.1)
     cloudfiles (1.4.10)
@@ -225,11 +225,12 @@ GEM
     jammit (0.5.4)
       closure-compiler (>= 0.1.0)
       yui-compressor (>= 0.9.1)
-    jasmine (1.0.2.1)
-      json_pure (>= 1.4.3)
+    jasmine (1.1.0.rc3)
+      jasmine-core (>= 1.1.0.rc2)
       rack (>= 1.1)
       rspec (>= 1.3.1)
       selenium-webdriver (>= 0.1.3)
+    jasmine-core (1.1.0.rc3)
     json (1.4.6)
     json_pure (1.5.3)
     launchy (2.0.3)
@@ -399,8 +400,8 @@ GEM
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     sass (3.1.4)
-    selenium-webdriver (0.2.2)
-      childprocess (>= 0.1.9)
+    selenium-webdriver (2.4.0)
+      childprocess (>= 0.2.1)
       ffi (>= 1.0.7)
       json_pure
       rubyzip
@@ -484,7 +485,7 @@ DEPENDENCIES
   http_accept_language!
   i18n-inflector-rails (~> 1.0)
   jammit (= 0.5.4)
-  jasmine (= 1.0.2.1)
+  jasmine (= 1.1.0.rc3)
   json (= 1.4.6)
   jwt!
   launchy
@@ -511,7 +512,7 @@ DEPENDENCIES
   ruby-debug
   ruby-debug19
   sass (= 3.1.4)
-  selenium-webdriver (= 0.2.2)
+  selenium-webdriver (= 2.4)
   settingslogic (= 2.0.6)
   sod!
   sqlite3

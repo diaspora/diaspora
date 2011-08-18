@@ -249,6 +249,9 @@ en:
         other: "%{count} new messages"
     create:
       sent: "Message sent"
+      fail: "Invalid message"
+    new_message:
+      fail: "Invalid message"
     destroy:
       success: "Conversation successfully removed"
 

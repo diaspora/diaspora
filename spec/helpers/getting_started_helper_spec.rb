@@ -16,7 +16,7 @@ describe GettingStartedHelper do
     it 'returns true if the current user has filled out all 7 suggested fields (from getting started)' do
       profile = @current_user.person.profile
       profile.update_attributes!(
-        {:first_name => "alice", :last_name => "smith", :image_url => "abcd.jpg", :birthday => Date.new,
+        {:first_name => "alice", :last_name => "smith", :image_url => "abcd.jpg", :birthday => Time.now,
          :gender => "cow", :location => "san fran", :tag_string => "#sup", :bio => "holler" })
       has_completed_profile?.should be_true
     end
@@ -59,7 +59,7 @@ describe GettingStartedHelper do
     end
 
     it 'returns false if the current_user has less than 2 contacts (inclusive)' do
-      @current_user.contacts.delete_all
+      @current_user.contacts.destroy_all
       has_few_contacts?.should be_false
     end
   end

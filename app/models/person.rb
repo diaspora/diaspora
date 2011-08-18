@@ -19,6 +19,7 @@ class Person < ActiveRecord::Base
 
   has_one :profile, :dependent => :destroy
   delegate :last_name, :to => :profile
+  accepts_nested_attributes_for :profile
 
   before_validation :downcase_diaspora_handle
   def downcase_diaspora_handle
@@ -51,7 +52,21 @@ class Person < ActiveRecord::Base
     AppConfig[:featured_users].present? ? Person.where(:diaspora_handle => AppConfig[:featured_users]) : []
   end
 
-
+  # Set a default of an empty profile when a new Person record is instantiated.
+  # Passing :profile => nil to Person.new will instantiate a person with no profile.
+  # Calling Person.new with a block:
+  #   Person.new do |p|
+  #     p.profile = nil
+  #   end
+  # will not work!  The nil profile will be overriden with an empty one.
+  def initialize(params={})
+    profile_set = params.has_key?(:profile) || params.has_key?("profile")
+    params[:profile_attributes] = params.delete(:profile) if params.has_key?(:profile) && params[:profile].is_a?(Hash)
+    super
+    self.profile ||= Profile.new unless profile_set
+  end
+  
+  
   def self.find_from_id_or_username(params)
     p =   if params[:id].present?
             Person.where(:id => params[:id]).first
@@ -67,18 +82,12 @@ class Person < ActiveRecord::Base
 
   def self.search_query_string(query)
     query = query.downcase
+    like_operator = postgres? ? "ILIKE" : "LIKE"
 
-    if postgres?
-      where_clause = <<-SQL
-        profiles.full_name ILIKE ? OR
-        profiles.diaspora_handle ILIKE ?
-      SQL
-    else
-      where_clause = <<-SQL
-        profiles.full_name LIKE ? OR
-        people.diaspora_handle LIKE ?
-      SQL
-    end
+    where_clause = <<-SQL
+      profiles.full_name #{like_operator} ? OR
+      people.diaspora_handle #{like_operator} ?
+    SQL
 
     q_tokens = query.to_s.strip.gsub(/(\s|$|^)/) { "%#{$1}" }
     [where_clause, [q_tokens, q_tokens]]

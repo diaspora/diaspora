@@ -14,6 +14,8 @@ class Message < ActiveRecord::Base
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
 
+  validates_presence_of :text
+
   after_create do
     #sign comment as commenter
     self.author_signature = self.sign_with_key(self.author.owner.encryption_key) if self.author.owner

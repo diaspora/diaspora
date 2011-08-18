@@ -8,12 +8,12 @@ class AdminsController < ApplicationController
     @users = params[:user].empty? ? [] : User.where(params[:user])
   end
 
-  def admin_inviter
-    opts = {:service => 'email', :identifier => params[:identifier]}
-    existing_user = Invitation.find_existing_user('email', params[:identifier])
-    opts.merge!(:existing_user => existing_user) if existing_user
-    Invitation.create_invitee(opts)
-    flash[:notice] = "invitation sent to #{params[:identifier]}"
+  def admin_inviter 
+    user = User.find_by_email params[:idenitifer]
+    unless user
+      Invitation.create(:service => 'email', :identifer => params[:identifier], :admin => true)
+      flash[:notice] = "invitation sent to #{params[:identifier]}"
+    end
     redirect_to user_search_path
   end
 
