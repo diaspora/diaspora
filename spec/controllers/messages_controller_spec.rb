@@ -28,15 +28,34 @@ describe MessagesController do
     context "on my own post" do
       before do
         @cnv = Conversation.create(@create_hash)
-        @message_hash = {:conversation_id => @cnv.id, :message => {:text => "here is something else"}}
       end
 
-      it 'redirects to conversation' do
-        lambda{
-          post :create, @message_hash
-        }.should change(Message, :count).by(1)
-        response.code.should == '302'
-        response.should redirect_to(conversations_path(:conversation_id => @cnv))
+      context "with a valid message" do
+        before do
+          @message_hash = {:conversation_id => @cnv.id, :message => {:text => "here is something else"}}
+        end
+
+        it 'redirects to conversation' do
+          lambda{
+            post :create, @message_hash
+          }.should change(Message, :count).by(1)
+          response.code.should == '302'
+          response.should redirect_to(conversations_path(:conversation_id => @cnv))
+        end
+      end
+
+      context "with an empty message" do
+        before do
+          @message_hash = {:conversation_id => @cnv.id, :message => {:text => " "}}
+        end
+
+        it 'redirects to conversation' do
+          lambda{
+            post :create, @message_hash
+          }.should_not change(Message, :count).by(1)
+          response.code.should == '302'
+          response.should redirect_to(conversations_path(:conversation_id => @cnv))
+        end
       end
     end
 

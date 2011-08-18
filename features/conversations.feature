@@ -16,3 +16,7 @@ Feature: private messages
     And I should see "Greetings" within "#conversation_show"
     And "Alice Awesome" should be part of active conversation
     And I should see "hello, alice!" within ".stream"
+
+  Scenario: send an empty message
+    Given I send a message with subject "Greetings" and text " " to "Alice Awesome"
+    Then I should not see "Greetings" within "#conversation_inbox"
