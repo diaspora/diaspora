@@ -19,7 +19,7 @@ class StatusMessage < Post
   xml_attr :raw_message
 
   has_many :photos, :dependent => :destroy, :foreign_key => :status_message_guid, :primary_key => :guid
-  validate :message_or_photos_present?
+  validate :ensure_message_requirements
 
   attr_accessible :text
   serialize :youtube_titles, Hash
@@ -134,19 +134,18 @@ class StatusMessage < Post
 
   def comment_email_subject
     formatted_message(:plain_text => true)
-	end
+  end
 
-  def empty?
+  def message_or_photos_present?
     self.text.blank? && self.photos == []
   end
 
   protected
 
-  def message_or_photos_present?
-    if self.blank?
+  def ensure_message_requirements
+    if message_or_photos_present?
       errors[:base] << 'Status message requires a message or at least one photo'
     end
   end
-
 end
 
