@@ -347,11 +347,9 @@ var Publisher = {
   bindAspectToggles: function() {
     $('#publisher .dropdown .dropdown_list li').bind("click", function(evt){
       var li = $(this),
-          button = li.find('.button'),
-          checkbox = li.find('img.check');
-      if(button.hasClass('disabled')) { return; }
+          button = li.parent('.dropdown').find('.button');
 
-      AspectsDropdown.toggleCheckbox(checkbox);
+      AspectsDropdown.toggleCheckbox(li);
       AspectsDropdown.updateNumber(li.closest(".dropdown_list"), null, li.parent().find('li.selected').length, '');
 
       Publisher.toggleAspectIds(li.attr('data-aspect_id'));
@@ -376,7 +374,7 @@ var Publisher = {
     }
   },
   onSuccess: function(data, json, xhr){
-    var isPostVisible = false;
+    var isPostVisible = AspectFilters.selectedGUIDS.length == 0;
     var postedTo = Publisher.selectedAspectIds();
     $.each(AspectFilters.selectedGUIDS, function(index, value){
       if(postedTo.indexOf(parseInt(value))>-1)
