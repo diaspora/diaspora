@@ -39,7 +39,7 @@ describe User do
         addr = '12345@alice.com'
         alice.invitation_service = 'email'
         alice.invitation_identifier = addr
-        
+
         lambda {
           alice.infer_email_from_invitation_provider
         }.should change(alice, :email)
@@ -49,7 +49,7 @@ describe User do
         addr = '1233123'
         alice.invitation_service = 'facebook'
         alice.invitation_identifier = addr
-        
+
         lambda {
           alice.infer_email_from_invitation_provider
         }.should_not change(alice, :email)
@@ -359,7 +359,7 @@ describe User do
       context 'not on server (not yet invited)' do
         it 'returns nil' do
           @recipient = nil
-          @identifier = 'foo@bar.com' 
+          @identifier = 'foo@bar.com'
           @type = 'email'
           invited_user.should be_nil
         end
@@ -368,14 +368,14 @@ describe User do
   end
 
   describe '.find_or_create_by_invitation' do
-    
+
   end
 
   describe '.create_from_invitation!' do
     before do
       @identifier = 'max@foobar.com'
       @inv = Factory.build(:invitation, :admin => true, :service => 'email', :identifier => @identifier)
-      @user = User.create_from_invitation!(@inv) 
+      @user = User.create_from_invitation!(@inv)
     end
 
     it 'creates a persisted user' do
@@ -409,18 +409,22 @@ describe User do
     end
   end
 
-  describe ".find_for_authentication" do
+  describe ".find_for_database_authentication" do
     it 'finds a user' do
-      User.find_for_authentication(:username => alice.username).should == alice
+      User.find_for_database_authentication(:username => alice.username).should == alice
+    end
+
+    it 'finds a user by email' do
+      User.find_for_database_authentication(:username => alice.email).should == alice
     end
 
     it "does not preserve case" do
-      User.find_for_authentication(:username => alice.username.upcase).should == alice
+      User.find_for_database_authentication(:username => alice.username.upcase).should == alice
     end
 
     it 'errors out when passed a non-hash' do
       lambda {
-        User.find_for_authentication(alice.username)
+        User.find_for_database_authentication(alice.username)
       }.should raise_error
     end
   end
@@ -892,7 +896,7 @@ describe User do
                             :password => "secret",
                             :password_confirmation => "secret",
                             :person => {:profile => {:first_name => "Bob",
-                              :last_name  => "Smith"}}} 
+                              :last_name  => "Smith"}}}
 
     end
 

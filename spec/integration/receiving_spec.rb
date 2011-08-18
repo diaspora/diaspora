@@ -233,10 +233,10 @@ describe 'a user receives a post' do
         receive_with_zord(bob, alice.person, xml)
         receive_with_zord(eve, alice.person, xml)
 
-        @comment = eve.comment('tada',:post => @post)
-        @comment.parent_author_signature = @comment.sign_with_key(alice.encryption_key)
-        @xml = @comment.to_diaspora_xml
-        @comment.delete
+        comment = eve.comment('tada',:post => @post)
+        comment.parent_author_signature = comment.sign_with_key(alice.encryption_key)
+        @xml = comment.to_diaspora_xml
+        comment.delete
       end
 
       it 'should correctly attach the user already on the pod' do
@@ -254,17 +254,14 @@ describe 'a user receives a post' do
         eve.delete
         Person.where(:id => remote_person.id).delete_all
         Profile.where(:person_id => remote_person.id).delete_all
-        remote_person.id = nil
+        remote_person.attributes.delete(:id) # leaving a nil id causes it to try to save with id set to NULL in postgres
 
-        Person.should_receive(:by_account_identifier).twice.and_return{ |handle|
-          if handle == alice.person.diaspora_handle
-            alice.person.save
-            alice.person
-          else
-            remote_person.save(:validate => false)
-            remote_person.profile = Factory(:profile, :person => remote_person)
-            remote_person
-          end
+        m = mock()
+        Webfinger.should_receive(:new).twice.with(eve.person.diaspora_handle).and_return(m)
+        m.should_receive(:fetch).twice.and_return{
+          remote_person.save(:validate => false)
+          remote_person.profile = Factory(:profile, :person => remote_person)
+          remote_person
         }
 
         bob.reload.visible_posts.size.should == 1
