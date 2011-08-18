@@ -36,7 +36,6 @@ namespace :backup do
     if file.write File.open("/tmp/backup/" + tar_name)
       puts("event=backup status=success type=mysql")
       `rm /tmp/backup/#{tar_name}`
-      `rm -rf /tmp/backup/mysql/`
 
       files = mysql_container.objects
       files.sort!.pop(NUMBER_OF_DAYS * 24)
