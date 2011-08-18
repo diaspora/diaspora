@@ -37,7 +37,7 @@ module Jekyll
       dir = ((page_dir_config || page_dir) + '/').sub(/^\/+/, '')
 
       (1..pages).each do |num_page|
-        pager = Pager.new(site.config, num_page, all_posts, pages, page_dir+'/', '/'+dir)
+        pager = Pager.new(site.config, num_page, all_posts, page_dir+'/', '/'+dir, pages)
         if num_page > 1
           newpage = Page.new(site, site.source, page_dir, page.name)
           newpage.pager = pager
@@ -80,7 +80,7 @@ module Jekyll
     # all_posts - The Array of all the site's Posts.
     # num_pages - The Integer number of pages or nil if you'd like the number
     #             of pages calculated.
-    def initialize(config, page, all_posts, num_pages = nil, index_dir, pagination_dir)
+    def initialize(config, page, all_posts, index_dir, pagination_dir, num_pages = nil)
       @page = page
       @per_page = config['paginate'].to_i
       @page_dir = pagination_dir + 'page/'
