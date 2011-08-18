@@ -71,7 +71,8 @@ class ServicesController < ApplicationController
     su.save
 
     respond_to do |format|
-      format.json{ render :json => invite_redirect_url(invite, invited_user, su) }
+      format.html{ invite_redirect_url(invite, invited_user, su)}
+      format.json{ render :json => invite_redirect_json(invite, invited_user, su) }
     end
   end
 
@@ -86,11 +87,19 @@ MSG
     "https://www.facebook.com/?compose=1&id=#{facebook_uid}&subject=#{subject}&message=#{message}&sk=messages"
   end
 
-  def invite_redirect_url(invite, user, service_user)
+  def invite_redirect_json(invite, user, service_user)
     if invite.email_like_identifer
       {:message => t("invitations.create.sent") + service_user.name }
     else
       {:url => facebook_message_url(user, service_user.uid)}
+    end
+  end
+
+    def invite_redirect_url(invite, user, service_user)
+    if invite.email_like_identifer
+      redirect_to(friend_finder_path(:provider => 'facebook'), :notice => "you re-invited #{service_user.name}")
+    else
+      redirect_to(facebook_message_url(user, service_user.uid))
     end
   end
 end

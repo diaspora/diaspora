@@ -8,14 +8,14 @@ var ContactEdit = {
     $('.dropdown.aspect_membership .dropdown_list > li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
-    $('.button.resend').live('click', function(evt){
-      evt.preventDefault();
-      $.post($(this).href, {}, 
-             function(data){ 
-               console.log(data);
-               ContactEdit.processSuccess($(this), evt, data)
-             });
-    });
+    // $('.button.resend').live('click', function(evt){
+    //   evt.preventDefault();
+    //   $.post($(this).href, {}, 
+    //          function(data){ 
+    //            console.log(data);
+    //            ContactEdit.processSuccess($(this), evt, data)
+    //          });
+    // });
   },
 
   processClick: function(li, evt){
@@ -34,7 +34,7 @@ var ContactEdit = {
       "aspect_id" : li.data("aspect_id"),
       "uid" : li.parent().data("service_uid")
     }, function(data){
-      processSuccess(li, evt, data);
+      ContactEdit.processSuccess(li, evt, data);
     });
   },
 
