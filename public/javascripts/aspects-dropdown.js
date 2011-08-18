@@ -27,7 +27,7 @@ var AspectsDropdown = {
   
   toggleCheckbox: 
     function(check){
-      check.parent('li').toggleClass('selected');
+      check.toggleClass('selected');
     },
 };
 

@@ -35,8 +35,7 @@ var ContactEdit = {
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
 
-    var checkbox = li.find('img.check'),
-        selected = li.hasClass("selected"),
+    var selected = li.hasClass("selected"),
         routedId = selected ? "/42" : "";
 
     $.post("/aspect_memberships" + routedId + ".json", {
@@ -45,7 +44,7 @@ var ContactEdit = {
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
       li.removeClass('loading')
-      ContactEdit.toggleCheckbox(checkbox);
+      ContactEdit.toggleCheckbox(li);
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length, 'in_aspect');
       Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
