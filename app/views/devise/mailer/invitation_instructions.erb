@@ -1,4 +1,4 @@
-<% @invites = @resource.invitations_to_me.includes(:sender =>{:person => :profile}).where(:admin => false)%>
+<% @invites = @resource.invitations_to_me.includes(:sender =>{:person => :profile}).where(:admin => false).all%>
 <head>
   <title><%=invite_email_title %></title>
 </head>
