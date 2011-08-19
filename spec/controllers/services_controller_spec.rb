@@ -146,7 +146,9 @@ describe ServicesController do
     end
 
     it 'does not create a duplicate invitation' do
-      inv = Invitation.create!(:sender => @user, :recipient => eve, :aspect => @user.aspects.first, :identifier => eve.email)
+      invited_user = Factory.build(:user, :username =>nil)
+      invited_user.save(:validate => false)
+      inv = Invitation.create!(:sender => @user, :recipient => invited_user, :aspect => @user.aspects.first, :identifier => eve.email)
       @invite_params[:invitation_id] = inv.id
 
       lambda {

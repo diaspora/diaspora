@@ -87,14 +87,19 @@ class InvitationsController < Devise::InvitationsController
   def extract_messages(invites)
     success_message = "Invites Successfully Sent to: "
     failure_message = "There was a problem with: "
+    following_message = " already are on Diaspora, so you are now sharing with them."
     successes, failures = invites.partition{|x| x.persisted? }
 
-    success_message += successes.map{|k| k.identifier }.join(', ')
-    failure_message += failures.map{|k| k.identifier }.join(', ')
+    followings, real_failures = failures.partition{|x| x.errors[:recipient].present? }
+
+    success_message += successes.map{|k| k.identifier }.to_sentence
+    failure_message += real_failures.map{|k| k.identifier }.to_sentence
+    following_message += followings.map{|k| k.identifier}.to_sentence
 
     messages = []
     messages << success_message if successes.present?
     messages << failure_message if failures.present?
+    messages << following_message if followings.present?
 
     messages.join('\n')
   end

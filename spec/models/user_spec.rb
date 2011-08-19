@@ -565,7 +565,7 @@ describe User do
       end
 
       it 'removes invitations to the user' do
-        Invitation.create!(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first)
+        Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
         lambda {
           alice.destroy
         }.should change {alice.invitations_to_me(true).count }.by(-1)

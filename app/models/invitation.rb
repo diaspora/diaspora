@@ -12,8 +12,10 @@ class Invitation < ActiveRecord::Base
 
   before_validation :set_email_as_default_service
 
+ # before_create :share_with_exsisting_user, :if => :recipient_id?
   validates_presence_of :identifier, :service
   validate :valid_identifier?
+  validate :recipient_not_on_pod?
   validates_presence_of :sender, :aspect, :unless => :admin?
   validate :ensure_not_inviting_self, :on => :create, :unless => :admin?
   validate :sender_owns_aspect?, :unless => :admin?
@@ -36,11 +38,11 @@ class Invitation < ActiveRecord::Base
     users_on_pod = User.where(:email => emails, :invitation_token => nil)
 
     #share with anyone whose email you entered who is on the pod
-    emails = emails - users_on_pod.map{|u| u.email}
     users_on_pod.each{|u| opts[:sender].share_with(u.person, opts[:aspect])}
 
     emails.map! do |e|
-      Invitation.create(opts.merge(:identifier => e))
+      user = users_on_pod.find{|u| u.email == e}
+      Invitation.create(opts.merge(:identifier => e, :recipient => user))
     end
     emails
   end
@@ -139,6 +141,13 @@ class Invitation < ActiveRecord::Base
     end
   end
 
+
+  def recipient_not_on_pod?
+    return true if self.recipient.nil?
+    if self.recipient.username?
+      errors[:recipient] << "The user '#{self.identifier}' (#{self.recipient.diaspora_handle}) is already on this pod, so we sent them a share request"
+    end
+  end
 
   # @note Validation
   def valid_identifier?

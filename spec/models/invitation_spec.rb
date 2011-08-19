@@ -13,12 +13,12 @@ describe Invitation do
   end
   describe 'validations' do
     before do
-      @invitation = Factory.build(:invitation, :sender => user, :recipient => eve, :aspect => user.aspects.first)
+      @invitation = Factory.build(:invitation, :sender => user, :recipient => nil, :aspect => user.aspects.first)
     end
 
     it 'is valid' do
       @invitation.sender.should == user
-      @invitation.recipient.should == eve
+      @invitation.recipient.should == nil
       @invitation.aspect.should == user.aspects.first
       @invitation.should be_valid
     end
@@ -89,13 +89,13 @@ describe Invitation do
       invites.all?{|x| x.persisted?}.should be_true
     end
 
-    it 'shares with people who are already on the pod and does not create an invite for them' do
+    it 'shares with people who are already on the pod' do
       Factory(:user, :email => @emails.first)
       invites = nil
       expect{
         invites = Invitation.batch_invite(@emails, @opts)
       }.to change(eve.contacts, :count).by(1)
-      invites.count.should be 1
+      invites.count.should be 2
 
     end
   end
