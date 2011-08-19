@@ -37,7 +37,7 @@ es-CL:
             person: 
               invalid: "No es valido."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "es invalido. Solo se permiten letras, números y guiones bajos"
               taken: "Ya está siendo ocupado."
   ago: "hace %{time}"
   all_aspects: "Todos los Aspectos"
@@ -111,14 +111,14 @@ es-CL:
       handle_explanation: "Este es tu ID de Diaspora. Como una dirección de correo, puedes dársela a la gente para que te encuentren."
       keep_us_running: "Mantén %{pod} rápido, !compra a nuestros servidores su dosis mensual de café!"
       no_contacts: "No hay contactos"
-      no_tags: "Sin tags"
+      no_tags: "+ Busca un tag para seguir"
       people_sharing_with_you: "Personas compartiendo contigo"
       post_a_message: "postea un mensaje >>"
       services: 
         content: "Puedes enlazar los siguientes servicios a Diaspora:"
         heading: "Servicios que puedes enlazar"
       tags_following: "Tags"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Dejar de seguir #%{tag}"
       your_aspects: "Tus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -129,10 +129,10 @@ es-CL:
       create: "Crear"
       name: "Nombre"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "usuarios destacados"
+      or_featured: "O puedes compartir con %{link}"
+      try_adding_some_more_contacts: "Puedes buscar (arriba) o invitar (derecha) más contactos."
+      you_should_add_some_more_contacts: "Deberías añadir mas contactos!"
     no_posts_message: 
       start_talking: "Nadie ha dicho nada aún!"
     one: "1 aspecto"
@@ -236,7 +236,7 @@ es-CL:
       correct_the_following_errors_and_try_again: "Corrige los siguientes errores e inténtalo de nuevo."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Complétame"
-  find_people: "Buscar personas"
+  find_people: "Buscar personas o #tags"
   hide: "Ocultar"
   home: 
     show: 
@@ -253,7 +253,7 @@ es-CL:
       tagline_first_half: "Comparte lo que quieras,"
       tagline_second_half: "con los que quiera."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Un usuario de Facebook"
     check_token: 
       not_found: "Identificación de invitación no encontrada"
     create: 
@@ -264,8 +264,8 @@ es-CL:
       rejected: "Las siguientes direcciones de correo han tenido problemas:"
       sent: "Las invitaciones han sido enviadas a:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Acepta tu invitación"
+      your_account_awaits: "Tu cuenta te espera!"
     new: 
       already_invited: "Las siguientes personas no aceptaron tu invitación:"
       aspect: "Aspecto"
@@ -392,7 +392,7 @@ es-CL:
       other: "%{actors} comenzaron a compartir contigo."
       zero: "%{actors} comenzó a compartir contigo."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "un post."
     click_here: "haz click aquí"
     comment_on_post: 
       reply: "Responde o mira el post de %{name}>"
@@ -457,7 +457,7 @@ es-CL:
       add_some: "agrega algunas"
       does_not_exist: "¡La persona no existe!"
       edit: "editar"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} todavía no ha compartido ningún post contigo!"
       incoming_request: "Tienes una solicitud pendiente de %{name}"
       mention: "Mencionar"
       message: "Mensaje"
@@ -473,7 +473,7 @@ es-CL:
       fail: "Lo siento, no pudimos encontrar %{handle}."
     zero: "ninguna persona"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "foto de %{name}"
     create: 
       integrity_error: "Error al subir la foto.  ¿Estás seguro que eso era una imagen?"
       runtime_error: "Error al subir la foto.  ¿Estás seguro que tienes puesto el cinturon de seguridad?"
@@ -501,7 +501,7 @@ es-CL:
       edit: "editar"
       edit_delete_photo: "Editar descripción de foto / borrar foto"
       make_profile_photo: "convertir en foto de perfil"
-      show_original_post: "Show original post"
+      show_original_post: "Mostrar post original"
       update_photo: "Actualizar Foto"
     update: 
       error: "Error al editar foto."
@@ -549,13 +549,13 @@ es-CL:
       unhappy: "¿Triste?"
       update: "Actualizar"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Crear mi cuenta"
       enter_email: "Ingresa un email"
       enter_password: "Ingresar contraseña"
       enter_password_again: "Ingresa la misma contraseña anterior"
       enter_username: "Escoge un nick (solo letras, números, y guión bajo)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "Unete al movimiento!"
+      sign_up_today: "Registrate hoy día"
   requests: 
     create: 
       sending: "Enviando"
@@ -577,7 +577,7 @@ es-CL:
     new_request_to_person: 
       sent: "¡enviado!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "%{resharer} compartió el post de %{author}"
     create: 
       failure: "Hubo un error al compartir este post."
     reshare: 
@@ -600,8 +600,8 @@ es-CL:
     failure: 
       error: "ocurrió un error al conectarse con ese servicio"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "Ningún amigo de Facebook encontrado."
+      service_friends: "Los %{service} de tus amigos"
     index: 
       connect_to_facebook: "Conectar a facebook"
       connect_to_tumblr: "Conectar a Tumblr"
@@ -616,7 +616,7 @@ es-CL:
       join_me_on_diaspora: "Únete a mi en DIASPORA*"
     remote_friend: 
       invite: "invitar"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Aun no en Diaspora"
       resend: "reenviar"
   settings: "Configuración"
   shared: 
@@ -746,32 +746,32 @@ es-CL:
       your_email: "Tu correo electrónico"
       your_handle: "Tu id de diaspora"
     getting_started: 
-      aspects: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      aspects: "aspectos"
+      connect_to: "Conectar a"
+      connect_to_your_other_social_networks: "Conectate con tus otras redes sociales"
+      connect_with_people: "Conectate con gente cool"
+      connect_with_people_explanation_pt1: "Conectate con las personas ubicándolas en uno o mas de tus"
+      connect_with_people_explanation_pt2: "Los Aspectos son la forma intuitiva de agrupar caras nuevas y familiares, de manera privada, te permiten filtrar o compartir con un subconjunto de tus contactos de manera sencilla."
+      featured_tags: "Etiquetas destacadas"
+      featured_users: "Usuarios destacados"
+      fill_out_your_profile: "Rellena tu perfil"
+      find_friends: "Encuentra tus amigos"
+      find_friends_from_facebook: "encuentra amigos de Facebook"
       finished: "¡Terminaste!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      follow_your_interests: "Sigue tus intereses"
+      hashtag_explanation: "Los Hashtags te permiten hablar y seguir sobre tus intereses. También son una manera genial de encontrar nuevas personas en Diaspora."
+      profile_description: "Hazle mas fácil a las personas encontrarte llenando tu información de perfil."
       profile_fields: 
         bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
+        birthday: "Fecha de nacimiento"
+        gender: "Genero"
+        location: "Ubicación"
+        name: "Nombre"
+        photo: "Foto"
         tags: "Tags"
-      see_all_featured_users: "See all featured users"
-      welcome: "¡Bienvenido a Diaspora!"
-      welcome_with_name: "Welcome, %{name}!"
+      see_all_featured_users: "Ver todos los usuarios destacados"
+      welcome: "¡Bienvenido!"
+      welcome_with_name: "Bienvenido, %{name}!"
     public: 
       does_not_exist: "¡El usuario %{username} no existe!"
     update: 
