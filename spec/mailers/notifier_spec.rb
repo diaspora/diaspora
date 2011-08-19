@@ -88,8 +88,8 @@ describe Notifier do
       @mail.body.encoded.should include(@sm.text)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
   end
 
@@ -112,8 +112,8 @@ describe Notifier do
       @mail.body.encoded.should include(@like.author.name)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
 
     it 'can handle a reshare' do
@@ -170,8 +170,8 @@ describe Notifier do
       @mail.body.encoded.should include(@cnv.messages.first.text)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
   end
 
@@ -203,6 +203,10 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+
+        it 'should not include translation fallback' do
+          comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
 
@@ -241,6 +245,10 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+
+        it 'should not include translation fallback' do
+          comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
       [:reshare, :activity_streams_photo].each do |post_type|

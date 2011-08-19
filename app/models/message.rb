@@ -74,6 +74,10 @@ class Message < ActiveRecord::Base
     Notifications::PrivateMessage unless user.person == person
   end
 
+  def formatted_message(opts={})
+    opts[:plain_text] ? self.text: ERB::Util.h(self.text)
+  end
+
   private
   def participant_of_parent_conversation
     if self.parent && !self.parent.participants.include?(self.author)
