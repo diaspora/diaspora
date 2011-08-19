@@ -5,7 +5,7 @@
 var ContactEdit = {
   init: function(){
     $.extend(ContactEdit, AspectsDropdown);
-    $('.dropdown.aspect_membership .dropdown_list > li').live('click', function(evt){
+    $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list >li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
     // $('.button.resend').live('click', function(evt){
@@ -23,6 +23,7 @@ var ContactEdit = {
     li.addClass('loading');
     if (dropdown.hasClass('inviter')) {
       ContactEdit.inviteFriend(li, evt);
+      dropdown.html('sending, please wait...');
     }
     else {
       ContactEdit.toggleAspectMembership(li, evt);
