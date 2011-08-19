@@ -41,12 +41,11 @@ var ContactEdit = {
 
   processSuccess: function(element, evt, data) {
     element.removeClass('loading')
-
+    element.parent().parent().html('sent!');
     if (data.url != undefined) {
       window.location = data.url;
     } else {
       element.toggleClass("selected");
-
       Diaspora.widgets.flashes.render({'success':true, 'notice':data.message});
     }
   },
