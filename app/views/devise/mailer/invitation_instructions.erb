@@ -1,5 +1,7 @@
+
+<% @invites = Invitation.includes(:sender =>{:person => :profile}).where(:admin => false)%>
 <head>
-  <title> Accept Your Diaspora* Invite!</title>
+  <title><%=invite_email_title %></title>
 </head>
 <p style="background-color: rgb(255, 255, 255); text-align: center; font-size: 11px;">Email not displaying correctly? <a href="<%=invite_email_url(:invitation_token => @resource.invitation_token) %>" style="color: #3F8FBA; text-decoration: none;">View it</a> in your browser</p>
 
@@ -19,7 +21,6 @@
             
             
             
-            
             <tr>
               <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
                Finally -  it's here.<br>
@@ -33,15 +34,6 @@
 
 
 
-            <% if @resource.invitations_to_me.any?{|x| !x.admin?} %>
-              <% @invs = @resource.invitations_to_me %>
-              <tr>
-                <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 20px; font-weight: bold; color: rgb(0, 0, 0);">
-                  <%= render :partial => 'devise/mailer/inviters' %>
-                </td>
-              </tr>
-            <% end %>
-
 
 
 
@@ -51,6 +43,46 @@
                 <br>
                 <a style="color: #3F8FBA; text-decoration: underline; font-weight: bold; font-size: 20px;" href="<%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)%>"  target="_blank">Sign up now &rarr;</a>
             </td></tr>
+
+
+            <% unless @invites.blank? %>
+              <% @invites_with_message, @invites_without_message = @invites.partition{|x| !x.message.blank?} %>
+              <% unless @invites_with_message.empty? %>
+                <tr>
+                  <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 24px; font-weight: bold; color: rgb(0, 0, 0);">
+                    <br>
+                    What your friends are saying...<br>
+                  </td>
+                </tr>
+
+                <% @invites_with_message.each do |i| %>
+                  <tr><td>
+                      <%= render(:partial => 'devise/mailer/inviter', :locals => {:invite => i}) %>  
+                  </td></tr>
+                <% end %> 
+              <% end %>
+
+              <% unless @invites_without_message.empty? %>
+
+                <tr>
+                  <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 24px; font-weight: bold; color: rgb(0, 0, 0);">
+                    <br>
+                    Even more people are excited to see you!<br>
+                  </td>
+                </tr>
+
+                <% @invites_without_message.each do |i| %>
+                  <tr><td>
+                      <%= render(:partial => 'devise/mailer/inviter', :locals => {:invite => i}) %>  
+                  </td></tr>
+              <% end %>
+
+            <% end %>
+          <% end %>
+
+
+
+
 
             <tr><td style="padding: 20px 20px 0px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
                 1. Get Connected</td></tr>
@@ -150,5 +182,3 @@
     </tr>
   </tbody>
 </table>
-
-

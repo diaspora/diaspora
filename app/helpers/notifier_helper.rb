@@ -23,4 +23,13 @@ module NotifierHelper
     text = process_newlines(text) if opts[:process_newlines]
     text
   end
+
+  def invite_email_title
+    names = @invites.collect{|x| x.sender.person.name}.uniq
+    if @invites.empty? && names.empty?
+      "Accept Your Diaspora* invite!"
+    else
+      "#{names.to_sentence} invited you to Diaspora*"
+    end
+  end
 end
