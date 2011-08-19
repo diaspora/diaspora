@@ -51,6 +51,12 @@
 
     = yield(:head)
 
+    -unless Rails.env == "production" 
+      :css
+        .translation_missing {
+          color: purple;
+          background-color: red;
+        }
     -if AppConfig[:google_a_site]
       :javascript
         var _gaq = _gaq || [];
