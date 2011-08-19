@@ -99,7 +99,7 @@ describe ServicesController do
 
     it 'has no translations missing' do
       get :finder, :provider => @service1.provider
-      response.body.match(/translation/).should be_nil
+      Nokogiri(response.body).css('.translation_missing').should be_empty
     end
   end
 
@@ -117,16 +117,6 @@ describe ServicesController do
       @invite_params[:provider] = "email"
       @invite_params[:uid] = "username@facebook.com"
       put :inviter, @invite_params
-    end
-
-    it 'sets the subject' do
-      put :inviter, @invite_params
-      assigns[:subject].should_not be_nil
-    end
-
-    it 'sets a message containing the invitation link' do
-      put :inviter, @invite_params
-      assigns[:message].should include(User.last.invitation_token)
     end
 
     it 'redirects to a prefilled facebook message url' do
@@ -156,7 +146,7 @@ describe ServicesController do
       }.should_not change(Invitation, :count)
     end
 
-    it 'disregares the amount of invites if open_invitations are enabled' do
+    it 'disregards the amount of invites if open_invitations are enabled' do
       open_bit = AppConfig[:open_invitations]
       AppConfig[:open_invitations] = true
 
