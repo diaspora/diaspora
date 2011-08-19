@@ -42,6 +42,7 @@ src_files:
   - public/javascripts/validation.js
   - public/javascripts/rails.js
   - public/javascripts/aspect-filters.js
+  - public/javascripts/aspects-dropdown.js
   - public/javascripts/content-updater.js
   - public/javascripts/tag-followings.js
 # stylesheets
