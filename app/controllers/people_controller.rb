@@ -157,8 +157,12 @@ class PeopleController < ApplicationController
 
   def aspect_membership_dropdown
     @person = Person.find(params[:person_id])
-    @contact = current_user.contact_for(@person) || Contact.new
-    render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+    if @person == current_user.person
+      render :text => I18n.t('people.person.thats_you')
+    else
+      @contact = current_user.contact_for(@person) || Contact.new
+      render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+    end
   end
 
   private
