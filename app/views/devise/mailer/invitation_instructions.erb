@@ -1,3 +1,6 @@
+<head>
+  <title> Accept Your Diaspora* Invite!</title>
+</head>
 <p style="background-color: rgb(255, 255, 255); text-align: center; font-size: 11px;">Email not displaying correctly? <a href="<%=invite_email_url(:invitation_token => @resource.invitation_token) %>" style="color: #3F8FBA; text-decoration: none;">View it</a> in your browser</p>
 
 <table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td style="padding: 30px 15px 0pt; background-color: rgb(221, 221, 221);">
@@ -10,14 +13,38 @@
                 </a>
               </td>
             </tr>
+
+
+
+            
+            
+            
+            
             <tr>
               <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 44px; font-weight: bold; color: rgb(0, 0, 0);">
                Finally -  it's here.<br>
               </td>
             </tr>
+
             <tr><td style="padding: 0px 20px 0pt; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial;" width="600" height='389'>
                 <a href="<%= accept_invitation_url(@resource, :invitation_token => @resource.invitation_token)%>" target="_blank"><img src="http://dl.dropbox.com/u/15865/diaspora_shots.jpg" style="border: 0pt none ; display: block;" width="560">
             </a></td></tr>
+
+
+
+
+            <% if @resource.invitations_to_me.any?{|x| !x.admin?} %>
+              <% @invs = @resource.invitations_to_me %>
+              <tr>
+                <td style="padding: 10px 0pt 0px 20px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; font-size: 20px; font-weight: bold; color: rgb(0, 0, 0);">
+                  <%= render :partial => 'devise/mailer/inviters' %>
+                </td>
+              </tr>
+            <% end %>
+
+
+
+
             <tr><td style="padding: 0pt 30px; background: rgb(255, 255, 255) none repeat scroll 0%; -moz-background-clip: -moz-initial; -moz-background-origin: -moz-initial; -moz-background-inline-policy: -moz-initial; line-height: 20px;">
                 The social network you have been waiting for has arrived.  Revamped, more secure, and more fun, <strong>DIASPORA*</strong> is ready to help you share and explore the web in a whole new way. 
                 <br>
@@ -123,4 +150,5 @@
     </tr>
   </tbody>
 </table>
+
 

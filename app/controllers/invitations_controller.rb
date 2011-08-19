@@ -23,7 +23,7 @@ class InvitationsController < Devise::InvitationsController
     #NOTE should we try and find users by email here? probs
     aspect = current_user.aspects.find(aspect_id)
 
-    invites = Invitation.batch_invite(emails, :sender => current_user, :aspect => aspect, :service => 'email')
+    invites = Invitation.batch_invite(emails, :message => message, :sender => current_user, :aspect => aspect, :service => 'email')
 
     flash[:notice] = extract_messages(invites)
 

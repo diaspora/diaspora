@@ -8,7 +8,7 @@ class Invitation < ActiveRecord::Base
   belongs_to :recipient, :class_name => 'User'
   belongs_to :aspect
 
-  attr_accessible :sender, :recipient, :aspect, :service, :identifier, :admin
+  attr_accessible :sender, :recipient, :aspect, :service, :identifier, :admin, :message
 
   before_validation :set_email_as_default_service
 
