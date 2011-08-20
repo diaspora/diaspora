@@ -233,6 +233,7 @@ en:
       inbox: "Inbox"
     show:
       reply: "reply"
+      replying: "Replying..."
       delete: "delete and block conversation"
     new:
       to: "to"
