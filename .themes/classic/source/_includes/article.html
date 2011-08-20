@@ -12,9 +12,12 @@
 {% endunless %}
 {% if index %}
   <div class="entry-content">{{ content | excerpt }}</div>
-  <footer>
-    <a rel="full-article" href="{{ root_url }}{{ post.url }}">Read on &rarr;</a>
-  </footer>
+  {% capture excerpted %}{{ content | has_excerpt }}{% endcapture %}
+  {% if excerpted == 'true' %}
+    <footer>
+      <a rel="full-article" href="{{ root_url }}{{ post.url }}">Read on &rarr;</a>
+    </footer>
+  {% endif %}
 {% else %}
 <div class="entry-content">{{ content }}</div>
 {% endif %}
