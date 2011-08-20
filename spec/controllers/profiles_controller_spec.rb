@@ -68,6 +68,32 @@ describe ProfilesController do
       @user.person(true).profile.tag_list.to_set.should == ['apples', 'oranges', 'bananas'].to_set
     end
 
+    it 'sets valid birthday' do
+      params = { :id => @user.person.id,
+                 :profile => {
+                   :date => {
+                     :year => '2001',
+                     :month => '02',
+                     :day => '28' } } }
+
+      put :update, params
+      @user.person(true).profile.birthday.year.should == 2001
+      @user.person(true).profile.birthday.month.should == 2
+      @user.person(true).profile.birthday.day.should == 28
+    end
+
+    it 'displays error for invalid birthday' do
+      params = { :id => @user.person.id,
+                 :profile => {
+                   :date => {
+                     :year => '2001',
+                     :month => '02',
+                     :day => '31' } } }
+
+      put :update, params
+      flash[:error].should_not be_blank
+    end
+
     context 'with a profile photo set' do
       before do
         @params = { :id => @user.person.id,

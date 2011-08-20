@@ -183,6 +183,20 @@ describe Profile do
       profile.date = { 'year' => '2001', 'month' => '', 'day' => ''}
       profile.birthday.should == nil
     end
+
+    it 'does not accept invalid dates' do
+      profile.birthday = nil
+      profile.date = { 'year' => '2001', 'month' => '02', 'day' => '31' }
+      profile.birthday.should == nil
+    end
+
+    it 'does not change with invalid dates' do
+      profile.birthday = Date.new(2000, 1, 1)
+      profile.date = { 'year' => '2001', 'month' => '02', 'day' => '31' }
+      profile.birthday.year.should == 2000
+      profile.birthday.month.should == 1
+      profile.birthday.day.should == 1
+    end
   end
 
   describe 'tags' do
