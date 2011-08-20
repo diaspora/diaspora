@@ -77,9 +77,6 @@ module Jekyll
       source += @caption if @caption
       source = context['pygments_prefix'] + source if context['pygments_prefix']
       if @filetype
-        @filetype = 'objc' if @filetype == 'm'
-        @filetype = 'perl' if @filetype == 'pl'
-        @filetype = 'yaml' if @filetype == 'yml'
         source += " #{highlight(code, @filetype)}</figure></div>"
       else
         source += "#{tableize_code(code.lstrip.rstrip.gsub(/</,'&lt;'))}</figure></div>"

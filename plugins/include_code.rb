@@ -53,9 +53,6 @@ module Jekyll
       Dir.chdir(code_path) do
         code = file.read
         @filetype = file.extname.sub('.','')
-        @filetype = 'objc' if @filetype == 'm'
-        @filetype = 'perl' if @filetype == 'pl'
-        @filetype = 'yaml' if @filetype == 'yml'
         title = @title ? "#{@title} (#{file.basename})" : file.basename
         url = "#{context.registers[:site].config['url']}/#{code_dir}/#{@file}"
         source = "<div><figure role=code><figcaption><span>#{title}</span> <a href='#{url}'>download</a></figcaption>\n"
