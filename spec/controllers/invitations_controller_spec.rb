@@ -162,7 +162,7 @@ describe InvitationsController do
     it 'displays a message that tells the user how many invites were sent, and which REJECTED' do
       post :create, :user => @invite.merge(
         :email => "mbs@gmail.com, foo@bar.com, foo.com, lala@foo, cool@bar.com")
-      flash[:notice].should_not be_empty
+      flash[:notice].should_not be_blank
       flash[:notice].should =~ /foo\.com/
       flash[:notice].should =~ /lala@foo/
     end

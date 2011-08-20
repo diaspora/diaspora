@@ -39,7 +39,7 @@ describe ProfilesController do
           :first_name => "Will",
           :last_name  => "Smith"
         }
-      flash[:notice].should_not be_empty
+      flash[:notice].should_not be_blank
     end
 
     it 'sets tags' do
