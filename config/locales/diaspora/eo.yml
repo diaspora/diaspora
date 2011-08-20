@@ -37,6 +37,7 @@ eo:
             person: 
               invalid: "ne estas valida."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "jam okupiĝis."
   ago: "antaŭ %{time}"
   all_aspects: "Ĉiuj Aspektoj"
@@ -117,6 +118,7 @@ eo:
         content: "Vi povas konekti la postajn servojn kun DIASPORA*:"
         heading: "Konekti Servojn"
       tags_following: "Abonitaj Etikedoj"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Viaj Aspektoj"
     many: "%{count} aspektoj"
     move_contact: 
@@ -174,7 +176,7 @@ eo:
     create: 
       failure: "Ne povis krei kontakton"
     featured: 
-      featured_users: "Mojosaj Uzantoj"
+      featured_users: "Prezentataj Uzantoj"
     few: "%{count} kontaktoj"
     index: 
       add_a_new_aspect: "Aldoni novan aspekton"
@@ -251,6 +253,7 @@ eo:
       tagline_first_half: "Konigi tio, kio vi volas,"
       tagline_second_half: "kun kiu vi volas."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Ne povis trovi invitan ĵetonon"
     create: 
@@ -276,7 +279,6 @@ eo:
       to: "Al"
   layouts: 
     application: 
-      have_a_problem: "Ĉu vi havas problemon?  Trovu riparon tie ĉi."
       powered_by: "FUNKCIAS PER DIASPORA*"
       public_feed: "Publika DIASPORA* Afiŝostrio de %{name}"
       toggle: "inversigi al poŝtelefona retpaĝaro"
@@ -390,6 +392,7 @@ eo:
       other: "%{actors} komencis konigi kun vi."
       zero: "%{actors} komencis konigi kun vi."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "kliku tie ĉi"
     comment_on_post: 
       reply: "Respondi aŭ vidi afiŝon de %{name} >"
@@ -470,6 +473,7 @@ eo:
       fail: "Ni bedaŭras, sed ni ne povis trovi je %{handle}."
     zero: "neniu homo"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Ne povis alŝuti bildon.  Ĉu vi certas, ke tiu estis bilda doseiro?"
       runtime_error: "Ne povis alŝuti bildon.  Probable estis la farado de unu el tiuj Volapukistoj."
@@ -497,9 +501,8 @@ eo:
       edit: "redakti"
       edit_delete_photo: "Redakti bildpriskribon / forigi bildon"
       make_profile_photo: "estigi profilbildon"
-      original_post: "Origina Afiŝo"
+      show_original_post: "Show original post"
       update_photo: "Ĝisdatigi Bildon"
-      view: "vidi"
     update: 
       error: "Ne povis redakti bildon."
       notice: "Bildo sukcese ĝisdatiĝis."
@@ -574,6 +577,7 @@ eo:
     new_request_to_person: 
       sent: "sendita!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Estis eraro, kiam repartoprenanta tiun ĉi afiŝon."
     reshare: 
@@ -596,17 +600,11 @@ eo:
     failure: 
       error: "estis eraro, kiam ni provis konektigi tiun servon"
     finder: 
-      friends: 
-        few: "%{count} amikoj"
-        many: "%{count} amikoj"
-        one: "1 amiko"
-        other: "%{count} amikoj"
-        zero: "nul amikoj"
-      invite_your_friends_from: "Invitu viajn amikojn el %{service}"
-      not_connected: "ne ligita"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Ligi al Facebook"
-      connect_to_tumblr: "Konekti al Tumblr"
+      connect_to_tumblr: "Ligi al Tumblr"
       connect_to_twitter: "Ligi al Twitter"
       disconnect: "malkonekti"
       edit_services: "Redakti servojn"
@@ -618,6 +616,7 @@ eo:
       join_me_on_diaspora: "Kuniĝu kun mi ĉe DIASPORA*"
     remote_friend: 
       invite: "inviti"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "resendi"
   settings: "Agordoj"
   shared: 
@@ -747,30 +746,32 @@ eo:
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
-      finished: "Finita!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
+      aspects: "aspects"
+      connect_to: "Ligi al"
+      connect_to_your_other_social_networks: "Ligi al viaj aliaj sociaj retoj"
+      connect_with_people: "Koniĝi kun mojosaj homoj"
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      featured_tags: "Prezentataj etikedoj"
+      featured_users: "Prezentataj uzantoj"
+      fill_out_your_profile: "Kompletigu vian profilon"
+      find_friends: "Trovi amikojn"
+      find_friends_from_facebook: "trovi amikojn per Facebook"
+      finished: "Finita"
+      follow_your_interests: "Aboni viajn interesigojn"
+      hashtag_explanation: "Etikedoj lasu vin pridiri kaj aboni viajn interesigojn.  Ili ankaŭ estas bona metodo trovi novajn homojn ĉe DIASPORA*."
       profile_description: "Make it easier for people to find you by filling out your profile information."
       profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
-      see_all_featured_users: "See all featured users"
-      welcome: "Bonvenon al DIASPORA*!"
-      welcome_with_name: "Welcome, %{name}!"
+        bio: "Pri vi"
+        birthday: "Naskiĝtago"
+        gender: "Sekso"
+        location: "Loko"
+        name: "Nomo"
+        photo: "Profilbildo"
+        tags: "Etikedoj"
+      see_all_featured_users: "Vidi ĉiujn prezentatajn uzantojn"
+      welcome: "Bonvenon!"
+      welcome_with_name: "Bonvenon, %{name}!"
     public: 
       does_not_exist: "Uzanto %{username} ne ekzistas!"
     update: 

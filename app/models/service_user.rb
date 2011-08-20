@@ -18,6 +18,14 @@ class ServiceUser < ActiveRecord::Base
     self.person_id.present?
   end
 
+  def self.username_of_service_user_by_uid(uid)
+     if su = ServiceUser.find_by_uid(uid)
+      su.username
+    else
+      nil
+    end
+  end
+
   def attach_local_models
     service_for_uid = Services::Facebook.where(:type => service.type.to_s, :uid => self.uid).first
     if !service_for_uid.blank? && (service_for_uid.user.person.profile.searchable)
@@ -30,8 +38,8 @@ class ServiceUser < ActiveRecord::Base
       self.contact = self.service.user.contact_for(self.person)
     end
 
-    self.invitation = Invitation.joins(:recipient).where(:sender_id => self.service.user_id,
-                                                            :users => {:invitation_service => self.service.provider,
-                                                                       :invitation_identifier => self.uid}).first
+    self.invitation = Invitation.where(:sender_id => self.service.user_id,
+                                       :service => self.service.provider,
+                                       :identifier => self.uid).first
   end
 end

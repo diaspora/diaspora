@@ -29,4 +29,4 @@
         = form_for [conversation, Message.new] do |message|
           = message.text_area :text, :rows => 5, :tabindex => 1
           .right
-            = message.submit t('.reply').capitalize, :class => 'button creation', :tabindex => 2
+            = message.submit t('.reply').capitalize, :disable_with => t('.replying'), :class => 'button creation', :tabindex => 2

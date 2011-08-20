@@ -37,6 +37,7 @@ pl:
             person: 
               invalid: "is invalid."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "jest już zajęta."
   ago: "%{time} temu"
   all_aspects: "Wszystkie aspekty"
@@ -117,6 +118,7 @@ pl:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Your Aspects"
     many: "%{count} aspektów"
     move_contact: 
@@ -251,6 +253,7 @@ pl:
       tagline_first_half: "Dziel się czym chcesz"
       tagline_second_half: "i z kim chcesz."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Identyfikator zaproszenia nie znaleziony"
     create: 
@@ -276,7 +279,6 @@ pl:
       to: "Do"
   layouts: 
     application: 
-      have_a_problem: "Masz problem? Tu znajdziesz rozwiązanie"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Publiczny kanał Diaspory użytkownika %{name}"
       toggle: "przełącz widok mobilny"
@@ -390,6 +392,7 @@ pl:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +473,7 @@ pl:
       fail: "Wybacz, nie można było znaleźć %{handle}."
     zero: "nikt"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Nie udało się przesłać zdjęcia. Czy @{m,f:jesteś pew}{m:ien|f:na|n:to na pewno}{m,f: że to} był obraz?"
       runtime_error: "Nie udało się przesłać zdjęcia. Czy @{m:zapiąłeś |f:zapięłaś }pasy bezpieczeństwa@{n: są zapięte}?"
@@ -497,9 +501,8 @@ pl:
       edit: "edytuj"
       edit_delete_photo: "Edytuj opis zdjęcia / usuń zdjęcie"
       make_profile_photo: "ustaw jako zdjęcie profilowe"
-      original_post: "Pierwotny wpis"
+      show_original_post: "Show original post"
       update_photo: "Aktualizuj zdjęcie"
-      view: "podgląd"
     update: 
       error: "Błąd podczas edycji zdjęcia."
       notice: "Pomyślnie zaktualizowano zdjęcie."
@@ -574,6 +577,7 @@ pl:
     new_request_to_person: 
       sent: "wysłano!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -596,14 +600,8 @@ pl:
     failure: 
       error: "wystąpił błąd podczas łączenia z tą usługą"
     finder: 
-      friends: 
-        few: "%{count} znajomych"
-        many: "%{count} znajomych"
-        one: "1 znajomy"
-        other: "%{count} znajomych"
-        zero: "żadnych znajomych"
-      invite_your_friends_from: "Zaproś swoich znajomych z serwisu %{service}"
-      not_connected: "nie połączono"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Połącz z Facebookiem"
       connect_to_tumblr: "Connect to Tumblr"
@@ -618,6 +616,7 @@ pl:
       join_me_on_diaspora: "Dołącz do mnie w serwisie DIASPORA*"
     remote_friend: 
       invite: "zaproś"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "wyślij ponownie"
   settings: "Ustawienia"
   shared: 
@@ -747,10 +746,12 @@ pl:
       your_email: "Twój e-mail"
       your_handle: "Twój identyfikator w Diasporze"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

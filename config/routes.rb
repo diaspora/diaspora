@@ -90,7 +90,6 @@ Diaspora::Application.routes.draw do
   scope 'admins', :controller => :admins do
     match :user_search
     get   :admin_inviter
-    get   :add_invites, :as => 'add_invites'
     get   :stats, :as => 'pod_stats'
   end
 

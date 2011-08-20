@@ -69,12 +69,12 @@ JSON
 
       it 'attaches local models' do
         @service.save_friends
-        @service.service_users.first.person.should == @user2.person
+        @service.service_users.where(:uid => @user2_fb_id).first.person.should == @user2.person
       end
 
       it 'overwrites local model information' do
         @service.save_friends
-        su = @service.service_users.first
+        su = @service.service_users.where(:uid => @user2_fb_id).first
         su.person.should == @user2.person
         su.contact.should == nil
 

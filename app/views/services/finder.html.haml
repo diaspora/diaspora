@@ -5,27 +5,25 @@
 - content_for :head do
   = include_javascripts :finder
 
-#aspect_edit_pane.larger.friend_finder
-  #facebox_header
-    %h4
-      = t('.invite_your_friends_from', :service => params[:provider].titleize)
-      .description
-        - if @friends.size > 0
-          = t('.friends', :count => @friends.size)
-        - else
-          %i= t('.not_connected')
+#section_header
+  %h2
+    = t('contacts.index.title')
 
+= render 'shared/contact_sidebar'
 
-  .contact_list
+.span-18.last.searchable
+  = search_field_tag :contact_search, "", :id => "contact_list_search", :class => 'contact_list_search', :results => 5, :placeholder => t('search')
+  %h3
+    = t('.service_friends', :service => params[:provider].titleize)
+  #people_stream.stream.contacts
     - if @friends.size > 0
-      = render :partial => 'services/finder', :locals => {:friends => @friends}
+      = render :partial => 'remote_friend', :collection => @friends, :as => :friend
+
+      /= will_paginate @friends
     - else
-      %br
-      %br
-      %br
-      %br
-      %br
-      %br
-      %br
-      %h4{:style => 'text-align:center;'}
-        = link_to t('services.index.connect_to_facebook'), "/auth/facebook" if AppConfig[:configured_services].include?('facebook')
+      .no_contacts
+        = link_to(image_tag("social_media_logos/facebook-48x48.png"), "/auth/facebook")
+        %br
+        %br
+        %h4
+          = link_to t('services.index.connect_to_facebook'), '/auth/facebook'

@@ -37,6 +37,7 @@ ar:
             person: 
               invalid: "غير صالح."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "حُجِزَ بالفعل."
   ago: "منذ %{time}"
   all_aspects: "كل الفئات"
@@ -117,6 +118,7 @@ ar:
         content: "يمكنك وصل حساب ديسبورا الخاص بك بالخدمات الآتية:"
         heading: "صل حسابك بالخدمات"
       tags_following: "الوسوم المتابعة"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "فئاتك"
     many: "%{count} فئات"
     move_contact: 
@@ -234,7 +236,7 @@ ar:
       correct_the_following_errors_and_try_again: ".صَحِّح الأخطاء التالية ثم أعد المحاولة"
       invalid_fields: "حقولٌ غير صالحة"
   fill_me_out: "إملأني"
-  find_people: "ابحث عن الناس"
+  find_people: "ابحث عن الأصدقاء أو #الوسوم"
   hide: "آَخْفِ"
   home: 
     show: 
@@ -251,6 +253,7 @@ ar:
       tagline_first_half: "شارك ما تريد،"
       tagline_second_half: "مع من تريد."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "الدعوة الرمزية غير موجودة"
     create: 
@@ -276,7 +279,6 @@ ar:
       to: "إلى"
   layouts: 
     application: 
-      have_a_problem: "واجهت مشكلة؟ اعثر على حل هنا"
       powered_by: "بدعم DIASPORA*"
       public_feed: "ملقم دياسبرا العام لـ %{name}"
       toggle: "حَوِّل لموقع الهواتف المحمولة"
@@ -390,6 +392,7 @@ ar:
       other: "%{actors} بدؤوا المشاركة معك."
       zero: "%{actors} بدأ المشاركة معك."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "اضغط هنا"
     comment_on_post: 
       reply: "رُد أو اعرض مشاركة %{name} >"
@@ -470,6 +473,7 @@ ar:
       fail: "للأسف، لم نجد %{handle}."
     zero: "لا أحد"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "فشل رفع الصورة، أواثقٌ أن هذا الملف صورة؟"
       runtime_error: "فشل رفع الصورة، هل قمت بربطها مع نص؟"
@@ -497,9 +501,8 @@ ar:
       edit: "عَدِّل"
       edit_delete_photo: "عَدِّل وصف الصورة / احْذِف الصورة"
       make_profile_photo: "اجعلها صورة شخصية"
-      original_post: "المشاركة الأصلية"
+      show_original_post: "Show original post"
       update_photo: "حَدِّث الصورة"
-      view: "شاهد"
     update: 
       error: "فشل تحرير الصورة."
       notice: "حُدِّثَت الصورة بنجاح."
@@ -574,6 +577,7 @@ ar:
     new_request_to_person: 
       sent: "أُرْسِلَت!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "هناك خطأ ما في إعادة نشر هذه المشاركة."
     reshare: 
@@ -585,7 +589,7 @@ ar:
         other: "أُعِيدَ نشرها %{count} مرة"
         zero: "أَعِد النشر"
       reshare_confirmation: "هل أُعِد نشر مشاركة %{author} - ومحتواها: %{text} ?"
-      reshare_original: "Reshare orignial"
+      reshare_original: "أعد نشر المشاركة الأصلية"
       show_original: "اعرض الأصلية"
   search: "بحث"
   services: 
@@ -596,14 +600,8 @@ ar:
     failure: 
       error: "خطأ خلال محاولة الإتصال بالخدمة"
     finder: 
-      friends: 
-        few: "%{count} أصدقاء"
-        many: "%{count} أصدقاء"
-        one: "1 أصدقاء"
-        other: "%{count} أصدقاء"
-        zero: "لا أصدقاء"
-      invite_your_friends_from: "دعوة أصدقائك من %{service}"
-      not_connected: "غير متصل"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "إتصل بـ فيسبوك"
       connect_to_tumblr: "صل حسابك بـ Tumblr"
@@ -618,6 +616,7 @@ ar:
       join_me_on_diaspora: "انضم إلي في DIASPORA*"
     remote_friend: 
       invite: "دعوة"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "إعادة إرسال"
   settings: "إعدادات"
   shared: 
@@ -747,10 +746,12 @@ ar:
       your_email: "بريدك الإلكتروني"
       your_handle: "وسيط ديسبورا الخاص بك"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

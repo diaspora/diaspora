@@ -66,6 +66,12 @@ module Diaspora
         Contact.where(:user_id => self.id, :person_id => person_id).includes(:person => :profile).first
       end
 
+      # @param [Person] person
+      # @return [Boolean] whether person is a contact of this user
+      def has_contact_for?(person)
+        Contact.exists?(:user_id => self.id, :person_id => person.id)
+      end
+
       def people_in_aspects(requested_aspects, opts={})
         allowed_aspects = self.aspects & requested_aspects
         person_ids = contacts_in_aspects(allowed_aspects).collect{|contact| contact.person_id}

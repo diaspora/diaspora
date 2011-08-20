@@ -14,12 +14,23 @@ module Job
       socket_to_users(post, recipient_user_ids) if post.respond_to?(:socket_to_user)
       notify_mentioned_users(post)
     end
+
     def self.create_visibilities(post, recipient_user_ids)
       contacts = Contact.where(:user_id => recipient_user_ids, :person_id => post.author_id)
-      new_post_visibilities = contacts.map do |contact|
-        PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
+      
+      if postgres?
+        # Take the naive approach to inserting our new visibilities for now.
+        contacts.each do |contact|
+          PostVisibility.find_or_create_by_contact_id_and_post_id(contact.id, post.id)
+        end
+      else
+        # Use a batch insert on mySQL.
+        new_post_visibilities = contacts.map do |contact|
+          PostVisibility.new(:contact_id => contact.id, :post_id => post.id)
+        end
+        PostVisibility.import(new_post_visibilities)
       end
-      PostVisibility.import new_post_visibilities
+
     end
     def self.socket_to_users(post, recipient_user_ids)
       recipient_user_ids.each do |id|

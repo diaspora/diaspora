@@ -37,6 +37,7 @@ ru:
             person: 
               invalid: "недействительно."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "уже занято."
   ago: "%{time} назад"
   all_aspects: "Все аспекты"
@@ -117,6 +118,7 @@ ru:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Your Aspects"
     many: "%{count} аспект[-а, -ов]"
     move_contact: 
@@ -251,6 +253,7 @@ ru:
       tagline_first_half: "Поделитесь чем хотите,"
       tagline_second_half: "с кем вы хотите."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Код приглашения не найден"
     create: 
@@ -276,7 +279,6 @@ ru:
       to: "Для"
   layouts: 
     application: 
-      have_a_problem: "Столкнулись с проблемой? Попробуйте найти ответ здесь"
       powered_by: "ПОДДЕРЖИВАЕТСЯ ДИАСПОРОЙ*"
       public_feed: "Общественный канал диаспоры для %{name}"
       toggle: "переключить на мобильный сайт"
@@ -390,6 +392,7 @@ ru:
       other: "%{actors} начали делиться с вами."
       zero: "%{actors} начали делиться с вами."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +473,7 @@ ru:
       fail: "К сожалению, мы не смогли найти %{handle}."
     zero: "нет никого"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Сбой при загрузке фотографии. Вы уверены, что это правильный файл?"
       runtime_error: "Сбой при загрузке фотографии."
@@ -497,9 +501,8 @@ ru:
       edit: "редактировать"
       edit_delete_photo: "Изменить описание фотографии / удалить фотографию"
       make_profile_photo: "сделать фотографией профиля"
-      original_post: "Исходное сообщение"
+      show_original_post: "Show original post"
       update_photo: "Обновить фотографию"
-      view: "смотреть"
     update: 
       error: "Не удалось изменить фотографию."
       notice: "Фотография успешно загружена."
@@ -574,6 +577,7 @@ ru:
     new_request_to_person: 
       sent: "отправлено!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -596,14 +600,8 @@ ru:
     failure: 
       error: "Произошла ошибка при подключении этого сервиса"
     finder: 
-      friends: 
-        few: "%{count} друг[-а, -зей]"
-        many: "%{count} друга[-зей]"
-        one: "1 друг"
-        other: "%{count} друг[-а, -зей]"
-        zero: "нет друзей"
-      invite_your_friends_from: "Пригласить своих друзей из %{service}"
-      not_connected: "не соединён"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Подключение к Facebook"
       connect_to_tumblr: "Подключение к Tumblr"
@@ -618,6 +616,7 @@ ru:
       join_me_on_diaspora: "Присоединяйтесь ко мне в DIASPORЕ*"
     remote_friend: 
       invite: "приглашение"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "отправить повторно"
   settings: "Настройки"
   shared: 
@@ -747,10 +746,12 @@ ru:
       your_email: "Ваш адрес электронной почты (email)"
       your_handle: "Ваше управление Диаспорой"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

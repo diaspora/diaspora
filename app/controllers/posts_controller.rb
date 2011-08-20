@@ -27,8 +27,8 @@ class PostsController < ApplicationController
       end
 
       respond_to do |format|
-        format.all{ }
         format.xml{ render :xml => @post.to_diaspora_xml }
+        format.any{}
       end
 
     else

@@ -51,6 +51,12 @@
 
     = yield(:head)
 
+    -unless Rails.env == "production" 
+      :css
+        .translation_missing {
+          color: purple;
+          background-color: red;
+        }
     -if AppConfig[:google_a_site]
       :javascript
         var _gaq = _gaq || [];
@@ -105,8 +111,6 @@
           %li= link_to t('.whats_new'), 'https://github.com/diaspora/diaspora/wiki/Changelog'
           %li= link_to(t('layouts.application.toggle'), toggle_mobile_path)  if is_mobile_device?
         = image_tag 'powered_by_diaspora.png', :height => "11px", :width => "145px"
-        %br
-        = link_to t('.have_a_problem'), 'http://diaspora.shapado.com/'
 
     -if !@landing_page && request.url.match(/joindiaspora.com/)
       :javascript

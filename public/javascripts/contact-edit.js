@@ -4,9 +4,18 @@
 
 var ContactEdit = {
   init: function(){
-    $('.dropdown .dropdown_list > li').live('click', function(evt){
+    $.extend(ContactEdit, AspectsDropdown);
+    $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list >li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
+    // $('.button.resend').live('click', function(evt){
+    //   evt.preventDefault();
+    //   $.post($(this).href, {}, 
+    //          function(data){ 
+    //            console.log(data);
+    //            ContactEdit.processSuccess($(this), evt, data)
+    //          });
+    // });
   },
 
   updateNumber: function(dropdown, personId, number){
@@ -15,33 +24,48 @@ var ContactEdit = {
 
     if (number == 0) {
       button.removeClass("in_aspects");
-      replacement = Diaspora.I18n.t("aspect_dropdown.toggle.zero");
+      replacement = Diaspora.widgets.i18n.t("aspect_dropdown.toggle.zero");
     }else if (number == 1) { 
       button.addClass("in_aspects");
       replacement = dropdown.find(".selected").first().text();
     }else if (number < 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
     }else if (number > 3) {
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
     }else {
       //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
-      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
+      replacement = Diaspora.widgets.i18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
-
-    button.html(replacement + ' ▼');
+    else {
+      ContactEdit.toggleAspectMembership(li, evt);
+    }
   },
-  
-  toggleCheckbox: 
-    function(check){
-      check.parent('li').toggleClass('selected');
-    },
 
-  processClick: function(li, evt){
+  inviteFriend: function(li, evt) {
+    $.post('/services/inviter/facebook.json', {
+      "aspect_id" : li.data("aspect_id"),
+      "uid" : li.parent().data("service_uid")
+    }, function(data){
+      ContactEdit.processSuccess(li, evt, data);
+    });
+  },
+
+  processSuccess: function(element, evt, data) {
+    element.removeClass('loading')
+    element.parent().parent().html('sent!');
+    if (data.url != undefined) {
+      window.location = data.url;
+    } else {
+      element.toggleClass("selected");
+      Diaspora.widgets.flashes.render({'success':true, 'notice':data.message});
+    }
+  },
+
+  toggleAspectMembership: function(li, evt) {
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
 
-    var checkbox = li.find('img.check'),
-        selected = li.hasClass("selected"),
+    var selected = li.hasClass("selected"),
         routedId = selected ? "/42" : "";
 
     $.post("/aspect_memberships" + routedId + ".json", {
@@ -52,11 +76,11 @@ var ContactEdit = {
       ContactEdit.toggleCheckbox(checkbox);
       ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
 
-      Diaspora.Page.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
+      Diaspora.page.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
-  },
+  }
 };
 
-  $(document).ready(function(){
-    ContactEdit.init();
-  });
+$(document).ready(function(){
+  ContactEdit.init();
+});

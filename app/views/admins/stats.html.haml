@@ -1,4 +1,109 @@
+
 .span-24.last
+  %br
+  %br
+  %h1
+    Usage Statistics
+    %div{:style => "float:right;"}
+      = form_tag('/admins/stats', :method => 'get') do
+        %select{:name => 'range'}
+          %option{:value => 'daily', :selected => ('selected' if params[:range] == 'daily')}
+            Daily
+          %option{:value => 'week', :selected => ('selected' if params[:range] == 'week')}
+            Week
+          %option{:value => '2weeks', :selected => ('selected' if params[:range] == '2weeks')}
+            2 Weeks
+          %option{:value => 'month', :selected => ('selected' if params[:range] == 'month')}
+            Month
+
+        = submit_tag 'go'
+  %br
+  %h3
+    Displaying results from the
+    %b
+      = @segment
+    segment
+  
+  %br
+  %br
+  %br
+
+%hr
+.clearfix
+
+.span-24.last
+  - [:posts, :comments, :aspect_memberships, :users].each do |name|
+    - model = eval("@#{name.to_s}")
+    - if name == :aspect_memberships
+      - name = :shares
+
+    .span-6{:class => ('last' if name == :users)}
+      %h2{:style => 'font-weight:bold;'}
+        = model[:yesterday]
+        = name.to_s
+      %h4
+        = model[:day_before]
+        %span.percent_change{:class => (model[:change] > 0 ? "green" : "red")}
+          = "(#{model[:change]}%)"
+
+  %br
+  %br
+  %br
+  %br
+  %br
+  %hr
+
+
+  %p{:style => "text-align:center;"}
+    The current segment is averaging
+    %b
+      #{@posts[:yesterday]/@user_count.to_f}
+    posts per user, from
+    %b
+      #{@posts[:day_before]/@user_count.to_f}
+
+  /%h3
+  /  Posts over time
+
+  /#stats_graph{:style => "text-align:right;position:relative;vertical-align:bottom;background-color:#eee;"}
+  /  = @posts_per_day.inspect
+  /  /- @posts_per_day.each do |key, val|
+  /  /  .asdo{:style => "display:inline-block;width:35px;vertical-align:bottom;background-color:#666;height:#{(val/@most_posts_within)*200}px;"}
+           
+
+  %br
+  %br
+  %br
+  %br
+    
+    
+
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+%br
+
+.span-24.last
+  %h2
+    Misc Stuff
+  %br
+  %br
+
   %h3
     = for tg in @popular_tags
       = link_to tg, tags_path(tg)
@@ -9,8 +114,8 @@
 .span-12
   %h3
     New public posts
-  .stream
-    = render 'shared/stream', :posts => @new_posts
+  /.stream
+  /  /= render 'shared/stream', :posts => @new_public_posts
 
 .span-12.last
   %h3

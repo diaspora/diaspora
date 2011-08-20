@@ -65,17 +65,28 @@ module AspectGlobalHelper
     end
   end
 
-  def aspect_dropdown_list_item(aspect, contact, person)
-    checked = (contact.persisted? && contact.aspect_memberships.detect{ |am| am.aspect_id == aspect.id})
+  def aspect_membership_dropdown(contact, person, hang, aspect=nil)
+    selected_aspects = all_aspects.select{|aspect| contact.in_aspect?(aspect) }
+
+    render "shared/aspect_dropdown",
+      :selected_aspects => selected_aspects,
+      :person => person,
+      :hang => hang,
+      :dropdown_class => "aspect_membership"
+  end
+
+  def aspect_dropdown_list_item(aspect, checked)
     klass = checked ? "selected" : ""
 
     str = <<LISTITEM
 <li data-aspect_id=#{aspect.id} class='#{klass}'>
-  <img src='/images/icons/check_yes_ok.png' width=18 height=18 class='check'/>
-  <img src='/images/icons/check_yes_ok_white.png' width=18 height=18 class='checkWhite'/>
   #{aspect.name}
 </li>
 LISTITEM
     str.html_safe
+  end
+
+  def dropdown_may_create_new_aspect
+    @aspect == :profile || @aspect == :tag || @aspect == :search || @aspect == :notification
   end
 end

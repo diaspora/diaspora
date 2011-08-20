@@ -12,9 +12,9 @@
   -webkit-border-radius:2px;
   -moz-border-radius:2px;
   border-radius:2px;
-  -webkit-box-shadow:0 0 12px rgba(0,0,0,0.8);
-  -moz-box-shadow:0 0 12px rgba(0,0,0,0.8);
-  box-shadow:0 0 12px rgba(0,0,0,0.8);
+  -webkit-box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);
+  -moz-box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);;
+  box-shadow:0 0 10px rgba(0,0,0,0.8), 0 2px 200px rgba(255,255,255,0.2);;
 }
 
 #facebox .content {
@@ -73,6 +73,6 @@
 }
 
 .facebox_overlayBG {
-  background-color: #fff;
+  background-color: #000;
   z-index: 99;
 }

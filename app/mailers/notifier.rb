@@ -74,7 +74,7 @@ class Notifier < ActionMailer::Base
     I18n.with_locale(@receiver.language) do
       mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
            :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => "Re: #{post_message(@comment.parent, :length => TRUNCATION_LEN)}")
+           :subject => "Re: #{comment_email_subject}")
     end
   end
 
@@ -89,11 +89,14 @@ class Notifier < ActionMailer::Base
     log_mail(recipient_id, sender_id, 'comment_on_post')
 
     I18n.with_locale(@receiver.language) do
-      subject_message = post_message(@comment.parent, :length => TRUNCATION_LEN)
       mail(:from => "\"#{@sender.name} (Diaspora)\" <#{AppConfig[:smtp_sender_address]}>",
            :to => "\"#{@receiver.name}\" <#{@receiver.email}>",
-           :subject => "Re: #{subject_message}")
+           :subject => "Re: #{comment_email_subject}")
     end
+  end
+
+  def comment_email_subject
+    truncate(@comment.parent.comment_email_subject, :length => TRUNCATION_LEN)
   end
 
   def private_message(recipient_id, sender_id, message_id)

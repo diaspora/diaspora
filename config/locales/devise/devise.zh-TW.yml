@@ -34,7 +34,7 @@ zh-TW:
         no_account_till: "在你按了以上連結並註冊後,你的帳號才會成功開戶."
         subject: "有人邀請你加入 Diaspora!"
       inviters: 
-        accept_at: ", 在 %{url}, 你可以透過以下連結來接受."
+        accept_at: "於 %{url}, 你可以透過以下連結來接受."
         has_invited_you: "%{name} 邀請你加入 Diaspora"
         have_invited_you: "%{names} 邀請你加入 Diaspora"
       reset_password_instructions: 

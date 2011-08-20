@@ -35,6 +35,7 @@ describe("Publisher", function() {
   describe("bindAspectToggles", function() {
     beforeEach( function(){
       spec.loadFixture('status_message_new');
+      Publisher.open();
     });
 
     it('gets called on initialize', function(){
@@ -44,40 +45,30 @@ describe("Publisher", function() {
     });
    
     it('toggles removed only on the clicked icon', function(){
-      expect($("#publisher .aspect_badge").first().hasClass("removed")).toBeFalsy();
-      expect($("#publihser .aspect_badge").last().hasClass("removed")).toBeFalsy();
+      Publisher.initialize();
+
+      expect($("#publisher .dropdown .dropdown_list li").first().hasClass("selected")).toBeTruthy();
+      expect($("#publihser .dropdown .dropdown_list li").last().hasClass("selected")).toBeFalsy();
 
       Publisher.bindAspectToggles();
-      $("#publisher .aspect_badge").last().click();
+      $("#publisher .dropdown .dropdown_list li").last().click();
 
-      expect($("#publisher .aspect_badge").first().hasClass("removed")).toBeFalsy();
-      expect($("#publisher .aspect_badge").last().hasClass("removed")).toBeTruthy();
+      expect($("#publisher .dropdown .dropdown_list li").first().hasClass("selected")).toBeTruthy();
+      expect($("#publisher .dropdown .dropdown_list li").last().hasClass("selected")).toBeTruthy();
     });
 
     it('binds to the services icons and toggles the hidden field', function(){
       spyOn(Publisher, 'toggleAspectIds');
       Publisher.bindAspectToggles();
-      var aspBadge = $("#publisher .aspect_badge a").last();
-      var aspNum = aspBadge.attr('data-guid');
+      var aspBadge = $("#publisher .dropdown .dropdown_list li").last();
+      var aspNum = aspBadge.attr('data-aspect_id');
       aspBadge.click();
 
       expect(Publisher.toggleAspectIds).toHaveBeenCalledWith(aspNum);
     });
 
-    it('does not execute if it is the last non-removed aspect', function(){
-      var aspects = $("#publisher .aspect_badge").length;
-      spyOn(Publisher, 'toggleAspectIds');
-
-      Publisher.bindAspectToggles();
-      spyOn(window, 'alert');// click through the dialog if it happens
-      $("#publisher .aspect_badge a").each(function(){$(this).click()});
-
-      var lastAspectNum = $("#publisher .aspect_badge a").last().attr('data-guid');
-
-      expect($("#publisher .aspect_badge.removed").length).toBe(aspects-1);
-      expect(Publisher.toggleAspectIds.callCount).toBe(1);
-    });
   });
+
   describe('toggleAspectIds', function(){
     beforeEach( function(){
       spec.loadFixture('status_message_new');

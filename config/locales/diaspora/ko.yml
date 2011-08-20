@@ -37,6 +37,7 @@ ko:
             person: 
               invalid: "유효하지 않습니다."
             username: 
+              invalid: ": 유효하지 않은 사용자명입니다. 로마자, 아라비아 숫자, 언더스코어만 쓸 수 있습니다"
               taken: "이미 쓰이고 있습니다."
   ago: "%{time} 전"
   all_aspects: "모든 애스펙"
@@ -106,7 +107,7 @@ ko:
         content_1: "내 디아스포라 ID:"
         content_2: "내 ID를 주면 누구든지 디아스포라에서 날 찾을수 있습니다."
         heading: "디아스포라 ID"
-      donate: "Donate"
+      donate: "기부하기"
       handle_explanation: "이 디아스포라 핸들은 이메일 주소처럼 남에게 건넬 수 있습니다."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "컨택 없음"
@@ -117,6 +118,7 @@ ko:
         content: "다음의 여러 서비스를 디아스포라에 연결할 수 있습니다"
         heading: "서비스 연결"
       tags_following: "팔로우된 태그들"
+      unfollow_tag: "#%{tag} 태그 팔로우 멈추기"
       your_aspects: "내 애스펙"
     many: "애스펙 %{count}개"
     move_contact: 
@@ -127,18 +129,18 @@ ko:
       create: "만들기"
       name: "이름"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "추천 사용자"
+      or_featured: "%{link}와 공유할 수도 있습니다"
+      try_adding_some_more_contacts: "더 많은 컨택을 검색(위)하거나 초대(오른쪽)하세요."
+      you_should_add_some_more_contacts: "컨택을 좀 더 추가하세요!"
     no_posts_message: 
       start_talking: "아직 아무 이야기도 없습니다. 대화를 시작하세요!"
     one: "애스펙 한 개"
     other: "애스펙 %{count}개"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "지인"
       family: "가족"
-      friends: "Friends"
+      friends: "친구"
       work: "직장"
     selected_contacts: 
       manage_your_aspects: "내 애스펙 관리하기."
@@ -174,7 +176,7 @@ ko:
     create: 
       failure: "컨택을 만들 수 없습니다"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "추천 사용자"
     few: "컨택 %{count}명"
     index: 
       add_a_new_aspect: "새 애스펙 추가"
@@ -216,7 +218,7 @@ ko:
     new: 
       abandon_changes: "변경을 포기할까요?"
       send: "보내기"
-      sending: "Sending..."
+      sending: "보내는 중···"
       subject: "제목"
       to: "받는이"
     show: 
@@ -251,6 +253,7 @@ ko:
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
   invitations: 
+    a_facebook_user: "페이스북 사욤자"
     check_token: 
       not_found: "초대장 토큰을 찾을 수 없습니다"
     create: 
@@ -261,8 +264,8 @@ ko:
       rejected: "아래의 이메일 주소는 문제가 있습니다: "
       sent: "초대장이 보내진 이메일 주소: "
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "초대 승락하기"
+      your_account_awaits: "내 계정이 기다리고있습니다!"
     new: 
       already_invited: "초대한 친구들"
       aspect: "애스펙"
@@ -276,7 +279,6 @@ ko:
       to: "받는이"
   layouts: 
     application: 
-      have_a_problem: "문제가 있습니까? 여기서 해결하세요"
       powered_by: "디아스포라* 제공"
       public_feed: "%{name}님의 공개 디아스포라 피드"
       toggle: "모바일 사이트 전환"
@@ -390,6 +392,7 @@ ko:
       other: "%{actors}님이 나와 공유를 시작했습니다."
       zero: "%{actors}님이 나와 공유를 시작했습니다."
   notifier: 
+    a_post_you_shared: "공유물"
     click_here: "여기를 클릭하세요"
     comment_on_post: 
       reply: "%{name}님의 공유물에 댓글달기 >"
@@ -454,7 +457,7 @@ ko:
       add_some: "태그 달기"
       does_not_exist: "없는 사람입니다!"
       edit: "고치기"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name}님은 아직 나와 아무것도 공유하지 않았습니다!"
       incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
       message: "쪽지"
@@ -470,6 +473,7 @@ ko:
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
   photos: 
+    comment_email_subject: "%{name}님의 사진"
     create: 
       integrity_error: "사진 업로드할 수 없습니다. 이미지가 맞습니까?"
       runtime_error: "사진을 업로드할 수 없습니다. 안전벨트를 확인하셨습니까?"
@@ -497,9 +501,8 @@ ko:
       edit: "고치기"
       edit_delete_photo: "사진 설명 고치기 / 사진 지우기"
       make_profile_photo: "프로필 사진 만들기"
-      original_post: "원래 공유물"
+      show_original_post: "원래 공유물 보기"
       update_photo: "사진 갱신"
-      view: "보기"
     update: 
       error: "사진 고치기 실패."
       notice: "사진을 성공적으로 갱신했습니다."
@@ -546,13 +549,13 @@ ko:
       unhappy: "무슨 문제라도?"
       update: "갱신하기"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "내 계정 만들기"
       enter_email: "이메일 주소를 입력하세요"
       enter_password: "암호를 입력하세요"
       enter_password_again: "암호를 다시 입력하세요"
       enter_username: "사용자명을 선택하세요 (로마자, 아라비아 숫자, 언더스코어만)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "합류하세요!"
+      sign_up_today: "지금 가입하세요"
   requests: 
     create: 
       sending: "공유를 요청하고 있습니다."
@@ -574,6 +577,7 @@ ko:
     new_request_to_person: 
       sent: "보냈습니다."
   reshares: 
+    comment_email_subject: "%{resharer}님이 재공유한 %{author}님의 공유물"
     create: 
       failure: "이 공유물을 재공유하는데 오류가 발생했습니다."
     reshare: 
@@ -596,14 +600,8 @@ ko:
     failure: 
       error: "서비스 연결중 에러가 발생했습니다."
     finder: 
-      friends: 
-        few: "친구 %{count}명"
-        many: "친구 %{count}명"
-        one: "친구 한 명"
-        other: "친구 %{count}명"
-        zero: "친구 없음"
-      invite_your_friends_from: "%{service} 서비스에서 친구 초대하기"
-      not_connected: "연결 없음"
+      no_friends: "페이스북 친구를 찾을 수 없습니다."
+      service_friends: "%{service} 친구"
     index: 
       connect_to_facebook: "페이스북에 연결"
       connect_to_tumblr: "Tumblr에 연결하기"
@@ -618,6 +616,7 @@ ko:
       join_me_on_diaspora: "디아스포라*에서 만나요!"
     remote_friend: 
       invite: "초대하기"
+      not_on_diaspora: "아직 디아스포라에 없습니다"
       resend: "다시 보내기"
   settings: "설정"
   shared: 
@@ -747,30 +746,32 @@ ko:
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
+      aspects: "그 사람은 내 컨택이 됩니다"
+      connect_to: "연결하기:"
+      connect_to_your_other_social_networks: "다른 소셜 네트워크와 연결하기"
+      connect_with_people: "멋진 사람들과 연결하기"
+      connect_with_people_explanation_pt1: "누군가를 한 개 이상의 애스펙으로 분류하면"
+      connect_with_people_explanation_pt2: "애스펙은 새로운 컨택, 낯익은 컨택, 사적인 컨택을 분류하여 일부와만 공유하거나 일부를 거를 수 있게하는 쉽고 직관적인 방법입니다."
+      featured_tags: "추천 태그"
+      featured_users: "추천 사용자"
+      fill_out_your_profile: "프로필 채우기"
+      find_friends: "친구 찾기"
+      find_friends_from_facebook: "페이스북에서 친구 찾기"
       finished: "완료!"
-      follow_your_interests: "Follow your interests"
-      hashtag_explanation: "Hashtags allow you to talk about and follow your interests.  They're also a great way to find new people on Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      follow_your_interests: "내 관심사 팔로우하기"
+      hashtag_explanation: "해시태그로 내 관심사에 대해 말하거나 팔로우할 수 있습니다. 디아스포라에서 새로운 사람들을 찾을 수 있는 또 하나의 훌륭한 방법입니다."
+      profile_description: "프로필을 채우면 누군가가 나를 더 쉽게 찾을 수 있습니다."
       profile_fields: 
-        bio: "Bio"
-        birthday: "Birthday"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
-        photo: "Photo"
-        tags: "Tags"
-      see_all_featured_users: "See all featured users"
-      welcome: "디아스포라에 오신걸 환영합니다!"
-      welcome_with_name: "Welcome, %{name}!"
+        bio: "자기소개"
+        birthday: "생일"
+        gender: "성별"
+        location: "위치"
+        name: "이름"
+        photo: "사진"
+        tags: "태그"
+      see_all_featured_users: "모든 추천 사용자 보기"
+      welcome: "환영합니다!"
+      welcome_with_name: "%{name}님 환영합니다!"
     public: 
       does_not_exist: "%{username}님을 찾을 수 없습니다!"
     update: 

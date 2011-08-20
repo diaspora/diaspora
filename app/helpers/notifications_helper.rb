@@ -60,7 +60,7 @@ module NotificationsHelper
     number_of_actors = actors.count
     sentence_translations = {:two_words_connector => " #{t('notifications.index.and')} ", :last_word_connector => ", #{t('notifications.index.and')} " }
     actor_links = actors.collect{ |person|
-      person_link(person, :class => 'hovercardable', :what => 'thefuck' )
+      person_link(person, :class => 'hovercardable')
     }
 
     if number_of_actors < 4

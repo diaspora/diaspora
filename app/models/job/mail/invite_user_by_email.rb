@@ -4,11 +4,13 @@
 
 
 module Job
-  class ResendInvitation < Base
-    @queue = :mail
-    def self.perform(invitation_id)
-      inv = Invitation.where(:id => invitation_id).first
-      inv.resend
+  module Mail
+    class InviteUserByEmail < Base
+      @queue = :mail
+      def self.perform(invite_id)
+        invite = Invitation.find(invite_id)
+        invite.send!
+      end
     end
   end
 end

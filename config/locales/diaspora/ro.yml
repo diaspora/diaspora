@@ -37,6 +37,7 @@ ro:
             person: 
               invalid: "is invalid."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "is already taken."
   ago: "%{time} ago"
   all_aspects: "All aspects"
@@ -117,6 +118,7 @@ ro:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Your Aspects"
     many: "%{count} aspects"
     move_contact: 
@@ -251,6 +253,7 @@ ro:
       tagline_first_half: "Share what you want,"
       tagline_second_half: "with whom you want."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Invitaţia nu a fost găsită"
     create: 
@@ -276,7 +279,6 @@ ro:
       to: "Pentru"
   layouts: 
     application: 
-      have_a_problem: "Ai o problemă? Găseşte un răspuns aici"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Public Diaspora Feed for %{name}"
       toggle: "toggle mobile site"
@@ -390,6 +392,7 @@ ro:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +473,7 @@ ro:
       fail: "Sorry, we couldn't find %{handle}."
     zero: "no people"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Încărcarea fotografiei a eşuat. Eşti sigur că a fost o imagine?"
       runtime_error: "Încărcarea fotografiei a eşuat. Eşti sigur că ai centura de siguranţă pusă?"
@@ -497,9 +501,8 @@ ro:
       edit: "editează "
       edit_delete_photo: "Edit photo description / delete photo"
       make_profile_photo: "Setează ca fotografie de profil"
-      original_post: "Original Post"
+      show_original_post: "Show original post"
       update_photo: "Actualizează fotografia"
-      view: "vizualizează"
     update: 
       error: "Nu s-a reuşit editarea fotografiii."
       notice: "Fotografia a fost actualizată cu succes."
@@ -574,6 +577,7 @@ ro:
     new_request_to_person: 
       sent: "trimis!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -596,14 +600,8 @@ ro:
     failure: 
       error: "there was an error connecting that service"
     finder: 
-      friends: 
-        few: "%{count} prieteni"
-        many: "%{count} friends"
-        one: "1 prieten"
-        other: "%{count} prieteni"
-        zero: "nici un prieten"
-      invite_your_friends_from: "Invite your friends from %{service}"
-      not_connected: "nu este conectat"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Conectează cu Facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -618,6 +616,7 @@ ro:
       join_me_on_diaspora: "Join me on DIASPORA*"
     remote_friend: 
       invite: "invite"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "resend"
   settings: "Setări"
   shared: 
@@ -747,10 +746,12 @@ ro:
       your_email: "E-mailul tău"
       your_handle: "Identificatorul tau pe Diaspora"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

@@ -37,6 +37,7 @@ nl:
             person: 
               invalid: "is ongeldig."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "is al bezet."
   ago: "%{time} geleden"
   all_aspects: "Alle Aspecten"
@@ -117,6 +118,7 @@ nl:
         content: "Je kunt de volgende service met Diaspora verbinden:"
         heading: "Verbind Services"
       tags_following: "Gevolgde Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Jouw Aspecten"
     many: "%{count} aspecten"
     move_contact: 
@@ -251,6 +253,7 @@ nl:
       tagline_first_half: "Deel wat je wilt delen,"
       tagline_second_half: "met degenen met wie je het wilt delen."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Uitnodigingstoken niet gevonden"
     create: 
@@ -276,7 +279,6 @@ nl:
       to: "Aan"
   layouts: 
     application: 
-      have_a_problem: "Probleem? Vind hier een antwoord"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Publieke Diaspora Feed van %{name}"
       toggle: "switch mobiele versie"
@@ -390,6 +392,7 @@ nl:
       other: "%{actors} delen nu met jou."
       zero: "%{actors} deelt nu met jou."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "klik hier"
     comment_on_post: 
       reply: "Reageer of bekijk %{name}'s post >"
@@ -470,6 +473,7 @@ nl:
       fail: "Sorry, we konden %{handle} niet vinden."
     zero: "geen mensen"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Foto uploaden mislukt. Weet je zeker dat het een afbeelding was?"
       runtime_error: "Foto uploaden mislukt. Weet je zeker dat je je gordel omhebt?"
@@ -497,9 +501,8 @@ nl:
       edit: "bewerk"
       edit_delete_photo: "Bewerk foto-omschrijving / verwijder foto"
       make_profile_photo: "kies als profielfoto"
-      original_post: "Originele post"
+      show_original_post: "Show original post"
       update_photo: "Update foto"
-      view: "bekijk"
     update: 
       error: "Foto veranderen niet gelukt."
       notice: "Foto succesvol veranderd."
@@ -574,6 +577,7 @@ nl:
     new_request_to_person: 
       sent: "verzonden!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Er is een fout opgetreden bij het herdelen van deze post."
     reshare: 
@@ -596,14 +600,8 @@ nl:
     failure: 
       error: "er ging iets mis bij het verbinden met die service"
     finder: 
-      friends: 
-        few: "%{count} contacten"
-        many: "%{count} vrienden"
-        one: "1 contact"
-        other: "%{count} contacten"
-        zero: "geen contacten"
-      invite_your_friends_from: "Nodig je %{service} contacten uit"
-      not_connected: "niet verbonden"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Verbind met Facebook"
       connect_to_tumblr: "Verbind met Tumblr"
@@ -618,6 +616,7 @@ nl:
       join_me_on_diaspora: "Volg me op DIASPORA*"
     remote_friend: 
       invite: "uitnodigen"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "herstuur"
   settings: "Instellingen"
   shared: 
@@ -747,10 +746,12 @@ nl:
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora ID"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Verbind met"
       connect_to_your_other_social_networks: "Verbind met je andere sociale netwerken"
       connect_with_people: "Maak kennis met interessante mensen"
-      connect_with_people_explanation: "Leg contact met mensen door ze in een of meerdere aspecten te plaatsen. Aspecten zijn een handige manier om nieuwe en bekende gezichten in groepen in te delen, waardoor je jou contacten gemakkelijk kunt filteren en heel gericht berichten met ze kunt delen."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Aanbevolen tags"
       featured_users: "Aanbevolen gebruikers"
       fill_out_your_profile: "Vul je profiel aan"

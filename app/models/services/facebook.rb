@@ -29,7 +29,7 @@ class Services::Facebook < Service
              else
                self.service_users
              end
-    result.order('service_users.person_id DESC, service_users.name')
+    result.includes(:contact => :aspects, :person => :profile).order('service_users.person_id DESC, service_users.name')
   end
 
   def save_friends
@@ -38,14 +38,34 @@ class Services::Facebook < Service
     data = JSON.parse(response.body)['data']
     return unless data
     data.map!{ |p|
-      su = ServiceUser.new(:service_id => self.id, :uid => p["id"], :photo_url => p["picture"], :name => p["name"])
+      su = ServiceUser.new(:service_id => self.id, :uid => p["id"], :photo_url => p["picture"], :name => p["name"], :username => p["username"])
       su.attach_local_models
       su
     }
-    ServiceUser.import(data, :on_duplicate_key_update => [:updated_at, :contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name])
+
+
+    if postgres?
+      # Take the naive approach to inserting our new visibilities for now.
+      data.each do |su|
+        if existing = ServiceUser.find_by_uid(su.uid)
+          update_hash = OVERRIDE_FIELDS_ON_FB_UPDATE.inject({}) do |acc, element|
+            acc[element] = su.send(element)
+            acc
+          end
+
+          existing.update_attributes(update_hash)
+        else
+          su.save
+        end
+      end
+    else
+      ServiceUser.import(data, :on_duplicate_key_update => OVERRIDE_FIELDS_ON_FB_UPDATE + [:updated_at])
+    end
   end
 
   private
+
+  OVERRIDE_FIELDS_ON_FB_UPDATE = [:contact_id, :person_id, :request_id, :invitation_id, :photo_url, :name, :username]
 
   def prevent_service_users_from_being_empty
     if self.service_users.blank?

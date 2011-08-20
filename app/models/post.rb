@@ -86,7 +86,7 @@ class Post < ActiveRecord::Base
 
     local_post = Post.where(:guid => self.guid).first
     if local_post && local_post.author_id == self.author_id
-      known_post = user.visible_posts.where(:guid => self.guid).first
+      known_post = user.find_visible_post_by_id(self.guid, :key => :guid)
       if known_post
         if known_post.mutable?
           known_post.update_attributes(self.attributes)
@@ -115,6 +115,10 @@ class Post < ActiveRecord::Base
 
   def activity_streams?
     false
+  end
+
+  def comment_email_subject
+    I18n.t('notifier.a_post_you_shared')
   end
 
   # @return [Array<Comment>]

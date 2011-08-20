@@ -40,8 +40,12 @@ describe ConversationsController do
     end
 
     it 'retrieves all conversations for a user' do
-      hash = {:author => alice.person, :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-              :subject => 'not spam', :text => 'cool stuff'}
+      hash = {
+        :author => alice.person,
+        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+        :subject => 'not spam',
+        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+      }
       3.times { Conversation.create(hash) }
 
       get :index
@@ -50,49 +54,86 @@ describe ConversationsController do
   end
 
   describe '#create' do
-    before do
-      @hash = {
-        :conversation => {
-          :subject => "secret stuff",
-          :text => 'text'},
-        :contact_ids => [alice.contacts.first.id]
-      }
-    end
+    context 'with a valid conversation' do
+      before do
+        @hash = {
+          :conversation => {
+            :subject => "secret stuff",
+            :text => 'text debug'
+          },
+          :contact_ids => [alice.contacts.first.id]
+        }
+      end
 
-    it 'creates a conversation' do
-      lambda {
+      it 'creates a conversation' do
+        lambda {
+          post :create, @hash
+        }.should change(Conversation, :count).by(1)
+      end
+
+      it 'creates a message' do
+        lambda {
+          post :create, @hash
+        }.should change(Message, :count).by(1)
+      end
+
+      it 'sets the author to the current_user' do
+        @hash[:author] = Factory.create(:user)
         post :create, @hash
-      }.should change(Conversation, :count).by(1)
-    end
+        Message.first.author.should == alice.person
+        Conversation.first.author.should == alice.person
+      end
 
-    it 'creates a message' do
-      lambda {
+      it 'dispatches the conversation' do
+        cnv = Conversation.create(
+          {
+            :author => alice.person,
+            :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+            :subject => 'not spam',
+            :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+          }
+        )
+
+        p = Postzord::Dispatch.new(alice, cnv)
+        Postzord::Dispatch.stub!(:new).and_return(p)
+        p.should_receive(:post)
         post :create, @hash
-      }.should change(Message, :count).by(1)
+      end
     end
 
-    it 'sets the author to the current_user' do
-      @hash[:author] = Factory.create(:user)
-      post :create, @hash
-      Message.first.author.should == alice.person
-      Conversation.first.author.should == alice.person
-    end
+    context 'with empty text' do
+      before do
+        @hash = {
+          :conversation => {
+            :subject => 'secret stuff',
+            :text => '  '
+          },
+          :contact_ids => [alice.contacts.first.id]
+        }
+      end
 
-    it 'dispatches the conversation' do
-      cnv = Conversation.create(
-        @hash[:conversation].merge({:author => alice.person, :participant_ids => [alice.contacts.first.person.id]}))
+      it 'does not create a conversation' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Conversation, :count).by(1)
+      end
 
-      p = Postzord::Dispatch.new(alice, cnv)
-      Postzord::Dispatch.stub!(:new).and_return(p)
-      p.should_receive(:post)
-      post :create, @hash
+      it 'does not create a message' do
+        lambda {
+          post :create, @hash
+        }.should_not change(Message, :count).by(1)
+      end
     end
   end
 
   describe '#show' do
     before do
-      hash = {:author => alice.person, :participant_ids => [alice.contacts.first.person.id, alice.person.id],
-              :subject => 'not spam', :text => 'cool stuff'}
+      hash = {
+        :author => alice.person,
+        :participant_ids => [alice.contacts.first.person.id, alice.person.id],
+        :subject => 'not spam',
+        :messages_attributes => [ {:author => alice.person, :text => 'cool stuff'} ]
+      }
       @conversation = Conversation.create(hash)
     end
 

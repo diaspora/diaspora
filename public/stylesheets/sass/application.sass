@@ -735,7 +735,7 @@ form.new_comment
 
 .profile_photo
   img
-    :height 200px
+    :height auto
     :width 200px
 
 #profile
@@ -765,8 +765,12 @@ a.paginate, #infscr-loading
   &:hover
     :border 1px solid #1C6D99
 
-#main_stream .pagination
-  :display none
+#main_stream
+  :position relative
+  :z-index 0
+
+  .pagination
+    :display none
 
 .request_buttons
   :position absolute
@@ -859,7 +863,7 @@ label
 
 #publisher
 
-  :z-index 0
+  :z-index 1
   :color #999
   :position relative
   :margin
@@ -923,6 +927,9 @@ label
     .public_toggle
       :text
         :align right
+      .dropdown
+        :text
+          :align left
 
     #publisher_service_icons
       :position relative
@@ -937,6 +944,7 @@ label
       :display inline
       :position relative
       :top -2px
+
 
   .content_creation
     :margin
@@ -1756,12 +1764,12 @@ ul#request_result
       :right 8px
       :top 3px
 
-  > ul
+  > .contacts
     :margin 0
     :padding 5px
       :right 0
 
-    > li
+    > .contact
       @include border-radius(3px)
       :background
         :color #fff
@@ -2641,11 +2649,6 @@ h1.tag
   .hover_edit
     :display inline
 
-.friend_finder
-  .share_with
-    :background
-      :color rgb(245,245,245)
-
 #contacts_of_contact
   .section
     :margin
@@ -2872,10 +2875,17 @@ ul.left_nav
           :weight 700
         :color #666
 
-  .contact_count,
+  .contact_count
+    :float right
+
   .edit,
   .unfollow_icon
+    @include transition(opacity)
+    @include opacity(0.3)
     :float right
+
+    &:hover
+      @include opacity(1)
 
   .unfollow_icon
     :margin-top 4px
@@ -3352,3 +3362,16 @@ ul#getting_started
   :background-color #aaa
   &:hover
     :opacity .85 !important
+
+.red
+  :color $red
+
+.green
+  :color green
+// .resend
+//   :color black
+//   &:hover
+//     :text-decoration none
+//     :color black
+//     &:hover
+//       :text-decoration none

@@ -37,6 +37,7 @@ da:
             person: 
               invalid: "er ugyldig."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "er allerede taget."
   ago: "%{time} siden"
   all_aspects: "Alle aspekter"
@@ -117,6 +118,7 @@ da:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Dine aspekter"
     many: "%{count} aspekter"
     move_contact: 
@@ -251,6 +253,7 @@ da:
       tagline_first_half: "Del hvad du vil,"
       tagline_second_half: "med hvem du vil."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "Invitationstoken ikke fundet"
     create: 
@@ -276,7 +279,6 @@ da:
       to: "Til"
   layouts: 
     application: 
-      have_a_problem: "Har du et problem? Find svaret her"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Offentligt Diaspora nyheds feed for  %{name}"
       toggle: "skift mobil side"
@@ -390,6 +392,7 @@ da:
       other: "%{actors} started sharing with you."
       zero: "%{actors} started sharing with you."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +473,7 @@ da:
       fail: "Undskyld, vi kunne ikke finde %{handle}."
     zero: "ingen personer"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Billed-upload fejlede. Er du sikker på det var et billede?"
       runtime_error: "Billed-upload fejlede. Er du sikker på at du har spændt sikkerhedsselen?"
@@ -497,9 +501,8 @@ da:
       edit: "Redigér"
       edit_delete_photo: "Redigér billedbeskrivelse / slet billede"
       make_profile_photo: "Gør til profilbillede"
-      original_post: "Original Post"
+      show_original_post: "Show original post"
       update_photo: "Opdatér billede"
-      view: "se"
     update: 
       error: "Kunne ikke redigere billede."
       notice: "Billedet blev opdateret."
@@ -574,6 +577,7 @@ da:
     new_request_to_person: 
       sent: "afsendt!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -596,14 +600,8 @@ da:
     failure: 
       error: "der opstod en fejl i at forbinde til den service"
     finder: 
-      friends: 
-        few: "%{count} venner"
-        many: "%{count} venner"
-        one: "1 ven"
-        other: "%{count} venner"
-        zero: "ingen venner"
-      invite_your_friends_from: "inviter dine venner fra %{service}"
-      not_connected: "ikke forbundet"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Tilslut til Facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -618,6 +616,7 @@ da:
       join_me_on_diaspora: "Kom over til mig på DIASPORA*"
     remote_friend: 
       invite: "inviter"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "Send igen"
   settings: "Indstillinger"
   shared: 
@@ -747,10 +746,12 @@ da:
       your_email: "Din e-mail"
       your_handle: "Dit diaspora handle"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

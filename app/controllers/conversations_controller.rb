@@ -28,16 +28,20 @@ class ConversationsController < ApplicationController
 
     params[:conversation][:participant_ids] = person_ids | [current_user.person.id]
     params[:conversation][:author] = current_user.person
+    message_text = params[:conversation].delete(:text)
+    params[:conversation][:messages_attributes] = [ {:author => current_user.person, :text => message_text }]
 
-    if @conversation = Conversation.create(params[:conversation])
+    @conversation = Conversation.new(params[:conversation])
+    if @conversation.save
       Postzord::Dispatch.new(current_user, @conversation).post
-
       flash[:notice] = I18n.t('conversations.create.sent')
-      if params[:profile]
-        redirect_to person_path(params[:profile])
-      else
-        redirect_to conversations_path(:conversation_id => @conversation.id)
-      end
+    else
+      flash[:error] = I18n.t('conversations.create.fail')
+    end
+    if params[:profile]
+      redirect_to person_path(params[:profile])
+    else
+      redirect_to conversations_path(:conversation_id => @conversation.id)
     end
   end
 

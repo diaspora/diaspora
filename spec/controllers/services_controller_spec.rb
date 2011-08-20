@@ -18,8 +18,6 @@ describe ServicesController do
   before do
     @user   = alice
     @aspect = @user.aspects.first
-    @user.invites = 100
-    @user.save
 
     sign_in :user, @user
     @controller.stub!(:current_user).and_return(@user)
@@ -38,7 +36,7 @@ describe ServicesController do
   end
 
   describe '#create' do
-    it 'creates a new OmniauthService' do 
+    it 'creates a new OmniauthService' do
       request.env['omniauth.auth'] = omniauth_auth
       lambda{
         post :create, :provider => 'twitter'
@@ -101,24 +99,24 @@ describe ServicesController do
 
     it 'has no translations missing' do
       get :finder, :provider => @service1.provider
-      response.body.match(/translation/).should be_nil
+      Nokogiri(response.body).css('.translation_missing').should be_empty
     end
   end
 
-  describe '#invite' do
+  describe '#inviter' do
     before do
       @uid = "abc"
+      fb = Factory(:service, :type => "Services::Facebook", :user => @user)
+      fb = Services::Facebook.find(fb.id)
+      @su = Factory(:service_user, :service => fb, :uid => @uid)
       @invite_params = {:provider => 'facebook', :uid => @uid, :aspect_id => @user.aspects.first.id}
     end
 
-    it 'sets the subject' do
+    it 'enqueues an invite job if the fb user has a username' do
+      pending
+      @invite_params[:provider] = "email"
+      @invite_params[:uid] = "username@facebook.com"
       put :inviter, @invite_params
-      assigns[:subject].should_not be_nil
-    end
-
-    it 'sets a message containing the invitation link' do
-      put :inviter, @invite_params
-      assigns[:message].should include(User.last.invitation_token)
     end
 
     it 'redirects to a prefilled facebook message url' do
@@ -132,8 +130,15 @@ describe ServicesController do
       }.should change(Invitation, :count).by(1)
     end
 
+    it 'sets the invitation_id on the service_user' do
+      post :inviter, @invite_params
+      @su.reload.invitation.should_not be_nil
+    end
+
     it 'does not create a duplicate invitation' do
-      inv = Invitation.create!(:sender_id => @user.id, :recipient_id => eve.id, :aspect_id => @user.aspects.first.id)
+      invited_user = Factory.build(:user, :username =>nil)
+      invited_user.save(:validate => false)
+      inv = Invitation.create!(:sender => @user, :recipient => invited_user, :aspect => @user.aspects.first, :identifier => eve.email)
       @invite_params[:invitation_id] = inv.id
 
       lambda {
@@ -141,10 +146,9 @@ describe ServicesController do
       }.should_not change(Invitation, :count)
     end
 
-    it 'disregares the amount of invites if open_invitations are enabled' do
+    it 'disregards the amount of invites if open_invitations are enabled' do
       open_bit = AppConfig[:open_invitations]
       AppConfig[:open_invitations] = true
-      @user.invites = 0
 
       lambda {
         put :inviter, @invite_params

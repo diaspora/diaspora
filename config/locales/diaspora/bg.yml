@@ -37,6 +37,7 @@ bg:
             person: 
               invalid: "is invalid."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "е вече заето."
   ago: "преди %{time}"
   all_aspects: "Всички аспекти"
@@ -117,6 +118,7 @@ bg:
         content: "Можете да свържете следните услуги към Diaspora:"
         heading: "Свързване към услуги"
       tags_following: "Тагове, които следите"
+      unfollow_tag: "Прекратяване следенето на #%{tag}"
       your_aspects: "Вашите аспекти"
     many: "%{count} аспекта"
     move_contact: 
@@ -251,6 +253,7 @@ bg:
       tagline_first_half: "Споделете каквото желаете,"
       tagline_second_half: "с когото пожелаете."
   invitations: 
+    a_facebook_user: "Потребител на Facebook"
     check_token: 
       not_found: "Данните за поканата не са намерени"
     create: 
@@ -276,7 +279,6 @@ bg:
       to: "До"
   layouts: 
     application: 
-      have_a_problem: "Имате проблем? Открийте решението тук"
       powered_by: "Благодарение на DIASPORA*"
       public_feed: "Публична емисия от Diaspora за %{name}"
       toggle: "вкл./изкл. на мобилния изглед"
@@ -390,6 +392,7 @@ bg:
       other: "%{actors} започна да споделя с вас."
       zero: "%{actors} започна да споделя с вас."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "кликнете тук"
     comment_on_post: 
       reply: "Отговорете или прегледайте публикацията на %{name} >"
@@ -470,6 +473,7 @@ bg:
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "няма хора"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Снимката не бе качена. Сигурни ли сте, че сте избрали изображение?"
       runtime_error: "Снимката не бе качена. Сигурни ли сте, че сте закопчали колана си?"
@@ -497,9 +501,8 @@ bg:
       edit: "редактиране"
       edit_delete_photo: "Редактиране на описанието / изтриване"
       make_profile_photo: "ползване като профилна снимка"
-      original_post: "Оригинална публикация"
+      show_original_post: "Оригиналната публикация"
       update_photo: "Update Photo"
-      view: "view"
     update: 
       error: "Снимката не бе изтрита."
       notice: "Снимката е обновена."
@@ -574,6 +577,7 @@ bg:
     new_request_to_person: 
       sent: "изпратена!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "Възникна грешка при споделянето на публикацията."
     reshare: 
@@ -596,14 +600,8 @@ bg:
     failure: 
       error: "възникна грешка при свързването с услугата"
     finder: 
-      friends: 
-        few: "%{count} приятеля"
-        many: "%{count} приятеля"
-        one: "1 приятел"
-        other: "%{count} приятеля"
-        zero: "няма приятели"
-      invite_your_friends_from: "Поканете приятелите си от %{service}"
-      not_connected: "не съществува връзка"
+      no_friends: "Няма намерени приятели от Facebook."
+      service_friends: "Приятели от %{service}"
     index: 
       connect_to_facebook: "Свързване с facebook"
       connect_to_tumblr: "Свързване с tumblr"
@@ -618,6 +616,7 @@ bg:
       join_me_on_diaspora: "Присъединете се към мен в DIASPORA*"
     remote_friend: 
       invite: "покани"
+      not_on_diaspora: "Все още не е в Diaspora"
       resend: "повторно изпращане"
   settings: "Настройки"
   shared: 
@@ -747,10 +746,12 @@ bg:
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
+      aspects: "аспекти"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
       connect_with_people: "Свържете се с интересни хора"
-      connect_with_people_explanation: "Свържете се като поставяте хората в един или няколко аспекта.  Аспектите са начин за групиране контактите ви, който позволява лесно филтриране/споделяне само с точно определена подгрупа."
+      connect_with_people_explanation_pt1: "Свържете се с хора поставяйки ги в един или няколко от вашите"
+      connect_with_people_explanation_pt2: "Групирането на контактите в аспекти ще ви позволи да споделяте/филрирате информация само с/от определена подгрупа от контактите ви."
       featured_tags: "Отличени тагове"
       featured_users: "Отличени потребители"
       fill_out_your_profile: "Попълнете профила си"

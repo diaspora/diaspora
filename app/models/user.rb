@@ -46,12 +46,58 @@ class User < ActiveRecord::Base
   has_many :authorizations, :class_name => 'OAuth2::Provider::Models::ActiveRecord::Authorization', :foreign_key => :resource_owner_id
   has_many :applications, :through => :authorizations, :source => :client
 
-  before_save do
-    person.save if person && person.changed?
-  end
-  before_save :guard_unconfirmed_email
+  before_save :guard_unconfirmed_email,
+              :save_person!
 
-  attr_accessible :getting_started, :password, :password_confirmation, :language, :disable_mail
+  before_create :infer_email_from_invitation_provider
+
+  attr_accessible :getting_started,
+                  :password,
+                  :password_confirmation,
+                  :language,
+                  :disable_mail,
+                  :invitation_service,
+                  :invitation_identifier
+
+
+  # @return [User]
+  def self.find_by_invitation(invitation)
+    service = invitation.service
+    identifier = invitation.identifier
+
+    if service == 'email'
+      existing_user = User.where(:email => identifier).first 
+    else
+      existing_user = User.joins(:services).where(:services => {:type => "Services::#{service.titleize}", :uid => identifier}).first
+    end
+   
+   if existing_user.nil? 
+    i = Invitation.where(:service => service, :identifier => identifier).first
+    existing_user = i.recipient if i
+   end
+
+   existing_user
+  end
+
+  # @return [User]
+  def self.find_or_create_by_invitation(invitation)
+    if existing_user = self.find_by_invitation(invitation)
+      existing_user
+    else
+     self.create_from_invitation!(invitation)
+    end
+  end
+
+  def self.create_from_invitation!(invitation)
+    user = User.new
+    user.generate_keys
+    user.send(:generate_invitation_token)
+    user.email = invitation.identifier if invitation.service == 'email'
+    # we need to make a custom validator here to make this safer
+    user.save(:validate => false)
+    user
+  end
+
 
   def update_user_preferences(pref_hash)
     if self.disable_mail
@@ -267,20 +313,6 @@ class User < ActiveRecord::Base
     end
   end
 
-  ###Invitations############
-  def invite_user(aspect_id, service, identifier, invite_message = "")
-    aspect = aspects.find(aspect_id)
-    if aspect
-      Invitation.invite(:service => service,
-                        :identifier => identifier,
-                        :from => self,
-                        :into => aspect,
-                        :message => invite_message)
-    else
-      false
-    end
-  end
-
   # This method is called when an invited user accepts his invitation
   #
   # @param [Hash] opts the options to accept the invitation with
@@ -289,25 +321,29 @@ class User < ActiveRecord::Base
   # @option opts [String] :password_confirmation
   def accept_invitation!(opts = {})
     log_hash = {:event => :invitation_accepted, :username => opts[:username], :uid => self.id}
-    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first
-    begin
-      if self.invited?
-        self.setup(opts)
-        self.invitation_token = nil
-        self.password              = opts[:password]
-        self.password_confirmation = opts[:password_confirmation]
-        self.save!
-        invitations_to_me.each{|invitation| invitation.share_with!}
-        log_hash[:status] = "success"
-        Rails.logger.info log_hash
+    log_hash[:inviter] = invitations_to_me.first.sender.diaspora_handle if invitations_to_me.first && invitations_to_me.first.sender
 
-        self.reload # Because to_request adds a request and saves elsewhere
-        self
+    if self.invited?
+      self.setup(opts)
+      self.invitation_token = nil
+      self.password              = opts[:password]
+      self.password_confirmation = opts[:password_confirmation]
+      
+      self.save
+      return unless self.errors.empty?
+
+      # moved old Invitation#share_with! logic into here,
+      # but i don't think we want to destroy the invitation
+      # anymore.  we may want to just call self.share_with
+      invitations_to_me.each do |invitation|
+        if !invitation.admin? && invitation.sender.share_with(self.person, invitation.aspect)
+          invitation.destroy
+        end
       end
-    rescue Exception => e
-      log_hash[:status] =  "failure"
-      Rails.logger.info log_hash
-      raise e
+
+      log_hash[:status] = "success"
+      Rails.logger.info(log_hash)
+      self
     end
   end
 
@@ -321,26 +357,20 @@ class User < ActiveRecord::Base
   def setup(opts)
     self.username = opts[:username]
     self.email = opts[:email]
+    self.language ||= 'en'
     self.valid?
     errors = self.errors
     errors.delete :person
     return if errors.size > 0
-
-    opts[:person] ||= {}
-    unless opts[:person][:profile].is_a?(Profile)
-      opts[:person][:profile] ||= Profile.new
-      opts[:person][:profile] = Profile.new(opts[:person][:profile])
-    end
-
-    self.person = Person.new(opts[:person])
-    self.person.diaspora_handle = "#{opts[:username]}@#{AppConfig[:pod_uri].authority}"
-    self.person.url = AppConfig[:pod_url]
-
-
-    self.serialized_private_key = User.generate_key if self.serialized_private_key.blank?
-    self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
-
+    self.set_person(Person.new(opts[:person] || {} ))
+    self.generate_keys
     self
+  end
+
+  def set_person(person)
+    person.url = AppConfig[:pod_url]
+    person.diaspora_handle = "#{self.username}@#{AppConfig[:pod_uri].authority}"
+    self.person = person
   end
 
   def seed_aspects
@@ -349,15 +379,13 @@ class User < ActiveRecord::Base
     self.aspects.create(:name => I18n.t('aspects.seed.work'))
     aq = self.aspects.create(:name => I18n.t('aspects.seed.acquaintances'))
 
-    default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
-    self.share_with(default_account, aq) if default_account
+    unless AppConfig[:no_follow_diasporahq]
+      default_account = Webfinger.new('diasporahq@joindiaspora.com').fetch
+      self.share_with(default_account, aq) if default_account
+    end
     aq
   end
 
-  def self.generate_key
-    key_size = (Rails.env == 'test' ? 512 : 4096)
-    OpenSSL::PKey::RSA::generate(key_size)
-  end
 
   def encryption_key
     OpenSSL::PKey::RSA.new(serialized_private_key)
@@ -407,5 +435,35 @@ class User < ActiveRecord::Base
       self.aspects.find(id).update_attributes({ :order_id => i })
       i += 1
     end
+  end
+
+
+  # Generate public/private keys for User and associated Person
+  def generate_keys
+    key_size = (Rails.env == 'test' ? 512 : 4096)
+
+    self.serialized_private_key = OpenSSL::PKey::RSA::generate(key_size) if self.serialized_private_key.blank?
+
+    if self.person && self.person.serialized_public_key.blank?
+      self.person.serialized_public_key = OpenSSL::PKey::RSA.new(self.serialized_private_key).public_key
+    end
+  end
+
+  # Sometimes we access the person in a strange way and need to do this
+  # @note we should make this method depricated.
+  #
+  # @return [Person]
+  def save_person!
+    self.person.save if self.person && self.person.changed?
+    self.person
+  end
+
+  # Set the User's email to the one they've been invited at, if the user
+  # is being created via an invitation.
+  #
+  # @return [User]
+  def infer_email_from_invitation_provider
+    self.email = self.invitation_identifier if self.invitation_service == 'email'
+    self
   end
 end

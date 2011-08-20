@@ -1,20 +1,28 @@
-%li.remote_friend{:id => "uid_" + friend.uid, :uid => friend.uid}
+.stream_element.contact{:id => friend.id}
+  .right
+
+    - if friend.already_invited?
+      = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id), :class => 'button resend'
+    - elsif friend.on_diaspora?
+      = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left'
+    - else
+      = render 'shared/aspect_dropdown', :selected_aspects => contact_proxy(friend).aspects, :person => friend.person, :hang => 'left', :dropdown_class => 'inviter', :service_uid => friend.uid
+
   - if friend.on_diaspora?
     = person_image_link(friend.person, :size => :thumb_small)
   - else
     = image_tag(friend.photo_url, :class => 'avatar')
 
-  %h4.name
-    - if friend.on_diaspora?
-      = link_to friend.name, person_path(friend.person)
-    - else
-      = friend.name
-
-  - if friend.already_invited?
-    = link_to t('.resend'), service_inviter_path(:uid => friend.uid, :provider => 'facebook', :invitation_id => friend.invitation_id)
-  - elsif friend.on_diaspora?
-    = render 'aspect_memberships/aspect_dropdown', :contact => contact_proxy(friend), :person => friend.person, :hang => 'left'
-  - else
-    = facebook_invite_form(friend)
+  .content
+    %span.from.name
+      - if friend.on_diaspora?
+        = link_to friend.name, person_path(friend.person)
+      - else
+        = friend.name
 
 
+    .info
+      - if friend.person
+        = friend.person.diaspora_handle
+      - else
+        =t('.not_on_diaspora')

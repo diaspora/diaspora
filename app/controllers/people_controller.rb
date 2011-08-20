@@ -30,7 +30,18 @@ class PeopleController < ApplicationController
         render :json => @people
       end
 
-      format.all do
+      format.html do
+        #only do it if it is an email address
+        if params[:q].try(:match, Devise.email_regexp)
+          people = Person.where(:diaspora_handle => params[:q])
+          webfinger(params[:q]) if people.empty?
+        else
+          people = Person.search(params[:q], current_user)
+        end
+        @people = people.paginate( :page => params[:page], :per_page => 15)
+        @hashes = hashes_for_people(@people, @aspects)
+      end
+      format.mobile do
         #only do it if it is an email address
         if params[:q].try(:match, Devise.email_regexp)
           people = Person.where(:diaspora_handle => params[:q])
@@ -68,7 +79,7 @@ class PeopleController < ApplicationController
     @person = Person.find_from_id_or_username(params)
 
     if remote_profile_with_no_user_session?
-      raise ActiveRecord::RecordNotFound 
+      raise ActiveRecord::RecordNotFound
     end
 
     @post_type = :all
@@ -146,8 +157,12 @@ class PeopleController < ApplicationController
 
   def aspect_membership_dropdown
     @person = Person.find(params[:person_id])
-    @contact = current_user.contact_for(@person) || Contact.new
-    render :partial => 'aspect_memberships/aspect_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+    if @person == current_user.person
+      render :text => I18n.t('people.person.thats_you')
+    else
+      @contact = current_user.contact_for(@person) || Contact.new
+      render :partial => 'aspect_membership_dropdown', :locals => {:contact => @contact, :person => @person, :hang => 'left'}
+    end
   end
 
   private

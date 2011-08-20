@@ -37,6 +37,7 @@ el:
             person: 
               invalid: "είναι άκυρη."
             username: 
+              invalid: "μη έγκυρο. Επιτρέπονται μόνο γράμματα, νούμερα και \"κάτω παύλες\" (_)"
               taken: "είναι ήδη σε χρήση."
   ago: "%{time} πριν"
   all_aspects: "Όλες οι πτυχές"
@@ -117,6 +118,7 @@ el:
         content: "Μπορείτε να συνδέσετε τις παρακάτω υπηρεσίες στο Diaspora:"
         heading: "Συνδέστε Υπηρεσίες"
       tags_following: "Ετικέτες που ακολουθείτε"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Οι Πτυχές σας"
     many: "%{count} πτυχές"
     move_contact: 
@@ -251,6 +253,7 @@ el:
       tagline_first_half: "Μοιραστείτε ό,τι θέλετε,"
       tagline_second_half: "με όποιον θέλετε."
   invitations: 
+    a_facebook_user: "Ένας χρήστης του Facebook"
     check_token: 
       not_found: "Το σύμβολο της πρόσκλησης δεν βρέθηκε"
     create: 
@@ -276,7 +279,6 @@ el:
       to: "Στον"
   layouts: 
     application: 
-      have_a_problem: "Έχετε κάποιο πρόβλημα; Βρείτε την απάντηση εδώ!"
       powered_by: "POWERED BY DIASPORA*"
       public_feed: "Δημόσια ανατροφοδότηση (feed) του Diaspora για τον χρήστη %{name}"
       toggle: "εναλλαγή ιστοσελίδας κινητού"
@@ -390,6 +392,7 @@ el:
       other: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
       zero: "Οι χρήστες %{actors} άρχισαν να διαμοιράζονται μαζί σας."
   notifier: 
+    a_post_you_shared: "μια δημοσίευση."
     click_here: "πατήστε εδώ"
     comment_on_post: 
       reply: "Απαντήστε ή δείτε τη δημοσίευση του χρήστη %{name} >"
@@ -470,6 +473,7 @@ el:
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
   photos: 
+    comment_email_subject: "φωτογραφία του χρήστη %{name}"
     create: 
       integrity_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η ότι ήταν φωτογραφία;"
       runtime_error: "Η μεταφόρτωση της φωτογραφίας απέτυχε. Είστε σίγουρος/η πως φορέσατε ζώνη ασφαλείας πριν ξεκινήσετε;"
@@ -497,9 +501,8 @@ el:
       edit: "Επεξεργασία"
       edit_delete_photo: "Επεξεργασία περιγραφής φωτογραφίας / διαγραφή φωτογραφίας"
       make_profile_photo: "ορισμός ως φωτογραφίας προφίλ"
-      original_post: "Αυθεντική Δημοσίευση"
+      show_original_post: "Προβολή αρχικής δημοσίευσης"
       update_photo: "Ενημέρωση Φωτογραφίας"
-      view: "προβολή"
     update: 
       error: "Αποτυχία επεξεργασίας φωτογραφίας."
       notice: "Η φωτογραφία ενημερώθηκε επιτυχώς."
@@ -574,6 +577,7 @@ el:
     new_request_to_person: 
       sent: "εστάλη!"
   reshares: 
+    comment_email_subject: "κοινοποίηση της δημοσίευσης του %{author} από τον %{resharer}"
     create: 
       failure: "Υπήρξε κάποιο σφάλμα κατά την κοινοποίηση αυτής της δημοσίευσης."
     reshare: 
@@ -596,14 +600,8 @@ el:
     failure: 
       error: "εμφανίστηκε ένα σφάλμα κατά τη σύνδεση με αυτή την υπηρεσία"
     finder: 
-      friends: 
-        few: "%{count} φίλοι"
-        many: "%{count} φίλοι"
-        one: "1 φίλος"
-        other: "%{count} φίλοι"
-        zero: "κανένας φίλος"
-      invite_your_friends_from: "Προσκαλέστε τους φίλους σας απο %{service}"
-      not_connected: "δεν είναι συνδεδεμένο"
+      no_friends: "Δεν βρέθηκαν φίλοι στο Facebook. "
+      service_friends: "%{service} Φίλοι"
     index: 
       connect_to_facebook: "Σύνδεση με Facebook"
       connect_to_tumblr: "Σύνδεση με το Tumblr"
@@ -618,6 +616,7 @@ el:
       join_me_on_diaspora: "Συνδεθείτε μαζί μου στο DIASPORA*"
     remote_friend: 
       invite: "πρόσκληση"
+      not_on_diaspora: "Όχι ακόμα στο Diaspora"
       resend: "αποστολή ξανά"
   settings: "Ρυθμίσεις"
   shared: 
@@ -747,10 +746,12 @@ el:
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
+      aspects: "πτυχές"
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"
-      connect_with_people_explanation: "Συνδεθείτε με άτομα τοποθετώντας τα σε μια ή περισσότερες από τις πτυχές σας. Οι πτυχές είναι ένας άμεσος τρόπος να ομαδοποιήσετε νέα και γνωστά σας πρόσωπα, έχοντας τη δυνατότητα να φιλτράρετε και να μοιράζεστε με υποσύνολα των επαφών σας."
+      connect_with_people_explanation_pt1: "Συνδεθείτε με άτομα τοποθετώντας τα σε μια ή περισσότερες από τις "
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Αξιόλογες ετικέτες"
       featured_users: "Αξιόλογοι χρήστες"
       fill_out_your_profile: "Συμπληρώστε το προφίλ σας "

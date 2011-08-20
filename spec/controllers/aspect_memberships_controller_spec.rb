@@ -59,7 +59,7 @@ describe AspectMembershipsController do
         :format => 'js',
         :person_id => @person.id,
         :aspect_id => @aspect0.id
-      flash[:error].should_not be_empty
+      flash[:error].should_not be_blank
     end
 
     it 'does not 500 on a duplicate key error' do

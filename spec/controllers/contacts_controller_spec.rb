@@ -59,13 +59,21 @@ describe ContactsController do
 
     it 'will return the contacts for multiple aspects' do
       get :index, :aspect_ids => bob.aspect_ids, :format => 'json'
-      assigns[:people].should == bob.contacts.map(&:person)
+      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
       response.should be_success
     end
 
     it "generates a jasmine fixture", :fixture => true do
       get :index
       save_fixture(html_for("body"), "aspects_manage")
+    end
+
+    it 'does not select duplicate contacts' do
+      aspect = bob.aspects.create(:name => 'hilarious people')
+      aspect.contacts << bob.contact_for(eve.person)
+      get :index, :format => 'json', :aspect_ids => bob.aspect_ids
+      assigns[:people].map{|p| p.id}.uniq.should == assigns[:people].map{|p| p.id}
+      assigns[:people].map(&:id).should =~ bob.contacts.map{|c| c.person.id}
     end
   end
 

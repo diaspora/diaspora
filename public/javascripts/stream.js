@@ -10,10 +10,14 @@ var Stream = {
     Diaspora.page.timeAgo.updateTimeAgo();
     Diaspora.page.directionDetector.updateBinds();
 
-    $(".status_message_delete").tipsy({
-      trigger: "hover",
-      gravity: "n"
+    $.each(["a.stream_element_delete", "a.comment_delete", "span.post_scope"], function(idx, el){
+      $(el).tipsy({
+        trigger: "hover",
+        gravity: "n",
+        live: true
+      });
     });
+
     //audio links
     Stream.setUpAudioLinks();
     //Stream.setUpImageLinks();

@@ -17,6 +17,12 @@ defaults: &defaults
   # Set this to true if you want users to invite as many people as they want
   open_invitations: true
 
+  # Set this to true if you don't want your users to follow the diasporahq@joindiaspora.com
+  # account on account creation.  The diasporahq account helps users start with some 
+  # activity in their stream and get news about Diaspora, but if you don't want your server
+  # to contact joindiaspora.com, set this to true:
+  no_follow_diasporahq: false
+
   #
   # Logging setup
   #

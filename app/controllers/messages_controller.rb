@@ -19,11 +19,10 @@ class MessagesController < ApplicationController
       if message.save
         Rails.logger.info("event=create type=comment user=#{current_user.diaspora_handle} status=success message=#{message.id} chars=#{params[:message][:text].length}")
         Postzord::Dispatch.new(current_user, message).post
-
-        redirect_to conversations_path(:conversation_id => cnv.id)
       else
-        render :nothing => true, :status => 422
+        flash[:error] = I18n.t('conversations.new_message.fail')
       end
+      redirect_to conversations_path(:conversation_id => cnv.id)
     else
       render :nothing => true, :status => 422
     end

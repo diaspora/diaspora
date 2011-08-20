@@ -97,13 +97,15 @@ group :test, :development do
     gem 'linecache', '0.43', :platforms => :mri_18
   end
   gem 'launchy'
-  gem 'jasmine', '1.0.2.1'
+  gem 'jasmine', '1.1.0.rc3'
 end
 
 group :test do
+  gem 'mysql2', '0.2.6'
+  gem 'pg'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.2.2'
-  gem 'selenium-webdriver', '0.2.2'
+  gem 'selenium-webdriver', '2.4'
   gem 'capybara', '~> 0.3.9'
   gem 'cucumber-rails', '0.3.2'
   gem 'rspec', '>= 2.0.0'

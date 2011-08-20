@@ -14,7 +14,7 @@ sk:
         other: "In {{count}} aspects"
         zero: "Add to aspect"
     comments: 
-      hide: "hide comments"
+      hide: "skyť komentáre"
       show: "show all comments"
     confirm_dialog: "Ste si istý?"
     failed_to_like: "Failed to like!"

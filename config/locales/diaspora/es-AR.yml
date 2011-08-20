@@ -37,6 +37,7 @@ es-AR:
             person: 
               invalid: "no es válido."
             username: 
+              invalid: "is invalid. We only allow letters, numbers, and underscores"
               taken: "ya está ocupado."
   ago: "hace %{time}"
   all_aspects: "Todos los aspectos"
@@ -117,6 +118,7 @@ es-AR:
         content: "You can connect the following services to Diaspora:"
         heading: "Connect Services"
       tags_following: "Followed Tags"
+      unfollow_tag: "Stop following #%{tag}"
       your_aspects: "Your Aspects"
     many: "%{count} aspectos"
     move_contact: 
@@ -251,6 +253,7 @@ es-AR:
       tagline_first_half: "Compartí lo que quieras,"
       tagline_second_half: "con quien vos quieras."
   invitations: 
+    a_facebook_user: "A Facebook user"
     check_token: 
       not_found: "No se encontró la udentificación de invitación"
     create: 
@@ -276,7 +279,6 @@ es-AR:
       to: "Para"
   layouts: 
     application: 
-      have_a_problem: "¿Tenés un problema? Encontrá una respuesta acá"
       powered_by: "IMPULSADO POR DIÁSPORA*"
       public_feed: "Canal público para %{name}"
       toggle: "cambiar al sitio para móviles"
@@ -390,6 +392,7 @@ es-AR:
       other: "%{actors} comparten con vos."
       zero: "%{actors} comparte con vos."
   notifier: 
+    a_post_you_shared: "a post."
     click_here: "click here"
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
@@ -470,6 +473,7 @@ es-AR:
       fail: "Lo sentimos, no pudimos encontrar a %{handle}."
     zero: "nadie"
   photos: 
+    comment_email_subject: "%{name}'s photo"
     create: 
       integrity_error: "Error subiendo la foto. ¿Estás seguro de que era una imagen válida?"
       runtime_error: "Error subiendo la foto. ¿Hay alguna restricción de seguridad?"
@@ -497,9 +501,8 @@ es-AR:
       edit: "editar"
       edit_delete_photo: "Editar descripción de foto / eliminar foto"
       make_profile_photo: "convertir en foto de perfil"
-      original_post: "Publicación original"
+      show_original_post: "Show original post"
       update_photo: "Actualizar foto"
-      view: "ver"
     update: 
       error: "Error al editar la foto."
       notice: "La foto se subió correctamente."
@@ -574,6 +577,7 @@ es-AR:
     new_request_to_person: 
       sent: "¡Enviado!"
   reshares: 
+    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
     create: 
       failure: "There was an error resharing this post."
     reshare: 
@@ -596,14 +600,8 @@ es-AR:
     failure: 
       error: "hubo un error al conectar al servicio"
     finder: 
-      friends: 
-        few: "%{count} amigos"
-        many: "%{count} amigos"
-        one: "1 amigo"
-        other: "%{count} amigos"
-        zero: "ningún amigo"
-      invite_your_friends_from: "Invitá a tus amigos de %{service}"
-      not_connected: "sin conexión"
+      no_friends: "No Facebook friends found."
+      service_friends: "%{service} Friends"
     index: 
       connect_to_facebook: "Conectar a Facebook"
       connect_to_tumblr: "Connect to Tumblr"
@@ -618,6 +616,7 @@ es-AR:
       join_me_on_diaspora: "Unite, estoy en DIÁSPORA*"
     remote_friend: 
       invite: "invitar"
+      not_on_diaspora: "Not yet on Diaspora"
       resend: "reenviar"
   settings: "Configuración"
   shared: 
@@ -747,10 +746,12 @@ es-AR:
       your_email: "Tu correo electrónico"
       your_handle: "Tu dirección Diáspora*"
     getting_started: 
+      aspects: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
-      connect_with_people_explanation: "Connect with people by placing them into one or more of your aspects.  Aspects are an intuative way to group new and familar faces, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
+      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
       featured_tags: "Featured tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fill out your profile"

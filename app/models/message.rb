@@ -1,3 +1,4 @@
+class NotVisibleError < RuntimeError; end
 class Message < ActiveRecord::Base
   include ROXML
 
@@ -12,6 +13,8 @@ class Message < ActiveRecord::Base
 
   belongs_to :author, :class_name => 'Person'
   belongs_to :conversation, :touch => true
+
+  validates_presence_of :text
 
   after_create do
     #sign comment as commenter
@@ -63,12 +66,16 @@ class Message < ActiveRecord::Base
       vis.save
       self
     else
-      raise NotVisibleException("Attempting to access a ConversationVisibility that does not exist!")
+      raise NotVisibleError.new("User #{user.id} with person #{user.person.id} is not allowed to see conversation #{conversation.id}!")
     end
   end
 
   def notification_type(user, person)
     Notifications::PrivateMessage unless user.person == person
+  end
+
+  def formatted_message(opts={})
+    opts[:plain_text] ? self.text: ERB::Util.h(self.text)
   end
 
   private

@@ -21,7 +21,7 @@ Factory.define :person do |p|
   p.sequence(:url)  { |n| AppConfig[:pod_url] }
   p.serialized_public_key OpenSSL::PKey::RSA.generate(1024).public_key.export
   p.after_build do |person|
-    person.profile ||= Factory.build(:profile, :person => person)
+    person.profile = Factory.build(:profile, :person => person) unless person.profile.first_name.present?
   end
   p.after_create do |person|
     person.profile.save
@@ -96,6 +96,15 @@ Factory.define :reshare do |r|
   r.association(:author, :factory => :person)
 end
 
+Factory.define :invitation do |i|
+  i.service "email"
+  i.identifier "bob.smith@smith.com"
+  i.association :sender, :factory => :user_with_aspect
+  i.after_build do |i|
+    i.aspect = i.sender.aspects.first
+  end
+end
+
 Factory.define :service do |service|
   service.nickname "sirrobertking"
   service.type "Services::Twitter"
@@ -103,6 +112,13 @@ Factory.define :service do |service|
   service.sequence(:uid)           { |token| "00000#{token}" }
   service.sequence(:access_token)  { |token| "12345#{token}" }
   service.sequence(:access_secret) { |token| "98765#{token}" }
+end
+
+Factory.define :service_user do |s_user|
+  s_user.sequence(:uid) { |id| "a#{id}"}
+  s_user.sequence(:name) { |num| "Rob Fergus the #{num.ordinalize}" }
+  s_user.association :service
+  s_user.photo_url "/images/user/adams.jpg"
 end
 
 Factory.define(:comment) do |comment|

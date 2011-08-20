@@ -20,6 +20,42 @@ describe User do
 
   end
 
+  context 'callbacks' do
+    describe '#save_person!' do
+      it 'saves the corresponding user if it has changed' do
+        alice.person.url = "http://stuff.com"
+        Person.any_instance.should_receive(:save)
+        alice.save
+      end
+
+      it 'does not save the corresponding user if it has not changed' do
+        Person.any_instance.should_not_receive(:save)
+        alice.save
+      end
+    end
+
+    describe '#infer_email_from_invitation_provider' do
+      it 'sets corresponding email if invitation_service is email' do
+        addr = '12345@alice.com'
+        alice.invitation_service = 'email'
+        alice.invitation_identifier = addr
+
+        lambda {
+          alice.infer_email_from_invitation_provider
+        }.should change(alice, :email)
+      end
+
+      it 'does not set an email if invitation_service is not email' do
+        addr = '1233123'
+        alice.invitation_service = 'facebook'
+        alice.invitation_identifier = addr
+
+        lambda {
+          alice.infer_email_from_invitation_provider
+        }.should_not change(alice, :email)
+      end
+    end
+  end
 
   describe 'overwriting people' do
     it 'does not overwrite old users with factory' do
@@ -282,6 +318,76 @@ describe User do
     end
   end
 
+  describe '.find_by_invitation' do
+    let(:invited_user) {
+      inv = Factory.build(:invitation, :recipient => @recipient, :service => @type, :identifier => @identifier)
+      User.find_by_invitation(inv)
+    }
+
+    context 'send a request to an existing' do
+      before do
+        @recipient = alice
+      end
+
+      context 'active user' do
+        it 'by service' do
+          @type = 'facebook'
+          @identifier = '123456'
+
+          @recipient.services << Services::Facebook.new(:uid => @identifier)
+          @recipient.save
+
+          invited_user.should == @recipient
+        end
+
+        it 'by email' do
+          @type = 'email'
+          @identifier = alice.email
+
+          invited_user.should == @recipient
+        end
+      end
+
+      context 'invited user' do
+        it 'by service and identifier' do
+          @identifier = alice.email
+          @type = 'email'
+          invited_user.should == alice
+        end
+      end
+
+      context 'not on server (not yet invited)' do
+        it 'returns nil' do
+          @recipient = nil
+          @identifier = 'foo@bar.com'
+          @type = 'email'
+          invited_user.should be_nil
+        end
+      end
+    end
+  end
+
+  describe '.find_or_create_by_invitation' do
+
+  end
+
+  describe '.create_from_invitation!' do
+    before do
+      @identifier = 'max@foobar.com'
+      @inv = Factory.build(:invitation, :admin => true, :service => 'email', :identifier => @identifier)
+      @user = User.create_from_invitation!(@inv)
+    end
+
+    it 'creates a persisted user' do
+      @user.should be_persisted
+    end
+
+    it 'sets the email if the service is email' do
+      @user.email.should == @inv.identifier
+    end
+
+  end
+
   describe 'update_user_preferences' do
     before do
       @pref_count = UserPreference::VALID_EMAIL_TYPES.count
@@ -303,18 +409,22 @@ describe User do
     end
   end
 
-  describe ".find_for_authentication" do
+  describe ".find_for_database_authentication" do
     it 'finds a user' do
-      User.find_for_authentication(:username => alice.username).should == alice
+      User.find_for_database_authentication(:username => alice.username).should == alice
+    end
+
+    it 'finds a user by email' do
+      User.find_for_database_authentication(:username => alice.email).should == alice
     end
 
     it "does not preserve case" do
-      User.find_for_authentication(:username => alice.username.upcase).should == alice
+      User.find_for_database_authentication(:username => alice.username.upcase).should == alice
     end
 
     it 'errors out when passed a non-hash' do
       lambda {
-        User.find_for_authentication(alice.username)
+        User.find_for_database_authentication(alice.username)
       }.should raise_error
     end
   end
@@ -448,14 +558,14 @@ describe User do
 
     describe '#destroy' do
       it 'removes invitations from the user' do
-        alice.invite_user alice.aspects.first.id, 'email', 'blah@blah.blah'
+        Factory(:invitation, :sender => alice)
         lambda {
           alice.destroy
         }.should change {alice.invitations_from_me(true).count }.by(-1)
       end
 
       it 'removes invitations to the user' do
-        Invitation.create(:sender_id => eve.id, :recipient_id => alice.id, :aspect_id => eve.aspects.first.id)
+        Invitation.new(:sender => eve, :recipient => alice, :identifier => alice.email, :aspect => eve.aspects.first).save(:validate => false)
         lambda {
           alice.destroy
         }.should change {alice.invitations_to_me(true).count }.by(-1)
@@ -770,6 +880,52 @@ describe User do
           user.unconfirmed_email.should eql(nil)
           user.confirm_email_token.should eql(nil)
         end
+      end
+    end
+  end
+
+  describe "#accept_invitation!" do
+    before do
+      fantasy_resque do
+        @invitation = Factory.create(:invitation, :sender => eve, :identifier => 'invitee@example.org', :aspect => eve.aspects.first)
+      end
+      @invitation.reload
+      @form_params = {:invitation_token => "abc",
+                            :email    => "a@a.com",
+                            :username => "user",
+                            :password => "secret",
+                            :password_confirmation => "secret",
+                            :person => {:profile => {:first_name => "Bob",
+                              :last_name  => "Smith"}}}
+
+    end
+
+    context 'after invitation acceptance' do
+      it 'destroys the invitations' do
+        user = @invitation.recipient.accept_invitation!(@form_params)
+        user.invitations_to_me.count.should == 0
+      end
+
+      it "should create the person with the passed in params" do
+        lambda {
+          @invitation.recipient.accept_invitation!(@form_params)
+        }.should change(Person, :count).by(1)
+      end
+
+      it 'resolves incoming invitations into contact requests' do
+        user = @invitation.recipient.accept_invitation!(@form_params)
+        eve.contacts.where(:person_id => user.person.id).count.should == 1
+      end
+    end
+
+    context 'from an admin' do
+      it 'should work' do
+        i = nil
+        fantasy_resque do
+          i = Invitation.create!(:admin => true, :service => 'email', :identifier => "new_invitee@example.com")
+        end
+        i.reload
+        i.recipient.accept_invitation!(@form_params)
       end
     end
   end

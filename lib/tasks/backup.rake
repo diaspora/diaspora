@@ -24,7 +24,7 @@ namespace :backup do
 
     puts "Dumping Mysql at #{Time.now.to_s}"
     `mkdir -p /tmp/backup/mysql`
-    `nice mysqldump --single-transaction --user=#{user} --password=#{password} #{database} >> /tmp/backup/mysql/backup.txt `
+    `nice mysqldump --single-transaction --quick --user=#{user} --password=#{password} #{database} > /tmp/backup/mysql/backup.txt `
 
     puts "Gzipping dump at #{Time.now.to_s}"
     tar_name = "mysql_#{Time.now.to_i}.tar"
@@ -36,7 +36,6 @@ namespace :backup do
     if file.write File.open("/tmp/backup/" + tar_name)
       puts("event=backup status=success type=mysql")
       `rm /tmp/backup/#{tar_name}`
-      `rm -rf /tmp/backup/mysql/`
 
       files = mysql_container.objects
       files.sort!.pop(NUMBER_OF_DAYS * 24)

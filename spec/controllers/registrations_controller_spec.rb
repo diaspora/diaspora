@@ -61,7 +61,7 @@ describe RegistrationsController do
 
       it "sets the flash" do
         get :create, @valid_params
-        flash[:notice].should_not be_empty
+        flash[:notice].should_not be_blank
       end
 
       it "redirects to the home path" do

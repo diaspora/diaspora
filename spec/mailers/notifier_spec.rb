@@ -88,8 +88,8 @@ describe Notifier do
       @mail.body.encoded.should include(@sm.text)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
   end
 
@@ -112,8 +112,8 @@ describe Notifier do
       @mail.body.encoded.should include(@like.author.name)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
 
     it 'can handle a reshare' do
@@ -134,8 +134,12 @@ describe Notifier do
       @user2 = bob
       @participant_ids = @user2.contacts.map{|c| c.person.id} + [ @user2.person.id]
 
-      @create_hash = { :author => @user2.person, :participant_ids => @participant_ids ,
-                       :subject => "cool stuff", :text => 'hey'}
+      @create_hash = {
+        :author => @user2.person,
+        :participant_ids => @participant_ids,
+        :subject => "cool stuff",
+        :messages_attributes => [ {:author => @user2.person, :text => 'hey'} ]
+      }
 
       @cnv = Conversation.create(@create_hash)
 
@@ -166,8 +170,8 @@ describe Notifier do
       @mail.body.encoded.should include(@cnv.messages.first.text)
     end
 
-    it 'should not include translation missing' do
-      @mail.body.encoded.should_not include("missing")
+    it 'should not include translation fallback' do
+      @mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
     end
   end
 
@@ -199,6 +203,10 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+
+        it 'should not include translation fallback' do
+          comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
 
@@ -237,6 +245,10 @@ describe Notifier do
 
         it "contains the original post's link" do
           comment_mail.body.encoded.include?("#{comment.post.id.to_s}").should be true
+        end
+
+        it 'should not include translation fallback' do
+          comment_mail.body.encoded.should_not include(I18n.translate 'notifier.a_post_you_shared')
         end
       end
       [:reshare, :activity_streams_photo].each do |post_type|

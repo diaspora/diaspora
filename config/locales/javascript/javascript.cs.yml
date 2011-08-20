@@ -23,10 +23,10 @@ cs:
       no_more: "Žádné další příspěvky."
     publisher: 
       at_least_one_aspect: "Musíte publikovat alespoň do jednoho aspektu"
-      limited: "Limited - your post will only be seen by people you are sharing with"
-      public: "Public - your post will be visible to everyone and found by search engines"
+      limited: "Omezený - váše zpráva bude přístupná pouze lidem z vybraných aspektů"
+      public: "Veřejné - váši zprávu si bude moci přečíst kdokoliv a může být nalezena vyhledávači"
     reshares: 
-      duplicate: "You've already reshared that post!"
+      duplicate: "Tato zprávu už sdílíte!"
     search_for: "Hledat {{name}}"
     show_more: "zobrazit více"
     timeago: 

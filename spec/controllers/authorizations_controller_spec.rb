@@ -81,7 +81,7 @@ describe AuthorizationsController do
         post :token,  @params_hash
         response.code.should == "200"
       end
-      
+
       it 'renders something for localhost' do
         prepare_manifest("http://localhost:3423/")
         @controller.stub!(:verify).and_return('ok')
@@ -131,6 +131,10 @@ describe AuthorizationsController do
   describe "#index" do
     it 'succeeds' do
       get :index
+      response.should be_success
+    end
+    it 'succeeds on a phone' do
+      get :index, :format => :mobile
       response.should be_success
     end
 
