@@ -15,24 +15,28 @@ describe MarkdownifyHelper do
         proto="http"
         url="bugs.joindiaspora.com/issues/332"
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
       end
 
       it "should recognize basic http links (2/3)" do
         proto="http"
         url="webmail.example.com?~()!*/"
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
       end
 
       it "should recognize basic http links (3/3)" do
         proto="http"
         url="127.0.0.1:3000/users/sign_in"
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
       end
 
       it "should recognize secure https links" do
         proto="https"
         url="127.0.0.1:3000/users/sign_in"
         markdownify(proto+"://"+url).should == "<a target=\"_blank\" href=\""+proto+"://"+url+"\">"+url+"</a>"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
       end
 
       it "doesn't double parse video links" do
@@ -42,6 +46,9 @@ describe MarkdownifyHelper do
         res = markdownify(message)
         res.should =~ /href.+href.+href/
         res.should_not =~ /href.+href.+href.+href/
+
+        res = markdownify2plaintext(message)
+        res.should == message
       end
 
       describe "video links" do
@@ -135,6 +142,8 @@ describe MarkdownifyHelper do
         res.should =~ /data-video-id="foobar-----"/
         res.should =~ /data-video-id="BARFOO-----"/
         res.should =~ /data-video-id="rickrolld--"/
+
+        markdownify2plaintext(message).should == message
       end
 
       it "should recognize basic ftp links" do
