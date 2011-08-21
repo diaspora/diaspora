@@ -33,21 +33,21 @@ module PeopleHelper
     opts[:class] << " self" if defined?(user_signed_in?) && user_signed_in? && current_user.person == person
     opts[:class] << " draggable_person"
     remote_or_hovercard_link = "/people/#{person.id}".html_safe
-    "<a data-hovercard='#{remote_or_hovercard_link}' #{person_href(person)} class='#{opts[:class]}'>#{h(person.name)}</a>".html_safe
+    "<a data-hovercard='#{remote_or_hovercard_link}' #{person_href(person)} class='#{opts[:class]}' data-person_id=\"#{person.id}\">#{h(person.name)}</a>".html_safe
   end
 
-  def person_image_tag(person, size=nil)
-    size ||= :thumb_small
-    "<img alt=\"#{h(person.name)}\" class=\"avatar\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(size)}\" title=\"#{h(person.name)} (#{h(person.diaspora_handle)})\">".html_safe
+  def person_image_tag(person, opts={})
+    opts[:size] ||= :thumb_small
+    "<img alt=\"#{h(person.name)}\" class=\"avatar draggable_person\" data-person_id=\"#{person.id}\" src=\"#{person.profile.image_url(opts[:size])}\" title=\"#{h(person.name)} (#{h(person.diaspora_handle)})\">".html_safe
   end
 
   def person_image_link(person, opts={})
     return "" if person.nil? || person.profile.nil?
     if opts[:to] == :photos
-      link_to person_image_tag(person, opts[:size]), person_photos_path(person)
+      link_to person_image_tag(person, opts), person_photos_path(person)
     else
-      "<a #{person_href(person)} class='#{opts[:class]} draggable_person'>
-      #{person_image_tag(person, opts[:size])}
+      "<a #{person_href(person)} class='#{opts[:class]}'>
+      #{person_image_tag(person, opts)}
       </a>".html_safe
     end
   end
