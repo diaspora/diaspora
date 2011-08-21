@@ -8,7 +8,7 @@ module MarkdownifyHelper
 
     options[:newlines] = true if !options.has_key?(:newlines)
     options[:specialchars] = true if !options.has_key?(:specialchars)
-    options[:plain_text] = false
+    options[:plain_text] ||= false
 
     message = process_links(message, options)
     message = process_autolinks(message, options)
@@ -32,7 +32,7 @@ module MarkdownifyHelper
   end
 
   def process_newlines(message, options)
-    if !options[:plain_text]
+    unless options[:plain_text]
       message.gsub!(/\n+/, '<br />')
     else
       message.gsub!(/\n+/, "\n")
@@ -49,7 +49,7 @@ module MarkdownifyHelper
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
-      if !options[:plain_text]
+      unless options[:plain_text]
         res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\" title=\"#{title}\">#{link}</a>"
       else
         res    = "#{link} (#{protocol}#{url})"
@@ -64,7 +64,7 @@ module MarkdownifyHelper
       url.gsub!("_", "\\_")
       url.gsub!("*", "\\*")
       protocol = (url =~ /^\w+:\/\//) ? '' :'http://'
-      if !options[:plain_text]
+      unless options[:plain_text]
         res    = "<a target=\"#{escape}_blank\" href=\"#{protocol}#{url}\">#{link}</a>"
       else
         res    = "#{link} (#{protocol}#{url})"
@@ -114,7 +114,7 @@ module MarkdownifyHelper
     message.gsub!("\\__", "-^doublescore^-")
     message.gsub!("\\*", "-^star^-")
     message.gsub!("\\_", "-^score^-")
-    if !options[:plain_text]
+    unless options[:plain_text]
       message.gsub!(/(\*\*\*|___)(.+?)\1/m, '<em><strong>\2</strong></em>')
       message.gsub!(/(\*\*|__)(.+?)\1/m, '<strong>\2</strong>')
       message.gsub!(/(\*|_)(.+?)\1/m, '<em>\2</em>')
@@ -141,7 +141,7 @@ module MarkdownifyHelper
       else
         title = I18n.t 'application.helper.video_title.unknown'
       end
-      if !options[:plain_text]
+      unless options[:plain_text]
         ' <a class="video-link" data-host="vimeo.com" data-video-id="' + video_id + '" href="' + match_data[0] + '" target="_blank">Vimeo: ' + title + '</a>'
       else
         match_data[0]
@@ -163,7 +163,7 @@ module MarkdownifyHelper
     ]
 
     map.each do |mapping|
-      if !options[:plain_text]
+      unless options[:plain_text]
         message.gsub!(mapping[0], mapping[1])
       else
         message.gsub!(mapping[0], mapping[2])
