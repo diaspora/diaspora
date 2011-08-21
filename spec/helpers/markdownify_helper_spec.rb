@@ -272,4 +272,57 @@ describe MarkdownifyHelper do
       end
     end
   end
+
+  describe "#markdownify2plaintext" do
+    describe "autolinks" do
+      it "should recognize basic http links (1/3)" do
+        proto="http"
+        url="bugs.joindiaspora.com/issues/332"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
+      end
+
+      it "should recognize basic http links (2/3)" do
+        proto="http"
+        url="webmail.example.com?~()!*/"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
+      end
+
+      it "should recognize basic http links (3/3)" do
+        proto="http"
+        url="127.0.0.1:3000/users/sign_in"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
+      end
+
+      it "should recognize secure https links" do
+        proto="https"
+        url="127.0.0.1:3000/users/sign_in"
+        markdownify2plaintext(proto+"://"+url).should == proto+"://"+url
+      end
+    end
+
+    describe "video links" do
+      it "recognizes multiple links of different types" do
+        message = "http:// Hello World, this is for www.joindiaspora.com and not for http://www.google.com though their Youtube service is neat, take http://www.youtube.com/watch?v=foobar----- or www.youtube.com/watch?foo=bar&v=BARFOO-----&whatever=related It is a good idea we finally have youtube, so enjoy this video http://www.youtube.com/watch?v=rickrolld--"
+
+        markdownify2plaintext(message).should == message
+      end
+    end
+
+    describe "specialchars" do
+      it "replaces &lt;3 with ♥" do
+        message = "i <3 you"
+        markdownify2plaintext(message).should == "i ♥ you"
+      end
+
+      it "replaces various things with (their) unicode entities" do
+        message = "... <-> -> <- (tm) (r) (c)"
+        markdownify2plaintext(message).should == "… ↔ → ← ™ ® ©"
+      end
+
+      it "skips doing it if you say so" do
+        message = "... -> <-"
+        markdownify2plaintext(message, :specialchars => false).should == "... -> <-"
+      end
+    end
+  end
 end

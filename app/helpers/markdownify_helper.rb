@@ -166,7 +166,7 @@ module MarkdownifyHelper
       unless options[:plain_text]
         message.gsub!(mapping[0], mapping[1])
       else
-        message.gsub!(mapping[0], mapping[2])
+        message.gsub!(CGI.unescapeHTML(mapping[0]), mapping[2])
       end
     end
     message
