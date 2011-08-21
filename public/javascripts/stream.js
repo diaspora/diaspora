@@ -197,7 +197,7 @@ var Stream = {
       $(this).next("img.hide_loader").toggleClass("hidden");
     });
     $("a.stream_element_hide_undo").live("click", function(evt){
-      $("img.hide_loader").toggleClass("hidden");
+      $(this).closest('.stream_element').find("img.hide_loader").toggleClass("hidden");
     });
   }
 };
