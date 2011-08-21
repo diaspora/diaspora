@@ -30,9 +30,9 @@ module Jekyll
     def initialize(tag_name, markup, tokens)
       @title = nil
       @file = nil
-      if markup.strip =~ /\s+lang:(\w+)/i
+      if markup.strip =~ /\s*lang:(\w+)/i
         @filetype = $1
-        markup = markup.strip.sub(/\s+lang:\w+\s*/i,'')
+        markup = markup.strip.sub(/lang:\w+/i,'')
       end
       if markup.strip =~ /(.*)?(\s+|^)(\/*\S+)/i
         @title = $1 || nil
