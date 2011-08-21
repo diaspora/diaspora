@@ -53,7 +53,12 @@ module Jekyll
     def initialize(tag_name, markup, tokens)
       @title = nil
       @caption = nil
+      @filetype = nil
       @highlight = true
+      if markup =~ /\s+lang:(\w+)/i
+        @filetype = $1
+        markup = markup.sub(/\s+lang:\w+\s*/i,'')
+      end
       if markup =~ CaptionUrlTitle
         @file = $1
         @caption = "<figcaption><span>#{$1}</span><a href='#{$2 + $3}'>#{$4}</a></figcaption>"
@@ -64,7 +69,7 @@ module Jekyll
         @file = $1
         @caption = "<figcaption><span>#{$1}</span></figcaption>\n"
       end
-      if @file =~ /\S[\S\s]*\w+\.(\w+)/
+      if @file =~ /\S[\S\s]*\w+\.(\w+)/ && @filetype.nil?
         @filetype = $1
       end
       super
