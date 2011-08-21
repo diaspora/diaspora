@@ -86,7 +86,7 @@ del, s { text-decoration: line-through; }
 
 abbr, acronym { border-bottom: 1px dotted; cursor: help; }
 
-pre, code, tt { @extend .mono-font; }
+pre, code, tt { @extend .mono; }
 
 sub, sup { line-height: 0; }
 
