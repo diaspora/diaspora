@@ -163,7 +163,19 @@ end
 ##############
 
 desc "Default deploy task"
-task :deploy => "#{deploy_default}" do
+multitask :deploy => [:copydot, "#{deploy_default}"] do
+end
+
+desc "copy dot files for deployment"
+task :copydot do
+  cd "#{source_dir}" do
+    exclusions = [".", "..", ".DS_Store"]
+    Dir[".*"].each do |file|
+      if !File.directory?(file) && !exclusions.include?(file)
+        cp(file, "../#{public_dir}");
+      end
+    end
+  end
 end
 
 desc "Deploy website via rsync"
@@ -173,7 +185,7 @@ task :rsync do
 end
 
 desc "deploy public directory to github pages"
-task :push do
+multitask :push do
   puts "## Deploying branch to Github Pages "
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   system "cp -R #{public_dir}/* #{deploy_dir}"
