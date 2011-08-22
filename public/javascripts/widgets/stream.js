@@ -1,12 +1,20 @@
 (function() {
   var Stream = function() {
     var self = this;
-    this.streamElements = [];
 
-    this.subscribe("widget/ready", function(evt, element) {
-      $.each(element.find(".stream_element"), function(index, element) {
-        self.addPost($(element));
+    this.subscribe("widget/ready", function(evt, stream) {
+      $.extend(self, {
+        stream: $(stream),
+        streamElements: {}
       });
+
+      $.each(self.stream.find(".stream_element"), function() {
+        self.addPost($(this));
+      });
+    });
+
+    this.globalSubscribe("stream/reloaded", function() {
+      self.publish("widget/ready", self.stream);
     });
 
     this.globalSubscribe("stream/post/added", function(evt, post) {
@@ -14,9 +22,7 @@
     });
 
     this.addPost = function(post) {
-      self.streamElements.push(
-        self.instantiate("StreamElement", post)
-      );
+      self.streamElements[post.attr("id")] = self.instantiate("StreamElement", post);
     };
   };
 

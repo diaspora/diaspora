@@ -3,20 +3,17 @@
     var self = this;
 
     this.subscribe("widget/ready", function(evt, commentFormElement) {
-      $.extend({
-        commentFormElement: commentFormElement
+      $.extend(self, {
+        commentFormElement: commentFormElement,
+        commentInput: commentFormElement.find("textarea")
       });
 
-      self.commentFormElement.submit(self.submitComment);
+      self.commentInput.focus(self.showCommentForm);
     });
 
-    this.submitComment = function(evt) {
-      evt.preventDefault();
-
-      $.post(self.commentFormElement.attr("action"), self.commentFormElement.serialize(), function() {
-
-      });
-    }
+    this.showCommentForm = function() {
+      self.commentFormElement.addClass("open");
+    };
   };
 
   Diaspora.Widgets.CommentForm = CommentForm;

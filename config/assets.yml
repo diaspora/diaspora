@@ -42,6 +42,7 @@ javascripts:
     - public/javascripts/widgets/stream-element.js
     - public/javascripts/widgets/comment-stream.js
     - public/javascripts/widgets/comment-toggler.js
+    - public/javascripts/widgets/comment-form.js
     - public/javascripts/widgets/comment.js
     - public/javascripts/widgets/likes.js
     - public/javascripts/widgets/hovercard.js
@@ -50,6 +51,7 @@ javascripts:
     - public/javascripts/view.js
     - public/javascripts/stream.js
     - public/javascripts/content-updater.js
+    - public/javascripts/aspects-dropdown.js
     - public/javascripts/contact-edit.js
     - public/javascripts/contact-list.js
     - public/javascripts/aspect-sorting.js

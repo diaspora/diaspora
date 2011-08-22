@@ -64,7 +64,10 @@
 
 
 $(function() {
-  if(typeof Diaspora.Pages[Diaspora.Page] === "undefined") { throw new Error("Page " + Diaspora.Page + " does not exist"); }
+  if (typeof Diaspora.Pages[Diaspora.Page] === "undefined") {
+    Diaspora.page = Diaspora.EventBroker.extend(Diaspora.BaseWidget);
+    return;
+  }
 
   var Page = Diaspora.Pages[Diaspora.Page];
   $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));

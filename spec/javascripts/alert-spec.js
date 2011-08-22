@@ -2,9 +2,6 @@ describe("Diaspora.Alert", function() {
   beforeEach(function() {
     spec.loadFixture("aspects_index");
 
-    Diaspora.page = new Diaspora.Pages.TestPage();
-    Diaspora.page.directionDetector = Diaspora.BaseWidget.instantiate("DirectionDetector");
-
     $(document).trigger("close.facebox");
   });
 

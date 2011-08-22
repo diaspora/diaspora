@@ -3,10 +3,6 @@
  *   the COPYRIGHT file.
  */
 
-
-Diaspora.Pages.TestPage = function() { };
-Diaspora.Page = "TestPage"; 
-
 describe("Diaspora", function() {
   describe("EventBroker", function() {
     describe("extend", function() {

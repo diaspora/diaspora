@@ -8,10 +8,6 @@ describe("Stream", function() {
     jasmine.Clock.useMock();
     spec.loadFixture('aspects_index_with_posts');
     Diaspora.I18n.locale = { };
-
-    Diaspora.page = new Diaspora.Pages.TestPage();
-    Diaspora.page.timeAgo = Diaspora.BaseWidget.instantiate("TimeAgo");    
-    Diaspora.page.directionDetector = Diaspora.BaseWidget.instantiate("DirectionDetector");
   });
 
   describe("collapseText", function() {

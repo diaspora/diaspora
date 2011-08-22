@@ -14,6 +14,20 @@ beforeEach(function() {
   // NOTE Commented (as well as in afterEach) to keep the listeners from rails.js alive.
   //spec.clearLiveEventBindings();
   jasmine.Clock.useMock();
+
+
+  Diaspora.Pages.TestPage = function() {
+    var self = this;
+    this.subscribe("page/ready", function() {
+      self.timeAgo = self.instantiate("TimeAgo", "abbr.timeago");
+      self.directionDetector = self.instantiate("DirectionDetector");
+    });
+  };
+  var Page = Diaspora.Pages["TestPage"];
+  $.extend(Page.prototype, Diaspora.EventBroker.extend(Diaspora.BaseWidget));
+
+  Diaspora.page = new Page();
+  Diaspora.page.publish("page/ready", [$(document.body)])
 });
 
 afterEach(function() {
@@ -85,3 +99,4 @@ spec.retrieveFixture = function(fixtureName) {
 
 spec.loadFixtureCount = 0;
 spec.cachedFixtures = {};
+

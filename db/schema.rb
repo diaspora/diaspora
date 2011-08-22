@@ -394,7 +394,8 @@ ActiveRecord::Schema.define(:version => 20110818212541) do
     t.string   "language"
     t.string   "email",                                 :default => "",    :null => false
     t.string   "encrypted_password",     :limit => 128, :default => "",    :null => false
-    t.string   "invitation_token",       :limit => 60
+    t.string   "password_salt",                         :default => "",    :null => false
+    t.string   "invitation_token",       :limit => 20
     t.datetime "invitation_sent_at"
     t.string   "reset_password_token"
     t.string   "remember_token"

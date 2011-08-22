@@ -6,8 +6,7 @@
       $.extend(self, {
         commentStream: commentStream,
         commentToggler: self.instantiate("CommentToggler", commentStream),
-        commentForm: self.instantiate("CommentForm", commentStream.find(".new_comment_form")),
-        comments: []
+        comments: {}
       });
 
       self.commentStream.delegate(".new_comment", "ajax:failure", function() {
@@ -41,10 +40,10 @@
     });
 
     this.instantiateCommentWidgets = function() {
-      self.comments = [];
+      self.comments = {};
 
-      $.each(self.commentStream.find("li.comment"), function(index, element) {
-        self.comments.push(self.instantiate("Comment", $(element)));
+      $.each(self.commentStream.find("li.comment"), function() {
+        self.comments[this.id] = self.instantiate("Comment", $(this));
       });
     };
   };

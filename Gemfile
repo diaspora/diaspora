@@ -102,7 +102,7 @@ end
 
 group :test do
   gem 'mysql2', '0.2.6'
-  gem 'pg'
+  #gem 'pg'
   gem 'factory_girl_rails'
   gem 'fixture_builder', '0.2.2'
   gem 'selenium-webdriver', '2.4'

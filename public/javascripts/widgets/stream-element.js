@@ -6,6 +6,7 @@
       self.postGuid = element.attr("id");
 
       $.extend(self, {
+        commentForm: self.instantiate("CommentForm", element.find("form.new_comment")),
         commentStream: self.instantiate("CommentStream", element.find("ul.comments")),
         embedder: self.instantiate("Embedder", element.find("div.content")),
         likes: self.instantiate("Likes", element.find("div.likes_container")),

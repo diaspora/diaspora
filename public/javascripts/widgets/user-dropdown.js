@@ -8,7 +8,7 @@
       });
 
       self.menuElement.click(self.toggleDropdown);
-      self.menuElement.find("li a").slice(1, 3).click(function(evt) { evt.stopPropagation(); });
+      self.menuElement.find("li a").slice(1).click(function(evt) { evt.stopPropagation(); });
       $(document.body).click(self.hideDropdown);
     });
 

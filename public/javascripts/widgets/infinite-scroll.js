@@ -43,7 +43,7 @@
 
     this.reInitialize = function() {
       $("#main_stream").infinitescroll("destroy");
-      self.trigger("widget/ready");
+      self.publish("widget/ready");
     };
 
     this.globalSubscribe("stream/reloaded", self.reInitialize, this);

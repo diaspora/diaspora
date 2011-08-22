@@ -80,7 +80,7 @@
               url: "/notifications/" + notification.id,
               type: "PUT",
               success: function() {
-                Diaspora.Page.notifications.decrementCount();
+                Diaspora.page.header.notifications.decrementCount();
               }
             });
           }
