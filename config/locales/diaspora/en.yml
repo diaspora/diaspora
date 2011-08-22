@@ -463,10 +463,6 @@ en:
       fail: "Sorry, we couldn't find %{handle}."
     show:
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
-
-      you_have_no_tags: "you have no tags!"
-      add_some: "add some"
-      edit: "edit"
       incoming_request: "%{name} wants to share with you"
       return_to_aspects: "Return to your aspects page"
       to_accept_or_ignore: "to accept or ignore it."
@@ -478,6 +474,10 @@ en:
       start_sharing: "start sharing"
       message: "Message"
       mention: "Mention"
+    sub_header:
+      you_have_no_tags: "you have no tags!"
+      add_some: "add some"
+      edit: "edit"
     profile_sidebar:
       remove_contact: "remove contact"
       edit_my_profile: "Edit my profile"

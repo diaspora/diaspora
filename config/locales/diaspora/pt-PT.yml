@@ -4,9 +4,9 @@
 
 
 pt-PT: 
-  _applications: "Applications"
+  _applications: "Aplicações"
   _comments: "Comentários"
-  _contacts: "Contacts"
+  _contacts: "Contactos"
   _home: "Início"
   _photos: "fotografias"
   _services: "serviços"
@@ -68,12 +68,12 @@ pt-PT:
     aspect_contacts: 
       done_editing: "finalizar edição"
     aspect_listings: 
-      add_an_aspect: "+ Add an aspect"
+      add_an_aspect: "+ Adicionar um aspecto"
     aspect_stream: 
-      commented_on: "commented on"
-      posted: "posted"
-      recently: "recently:"
-      stream: "Stream"
+      commented_on: "comentou em"
+      posted: "publicado"
+      recently: "recentemente:"
+      stream: "Transmissão"
     contacts_not_visible: "Contactos neste aspecto não se verão uns aos outros."
     contacts_visible: "Contactos neste aspecto ver-se-ão uns aos outros."
     create: 
@@ -104,22 +104,22 @@ pt-PT:
         heading: "Ligar ao Cubbi.es"
         learn_more: "Aprender mais"
       diaspora_id: 
-        content_1: "Your Diaspora ID is:"
-        content_2: "Give it to anyone and they'll be able to find you on Diaspora."
-        heading: "Diaspora ID"
+        content_1: "A sua identificação Diaspora é:"
+        content_2: "Dê-a a alguém para que o encontre no Diaspora."
+        heading: "Identificação do Diaspora"
       donate: "Donate"
       handle_explanation: "Esta é a sua identificação do Diaspora. Tal como um endereço de email, pode dá-la a quem deseja que o contacte."
       keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
       no_contacts: "Não há contactos"
-      no_tags: "No tags"
+      no_tags: "+ Encontre uma tag para seguir"
       people_sharing_with_you: "Pessoas a partilhar consigo"
       post_a_message: "publicar uma mensagem >>"
       services: 
         content: "You can connect the following services to Diaspora:"
-        heading: "Connect Services"
+        heading: "Conectar Serviços"
       tags_following: "Followed Tags"
       unfollow_tag: "Stop following #%{tag}"
-      your_aspects: "Your Aspects"
+      your_aspects: "Os Seus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
       error: "Erro ao mover o contacto: %{inspect}"
@@ -143,9 +143,9 @@ pt-PT:
       friends: "Friends"
       work: "Trabalho"
     selected_contacts: 
-      manage_your_aspects: "Manage your aspects."
-      no_contacts: "You don't have any contacts here yet."
-      view_all_contacts: "View all contacts"
+      manage_your_aspects: "Gerir os seus aspectos"
+      no_contacts: "Ainda não tem quaisquer aspectos aqui."
+      view_all_contacts: "Ver todos os contactos"
     show: 
       edit_aspect: "editar aspecto"
     update: 
@@ -154,12 +154,12 @@ pt-PT:
     zero: "não há aspectos"
   authorizations: 
     index: 
-      revoke_access: "Revoke Access"
+      revoke_access: "Revogar o Acesso"
   back: "Voltar"
   bookmarklet: 
     explanation: "Publique no Diaspora de qualquer lado ao adicionar %{link} como marcador."
     explanation_link_text: "esta hiperligação"
-    heading: "Bookmarklet do Diaspora"
+    heading: "Bookmarklet"
     post_something: "Publique qualquer coisa no Diaspora"
     post_success: "Publicado! A fechar!"
   cancel: "Cancelar"
@@ -179,17 +179,17 @@ pt-PT:
       featured_users: "Featured Users"
     few: "%{count} contactos"
     index: 
-      add_a_new_aspect: "Add a new aspect"
-      all_contacts: "All Contacts"
-      edit_aspect: "Edit %{name}"
+      add_a_new_aspect: "Adicionar um novo aspecto"
+      all_contacts: "Todos os Contactos"
+      edit_aspect: "Editar %{name}"
       many_people_are_you_sure: "Are you sure you want to start a private conversation with more than %{suggested_limit} contacts? Posting to this aspect may be a better way to contact them."
-      my_contacts: "My Contacts"
-      no_contacts: "No contacts."
-      only_sharing_with_me: "Only sharing with me"
-      remove_person_from_aspect: "Remove %{person_name} from \"%{aspect_name}\""
-      start_a_conversation: "Start a conversation"
-      title: "Contacts"
-      your_contacts: "Your Contacts"
+      my_contacts: "Os Meus Contactos"
+      no_contacts: "Nenhum contacto."
+      only_sharing_with_me: "Apenas a partilhar comigo"
+      remove_person_from_aspect: "Remover %{person_name} de \"%{aspect_name}\""
+      start_a_conversation: "Iniciar um conversa"
+      title: "Contactos"
+      your_contacts: "Os Seus Contactos"
     many: "%{count} contactos"
     one: "1 contacto"
     other: "%{count} contactos"
@@ -216,7 +216,7 @@ pt-PT:
       no_conversation_selected: "nenhuma conversa foi seleccionada"
       no_messages: "não há mensagens"
     new: 
-      abandon_changes: "Abandon changes?"
+      abandon_changes: "Abandonar as alterações?"
       send: "Enviar"
       sending: "Sending..."
       subject: "assunto"
@@ -236,7 +236,7 @@ pt-PT:
       correct_the_following_errors_and_try_again: "Corrija os seguintes erros e volte a tentar."
       invalid_fields: "Campos Inválidos"
   fill_me_out: "Informe-me"
-  find_people: "Find people"
+  find_people: "Encontrar pessoas ou #tags"
   hide: "Esconder"
   home: 
     show: 
@@ -293,7 +293,7 @@ pt-PT:
       profile: "perfil"
       recent_notifications: "Recent notifications"
       settings: "definições"
-      view_all: "View all"
+      view_all: "Ver tudo"
   likes: 
     likes: 
       people_dislike_this: 
@@ -314,7 +314,7 @@ pt-PT:
         one: "%{count} like"
         other: "%{count} likes"
         zero: "no likes"
-  limited: "Limited"
+  limited: "Limitado"
   more: "Mais"
   next: "próximo"
   no_results: "Não Foram Encontrados Resultados"
@@ -397,8 +397,8 @@ pt-PT:
     comment_on_post: 
       reply: "Reply or view %{name}'s post >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Para activar o seu novo endereço de email %{unconfirmed_email}, por favor clique nesta hiperligação:"
+      subject: "Por favor active o seu novo endereço de email %{unconfirmed_email}"
     email_sent_by_diaspora: "This email was sent by Diaspora.  If you'd like to stop getting emails like this,"
     hello: "Olá %{name}!"
     liked: 
@@ -536,7 +536,7 @@ pt-PT:
     update: 
       failed: "Falhou ao actualizar o perfil"
       updated: "Perfil actualizado"
-  public: "Public"
+  public: "Público"
   registrations: 
     closed: "Os registos estão encerrados neste pod do Diaspora."
     create: 
@@ -583,14 +583,14 @@ pt-PT:
     reshare: 
       deleted: "Original post deleted by author."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        few: "%{count} repartilhas"
+        many: "%{count} repartilhas"
+        one: "1 repartilha"
+        other: "%{count} repartilhas"
         zero: "Reshare"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+      reshare_confirmation: "Repartilhar a publicação de %{author}?"
+      reshare_original: "Repartilha original"
+      show_original: "Mostrar original"
   search: "Procurar"
   services: 
     create: 
@@ -621,7 +621,7 @@ pt-PT:
   settings: "Definições"
   shared: 
     add_contact: 
-      add_new_contact: "Add a new contact"
+      add_new_contact: "Adicionar um novo contacto"
       create_request: "Encontrar através da identificação do Diaspora"
       diaspora_handle: "diaspora@pod.org"
       enter_a_diaspora_username: "Introduza um nome de utilizador do Diaspora:"
@@ -652,21 +652,21 @@ pt-PT:
       all: "tudo"
       all_contacts: "todos os contactos"
       click_to_share_with: "Clique para partilhar com: "
-      discard_post: "Discard post"
+      discard_post: "Rejeitar a publicação"
       make_public: "tornar público"
       post_a_message_to: "Publicar uma mensagem em %{aspect}"
       posting: "A publicar..."
       publishing_to: "publicando para:"
       share: "Partilhar"
       share_with: "partilhar com"
-      upload_photos: "Upload photos"
+      upload_photos: "Carregar fotos"
       whats_on_your_mind: "Em que está a pensar?"
     reshare: 
       reshare: "Voltar a partilhar"
     stream_element: 
       dislike: "Não gosto"
       like: "Gosto"
-      shared_with: "Shared with: %{aspect_names}"
+      shared_with: "Partilhado com: %{aspect_names}"
       unlike: "Não Gosto"
       via: "via %{link}"
       viewable_to_anyone: "This post is viewable to anyone on the web"
@@ -687,7 +687,7 @@ pt-PT:
       zero: "por favor não utilize mais de %{count} caracteres ao escrever as suas mensagens de estado"
   stream_helper: 
     hide_comments: "Ocultar todos comentários"
-    show_more_comments: "Show %{number} more comments"
+    show_more_comments: "Mostrar %{number} mais contactos"
   tag_followings: 
     create: 
       failure: "Failed to follow: #%{name}"
@@ -697,18 +697,18 @@ pt-PT:
       success: "Successfully stopped following: #%{name}"
   tags: 
     show: 
-      follow: "Follow #%{tag}"
-      following: "Following #%{tag}"
+      follow: "Seguir #%{tag}"
+      following: "A seguir #%{tag}"
       nobody_talking: "Ainda ninguém está a falar sobre %{tag}."
       people_tagged_with: "Pessoas com a %{tag}"
       posts_tagged_with: "Publicações com a tag #%{tag}"
-      stop_following: "Stop Following #%{tag}"
+      stop_following: "Deixar de Seguir #%{tag}"
   tokens: 
     show: 
       connect_to_cubbies: "Ligar ao Cubbi.es"
-      connecting_is_simple: "Ligar a sua conta do Diaspora é tão simples como preencher dois campos na página da sua conta do Cubbi.es."
+      connecting_is_simple: "Ligar à sua conta do Diaspora é simples! É só introduzir a sua identificação do Diaspora (<b>%{diaspora_id}</b>) na sua <a href='%{href_link}'>página de definições</a> do Cubbi.es."
       daniels_account: "conta do Diaspora do Daniel"
-      log_in_with_diaspora_is_comming: "Pretty soon, you'll be able to connect to a new application without creating an account separate from your one on Diaspora."
+      log_in_with_diaspora_is_comming: "Muito em breve, poderá conectar a novas aplicações sem criar uma conta separada da sua conta no Diaspora."
       love_to_try: "Adoraríamos que o experimentasse."
       making_the_connection: "Fazer a Ligação"
       screenshot_explanation: "%{link1}.  Este cubby em particular está ligado à %{link2}."
@@ -720,13 +720,13 @@ pt-PT:
   username: "Nome de utilizador"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Email %{email} activado"
+      email_not_confirmed: "O email não pode ser activado. Hiperligação errada?"
     destroy: "A sua conta foi encerrada. Pode demorar até 20 minutos para que terminemos o processo de encerramento da sua conta. Obrigado por experimentar o Diaspora."
     edit: 
       also_commented: "...alguém também comenta na publicação do seu contacto?"
       change: "Alterar"
-      change_email: "Change E-Mail"
+      change_email: "Mudar de email"
       change_language: "Mudar de idioma"
       change_password: "Alterar a palavra-passe"
       close_account: "Encerrar a Conta"
@@ -735,7 +735,7 @@ pt-PT:
       download_photos: "descarregar as minhas fotografias"
       download_xml: "descarregar o meu xml"
       edit_account: "Editar conta"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "Enviámos-lhe uma hiperligação de activação para %{unconfirmed_email}. Até que siga esta hiperligação e active o novo endereço, continuaremos a utilizar o seu endereço original %{email}."
       export_data: "Exportar Dados"
       liked: "...alguém gosta da sua publicação?"
       mentioned: "...é mencionado numa publicação?"
@@ -781,7 +781,7 @@ pt-PT:
       password_changed: "A palavra-passe foi alterada. Já pode iniciar sessão com a sua nova palavra-passe."
       password_not_changed: "Falhou ao alterar a palavra-passe"
       unconfirmed_email_changed: "O endereço de email foi alterado. É necessária activação."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_not_changed: "A mudança de email falhou"
   webfinger: 
     fetch_failed: "erro a obter perfil webfinger profile para %{profile_url}"
     hcard_fetch_failed: "ocorreu um problema a obter a hcard para %{account}"

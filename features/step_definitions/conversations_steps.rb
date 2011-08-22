@@ -15,3 +15,12 @@ Then /^I send a message with subject "([^"]*)" and text "([^"]*)" to "([^"]*)"$/
   And %(I press "Send" in the modal window)
   And %(I wait for the ajax to finish)
 end
+
+When /^I reply with "([^"]*)"$/ do |text|
+  When %(I am on the conversations page)
+  And %(I press the first ".conversation" within ".conversations")
+  And %(I wait for the ajax to finish)
+  And %(I fill in "message_text" with "#{text}")
+  And %(I press "Reply")
+  And %(I wait for the ajax to finish)
+end
