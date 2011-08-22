@@ -44,19 +44,9 @@ article {
     line-height: 1.3em;
   }
   img, video, .flash-video {
-    max-width: 100%;
-    height: auto;
-    border: .5em solid #fff;
-    @include border-radius(.3em);
-    @include box-shadow(rgba(#000, .15) 0 1px 4px);
-    @include box-sizing(border-box);
-    display: block;
-  }
-  img {
-    &.left { float: left; margin-right: 1.5em; }
-    &.right { float: right; margin-left: 1.5em; }
-    &.center { margin: 0 auto 1.5em; }
-    &.left, &.right { margin-bottom: .8em; }
+    @extend .flex-content;
+    @extend .basic-alignment;
+    @include shadow-box;
   }
   video, .flash-video { margin: 0 auto 1.5em; }
   video { display: block; width: 100%; }

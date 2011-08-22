@@ -20,6 +20,11 @@ aside[role=sidebar] {
       }
     }
   }
+  img {
+    @extend .flex-content;
+    @extend .basic-alignment;
+    @include shadow-box($border: #fff .3em solid);
+  }
   ul {
     margin-bottom: 0.5em;
     margin-left: 0;
