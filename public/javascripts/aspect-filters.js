@@ -152,7 +152,7 @@ var AspectFilters = {
 
         // reinit listeners on stream
         photozone.html(photos_html);
-        Diaspora.widgets.publish("stream/reloaded");
+        Diaspora.page.publish("stream/reloaded");
 
         // fade contents back in
         AspectFilters.fadeIn();

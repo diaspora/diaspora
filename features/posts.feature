@@ -23,7 +23,7 @@ Feature: posting
         And I follow "Your Aspects"
       Then I should see "I am eating a yogurt" within ".stream_element"
 
-    Scenario: post a photo without text
+    Scenario: post a photo without text 
       Given I expand the publisher
       And I attach the file "spec/fixtures/button.png" to hidden element "file" within "#file-upload"
       And I wait for the ajax to finish

@@ -4,6 +4,6 @@
       "<%= escape_javascript(render(:partial => 'shared/stream_element', :locals => {:post => @reshare }))=%>"
   );
   <% else  %>
-  Diaspora.widgets.flashes.render({success:false,
+  Diaspora.page.flashMessages.render({success:false,
     notice: "<%= reshare_error_message(@reshare)  %>"});
 <% end %>

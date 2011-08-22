@@ -9,25 +9,12 @@
     var self = this;
     this.services = {};
 
+    this.subscribe("widget/ready", function(evt, contentElement) {
+      self.contentElement = contentElement;
 
-    self.subscribe("widget/ready", function() {
-      $.extend(self, {
-				stream: $("#main_stream")
-      });
-
-      self.ensureDOMStructure();
-
-      $('a.video-link').live('click', self.onVideoLinkClicked);
+      self.contentElement.delegate("a.video-link", "click", self.embedVideo);
       self.registerServices();
     });
-
-    this.ensureDOMStructure = function() {
-      var post = self.stream.children(".stream_element:first"),
-				content = post.children(".sm_body").children(".content").children("p");
-
-      self.canEmbed = !!content.length;
-    };
-
 
     this.register = function(service, template) {
       self.services[service] = template;
@@ -37,20 +24,23 @@
       var template = (typeof self.services[service] === "string")
           ? self.services[service]
           : self.services.undefined;
-
+  
       return $.mustache(template, views);
     };
 
-    this.embed = function(videoLink) {
-      var host = videoLink.data("host"),
+    this.embedVideo = function(evt) {
+      evt.preventDefault();
+      evt.stopPropagation();
+
+      var videoLink = $(this),
+        host = videoLink.data("host"),
 				container = $("<div/>", { "class": "video-container" }),
-				videoContainer = videoLink.closest(".content").children(".video-container");
+				videoContainer = self.contentElement.children(".video-container");
 
       if (videoContainer.length) {
-				videoContainer.slideUp("fast", function() {
+				videoContainer.slideUp("fast", function() { 
 	  			$(this).detach();
 				});
-
 				return;
       }
 
@@ -59,7 +49,7 @@
       }
 
       container.html(
-        self.render(videoLink.attr('data-host'), videoLink.data())
+        self.render(host, videoLink.data())
       );
 
       container.hide()
@@ -69,29 +59,22 @@
       videoLink.click(function() {
 				videoContainer.slideUp("fast", function() {
 	  			$(this).detach();
-				});
-      });
-    };
-
-    this.onVideoLinkClicked = function(evt) {
-      if(self.canEmbed) {
-				evt.preventDefault();
-				self.embed($(this));
-      }
+				});	
+      });  
     };
 
     this.registerServices = function() {
       self.register("youtube.com",
-        '<a href="//www.youtube.com/watch?v={{video-id}}{{anchor}}" target="_blank">' + Diaspora.widgets.i18n.t("videos.watch", { provider: "YouTube" }) + '</a><br />' +
+        '<a href="//www.youtube.com/watch?v={{video-id}}{{anchor}}" target="_blank">' + Diaspora.I18n.t("videos.watch", { provider: "YouTube" }) + '</a><br />' +
         '<iframe class="youtube-player" type="text/html" src="http://www.youtube.com/embed/{{video-id}}?wmode=opaque{{anchor}}"></iframe>');
 
       self.register("vimeo.com",
-				'<a href="http://vimeo.com/{{video-id}}">' + Diaspora.widgets.i18n.t("videos.watch", { provider: "Vimeo" }) + '</a><br />' +
+				'<a href="http://vimeo.com/{{video-id}}">' + Diaspora.I18n.t("videos.watch", { provider: "Vimeo" }) + '</a><br />' +
 				'<iframe class="vimeo-player" src="http://player.vimeo.com/video/{{video-id}}"></iframe>');
 
-      self.register("undefined", '<p>' + Diaspora.widgets.i18n.t("videos.unknown") + ' - {{host}}</p>');
+      self.register("undefined", '<p>' + Diaspora.I18n.t("videos.unknown") + ' - {{host}}</p>');
     };
   };
 
-  Diaspora.widgets.add("embedder", Embedder);
+  Diaspora.Widgets.Embedder = Embedder;
 })();

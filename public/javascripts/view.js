@@ -16,12 +16,12 @@ var View = {
       jQuery("#facebox label").inFieldLabels();
     });
 
-    Diaspora.widgets.subscribe("stream/scrolled", function() {
-      new_elements = Array.prototype.slice.call(arguments,1)
+    Diaspora.page.subscribe("stream/scrolled", function() {
+      var new_elements = Array.prototype.slice.call(arguments,1)
       $(new_elements).find('label').inFieldLabels();
     });
 
-    Diaspora.widgets.subscribe("stream/reloaded", function() {
+    Diaspora.page.subscribe("stream/reloaded", function() {
       $('#main_stream label').inFieldLabels();
     });
 
@@ -38,15 +38,6 @@ var View = {
       }
     }); 
 
-    back_to_top.click(function(event){		
-      event.preventDefault();
-      $('html,body').animate({scrollTop:0}, 500);
-    })
-
-  /* Showing debug messages  */
-    $(this.debug.selector)
-      .click(this.debug.click);
-
     /* "Toggling" the search input */
     $(this.search.selector)
       .blur(this.search.blur)
@@ -54,23 +45,17 @@ var View = {
     /* Submit the form when the user hits enter */
       .keypress(this.search.keyPress);
 
-    /* User menu */
-    $(this.userMenu.selector)
-      .click(this.userMenu.click);
-
     /* Dropdowns */
     $(this.dropdowns.selector)
       .live('click', this.dropdowns.click);
 
-    /* Sending a request message */
-    $(this.newRequest.selector)
-      .live("submit", this.newRequest.submit);
 
     /* Clear forms after successful submit */
     $('form[data-remote]').live('ajax:success', function (e) {
       $(this).clearForm();
       $(this).focusout();
     });
+
 
     /* Autoexpand textareas */
     var startAutoResize = function() {
@@ -84,16 +69,11 @@ var View = {
                           'extraSpace': 5
                         });
     }
-    Diaspora.widgets.subscribe("stream/scrolled", startAutoResize)
-    Diaspora.widgets.subscribe("stream/reloaded", startAutoResize)
-
-    /* Webfinger form ajaxy loading */
-    $(this.webFingerForm.selector)
-      .submit(this.webFingerForm.submit);
+//    Diaspora.Page.subscribe("stream/scrolled", startAutoResize)
+//    Diaspora.Page.subscribe("stream/reloaded", startAutoResize)
 
     $(document.body)
       .click(this.dropdowns.removeFocus)
-      .click(this.userMenu.removeFocus)
       .click(this.reshareButton.removeFocus);
 
     /* facebox */
@@ -103,7 +83,7 @@ var View = {
 
     $('a[rel*=facebox]').facebox();
     $(document).bind('reveal.facebox', function() {
-      Diaspora.widgets.directionDetector.updateBinds();
+      Diaspora.page.directionDetector.updateBinds();
     });
 
     $("a.new_aspect").click(function(e){
@@ -125,27 +105,6 @@ var View = {
     });
   },
 
-  addAspectButton: {
-    click: function() {
-      $("#aspect_name").focus();
-    },
-    selector: ".add_aspect_button"
-  },
-
-  debug: {
-    click: function() {
-      $("#debug_more").toggle("fast");
-    },
-    selector: "#debug_info"
-  },
-
-  newRequest: {
-    submit: function() {
-      $(this).hide().parent().find(".stream_element").removeClass("hidden");
-    },
-    selector: ".new_request"
-  },
-
   search: {
     blur: function() {
       $(this).removeClass("active");
@@ -165,31 +124,6 @@ var View = {
   },
 
   tooltips: {
-    addAspect: {
-      bind: function() {
-        $(".add_aspect_button", "#aspect_nav").tipsy({
-          gravity: ($('html').attr('dir') == 'rtl')? "e" : "w"
-        });
-      }
-    },
-
-    aspect_nav: {
-      bind: function() {
-        $("a", "#aspect_nav").tipsy({
-          gravity:"n",
-          delayIn: 600
-        });
-      }
-    },
-
-    avatars: {
-      bind: function() {
-        $("#aspect_listings img.avatar, #manage_aspect_zones img.avatar").tipsy({
-          live: true
-        });
-      }
-    },
-
     public_badge: {
       bind: function() {
         $(".public_badge img").tipsy({
@@ -202,15 +136,6 @@ var View = {
       bind: function() {
         $(".conversation_participants img").tipsy({
           live: true
-        });
-      }
-    },
-
-    whatIsThis: {
-      bind: function() {
-        $(".what_is_this").tipsy({
-          live: true,
-          delayIn: 400
         });
       }
     },
@@ -246,32 +171,9 @@ var View = {
     },
     selector: ".dropdown > .toggle",
     parentSelector: ".dropdown > .wrapper"
-  },
-
-  userMenu: {
-    click: function(evt) {
-      $(this).parent().toggleClass("active");
-      evt.preventDefault();
-    },
-    removeFocus: function(evt) {
-      var $target = $(evt.target);
-      if(!$target.closest("#user_menu").length || ($target.attr('href') != undefined && $target.attr('href') != '#')) {
-        $(View.userMenu.selector).parent().removeClass("active");
-      }
-    },
-    selector: "#user_menu li:first-child"
-  },
-
-  webFingerForm: {
-    submit: function(evt) {
-      $(evt.currentTarget).siblings("#loader").show();
-      $("#request_result li:first").hide();
-    },
-    selector: ".webfinger_form"
   }
 };
 
 $(function() {
-  /* Make sure this refers to View, not the document */
-  View.initialize.apply(View);
+  View.initialize();
 });

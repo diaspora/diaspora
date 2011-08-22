@@ -108,7 +108,7 @@
             %h4
               = t('.find_friends')
             .span-5.append-1
-              = form_tag(people_path, :method => 'get', :class => "search_form") do
+              = form_tag(people_path, :method => 'get', :class => "people search_form") do
                 = text_field_tag 'q', nil, :placeholder => "Search for people", :type => 'search', :results => 5
             .span-5.last{:style => "height:30px;"}
               %h4{:style => "margin-top:7px;"}
@@ -129,7 +129,7 @@
             = t('.hashtag_explanation')
 
           .span-5.append-1
-            = form_tag(tags_path, :method => 'get', :class => "search_form") do
+            = form_tag(tags_path, :method => 'get', :class => "tag search_form") do
               = text_field_tag 'q', nil, :placeholder => "Search for #hashtags", :type => 'search', :results => 5
           .span-5.last
             %h4{:style => "margin-top:7px;"}

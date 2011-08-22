@@ -5,9 +5,7 @@
 
 describe("ContentUpdater", function() {
   describe("addPostToStream", function() {
-
     beforeEach(function() {
-      $("#jasmine_content").empty();
       spec.loadFixture("aspects_index");
     });
 

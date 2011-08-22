@@ -41,8 +41,8 @@
       = include_javascripts :main
       -if current_user
         :javascript
-          Diaspora.widgets.i18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
-
+          Diaspora.I18n.loadLocale(#{get_javascript_strings_for(current_user.language).to_json}, "#{current_user.language}");
+          Diaspora.Page = "#{params[:controller].camelcase}#{params[:action].camelcase}";
     - if current_user
       = include_javascripts :flash_socket #unless modern_browser?
       = javascript_include_tag 'web-socket-receiver'
@@ -100,8 +100,6 @@
     .container{:style=> "#{yield(:break_the_mold)}"}
       .span-24.last{:style=> "#{yield(:break_the_mold)}"}
         = yield
-
-      /=render :partial => 'layouts/debug.haml'
 
     %footer
       .container

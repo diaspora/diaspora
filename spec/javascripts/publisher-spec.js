@@ -101,7 +101,7 @@ describe("Publisher", function() {
   describe("bindPublicIcon", function() {
     beforeEach( function(){
       spec.loadFixture('aspects_index_services');
-      Diaspora.widgets.i18n.loadLocale(
+      Diaspora.I18n.loadLocale(
         { 'publisher' :
           { 'public' : 'is public', 'limited' : 'is limited' } }, 'en');
     });

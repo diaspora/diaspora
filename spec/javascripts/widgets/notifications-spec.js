@@ -1,68 +1,64 @@
 /*   Copyright (c) 2010, Diaspora Inc.  This file is
-*   licensed under the Affero General Public License version 3 or later.  See
-*   the COPYRIGHT file.
-*/
-describe("Diaspora", function() {
-  describe("widgets", function() {
-    describe("notifications", function() {
-      var changeNotificationCountSpy;
+ *   licensed under the Affero General Public License version 3 or later.  See
+ *   the COPYRIGHT file.
+ */
+describe("Diaspora.Widgets.Notifications", function() {
+  var changeNotificationCountSpy, notifications;
 
-      beforeEach(function() {
-        changeNotificationCountSpy = spyOn(Diaspora.widgets.notifications, "changeNotificationCount").andCallThrough();
-        $("#jasmine_content").html("<div id='notifications'></div>");
-        Diaspora.widgets.notifications.publish("widget/ready");
-        changeNotificationCountSpy.reset();
+  beforeEach(function() {
+    spec.loadFixture("aspects_index");
+    notifications = Diaspora.BaseWidget.instantiate("Notifications", $("#notifications"), $("#notification_badge .badge_count"));
+
+    changeNotificationCountSpy = spyOn(notifications, "changeNotificationCount").andCallThrough();
+  });
+
+  describe("decrementCount", function() {
+    it("decrements Notifications.count", function() {
+      var originalCount = notifications.count;
+      notifications.decrementCount();
+      expect(notifications.count).toBeLessThan(originalCount);
+    });
+
+    it("calls Notifications.changeNotificationCount", function() {
+      notifications.decrementCount();
+      expect(notifications.changeNotificationCount).toHaveBeenCalled();
+    })
+  });
+
+  describe("incrementCount", function() {
+    it("increments Notifications.count", function() {
+      var originalCount = notifications.count;
+      notifications.incrementCount();
+      expect(notifications.count).toBeGreaterThan(originalCount);
+    });
+
+    it("calls Notifications.changeNotificationCount", function() {
+      notifications.incrementCount();
+      expect(notifications.changeNotificationCount).toHaveBeenCalled();
+    });
+  });
+
+  describe("showNotification", function() {
+    it("prepends a div to div#notifications", function() {
+      expect($("#notifications div").length).toEqual(0);
+
+      notifications.showNotification({
+        html: '<div class="notification"></div>'
       });
 
-      describe("decrementCount", function() {
-        it("decrements Notifications.count", function() {
-          var originalCount = Diaspora.widgets.notifications.count;
-          Diaspora.widgets.notifications.decrementCount();
-          expect(Diaspora.widgets.notifications.count).toBeLessThan(originalCount);
-        });
+      expect($("#notifications div").length).toEqual(1);
+    });
 
-        it("calls Notifications.changeNotificationCount", function() {
-          Diaspora.widgets.notifications.decrementCount();
-          expect(Diaspora.widgets.notifications.changeNotificationCount).toHaveBeenCalled();
-        })
+    it("only increments the notification count if specified to do so", function() {
+      var originalCount = notifications.count;
+
+      notifications.showNotification({
+        html: '<div class="notification"></div>',
+        incrementCount: false
       });
 
-      describe("incrementCount", function() {
-        it("increments Notifications.count", function() {
-          var originalCount = Diaspora.widgets.notifications.count;
-          Diaspora.widgets.notifications.incrementCount();
-          expect(Diaspora.widgets.notifications.count).toBeGreaterThan(originalCount);
-        });
+      expect(notifications.count).toEqual(originalCount);
 
-        it("calls Notifications.changeNotificationCount", function() {
-          Diaspora.widgets.notifications.incrementCount();
-          expect(Diaspora.widgets.notifications.changeNotificationCount).toHaveBeenCalled();
-        });
-      });
-
-      describe("showNotification", function() {
-        it("prepends a div to div#notifications", function() {
-          expect($("#notifications div").length).toEqual(0);
-
-          Diaspora.widgets.notifications.showNotification({
-            html: '<div class="notification"></div>'
-          });
-
-          expect($("#notifications div").length).toEqual(1);
-        });
-
-        it("only increments the notification count if specified to do so", function() {
-          var originalCount = Diaspora.widgets.notifications.count;
-
-          Diaspora.widgets.notifications.showNotification({
-            html: '<div class="notification"></div>',
-            incrementCount: false
-          });
-
-          expect(Diaspora.widgets.notifications.count).toEqual(originalCount);
-
-        });
-      });
     });
   });
 });

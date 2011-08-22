@@ -1,8 +1,11 @@
 describe("Diaspora", function() {
-  describe("widgets", function() {
-    describe("flashes", function() {
+  describe("Widgets", function() {
+    describe("FlashMessages", function() {
+      var flashMessages;
+
       describe("animateMessages", function() {
         beforeEach(function() {
+          flashMessages = Diaspora.BaseWidget.instantiate("FlashMessages");
           $("#jasmine_content").html(
             '<div id="flash_notice">' +
               'flash message' +
@@ -11,21 +14,21 @@ describe("Diaspora", function() {
         });
 
         it("is called when the DOM is ready", function() {
-          spyOn(Diaspora.widgets.flashes, "animateMessages").andCallThrough();
-          Diaspora.widgets.flashes.publish("widget/ready");
-          expect(Diaspora.widgets.flashes.animateMessages).toHaveBeenCalled();
+          spyOn(flashMessages, "animateMessages").andCallThrough();
+          flashMessages.publish("widget/ready");
+          expect(flashMessages.animateMessages).toHaveBeenCalled();
         });
       });
 
       describe("render", function() {
         it("creates a new div for the message and calls flashes.animateMessages", function() {
-          spyOn(Diaspora.widgets.flashes, "animateMessages");
-          Diaspora.widgets.flashes.render({
+          spyOn(flashMessages, "animateMessages");
+          flashMessages.render({
             success: true,
             message: "success!"
           });
 	  expect($("#flash_notice").length).toEqual(1);
-          expect(Diaspora.widgets.flashes.animateMessages).toHaveBeenCalled();
+          expect(flashMessages.animateMessages).toHaveBeenCalled();
         });
       });
     });

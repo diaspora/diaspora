@@ -1,3 +1,4 @@
+
 /*   Copyright (c) 2010, Diaspora Inc.  This file is
 *   licensed under the Affero General Public License version 3 or later.  See
 *   the COPYRIGHT file.
@@ -7,21 +8,18 @@
   var Notifications = function() {
     var self = this;
     
-    this.subscribe("widget/ready", function() {
-      self.badge = $("#notification_badge .badge_count")
-      self.indexBadge =  $(".notification_count");
-      self.onIndexPage = self.indexBadge.length > 0;
-      self.notificationArea = $("#notifications");
-      self.count = parseInt(self.badge.html()) || 0;
+    this.subscribe("widget/ready", function(evt, notificationArea, badge) {
+      $.extend(self, {
+        badge: badge,
+        count: parseInt(badge.html()) || 0,
+        notificationArea: notificationArea
+      });
 
       $(".stream_element.unread").live("mousedown", function() {
         self.decrementCount();
 
-        var notification = $(this);
-        notification.removeClass("unread");
-        
         $.ajax({
-          url: "notifications/" + notification.data("guid"),
+          url: "notifications/" + $(this).removeClass("unread").data("guid"),
           type: "PUT"
         });
       });
@@ -48,20 +46,16 @@
     };
 
     this.changeNotificationCount = function(change) {
-      this.count += change;
+      self.count += change;
 
-      if(this.badge.text() !== "") {
-				this.badge.text(this.count);
-				if(this.onIndexPage)
-	  		this.indexBadge.text(this.count + " ");
+      if(self.badge.text() !== "") {
+				self.badge.text(self.count);
 
-				if(this.count === 0) {
-	  			this.badge.addClass("hidden");
-	  			if(this.onIndexPage)
-	    		this.indexBadge.removeClass('unread');
+				if(self.count === 0) {
+	  			self.badge.addClass("hidden");
 				}
-				else if(this.count === 1) {
-	  			this.badge.removeClass("hidden");
+				else if(self.count === 1) {
+	  			self.badge.removeClass("hidden");
 				}
       }
     };
@@ -75,5 +69,5 @@
     };
   };
 
-  Diaspora.widgets.add("notifications", Notifications);
+  Diaspora.Widgets.Notifications = Notifications;
 })();

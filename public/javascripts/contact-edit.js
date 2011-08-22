@@ -5,7 +5,7 @@
 var ContactEdit = {
   init: function(){
     $.extend(ContactEdit, AspectsDropdown);
-    $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list >li').live('click', function(evt){
+    $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list > li').live('click', function(evt){
       ContactEdit.processClick($(this), evt);
     });
     // $('.button.resend').live('click', function(evt){
@@ -18,14 +18,23 @@ var ContactEdit = {
     // });
   },
 
-  processClick: function(li, evt){
-    var dropdown = li.closest('.dropdown');
-    li.addClass('loading');
-    if (dropdown.hasClass('inviter')) {
-      ContactEdit.inviteFriend(li, evt);
-      dropdown.html('sending, please wait...');
-    }
-    else {
+  updateNumber: function(dropdown, personId, number){
+    var button = dropdown.parents(".dropdown").children('.button.toggle'),
+        replacement;
+
+    if (number == 0) {
+      button.removeClass("in_aspects");
+      replacement = Diaspora.I18n.t("aspect_dropdown.toggle.zero");
+    }else if (number == 1) { 
+      button.addClass("in_aspects");
+      replacement = dropdown.find(".selected").first().text();
+    }else if (number < 3) {
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.few', { count: number.toString()})
+    }else if (number > 3) {
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.many', { count: number.toString()})
+    }else {
+      //the above one are a tautology, but I want to have them here once for once we figure out a neat way i18n them
+      replacement = Diaspora.I18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
       ContactEdit.toggleAspectMembership(li, evt);
     }
   },
@@ -50,6 +59,18 @@ var ContactEdit = {
     }
   },
 
+  processClick: function(li, evt){
+    var dropdown = li.closest('.dropdown');
+    li.addClass('loading');
+    if (dropdown.hasClass('inviter')) {
+      ContactEdit.inviteFriend(li, evt);
+      dropdown.html('sending, please wait...');
+    }
+    else {
+      ContactEdit.toggleAspectMembership(li, evt);
+    }
+  },
+
   toggleAspectMembership: function(li, evt) {
     var button = li.find('.button');
     if(button.hasClass('disabled') || li.hasClass('newItem')){ return; }
@@ -62,12 +83,13 @@ var ContactEdit = {
       "person_id": li.parent().data("person_id"),
       "_method": (selected) ? "DELETE" : "POST"
     }, function(aspectMembership) {
-      li.removeClass('loading')
+      li.removeClass("loading");
       ContactEdit.toggleCheckbox(li);
-      ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length, 'in_aspect');
-      Diaspora.widgets.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
+      ContactEdit.updateNumber(li.closest(".dropdown_list"), li.parent().data("person_id"), aspectMembership.aspect_ids.length);
+
+      Diaspora.page.publish("aspectDropdown/updated", [li.parent().data("person_id"), li.parents(".dropdown").parent(".right").html()]);
     });
-  },
+  }
 };
 
 $(document).ready(function(){

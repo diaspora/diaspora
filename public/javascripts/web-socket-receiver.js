@@ -9,7 +9,7 @@ var WebSocketReceiver = {
       if (websocket_enabled) {
        /* Diaspora.widgets.notifications.showNotification({
           html: '<div class="notification">' +
-              Diaspora.widgets.i18n.t("web_sockets.disconnected") +
+              Diaspora.I18n.t("web_sockets.disconnected") +
             '</div>',
           incrementCount: false
         }); TODO:figure out why this fires so often */
@@ -80,7 +80,7 @@ var WebSocketReceiver = {
 
 
   processNotification: function(notification){
-    Diaspora.widgets.notifications.showNotification(notification);
+    Diaspora.page.notifications.showNotification(notification);
   },
 
   processRetraction: function(post_guid){
@@ -121,8 +121,8 @@ var WebSocketReceiver = {
       }
     }
 
-    Diaspora.widgets.timeago.updateTimeAgo();
-    Diaspora.widgets.directionDetector.updateBinds();
+    Diaspora.page.timeAgo.updateTimeAgo();
+    Diaspora.page.directionDetector.updateBinds();
   },
 
   processLike: function(targetGUID, html) {
@@ -130,16 +130,16 @@ var WebSocketReceiver = {
   },
 
   processPost: function(html, aspectIds) {
-    if(WebSocketReceiver.onPageForAspects(aspectIds)) {
+    if(WebSocketReceiver.onpageForAspects(aspectIds)) {
       ContentUpdater.addPostToStream(html);
     }
   },
 
-  onPageForClass: function(className) {
+  onpageForClass: function(className) {
     return (location.href.indexOf(className) != -1 );
   },
 
-  onPageForAspects: function(aspectIds) {
+  onpageForAspects: function(aspectIds) {
     var streamIds = $('#main_stream').attr('data-guids'),
         found = false;
 
@@ -156,7 +156,7 @@ var WebSocketReceiver = {
     return (streamIds.search(aspectId) != -1);
   },
 
-  onPageOne: function() {
+  onpageOne: function() {
       var c = document.location.search.charAt(document.location.search.length-1);
       return ((c === '') || (c === '1'));
   },

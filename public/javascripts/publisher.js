@@ -293,10 +293,10 @@ var Publisher = {
 
       if (public_field.val() == 'false') {
         public_field.val('true');
-        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.public'));
+        $(this).attr('title', Diaspora.I18n.t('publisher.public'));
       } else {
         public_field.val('false');
-        $(this).attr('title', Diaspora.widgets.i18n.t('publisher.limited'));
+        $(this).attr('title', Diaspora.I18n.t('publisher.limited'));
       }
 
       $(this).tipsy(true).fixTitle();
@@ -357,7 +357,7 @@ var Publisher = {
   },
   beforeSubmit: function(){
     if($("#publisher .content_creation form #aspect_ids_").length == 0){
-      alert(Diaspora.widgets.i18n.t('publisher.at_least_one_aspect'));
+      alert(Diaspora.I18n.t('publisher.at_least_one_aspect'));
       return false;
     }
   },
@@ -368,9 +368,9 @@ var Publisher = {
   onFailure: function(data, json, xhr){
     json = $.parseJSON(json.responseText);
     if(json.errors.length !== 0){
-      Diaspora.widgets.alert.alert(json.errors);
+      Diaspora.Alert.show(json.errors);
     }else{
-      Diaspora.widgets.alert.alert(Diaspora.widgets.i18n.t('failed_to_post_message'));
+      Diaspora.Alert.show(Diaspora.I18n.t('failed_to_post_message'));
     }
   },
   onSuccess: function(data, json, xhr){
@@ -384,9 +384,9 @@ var Publisher = {
     if(isPostVisible)
       ContentUpdater.addPostToStream(json.html);
     else
-      Diaspora.widgets.flashes.render({
+      Diaspora.widgets.flashMessages.render({
         success: true,
-        message: Diaspora.widgets.i18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
+        message: Diaspora.I18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
       });
 
     //collapse publisher
@@ -430,5 +430,5 @@ var Publisher = {
 
 $(document).ready(function() {
   Publisher.initialize();
-  Diaspora.widgets.subscribe("stream/reloaded", Publisher.initialize);
+  Diaspora.page.subscribe("stream/reloaded", Publisher.initialize);
 });

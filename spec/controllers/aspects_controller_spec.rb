@@ -10,8 +10,8 @@ describe AspectsController do
     alice.getting_started = false
     alice.save
     sign_in :user, alice
-    @alices_aspect_1  = alice.aspects.first
-    @alices_aspect_2  = alice.aspects.create(:name => "another aspect")
+    @alices_aspect_1 = alice.aspects.first
+    @alices_aspect_2 = alice.aspects.create(:name => "another aspect")
 
     @controller.stub(:current_user).and_return(alice)
     request.env["HTTP_REFERER"] = 'http://' + request.host
@@ -25,7 +25,9 @@ describe AspectsController do
   end
 
   describe "custom logging on error" do
-    class FakeError < RuntimeError; attr_accessor :original_exception; end
+    class FakeError < RuntimeError;
+      attr_accessor :original_exception;
+    end
     before do
       @action = :index
       @desired_error_message = "I love errors"
@@ -73,9 +75,18 @@ describe AspectsController do
 
     it 'generates a jasmine fixture with a followed tag' do
       @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice )
+      TagFollowing.create!(:tag => @tag, :user => alice)
       get :index
       save_fixture(html_for("body"), "aspects_index_with_one_followed_tag")
+    end
+
+    it "generates a jasmine fixture with a post containing a video", :fixture => true do
+      stub_request(:get, "http://gdata.youtube.com/feeds/api/videos/UYrkQL1bX4A?v=2").
+          with(:headers => {'Accept'=>'*/*'}).
+          to_return(:status => 200, :body => "<title>LazyTown song - Cooking By The Book</title>", :headers => {})
+      alice.post(:status_message, :text => "http://www.youtube.com/watch?v=UYrkQL1bX4A", :to => @alices_aspect_2.id)
+      get :index
+      save_fixture(html_for("body"), "aspects_index_with_video_post")
     end
 
     context 'with getting_started = true' do
@@ -120,7 +131,7 @@ describe AspectsController do
           post.save!
           @posts << post
         end
-        alice.build_comment(:text => 'lalala', :post => @posts.first ).save
+        alice.build_comment(:text => 'lalala', :post => @posts.first).save
       end
 
       describe "post visibilities" do
@@ -134,7 +145,7 @@ describe AspectsController do
           assigns[:posts].include?(@status).should be_true
         end
         it "does not pull back hidden posts" do
-          @vis.update_attributes( :hidden => true )
+          @vis.update_attributes(:hidden => true)
           get :index
           assigns[:posts].include?(@status).should be_false
         end
@@ -186,7 +197,7 @@ describe AspectsController do
       it "posts include reshares" do
         reshare = alice.post(:reshare, :public => true, :root_guid => Factory(:status_message, :public => true).guid, :to => alice.aspects)
         get :index
-        assigns[:posts].map{|x| x.id}.should include(reshare.id)
+        assigns[:posts].map { |x| x.id }.should include(reshare.id)
       end
 
       it "can filter to a single aspect" do
@@ -207,14 +218,14 @@ describe AspectsController do
           user = Factory.create(:user)
           aspect = user.aspects.create(:name => 'people')
           connect_users(alice, @alices_aspect_1, user, aspect)
-          post =  alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
+          post = alice.post(:status_message, :text => "hello#{n}", :to => @alices_aspect_2.id)
           8.times do |n|
             user.comment "yo#{post.text}", :post => post
           end
         end
       end
       it 'takes time' do
-        Benchmark.realtime{
+        Benchmark.realtime {
           get :index
         }.should < 1.5
       end
@@ -248,7 +259,7 @@ describe AspectsController do
         it "creates a contact if one does not already exist" do
           lambda {
             post :create, :format => 'js', :aspect => {:name => "new", :person_id => eve.person.id}
-          }.should change{
+          }.should change {
             alice.contacts.count
           }.by(1)
         end
@@ -283,8 +294,8 @@ describe AspectsController do
     end
 
     it "doesn't overwrite random attributes" do
-      new_user         = Factory.create :user
-      params           = {"name" => "Bruisers"}
+      new_user = Factory.create :user
+      params = {"name" => "Bruisers"}
       params[:user_id] = new_user.id
       put('update', :id => @alices_aspect_1.id, "aspect" => params)
       Aspect.find(@alices_aspect_1.id).user_id.should == alice.id
@@ -322,7 +333,7 @@ describe AspectsController do
     end
 
     it 'assigns all the contacts if noone is there' do
-      alices_aspect_3  = alice.aspects.create(:name => "aspect 3")
+      alices_aspect_3 = alice.aspects.create(:name => "aspect 3")
 
       get :edit, :id => alices_aspect_3.id
       assigns[:contacts].map(&:id).should == [alice.contact_for(bob.person), alice.contact_for(eve.person), alice.contact_for(@katz.person), alice.contact_for(@zed.person)].map(&:id)
@@ -357,7 +368,7 @@ describe AspectsController do
   context 'helper methods' do
     before do
       @tag = ActsAsTaggableOn::Tag.create!(:name => "partytimeexcellent")
-      TagFollowing.create!(:tag => @tag, :user => alice )
+      TagFollowing.create!(:tag => @tag, :user => alice)
       alice.should_receive(:followed_tags).once.and_return([42])
     end
 

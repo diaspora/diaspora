@@ -21,18 +21,14 @@ src_files:
   - public/javascripts/vendor/charCount.js
   - public/javascripts/vendor/timeago.js
   - public/javascripts/vendor/facebox.js
+  - public/javascripts/fileuploader-custom.js
   - public/javascripts/jquery.autocomplete-custom.js
   - public/javascripts/diaspora.js
   - public/javascripts/keycodes.js
-  - public/javascripts/widgets/alert.js
-  - public/javascripts/widgets/embedder.js
-  - public/javascripts/widgets/i18n.js
-  - public/javascripts/widgets/timeago.js
-  - public/javascripts/widgets/directionDetector.js
-  - public/javascripts/widgets/infinite-scroll.js
-  - public/javascripts/widgets/notifications.js
-  - public/javascripts/widgets/flashes.js
-  - public/javascripts/widgets/post.js
+
+  - public/javascripts/helpers/*
+  - public/javascripts/widgets/*
+  
   - public/javascripts/mobile.js
   - public/javascripts/contact-list.js
   - public/javascripts/web-socket-receiver.js
