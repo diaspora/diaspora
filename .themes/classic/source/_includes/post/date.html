@@ -6,5 +6,5 @@
 <time datetime="{{ date | datetime }}" pubdate {% if updated %} updated {% endif %}>{{ date | ordinalize }}</time>
 {% endif %}
 {% if was_updated != '0' %}
-<time class="updated" datetime="{{ updated | datetime }}"></time>
+<time class="updated" datetime="{{ updated | datetime }}">{{ updated | ordinalize }}</time>
 {% endif %}
