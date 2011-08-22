@@ -30,7 +30,7 @@ describe("Stream", function() {
 
   describe("streamElement", function() {
     it("makes sure that ajax spinner appears when hiding a post", function() {
-      Stream.bindHideIcon();
+      Stream.initializeLives();
       link = $("a.stream_element_delete.vis_hide");
       spinner = link.next("img.hide_loader");
       expect(link).not.toHaveClass("hidden");

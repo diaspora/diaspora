@@ -24,7 +24,6 @@ var Stream = {
 
     Diaspora.page.subscribe("stream/scrolled", Stream.collapseText);
     Stream.collapseText('eventID', $(Stream.selector)[0]);
-    Stream.bindHideIcon();
   },
   collapseText: function(){
     elements = $(Array.prototype.slice.call(arguments,1));
@@ -56,6 +55,15 @@ var Stream = {
         button.toggleClass("active");
         box.toggle();
       }
+    });
+
+    // ajax-loader and hide icon visibility handling for post hide and unhide
+    $("a.stream_element_delete.vis_hide").live("click", function(evt){
+      $(this).toggleClass("hidden");
+      $(this).next("img.hide_loader").toggleClass("hidden");
+    });
+    $("a.stream_element_hide_undo").live("click", function(evt){
+      $(this).closest('.stream_element').find("img.hide_loader").toggleClass("hidden");
     });
 
 //    this.setUpComments();
@@ -148,15 +156,6 @@ var Stream = {
     }
   },
 
-  bindHideIcon: function(){
-    $("a.stream_element_delete.vis_hide").live("click", function(evt){
-      $(this).toggleClass("hidden");
-      $(this).next("img.hide_loader").toggleClass("hidden");
-    });
-    $("a.stream_element_hide_undo").live("click", function(evt){
-      $(this).closest('.stream_element').find("img.hide_loader").toggleClass("hidden");
-    });
-  }
 };
 
 $(document).ready(function() {
