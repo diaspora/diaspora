@@ -610,7 +610,7 @@ cs:
       really_disconnect: "odpojit %{service}?"
     inviter: 
       click_link_to_accept_invitation: "Klikněte na tento odkaz, pokud chcete přijmout pozvání"
-      join_me_on_diaspora: "Připoj se ke mě na DIASPORU*"
+      join_me_on_diaspora: "Připoj se ke mně na DIASPORU*"
     remote_friend: 
       invite: "pozvat"
       not_on_diaspora: "Ještě není na Diaspoře"
