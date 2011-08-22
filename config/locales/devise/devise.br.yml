@@ -33,10 +33,10 @@ br:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: ", e %{url}, moaien zo deoc'h asantiñ dre al liamm a zo dindan."
-        has_invited_you: "%{name} en deus pedet ac'hanoc'h da vont davet Diaspora"
-        have_invited_you: "%{names} o deus pedet ac'hanoc'h da vont davet Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Cheñch ma ger-kuzh"
         ignore: "M'ho peus ket goulennet an dra-se n'ho peus ket nemet leuskel an dra-se a-gostez."

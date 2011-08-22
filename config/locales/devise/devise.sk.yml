@@ -33,10 +33,10 @@ sk:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: ", na %{url}, akceptujte kliknutím na odkaz."
-        has_invited_you: "%{name} Vás prizval k Diaspore"
-        have_invited_you: "%{names} Vás pozvali k Diaspore"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Zmeniť moje heslo"
         ignore: "Ak ste o to nežiadali, prosím tento e-mail ignorujte."

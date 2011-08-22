@@ -49,14 +49,6 @@ pt-BR:
         unknown: "Vídeo sem título"
   are_you_sure: "Tem certeza?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Adicione para aspecto"
-      toggle: 
-        few: "Em %{count} aspectos"
-        many: "Em %{count} aspectos"
-        one: "Em %{count} aspecto"
-        other: "Em %{count} aspectos"
-        zero: "Adicione para aspecto"
     destroy: 
       failure: "Falha ao remover pessoa do aspecto"
       no_membership: "Pessoa não encontrada nesse aspecto"
@@ -198,6 +190,7 @@ pt-BR:
     zero: "sem contatos"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Mensagem enviada"
     destroy: 
       success: "Conversa removida"
@@ -221,9 +214,12 @@ pt-BR:
       sending: "Enviando..."
       subject: "assunto"
       to: "para"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "excluir e bloquear conversa"
       reply: "responder"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ pt-BR:
       remove_contact: "Remover contato"
       remove_from: "Remover %{name} de %{aspect}?"
     show: 
-      add_some: "adicionar alguns"
       does_not_exist: "Pessoa não existe!"
-      edit: "editar"
       has_not_shared_with_you_yet: "%{name} não tem nada compartilhado com você ainda!"
       incoming_request: "Você possui uma solicitação dessa pessoa."
       mention: "Mencionar"
@@ -468,7 +462,10 @@ pt-BR:
       see_all: "Ver todas"
       start_sharing: "Comece a compartilhar"
       to_accept_or_ignore: "Aceitar ou ignorar."
-      you_have_no_tags: "Você não tem tags!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Desculpe, não conseguimos encontrar %{handle}."
     zero: "nenhuma pessoa"
@@ -627,6 +624,14 @@ pt-BR:
       enter_a_diaspora_username: "Digite um usuário Diaspora*"
       know_email: "Você sabe seus e-mails? Convide-os!"
       your_diaspora_username_is: "Seu nome de usuário em Diaspora* é: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Todos os contatos"
     footer: 
@@ -746,7 +751,7 @@ pt-BR:
       your_email: "Seu email"
       your_handle: "Seu endereço Diaspora*"
     getting_started: 
-      aspects: "aspectos"
+      bold: "aspects"
       connect_to: "Conecte-se para"
       connect_to_your_other_social_networks: "Conectar-se as suas outras redes sociais"
       connect_with_people: "Conectar-se com pessoas legais"

@@ -33,10 +33,10 @@ lt:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: ", adresu %{url} kurį galima priimti naudojantis žemiau pateikta nuoroda."
-        has_invited_you: "%{name} kviečia prisijungti prie Diasporos"
-        have_invited_you: "%{names} kviečia prisijungti prie Diasporos"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Keisti slaptažodį"
         ignore: "Jei tu to neprašei, nekreipk dėmesio į šį laišką."

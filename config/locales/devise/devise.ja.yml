@@ -33,10 +33,10 @@ ja:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: "、%{url}。下のリンクから承諾できます。"
-        has_invited_you: "%{name}さんはダイアスポラへの参加を招待しています。"
-        have_invited_you: "%{names}さん等はダイアスポラへの参加を招待しています。"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "パスワードを変更する"
         ignore: "再設定を申請した覚えがない場合はこのメールを無視してください。"

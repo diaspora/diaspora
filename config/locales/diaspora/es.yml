@@ -49,14 +49,6 @@ es:
         unknown: "Título de vídeo desconocido"
   are_you_sure: "¿Estás seguro?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Añadir al aspecto"
-      toggle: 
-        few: "En %{count} aspectos"
-        many: "En %{count} aspectos"
-        one: "En %{count} aspecto"
-        other: "En %{count} aspectos"
-        zero: "Añadir al aspecto"
     destroy: 
       failure: "No se pudo eliminar a la persona del aspecto"
       no_membership: "No se pudo encontrar a la persona seleccionada en ese aspecto"
@@ -198,6 +190,7 @@ es:
     zero: "no hay contactos"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Mensaje enviado"
     destroy: 
       success: "Conversación eliminada con éxito"
@@ -221,9 +214,12 @@ es:
       sending: "Enviando..."
       subject: "asunto"
       to: "para"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "Eliminar y bloquear conversación"
       reply: "responder"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%d %B "
@@ -454,9 +450,7 @@ es:
       remove_contact: "eliminar contacto"
       remove_from: "¿Eliminar a %{name} de %{aspect}?"
     show: 
-      add_some: "añade"
       does_not_exist: "¡El usuario no existe!"
-      edit: "editar"
       has_not_shared_with_you_yet: "¡%{name} todavía no ha compartido ninguna publicación contigo!"
       incoming_request: "%{name} quisiera compartir contigo"
       mention: "Mención"
@@ -468,7 +462,10 @@ es:
       see_all: "Ver todos"
       start_sharing: "empezar a compartir"
       to_accept_or_ignore: "aceptar o ignorar"
-      you_have_no_tags: "¡No tienes etiquetas!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Perdona, no pudimos encontrar %{handle}"
     zero: "ninguna persona"
@@ -627,6 +624,14 @@ es:
       enter_a_diaspora_username: "Introduce un nombre de usuario Diaspora*:"
       know_email: "¿Conoces sus direcciones de correo? ¡Puedes invitarles!"
       your_diaspora_username_is: "Su nombre de usuario Diaspora* es: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Todos los contactos"
     footer: 
@@ -746,7 +751,7 @@ es:
       your_email: "Tu email"
       your_handle: "Tu dirección Diaspora*"
     getting_started: 
-      aspects: "aspectos"
+      bold: "aspects"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conéctate a tus otras redes sociales"
       connect_with_people: "Conectate con gente interesante"

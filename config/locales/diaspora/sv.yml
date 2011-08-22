@@ -49,14 +49,6 @@ sv:
         unknown: "Okänd videotitel"
   are_you_sure: "Är du säker?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     destroy: 
       failure: "Misslyckades med att ta bort personen från aspekten"
       no_membership: "Kunde inte hitta den valda personen i aspekten"
@@ -198,6 +190,7 @@ sv:
     zero: "inga kontakter"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Meddelande skickat"
     destroy: 
       success: "Konversation borttagen"
@@ -221,9 +214,12 @@ sv:
       sending: "Sending..."
       subject: "ämne"
       to: "till"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "ta bort och blockera konversation"
       reply: "svara"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ sv:
       remove_contact: "remove contact"
       remove_from: "Ta bort %{name} från %{aspect}?"
     show: 
-      add_some: "lägg till några"
       does_not_exist: "Den här personen finns inte!"
-      edit: "redigera"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} vill dela med dig"
       mention: "Nämna"
@@ -468,7 +462,10 @@ sv:
       see_all: "Visa alla"
       start_sharing: "börja dela"
       to_accept_or_ignore: "for att acceptera eller ignorera."
-      you_have_no_tags: "du har inga taggar!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Förlåt, vi kunde inte hitta %{handle}."
     zero: "inga personer"
@@ -627,6 +624,14 @@ sv:
       enter_a_diaspora_username: "Ange ett Diaspora-användarnamn:"
       know_email: "Vet du deras e-post adress? Du borde bjuda in dom"
       your_diaspora_username_is: "Ditt Diaspora-användarnamn är: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Alla kontakter"
     footer: 
@@ -746,7 +751,7 @@ sv:
       your_email: "Din epost"
       your_handle: "Ditt Diaspora-användarnamn"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"

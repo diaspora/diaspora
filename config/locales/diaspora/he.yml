@@ -49,14 +49,6 @@ he:
         unknown: "כותרת הווידאו אינה ידועה"
   are_you_sure: "בבטחה?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "הוספה להיבט"
-      toggle: 
-        few: "ב־%{count} היבטים"
-        many: "ב־%{count} היבטים"
-        one: "בהיבט אחד"
-        other: "ב־%{count} היבטים"
-        zero: "הוספה להיבט"
     destroy: 
       failure: "אירע כשל בהסרת המשתמש מההיבט"
       no_membership: "לא ניתן למצוא את איש הקשר הנבחר בהיבט זה"
@@ -198,6 +190,7 @@ he:
     zero: "אין אנשי קשר"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "ההודעה נשלחה"
     destroy: 
       success: "הדיון הוסר בהצלחה"
@@ -221,9 +214,12 @@ he:
       sending: "Sending..."
       subject: "נושא"
       to: "אל"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "מחיקה וחסימת הדיון"
       reply: "תגובה"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "ה־%d ב%B"
@@ -454,9 +450,7 @@ he:
       remove_contact: "הסרת איש קשר"
       remove_from: "האם להסיר את %{name} מההיבט %{aspect}?"
     show: 
-      add_some: "הוספת אנשים"
       does_not_exist: "אדם זה אינו קיים!"
-      edit: "עריכה"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "ברצונו/ה של %{name} לשתף אתך"
       mention: "אזכור"
@@ -468,7 +462,10 @@ he:
       see_all: "צפייה בהכול"
       start_sharing: "התחלת השיתוף"
       to_accept_or_ignore: "כדי לקבל או לדחות אותה."
-      you_have_no_tags: "אין לך תגיות!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "לא ניתן למצוא את %{handle}, עמך הסליחה."
     zero: "אין אנשים"
@@ -627,6 +624,14 @@ he:
       enter_a_diaspora_username: "נא להזין שם משתמש בדיאספורה:"
       know_email: "כתובת הדוא״ל שלהם ידועה לך? עליך להזמין אותם"
       your_diaspora_username_is: "שם המשתמש שלך בדיאספורה הוא: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "כל אנשי הקשר"
     footer: 
@@ -746,7 +751,7 @@ he:
       your_email: "כתובת הדוא״ל שלך"
       your_handle: "שם המשתמש שלך בדיאספורה"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "התחברות אל"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "התחברות לאנשים מגניבים"

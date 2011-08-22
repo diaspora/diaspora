@@ -49,14 +49,6 @@ el:
         unknown: "Άγνωστος τίτλος video"
   are_you_sure: "Είστε σίγουρος/η;"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Προσθήκη σε πτυχή"
-      toggle: 
-        few: "Σε %{count} πτυχές"
-        many: "Σε %{count} πτυχές"
-        one: "Σε %{count} πτυχές"
-        other: "Σε %{count} πτυχές"
-        zero: "Προσθήκη σε πτυχή"
     destroy: 
       failure: "Αποτυχία στην αφαίρεση προσώπου από την πτυχή"
       no_membership: "Δεν βρέθηκε το επιλεγμένο άτομο σε αυτή την πτυχή"
@@ -198,6 +190,7 @@ el:
     zero: "καμία επαφή"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Μήνυμα εστάλη"
     destroy: 
       success: "Η συζήτηση αφαιρέθηκε επιτυχώς"
@@ -221,9 +214,12 @@ el:
       sending: "Αποστολή..."
       subject: "θέμα"
       to: "στον"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "διαγραφή και φραγή συζήτησης"
       reply: "απάντηση"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ el:
       remove_contact: "διαγραφή επαφής"
       remove_from: "Αφαίρεση του χρήστη %{name} από τη πτυχή %{aspect}?"
     show: 
-      add_some: "προσθέστε κάποιες"
       does_not_exist: "Ο/Η χρήστης δεν υπάρχει!"
-      edit: "επεξεργασία"
       has_not_shared_with_you_yet: "Ο χρήστης %{name} δεν μοιράζεται ακόμα κάποια δημοσίευση μαζί σας!"
       incoming_request: "Ο/Η %{name} θέλει να μοιραστεί μαζί σας"
       mention: "Αναφορά"
@@ -468,7 +462,10 @@ el:
       see_all: "Εμφάνιση όλων"
       start_sharing: "ξεκινήσετε την κοινή χρήση"
       to_accept_or_ignore: "να το αποδεχθεί ή να το αγνοήσει."
-      you_have_no_tags: "δεν έχετε ετικέτες!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Λυπούμαστε, δεν ήταν δυνατή η εύρεση του %{handle}."
     zero: "κανένα άτομο"
@@ -627,6 +624,14 @@ el:
       enter_a_diaspora_username: "Εισάγετε όνομα χρήστη Diaspora:"
       know_email: "Ξέρετε τις ηλεκτρονικές τους διευθύνσεις; Τότε πρέπει να τους προσκαλέσετε"
       your_diaspora_username_is: "Το όνομα χρήστη σας στο Diaspora είναι: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Όλες οι επαφές"
     footer: 
@@ -746,7 +751,7 @@ el:
       your_email: "Το email σας"
       your_handle: "Το αναγνωριστικό σας στο diaspora"
     getting_started: 
-      aspects: "πτυχές"
+      bold: "aspects"
       connect_to: "Συνδεθείτε με"
       connect_to_your_other_social_networks: "Συνδεθείτε με άλλα κοινωνικά δίκτυα"
       connect_with_people: "Συνδεθείτε με ενδιαφέροντα άτομα"

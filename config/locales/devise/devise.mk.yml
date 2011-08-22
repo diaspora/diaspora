@@ -33,10 +33,10 @@ mk:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: ", на %{url}, можете да ја прифатите преку линкот подолу."
-        has_invited_you: "%{name} ве покани да се приклучите кон Diaspora"
-        have_invited_you: "%{names} ве поканија да се приклучите кон Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Промени лозинка"
         ignore: "Ако не го побаравте ова, ве молиме игнорирајте го овој е-маил."

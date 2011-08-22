@@ -33,10 +33,10 @@ ru:
         ignore: "Если вы не хотите принимать приглашение, проигнорируйте."
         no_account_till: "Ваш аккаунт не будет создан, пока вы не зарегистрировались."
         subject: "Вы приглашены присоединиться к диаспоре!"
-      inviters: 
-        accept_at: "вы можете принять, нажaв на ссылку %{url}"
-        has_invited_you: "%{name} приглашает вас присоединиться к Диаспоре"
-        have_invited_you: "%{names} приглашает вас присоединиться к Диаспоре"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Изменить пароль"
         ignore: "Если вы не совершали запрос, проигнорируйте это письмо."

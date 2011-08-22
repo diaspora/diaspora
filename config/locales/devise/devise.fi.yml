@@ -33,10 +33,10 @@ fi:
         ignore: "Mikäli et halua hyväksyä kutsua, voit jättää tämän viestin huomioimatta."
         no_account_till: "Käyttäjätilisi luodaan vasta, kun rekisteröidyt yllä olevan linkin kautta. "
         subject: "Sinut on kutsuttu käyttämään Diasporaa!"
-      inviters: 
-        accept_at: ", osoitteessa %{url}, voit hyväksyä sen alla olevan linkin kautta."
-        has_invited_you: "%{name} on kutsunut sinut liittymään Diasporaan"
-        have_invited_you: "%{names} ovat kutsuneet sinut Diasporan käyttäjäksi"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Vaihda salasanani"
         ignore: "Jos et pyytänyt tätä, voit jättää viestin huomiotta."

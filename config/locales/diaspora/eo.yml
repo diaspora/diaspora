@@ -49,14 +49,6 @@ eo:
         unknown: "Nekonata Videtitolo"
   are_you_sure: "Ĉu vi certas?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Aldoni al aspekto"
-      toggle: 
-        few: "En %{count} aspektoj"
-        many: "En %{count} aspektoj"
-        one: "En %{count} aspekto"
-        other: "En %{count} aspektoj"
-        zero: "Aldoni al aspekto"
     destroy: 
       failure: "Malsukceso forigi el aspekto"
       no_membership: "Ne povis trovi la elektitan homon de tiu aspekto"
@@ -198,6 +190,7 @@ eo:
     zero: "nul kontaktoj"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Mesaĝo sendiĝis."
     destroy: 
       success: "Interparolado sukcese foriĝas."
@@ -221,9 +214,12 @@ eo:
       sending: "Poŝtanta..."
       subject: "subjekto"
       to: "al"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "forigi kaj bloki interparoladon"
       reply: "respondi"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ eo:
       remove_contact: "forigi kontakton"
       remove_from: "Ĉu forigi %{name} de %{aspect}?"
     show: 
-      add_some: "aldoni iujn"
       does_not_exist: "Homo ne ekzistas!"
-      edit: "redakti"
       has_not_shared_with_you_yet: "%{name} ne jam partoprenis iuj ajn afiŝojn kun vi!"
       incoming_request: "%{name} volas konigi kun vi"
       mention: "Mencii"
@@ -468,7 +462,10 @@ eo:
       see_all: "Vidi ĉiujn"
       start_sharing: "komenci konigi"
       to_accept_or_ignore: "akcepti aŭ ignori ĝin."
-      you_have_no_tags: "vi ne havas etikedon!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Ni bedaŭras, sed ni ne povis trovi je %{handle}."
     zero: "neniu homo"
@@ -627,6 +624,14 @@ eo:
       enter_a_diaspora_username: "Aldonu DIASPORA* uzantnomo:"
       know_email: "Ĉu vi scias ties retpoŝtadreson?  Vi devus inviti tiun."
       your_diaspora_username_is: "Via DIASPORA* uzantnomo estas: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Ĉiuj kontaktoj"
     footer: 
@@ -746,7 +751,7 @@ eo:
       your_email: "Via retpoŝtadreso"
       your_handle: "Via DIASPORA* uzantnomo"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Ligi al"
       connect_to_your_other_social_networks: "Ligi al viaj aliaj sociaj retoj"
       connect_with_people: "Koniĝi kun mojosaj homoj"

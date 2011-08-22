@@ -33,9 +33,9 @@ pa:
         ignore: "If you don't want to accept the invitation, please ignore this email."
         no_account_till: "Your account won't be created until you access the link above and sign up."
         subject: "You've been invited to join Diaspora!"
-      inviters: 
-        accept_at: ", at %{url}, you can accept it through the link below."
-        has_invited_you: "%{name} ਨੇ ਤੁਹਾਨੂੰ ਡਿਸਪੋਰਾ (Diaspora) ਲਈ ਸੱਦਾ ਭੇਜਿਆ"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
         have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Change my password"

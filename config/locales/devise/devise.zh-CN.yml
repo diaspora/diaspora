@@ -33,10 +33,10 @@ zh-CN:
         ignore: "如果您不想接收这个邀请，请忽略这封邮件。"
         no_account_till: "只有在您点击上面的链接并注册后，您的帐号才会被创建。"
         subject: "您被邀请加入Diaspora！"
-      inviters: 
-        accept_at: " （%{url}）, 你可以点击下面的链接接收邀请。"
-        has_invited_you: "%{name} 邀请您加入Diaspora"
-        have_invited_you: "%{names} 邀请您加入Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "重置密码"
         ignore: "如果您并没有请求重置密码, 请忽略这封信件。"

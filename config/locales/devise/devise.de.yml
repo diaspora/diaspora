@@ -33,10 +33,10 @@ de:
         ignore: "Wenn du die Einladung nicht annehmen möchtest ignoriere diese E-Mail einfach."
         no_account_till: "Dein Konto wird nicht erstellt solange du dich nicht über den oberen Link registrierst."
         subject: "Du wurdest zu Diaspora eingeladen!"
-      inviters: 
-        accept_at: "%{url} teilzunehmen. Du kannst die Einladung durch den unten aufgeführten Link annehmen."
-        has_invited_you: "%{name} hat dich dazu eingeladen, Diaspora beizutreten"
-        have_invited_you: "%{names} haben dich dazu eingeladen, Diaspora beizutreten"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Mein Kennwort ändern"
         ignore: "Wenn du dies nicht angefordert hast, ignoriere bitte diese E-Mail."

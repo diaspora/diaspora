@@ -33,10 +33,10 @@ bg:
         ignore: "Ако не желаете да приемете поканата, моля игнорирайте писмото."
         no_account_till: "Акаунтът няма да бъде създаден докато не посетите горната връзката и се регистрирате."
         subject: "Поканени сте да се присъедините към Diaspora!"
-      inviters: 
-        accept_at: ", на адрес %{url}. Можете да приемете поканата чрез долната връзка."
-        has_invited_you: "%{name} ви кани да се присъедините към Diaspora"
-        have_invited_you: "%{names} ви кани да се присъедините към Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Промяна на паролата"
         ignore: "Ако не сте заявили промяната, моля игнорирайте писмото."

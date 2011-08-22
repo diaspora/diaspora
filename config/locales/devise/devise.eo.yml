@@ -33,10 +33,10 @@ eo:
         ignore: "Se vi ne volas akcepti la inviton, bonvoli ignori tiun ĉi retpoŝton"
         no_account_till: "Via konto ne kreiĝos ĝis vi eniros la supre ligilon kaj registiĝos."
         subject: "Vi invitigitas aniĝi al DIASPORA*!"
-      inviters: 
-        accept_at: ", ĉe %{url}, vi povas akcepti ĝin per la suba ligilo."
-        has_invited_you: "%{name} invitis vin aliĝi al Diaspora"
-        have_invited_you: "%{names} invitis vin aniĝi al DIASPORA*."
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Ŝanĝi mian pasvorton"
         ignore: "Se vi ne petis tiun ĉi, bonvolu ignori tiun ĉi retpoŝton."

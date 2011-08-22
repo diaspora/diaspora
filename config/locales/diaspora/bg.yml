@@ -49,14 +49,6 @@ bg:
         unknown: "Unknown Video Title"
   are_you_sure: "Сигурни ли сте?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Добавяне в аспект"
-      toggle: 
-        few: "В %{count} аспекта"
-        many: "В %{count}аспекта"
-        one: "В %{count} аспект"
-        other: "В %{count} аспекта"
-        zero: "Добавяне в аспект"
     destroy: 
       failure: "Лицето не бе премахнато от аспекта"
       no_membership: "Избраното лице не може да бъде намерено в този аспект"
@@ -198,6 +190,7 @@ bg:
     zero: "няма контакти"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Съобщението е изпратено"
     destroy: 
       success: "Разговорът е премахнат успешно"
@@ -221,9 +214,12 @@ bg:
       sending: "Изпращане..."
       subject: "тема"
       to: "до"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "изтриване и блокиране на разговора"
       reply: "отговор"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%d %B"
@@ -454,9 +450,7 @@ bg:
       remove_contact: "премахване на контакта"
       remove_from: "Премахване на %{name} от %{aspect}?"
     show: 
-      add_some: "добавяне"
       does_not_exist: "Лицето не съществува!"
-      edit: "редактиране"
       has_not_shared_with_you_yet: "%{name} все още не е споделил нито една публикация с вас!"
       incoming_request: "%{name} желае да споделя с вас"
       mention: "Споменете"
@@ -468,7 +462,10 @@ bg:
       see_all: "Показване на всички"
       start_sharing: "започнете да споделяте"
       to_accept_or_ignore: "to accept or ignore it."
-      you_have_no_tags: "не сте се описали с марки!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "За съжаление %{handle} не може да бъде намерен."
     zero: "няма хора"
@@ -627,6 +624,14 @@ bg:
       enter_a_diaspora_username: "Въведете потребителско име от Diaspora:"
       know_email: "Знаете адресите на ел. им поща? Трябва да ги поканите"
       your_diaspora_username_is: "Вашето потребителско име в Diaspora е %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Всички контакти"
     footer: 
@@ -746,7 +751,7 @@ bg:
       your_email: "Вашата ел. поща"
       your_handle: "Вашият адрес в Diaspora"
     getting_started: 
-      aspects: "аспекти"
+      bold: "aspects"
       connect_to: "Свържете профила си с"
       connect_to_your_other_social_networks: "Свържете профила си с други социални мрежи"
       connect_with_people: "Свържете се с интересни хора"

@@ -49,14 +49,6 @@ de:
         unknown: "Unbekannter Video-Titel"
   are_you_sure: "Bist du sicher?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Zu Aspekt hinzufügen"
-      toggle: 
-        few: "In %{count} Aspekten"
-        many: "In %{count} Aspekten"
-        one: "In einem Aspekt"
-        other: "In %{count} Aspekten"
-        zero: "Zu Aspekt hinzufügen"
     destroy: 
       failure: "Die Person konnte nicht aus dem Aspekt entfernt werden"
       no_membership: "Konnte die ausgewählte Person in diesem Aspekt leider nicht finden"
@@ -118,7 +110,7 @@ de:
         content: "Du kannst die folgenden Dienste mit Diaspora verbinden:"
         heading: "Verbinde Dienste"
       tags_following: "Tags, denen ich folge"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "#%{tag} nicht mehr folgen"
       your_aspects: "Deine Aspekte"
     many: "%{count} Aspekte"
     move_contact: 
@@ -198,6 +190,7 @@ de:
     zero: "Keine Kontakte"
   conversations: 
     create: 
+      fail: "Ungültige Nachricht"
       sent: "Nachricht versendet"
     destroy: 
       success: "Nachricht wurde entfernt"
@@ -221,9 +214,12 @@ de:
       sending: "Senden..."
       subject: "Betreff"
       to: "An"
+    new_message: 
+      fail: "Ungültige Nachricht"
     show: 
       delete: "Diese Konversation löschen und blockieren"
       reply: "Antworten"
+      replying: "Antworten..."
   date: 
     formats: 
       birthday: "%d. %B"
@@ -454,9 +450,7 @@ de:
       remove_contact: "Kontakt entfernen"
       remove_from: "%{name} aus %{aspect} entfernen?"
     show: 
-      add_some: "Ein paar hinzufügen"
       does_not_exist: "Person existiert nicht!"
-      edit: "Bearbeiten"
       has_not_shared_with_you_yet: "%{name} hat bisher noch keine Beiträge mit dir geteilt!"
       incoming_request: "Du hast eine eingehende Anfrage von dieser Person."
       mention: "Erwähnen"
@@ -468,6 +462,9 @@ de:
       see_all: "Alle zeigen"
       start_sharing: "Fang an zu teilen!"
       to_accept_or_ignore: "um zu akzeptieren oder zu ignorieren."
+    sub_header: 
+      add_some: "Füge welche hinzu"
+      edit: "Bearbeiten"
       you_have_no_tags: "Du hast keine Tags!"
     webfinger: 
       fail: "Entschuldigung, wir konnten %{handle} nicht finden."
@@ -577,7 +574,7 @@ de:
     new_request_to_person: 
       sent: "Gesendet!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "%{resharer}'s Version von %{author}'s Beitrag"
     create: 
       failure: "Ein Fehler trat beim weitersagen dieses Beitrags auf."
     reshare: 
@@ -627,6 +624,14 @@ de:
       enter_a_diaspora_username: "Gib einen Diaspora-Benutzernamen ein:"
       know_email: "Du kennst die E-Mail-Adresse? Sende eine Einladung!"
       your_diaspora_username_is: "Dein Diaspora* Nutzername ist: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Zum Aspekt hinzufügen"
+      toggle: 
+        few: "In %{count} Aspekten"
+        many: "In %{count} Aspekten"
+        one: "In einem Aspekt"
+        other: "In %{count} Aspekten"
+        zero: "Zu Aspekt hinzufügen"
     contact_list: 
       all_contacts: "Alle Kontakte"
     footer: 
@@ -746,12 +751,12 @@ de:
       your_email: "Deine E-Mail-Adresse"
       your_handle: "Deine Diaspora ID"
     getting_started: 
-      aspects: "Aspekte"
+      bold: "Aspekten"
       connect_to: "Verbinde dich zu"
       connect_to_your_other_social_networks: "Verbinde dich zu deinen anderen sozialen Netzwerken"
       connect_with_people: "Kontaktiere tolle Leute"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Verbinde dich mit Leuten indem du sie in einen oder mehr von deinen %{bold} platzierst."
+      connect_with_people_explanation_pt2: "Aspekte sind ein intuitiver weg um neue und bekannte Gesichter zu gruppieren. Nur für dich, erlauben sie dir nach Teilen deiner Kontakte zu filtern oder mit ihnen Beiträge zu teilen."
       featured_tags: "Empfohlene Tags"
       featured_users: "Featured users"
       fill_out_your_profile: "Fülle dein Profil aus"

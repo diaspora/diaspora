@@ -49,14 +49,6 @@ cs:
         unknown: "Neznámý název videa"
   are_you_sure: "Jste si jist?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Přidat do aspektu"
-      toggle: 
-        few: "V %{count} aspektech"
-        many: "Ve %{count} aspektech"
-        one: "V %{count} aspektu"
-        other: "V %{count} aspektech"
-        zero: "Přidat do aspektu"
     destroy: 
       failure: "Nepodařilo se odstranit osobu z aspektu"
       no_membership: "Nelze najít vybrané osoby v tomto aspektu"
@@ -198,6 +190,7 @@ cs:
     zero: "žádné kontakty"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Zpráva byla odeslána"
     destroy: 
       success: "Konverzace úspěšně odstraněna"
@@ -221,9 +214,12 @@ cs:
       sending: "Posílám..."
       subject: "předmět"
       to: "pro"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "smazat a blokovat konverzaci"
       reply: "odpověď"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ cs:
       remove_contact: "odstranit kontakt"
       remove_from: "Odstranit %{name} z %{aspect}?"
     show: 
-      add_some: "přidat nějaké"
       does_not_exist: "Osoba neexistuje!"
-      edit: "upravit"
       has_not_shared_with_you_yet: "%{name} s vámi zatím žádnou zprávu nesdílí!"
       incoming_request: "%{name} s vámi chce sdílet"
       mention: "Zmínka"
@@ -468,7 +462,10 @@ cs:
       see_all: "Zobrazit všechno"
       start_sharing: "začít sdílet"
       to_accept_or_ignore: "přijmout nebo ignorovat."
-      you_have_no_tags: "nemáte žádné štítky!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Omlouváme se, ale %{handle} nebyl nalezen."
     zero: "žádní lidé"
@@ -627,6 +624,14 @@ cs:
       enter_a_diaspora_username: "Zadejte uživatelské jméno na Diaspoře:"
       know_email: "Znáte jejich e-mailové adresy? Můžete je pozvat"
       your_diaspora_username_is: "Vaše uživatelské jméno na Diaspoře: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Všechny kontakty"
     footer: 
@@ -746,7 +751,7 @@ cs:
       your_email: "Váš e-mail"
       your_handle: "Vaše Diaspora ID"
     getting_started: 
-      aspects: "aspektů"
+      bold: "aspects"
       connect_to: "Připojit ke"
       connect_to_your_other_social_networks: "Připojit k dalším sociálním sítím"
       connect_with_people: "Spojte se s lidmi"

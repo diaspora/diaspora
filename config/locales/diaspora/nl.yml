@@ -49,14 +49,6 @@ nl:
         unknown: "Onbekende Videotitel"
   are_you_sure: "Weet je het zeker?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Voeg toe aan aspect"
-      toggle: 
-        few: "In %{count} aspecten"
-        many: "In %{count} aspecten"
-        one: "In %{count} aspect"
-        other: "In %{count} aspecten"
-        zero: "Voeg toe aan aspect"
     destroy: 
       failure: "Persoon verwijderen van aspect mislukt"
       no_membership: "Kon de geselecteerde persoon niet vinden in dat aspect"
@@ -198,6 +190,7 @@ nl:
     zero: "geen contacten"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Bericht verzonden"
     destroy: 
       success: "Conversatie succesvol verwijderd"
@@ -221,9 +214,12 @@ nl:
       sending: "Verzenden..."
       subject: "onderwerp"
       to: "aan"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "verwijder en blokkeer conversatie"
       reply: "beantwoord"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ nl:
       remove_contact: "verwijder contact"
       remove_from: "Verwijder %{name} uit %{aspect}?"
     show: 
-      add_some: "Voeg toe"
       does_not_exist: "Die persoon bestaat niet!"
-      edit: "bewerk"
       has_not_shared_with_you_yet: "%{name} heeft nog geen posts met je gedeeld!"
       incoming_request: "%{name} wil met je delen"
       mention: "Noemen"
@@ -468,7 +462,10 @@ nl:
       see_all: "Zie alles"
       start_sharing: "start met delen"
       to_accept_or_ignore: "om te accepteren of te negeren."
-      you_have_no_tags: "je hebt geen tags!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "Sorry, we konden %{handle} niet vinden."
     zero: "geen mensen"
@@ -627,6 +624,14 @@ nl:
       enter_a_diaspora_username: "Vul een Diaspora gebruikersnaam in:"
       know_email: "Weet je hun e-mailadres? Je zou ze uit moeten nodigen"
       your_diaspora_username_is: "Jouw Diaspora gebruikersnaam is: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Alle contacten"
     footer: 
@@ -746,7 +751,7 @@ nl:
       your_email: "Jouw e-mail"
       your_handle: "Jouw Diaspora ID"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Verbind met"
       connect_to_your_other_social_networks: "Verbind met je andere sociale netwerken"
       connect_with_people: "Maak kennis met interessante mensen"

@@ -49,14 +49,6 @@ eu:
         unknown: "Bideo izen ezezaguna"
   are_you_sure: "Ziur al zaude?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Alderdira gehitu"
-      toggle: 
-        few: "%{count} alderditan"
-        many: "%{count} alderditan"
-        one: "alderdi %{count}ean"
-        other: "%{count} alderditan"
-        zero: "Alderdira gehitu"
     destroy: 
       failure: "Akatsa pertsona alderditik ezabatzean"
       no_membership: "Ezin izan da hautatutako pertsona aurkitu alderdian"
@@ -198,6 +190,7 @@ eu:
     zero: "adiskiderik ez"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "Mezua arrakastaz bidali da"
     destroy: 
       success: "Elkarrizketa arrakastaz ezabatua"
@@ -221,9 +214,12 @@ eu:
       sending: "Sending..."
       subject: "gaia"
       to: "nori:"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "ezabatu eta giltzapetu elkarrizketa"
       reply: "erantzun"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ eu:
       remove_contact: "adiskidea ezabatu"
       remove_from: "%{name} ezabatu %{aspect} alderditik?"
     show: 
-      add_some: "gehitu batzuk"
       does_not_exist: "Pertsona hau ez dago!"
-      edit: "aldatu"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name}(e)k zure adiskidea izan nahi du"
       mention: "Aipatu"
@@ -468,7 +462,10 @@ eu:
       see_all: "Guztiak ikusi"
       start_sharing: "harremanetan hasi"
       to_accept_or_ignore: "onartu edo utzi."
-      you_have_no_tags: "ez duzu etiketarik!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "%{handle} ezin izan dugu aurkitu."
     zero: "jenderik ez"
@@ -627,6 +624,14 @@ eu:
       enter_a_diaspora_username: "Diaspora erabiltzaile izena idatzi:"
       know_email: "Badakizu beraien e-posta? Gonbida itzazu!"
       your_diaspora_username_is: "Zure Diaspora helbidea honakoa da: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "Adiskide Guztiak"
     footer: 
@@ -746,7 +751,7 @@ eu:
       your_email: "Zure e-posta"
       your_handle: "Zure Diaspora IDa"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"

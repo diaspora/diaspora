@@ -33,10 +33,10 @@ el:
         ignore: "Εάν δεν θέλετε να αποδεχτείτε την πρόσκληση, παρακαλώ αγνοήστε αυτό το email."
         no_account_till: "Ο λογαριασμός σας δεν θα δημιουργηθεί μέχρι να μεταβείτε στον παρακάτω σύνδεσμο και συνδεθείτε. "
         subject: "Έχετε προσκληθεί να συμμετάσχετε στο Diaspora!"
-      inviters: 
-        accept_at: "στο %{url}, μπορείτε να το αποδεχτείτε, μέσω του παρακάτω συνδέσμου."
-        has_invited_you: "Ο χρήστης %{name} σας προσκάλεσε να γίνετε μέλος του Diaspora"
-        have_invited_you: "Ο χρήστης %{names} σας κάλεσε να γίνετε μέλος του Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Αλλαγή του κωδικού μου"
         ignore: "Εάν δεν το ζητήσατε, παρακαλούμε να αγνοήσετε αυτό το μήνυμα."

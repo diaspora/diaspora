@@ -49,14 +49,6 @@ ja:
         unknown: "不明な動画タイトル"
   are_you_sure: "本当にいいですか。"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
-      toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
     destroy: 
       failure: "連絡先をアスペクトから除外するのに失敗しました。"
       no_membership: "選択した連絡先はそのアスペクト内に見つかりませんでした"
@@ -198,6 +190,7 @@ ja:
     zero: "連絡先無し"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "メッセージを送信しました"
     destroy: 
       success: "会話を削除するのに成功しました。"
@@ -221,9 +214,12 @@ ja:
       sending: "Sending..."
       subject: "件名"
       to: "宛先"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "会話を削除して、ブロックする"
       reply: "返信"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%m月%d日"
@@ -454,9 +450,7 @@ ja:
       remove_contact: "連絡先を削除する"
       remove_from: "%{name}さんを%{aspect}から除外しますか。"
     show: 
-      add_some: "追加する"
       does_not_exist: "存在しない連絡先です！"
-      edit: "編集"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name}さんは共有の許可を求めています"
       mention: "メンション"
@@ -468,7 +462,10 @@ ja:
       see_all: "全て表示"
       start_sharing: "共有を開始する"
       to_accept_or_ignore: "承諾するか無視するか決めて下さい。"
-      you_have_no_tags: "タグを設定していません！"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "%{handle}が見つかりませんでした。"
     zero: "連絡先無し"
@@ -627,6 +624,14 @@ ja:
       enter_a_diaspora_username: "ダイアスポラのユーザ名を入力してください。"
       know_email: "メールアドレスをご存じなら招待しましょう！"
       your_diaspora_username_is: "あなたのハンドル名は%{diaspora_handle}です。"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "全ての連絡先"
     footer: 
@@ -746,7 +751,7 @@ ja:
       your_email: "メールアドレス"
       your_handle: "ダイアスポラのユーザ名"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"

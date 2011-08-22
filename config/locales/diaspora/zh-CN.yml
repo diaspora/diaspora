@@ -49,14 +49,6 @@ zh-CN:
         unknown: "未知影片标题"
   are_you_sure: "你确定吗？"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "添加到视图"
-      toggle: 
-        few: "在%{count}个视图中"
-        many: "在%{count}个视图中"
-        one: "在%{count}个视图中"
-        other: "在%{count}个视图中"
-        zero: "添加到视图"
     destroy: 
       failure: "从视图中移除好友失败"
       no_membership: "在视图中找不到选择的好友"
@@ -198,6 +190,7 @@ zh-CN:
     zero: "没有好友"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "消息发送成功"
     destroy: 
       success: "消息移除成功"
@@ -221,9 +214,12 @@ zh-CN:
       sending: "Sending..."
       subject: "主题"
       to: "收件人"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "删除并中止对话"
       reply: "回复"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%m-%d"
@@ -454,9 +450,7 @@ zh-CN:
       remove_contact: "解除好友关系"
       remove_from: "要从 %{aspect} 删除 %{name} 吗？"
     show: 
-      add_some: "添加一些"
       does_not_exist: "好友不存在！"
-      edit: "编辑"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} 希望能与您分享"
       mention: "提及"
@@ -468,7 +462,10 @@ zh-CN:
       see_all: "查看全部"
       start_sharing: "开始分享"
       to_accept_or_ignore: "接受或忽略它。"
-      you_have_no_tags: "您没有标签！"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "抱歉，找不到 %{handle}。"
     zero: "没有联络人"
@@ -627,6 +624,14 @@ zh-CN:
       enter_a_diaspora_username: "输入 Diaspora 帐号："
       know_email: "知道他们的电子信箱吗？ 你可以邀请他们加入。"
       your_diaspora_username_is: "您的 Diaspora 帐号是: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "全部好友"
     footer: 
@@ -746,7 +751,7 @@ zh-CN:
       your_email: "您的电子邮箱"
       your_handle: "您的 diaspora 帐号"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"

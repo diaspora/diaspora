@@ -33,10 +33,10 @@ es-AR:
         ignore: "Si no querés aceptar la invitación, por favor ignorá este correo."
         no_account_till: "Tu cuenta no será creada hasta que accedas al anterior enlace y te registres."
         subject: "¡Te invitaron a unirte a Diáspora*!"
-      inviters: 
-        accept_at: ", en %{url}, podés a través del siguiente enlace."
-        has_invited_you: "%{name} te invitó a unirte a Diáspora*"
-        have_invited_you: "%{names} te invitaron a unirte a Diáspora*"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Cambiar mi contraseña"
         ignore: "Si vos no hiciste la solicitud, por favor ignorá este correo."

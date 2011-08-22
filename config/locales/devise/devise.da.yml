@@ -33,10 +33,10 @@ da:
         ignore: "Hvis du ikke vil acceptere invitationen skal du blot ignorere denne mail."
         no_account_till: "Din konto vil ikke blive oprettet før du har klikket ind på ovenstående link, og skriver dig op."
         subject: "Du er blevet inviteret til at bruge Diaspora!"
-      inviters: 
-        accept_at: ", på %{url}, kan du acceptere via linket nedenfor."
-        has_invited_you: "%{name} har inviteret dig til Diaspora"
-        have_invited_you: "%{names} har inviteret dig til Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Skift min adgangskode"
         ignore: "Hvis du ikke har anmodet om dette, bedes du ignorere denne e-mail."

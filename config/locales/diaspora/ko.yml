@@ -49,14 +49,6 @@ ko:
         unknown: "알 수 없는 비디오 제목"
   are_you_sure: "확실합니까?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "애스펙에 넣기"
-      toggle: 
-        few: "애스펙 %{count}개 안에 있어요"
-        many: "애스펙 %{count}개 안에 있어요"
-        one: "애스펙 한 개 안에 있어요"
-        other: "애스펙 %{count}개 안에 있어요"
-        zero: "애스펙에 넣기"
     destroy: 
       failure: "애스펙에서 지우지 못했습니다"
       no_membership: "애스펙에서 찾을 수 없는 사람입니다"
@@ -198,6 +190,7 @@ ko:
     zero: "컨택 없음"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "쪽지를 보냈습니다"
     destroy: 
       success: "대화를 성공적으로 지웠습니다"
@@ -221,9 +214,12 @@ ko:
       sending: "보내는 중···"
       subject: "제목"
       to: "받는이"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "지운 뒤 대화를 차단합니다"
       reply: "답장"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d일"
@@ -454,9 +450,7 @@ ko:
       remove_contact: "컨택 지우기"
       remove_from: "%{aspect}에서 %{name}님을 지울까요?"
     show: 
-      add_some: "태그 달기"
       does_not_exist: "없는 사람입니다!"
-      edit: "고치기"
       has_not_shared_with_you_yet: "%{name}님은 아직 나와 아무것도 공유하지 않았습니다!"
       incoming_request: "%{name}님이 나와 공유하길 원합니다"
       mention: "멘션"
@@ -468,7 +462,10 @@ ko:
       see_all: "모두 보기"
       start_sharing: "공유 시작"
       to_accept_or_ignore: "수락 또는 무시하기."
-      you_have_no_tags: "달아둔 태그가 없습니다!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "%{handle} 핸들을 찾을 수 없습니다."
     zero: "없음"
@@ -627,6 +624,14 @@ ko:
       enter_a_diaspora_username: "디아스포라 사용자명을 입력하세요:"
       know_email: "이메일 주소를 알면 초대할 수 있습니다!"
       your_diaspora_username_is: "내 디아스포라 핸들: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "모든 컨택"
     footer: 
@@ -746,7 +751,7 @@ ko:
       your_email: "이메일 주소"
       your_handle: "디아스포라 핸들"
     getting_started: 
-      aspects: "그 사람은 내 컨택이 됩니다"
+      bold: "aspects"
       connect_to: "연결하기:"
       connect_to_your_other_social_networks: "다른 소셜 네트워크와 연결하기"
       connect_with_people: "멋진 사람들과 연결하기"

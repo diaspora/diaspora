@@ -33,10 +33,10 @@ ro:
         ignore: "Dacă nu doreşti sa accepţi invitaţia, ignoră acest mesaj."
         no_account_till: "Contul dvs. nu va fi creat până când nu veţi accesa linkul de mai sus şi vă veţi înscrie."
         subject: "Un prieten te-a invitat pe Diaspora!"
-      inviters: 
-        accept_at: ", la %{url}, puteţi să-l acceptaţi prin link-ul de mai jos"
-        has_invited_you: "%{name} v-a invitat pe Diaspora"
-        have_invited_you: "%{names} v-au invitat pe Diaspora"
+      inviter: 
+        accept_at: "at %{url}, you can accept it through the link below."
+        has_invited_you: "%{name}"
+        have_invited_you: "%{names} have invited you to join Diaspora"
       reset_password_instructions: 
         change: "Schimbă-mi parola"
         ignore: "Dacă nu aţi facut aceasta petiţie, vă rugăm să ignoraţi acest e-mail."

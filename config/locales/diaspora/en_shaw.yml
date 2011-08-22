@@ -49,14 +49,6 @@ en_shaw:
         unknown: "𐑩𐑯𐑯𐑴𐑯 𐑝𐑦𐑛𐑦𐑴 𐑑𐑲𐑑𐑩𐑤"
   are_you_sure: "𐑸 𐑿 𐑖𐑻?"
   aspect_memberships: 
-    aspect_dropdown: 
-      add_to_aspect: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
-      toggle: 
-        few: "𐑦𐑯 %{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        many: "𐑦𐑯 %{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        one: "𐑦𐑯 %{count} 𐑨𐑕𐑐𐑧𐑒𐑑"
-        other: "𐑦𐑯 %{count} 𐑨𐑕𐑐𐑧𐑒𐑑𐑕"
-        zero: "𐑨𐑛 𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
     destroy: 
       failure: "𐑓𐑱𐑤𐑛 𐑑 𐑮𐑦𐑥𐑵𐑝 𐑐𐑻𐑕𐑩𐑯 𐑓𐑮𐑪𐑥 𐑨𐑕𐑐𐑧𐑒𐑑"
       no_membership: "𐑒𐑫𐑛 𐑯𐑪𐑑 𐑓𐑲𐑯𐑛 𐑞 𐑕𐑦𐑤𐑧𐑒𐑑𐑩𐑛 𐑐𐑻𐑕𐑩𐑯 𐑦𐑯 𐑞𐑨𐑑 𐑨𐑕𐑐𐑧𐑒𐑑"
@@ -198,6 +190,7 @@ en_shaw:
     zero: "𐑯𐑴 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
   conversations: 
     create: 
+      fail: "Invalid message"
       sent: "𐑥𐑧𐑕𐑩𐑡 𐑕𐑧𐑯𐑑"
     destroy: 
       success: "𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯 𐑕𐑩𐑒𐑕𐑧𐑕𐑓𐑫𐑤𐑦 𐑮𐑦𐑥𐑵𐑝𐑛"
@@ -221,9 +214,12 @@ en_shaw:
       sending: "𐑕𐑧𐑯𐑛𐑦𐑙..."
       subject: "𐑕𐑳𐑚𐑡𐑧𐑒𐑑"
       to: "𐑑"
+    new_message: 
+      fail: "Invalid message"
     show: 
       delete: "𐑛𐑦𐑤𐑰𐑑 𐑯 𐑚𐑤𐑪𐑒 𐑒𐑪𐑯𐑝𐑼𐑕𐑱𐑖𐑩𐑯"
       reply: "𐑮𐑦𐑐𐑤𐑲"
+      replying: "Replying..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -454,9 +450,7 @@ en_shaw:
       remove_contact: "𐑮𐑦𐑥𐑵𐑝 𐑒𐑪𐑯𐑑𐑨𐑒𐑑"
       remove_from: "𐑮𐑦𐑥𐑵𐑝 %{name} 𐑓𐑮𐑪𐑥 %{aspect}?"
     show: 
-      add_some: "𐑨𐑛 𐑕𐑳𐑥"
       does_not_exist: "𐑐𐑻𐑕𐑩𐑯 𐑛𐑳𐑟 𐑯𐑪𐑑 𐑧𐑜𐑟𐑦𐑕𐑑!"
-      edit: "𐑧𐑛𐑦𐑑"
       has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
       incoming_request: "%{name} 𐑢𐑳𐑯𐑑𐑕 𐑑 𐑖𐑺 𐑢𐑦𐑞 𐑿"
       mention: "𐑥𐑧𐑯𐑖𐑩𐑯"
@@ -468,7 +462,10 @@ en_shaw:
       see_all: "𐑕𐑰 𐑷𐑤"
       start_sharing: "𐑕𐑑𐑸𐑑 𐑖𐑺𐑦𐑙"
       to_accept_or_ignore: "𐑑 𐑩𐑒𐑕𐑧𐑐𐑑 𐑹 𐑦𐑜𐑯𐑹 𐑦𐑑."
-      you_have_no_tags: "𐑿 𐑣𐑨𐑝 𐑯𐑴 𐑑𐑨𐑜𐑟!"
+    sub_header: 
+      add_some: "add some"
+      edit: "edit"
+      you_have_no_tags: "you have no tags!"
     webfinger: 
       fail: "𐑕𐑪𐑮𐑦, 𐑢𐑰 𐑒𐑫𐑛𐑯𐑑 𐑓𐑲𐑯𐑛 %{handle}."
     zero: "𐑯𐑴 𐑐𐑰𐑐𐑩𐑤"
@@ -627,6 +624,14 @@ en_shaw:
       enter_a_diaspora_username: "𐑧𐑯𐑑𐑼 𐑩 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥:"
       know_email: "𐑯𐑴 𐑞𐑺 𐑦-𐑥𐑱𐑤 𐑩𐑛𐑮𐑧𐑕? 𐑿 𐑖𐑫𐑛 𐑦𐑯𐑝𐑲𐑑 𐑞𐑧𐑥"
       your_diaspora_username_is: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑿𐑟𐑼𐑯𐑱𐑥 𐑦𐑟: %{diaspora_handle}"
+    aspect_dropdown: 
+      add_to_aspect: "Add to aspect"
+      toggle: 
+        few: "In %{count} aspects"
+        many: "In %{count} aspects"
+        one: "In %{count} aspect"
+        other: "In %{count} aspects"
+        zero: "Add to aspect"
     contact_list: 
       all_contacts: "𐑷𐑤 𐑒𐑪𐑯𐑑𐑨𐑒𐑑𐑕"
     footer: 
@@ -746,7 +751,7 @@ en_shaw:
       your_email: "𐑿𐑼 𐑦-𐑥𐑱𐑤"
       your_handle: "𐑿𐑼 ·𐑛𐑦𐑨𐑕𐑐𐑹𐑩 𐑲𐑛𐑧𐑯𐑑𐑦𐑓𐑦𐑒𐑱𐑖𐑩𐑯"
     getting_started: 
-      aspects: "aspects"
+      bold: "aspects"
       connect_to: "Connect to"
       connect_to_your_other_social_networks: "Connect to your other social networks"
       connect_with_people: "Connect with cool people"
