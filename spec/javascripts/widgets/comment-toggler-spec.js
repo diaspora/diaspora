@@ -21,7 +21,7 @@ describe("Diaspora.Widgets.CommentToggler", function() {
     });
 
     it("changes the text on the show comments link", function() {
-      var link = $("a.toggle_post_comments");
+      var link = $("a.toggle_post_comments:first");
       Diaspora.I18n.loadLocale({'comments' : {'show': 'comments.show pl'}}, 'en');
       expect(link.text()).toEqual("Hide all comments");
       commentToggler.hideComments($.Event());
