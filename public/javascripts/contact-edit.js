@@ -6,17 +6,10 @@ var ContactEdit = {
   init: function(){
     $.extend(ContactEdit, AspectsDropdown);
     $('.dropdown.aspect_membership .dropdown_list > li, .dropdown.inviter .dropdown_list > li').live('click', function(evt){
+
       ContactEdit.processClick($(this), evt);
     });
-    // $('.button.resend').live('click', function(evt){
-    //   evt.preventDefault();
-    //   $.post($(this).href, {}, 
-    //          function(data){ 
-    //            console.log(data);
-    //            ContactEdit.processSuccess($(this), evt, data)
-    //          });
-    // });
-  },
+   },
 
   updateNumber: function(dropdown, personId, number){
     var button = dropdown.parents(".dropdown").children('.button.toggle'),
@@ -50,7 +43,6 @@ var ContactEdit = {
 
   processSuccess: function(element, evt, data) {
     element.removeClass('loading')
-    element.parent().parent().html('sent!');
     if (data.url != undefined) {
       window.location = data.url;
     } else {
