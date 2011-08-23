@@ -40,8 +40,15 @@ connect_users(bob, bob.aspects.first, eve, eve.aspects.first)
 puts "done!"
 
 print "Adding Facebook contacts... "
-facebook = Factory(:service, :type => 'Services::Facebook', :user_id => bob.id)
-ServiceUser.import((1..10).map{|n| Factory.build(:service_user, :service => facebook) })
+bob_facebook = Factory(:service, :type => 'Services::Facebook', :user_id => bob.id, :uid => bob.username)
+ServiceUser.import((1..10).map{|n| Factory.build(:service_user, :service => bob_facebook)} +
+                   [Factory.build(:service_user, :service => bob_facebook, :uid => eve.username, :person => eve.person)])
+
+eve_facebook = Factory(:service, :type => 'Services::Facebook', :user_id => eve.id, :uid => eve.username)
+ServiceUser.import((1..10).map{|n| Factory.build(:service_user, :service => eve_facebook) } +
+                   [Factory.build(:service_user, :service => eve_facebook, :uid => bob.username, :person => bob.person)])
+
+
 puts "done!"
 
 require 'spec/support/fake_resque'
