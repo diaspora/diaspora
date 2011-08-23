@@ -22,7 +22,7 @@ var AspectsDropdown = {
       replacement = Diaspora.I18n.t('aspect_dropdown.toggle.other', { count: number.toString()})
     }
 
-    button.html(replacement + ' ▼');
+    button.text(replacement + ' ▼');
   },
   
   toggleCheckbox: function(check) {
