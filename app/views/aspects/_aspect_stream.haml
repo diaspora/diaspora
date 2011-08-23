@@ -17,9 +17,7 @@
       = @aspects.to_sentence
 
 = render 'shared/publisher', :selected_aspects => @aspects, :aspect_ids => aspect_ids, :aspect => @aspect
-
-- if posts.length == 0
-  = render 'aspects/no_posts_message'
+= render 'aspects/no_posts_message'
 
 - if current_user.contacts.size < 2
   = render 'aspects/no_contacts_message'

@@ -23,13 +23,32 @@ var ContentUpdater = {
     }
   },
 
-  addLikesToPost: function(postGUID, html) {
-    var post = $("#" + postGUID);
+  removePostFromStream: function(postGUID) {
+    $("#" + postGUID).fadeOut(400, function() {
+      $(this).remove();
+    });
 
-    $(".likes_container", post)
+    if(!$("#main_stream .stream_element").length) {
+      $("#no_posts").removeClass("hidden");
+    }
+  },
+
+  addCommentToPost: function(postGUID, commentGUID, html) {
+    var post = $("#" + postGUID),
+      comments = $("ul.comments", post);
+
+    if($("#" + commentGUID, post).length) { return; }
+
+    $(html).appendTo(comments).fadeIn("fast");
+
+    Diaspora.page.timeAgo.updateTimeAgo();
+    Diaspora.page.directionDetector.updateBinds();
+  },
+
+  addLikesToPost: function(postGUID, html) {
+    $(".likes_container", "#" + postGUID)
       .fadeOut("fast")
       .html(html)
       .fadeIn("fast");
   }
-
 };
