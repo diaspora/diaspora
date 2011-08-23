@@ -124,7 +124,7 @@ end
 
 desc "Clean out caches: _code_cache, _gist_cache, .sass-cache"
 task :clean do
-  system "rm -rf _code_cache/** _gist_cache/** .sass-cache/** source/stylesheets/screen.css"
+  rm_rf ["_code_cache/**", "_gist_cache/**", ".sass-cache/**", "source/stylesheets/screen.css"]
 end
 
 desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
@@ -132,12 +132,12 @@ task :update_style, :theme do |t, args|
   theme = args.theme || 'classic'
   if File.directory?("sass.old")
     puts "removed existing sass.old directory"
-    system "rm -r sass.old"
+    rm_r "sass.old", :secure=>true
   end
-  system "mv sass sass.old"
+  mv "sass", "sass.old"
   puts "## Moved styles into sass.old/"
-  system "mkdir -p sass"
-  system "cp -R #{themes_dir}/"+theme+"/sass/ sass/"
+  mkdir_p "sass"
+  cp_r "#{themes_dir}/"+theme+"/sass/", "sass"
   cp_r "sass.old/custom/.", "sass/custom"
   puts "## Updated Sass ##"
 end
@@ -147,16 +147,16 @@ task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
   if File.directory?("#{source_dir}.old")
     puts "removed existing #{source_dir}.old directory"
-    system "rm -r #{source_dir}.old"
+    rm_r "#{source_dir}.old", :secure=>true
   end
-  system "mv #{source_dir} #{source_dir}.old"
+  mv source_dir, "#{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
-  system "mkdir -p #{source_dir}" 
-  system "cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
-  system "cp -Rn #{source_dir}.old/. #{source_dir}"
-  system "cp -Rf #{source_dir}.old/_includes/custom/. #{source_dir}/_includes/custom/"
-  system "mv -f #{source_dir}/index.html #{blog_index_dir}" if blog_index_dir != source_dir
-  system "cp -f #{source_dir}.old/index.html #{source_dir}" if blog_index_dir != source_dir
+  mkdir_p source_dir
+  cp_r "#{themes_dir}/"+theme+"/source/.", source_dir
+  cp_r "#{source_dir}.old/.", source_dir, :preserve=>true
+  cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/"
+  mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
+  cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir
   puts "## Updated #{source_dir} ##"
 end
 
