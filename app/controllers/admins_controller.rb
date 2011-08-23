@@ -11,10 +11,12 @@ class AdminsController < ApplicationController
   def admin_inviter 
     user = User.find_by_email params[:idenitifer]
     unless user
-      Invitation.create(:service => 'email', :identifer => params[:identifier], :admin => true)
+      Invitation.create(:service => 'email', :identifier => params[:identifier], :admin => true)
       flash[:notice] = "invitation sent to #{params[:identifier]}"
+    else
+      flash[:notice]= "error sending invite to #{params[:identifier]}"
     end
-    redirect_to user_search_path
+    redirect_to user_search_path, :notice => flash[:notice]
   end
 
   def stats
