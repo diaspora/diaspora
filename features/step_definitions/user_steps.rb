@@ -150,6 +150,11 @@ And /^I follow the "([^\"]*)" link from the last sent email$/ do |link_text|
   visit URI::parse(path).request_uri
 end
 
+Then /^I should have (\d+) Devise email delivery$/ do |n|
+  Devise.mailer.deliveries.length.should == n.to_i
+end
+
+
 When /^"([^\"]+)" has posted a status message with a photo$/ do |email|
   user = User.find_for_database_authentication(:username => email)
   post = Factory(:status_message_with_photo, :text => "Look at this dog", :author => user.person)

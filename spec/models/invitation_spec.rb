@@ -73,7 +73,7 @@ describe Invitation do
     end
 
     it 'generate the invitation token and pass it to the user' do
-
+      pending
     end
   end
  
@@ -100,15 +100,33 @@ describe Invitation do
     end
   end
 
-  describe '#resend' do
+  describe 'send' do
     before do
       @invitation = Factory(:invitation, :sender => alice, :aspect => alice.aspects.first, :service => 'email', :identifier => 'a@a.com')
     end
 
-    it 'sends another email' do
-      lambda {
-        @invitation.resend
-      }.should change(Devise.mailer.deliveries, :count).by(1)
+    it 'sends an email' do
+        lambda {
+          @invitation.send!
+        }.should change(Devise.mailer.deliveries, :count).by(1)
+    end
+
+    it 'sends an email with from header' do
+      @invitation.send!
+      Devise.mailer.deliveries.first.from.should_not be_blank
+    end
+
+    it 'sends an email with from header' do
+      @invitation.send!
+      Devise.mailer.deliveries.first.to.should == ["a@a.com"]
+    end
+    
+    context "re-send" do
+      it 'sends another email' do
+        lambda {
+          @invitation.resend
+        }.should change(Devise.mailer.deliveries, :count).by(1)
+      end
     end
   end
 

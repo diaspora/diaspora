@@ -167,7 +167,7 @@ test:
   pod_url: "http://localhost:9887"
   socket_port: 8081
   enable_splunk_logging: false
-  open_invitations: false
+  open_invitations: true
 
 
 integration_1:
