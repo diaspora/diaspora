@@ -42,7 +42,7 @@ var ContentUpdater = {
     $(html).appendTo(comments).fadeIn("fast");
 
     Diaspora.page.timeAgo.updateTimeAgo();
-    Diaspora.page.directionDetector.updateBinds();
+    Diaspora.page.directionDetector.updateBinds()
   },
 
   addLikesToPost: function(postGUID, html) {

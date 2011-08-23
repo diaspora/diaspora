@@ -381,13 +381,16 @@ var Publisher = {
         isPostVisible = true;
     });
 
-    if(isPostVisible)
+    if(isPostVisible) {
       ContentUpdater.addPostToStream(json.html);
-    else
+      Diaspora.page.stream.addPost($("#" + json.post_id));
+    }
+    else {
       Diaspora.widgets.flashMessages.render({
         success: true,
         message: Diaspora.I18n.t('successfully_posted_message_to_an_aspects_that_is_not_visible')
       });
+    }
 
     //collapse publisher
     Publisher.close();
