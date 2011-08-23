@@ -136,7 +136,8 @@ task :update_style, :theme do |t, args|
   end
   system "mv sass sass.old"
   puts "## Moved styles into sass.old/"
-  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/ sass/"
+  system "mkdir -p sass"
+  system "cp -R #{themes_dir}/"+theme+"/sass/ sass/"
   cp_r "sass.old/custom/.", "sass/custom"
   puts "## Updated Sass ##"
 end
@@ -150,7 +151,8 @@ task :update_source, :theme do |t, args|
   end
   system "mv #{source_dir} #{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
-  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
+  system "mkdir -p #{source_dir}" 
+  system "cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
   system "cp -Rn #{source_dir}.old/. #{source_dir}"
   system "cp -Rf #{source_dir}.old/_includes/custom/. #{source_dir}/_includes/custom/"
   system "mv -f #{source_dir}/index.html #{blog_index_dir}" if blog_index_dir != source_dir
