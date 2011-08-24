@@ -190,7 +190,7 @@ zh-TW:
     zero: "沒有任何聯繫"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "無效的訊息"
       sent: "已送出訊息"
     destroy: 
       success: "對話移除成功"
@@ -215,11 +215,11 @@ zh-TW:
       subject: "主旨"
       to: "收件人"
     new_message: 
-      fail: "Invalid message"
+      fail: "無效的訊息"
     show: 
       delete: "刪除並中止對話"
       reply: "回覆"
-      replying: "Replying..."
+      replying: "回應中..."
   date: 
     formats: 
       birthday: "%B %d"
@@ -463,9 +463,9 @@ zh-TW:
       start_sharing: "開始分享"
       to_accept_or_ignore: "接受或不管它."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "加入一些"
+      edit: "編輯"
+      you_have_no_tags: "你沒有任何標籤!"
     webfinger: 
       fail: "抱歉, 找不到 %{handle}."
     zero: "沒有聯絡人"
@@ -625,13 +625,13 @@ zh-TW:
       know_email: "知道他們的電子信箱嗎? 你應該邀請他們來"
       your_diaspora_username_is: "你的 Diaspora 用戶名稱是: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "加入至面向"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "在%{count}個面向中"
+        many: "在%{count}個面向中"
+        one: "在%{count}個面向中"
+        other: "在%{count}個面向中"
+        zero: "加入至面向"
     contact_list: 
       all_contacts: "全部聯繫"
     footer: 
@@ -751,11 +751,11 @@ zh-TW:
       your_email: "你的電子郵件"
       your_handle: "你的 diaspora 識別碼"
     getting_started: 
-      bold: "aspects"
+      bold: "面向"
       connect_to: "連結至"
       connect_to_your_other_social_networks: "與其他社交網站連結"
       connect_with_people: "與酷咖連結"
-      connect_with_people_explanation_pt1: "為了和別人聯繫, 將他們放入你的任何一個或多個"
+      connect_with_people_explanation_pt1: "為了和別人聯繫, 將他們放入你的任何一個或多個%{bold}"
       connect_with_people_explanation_pt2: "面向是區分新人或熟人的直覺方式, 並且只有你自己知道, 讓你可以輕易過濾他們, 或只和部份聯絡人分享."
       featured_tags: "特色標籤"
       featured_users: "特色使用者"

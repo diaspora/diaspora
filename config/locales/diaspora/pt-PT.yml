@@ -37,7 +37,7 @@ pt-PT:
             person: 
               invalid: "não é válido."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "é inválido. Apenas é permitido usar letras, números, e underscores"
               taken: "já foi escolhido."
   ago: "Há %{time} atrás"
   all_aspects: "Todos os Aspectos"
@@ -110,7 +110,7 @@ pt-PT:
         content: "Pode conectar os seguintes serviços ao Diaspora:"
         heading: "Conectar Serviços"
       tags_following: "Tags Seguidas"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Deixar de seguir #%{tag}"
       your_aspects: "Os Seus Aspectos"
     many: "%{count} aspectos"
     move_contact: 
@@ -122,9 +122,9 @@ pt-PT:
       name: "Nome"
     no_contacts_message: 
       featured_users: "utilizadores destacados"
-      or_featured: "Or you can share with %{link}"
+      or_featured: "Ou pode partilhar com %{link}"
       try_adding_some_more_contacts: "Pode pesquisar (acima) ou convidar (à direita) mais contactos."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      you_should_add_some_more_contacts: "Devia adicionar mais alguns contactos!"
     no_posts_message: 
       start_talking: "Ainda ninguém disse nada!"
     one: "1 aspecto"
@@ -190,7 +190,7 @@ pt-PT:
     zero: "sem contactos"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Mensagens inválidas"
       sent: "A mensagem foi enviada"
     destroy: 
       success: "A conversa foi removida com sucesso"
@@ -215,11 +215,11 @@ pt-PT:
       subject: "assunto"
       to: "para"
     new_message: 
-      fail: "Invalid message"
+      fail: "Mensagem inválida"
     show: 
       delete: "apagar e bloquear a conversa"
       reply: "responder"
-      replying: "Replying..."
+      replying: "A responder..."
   date: 
     formats: 
       birthday: "%d de %B"
@@ -249,7 +249,7 @@ pt-PT:
       tagline_first_half: "Partilhe o que desejar,"
       tagline_second_half: "com quem desejar."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Um utilizador do Facebook"
     check_token: 
       not_found: "Código de convite não encontrado"
     create: 
@@ -260,8 +260,8 @@ pt-PT:
       rejected: "Os seguintes endereços de email tiveram problemas: "
       sent: "Os convites foram enviados a:"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Aceite o seu convite"
+      your_account_awaits: "A sua conta está à espera!"
     new: 
       already_invited: "As pessoas seguintes não aceitaram o seu convite:"
       aspect: "Aspecto"
@@ -388,7 +388,7 @@ pt-PT:
       other: "%{actors} começaram a partilhar consigo."
       zero: "%{actors} começou a partilhar consigo."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "uma publicação."
     click_here: "clique aqui"
     comment_on_post: 
       reply: "Responder ou ver a publicação de %{name} >"
@@ -463,14 +463,14 @@ pt-PT:
       start_sharing: "começar a partilhar"
       to_accept_or_ignore: "para o aceitar ou ignorar."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "adicionar alguns"
+      edit: "editar"
+      you_have_no_tags: "não tem tags!"
     webfinger: 
       fail: "Lamentamos muito, não conseguimos encontrar %{handle}."
     zero: "não há pessoas"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "foto de %{name}"
     create: 
       integrity_error: "O envio da fotografia falhou. Tem a certeza de que o ficheiro que seleccionou era uma imagem?"
       runtime_error: "O envio da fotografia falhou. Tem a certeza que o seu cinto de segurança está apertado?"
@@ -498,7 +498,7 @@ pt-PT:
       edit: "editar"
       edit_delete_photo: "Editar descrição da fotografia / apagar fotografia"
       make_profile_photo: "tornar foto de perfil"
-      show_original_post: "Show original post"
+      show_original_post: "Mostrar publicação original"
       update_photo: "Actualizar Fotografia"
     update: 
       error: "Falha ao editar a fotografia"
@@ -546,13 +546,13 @@ pt-PT:
       unhappy: "Descontente?"
       update: "Actualizar"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Criar a minha conta"
       enter_email: "Introduza um  endereço de email"
       enter_password: "Introduza uma palavra-passe"
       enter_password_again: "Introduza de novo a mesma palavra-passe"
       enter_username: "Escolha um nome de utilizador (apenas letras, números e underscores)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "Junte-se ao movimento!"
+      sign_up_today: "Registe-se hoje"
   requests: 
     create: 
       sending: "A enviar"
@@ -574,7 +574,7 @@ pt-PT:
     new_request_to_person: 
       sent: "enviado!"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "repartilha de %{resharer} da publicação de %{author}"
     create: 
       failure: "Ocorreu um erro ao repartilhar esta publicação."
     reshare: 
@@ -597,8 +597,8 @@ pt-PT:
     failure: 
       error: "ocorreu um erro ao ligar a esse serviço"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "Nenhum amigo do Facebook foi encontrado."
+      service_friends: "Amigos do %{service}"
     index: 
       connect_to_facebook: "Ligar ao Facebook"
       connect_to_tumblr: "Ligar ao Tumblr"
@@ -613,7 +613,7 @@ pt-PT:
       join_me_on_diaspora: "Junte-se a mim no DIASPORA*"
     remote_friend: 
       invite: "convite"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Ainda não no Diaspora"
       resend: "reenviar"
   settings: "Definições"
   shared: 
@@ -625,13 +625,13 @@ pt-PT:
       know_email: "Sabe os seus endereços de email? Deveria convidá-los"
       your_diaspora_username_is: "O seu nome de utilizador do Diaspora é: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Adicionar ao aspecto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Em %{count} aspectos"
+        many: "Em %{count} aspectos"
+        one: "Em %{count} aspecto"
+        other: "Em %{count} aspectos"
+        zero: "Adicionar ao aspecto"
     contact_list: 
       all_contacts: "Todos os contactos"
     footer: 
@@ -751,12 +751,12 @@ pt-PT:
       your_email: "O seu endereço de email"
       your_handle: "A sua identificação do Diaspora"
     getting_started: 
-      bold: "aspects"
+      bold: "aspectos"
       connect_to: "Conectar a"
       connect_to_your_other_social_networks: "Conecte-se às suas outras redes sociais"
       connect_with_people: "Ligue-se a pessoas interessantes"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
+      connect_with_people_explanation_pt1: "Ligue-se a pessoas ao colocá-las em um ou mais dos seus %{bold}"
+      connect_with_people_explanation_pt2: "Aspectos são uma forma intuitiva de agrupar rostos novos e familiares, de forma privada, permitindo-lhe filtrar ou partilhar com subconjuntos dos seus contactos facilmente."
       featured_tags: "Tags destacadas"
       featured_users: "Utilizadores destacados"
       fill_out_your_profile: "Preencha o seu perfil"

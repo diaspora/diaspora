@@ -34,9 +34,9 @@ pt-PT:
         no_account_till: "A sua conta não será criada até que aceda à hiperligação acima e se registe."
         subject: "Foi convidado para se juntar ao Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "em %{url}, pode aceitá-lo através da ligação abaixo."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} convidaram-no para se juntar ao Diaspora"
       reset_password_instructions: 
         change: "Alterar a minha palavra-passe"
         ignore: "Se não fez este pedido, por favor ignore este email."

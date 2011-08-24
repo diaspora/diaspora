@@ -190,7 +190,7 @@ it:
     zero: "nessun contatto"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Messaggio non valido"
       sent: "Messaggio inviato"
     destroy: 
       success: "Conversazione rimossa con successo"
@@ -215,11 +215,11 @@ it:
       subject: "oggetto"
       to: "a"
     new_message: 
-      fail: "Invalid message"
+      fail: "Messaggio non valido"
     show: 
       delete: "cancella e blocca la conversazione"
       reply: "rispondi"
-      replying: "Replying..."
+      replying: "Invio risposta..."
   date: 
     formats: 
       birthday: "%d %B"
@@ -463,9 +463,9 @@ it:
       start_sharing: "inizia a condividere"
       to_accept_or_ignore: "per accettarla o ignorarla."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "aggiungi qualcuno"
+      edit: "modifica"
+      you_have_no_tags: "non hai alcun tag!"
     webfinger: 
       fail: "Spiacenti, non possiamo trovare %{handle}."
     zero: "nessuna persona"
@@ -625,13 +625,13 @@ it:
       know_email: "Conosci i loro indirizzi email? Dovresti invitarli"
       your_diaspora_username_is: "Il tuo ID è: %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Aggiungi ad un aspetto"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "In %{count} aspetti"
+        many: "In %{count} aspetti"
+        one: "In %{count} aspetto"
+        other: "In %{count} aspetti"
+        zero: "Aggiungi ad un aspetto"
     contact_list: 
       all_contacts: "Tutti i contatti"
     footer: 
@@ -751,11 +751,11 @@ it:
       your_email: "La tua email"
       your_handle: "Il tuo ID"
     getting_started: 
-      bold: "aspects"
+      bold: "aspetti"
       connect_to: "Connettiti a"
       connect_to_your_other_social_networks: "Connetti altri social network"
       connect_with_people: "Connettiti con gente speciale"
-      connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi "
+      connect_with_people_explanation_pt1: "Stai in contatto con le persone mettendole in uno o più dei tuoi %{bold}"
       connect_with_people_explanation_pt2: "Gli aspetti sono un sistema intuitivo per raggruppare vecchie e nuove conoscenze in modo riservato, così potrai filtrare o condividere i contenuti con chi vuoi e con facilità."
       featured_tags: "Tag consigliati"
       featured_users: "Utenti consigliati"

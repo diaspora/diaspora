@@ -34,9 +34,9 @@ bg:
         no_account_till: "Акаунтът няма да бъде създаден докато не посетите горната връзката и се регистрирате."
         subject: "Поканени сте да се присъедините към Diaspora!"
       inviter: 
-        accept_at: "at %{url}, you can accept it through the link below."
+        accept_at: "от %{url}, можете да приемете чрез връзката по-долу в писмото."
         has_invited_you: "%{name}"
-        have_invited_you: "%{names} have invited you to join Diaspora"
+        have_invited_you: "%{names} ви кани да се присъедините към Diaspora"
       reset_password_instructions: 
         change: "Промяна на паролата"
         ignore: "Ако не сте заявили промяната, моля игнорирайте писмото."

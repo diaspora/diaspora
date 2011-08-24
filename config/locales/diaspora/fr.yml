@@ -37,7 +37,7 @@ fr:
             person: 
               invalid: "est invalide."
             username: 
-              invalid: "is invalid. We only allow letters, numbers, and underscores"
+              invalid: "n'est pas valide. Nous n'autorisons que les lettres, chiffres et _"
               taken: "est déjà pris."
   ago: "Il y a %{time}"
   all_aspects: "Tous les aspects"
@@ -99,18 +99,18 @@ fr:
         content_1: "Votre identifiant Diaspora est :"
         content_2: "Communiquez-le à tout le monde et ils pourront vous trouver sur Diaspora."
         heading: "Identifiant Diaspora"
-      donate: "Donate"
+      donate: "Faire un don"
       handle_explanation: "Ceci est votre identifiant diaspora. Comme une adresse de courrier électronique, vous pouvez le communiquer à d'autres personnes pour leur permettre de vous joindre."
-      keep_us_running: "Keep %{pod} running fast, buy our servers their monthly coffee fix!"
+      keep_us_running: "Permettez à %{pod} de fonctionner rapidement, achetez une dose de café mensuelle à nos serveurs !"
       no_contacts: "Aucun contact"
-      no_tags: "No tags"
+      no_tags: "+ Trouver un tag à suivre"
       people_sharing_with_you: "Personnes partageant avec vous"
       post_a_message: "publier un message >>"
       services: 
         content: "Vous pouvez connecter les services suivants à Diaspora :"
         heading: "Services connectés"
       tags_following: "Tags Suivis"
-      unfollow_tag: "Stop following #%{tag}"
+      unfollow_tag: "Arrêter de suivre #%{tag}"
       your_aspects: "Vos aspects"
     many: "%{count} aspects"
     move_contact: 
@@ -121,18 +121,18 @@ fr:
       create: "Créer"
       name: "Nom"
     no_contacts_message: 
-      featured_users: "featured users"
-      or_featured: "Or you can share with %{link}"
-      try_adding_some_more_contacts: "You can search (top) or invite (right) more contacts."
-      you_should_add_some_more_contacts: "You should add some more contacts!"
+      featured_users: "utilisateurs recommandés"
+      or_featured: "Ou vous pouvez partager avec %{link}"
+      try_adding_some_more_contacts: "Vous pouvez rechercher (en haut) ou inviter (à droite) plus de contacts."
+      you_should_add_some_more_contacts: "Vous devez ajouter un peu plus de contacts !"
     no_posts_message: 
       start_talking: "Personne n’a encore rien dit !"
     one: "1 aspect"
     other: "%{count} aspects"
     seed: 
-      acquaintances: "Acquaintances"
+      acquaintances: "Connaissances"
       family: "Famille"
-      friends: "Friends"
+      friends: "Amis"
       work: "Travail"
     selected_contacts: 
       manage_your_aspects: "Gérer vos aspects."
@@ -168,7 +168,7 @@ fr:
     create: 
       failure: "Impossible de créer le contact"
     featured: 
-      featured_users: "Featured Users"
+      featured_users: "Utilisateurs recommandés"
     few: "%{count} contacts"
     index: 
       add_a_new_aspect: "Ajouter un nouvel aspect"
@@ -190,7 +190,7 @@ fr:
     zero: "aucun contact"
   conversations: 
     create: 
-      fail: "Invalid message"
+      fail: "Message invalide"
       sent: "Message envoyé"
     destroy: 
       success: "La conversation a été supprimée."
@@ -215,11 +215,11 @@ fr:
       subject: "sujet"
       to: "pour"
     new_message: 
-      fail: "Invalid message"
+      fail: "Message invalide"
     show: 
       delete: "supprimer et bloquer la conversation"
       reply: "répondre"
-      replying: "Replying..."
+      replying: "En réponse..."
   date: 
     formats: 
       birthday: "%d %B"
@@ -232,7 +232,7 @@ fr:
       correct_the_following_errors_and_try_again: "Corrigez les erreurs suivantes, puis réessayez."
       invalid_fields: "Champs invalides"
   fill_me_out: "Remplissez-moi"
-  find_people: "Rechercher des personnes"
+  find_people: "Rechercher des personnes ou des #tags"
   hide: "Masquer"
   home: 
     show: 
@@ -249,7 +249,7 @@ fr:
       tagline_first_half: "Partagez ce que vous voulez,"
       tagline_second_half: "avec qui vous voudrez."
   invitations: 
-    a_facebook_user: "A Facebook user"
+    a_facebook_user: "Un utilisateur de Facebook"
     check_token: 
       not_found: "Jeton d'invitation introuvable"
     create: 
@@ -260,10 +260,10 @@ fr:
       rejected: "Les adresses de courrier électronique suivantes ont rencontré des problèmes :"
       sent: "Les invitations ont été envoyées à :"
     edit: 
-      accept_your_invitation: "Accept your invitation"
-      your_account_awaits: "Your account awaits!"
+      accept_your_invitation: "Accepter l'invitation"
+      your_account_awaits: "Votre compte vous attend !"
     new: 
-      already_invited: "Déjà invité(e)"
+      already_invited: "Les personnes suivantes n'ont pas accepté votre invitation :"
       aspect: "Aspect"
       comma_seperated_plz: "Vous pouvez entrer plusieurs adresses de courrier électronique séparées par des virgules."
       if_they_accept_info: "s'ils acceptent, ils seront ajoutés à l'aspect dans lequel vous les avez invités."
@@ -388,17 +388,17 @@ fr:
       other: "%{actors} a/ont commencé à partager avec vous."
       zero: "%{actors} a/ont commencé à partager avec vous."
   notifier: 
-    a_post_you_shared: "a post."
+    a_post_you_shared: "un post."
     click_here: "cliquez ici"
     comment_on_post: 
       reply: "Répondre ou voir le post de %{name} >"
     confirm_email: 
-      click_link: "To activate your new e-mail address %{unconfirmed_email}, please click this link:"
-      subject: "Please activate your new e-mail address %{unconfirmed_email}"
+      click_link: "Pour activer votre nouvelle adresse email %{unconfirmed_email}, merci de cliquer sur ce lien :"
+      subject: "Merci d'activer votre nouvelle adresse email %{unconfirmed_email}"
     email_sent_by_diaspora: "Ce courriel a été envoyé par Diaspora. Si vous souhaitez cesser de recevoir des courriels de ce genre,"
     hello: "Bonjour %{name} !"
     liked: 
-      liked: "%{name} vient juste d'aimer votre message : "
+      liked: "%{name} aime juste votre message"
       view_post: "Voir le post >"
     mentioned: 
       mentioned: "vous a mentionné(e) dans un message :"
@@ -410,7 +410,7 @@ fr:
       subject: "Un message concernant votre compte Diaspora :"
     started_sharing: 
       sharing: "a commencé à partager avec vous !"
-      subject: "%{name} a commencé à partager avec vous sur Diaspora*"
+      subject: "%{name} commence à partager avec vous sur Diaspora*"
       view_profile: "Voir le profil de %{name}"
     thanks: "Merci,"
     to_change_your_notification_settings: "pour changer vos paramètres de notification"
@@ -451,7 +451,7 @@ fr:
       remove_from: "Supprimer %{name} de %{aspect} ?"
     show: 
       does_not_exist: "Cette personne n'existe pas !"
-      has_not_shared_with_you_yet: "%{name} has not shared any posts with you yet!"
+      has_not_shared_with_you_yet: "%{name} n'as pas encore partagé de post avec vous !"
       incoming_request: "%{name} désire partager avec vous"
       mention: "Mentionner"
       message: "Message"
@@ -463,14 +463,14 @@ fr:
       start_sharing: "commencer à partager"
       to_accept_or_ignore: "pour l'accepter ou l'ignorer."
     sub_header: 
-      add_some: "add some"
-      edit: "edit"
-      you_have_no_tags: "you have no tags!"
+      add_some: "ajouter quelques"
+      edit: "modifier"
+      you_have_no_tags: "vous n'avez pas de tags !"
     webfinger: 
       fail: "Impossible de trouver %{handle}."
     zero: "personne"
   photos: 
-    comment_email_subject: "%{name}'s photo"
+    comment_email_subject: "photo de %{name}"
     create: 
       integrity_error: "Impossible d'envoyer la photo. S'agit-il réellement d'une image ?"
       runtime_error: "L'envoi de la photo a échoué. Avez-vous attaché votre ceinture ?"
@@ -498,7 +498,7 @@ fr:
       edit: "modifier"
       edit_delete_photo: "Modifier la description de la photo / supprimer la photo"
       make_profile_photo: "en faire la photo de profil"
-      show_original_post: "Show original post"
+      show_original_post: "Montrer le post original"
       update_photo: "Mettre à jour la photo"
     update: 
       error: "La modification de la photo a échoué."
@@ -546,13 +546,13 @@ fr:
       unhappy: "Insatisfait(e) ?"
       update: "Mettre à jour"
     new: 
-      create_my_account: "Create my account"
+      create_my_account: "Créer mon compte"
       enter_email: "Saisissez une adresse de courrier électronique"
       enter_password: "Saisissez un mot de passe"
       enter_password_again: "Saisissez à nouveau le même mot de passe"
       enter_username: "Choisissez un nom d'utilisateur (uniquement des lettres, chiffres et caractères de soulignement)"
-      join_the_movement: "Join the movement!"
-      sign_up_today: "Sign up today"
+      join_the_movement: "Rejoignez le mouvement !"
+      sign_up_today: "Inscrivez-vous aujourd'hui"
   requests: 
     create: 
       sending: "En cours d'envoi"
@@ -574,20 +574,20 @@ fr:
     new_request_to_person: 
       sent: "envoyée !"
   reshares: 
-    comment_email_subject: "%{resharer}'s reshare of %{author}'s post"
+    comment_email_subject: "Partage par %{resharer} d'un message de %{author}"
     create: 
       failure: "Une erreur a été rencontrée lors du repartage de ce post."
     reshare: 
       deleted: "Le post original a été supprimé par l'auteur."
       reshare: 
-        few: "%{count} Reshares"
-        many: "%{count} Reshares"
-        one: "1 Reshare"
-        other: "%{count} Reshares"
+        few: "%{count} partages"
+        many: "%{count} partages"
+        one: "1 partage"
+        other: "%{count} partages"
         zero: "Repartager"
-      reshare_confirmation: "Reshare %{author} - %{text}?"
-      reshare_original: "Reshare orignial"
-      show_original: "Show Original"
+      reshare_confirmation: "Partager le post d'%{author} ?"
+      reshare_original: "Partager l'original"
+      show_original: "Afficher l'original"
   search: "Rechercher"
   services: 
     create: 
@@ -597,8 +597,8 @@ fr:
     failure: 
       error: "une erreur s'est produite lors de la connexion avec ce service"
     finder: 
-      no_friends: "No Facebook friends found."
-      service_friends: "%{service} Friends"
+      no_friends: "Pas d'amis Facebook trouvés."
+      service_friends: "Amis %{service}"
     index: 
       connect_to_facebook: "Connecter à Facebook"
       connect_to_tumblr: "Connecter à Tumblr"
@@ -613,7 +613,7 @@ fr:
       join_me_on_diaspora: "Rejoignez-moi sur DIASPORA*"
     remote_friend: 
       invite: "inviter"
-      not_on_diaspora: "Not yet on Diaspora"
+      not_on_diaspora: "Pas encore sur Disapora"
       resend: "envoyer à nouveau"
   settings: "Options"
   shared: 
@@ -625,13 +625,13 @@ fr:
       know_email: "Vous connaissez leur adresse de courrier électronique ? Vous devriez les inviter"
       your_diaspora_username_is: "Votre nom d'utilisateur Diaspora est : %{diaspora_handle}"
     aspect_dropdown: 
-      add_to_aspect: "Add to aspect"
+      add_to_aspect: "Ajouter à l'aspect"
       toggle: 
-        few: "In %{count} aspects"
-        many: "In %{count} aspects"
-        one: "In %{count} aspect"
-        other: "In %{count} aspects"
-        zero: "Add to aspect"
+        few: "Dans %{count} aspects"
+        many: "Dans %{count} aspects"
+        one: "Dans %{count} aspect"
+        other: "Dans %{count} aspects"
+        zero: "Ajouter à l'aspect"
     contact_list: 
       all_contacts: "Tous les contacts"
     footer: 
@@ -711,7 +711,7 @@ fr:
   tokens: 
     show: 
       connect_to_cubbies: "Se connecter à Cubbi.es"
-      connecting_is_simple: "La connexion de votre compte Diaspora est assez simple puisqu'il suffit de saisir deux champs sur votre page de compte Cubbi.es."
+      connecting_is_simple: "Se connecter à votre compte Diaspora est simple ! Il suffit d'entrer votre ID Diaspora (<b>%{diaspora_id}</b>) sur votre <a href='%{href_link}'>page des paramètres</a>  cubbies et de cliquez sur Connect."
       daniels_account: "Le compte Diaspora de Daniel"
       log_in_with_diaspora_is_comming: "Très bientôt, vous serez en mesure de vous connecter à une nouvelle application sans créer un compte séparé du votre autre sur Diaspora."
       love_to_try: "Nous aimerions beaucoup que vous essayiez."
@@ -725,13 +725,13 @@ fr:
   username: "Nom d'utilisateur"
   users: 
     confirm_email: 
-      email_confirmed: "E-Mail %{email} activated"
-      email_not_confirmed: "E-Mail could not be activated. Wrong link?"
+      email_confirmed: "Email %{email} activé"
+      email_not_confirmed: "L'email n'a pas pu être activé. Lien erroné ?"
     destroy: "Votre compte a été clôturé. Il faudra peut-être 20 minutes pour terminer la fermeture de votre compte. Merci d'essayer Diaspora."
     edit: 
       also_commented: "…quelqu'un d'autre commente une publication de votre contact ?"
       change: "Modifier"
-      change_email: "Change E-Mail"
+      change_email: "Changer d'email"
       change_language: "Changer la langue"
       change_password: "Changer le mot de passe"
       close_account: "Clôturer le compte"
@@ -740,7 +740,7 @@ fr:
       download_photos: "télécharger mes photos"
       download_xml: "télécharger mon XML"
       edit_account: "Modifier le compte"
-      email_awaiting_confirmation: "We have sent you an activation link to %{unconfirmed_email}. Till you follow this link and activate the new address, we will continue to use your original address %{email}."
+      email_awaiting_confirmation: "Nous vous avons envoyé un lien d'activation à %{unconfirmed_email}. Jusqu'à ce que vous suivez ce lien et activez la nouvelle adresse, nous allons continuer à utiliser votre adresse originale %{email}."
       export_data: "Exporter des données"
       liked: "...quelqu'un aime votre message ?"
       mentioned: "…vous êtes mentionné(e) dans une publication ?"
@@ -752,30 +752,30 @@ fr:
       your_handle: "Votre identifiant diaspora"
     getting_started: 
       bold: "aspects"
-      connect_to: "Connect to"
-      connect_to_your_other_social_networks: "Connect to your other social networks"
-      connect_with_people: "Connect with cool people"
-      connect_with_people_explanation_pt1: "Connect with people by placing them into one or more of your"
-      connect_with_people_explanation_pt2: "Aspects are an intuitive way to group new and familar faces, private to you, allowing you to filter down or share with subsets of your contacts easily."
-      featured_tags: "Featured tags"
-      featured_users: "Featured users"
-      fill_out_your_profile: "Fill out your profile"
-      find_friends: "Find friends"
-      find_friends_from_facebook: "find friends from Facebook"
-      finished: "Terminé !"
-      follow_your_interests: "Follow your interests"
+      connect_to: "Connectez-vous à"
+      connect_to_your_other_social_networks: "Connectez-vous à vos autres réseaux sociaux"
+      connect_with_people: "Connectez-vous avec des gens cool"
+      connect_with_people_explanation_pt1: "Connectez-vous avec des gens en les plaçant dans un ou plusieurs de vos %{gras}"
+      connect_with_people_explanation_pt2: "Les aspects sont un moyen intuitif de grouper les visages familiers et nouveaux, privés, vous permettant de filtrer ou partager avec des sous-ensembles de vos contacts facilement."
+      featured_tags: "Tags recommandés"
+      featured_users: "Utilisateurs recommandés"
+      fill_out_your_profile: "Remplissez votre profil"
+      find_friends: "Trouver des amis"
+      find_friends_from_facebook: "trouver des amis de Facebook"
+      finished: "Terminé"
+      follow_your_interests: "Suivez vos intérêts"
       hashtag_explanation: "Les tags vous permettre de parler et de suivre vos intérêts. Ils sont aussi un excellent moyen de trouver de nouvelles personnes sur Diaspora."
-      profile_description: "Make it easier for people to find you by filling out your profile information."
+      profile_description: "Permettez aux gens de vous trouver plus facilement en remplissant vos informations de profil."
       profile_fields: 
         bio: "Bio"
         birthday: "Anniversaire"
-        gender: "Gender"
-        location: "Location"
-        name: "Name"
+        gender: "Sexe"
+        location: "Localisation"
+        name: "Nom"
         photo: "Photo"
         tags: "Tags"
-      see_all_featured_users: "See all featured users"
-      welcome: "Bienvenue sur Diaspora !"
+      see_all_featured_users: "Voir tous les utilisateurs recommandés"
+      welcome: "Bienvenue !"
       welcome_with_name: "Bienvenue, %{name} !"
     public: 
       does_not_exist: "L'utilisateur %{username} n'existe pas !"
@@ -785,8 +785,8 @@ fr:
       language_not_changed: "Échec lors de la mise à jour de la langue"
       password_changed: "Mot de passe mis à jour. Vous pouvez maintenant vous identifier avec votre nouveau mot de passe."
       password_not_changed: "Échec de la mise à jour du mot de passe"
-      unconfirmed_email_changed: "E-Mail Changed. Needs activation."
-      unconfirmed_email_not_changed: "E-Mail Change Failed"
+      unconfirmed_email_changed: "Email changé. Nécessite l'activation."
+      unconfirmed_email_not_changed: "Le changement de courriel a échoué"
   webfinger: 
     fetch_failed: "impossible de télécharger le profil webfinger pour %{profile_url}"
     hcard_fetch_failed: "une erreur est survenue lors du téléchargement de la hcard de %{account}"
