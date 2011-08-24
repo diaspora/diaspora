@@ -37,6 +37,7 @@
 # Modified for Octopress by John W. Long
 #
 require 'rexml/document'
+require 'fileutils'
 
 module Jekyll
 
@@ -122,6 +123,9 @@ module Jekyll
       sitemap.add_element(urlset)
 
       # File I/O: create sitemap.xml file and write out pretty-printed XML
+      unless File.exists?(site.dest)
+        FileUtils.mkdir_p(site.dest)
+      end
       file = File.new(File.join(site.dest, SITEMAP_FILE_NAME), "w")
       formatter = REXML::Formatters::Pretty.new(4)
       formatter.compact = true
