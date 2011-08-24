@@ -64,6 +64,10 @@ module Chubbies
       @user = User.first
     end
 
+    def current_user= user
+      @user = user
+    end
+
     def redirect_path
       '/callback'
     end
