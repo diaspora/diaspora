@@ -13,7 +13,7 @@
       });
     });
 
-    this.globalSubscribe("stream/reloaded", function() {
+    this.globalSubscribe("stream/reloaded stream/scrolled", function() {
       self.publish("widget/ready", self.stream);
     });
 
