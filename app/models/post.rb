@@ -10,13 +10,12 @@ class Post < ActiveRecord::Base
   include Diaspora::Guid
 
   include Diaspora::Likeable
+  include Diaspora::Commentable
 
   xml_attr :diaspora_handle
   xml_attr :provider_display_name
   xml_attr :public
   xml_attr :created_at
-
-  has_many :comments, :order => 'created_at', :dependent => :destroy
 
   has_many :aspect_visibilities
   has_many :aspects, :through => :aspect_visibilities
