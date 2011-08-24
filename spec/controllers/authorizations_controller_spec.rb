@@ -31,6 +31,34 @@ describe AuthorizationsController do
       }
   end
 
+  describe '#new' do
+    before do
+      @app = Factory.create(:app, :name => "Authorized App")
+      @params = {
+        :scope => "profile",
+        :redirect_uri => @manifest['application_base_url'] << '/callback',
+        :client_id => @app.oauth_identifier,
+        :uid => alice.username
+      }
+    end
+    it 'succeeds' do
+      get :new, @params
+      response.should be_success
+    end
+
+    it 'logs out the signed in user if a different username is passed' do
+      @params[:uid] = bob.username
+      get :new, @params
+      response.location.should include(oauth_authorize_path)
+    end
+
+    it 'it succeeds if no uid is passed' do
+      @params[:uid] = nil
+      get :new, @params
+      response.should be_success
+    end
+  end
+
   describe '#token' do
     before do
       packaged_manifest = {:public_key => @public_key.export, :jwt => JWT.encode(@manifest, @private_key, "RS256")}.to_json

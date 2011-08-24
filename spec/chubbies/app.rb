@@ -31,6 +31,7 @@ module Chubbies
       end
       add_index :access_tokens, :user_id, :unique => true
       create_table :users do |t|
+        t.string :username, :limit => 127
         t.timestamps
       end
     end
@@ -50,7 +51,7 @@ module Chubbies
 
     d.manifest_field(:name, "Chubbies")
     d.manifest_field(:description, "The best way to chub.")
-    d.manifest_field(:icon_url, "#")
+    d.manifest_field(:icon_url, "chubbies.jpeg")
 
     d.manifest_field(:permissions_overview, "Chubbi.es wants to post photos to your stream.")
 
@@ -60,7 +61,11 @@ module Chubbies
 
   class App < DiasporaClient::App
     def current_user
-      User.first
+      @user = User.first
+    end
+
+    def current_user= user
+      @user = user
     end
 
     def redirect_path
@@ -69,6 +74,11 @@ module Chubbies
 
     def after_oauth_redirect_path
       '/account?id=1'
+    end
+
+    def create_account(hash)
+      hash[:username] = hash.delete(:diaspora_id)
+      User.create(hash)
     end
 
     get '/account' do
@@ -89,7 +99,6 @@ module Chubbies
     end
 
     get '/new' do
-      @user = User.create
       haml :home
     end
 
@@ -103,6 +112,10 @@ module Chubbies
 
     post '/register' do
       DiasporaClient::ResourceServer.create!(params)
+    end
+
+    get '/user_count' do
+      User.count.to_s
     end
   end
 end

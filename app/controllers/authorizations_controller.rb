@@ -9,9 +9,30 @@ class AuthorizationsController < ApplicationController
   skip_before_filter :verify_authenticity_token, :only => :token
 
   def new
-    @requested_scopes = params["scope"].split(',')
-    @client = oauth2_authorization_request.client
-    #render :layout => "popup" if params[:popup]
+    if params[:uid].present? && params[:uid] != current_user.username
+      sign_out current_user
+      redirect_to url_with_prefilled_session_form
+    else
+      @requested_scopes = params["scope"].split(',')
+      @client = oauth2_authorization_request.client
+
+      if authorization = current_user.authorizations.where(:client_id => @client.id).first
+        ac = authorization.authorization_codes.create(:redirect_uri => params[:redirect_uri])
+        redirect_to "#{params[:redirect_uri]}&code=#{ac.code}"
+      end
+    end
+  end
+
+  # When diaspora detects that a user is trying to authorize to an application
+  # as someone other than the logged in user, we want to log out current_user,
+  # and prefill the session form with the user that is trying to authorize
+  def url_with_prefilled_session_form
+    redirect_url = Addressable::URI.parse(request.url)
+    query_values = redirect_url.query_values
+    query_values.delete("uid")
+    query_values.merge!("username" => params[:uid])
+    redirect_url.query_values = query_values
+    redirect_url.to_s
   end
 
   def create
