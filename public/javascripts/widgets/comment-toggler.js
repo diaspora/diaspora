@@ -5,7 +5,8 @@
     this.subscribe("widget/ready", function(evt, commentStream) {
       $.extend(self, {
         commentStream: commentStream,
-        commentToggle: commentStream.siblings(".show_comments").find(".toggle_post_comments")
+        commentToggle: commentStream.siblings(".show_comments").find(".toggle_post_comments"),
+        postGuid: commentStream.parents(".stream_element").first().attr("id")
       });
 
       self.commentToggle.toggle(self.showComments, self.hideComments);
@@ -25,8 +26,7 @@
           self.commentToggle.html(Diaspora.I18n.t("comments.hide"));
           self.commentStream.html(data)
             .addClass("loaded");
-
-          self.globalPublish("commentStream/" + self.commentStream.attr("id") + "/loaded");
+          self.globalPublish("commentStream/" + self.postGuid + "/loaded");
         });
       }
     };

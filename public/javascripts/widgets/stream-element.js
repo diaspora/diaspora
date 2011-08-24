@@ -1,7 +1,7 @@
 (function() {
   var StreamElement = function() {
     var self = this;
-    
+
     this.subscribe("widget/ready", function(evt, element) {
       self.postGuid = element.attr("id");
 
@@ -15,8 +15,11 @@
       });
 
       self.globalSubscribe("post/" + self.postGuid + "/comment/added", function(evt, comment) {
-         self.commentStream.publish("comment/added", comment);
-       });
+        self.commentStream.publish("comment/added", comment);
+      });
+      self.globalSubscribe("commentStream/" + self.postGuid + "/loaded", function(evt) {
+        self.commentStream.instantiateCommentWidgets();
+      });
     });
   };
 
