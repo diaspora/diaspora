@@ -119,7 +119,6 @@ group :test do
   gem 'rspec-instafail', '>= 0.1.7', :require => false
   gem 'fuubar'
 
-  gem 'diaspora-client', "0.1.0", #:path => '~/workspace/diaspora-client'
-                         :git => 'git://github.com/diaspora/diaspora-client.git'
-
+  gem 'diaspora-client', :git => 'git://github.com/diaspora/diaspora-client.git'
+                          #"0.1.0", #:path => '~/workspace/diaspora-client'
 end
