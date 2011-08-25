@@ -48,7 +48,7 @@ module Diaspora
         opts = prep_opts(opts)
         select_clause ='DISTINCT posts.id, posts.updated_at AS updated_at, posts.created_at AS created_at'
 
-        posts_from_others = Post.joins(:contacts).where( :pending => false, :type => opts[:type], :post_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
+        posts_from_others = Post.joins(:contacts).where( :pending => false, :type => opts[:type], :share_visibilities => {:hidden => opts[:hidden]}, :contacts => {:user_id => self.id})
         posts_from_self = self.person.posts.where(:pending => false, :type => opts[:type])
 
         if opts[:by_members_of]
@@ -68,7 +68,7 @@ module Diaspora
         contact_for_person_id(person.id)
       end
       def aspects_with_post(post_id)
-        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:post_id => post_id})
+        self.aspects.joins(:aspect_visibilities).where(:aspect_visibilities => {:shareable_id => post_id, :shareable_type => 'Post'})
       end
 
       def contact_for_person_id(person_id)
@@ -111,7 +111,7 @@ module Diaspora
         post_ids = []
         if contact = self.contact_for(person)
           post_ids = Post.connection.select_values(
-            contact.post_visibilities.where(:hidden => false).select('post_visibilities.post_id').to_sql
+            contact.share_visibilities.where(:hidden => false, :shareable_type => 'Post').select('share_visibilities.shareable_id').to_sql
           )
         end
         post_ids += Post.connection.select_values(

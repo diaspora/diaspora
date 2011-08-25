@@ -5,7 +5,7 @@
 module AspectGlobalHelper
   def aspects_with_post(aspects, post)
     aspects.select do |aspect|
-      AspectVisibility.exists?(:aspect_id => aspect.id, :post_id => post.id)
+      AspectVisibility.exists?(:aspect_id => aspect.id, :shareable_id => post.id, :shareable_type => 'Post')
     end
   end
 

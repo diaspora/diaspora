@@ -56,7 +56,7 @@ describe Notification do
     end
 
     it 'does not create a notification if the post visibility is hidden' do
-      Notification.stub(:post_visiblity_is_hidden).and_return(true)
+      Notification.stub(:share_visiblity_is_hidden).and_return(true)
       expect{
         Notification.notify(@user, @sm, @person)
       }.to change(Notification, :count).by(0)

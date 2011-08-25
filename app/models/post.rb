@@ -11,17 +11,13 @@ class Post < ActiveRecord::Base
 
   include Diaspora::Likeable
   include Diaspora::Commentable
+  include Diaspora::Shareable
 
   xml_attr :diaspora_handle
   xml_attr :provider_display_name
   xml_attr :public
   xml_attr :created_at
 
-  has_many :aspect_visibilities
-  has_many :aspects, :through => :aspect_visibilities
-
-  has_many :post_visibilities
-  has_many :contacts, :through => :post_visibilities
   has_many :mentions, :dependent => :destroy
 
   has_many :reshares, :class_name => "Reshare", :foreign_key => :root_guid, :primary_key => :guid
@@ -56,10 +52,10 @@ class Post < ActiveRecord::Base
   end
 
   def user_refs
-    if AspectVisibility.exists?(:post_id => self.id)
-      self.post_visibilities.count + 1
+    if AspectVisibility.exists?(:shareable_id => self.id, :shareable_type => 'Post')
+      self.share_visibilities.count + 1
     else
-      self.post_visibilities.count
+      self.share_visibilities.count
     end
   end
 

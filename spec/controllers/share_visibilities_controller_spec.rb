@@ -4,10 +4,10 @@
 
 require 'spec_helper'
 
-describe PostVisibilitiesController do
+describe ShareVisibilitiesController do
   before do
     @status = alice.post(:status_message, :text => "hello", :to => alice.aspects.first)
-    @vis = @status.post_visibilities.first
+    @vis = @status.share_visibilities.first
     sign_in :user, bob
   end
 
@@ -23,7 +23,7 @@ describe PostVisibilitiesController do
       end
 
       it 'calls #update_cache' do
-        @controller.should_receive(:update_cache).with(an_instance_of(PostVisibility))
+        @controller.should_receive(:update_cache).with(an_instance_of(ShareVisibility))
         put :update, :format => :js, :id => 42, :post_id => @status.id
       end
 
@@ -74,13 +74,13 @@ describe PostVisibilitiesController do
 
     it 'removes the post from the cache if visibility is marked as hidden' do
       @vis.hidden = true
-      @cache.should_receive(:remove).with(@vis.post_id)
+      @cache.should_receive(:remove).with(@vis.shareable_id)
       @controller.send(:update_cache, @vis)
     end
 
     it 'adds the post from the cache if visibility is marked as hidden' do
       @vis.hidden = false
-      @cache.should_receive(:add).with(@status.created_at.to_i, @vis.post_id)
+      @cache.should_receive(:add).with(@status.created_at.to_i, @vis.shareable_id)
       @controller.send(:update_cache, @vis)
     end
   end

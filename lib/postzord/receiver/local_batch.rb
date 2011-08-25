@@ -16,7 +16,7 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
     if @object.respond_to?(:relayable?)
       receive_relayable
     else
-      create_post_visibilities
+      create_share_visibilities
     end
     notify_mentioned_users if @object.respond_to?(:mentions)
 
@@ -51,9 +51,9 @@ class Postzord::Receiver::LocalBatch < Postzord::Receiver
   # Batch import post visibilities for the recipients of the given @object
   # @note performs a bulk insert into mySQL
   # @return [void]
-  def create_post_visibilities
+  def create_share_visibilities
     contacts_ids = Contact.connection.select_values(Contact.where(:user_id => @recipient_user_ids, :person_id => @object.author_id).select("id").to_sql)
-    PostVisibility.batch_import(contacts_ids, object)
+    ShareVisibility.batch_import(contacts_ids, object)
   end
 
   # Notify any mentioned users within the @object's text

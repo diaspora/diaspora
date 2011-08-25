@@ -12,8 +12,8 @@ class Contact < ActiveRecord::Base
   has_many :aspect_memberships
   has_many :aspects, :through => :aspect_memberships
 
-  has_many :post_visibilities
-  has_many :posts, :through => :post_visibilities
+  has_many :share_visibilities, :source => :shareable, :source_type => 'Post'
+  has_many :posts, :through => :share_visibilities, :source => :shareable, :source_type => 'Post'
 
   validate :not_contact_for_self
 
@@ -55,7 +55,7 @@ class Contact < ActiveRecord::Base
   end
 
   def receive_post(post)
-    PostVisibility.create!(:post_id => post.id, :contact_id => self.id)
+    ShareVisibility.create!(:shareable_id => post.id, :shareable_type => 'Post', :contact_id => self.id)
     post.socket_to_user(self.user, :aspect_ids => self.aspect_ids) if post.respond_to? :socket_to_user
   end
 
