@@ -1,6 +1,5 @@
 require "rubygems"
 require "bundler/setup"
-require "stringex"
 
 ## -- Rsync Deploy config -- ##
 # Be sure your public key is listed in your server's ~/.ssh/authorized_keys file
@@ -44,50 +43,32 @@ end
 
 desc "Generate jekyll site"
 task :generate do
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   puts "## Generating Site with Jekyll"
   system "jekyll"
 end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-  puts "Starting to watch source with Jekyll and Compass."
-  jekyllPid = spawn("jekyll --auto")
-  compassPid = spawn("compass watch")
-
-  trap("INT") {
-	Process.kill(9, jekyllPid)
-	Process.kill(9, compassPid)
-	exit 0
-  }
-
-  Process.wait
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  system "trap 'kill $jekyllPid $compassPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; wait"
 end
 
 desc "preview the site in a web browser"
 task :preview do
-  puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
-  jekyllPid = spawn("jekyll --auto")
-  compassPid = spawn("compass watch")
-  rackupPid = spawn("rackup --port #{server_port}")
-
-  trap("INT") {
-	Process.kill(9, jekyllPid)
-	Process.kill(9, compassPid)
-	Process.kill(9, rackupPid)
-	exit 0
-  }
-
-  Process.wait
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
+  system "trap 'kill $jekyllPid $compassPid $rackPid' Exit; jekyll --auto & jekyllPid=$!; compass watch & compassPid=$!; rackup --port #{server_port} & rackPid=$!; wait"
 end
 
 # usage rake new_post[my-new-post] or rake new_post['my new post'] or rake new_post (defaults to "new-post")
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
 task :new_post, :title do |t, args|
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   require './plugins/titlecase.rb'
   mkdir_p "#{source_dir}/#{posts_dir}"
   args.with_defaults(:title => 'new-post')
   title = args.title
-  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
+  filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.downcase.gsub(/&/,'and').gsub(/[,'":\?!\(\)\[\]]/,'').gsub(/[\W\.]/, '-').gsub(/-+$/,'')}.#{new_post_ext}"
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
     system "mkdir -p #{source_dir}/#{posts_dir}/";
@@ -104,6 +85,7 @@ end
 # usage rake new_page[my-new-page] or rake new_page[my-new-page.html] or rake new_page (defaults to "new-page.markdown")
 desc "Create a new page in #{source_dir}/(filename)/index.#{new_page_ext}"
 task :new_page, :filename do |t, args|
+  raise "### You haven't set anything up yet. First run `rake install` to set up an Octopress theme." unless File.directory?(source_dir)
   require './plugins/titlecase.rb'
   args.with_defaults(:filename => 'new-page')
   page_dir = source_dir
@@ -147,7 +129,7 @@ end
 
 desc "Clean out caches: _code_cache, _gist_cache, .sass-cache"
 task :clean do
-  rm_rf ["_code_cache/**", "_gist_cache/**", ".sass-cache/**", "source/stylesheets/screen.css"]
+  system "rm -rf _code_cache/** _gist_cache/** .sass-cache/** source/stylesheets/screen.css"
 end
 
 desc "Move sass to sass.old, install sass theme updates, replace sass/custom with sass.old/custom"
@@ -155,11 +137,11 @@ task :update_style, :theme do |t, args|
   theme = args.theme || 'classic'
   if File.directory?("sass.old")
     puts "removed existing sass.old directory"
-    rm_r "sass.old", :secure=>true
+    system "rm -r sass.old"
   end
-  mv "sass", "sass.old"
+  system "mv sass sass.old"
   puts "## Moved styles into sass.old/"
-  cp_r "#{themes_dir}/"+theme+"/sass/", "sass"
+  system "mkdir -p sass; cp -R #{themes_dir}/"+theme+"/sass/* sass/"
   cp_r "sass.old/custom/.", "sass/custom"
   puts "## Updated Sass ##"
 end
@@ -169,16 +151,15 @@ task :update_source, :theme do |t, args|
   theme = args.theme || 'classic'
   if File.directory?("#{source_dir}.old")
     puts "removed existing #{source_dir}.old directory"
-    rm_r "#{source_dir}.old", :secure=>true
+    system "rm -r #{source_dir}.old"
   end
-  mv source_dir, "#{source_dir}.old"
+  system "mv #{source_dir} #{source_dir}.old"
   puts "moved #{source_dir} into #{source_dir}.old/"
-  mkdir_p source_dir
-  cp_r "#{themes_dir}/"+theme+"/source/.", source_dir
-  cp_r "#{source_dir}.old/.", source_dir, :preserve=>true
-  cp_r "#{source_dir}.old/_includes/custom/.", "#{source_dir}/_includes/custom/"
-  mv "#{source_dir}/index.html", "#{blog_index_dir}", :force=>true if blog_index_dir != source_dir
-  cp "#{source_dir}.old/index.html", source_dir if blog_index_dir != source_dir
+  system "mkdir -p #{source_dir}; cp -R #{themes_dir}/"+theme+"/source/. #{source_dir}"
+  system "cp -Rn #{source_dir}.old/. #{source_dir}"
+  system "cp -Rf #{source_dir}.old/_includes/custom/. #{source_dir}/_includes/custom/"
+  system "mv -f #{source_dir}/index.html #{blog_index_dir}" if blog_index_dir != source_dir
+  system "cp -f #{source_dir}.old/index.html #{source_dir}" if blog_index_dir != source_dir
   puts "## Updated #{source_dir} ##"
 end
 
@@ -187,19 +168,7 @@ end
 ##############
 
 desc "Default deploy task"
-multitask :deploy => [:copydot, "#{deploy_default}"] do
-end
-
-desc "copy dot files for deployment"
-task :copydot do
-  cd "#{source_dir}" do
-    exclusions = [".", "..", ".DS_Store"]
-    Dir[".*"].each do |file|
-      if !File.directory?(file) && !exclusions.include?(file)
-        cp(file, "../#{public_dir}");
-      end
-    end
-  end
+task :deploy => "#{deploy_default}" do
 end
 
 desc "Deploy website via rsync"
@@ -209,7 +178,7 @@ task :rsync do
 end
 
 desc "deploy public directory to github pages"
-multitask :push do
+task :push do
   puts "## Deploying branch to Github Pages "
   (Dir["#{deploy_dir}/*"]).each { |f| rm_rf(f) }
   system "cp -R #{public_dir}/* #{deploy_dir}"
