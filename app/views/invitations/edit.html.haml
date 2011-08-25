@@ -1,4 +1,6 @@
 = javascript_include_tag "validation"
+= javascript_tag "Diaspora.Page = 'InvitationsEdit';"
+
 :javascript
   $(function() {
     $("#user_username").focus();
@@ -13,6 +15,8 @@
     = t('.your_account_awaits')
   %h3.accept_invitation_text
     = t('.accept_your_invitation')
+  - flash.each do |name, msg|
+    %p{:class => "login_#{name}"}= msg
 
 .span-10
   %br

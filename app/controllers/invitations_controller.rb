@@ -31,23 +31,25 @@ class InvitationsController < Devise::InvitationsController
   end
 
   def update
-      invitation_token = params[:user][:invitation_token]
+    invitation_token = params[:user][:invitation_token]
 
-      if invitation_token.nil? || invitation_token.blank?
-        redirect_to :back, :error => I18n.t('invitations.check_token.not_found')
-        return
-      end
+    if invitation_token.nil? || invitation_token.blank?
+      redirect_to :back, :error => I18n.t('invitations.check_token.not_found')
+      return
+    end
 
-      user = User.find_by_invitation_token!(invitation_token)
-      
-      user.accept_invitation!(params[:user])
+    user = User.find_by_invitation_token!(invitation_token)
 
-      if user.persisted? && user.person && user.person.persisted?
-        user.seed_aspects
-        flash[:notice] = I18n.t 'registrations.create.success'
-        sign_in_and_redirect(:user, user)
+    user.accept_invitation!(params[:user])
+
+    if user.persisted? && user.person && user.person.persisted?
+      user.seed_aspects
+      flash[:notice] = I18n.t 'registrations.create.success'
+      sign_in_and_redirect(:user, user)
     else
-      redirect_to accept_user_invitation_path(:invitation_token => params[:user][:invitation_token]), :error => user.errors.full_messages.join(", ")
+      user.errors.delete(:person)
+      flash[:error] = user.errors.full_messages.join(", ")
+      redirect_to accept_user_invitation_path(:invitation_token => params[:user][:invitation_token])
     end
   end
 
