@@ -11,6 +11,7 @@
 
   .avatar {
     position: relative;
+    float: left;
     height: 70px !important;
     width: 70px !important;
     top: 0 !important;
@@ -28,7 +29,9 @@
 
   h4 {
     margin-bottom: 10px;
+    overflow:hidden;
   }
+
 
   a {
     color: $blue;
