@@ -1,10 +1,17 @@
 
+require 'rubygems'
+require 'faraday'
+
+$conn = Faraday.new(:url => 'http://localhost:3000') do |builder|
+  builder.request  :url_encoded
+  builder.request  :json
+  builder.response :logger
+  builder.adapter  :net_http
+end
+
+
 class EjabberdAuthentication
 
-  require 'rubygems'
-  require ::File.expand_path('../../config/environment',  __FILE__)
-  #require File.join(File.dirname(__FILE__), '..', 'config', 'environment')
-  
   def initialize
 
     buffer = String.new
@@ -13,6 +20,9 @@ class EjabberdAuthentication
       length = buffer.unpack('n')[0]
 
       operation, username, domain, password = STDIN.sysread(length).split(':')
+
+      `echo "#{[operation, username, domain, password].join(' ')}" >> /home/lasek/Scrivania/foo.txt`
+
 
       response = case operation
       when "auth"
@@ -32,13 +42,14 @@ class EjabberdAuthentication
 
 
   def auth(username, password)
-    return ::User.find_by_username(username).valid_password?(password) ? 1 : 0
+    r = $conn.post '/users/sign_in.json', {:user => {:username => username, :password => password}}, 'Content-Type' => 'application/json'
+    r.status == 201 ?  1 : 0 
   end
 
   def isuser(username)
-    return ::User.find_by_username(username) ? 1 : 0
+    # ::User.find_by_username(username) ? 1 : 0
+    1	
   end
-
-  EjabberdAuthentication.new
-
 end
+
+EjabberdAuthentication.new
