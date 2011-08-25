@@ -51,6 +51,19 @@ describe Reshare do
     end
   end
 
+  describe '#notification_type' do
+    before do
+      @reshare = Factory.create(:reshare, :author => alice.person)
+    end
+    it 'does not return anything for the author' do
+      @reshare.notification_type(bob, @reshare.author).should be_nil
+    end
+
+    it 'returns private mesage for an actual receiver' do
+      @reshare.notification_type(alice, @reshare.author).should == Notifications::PrivateMessage
+    end
+  end
+
   describe "XML" do
     before do
       @reshare = Factory(:reshare)
