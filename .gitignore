@@ -30,6 +30,7 @@ public/diaspora
 spec/fixtures/*.y*ml
 spec/fixtures/*.fixture.*
 coverage/*
+xml_locales/*
 
 #Documentation
 .yardoc/
