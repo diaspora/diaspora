@@ -50,21 +50,16 @@ end
 
 desc "Watch the site and regenerate when it changes"
 task :watch do
-require 'compass'
-require 'compass/exec'
   puts "Starting to watch source with Jekyll and Compass."
   jekyllPid = spawn("jekyll --auto")
   compassPid = spawn("compass watch")
-  
-  trap("INT") { 
+
+  trap("INT") {
 	Process.kill(9, jekyllPid)
 	Process.kill(9, compassPid)
-	puts "Waiting for Jekyll and Compass to die."
-	sleep 5
-	puts "Done waiting. Bye bye."
 	exit 0
   }
-  
+
   Process.wait
 end
 
@@ -73,18 +68,15 @@ task :preview do
   puts "Starting to watch source with Jekyll and Compass. Starting Rack on port #{server_port}"
   jekyllPid = spawn("jekyll --auto")
   compassPid = spawn("compass watch")
-  rackupPid = spawn("rackup --port #{server_port}")  
-  
-  trap("INT") { 
+  rackupPid = spawn("rackup --port #{server_port}")
+
+  trap("INT") {
 	Process.kill(9, jekyllPid)
 	Process.kill(9, compassPid)
 	Process.kill(9, rackupPid)
-	puts "Waiting for Jekyll, Compass and Rack to die."
-	sleep 10
-	puts "Done waiting. Bye bye."
 	exit 0
   }
-  
+
   Process.wait
 end
 
@@ -92,12 +84,13 @@ end
 desc "Begin a new post in #{source_dir}/#{posts_dir}"
 task :new_post, :title do |t, args|
   require './plugins/titlecase.rb'
+  mkdir_p "#{source_dir}/#{posts_dir}"
   args.with_defaults(:title => 'new-post')
   title = args.title
   filename = "#{source_dir}/#{posts_dir}/#{Time.now.strftime('%Y-%m-%d')}-#{title.to_url}.#{new_post_ext}"
   puts "Creating new post: #{filename}"
   open(filename, 'w') do |post|
-    system "mkdir -p #{source_dir}/#{posts_dir}";
+    system "mkdir -p #{source_dir}/#{posts_dir}/";
     post.puts "---"
     post.puts "layout: post"
     post.puts "title: \"#{title.gsub(/&/,'&amp;').titlecase}\""
